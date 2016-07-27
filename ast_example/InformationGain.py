@@ -129,7 +129,7 @@ class InformationGain(TransformerMixin):
 
         for feature in X.T:
             information_gain_scores.append(_information_gain(feature, y))
-        return information_gain_scores, []
+        return information_gain_scores
 
 
 class PredefinedFeatureSelection(TransformerMixin):
@@ -243,18 +243,21 @@ class TopRandomTreesEmbedding(BaseEstimator,TransformerMixin):
         self.max_depth = max_depth
 
     def fit(self, X, y):
-        self._rtree = RandomTreesEmbedding(n_estimators=self.n_estimators, max_depth=self.max_depth) #sparse_output=False
+        self._rtree = RandomTreesEmbedding(n_estimators=self.n_estimators, max_depth=self.max_depth,sparse_output=False) #sparse_output=False,,sparse_output=False
         self._rtree.fit(X, y)
+        non_zero_indics = np.nonzero(self._rtree.feature_importances_)[0]
+        important_indics = self._rtree.feature_importances_.argsort()[::-1][:self.k]
+        self.important_indices = np.intersect1d(important_indics,non_zero_indics)
         return self
 
     def transform(self, X):
-        indics = np.nonzero(self._rtree.feature_importances_)[0]
-        important_indics = self._rtree.feature_importances_.argsort()[::-1][:self.k]
-        return X[:,np.intersect1d(important_indics,indics)].toarray()
-        #
+        return X[:,self.important_indices].toarray()
+
         # indics = np.nonzero(self._rtree.feature_importances_)[0]
         # return X[:, indics].toarray()
 
+        # important_indics = self._rtree.feature_importances_.argsort()[::-1][:self.k]
+        # return X[:,important_indics].toarray()
 
 import os
 

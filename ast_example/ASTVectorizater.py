@@ -10,7 +10,7 @@ import scipy.sparse as sp
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.preprocessing import normalize
 
-from ast_example.ast_parser import bfs, children, AstNodes, PythonKeywords, ast_parse_file
+from ast_example.ast_parser import bfs, children, AstNodes, PythonKeywords, ast_parse_file, ast_print, dfs
 
 
 class TreeFeatures:
@@ -18,17 +18,33 @@ class TreeFeatures:
         self.astnodes = AstNodes()
         self.keywords = PythonKeywords()
 
-    def tf_ngrams_node(self, ast_tree):
+    def tf_ngrams_node(self, ast_tree,ngram=2):
         # out = []
         out = defaultdict(int)
 
-        def ngrams_nodes(x, d, o, ngram=2):
+        def ngrams_nodes(x, d, o, ngram=ngram):
             successors = list(children(x))
             if len(successors) > 0:
                 father = x
                 for grams in zip(*[successors[i:] for i in range(0, ngram - 1)]):
                     grams = (self.astnodes.index(father),) + tuple(self.astnodes.index(gram) for gram in grams)
                     o[self.astnodes.index(grams)] += 1
+
+        return bfs(ast_tree, callback=ngrams_nodes, mode="all", out=out)
+
+    def tf_ngrams_node_fast(self, ast_tree,ngram=2):
+        out = defaultdict(int)
+
+        def ngrams_nodes(x, d, o, ngram=ngram,predecessor=tuple()):
+
+            if len(predecessor) < ngram:
+                predecessor = predecessor + (x,) # (type(x).__name__,)
+                for child in children(x):
+                    grams = ngrams_nodes(child,d,o,ngram=ngram,predecessor=predecessor)
+                    if len(grams) == ngram:
+                        grams_idx = tuple(self.astnodes.index(gram) for gram in grams)
+                        o[self.astnodes.index(grams_idx)] += 1
+            return predecessor
 
         return bfs(ast_tree, callback=ngrams_nodes, mode="all", out=out)
 
@@ -108,7 +124,8 @@ class TreeFeatures:
 
 
 class ASTVectorizer(BaseEstimator):
-    def __init__(self, normalize=True, idf=False, norm="l2", binary=False, dtype=np.float32):
+    def __init__(self, ngram=2, normalize=True, idf=False, norm="l2", binary=False, dtype=np.float32):
+        self.ngram = ngram
         self.idf = idf
         self.normalize = normalize
         self.norm = norm
@@ -117,6 +134,7 @@ class ASTVectorizer(BaseEstimator):
         self.binary = binary
 
     def fit(self, X, y=None, verbose=False):
+        self.features_categories = []
         X_list = self._fit(X,y)
         # Extract TFIDF
         if self.idf:
@@ -132,6 +150,17 @@ class ASTVectorizer(BaseEstimator):
             self.idf_node_types.fit(X_list[1])
             self.idf_node_leaves.fit(X_list[2])
 
+        self.features_categories.extend(["tf_ngrams_node_sp" for s in range(X_list[0].shape[1])])
+        self.features_categories.extend(["tf_node_types_sp" for s in range(X_list[1].shape[1])])
+        self.features_categories.extend(["tf_node_leaves_sp" for s in range(X_list[2].shape[1])])
+        # self.features_categories.extend(["tf_node_keywords_sp" for s in range(X_list[3].shape[1])])
+        # self.features_categories.extend(["max_node_depth_sp" for s in range(X_list[3].shape[1])])
+        self.features_categories.extend(["avg_node_types_depth_sp" for s in range(X_list[3].shape[1])])
+        self.features_categories.extend(["avg_node_leaves_depth_sp" for s in range(X_list[4].shape[1])])
+        self.features_categories.extend(["idf_ngrams_node" for s in range(X_list[0].shape[1])])
+        self.features_categories.extend(["idf_node_types" for s in range(X_list[1].shape[1])])
+        self.features_categories.extend(["idf_node_leaves" for s in range(X_list[2].shape[1])])
+
         return self  # sp.hstack(X_list, dtype=self.dtype)
 
     def transform(self, X, copy=True):
@@ -139,8 +168,10 @@ class ASTVectorizer(BaseEstimator):
         # Extract TFIDF
         if self.idf:
             #self.idf_ngrams_node.transform(X_list[0]),
-            X_list.extend([self.idf_node_types.transform(X_list[1]),
+            X_list.extend([self.idf_ngrams_node.transform(X_list[0]),
+                           self.idf_node_types.transform(X_list[1]),
                            self.idf_node_leaves.transform(X_list[2])])
+
         return sp.csr_matrix(sp.hstack(X_list, dtype=self.dtype))
 
     def _fit(self, X, y):
@@ -155,9 +186,8 @@ class ASTVectorizer(BaseEstimator):
         for x in X:
             try:
                 ast_tree = ast_parse_file(x)
-
                 # Extract N-grams
-                tf_ngrams_node.append(self.tree_features.tf_ngrams_node(ast_tree))
+                tf_ngrams_node.append(self.tree_features.tf_ngrams_node_fast(ast_tree,self.ngram))
 
                 # Extract TF
                 tf_node_types.append(self.tree_features.tf_node_types(ast_tree))
@@ -177,10 +207,10 @@ class ASTVectorizer(BaseEstimator):
 
         # transform features into sparse representation
         tf_ngrams_node_sp = self._normalize(
-            self._to_sparse(tf_ngrams_node, self.tree_features.astnodes.size() ** 2))
+            self._to_sparse(tf_ngrams_node, self.tree_features.astnodes.size() ** self.ngram))
         tf_node_types_sp = self._normalize(self._to_sparse(tf_node_types, self.tree_features.astnodes.size()))
         tf_node_leaves_sp = self._normalize(self._to_sparse(tf_node_leaves, self.tree_features.astnodes.size()))
-        # tf_node_keywords_sp = self._normalize(self._to_sparse_matrix(tf_node_keywords, self.tree_features.keywords.size()))
+        # tf_node_keywords_sp = self._normalize(self._to_sparse(tf_node_keywords, self.tree_features.keywords.size()))
         avg_node_types_depth_sp = self._normalize(
             self._to_sparse(avg_node_types_depth, self.tree_features.astnodes.size()))
         avg_node_leaves_depth_sp = self._normalize(
@@ -190,8 +220,8 @@ class ASTVectorizer(BaseEstimator):
         X_list = [tf_ngrams_node_sp,
                   tf_node_types_sp,
                   tf_node_leaves_sp,
-                  max_node_depth_sp,
-                  # tf_node_keywords_sp
+                  # max_node_depth_sp,
+                  # tf_node_keywords_sp,
                   avg_node_types_depth_sp,
                   avg_node_leaves_depth_sp]
 
@@ -238,10 +268,8 @@ import os
 if __name__ == "__main__":
     filename = os.path.join(os.getcwd(), 'dump_program.py')
     ast_tree = ast_parse_file(filename)
-    # ast_vec = ASTVectorizer(normalize=True,idf=True, dtype=np.float32)
-    # X_transform = ast_vec.fit([filename])
-    # print(X_transform.shape)
-    # print(X_transform)
-    features = TreeFeatures().tf_ngrams_node(ast_tree).items()
-    for l in features:
-        print(l)
+    ast_print(ast_tree)
+    features = TreeFeatures()
+    bigrams = sorted(features.tf_ngrams_node_fast(ast_tree,ngram=2).items(),reverse=True)
+    for k,v in bigrams:
+        print(k," => ",v)

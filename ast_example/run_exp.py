@@ -16,7 +16,7 @@ from sklearn.preprocessing import Normalizer
 from sklearn.svm import SVC
 from sklearn.decomposition import TruncatedSVD, KernelPCA,LatentDirichletAllocation
 from sklearn.ensemble import RandomTreesEmbedding
-import xgboost as xgb
+#import xgboost as xgb
 from ast_example.ASTVectorizater import ASTVectorizer
 import scipy.sparse as sp
 from sklearn.preprocessing import LabelEncoder
@@ -86,7 +86,7 @@ def full_evaluation(rf,X,y,cv):
     print("Confusion Matrix", cma)
 
 def main():
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
     X, y, tags = read_py_files(basefolder)
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -114,7 +114,7 @@ def main():
     # print("Features =",Counter(import_features).most_common(100))
 
 def main_gridsearch():
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
     X, y, tags = read_py_files(basefolder)
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -129,15 +129,15 @@ def main_gridsearch():
         'ast__idf': (True,False),
 
         'select__k': (500,700,1000),
-        'select__n_estimators': (500,1000,2000),
-        'select__max_depth': (20,40,60),
+        'select__n_estimators': (500,1000,1500,2000),
+        'select__max_depth': (20,40,60,80),
 
         'clf__n_estimators': (100, 500,800,1000),
         'clf__max_features': ('log2', 'sqrt'),
         'clf__criterion': ('gini', 'entropy'),
     }
 
-    grid_search = GridSearchCV(estimator=pipline,param_grid=parameters,cv=folds,n_jobs=2)
+    grid_search = GridSearchCV(estimator=pipline,param_grid=parameters,cv=folds,n_jobs=5,verbose=10)
     print("Performing grid search...")
     print("pipeline:", [name for name, _ in pipline.steps])
     print("parameters:")
@@ -154,4 +154,4 @@ def main_gridsearch():
         print("\t%s: %r" % (param_name, best_parameters[param_name]))
 
 if __name__ == "__main__":
-    main()
+    main_gridsearch()

@@ -37,13 +37,6 @@ template <typename T> __device__ T grad_tanh(T y) { return 1 - y * y; }
 
 
 class LSTM(function.Function):
-
-    """Long short-term memory unit with forget gate.
-
-    It has two inputs (c, x) and two outputs (c, h), where c indicates the cell
-    state. x must have four times channels compared to the number of units.
-
-    """
     def check_type_forward(self, in_types):
         type_check.expect(in_types.size() == 2)
         c_type, x_type = in_types
@@ -129,71 +122,3 @@ class LSTM(function.Function):
                     gc_prev, ga, gi, gf, go)
 
         return gc_prev, gx
-
-
-def lstm(c_prev, x):
-    """Long Short-Term Memory units as an activation function.
-
-    This function implements LSTM units with forget gates. Let the previous
-    cell state :math:`c_{\\text{prev}}` and the incoming signal :math:`x`.
-
-    First, the incoming signal :math:`x` is split into four arrays
-    :math:`a, i, f, o` of the same shapes along the second axis.
-    It means that :math:`x` 's second axis must have 4 times the length of
-    :math:`c_{\\text{prev}}`.
-
-    The split input signals are corresponding to:
-
-        - :math:`a` : sources of cell input
-        - :math:`i` : sources of input gate
-        - :math:`f` : sources of forget gate
-        - :math:`o` : sources of output gate
-
-    Second, it computes outputs as:
-
-    .. math::
-
-        c &= \\tanh(a) \\text{sigmoid}(i)
-           + c_{\\text{prev}} \\text{sigmoid}(f), \\\\
-        h &= \\tanh(c) \\text{sigmoid}(o).
-
-    These are returned as a tuple of two variables.
-
-    Args:
-        c_prev (~chainer.Variable): Variable that holds the previous cell
-            state. The cell state should be a zero array or the output of the
-            previous call of LSTM.
-        x (~chainer.Variable): Variable that holds the incoming signal. It must
-            have the second dimension four times of that of the cell state,
-
-    Returns:
-        tuple: Two :class:`~chainer.Variable` objects ``c`` and ``h``. ``c`` is
-            the updated cell state. ``h`` indicates the outgoing signal.
-
-    See the original paper proposing LSTM with forget gates:
-    `Long Short-Term Memory in Recurrent Neural Networks \
-    <http://www.felixgers.de/papers/phd.pdf>`_.
-
-    .. admonition:: Example
-
-        Assuming ``y`` is the current input signal, ``c`` is the previous cell
-        state, and ``h`` is the previous output signal from an ``lstm``
-        function. Each of ``y``, ``c`` and ``h`` has ``n_units`` channels.
-        Most typical preparation of ``x`` is:
-
-        >>> import chainer, chainer.functions as F
-        >>> n_units = 100
-        >>> y = chainer.Variable(numpy.zeros((1, n_units), 'f'))
-        >>> h = chainer.Variable(numpy.zeros((1, n_units), 'f'))
-        >>> c = chainer.Variable(numpy.zeros((1, n_units), 'f'))
-        >>> model = chainer.Chain(w=F.Linear(n_units, 4 * n_units),
-        ...                       v=F.Linear(n_units, 4 * n_units),)
-        >>> x = model.w(y) + model.v(h)
-        >>> c, h = F.lstm(c, x)
-
-        It corresponds to calculate the input sources :math:`a, i, f, o` from
-        the current input ``y`` and the previous output ``h``. Different
-        parameters are used for different kind of input sources.
-
-    """
-    return LSTM()(c_prev, x)

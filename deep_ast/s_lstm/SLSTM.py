@@ -10,7 +10,6 @@ from chainer import variable
 
 
 class LSTMBase(link.Chain):
-
     def __init__(self, in_size, out_size,
                  lateral_init=None, upward_init=None,
                  bias_init=0, forget_bias_init=0):
@@ -20,7 +19,6 @@ class LSTMBase(link.Chain):
                                   initialW=0, nobias=True),
         )
         self.state_size = out_size
-
         for i in six.moves.range(0, 4 * out_size, out_size):
             initializers.init_weight(
                 self.lateral.W.data[i:i + out_size, :], lateral_init)
@@ -35,52 +33,6 @@ class LSTMBase(link.Chain):
         initializers.init_weight(o, bias_init)
 
 class LSTM(LSTMBase):
-
-    """Fully-connected LSTM layer.
-
-    This is a fully-connected LSTM layer as a chain. Unlike the
-    :func:`~chainer.functions.lstm` function, which is defined as a stateless
-    activation function, this chain holds upward and lateral connections as
-    child links.
-
-    It also maintains *states*, including the cell state and the output
-    at the previous time step. Therefore, it can be used as a *stateful LSTM*.
-
-    Args:
-        in_size (int): Dimensionality of input vectors.
-        out_size (int): Dimensionality of output vectors.
-        lateral_init: A callable that takes ``numpy.ndarray`` or
-            ``cupy.ndarray`` and edits its value.
-            It is used for initialization of the lateral connections.
-            Maybe be ``None`` to use default initialization.
-        upward_init: A callable that takes ``numpy.ndarray`` or
-            ``cupy.ndarray`` and edits its value.
-            It is used for initialization of the upward connections.
-            Maybe be ``None`` to use default initialization.
-        bias_init: A callable that takes ``numpy.ndarray`` or
-            ``cupy.ndarray`` and edits its value
-            It is used for initialization of the biases of cell input,
-            input gate and output gate.and gates of the upward connection.
-            Maybe a scalar, in that case, the bias is
-            initialized by this value.
-            Maybe be ``None`` to use default initialization.
-        forget_bias_init: A callable that takes ``numpy.ndarray`` or
-            ``cupy.ndarray`` and edits its value
-            It is used for initialization of the biases of the forget gate of
-            the upward connection.
-            Maybe a scalar, in that case, the bias is
-            initialized by this value.
-            Maybe be ``None`` to use default initialization.
-
-
-    Attributes:
-        upward (~chainer.links.Linear): Linear layer of upward connections.
-        lateral (~chainer.links.Linear): Linear layer of lateral connections.
-        c (~chainer.Variable): Cell states of LSTM units.
-        h (~chainer.Variable): Output at the previous time step.
-
-    """
-
     def __init__(self, in_size, out_size, **kwargs):
         super(LSTM, self).__init__(in_size, out_size, **kwargs)
         self.reset_state()
@@ -100,15 +52,6 @@ class LSTM(LSTMBase):
             self.h.to_gpu(device)
 
     def set_state(self, c, h):
-        """Sets the internal state.
-
-        It sets the :attr:`c` and :attr:`h` attributes.
-
-        Args:
-            c (~chainer.Variable): A new cell states of LSTM units.
-            h (~chainer.Variable): A new output at the previous time step.
-
-        """
         assert isinstance(c, chainer.Variable)
         assert isinstance(h, chainer.Variable)
         c_ = c
@@ -123,23 +66,9 @@ class LSTM(LSTMBase):
         self.h = h_
 
     def reset_state(self):
-        """Resets the internal state.
-
-        It sets ``None`` to the :attr:`c` and :attr:`h` attributes.
-
-        """
         self.c = self.h = None
 
     def __call__(self, x):
-        """Updates the internal state and returns the LSTM outputs.
-
-        Args:
-            x (~chainer.Variable): A new batch from the input sequence.
-
-        Returns:
-            ~chainer.Variable: Outputs of updated LSTM units.
-
-        """
         lstm_in = self.upward(x)
         if self.h is not None:
             lstm_in += self.lateral(self.h)
@@ -148,5 +77,5 @@ class LSTM(LSTMBase):
             self.c = variable.Variable(
                 xp.zeros((len(x.data), self.state_size), dtype=x.data.dtype),
                 volatile='auto')
-        self.c, self.h = slstm_func.lstm(self.c, lstm_in)
+        self.c, self.h = slstm_func.LSTM()(self.c, lstm_in)
         return self.h

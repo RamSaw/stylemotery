@@ -175,14 +175,21 @@ def main_gridsearch():
 
 
 if __name__ == "__main__":
-    relax_list= [1,5,10,15]
-    k_list= [700,900,1000]
-    for i in relax_list:
-        for k in k_list:
-            print("\tRelax = ",i)
-            pipline = Pipeline([
-                ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
-                ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
-                # PredefinedFeatureSelection()),
-                ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
-            main_relax(pipline, relax=i)
+    # RandomForestClassifier().predict_proba()
+    # relax_list= [1,5,10,15]
+    # k_list= [700,900,1000]
+    # for i in relax_list:
+    #     for k in k_list:
+    #         print("\tRelax = ",i)
+    #         pipline = Pipeline([
+    #             ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
+    #             ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
+    #             # PredefinedFeatureSelection()),
+    #             ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
+    #         main_relax(pipline, relax=i)
+    pipline = Pipeline([
+        ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
+        ('selection', TopRandomTreesEmbedding(k=900, n_estimators=1000, max_depth=40)),
+        # PredefinedFeatureSelection()),
+        ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
+    main_relax(pipline, relax=1)

@@ -10,15 +10,12 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
-<<<<<<< HEAD
 from sklearn.preprocessing import Normalizer
 from sklearn.svm import SVC
 from sklearn.decomposition import TruncatedSVD, KernelPCA,LatentDirichletAllocation
 from sklearn.ensemble import RandomTreesEmbedding
 #import xgboost as xgb
-=======
 
->>>>>>> 7072c819564fc0fe3d4e160be514a73889a7df0b
 from ast_example.ASTVectorizater import ASTVectorizer
 from ast_example.InformationGain import TopRandomTreesEmbedding
 
@@ -73,14 +70,8 @@ def full_evaluation(rf, X, y, cv):
     print("KF Matthews: %0.2f (+/- %0.2f)" % (matthews.mean(), matthews.std() * 2))
     print("Confusion Matrix", cma)
 
-<<<<<<< HEAD
-def main():
-    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
-=======
-
 def main_relax(pipline, relax=15):
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
->>>>>>> 7072c819564fc0fe3d4e160be514a73889a7df0b
+    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
     X, y, tags = read_py_files(basefolder)
 
     print("\t\t%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -112,7 +103,7 @@ def main_relax(pipline, relax=15):
 
 
 def main(pipline):
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
     X, y, tags = read_py_files(basefolder)
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -161,26 +152,16 @@ def main_gridsearch():
         'ast__normalize': (True, False),
         'ast__idf': (True, False),
 
-<<<<<<< HEAD
         'select__k': (500,700,1000),
         'select__n_estimators': (500,1000,1500,2000),
         'select__max_depth': (20,40,60,80),
-=======
-        'select__k': (500, 700, 1000),
-        'select__n_estimators': (500, 1000, 2000),
-        'select__max_depth': (20, 40, 60),
->>>>>>> 7072c819564fc0fe3d4e160be514a73889a7df0b
-
+        
         'clf__n_estimators': (100, 500, 800, 1000),
         'clf__max_features': ('log2', 'sqrt'),
         'clf__criterion': ('gini', 'entropy'),
     }
 
-<<<<<<< HEAD
     grid_search = GridSearchCV(estimator=pipline,param_grid=parameters,cv=folds,n_jobs=5,verbose=10)
-=======
-    grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=2)
->>>>>>> 7072c819564fc0fe3d4e160be514a73889a7df0b
     print("Performing grid search...")
     print("pipeline:", [name for name, _ in pipline.steps])
     print("parameters:")
@@ -198,18 +179,25 @@ def main_gridsearch():
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    main_gridsearch()
-=======
+    #main_gridsearch()
     relax_list= [1,5,10,15]
     k_list= [700,900,1000]
     for i in relax_list:
+        print("Relax = ",i)
         for k in k_list:
-            print("\tRelax = ",i)
+            print("\tk = ",k)
             pipline = Pipeline([
-                ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
+                ('astvector', ASTVectorizer(ngram=2, normalize=True, idf=True, dtype=np.float32)),
                 ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
                 # PredefinedFeatureSelection()),
                 ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
             main_relax(pipline, relax=i)
->>>>>>> 7072c819564fc0fe3d4e160be514a73889a7df0b
+
+#    for k in k_list:
+#        print("\tk = ",k)
+#        pipline = Pipeline([
+#        ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
+#                ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
+                # PredefinedFeatureSelection()),
+#                ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])#
+#        main(pipline)

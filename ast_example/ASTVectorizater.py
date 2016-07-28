@@ -157,7 +157,7 @@ class ASTVectorizer(BaseEstimator):
         # self.features_categories.extend(["max_node_depth_sp" for s in range(X_list[3].shape[1])])
         self.features_categories.extend(["avg_node_types_depth_sp" for s in range(X_list[3].shape[1])])
         self.features_categories.extend(["avg_node_leaves_depth_sp" for s in range(X_list[4].shape[1])])
-        self.features_categories.extend(["idf_ngrams_node" for s in range(X_list[0].shape[1])])
+        #self.features_categories.extend(["idf_ngrams_node" for s in range(X_list[0].shape[1])])
         self.features_categories.extend(["idf_node_types" for s in range(X_list[1].shape[1])])
         self.features_categories.extend(["idf_node_leaves" for s in range(X_list[2].shape[1])])
 
@@ -168,8 +168,8 @@ class ASTVectorizer(BaseEstimator):
         # Extract TFIDF
         if self.idf:
             #self.idf_ngrams_node.transform(X_list[0]),
-            X_list.extend([self.idf_ngrams_node.transform(X_list[0]),
-                           self.idf_node_types.transform(X_list[1]),
+	    #[self.idf_ngrams_node.transform(X_list[0]),
+            X_list.extend([self.idf_node_types.transform(X_list[1]),
                            self.idf_node_leaves.transform(X_list[2])])
 
         return sp.csr_matrix(sp.hstack(X_list, dtype=self.dtype))

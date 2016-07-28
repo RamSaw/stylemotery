@@ -2,7 +2,6 @@ import os
 from collections import defaultdict, Counter
 from pprint import pprint
 from time import time
-from zipfile import ZipFile
 
 import numpy as np
 from sklearn.cross_validation import StratifiedKFold
@@ -10,14 +9,16 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import Normalizer
-from sklearn.svm import SVC
-from sklearn.decomposition import TruncatedSVD, KernelPCA,LatentDirichletAllocation
-from sklearn.ensemble import RandomTreesEmbedding
-#import xgboost as xgb
-
 from ast_example.ASTVectorizater import ASTVectorizer
 from ast_example.InformationGain import TopRandomTreesEmbedding
+from sys import platform as _platform
+
+
+def get_basefolder():
+    if _platform == "linux" or _platform == "linux2":
+        return R"/home/bms/projects/stylometory/stylemotery/dataset700"
+    elif _platform == "win32":
+        return R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
 
 
 def read_py_files(basefolder):
@@ -72,7 +73,7 @@ def full_evaluation(rf, X, y, cv):
 
 
 def main_relax(pipline, relax=15):
-    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
+    basefolder = get_basefolder()
     X, y, tags = read_py_files(basefolder)
 
     print("\t\t%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -104,7 +105,7 @@ def main_relax(pipline, relax=15):
 
 
 def main(pipline):
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+    basefolder = get_basefolder()
     X, y, tags = read_py_files(basefolder)
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -138,7 +139,7 @@ def main(pipline):
 
 
 def main_gridsearch():
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+    basefolder = get_basefolder()
     X, y, tags = read_py_files(basefolder)
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -149,7 +150,7 @@ def main_gridsearch():
 
     folds = StratifiedKFold(y, n_folds=5)
     parameters = {
-        'ast__ngrams' : (2,3),
+        'ast__ngrams': (2, 3),
         'ast__normalize': (True, False),
         'ast__idf': (True, False),
 
@@ -180,16 +181,26 @@ def main_gridsearch():
 
 
 if __name__ == "__main__":
-    #main_gridsearch()
-    relax_list= [1,5,10,15]
-    k_list= [700,900,1000]
+    # main_gridsearch()
+    relax_list = [1, 5, 10, 15]
+    k_list = [700, 900, 1000]
     for i in relax_list:
-        print("Relax = ",i)
+        print("Relax = ", i)
         for k in k_list:
-            print("\tk = ",k)
+            print("\tk = ", k)
             pipline = Pipeline([
-                ('astvector', ASTVectorizer(ngram=2, normalize=True, idf=True, dtype=np.float32)),
+                ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
                 ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
                 # PredefinedFeatureSelection()),
                 ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
             main_relax(pipline, relax=i)
+
+            # print("relax")
+            # pipline = Pipeline([
+            #     ('astvector', ASTVectorizer(ngram=2, normalize=True, idf=True, dtype=np.float32)),
+            #     ('selection', TopRandomTreesEmbedding(k=700, n_estimators=1000, max_depth=40)),
+            #     # PredefinedFeatureSelection()),
+            #     ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
+            # main_relax(pipline, relax=1)
+            # print("predict")
+            # main(pipline)

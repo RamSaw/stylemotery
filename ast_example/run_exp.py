@@ -10,6 +10,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import Normalizer
+from sklearn.svm import SVC
+from sklearn.decomposition import TruncatedSVD, KernelPCA,LatentDirichletAllocation
+from sklearn.ensemble import RandomTreesEmbedding
+#import xgboost as xgb
 
 from ast_example.ASTVectorizater import ASTVectorizer
 from ast_example.InformationGain import TopRandomTreesEmbedding
@@ -67,7 +72,7 @@ def full_evaluation(rf, X, y, cv):
 
 
 def main_relax(pipline, relax=15):
-    basefolder = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+    basefolder = R"/home/bms/projects/stylometory/stylemotery/dataset700"
     X, y, tags = read_py_files(basefolder)
 
     print("\t\t%s problems, %s users :" % (len(set(tags)), len(set(y))))
@@ -175,21 +180,16 @@ def main_gridsearch():
 
 
 if __name__ == "__main__":
-    # RandomForestClassifier().predict_proba()
-    # relax_list= [1,5,10,15]
-    # k_list= [700,900,1000]
-    # for i in relax_list:
-    #     for k in k_list:
-    #         print("\tRelax = ",i)
-    #         pipline = Pipeline([
-    #             ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
-    #             ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
-    #             # PredefinedFeatureSelection()),
-    #             ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
-    #         main_relax(pipline, relax=i)
-    pipline = Pipeline([
-        ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
-        ('selection', TopRandomTreesEmbedding(k=900, n_estimators=1000, max_depth=40)),
-        # PredefinedFeatureSelection()),
-        ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
-    main_relax(pipline, relax=1)
+    #main_gridsearch()
+    relax_list= [1,5,10,15]
+    k_list= [700,900,1000]
+    for i in relax_list:
+        print("Relax = ",i)
+        for k in k_list:
+            print("\tk = ",k)
+            pipline = Pipeline([
+                ('astvector', ASTVectorizer(ngram=2, normalize=True, idf=True, dtype=np.float32)),
+                ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
+                # PredefinedFeatureSelection()),
+                ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
+            main_relax(pipline, relax=i)

@@ -75,7 +75,7 @@ def set_condition(mode):
     if mode == "parents":
         return lambda node: True if len(list(children(node))) > 0 else False
     elif mode == "leaves":
-        return lambda node: False if len(list(children(node))) == 0 else True
+        return lambda node: True if len(list(children(node))) == 0 else False
     elif mode == "all":
         return lambda node: True
 

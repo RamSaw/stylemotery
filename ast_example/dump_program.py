@@ -1,6 +1,6 @@
 import os, sys
 import ast
-#from os import system
+from os import system
 
 
 class foo:

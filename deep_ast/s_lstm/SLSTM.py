@@ -7,75 +7,84 @@ from chainer import initializers
 from chainer import link
 from chainer.links.connection import linear
 from chainer import variable
-
+import numpy as np
 
 class LSTMBase(link.Chain):
     def __init__(self, in_size, out_size,
-                 lateral_init=None, upward_init=None,
-                 bias_init=0, forget_bias_init=0):
+                 init=None, inner_init=None, bias_init=0, forget_bias_init=0):
         super(LSTMBase, self).__init__(
-            upward=linear.Linear(in_size, 4 * out_size, initialW=0),
-            lateral=linear.Linear(out_size, 4 * out_size,
-                                  initialW=0, nobias=True),
+            W_i=linear.Linear(in_size, out_size,initialW=init, initial_bias=bias_init),
+            U_i=linear.Linear(out_size, out_size,initialW=inner_init, nobias=True),
+
+            W_f=linear.Linear(in_size, out_size,initialW=init, initial_bias=bias_init),
+            U_f=linear.Linear(out_size, out_size,initialW=inner_init, nobias=True),
+
+            W_c=linear.Linear(in_size, out_size,initialW=init, initial_bias=bias_init),
+            U_c=linear.Linear(out_size, out_size,initialW=inner_init, nobias=True),
+
+            W_o=linear.Linear(in_size, out_size,initialW=init, initial_bias=bias_init),
+            U_o=linear.Linear(out_size, out_size,initialW=inner_init, nobias=True),
+
+            # upward=linear.Linear(in_size, 4 * out_size, initialW=0),
+            # lateral=linear.Linear(out_size, 4 * out_size,
+            #                       initialW=0, nobias=True),
         )
         self.state_size = out_size
-        for i in six.moves.range(0, 4 * out_size, out_size):
-            initializers.init_weight(
-                self.lateral.W.data[i:i + out_size, :], lateral_init)
-            initializers.init_weight(
-                self.upward.W.data[i:i + out_size, :], upward_init)
+        # for i in six.moves.range(0, 4 * out_size, out_size):
+        #     initializers.init_weight(
+        #         self.lateral.W.data[i:i + out_size, :], lateral_init)
+        #     initializers.init_weight(
+        #         self.upward.W.data[i:i + out_size, :], upward_init)
 
-        a, i, f, o = slstm_func._extract_gates(
-            self.upward.b.data.reshape(1, 4 * out_size, 1))
-        initializers.init_weight(a, bias_init)
-        initializers.init_weight(i, bias_init)
-        initializers.init_weight(f, forget_bias_init)
-        initializers.init_weight(o, bias_init)
+        # a, i, f, o = slstm_func._extract_gates(
+        #     self.upward.b.data.reshape(1, 4 * out_size, 1))
+
+        #init weight
+        initializers.init_weight(self.W_a.W.data, bias_init)
+        initializers.init_weight(self.W_i.W.data, bias_init)
+        initializers.init_weight(self.W_f.W.data, forget_bias_init)
+        initializers.init_weight(self.W_o.W.data, bias_init)
+
+        # init bias
+        initializers.init_weight(self.W_a.b.data, bias_init)
+        initializers.init_weight(self.W_i.b.data, bias_init)
+        initializers.init_weight(self.W_f.b.data, forget_bias_init)
+        initializers.init_weight(self.W_o.b.data, bias_init)
+
 
 class LSTM(LSTMBase):
     def __init__(self, in_size, out_size, **kwargs):
         super(LSTM, self).__init__(in_size, out_size, **kwargs)
-        self.reset_state()
 
-    def to_cpu(self):
-        super(LSTM, self).to_cpu()
-        if self.c is not None:
-            self.c.to_cpu()
-        if self.h is not None:
-            self.h.to_cpu()
+    def __call__(self, c, h, x):
+        """Returns new cell state and updated output of LSTM.
 
-    def to_gpu(self, device=None):
-        super(LSTM, self).to_gpu(device)
-        if self.c is not None:
-            self.c.to_gpu(device)
-        if self.h is not None:
-            self.h.to_gpu(device)
+        Args:
+            c (~chainer.Variable): Cell states of LSTM units.
+            h (~chainer.Variable): Output at the previous time step.
+            x (~chainer.Variable): A new batch from the input sequence.
 
-    def set_state(self, c, h):
-        assert isinstance(c, chainer.Variable)
-        assert isinstance(h, chainer.Variable)
-        c_ = c
-        h_ = h
-        if self.xp == numpy:
-            c_.to_cpu()
-            h_.to_cpu()
-        else:
-            c_.to_gpu()
-            h_.to_gpu()
-        self.c = c_
-        self.h = h_
+        Returns:
+            tuple of ~chainer.Variable: Returns ``(c_new, h_new)``, where
+                ``c_new`` represents new cell state, and ``h_new`` is updated
+                output of LSTM units.
 
-    def reset_state(self):
-        self.c = self.h = None
-
-    def __call__(self, x):
+        """
         lstm_in = self.upward(x)
-        if self.h is not None:
-            lstm_in += self.lateral(self.h)
-        if self.c is None:
+        if h is not None:
+            lstm_in += self.lateral(h)
+        if c is None:
             xp = self.xp
-            self.c = variable.Variable(
+            c = variable.Variable(
                 xp.zeros((len(x.data), self.state_size), dtype=x.data.dtype),
                 volatile='auto')
-        self.c, self.h = slstm_func.LSTM()(self.c, lstm_in)
-        return self.h
+        return slstm_func.LSTM()(c, lstm_in)
+
+    def upward(self, x):
+        a = self.W_a(x)
+        i = self.W_i(x)
+        f = self.W_f(x)
+        o = self.W_o(x)
+        return np.concatenate([a, i, f, o])
+
+

@@ -1,4 +1,5 @@
 import os
+import traceback
 from collections import defaultdict, Counter
 from pprint import pprint
 from time import time
@@ -110,7 +111,7 @@ def main(pipline):
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
 
-    folds = StratifiedKFold(y, n_folds=5)
+    folds = StratifiedKFold(y, n_folds=10)
     accuracy = []
     import_features = defaultdict(int)
     features = []
@@ -131,7 +132,6 @@ def main(pipline):
             import_features[feature] += 1
         for f in select.important_indices:
             features.append(extract.features_categories[f])
-        print()
 
     print("features categories =", [(k, v / float(len(features)) * 100.0) for k, v in Counter(features).most_common()])
     print("AVG =", np.mean(accuracy))
@@ -179,6 +179,15 @@ def main_gridsearch():
     for param_name in sorted(parameters.keys()):
         print("\t%s: %r" % (param_name, best_parameters[param_name]))
 
+def test_all():
+    basefolder = get_basefolder()
+    X, y, tags = read_py_files(basefolder)
+    try:
+        ast_tree = ASTVectorizer(ngram=2, normalize=True, idf=True, norm="l2")
+        ast_tree.fit(X, y)
+    except:
+        print(traceback.format_exc())
+
 
 if __name__ == "__main__":
     # main_gridsearch()
@@ -195,12 +204,14 @@ if __name__ == "__main__":
                 ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
             main_relax(pipline, relax=i)
 
-            # print("relax")
-            # pipline = Pipeline([
-            #     ('astvector', ASTVectorizer(ngram=2, normalize=True, idf=True, dtype=np.float32)),
-            #     ('selection', TopRandomTreesEmbedding(k=700, n_estimators=1000, max_depth=40)),
-            #     # PredefinedFeatureSelection()),
-            #     ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
-            # main_relax(pipline, relax=1)
-            # print("predict")
-            # main(pipline)
+    # print("relax")
+    # pipline = Pipeline([
+    #     ('astvector', ASTVectorizer(ngram=2, normalize=True, idf=True, dtype=np.float32)),
+    #     ('selection', TopRandomTreesEmbedding(k=700, n_estimators=1000, max_depth=40)),
+    #     PredefinedFeatureSelection()),
+        # ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
+    # main_relax(pipline, relax=1)
+    # # print("predict")
+    # main(pipline)
+
+    # test_all()

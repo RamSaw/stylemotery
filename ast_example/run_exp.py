@@ -131,6 +131,19 @@ def main(pipline):
     # print("Features =",Counter(import_features).most_common(100))
 
 
+def report(grid_scores, n_top=10):
+    top_scores = sorted(grid_scores, key=itemgetter(1), reverse=True)[:n_top]
+    for i, score in enumerate(top_scores):
+        print()
+        print()
+        print("Top {0} Models:".format(n_top))
+        print("\tModel with rank: {0}".format(i + 1))
+        print("\tMean validation score: {0:.3f} (std: {1:.3f})".format(
+              score.mean_validation_score,
+              np.std(score.cv_validation_scores)))
+        print("\tParameters: {0}".format(score.parameters))
+        print("")
+
 def main_gridsearch():
     basefolder = get_basefolder()
     X, y, tags = parse_src_files(basefolder)
@@ -143,18 +156,18 @@ def main_gridsearch():
 
     folds = StratifiedKFold(y, n_folds=5)
     parameters = {
-        'ast__ngrams': (2,),
-        'ast__v_skip': (0,1,2),
+        'ast__ngram': (2,),
+        'ast__v_skip': (0, 1, 2),
 
-        'select__k': (500, 700, 1000,1200),
-        'select__n_estimators': (500, 1000,1500, 2000),
+        'select__k': (500, 700, 1000, 1200),
+        'select__n_estimators': (500, 1000, 1500, 2000),
         'select__max_depth': (20, 40, 60),
 
         'clf__n_estimators': (100, 500, 800, 1000),
-        'clf__min_samples_split=': (1,2),
+        'clf__min_samples_split=': (1, 2),
     }
 
-    grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=4)
+    grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=5,verbose=10)
     print("Performing grid search...")
     print("pipeline:", [name for name, _ in pipline.steps])
     print("parameters:")
@@ -170,6 +183,7 @@ def main_gridsearch():
     for param_name in sorted(parameters.keys()):
         print("\t%s: %r" % (param_name, best_parameters[param_name]))
 
+    report(grid_search.grid_scores_)
 
 def test_all():
     basefolder = get_basefolder()

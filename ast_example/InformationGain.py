@@ -237,7 +237,7 @@ class PredefinedFeatureSelection(TransformerMixin):
 
 
 class TopRandomTreesEmbedding(BaseEstimator,TransformerMixin):
-    def __init__(self, k=100,n_estimators=2000, max_depth=40):
+    def __init__(self, k=100,n_estimators=20, max_depth=10):
         self.k = k
         self.n_estimators = n_estimators
         self.max_depth = max_depth

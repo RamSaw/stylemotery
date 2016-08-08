@@ -1,9 +1,13 @@
+import numpy as np
 import numpy
 import six
-
 from chainer import cuda
 from chainer import function
+from chainer import link
+from chainer import variable
+from chainer.links.connection import linear
 from chainer.utils import type_check
+from chainer import initializers
 
 
 def _extract_gates(x):
@@ -36,7 +40,7 @@ template <typename T> __device__ T grad_tanh(T y) { return 1 - y * y; }
 '''
 
 
-class LSTM(function.Function):
+class TreeLSTMFunction(function.Function):
     def check_type_forward(self, in_types):
         type_check.expect(in_types.size() == 2)
         c_type, x_type = in_types

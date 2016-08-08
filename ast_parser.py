@@ -6,6 +6,8 @@ from collections import defaultdict, Counter
 
 import codegen as cg
 
+from utils import ast_parse_file
+
 
 class AstNodes:
     def __init__(self):
@@ -116,15 +118,6 @@ def children(node):
             for item in value:
                 if isinstance(item, ast.AST):
                     yield item
-
-
-def ast_parse_file(filename):
-    try:
-        with open(filename, 'r',encoding="utf-8") as file:
-            return ast.parse(file.read())
-    except Exception as e:
-        print("ERROR: ERROR",e)
-        print("ERROR: filename",filename)
 
 
 def ast_print(tree):

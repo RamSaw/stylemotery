@@ -2,16 +2,30 @@ import ast
 import copy
 import re
 from collections import defaultdict
+from collections import Counter
 import codegen as cg
-from tqdm import tqdm
-from sklearn.base import BaseEstimator
 import numpy as np
 import scipy.sparse as sp
+from sklearn.base import BaseEstimator
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.preprocessing import normalize
 
-from ast_example.ast_parser import bfs, children, AstNodes, PythonKeywords, ast_parse_file, ast_print, dfs
+from ast_parser import bfs, children, AstNodes, PythonKeywords, ast_print
+from utils import ast_parse_file
 
+def ast_name(node):
+    return (node.__class__.__name__,)
+
+def ast_paths(here, path_to_here=()):
+    path_to_here += ast_name(here)
+    for v in children(here):
+        # Iterate over all key-value pairs in the node...
+        for p in ast_paths(v, path_to_here ):
+            # produce all paths rooted at that subtree; adding k to the
+            # current path produces a set of alternating key-value sets
+            yield p
+    if len(list(children(here))) == 0:
+        yield path_to_here
 
 class TreeFeatures:
     def __init__(self):
@@ -44,6 +58,25 @@ class TreeFeatures:
                     if len(grams) == ngram:
                         grams_idx = tuple(self.astnodes.index(gram) for gram in grams)
                         o[self.astnodes.index(grams_idx)] += 1
+            return predecessor
+
+        return bfs(ast_tree, callback=ngrams_nodes, mode="all", out=out)
+
+    def tf_skip_grams_node_fast(self, ast_tree, ngram=2,v_skip=0):
+        out = defaultdict(int)
+
+        def ngrams_nodes(x, d, o, ngram=ngram,v_skip=v_skip,predecessor=tuple()):
+
+            if len(predecessor) < ngram+v_skip:
+                predecessor = predecessor + (x,)  # (type(x).__name__,)
+                for child in children(x):
+                    grams = ngrams_nodes(child, d, o, ngram=ngram,v_skip=v_skip,predecessor=predecessor)
+                    grams = grams[::v_skip+1]
+                    if len(grams) == ngram:
+                        grams_idx = tuple(self.astnodes.index(gram) for gram in grams)
+                        # grams_idx = tuple(type(gram).__name__ for gram in grams)
+                        o[self.astnodes.index(grams_idx)] += 1
+                        # o[grams_idx] += 1
             return predecessor
 
         return bfs(ast_tree, callback=ngrams_nodes, mode="all", out=out)
@@ -134,8 +167,9 @@ class TreeFeatures:
 
 
 class ASTVectorizer(BaseEstimator):
-    def __init__(self, ngram=2, normalize=True, idf=False, norm="l2", binary=False, dtype=np.float32):
+    def __init__(self, ngram=2,v_skip=0, normalize=True, idf=False, norm="l2", binary=False, dtype=np.float32):
         self.ngram = ngram
+        self.v_skip = v_skip
         self.idf = idf
         self.normalize = normalize
         self.norm = norm
@@ -194,11 +228,14 @@ class ASTVectorizer(BaseEstimator):
         avg_node_types_depth = []
         avg_node_leaves_depth = []
 
-        for x in X:
+        for ast_tree in X:
             try:
-                ast_tree = ast_parse_file(x)
+                # ast_tree = ast_parse_file(x)
                 # Extract N-grams
-                tf_ngrams_node.append(self.tree_features.tf_ngrams_node_fast(ast_tree, self.ngram))
+                tf_ngrams_node_local = Counter(defaultdict(int))
+                for i in range(self.v_skip+1):
+                    tf_ngrams_node_local += Counter(self.tree_features.tf_skip_grams_node_fast(ast_tree, ngram=self.ngram,v_skip=i))
+                tf_ngrams_node.append(tf_ngrams_node_local)
 
                 # Extract TF
                 tf_node_types.append(self.tree_features.tf_node_types(ast_tree))
@@ -260,14 +297,13 @@ class ASTVectorizer(BaseEstimator):
         else:
             return X
 
-
 import os
-
 if __name__ == "__main__":
-    filename = R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700\p2449486.alexamici0.py"#os.path.join(os.getcwd(), 'dump_program.py')
+    filename = os.path.join(os.getcwd(), 'dump_program.py')
     ast_tree = ast_parse_file(filename)
+    print(list(ast_paths(ast_tree)))
     ast_print(ast_tree)
     features = TreeFeatures()
-    bigrams = sorted(features.tf_keywords(ast_tree).items(), reverse=True)
+    bigrams = sorted(features.tf_skip_grams_node_fast(ast_tree,ngram=2,v_skip=5).items())
     for k, v in bigrams:
-        print(features.keywords.get(k), " => ", v)
+        print(k, " => ", v)

@@ -1,36 +1,43 @@
+import numpy as np
 import numpy
 import six
-
-import chainer
-from deep_ast.s_lstm import slstm_func
-from chainer import initializers
+from chainer import cuda
+from chainer import function
 from chainer import link
-from chainer.links.connection import linear
 from chainer import variable
-import numpy as np
+from chainer.links.connection import linear
+from chainer.utils import type_check
+from chainer import initializers
+from deep_ast.tree_lstm import treelstm_func
 
-class LSTMBase(link.Chain):
+class TreeLSTMBase(link.Chain):
     def __init__(self, in_size, out_size,
-                 init=None,upward_init=None,lateral_init=None, inner_init=None, bias_init=0, forget_bias_init=0):
-        super(LSTMBase, self).__init__(
-            W_i=linear.Linear(in_size, out_size,initialW=upward_init, initial_bias=bias_init),
-            U_i=linear.Linear(out_size, out_size,initialW=lateral_init, nobias=True),
-
-            W_f=linear.Linear(in_size, out_size,initialW=upward_init, initial_bias=forget_bias_init),
-            U_f=linear.Linear(out_size, out_size,initialW=lateral_init, nobias=True),
-
-            W_c=linear.Linear(in_size, out_size,initialW=upward_init, initial_bias=bias_init),
-            U_c=linear.Linear(out_size, out_size,initialW=lateral_init, nobias=True),
-
-            W_o=linear.Linear(in_size, out_size,initialW=upward_init, initial_bias=bias_init),
-            U_o=linear.Linear(out_size, out_size,initialW=lateral_init, nobias=True),
+                 lateral_init=None, upward_init=None,
+                 bias_init=0, forget_bias_init=0):
+        super(TreeLSTMBase, self).__init__(
+            upward=linear.Linear(in_size, 4 * out_size, initialW=0),
+            lateral=linear.Linear(out_size, 4 * out_size,
+                                  initialW=0, nobias=True),
         )
         self.state_size = out_size
 
+        for i in six.moves.range(0, 4 * out_size, out_size):
+            initializers.init_weight(
+                self.lateral.W.data[i:i + out_size, :], lateral_init)
+            initializers.init_weight(
+                self.upward.W.data[i:i + out_size, :], upward_init)
 
-class LSTM(LSTMBase):
+        a, i, f, o = treelstm_func._extract_gates(
+            self.upward.b.data.reshape(1, 4 * out_size, 1))
+        initializers.init_weight(a, bias_init)
+        initializers.init_weight(i, bias_init)
+        initializers.init_weight(f, forget_bias_init)
+        initializers.init_weight(o, bias_init)
+
+
+class TreeLSTM(TreeLSTMBase):
     def __init__(self, in_size, out_size, **kwargs):
-        super(LSTM, self).__init__(in_size, out_size, **kwargs)
+        super(TreeLSTM, self).__init__(in_size, out_size, **kwargs)
 
     def __call__(self, c, h, x):
         """Returns new cell state and updated output of LSTM.
@@ -54,7 +61,7 @@ class LSTM(LSTMBase):
             c = variable.Variable(
                 xp.zeros((len(x.data), self.state_size), dtype=x.data.dtype),
                 volatile='auto')
-        return slstm_func.LSTM()(c, lstm_in)
+        return treelstm_func.TreeLSTMFunction()(c, lstm_in)
 
     def upward(self, x):
         a = self.W_a(x)

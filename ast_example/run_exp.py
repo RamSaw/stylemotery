@@ -15,14 +15,8 @@ from ast_example.ASTVectorizater import ASTVectorizer
 from ast_example.InformationGain import TopRandomTreesEmbedding
 from sys import platform as _platform
 
-from utils import parse_src_files
-
-
-def get_basefolder():
-    if _platform == "linux" or _platform == "linux2":
-        return R"/home/bms/projects/stylometory/stylemotery/dataset700"
-    elif _platform == "win32":
-        return R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+from ast_parser import breakup_tees
+from utils import parse_src_files, get_basefolder
 
 
 def full_evaluation(rf, X, y, cv):
@@ -70,7 +64,10 @@ def main_relax(pipline, relax=15):
     basefolder = get_basefolder()
     X, y, tags = parse_src_files(basefolder)
 
-    print("\t\t%s problems, %s users :" % (len(set(tags)), len(set(y))))
+    X,y,tags = breakup_tees(X,y,tags)
+
+    print("\t\t%s unique problems, %s unique users :" % (len(set(tags)), len(set(y))))
+    print("\t\t%s all problems, %s all users :" % (len(tags), len(y)))
 
     folds = StratifiedKFold(y, n_folds=10)
     accuracy = []
@@ -196,6 +193,7 @@ def test_all():
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     #main_gridsearch()
     relax_list = [1, 5, 10, 15]
     #k_list = [700, 900, 1000]
@@ -209,10 +207,23 @@ if __name__ == "__main__":
                  # PredefinedFeatureSelection()),
                  ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
          main_relax(pipline, relax=i)
+=======
+    # main_gridsearch()
+    relax_list = [1, 5, 10, 15]
+    # k_list = [700, 900, 1000]
+    for i in relax_list:
+        print("Relax = ", i)
+        pipline = Pipeline([
+            ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
+            ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1200, max_depth=40)),
+            # PredefinedFeatureSelection()),
+            ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1, max_features="auto"))])
+        main_relax(pipline, relax=i)
+>>>>>>> e4b1405c4c00dd78b9ae125b544dfa35c1bfa63c
 
     # print("relax")
     # pipline = Pipeline([
-    #     ('astvector', ASTVectorizer(ngram=2,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
+    #     ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
     #     ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1000, max_depth=40)),
     #     # PredefinedFeatureSelection()),
     #     ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto"))])

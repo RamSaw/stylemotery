@@ -21,10 +21,11 @@ import chainer.functions as F
 import chainer.links as L
 from chainer import optimizers
 
+from ast_example.ASTVectorizater import TreeFeatures
 from ast_parser import children
 from utils import get_basefolder, parse_src_files
 
-xp = cuda.cupy  # np
+xp = np #cuda.cupy  #
 
 
 def convert_tree(vocab, exp):
@@ -41,42 +42,24 @@ def convert_tree(vocab, exp):
         return {'label': int(label), 'node': node}
 
 
-def read_corpus(path, vocab, max_size):
-    with codecs.open(path, encoding='utf-8') as f:
-        trees = []
-        for line in f:
-            line = line.strip()
-            tree = SexpParser(line).parse()
-            trees.append(convert_tree(vocab, tree))
-            if max_size and len(trees) >= max_size:
-                break
-        return trees
-
-
-def softmax(X):
-    X = X.copy()
-    max_prob = np.max(X, axis=1).reshape((-1, 1))
-    X -= max_prob
-    np.exp(X, X)
-    sum_prob = np.sum(X, axis=1).reshape((-1, 1))
-    X /= sum_prob
-    return X
-
 
 class RecursiveNet(chainer.Chain):
     def __init__(self, n_vocab, n_units, n_label, classes=None):
         super(RecursiveNet, self).__init__(
             embed=L.EmbedID(n_vocab, n_units),
-            l=L.StatelessLSTM(n_units * 2, n_units),
+            l=L.StatelessLSTM(n_units, n_units),
             w=L.Linear(n_units, n_label))
         self.classes_ = classes
+        self.feature_dict = TreeFeatures()
 
-    def leaf(self, x):
-        p = self.embed_vec(x)
+    def leaf(self, x,train_mode=False):
+        p = self.embed_vec(x,train_mode)
         return self.l(None,None,p)
 
-    def embed_vec(self, x):
-        return self.embed(x)
+    def embed_vec(self, x,train_mode=False):
+        word = xp.array([self.feature_dict.astnodes.index(x)], np.int32)
+        w = chainer.Variable(word,volatile=not train_mode)
+        return self.embed(w)
 
     def merge(self, x):
         c_list,h_list = zip(*x)
@@ -99,21 +82,17 @@ class RecursiveNet(chainer.Chain):
 
 
 def traverse(model, node, train=True, evaluate=None):
-    children_ast = children(node)
+    children_ast = list(children(node))
     if len(children_ast) == 0:
         # leaf node
-        word = xp.array([node['ast']], np.int32)
-        x = chainer.Variable(word, volatile=not train)
-        return model.leaf(x)
+        return model.leaf(node)
     else:
         # internal node
         children_nodes = []
         for child in children_ast:
             child_node = traverse(model, child, train=train, evaluate=evaluate)
             children_nodes.append(child_node)
-        word = xp.array([node['ast']], np.int32)
-        w = chainer.Variable(word, volatile=not train)
-        x = model.embed_vec(w)
+        x = model.embed_vec(node)
         return model.merge(x,children_nodes)
 
 
@@ -173,7 +152,6 @@ def split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
     else:
         return train_trees, train_lables, test_trees, test_lables
 
-
 def main():
     USE_GPU = -1
 
@@ -187,10 +165,11 @@ def main():
                                                                                                       shuffle=True)
 
     n_epoch = 100
-    n_units = 30
-    batch_size = 10
+    n_units = 50
+    batch_size = 1
+    classes = np.unique(tree_labels)
 
-    model = RecursiveNet(10, n_units)
+    model = RecursiveNet(100, n_units,len(classes),classes=classes)
 
     if USE_GPU >= 0:
         model.to_gpu()

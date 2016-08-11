@@ -3,10 +3,10 @@ import copy
 import os
 import re
 from collections import defaultdict, Counter
-
+import numpy as np
 import codegen as cg
 
-from utils import ast_parse_file
+from utils import ast_parse_file, get_basefolder, parse_src_files
 
 
 class AstNodes:
@@ -123,10 +123,27 @@ def children(node):
 def ast_print(tree):
     bfs(tree, callback=printcb, mode="all")
 
-
+def breakup_tees(X, y, problems):
+    subX = []
+    subY = []
+    subProblem = []
+    for i, tree in enumerate(X):
+        ast_children = children(tree)
+        for child in ast_children:
+            subX.append(child)
+            subY.append(y[i])
+            subProblem.append(problems[i])
+    return np.array(subX), np.array(subY), np.array(subProblem)
 
 if __name__ == "__main__":
-    filename = os.path.join(os.getcwd(), 'dump_program.py')
-    traverse = bfs(ast_parse_file(filename), callback=printcb, mode="all")
-    astnodes = AstNodes()
+    # filename = os.path.join(os.getcwd(), 'dump_program.py')
+    # traverse = bfs(ast_parse_file(filename), callback=printcb, mode="all")
+    # astnodes = AstNodes()
+    basefolder = get_basefolder()
+    X, y, problems = parse_src_files(basefolder)
+    subX, subY, subProblems = breakup_tees(X,y,problems)
+
+    print("\t\t%s Unique problems, %s Unique users :" % (len(set(problems)), len(set(y))))
+    print("\t\t%s All problems, %s All users :" % (len(problems), len(y)))
+    print("\t\t%s Sub problems, %s sub users :" % (len(subProblems), len(subY)))
 

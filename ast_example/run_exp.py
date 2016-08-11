@@ -13,7 +13,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
 from ast_example.ASTVectorizater import ASTVectorizer
 from ast_example.InformationGain import TopRandomTreesEmbedding
-from sys import platform as _platform
 
 from ast_parser import breakup_tees
 from utils import parse_src_files, get_basefolder

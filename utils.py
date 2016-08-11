@@ -7,10 +7,9 @@ import numpy as np
 print(_platform)
 
 def get_basefolder():
-    if _platform == "linux" or _platform == "linux2":
+    if _platform.platform().startwith("linux"):
         return R"/home/bms/projects/stylometory/stylemotery/dataset700"
-    # elif _platform == "win32":
-    else:
+    elif _platform.platform().startwith("win32"):
         return R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
 
 

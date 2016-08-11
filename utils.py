@@ -1,15 +1,14 @@
 import ast
 import os
-from platform import _platform
+import platform
 
 import numpy as np
 
-print(_platform)
 
 def get_basefolder():
-    if _platform.platform().startwith("linux"):
+    if platform.system().startswith("Linux"):
         return R"/home/bms/projects/stylometory/stylemotery/dataset700"
-    elif _platform.platform().startwith("win32"):
+    elif platform.system().startswith("Win"):
         return R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
 
 
@@ -35,3 +34,8 @@ def parse_src_files(basefolder, seperate_trees=False):
     X_names, y, problems = get_src_files(basefolder)
     return np.array([ast_parse_file(name) for name in X_names]), y, problems
 
+
+
+
+if __name__ == "__main__":
+   print(get_basefolder())

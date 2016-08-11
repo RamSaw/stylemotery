@@ -4,6 +4,7 @@ from platform import _platform
 
 import numpy as np
 
+print(_platform)
 
 def get_basefolder():
     if _platform == "linux" or _platform == "linux2":

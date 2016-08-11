@@ -193,21 +193,19 @@ def test_all():
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
     #main_gridsearch()
-    relax_list = [1, 5, 10, 15]
+#    relax_list = [1, 5, 10, 15]
     #k_list = [700, 900, 1000]
-    for i in relax_list:
-         print("Relax = ", i)
+#    for i in relax_list:
+ #        print("Relax = ", i)
     #     for k in k_list:
     #         print("\tk = ", k)
-         pipline = Pipeline([
-                 ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
-                 ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
+ #        pipline = Pipeline([
+  #               ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
+   #              ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
                  # PredefinedFeatureSelection()),
-                 ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
-         main_relax(pipline, relax=i)
-=======
+    #             ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
+    #     main_relax(pipline, relax=i)
     # main_gridsearch()
     relax_list = [1, 5, 10, 15]
     # k_list = [700, 900, 1000]
@@ -215,11 +213,10 @@ if __name__ == "__main__":
         print("Relax = ", i)
         pipline = Pipeline([
             ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-            ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1200, max_depth=40)),
+            ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
             # PredefinedFeatureSelection()),
             ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1, max_features="auto"))])
         main_relax(pipline, relax=i)
->>>>>>> e4b1405c4c00dd78b9ae125b544dfa35c1bfa63c
 
     # print("relax")
     # pipline = Pipeline([

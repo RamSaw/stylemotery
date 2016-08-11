@@ -157,14 +157,14 @@ def main_gridsearch():
     folds = StratifiedKFold(y, n_folds=5)
     parameters = {
         'ast__ngram': (2,),
-        'ast__v_skip': (0, 1, 2),
+        'ast__v_skip': (1, 2),
 
-        'select__k': (500, 700, 1000, 1200),
-        'select__n_estimators': (500, 1000, 1500, 2000),
-        'select__max_depth': (20, 40, 60),
+        'select__k': (1000, 1200,1500,2000),
+        'select__n_estimators': (1000, 1500),
+        'select__max_depth': (40,60),
 
-        'clf__n_estimators': (100, 500, 800, 1000),
-        'clf__min_samples_split=': (1, 2),
+        'clf__n_estimators': (1000,1500),
+        'clf__min_samples_split': (1,),
     }
 
     grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=5,verbose=10)
@@ -196,19 +196,19 @@ def test_all():
 
 
 if __name__ == "__main__":
-    main_gridsearch()
-    # relax_list = [1, 5, 10, 15]
-    # k_list = [700, 900, 1000]
-    # for i in relax_list:
-    #     print("Relax = ", i)
+    #main_gridsearch()
+    relax_list = [1, 5, 10, 15]
+    #k_list = [700, 900, 1000]
+    for i in relax_list:
+         print("Relax = ", i)
     #     for k in k_list:
     #         print("\tk = ", k)
-    #         pipline = Pipeline([
-    #             ('astvector', ASTVectorizer(ngram=3, normalize=True, idf=True, dtype=np.float32)),
-    #             ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
-    #             # PredefinedFeatureSelection()),
-    #             ('randforest', RandomForestClassifier(n_estimators=500, max_features="auto"))])
-    #         main_relax(pipline, relax=i)
+         pipline = Pipeline([
+                 ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
+                 ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
+                 # PredefinedFeatureSelection()),
+                 ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
+         main_relax(pipline, relax=i)
 
     # print("relax")
     # pipline = Pipeline([

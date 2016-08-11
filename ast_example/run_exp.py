@@ -67,6 +67,8 @@ def main_relax(pipline, relax=15):
 
     print("\t\t%s unique problems, %s unique users :" % (len(set(tags)), len(set(y))))
     print("\t\t%s all problems, %s all users :" % (len(tags), len(y)))
+    ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
+    print("\t\t all users ratio ",ratio)
 
     folds = StratifiedKFold(y, n_folds=10)
     accuracy = []

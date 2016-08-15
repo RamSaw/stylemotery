@@ -37,5 +37,8 @@ def parse_src_files(basefolder, seperate_trees=False):
 
 
 
+<<<<<<< HEAD
 if __name__ == "__main__":
    print(get_basefolder())
+=======
+>>>>>>> 4b13786b3cffa5f17acd7aca8d3826cc4209dd1d

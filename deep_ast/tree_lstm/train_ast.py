@@ -7,16 +7,17 @@ https://github.com/tomsercu/lstm
 """
 from __future__ import division
 from __future__ import print_function
-import argparse
 
-import numpy as np
+import argparse
 
 import chainer
 import chainer.functions as F
 import chainer.links as L
-from deep_ast.s_lstm.SLSTM import LSTM
+import numpy as np
 from chainer import training
 from chainer.training import extensions
+
+from deep_ast.memory_cell.simple_lstm import LSTM
 
 
 # Definition of a recurrent net for language modeling

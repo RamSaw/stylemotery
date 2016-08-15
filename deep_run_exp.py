@@ -24,7 +24,7 @@ from sklearn.metrics import accuracy_score
 
 from ast_example.ASTVectorizater import TreeFeatures
 from ast_parser import children
-from deep_ast.tree_lstm.treelstm import TreeLSTM
+# from deep_ast.tree_lstm.treelstm import TreeLSTM
 from prog_bar import Progbar
 from utils import get_basefolder, parse_src_files
 

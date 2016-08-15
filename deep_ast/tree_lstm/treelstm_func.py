@@ -68,7 +68,7 @@ class TreeLSTMFunction(function.Function):
         self.o = _sigmoid(o)
         self.a = numpy.tanh(a)
 
-        self.c = self.a * self.i + np.sum([np.dot(x,y) for x,y in zip(self.f, c)])
+        self.c = self.a * self.i + np.sum([x*y for x,y in zip(self.f, c)],axis=0)
         h = self.o * numpy.tanh(self.c)
 
         return self.c, h
@@ -94,7 +94,12 @@ class TreeLSTMFunction(function.Function):
         gc, gh = grad_outputs
 
         gx = xp.empty_like(x)
-        ga, gi, gf, go = _extract_gates(gx)
+        gates = _extract_gates(gx,self.n_children+3)
+        ga, gi, go = gates[:3]
+        gf = gates[3:]
+
+        c = _extract_gates(c_prev,self.n_children)
+        # ga, gi, gf, go = _extract_gates(gx)
 
         # Consider the case that either gradient is not given
         if gc is None:
@@ -103,14 +108,47 @@ class TreeLSTMFunction(function.Function):
             gh = 0
 
         co = numpy.tanh(self.c)
-        gc_prev = gh * self.o * _grad_tanh(co) + gc  # multiply f later
-        ga[:] = gc_prev * self.i * _grad_tanh(self.a)
-        gi[:] = gc_prev * self.a * _grad_sigmoid(self.i)
-        gf[:] = gc_prev * c_prev * _grad_sigmoid(self.f)
-        go[:] = gh * co * _grad_sigmoid(self.o)
-        gc_prev *= self.f  # multiply f here
 
+        gc_prev = gh * self.o * _grad_tanh(co) + gc  # multiply f later
+
+        gi[:] = gc_prev * self.a * _grad_sigmoid(self.i)
+        ga[:] = gc_prev * self.i * _grad_tanh(self.a)
+        go[:] = gh * co * _grad_sigmoid(self.o)
+
+        for i in range(len(gf)):
+            gf[i][:] = gc_prev * c[i] * _grad_sigmoid(self.f[i])
+
+        for i in range(len(gf)):
+            gc_prev *= self.f[i]  # multiply f here
         return gc_prev, gx
+
+    # def backward_cpu(self, inputs, grad_outputs):
+    #     xp = cuda.get_array_module(*inputs)
+    #     c_prev, x = inputs
+    #     gc, gh = grad_outputs
+    #
+    #     gx = xp.empty_like(x)
+    #     ga, gi, gf, go = _extract_gates(gx)
+    #
+    #     # Consider the case that either gradient is not given
+    #     if gc is None:
+    #         gc = 0
+    #     if gh is None:
+    #         gh = 0
+    #
+    #     co = numpy.tanh(self.c)
+    #
+    #     gc_prev = gh * self.o * _grad_tanh(co) + gc  # multiply f later
+    #
+    #     gi[:] = gc_prev * self.a * _grad_sigmoid(self.i)
+    #     ga[:] = gc_prev * self.i * _grad_tanh(self.a)
+    #     go[:] = gh * co * _grad_sigmoid(self.o)
+    #
+    #     gf[:] = gc_prev * c_prev * _grad_sigmoid(self.f)
+    #
+    #     gc_prev *= self.f  # multiply f here
+    #
+    #     return gc_prev, gx
 
     def backward_gpu(self, inputs, grad_outputs):
         xp = cuda.get_array_module(*inputs)

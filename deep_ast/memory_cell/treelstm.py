@@ -1,8 +1,8 @@
 import chainer
 import numpy
+from chainer import functions as F
 from chainer import link
 from chainer.links.connection import linear
-from deep_ast.tree_lstm.treelstm_func import TreeLSTMFunction
 
 
 class TreeLSTMBase(link.Chain):
@@ -70,27 +70,44 @@ class TreeLSTM(TreeLSTMBase):
                     U_f_var = getattr(self, U_f_name)
                     f_gates[i] += U_f_var(h[i])
 
-        lstm_in = numpy.concatenate((a_gate.data, i_gate.data, o_gate.data))
-        lstm_in = numpy.concatenate([lstm_in] + [g.data for g in f_gates])
+        # lstm_in = numpy.concatenate((a_gate.data, i_gate.data, o_gate.data))
+        # lstm_in = numpy.concatenate([lstm_in] + [g.data for g in f_gates])
 
         if c is None:
             c = self.xp.zeros((len(x.data) * self.n_children, self.state_size), dtype=x.data.dtype)
         else:
-            c = numpy.concatenate([state.data for state in c])
-        return TreeLSTMFunction(children=self.n_children)(c, lstm_in)
+            c = self.xp.concatenate([state.data for state in c])
+
+        self.i = F.sigmoid(i_gate)
+        self.f = [F.sigmoid(fs) for fs in f_gate]
+        self.o = F.sigmoid(o_gate)
+        self.a = F.tanh(a_gate)
+
+        c_prev = [(x * y).data for x, y in zip(self.f, c)]
+        self.c = self.a * self.i + numpy.sum(c_prev, axis=0)
+        h = self.o * F.tanh(self.c)
+
+        return self.c, h
 
 
 
 
 if __name__ == "__main__":
-    n_units = 100
-    x = chainer.Variable(data=numpy.zeros((100, 400), dtype=numpy.float32))
-    treelstm = TreeLSTM(5, 400, 100)
-    t = treelstm(None, None, x)
-    print("C=")
-    print(t[0].debug_print())
-    print("h=")
-    print(t[1].debug_print())
-    # print(t)
-    t[0].backward()
-    t[1].backward()
+    import numpy, chainer, chainer.functions as F
+    from chainer import links as L
+
+    x = chainer.Variable(numpy.ones((10, 10), dtype=numpy.float32))
+    gru = TreeLSTM(lateral_init=1, upward_init=1,bias_init=0, forget_bias_init=0,in_size=10, out_size=10,children=2)
+    # gru = L.StatefulGRU(bias_init=0,inner_init=1,in_size=10, out_size=10)
+    lstm = L.LSTM(lateral_init=1, upward_init=1,
+                 bias_init=0, forget_bias_init=0,in_size=10, out_size=10)
+    y1 = gru(x)[1]
+    y2 = lstm(x)
+
+    print(y1.data)
+    print(y2.data)
+
+    print(y1.data.shape)
+    print(y2.data.shape)
+
+    print(numpy.allclose(y1.data,y2.data))

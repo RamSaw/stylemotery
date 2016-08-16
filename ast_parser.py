@@ -4,7 +4,7 @@ import os
 import re
 from collections import defaultdict, Counter
 from operator import itemgetter
-
+import copy
 import numpy as np
 import codegen as cg
 
@@ -13,6 +13,7 @@ from utils import ast_parse_file, get_basefolder, parse_src_files
 
 class AstNodes:
     NONE = "NONE"
+
     def __init__(self):
         self.nodetypes = []
         for x in dir(ast):
@@ -130,7 +131,7 @@ def ast_print(tree):
     bfs(tree, callback=printcb, mode="all")
 
 
-def breakup_tees(X, y, problems):
+def split_trees(X, y, problems):
     subX = []
     subY = []
     subProblem = []
@@ -143,13 +144,57 @@ def breakup_tees(X, y, problems):
     return np.array(subX), np.array(subY), np.array(subProblem)
 
 
+def split_trees2(X, y, problems):
+    subX = []
+    subY = []
+    subProblem = []
+
+    for i, tree in enumerate(X):
+        functions = []
+        classes = []
+        imports = []
+        global_code = []
+        ast_children = children(tree)
+        for child in ast_children:
+            child_name = type(child).__name__
+            if child_name == "FunctionDef":
+                functions.append(child)
+            elif child_name == "ClassDef":
+                classes.append(child)
+            elif child_name == "ImportFrom" or child_name == "Import":
+                imports.append(child)
+            else:
+                global_code.append(child)
+        # add functions
+        subX.extend(functions)
+        subY.extend([y[i]] * len(functions))
+        # add classes
+        subX.extend(classes)
+        subY.extend([y[i]] *len(classes))
+        # add imports
+        tree.body = []
+        import_module = copy.deepcopy(tree)
+        import_module.body = imports
+        subX.append(import_module)
+        subY.append(y[i])
+        # add the rest of the code ( global instructions)
+        tree.body = []
+        global_module = copy.deepcopy(tree)
+        global_module.body = global_code
+        subX.append(global_module)
+        subY.append(y[i])
+
+        subProblem.append(problems[i])
+    return np.array(subX), np.array(subY), np.array(subProblem)
+
+
 if __name__ == "__main__":
     # filename = os.path.join(os.getcwd(), 'dump_program.py')
     # traverse = bfs(ast_parse_file(filename), callback=printcb, mode="all")
     # astnodes = AstNodes()
     basefolder = get_basefolder()
     X, y, problems = parse_src_files(basefolder)
-    subX, subY, subProblems = breakup_tees(X, y, problems)
+    subX, subY, subProblems = split_tees(X, y, problems)
 
     print("\t\t%s Unique problems, %s Unique users :" % (len(set(problems)), len(set(y))))
     print("\t\t%s All problems, %s All users :" % (len(problems), len(y)))

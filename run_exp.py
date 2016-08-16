@@ -14,7 +14,7 @@ from sklearn.pipeline import Pipeline
 from ast_example.ASTVectorizater import ASTVectorizer
 from ast_example.InformationGain import TopRandomTreesEmbedding
 
-from ast_parser import breakup_tees
+from ast_parser import split_trees2
 from utils import parse_src_files, get_basefolder
 
 
@@ -63,12 +63,12 @@ def main_relax(pipline, relax=15):
     basefolder = get_basefolder()
     X, y, tags = parse_src_files(basefolder)
 
-    #X,y,tags = breakup_tees(X,y,tags)
+    X,y,tags = split_trees2(X, y, tags)
 
     print("\t\t%s unique problems, %s unique users :" % (len(set(tags)), len(set(y))))
     print("\t\t%s all problems, %s all users :" % (len(tags), len(y)))
-    #ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
-    #print("\t\t all users ratio ",ratio)
+    # ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
+    # print("\t\t all users ratio ",ratio)
 
     folds = StratifiedKFold(y, n_folds=10)
     accuracy = []
@@ -137,10 +137,11 @@ def report(grid_scores, n_top=10):
         print("Top {0} Models:".format(n_top))
         print("\tModel with rank: {0}".format(i + 1))
         print("\tMean validation score: {0:.3f} (std: {1:.3f})".format(
-              score.mean_validation_score,
-              np.std(score.cv_validation_scores)))
+            score.mean_validation_score,
+            np.std(score.cv_validation_scores)))
         print("\tParameters: {0}".format(score.parameters))
         print("")
+
 
 def main_gridsearch():
     basefolder = get_basefolder()
@@ -148,7 +149,7 @@ def main_gridsearch():
 
     print("%s problems, %s users :" % (len(set(tags)), len(set(y))))
     pipline = Pipeline([
-        ('ast', ASTVectorizer(normalize=True,idf=True,dtype=np.float32)),
+        ('ast', ASTVectorizer(normalize=True, idf=True, dtype=np.float32)),
         ('select', TopRandomTreesEmbedding()),  # PredefinedFeatureSelection()),
         ('clf', RandomForestClassifier())])
 
@@ -157,15 +158,15 @@ def main_gridsearch():
         'ast__ngram': (2,),
         'ast__v_skip': (1, 2),
 
-        'select__k': (1000, 1200,1500,2000),
+        'select__k': (1000, 1200, 1500, 2000),
         'select__n_estimators': (1000, 1500),
-        'select__max_depth': (40,60),
+        'select__max_depth': (40, 60),
 
-        'clf__n_estimators': (1000,1500),
+        'clf__n_estimators': (1000, 1500),
         'clf__min_samples_split': (1,),
     }
 
-    grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=5,verbose=10)
+    grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=5, verbose=10)
     print("Performing grid search...")
     print("pipeline:", [name for name, _ in pipline.steps])
     print("parameters:")
@@ -183,6 +184,7 @@ def main_gridsearch():
 
     report(grid_search.grid_scores_)
 
+
 def test_all():
     basefolder = get_basefolder()
     X, y, tags = parse_src_files(basefolder)
@@ -194,39 +196,39 @@ def test_all():
 
 
 if __name__ == "__main__":
-    #main_gridsearch()
-#    relax_list = [1, 5, 10, 15]
-    #k_list = [700, 900, 1000]
-#    for i in relax_list:
- #        print("Relax = ", i)
+    # main_gridsearch()
+    #    relax_list = [1, 5, 10, 15]
+    # k_list = [700, 900, 1000]
+    #    for i in relax_list:
+    #        print("Relax = ", i)
     #     for k in k_list:
     #         print("\tk = ", k)
- #        pipline = Pipeline([
-  #               ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
-   #              ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
-                 # PredefinedFeatureSelection()),
+    #        pipline = Pipeline([
+    #               ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
+    #              ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
+    # PredefinedFeatureSelection()),
     #             ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
     #     main_relax(pipline, relax=i)
     # main_gridsearch()
-    relax_list = [1,2,3, 5,10, 15]
+    relax_list = [1, 2, 3, 5, 10, 15]
     # k_list = [700, 900, 1000]
     for i in relax_list:
         print("Relax = ", i)
         pipline = Pipeline([
-            ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
+            ('astvector', ASTVectorizer(ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
             ('selection', TopRandomTreesEmbedding(k=2000, n_estimators=3000, max_depth=40)),
             # PredefinedFeatureSelection()),
-            ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1, max_features="auto"))])
+            ('randforest', RandomForestClassifier(n_estimators=1000, min_samples_split=1, max_features="auto"))])
         main_relax(pipline, relax=i)
 
-    # print("relax")
-    # pipline = Pipeline([
-    #     ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-    #     ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1000, max_depth=40)),
-    #     # PredefinedFeatureSelection()),
-    #     ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto"))])
-    #     # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
-    # main_relax(pipline, relax=1)
-    # # # print("predict")
-    # # main(pipline)
-    # # test_all()
+        # print("relax")
+        # pipline = Pipeline([
+        #     ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
+        #     ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1000, max_depth=40)),
+        #     # PredefinedFeatureSelection()),
+        #     ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto"))])
+        #     # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
+        # main_relax(pipline, relax=1)
+        # # # print("predict")
+        # # main(pipline)
+        # # test_all()

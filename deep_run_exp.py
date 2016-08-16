@@ -25,27 +25,13 @@ from sklearn.metrics import accuracy_score
 from ast_example.ASTVectorizater import TreeFeatures
 from ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
+from deep_ast.memory_cell.treelstm import TreeLSTM
 from prog_bar import Progbar
 from utils import get_basefolder, parse_src_files
 
-xp = np  # cuda.cupy  #
+#xp = np  # cuda.cupy  #
 
 MAX_BRANCH = 4
-
-
-def convert_tree(vocab, exp):
-    assert isinstance(exp, list) and (len(exp) == 2 or len(exp) == 3)
-
-    if len(exp) == 2:
-        label, leaf = exp
-        if leaf not in vocab:
-            vocab[leaf] = len(vocab)
-        return {'label': int(label), 'node': vocab[leaf]}
-    elif len(exp) == 3:
-        label, left, right = exp
-        node = (convert_tree(vocab, left), convert_tree(vocab, right))
-        return {'label': int(label), 'node': node}
-
 
 class RecursiveNet(chainer.Chain):
     def __init__(self, n_units, n_label, classes=None):
@@ -62,7 +48,7 @@ class RecursiveNet(chainer.Chain):
         return self.lstm(None, None, p)
 
     def embed_vec(self, x, train_mode=False):
-        word = xp.array([self.feature_dict.astnodes.index(x)], np.int32)
+        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
@@ -81,7 +67,7 @@ class RecursiveNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = xp.array([y], np.int32)
+        label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -93,7 +79,7 @@ class RecursiveLSTMNet(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("batch", L.BatchNormalization(n_units))
+        # self.add_link("batch", L.BatchNormalization(n_units))
         self.add_link("lstm", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
@@ -101,7 +87,7 @@ class RecursiveLSTMNet(chainer.Chain):
         return self.embed_vec(x, train_mode)
 
     def embed_vec(self, x, train_mode=False):
-        word = xp.array([self.feature_dict.astnodes.index(x)], np.int32)
+        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
@@ -127,7 +113,7 @@ class RecursiveLSTMNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = xp.array(np.where(self.classes_ ==y)[0], np.int32)
+        label = self.xp.array(np.where(self.classes_ ==y)[0], np.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -166,7 +152,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
             model.zerograds()
             batch_loss.backward()
             optimizer.update()
-            total_loss.append(float(batch_loss.data) / batch_size)
+            total_loss.append(float(batch_loss.data))
             batch_loss = 0
     return np.mean(total_loss)
 
@@ -186,13 +172,14 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
         predict.extend(m.predict(root_vec))
         predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
-            total_loss.append(float(batch_loss.data) / batch_size)
+            total_loss.append(float(batch_loss.data))
             batch_loss = 0
     predict = np.array(predict)
     accuracy = accuracy_score(predict, test_labels)
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
     print("\tLoss: %0.2f " % mean_loss)
+    print("\tPrediction: ", collections.Counter(predict).most_common())
     return mean_loss
 
 
@@ -264,7 +251,7 @@ def main():
         print('Epoch: {0:d} / {0:d}'.format(epoch,n_epoch))
 
         cur_at = time.time()
-        total_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
+        total_loss = train(model, train_trees[:5], train_lables[:5], optimizer, batch_size, shuffle=True)
         print('loss: {:.2f}'.format(total_loss))
         now = time.time()
         throughput = float(len(train_trees)) / (now - cur_at)

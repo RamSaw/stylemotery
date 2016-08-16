@@ -96,6 +96,8 @@ if __name__ == "__main__":
                  bias_init=0, forget_bias_init=0,in_size=10, out_size=10)
     y1 = gru(x)[1]
     y2 = lstm(x)
+    y3 = F.sigmoid(x)
+    y3 += F.sigmoid(x)
 
     print(y1.data)
     print(y2.data)
@@ -104,3 +106,8 @@ if __name__ == "__main__":
     print(y2.data.shape)
 
     print(numpy.allclose(y1.data,y2.data))
+    y3.backward()
+    print(y3.debug_print())
+    y2.backward()
+    print(y2.grad())
+    # print(numpy.allclose(y1.backward(),y2.backward()))

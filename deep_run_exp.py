@@ -25,7 +25,6 @@ from sklearn.metrics import accuracy_score
 from ast_example.ASTVectorizater import TreeFeatures
 from ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
-from deep_ast.memory_cell.treelstm import TreeLSTM
 from prog_bar import Progbar
 from utils import get_basefolder, parse_src_files
 
@@ -67,7 +66,7 @@ class RecursiveNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = self.xp.array([y], self.xp.int32)
+        label = xp.array([y], np.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -79,7 +78,7 @@ class RecursiveLSTMNet(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        # self.add_link("batch", L.BatchNormalization(n_units))
+        self.add_link("batch", L.BatchNormalization(n_units))
         self.add_link("lstm", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
@@ -113,7 +112,7 @@ class RecursiveLSTMNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = self.xp.array(np.where(self.classes_ ==y)[0], np.int32)
+        label = xp.array(np.where(self.classes_ ==y)[0], np.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -152,7 +151,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
             model.zerograds()
             batch_loss.backward()
             optimizer.update()
-            total_loss.append(float(batch_loss.data))
+            total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
     return np.mean(total_loss)
 
@@ -172,7 +171,7 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
         predict.extend(m.predict(root_vec))
         predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
-            total_loss.append(float(batch_loss.data))
+            total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
     predict = np.array(predict)
     accuracy = accuracy_score(predict, test_labels)
@@ -234,8 +233,8 @@ def main():
     train_trees, train_lables, test_trees, test_lables, classes = split_trees2(trees, tree_labels, shuffle=True)
 
     n_epoch = 100
-    n_units = 50
-    batch_size = 10
+    n_units = 500
+    batch_size = 1
 
     model = RecursiveLSTMNet(n_units, len(classes), classes=classes)
 
@@ -243,7 +242,7 @@ def main():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.AdaGrad(lr=0.1)
+    optimizer = optimizers.AdaGrad(lr=0.01)
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
 
@@ -251,7 +250,7 @@ def main():
         print('Epoch: {0:d} / {0:d}'.format(epoch,n_epoch))
 
         cur_at = time.time()
-        total_loss = train(model, train_trees[:5], train_lables[:5], optimizer, batch_size, shuffle=True)
+        total_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('loss: {:.2f}'.format(total_loss))
         now = time.time()
         throughput = float(len(train_trees)) / (now - cur_at)

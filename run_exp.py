@@ -63,12 +63,12 @@ def main_relax(pipline, relax=15):
     basefolder = get_basefolder()
     X, y, tags = parse_src_files(basefolder)
 
-    X,y,tags = breakup_tees(X,y,tags)
+    #X,y,tags = breakup_tees(X,y,tags)
 
     print("\t\t%s unique problems, %s unique users :" % (len(set(tags)), len(set(y))))
     print("\t\t%s all problems, %s all users :" % (len(tags), len(y)))
-    ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
-    print("\t\t all users ratio ",ratio)
+    #ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
+    #print("\t\t all users ratio ",ratio)
 
     folds = StratifiedKFold(y, n_folds=10)
     accuracy = []
@@ -155,14 +155,14 @@ def main_gridsearch():
     folds = StratifiedKFold(y, n_folds=5)
     parameters = {
         'ast__ngram': (2,),
-        'ast__v_skip': (0, 1, 2),
+        'ast__v_skip': (1, 2),
 
-        'select__k': (500, 700, 1000, 1200),
-        'select__n_estimators': (500, 1000, 1500, 2000),
-        'select__max_depth': (20, 40, 60),
+        'select__k': (1000, 1200,1500,2000),
+        'select__n_estimators': (1000, 1500),
+        'select__max_depth': (40,60),
 
-        'clf__n_estimators': (100, 500, 800, 1000),
-        'clf__min_samples_split=': (1, 2),
+        'clf__n_estimators': (1000,1500),
+        'clf__min_samples_split': (1,),
     }
 
     grid_search = GridSearchCV(estimator=pipline, param_grid=parameters, cv=folds, n_jobs=5,verbose=10)
@@ -194,14 +194,27 @@ def test_all():
 
 
 if __name__ == "__main__":
+    #main_gridsearch()
+#    relax_list = [1, 5, 10, 15]
+    #k_list = [700, 900, 1000]
+#    for i in relax_list:
+ #        print("Relax = ", i)
+    #     for k in k_list:
+    #         print("\tk = ", k)
+ #        pipline = Pipeline([
+  #               ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
+   #              ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
+                 # PredefinedFeatureSelection()),
+    #             ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
+    #     main_relax(pipline, relax=i)
     # main_gridsearch()
-    relax_list = [1, 5, 10, 15]
+    relax_list = [1,2,3, 5,10, 15]
     # k_list = [700, 900, 1000]
     for i in relax_list:
         print("Relax = ", i)
         pipline = Pipeline([
             ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-            ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1200, max_depth=40)),
+            ('selection', TopRandomTreesEmbedding(k=2000, n_estimators=3000, max_depth=40)),
             # PredefinedFeatureSelection()),
             ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1, max_features="auto"))])
         main_relax(pipline, relax=i)

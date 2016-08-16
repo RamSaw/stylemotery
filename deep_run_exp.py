@@ -28,24 +28,9 @@ from ast_parser import children
 from prog_bar import Progbar
 from utils import get_basefolder, parse_src_files
 
-xp = np  # cuda.cupy  #
+#xp = np  # cuda.cupy  #
 
 MAX_BRANCH = 4
-
-
-def convert_tree(vocab, exp):
-    assert isinstance(exp, list) and (len(exp) == 2 or len(exp) == 3)
-
-    if len(exp) == 2:
-        label, leaf = exp
-        if leaf not in vocab:
-            vocab[leaf] = len(vocab)
-        return {'label': int(label), 'node': vocab[leaf]}
-    elif len(exp) == 3:
-        label, left, right = exp
-        node = (convert_tree(vocab, left), convert_tree(vocab, right))
-        return {'label': int(label), 'node': node}
-
 
 class RecursiveNet(chainer.Chain):
     def __init__(self, n_units, n_label, classes=None):
@@ -62,7 +47,7 @@ class RecursiveNet(chainer.Chain):
         return self.lstm(None, None, p)
 
     def embed_vec(self, x, train_mode=False):
-        word = xp.array([self.feature_dict.astnodes.index(x)], np.int32)
+        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
@@ -81,7 +66,7 @@ class RecursiveNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = xp.array([y], np.int32)
+        label = self.xp.array([y], np.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -89,11 +74,11 @@ class RecursiveNet(chainer.Chain):
 class RecursiveLSTMNet(chainer.Chain):
     def __init__(self, n_units, n_label, classes=None):
         super(RecursiveLSTMNet, self).__init__()
-        self.classes_ = classes
+        #self.classes_ = np.unique(classes)
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("batch", L.BatchNormalization(n_units))
+        #self.add_link("batch", L.BatchNormalization(n_units))
         self.add_link("lstm", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
@@ -101,7 +86,7 @@ class RecursiveLSTMNet(chainer.Chain):
         return self.embed_vec(x, train_mode)
 
     def embed_vec(self, x, train_mode=False):
-        word = xp.array([self.feature_dict.astnodes.index(x)], np.int32)
+        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
@@ -114,11 +99,12 @@ class RecursiveLSTMNet(chainer.Chain):
     def label(self, v):
         return self.w(v)
 
-    def predict(self, x):
+    def predict(self, x,return_label=False):
         t = self.label(x)
         X_prob = F.softmax(t)
         indics_ = cuda.to_cpu(X_prob.data.argmax(axis=1))
-        return self.classes_[indics_]
+        #return self.classes_[indics_]
+        return indics_
 
     def predict_proba(self, x):
         t = self.label(x)
@@ -127,7 +113,8 @@ class RecursiveLSTMNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = xp.array(np.where(self.classes_ ==y)[0], np.int32)
+        #label = self.xp.array(self.xp.where(self.classes_ ==y)[0], self.xp.int32)
+        label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -166,7 +153,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
             model.zerograds()
             batch_loss.backward()
             optimizer.update()
-            total_loss.append(float(batch_loss.data) / batch_size)
+            total_loss.append(float(cuda.to_cpu(batch_loss.data)))
             batch_loss = 0
     return np.mean(total_loss)
 
@@ -223,9 +210,9 @@ def split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
 
 
 def split_trees2(trees, tree_labels, shuffle=True):
-    classes_ = np.unique(tree_labels, return_inverse=False)
-    # tree_labels = y
-    cv = StratifiedKFold(tree_labels, n_folds=5, shuffle=shuffle)
+    classes_,y = np.unique(tree_labels, return_inverse=True)
+    tree_labels = y
+    cv = StratifiedKFold(tree_labels, n_folds=10, shuffle=shuffle)
     train_indices, test_indices = next(cv.__iter__())
     train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
     test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
@@ -247,8 +234,8 @@ def main():
     train_trees, train_lables, test_trees, test_lables, classes = split_trees2(trees, tree_labels, shuffle=True)
 
     n_epoch = 100
-    n_units = 50
-    batch_size = 10
+    n_units = 500
+    batch_size = 1
 
     model = RecursiveLSTMNet(n_units, len(classes), classes=classes)
 
@@ -256,7 +243,7 @@ def main():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.AdaGrad(lr=0.1)
+    optimizer = optimizers.AdaGrad(lr=0.01)
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
 
@@ -276,7 +263,7 @@ def main():
         #     print('')
 
         print('Test evaluateion')
-        evaluate(model, test_trees, test_lables, batch_size)
+        evaluate(model, test_trees,test_lables, batch_size)
         print()
 
 

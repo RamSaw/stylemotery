@@ -31,19 +31,20 @@ import os
 def extract_loss(history):
     loss = []
     for key,values in sorted(history.items()):
-        epoch_vals,loss_vals = zip(values)
+        loss_vals = [l for e,l in values]
         max_loss = max(loss_vals)
         loss.append(max_loss)
+
     return loss
 
 
 
 if __name__ == "__main__":
-    filenames = ["1_lstm_500_dropout_batch_alldataset_cliping"]
-    basefolder = R"C:\Users\bms\Desktop\lstm\fulldataset"
-    for filename in [os.path.join(basefolder,x,".txt") for x in filenames]:
+    filenames = ["2_lstm_500_dropout_batch_alldataset_cliping"]
+    basefolder = R"C:\Users\bms\Desktop\lstm\partialdatasets"
+    for filename in [os.path.join(basefolder,x+".txt") for x in filenames]:
         history = parse_loss_file(filename)
         loss = extract_loss(history)
-        with open(os.path.join(basefolder,filename,"_parsed",".txt"),mode="+w") as wfile:
+        with open(os.path.join(basefolder,filename+"_parsed.txt"),mode="+w") as wfile:
             wfile.write("\t".join(loss))
 

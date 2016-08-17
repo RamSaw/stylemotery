@@ -15,7 +15,8 @@ def get_basefolder():
 def ast_parse_file(filename):
     try:
         with open(filename, 'r', encoding="utf-8") as file:
-            return ast.parse(file.read())
+            tree = ast.parse(file.read())
+            return tree
     except Exception as e:
         print("ERROR: ", e, " filename", filename)
 
@@ -35,10 +36,31 @@ def parse_src_files(basefolder, seperate_trees=False):
     return np.array([ast_parse_file(name) for name in X_names]), y, problems
 
 
+def generate_tree(node,children):
+    root = ast.Module()
+    root._fields = ("body",)
+
+    child = node()
+    child._fields = ("body",)
+    child.body = [node() for i in range(children)]
+
+    root.body = [child for i in range(children)]
+    return root
 
 
-#<<<<<<< HEAD
+
+def parse_src_files2(basefolder, labels = 2,children=10,examples_per_label=10):
+    X = []
+    y = []
+    ast_nodes = [ast.Add,ast.Assign]
+    for label in range(labels):
+        tree = generate_tree(ast_nodes[label],children)
+        X.extend([tree for i in range(examples_per_label)])
+        y.extend([label for i in range(examples_per_label)])
+    return np.array(X), np.array(y), np.array([])
+
+
+
+
 if __name__ == "__main__":
    print(get_basefolder())
-#=======
-#>>>>>>> 4b13786b3cffa5f17acd7aca8d3826cc4209dd1d

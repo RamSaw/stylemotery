@@ -216,7 +216,7 @@ if __name__ == "__main__":
         print("Relax = ", i)
         pipline = Pipeline([
             ('astvector', ASTVectorizer(ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-            ('selection', TopRandomTreesEmbedding(k=2000, n_estimators=3000, max_depth=40)),
+            ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=3000, max_depth=40)),
             # PredefinedFeatureSelection()),
             ('randforest', RandomForestClassifier(n_estimators=1000, min_samples_split=1, max_features="auto"))])
         main_relax(pipline, relax=i)

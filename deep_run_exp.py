@@ -22,6 +22,7 @@ import chainer.links as L
 from chainer import optimizers
 from sklearn.metrics import accuracy_score
 
+from chainer.initializers import GlorotNormal,Orthogonal
 from ast_example.ASTVectorizater import TreeFeatures
 from ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
@@ -30,7 +31,7 @@ from utils import get_basefolder, parse_src_files
 
 #xp = np  # cuda.cupy  #
 
-MAX_BRANCH = 4
+#MAX_BRANCH = 4
 
 class RecursiveNet(chainer.Chain):
     def __init__(self, n_units, n_label, classes=None):
@@ -66,7 +67,7 @@ class RecursiveNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = xp.array([y], np.int32)
+        label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -78,8 +79,12 @@ class RecursiveLSTMNet(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("batch", L.BatchNormalization(n_units))
-        self.add_link("lstm", L.LSTM(n_units, n_units))
+        #self.add_link("batch1", L.BatchNormalization(n_units))
+        #self.add_link("batch2", L.BatchNormalization(n_units))
+        #self.add_link("batch3", L.BatchNormalization(n_units))
+        self.add_link("lstm1", L.LSTM(n_units, n_units))
+        #self.add_link("lstm2", L.LSTM(n_units, n_units))
+        #self.add_link("lstm3", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode=False):
@@ -90,11 +95,18 @@ class RecursiveLSTMNet(chainer.Chain):
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
-    def merge(self, x, children):
+    def merge(self, x, children,train_mode=False):
         # c_list,h_list = zip(*children)
-        h = self.lstm(x)  # self.batch(
-        self.lstm.reset_state()
-        return h
+        #h0 = self.lstm1(self.batch1(x))  # self.batch(
+        #h1 = self.lstm2(self.batch2(h0))  # self.batch(
+        #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
+        h0 = self.lstm1(x)  # self.batch(
+        #h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
+        #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
+        self.lstm1.reset_state()
+        #self.lstm2.reset_state()
+        #self.lstm3.reset_state()
+        return h0
 
     def label(self, v):
         return self.w(v)
@@ -112,7 +124,7 @@ class RecursiveLSTMNet(chainer.Chain):
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
-        label = xp.array(np.where(self.classes_ ==y)[0], np.int32)
+        label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
@@ -128,12 +140,11 @@ def traverse_tree(model, node, train_mode=True):
         for child in children_ast:
             child_node = traverse_tree(model, child, train_mode=train_mode)
             children_nodes.append(child_node)
-        if len(children_nodes) < MAX_BRANCH:
-            children_nodes.extend(
-                [model.leaf(None, train_mode=train_mode) for i in range(MAX_BRANCH - len(children_nodes))])
-        children_nodes = children_nodes[:MAX_BRANCH]
+        #if len(children_nodes) < MAX_BRANCH:
+            #children_nodes.extend([model.leaf(None, train_mode=train_mode) for i in range(MAX_BRANCH - len(children_nodes))])
+        #children_nodes = children_nodes[:MAX_BRANCH]
         x = model.embed_vec(node, train_mode=train_mode)
-        return model.merge(x, children_nodes)
+        return model.merge(x, children_nodes,train_mode=train_mode)
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
@@ -146,13 +157,16 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
         # tree.body = tree.body[0]
         root_vec = traverse_tree(model, tree, train_mode=True)
         batch_loss += model.loss(root_vec, train_labels[idx], train_mode=True)
-        progbar.update(idx+1,values=[("training loss",batch_loss.data)])
+        progbar.update(idx+1,values=[("training loss",cuda.to_cpu(batch_loss.data))])
         if idx % batch_size == 0:
+            #progbar.update(idx+1,values=[("training loss",batch_loss.data)])
             model.zerograds()
             batch_loss.backward()
             optimizer.update()
-            total_loss.append(float(batch_loss.data) / batch_size)
+            total_loss.append(float(batch_loss.data))
             batch_loss = 0
+
+    #print("\tTrue labels: ", collections.Counter(train_labels).most_common())
     return np.mean(total_loss)
 
 
@@ -171,14 +185,16 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
         predict.extend(m.predict(root_vec))
         predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
-            total_loss.append(float(batch_loss.data) / batch_size)
+            total_loss.append(float(batch_loss.data))
             batch_loss = 0
     predict = np.array(predict)
     accuracy = accuracy_score(predict, test_labels)
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
     print("\tLoss: %0.2f " % mean_loss)
-    print("\tPrediction: ", collections.Counter(predict).most_common())
+    #print("\tTrue labels: ", collections.Counter(test_labels).most_common())
+    #print("\tPrediction Proba : ", collections.Counter(predict_proba).most_common())
+    print("\tPrediction : ", collections.Counter(predict).most_common())
     return mean_loss
 
 
@@ -209,9 +225,10 @@ def split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
 
 
 def split_trees2(trees, tree_labels, shuffle=True):
-    classes_ = np.unique(tree_labels, return_inverse=False)
-    # tree_labels = y
-    cv = StratifiedKFold(tree_labels, n_folds=5, shuffle=shuffle)
+    classes_,y = np.unique(tree_labels, return_inverse=True)
+    tree_labels = y
+    classes_ = np.arange(len(classes_))
+    cv = StratifiedKFold(tree_labels, n_folds=10, shuffle=shuffle)
     train_indices, test_indices = next(cv.__iter__())
     train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
     test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
@@ -219,8 +236,11 @@ def split_trees2(trees, tree_labels, shuffle=True):
 
 
 def main():
-    USE_GPU = -1
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--gpu', '-g', type=int, default=-1,
+                        help='GPU ID (negative value indicates CPU)')
+    args = parser.parse_args()
+    
     basefolder = get_basefolder()
     trees, tree_labels, lable_problems = parse_src_files(basefolder)
 
@@ -232,25 +252,26 @@ def main():
 
     train_trees, train_lables, test_trees, test_lables, classes = split_trees2(trees, tree_labels, shuffle=True)
 
-    n_epoch = 100
+    n_epoch = 500
     n_units = 500
     batch_size = 1
 
     model = RecursiveLSTMNet(n_units, len(classes), classes=classes)
 
-    if USE_GPU >= 0:
+    if args.gpu >= 0:
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.AdaGrad(lr=0.01)
+    optimizer = optimizers.AdaGrad(lr=0.1)
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
+    optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
 
     for epoch in range(1,n_epoch+1):
-        print('Epoch: {0:d} / {0:d}'.format(epoch,n_epoch))
+        print('Epoch: {0:d} / {1:d}'.format(epoch,n_epoch))
 
         cur_at = time.time()
-        total_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
+        total_loss = train(model, train_trees[:30], train_lables[:30], optimizer, batch_size, shuffle=True)
         print('loss: {:.2f}'.format(total_loss))
         now = time.time()
         throughput = float(len(train_trees)) / (now - cur_at)
@@ -262,7 +283,8 @@ def main():
         #     print('')
 
         print('Test evaluateion')
-        evaluate(model, test_trees, test_lables, batch_size)
+        evaluate(model, train_trees[:20], train_lables[:20], batch_size)
+        #evaluate(model, test_trees[:10], test_lables[:10], batch_size)
         print()
 
 

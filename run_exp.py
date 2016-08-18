@@ -1,4 +1,3 @@
-import os
 import traceback
 from collections import defaultdict, Counter
 from operator import itemgetter
@@ -11,11 +10,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
-from ast_example.ASTVectorizater import ASTVectorizer
-from ast_example.InformationGain import TopRandomTreesEmbedding
 
-from ast_parser import split_trees2
-from utils import parse_src_files, get_basefolder
+from information_gain.InformationGain import TopRandomTreesEmbedding
+from ast_tree.ASTVectorizater import ASTVectorizer
+from utils import parse_src_files, get_basefolder, parse_src_files2
 
 
 def full_evaluation(rf, X, y, cv):
@@ -61,9 +59,9 @@ def full_evaluation(rf, X, y, cv):
 
 def main_relax(pipline, relax=15):
     basefolder = get_basefolder()
-    X, y, tags = parse_src_files(basefolder)
+    X, y, tags = parse_src_files2(basefolder)
 
-    X,y,tags = split_trees2(X, y, tags)
+    # X,y,tags = split_trees2(X, y, tags)
 
     print("\t\t%s unique problems, %s unique users :" % (len(set(tags)), len(set(y))))
     print("\t\t%s all problems, %s all users :" % (len(tags), len(y)))
@@ -216,7 +214,7 @@ if __name__ == "__main__":
         print("Relax = ", i)
         pipline = Pipeline([
             ('astvector', ASTVectorizer(ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-            ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=3000, max_depth=40)),
+            ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
             # PredefinedFeatureSelection()),
             ('randforest', RandomForestClassifier(n_estimators=1000, min_samples_split=1, max_features="auto"))])
         main_relax(pipline, relax=i)

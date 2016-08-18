@@ -80,7 +80,7 @@ class RecursiveLSTMNet(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        #self.add_link("batch1", L.BatchNormalization(n_units))
+        self.add_link("batch1", L.BatchNormalization(n_units))
         #self.add_link("batch2", L.BatchNormalization(n_units))
         #self.add_link("batch3", L.BatchNormalization(n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
@@ -101,9 +101,9 @@ class RecursiveLSTMNet(chainer.Chain):
         #h0 = self.lstm1(self.batch1(x))  # self.batch(
         #h1 = self.lstm2(self.batch2(h0))  # self.batch(
         #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        h0 = self.lstm1(x)  # self.batch(
+        h0 = self.lstm1(self.batch1(x))  # self.batch(
         for child in children:
-            h0 = self.lstm1(child)
+            h0 = self.lstm1(self.batch1(child))
         #h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
         #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
         self.lstm1.reset_state()

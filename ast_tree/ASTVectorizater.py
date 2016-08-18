@@ -1,8 +1,9 @@
 import ast
 import copy
 import re
-from collections import defaultdict
 from collections import Counter
+from collections import defaultdict
+
 import codegen as cg
 import numpy as np
 import scipy.sparse as sp
@@ -10,8 +11,9 @@ from sklearn.base import BaseEstimator
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.preprocessing import normalize
 
-from ast_parser import bfs, children, AstNodes, PythonKeywords, ast_print
-from utils import ast_parse_file
+from ast_tree.ast_parser import bfs, children, AstNodes, PythonKeywords, ast_print
+from utils.utils import ast_parse_file
+
 
 def ast_name(node):
     return (node.__class__.__name__,)

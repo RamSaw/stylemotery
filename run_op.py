@@ -1,17 +1,12 @@
-from matplotlib import gridspec
-from sklearn.datasets import make_classification
+from bayes_opt import BayesianOptimization
 from sklearn.cross_validation import cross_val_score
 from sklearn.ensemble import RandomForestClassifier as RFC
 from sklearn.pipeline import Pipeline
-from sklearn.svm import SVC
-from bayes_opt import BayesianOptimization
 
 # Load data set and target values
-from xgboost import XGBClassifier
 
-from ast_example.ASTVectorizater import ASTVectorizer
-from ast_example.InformationGain import TopRandomTreesEmbedding
-from utils import get_basefolder, parse_src_files
+from ast_tree.ASTVectorizater import ASTVectorizer
+from information_gain.InformationGain import TopRandomTreesEmbedding
 
 
 # basefolder = get_basefolder()

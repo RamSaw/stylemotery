@@ -4,7 +4,6 @@ import platform
 
 import numpy as np
 
-
 def get_basefolder():
     if platform.system().startswith("Linux"):
         return R"/home/bms/projects/stylometory/stylemotery/dataset700"
@@ -49,7 +48,7 @@ def generate_tree(node,children):
 
 
 
-def parse_src_files2(basefolder, labels = 2,children=10,examples_per_label=10):
+def generate_trees(basefolder, labels = 2,children=10,examples_per_label=10):
     X = []
     y = []
     ast_nodes = [ast.Add,ast.Assign]

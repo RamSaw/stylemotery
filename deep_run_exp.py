@@ -7,32 +7,28 @@ This is Socher's simple recursive model, not RTNN:
 """
 
 import argparse
-import codecs
 import collections
 import random
-import re
-import time
-from sklearn.cross_validation import StratifiedKFold
-import numpy as np
-from chainer import variable
+
 import chainer
-from chainer import cuda
 import chainer.functions as F
 import chainer.links as L
+import numpy as np
+from chainer import cuda
 from chainer import optimizers
 from sklearn.metrics import accuracy_score
 
-from chainer.initializers import GlorotNormal,Orthogonal
-from ast_example.ASTVectorizater import TreeFeatures
-from ast_parser import children, ast_print
+from ast_tree.ASTVectorizater import TreeFeatures
+from ast_tree.ast_parser import children
+
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
-from prog_bar import Progbar
-from utils import get_basefolder, parse_src_files, parse_src_files2
+from utils.prog_bar import Progbar
+from utils.utils import get_basefolder, generate_trees, parse_src_files
 
 
-#xp = np  # cuda.cupy  #
+# xp = np  # cuda.cupy  #
 
-#MAX_BRANCH = 4
+# MAX_BRANCH = 4
 
 # class RecursiveNet(chainer.Chain):
 #     def __init__(self, n_units, n_label, classes=None):
@@ -80,12 +76,12 @@ class RecursiveLSTMNet(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        #self.add_link("batch1", L.BatchNormalization(n_units))
-        #self.add_link("batch2", L.BatchNormalization(n_units))
-        #self.add_link("batch3", L.BatchNormalization(n_units))
+        # self.add_link("batch1", L.BatchNormalization(n_units))
+        # self.add_link("batch2", L.BatchNormalization(n_units))
+        # self.add_link("batch3", L.BatchNormalization(n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
-        #self.add_link("lstm2", L.LSTM(n_units, n_units))
-        #self.add_link("lstm3", L.LSTM(n_units, n_units))
+        # self.add_link("lstm2", L.LSTM(n_units, n_units))
+        # self.add_link("lstm3", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode=False):
@@ -96,20 +92,20 @@ class RecursiveLSTMNet(chainer.Chain):
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
-    def merge(self, x, children,train_mode=False):
+    def merge(self, x, children, train_mode=False):
         # c_list,h_list = zip(*children)
-        #h0 = self.lstm1(self.batch1(x))  # self.batch(
-        #h1 = self.lstm2(self.batch2(h0))  # self.batch(
-        #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
+        # h0 = self.lstm1(self.batch1(x))  # self.batch(
+        # h1 = self.lstm2(self.batch2(h0))  # self.batch(
+        # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
         h0 = self.lstm1(x)  # self.batch(
         for child in children:
             h0 = self.lstm1(child)
-        #h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
-        #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
+        # h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
+        # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
         self.lstm1.reset_state()
-        #self.lstm2.reset_state()
-        #self.lstm3.reset_state()
-        return h0
+        # self.lstm2.reset_state()
+        # self.lstm3.reset_state()
+        return F.tanh(h0)
 
     def label(self, v):
         return self.w(v)
@@ -123,7 +119,7 @@ class RecursiveLSTMNet(chainer.Chain):
     def predict_proba(self, x):
         t = self.label(x)
         X_prob = F.softmax(t)
-        return cuda.to_cpu(X_prob.data)
+        return cuda.to_cpu(X_prob.data)[0]
 
     def loss(self, x, y, train_mode=False):
         w = self.label(x)
@@ -143,11 +139,8 @@ def traverse_tree(model, node, train_mode=True):
         for child in children_ast:
             child_node = traverse_tree(model, child, train_mode=train_mode)
             children_nodes.append(child_node)
-        #if len(children_nodes) < MAX_BRANCH:
-            #children_nodes.extend([model.leaf(None, train_mode=train_mode) for i in range(MAX_BRANCH - len(children_nodes))])
-        #children_nodes = children_nodes[:MAX_BRANCH]
         x = model.embed_vec(node, train_mode=train_mode)
-        return model.merge(x, children_nodes,train_mode=train_mode)
+        return model.merge(x, children_nodes, train_mode=train_mode)
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
@@ -155,23 +148,20 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
     batch_loss = 0
     total_loss = []
     if shuffle:
-        random.shuffle(train_trees)
+        indices = np.arange(len(train_labels))
+        random.shuffle(indices)
+        train_trees = train_trees[indices]
+        train_labels = train_labels[indices]
     for idx, tree in enumerate(train_trees):
-        # tree.body = tree.body[0]
         root_vec = traverse_tree(model, tree, train_mode=True)
         batch_loss += model.loss(root_vec, train_labels[idx], train_mode=True)
-        progbar.update(idx+1,values=[("training loss",cuda.to_cpu(batch_loss.data))])
-        if idx % batch_size == 0:
-            #progbar.update(idx+1,values=[("training loss",batch_loss.data)])
+        progbar.update(idx + 1, values=[("training loss", cuda.to_cpu(batch_loss.data))])
+        if (idx + 1) % batch_size == 0:
             model.zerograds()
             batch_loss.backward()
-            #make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","batch_loss_file",[batch_loss])
-            #exit()
             optimizer.update()
             total_loss.append(float(batch_loss.data))
             batch_loss = 0
-
-    #print("\tTrue labels: ", collections.Counter(train_labels).most_common())
     return np.mean(total_loss)
 
 
@@ -197,8 +187,7 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
     print("\tLoss: %0.2f " % mean_loss)
-    #print("\tTrue labels: ", collections.Counter(test_labels).most_common())
-    #print("\tPrediction Proba : ", collections.Counter(predict_proba).most_common())
+    print("\tPrediction Proba : ", collections.Counter([prob[prob.argmax()] for prob in predict_proba]).most_common())
     print("\tPrediction : ", collections.Counter(predict).most_common())
     return mean_loss
 
@@ -230,7 +219,7 @@ def split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
 
 
 def split_trees2(trees, tree_labels, shuffle=True):
-    classes_,y = np.unique(tree_labels, return_inverse=True)
+    classes_, y = np.unique(tree_labels, return_inverse=True)
     tree_labels = y
     # pick a small subsets of the classes
     class_A = 0
@@ -238,8 +227,8 @@ def split_trees2(trees, tree_labels, shuffle=True):
     trees_A = trees[tree_labels == class_A]
     trees_B = trees[tree_labels == class_B]
     classes_ = np.array([0, 1])
-    tree_labels = np.concatenate((np.zeros(len(trees_A)),np.ones(len(trees_B))))
-    trees = np.concatenate((trees_A,trees_B))
+    tree_labels = np.concatenate((np.zeros(len(trees_A)), np.ones(len(trees_B))))
+    trees = np.concatenate((trees_A, trees_B))
 
     indices = np.arange(trees.shape[0])
     if shuffle:
@@ -255,15 +244,17 @@ def split_trees2(trees, tree_labels, shuffle=True):
     # return train_trees, train_lables, test_trees, test_lables, classes_
     # return train_trees, train_lables, test_trees, test_lables, classes_
 
-def make_backward_graph(basefolder,filename,var):
+
+def make_backward_graph(basefolder, filename, var):
     import chainer.computational_graph as c
     import os
     g = c.build_computational_graph(var)
-    with open(os.path.join(basefolder,filename), '+w') as o:
+    with open(os.path.join(basefolder, filename), '+w') as o:
         o.write(g.dump())
-    #dot -Tps filename.dot -o outfile.ps
+    # dot -Tps filename.dot -o outfile.ps
     from subprocess import call
-    call(["dot", "-Tpdf",os.path.join(basefolder,filename),"-o",os.path.join(basefolder,filename+".pdf") ])
+    call(["dot", "-Tpdf", os.path.join(basefolder, filename), "-o", os.path.join(basefolder, filename + ".pdf")])
+
 
 def main():
     n_epoch = 500
@@ -273,10 +264,10 @@ def main():
     parser.add_argument('--gpu', '-g', type=int, default=-1,
                         help='GPU ID (negative value indicates CPU)')
     args = parser.parse_args()
-    
+
     basefolder = get_basefolder()
-    # trees, tree_labels, lable_problems = parse_src_files1(basefolder)
-    trees, tree_labels, lable_problems = parse_src_files2(basefolder,labels=2,children=10,examples_per_label=50)
+    trees, tree_labels, lable_problems = parse_src_files(basefolder)
+    # trees, tree_labels, lable_problems = generate_trees(basefolder, labels=2, children=3, examples_per_label=10)
 
     train_trees, train_lables, test_trees, test_lables, classes = split_trees2(trees, tree_labels, shuffle=True)
 
@@ -286,17 +277,17 @@ def main():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9) #AdaGrad(lr=0.1)
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1)
     optimizer.setup(model)
 
-    for epoch in range(1,n_epoch+1):
-        print('Epoch: {0:d} / {1:d}'.format(epoch,n_epoch))
+    for epoch in range(1, n_epoch + 1):
+        print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print('Train')
         total_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
 
         print('Test')
         evaluate(model, train_trees, train_lables, batch_size)
-        #evaluate(model, test_trees[:10], test_lables[:10], batch_size)
+        # evaluate(model, test_trees[:10], test_lables[:10], batch_size)
         print()
 
 

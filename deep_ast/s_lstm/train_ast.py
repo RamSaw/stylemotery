@@ -17,7 +17,7 @@ import numpy as np
 from chainer import training
 from chainer.training import extensions
 
-from deep_ast.memory_cell.simple_lstm import LSTM
+from memory_cell.simple_lstm import LSTM
 
 
 # Definition of a recurrent net for language modeling

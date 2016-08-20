@@ -191,6 +191,12 @@ def main_experiment():
         print()
         output_file.write("{0}\t{1}\t{2}\t{3}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()
+
+        if test_accuracy == 1.0 or test_loss < 0.0001:
+            output_file.write("Early Stopping\n")
+            print("Early Stopping")
+            break
+
     output_file.close()
 
 

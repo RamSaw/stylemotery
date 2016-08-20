@@ -146,15 +146,17 @@ def pick_subsets(trees, tree_labels, labels=2):
 
 
 def main_experiment():
-    output_folder = "~/projects/stylometory/stylemotery/results"  # R"C:\Users\bms\PycharmProjects\stylemotery_code" #
-    exper_name = "LSTM_NO_BATCH_NO_DROPOUT"
-    output_file = open(os.path.join(output_folder, exper_name), mode="+w")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--gpu', '-g', type=int, default=-1,help='GPU ID (negative value indicates CPU)')
+    parser.add_argument('--name', '-n', type=str, default="default_experiment",help='Experiment name')
+    parser.add_argument('--folder', '-f', type=str, default="~/projects/stylometory/stylemotery/results",help='Base folder for logs and results')
+    args = parser.parse_args()
+
+    output_folder = args.folder  # R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    exper_name = args.name
+    output_file = open(os.path.join(output_folder, exper_name+"_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--gpu', '-g', type=int, default=-1,
-                        help='GPU ID (negative value indicates CPU)')
-    args = parser.parse_args()
     n_epoch = 5
     n_units = 500
     batch_size = 1

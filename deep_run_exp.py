@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-"""Sample script of recursive neural networks for sentiment analysis.
-This is Socher's simple recursive model, not RTNN:
-  R. Socher, C. Lin, A. Y. Ng, and C.D. Manning.
-  Parsing Natural Scenes and Natural Language with Recursive Neural Networks.
-  in ICML2011.
-"""
-
 import argparse
 import collections
 import random
@@ -17,131 +9,11 @@ from chainer import cuda, Serializer
 from chainer import optimizers
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
-<<<<<<< HEAD
-from sklearn.cross_validation import StratifiedKFold
-from ast_tree.ASTVectorizater import TreeFeatures
-=======
-
->>>>>>> e83d97f289c50f7c857ec7a037363b1e0ec47637
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from models import RecursiveLSTMNet
 from utils.prog_bar import Progbar
-<<<<<<< HEAD
-from utils.utils import get_basefolder, generate_trees, parse_src_files
-
-
-# xp = np  # cuda.cupy  #
-
-# MAX_BRANCH = 4
-
-# class RecursiveNet(chainer.Chain):
-#     def __init__(self, n_units, n_label, classes=None):
-#         super(RecursiveNet, self).__init__()
-#         self.classes_ = classes
-#         self.feature_dict = TreeFeatures()
-#
-#         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-#         self.add_link("lstm", TreeLSTM(MAX_BRANCH, n_units, n_units))
-#         self.add_link("w", L.Linear(n_units, n_label))
-#
-#     def leaf(self, x, train_mode=False):
-#         p = self.embed_vec(x, train_mode)
-#         return self.lstm(None, None, p)
-#
-#     def embed_vec(self, x, train_mode=False):
-#         word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
-#         w = chainer.Variable(word, volatile=not train_mode)
-#         return self.embed(w)
-#
-#     def merge(self, x, children):
-#         c_list, h_list = zip(*children)
-#         return self.lstm(c_list, h_list, x)
-#
-#     def label(self, v):
-#         return self.w(v)
-#
-#     def predict(self, x):
-#         t = self.label(x)
-#         X_prob = F.softmax(t)
-#         indics_ = cuda.to_cpu(X_prob.data.argmax(axis=1))
-#         return self.classes_[indics_]
-#
-#     def loss(self, x, y, train_mode=False):
-#         w = self.label(x)
-#         label = self.xp.array([y], self.xp.int32)
-#         t = chainer.Variable(label, volatile=not train_mode)
-#         return F.softmax_cross_entropy(w, t)
-
-
-class RecursiveLSTMNet(chainer.Chain):
-    def __init__(self, n_units, n_label, classes=None):
-        super(RecursiveLSTMNet, self).__init__()
-        self.classes_ = classes
-        self.feature_dict = TreeFeatures()
-
-        self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        #self.add_link("batch1", L.BatchNormalization(n_units))
-        #self.add_link("batch2", L.BatchNormalization(n_units))
-        #self.add_link("batch3", L.BatchNormalization(n_units))
-        # self.add_link("batch1", L.BatchNormalization(n_units))
-        # self.add_link("batch2", L.BatchNormalization(n_units))
-        # self.add_link("batch3", L.BatchNormalization(n_units))
-        self.add_link("lstm1", L.LSTM(n_units, n_units))
-        # self.add_link("lstm2", L.LSTM(n_units, n_units))
-        # self.add_link("lstm3", L.LSTM(n_units, n_units))
-        self.add_link("w", L.Linear(n_units, n_label))
-
-    def leaf(self, x, train_mode=False):
-        return self.embed_vec(x, train_mode)
-
-    def embed_vec(self, x, train_mode=False):
-        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
-        w = chainer.Variable(word, volatile=not train_mode)
-        return self.embed(w)
-
-    def merge(self, x, children, train_mode=False):
-        # c_list,h_list = zip(*children)
-        #h0 = self.lstm1(self.batch1(x))  # self.batch(
-        #h1 = self.lstm2(self.batch2(h0))  # self.batch(
-        #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        #h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
-        #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        # h0 = self.lstm1(self.batch1(x))  # self.batch(
-        # h1 = self.lstm2(self.batch2(h0))  # self.batch(
-        # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        h0 = self.lstm1(x)  # self.batch(
-        for child in children:
-            h0 = self.lstm1(child)
-        # h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
-        # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        self.lstm1.reset_state()
-        # self.lstm2.reset_state()
-        # self.lstm3.reset_state()
-        return h0
-
-    def label(self, v):
-        return self.w(v)
-
-    def predict(self, x):
-        t = self.label(x)
-        X_prob = F.softmax(t)
-        indics_ = cuda.to_cpu(X_prob.data.argmax(axis=1))
-        return self.classes_[indics_]
-
-    def predict_proba(self, x):
-        t = self.label(x)
-        X_prob = F.softmax(t)
-        return cuda.to_cpu(X_prob.data)[0]
-
-    def loss(self, x, y, train_mode=False):
-        w = self.label(x)
-        label = self.xp.array([y], self.xp.int32)
-        t = chainer.Variable(label, volatile=not train_mode)
-        return F.softmax_cross_entropy(w, t)
-=======
 from utils.utils import get_basefolder, parse_src_files, print_model
->>>>>>> e83d97f289c50f7c857ec7a037363b1e0ec47637
 
 
 def traverse_tree(model, node, train_mode=True):
@@ -242,33 +114,6 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True):
         random.shuffle(indices)
         trees = trees[indices]
         tree_labels = tree_labels[indices]
-<<<<<<< HEAD
-    return trees, tree_labels, trees, tree_labels, classes_
-    #classes_ = np.arange(len(classes_))
-    #cv = StratifiedKFold(tree_labels, n_folds=10, shuffle=shuffle)
-    #train_indices, test_indices = next(cv.__iter__())
-    #train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
-    #test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
-    #return train_trees, train_lables, test_trees, test_lables, classes_
-    #return train_trees, train_lables, test_trees, test_lables, classes_
-
-
-def make_backward_graph(basefolder, filename, var):
-    import chainer.computational_graph as c
-    import os
-    g = c.build_computational_graph(var)
-    with open(os.path.join(basefolder, filename), '+w') as o:
-        o.write(g.dump())
-    # dot -Tps filename.dot -o outfile.ps
-    from subprocess import call
-    call(["dot", "-Tpdf", os.path.join(basefolder, filename), "-o", os.path.join(basefolder, filename + ".pdf")])
-
-
-def main():
-    n_epoch = 500
-    n_units = 500
-    batch_size = 1
-=======
     # classes_ = np.arange(len(classes_))
     cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=shuffle)
     train_indices, test_indices = next(cv.__iter__())
@@ -292,16 +137,16 @@ def pick_subsets(trees, tree_labels, labels=2):
 
 
 def main_experiment():
->>>>>>> e83d97f289c50f7c857ec7a037363b1e0ec47637
     parser = argparse.ArgumentParser()
-    parser.add_argument('--gpu', '-g', type=int, default=-1,help='GPU ID (negative value indicates CPU)')
-    parser.add_argument('--name', '-n', type=str, default="default_experiment",help='Experiment name')
-    parser.add_argument('--folder', '-f', type=str, default="~/projects/stylometory/stylemotery/results",help='Base folder for logs and results')
+    parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
+    parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
+    parser.add_argument('--folder', '-f', type=str, default="~/projects/stylometory/stylemotery/results",
+                        help='Base folder for logs and results')
     args = parser.parse_args()
 
     output_folder = args.folder  # R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
-    output_file = open(os.path.join(output_folder, exper_name+"_results.txt"), mode="+w")
+    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
 
     n_epoch = 5
@@ -342,12 +187,7 @@ def main_experiment():
         print('Train')
         training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('Test')
-<<<<<<< HEAD
-        evaluate(model, test_trees, test_lables, batch_size)
-        # evaluate(model, test_trees[:10], test_lables[:10], batch_size)
-=======
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
->>>>>>> e83d97f289c50f7c857ec7a037363b1e0ec47637
         print()
         output_file.write("{0}\t{1}\t{2}\t{3}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()

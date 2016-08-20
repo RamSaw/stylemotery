@@ -140,7 +140,7 @@ def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--folder', '-f', type=str, default="~/projects/stylometory/stylemotery/results",
+    parser.add_argument('--folder', '-f', type=str, default="results",
                         help='Base folder for logs and results')
     args = parser.parse_args()
 
@@ -149,14 +149,14 @@ def main_experiment():
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
 
-    n_epoch = 5
+    n_epoch = 500
     n_units = 500
     batch_size = 1
     gpu = args.gpu
 
     base_folder = get_basefolder()
     trees, tree_labels, lable_problems = parse_src_files(base_folder)
-    # trees, tree_labels = pick_subsets(trees, tree_labels, labels=2)
+    trees, tree_labels = pick_subsets(trees, tree_labels, labels=2)
     train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
                                                                               shuffle=True)
 

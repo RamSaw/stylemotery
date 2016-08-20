@@ -17,7 +17,7 @@ import numpy as np
 from chainer import cuda
 from chainer import optimizers
 from sklearn.metrics import accuracy_score
-
+from sklearn.cross_validation import StratifiedKFold
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.ast_parser import children
 
@@ -76,15 +76,12 @@ class RecursiveLSTMNet(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-<<<<<<< HEAD
-        self.add_link("batch1", L.BatchNormalization(n_units))
+        #self.add_link("batch1", L.BatchNormalization(n_units))
         #self.add_link("batch2", L.BatchNormalization(n_units))
         #self.add_link("batch3", L.BatchNormalization(n_units))
-=======
         # self.add_link("batch1", L.BatchNormalization(n_units))
         # self.add_link("batch2", L.BatchNormalization(n_units))
         # self.add_link("batch3", L.BatchNormalization(n_units))
->>>>>>> 260f47fc7c068e2e6fc428e6127bad0580bf37b8
         self.add_link("lstm1", L.LSTM(n_units, n_units))
         # self.add_link("lstm2", L.LSTM(n_units, n_units))
         # self.add_link("lstm3", L.LSTM(n_units, n_units))
@@ -100,16 +97,11 @@ class RecursiveLSTMNet(chainer.Chain):
 
     def merge(self, x, children, train_mode=False):
         # c_list,h_list = zip(*children)
-<<<<<<< HEAD
         #h0 = self.lstm1(self.batch1(x))  # self.batch(
         #h1 = self.lstm2(self.batch2(h0))  # self.batch(
         #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        h0 = self.lstm1(self.batch1(x))  # self.batch(
-        for child in children:
-            h0 = self.lstm1(self.batch1(child))
         #h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
         #h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-=======
         # h0 = self.lstm1(self.batch1(x))  # self.batch(
         # h1 = self.lstm2(self.batch2(h0))  # self.batch(
         # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
@@ -118,11 +110,10 @@ class RecursiveLSTMNet(chainer.Chain):
             h0 = self.lstm1(child)
         # h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
         # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
->>>>>>> 260f47fc7c068e2e6fc428e6127bad0580bf37b8
         self.lstm1.reset_state()
         # self.lstm2.reset_state()
         # self.lstm3.reset_state()
-        return F.tanh(h0)
+        return h0
 
     def label(self, v):
         return self.w(v)
@@ -250,16 +241,16 @@ def split_trees2(trees, tree_labels, shuffle=True):
     indices = np.arange(trees.shape[0])
     if shuffle:
         random.shuffle(indices)
-    trees = trees[indices]
-    tree_labels = tree_labels[indices]
+        trees = trees[indices]
+        tree_labels = tree_labels[indices]
     return trees, tree_labels, trees, tree_labels, classes_
-    # classes_ = np.arange(len(classes_))
-    # cv = StratifiedKFold(tree_labels, n_folds=10, shuffle=shuffle)
-    # train_indices, test_indices = next(cv.__iter__())
-    # train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
-    # test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
-    # return train_trees, train_lables, test_trees, test_lables, classes_
-    # return train_trees, train_lables, test_trees, test_lables, classes_
+    #classes_ = np.arange(len(classes_))
+    #cv = StratifiedKFold(tree_labels, n_folds=10, shuffle=shuffle)
+    #train_indices, test_indices = next(cv.__iter__())
+    #train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
+    #test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
+    #return train_trees, train_lables, test_trees, test_lables, classes_
+    #return train_trees, train_lables, test_trees, test_lables, classes_
 
 
 def make_backward_graph(basefolder, filename, var):
@@ -303,7 +294,7 @@ def main():
         total_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
 
         print('Test')
-        evaluate(model, train_trees, train_lables, batch_size)
+        evaluate(model, test_trees, test_lables, batch_size)
         # evaluate(model, test_trees[:10], test_lables[:10], batch_size)
         print()
 

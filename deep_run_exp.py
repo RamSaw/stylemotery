@@ -5,6 +5,7 @@ import os
 from operator import itemgetter
 
 import numpy as np
+import chainer
 from chainer import cuda, Serializer
 from chainer import optimizers
 from sklearn.cross_validation import StratifiedKFold
@@ -138,6 +139,7 @@ def pick_subsets(trees, tree_labels, labels=2):
 
 def main_experiment():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--folder', '-f', type=str, default="results",
@@ -156,7 +158,8 @@ def main_experiment():
 
     base_folder = get_basefolder()
     trees, tree_labels, lable_problems = parse_src_files(base_folder)
-    trees, tree_labels = pick_subsets(trees, tree_labels, labels=2)
+    if args.classes > -1:
+       trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
     train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
                                                                               shuffle=True)
 
@@ -174,9 +177,10 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.AdaGrad(lr=0.1)#MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
+    optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
 
     output_file.write("Evaluation\n")
     output_file.write("epoch\ttraining loss\ttest loss\ttest accuracy\n")
@@ -192,7 +196,7 @@ def main_experiment():
         output_file.write("{0}\t{1}\t{2}\t{3}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()
 
-        if test_accuracy == 1.0 or test_loss < 0.0001:
+        if test_loss < 0.0001:
             output_file.write("Early Stopping\n")
             print("Early Stopping")
             break

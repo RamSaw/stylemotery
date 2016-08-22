@@ -48,7 +48,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
             model.zerograds()
             batch_loss.backward()
             optimizer.update()
-            total_loss.append(float(batch_loss.data))
+            total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
     return np.mean(total_loss)
 
@@ -68,7 +68,7 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
         predict.extend(m.predict(root_vec, index=True))
         predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
-            total_loss.append(float(batch_loss.data))
+            total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
     predict = np.array(predict)
     accuracy = accuracy_score(predict, test_labels)
@@ -140,8 +140,9 @@ def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--folder', '-f', type=str, default="results",
-                        help='Base folder for logs and results')
+    parser.add_argument('--folder', '-f', type=str, default="results",help='Base folder for logs and results')
+    parser.add_argument('--batchsize', '-b', type=int, default=1,
+                        help='Number of examples in each mini batch')
     args = parser.parse_args()
 
     output_folder = args.folder  # R"C:\Users\bms\PycharmProjects\stylemotery_code" #
@@ -151,7 +152,7 @@ def main_experiment():
 
     n_epoch = 500
     n_units = 500
-    batch_size = 1
+    batch_size = args.batchsize
     gpu = args.gpu
 
     base_folder = get_basefolder()

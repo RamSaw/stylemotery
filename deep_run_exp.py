@@ -44,7 +44,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
     for idx, tree in enumerate(train_trees):
         root_vec = traverse_tree(model, tree, train_mode=True)
         batch_loss += model.loss(root_vec, train_labels[idx], train_mode=True)
-        progbar.update(idx + 1, values=[("training loss", cuda.to_cpu(batch_loss.data))])
+        progbar.update(idx + 1, values=[("training loss", batch_loss.data)])
         if (idx + 1) % batch_size == 0:
             model.zerograds()
             batch_loss.backward()
@@ -76,8 +76,6 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
     print("\tLoss: %0.2f " % mean_loss)
-    # print("\tPrediction Proba : ", collections.Counter([prob[prob.argmax()] for prob in predict_proba]).most_common())
-    # print("\tPrediction : ", collections.Counter(predict).most_common())
     return accuracy, mean_loss
 
 

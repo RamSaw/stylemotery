@@ -83,7 +83,7 @@ class RecursiveLSTMNet(chainer.Chain):
         self.lstm1.reset_state()
         # self.lstm2.reset_state()
         # self.lstm3.reset_state()
-        return F.tanh(h0)
+        return F.dropout(h0)
 
     def label(self, v):
         return self.w(v)

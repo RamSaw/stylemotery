@@ -120,7 +120,7 @@ class RecursiveLSTM(chainer.Chain):
         self.lstm1.reset_state()
         # self.lstm2.reset_state()
         # self.lstm3.reset_state()
-        return F.dropout(variable.Variable(h.data[-1].reshape(1,-1)))
+        return F.dropout(variable.Variable(h.data[-1].reshape(1,-1),volatile=not train_mode))
 
     def traverse(self, node, train_mode=True):
         children_ast = list(children(node))

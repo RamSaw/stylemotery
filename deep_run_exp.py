@@ -125,11 +125,11 @@ def main_experiment():
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--folder', '-f', type=str, default="results",help='Base folder for logs and results')
-    parser.add_argument('--batchsize', '-b', type=int, default=1,help='Number of examples in each mini batch')
+    parser.add_argument('--folder', '-f', type=str, default="results", help='Base folder for logs and results')
+    parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     args = parser.parse_args()
 
-    output_folder = args.folder #R"C:\Users\bms\PycharmProjects\stylemotery_code" #args.folder  #
+    output_folder = args.folder  # R"C:\Users\bms\PycharmProjects\stylemotery_code" #args.folder  #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
@@ -141,10 +141,10 @@ def main_experiment():
 
     base_folder = get_basefolder()
     trees, tree_labels, lable_problems = parse_src_files(base_folder)
-    # trees, tree_labels, lable_problems = generate_trees(base_folder, labels=2, children=3, examples_per_label=5)
     if args.classes > -1:
-       trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
-    train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,shuffle=True)
+        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
+    train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
+                                                                              shuffle=True)
 
     output_file.write("Class ratio %s\n" % list(
         sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),

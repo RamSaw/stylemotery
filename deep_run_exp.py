@@ -176,7 +176,7 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.AdaGrad(lr=0.1)#MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))

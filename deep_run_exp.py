@@ -12,24 +12,9 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
-from models import RecursiveLSTMNet
+from models import RecursiveLSTM, RecursiveTreeLSTM
 from utils.prog_bar import Progbar
 from utils.utils import get_basefolder, parse_src_files, print_model
-
-
-def traverse_tree(model, node, train_mode=True):
-    children_ast = list(children(node))
-    if len(children_ast) == 0:
-        # leaf node
-        return model.leaf(node, train_mode=train_mode)
-    else:
-        # internal node
-        children_nodes = []
-        for child in children_ast:
-            child_node = traverse_tree(model, child, train_mode=train_mode)
-            children_nodes.append(child_node)
-        x = model.embed_vec(node, train_mode=train_mode)
-        return model.merge(x, children_nodes, train_mode=train_mode)
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
@@ -42,7 +27,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
         train_trees = train_trees[indices]
         train_labels = train_labels[indices]
     for idx, tree in enumerate(train_trees):
-        root_vec = traverse_tree(model, tree, train_mode=True)
+        root_vec = model.traverse(tree, train_mode=True)
         batch_loss += model.loss(root_vec, train_labels[idx], train_mode=True)
         progbar.update(idx + 1, values=[("training loss", batch_loss.data)])
         if (idx + 1) % batch_size == 0:
@@ -63,7 +48,7 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     predict_proba = []
     predict = []
     for idx, tree in enumerate(test_trees):
-        root_vec = traverse_tree(m, tree, train_mode=False)
+        root_vec = m.traverse(tree, train_mode=False)
         batch_loss += m.loss(root_vec, test_labels[idx], train_mode=False)
         progbar.update(idx + 1, values=[("test loss", batch_loss.data)])
         predict.extend(m.predict(root_vec, index=True))
@@ -145,7 +130,7 @@ def main_experiment():
                         help='Number of examples in each mini batch')
     args = parser.parse_args()
 
-    output_folder = args.folder  # R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = R"C:\Users\bms\PycharmProjects\stylemotery_code" #args.folder  #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
@@ -159,8 +144,7 @@ def main_experiment():
     trees, tree_labels, lable_problems = parse_src_files(base_folder)
     if args.classes > -1:
        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
-    train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
-                                                                              shuffle=True)
+    train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,shuffle=True)
 
     output_file.write("Class ratio %s\n" % list(
         sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
@@ -168,7 +152,7 @@ def main_experiment():
     output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
     output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
 
-    model = RecursiveLSTMNet(n_units, len(classes), classes=classes)
+    model = RecursiveLSTM(n_units, len(classes), classes=classes)
     output_file.write("Model: {0} \n".format(exper_name))
     print_model(model, depth=1, output=output_file)
 

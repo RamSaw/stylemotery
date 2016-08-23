@@ -88,7 +88,7 @@ class RecursiveLSTM(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("batch1", L.BatchNormalization(n_units))
+        #self.add_link("batch1", L.BatchNormalization(n_units))
         # self.add_link("batch2", L.BatchNormalization(n_units))
         # self.add_link("batch3", L.BatchNormalization(n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))

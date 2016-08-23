@@ -130,7 +130,7 @@ def main_experiment():
                         help='Number of examples in each mini batch')
     args = parser.parse_args()
 
-    output_folder = R"C:\Users\bms\PycharmProjects\stylemotery_code" #args.folder  #
+    output_folder = args.folder #R"C:\Users\bms\PycharmProjects\stylemotery_code" #args.folder  #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")

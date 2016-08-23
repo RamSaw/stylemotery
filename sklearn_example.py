@@ -1,82 +1,43 @@
+import time
 from operator import itemgetter
-from pprint import pprint
-from time import time
-import logging
 
-import itertools
+import sklearn
+import sklearn.ensemble
+import sklearn.metrics
 from sklearn.datasets import fetch_20newsgroups
-from sklearn.feature_extraction import FeatureHasher
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.linear_model import SGDClassifier
-from sklearn.grid_search import GridSearchCV
-from sklearn.pipeline import Pipeline
-from sklearn.metrics import accuracy_score
-
-print(__doc__)
-
-# Display progress logs on stdout
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s %(levelname)s %(message)s')
+from sklearn.pipeline import make_pipeline
+from lime.lime_text import LimeTextExplainer
 
 
-###############################################################################
-# Load some categories from the training set
-categories = [
-    'alt.atheism',
-    'talk.religion.misc',
-]
-# Uncomment the following to do the analysis on all the categories
-#categories = None
+def interpret_data(X, y, func, class_names):
+    explainer = LimeTextExplainer(class_names=class_names)
+    times, scores = [], []
+    for r_idx in range(10):
+        start_time = time.time()
+        exp = explainer.explain_instance(newsgroups_test.data[r_idx], func, num_features=6)
+        times.append(time.time() - start_time)
+        scores.append(exp.score)
+        print('Document id: %d' % r_idx)
+        print('Probability(christian) =', c.predict_proba([newsgroups_test.data[r_idx]])[0, 1])
+        print('True class: %s' % class_names[newsgroups_test.target[r_idx]])
+        print("Features: ",list(sorted(exp.as_list(),key=itemgetter(1),reverse=True))[:5])
+        print('...')
 
-print("Loading 20 newsgroups dataset for categories:")
-print(categories)
+    return times, scores
 
-data = fetch_20newsgroups(subset='train', categories=categories)
-print("%d documents" % len(data.filenames))
-print("%d categories" % len(data.target_names))
-print()
+if __name__ == '__main__':
+    categories = ['alt.atheism', 'soc.religion.christian']
+    newsgroups_train = fetch_20newsgroups(subset='train', categories=categories)
+    newsgroups_test = fetch_20newsgroups(subset='test', categories=categories)
+    class_names = ['atheism', 'christian']
 
-def fit_pair(X):
-    cx = X.tocoo()
-    X_pair = [[] for i in range(X.shape[0])]
-    for i,j,v in zip(cx.row, cx.col, cx.data):
-        X_pair[i].append((str(j),v))
-    return X_pair
-###############################################################################
-# define a pipeline combining a text feature extractor with a simple
-# classifier
-pipeline = Pipeline([
-    ('vect', CountVectorizer(max_df=0.75,ngram_range=(1,2))),
-    ('tfidf', TfidfTransformer(use_idf=True,norm="l2")),
-    ('clf', SGDClassifier(alpha=0.00001,penalty="l2")),
-])
+    vectorizer = sklearn.feature_extraction.text.TfidfVectorizer(lowercase=False)
+    train_vectors = vectorizer.fit_transform(newsgroups_train.data)
+    test_vectors = vectorizer.transform(newsgroups_test.data)
+    rf = sklearn.ensemble.RandomForestClassifier(n_estimators=500)
+    rf.fit(train_vectors, newsgroups_train.target)
+    pred = rf.predict(test_vectors)
+    sklearn.metrics.f1_score(newsgroups_test.target, pred, average='binary')
+    c = make_pipeline(vectorizer, rf)
 
-if __name__ == "__main__":
-    # multiprocessing requires the fork to happen in a __main__ protected
-    # block
-
-    # find the best parameters for both the feature extraction and the
-    # classifier
-
-    print("pipeline:", pipeline)
-    t0 = time()
-    vect = CountVectorizer(max_df=0.75,ngram_range=(1,2))
-    tfidf = TfidfTransformer(use_idf=True,norm="l2")
-    hash = FeatureHasher(n_features=5000, input_type='pair')
-    clf = SGDClassifier(alpha=0.00001,penalty="l2")
-
-    X_data = vect.fit_transform(data.data,data.target)
-    X_data = tfidf.fit_transform(X_data,data.target)
-
-    X_data_pair = fit_pair(X_data)
-    X_data = hash.fit_transform(X_data_pair,data.target)
-    clf.fit(X_data, data.target)
-    print("done in %0.3fs" % (time() - t0))
-    print()
-
-    X_data = vect.transform(data.data)
-    X_data = tfidf.transform(X_data)
-    X_data_pair = fit_pair(X_data)
-    X_data = hash.transform(X_data_pair,data.target).toarray()
-    print(accuracy_score(clf.predict(X_data),data.target))
+    times, scores = interpret_data(train_vectors, newsgroups_train.target, c.predict_proba, class_names)

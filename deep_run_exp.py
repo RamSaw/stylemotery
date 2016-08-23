@@ -122,7 +122,7 @@ def pick_subsets(trees, tree_labels, labels=2):
 
 def main_experiment():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--folder', '-f', type=str, default="results",help='Base folder for logs and results')

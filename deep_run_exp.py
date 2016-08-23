@@ -122,7 +122,7 @@ def pick_subsets(trees, tree_labels, labels=2):
 
 def main_experiment():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--folder', '-f', type=str, default="results",help='Base folder for logs and results')
@@ -140,8 +140,8 @@ def main_experiment():
     gpu = args.gpu
 
     base_folder = get_basefolder()
-    # trees, tree_labels, lable_problems = parse_src_files(base_folder)
-    trees, tree_labels, lable_problems = generate_trees(base_folder, labels=2, children=3, examples_per_label=5)
+    trees, tree_labels, lable_problems = parse_src_files(base_folder)
+    # trees, tree_labels, lable_problems = generate_trees(base_folder, labels=2, children=3, examples_per_label=5)
     if args.classes > -1:
        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
     train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,shuffle=True)

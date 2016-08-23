@@ -88,7 +88,7 @@ class RecursiveLSTM(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("batch1", L.BatchNormalization(n_units))
+        # self.add_link("batch1", L.BatchNormalization(n_units))
         # self.add_link("batch2", L.BatchNormalization(n_units))
         # self.add_link("batch3", L.BatchNormalization(n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
@@ -120,7 +120,8 @@ class RecursiveLSTM(chainer.Chain):
         self.lstm1.reset_state()
         # self.lstm2.reset_state()
         # self.lstm3.reset_state()
-        return F.dropout(variable.Variable(h.data[-1].reshape(1,-1),volatile=not train_mode))
+        # return F.dropout(variable.Variable(h.data[-1].reshape(1,-1),volatile=h.volatile))
+        return F.reshape(F.dropout(h[-1]),(1,-1))
 
     def traverse(self, node, train_mode=True):
         children_ast = list(children(node))

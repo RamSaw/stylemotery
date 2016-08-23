@@ -14,7 +14,7 @@ from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from models import RecursiveLSTM, RecursiveTreeLSTM
 from utils.prog_bar import Progbar
-from utils.utils import get_basefolder, parse_src_files, print_model
+from utils.utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
@@ -140,7 +140,8 @@ def main_experiment():
     gpu = args.gpu
 
     base_folder = get_basefolder()
-    trees, tree_labels, lable_problems = parse_src_files(base_folder)
+    # trees, tree_labels, lable_problems = parse_src_files(base_folder)
+    trees, tree_labels, lable_problems = generate_trees(base_folder, labels=2, children=3, examples_per_label=5)
     if args.classes > -1:
        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
     train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,shuffle=True)

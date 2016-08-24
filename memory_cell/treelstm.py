@@ -43,7 +43,7 @@ class TreeLSTM(TreeLSTMBase):
         f_gate = self.W_f(x)
         o_gate = self.W_o(x)
 
-        f_gates = [f_gate for i in range(self.n_children)]
+        f_gates = F.concat([f_gate for i in range(self.n_children)],axis=0)
 
         if h is not None:
             for i in range(self.n_children):
@@ -51,7 +51,7 @@ class TreeLSTM(TreeLSTMBase):
                 U_o_var = getattr(self, self.U_O_H.format(i))
                 U_a_var = getattr(self, self.U_A_H.format(i))
 
-                h_v = variable.Variable(h.data[i].reshape(1, -1))
+                h_v = F.reshape(h[i],(1, -1))
                 a_gate += U_a_var(h_v)
                 i_gate += U_i_var(h_v)
                 o_gate += U_o_var(h_v)
@@ -62,24 +62,23 @@ class TreeLSTM(TreeLSTMBase):
                     f_gates[i] += U_f_var(h_v)
 
         if c is None:
-            c = self.xp.zeros((len(x.data) * self.n_children, self.state_size), dtype=x.data.dtype)
-        else:
-            c = self.xp.concatenate([state.data for state in c])
+            c = variable.Variable(self.xp.zeros((len(x.data) * self.n_children, self.state_size), dtype=x.data.dtype),volatile=x.volatile)
+        # else:
+        #     c = self.xp.concatenate([state for state in c])
 
-        self.i = F.sigmoid(i_gate)
-        self.f = [F.sigmoid(fs) for fs in f_gate]
-        self.o = F.sigmoid(o_gate)
-        self.a = F.tanh(a_gate)
+        i = F.sigmoid(i_gate)
+        f = F.sigmoid(f_gates)
+        o = F.sigmoid(o_gate)
+        a = F.tanh(a_gate)
 
-        c_prev = [(x * y).data for x, y in zip(self.f, c)]
-        c_cur = self.a * self.i + self.xp.sum(c_prev, axis=0)
-        h = self.o * F.tanh(c_cur)
+        c_prev =f*c ##F.concat([x * y for x, y in zip(f, c)],axis=0)
+        c_cur = a * i + F.reshape(F.sum(c_prev, axis=0),(1,-1))
+        h = o * F.tanh(c_cur)
 
         return c_cur, h
 
     def reset_state(self):
         self.c = self.h = None
-
 
 def extract_gates(x):
     r = x.reshape((len(x), x.shape[1] // 4, 4) + x.shape[2:])
@@ -91,8 +90,7 @@ class FastTreeLSTM(link.Chain):
     U_A_H = "U_a_h{0}"
     U_F_H = "U_f{0}_h{1}"
 
-    def __init__(self, children, in_size,out_size, lateral_init=None, upward_init=None, bias_init=0,
-                 forget_bias_init=0, **links):
+    def __init__(self, children, in_size,out_size, lateral_init=None, upward_init=None, bias_init=0,forget_bias_init=0):
         super().__init__()
         self.add_link("upward",linear.Linear(in_size, 4 * out_size, initialW=0),)
         self.state_size = out_size
@@ -107,12 +105,9 @@ class FastTreeLSTM(link.Chain):
         initializers.init_weight(o, bias_init)
 
         for i in range(self.n_children):
-            self.add_link(self.U_I_H.format(i),
-                          linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
-            self.add_link(self.U_O_H.format(i),
-                          linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
-            self.add_link(self.U_A_H.format(i),
-                          linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
+            self.add_link(self.U_I_H.format(i),linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
+            self.add_link(self.U_O_H.format(i),linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
+            self.add_link(self.U_A_H.format(i),linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
 
             for j in range(self.n_children):
                 self.add_link(self.U_F_H.format(i, j),linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
@@ -120,10 +115,10 @@ class FastTreeLSTM(link.Chain):
     def __call__(self, c, h, x):
         a, i, f, o = extract_gates(self.upward(x).data)
 
-        a_gate = variable.Variable(a)
-        i_gate = variable.Variable(i)
-        f_gate = variable.Variable(f)
-        o_gate = variable.Variable(o)
+        a_gate = variable.Variable(a,volatile=x.volatile)
+        i_gate = variable.Variable(i,volatile=x.volatile)
+        f_gate = variable.Variable(f,volatile=x.volatile)
+        o_gate = variable.Variable(o,volatile=x.volatile)
 
         f_gates = [f_gate for i in range(self.n_children)]
 
@@ -134,7 +129,7 @@ class FastTreeLSTM(link.Chain):
                 U_o_var = getattr(self, self.U_O_H.format(i))
                 U_a_var = getattr(self, self.U_A_H.format(i))
 
-                h_v = variable.Variable(h.data[i].reshape(1,-1))
+                h_v = variable.Variable(h.data[i].reshape(1,-1),volatile=h.volatile)
                 a_gate += U_a_var(h_v)
                 i_gate += U_i_var(h_v)
                 o_gate += U_o_var(h_v)

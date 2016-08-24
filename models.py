@@ -6,7 +6,7 @@ from chainer import cuda
 
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.ast_parser import children
-from memory_cell.treelstm import TreeLSTM, FastTreeLSTM
+from memory_cell.treelstm import FastTreeLSTM, TreeLSTM
 
 
 class RecursiveTreeLSTM(chainer.Chain):
@@ -17,7 +17,7 @@ class RecursiveTreeLSTM(chainer.Chain):
         self.n_children = n_children
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("lstm", FastTreeLSTM(self.n_children, n_units, n_units))
+        self.add_link("lstm", TreeLSTM(self.n_children, n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode=False):
@@ -34,15 +34,16 @@ class RecursiveTreeLSTM(chainer.Chain):
         return self.lstm(F.concat(c_list,axis=0), F.concat(h_list,axis=0), x)
 
     def traverse(self, node, train_mode=True):
-        c,h = self.traverse_rec(node, train_mode=train_mode)
+        c,h = self.traverse_rec(node, train_mode= train_mode)
         self.lstm.reset_state()
-        return h
+        return F.dropout(h,train=train_mode)
 
     def traverse_rec(self, node, train_mode=True):
         children_ast = list(children(node))
         if len(children_ast) == 0:
             # leaf node
-            return self.leaf(node, train_mode=train_mode)
+            lf = self.leaf(node, train_mode=train_mode)
+            return lf
         else:
             # internal node
             children_nodes = []
@@ -88,13 +89,7 @@ class RecursiveLSTM(chainer.Chain):
         self.feature_dict = TreeFeatures()
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        #self.add_link("batch1", L.BatchNormalization(n_units))
-        # self.add_link("batch1", L.BatchNormalization(n_units))
-        # self.add_link("batch2", L.BatchNormalization(n_units))
-        # self.add_link("batch3", L.BatchNormalization(n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
-        # self.add_link("lstm2", L.LSTM(n_units, n_units))
-        # self.add_link("lstm3", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode=False):
@@ -106,23 +101,11 @@ class RecursiveLSTM(chainer.Chain):
         return self.embed(w)
 
     def merge(self, x, children, train_mode=False):
-        t = F.concat(tuple([x]+children),axis=0)
-        # c_list,h_list = zip(*children)
-        # h0 = self.lstm1(self.batch1(x))  # self.batch(
-        # h1 = self.lstm2(self.batch2(h0))  # self.batch(
-        # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
-        # h0 = self.lstm1(x)  # self.batch(
-        # for child in children:
-        #     h0 = self.lstm1(child)
-        # x.data = x.data.reshape(1,-1)
-        h = self.lstm1(t)
-        # h1 = F.dropout(self.lstm2(self.batch2(h0)),train=train_mode)  # self.batch(
-        # h2 = F.dropout(self.lstm3(self.batch3(h1)),train=train_mode)  # self.batch(
+        h0 = self.lstm1(x)  # self.batch(
+        for child in children:
+            h0 = self.lstm1(child)
         self.lstm1.reset_state()
-        # self.lstm2.reset_state()
-        # self.lstm3.reset_state()
-        # return F.dropout(variable.Variable(h.data[-1].reshape(1,-1),volatile=h.volatile))
-        return F.reshape(F.dropout(h[-1]),(1,-1))
+        return F.dropout(h0,train=train_mode)
 
     def traverse(self, node, train_mode=True):
         children_ast = list(children(node))
@@ -160,3 +143,4 @@ class RecursiveLSTM(chainer.Chain):
         label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
+

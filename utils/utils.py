@@ -39,9 +39,11 @@ def generate_tree(node, children):
     root = ast.Module()
     root._fields = ("body",)
 
+    ast_nodes = [ast.Add, ast.Assign,ast.And,ast.arguments,ast.AugAssign]
+
     child = node()
     child._fields = ("body",)
-    child.body = [node() for i in range(children)]
+    child.body = [ast_nodes[i]() for i in range(children)]
 
     root.body = [child for i in range(children)]
     return root

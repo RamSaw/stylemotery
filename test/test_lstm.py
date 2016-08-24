@@ -6,6 +6,7 @@ from operator import itemgetter
 
 import numpy as np
 import chainer
+import sys
 from chainer import cuda, Serializer
 from chainer import optimizers
 from sklearn.cross_validation import StratifiedKFold
@@ -21,7 +22,6 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
     progbar = Progbar(len(train_labels))
     batch_loss = 0
     total_loss = []
-    predict = []
     if shuffle:
         indices = np.arange(len(train_labels))
         random.shuffle(indices)
@@ -30,18 +30,16 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
     for idx, tree in enumerate(train_trees):
         root_vec = model.traverse(tree, train_mode=True)
         batch_loss += model.loss(root_vec, train_labels[idx], train_mode=True)
-        predict.extend(model.predict(root_vec, index=True))
         progbar.update(idx + 1, values=[("training loss", batch_loss.data)])
         if (idx + 1) % batch_size == 0:
             model.zerograds()
             batch_loss.backward()
+            make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","treelstm",[batch_loss])
+            exit()
             optimizer.update()
             total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
-    predict = np.array(predict)
-    accuracy = accuracy_score(predict, train_labels)
-    print("\tAccuracy: %0.2f " % (accuracy))
-    return accuracy,np.mean(total_loss)
+    return np.mean(total_loss)
 
 
 def evaluate(model, test_trees, test_labels, batch_size=1):
@@ -57,7 +55,7 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
         batch_loss += m.loss(root_vec, test_labels[idx], train_mode=False)
         progbar.update(idx + 1, values=[("test loss", batch_loss.data)])
         predict.extend(m.predict(root_vec, index=True))
-        # predict_proba.append(m.predict_proba(root_vec))
+        predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
             total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
@@ -65,34 +63,8 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     accuracy = accuracy_score(predict, test_labels)
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
-    # print("\tLoss: %0.2f " % mean_loss)
+    print("\tLoss: %0.2f " % mean_loss)
     return accuracy, mean_loss
-
-
-def split_trees1(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
-    classes_, y = np.unique(tree_labels, return_inverse=False)
-    tree_labels = y
-    indices = np.arange(trees.shape[0])
-    if shuffle:
-        random.shuffle(indices)
-    train_samples = int((1 - validation - test) * indices.shape[0])
-    valid_samples = int(validation * indices.shape[0])
-    test_samples = int(test * indices.shape[0])
-
-    train_indices = indices[:train_samples]
-    train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
-
-    if validation > 0:
-        validate_indices = indices[train_samples:train_samples + valid_samples]
-        validate_trees, validate_lables = trees[validate_indices], tree_labels[validate_indices]
-
-    test_indices = indices[:-test_samples]
-    test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
-
-    if validation > 0:
-        return train_trees, train_lables, validate_trees, validate_lables, test_trees, test_lables, classes_
-    else:
-        return train_trees, train_lables, test_trees, test_lables, classes_
 
 
 def split_trees(trees, tree_labels, n_folds=10, shuffle=True):
@@ -111,77 +83,44 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True):
     return train_trees, train_lables, test_trees, test_lables, classes_
 
 
-def pick_subsets(trees, tree_labels, labels=2):
-    # pick a small subsets of the classes
-    labels_subset = np.arange(len(tree_labels))
-    # random.shuffle(labels_subset)
-    labels_subset = tree_labels[labels_subset][:labels]
-
-    selected_indices = np.where(
-        np.in1d(tree_labels, labels_subset))  # (np.where(tree_labels[tree_labels == i]) for i in labels_subset)
-    trees = trees[selected_indices]
-    tree_labels = tree_labels[selected_indices]
-
-    return trees, tree_labels
-
-
 def main_experiment():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
-    parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
-    parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--folder', '-f', type=str, default="results", help='Base folder for logs and results')
-    parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
-    args = parser.parse_args()
-
-    output_folder = args.folder  #args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
-    exper_name = args.name
-    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
+    output_file = sys.stdout
     output_file.write("Testing overfitting the model on all the datasets\n")
 
-    n_epoch = 500
+    n_epoch = 10
     n_units = 500
-    batch_size = args.batchsize
-    gpu = args.gpu
+    batch_size = 1
 
     base_folder = get_basefolder()
-    trees, tree_labels, lable_problems = parse_src_files(base_folder)
-    if args.classes > -1:
-        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
+    trees, tree_labels, lable_problems = generate_trees(base_folder,labels=2,children=1,examples_per_label=10)
     train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
-                                                                              shuffle=True)
+                                                                              shuffle=False)
 
-    output_file.write("Class ratio %s\n" % list(
-        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
-               reverse=False)))
+    output_file.write("Class ratio %s\n" % list(sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),reverse=False)))
     output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
     output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
 
     model = RecursiveLSTM(n_units, len(classes), classes=classes)
-    output_file.write("Model: {0} \n".format(exper_name))
+    output_file.write("Model: {0} \n".format(type(model).__name__))
     print_model(model, depth=1, output=output_file)
-
-    if gpu >= 0:
-        model.to_gpu()
 
     # Setup optimizer
     optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
-    optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
 
     output_file.write("Evaluation\n")
-    output_file.write("epoch\ttraining loss\ttest loss\ttraining accuracy\ttest accuracy\n")
+    output_file.write("epoch\ttraining loss\ttest loss\ttest accuracy\n")
 
     output_file.flush()
     for epoch in range(1, n_epoch + 1):
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print('Train')
-        training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
+        training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
-        output_file.write("{0}\t{1}\t{2}\t{3}\t{4}\n".format(epoch, training_loss, test_loss,training_accuracy, test_accuracy))
+        output_file.write("{0}\t{1}\t{2}\t{3}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()
 
         if test_loss < 0.0001:

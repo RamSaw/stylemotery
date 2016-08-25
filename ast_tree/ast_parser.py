@@ -8,7 +8,7 @@ import copy
 import numpy as np
 import codegen as cg
 
-from utils.utils import ast_parse_file, get_basefolder, parse_src_files
+from utils.fun_utils import ast_parse_file, get_basefolder, parse_src_files
 
 
 class AstNodes:

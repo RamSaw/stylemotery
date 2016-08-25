@@ -15,7 +15,7 @@ from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from models import RecursiveLSTM, RecursiveTreeLSTM
 from utils.prog_bar import Progbar
-from utils.utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
+from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
@@ -34,8 +34,8 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
         if (idx + 1) % batch_size == 0:
             model.zerograds()
             batch_loss.backward()
-            make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","treelstm",[batch_loss])
-            exit()
+            # make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","treelstm",[batch_loss])
+            # exit()
             optimizer.update()
             total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
@@ -120,7 +120,7 @@ def main_experiment():
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
-        output_file.write("{0}\t{1}\t{2}\t{3}\n".format(epoch, training_loss, test_loss, test_accuracy))
+        output_file.write("{0:10}\t{1:15.10f}\t{2:15.10f}\t{3:15.10f}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()
 
         if test_loss < 0.0001:

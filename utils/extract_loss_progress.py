@@ -22,6 +22,28 @@ def parse_loss_file(filename):
     return loss_history
 
 
+def parse_result_file(filename):
+    loss_history = defaultdict(list)
+    epoch_idx = 0
+    model_name = ""
+    with open(filename) as file:
+        lines = file.readlines()
+        for i,line in enumerate(lines):
+            if line.strip().startswith("Model:"):
+                model_name = line.split(":")[1].strip()
+            if line.strip().startswith("Evaluation"):
+                epoch_idx = i
+                break
+        epoch_idx += 1
+        list_names = lines[epoch_idx].strip().split("\t")
+        for epoch, line in enumerate(lines[epoch_idx+1:]):
+            values = line.strip().split()
+            if len(values) == len(list_names):
+                for i,name in enumerate(list_names):
+                    loss_history[list_names[i]].append(values[i])
+    return {model_name:loss_history}
+
+
 
 
 
@@ -40,11 +62,12 @@ def extract_loss(history):
 
 
 if __name__ == "__main__":
-    filenames = ["2_lstm_500_dropout_batch_alldataset_cliping"]
-    basefolder = R"C:\Users\bms\Desktop\lstm\partialdatasets"
-    for filename in [os.path.join(basefolder,x+".txt") for x in filenames]:
-        history = parse_loss_file(filename)
-        loss = extract_loss(history)
-        with open(os.path.join(basefolder,filename+"_parsed.txt"),mode="+w") as wfile:
-            wfile.write("\t".join(loss))
+    # filenames = ["2_lstm_500_dropout_batch_alldataset_cliping"]
+    # basefolder = R"C:\Users\bms\Desktop\lstm\partialdatasets"
+    # for filename in [os.path.join(basefolder,x+".txt") for x in filenames]:
+    #     history = parse_loss_file(filename)
+    #     loss = extract_loss(history)
+    #     with open(os.path.join(basefolder,filename+"_parsed.txt"),mode="+w") as wfile:
+    #         wfile.write("\t".join(loss))
+    loss = parse_result_file(os.path.join(R"C:\Users\bms\PycharmProjects\stylemotery_code\out","1_lstm_dropout_500_2_labels1_results.txt"))
 

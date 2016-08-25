@@ -12,7 +12,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.preprocessing import normalize
 
 from ast_tree.ast_parser import bfs, children, AstNodes, PythonKeywords, ast_print
-from utils.utils import ast_parse_file
+from utils.fun_utils import ast_parse_file
 
 
 def ast_name(node):

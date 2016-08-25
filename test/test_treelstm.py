@@ -15,7 +15,7 @@ from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from models import RecursiveLSTM, RecursiveTreeLSTM
 from utils.prog_bar import Progbar
-from utils.utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
+from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):

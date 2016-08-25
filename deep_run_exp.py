@@ -14,7 +14,7 @@ from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from models import RecursiveLSTM, RecursiveTreeLSTM
 from utils.prog_bar import Progbar
-from utils.utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
+from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
@@ -114,7 +114,7 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True):
 def pick_subsets(trees, tree_labels, labels=2):
     # pick a small subsets of the classes
     labels_subset = np.arange(len(tree_labels))
-    # random.shuffle(labels_subset)
+    random.shuffle(labels_subset)
     labels_subset = tree_labels[labels_subset][:labels]
 
     selected_indices = np.where(
@@ -124,6 +124,11 @@ def pick_subsets(trees, tree_labels, labels=2):
 
     return trees, tree_labels
 
+def print_table(table):
+    col_width = [max(len(x) for x in col) for col in zip(*table)]
+    for line in table:
+        print("| " + " | ".join("{:{}}".format(x, col_width[i])
+                                for i, x in enumerate(line)) + " |")
 
 def main_experiment():
     parser = argparse.ArgumentParser()
@@ -171,7 +176,8 @@ def main_experiment():
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
 
     output_file.write("Evaluation\n")
-    output_file.write("epoch\ttraining loss\ttest loss\ttraining accuracy\ttest accuracy\n")
+    output_file.write(
+        "{0:<10}\t{1:<15}\t{2:<15}\t{3:<15}\n".format("epoch", "training loss", "test loss", "test accuracy"))
 
     output_file.flush()
     for epoch in range(1, n_epoch + 1):
@@ -181,7 +187,8 @@ def main_experiment():
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
-        output_file.write("{0}\t{1}\t{2}\t{3}\t{4}\n".format(epoch, training_loss, test_loss,training_accuracy, test_accuracy))
+        output_file.write(
+            "{0:<10}\t{1:<15.10f}\t{2:<15.10f}\t{3:<15.10f}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()
 
         if test_loss < 0.0001:

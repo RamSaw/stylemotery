@@ -6,7 +6,7 @@ from chainer import cuda
 
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.ast_parser import children
-from memory_cell.treelstm import FastTreeLSTM, TreeLSTM
+from memory_cell.treelstm import FastTreeLSTM
 
 
 class RecursiveTreeLSTM(chainer.Chain):
@@ -17,7 +17,7 @@ class RecursiveTreeLSTM(chainer.Chain):
         self.n_children = n_children
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
-        self.add_link("lstm", TreeLSTM(self.n_children, n_units, n_units))
+        self.add_link("lstm", FastTreeLSTM(self.n_children, n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode=False):
@@ -35,7 +35,7 @@ class RecursiveTreeLSTM(chainer.Chain):
 
     def traverse(self, node, train_mode=True):
         c,h = self.traverse_rec(node, train_mode= train_mode)
-        self.lstm.reset_state()
+        # self.lstm.reset_state()
         return F.dropout(h,train=train_mode)
 
     def traverse_rec(self, node, train_mode=True):

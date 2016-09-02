@@ -82,6 +82,8 @@ def plot_each(results, base_folder=None):
             plt.show()
         else:
             figure.savefig(os.path.join(base_folder, name), dpi=900)
+        figure.clear()
+        plt.close()
 
 
 if __name__ == "__main__":

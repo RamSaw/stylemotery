@@ -34,8 +34,8 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
         if (idx + 1) % batch_size == 0:
             model.zerograds()
             batch_loss.backward()
-            # make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","treelstm",[batch_loss])
-            # exit()
+            make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","treelstm",[batch_loss])
+            exit()
             optimizer.update()
             total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
@@ -92,7 +92,7 @@ def main_experiment():
     batch_size = 1
 
     base_folder = get_basefolder()
-    trees, tree_labels, lable_problems = generate_trees(base_folder,labels=2,children=1,examples_per_label=10)
+    trees, tree_labels, lable_problems = generate_trees(base_folder,labels=2,children=4,examples_per_label=10)
     train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
                                                                               shuffle=False)
 
@@ -100,7 +100,7 @@ def main_experiment():
     output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
     output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
 
-    model = RecursiveLSTM(n_units, len(classes), classes=classes)
+    model = RecursiveTreeLSTM(4,n_units, len(classes), classes=classes)
     output_file.write("Model: {0} \n".format(type(model).__name__))
     print_model(model, depth=1, output=output_file)
 
@@ -120,7 +120,7 @@ def main_experiment():
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
-        output_file.write("{0:10}\t{1:15.10f}\t{2:15.10f}\t{3:15.10f}\n".format(epoch, training_loss, test_loss, test_accuracy))
+        output_file.write("{0}\t{1}\t{2}\t{3}\n".format(epoch, training_loss, test_loss, test_accuracy))
         output_file.flush()
 
         if test_loss < 0.0001:

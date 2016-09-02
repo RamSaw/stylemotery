@@ -41,7 +41,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
     predict = np.array(predict)
     accuracy = accuracy_score(predict, train_labels)
     print("\tAccuracy: %0.2f " % (accuracy))
-    return accuracy,np.mean(total_loss)
+    return accuracy, np.mean(total_loss)
 
 
 def evaluate(model, test_trees, test_labels, batch_size=1):
@@ -124,22 +124,24 @@ def pick_subsets(trees, tree_labels, labels=2):
 
     return trees, tree_labels
 
+
 def print_table(table):
     col_width = [max(len(x) for x in col) for col in zip(*table)]
     for line in table:
         print("| " + " | ".join("{:{}}".format(x, col_width[i])
                                 for i, x in enumerate(line)) + " |")
 
+
 def main_experiment():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--folder', '-f', type=str, default="results", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     args = parser.parse_args()
 
-    output_folder = args.folder  #args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = R"C:\Users\bms\PycharmProjects\stylemotery_code"  # args.folder  # args.folder  #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
@@ -162,7 +164,7 @@ def main_experiment():
     output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
     output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
 
-    model = RecursiveLSTM(n_units, len(classes), classes=classes)
+    model = RecursiveTreeLSTM(5,n_units, len(classes), classes=classes)
     output_file.write("Model: {0} \n".format(exper_name))
     print_model(model, depth=1, output=output_file)
 
@@ -174,10 +176,13 @@ def main_experiment():
     output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
+    # optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
+
 
     output_file.write("Evaluation\n")
     output_file.write(
-        "{0:<10}\t{1:<15}\t{2:<15}\t{3:<15}\n".format("epoch", "training loss", "test loss", "test accuracy"))
+        "{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss",
+                                                       "train_accuracy", "test_accuracy"))
 
     output_file.flush()
     for epoch in range(1, n_epoch + 1):
@@ -188,7 +193,8 @@ def main_experiment():
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
         output_file.write(
-            "{0:<10}\t{1:<15.10f}\t{2:<15.10f}\t{3:<15.10f}\n".format(epoch, training_loss, test_loss, test_accuracy))
+            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}\n".format(epoch, training_loss, test_loss,
+                                                                           training_accuracy, test_accuracy))
         output_file.flush()
 
         if test_loss < 0.0001:

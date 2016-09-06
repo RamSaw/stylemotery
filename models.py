@@ -108,7 +108,7 @@ class RecursiveLSTM(chainer.Chain):
         self.lstm1.reset_state()
         self.lstm2.reset_state()
         return F.dropout(h0,train=train_mode)
-        #return h0
+        return h0
         #h0 = self.lstm1(x)  # self.batch(
         #for child in children:
         #    h0 = self.lstm1(child)

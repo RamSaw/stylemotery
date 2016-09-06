@@ -171,7 +171,7 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.AdaGrad(lr=0.01)#AdaDelta(rho=0.95, eps=1e-06)#MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
@@ -179,7 +179,7 @@ def main_experiment():
 
     output_file.write("Evaluation\n")
     output_file.write(
-        "{0:<10}\t{1:<15}\t{2:<15}\t{3:<15}\n".format("epoch", "training loss", "test loss", "test accuracy"))
+        "{0:<10}\t{1:<15}\t{2:<15}\t{3:<15}\t{4:<15}\n".format("epoch", "training loss", "test loss","training accuracy","test accuracy"))
 
     output_file.flush()
     for epoch in range(1, n_epoch + 1):
@@ -190,7 +190,7 @@ def main_experiment():
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
         output_file.write(
-            "{0:<10}\t{1:<15.10f}\t{2:<15.10f}\t{3:<15.10f}\n".format(epoch, training_loss, test_loss, test_accuracy))
+            "{0:<10}\t{1:<15.10f}\t{2:<15.10f}\t{3:<15.10f}\t{4:<15.10f}\n".format(epoch, training_loss, test_loss,training_accuracy,test_accuracy))
         output_file.flush()
 
         if test_loss < 0.0001:

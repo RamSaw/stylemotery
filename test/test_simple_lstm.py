@@ -1,6 +1,8 @@
 import chainer
 import numpy
 from chainer import functions
+from chainer import links as L
+from memory_cell.simple_lstm import StatelessLSTM
 
 
 def _sigmoid(x):
@@ -9,22 +11,31 @@ def _sigmoid(x):
 class TestLSTM():
 
     def setUp(self):
-        hidden_shape = (3, 2, 4)
-        x_shape = (self.batch, 8, 4)
-        y_shape = (self.batch, 2, 4)
-        self.c_prev = numpy.random.uniform(-1, 1, hidden_shape).astype(self.dtype)
+        in_u = 2
+        out_u = 4
+
+        hidden_shape = (self.batch, out_u, out_u)
+        state_shape = (self.batch, in_u, out_u)
+
+        x_shape = (self.batch, in_u)
+
+        self.c_prev = numpy.random.uniform(-1, 1, state_shape).astype(self.dtype)
+        self.h = numpy.random.uniform(-1, 1, hidden_shape).astype(self.dtype)
         self.x = numpy.random.uniform(-1, 1, x_shape).astype(self.dtype)
+
+        self.model = L.StatelessLSTM(2,4)
 
 
     def flat(self):
         self.c_prev = self.c_prev[:, :, 0].copy()
         self.x = self.x[:, :, 0].copy()
+        self.h = self.h[:, :, 0].copy()
 
-    def check_forward(self, c_prev_data, x_data):
+    def check_forward(self, c_prev_data,h_data, x_data):
         c_prev = chainer.Variable(c_prev_data)
         x = chainer.Variable(x_data)
 
-        c, h = functions.lstm(c_prev, x)
+        c, h = self.model(c_prev,h_data, x)#self.model(c_prev,h_data, x)
         batch = len(x_data)
 
         # Compute expected out
@@ -42,7 +53,7 @@ class TestLSTM():
         print("prev state = ",numpy.allclose(c_prev_data[batch:], c.data[batch:]))
 
     def test_forward_cpu(self):
-        self.check_forward(self.c_prev, self.x)
+        self.check_forward(self.c_prev,self.h, self.x)
 
     def test_flat_forward_cpu(self):
         self.flat()

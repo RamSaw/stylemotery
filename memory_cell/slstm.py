@@ -81,16 +81,27 @@ class FastTreeLSTM(link.Chain):
         return c_cur, h
 
     def func(self,c, h):
-        F.slstm
+        # self.a1 = numpy.tanh(a1)
+        # self.i1 = _sigmoid(i1)
+        # self.f1 = _sigmoid(f1)
+        #
+        # self.a2 = numpy.tanh(a2)
+        # self.i2 = _sigmoid(i2)
+        # self.f2 = _sigmoid(f2)
+        #
+        # self.o = _sigmoid(o1 + o2)
+        # self.c = self.a1 * self.i1 + self.a2 * self.i2 + \
+        #          self.f1 * c_prev1 + self.f2 * c_prev2
+        #
+        # h = self.o * numpy.tanh(self.c)
         a1, i1, f1, o1 = chainer_extract_gates(h)
         a2, i2, f2, o2 = chainer_extract_gates(h)
 
-        self.o = F.Sigmoid(o1 + o2)
-        self.c = F.Tanh(a1) * F.Sigmoid(i1) + \
-                 F.Tanh(a2) * F.Sigmoid(i2) + \
-                 F.Sigmoid(f1) * c_prev1 + \
-                 F.Sigmoid(f2) * c_prev2
 
+        self.c = F.Tanh(a1) * F.Sigmoid(i1) + F.Sigmoid(f1) * c_prev1 + \
+                 F.Tanh(a2) * F.Sigmoid(i2) + F.Sigmoid(f2) * c_prev2
+
+        self.o = F.Sigmoid(o1 + o2)
         h = self.o * numpy.tanh(self.c)
 
 

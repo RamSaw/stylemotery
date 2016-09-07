@@ -134,17 +134,19 @@ def print_table(table):
 
 def main_experiment():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--folder', '-f', type=str, default="results", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
-    args = parser.parse_args()
+    parser.add_argument('--units', '-u', type=int, default=500, help='Number of hidden units')
 
+    args = parser.parse_args()
     output_folder = args.folder  #args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
+    output_file.write("Args = "+str(args) + "\n")
 
     n_epoch = 500
     n_units = args.units

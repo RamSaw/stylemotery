@@ -90,22 +90,30 @@ class RecursiveLSTM(chainer.Chain):
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
+        self.add_link("lstm2", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
-    def leaf(self, x, train_mode=False):
+    def leaf(self, x, train_mode=True):
         return self.embed_vec(x, train_mode)
 
-    def embed_vec(self, x, train_mode=False):
+    def embed_vec(self, x, train_mode=True):
         word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
-    def merge(self, x, children, train_mode=False):
-        h0 = self.lstm1(x)  # self.batch(
+    def merge(self, x, children, train_mode=True):
+        h0 = self.lstm2(F.dropout(self.lstm1(x),train=train_mode))  # self.batch(
         for child in children:
-            h0 = self.lstm1(child)
+            h0 = self.lstm2(F.dropout(self.lstm1(child),train=train_mode))
         self.lstm1.reset_state()
+        self.lstm2.reset_state()
         return F.dropout(h0,train=train_mode)
+        #return h0
+        #h0 = self.lstm1(x)  # self.batch(
+        #for child in children:
+        #    h0 = self.lstm1(child)
+        #self.lstm1.reset_state()
+        #return F.dropout(h0,train=train_mode)
 
     def traverse(self, node, train_mode=True):
         children_ast = list(children(node))
@@ -138,7 +146,7 @@ class RecursiveLSTM(chainer.Chain):
         X_prob = F.softmax(t)
         return cuda.to_cpu(X_prob.data)[0]
 
-    def loss(self, x, y, train_mode=False):
+    def loss(self, x, y, train_mode=True):
         w = self.label(x)
         label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)

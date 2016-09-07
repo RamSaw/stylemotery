@@ -61,9 +61,9 @@ if __name__ == "__main__":
     X, y, tags = parse_src_files(basefolder)
     depths = [max_depth(x) for x in X]
     branches = [max_branch(x) for x in X]
-    plot_dists("Single Tree",depths,branches)
+    plot_dists("Single Tree",depths,branches,100)
 
-    X,y,tags = split_trees2(X,y,tags)
-    depths = np.array([max_depth(x) for x in X])
-    branches = [max_branch(x) for x in X]
-    plot_dists("Multiple Trees", depths, branches)
+    # X,y,tags = split_trees2(X,y,tags)
+    # depths = np.array([max_depth(x) for x in X])
+    # branches = [max_branch(x) for x in X]
+    # plot_dists("Multiple Trees", depths, branches)

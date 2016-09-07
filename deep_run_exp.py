@@ -141,13 +141,13 @@ def main_experiment():
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     args = parser.parse_args()
 
-    output_folder = R"C:\Users\bms\PycharmProjects\stylemotery_code"  # args.folder  # args.folder  #
+    output_folder = args.folder  #args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
 
     n_epoch = 500
-    n_units = 500
+    n_units = args.units
     batch_size = args.batchsize
     gpu = args.gpu
 
@@ -164,7 +164,7 @@ def main_experiment():
     output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
     output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
 
-    model = RecursiveTreeLSTM(5,n_units, len(classes), classes=classes)
+    model = RecursiveLSTM(n_units, len(classes), classes=classes)
     output_file.write("Model: {0} \n".format(exper_name))
     print_model(model, depth=1, output=output_file)
 

@@ -142,11 +142,11 @@ def main_experiment():
     parser.add_argument('--units', '-u', type=int, default=500, help='Number of hidden units')
 
     args = parser.parse_args()
-    output_folder = args.folder  #args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = args.folder  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing overfitting the model on all the datasets\n")
-    output_file.write("Args = "+str(args) + "\n")
+    output_file.write("Args = " + str(args) + "\n")
 
     n_epoch = 500
     n_units = args.units
@@ -175,11 +175,12 @@ def main_experiment():
 
     # Setup optimizer
     optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
-    output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
+    output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
-    # optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
-
+    optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
+    hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
+    output_file.write(" {0} \n".format(hooks))
 
     output_file.write("Evaluation\n")
     output_file.write(

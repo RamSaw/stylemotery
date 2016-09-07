@@ -177,8 +177,8 @@ def main_experiment():
     optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} \n".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
-    optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
-    # optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
+    optimizer.add_hook(chainer.optimizer.WeightDecay(0.01))
+    optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
 
 
     output_file.write("Evaluation\n")

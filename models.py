@@ -152,3 +152,21 @@ class RecursiveLSTM(chainer.Chain):
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
+
+class RecursiveBiLSTM(RecursiveLSTM):
+    def __init__(self, n_units, n_label, classes=None):
+        super(RecursiveBiLSTM, self).__init__(n_units, n_label, classes=None)
+
+    def merge(self, x, children, train_mode=True):
+        # forward
+        h0 = self.lstm1(x)  # self.batch(
+        for child in children:
+           h0 = self.lstm1(child)
+        self.lstm1.reset_state()
+
+        # backword
+        for child in reversed(children):
+           h1 = self.lstm2(child)
+        self.lstm2.reset_state()
+        h1 = self.lstm2(x)
+        return F.dropout(h0+h1,train=train_mode)

@@ -12,7 +12,7 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
-from models import RecursiveLSTM, RecursiveTreeLSTM
+from models import RecursiveLSTM, RecursiveTreeLSTM, RecursiveBiLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 
@@ -134,7 +134,7 @@ def print_table(table):
 
 def main_experiment():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--folder', '-f', type=str, default="results", help='Base folder for logs and results')
@@ -166,7 +166,7 @@ def main_experiment():
     output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
     output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
 
-    model = RecursiveLSTM(n_units, len(classes), classes=classes)
+    model = RecursiveBiLSTM(n_units, len(classes), classes=classes)
     output_file.write("Model: {0} \n".format(exper_name))
     print_model(model, depth=1, output=output_file)
 
@@ -200,7 +200,7 @@ def main_experiment():
                                                                            training_accuracy, test_accuracy))
         output_file.flush()
 
-        if test_loss < 0.0001:
+        if test_loss < 0.001:
             output_file.write("Early Stopping\n")
             print("Early Stopping")
             break

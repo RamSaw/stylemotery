@@ -177,16 +177,10 @@ def main_experiment():
     optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
-<<<<<<< HEAD
-    optimizer.add_hook(chainer.optimizer.WeightDecay(0.01))
-    optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
-
-=======
-    optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
+    optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
     optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
     hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
     output_file.write(" {0} \n".format(hooks))
->>>>>>> a1212864f0fc82b7b10fced36f145584eb3da192
 
     output_file.write("Evaluation\n")
     output_file.write(

@@ -190,6 +190,7 @@ def main_experiment():
     output_file.flush()
     for epoch in range(1, n_epoch + 1):
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
+        print("optimizer lr = ",optimizer.lr)
         print('Train')
         training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('Test')
@@ -204,6 +205,10 @@ def main_experiment():
             output_file.write("Early Stopping\n")
             print("Early Stopping")
             break
+
+        # if epoch is 3:
+        #     lr = optimizer.lr
+        #     setattr(optimizer, 'lr', lr / 10)
 
     output_file.close()
 

@@ -36,6 +36,8 @@ def parse_result_file(filename):
                 break
         epoch_idx += 1
         list_names = [name.strip() for name in lines[epoch_idx].strip().split("\t")]
+        if len(list_names) < 2:
+            list_names = [name.strip() for name in lines[epoch_idx].strip().split()]
         for epoch, line in enumerate(lines[epoch_idx+1:]):
             values = line.strip().split()
             if len(values) == len(list_names):

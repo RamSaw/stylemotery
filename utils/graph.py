@@ -62,7 +62,7 @@ def plot_each(results, base_folder=None):
         figure, (ax1, ax2) = plt.subplots(ncols=2, nrows=1, figsize=(8, 6), dpi=100)
         figure.suptitle(name + " train and test (loss & accuracy)", fontsize=14)
         # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
-        ax1.plot(results[name]["training loss"], train_color + train_style, label="%s (Train Loss)" % name)
+        ax1.plot(results[name]["train loss"], train_color + train_style, label="%s (Train Loss)" % name)
         ax1.plot(results[name]["test loss"], test_color + test_style, label="%s (Test Loss)" % name)
         ax1.legend(loc='upper right',prop={'size':6})
         # ax1.set_title("Loss Ratio")
@@ -70,13 +70,16 @@ def plot_each(results, base_folder=None):
         ax1.set_xlabel("Epochs")
         ax1.grid(True)
 
-        ax2.plot(results[name]["training accuracy"], train_color + train_style, label="%s (Train Accuracy)" % name)
+        if "train accuracy" in results[name]:
+            ax2.plot(results[name]["train accuracy"], train_color + train_style, label="%s (Train Accuracy)" % name)
         ax2.plot(results[name]["test accuracy"], test_color + test_style, label="%s (Test Accuracy)" % name)
         ax2.legend(loc='lower right',prop={'size':6})
         # ax2.set_title("Accuracy curves")
         ax2.set_ylabel("Accuracy")
         ax2.set_xlabel("Epochs")
         ax2.grid(True)
+
+        ax2.set_ylim([0.0, 1.05])
 
         if not base_folder:
             plt.show()

@@ -1,12 +1,15 @@
 import time
 from operator import itemgetter
-
+from keras.layers.core import *
+from keras.models import Sequential
 import sklearn
 import sklearn.ensemble
 import sklearn.metrics
+from keras.layers import LSTM, TimeDistributed
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.pipeline import make_pipeline
 from lime.lime_text import LimeTextExplainer
+
 
 
 def interpret_data(X, y, func, class_names):
@@ -25,6 +28,7 @@ def interpret_data(X, y, func, class_names):
 
     return times, scores
 
+    return  model
 if __name__ == '__main__':
     categories = ['alt.atheism', 'soc.religion.christian']
     newsgroups_train = fetch_20newsgroups(subset='train', categories=categories)

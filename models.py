@@ -156,6 +156,7 @@ class RecursiveLSTM(chainer.Chain):
 class RecursiveBiLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label, classes=None):
         super(RecursiveBiLSTM, self).__init__(n_units, n_label, classes=classes)
+        self.add_link("w_v", L.Linear(2*n_units, n_units))
 
     def merge(self, x, children, train_mode=True):
         # forward
@@ -169,4 +170,4 @@ class RecursiveBiLSTM(RecursiveLSTM):
            h1 = self.lstm2(child)
         h1 = self.lstm2(x)
         self.lstm2.reset_state()
-        return F.dropout(h0+h1,train=train_mode)
+        return self.w_v(F.dropout(F.concat((h0,h1),axis=1),train=train_mode))

@@ -114,33 +114,17 @@ class RecursiveLSTM(chainer.Chain):
 
 
     def merge(self, x, children, train_mode=True):
-<<<<<<< HEAD
-        #h0 = self.lstm2(F.dropout(self.lstm1(x),train=train_mode))  # self.batch(
-=======
-        h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
-        for child in children:
-            h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
-        self.lstm1.reset_state()
-        self.lstm2.reset_state()
-        return F.dropout(h0,train=train_mode)
-        #return h0
-        #h0 = self.lstm1(x)  # self.batch(
->>>>>>> 7b5b4302ea8caa46d4daac0d6d40e148bac1899d
+        #h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
         #for child in children:
-        #    h0 = self.lstm2(F.dropout(self.lstm1(child),train=train_mode))
+        #    h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
         #self.lstm1.reset_state()
-<<<<<<< HEAD
         #self.lstm2.reset_state()
         #return F.dropout(h0,train=train_mode)
-        #return h0
         h0 = self.lstm1(x)  # self.batch(
         for child in children:
             h0 = self.lstm1(child)
         self.lstm1.reset_state()
         return F.dropout(h0,ratio=0.5,train=train_mode)
-=======
-        #return F.dropout(h0,ratio=self.dropout,train=train_mode)
->>>>>>> 7b5b4302ea8caa46d4daac0d6d40e148bac1899d
 
     def traverse(self, node, train_mode=True):
         children_ast = list(children(node))

@@ -12,10 +12,11 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
+from chainer import serializers
 from models import RecursiveLSTM, RecursiveTreeLSTM, RecursiveBiLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
-
+import heapq
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
     progbar = Progbar(len(train_labels))
@@ -69,7 +70,7 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     return accuracy, mean_loss
 
 
-def split_trees1(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
+def validation_split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
     classes_, y = np.unique(tree_labels, return_inverse=False)
     tree_labels = y
     indices = np.arange(trees.shape[0])
@@ -108,17 +109,16 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True):
     train_indices, test_indices = next(cv.__iter__())
     train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
     test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
-    return train_trees, train_lables, test_trees, test_lables, classes_
+    return train_trees, train_lables, test_trees, test_lables, classes_,cv
 
 
 def pick_subsets(trees, tree_labels, labels=2):
     # pick a small subsets of the classes
-    labels_subset = np.arange(len(tree_labels))
+    labels_subset = np.unique(tree_labels)
     random.shuffle(labels_subset)
-    labels_subset = tree_labels[labels_subset][:labels]
+    labels_subset = labels_subset[:labels]
 
-    selected_indices = np.where(
-        np.in1d(tree_labels, labels_subset))  # (np.where(tree_labels[tree_labels == i]) for i in labels_subset)
+    selected_indices = np.where(np.in1d(tree_labels, labels_subset))
     trees = trees[selected_indices]
     tree_labels = tree_labels[selected_indices]
 
@@ -134,40 +134,44 @@ def print_table(table):
 
 def main_experiment():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
+    parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
-    parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--folder', '-f', type=str, default="results", help='Base folder for logs and results')
+    parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
-    parser.add_argument('--units', '-u', type=int, default=500, help='Number of hidden units')
-
+    parser.add_argument('--units', '-u', type=int, default=1000, help='Number of hidden units')
+    parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
     args = parser.parse_args()
-    output_folder = args.folder  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
-    exper_name = args.name
-    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
-    output_file.write("Testing overfitting the model on all the datasets\n")
-    output_file.write("Args = " + str(args) + "\n")
 
     n_epoch = 500
     n_units = args.units
     batch_size = args.batchsize
     gpu = args.gpu
+    models_base_folder = "saved_models"
+    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    exper_name = args.name
+    dataset_folder = args.dataset
 
-    base_folder = get_basefolder()
-    trees, tree_labels, lable_problems = parse_src_files(base_folder)
+    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
+    output_file.write("Testing the model on all the datasets\n")
+    output_file.write("Args = " + str(args) + "\n")
+
+    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
     if args.classes > -1:
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
-    train_trees, train_lables, test_trees, test_lables, classes = split_trees(trees, tree_labels, n_folds=5,
-                                                                              shuffle=True)
+    train_trees, train_lables, test_trees, test_lables, classes,cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True)
 
-    output_file.write("Class ratio %s\n" % list(
-        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
-               reverse=False)))
-    output_file.write("Train labels :(%s,%s%%)\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100))
-    output_file.write("Test  labels :(%s,%s%%)\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100))
+    output_file.write("Classes : (%s)\n" % [(idx,c) for idx,c in enumerate(classes)])
+    output_file.write("Class ratio : %s\n" % list(sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),reverse=False)))
+    output_file.write("Cross Validation :%s\n" % cv)
+    output_file.write("Train labels :(%s,%s%%): %s\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100,train_lables))
+    output_file.write("Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100 , test_lables))
 
-    model = RecursiveBiLSTM(n_units, len(classes), classes=classes)
-    output_file.write("Model: {0} \n".format(exper_name))
+    model = RecursiveLSTM(n_units, len(classes), classes=classes)
+    output_file.write("Model:  {0}\n".format(exper_name))
+    output_file.write("Params: {:,} \n".format(model.params_count()))
+    output_file.write("        {0} \n".format(type(model).__name__))
     print_model(model, depth=1, output=output_file)
 
     if gpu >= 0:
@@ -177,7 +181,7 @@ def main_experiment():
     optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
-    optimizer.add_hook(chainer.optimizer.WeightDecay(0.0001))
+    optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
     optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
     hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
     output_file.write(" {0} \n".format(hooks))
@@ -188,27 +192,48 @@ def main_experiment():
                                                        "train_accuracy", "test_accuracy"))
 
     output_file.flush()
+
+
+    best_scores= (-1,-1,-1) # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
-        print("optimizer lr = ",optimizer.lr)
+        print("optimizer lr = ", optimizer.lr)
         print('Train')
         training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
+
+        # save the best models
+        saved = False
+        if args.save > 0 and epoch > 0:
+            epoch_,loss_,acc_ = best_scores
+            # save the model with best accuracy or same accuracy and less loss
+            if test_accuracy > acc_ or (test_accuracy >= acc_ and loss_ <= test_loss):
+                model_name = "{0}_epoch_{1}.my".format(exper_name,epoch_)
+                path = os.path.join(models_base_folder,model_name)
+                if os.path.exists(path):
+                    os.remove(path)
+                model_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
+                path = os.path.join(models_base_folder, model_name)
+                best_scores = (epoch,test_loss,test_accuracy)
+                serializers.save_npz(path,model)
+                saved = True
+                print("saving ... ")
+
         output_file.write(
-            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}\n".format(epoch, training_loss, test_loss,
-                                                                           training_accuracy, test_accuracy))
+            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}{5:<10}\n".format(epoch, training_loss, test_loss,
+                                                                           training_accuracy, test_accuracy,"saved" if saved else ""))
         output_file.flush()
 
-        if test_loss < 0.001:
-            output_file.write("Early Stopping\n")
-            print("Early Stopping")
+        if epoch > 10 and (test_loss < 0.001 or test_accuracy >= 1.0):
+            output_file.write("\tEarly Stopping\n")
+            print("\tEarly Stopping")
             break
 
-        # if epoch is 3:
-        #     lr = optimizer.lr
-        #     setattr(optimizer, 'lr', lr / 10)
+            # if epoch is 3:
+            #     lr = optimizer.lr
+            #     setattr(optimizer, 'lr', lr / 10)
 
     output_file.close()
 

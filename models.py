@@ -90,7 +90,7 @@ class RecursiveLSTM(chainer.Chain):
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
-        self.add_link("lstm2", L.LSTM(n_units, n_units))
+        #self.add_link("lstm2", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode=True):
@@ -102,18 +102,18 @@ class RecursiveLSTM(chainer.Chain):
         return self.embed(w)
 
     def merge(self, x, children, train_mode=True):
-        h0 = self.lstm2(F.dropout(self.lstm1(x),train=train_mode))  # self.batch(
-        for child in children:
-            h0 = self.lstm2(F.dropout(self.lstm1(child),train=train_mode))
-        self.lstm1.reset_state()
-        self.lstm2.reset_state()
-        return F.dropout(h0,train=train_mode)
-        #return h0
-        #h0 = self.lstm1(x)  # self.batch(
+        #h0 = self.lstm2(F.dropout(self.lstm1(x),train=train_mode))  # self.batch(
         #for child in children:
-        #    h0 = self.lstm1(child)
+        #    h0 = self.lstm2(F.dropout(self.lstm1(child),train=train_mode))
         #self.lstm1.reset_state()
+        #self.lstm2.reset_state()
         #return F.dropout(h0,train=train_mode)
+        #return h0
+        h0 = self.lstm1(x)  # self.batch(
+        for child in children:
+            h0 = self.lstm1(child)
+        self.lstm1.reset_state()
+        return F.dropout(h0,ratio=0.5,train=train_mode)
 
     def traverse(self, node, train_mode=True):
         children_ast = list(children(node))

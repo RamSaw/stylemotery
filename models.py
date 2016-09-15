@@ -163,6 +163,26 @@ class RecursiveLSTM(chainer.Chain):
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
+class RecursiveHighWayLSTM(RecursiveLSTM):
+    def __init__(self, n_units, n_label,dropout=0.5, classes=None):
+        super(RecursiveHighWayLSTM, self).__init__(n_units, n_label, classes=classes)
+        self.dropout = dropout
+        self.add_link("w_v", L.Linear(2*n_units, n_units))
+
+    def merge(self, x, children, train_mode=True):
+        #h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
+        #for child in children:
+        #    h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
+        #self.lstm1.reset_state()
+        #self.lstm2.reset_state()
+        #return F.dropout(h0,train=train_mode)
+        h0 = self.lstm1(x)  # self.batch(
+        for child in children:
+            h0 = self.lstm1(child)
+        self.lstm1.reset_state()
+        con_vec = self.w_v(F.concat((F.dropout(h0,ratio=0.5,train=train_mode),x),axis=0))
+        return con_vec
+
 
 class RecursiveBiLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label,dropout=0.5, classes=None):

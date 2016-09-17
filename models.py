@@ -32,16 +32,16 @@ class RecursiveTreeLSTM(chainer.Chain):
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 
-    def merge(self, x, children,train_mode=True):
+    def merge(self, x, children,train_mode):
         c_list, h_list = zip(*children)
         return self.lstm(F.concat(c_list,axis=0), F.concat(h_list,axis=0), x)
 
-    def traverse(self, node, train_mode=True):
+    def traverse(self, node, train_mode):
         c,h = self.traverse_rec(node, train_mode= train_mode)
         # self.lstm.reset_state()
         return F.dropout(h,train=train_mode)
 
-    def traverse_rec(self, node, train_mode=True):
+    def traverse_rec(self, node, train_mode):
         children_ast = list(children(node))
         if len(children_ast) == 0:
             # leaf node
@@ -97,10 +97,10 @@ class RecursiveLSTM(chainer.Chain):
         #self.add_link("lstm2", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
-    def leaf(self, x, train_mode=True):
+    def leaf(self, x, train_mode):
         return self.embed_vec(x, train_mode)
 
-    def embed_vec(self, x, train_mode=True):
+    def embed_vec(self, x, train_mode):
         word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
@@ -113,7 +113,7 @@ class RecursiveLSTM(chainer.Chain):
         return count
 
 
-    def merge(self, x, children, train_mode=True):
+    def merge(self, x, children, train_mode):
         #h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
         #for child in children:
         #    h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
@@ -126,7 +126,7 @@ class RecursiveLSTM(chainer.Chain):
         self.lstm1.reset_state()
         return F.dropout(h0,ratio=0.5,train=train_mode)
 
-    def traverse(self, node, train_mode=True):
+    def traverse(self, node, train_mode):
         children_ast = list(children(node))
         if len(children_ast) == 0:
             # leaf node
@@ -157,7 +157,7 @@ class RecursiveLSTM(chainer.Chain):
         X_prob = F.softmax(t)
         return cuda.to_cpu(X_prob.data)[0]
 
-    def loss(self, x, y, train_mode=True):
+    def loss(self, x, y, train_mode):
         w = self.label(x)
         label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
@@ -180,7 +180,7 @@ class RecursiveHighWayLSTM(RecursiveLSTM):
         for child in children:
             h0 = self.lstm1(child)
         self.lstm1.reset_state()
-        con_vec = self.w_v(F.concat((F.dropout(h0,ratio=0.5,train=train_mode),x),axis=0))
+        con_vec = self.w_v(F.concat((F.dropout(h0,ratio=0.5,train=train_mode),x),axis=1))
         return con_vec
 
 

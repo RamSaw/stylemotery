@@ -6,7 +6,7 @@ import numpy as np
 
 def get_basefolder():
     if platform.system().startswith("Linux"):
-        return R"/home/bms/projects/stylometory/stylemotery/dataset700"
+        return R"dataset700"
     elif platform.system().startswith("Win"):
         return R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
 

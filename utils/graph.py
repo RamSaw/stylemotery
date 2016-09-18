@@ -51,18 +51,31 @@ def plot_all(results, base_folder=None):
         # os.remove(os.path.join(base_folder,"plot_all"))
         figure.savefig(os.path.join(base_folder, "plot_all"), dpi=900)
 
+def avg_line(x_values, y_values):
+    result_y, last_ys = [], []
+    running_sum = 0
+    # period = self.averages_period
+    # use a running sum here instead of avg(), should be slightly faster
+    for y_val in y_values:
+        last_ys.append(y_val)
+        running_sum += y_val
+        # if len(last_ys) > period:
+        poped_y = last_ys.pop(0)
+        running_sum -= poped_y
+        result_y.append(float(running_sum) / float(len(last_ys)))
+    return (x_values, result_y)
 
 def plot_each(results, base_folder=None):
     styles = ('-', '--', '-.', ':')
     train_color = 'b'
     test_color = 'r'
     train_style = '-'
-    test_style = '--'
+    test_style = '-'
     for name in results:
         figure, (ax1, ax2) = plt.subplots(ncols=2, nrows=1, figsize=(8, 6), dpi=100)
         figure.suptitle(name + " train and test (loss & accuracy)", fontsize=14)
         # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
-        ax1.plot(results[name]["training loss"], train_color + train_style, label="%s (Train Loss)" % name)
+        ax1.plot(results[name]["train loss"], train_color + train_style, label="%s (Train Loss)" % name)
         ax1.plot(results[name]["test loss"], test_color + test_style, label="%s (Test Loss)" % name)
         ax1.legend(loc='upper right',prop={'size':6})
         # ax1.set_title("Loss Ratio")
@@ -70,13 +83,16 @@ def plot_each(results, base_folder=None):
         ax1.set_xlabel("Epochs")
         ax1.grid(True)
 
-        ax2.plot(results[name]["training accuracy"], train_color + train_style, label="%s (Train Accuracy)" % name)
+        # if "train accuracy" in results[name]:
+        ax2.plot(results[name]["train accuracy"], train_color + train_style, label="%s (Train Accuracy)" % name)
         ax2.plot(results[name]["test accuracy"], test_color + test_style, label="%s (Test Accuracy)" % name)
         ax2.legend(loc='lower right',prop={'size':6})
         # ax2.set_title("Accuracy curves")
         ax2.set_ylabel("Accuracy")
         ax2.set_xlabel("Epochs")
         ax2.grid(True)
+
+        ax2.set_ylim([0.0, 1.05])
 
         if not base_folder:
             plt.show()

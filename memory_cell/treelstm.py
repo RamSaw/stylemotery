@@ -45,8 +45,7 @@ class FastTreeLSTM(link.Chain):
             self.add_link(self.U_A_H.format(i), L.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
 
             for j in range(self.n_children):
-                self.add_link(self.U_F_H.format(i, j),
-                              L.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
+                self.add_link(self.U_F_H.format(i, j), L.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
 
     def __call__(self, c, h, x):
         tree_in = self.upward(x)
@@ -82,6 +81,7 @@ class FastTreeLSTM(link.Chain):
 
         return c_cur, h
 
+
 class FasterTreeLSTM(link.Chain):
     def __init__(self, children, in_size, out_size,
                  lateral_init=None, upward_init=None,
@@ -89,7 +89,7 @@ class FasterTreeLSTM(link.Chain):
         super(FasterTreeLSTM, self).__init__(
             upward=L.Linear(in_size, 4 * out_size, initialW=0),
             lateral=L.Linear(children * out_size, 3 * children * out_size, initialW=0, nobias=True),
-            forget=L.Linear(children * out_size, children  * children * out_size, initialW=0, nobias=True)
+            forget=L.Linear(children * out_size, children * children * out_size, initialW=0, nobias=True)
         )
         self.state_size = out_size
         self.n_children = children
@@ -142,8 +142,8 @@ class FasterTreeLSTM(link.Chain):
 
 if __name__ == "__main__":
     fast = FasterTreeLSTM(2, 300, 300, lateral_init=2, upward_init=2)
-    c_prev1 = chainer.Variable(numpy.random.uniform(-1,1, (3, 2, 4)).astype(numpy.float32))
-    c_prev2 = chainer.Variable(numpy.random.uniform(-1,1, (3, 2, 4)).astype(numpy.float32))
+    c_prev1 = chainer.Variable(numpy.random.uniform(-1, 1, (3, 2, 4)).astype(numpy.float32))
+    c_prev2 = chainer.Variable(numpy.random.uniform(-1, 1, (3, 2, 4)).astype(numpy.float32))
     x1 = chainer.Variable(numpy.random.uniform(-1, 1, (3, 8, 4)).astype(numpy.float32))
     x2 = chainer.Variable(numpy.random.uniform(-1, 1, (3, 8, 4)).astype(numpy.float32))
 

@@ -14,7 +14,8 @@ from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models import RecursiveHighWayLSTM,RecursiveLSTM, RecursiveTreeLSTM, RecursiveBiLSTM
+from models.lstm_models import RecursiveHighWayLSTM,RecursiveLSTM, RecursiveBiLSTM
+from models.tree_models import RecursiveTreeLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 import heapq
@@ -139,10 +140,14 @@ def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
-    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
+    parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
+    parser.add_argument('--dropout', '-d', type=float, default=0.5, help='Number of Layers for LSTMs')
+
+    parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=1000, help='Number of hidden units')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
     args = parser.parse_args()
@@ -152,10 +157,12 @@ def main_experiment():
     batch_size = args.batchsize
     gpu = args.gpu
     models_base_folder = "saved_models"
-    output_folder = os.path.join("results",
-                                 args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = args.dataset
+    model_name = args.model
+    layers = args.layers
+    dropout = args.dropout
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing the model on all the datasets\n")
@@ -168,16 +175,23 @@ def main_experiment():
                                                                                   shuffle=True)
 
     output_file.write("Classes : (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
-    output_file.write("Class ratio : %s\n" % list(
-        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
-               reverse=False)))
+    output_file.write("Class ratio : %s\n" % list(sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),reverse=False)))
     output_file.write("Cross Validation :%s\n" % cv)
-    output_file.write("Train labels :(%s,%s%%): %s\n" % (
-    len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
-    output_file.write(
-        "Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
+    output_file.write("Train labels :(%s,%s%%): %s\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
+    output_file.write("Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
-    model = RecursiveLSTM(n_units, len(classes), classes=classes)
+    if model_name == "lstm":
+        model = RecursiveLSTM(n_units, len(classes),layers=layers,dropout=dropout, classes=classes)
+    elif model_name == "bilstm":
+        model = RecursiveBiLSTM(n_units, len(classes),dropout=dropout, classes=classes)
+    elif model_name == "highwaylstm":
+        model = RecursiveHighWayLSTM(n_units, len(classes),dropout=dropout, classes=classes)
+    elif model_name == "treestm":
+        model = RecursiveTreeLSTM(2,n_units, len(classes), classes=classes)
+    else:
+        print("No model was found")
+        return
+
     output_file.write("Model:  {0}\n".format(exper_name))
     output_file.write("Params: {:,} \n".format(model.params_count()))
     output_file.write("        {0} \n".format(type(model).__name__))
@@ -187,7 +201,7 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))

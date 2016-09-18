@@ -14,14 +14,14 @@ from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveHighWayLSTM,RecursiveLSTM, RecursiveBiLSTM
+from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 import heapq
 
 
-def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
+def train(model, train_trees, train_labels, optimizer, batch_size=1, shuffle=True):
     progbar = Progbar(len(train_labels))
     batch_loss = 0
     total_loss = []
@@ -136,6 +136,14 @@ def print_table(table):
                                 for i, x in enumerate(line)) + " |")
 
 
+class RangeDictionary(dict):
+    def __getitem__(self, key):
+        for r in self.keys():
+            if key in r:
+                return super().__getitem__(r)
+        return super().__getitem__(key)
+
+
 def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
@@ -145,7 +153,7 @@ def main_experiment():
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
-    parser.add_argument('--dropout', '-d', type=float, default=0.5, help='Number of Layers for LSTMs')
+    parser.add_argument('--dropout', '-dr', type=float, default=0.5, help='Number of Layers for LSTMs')
 
     parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=1000, help='Number of hidden units')
@@ -157,7 +165,8 @@ def main_experiment():
     batch_size = args.batchsize
     gpu = args.gpu
     models_base_folder = "saved_models"
-    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = os.path.join("results",
+                                 args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = args.dataset
     model_name = args.model
@@ -175,19 +184,23 @@ def main_experiment():
                                                                                   shuffle=True)
 
     output_file.write("Classes : (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
-    output_file.write("Class ratio : %s\n" % list(sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),reverse=False)))
+    output_file.write("Class ratio : %s\n" % list(
+        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
+               reverse=False)))
     output_file.write("Cross Validation :%s\n" % cv)
-    output_file.write("Train labels :(%s,%s%%): %s\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
-    output_file.write("Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
+    output_file.write("Train labels :(%s,%s%%): %s\n" % (
+    len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
+    output_file.write(
+        "Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes),layers=layers,dropout=dropout, classes=classes)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes),dropout=dropout, classes=classes)
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
     elif model_name == "highwaylstm":
-        model = RecursiveHighWayLSTM(n_units, len(classes),dropout=dropout, classes=classes)
+        model = RecursiveHighWayLSTM(n_units, len(classes), dropout=dropout, classes=classes)
     elif model_name == "treestm":
-        model = RecursiveTreeLSTM(2,n_units, len(classes), classes=classes)
+        model = RecursiveTreeLSTM(2, n_units, len(classes), classes=classes)
     else:
         print("No model was found")
         return
@@ -217,9 +230,18 @@ def main_experiment():
     output_file.flush()
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
+
+    dropout_schedule = RangeDictionary({range(0, 10): 0.0,
+                                        range(10, 15): 0.9,
+                                        range(15, 20): 0.8,
+                                        range(20, 25): 0.7,
+                                        range(25, 30): 0.5,
+                                        range(35, 100): 0.2})
     for epoch in range(1, n_epoch + 1):
+        model.dropout = dropout_schedule[epoch]
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
+        print("dropout      = ", model.dropout)
         print('Train')
         training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('Test')
@@ -231,7 +253,7 @@ def main_experiment():
         if args.save > 0 and epoch > 0:
             epoch_, loss_, acc_ = best_scores
             # save the model with best accuracy or same accuracy and less loss
-            if test_accuracy > acc_ or (test_accuracy >= acc_ and  test_loss <= loss_):
+            if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
                 model_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
                 path = os.path.join(models_base_folder, model_name)
                 if os.path.exists(path):

@@ -86,7 +86,7 @@ class RecursiveTreeLSTM(chainer.Chain):
 
 
 class RecursiveLSTM(chainer.Chain):
-    def __init__(self, n_units, n_label, dropout=0.5,classes=None):
+    def __init__(self, n_units, n_label, dropout=0.2,classes=None):
         super(RecursiveLSTM, self).__init__()
         self.classes_ = classes
         self.feature_dict = TreeFeatures()
@@ -94,7 +94,7 @@ class RecursiveLSTM(chainer.Chain):
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
         self.add_link("lstm1", L.LSTM(n_units, n_units))
-        #self.add_link("lstm2", L.LSTM(n_units, n_units))
+        self.add_link("lstm2", L.LSTM(n_units, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode):
@@ -114,17 +114,18 @@ class RecursiveLSTM(chainer.Chain):
 
 
     def merge(self, x, children, train_mode):
-        #h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
-        #for child in children:
-        #    h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
-        #self.lstm1.reset_state()
-        #self.lstm2.reset_state()
-        #return F.dropout(h0,train=train_mode)
-        h0 = self.lstm1(x)  # self.batch(
+        h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
         for child in children:
-            h0 = self.lstm1(child)
+            h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
         self.lstm1.reset_state()
-        return F.dropout(h0,ratio=0.5,train=train_mode)
+        self.lstm2.reset_state()
+        return F.dropout(h0,ratio=self.dropout,train=train_mode)
+        #h0 = self.lstm1(x)  # self.batch(
+        #for child in children:
+        #    h0 = self.lstm1(child)
+        #self.lstm1.reset_state()
+        #return F.dropout(h0,ratio=0.2,train=train_mode)
+        #pass
 
     def traverse(self, node, train_mode):
         children_ast = list(children(node))
@@ -163,7 +164,7 @@ class RecursiveLSTM(chainer.Chain):
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
-class RecursiveHighWayLSTM(RecursiveLSTM):
+class RecursiveHighWayLSTM12(RecursiveLSTM):
     def __init__(self, n_units, n_label,dropout=0.5, classes=None):
         super(RecursiveHighWayLSTM, self).__init__(n_units, n_label, classes=classes)
         self.dropout = dropout
@@ -180,15 +181,32 @@ class RecursiveHighWayLSTM(RecursiveLSTM):
         for child in children:
             h0 = self.lstm1(child)
         self.lstm1.reset_state()
-        con_vec = self.w_v(F.concat((F.dropout(h0,ratio=0.5,train=train_mode),x),axis=1))
+        con_vec = self.w_v(F.concat((F.dropout(h0,ratio=0.2,train=train_mode),x),axis=1))
         return con_vec
+
+class RecursiveHighWayLSTM(RecursiveLSTM):
+    def __init__(self, n_units, n_label,dropout=0.2, classes=None):
+        super(RecursiveHighWayLSTM, self).__init__(n_units, n_label, classes=classes)
+        self.dropout = dropout
+        self.add_link("c_v", L.Linear(n_units, n_units))
+        self.add_link("t_v", L.Linear(n_units, n_units))
+
+    def merge(self, x, children, train_mode=True):
+        h0 = self.lstm2(F.dropout(self.lstm1(x),ratio=self.dropout,train=train_mode))  # self.batch(
+        for child in children:
+           h0 = self.lstm2(F.dropout(self.lstm1(child),ratio=self.dropout,train=train_mode))
+        self.lstm1.reset_state()
+        self.lstm2.reset_state()
+        t = F.sigmoid(self.t_v(x))
+        z = t * F.relu(self.c_v(x)) + (1 - t) * h0
+        return z
 
 
 class RecursiveBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label,dropout=0.5, classes=None):
+    def __init__(self, n_units, n_label,dropout=0.2, classes=None):
         super(RecursiveBiLSTM, self).__init__(n_units, n_label, classes=classes)
         self.dropout = dropout
-        #self.add_link("w_v", L.Linear(2*n_units, n_units))
+        self.add_link("w_v", L.Linear(2*n_units, n_units))
 
     def merge(self, x, children, train_mode=True):
         # forward
@@ -202,5 +220,5 @@ class RecursiveBiLSTM(RecursiveLSTM):
            h1 = self.lstm2(child)
         h1 = self.lstm2(x)
         self.lstm2.reset_state()
-        return F.dropout(h0+h1,ratio=self.dropout,train=train_mode)
-        #return self.w_v(F.dropout(F.concat((h0,h1),axis=1),ratio=self.dropout,train=train_mode))
+        #return F.dropout(h0+h1,ratio=self.dropout,train=train_mode)
+        return self.w_v(F.dropout(F.concat((h0,h1),axis=1),ratio=self.dropout,train=train_mode))

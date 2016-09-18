@@ -145,7 +145,7 @@ def main_experiment():
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
-    parser.add_argument('--dropout', '-d', type=float, default=0.5, help='Number of Layers for LSTMs')
+    parser.add_argument('--dropout', '-dr', type=float, default=0.5, help='Number of Layers for LSTMs')
 
     parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=1000, help='Number of hidden units')

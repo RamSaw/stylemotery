@@ -14,7 +14,7 @@ from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models import RecursiveLSTM, RecursiveTreeLSTM, RecursiveBiLSTM
+from models import RecursiveLSTM, RecursiveTreeLSTM, RecursiveBiLSTM, RecursiveHighWayLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 import heapq
@@ -139,7 +139,7 @@ def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
-    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
@@ -172,12 +172,10 @@ def main_experiment():
         sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
                reverse=False)))
     output_file.write("Cross Validation :%s\n" % cv)
-    output_file.write("Train labels :(%s,%s%%): %s\n" % (
-    len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
-    output_file.write(
-        "Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
+    output_file.write("Train labels :(%s,%s%%): %s\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100, list(train_lables)))
+    output_file.write("Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, list(test_lables)))
 
-    model = RecursiveLSTM(n_units, len(classes), classes=classes)
+    model = RecursiveHighWayLSTM(n_units, len(classes), classes=classes)
     output_file.write("Model:  {0}\n".format(exper_name))
     output_file.write("Params: {:,} \n".format(model.params_count()))
     output_file.write("        {0} \n".format(type(model).__name__))

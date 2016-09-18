@@ -39,10 +39,11 @@ def parse_result_file(filename):
         if len(list_names) < 2:
             list_names = [name.strip() for name in lines[epoch_idx].strip().split()]
         for epoch, line in enumerate(lines[epoch_idx+1:]):
-            values = line.strip().split()
-            if len(values) == len(list_names):
+            if "stopping" not in line.lower():
+                values = line.strip().split()
                 for i,name in enumerate(list_names):
-                    loss_history[list_names[i]].append(values[i])
+                    if i < len(values) and i < len(list_names):
+                        loss_history[list_names[i]].append(values[i])
     return {model_name:loss_history}
 
 

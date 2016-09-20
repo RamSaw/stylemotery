@@ -7,6 +7,7 @@ import chainer.variable as variable
 import chainer.links as L
 from chainer import cuda
 
+
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.ast_parser import children
 from memory_cell.treelstm import FastTreeLSTM
@@ -75,9 +76,10 @@ class RecursiveBaseLSTM(chainer.Chain):
 
 
 class RecursiveLSTM(RecursiveBaseLSTM):
-    def __init__(self, n_units, n_label,layers,dropout, classes=None):
+    def __init__(self, n_units, n_label,layers,dropout, classes=None,mean=False):
         super(RecursiveLSTM, self).__init__(n_units, n_label,dropout=dropout, classes=classes)
         self.layers = layers
+        self.mean= mean
         for i in range(1, layers + 1):
             self.add_link("lstm" + str(i), L.LSTM(n_units, n_units))
 
@@ -100,11 +102,18 @@ class RecursiveLSTM(RecursiveBaseLSTM):
 
     def merge(self, x, children, train_mode=True):
         # forward
+        timestamps = []
         h0 = self.one_step(x,train_mode)  # self.batch(
+        timestamps.append(h0)
         for child in children:
            h0 = self.one_step(child,train_mode)
+           timestamps.append(h0)
         self.reset_states()
-        return h0
+        if self.mean:
+            h_states = F.sum(F.concat(timestamps,axis=0),axis=0) / len(timestamps)
+            return F.reshape(h_states,shape=(1,-1))
+        else:
+            return h0
 
 class RecursiveHighWayLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label,dropout, classes=None):

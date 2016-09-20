@@ -137,7 +137,3 @@ class RecursiveBiLSTM(RecursiveLSTM):
         h1 = self.lstm2(x)
         self.lstm2.reset_state()
         return self.w_v(F.dropout(F.concat((h0,h1),axis=1),ratio=self.dropout,train=train_mode))
-<<<<<<< HEAD
-
-=======
->>>>>>> 9614877803a7035b0deb0fcbb19ddefcbbcfda30

@@ -144,10 +144,11 @@ def split_trees(X, y, problems):
     return np.array(subX), np.array(subY), np.array(subProblem)
 
 
-def split_trees2(X, y, problems):
-    subX = []
-    subY = []
-    subProblem = []
+def split_trees2(X, y, problems,original=False):
+
+    subX = list(X) if original else []
+    subY = list(y) if original else []
+    subProblem = list(problems) if original else []
 
     for i, tree in enumerate(X):
         functions = []

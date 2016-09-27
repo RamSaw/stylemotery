@@ -76,12 +76,12 @@ class RecursiveBaseLSTM(chainer.Chain):
 
 
 class RecursiveLSTM(RecursiveBaseLSTM):
-    def __init__(self, n_units, n_label, layers, dropout, classes=None, mean=False):
+    def __init__(self, n_units, n_label, layers, dropout, classes=None, peephole=False):
         super(RecursiveLSTM, self).__init__(n_units, n_label, dropout=dropout, classes=classes)
         self.layers = layers
-        self.mean = mean
+        LSTM = L.peephole if peephole else L.LSTM
         for i in range(1, layers + 1):
-            self.add_link("lstm" + str(i), L.LSTM(n_units, n_units))
+            self.add_link("lstm" + str(i), LSTM(n_units, n_units))
 
     def one_step(self, x, train_mode):
         h = x
@@ -104,16 +104,10 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         # forward
         timestamps = []
         h0 = self.one_step(x, train_mode)  # self.batch(
-        timestamps.append(h0)
         for child in children:
             h0 = self.one_step(child, train_mode)
-            timestamps.append(h0)
         self.reset_states()
-        if self.mean:
-            h_states = F.sum(F.concat(timestamps, axis=0), axis=0)
-            return F.reshape(h_states, shape=(1, -1))
-        else:
-            return h0
+        return h0
 
 
 class RecursiveHighWayLSTM(RecursiveLSTM):

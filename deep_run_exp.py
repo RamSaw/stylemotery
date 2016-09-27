@@ -11,10 +11,10 @@ from chainer import cuda, Serializer
 from chainer import optimizers
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
-from ast_tree.ast_parser import children
+from ast_tree.ast_parser import children, split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveHighWayLSTM,RecursiveLSTM, RecursiveBiLSTM
+from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
@@ -140,13 +140,13 @@ def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
-    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--subtrees', '-sb', type=int, default=-1, help='Generate subtrees for training data')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
-    parser.add_argument('--pooling', '-p', type=int, default=0, help='Mean pooling over all steps')
-    parser.add_argument('--dropout', '-dr', type=float, default=0.5, help='Number of Layers for LSTMs')
+    parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
 
     parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=1000, help='Number of hidden units')
@@ -158,13 +158,13 @@ def main_experiment():
     batch_size = args.batchsize
     gpu = args.gpu
     models_base_folder = "saved_models"
-    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = os.path.join("results",
+                                 args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = args.dataset
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
-    pooling = True if args.pooling == 1 else False
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing the model on all the datasets\n")
@@ -173,22 +173,29 @@ def main_experiment():
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
     if args.classes > -1:
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True)
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
+                                                                                  shuffle=True)
+    if args.subtrees > -1:
+        train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
 
     output_file.write("Classes : (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
-    output_file.write("Class ratio : %s\n" % list(sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),reverse=False)))
+    output_file.write("Class ratio : %s\n" % list(
+        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
+               reverse=False)))
     output_file.write("Cross Validation :%s\n" % cv)
-    output_file.write("Train labels :(%s,%s%%): %s\n" % (len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
-    output_file.write("Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
+    output_file.write("Train labels :(%s,%s%%): %s\n" % (
+    len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
+    output_file.write(
+        "Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes),layers=layers,dropout=dropout, classes=classes,mean=pooling)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes),dropout=dropout, classes=classes)
-    elif model_name == "highwaylstm":
-        model = RecursiveHighWayLSTM(n_units, len(classes),dropout=dropout, classes=classes)
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
+    elif model_name == "plstm":
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=True)
     elif model_name == "treestm":
-        model = RecursiveTreeLSTM(2,n_units, len(classes), classes=classes)
+        model = RecursiveTreeLSTM(2, n_units, len(classes), classes=classes)
     else:
         print("No model was found")
         return
@@ -232,7 +239,7 @@ def main_experiment():
         if args.save > 0 and epoch > 0:
             epoch_, loss_, acc_ = best_scores
             # save the model with best accuracy or same accuracy and less loss
-            if test_accuracy > acc_ or (test_accuracy >= acc_ and  test_loss <= loss_):
+            if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
                 model_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
                 path = os.path.join(models_base_folder, model_name)
                 if os.path.exists(path):

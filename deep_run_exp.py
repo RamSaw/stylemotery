@@ -173,8 +173,7 @@ def main_experiment():
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
     if args.classes > -1:
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
-                                                                                  shuffle=True)
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True)
 
     output_file.write("Classes : (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio : %s\n" % list(sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),reverse=False)))

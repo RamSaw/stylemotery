@@ -32,7 +32,7 @@ def get_src_files(basefolder):
 
 def parse_src_files(basefolder, seperate_trees=False):
     X_names, y, problems = get_src_files(basefolder)
-    return np.array([ast_parse_file(name) for name in X_names]), y, problems
+    return np.array([ast_parse_file(name) for name in X_names]), np.array(y), problems
 
 
 def generate_tree(node, children):

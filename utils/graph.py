@@ -81,6 +81,7 @@ def plot_each(results, base_folder=None):
         # ax1.set_title("Loss Ratio")
         ax1.set_ylabel("Loss")
         ax1.set_xlabel("Epochs")
+        ax1.set_ylim([0.0, 4.5])
         ax1.grid(True)
 
         # if "train accuracy" in results[name]:

@@ -79,7 +79,7 @@ class RecursiveLSTM(RecursiveBaseLSTM):
     def __init__(self, n_units, n_label, layers, dropout, classes=None, peephole=False):
         super(RecursiveLSTM, self).__init__(n_units, n_label, dropout=dropout, classes=classes)
         self.layers = layers
-        LSTM = L.peephole if peephole else L.LSTM
+        LSTM = L.StatefulPeepholeLSTM if peephole else L.LSTM
         for i in range(1, layers + 1):
             self.add_link("lstm" + str(i), LSTM(n_units, n_units))
 
@@ -111,8 +111,8 @@ class RecursiveLSTM(RecursiveBaseLSTM):
 
 
 class RecursiveHighWayLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, dropout, classes=None):
-        super(RecursiveHighWayLSTM, self).__init__(n_units, n_label, layers=2, dropout=dropout, classes=classes)
+    def __init__(self, n_units, n_label, dropout,peephole, classes=None):
+        super(RecursiveHighWayLSTM, self).__init__(n_units, n_label, layers=2, dropout=dropout, peephole=peephole, classes=classes)
         self.add_link("c_v", L.Linear(n_units, n_units))
         self.add_link("t_v", L.Linear(n_units, n_units))
 
@@ -124,8 +124,8 @@ class RecursiveHighWayLSTM(RecursiveLSTM):
 
 
 class RecursiveBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, dropout, classes=None):
-        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=2, dropout=dropout, classes=classes)
+    def __init__(self, n_units, n_label, dropout, peephole,classes=None):
+        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=2, peephole=peephole,dropout=dropout, classes=classes)
         self.dropout = dropout
         self.add_link("w_v", L.Linear(2 * n_units, n_units))
 

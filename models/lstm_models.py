@@ -79,9 +79,9 @@ class RecursiveLSTM(RecursiveBaseLSTM):
     def __init__(self, n_units, n_label, layers, dropout, classes=None, peephole=False):
         super(RecursiveLSTM, self).__init__(n_units, n_label, dropout=dropout, classes=classes)
         self.layers = layers
-        LSTM = L.peephole if peephole else L.LSTM
+        lstm = L.StatefulPeepholeLSTM if peephole else L.LSTM
         for i in range(1, layers + 1):
-            self.add_link("lstm" + str(i), LSTM(n_units, n_units))
+            self.add_link("lstm" + str(i), lstm(n_units, n_units))
 
     def one_step(self, x, train_mode):
         h = x

@@ -148,7 +148,7 @@ def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
-    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
@@ -231,12 +231,12 @@ def main_experiment():
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
 
-    dropout_schedule = RangeDictionary({range(0, 10): 0.0,
-                                        range(10, 15): 0.9,
-                                        range(15, 20): 0.8,
-                                        range(20, 25): 0.7,
-                                        range(25, 30): 0.5,
-                                        range(35, 100): 0.2})
+    dropout_schedule = RangeDictionary({range(0, 20): 0.0,
+                                        #range(10, 15): 0.9,
+                                        #range(15, 20): 0.8,
+                                        #range(20, 25): 0.7,
+                                        range(20, 60): 0.5,
+                                        range(60, 300): 0.2})
     for epoch in range(1, n_epoch + 1):
         model.dropout = dropout_schedule[epoch]
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))

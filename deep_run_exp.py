@@ -141,10 +141,7 @@ def main_experiment():
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
-<<<<<<< HEAD
-=======
     parser.add_argument('--subtrees', '-sb', type=int, default=-1, help='Generate subtrees for training data')
->>>>>>> 208e1a9dcd0c0689c08ae672081e4f2cdb3d3643
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')

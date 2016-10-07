@@ -13,7 +13,7 @@ from sklearn.pipeline import Pipeline
 
 from information_gain.InformationGain import TopRandomTreesEmbedding
 from ast_tree.ASTVectorizater import ASTVectorizer
-from utils import parse_src_files, get_basefolder, parse_src_files2
+from utils.fun_utils import get_basefolder, parse_src_files
 
 
 def full_evaluation(rf, X, y, cv):
@@ -59,7 +59,7 @@ def full_evaluation(rf, X, y, cv):
 
 def main_relax(pipline, relax=15):
     basefolder = get_basefolder()
-    X, y, tags = parse_src_files2(basefolder)
+    X, y, tags = parse_src_files(basefolder)
 
     # X,y,tags = split_trees2(X, y, tags)
 

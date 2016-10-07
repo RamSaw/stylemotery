@@ -11,17 +11,17 @@ from chainer import cuda, Serializer
 from chainer import optimizers
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
-from ast_tree.ast_parser import children
+from ast_tree.ast_parser import children, split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM
+from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 import heapq
 
 
-def train(model, train_trees, train_labels, optimizer, batch_size=1, shuffle=True):
+def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
     progbar = Progbar(len(train_labels))
     batch_loss = 0
     total_loss = []
@@ -136,28 +136,23 @@ def print_table(table):
                                 for i, x in enumerate(line)) + " |")
 
 
-class RangeDictionary(dict):
-    def __getitem__(self, key):
-        for r in self.keys():
-            if key in r:
-                return super().__getitem__(r)
-        return super().__getitem__(key)
-
-
 def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset700", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
+    parser.add_argument('--subtrees', '-sb', type=int, default=-1, help='Generate subtrees for training data')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
-    parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
-    parser.add_argument('--dropout', '-dr', type=float, default=0.5, help='Number of Layers for LSTMs')
+    parser.add_argument('--layers', '-l', type=int, default=2, help='Number of Layers for LSTMs')
+    parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
 
     parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
-    parser.add_argument('--units', '-u', type=int, default=1000, help='Number of hidden units')
+    parser.add_argument('--load', '-ld', type=int, default=0, help='load last model')
+    parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
+
     args = parser.parse_args()
 
     n_epoch = 500
@@ -165,8 +160,7 @@ def main_experiment():
     batch_size = args.batchsize
     gpu = args.gpu
     models_base_folder = "saved_models"
-    output_folder = os.path.join("results",
-                                 args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = args.dataset
     model_name = args.model
@@ -182,6 +176,8 @@ def main_experiment():
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes)
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
                                                                                   shuffle=True)
+    if args.subtrees > -1:
+        train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
 
     output_file.write("Classes : (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio : %s\n" % list(
@@ -194,16 +190,34 @@ def main_experiment():
         "Test  labels :(%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
-    elif model_name == "highwaylstm":
-        model = RecursiveHighWayLSTM(n_units, len(classes), dropout=dropout, classes=classes)
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=False)
+    elif model_name == "biplstm":
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=True)
+    elif model_name == "plstm":
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=True)
+    elif model_name == "highway":
+        model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
+    elif model_name == "reslstm":
+        model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "treestm":
         model = RecursiveTreeLSTM(2, n_units, len(classes), classes=classes)
     else:
         print("No model was found")
         return
+
+    if args.load == 1:
+        model_saved_name = "{0}_epoch_".format(exper_name)
+        saved_models = [m for m in os.listdir(models_base_folder) if m.startswith(model_saved_name) and m.endswith(".my")]
+        if len(saved_models) > 0:
+            #pick the best one
+            model_saved_name = list(sorted(saved_models,key=lambda name: int(name.split(".")[0].split("_")[-1]),reverse=True))[0]
+        else:
+            print("No model was found to load")
+            return
+        path = os.path.join(models_base_folder, model_saved_name)
+        serializers.load_npz(path, model)
 
     output_file.write("Model:  {0}\n".format(exper_name))
     output_file.write("Params: {:,} \n".format(model.params_count()))
@@ -214,34 +228,35 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
     optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
+
+    if args.load == 1:
+        opt_saved_name = "{0}_epoch_".format(exper_name)
+        saved_opts = [m for m in os.listdir(models_base_folder) if m.startswith(opt_saved_name) and m.endswith(".opt")]
+        if len(saved_opts) > 0:
+            #pick the best one
+            opt_saved_name = list(sorted(saved_opts,key=lambda name: int(name.split(".")[0].split("_")[-1]),reverse=True))[0]
+        else:
+            print("No model was found to load")
+            return
+        path = os.path.join(models_base_folder, opt_saved_name)
+        serializers.load_npz(path, optimizer)
+
     hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
     output_file.write(" {0} \n".format(hooks))
 
     output_file.write("Evaluation\n")
-    output_file.write(
-        "{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss",
-                                                       "train_accuracy", "test_accuracy"))
-
+    output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
     output_file.flush()
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
-
-    dropout_schedule = RangeDictionary({range(0, 10): 0.0,
-                                        range(10, 15): 0.9,
-                                        range(15, 20): 0.8,
-                                        range(20, 25): 0.7,
-                                        range(25, 30): 0.5,
-                                        range(35, 100): 0.2})
     for epoch in range(1, n_epoch + 1):
-        model.dropout = dropout_schedule[epoch]
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
-        print("dropout      = ", model.dropout)
         print('Train')
         training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
         print('Test')
@@ -254,22 +269,29 @@ def main_experiment():
             epoch_, loss_, acc_ = best_scores
             # save the model with best accuracy or same accuracy and less loss
             if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
-                model_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
-                path = os.path.join(models_base_folder, model_name)
+                # remove last saved model
+                model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
+                path = os.path.join(models_base_folder, model_saved_name)
                 if os.path.exists(path):
                     os.remove(path)
-                model_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
-                path = os.path.join(models_base_folder, model_name)
-                best_scores = (epoch, test_loss, test_accuracy)
+                # save models
+                model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
+                path = os.path.join(models_base_folder, model_saved_name)
                 serializers.save_npz(path, model)
+                # save optimizer
+                model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch)
+                path = os.path.join(models_base_folder, model_saved_name)
+                serializers.save_npz(path, optimizer)
                 saved = True
                 print("saving ... ")
+                best_scores = (epoch, test_loss, test_accuracy)
 
         output_file.write(
             "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}{5:<10}\n".format(epoch, training_loss, test_loss,
                                                                                   training_accuracy, test_accuracy,
                                                                                   "saved" if saved else ""))
         output_file.flush()
+        return
 
         if epoch > 10 and (test_loss < 0.001 or test_accuracy >= 1.0):
             output_file.write("\tEarly Stopping\n")

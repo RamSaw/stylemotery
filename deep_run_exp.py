@@ -191,7 +191,9 @@ def main_experiment():
     if model_name == "lstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=False)
+    elif model_name == "biplstm":
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=True)
     elif model_name == "plstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=True)
     elif model_name == "treestm":
@@ -209,7 +211,7 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))

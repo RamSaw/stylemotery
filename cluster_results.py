@@ -16,7 +16,7 @@ from sklearn.manifold import TSNE
 from sklearn.neighbors import NearestNeighbors
 
 from ast_tree.ast_parser import AstNodes
-from deep_run_exp import split_trees
+from deep_run_exp import split_trees, pick_subsets
 from models.lstm_models import RecursiveLSTM
 from utils.extract_loss_progress import parse_result_file
 from utils.fun_utils import print_model, parse_src_files
@@ -153,20 +153,34 @@ from sklearn.preprocessing import scale
 def show_authors(model):
     dataset_folder = "dataset700"
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=10,shuffle=True)
-    tree_test_labels = classes[test_lables]
-    trees_X,_ = evaluate(model,test_trees,test_lables)
+    # trees, tree_labels = pick_subsets(trees, tree_labels, labels=2)
+    classes_, y = np.unique(tree_labels, return_inverse=True)
+    trees_X,_ = evaluate(model,trees,y)
+
     # estimator = DBSCAN(eps=0.3, min_samples=10)
     print("\n")
     print("*" * 10, " Cluster Authors:", "*" * 10)
     estimator = KMeans(n_clusters=5,init='k-means++')
-    X_scale = scale(trees_X)
-    cluster_table(estimator,  trees_X, test_lables, tree_test_labels)
-    cluster_plot(estimator,  X_scale, test_lables, tree_test_labels)
+
+    X_avg = []
+    y_avg = []
+    label_avg = []
+    for label in np.unique(tree_labels):
+        X_avg.append(trees_X[tree_labels == label].mean(axis=0))
+        y_avg.append(label)
+        label_avg.append(classes_[np.argwhere(classes_ == label)[0][0]])
+
+    X_avg = np.vstack((X_avg))
+    y_avg = np.array(y_avg)
+    label_avg = np.array(label_avg)
+
+    X_scale = scale(X_avg)
+    cluster_table(estimator,  trees_X, y, tree_labels)
+    cluster_plot(estimator,  X_scale, y_avg, label_avg)
 
     estimator = NearestNeighbors(n_neighbors=5)
     print("*" * 10, " Neighbors of Authors:", "*" * 10)
-    neighbors_table(estimator, trees_X, test_lables, tree_test_labels)
+    neighbors_table(estimator, trees_X, y, tree_labels)
 
 if __name__ == "__main__":
     path = R"C:\Users\bms\Files\study\DC\Experiments\results\best results\saved_models\1_lstm_1_250_70_labels10_epoch_135.my"

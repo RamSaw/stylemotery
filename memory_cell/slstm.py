@@ -14,7 +14,7 @@ def chainer_extract_gates(x):
     r = F.reshape(x,(len(x.data), x.data.shape[1] // 4, 4) + x.data.shape[2:])
     return [r[:, :, i] for i in range(4)]
 
-class FastTreeLSTM(link.Chain):
+class SLSTM(link.Chain):
     U_I_H = "U_i_h{0}"
     U_O_H = "U_o_h{0}"
     U_A_H = "U_a_h{0}"
@@ -23,7 +23,7 @@ class FastTreeLSTM(link.Chain):
     def __init__(self, children, in_size, out_size,
                  lateral_init=None, upward_init=None,
                  bias_init=0, forget_bias_init=0):
-        super(FastTreeLSTM, self).__init__(
+        super(SLSTM, self).__init__(
             upward=linear.Linear(in_size, 4 * out_size, initialW=0)
         )
         self.state_size = out_size
@@ -46,7 +46,7 @@ class FastTreeLSTM(link.Chain):
             for j in range(self.n_children):
                 self.add_link(self.U_F_H.format(i, j),linear.Linear(out_size, out_size, initialW=lateral_init, nobias=True))
 
-    def __call__(self, c, h, x):
+    def __call__(self, c, h):
         tree_in = self.upward(x)
         a_gate,i_gate,f_gate,o_gate = chainer_extract_gates(tree_in)
 

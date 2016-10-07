@@ -1,20 +1,15 @@
-import argparse
-import collections
 import os
-import random
-from operator import itemgetter
 
 import chainer
 from chainer import optimizers
-
-from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
 from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
 from models.tree_models import RecursiveTreeLSTM
-from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
+from utils.exp_utlis import split_trees, pick_subsets, evaluate, train
 from utils.fun_utils import parse_src_files, print_model
-
+import argparse
+from argparse import Namespace
 
 def print_table(table):
     col_width = [max(len(x) for x in col) for col in zip(*table)]
@@ -22,22 +17,32 @@ def print_table(table):
         print("| " + " | ".join("{:{}}".format(x, col_width[i])
                                 for i, x in enumerate(line)) + " |")
 
+def read_config(filename):
+    with open(filename) as file:
+        for line in file:
+            if line.startswith("Args "):
+                args_line = line.split(":-",1)
+                args = eval(args_line[1])
+            elif line.startswith("Seed "):
+                args_line = line.split(":-",1)
+                seed = int(args_line[1].strip())
+            elif line.startswith("Classes "):
+                classes = [v for idx, v in eval(line.split(":-")[1])]
+            # elif line.startswith("Train labels "):
+            #     train_lables = [v for idx, v in eval(line.split(":")[1])]
+            # elif line.startswith("Test labels "):
+            #     test_trees = [v for idx, v in eval(line.split(":")[1])]
+        return args,seed,classes
+
 def main_experiment():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--dataset', '-d', type=str, default="dataset/dataset700", help='Experiment dataset')
-    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
-    parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
-    parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
-    parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
-    parser.add_argument('--layers', '-l', type=int, default=2, help='Number of Layers for LSTMs')
-    parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
-
-    parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
-    parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
-    parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
+    parser.add_argument('--config', '-c', type=str, default="", help='Configuration file')
 
     args = parser.parse_args()
+    if args.config == "":
+        parser.print_help()
+        return
+    args,seed,classes = read_config(args.config)
 
     n_epoch = 500
     n_units = args.units
@@ -50,31 +55,14 @@ def main_experiment():
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
-    rand_seed = random.randint(0, 4294967295)
 
-    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
-    output_file.write("Testing the model on all the datasets\n")
-    output_file.write("Args :- " + str(args) + "\n")
-    output_file.write("Seed :- " + str(rand_seed) + "\n")
+    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="a")
 
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
     if args.classes > -1:
-        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed)
+        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,classes=classes)
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
-                                                                                  shuffle=True,seed=rand_seed)
-    if args.subtrees > -1:
-        train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
-
-    output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
-    output_file.write("Class ratio :- %s\n" % list(
-        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
-               reverse=False)))
-    output_file.write("Cross Validation :-%s\n" % cv)
-    output_file.write("Train labels :- (%s,%s%%): %s\n" % (
-    len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
-    output_file.write(
-        "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
-
+                                                                                  shuffle=True)
     if model_name == "lstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":
@@ -93,27 +81,38 @@ def main_experiment():
         print("No model was found")
         return
 
-    output_file.write("Model:  {0}\n".format(exper_name))
-    output_file.write("Params: {:,} \n".format(model.params_count()))
-    output_file.write("        {0} \n".format(type(model).__name__))
-    print_model(model, depth=1, output=output_file)
+    # load the model
+    model_saved_name = "{0}_epoch_".format(exper_name)
+    saved_models = [m for m in os.listdir(models_base_folder) if m.startswith(model_saved_name) and m.endswith(".my")]
+    if len(saved_models) > 0:
+        #pick the best one
+        model_saved_name = list(sorted(saved_models,key=lambda name: int(name.split(".")[0].split("_")[-1]),reverse=True))[0]
+    else:
+        print("No model was found to load")
+        return
+    path = os.path.join(models_base_folder, model_saved_name)
+    serializers.load_npz(path, model)
 
     if gpu >= 0:
         model.to_gpu()
 
     # Setup optimizer
     optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
-    output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
     optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
 
-    hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
-    output_file.write(" {0} \n".format(hooks))
-
-    output_file.write("Evaluation\n")
-    output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
-    output_file.flush()
+    # load the optimizor
+    opt_saved_name = "{0}_epoch_".format(exper_name)
+    saved_opts = [m for m in os.listdir(models_base_folder) if m.startswith(opt_saved_name) and m.endswith(".opt")]
+    if len(saved_opts) > 0:
+        #pick the best one
+        opt_saved_name = list(sorted(saved_opts,key=lambda name: int(name.split(".")[0].split("_")[-1]),reverse=True))[0]
+    else:
+        print("No model was found to load")
+        return
+    path = os.path.join(models_base_folder, opt_saved_name)
+    serializers.load_npz(path, optimizer)
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
@@ -154,7 +153,7 @@ def main_experiment():
                                                                                   "saved" if saved else ""))
         output_file.flush()
 
-        if epoch >= 5 and (test_loss < 0.001 or test_accuracy >= 1.0):
+        if epoch > 10 and (test_loss < 0.001 or test_accuracy >= 1.0):
             output_file.write("\tEarly Stopping\n")
             print("\tEarly Stopping")
             break

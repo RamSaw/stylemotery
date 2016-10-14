@@ -12,14 +12,22 @@ from ast_tree.ast_parser import children
 from memory_cell.treelstm import FastTreeLSTM
 
 class RecursiveBaseTree(chainer.Chain):
-    def __init__(self,n_children, n_units, n_label, classes=None):
-        super(chainer.Chain, self).__init__()
+    def __init__(self,n_children, n_units, n_label,dropout, classes=None):
+        super(RecursiveBaseTree, self).__init__()
         self.classes_ = classes
         self.feature_dict = TreeFeatures()
         self.n_children = n_children
+        self.dropout = dropout
 
         self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
+
+    def params_count(self):
+        count = 0
+        for child in self.children():
+            for p in child.params():
+                count += reduce(operator.mul, p.data.shape, 1)
+        return count
 
     def leaf(self, x, train_mode):
         return self.embed_vec(x, train_mode)
@@ -32,7 +40,7 @@ class RecursiveBaseTree(chainer.Chain):
     def traverse(self, node, train_mode):
         c,h = self.traverse_rec(node, train_mode= train_mode)
         # self.lstm.reset_state()
-        return F.dropout(h,train=train_mode)
+        return F.dropout(h,ratio=self.dropout,train=train_mode)
 
     def traverse_rec(self, node, train_mode):
         children_ast = list(children(node))
@@ -78,8 +86,8 @@ class RecursiveBaseTree(chainer.Chain):
         return F.softmax_cross_entropy(w, t)
 
 class RecursiveTreeLSTM(RecursiveBaseTree):
-    def __init__(self, n_children, n_units, n_label, classes=None):
-        super().__init__(n_children, n_units, n_label, classes)
+    def __init__(self, n_children, n_units, n_label,dropout, classes=None):
+        super().__init__(n_children, n_units, n_label,dropout, classes)
 
         self.add_link("treelstm", FastTreeLSTM(self.n_children, n_units, n_units))
 

@@ -62,8 +62,8 @@ def main_experiment():
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed)
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
                                                                                   shuffle=True,seed=rand_seed)
-    if args.subtrees > -1:
-        train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
+    #if args.subtrees > -1:
+    #    train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
 
     output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio :- %s\n" % list(

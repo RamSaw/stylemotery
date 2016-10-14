@@ -23,14 +23,19 @@ def parse_loss_file(filename):
 
 
 def parse_result_file(filename):
+    header = defaultdict(str)
     loss_history = defaultdict(list)
     epoch_idx = 0
     model_name = ""
     with open(filename) as file:
         lines = file.readlines()
         for i,line in enumerate(lines):
+            line = line.replace(":-",":")
+            if ":" in line:
+                meta = line.split(":",1)
+                header[meta[0].strip()] = meta[1].strip()
             if line.strip().startswith("Model:"):
-                model_name = line.split(":")[1].strip()
+                model_name = line.split(":",1)[1].strip()
             if line.strip().startswith("Evaluation"):
                 epoch_idx = i
                 break
@@ -38,28 +43,26 @@ def parse_result_file(filename):
         list_names = [name.strip() for name in lines[epoch_idx].strip().split("\t")]
         if len(list_names) < 2:
             list_names = [name.strip() for name in lines[epoch_idx].strip().split()]
+        list_names += ["saved"]
         for epoch, line in enumerate(lines[epoch_idx+1:]):
             if "stopping" not in line.lower():
                 values = line.strip().split()
-                for i,name in enumerate(list_names):
+                for i,name in enumerate(list_names[:-1]):
                     if i < len(values) and i < len(list_names):
                         loss_history[list_names[i]].append(values[i])
+                if values[-1] == "saved":
+                    loss_history[list_names[-1]].append(epoch)
+        loss_history["meta"] = header
     return {model_name:loss_history}
 
 
-
-
-
 import os
-
-
 def extract_loss(history):
     loss = []
     for key,values in sorted(history.items()):
         loss_vals = [l for e,l in values]
         max_loss = max(loss_vals)
         loss.append(max_loss)
-
     return loss
 
 

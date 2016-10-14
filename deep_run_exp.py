@@ -10,7 +10,7 @@ from chainer import optimizers
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
 from utils.fun_utils import parse_src_files, print_model
@@ -21,19 +21,32 @@ def print_table(table):
     for line in table:
         print("| " + " | ".join("{:{}}".format(x, col_width[i])
                                 for i, x in enumerate(line)) + " |")
+def read_config(filename):
+    with open(filename) as file:
+        for line in file:
+            line = line.strip()
+            if line.startswith("Seed"):
+                args_line = line.replace(":-",":").split(":",1)
+                seed = int(args_line[1].strip())
+            elif line.startswith("Classes"):
+                classes = [v for idx, v in eval(line.split(":")[1])]
+        return seed,classes
 
 def main_experiment():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')
+
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="dataset/dataset700", help='Experiment dataset')
-    parser.add_argument('--classes', '-c', type=int, default=2, help='How many classes to include in this experiment')
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
-    parser.add_argument('--layers', '-l', type=int, default=2, help='Number of Layers for LSTMs')
+    parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
     parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
+    parser.add_argument('--iterations', '-i', type=int, default=1, help='CV iterations')
 
-    parser.add_argument('--model', '-m', type=str, default="lstm", help='Model used for this experiment')
+    parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
 
@@ -50,13 +63,23 @@ def main_experiment():
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
-    rand_seed = random.randint(0, 4294967295)
+
+    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+    if args.train:
+        rand_seed, classes = read_config(os.path.join("train",args.train))
+        trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
+    else:
+        rand_seed = random.randint(0, 4294967295)
+        if args.classes > -1:
+            trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed)
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing the model on all the datasets\n")
     output_file.write("Args :- " + str(args) + "\n")
     output_file.write("Seed :- " + str(rand_seed) + "\n")
 
+<<<<<<< HEAD
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
     if args.classes > -1:
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed)
@@ -64,6 +87,10 @@ def main_experiment():
                                                                                   shuffle=True,seed=rand_seed)
     #if args.subtrees > -1:
     #    train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
+=======
+    # if args.subtrees > -1:
+    #     train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
+>>>>>>> 6ff8f0e3516c6b6f909b9079ccc8c635ff6360f2
 
     output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio :- %s\n" % list(
@@ -78,17 +105,17 @@ def main_experiment():
     if model_name == "lstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=False)
+        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,peephole=False)
     elif model_name == "biplstm":
         model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=True)
     elif model_name == "plstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=True)
-    elif model_name == "highway":
-        model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
+    # elif model_name == "highway":
+    #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "reslstm":
         model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "treestm":
-        model = RecursiveTreeLSTM(2, n_units, len(classes), classes=classes)
+        model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout, classes=classes)
     else:
         print("No model was found")
         return

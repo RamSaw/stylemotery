@@ -14,7 +14,7 @@ from sklearn.metrics import accuracy_score
 from ast_tree.ast_parser import children, split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.prog_bar import Progbar
 from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
@@ -100,7 +100,7 @@ def validation_split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle
         return train_trees, train_lables, test_trees, test_lables, classes_
 
 
-def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None):
+def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iterations=1):
     classes_, y = np.unique(tree_labels, return_inverse=True)
     tree_labels = y
     # if shuffle:
@@ -111,7 +111,8 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None):
     # classes_ = np.arange(len(classes_))
     # seed = random.randint(0, 4294967295)
     cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=shuffle, random_state=seed)
-    train_indices, test_indices = next(cv.__iter__())
+    for i in range(iterations):
+        train_indices, test_indices = next(cv.__iter__())
     train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
     test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
     return train_trees, train_lables, test_trees, test_lables, classes_, cv

@@ -55,6 +55,7 @@ def main_experiment():
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
+    iterations = args.iterations
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="a")
 
@@ -62,7 +63,7 @@ def main_experiment():
     if args.classes > -1:
         trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,classes=classes)
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
-                                                                                  shuffle=True)
+                                                                                  shuffle=True,iterations=iterations)
     if model_name == "lstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":

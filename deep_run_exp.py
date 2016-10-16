@@ -44,7 +44,7 @@ def main_experiment():
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
     parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
-    parser.add_argument('--iterations', '-i', type=int, default=1, help='CV iterations')
+    parser.add_argument('--iterations', '-i', type=int, default=0, help='CV iterations')
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
@@ -72,7 +72,8 @@ def main_experiment():
         rand_seed = random.randint(0, 4294967295)
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed)
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
+                                                                                  iterations=args.iterations)
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing the model on all the datasets\n")

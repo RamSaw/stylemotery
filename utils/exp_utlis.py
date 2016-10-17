@@ -121,7 +121,7 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iteration
 
 def pick_subsets(trees, tree_labels, labels=2,classes=[],seed=None):
     # pick a small subsets of the classes
-    if len(classes) > 0 or classes:
+    if  classes is not None and len(classes) > 0:
         labels_subset = np.array(classes)
     else:
         labels_subset = np.unique(tree_labels)

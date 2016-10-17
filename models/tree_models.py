@@ -11,8 +11,9 @@ from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.ast_parser import children
 from memory_cell.treelstm import FastTreeLSTM
 
+
 class RecursiveBaseTree(chainer.Chain):
-    def __init__(self,n_children, n_units, n_label,dropout, classes=None):
+    def __init__(self, n_children, n_units, n_label, dropout, classes=None):
         super(RecursiveBaseTree, self).__init__()
         self.classes_ = classes
         self.feature_dict = TreeFeatures()
@@ -38,9 +39,9 @@ class RecursiveBaseTree(chainer.Chain):
         return self.embed(w)
 
     def traverse(self, node, train_mode):
-        c,h = self.traverse_rec(node, train_mode= train_mode)
+        c, h = self.traverse_rec(node, train_mode=train_mode)
         # self.lstm.reset_state()
-        return F.dropout(h,ratio=self.dropout,train=train_mode)
+        return F.dropout(h, ratio=self.dropout, train=train_mode)
 
     def traverse_rec(self, node, train_mode):
         children_ast = list(children(node))
@@ -56,7 +57,7 @@ class RecursiveBaseTree(chainer.Chain):
                 children_nodes.append(child_node)
             if len(children_nodes) < self.n_children:
                 c, h = self.leaf(None, train_mode)
-                children_nodes.extend([(c,h) for i in range(self.n_children - len(children_nodes))])
+                children_nodes.extend([(c, h) for i in range(self.n_children - len(children_nodes))])
             elif len(children_nodes) > self.n_children:
                 children_nodes = children_nodes[:self.n_children]
             x = self.embed_vec(node, train_mode=train_mode)
@@ -65,7 +66,7 @@ class RecursiveBaseTree(chainer.Chain):
     def label(self, v):
         return self.w(v)
 
-    def predict(self, x,index):
+    def predict(self, x, index):
         t = self.label(x)
         X_prob = F.softmax(t)
         indics_ = cuda.to_cpu(X_prob.data.argmax(axis=1))
@@ -85,19 +86,21 @@ class RecursiveBaseTree(chainer.Chain):
         t = chainer.Variable(label, volatile=not train_mode)
         return F.softmax_cross_entropy(w, t)
 
+
 class RecursiveTreeLSTM(RecursiveBaseTree):
-    def __init__(self, n_children, n_units, n_label,dropout, classes=None):
-        super().__init__(n_children, n_units, n_label,dropout, classes)
+    def __init__(self, n_children, n_units, n_label, dropout, classes=None):
+        super().__init__(n_children, n_units, n_label, dropout, classes)
 
         self.add_link("treelstm", FastTreeLSTM(self.n_children, n_units, n_units))
 
     def leaf(self, x, train_mode):
-        vec = super().leaf(x,train_mode=train_mode)
-        return self.treelstm(None,None,vec)
+        vec = super().leaf(x, train_mode=train_mode)
+        return self.treelstm(None, None, vec)
 
-    def merge(self, x, children,train_mode):
+    def merge(self, x, children, train_mode):
         c_list, h_list = zip(*children)
-        return self.treelstm(F.concat(c_list,axis=0), F.concat(h_list,axis=0), x)
+        return self.treelstm(F.concat(c_list, axis=0), F.concat(h_list, axis=0), x)
+
 
 class RecursiveSLSTM(RecursiveBaseTree):
     def __init__(self, n_children, n_units, n_label, classes=None):
@@ -106,14 +109,9 @@ class RecursiveSLSTM(RecursiveBaseTree):
         self.add_link("slstm", F.SLSTM(self.n_children, n_units, n_units))
 
     def leaf(self, x, train_mode):
-        vec = super().leaf(x,train_mode=train_mode)
-        return self.slstm(vec,None,)
+        vec = super().leaf(x, train_mode=train_mode)
+        return self.slstm(vec, None, )
 
-    def merge(self, x, children,train_mode):
+    def merge(self, x, children, train_mode):
         c_list, h_list = zip(*children)
-        return self.slstm(F.concat(c_list,axis=0), F.concat(h_list,axis=0))
-
-
-
-
-
+        return self.slstm(F.concat(c_list, axis=0), F.concat(h_list, axis=0))

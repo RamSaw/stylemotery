@@ -32,6 +32,28 @@ def read_config(filename):
                 classes = [v for idx, v in eval(line.split(":")[1])]
         return seed,classes
 
+
+def remove_old_model(models_base_folder,exper_name, epoch_):
+    model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
+    path = os.path.join(models_base_folder, model_saved_name)
+    if os.path.exists(path):
+        os.remove(path)
+    model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch_)
+    path = os.path.join(models_base_folder, model_saved_name)
+    if os.path.exists(path):
+        os.remove(path)
+
+
+def save_new_model(model,optimizer,models_base_folder,exper_name, epoch):
+    model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
+    path = os.path.join(models_base_folder, model_saved_name)
+    serializers.save_npz(path, model)
+    # save optimizer
+    model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch)
+    path = os.path.join(models_base_folder, model_saved_name)
+    serializers.save_npz(path, optimizer)
+
+
 def main_experiment():
     parser = argparse.ArgumentParser()
     parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')
@@ -150,18 +172,9 @@ def main_experiment():
             # save the model with best accuracy or same accuracy and less loss
             if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
                 # remove last saved model
-                model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
-                path = os.path.join(models_base_folder, model_saved_name)
-                if os.path.exists(path):
-                    os.remove(path)
+                remove_old_model(models_base_folder,exper_name, epoch)
                 # save models
-                model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
-                path = os.path.join(models_base_folder, model_saved_name)
-                serializers.save_npz(path, model)
-                # save optimizer
-                model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch)
-                path = os.path.join(models_base_folder, model_saved_name)
-                serializers.save_npz(path, optimizer)
+                save_new_model(model,optimizer,models_base_folder,exper_name, epoch)
                 saved = True
                 print("saving ... ")
                 best_scores = (epoch, test_loss, test_accuracy)

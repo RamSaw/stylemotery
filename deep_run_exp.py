@@ -29,7 +29,7 @@ def read_config(filename):
                 args_line = line.replace(":-",":").split(":",1)
                 seed = int(args_line[1].strip())
             elif line.startswith("Classes"):
-                classes = [v for idx, v in eval(line.split(":")[1])]
+                classes = [v for v in eval(line.split(":")[1])]
         return seed,classes
 
 

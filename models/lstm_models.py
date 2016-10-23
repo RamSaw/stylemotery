@@ -207,8 +207,13 @@ class RecursiveTreeBiLSTM(RecursiveLSTM):
             self.add_link("blstm" + str(i), self.base_lstm(n_units, n_units))
             if i < layers:
                 self.add_link("w_v" + str(i), L.Linear(2 * n_units, n_units))
+<<<<<<< HEAD
         self.h_l = F.Linear(n_units, 4 * n_units)
         self.h_r = F.Linear(n_units, 4 * n_units)
+=======
+        self.add_link("h_l",L.Linear(n_units, 4 * n_units))
+        self.add_link("h_r",L.Linear(n_units, 4 * n_units))
+>>>>>>> ea7c7ab3f1e1bb5f85c07e43e080e51fb123a888
 
     def merge(self, x, children, train_mode):
         root = x

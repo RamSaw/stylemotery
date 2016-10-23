@@ -3,8 +3,13 @@ import numpy
 from chainer import functions as F
 from chainer import variable
 from chainer import link
+from chainer.functions import split_axis
 from chainer.links.connection import linear
 from chainer import initializers
+from chainer.functions.array import concat
+
+from memory_cell.simple_lstm import LSTMBase
+
 
 def numpy_extract_gates(x):
     r = x.reshape((len(x), x.shape[1] // 4, 4) + x.shape[2:])
@@ -104,4 +109,64 @@ class SLSTM(link.Chain):
         self.o = F.Sigmoid(o1 + o2)
         h = self.o * numpy.tanh(self.c)
 
+class BiSLSTM(LSTMBase):
+    def __init__(self, in_size, out_size, **kwargs):
+        super(BiSLSTM, self).__init__(in_size, out_size, **kwargs)
+        self.reset_state()
 
+    def to_cpu(self):
+        super(BiSLSTM, self).to_cpu()
+        if self.c is not None:
+            self.c.to_cpu()
+        if self.h is not None:
+            self.h.to_cpu()
+
+    def to_gpu(self, device=None):
+        super(BiSLSTM, self).to_gpu(device)
+        if self.c is not None:
+            self.c.to_gpu(device)
+        if self.h is not None:
+            self.h.to_gpu(device)
+
+    def set_state(self, c, h):
+        assert isinstance(c, chainer.Variable)
+        assert isinstance(h, chainer.Variable)
+        c_ = c
+        h_ = h
+        if self.xp == numpy:
+            c_.to_cpu()
+            h_.to_cpu()
+        else:
+            c_.to_gpu()
+            h_.to_gpu()
+        self.c = c_
+        self.h = h_
+
+    def reset_state(self):
+        self.c = self.h = None
+
+    def __call__(self, x):
+        batch = x.shape[0]
+        lstm_in = self.upward(x)
+        h_rest = None
+        if self.h is not None:
+            h_size = self.h.shape[0]
+            if batch == 0:
+                h_rest = self.h
+            elif h_size < batch:
+                msg = ('The batch size of x must be equal to or less than the '
+                       'size of the previous state h.')
+                raise TypeError(msg)
+            elif h_size > batch:
+                h_update, h_rest = split_axis.split_axis(
+                    self.h, [batch], axis=0)
+                lstm_in += self.lateral(h_update)
+            else:
+                lstm_in += self.lateral(self.h)
+        if self.c is None:
+            xp = self.xp
+            self.c = variable.Variable(
+                xp.zeros((batch, self.state_size), dtype=x.dtype),
+                volatile='auto')
+
+        return self.c, lstm_in

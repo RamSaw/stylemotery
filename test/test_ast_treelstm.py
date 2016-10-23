@@ -34,6 +34,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
         if (idx + 1) % batch_size == 0:
             model.zerograds()
             batch_loss.backward()
+
             make_backward_graph(R"C:\Users\bms\PycharmProjects\stylemotery_code","treelstm",[batch_loss])
             exit()
             optimizer.update()

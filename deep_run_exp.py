@@ -79,19 +79,6 @@ def main_experiment():
     output_file.write("Args :- " + str(args) + "\n")
     output_file.write("Seed :- " + str(rand_seed) + "\n")
 
-<<<<<<< HEAD
-    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
-    if args.classes > -1:
-        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
-                                                                                  shuffle=True,seed=rand_seed)
-    #if args.subtrees > -1:
-    #    train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
-=======
-    # if args.subtrees > -1:
-    #     train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
->>>>>>> 6ff8f0e3516c6b6f909b9079ccc8c635ff6360f2
-
     output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio :- %s\n" % list(
         sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),

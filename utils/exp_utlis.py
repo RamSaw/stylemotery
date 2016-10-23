@@ -100,7 +100,7 @@ def validation_split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle
         return train_trees, train_lables, test_trees, test_lables, classes_
 
 
-def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iterations=1):
+def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iterations=0):
     classes_, y = np.unique(tree_labels, return_inverse=True)
     tree_labels = y
     # if shuffle:
@@ -111,8 +111,9 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iteration
     # classes_ = np.arange(len(classes_))
     # seed = random.randint(0, 4294967295)
     cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=shuffle, random_state=seed)
-    for i in range(iterations):
-        train_indices, test_indices = next(cv.__iter__())
+    for idx,(train_indices, test_indices) in enumerate(cv):
+        if idx >= iterations:
+            break
     train_trees, train_lables = trees[train_indices], tree_labels[train_indices]
     test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
     return train_trees, train_lables, test_trees, test_lables, classes_, cv
@@ -120,7 +121,7 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iteration
 
 def pick_subsets(trees, tree_labels, labels=2,classes=[],seed=None):
     # pick a small subsets of the classes
-    if len(classes) > 0 or classes:
+    if  classes is not None and len(classes) > 0:
         labels_subset = np.array(classes)
     else:
         labels_subset = np.unique(tree_labels)

@@ -10,7 +10,7 @@ from chainer import optimizers
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
 from utils.fun_utils import parse_src_files, print_model
@@ -29,8 +29,30 @@ def read_config(filename):
                 args_line = line.replace(":-",":").split(":",1)
                 seed = int(args_line[1].strip())
             elif line.startswith("Classes"):
-                classes = [v for idx, v in eval(line.split(":")[1])]
+                classes = [v for v in eval(line.split(":")[1])]
         return seed,classes
+
+
+def remove_old_model(models_base_folder,exper_name, epoch_):
+    model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
+    path = os.path.join(models_base_folder, model_saved_name)
+    if os.path.exists(path):
+        os.remove(path)
+    model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch_)
+    path = os.path.join(models_base_folder, model_saved_name)
+    if os.path.exists(path):
+        os.remove(path)
+
+
+def save_new_model(model,optimizer,models_base_folder,exper_name, epoch):
+    model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
+    path = os.path.join(models_base_folder, model_saved_name)
+    serializers.save_npz(path, model)
+    # save optimizer
+    model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch)
+    path = os.path.join(models_base_folder, model_saved_name)
+    serializers.save_npz(path, optimizer)
+
 
 def main_experiment():
     parser = argparse.ArgumentParser()
@@ -44,7 +66,7 @@ def main_experiment():
     parser.add_argument('--batchsize', '-b', type=int, default=1, help='Number of examples in each mini batch')
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
     parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
-    parser.add_argument('--iterations', '-i', type=int, default=1, help='CV iterations')
+    parser.add_argument('--iterations', '-i', type=int, default=0, help='CV iterations')
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
@@ -72,7 +94,8 @@ def main_experiment():
         rand_seed = random.randint(0, 4294967295)
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed)
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
+                                                                                  iterations=args.iterations)
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
     output_file.write("Testing the model on all the datasets\n")
@@ -101,8 +124,10 @@ def main_experiment():
     #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "reslstm":
         model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
-    elif model_name == "treestm":
+    elif model_name == "treelstm":
         model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout, classes=classes)
+    elif model_name == "treebilstm":
+        model = RecursiveTreeBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     else:
         print("No model was found")
         return
@@ -146,18 +171,9 @@ def main_experiment():
             # save the model with best accuracy or same accuracy and less loss
             if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
                 # remove last saved model
-                model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch_)
-                path = os.path.join(models_base_folder, model_saved_name)
-                if os.path.exists(path):
-                    os.remove(path)
+                remove_old_model(models_base_folder,exper_name, epoch)
                 # save models
-                model_saved_name = "{0}_epoch_{1}.my".format(exper_name, epoch)
-                path = os.path.join(models_base_folder, model_saved_name)
-                serializers.save_npz(path, model)
-                # save optimizer
-                model_saved_name = "{0}_epoch_{1}.opt".format(exper_name, epoch)
-                path = os.path.join(models_base_folder, model_saved_name)
-                serializers.save_npz(path, optimizer)
+                save_new_model(model,optimizer,models_base_folder,exper_name, epoch)
                 saved = True
                 print("saving ... ")
                 best_scores = (epoch, test_loss, test_accuracy)

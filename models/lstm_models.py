@@ -143,7 +143,6 @@ class RecursiveBiLSTM(RecursiveLSTM):
             fw_results.append(flstm(root))
             for child in leaves:
                 fw_results.append(flstm(child))
-
             # backword
             bw_results = []
             blstm = getattr(self, "blstm{0}".format(idx))
@@ -162,6 +161,7 @@ class RecursiveBiLSTM(RecursiveLSTM):
                     h_values.append(w_v(F.dropout(F.concat((fh, bh), axis=1), ratio=self.dropout, train=train_mode)))
                 root = h_values[0]
                 leaves = h_values[1:]
+
         self.reset_states()
         return h_v
 
@@ -199,22 +199,44 @@ class RecursiveResidualLSTM(RecursiveLSTM):
 
 
 class RecursiveTreeBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, dropout, peephole, classes=None):
-        super(RecursiveTreeBiLSTM, self).__init__(n_units, n_label, layers=2, peephole=peephole, dropout=dropout,
+    def __init__(self, n_units, n_label, layers,dropout, peephole, classes=None):
+        super(RecursiveTreeBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,
                                                   classes=classes)
         self.dropout = dropout
-        self.add_link("w_v", L.Linear(2 * n_units, n_units))
+        for i in range(1, layers + 1):
+            self.add_link("blstm" + str(i), self.base_lstm(n_units, n_units))
+            if i < layers:
+                self.add_link("w_v" + str(i), L.Linear(2 * n_units, n_units))
+        self.h_l = L.Linear(n_units, 4 * n_units)
+        self.h_r = L.Linear(n_units, 4 * n_units)
 
-    def merge(self, x, children, train_mode=True):
-        # forward
-        h0 = self.lstm1(x)  # self.batch(
-        for child in children:
-            h0 = self.lstm1(child)
-        self.lstm1.reset_state()
-
-        # backword
-        for child in reversed(children):
-            h1 = self.lstm2(child)
-        h1 = self.lstm2(x)
-        self.lstm2.reset_state()
-        return self.w_v(F.dropout(F.concat((h0, h1), axis=1), ratio=self.dropout, train=train_mode))
+    def merge(self, x, children, train_mode):
+        root = x
+        leaves = children
+        for idx in range(1, self.layers + 1):
+            # forward
+            fw_results = []
+            flstm = getattr(self, "lstm{0}".format(idx))
+            fw_results.append(flstm(root))
+            for child in leaves:
+                fw_results.append(flstm(child))
+            c_r = flstm.c
+            # backword
+            bw_results = []
+            blstm = getattr(self, "blstm{0}".format(idx))
+            for child in reversed(leaves):
+                bw_results.append(blstm(child))
+            bw_results.append(blstm(root))
+            c_l = blstm.c
+            if idx < self.layers:
+                w_v = getattr(self, "w_v{0}".format(idx))
+                h_values = []
+                for fh, bh in zip(fw_results, bw_results):
+                    h_values.append(w_v(F.dropout(F.concat((fh, bh), axis=1), ratio=self.dropout, train=train_mode)))
+                root = h_values[0]
+                leaves = h_values[1:]
+        self.reset_states()
+        h_l = self.h_l(bw_results[-1])
+        h_r = self.h_r(fw_results[-1])
+        c,h =F.slstm(c_l, c_r, h_l,h_r)
+        return F.dropout(h, ratio=self.dropout, train=train_mode)

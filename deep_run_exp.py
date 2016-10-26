@@ -10,11 +10,7 @@ from chainer import optimizers
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-<<<<<<< HEAD
-from models.lstm_models import RecursiveLSTM, RecursiveBBiLSTM,RecursiveBiLSTM, RecursiveResidualLSTM
-=======
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
->>>>>>> ea7c7ab3f1e1bb5f85c07e43e080e51fb123a888
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
 from utils.fun_utils import parse_src_files, print_model

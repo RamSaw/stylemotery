@@ -10,7 +10,11 @@ from chainer import optimizers
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
+<<<<<<< HEAD
 from models.lstm_models import RecursiveLSTM, RecursiveBBiLSTM,RecursiveBiLSTM, RecursiveResidualLSTM
+=======
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
+>>>>>>> ea7c7ab3f1e1bb5f85c07e43e080e51fb123a888
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
 from utils.fun_utils import parse_src_files, print_model
@@ -29,7 +33,7 @@ def read_config(filename):
                 args_line = line.replace(":-",":").split(":",1)
                 seed = int(args_line[1].strip())
             elif line.startswith("Classes"):
-                classes = [v for idx, v in eval(line.split(":")[1])]
+                classes = [v for v in eval(line.split(":")[1])]
         return seed,classes
 
 
@@ -125,8 +129,10 @@ def main_experiment():
     #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "reslstm":
         model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
-    elif model_name == "treestm":
+    elif model_name == "treelstm":
         model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout, classes=classes)
+    elif model_name == "treebilstm":
+        model = RecursiveTreeBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     else:
         print("No model was found")
         return

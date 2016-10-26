@@ -1,17 +1,16 @@
-try:
-    import unittest2 as unittest
-except ImportError:
-    import unittest
+# try:
+#     import unittest2 as unittest
+# except ImportError:
+#     import unittest
 
 import rope.base.codeanalyze
 import rope.base.exceptions
 
 from rope.refactor import extract
-from ropetest import testutils
+from refactors.rope_examples.ropetest import testutils
 
 
-class ExtractMethodTest(unittest.TestCase):
-
+class ExtractMethodTest():
     def setUp(self):
         super(ExtractMethodTest, self).setUp()
         self.project = testutils.sample_project()
@@ -1002,4 +1001,7 @@ class ExtractMethodTest(unittest.TestCase):
         with self.assertRaises(rope.base.exceptions.RefactoringError):
             self.do_extract_method(code, start, end, 'new_func')
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    #
+    ex = ExtractMethodTest()
+   # ex.test_simple_extract_method_and_similar_statements()

@@ -199,7 +199,7 @@ class ASTVectorizer(BaseEstimator):
         self.features_categories.extend(["tf_ngrams_node_sp" for s in range(X_list[0].shape[1])])
         self.features_categories.extend(["tf_node_types_sp" for s in range(X_list[1].shape[1])])
         self.features_categories.extend(["tf_node_leaves_sp" for s in range(X_list[2].shape[1])])
-        self.features_categories.extend(["tf_node_keywords_sp" for s in range(X_list[3].shape[1])])
+        # self.features_categories.extend(["tf_node_keywords_sp" for s in range(X_list[3].shape[1])])
         # self.features_categories.extend(["max_node_depth_sp" for s in range(X_list[3].shape[1])])
         self.features_categories.extend(["avg_node_types_depth_sp" for s in range(X_list[4].shape[1])])
         self.features_categories.extend(["avg_node_leaves_depth_sp" for s in range(X_list[5].shape[1])])
@@ -265,7 +265,7 @@ class ASTVectorizer(BaseEstimator):
             self._to_sparse(avg_node_types_depth, self.tree_features.astnodes.size()))
         avg_node_leaves_depth_sp = self._normalize(
             self._to_sparse(avg_node_leaves_depth, self.tree_features.astnodes.size()))
-        # max_node_depth_sp = self._normalize(sp.csr_matrix(max_node_depth, dtype=self.dtype))
+        max_node_depth_sp = self._normalize(sp.csr_matrix(max_node_depth, dtype=self.dtype))
 
         X_list = [tf_ngrams_node_sp,
                   tf_node_types_sp,

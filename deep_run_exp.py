@@ -12,7 +12,7 @@ from ast_tree.ast_parser import split_trees2
 from chainer import serializers
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
 from models.tree_models import RecursiveTreeLSTM
-from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
+from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
 from utils.fun_utils import parse_src_files, print_model
 
 
@@ -21,16 +21,6 @@ def print_table(table):
     for line in table:
         print("| " + " | ".join("{:{}}".format(x, col_width[i])
                                 for i, x in enumerate(line)) + " |")
-def read_config(filename):
-    with open(filename) as file:
-        for line in file:
-            line = line.strip()
-            if line.startswith("Seed"):
-                args_line = line.replace(":-",":").split(":",1)
-                seed = int(args_line[1].strip())
-            elif line.startswith("Classes"):
-                classes = [v for v in eval(line.split(":")[1])]
-        return seed,classes
 
 
 def remove_old_model(models_base_folder,exper_name, epoch_):

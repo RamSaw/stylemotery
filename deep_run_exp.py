@@ -10,7 +10,7 @@ from chainer import optimizers
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+from models.lstm_models import RecursiveLSTM, RecursiveBBiLSTM,RecursiveBiLSTM, RecursiveResidualLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate
 from utils.fun_utils import parse_src_files, print_model
@@ -102,14 +102,6 @@ def main_experiment():
     output_file.write("Args :- " + str(args) + "\n")
     output_file.write("Seed :- " + str(rand_seed) + "\n")
 
-    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
-    if args.classes > -1:
-        trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
-                                                                                  shuffle=True,seed=rand_seed)
-    #if args.subtrees > -1:
-    #    train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
-
     output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio :- %s\n" % list(
         sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
@@ -119,11 +111,12 @@ def main_experiment():
     len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
     output_file.write(
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
-
     if model_name == "lstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "bilstm":
         model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,peephole=False)
+    elif model_name == "bbilstm":
+        model = RecursiveBBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
     elif model_name == "biplstm":
         model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=True)
     elif model_name == "plstm":
@@ -147,7 +140,7 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.AdaGrad(lr=0.01)
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#)daGrad(lr=0.01)
     #MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)

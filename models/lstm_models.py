@@ -109,6 +109,25 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         self.reset_states()
         return h0
 
+class RecursiveBBiLSTM(RecursiveLSTM):
+    def __init__(self, n_units, n_label, dropout, classes=None):
+        super(RecursiveBBiLSTM, self).__init__(n_units, n_label, layers=2, dropout=dropout, classes=classes)
+        self.dropout = dropout
+        self.add_link("w_v", L.Linear(2 * n_units, n_units))
+
+    def merge(self, x, children, train_mode=True):
+        # forward
+        h0 = self.lstm1(x)  # self.batch(
+        for child in children:
+            h0 = self.lstm1(child)
+        self.lstm1.reset_state()
+
+        # backword
+        for child in reversed(children):
+            h1 = self.lstm2(child)
+        h1 = self.lstm2(x)
+        self.lstm2.reset_state()
+        return self.w_v(F.dropout(F.concat((h0, h1), axis=1), ratio=self.dropout, train=train_mode))
 
 class RecursiveBiLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label, layers, dropout, peephole, classes=None):

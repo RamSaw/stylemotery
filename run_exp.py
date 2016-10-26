@@ -1,10 +1,13 @@
+import argparse
+import random
 import traceback
 from collections import defaultdict, Counter
 from operator import itemgetter
 from pprint import pprint
 from time import time
-
+import os
 import numpy as np
+import sys
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.grid_search import GridSearchCV
@@ -13,8 +16,9 @@ from sklearn.pipeline import Pipeline
 
 from information_gain.InformationGain import TopRandomTreesEmbedding
 from ast_tree.ASTVectorizater import ASTVectorizer
+from utils.exp_utlis import read_config, pick_subsets, split_trees
 from utils.fun_utils import get_basefolder, parse_src_files
-
+import collections
 
 def full_evaluation(rf, X, y, cv):
     precision = []
@@ -57,20 +61,19 @@ def full_evaluation(rf, X, y, cv):
     print("Confusion Matrix", cma)
 
 
-def main_relax(pipline, relax=15):
-    basefolder = get_basefolder()
-    X, y, tags = parse_src_files(basefolder)
+def exp_relax(pipline,X,y,tags, relax=15,cv=None,output=sys.stdout):
+    # basefolder = get_basefolder()
+    # X, y, tags = parse_src_files(basefolder)
 
     # X,y,tags = split_trees2(X, y, tags)
 
-    print("\t\t%s unique problems, %s unique users :" % (len(set(tags)), len(set(y))))
-    print("\t\t%s all problems, %s all users :" % (len(tags), len(y)))
+    print("\t\t%s unique problems, %s unique users : " % (len(set(tags)), len(set(y))))
+    print("\t\t%s all problems, %s all users : " % (len(tags), len(y)))
     # ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
     # print("\t\t all users ratio ",ratio)
 
-    folds = StratifiedKFold(y, n_folds=10)
     accuracy = []
-    for idx, (train, test) in enumerate(folds):
+    for idx, (train, test) in enumerate(cv):
         pipline.fit(X[train], y[train])
         y_predict_prob = pipline.predict_proba(X[test])
         classes_ = pipline.steps[-1][1].classes_
@@ -86,11 +89,12 @@ def main_relax(pipline, relax=15):
 
         y_predict = np.array(y_predict)
         accuracy.append(accuracy_score(y[test], y_predict))
-        print("\t\t\taccuracy = ", accuracy[-1])
+        output.write("\t\t\taccuracy = %s \n" % accuracy[-1])
+        output.flush()
         # for feature in np.nonzero(pipline.steps[-1][1].feature_importances_)[0]:
         #     import_features[feature] += 1
 
-    print("\tAVG =", np.mean(accuracy))
+    output.write("Accuracy = %s \n" % np.mean(accuracy))
     # print("Features =",Counter(import_features).most_common(100))
 
 
@@ -182,6 +186,19 @@ def main_gridsearch():
 
     report(grid_search.grid_scores_)
 
+def main_relax():
+    relax_list = [1, 5, 10, 15]
+    k_list = [700, 900, 1000]
+    for i in relax_list:
+        print("Relax = ", i)
+        for k in k_list:
+            print("\tk = ", k)
+            pipline = Pipeline([
+                ('astvector', ASTVectorizer(ngram=3, v_skip=1, normalize=True, idf=True, dtype=np.float32)),
+                ('selection', TopRandomTreesEmbedding(k=k, n_estimators=1000, max_depth=40)),
+                # PredefinedFeatureSelection()),
+                ('randforest', RandomForestClassifier(n_estimators=1000, min_samples_split=1, max_features="auto"))])
+            exp_relax(pipline, relax=i)
 
 def test_all():
     basefolder = get_basefolder()
@@ -192,41 +209,55 @@ def test_all():
     except:
         print(traceback.format_exc())
 
-
 if __name__ == "__main__":
-    # main_gridsearch()
-    #    relax_list = [1, 5, 10, 15]
-    # k_list = [700, 900, 1000]
-    #    for i in relax_list:
-    #        print("Relax = ", i)
-    #     for k in k_list:
-    #         print("\tk = ", k)
-    #        pipline = Pipeline([
-    #               ('astvector', ASTVectorizer(ngram=3,v_skip=1, normalize=True, idf=True, dtype=np.float32)),
-    #              ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
-    # PredefinedFeatureSelection()),
-    #             ('randforest', RandomForestClassifier(n_estimators=1000,min_samples_split=1,max_features="auto"))])
-    #     main_relax(pipline, relax=i)
-    # main_gridsearch()
-    relax_list = [1, 2, 3, 5, 10, 15]
-    # k_list = [700, 900, 1000]
-    for i in relax_list:
-        print("Relax = ", i)
-        pipline = Pipeline([
-            ('astvector', ASTVectorizer(ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-            ('selection', TopRandomTreesEmbedding(k=1200, n_estimators=1000, max_depth=40)),
-            # PredefinedFeatureSelection()),
-            ('randforest', RandomForestClassifier(n_estimators=1000, min_samples_split=1, max_features="auto"))])
-        main_relax(pipline, relax=i)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')
+    parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
+    parser.add_argument('--dataset', '-d', type=str, default="dataset/dataset700", help='Experiment dataset')
+    parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
+    parser.add_argument('--folds', '-fo', type=int, default=5, help='Number of folds')
+    parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
 
-        # print("relax")
-        # pipline = Pipeline([
-        #     ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-        #     ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1000, max_depth=40)),
-        #     # PredefinedFeatureSelection()),
-        #     ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto"))])
-        #     # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
-        # main_relax(pipline, relax=1)
-        # # # print("predict")
-        # # main(pipline)
-        # # test_all()
+    args = parser.parse_args()
+    n_folds = args.folds
+    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    exper_name = args.name
+    dataset_folder = args.dataset
+    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+    if args.train:
+        rand_seed, classes = read_config(os.path.join("train",args.train))
+        trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
+    else:
+        rand_seed = random.randint(0, 4294967295)
+        if args.classes > -1:
+            trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
+
+    cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=True, random_state=rand_seed)
+    #main_gridsearch()
+    #main_relax()
+    pipline = Pipeline([
+        ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
+        ('selection', TopRandomTreesEmbedding(k=700, n_estimators=900, max_depth=20)),
+        # PredefinedFeatureSelection()),
+        ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto",criterion="entropy"))])
+        # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
+    # exp_relax(pipline,trees,tree_labels,lable_problems, relax=1,cv=cv)
+
+    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
+    output_file.write("Testing the model on all the datasets\n")
+    output_file.write("Args :- " + str(args) + "\n")
+    output_file.write("Seed :- " + str(rand_seed) + "\n")
+    output_file.write("Cross Validation :-%s\n" % cv)
+    output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(set(tree_labels))])
+    output_file.write("Class ratio :- %s\n" % list(
+        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
+               reverse=False)))
+    output_file.write("Model:  {0}\n".format(exper_name))
+    pprint(pipline.steps,stream=output_file, indent=5,depth=2)
+    output_file.flush()
+    exp_relax(pipline,trees,tree_labels,lable_problems,relax=1,cv=cv,output=output_file)
+    output_file.close()
+
+    # # # print("predict")
+    # main(pipline)
+    # # test_all()

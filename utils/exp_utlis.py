@@ -134,3 +134,14 @@ def pick_subsets(trees, tree_labels, labels=2,classes=[],seed=None):
     tree_labels = tree_labels[selected_indices]
 
     return trees, tree_labels
+
+def read_config(filename):
+    with open(filename) as file:
+        for line in file:
+            line = line.strip()
+            if line.startswith("Seed"):
+                args_line = line.replace(":-",":").split(":",1)
+                seed = int(args_line[1].strip())
+            elif line.startswith("Classes"):
+                classes = [v for v in eval(line.split(":")[1])]
+        return seed,classes

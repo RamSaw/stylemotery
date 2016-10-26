@@ -8,7 +8,7 @@ def get_basefolder():
     if platform.system().startswith("Linux"):
         return R"dataset700"
     elif platform.system().startswith("Win"):
-        return R"C:\Users\bms\PycharmProjects\stylemotery_code\dataset700"
+        return R"dataset/dataset700"
 
 
 def ast_parse_file(filename):

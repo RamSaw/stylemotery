@@ -102,6 +102,10 @@ class RecursiveTreeLSTM(RecursiveBaseTree):
         return self.treelstm(F.concat(c_list, axis=0), F.concat(h_list, axis=0), x)
 
 
+    def reset_states(self):
+        self.treelstm.reset_state()
+
+
 class RecursiveSLSTM(RecursiveBaseTree):
     def __init__(self, n_children, n_units, n_label, classes=None):
         super().__init__(n_children, n_units, n_label, classes)

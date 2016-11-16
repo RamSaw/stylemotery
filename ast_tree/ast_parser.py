@@ -122,13 +122,17 @@ def dfs(node, callback, mode="all", out=None):
 
 
 def children(node):
-    for field, value in ast.iter_fields(node):
-        if isinstance(value, ast.AST):
-            yield value
-        elif isinstance(value, list):
-            for item in value:
-                if isinstance(item, ast.AST):
-                    yield item
+    if hasattr(node,"children"):
+        for child in node.children:
+            yield child
+    else:
+        for field, value in ast.iter_fields(node):
+            if isinstance(value, ast.AST):
+                yield value
+            elif isinstance(value, list):
+                for item in value:
+                    if isinstance(item, ast.AST):
+                        yield item
 
 
 def ast_print(tree):

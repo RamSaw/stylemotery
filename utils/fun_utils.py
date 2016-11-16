@@ -4,7 +4,8 @@ import platform
 import sys
 import numpy as np
 
-from ast_tree.ast_parser import children, ast_print
+import copy
+from ast_tree.ast_parser import children, ast_print, bfs
 
 
 def get_basefolder():
@@ -37,7 +38,8 @@ def get_src_files(basefolder):
 
 def parse_src_files(basefolder, seperate_trees=False):
     X_names, y, problems = get_src_files(basefolder)
-    return np.array(unified_ast_trees([ast_parse_file(name) for name in X_names])), np.array(y), problems
+    return np.array([ast_parse_file(name) for name in X_names]), np.array(y), problems
+    # return np.array(make_binary_tree(unified_ast_trees([ast_parse_file(name) for name in X_names]))), np.array(y), problems
 
 
 def generate_tree(node, children):
@@ -98,38 +100,68 @@ def unified_ast_trees(trees):
     def convert_tree(src_tree):
         childern = []
         for child in children(src_tree):
-            childern.append(child)
-        src_tree.childern = childern
+            childern.append(convert_tree(child))
+        src_tree.children = childern
         return src_tree
     utrees = []
     for tree in trees:
         utrees.append(convert_tree(tree))
     return utrees
+def max_depth(ast_tree):
+    def max_depth_lambda(x, d, o):
+        if len(o) == 0:
+            o.append(d)
+        elif d > o[0]:
+            o[0] = d
 
-def make_binary_tree(tree):
-    def make_binary_tree(src_tree,dst_tree,childs):
-        for child in childs:
-            dst_tree.children.append(child)
-            make_binary_tree(child,[],list(children(child)))
-        return src_tree
-    binary_tree = []
-    return make_binary_tree(tree,binary_tree,list(children(tree)))
+    out = bfs(ast_tree, callback=max_depth_lambda, mode="leaves", out=[])
+    return out[0]
 
-def printcb(node, depth, out=None):
-    '''print indented node names'''
-    nodename = node.__class__.__name__
-    nodename += "("
-    for name, value in ast.iter_fields(node):
-        field = getattr(node, name)
-        if type(field) in [int, str, float]:
-            nodename += str(getattr(node, name))
-    nodename += ")"
-    print(' ' * depth * 2 + nodename)
+
+def max_branch(ast_tree):
+    def max_branch_lambda(x, d, o):
+        count = len(list(children(x)))
+        if len(o) == 0:
+            o.append(count)
+        elif count > o[0]:
+            o[0] = count
+
+    out = bfs(ast_tree, callback=max_branch_lambda, mode="all", out=[])
+    return out[0]
+def make_binary_tree(trees,max_branches=10):
+    def make_binary_tree(src_tree,dst_tree,max_branches = 2):
+        childs = list(children(src_tree))
+        if len(childs) > 0:
+            dst_tree.children.extend(childs[:max_branches])
+            if len(childs)-max_branches > 0:
+                if len(childs) - max_branches == 1:
+                    dst_tree.children.append(childs[-1])
+                else:
+                    dst_node = copy.copy(dst_tree)
+                    dst_node.children = []
+                    src_node = copy.copy(dst_tree)
+                    src_node.children = childs[max_branches:]
+                    dst_tree.children.append(make_binary_tree(src_node,dst_node))
+            for idx,child in enumerate(children(dst_tree)):
+                dst_child = copy.copy(child)
+                dst_child.children = []
+                dst_tree.children[idx] = make_binary_tree(child,dst_child,max_branches)
+        return dst_tree
+    import sys
+    sys.setrecursionlimit(100000)
+    dst_trees = []
+    for idx,tree in enumerate(trees):
+        # print(idx, ", max branches=",max_branch(tree)," max depth =", max_depth(tree))
+        binary_tree = copy.copy(tree)
+        binary_tree.children = []
+        dst_trees.append(make_binary_tree(tree,binary_tree,max_branches))
+    return np.array(dst_trees)
 
 if __name__ == "__main__":
     trees,labels,problems = generate_trees("",2,5,20)
-    trees = unified_ast_trees(trees)
+    trees = unified_ast_trees(trees[:1])
     ast_print(trees[0])
+    ast_print(make_binary_tree(trees,max_branches=2)[0])
 
 
 

@@ -7,13 +7,13 @@ from operator import itemgetter
 import chainer
 from chainer import optimizers
 import math
-from ast_tree.ast_parser import split_trees2
+from ast_tree.ast_parser import split_trees2, ast_print
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
-from utils.fun_utils import parse_src_files, print_model, unified_ast_trees
+from utils.fun_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree, max_branch, max_depth
 
 
 def print_table(table):
@@ -85,6 +85,11 @@ def main_experiment():
         rand_seed = random.randint(0, 4294967295)
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
+
+
+    if model_name in ("treelstm","slstm"):
+        trees = make_binary_tree(unified_ast_trees(trees), layers - 1)
+
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
 
@@ -142,7 +147,7 @@ def main_experiment():
     output_file.write(" {0} \n".format(hooks))
 
     output_file.write("Evaluation\n")
-    output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
+    output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}{5:<20}\n".format("epoch","learing_rate", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
     output_file.flush()
 
 
@@ -169,7 +174,7 @@ def main_experiment():
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
-        optimizer.lr = range_decay(epoch-1)
+        # optimizer.lr = range_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
         print('Train')
@@ -193,7 +198,7 @@ def main_experiment():
                 best_scores = (epoch, test_loss, test_accuracy)
 
         output_file.write(
-            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}{5:<10}\n".format(epoch, training_loss, test_loss,
+            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}{5:<20.10f}{6:<10}\n".format(epoch,optimizer.lr, training_loss, test_loss,
                                                                                   training_accuracy, test_accuracy,
                                                                                   "saved" if saved else ""))
         output_file.flush()

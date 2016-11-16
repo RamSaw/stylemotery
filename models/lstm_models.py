@@ -28,6 +28,7 @@ class RecursiveBaseLSTM(chainer.Chain):
     def embed_vec(self, x, train_mode):
         word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
+        #return F.dropout(self.embed(w),ratio=self.dropout,train=train_mode)
         return self.embed(w)
 
     def params_count(self):
@@ -238,8 +239,8 @@ class RecursiveTreeBiLSTM(RecursiveLSTM):
                 root = h_values[0]
                 leaves = h_values[1:]
         self.reset_states()
-        h_l = self.h_l(bw_results[-1])
-        h_r = self.h_r(fw_results[-1])
+        h_l = self.h_l(F.dropout(bw_results[-1], ratio=self.dropout, train=train_mode))
+        h_r = self.h_r(F.dropout(fw_results[-1], ratio=self.dropout, train=train_mode))
         c,h =F.slstm(c_l, c_r, h_l,h_r)
         return F.dropout(h, ratio=self.dropout, train=train_mode)
 

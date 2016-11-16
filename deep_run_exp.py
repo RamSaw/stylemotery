@@ -6,7 +6,7 @@ from operator import itemgetter
 
 import chainer
 from chainer import optimizers
-
+import math
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
@@ -93,9 +93,6 @@ def main_experiment():
     output_file.write("Args :- " + str(args) + "\n")
     output_file.write("Seed :- " + str(rand_seed) + "\n")
 
-    # if args.subtrees > -1:
-    #     train_trees, train_lables, _ = split_trees2(train_trees, train_lables,lable_problems, original=True)
-
     output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(classes)])
     output_file.write("Class ratio :- %s\n" % list(
         sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
@@ -148,8 +145,13 @@ def main_experiment():
     output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
     output_file.flush()
 
+    def step_decay(epoch,initial_lrate=0.01,drop=0.5,epochs_drop = 10.0):
+        lrate = initial_lrate * math.pow(drop, math.floor((1 + epoch) / epochs_drop))
+        return lrate
+
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
+        optimizer.lr = step_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
         print('Train')

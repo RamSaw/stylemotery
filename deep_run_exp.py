@@ -145,13 +145,31 @@ def main_experiment():
     output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
     output_file.flush()
 
-    def step_decay(epoch,initial_lrate=0.01,drop=0.5,epochs_drop = 10.0):
+
+    def drop_decay(epoch,initial_lrate=0.1,drop=0.5,epochs_drop = 10.0):
         lrate = initial_lrate * math.pow(drop, math.floor((1 + epoch) / epochs_drop))
         return lrate
 
+    def time_decay(epoch, initial_lrate=0.1, decay=0.1):
+        return initial_lrate * 1 / (1 + decay * epoch)
+
+    def range_decay(epoch):
+        class RangeDictionary(dict):
+            def __getitem__(self, key):
+                for r in self.keys():
+                    if key in r:
+                        return super().__getitem__(r)
+                return super().__getitem__(key)
+        rates = {range(0,10):0.01,
+                 range(10,30):0.005,
+                 range(30,50):0.001,
+                 range(50,100):0.0005,
+                 range(100,500):0.0001}
+        return RangeDictionary(rates)[epoch]
+
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
-        optimizer.lr = step_decay(epoch-1)
+        optimizer.lr = range_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
         print('Train')

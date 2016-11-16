@@ -6,7 +6,7 @@ from operator import itemgetter
 
 import chainer
 from chainer import optimizers
-
+import math
 from ast_tree.ast_parser import split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
@@ -144,8 +144,13 @@ def main_experiment():
     output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
     output_file.flush()
 
+    def step_decay(epoch,initial_lrate=0.01,drop=0.5,epochs_drop = 10.0):
+        lrate = initial_lrate * math.pow(drop, math.floor((1 + epoch) / epochs_drop))
+        return lrate
+
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
+        optimizer.lr = step_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
         print('Train')

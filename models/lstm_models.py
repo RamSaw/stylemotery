@@ -28,6 +28,7 @@ class RecursiveBaseLSTM(chainer.Chain):
     def embed_vec(self, x, train_mode):
         word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
+        #return F.dropout(self.embed(w),ratio=self.dropout,train=train_mode)
         return self.embed(w)
 
     def params_count(self):

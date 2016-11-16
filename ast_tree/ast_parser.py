@@ -8,8 +8,6 @@ import copy
 import numpy as np
 import codegen as cg
 
-from utils.fun_utils import ast_parse_file, get_basefolder, parse_src_files
-
 
 class AstNodes:
     NONE = "NONE"
@@ -72,10 +70,16 @@ def printcb(node, depth, out=None):
     '''print indented node names'''
     nodename = node.__class__.__name__
     nodename += "("
+    # if hasattr(node,"_fields"):
     for name, value in ast.iter_fields(node):
         field = getattr(node, name)
         if type(field) in [int, str, float]:
             nodename += str(getattr(node, name))
+    # elif hasattr(node,"_content"):
+    #     for name, value in node.content():
+    #         field = getattr(node, name)
+    #         if type(field) in [int, str, float]:
+    #             nodename += str(getattr(node, name))
     nodename += ")"
     print(' ' * depth * 2 + nodename)
 
@@ -190,25 +194,27 @@ def split_trees2(X, y, problems,original=False):
 
 
 if __name__ == "__main__":
+    pass
     # filename = os.path.join(os.getcwd(), 'dump_program.py')
     # traverse = bfs(ast_parse_file(filename), callback=printcb, mode="all")
     # astnodes = AstNodes()
-    basefolder = get_basefolder()
-    X, y, problems = parse_src_files(basefolder)
-    subX, subY, subProblems = split_tees(X, y, problems)
+    # basefolder = get_basefolder()
+    # X, y, problems = parse_src_files(basefolder)
+    # subX, subY, subProblems = split_tees(X, y, problems)
+    #
+    # print("\t\t%s Unique problems, %s Unique users :" % (len(set(problems)), len(set(y))))
+    # print("\t\t%s All problems, %s All users :" % (len(problems), len(y)))
+    # print("\t\t%s Sub problems, %s sub users :" % (len(subProblems), len(subY)))
+    # ratio = sorted([(i, Counter(subY)[i],
+    #                  "%{0}".format(round((Counter(subY)[i] / float(len(subY)) * 100.0), 2))) for i in Counter(subY)],
+    #                key=itemgetter(1), reverse=True)
+    # print("\t\t all users ratio ", ratio)
+    # first_layer = []
+    # for x in subX:
+    #     first_layer.append(type(x).__name__)
+    #
+    # ratio = sorted([(i, Counter(first_layer)[i],
+    #                  "%{0}".format(round((Counter(first_layer)[i] / float(len(first_layer)) * 100.0), 2))) for i in
+    #                 Counter(first_layer)], key=itemgetter(1), reverse=True)
+    # print("\t\t all users ratio ", ratio)
 
-    print("\t\t%s Unique problems, %s Unique users :" % (len(set(problems)), len(set(y))))
-    print("\t\t%s All problems, %s All users :" % (len(problems), len(y)))
-    print("\t\t%s Sub problems, %s sub users :" % (len(subProblems), len(subY)))
-    ratio = sorted([(i, Counter(subY)[i],
-                     "%{0}".format(round((Counter(subY)[i] / float(len(subY)) * 100.0), 2))) for i in Counter(subY)],
-                   key=itemgetter(1), reverse=True)
-    print("\t\t all users ratio ", ratio)
-    first_layer = []
-    for x in subX:
-        first_layer.append(type(x).__name__)
-
-    ratio = sorted([(i, Counter(first_layer)[i],
-                     "%{0}".format(round((Counter(first_layer)[i] / float(len(first_layer)) * 100.0), 2))) for i in
-                    Counter(first_layer)], key=itemgetter(1), reverse=True)
-    print("\t\t all users ratio ", ratio)

@@ -13,7 +13,7 @@ from chainer import serializers
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
-from utils.fun_utils import parse_src_files, print_model
+from utils.fun_utils import parse_src_files, print_model, unified_ast_trees
 
 
 def print_table(table):
@@ -77,6 +77,7 @@ def main_experiment():
     dropout = args.dropout
 
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+
     if args.train:
         rand_seed, classes = read_config(os.path.join("train",args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
@@ -191,3 +192,4 @@ def main_experiment():
 
 if __name__ == "__main__":
     main_experiment()
+

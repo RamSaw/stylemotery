@@ -4,6 +4,9 @@ import platform
 import sys
 import numpy as np
 
+from ast_tree.ast_parser import children, ast_print
+
+
 def get_basefolder():
     if platform.system().startswith("Linux"):
         return R"dataset700"
@@ -20,6 +23,8 @@ def ast_parse_file(filename):
         print("ERROR: ", e, " filename", filename)
 
 
+
+
 def get_src_files(basefolder):
     files = os.listdir(basefolder)
     files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
@@ -32,7 +37,7 @@ def get_src_files(basefolder):
 
 def parse_src_files(basefolder, seperate_trees=False):
     X_names, y, problems = get_src_files(basefolder)
-    return np.array([ast_parse_file(name) for name in X_names]), np.array(y), problems
+    return np.array(unified_ast_trees([ast_parse_file(name) for name in X_names])), np.array(y), problems
 
 
 def generate_tree(node, children):
@@ -81,6 +86,52 @@ def print_model(model,depth=0,output=sys.stdout):
             output.write("\t"*depth+"{0} \n".format(model.name))
         for child in model.children():
             print_model(child,depth=depth+1,output=output)
+
+
+class Node:
+    def __init__(self,child):
+        self.children = child
+        self._fields = ('children',)
+
+
+def unified_ast_trees(trees):
+    def convert_tree(src_tree):
+        childern = []
+        for child in children(src_tree):
+            childern.append(child)
+        src_tree.childern = childern
+        return src_tree
+    utrees = []
+    for tree in trees:
+        utrees.append(convert_tree(tree))
+    return utrees
+
+def make_binary_tree(tree):
+    def make_binary_tree(src_tree,dst_tree,childs):
+        for child in childs:
+            dst_tree.children.append(child)
+            make_binary_tree(child,[],list(children(child)))
+        return src_tree
+    binary_tree = []
+    return make_binary_tree(tree,binary_tree,list(children(tree)))
+
+def printcb(node, depth, out=None):
+    '''print indented node names'''
+    nodename = node.__class__.__name__
+    nodename += "("
+    for name, value in ast.iter_fields(node):
+        field = getattr(node, name)
+        if type(field) in [int, str, float]:
+            nodename += str(getattr(node, name))
+    nodename += ")"
+    print(' ' * depth * 2 + nodename)
+
+if __name__ == "__main__":
+    trees,labels,problems = generate_trees("",2,5,20)
+    trees = unified_ast_trees(trees)
+    ast_print(trees[0])
+
+
 
 
 

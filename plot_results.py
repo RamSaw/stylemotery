@@ -1,13 +1,13 @@
 import os
 
 from utils.extract_loss_progress import parse_result_file
-from utils.graph import plot_each
+from utils.graph import plot_each, plot_each_smooth
 
 
 def standarize(values):
     return {k.replace("_", " ").replace("training", "train"): v for k, v in values.items()}
 
-def plot_results(base_folder,recursive=False):
+def plot_results(base_folder,recursive=False,smooth=False):
     results = {}
     for filename in os.listdir(base_folder):
         if os.path.isdir(os.path.join(base_folder, filename)) and recursive:
@@ -21,7 +21,9 @@ def plot_results(base_folder,recursive=False):
     for name, values in new_results.items():
         print(name, " ==> ", values.keys())
 
-    plot_each(new_results, base_folder)
+    # plot_each(new_results, base_folder)
+    if smooth:
+        plot_each_smooth(new_results, base_folder)
 
 def extract_best_results(base_folder,recursive=False):
     results = {}
@@ -69,5 +71,5 @@ def extract_training_data(base_folder,recursive=False):
                 print("\t",k,":",v)
 
 if __name__ == "__main__":
-    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\Experiments\results\best results\raw results"
-    extract_best_results(base_folder,recursive=True)
+    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\Experiments\best results\RNN"
+    plot_results(base_folder,recursive=False,smooth=True)

@@ -46,6 +46,8 @@ class RecursiveBaseLSTM(chainer.Chain):
             # internal node
             children_nodes = []
             for child in children_ast:
+                if child is None:
+                    pass
                 child_node = self.traverse(child, train_mode=train_mode)
                 children_nodes.append(child_node)
             x = self.embed_vec(node, train_mode=train_mode)

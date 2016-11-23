@@ -87,8 +87,8 @@ def main_experiment():
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
 
 
-    if model_name in ("treelstm","slstm"):
-        trees = make_binary_tree(unified_ast_trees(trees), layers - 1)
+    #if model_name in ("treelstm","slstm"):
+    trees = make_binary_tree(unified_ast_trees(trees),2)
 
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)

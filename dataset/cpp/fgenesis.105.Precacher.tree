@@ -1,0 +1,925 @@
+>3	FunctionDef	Precacher 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	AssignmentExpr	cleaned = true
+>8	Identifier	true
+>9	Identifier	cleaned
+>10	ExpressionStatement	 
+>11	AssignmentExpr	loadProgressCallback = NULL
+>12	Identifier	NULL
+>13	Identifier	loadProgressCallback
+>21	FunctionDef	Precacher 
+>22	ParameterList	 
+>23	CompoundStatement	 
+>24	IfStatement	if ( ! cleaned )
+>25	ExpressionStatement	 
+>26	CallExpression	errorLog ( \"Precacher shutdown unclean\" )
+>27	ArgumentList	\"Precacher shutdown unclean\"
+>28	Argument	\"Precacher shutdown unclean\"
+>29	PrimaryExpression	\"Precacher shutdown unclean\"
+>30	Callee	errorLog
+>31	Identifier	errorLog
+>32	Condition	 
+>33	UnaryOp	! cleaned
+>34	Identifier	cleaned
+>35	UnaryOperator	!
+>40	FunctionDef	Precacher 
+>41	ParameterList	const std 
+>42	Parameter	 
+>43	Identifier	dir
+>44	ParameterType	const std 
+>45	ReturnType	void
+>46	CompoundStatement	 
+>47	ExpressionStatement	 
+>48	AssignmentExpr	basedirOverride = dir
+>49	Identifier	dir
+>50	Identifier	basedirOverride
+>56	FunctionDef	Precacher 
+>57	ParameterList	 
+>58	ReturnType	void
+>59	CompoundStatement	 
+>60	ExpressionStatement	 
+>61	AssignmentExpr	cleaned = true
+>62	Identifier	true
+>63	Identifier	cleaned
+>64	ExpressionStatement	 
+>65	CallExpression	renderObjects . clear ( )
+>66	ArgumentList	 
+>67	Callee	renderObjects . clear
+>68	MemberAccess	renderObjects . clear
+>69	Identifier	clear
+>70	Identifier	renderObjects
+>71	ForStatement	for ( unsigned int i = 0 ; i < renderObjects . size ( ) ; i ++ )
+>72	CompoundStatement	 
+>73	ExpressionStatement	 
+>74	Identifier	r
+>75	Statement	 
+>76	ExpressionStatement	 
+>77	CallExpression	r -> destroy ( )
+>78	ArgumentList	 
+>79	Callee	r -> destroy
+>80	PtrMemberAccess	r -> destroy
+>81	Identifier	destroy
+>82	Identifier	r
+>83	IdentifierDeclStatement	 
+>84	IdentifierDecl	* r = renderObjects [ i ]
+>85	AssignmentExpr	* r = renderObjects [ i ]
+>86	ArrayIndexing	renderObjects [ i ]
+>87	Identifier	i
+>88	Identifier	renderObjects
+>89	Identifier	r
+>90	Identifier	r
+>91	IdentifierDeclType	RenderObject *
+>92	IncDecOp	 
+>93	IncDec	++
+>94	Identifier	i
+>95	Condition	 
+>96	RelationalExpression	i < renderObjects . size ( )
+>97	CallExpression	renderObjects . size ( )
+>98	ArgumentList	 
+>99	Callee	renderObjects . size
+>100	MemberAccess	renderObjects . size
+>101	Identifier	size
+>102	Identifier	renderObjects
+>103	Identifier	i
+>104	ForInit	 
+>105	IdentifierDeclStatement	unsigned int i = 0 ;
+>106	IdentifierDecl	i = 0
+>107	AssignmentExpr	i = 0
+>108	PrimaryExpression	0
+>109	Identifier	i
+>110	Identifier	i
+>111	IdentifierDeclType	unsigned int
+>123	FunctionDef	Precacher 
+>124	ParameterList	const std 
+>125	Parameter	 
+>126	Identifier	end
+>127	ParameterType	int
+>128	Parameter	 
+>129	Identifier	start
+>130	ParameterType	int
+>131	Parameter	 
+>132	Identifier	type
+>133	ParameterType	const std 
+>134	Parameter	 
+>135	Identifier	file
+>136	ParameterType	const std 
+>137	ReturnType	void
+>138	CompoundStatement	 
+>139	ForStatement	for ( int t = start ; t < end ; t ++ )
+>140	CompoundStatement	 
+>141	ExpressionStatement	 
+>142	CallExpression	precacheTex ( os . str ( ) )
+>143	ArgumentList	os . str ( )
+>144	Argument	os . str ( )
+>145	CallExpression	os . str ( )
+>146	ArgumentList	 
+>147	Callee	os . str
+>148	MemberAccess	os . str
+>149	Identifier	str
+>150	Identifier	os
+>151	Callee	precacheTex
+>152	Identifier	precacheTex
+>153	ExpressionStatement	 
+>154	ShiftExpression	os << type
+>155	Identifier	type
+>156	Identifier	os
+>157	ExpressionStatement	 
+>158	ShiftExpression	os << t
+>159	Identifier	t
+>160	Identifier	os
+>161	ForStatement	for ( int j = 0 ; j < 4 - num_os . str ( ) . size ( ) ; j ++ )
+>162	CompoundStatement	 
+>163	ExpressionStatement	 
+>164	ShiftExpression	os << \"0\"
+>165	PrimaryExpression	\"0\"
+>166	Identifier	os
+>167	IncDecOp	 
+>168	IncDec	++
+>169	Identifier	j
+>170	Condition	 
+>171	RelationalExpression	j < 4 - num_os . str ( ) . size ( )
+>172	AdditiveExpression	4 - num_os . str ( ) . size ( )
+>173	CallExpression	num_os . str ( ) . size ( )
+>174	ArgumentList	 
+>175	Callee	num_os . str ( ) . size
+>176	MemberAccess	num_os . str ( ) . size
+>177	Identifier	size
+>178	CallExpression	num_os . str ( )
+>179	ArgumentList	 
+>180	Callee	num_os . str
+>181	MemberAccess	num_os . str
+>182	Identifier	str
+>183	Identifier	num_os
+>184	PrimaryExpression	4
+>185	Identifier	j
+>186	ForInit	 
+>187	IdentifierDeclStatement	int j = 0 ;
+>188	IdentifierDecl	j = 0
+>189	AssignmentExpr	j = 0
+>190	PrimaryExpression	0
+>191	Identifier	j
+>192	Identifier	j
+>193	IdentifierDeclType	int
+>194	ExpressionStatement	 
+>195	ShiftExpression	os << file
+>196	Identifier	file
+>197	Identifier	os
+>198	IdentifierDeclStatement	 
+>199	IdentifierDecl	os
+>200	Identifier	os
+>201	IdentifierDeclType	std 
+>202	ExpressionStatement	 
+>203	ShiftExpression	num_os << t
+>204	Identifier	t
+>205	Identifier	num_os
+>206	IdentifierDeclStatement	 
+>207	IdentifierDecl	num_os
+>208	Identifier	num_os
+>209	IdentifierDeclType	std 
+>210	IncDecOp	 
+>211	IncDec	++
+>212	Identifier	t
+>213	Condition	 
+>214	RelationalExpression	t < end
+>215	Identifier	end
+>216	Identifier	t
+>217	ForInit	 
+>218	IdentifierDeclStatement	int t = start ;
+>219	IdentifierDecl	t = start
+>220	AssignmentExpr	t = start
+>221	Identifier	start
+>222	Identifier	start
+>223	Identifier	t
+>224	IdentifierDeclType	int
+>239	FunctionDef	precacherCallback (const std 
+>240	ParameterList	const std 
+>241	Parameter	 
+>242	Identifier	param
+>243	ParameterType	intptr_t
+>244	Parameter	 
+>245	Identifier	file
+>246	ParameterType	const std 
+>247	ReturnType	void
+>248	CompoundStatement	 
+>249	ExpressionStatement	 
+>250	CallExpression	p -> precacheTex ( file )
+>251	ArgumentList	file
+>252	Argument	file
+>253	Identifier	file
+>254	Callee	p -> precacheTex
+>255	PtrMemberAccess	p -> precacheTex
+>256	Identifier	precacheTex
+>257	Identifier	p
+>258	IdentifierDeclStatement	 
+>259	IdentifierDecl	* p = ( Precacher * ) param
+>260	AssignmentExpr	* p = ( Precacher * ) param
+>261	CastExpression	( Precacher * ) param
+>262	Identifier	param
+>263	CastTarget	Precacher *
+>264	Identifier	p
+>265	Identifier	p
+>266	IdentifierDeclType	Precacher *
+>273	FunctionDef	Precacher 
+>274	ParameterList	const std 
+>275	Parameter	 
+>276	Identifier	tex
+>277	ParameterType	const std 
+>278	ReturnType	void
+>279	CompoundStatement	 
+>280	IfStatement	if ( tex . find ( '*' ) != std 
+>281	ElseStatement	else
+>282	CompoundStatement	 
+>283	ExpressionStatement	 
+>284	AssignmentExpr	cleaned = false
+>285	Identifier	false
+>286	Identifier	cleaned
+>287	ExpressionStatement	 
+>288	CallExpression	renderObjects . push_back ( q )
+>289	ArgumentList	q
+>290	Argument	q
+>291	Identifier	q
+>292	Callee	renderObjects . push_back
+>293	MemberAccess	renderObjects . push_back
+>294	Identifier	push_back
+>295	Identifier	renderObjects
+>296	ExpressionStatement	 
+>297	AssignmentExpr	q -> alpha = 0
+>298	PrimaryExpression	0
+>299	PtrMemberAccess	q -> alpha
+>300	Identifier	alpha
+>301	Identifier	q
+>302	ExpressionStatement	 
+>303	CallExpression	q -> setTexture ( t )
+>304	ArgumentList	t
+>305	Argument	t
+>306	Identifier	t
+>307	Callee	q -> setTexture
+>308	PtrMemberAccess	q -> setTexture
+>309	Identifier	setTexture
+>310	Identifier	q
+>311	ExpressionStatement	 
+>312	Identifier	Quad
+>313	Statement	 
+>314	Statement	 
+>315	Statement	 
+>316	Statement	 
+>317	Statement	 
+>318	IfStatement	if ( tex . find ( basedir ) != std 
+>319	CompoundStatement	 
+>320	ExpressionStatement	 
+>321	AssignmentExpr	t = tex . substr ( basedir . size ( ) , tex . size ( ) )
+>322	CallExpression	tex . substr ( basedir . size ( ) , tex . size ( ) )
+>323	ArgumentList	basedir . size ( )
+>324	Argument	tex . size ( )
+>325	CallExpression	tex . size ( )
+>326	ArgumentList	 
+>327	Callee	tex . size
+>328	MemberAccess	tex . size
+>329	Identifier	size
+>330	Identifier	tex
+>331	Argument	basedir . size ( )
+>332	CallExpression	basedir . size ( )
+>333	ArgumentList	 
+>334	Callee	basedir . size
+>335	MemberAccess	basedir . size
+>336	Identifier	size
+>337	Identifier	basedir
+>338	Callee	tex . substr
+>339	MemberAccess	tex . substr
+>340	Identifier	substr
+>341	Identifier	tex
+>342	Identifier	t
+>343	Condition	 
+>344	EqualityExpression	tex . find ( basedir ) != std 
+>345	Identifier	std 
+>346	CallExpression	tex . find ( basedir )
+>347	ArgumentList	basedir
+>348	Argument	basedir
+>349	Identifier	basedir
+>350	Callee	tex . find
+>351	MemberAccess	tex . find
+>352	Identifier	find
+>353	Identifier	tex
+>354	IdentifierDeclStatement	 
+>355	IdentifierDecl	t = tex
+>356	AssignmentExpr	t = tex
+>357	Identifier	tex
+>358	Identifier	tex
+>359	Identifier	t
+>360	IdentifierDeclType	std 
+>361	IfStatement	if ( loadProgressCallback )
+>362	ExpressionStatement	 
+>363	CallExpression	loadProgressCallback ( )
+>364	ArgumentList	 
+>365	Callee	loadProgressCallback
+>366	Identifier	loadProgressCallback
+>367	Condition	 
+>368	Identifier	loadProgressCallback
+>369	CompoundStatement	 
+>370	ReturnStatement	 
+>371	ExpressionStatement	 
+>372	CallExpression	forEachFile ( path , type , precacherCallback , ( intptr_t ) this )
+>373	ArgumentList	path
+>374	Argument	( intptr_t ) this
+>375	CastExpression	( intptr_t ) this
+>376	Identifier	this
+>377	CastTarget	intptr_t
+>378	Argument	precacherCallback
+>379	Identifier	precacherCallback
+>380	Argument	type
+>381	Identifier	type
+>382	Argument	path
+>383	Identifier	path
+>384	Callee	forEachFile
+>385	Identifier	forEachFile
+>386	ExpressionStatement	 
+>387	AssignmentExpr	path = basedir + path
+>388	AdditiveExpression	basedir + path
+>389	Identifier	path
+>390	Identifier	basedir
+>391	Identifier	path
+>392	IdentifierDeclStatement	 
+>393	IdentifierDecl	type = tex . substr ( loc + 1 , tex . size ( ) )
+>394	AssignmentExpr	type = tex . substr ( loc + 1 , tex . size ( ) )
+>395	CallExpression	tex . substr ( loc + 1 , tex . size ( ) )
+>396	ArgumentList	loc + 1
+>397	Argument	tex . size ( )
+>398	CallExpression	tex . size ( )
+>399	ArgumentList	 
+>400	Callee	tex . size
+>401	MemberAccess	tex . size
+>402	Identifier	size
+>403	Identifier	tex
+>404	Argument	loc + 1
+>405	AdditiveExpression	loc + 1
+>406	PrimaryExpression	1
+>407	Identifier	loc
+>408	Callee	tex . substr
+>409	MemberAccess	tex . substr
+>410	Identifier	substr
+>411	Identifier	tex
+>412	Identifier	type
+>413	Identifier	type
+>414	IdentifierDeclType	std 
+>415	IdentifierDeclStatement	 
+>416	IdentifierDecl	path = tex . substr ( 0 , loc )
+>417	AssignmentExpr	path = tex . substr ( 0 , loc )
+>418	CallExpression	tex . substr ( 0 , loc )
+>419	ArgumentList	0
+>420	Argument	loc
+>421	Identifier	loc
+>422	Argument	0
+>423	PrimaryExpression	0
+>424	Callee	tex . substr
+>425	MemberAccess	tex . substr
+>426	Identifier	substr
+>427	Identifier	tex
+>428	Identifier	path
+>429	Identifier	path
+>430	IdentifierDeclType	std 
+>431	IdentifierDeclStatement	 
+>432	IdentifierDecl	loc = tex . find ( '*' )
+>433	AssignmentExpr	loc = tex . find ( '*' )
+>434	CallExpression	tex . find ( '*' )
+>435	ArgumentList	'*'
+>436	Argument	'*'
+>437	PrimaryExpression	'*'
+>438	Callee	tex . find
+>439	MemberAccess	tex . find
+>440	Identifier	find
+>441	Identifier	tex
+>442	Identifier	loc
+>443	Identifier	loc
+>444	IdentifierDeclType	int
+>445	IfStatement	if ( core -> debugLogTextures )
+>446	ExpressionStatement	 
+>447	CallExpression	debugLog ( \"searching directory\" )
+>448	ArgumentList	\"searching directory\"
+>449	Argument	\"searching directory\"
+>450	PrimaryExpression	\"searching directory\"
+>451	Callee	debugLog
+>452	Identifier	debugLog
+>453	Condition	 
+>454	PtrMemberAccess	core -> debugLogTextures
+>455	Identifier	debugLogTextures
+>456	Identifier	core
+>457	Condition	 
+>458	EqualityExpression	tex . find ( '*' ) != std 
+>459	Identifier	std 
+>460	CallExpression	tex . find ( '*' )
+>461	ArgumentList	'*'
+>462	Argument	'*'
+>463	PrimaryExpression	'*'
+>464	Callee	tex . find
+>465	MemberAccess	tex . find
+>466	Identifier	find
+>467	Identifier	tex
+>468	IfStatement	if ( core -> debugLogTextures )
+>469	ExpressionStatement	 
+>470	CallExpression	debugLog ( \"PRECACHING
+>471	ArgumentList	\"PRECACHING
+>472	Argument	\"PRECACHING
+>473	AdditiveExpression	\"PRECACHING
+>474	Identifier	tex
+>475	PrimaryExpression	\"PRECACHING
+>476	Callee	debugLog
+>477	Identifier	debugLog
+>478	Condition	 
+>479	PtrMemberAccess	core -> debugLogTextures
+>480	Identifier	debugLogTextures
+>481	Identifier	core
+>482	IdentifierDeclStatement	 
+>483	IdentifierDecl	basedir = basedirOverride . empty ( ) ? core -> getBaseTextureDirectory ( ) 
+>484	AssignmentExpr	basedir = basedirOverride . empty ( ) ? core -> getBaseTextureDirectory ( ) 
+>485	ConditionalExpression	basedirOverride . empty ( ) ? core -> getBaseTextureDirectory ( ) 
+>486	Identifier	basedirOverride
+>487	CallExpression	core -> getBaseTextureDirectory ( )
+>488	ArgumentList	 
+>489	Callee	core -> getBaseTextureDirectory
+>490	PtrMemberAccess	core -> getBaseTextureDirectory
+>491	Identifier	getBaseTextureDirectory
+>492	Identifier	core
+>493	Condition	basedirOverride . empty ( )
+>494	CallExpression	basedirOverride . empty ( )
+>495	ArgumentList	 
+>496	Callee	basedirOverride . empty
+>497	MemberAccess	basedirOverride . empty
+>498	Identifier	empty
+>499	Identifier	basedirOverride
+>500	Identifier	basedir
+>501	Identifier	basedir
+>502	IdentifierDeclType	std 
+>503	IfStatement	if ( tex . empty ( ) )
+>504	ReturnStatement	 
+>505	Condition	 
+>506	CallExpression	tex . empty ( )
+>507	ArgumentList	 
+>508	Callee	tex . empty
+>509	MemberAccess	tex . empty
+>510	Identifier	empty
+>511	Identifier	tex
+>512	IfStatement	if ( tex . find ( \"txt\" ) != std 
+>513	CompoundStatement	 
+>514	ExpressionStatement	 
+>515	CallExpression	errorLog ( \"Call precacheList to precache a text file of gfx names, not precacheTex!\" )
+>516	ArgumentList	\"Call precacheList to precache a text file of gfx names, not precacheTex!\"
+>517	Argument	\"Call precacheList to precache a text file of gfx names, not precacheTex!\"
+>518	PrimaryExpression	\"Call precacheList to precache a text file of gfx names, not precacheTex!\"
+>519	Callee	errorLog
+>520	Identifier	errorLog
+>521	Condition	 
+>522	EqualityExpression	tex . find ( \"txt\" ) != std 
+>523	Identifier	std 
+>524	CallExpression	tex . find ( \"txt\" )
+>525	ArgumentList	\"txt\"
+>526	Argument	\"txt\"
+>527	PrimaryExpression	\"txt\"
+>528	Callee	tex . find
+>529	MemberAccess	tex . find
+>530	Identifier	find
+>531	Identifier	tex
+>562	FunctionDef	Precacher 
+>563	ParameterList	const std 
+>564	Parameter	 
+>565	Identifier	progressCallback
+>566	ParameterType	void ( )
+>567	Parameter	 
+>568	Identifier	list
+>569	ParameterType	const std 
+>570	ReturnType	void
+>571	CompoundStatement	 
+>572	ExpressionStatement	 
+>573	AssignmentExpr	loadProgressCallback = NULL
+>574	Identifier	NULL
+>575	Identifier	loadProgressCallback
+>576	ExpressionStatement	 
+>577	CallExpression	in . close ( )
+>578	ArgumentList	 
+>579	Callee	in . close
+>580	MemberAccess	in . close
+>581	Identifier	close
+>582	Identifier	in
+>583	WhileStatement	while ( std 
+>584	CompoundStatement	 
+>585	IfStatement	if ( ! t . empty ( ) )
+>586	CompoundStatement	 
+>587	ExpressionStatement	 
+>588	CallExpression	precacheTex ( t )
+>589	ArgumentList	t
+>590	Argument	t
+>591	Identifier	t
+>592	Callee	precacheTex
+>593	Identifier	precacheTex
+>594	ExpressionStatement	 
+>595	CallExpression	stringToLower ( t )
+>596	ArgumentList	t
+>597	Argument	t
+>598	Identifier	t
+>599	Callee	stringToLower
+>600	Identifier	stringToLower
+>601	ExpressionStatement	 
+>602	CallExpression	debugLog ( \"precache[\" + t + \"]\" )
+>603	ArgumentList	\"precache[\" + t + \"]\"
+>604	Argument	\"precache[\" + t + \"]\"
+>605	AdditiveExpression	\"precache[\" + t + \"]\"
+>606	AdditiveExpression	t + \"]\"
+>607	PrimaryExpression	\"]\"
+>608	Identifier	t
+>609	PrimaryExpression	\"precache[\"
+>610	Callee	debugLog
+>611	Identifier	debugLog
+>612	ExpressionStatement	 
+>613	AssignmentExpr	t = t . substr ( 0 , t . size ( ) - 1 )
+>614	CallExpression	t . substr ( 0 , t . size ( ) - 1 )
+>615	ArgumentList	0
+>616	Argument	t . size ( ) - 1
+>617	AdditiveExpression	t . size ( ) - 1
+>618	PrimaryExpression	1
+>619	CallExpression	t . size ( )
+>620	ArgumentList	 
+>621	Callee	t . size
+>622	MemberAccess	t . size
+>623	Identifier	size
+>624	Identifier	t
+>625	Argument	0
+>626	PrimaryExpression	0
+>627	Callee	t . substr
+>628	MemberAccess	t . substr
+>629	Identifier	substr
+>630	Identifier	t
+>631	Identifier	t
+>632	Condition	 
+>633	UnaryOp	! t . empty ( )
+>634	CallExpression	t . empty ( )
+>635	ArgumentList	 
+>636	Callee	t . empty
+>637	MemberAccess	t . empty
+>638	Identifier	empty
+>639	Identifier	t
+>640	UnaryOperator	!
+>641	Condition	 
+>642	CallExpression	std 
+>643	ArgumentList	in
+>644	Argument	t
+>645	Identifier	t
+>646	Argument	in
+>647	Identifier	in
+>648	Callee	std 
+>649	Identifier	std 
+>650	IdentifierDeclStatement	 
+>651	IdentifierDecl	t
+>652	Identifier	t
+>653	IdentifierDeclType	std 
+>654	IdentifierDeclStatement	 
+>655	IdentifierDecl	in ( list . c_str ( ) )
+>656	CallExpression	list . c_str ( )
+>657	ArgumentList	 
+>658	Callee	list . c_str
+>659	MemberAccess	list . c_str
+>660	Identifier	c_str
+>661	Identifier	list
+>662	Identifier	in
+>663	IdentifierDeclType	InStream
+>664	ExpressionStatement	 
+>665	AssignmentExpr	loadProgressCallback = progressCallback
+>666	Identifier	progressCallback
+>667	Identifier	loadProgressCallback
+<3=5,4
+<5=10,6
+<6=7
+<7=9,8
+<10=11
+<11=13,12
+<21=23,22
+<23=24
+<24=32,25
+<25=26
+<26=30,27
+<27=28
+<28=29
+<30=31
+<32=33
+<33=35,34
+<40=46,45,41
+<41=42
+<42=44,43
+<46=47
+<47=48
+<48=50,49
+<56=59,58,57
+<59=71,64,60
+<60=61
+<61=63,62
+<64=65
+<65=67,66
+<67=68
+<68=70,69
+<71=104,95,92,72
+<72=83,76,75,73
+<73=74
+<76=77
+<77=79,78
+<79=80
+<80=82,81
+<83=84
+<84=91,90,85
+<85=89,86
+<86=88,87
+<92=94,93
+<95=96
+<96=103,97
+<97=99,98
+<99=100
+<100=102,101
+<104=105
+<105=106
+<106=111,110,107
+<107=109,108
+<123=138,137,124
+<124=134,131,128,125
+<125=127,126
+<128=130,129
+<131=133,132
+<134=136,135
+<138=139
+<139=217,213,210,140
+<140=206,202,198,194,161,157,153,141
+<141=142
+<142=151,143
+<143=144
+<144=145
+<145=147,146
+<147=148
+<148=150,149
+<151=152
+<153=154
+<154=156,155
+<157=158
+<158=160,159
+<161=186,170,167,162
+<162=163
+<163=164
+<164=166,165
+<167=169,168
+<170=171
+<171=185,172
+<172=184,173
+<173=175,174
+<175=176
+<176=178,177
+<178=180,179
+<180=181
+<181=183,182
+<186=187
+<187=188
+<188=193,192,189
+<189=191,190
+<194=195
+<195=197,196
+<198=199
+<199=201,200
+<202=203
+<203=205,204
+<206=207
+<207=209,208
+<210=212,211
+<213=214
+<214=216,215
+<217=218
+<218=219
+<219=224,223,220
+<220=222,221
+<239=248,247,240
+<240=244,241
+<241=243,242
+<244=246,245
+<248=258,249
+<249=250
+<250=254,251
+<251=252
+<252=253
+<254=255
+<255=257,256
+<258=259
+<259=266,265,260
+<260=264,261
+<261=263,262
+<273=279,278,274
+<274=275
+<275=277,276
+<279=512,503,482,468,280
+<280=457,369,281
+<281=282
+<282=361,354,318,317,316,315,314,313,311,302,296,287,283
+<283=284
+<284=286,285
+<287=288
+<288=292,289
+<289=290
+<290=291
+<292=293
+<293=295,294
+<296=297
+<297=299,298
+<299=301,300
+<302=303
+<303=307,304
+<304=305
+<305=306
+<307=308
+<308=310,309
+<311=312
+<318=343,319
+<319=320
+<320=321
+<321=342,322
+<322=338,323
+<323=331,324
+<324=325
+<325=327,326
+<327=328
+<328=330,329
+<331=332
+<332=334,333
+<334=335
+<335=337,336
+<338=339
+<339=341,340
+<343=344
+<344=346,345
+<346=350,347
+<347=348
+<348=349
+<350=351
+<351=353,352
+<354=355
+<355=360,359,356
+<356=358,357
+<361=367,362
+<362=363
+<363=365,364
+<365=366
+<367=368
+<369=445,431,415,392,386,371,370
+<371=372
+<372=384,373
+<373=382,380,378,374
+<374=375
+<375=377,376
+<378=379
+<380=381
+<382=383
+<384=385
+<386=387
+<387=391,388
+<388=390,389
+<392=393
+<393=414,413,394
+<394=412,395
+<395=408,396
+<396=404,397
+<397=398
+<398=400,399
+<400=401
+<401=403,402
+<404=405
+<405=407,406
+<408=409
+<409=411,410
+<415=416
+<416=430,429,417
+<417=428,418
+<418=424,419
+<419=422,420
+<420=421
+<422=423
+<424=425
+<425=427,426
+<431=432
+<432=444,443,433
+<433=442,434
+<434=438,435
+<435=436
+<436=437
+<438=439
+<439=441,440
+<445=453,446
+<446=447
+<447=451,448
+<448=449
+<449=450
+<451=452
+<453=454
+<454=456,455
+<457=458
+<458=460,459
+<460=464,461
+<461=462
+<462=463
+<464=465
+<465=467,466
+<468=478,469
+<469=470
+<470=476,471
+<471=472
+<472=473
+<473=475,474
+<476=477
+<478=479
+<479=481,480
+<482=483
+<483=502,501,484
+<484=500,485
+<485=493,487,486
+<487=489,488
+<489=490
+<490=492,491
+<493=494
+<494=496,495
+<496=497
+<497=499,498
+<503=505,504
+<505=506
+<506=508,507
+<508=509
+<509=511,510
+<512=521,513
+<513=514
+<514=515
+<515=519,516
+<516=517
+<517=518
+<519=520
+<521=522
+<522=524,523
+<524=528,525
+<525=526
+<526=527
+<528=529
+<529=531,530
+<562=571,570,563
+<563=567,564
+<564=566,565
+<567=569,568
+<571=664,654,650,583,576,572
+<572=573
+<573=575,574
+<576=577
+<577=579,578
+<579=580
+<580=582,581
+<583=641,584
+<584=585
+<585=632,586
+<586=612,601,594,587
+<587=588
+<588=592,589
+<589=590
+<590=591
+<592=593
+<594=595
+<595=599,596
+<596=597
+<597=598
+<599=600
+<601=602
+<602=610,603
+<603=604
+<604=605
+<605=609,606
+<606=608,607
+<610=611
+<612=613
+<613=631,614
+<614=627,615
+<615=625,616
+<616=617
+<617=619,618
+<619=621,620
+<621=622
+<622=624,623
+<625=626
+<627=628
+<628=630,629
+<632=633
+<633=640,634
+<634=636,635
+<636=637
+<637=639,638
+<641=642
+<642=648,643
+<643=646,644
+<644=645
+<646=647
+<648=649
+<650=651
+<651=653,652
+<654=655
+<655=663,662,656
+<656=658,657
+<658=659
+<659=661,660
+<664=665
+<665=667,666

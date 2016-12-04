@@ -1,0 +1,1196 @@
+>9	FunctionDef	fillSpdMatrix (float density , int rows , int cols , EigenSparseSelfAdjointMatrix & dst)
+>10	ParameterList	float density , int rows , int cols , EigenSparseSelfAdjointMatrix & dst
+>11	Parameter	 
+>12	Identifier	dst
+>13	ParameterType	EigenSparseSelfAdjointMatrix &
+>14	Parameter	 
+>15	Identifier	cols
+>16	ParameterType	int
+>17	Parameter	 
+>18	Identifier	rows
+>19	ParameterType	int
+>20	Parameter	 
+>21	Identifier	density
+>22	ParameterType	float
+>23	ReturnType	void
+>24	CompoundStatement	 
+>25	ExpressionStatement	 
+>26	CallExpression	dst . endFill ( )
+>27	ArgumentList	 
+>28	Callee	dst . endFill
+>29	MemberAccess	dst . endFill
+>30	Identifier	endFill
+>31	Identifier	dst
+>32	ForStatement	for ( int j = 0 ; j < cols ; j ++ )
+>33	CompoundStatement	 
+>34	ForStatement	for ( int i = j + 1 ; i < rows ; i ++ )
+>35	CompoundStatement	 
+>36	IfStatement	if ( v != 0 )
+>37	ExpressionStatement	 
+>38	AssignmentExpr	dst . fill ( i , j ) = v
+>39	Identifier	v
+>40	CallExpression	dst . fill ( i , j )
+>41	ArgumentList	i
+>42	Argument	j
+>43	Identifier	j
+>44	Argument	i
+>45	Identifier	i
+>46	Callee	dst . fill
+>47	MemberAccess	dst . fill
+>48	Identifier	fill
+>49	Identifier	dst
+>50	Condition	 
+>51	EqualityExpression	v != 0
+>52	PrimaryExpression	0
+>53	Identifier	v
+>54	ExpressionStatement	 
+>55	PrimaryExpression	0
+>56	Statement	 
+>57	Statement	 
+>58	Statement	 
+>59	Statement	 
+>60	Statement	 
+>61	Statement	 
+>62	Statement	 
+>63	Statement	 
+>64	Statement	 
+>65	Statement	 
+>66	Statement	 
+>67	Statement	 
+>68	Statement	 
+>69	Statement	 
+>70	Statement	 
+>71	Statement	 
+>72	Statement	 
+>73	Statement	 
+>74	Statement	 
+>75	Statement	 
+>76	Statement	 
+>77	Statement	 
+>78	Statement	 
+>79	Statement	 
+>80	Statement	 
+>81	Statement	 
+>82	Statement	 
+>83	Statement	 
+>84	IncDecOp	 
+>85	IncDec	++
+>86	Identifier	i
+>87	Condition	 
+>88	RelationalExpression	i < rows
+>89	Identifier	rows
+>90	Identifier	i
+>91	ForInit	 
+>92	IdentifierDeclStatement	int i = j + 1 ;
+>93	IdentifierDecl	i = j + 1
+>94	AssignmentExpr	i = j + 1
+>95	AdditiveExpression	j + 1
+>96	PrimaryExpression	1
+>97	Identifier	j
+>98	Identifier	i
+>99	Identifier	i
+>100	IdentifierDeclType	int
+>101	ExpressionStatement	 
+>102	AssignmentExpr	dst . fill ( j , j ) = internal 
+>103	RelationalExpression	internal 
+>104	RelationalExpression	Scalar > ( 10 , 20 )
+>105	Expression	10 , 20
+>106	PrimaryExpression	20
+>107	PrimaryExpression	10
+>108	Identifier	Scalar
+>109	Identifier	internal 
+>110	CallExpression	dst . fill ( j , j )
+>111	ArgumentList	j
+>112	Argument	j
+>113	Identifier	j
+>114	Argument	j
+>115	Identifier	j
+>116	Callee	dst . fill
+>117	MemberAccess	dst . fill
+>118	Identifier	fill
+>119	Identifier	dst
+>120	IncDecOp	 
+>121	IncDec	++
+>122	Identifier	j
+>123	Condition	 
+>124	RelationalExpression	j < cols
+>125	Identifier	cols
+>126	Identifier	j
+>127	ForInit	 
+>128	IdentifierDeclStatement	int j = 0 ;
+>129	IdentifierDecl	j = 0
+>130	AssignmentExpr	j = 0
+>131	PrimaryExpression	0
+>132	Identifier	j
+>133	Identifier	j
+>134	IdentifierDeclType	int
+>135	ExpressionStatement	 
+>136	CallExpression	dst . startFill ( rows * cols * density )
+>137	ArgumentList	rows * cols * density
+>138	Argument	rows * cols * density
+>139	MultiplicativeExpression	rows * cols * density
+>140	MultiplicativeExpression	cols * density
+>141	Identifier	density
+>142	Identifier	cols
+>143	Identifier	rows
+>144	Callee	dst . startFill
+>145	MemberAccess	dst . startFill
+>146	Identifier	startFill
+>147	Identifier	dst
+>165	FunctionDef	main (int argc , char * argv [ ])
+>166	ParameterList	int argc , char * argv [ ]
+>167	Parameter	 
+>168	Identifier	argv
+>169	ParameterType	char * [ ]
+>170	Parameter	 
+>171	Identifier	argc
+>172	ParameterType	int
+>173	ReturnType	int
+>174	CompoundStatement	 
+>175	ReturnStatement	 
+>176	PrimaryExpression	0
+>177	CompoundStatement	 
+>178	CompoundStatement	 
+>179	ExpressionStatement	 
+>180	CallExpression	cholmod_write_sparse ( stdout , cholmat , 0 , 0 , & c )
+>181	ArgumentList	stdout
+>182	Argument	& c
+>183	UnaryOp	& c
+>184	Identifier	c
+>185	UnaryOperator	&
+>186	Argument	0
+>187	PrimaryExpression	0
+>188	Argument	0
+>189	PrimaryExpression	0
+>190	Argument	cholmat
+>191	Identifier	cholmat
+>192	Argument	stdout
+>193	Identifier	stdout
+>194	Callee	cholmod_write_sparse
+>195	Identifier	cholmod_write_sparse
+>196	ExpressionStatement	 
+>197	CallExpression	cholmod_print_sparse ( cholmat , \"Chol\" , & c )
+>198	ArgumentList	cholmat
+>199	Argument	& c
+>200	UnaryOp	& c
+>201	Identifier	c
+>202	UnaryOperator	&
+>203	Argument	\"Chol\"
+>204	PrimaryExpression	\"Chol\"
+>205	Argument	cholmat
+>206	Identifier	cholmat
+>207	Callee	cholmod_print_sparse
+>208	Identifier	cholmod_print_sparse
+>209	ExpressionStatement	 
+>210	CallExpression	cholmod_print_factor ( L , \"Factors\" , & c )
+>211	ArgumentList	L
+>212	Argument	& c
+>213	UnaryOp	& c
+>214	Identifier	c
+>215	UnaryOperator	&
+>216	Argument	\"Factors\"
+>217	PrimaryExpression	\"Factors\"
+>218	Argument	L
+>219	Identifier	L
+>220	Callee	cholmod_print_factor
+>221	Identifier	cholmod_print_factor
+>222	IdentifierDeclStatement	 
+>223	IdentifierDecl	* cholmat = cholmod_factor_to_sparse ( L , & c )
+>224	AssignmentExpr	* cholmat = cholmod_factor_to_sparse ( L , & c )
+>225	CallExpression	cholmod_factor_to_sparse ( L , & c )
+>226	ArgumentList	L
+>227	Argument	& c
+>228	UnaryOp	& c
+>229	Identifier	c
+>230	UnaryOperator	&
+>231	Argument	L
+>232	Identifier	L
+>233	Callee	cholmod_factor_to_sparse
+>234	Identifier	cholmod_factor_to_sparse
+>235	Identifier	cholmat
+>236	Identifier	cholmat
+>237	IdentifierDeclType	cholmod_sparse *
+>238	ExpressionStatement	 
+>239	ShiftExpression	std 
+>240	ShiftExpression	\"cholmod/factorize
+>241	ShiftExpression	timer . value ( ) << endl
+>242	Identifier	endl
+>243	CallExpression	timer . value ( )
+>244	ArgumentList	 
+>245	Callee	timer . value
+>246	MemberAccess	timer . value
+>247	Identifier	value
+>248	Identifier	timer
+>249	PrimaryExpression	\"cholmod/factorize
+>250	Identifier	std 
+>251	ExpressionStatement	 
+>252	CallExpression	timer . stop ( )
+>253	ArgumentList	 
+>254	Callee	timer . stop
+>255	MemberAccess	timer . stop
+>256	Identifier	stop
+>257	Identifier	timer
+>258	ExpressionStatement	 
+>259	CallExpression	cholmod_factorize ( & A , L , & c )
+>260	ArgumentList	& A
+>261	Argument	& c
+>262	UnaryOp	& c
+>263	Identifier	c
+>264	UnaryOperator	&
+>265	Argument	L
+>266	Identifier	L
+>267	Argument	& A
+>268	UnaryOp	& A
+>269	Identifier	A
+>270	UnaryOperator	&
+>271	Callee	cholmod_factorize
+>272	Identifier	cholmod_factorize
+>273	ExpressionStatement	 
+>274	CallExpression	timer . start ( )
+>275	ArgumentList	 
+>276	Callee	timer . start
+>277	MemberAccess	timer . start
+>278	Identifier	start
+>279	Identifier	timer
+>280	ExpressionStatement	 
+>281	CallExpression	timer . reset ( )
+>282	ArgumentList	 
+>283	Callee	timer . reset
+>284	MemberAccess	timer . reset
+>285	Identifier	reset
+>286	Identifier	timer
+>287	ExpressionStatement	 
+>288	ShiftExpression	std 
+>289	ShiftExpression	\"cholmod/analyze
+>290	ShiftExpression	timer . value ( ) << endl
+>291	Identifier	endl
+>292	CallExpression	timer . value ( )
+>293	ArgumentList	 
+>294	Callee	timer . value
+>295	MemberAccess	timer . value
+>296	Identifier	value
+>297	Identifier	timer
+>298	PrimaryExpression	\"cholmod/analyze
+>299	Identifier	std 
+>300	ExpressionStatement	 
+>301	CallExpression	timer . stop ( )
+>302	ArgumentList	 
+>303	Callee	timer . stop
+>304	MemberAccess	timer . stop
+>305	Identifier	stop
+>306	Identifier	timer
+>307	ExpressionStatement	 
+>308	AssignmentExpr	L = cholmod_analyze_p ( & A , & perm [ 0 ] , & perm [ 0 ] , cols , & c )
+>309	CallExpression	cholmod_analyze_p ( & A , & perm [ 0 ] , & perm [ 0 ] , cols , & c )
+>310	ArgumentList	& A
+>311	Argument	& c
+>312	UnaryOp	& c
+>313	Identifier	c
+>314	UnaryOperator	&
+>315	Argument	cols
+>316	Identifier	cols
+>317	Argument	& perm [ 0 ]
+>318	UnaryOp	& perm [ 0 ]
+>319	ArrayIndexing	perm [ 0 ]
+>320	PrimaryExpression	0
+>321	Identifier	perm
+>322	UnaryOperator	&
+>323	Argument	& perm [ 0 ]
+>324	UnaryOp	& perm [ 0 ]
+>325	ArrayIndexing	perm [ 0 ]
+>326	PrimaryExpression	0
+>327	Identifier	perm
+>328	UnaryOperator	&
+>329	Argument	& A
+>330	UnaryOp	& A
+>331	Identifier	A
+>332	UnaryOperator	&
+>333	Callee	cholmod_analyze_p
+>334	Identifier	cholmod_analyze_p
+>335	Identifier	L
+>336	ExpressionStatement	 
+>337	AssignmentExpr	c . final_ll = 1
+>338	PrimaryExpression	1
+>339	MemberAccess	c . final_ll
+>340	Identifier	final_ll
+>341	Identifier	c
+>342	ExpressionStatement	 
+>343	AssignmentExpr	c . postorder = 0
+>344	PrimaryExpression	0
+>345	MemberAccess	c . postorder
+>346	Identifier	postorder
+>347	Identifier	c
+>348	ExpressionStatement	 
+>349	AssignmentExpr	c . method [ 0 ] . ordering = CHOLMOD_NATURAL
+>350	Identifier	CHOLMOD_NATURAL
+>351	MemberAccess	c . method [ 0 ] . ordering
+>352	Identifier	ordering
+>353	ArrayIndexing	c . method [ 0 ]
+>354	PrimaryExpression	0
+>355	MemberAccess	c . method
+>356	Identifier	method
+>357	Identifier	c
+>358	ExpressionStatement	 
+>359	AssignmentExpr	c . nmethods = 1
+>360	PrimaryExpression	1
+>361	MemberAccess	c . nmethods
+>362	Identifier	nmethods
+>363	Identifier	c
+>364	ForStatement	for ( int i = 0 ; i < cols ; ++ i )
+>365	ExpressionStatement	 
+>366	AssignmentExpr	perm [ i ] = i
+>367	Identifier	i
+>368	ArrayIndexing	perm [ i ]
+>369	Identifier	i
+>370	Identifier	perm
+>371	UnaryExpression	 
+>372	Identifier	i
+>373	IncDec	++
+>374	Condition	 
+>375	RelationalExpression	i < cols
+>376	Identifier	cols
+>377	Identifier	i
+>378	ForInit	 
+>379	IdentifierDeclStatement	int i = 0 ;
+>380	IdentifierDecl	i = 0
+>381	AssignmentExpr	i = 0
+>382	PrimaryExpression	0
+>383	Identifier	i
+>384	Identifier	i
+>385	IdentifierDeclType	int
+>386	IdentifierDeclStatement	 
+>387	IdentifierDecl	perm ( cols )
+>388	Identifier	cols
+>389	Identifier	perm
+>390	IdentifierDeclType	std 
+>391	ExpressionStatement	 
+>392	CallExpression	timer . start ( )
+>393	ArgumentList	 
+>394	Callee	timer . start
+>395	MemberAccess	timer . start
+>396	Identifier	start
+>397	Identifier	timer
+>398	IdentifierDeclStatement	 
+>399	IdentifierDecl	timer
+>400	Identifier	timer
+>401	IdentifierDeclType	BenchTimer
+>402	ExpressionStatement	 
+>403	AssignmentExpr	A = sm1 . asCholmodMatrix ( )
+>404	CallExpression	sm1 . asCholmodMatrix ( )
+>405	ArgumentList	 
+>406	Callee	sm1 . asCholmodMatrix
+>407	MemberAccess	sm1 . asCholmodMatrix
+>408	Identifier	asCholmodMatrix
+>409	Identifier	sm1
+>410	Identifier	A
+>411	IdentifierDeclStatement	 
+>412	IdentifierDecl	* L
+>413	Identifier	L
+>414	IdentifierDeclType	cholmod_factor *
+>415	IdentifierDeclStatement	 
+>416	IdentifierDecl	A
+>417	Identifier	A
+>418	IdentifierDeclType	cholmod_sparse
+>419	ExpressionStatement	 
+>420	CallExpression	cholmod_start ( & c )
+>421	ArgumentList	& c
+>422	Argument	& c
+>423	UnaryOp	& c
+>424	Identifier	c
+>425	UnaryOperator	&
+>426	Callee	cholmod_start
+>427	Identifier	cholmod_start
+>428	IdentifierDeclStatement	 
+>429	IdentifierDecl	c
+>430	Identifier	c
+>431	IdentifierDeclType	cholmod_common
+>432	CompoundStatement	 
+>433	ForStatement	for ( int j = 0 ; j < cols ; ++ j )
+>434	CompoundStatement	 
+>435	ForStatement	for ( int i = chol -> colptr [ j ] ; i < chol -> colptr [ j + 1 ] ; ++ i )
+>436	ExpressionStatement	 
+>437	ShiftExpression	std 
+>438	ShiftExpression	chol -> values . d [ i ] << \" \"
+>439	PrimaryExpression	\" \"
+>440	ArrayIndexing	chol -> values . d [ i ]
+>441	Identifier	i
+>442	MemberAccess	chol -> values . d
+>443	Identifier	d
+>444	PtrMemberAccess	chol -> values
+>445	Identifier	values
+>446	Identifier	chol
+>447	Identifier	std 
+>448	UnaryExpression	 
+>449	Identifier	i
+>450	IncDec	++
+>451	Condition	 
+>452	RelationalExpression	i < chol -> colptr [ j + 1 ]
+>453	ArrayIndexing	chol -> colptr [ j + 1 ]
+>454	AdditiveExpression	j + 1
+>455	PrimaryExpression	1
+>456	Identifier	j
+>457	PtrMemberAccess	chol -> colptr
+>458	Identifier	colptr
+>459	Identifier	chol
+>460	Identifier	i
+>461	ForInit	 
+>462	IdentifierDeclStatement	int i = chol -> colptr [ j ] ;
+>463	IdentifierDecl	i = chol -> colptr [ j ]
+>464	AssignmentExpr	i = chol -> colptr [ j ]
+>465	ArrayIndexing	chol -> colptr [ j ]
+>466	Identifier	j
+>467	PtrMemberAccess	chol -> colptr
+>468	Identifier	colptr
+>469	Identifier	chol
+>470	Identifier	i
+>471	Identifier	i
+>472	IdentifierDeclType	int
+>473	UnaryExpression	 
+>474	Identifier	j
+>475	IncDec	++
+>476	Condition	 
+>477	RelationalExpression	j < cols
+>478	Identifier	cols
+>479	Identifier	j
+>480	ForInit	 
+>481	IdentifierDeclStatement	int j = 0 ;
+>482	IdentifierDecl	j = 0
+>483	AssignmentExpr	j = 0
+>484	PrimaryExpression	0
+>485	Identifier	j
+>486	Identifier	j
+>487	IdentifierDeclType	int
+>488	IdentifierDeclStatement	 
+>489	IdentifierDecl	* chol = taucs_ccs_factor_llt ( & A , 0 , 0 )
+>490	AssignmentExpr	* chol = taucs_ccs_factor_llt ( & A , 0 , 0 )
+>491	CallExpression	taucs_ccs_factor_llt ( & A , 0 , 0 )
+>492	ArgumentList	& A
+>493	Argument	0
+>494	PrimaryExpression	0
+>495	Argument	0
+>496	PrimaryExpression	0
+>497	Argument	& A
+>498	UnaryOp	& A
+>499	Identifier	A
+>500	UnaryOperator	&
+>501	Callee	taucs_ccs_factor_llt
+>502	Identifier	taucs_ccs_factor_llt
+>503	Identifier	chol
+>504	Identifier	chol
+>505	IdentifierDeclType	taucs_ccs_matrix *
+>506	IdentifierDeclStatement	 
+>507	IdentifierDecl	A = sm1 . asTaucsMatrix ( )
+>508	AssignmentExpr	A = sm1 . asTaucsMatrix ( )
+>509	CallExpression	sm1 . asTaucsMatrix ( )
+>510	ArgumentList	 
+>511	Callee	sm1 . asTaucsMatrix
+>512	MemberAccess	sm1 . asTaucsMatrix
+>513	Identifier	asTaucsMatrix
+>514	Identifier	sm1
+>515	Identifier	A
+>516	Identifier	A
+>517	IdentifierDeclType	taucs_ccs_matrix
+>518	ExpressionStatement	 
+>519	RelationalExpression	doEigen < Eigen 
+>520	RelationalExpression	Eigen 
+>521	Expression	\"Eigen/Taucs\" , sm1 , Eigen 
+>522	Expression	sm1 , Eigen 
+>523	Identifier	Eigen 
+>524	Identifier	sm1
+>525	PrimaryExpression	\"Eigen/Taucs\"
+>526	Identifier	Eigen 
+>527	Identifier	doEigen
+>528	ExpressionStatement	 
+>529	RelationalExpression	doEigen < Eigen 
+>530	RelationalExpression	Eigen 
+>531	Expression	\"Eigen/Cholmod\" , sm1 , Eigen 
+>532	Expression	sm1 , Eigen 
+>533	Identifier	Eigen 
+>534	Identifier	sm1
+>535	PrimaryExpression	\"Eigen/Cholmod\"
+>536	Identifier	Eigen 
+>537	Identifier	doEigen
+>538	ExpressionStatement	 
+>539	RelationalExpression	doEigen < Eigen 
+>540	RelationalExpression	Eigen 
+>541	Expression	\"Eigen/Sparse\" , sm1 , Eigen 
+>542	Expression	sm1 , Eigen 
+>543	Identifier	Eigen 
+>544	Identifier	sm1
+>545	PrimaryExpression	\"Eigen/Sparse\"
+>546	Identifier	Eigen 
+>547	Identifier	doEigen
+>548	IfStatement	if ( ! densedone )
+>549	CompoundStatement	 
+>550	ExpressionStatement	 
+>551	ShiftExpression	std 
+>552	ShiftExpression	\"dense
+>553	ShiftExpression	\"nnz = \" << count << \"\n\"
+>554	ShiftExpression	count << \"\n\"
+>555	PrimaryExpression	\"\n\"
+>556	Identifier	count
+>557	PrimaryExpression	\"nnz = \"
+>558	PrimaryExpression	\"dense
+>559	Identifier	std 
+>560	ForStatement	for ( int j = 0 ; j < cols ; ++ j )
+>561	ForStatement	for ( int i = j ; i < rows ; ++ i )
+>562	IfStatement	if ( ! internal 
+>563	ExpressionStatement	 
+>564	IncDecOp	count ++
+>565	IncDec	++
+>566	Identifier	count
+>567	Condition	 
+>568	UnaryOp	! internal 
+>569	CallExpression	internal 
+>570	ArgumentList	internal 
+>571	Argument	0.1
+>572	PrimaryExpression	0.1
+>573	Argument	internal 
+>574	CallExpression	internal 
+>575	ArgumentList	chol . matrixL ( ) ( i , j )
+>576	Argument	chol . matrixL ( ) ( i , j )
+>577	CallExpression	chol . matrixL ( ) ( i , j )
+>578	ArgumentList	i
+>579	Argument	j
+>580	Identifier	j
+>581	Argument	i
+>582	Identifier	i
+>583	Callee	chol . matrixL ( )
+>584	CallExpression	chol . matrixL ( )
+>585	ArgumentList	 
+>586	Callee	chol . matrixL
+>587	MemberAccess	chol . matrixL
+>588	Identifier	matrixL
+>589	Identifier	chol
+>590	Callee	internal 
+>591	Identifier	internal 
+>592	Callee	internal 
+>593	Identifier	internal 
+>594	UnaryOperator	!
+>595	UnaryExpression	 
+>596	Identifier	i
+>597	IncDec	++
+>598	Condition	 
+>599	RelationalExpression	i < rows
+>600	Identifier	rows
+>601	Identifier	i
+>602	ForInit	 
+>603	IdentifierDeclStatement	int i = j ;
+>604	IdentifierDecl	i = j
+>605	AssignmentExpr	i = j
+>606	Identifier	j
+>607	Identifier	j
+>608	Identifier	i
+>609	IdentifierDeclType	int
+>610	UnaryExpression	 
+>611	Identifier	j
+>612	IncDec	++
+>613	Condition	 
+>614	RelationalExpression	j < cols
+>615	Identifier	cols
+>616	Identifier	j
+>617	ForInit	 
+>618	IdentifierDeclStatement	int j = 0 ;
+>619	IdentifierDecl	j = 0
+>620	AssignmentExpr	j = 0
+>621	PrimaryExpression	0
+>622	Identifier	j
+>623	Identifier	j
+>624	IdentifierDeclType	int
+>625	IdentifierDeclStatement	 
+>626	IdentifierDecl	count = 0
+>627	AssignmentExpr	count = 0
+>628	PrimaryExpression	0
+>629	Identifier	count
+>630	Identifier	count
+>631	IdentifierDeclType	int
+>632	ExpressionStatement	 
+>633	ShiftExpression	std 
+>634	ShiftExpression	\"dense
+>635	ShiftExpression	timer . value ( ) << endl
+>636	Identifier	endl
+>637	CallExpression	timer . value ( )
+>638	ArgumentList	 
+>639	Callee	timer . value
+>640	MemberAccess	timer . value
+>641	Identifier	value
+>642	Identifier	timer
+>643	PrimaryExpression	\"dense
+>644	Identifier	std 
+>645	ExpressionStatement	 
+>646	CallExpression	timer . stop ( )
+>647	ArgumentList	 
+>648	Callee	timer . stop
+>649	MemberAccess	timer . stop
+>650	Identifier	stop
+>651	Identifier	timer
+>652	IdentifierDeclStatement	 
+>653	IdentifierDecl	chol ( m1 )
+>654	Identifier	m1
+>655	Identifier	chol
+>656	IdentifierDeclType	LLT < DenseMatrix >
+>657	ExpressionStatement	 
+>658	CallExpression	timer . start ( )
+>659	ArgumentList	 
+>660	Callee	timer . start
+>661	MemberAccess	timer . start
+>662	Identifier	start
+>663	Identifier	timer
+>664	IdentifierDeclStatement	 
+>665	IdentifierDecl	timer
+>666	Identifier	timer
+>667	IdentifierDeclType	BenchTimer
+>668	ExpressionStatement	 
+>669	AssignmentExpr	m1 . diagonal ( ) *= 0.5
+>670	PrimaryExpression	0.5
+>671	CallExpression	m1 . diagonal ( )
+>672	ArgumentList	 
+>673	Callee	m1 . diagonal
+>674	MemberAccess	m1 . diagonal
+>675	Identifier	diagonal
+>676	Identifier	m1
+>677	ExpressionStatement	 
+>678	AssignmentExpr	m1 = ( m1 + m1 . transpose ( ) ) . eval ( )
+>679	CallExpression	( m1 + m1 . transpose ( ) ) . eval ( )
+>680	ArgumentList	 
+>681	Callee	( m1 + m1 . transpose ( ) ) . eval
+>682	MemberAccess	( m1 + m1 . transpose ( ) ) . eval
+>683	Identifier	eval
+>684	AdditiveExpression	m1 + m1 . transpose ( )
+>685	CallExpression	m1 . transpose ( )
+>686	ArgumentList	 
+>687	Callee	m1 . transpose
+>688	MemberAccess	m1 . transpose
+>689	Identifier	transpose
+>690	Identifier	m1
+>691	Identifier	m1
+>692	Identifier	m1
+>693	ExpressionStatement	 
+>694	CallExpression	eiToDense ( sm1 , m1 )
+>695	ArgumentList	sm1
+>696	Argument	m1
+>697	Identifier	m1
+>698	Argument	sm1
+>699	Identifier	sm1
+>700	Callee	eiToDense
+>701	Identifier	eiToDense
+>702	IdentifierDeclStatement	 
+>703	IdentifierDecl	m1 ( rows , cols )
+>704	Expression	rows , cols
+>705	Identifier	cols
+>706	Identifier	rows
+>707	Identifier	m1
+>708	IdentifierDeclType	DenseMatrix
+>709	ExpressionStatement	 
+>710	ShiftExpression	std 
+>711	ShiftExpression	\"Eigen Dense\t\" << density * 100 << \"%\n\"
+>712	ShiftExpression	density * 100 << \"%\n\"
+>713	PrimaryExpression	\"%\n\"
+>714	MultiplicativeExpression	density * 100
+>715	PrimaryExpression	100
+>716	Identifier	density
+>717	PrimaryExpression	\"Eigen Dense\t\"
+>718	Identifier	std 
+>719	ExpressionStatement	 
+>720	AssignmentExpr	densedone = true
+>721	Identifier	true
+>722	Identifier	densedone
+>723	Condition	 
+>724	UnaryOp	! densedone
+>725	Identifier	densedone
+>726	UnaryOperator	!
+>727	ExpressionStatement	 
+>728	ShiftExpression	std 
+>729	PrimaryExpression	\"DONE\n\n\"
+>730	Identifier	std 
+>731	ExpressionStatement	 
+>732	CallExpression	fillSpdMatrix ( density , rows , cols , sm1 )
+>733	ArgumentList	density
+>734	Argument	sm1
+>735	Identifier	sm1
+>736	Argument	cols
+>737	Identifier	cols
+>738	Argument	rows
+>739	Identifier	rows
+>740	Argument	density
+>741	Identifier	density
+>742	Callee	fillSpdMatrix
+>743	Identifier	fillSpdMatrix
+>744	ExpressionStatement	 
+>745	ShiftExpression	std 
+>746	PrimaryExpression	\"Generate sparse matrix (might take a while)...\n\"
+>747	Identifier	std 
+>748	IdentifierDeclStatement	 
+>749	IdentifierDecl	sm1 ( rows , cols )
+>750	Expression	rows , cols
+>751	Identifier	cols
+>752	Identifier	rows
+>753	Identifier	sm1
+>754	IdentifierDeclType	EigenSparseSelfAdjointMatrix
+>755	IdentifierDeclStatement	 
+>756	IdentifierDecl	densedone = false
+>757	AssignmentExpr	densedone = false
+>758	Identifier	false
+>759	Identifier	false
+>760	Identifier	densedone
+>761	IdentifierDeclType	bool
+>762	IdentifierDeclStatement	 
+>763	IdentifierDecl	x = VectorXf 
+>764	AssignmentExpr	x = VectorXf 
+>765	CallExpression	VectorXf 
+>766	ArgumentList	cols
+>767	Argument	cols
+>768	Identifier	cols
+>769	Callee	VectorXf 
+>770	Identifier	VectorXf 
+>771	Identifier	x
+>772	Identifier	x
+>773	IdentifierDeclType	VectorXf
+>774	IdentifierDeclStatement	 
+>775	IdentifierDecl	b = VectorXf 
+>776	AssignmentExpr	b = VectorXf 
+>777	CallExpression	VectorXf 
+>778	ArgumentList	cols
+>779	Argument	cols
+>780	Identifier	cols
+>781	Callee	VectorXf 
+>782	Identifier	VectorXf 
+>783	Identifier	b
+>784	Identifier	b
+>785	IdentifierDeclType	VectorXf
+>786	IdentifierDeclStatement	 
+>787	IdentifierDecl	timer
+>788	Identifier	timer
+>789	IdentifierDeclType	BenchTimer
+>790	IdentifierDeclStatement	 
+>791	IdentifierDecl	density = DENSITY
+>792	AssignmentExpr	density = DENSITY
+>793	Identifier	DENSITY
+>794	Identifier	DENSITY
+>795	Identifier	density
+>796	IdentifierDeclType	float
+>797	IdentifierDeclStatement	 
+>798	IdentifierDecl	cols = SIZE
+>799	AssignmentExpr	cols = SIZE
+>800	Identifier	SIZE
+>801	Identifier	SIZE
+>802	Identifier	cols
+>803	IdentifierDeclType	int
+>804	IdentifierDeclStatement	 
+>805	IdentifierDecl	rows = SIZE
+>806	AssignmentExpr	rows = SIZE
+>807	Identifier	SIZE
+>808	Identifier	SIZE
+>809	Identifier	rows
+>810	IdentifierDeclType	int
+<9=24,23,10
+<10=20,17,14,11
+<11=13,12
+<14=16,15
+<17=19,18
+<20=22,21
+<24=135,32,25
+<25=26
+<26=28,27
+<28=29
+<29=31,30
+<32=127,123,120,33
+<33=101,34
+<34=91,87,84,35
+<35=83,82,81,80,79,78,77,76,75,74,73,72,71,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,54,36
+<36=50,37
+<37=38
+<38=40,39
+<40=46,41
+<41=44,42
+<42=43
+<44=45
+<46=47
+<47=49,48
+<50=51
+<51=53,52
+<54=55
+<84=86,85
+<87=88
+<88=90,89
+<91=92
+<92=93
+<93=100,99,94
+<94=98,95
+<95=97,96
+<101=102
+<102=110,103
+<103=109,104
+<104=108,105
+<105=107,106
+<110=116,111
+<111=114,112
+<112=113
+<114=115
+<116=117
+<117=119,118
+<120=122,121
+<123=124
+<124=126,125
+<127=128
+<128=129
+<129=134,133,130
+<130=132,131
+<135=136
+<136=144,137
+<137=138
+<138=139
+<139=143,140
+<140=142,141
+<144=145
+<145=147,146
+<165=174,173,166
+<166=170,167
+<167=169,168
+<170=172,171
+<174=804,797,790,786,774,762,755,177,175
+<175=176
+<177=748,744,731,727,548,538,528,518,432,178
+<178=428,419,415,411,402,398,391,386,364,358,348,342,336,307,300,287,280,273,258,251,238,222,209,196,179
+<179=180
+<180=194,181
+<181=192,190,188,186,182
+<182=183
+<183=185,184
+<186=187
+<188=189
+<190=191
+<192=193
+<194=195
+<196=197
+<197=207,198
+<198=205,203,199
+<199=200
+<200=202,201
+<203=204
+<205=206
+<207=208
+<209=210
+<210=220,211
+<211=218,216,212
+<212=213
+<213=215,214
+<216=217
+<218=219
+<220=221
+<222=223
+<223=237,236,224
+<224=235,225
+<225=233,226
+<226=231,227
+<227=228
+<228=230,229
+<231=232
+<233=234
+<238=239
+<239=250,240
+<240=249,241
+<241=243,242
+<243=245,244
+<245=246
+<246=248,247
+<251=252
+<252=254,253
+<254=255
+<255=257,256
+<258=259
+<259=271,260
+<260=267,265,261
+<261=262
+<262=264,263
+<265=266
+<267=268
+<268=270,269
+<271=272
+<273=274
+<274=276,275
+<276=277
+<277=279,278
+<280=281
+<281=283,282
+<283=284
+<284=286,285
+<287=288
+<288=299,289
+<289=298,290
+<290=292,291
+<292=294,293
+<294=295
+<295=297,296
+<300=301
+<301=303,302
+<303=304
+<304=306,305
+<307=308
+<308=335,309
+<309=333,310
+<310=329,323,317,315,311
+<311=312
+<312=314,313
+<315=316
+<317=318
+<318=322,319
+<319=321,320
+<323=324
+<324=328,325
+<325=327,326
+<329=330
+<330=332,331
+<333=334
+<336=337
+<337=339,338
+<339=341,340
+<342=343
+<343=345,344
+<345=347,346
+<348=349
+<349=351,350
+<351=353,352
+<353=355,354
+<355=357,356
+<358=359
+<359=361,360
+<361=363,362
+<364=378,374,371,365
+<365=366
+<366=368,367
+<368=370,369
+<371=373,372
+<374=375
+<375=377,376
+<378=379
+<379=380
+<380=385,384,381
+<381=383,382
+<386=387
+<387=390,389,388
+<391=392
+<392=394,393
+<394=395
+<395=397,396
+<398=399
+<399=401,400
+<402=403
+<403=410,404
+<404=406,405
+<406=407
+<407=409,408
+<411=412
+<412=414,413
+<415=416
+<416=418,417
+<419=420
+<420=426,421
+<421=422
+<422=423
+<423=425,424
+<426=427
+<428=429
+<429=431,430
+<432=506,488,433
+<433=480,476,473,434
+<434=435
+<435=461,451,448,436
+<436=437
+<437=447,438
+<438=440,439
+<440=442,441
+<442=444,443
+<444=446,445
+<448=450,449
+<451=452
+<452=460,453
+<453=457,454
+<454=456,455
+<457=459,458
+<461=462
+<462=463
+<463=472,471,464
+<464=470,465
+<465=467,466
+<467=469,468
+<473=475,474
+<476=477
+<477=479,478
+<480=481
+<481=482
+<482=487,486,483
+<483=485,484
+<488=489
+<489=505,504,490
+<490=503,491
+<491=501,492
+<492=497,495,493
+<493=494
+<495=496
+<497=498
+<498=500,499
+<501=502
+<506=507
+<507=517,516,508
+<508=515,509
+<509=511,510
+<511=512
+<512=514,513
+<518=519
+<519=527,520
+<520=526,521
+<521=525,522
+<522=524,523
+<528=529
+<529=537,530
+<530=536,531
+<531=535,532
+<532=534,533
+<538=539
+<539=547,540
+<540=546,541
+<541=545,542
+<542=544,543
+<548=723,549
+<549=719,709,702,693,677,668,664,657,652,645,632,625,560,550
+<550=551
+<551=559,552
+<552=558,553
+<553=557,554
+<554=556,555
+<560=617,613,610,561
+<561=602,598,595,562
+<562=567,563
+<563=564
+<564=566,565
+<567=568
+<568=594,569
+<569=592,570
+<570=573,571
+<571=572
+<573=574
+<574=590,575
+<575=576
+<576=577
+<577=583,578
+<578=581,579
+<579=580
+<581=582
+<583=584
+<584=586,585
+<586=587
+<587=589,588
+<590=591
+<592=593
+<595=597,596
+<598=599
+<599=601,600
+<602=603
+<603=604
+<604=609,608,605
+<605=607,606
+<610=612,611
+<613=614
+<614=616,615
+<617=618
+<618=619
+<619=624,623,620
+<620=622,621
+<625=626
+<626=631,630,627
+<627=629,628
+<632=633
+<633=644,634
+<634=643,635
+<635=637,636
+<637=639,638
+<639=640
+<640=642,641
+<645=646
+<646=648,647
+<648=649
+<649=651,650
+<652=653
+<653=656,655,654
+<657=658
+<658=660,659
+<660=661
+<661=663,662
+<664=665
+<665=667,666
+<668=669
+<669=671,670
+<671=673,672
+<673=674
+<674=676,675
+<677=678
+<678=692,679
+<679=681,680
+<681=682
+<682=684,683
+<684=691,685
+<685=687,686
+<687=688
+<688=690,689
+<693=694
+<694=700,695
+<695=698,696
+<696=697
+<698=699
+<700=701
+<702=703
+<703=708,707,704
+<704=706,705
+<709=710
+<710=718,711
+<711=717,712
+<712=714,713
+<714=716,715
+<719=720
+<720=722,721
+<723=724
+<724=726,725
+<727=728
+<728=730,729
+<731=732
+<732=742,733
+<733=740,738,736,734
+<734=735
+<736=737
+<738=739
+<740=741
+<742=743
+<744=745
+<745=747,746
+<748=749
+<749=754,753,750
+<750=752,751
+<755=756
+<756=761,760,757
+<757=759,758
+<762=763
+<763=773,772,764
+<764=771,765
+<765=769,766
+<766=767
+<767=768
+<769=770
+<774=775
+<775=785,784,776
+<776=783,777
+<777=781,778
+<778=779
+<779=780
+<781=782
+<786=787
+<787=789,788
+<790=791
+<791=796,795,792
+<792=794,793
+<797=798
+<798=803,802,799
+<799=801,800
+<804=805
+<805=810,809,806
+<806=808,807

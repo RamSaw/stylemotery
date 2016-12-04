@@ -1,0 +1,420 @@
+>3	FunctionDef	CInterval 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	CallExpression	Reset ( )
+>8	ArgumentList	 
+>9	Callee	Reset
+>10	Identifier	Reset
+>14	FunctionDef	CInterval 
+>15	ParameterList	 
+>16	CompoundStatement	 
+>20	FunctionDef	CInterval 
+>21	ParameterList	 
+>22	ReturnType	void
+>23	CompoundStatement	 
+>24	ExpressionStatement	 
+>25	CallExpression	base_ftime ( & m_Start )
+>26	ArgumentList	& m_Start
+>27	Argument	& m_Start
+>28	UnaryOp	& m_Start
+>29	Identifier	m_Start
+>30	UnaryOperator	&
+>31	Callee	base_ftime
+>32	Identifier	base_ftime
+>33	ExpressionStatement	 
+>34	CallExpression	gettimeofday ( & m_Start , NULL )
+>35	ArgumentList	& m_Start
+>36	Argument	NULL
+>37	Identifier	NULL
+>38	Argument	& m_Start
+>39	UnaryOp	& m_Start
+>40	Identifier	m_Start
+>41	UnaryOperator	&
+>42	Callee	gettimeofday
+>43	Identifier	gettimeofday
+>49	FunctionDef	CInterval 
+>50	ParameterList	CIntervalType IntervalType
+>51	Parameter	 
+>52	Identifier	IntervalType
+>53	ParameterType	CIntervalType
+>54	ReturnType	long
+>55	CompoundStatement	 
+>56	ReturnStatement	 
+>57	UnaryOp	- 1
+>58	PrimaryExpression	1
+>59	UnaryOperator	-
+>60	SwitchStatement	switch ( IntervalType )
+>61	CompoundStatement	 
+>62	ReturnStatement	 
+>63	CastExpression	( long ) ( ( m_Current . time - m_Start . time ) / 3600 )
+>64	MultiplicativeExpression	( m_Current . time - m_Start . time ) / 3600
+>65	PrimaryExpression	3600
+>66	AdditiveExpression	m_Current . time - m_Start . time
+>67	MemberAccess	m_Start . time
+>68	Identifier	time
+>69	Identifier	m_Start
+>70	MemberAccess	m_Current . time
+>71	Identifier	time
+>72	Identifier	m_Current
+>73	CastTarget	long
+>74	Label	 
+>75	Identifier	itHours
+>76	ReturnStatement	 
+>77	CastExpression	( long ) ( ( m_Current . time - m_Start . time ) / 60 )
+>78	MultiplicativeExpression	( m_Current . time - m_Start . time ) / 60
+>79	PrimaryExpression	60
+>80	AdditiveExpression	m_Current . time - m_Start . time
+>81	MemberAccess	m_Start . time
+>82	Identifier	time
+>83	Identifier	m_Start
+>84	MemberAccess	m_Current . time
+>85	Identifier	time
+>86	Identifier	m_Current
+>87	CastTarget	long
+>88	Label	 
+>89	Identifier	itMinutes
+>90	ReturnStatement	 
+>91	CastExpression	( long ) ( ( m_Current . time - m_Start . time ) + ( m_Current . millitm - m_Start . millitm ) / 1000 )
+>92	AdditiveExpression	( m_Current . time - m_Start . time ) + ( m_Current . millitm - m_Start . millitm ) / 1000
+>93	MultiplicativeExpression	( m_Current . millitm - m_Start . millitm ) / 1000
+>94	PrimaryExpression	1000
+>95	AdditiveExpression	m_Current . millitm - m_Start . millitm
+>96	MemberAccess	m_Start . millitm
+>97	Identifier	millitm
+>98	Identifier	m_Start
+>99	MemberAccess	m_Current . millitm
+>100	Identifier	millitm
+>101	Identifier	m_Current
+>102	AdditiveExpression	m_Current . time - m_Start . time
+>103	MemberAccess	m_Start . time
+>104	Identifier	time
+>105	Identifier	m_Start
+>106	MemberAccess	m_Current . time
+>107	Identifier	time
+>108	Identifier	m_Current
+>109	CastTarget	long
+>110	Label	 
+>111	Identifier	itSeconds
+>112	ReturnStatement	 
+>113	CastExpression	( long ) ( 1000.0 * ( m_Current . time - m_Start . time ) + ( m_Current . millitm - m_Start . millitm ) )
+>114	AdditiveExpression	1000.0 * ( m_Current . time - m_Start . time ) + ( m_Current . millitm - m_Start . millitm )
+>115	AdditiveExpression	m_Current . millitm - m_Start . millitm
+>116	MemberAccess	m_Start . millitm
+>117	Identifier	millitm
+>118	Identifier	m_Start
+>119	MemberAccess	m_Current . millitm
+>120	Identifier	millitm
+>121	Identifier	m_Current
+>122	MultiplicativeExpression	1000.0 * ( m_Current . time - m_Start . time )
+>123	AdditiveExpression	m_Current . time - m_Start . time
+>124	MemberAccess	m_Start . time
+>125	Identifier	time
+>126	Identifier	m_Start
+>127	MemberAccess	m_Current . time
+>128	Identifier	time
+>129	Identifier	m_Current
+>130	PrimaryExpression	1000.0
+>131	CastTarget	long
+>132	Label	 
+>133	Identifier	itMilliseconds
+>134	ReturnStatement	 
+>135	CastExpression	( long ) ( 1000000.0 * ( m_Current . time - m_Start . time ) + ( m_Current . millitm - m_Start . millitm ) * 1000 )
+>136	AdditiveExpression	1000000.0 * ( m_Current . time - m_Start . time ) + ( m_Current . millitm - m_Start . millitm ) * 1000
+>137	MultiplicativeExpression	( m_Current . millitm - m_Start . millitm ) * 1000
+>138	PrimaryExpression	1000
+>139	AdditiveExpression	m_Current . millitm - m_Start . millitm
+>140	MemberAccess	m_Start . millitm
+>141	Identifier	millitm
+>142	Identifier	m_Start
+>143	MemberAccess	m_Current . millitm
+>144	Identifier	millitm
+>145	Identifier	m_Current
+>146	MultiplicativeExpression	1000000.0 * ( m_Current . time - m_Start . time )
+>147	AdditiveExpression	m_Current . time - m_Start . time
+>148	MemberAccess	m_Start . time
+>149	Identifier	time
+>150	Identifier	m_Start
+>151	MemberAccess	m_Current . time
+>152	Identifier	time
+>153	Identifier	m_Current
+>154	PrimaryExpression	1000000.0
+>155	CastTarget	long
+>156	Label	 
+>157	Identifier	itMicroseconds
+>158	Condition	 
+>159	Identifier	IntervalType
+>160	ExpressionStatement	 
+>161	CallExpression	base_ftime ( & m_Current )
+>162	ArgumentList	& m_Current
+>163	Argument	& m_Current
+>164	UnaryOp	& m_Current
+>165	Identifier	m_Current
+>166	UnaryOperator	&
+>167	Callee	base_ftime
+>168	Identifier	base_ftime
+>169	IdentifierDeclStatement	 
+>170	IdentifierDecl	m_Current
+>171	Identifier	m_Current
+>172	IdentifierDeclType	struct base_timeb
+>173	SwitchStatement	switch ( IntervalType )
+>174	CompoundStatement	 
+>175	ReturnStatement	 
+>176	CastExpression	( long ) ( ( m_Current . tv_sec - m_Start . tv_sec ) / 3600 )
+>177	MultiplicativeExpression	( m_Current . tv_sec - m_Start . tv_sec ) / 3600
+>178	PrimaryExpression	3600
+>179	AdditiveExpression	m_Current . tv_sec - m_Start . tv_sec
+>180	MemberAccess	m_Start . tv_sec
+>181	Identifier	tv_sec
+>182	Identifier	m_Start
+>183	MemberAccess	m_Current . tv_sec
+>184	Identifier	tv_sec
+>185	Identifier	m_Current
+>186	CastTarget	long
+>187	Label	 
+>188	Identifier	itHours
+>189	ReturnStatement	 
+>190	CastExpression	( long ) ( ( m_Current . tv_sec - m_Start . tv_sec ) / 60 )
+>191	MultiplicativeExpression	( m_Current . tv_sec - m_Start . tv_sec ) / 60
+>192	PrimaryExpression	60
+>193	AdditiveExpression	m_Current . tv_sec - m_Start . tv_sec
+>194	MemberAccess	m_Start . tv_sec
+>195	Identifier	tv_sec
+>196	Identifier	m_Start
+>197	MemberAccess	m_Current . tv_sec
+>198	Identifier	tv_sec
+>199	Identifier	m_Current
+>200	CastTarget	long
+>201	Label	 
+>202	Identifier	itMinutes
+>203	ReturnStatement	 
+>204	CastExpression	( long ) ( ( m_Current . tv_sec - m_Start . tv_sec ) + ( m_Current . tv_usec - m_Start . tv_usec ) / 1000000 )
+>205	AdditiveExpression	( m_Current . tv_sec - m_Start . tv_sec ) + ( m_Current . tv_usec - m_Start . tv_usec ) / 1000000
+>206	MultiplicativeExpression	( m_Current . tv_usec - m_Start . tv_usec ) / 1000000
+>207	PrimaryExpression	1000000
+>208	AdditiveExpression	m_Current . tv_usec - m_Start . tv_usec
+>209	MemberAccess	m_Start . tv_usec
+>210	Identifier	tv_usec
+>211	Identifier	m_Start
+>212	MemberAccess	m_Current . tv_usec
+>213	Identifier	tv_usec
+>214	Identifier	m_Current
+>215	AdditiveExpression	m_Current . tv_sec - m_Start . tv_sec
+>216	MemberAccess	m_Start . tv_sec
+>217	Identifier	tv_sec
+>218	Identifier	m_Start
+>219	MemberAccess	m_Current . tv_sec
+>220	Identifier	tv_sec
+>221	Identifier	m_Current
+>222	CastTarget	long
+>223	Label	 
+>224	Identifier	itSeconds
+>225	ReturnStatement	 
+>226	CastExpression	( long ) ( 1000.0 * ( m_Current . tv_sec - m_Start . tv_sec ) + ( m_Current . tv_usec - m_Start . tv_usec ) / 1000 )
+>227	AdditiveExpression	1000.0 * ( m_Current . tv_sec - m_Start . tv_sec ) + ( m_Current . tv_usec - m_Start . tv_usec ) / 1000
+>228	MultiplicativeExpression	( m_Current . tv_usec - m_Start . tv_usec ) / 1000
+>229	PrimaryExpression	1000
+>230	AdditiveExpression	m_Current . tv_usec - m_Start . tv_usec
+>231	MemberAccess	m_Start . tv_usec
+>232	Identifier	tv_usec
+>233	Identifier	m_Start
+>234	MemberAccess	m_Current . tv_usec
+>235	Identifier	tv_usec
+>236	Identifier	m_Current
+>237	MultiplicativeExpression	1000.0 * ( m_Current . tv_sec - m_Start . tv_sec )
+>238	AdditiveExpression	m_Current . tv_sec - m_Start . tv_sec
+>239	MemberAccess	m_Start . tv_sec
+>240	Identifier	tv_sec
+>241	Identifier	m_Start
+>242	MemberAccess	m_Current . tv_sec
+>243	Identifier	tv_sec
+>244	Identifier	m_Current
+>245	PrimaryExpression	1000.0
+>246	CastTarget	long
+>247	Label	 
+>248	Identifier	itMilliseconds
+>249	ReturnStatement	 
+>250	CastExpression	( long ) ( 1000000.0 * ( m_Current . tv_sec - m_Start . tv_sec ) + ( m_Current . tv_usec - m_Start . tv_usec ) )
+>251	AdditiveExpression	1000000.0 * ( m_Current . tv_sec - m_Start . tv_sec ) + ( m_Current . tv_usec - m_Start . tv_usec )
+>252	AdditiveExpression	m_Current . tv_usec - m_Start . tv_usec
+>253	MemberAccess	m_Start . tv_usec
+>254	Identifier	tv_usec
+>255	Identifier	m_Start
+>256	MemberAccess	m_Current . tv_usec
+>257	Identifier	tv_usec
+>258	Identifier	m_Current
+>259	MultiplicativeExpression	1000000.0 * ( m_Current . tv_sec - m_Start . tv_sec )
+>260	AdditiveExpression	m_Current . tv_sec - m_Start . tv_sec
+>261	MemberAccess	m_Start . tv_sec
+>262	Identifier	tv_sec
+>263	Identifier	m_Start
+>264	MemberAccess	m_Current . tv_sec
+>265	Identifier	tv_sec
+>266	Identifier	m_Current
+>267	PrimaryExpression	1000000.0
+>268	CastTarget	long
+>269	Label	 
+>270	Identifier	itMicroseconds
+>271	Condition	 
+>272	Identifier	IntervalType
+>273	ExpressionStatement	 
+>274	CallExpression	gettimeofday ( & m_Current , NULL )
+>275	ArgumentList	& m_Current
+>276	Argument	NULL
+>277	Identifier	NULL
+>278	Argument	& m_Current
+>279	UnaryOp	& m_Current
+>280	Identifier	m_Current
+>281	UnaryOperator	&
+>282	Callee	gettimeofday
+>283	Identifier	gettimeofday
+>284	IdentifierDeclStatement	 
+>285	IdentifierDecl	m_Current
+>286	Identifier	m_Current
+>287	IdentifierDeclType	struct timeval
+<3=5,4
+<5=6
+<6=7
+<7=9,8
+<9=10
+<14=16,15
+<20=23,22,21
+<23=33,24
+<24=25
+<25=31,26
+<26=27
+<27=28
+<28=30,29
+<31=32
+<33=34
+<34=42,35
+<35=38,36
+<36=37
+<38=39
+<39=41,40
+<42=43
+<49=55,54,50
+<50=51
+<51=53,52
+<55=284,273,173,169,160,60,56
+<56=57
+<57=59,58
+<60=158,61
+<61=156,134,132,112,110,90,88,76,74,62
+<62=63
+<63=73,64
+<64=66,65
+<66=70,67
+<67=69,68
+<70=72,71
+<74=75
+<76=77
+<77=87,78
+<78=80,79
+<80=84,81
+<81=83,82
+<84=86,85
+<88=89
+<90=91
+<91=109,92
+<92=102,93
+<93=95,94
+<95=99,96
+<96=98,97
+<99=101,100
+<102=106,103
+<103=105,104
+<106=108,107
+<110=111
+<112=113
+<113=131,114
+<114=122,115
+<115=119,116
+<116=118,117
+<119=121,120
+<122=130,123
+<123=127,124
+<124=126,125
+<127=129,128
+<132=133
+<134=135
+<135=155,136
+<136=146,137
+<137=139,138
+<139=143,140
+<140=142,141
+<143=145,144
+<146=154,147
+<147=151,148
+<148=150,149
+<151=153,152
+<156=157
+<158=159
+<160=161
+<161=167,162
+<162=163
+<163=164
+<164=166,165
+<167=168
+<169=170
+<170=172,171
+<173=271,174
+<174=269,249,247,225,223,203,201,189,187,175
+<175=176
+<176=186,177
+<177=179,178
+<179=183,180
+<180=182,181
+<183=185,184
+<187=188
+<189=190
+<190=200,191
+<191=193,192
+<193=197,194
+<194=196,195
+<197=199,198
+<201=202
+<203=204
+<204=222,205
+<205=215,206
+<206=208,207
+<208=212,209
+<209=211,210
+<212=214,213
+<215=219,216
+<216=218,217
+<219=221,220
+<223=224
+<225=226
+<226=246,227
+<227=237,228
+<228=230,229
+<230=234,231
+<231=233,232
+<234=236,235
+<237=245,238
+<238=242,239
+<239=241,240
+<242=244,243
+<247=248
+<249=250
+<250=268,251
+<251=259,252
+<252=256,253
+<253=255,254
+<256=258,257
+<259=267,260
+<260=264,261
+<261=263,262
+<264=266,265
+<269=270
+<271=272
+<273=274
+<274=282,275
+<275=278,276
+<276=277
+<278=279
+<279=281,280
+<282=283
+<284=285
+<285=287,286

@@ -1,0 +1,144 @@
+>3	FunctionDef	M_ClearBox (fixed_t * box)
+>4	ParameterList	fixed_t * box
+>5	Parameter	 
+>6	Identifier	box
+>7	ParameterType	fixed_t *
+>8	ReturnType	void
+>9	CompoundStatement	 
+>10	ExpressionStatement	 
+>11	AssignmentExpr	box [ BOXBOTTOM ] = box [ BOXLEFT ] = MAXINT
+>12	AssignmentExpr	box [ BOXLEFT ] = MAXINT
+>13	Identifier	MAXINT
+>14	ArrayIndexing	box [ BOXLEFT ]
+>15	Identifier	BOXLEFT
+>16	Identifier	box
+>17	ArrayIndexing	box [ BOXBOTTOM ]
+>18	Identifier	BOXBOTTOM
+>19	Identifier	box
+>20	ExpressionStatement	 
+>21	AssignmentExpr	box [ BOXTOP ] = box [ BOXRIGHT ] = MININT
+>22	AssignmentExpr	box [ BOXRIGHT ] = MININT
+>23	Identifier	MININT
+>24	ArrayIndexing	box [ BOXRIGHT ]
+>25	Identifier	BOXRIGHT
+>26	Identifier	box
+>27	ArrayIndexing	box [ BOXTOP ]
+>28	Identifier	BOXTOP
+>29	Identifier	box
+>45	FunctionDef	M_AddToBox (fixed_t * box , fixed_t x , fixed_t y)
+>46	ParameterList	fixed_t * box , fixed_t x , fixed_t y
+>47	Parameter	 
+>48	Identifier	y
+>49	ParameterType	fixed_t
+>50	Parameter	 
+>51	Identifier	x
+>52	ParameterType	fixed_t
+>53	Parameter	 
+>54	Identifier	box
+>55	ParameterType	fixed_t *
+>56	ReturnType	void
+>57	CompoundStatement	 
+>58	IfStatement	if ( y < box [ BOXBOTTOM ] )
+>59	ElseStatement	else
+>60	IfStatement	if ( y > box [ BOXTOP ] )
+>61	ExpressionStatement	 
+>62	AssignmentExpr	box [ BOXTOP ] = y
+>63	Identifier	y
+>64	ArrayIndexing	box [ BOXTOP ]
+>65	Identifier	BOXTOP
+>66	Identifier	box
+>67	Condition	 
+>68	RelationalExpression	y > box [ BOXTOP ]
+>69	ArrayIndexing	box [ BOXTOP ]
+>70	Identifier	BOXTOP
+>71	Identifier	box
+>72	Identifier	y
+>73	ExpressionStatement	 
+>74	AssignmentExpr	box [ BOXBOTTOM ] = y
+>75	Identifier	y
+>76	ArrayIndexing	box [ BOXBOTTOM ]
+>77	Identifier	BOXBOTTOM
+>78	Identifier	box
+>79	Condition	 
+>80	RelationalExpression	y < box [ BOXBOTTOM ]
+>81	ArrayIndexing	box [ BOXBOTTOM ]
+>82	Identifier	BOXBOTTOM
+>83	Identifier	box
+>84	Identifier	y
+>85	IfStatement	if ( x < box [ BOXLEFT ] )
+>86	ElseStatement	else
+>87	IfStatement	if ( x > box [ BOXRIGHT ] )
+>88	ExpressionStatement	 
+>89	AssignmentExpr	box [ BOXRIGHT ] = x
+>90	Identifier	x
+>91	ArrayIndexing	box [ BOXRIGHT ]
+>92	Identifier	BOXRIGHT
+>93	Identifier	box
+>94	Condition	 
+>95	RelationalExpression	x > box [ BOXRIGHT ]
+>96	ArrayIndexing	box [ BOXRIGHT ]
+>97	Identifier	BOXRIGHT
+>98	Identifier	box
+>99	Identifier	x
+>100	ExpressionStatement	 
+>101	AssignmentExpr	box [ BOXLEFT ] = x
+>102	Identifier	x
+>103	ArrayIndexing	box [ BOXLEFT ]
+>104	Identifier	BOXLEFT
+>105	Identifier	box
+>106	Condition	 
+>107	RelationalExpression	x < box [ BOXLEFT ]
+>108	ArrayIndexing	box [ BOXLEFT ]
+>109	Identifier	BOXLEFT
+>110	Identifier	box
+>111	Identifier	x
+<3=9,8,4
+<4=5
+<5=7,6
+<9=20,10
+<10=11
+<11=17,12
+<12=14,13
+<14=16,15
+<17=19,18
+<20=21
+<21=27,22
+<22=24,23
+<24=26,25
+<27=29,28
+<45=57,56,46
+<46=53,50,47
+<47=49,48
+<50=52,51
+<53=55,54
+<57=85,58
+<58=79,73,59
+<59=60
+<60=67,61
+<61=62
+<62=64,63
+<64=66,65
+<67=68
+<68=72,69
+<69=71,70
+<73=74
+<74=76,75
+<76=78,77
+<79=80
+<80=84,81
+<81=83,82
+<85=106,100,86
+<86=87
+<87=94,88
+<88=89
+<89=91,90
+<91=93,92
+<94=95
+<95=99,96
+<96=98,97
+<100=101
+<101=103,102
+<103=105,104
+<106=107
+<107=111,108
+<108=110,109

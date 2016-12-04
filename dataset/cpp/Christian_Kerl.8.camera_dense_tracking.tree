@@ -1,0 +1,1849 @@
+>3	FunctionDef	CameraDenseTracker 
+>4	ParameterList	ros 
+>5	Parameter	 
+>6	Identifier	nh_private
+>7	ParameterType	ros 
+>8	Parameter	 
+>9	Identifier	nh
+>10	ParameterType	ros 
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	CallExpression	accumulated_transform . setIdentity ( )
+>14	ArgumentList	 
+>15	Callee	accumulated_transform . setIdentity
+>16	MemberAccess	accumulated_transform . setIdentity
+>17	Identifier	setIdentity
+>18	Identifier	accumulated_transform
+>19	ExpressionStatement	 
+>20	CallExpression	latest_absolute_transform_ . setIdentity ( )
+>21	ArgumentList	 
+>22	Callee	latest_absolute_transform_ . setIdentity
+>23	MemberAccess	latest_absolute_transform_ . setIdentity
+>24	Identifier	setIdentity
+>25	Identifier	latest_absolute_transform_
+>26	ExpressionStatement	 
+>27	AssignmentExpr	pose_sub_ = nh . subscribe < geometry_msgs 
+>28	RelationalExpression	nh . subscribe < geometry_msgs 
+>29	RelationalExpression	geometry_msgs 
+>30	Expression	\"pelican/pose\" , 1 , & CameraDenseTracker 
+>31	Expression	1 , & CameraDenseTracker 
+>32	Expression	& CameraDenseTracker 
+>33	Identifier	this
+>34	UnaryOp	& CameraDenseTracker 
+>35	Identifier	CameraDenseTracker 
+>36	UnaryOperator	&
+>37	PrimaryExpression	1
+>38	PrimaryExpression	\"pelican/pose\"
+>39	Identifier	geometry_msgs 
+>40	MemberAccess	nh . subscribe
+>41	Identifier	subscribe
+>42	Identifier	nh
+>43	Identifier	pose_sub_
+>44	ExpressionStatement	 
+>45	CallExpression	ROS_INFO_STREAM ( \"transformation
+>46	ArgumentList	\"transformation
+>47	Argument	\"transformation
+>48	ShiftExpression	\"transformation
+>49	ShiftExpression	std 
+>50	CallExpression	from_baselink_to_asus . matrix ( )
+>51	ArgumentList	 
+>52	Callee	from_baselink_to_asus . matrix
+>53	MemberAccess	from_baselink_to_asus . matrix
+>54	Identifier	matrix
+>55	Identifier	from_baselink_to_asus
+>56	Identifier	std 
+>57	PrimaryExpression	\"transformation
+>58	Callee	ROS_INFO_STREAM
+>59	Identifier	ROS_INFO_STREAM
+>60	ExpressionStatement	 
+>61	CallExpression	dvo_ros 
+>62	ArgumentList	from_baselink_to_asus
+>63	Argument	\"asus\"
+>64	PrimaryExpression	\"asus\"
+>65	Argument	\"base_link\"
+>66	PrimaryExpression	\"base_link\"
+>67	Argument	tl
+>68	Identifier	tl
+>69	Argument	from_baselink_to_asus
+>70	Identifier	from_baselink_to_asus
+>71	Callee	dvo_ros 
+>72	Identifier	dvo_ros 
+>73	ExpressionStatement	 
+>74	CallExpression	reconfigure_server_ . setCallback ( reconfigure_server_callback )
+>75	ArgumentList	reconfigure_server_callback
+>76	Argument	reconfigure_server_callback
+>77	Identifier	reconfigure_server_callback
+>78	Callee	reconfigure_server_ . setCallback
+>79	MemberAccess	reconfigure_server_ . setCallback
+>80	Identifier	setCallback
+>81	Identifier	reconfigure_server_
+>82	IdentifierDeclStatement	 
+>83	IdentifierDecl	reconfigure_server_callback = boost 
+>84	AssignmentExpr	reconfigure_server_callback = boost 
+>85	CallExpression	boost 
+>86	ArgumentList	& CameraDenseTracker 
+>87	Argument	_2
+>88	Identifier	_2
+>89	Argument	_1
+>90	Identifier	_1
+>91	Argument	this
+>92	Identifier	this
+>93	Argument	& CameraDenseTracker 
+>94	UnaryOp	& CameraDenseTracker 
+>95	Identifier	CameraDenseTracker 
+>96	UnaryOperator	&
+>97	Callee	boost 
+>98	Identifier	boost 
+>99	Identifier	reconfigure_server_callback
+>100	Identifier	reconfigure_server_callback
+>101	IdentifierDeclType	ReconfigureServer 
+>102	ExpressionStatement	 
+>103	AssignmentExpr	pose_pub_ = nh . advertise < geometry_msgs 
+>104	RelationalExpression	nh . advertise < geometry_msgs 
+>105	RelationalExpression	geometry_msgs 
+>106	Expression	\"rgbd/pose\" , 1
+>107	PrimaryExpression	1
+>108	PrimaryExpression	\"rgbd/pose\"
+>109	Identifier	geometry_msgs 
+>110	MemberAccess	nh . advertise
+>111	Identifier	advertise
+>112	Identifier	nh
+>113	Identifier	pose_pub_
+>114	ExpressionStatement	 
+>115	CallExpression	ROS_INFO ( \"CameraDenseTracker
+>116	ArgumentList	\"CameraDenseTracker
+>117	Argument	\"CameraDenseTracker
+>118	PrimaryExpression	\"CameraDenseTracker
+>119	Callee	ROS_INFO
+>120	Identifier	ROS_INFO
+>145	FunctionDef	CameraDenseTracker 
+>146	ParameterList	 
+>147	CompoundStatement	 
+>148	ExpressionStatement	 
+>149	Identifier	vis_
+>150	Statement	 
+>154	FunctionDef	CameraDenseTracker 
+>155	ParameterList	const sensor_msgs 
+>156	Parameter	 
+>157	Identifier	camera_info_msg
+>158	ParameterType	const sensor_msgs 
+>159	ReturnType	bool
+>160	CompoundStatement	 
+>161	ReturnStatement	 
+>162	OrExpression	width != camera_info_msg -> width || height != camera_info_msg -> height
+>163	EqualityExpression	height != camera_info_msg -> height
+>164	PtrMemberAccess	camera_info_msg -> height
+>165	Identifier	height
+>166	Identifier	camera_info_msg
+>167	Identifier	height
+>168	EqualityExpression	width != camera_info_msg -> width
+>169	PtrMemberAccess	camera_info_msg -> width
+>170	Identifier	width
+>171	Identifier	camera_info_msg
+>172	Identifier	width
+>182	FunctionDef	CameraDenseTracker 
+>183	ParameterList	const sensor_msgs 
+>184	Parameter	 
+>185	Identifier	camera_info_msg
+>186	ParameterType	const sensor_msgs 
+>187	ReturnType	void
+>188	CompoundStatement	 
+>189	ExpressionStatement	 
+>190	CallExpression	vis_ -> reset ( )
+>191	ArgumentList	 
+>192	Callee	vis_ -> reset
+>193	PtrMemberAccess	vis_ -> reset
+>194	Identifier	reset
+>195	Identifier	vis_
+>196	ExpressionStatement	 
+>197	AssignmentExpr	height = camera_info_msg -> height
+>198	PtrMemberAccess	camera_info_msg -> height
+>199	Identifier	height
+>200	Identifier	camera_info_msg
+>201	Identifier	height
+>202	ExpressionStatement	 
+>203	AssignmentExpr	width = camera_info_msg -> width
+>204	PtrMemberAccess	camera_info_msg -> width
+>205	Identifier	width
+>206	Identifier	camera_info_msg
+>207	Identifier	width
+>208	ExpressionStatement	 
+>209	CallExpression	current . reset ( __null__ )
+>210	ArgumentList	__null__
+>211	Argument	__null__
+>212	Identifier	__null__
+>213	Callee	current . reset
+>214	MemberAccess	current . reset
+>215	Identifier	reset
+>216	Identifier	current
+>217	ExpressionStatement	 
+>218	CallExpression	reference . reset ( __null__ )
+>219	ArgumentList	__null__
+>220	Argument	__null__
+>221	Identifier	__null__
+>222	Callee	reference . reset
+>223	MemberAccess	reference . reset
+>224	Identifier	reset
+>225	Identifier	reference
+>226	ExpressionStatement	 
+>227	AssignmentExpr	__null__ = 0
+>228	PrimaryExpression	0
+>229	Identifier	__null__
+>230	Statement	 
+>231	Statement	 
+>232	Statement	 
+>233	Statement	 
+>234	ExpressionStatement	 
+>235	CallExpression	tracker . reset ( new DenseTracker ( tracker_cfg ) )
+>236	ArgumentList	tracker_cfg
+>237	Argument	tracker_cfg
+>238	Identifier	tracker_cfg
+>239	Callee	tracker . reset
+>240	MemberAccess	tracker . reset
+>241	Identifier	reset
+>242	Identifier	tracker
+>243	ExpressionStatement	 
+>244	CallExpression	camera -> build ( tracker_cfg . getNumLevels ( ) )
+>245	ArgumentList	tracker_cfg . getNumLevels ( )
+>246	Argument	tracker_cfg . getNumLevels ( )
+>247	CallExpression	tracker_cfg . getNumLevels ( )
+>248	ArgumentList	 
+>249	Callee	tracker_cfg . getNumLevels
+>250	MemberAccess	tracker_cfg . getNumLevels
+>251	Identifier	getNumLevels
+>252	Identifier	tracker_cfg
+>253	Callee	camera -> build
+>254	PtrMemberAccess	camera -> build
+>255	Identifier	build
+>256	Identifier	camera
+>257	ExpressionStatement	 
+>258	CallExpression	camera . reset ( new dvo 
+>259	ArgumentList	camera_info_msg -> width , camera_info_msg -> height , intrinsics
+>260	Argument	camera_info_msg -> width , camera_info_msg -> height , intrinsics
+>261	Expression	camera_info_msg -> width , camera_info_msg -> height , intrinsics
+>262	Expression	camera_info_msg -> height , intrinsics
+>263	Identifier	intrinsics
+>264	PtrMemberAccess	camera_info_msg -> height
+>265	Identifier	height
+>266	Identifier	camera_info_msg
+>267	PtrMemberAccess	camera_info_msg -> width
+>268	Identifier	width
+>269	Identifier	camera_info_msg
+>270	Callee	camera . reset
+>271	MemberAccess	camera . reset
+>272	Identifier	reset
+>273	Identifier	camera
+>274	IdentifierDeclStatement	 
+>275	IdentifierDecl	intrinsics = IntrinsicMatrix 
+>276	AssignmentExpr	intrinsics = IntrinsicMatrix 
+>277	CallExpression	IntrinsicMatrix 
+>278	ArgumentList	camera_info_msg -> P [ 0 ]
+>279	Argument	camera_info_msg -> P [ 6 ]
+>280	ArrayIndexing	camera_info_msg -> P [ 6 ]
+>281	PrimaryExpression	6
+>282	PtrMemberAccess	camera_info_msg -> P
+>283	Identifier	P
+>284	Identifier	camera_info_msg
+>285	Argument	camera_info_msg -> P [ 2 ]
+>286	ArrayIndexing	camera_info_msg -> P [ 2 ]
+>287	PrimaryExpression	2
+>288	PtrMemberAccess	camera_info_msg -> P
+>289	Identifier	P
+>290	Identifier	camera_info_msg
+>291	Argument	camera_info_msg -> P [ 5 ]
+>292	ArrayIndexing	camera_info_msg -> P [ 5 ]
+>293	PrimaryExpression	5
+>294	PtrMemberAccess	camera_info_msg -> P
+>295	Identifier	P
+>296	Identifier	camera_info_msg
+>297	Argument	camera_info_msg -> P [ 0 ]
+>298	ArrayIndexing	camera_info_msg -> P [ 0 ]
+>299	PrimaryExpression	0
+>300	PtrMemberAccess	camera_info_msg -> P
+>301	Identifier	P
+>302	Identifier	camera_info_msg
+>303	Callee	IntrinsicMatrix 
+>304	Identifier	IntrinsicMatrix 
+>305	Identifier	intrinsics
+>306	Identifier	intrinsics
+>307	IdentifierDeclType	IntrinsicMatrix
+>330	FunctionDef	CameraDenseTracker 
+>331	ParameterList	dvo_ros 
+>332	Parameter	 
+>333	Identifier	level
+>334	ParameterType	uint32_t
+>335	Parameter	 
+>336	Identifier	config
+>337	ParameterType	dvo_ros 
+>338	ReturnType	void
+>339	CompoundStatement	 
+>340	IfStatement	if ( level & CameraDenseTracker_MiscParam )
+>341	CompoundStatement	 
+>342	IfStatement	if ( config . reconstruction )
+>343	ElseStatement	else
+>344	CompoundStatement	 
+>345	ExpressionStatement	 
+>346	AssignmentExpr	vis_ = new dvo 
+>347	UnaryExpression	new dvo 
+>348	Identifier	vis_
+>349	CompoundStatement	 
+>350	ExpressionStatement	 
+>351	AssignmentExpr	vis_ = new dvo_ros 
+>352	Identifier	nh_
+>353	Identifier	vis_
+>354	Condition	 
+>355	MemberAccess	config . reconstruction
+>356	Identifier	reconstruction
+>357	Identifier	config
+>358	ExpressionStatement	 
+>359	Identifier	vis_
+>360	Statement	 
+>361	ExpressionStatement	 
+>362	CallExpression	vis_ -> reset ( )
+>363	ArgumentList	 
+>364	Callee	vis_ -> reset
+>365	PtrMemberAccess	vis_ -> reset
+>366	Identifier	reset
+>367	Identifier	vis_
+>368	Condition	 
+>369	BitAndExpression	level & CameraDenseTracker_MiscParam
+>370	Identifier	CameraDenseTracker_MiscParam
+>371	Identifier	level
+>372	IfStatement	if ( level & CameraDenseTracker_ConfigParam )
+>373	CompoundStatement	 
+>374	ExpressionStatement	 
+>375	CallExpression	ROS_INFO_STREAM ( \"reconfigured tracker, config ( \" << tracker_cfg << \" )\" )
+>376	ArgumentList	\"reconfigured tracker, config ( \" << tracker_cfg << \" )\"
+>377	Argument	\"reconfigured tracker, config ( \" << tracker_cfg << \" )\"
+>378	ShiftExpression	\"reconfigured tracker, config ( \" << tracker_cfg << \" )\"
+>379	ShiftExpression	tracker_cfg << \" )\"
+>380	PrimaryExpression	\" )\"
+>381	Identifier	tracker_cfg
+>382	PrimaryExpression	\"reconfigured tracker, config ( \"
+>383	Callee	ROS_INFO_STREAM
+>384	Identifier	ROS_INFO_STREAM
+>385	IfStatement	if ( tracker )
+>386	CompoundStatement	 
+>387	ExpressionStatement	 
+>388	CallExpression	camera -> build ( tracker_cfg . getNumLevels ( ) )
+>389	ArgumentList	tracker_cfg . getNumLevels ( )
+>390	Argument	tracker_cfg . getNumLevels ( )
+>391	CallExpression	tracker_cfg . getNumLevels ( )
+>392	ArgumentList	 
+>393	Callee	tracker_cfg . getNumLevels
+>394	MemberAccess	tracker_cfg . getNumLevels
+>395	Identifier	getNumLevels
+>396	Identifier	tracker_cfg
+>397	Callee	camera -> build
+>398	PtrMemberAccess	camera -> build
+>399	Identifier	build
+>400	Identifier	camera
+>401	ExpressionStatement	 
+>402	CallExpression	tracker -> configure ( tracker_cfg )
+>403	ArgumentList	tracker_cfg
+>404	Argument	tracker_cfg
+>405	Identifier	tracker_cfg
+>406	Callee	tracker -> configure
+>407	PtrMemberAccess	tracker -> configure
+>408	Identifier	configure
+>409	Identifier	tracker
+>410	IdentifierDeclStatement	 
+>411	IdentifierDecl	lock ( tracker_mutex_ )
+>412	Identifier	tracker_mutex_
+>413	Identifier	lock
+>414	IdentifierDeclType	boost 
+>415	Condition	 
+>416	Identifier	tracker
+>417	ExpressionStatement	 
+>418	CallExpression	dvo_ros 
+>419	ArgumentList	config
+>420	Argument	tracker_cfg
+>421	Identifier	tracker_cfg
+>422	Argument	config
+>423	Identifier	config
+>424	Callee	dvo_ros 
+>425	Identifier	dvo_ros 
+>426	IfStatement	if ( config . coarsest_level < config . finest_level )
+>427	CompoundStatement	 
+>428	ExpressionStatement	 
+>429	AssignmentExpr	config . finest_level = config . coarsest_level
+>430	MemberAccess	config . coarsest_level
+>431	Identifier	coarsest_level
+>432	Identifier	config
+>433	MemberAccess	config . finest_level
+>434	Identifier	finest_level
+>435	Identifier	config
+>436	Condition	 
+>437	RelationalExpression	config . coarsest_level < config . finest_level
+>438	MemberAccess	config . finest_level
+>439	Identifier	finest_level
+>440	Identifier	config
+>441	MemberAccess	config . coarsest_level
+>442	Identifier	coarsest_level
+>443	Identifier	config
+>444	Condition	 
+>445	BitAndExpression	level & CameraDenseTracker_ConfigParam
+>446	Identifier	CameraDenseTracker_ConfigParam
+>447	Identifier	level
+>448	ExpressionStatement	 
+>449	AssignmentExpr	use_dense_tracking_estimate_ = config . use_dense_tracking_estimate
+>450	MemberAccess	config . use_dense_tracking_estimate
+>451	Identifier	use_dense_tracking_estimate
+>452	Identifier	config
+>453	Identifier	use_dense_tracking_estimate_
+>454	IfStatement	if ( ! config . run_dense_tracking && config . use_dense_tracking_estimate )
+>455	CompoundStatement	 
+>456	ExpressionStatement	 
+>457	AssignmentExpr	config . use_dense_tracking_estimate = false
+>458	Identifier	false
+>459	MemberAccess	config . use_dense_tracking_estimate
+>460	Identifier	use_dense_tracking_estimate
+>461	Identifier	config
+>462	Condition	 
+>463	AndExpression	! config . run_dense_tracking && config . use_dense_tracking_estimate
+>464	MemberAccess	config . use_dense_tracking_estimate
+>465	Identifier	use_dense_tracking_estimate
+>466	Identifier	config
+>467	UnaryOp	! config . run_dense_tracking
+>468	MemberAccess	config . run_dense_tracking
+>469	Identifier	run_dense_tracking
+>470	Identifier	config
+>471	UnaryOperator	!
+>472	IfStatement	if ( level & CameraDenseTracker_RunDenseTracking )
+>473	CompoundStatement	 
+>474	IfStatement	if ( config . run_dense_tracking )
+>475	ElseStatement	else
+>476	CompoundStatement	 
+>477	ExpressionStatement	 
+>478	AssignmentExpr	height = 0
+>479	PrimaryExpression	0
+>480	Identifier	height
+>481	ExpressionStatement	 
+>482	AssignmentExpr	width = 0
+>483	PrimaryExpression	0
+>484	Identifier	width
+>485	ExpressionStatement	 
+>486	CallExpression	stopSynchronizedImageStream ( )
+>487	ArgumentList	 
+>488	Callee	stopSynchronizedImageStream
+>489	Identifier	stopSynchronizedImageStream
+>490	CompoundStatement	 
+>491	ExpressionStatement	 
+>492	CallExpression	startSynchronizedImageStream ( )
+>493	ArgumentList	 
+>494	Callee	startSynchronizedImageStream
+>495	Identifier	startSynchronizedImageStream
+>496	Condition	 
+>497	MemberAccess	config . run_dense_tracking
+>498	Identifier	run_dense_tracking
+>499	Identifier	config
+>500	Condition	 
+>501	BitAndExpression	level & CameraDenseTracker_RunDenseTracking
+>502	Identifier	CameraDenseTracker_RunDenseTracking
+>503	Identifier	level
+>504	IfStatement	if ( level == 0 )
+>505	ReturnStatement	 
+>506	Condition	 
+>507	EqualityExpression	level == 0
+>508	PrimaryExpression	0
+>509	Identifier	level
+>534	FunctionDef	CameraDenseTracker 
+>535	ParameterList	const geometry_msgs 
+>536	Parameter	 
+>537	Identifier	pose
+>538	ParameterType	const geometry_msgs 
+>539	ReturnType	void
+>540	CompoundStatement	 
+>541	IfStatement	if ( ! use_dense_tracking_estimate_ )
+>542	ExpressionStatement	 
+>543	CallExpression	publishPose ( pose -> header , latest_absolute_transform_ , \"baselink_estimate\" )
+>544	ArgumentList	pose -> header
+>545	Argument	\"baselink_estimate\"
+>546	PrimaryExpression	\"baselink_estimate\"
+>547	Argument	latest_absolute_transform_
+>548	Identifier	latest_absolute_transform_
+>549	Argument	pose -> header
+>550	PtrMemberAccess	pose -> header
+>551	Identifier	header
+>552	Identifier	pose
+>553	Callee	publishPose
+>554	Identifier	publishPose
+>555	Condition	 
+>556	UnaryOp	! use_dense_tracking_estimate_
+>557	Identifier	use_dense_tracking_estimate_
+>558	UnaryOperator	!
+>559	ExpressionStatement	 
+>560	CallExpression	tf 
+>561	ArgumentList	tmp
+>562	Argument	latest_absolute_transform_
+>563	Identifier	latest_absolute_transform_
+>564	Argument	tmp
+>565	Identifier	tmp
+>566	Callee	tf 
+>567	Identifier	tf 
+>568	ExpressionStatement	 
+>569	CallExpression	tf 
+>570	ArgumentList	pose -> pose . pose
+>571	Argument	tmp
+>572	Identifier	tmp
+>573	Argument	pose -> pose . pose
+>574	MemberAccess	pose -> pose . pose
+>575	Identifier	pose
+>576	PtrMemberAccess	pose -> pose
+>577	Identifier	pose
+>578	Identifier	pose
+>579	Callee	tf 
+>580	Identifier	tf 
+>581	IdentifierDeclStatement	 
+>582	IdentifierDecl	tmp
+>583	Identifier	tmp
+>584	IdentifierDeclType	tf 
+>596	FunctionDef	CameraDenseTracker 
+>597	ParameterList	const sensor_msgs 
+>598	Parameter	 
+>599	Identifier	depth_camera_info_msg
+>600	ParameterType	const sensor_msgs 
+>601	Parameter	 
+>602	Identifier	rgb_camera_info_msg
+>603	ParameterType	const sensor_msgs 
+>604	Parameter	 
+>605	Identifier	depth_image_msg
+>606	ParameterType	const sensor_msgs 
+>607	Parameter	 
+>608	Identifier	rgb_image_msg
+>609	ParameterType	const sensor_msgs 
+>610	ReturnType	void
+>611	CompoundStatement	 
+>612	ExpressionStatement	 
+>613	CallExpression	sw_callback . stopAndPrint ( )
+>614	ArgumentList	 
+>615	Callee	sw_callback . stopAndPrint
+>616	MemberAccess	sw_callback . stopAndPrint
+>617	Identifier	stopAndPrint
+>618	Identifier	sw_callback
+>619	IfStatement	if ( use_dense_tracking_estimate_ )
+>620	CompoundStatement	 
+>621	ExpressionStatement	 
+>622	CallExpression	publishPose ( h , accumulated_transform * from_baselink_to_asus . inverse ( ) , \"baselink_estimate\" )
+>623	ArgumentList	h
+>624	Argument	\"baselink_estimate\"
+>625	PrimaryExpression	\"baselink_estimate\"
+>626	Argument	accumulated_transform * from_baselink_to_asus . inverse ( )
+>627	MultiplicativeExpression	accumulated_transform * from_baselink_to_asus . inverse ( )
+>628	CallExpression	from_baselink_to_asus . inverse ( )
+>629	ArgumentList	 
+>630	Callee	from_baselink_to_asus . inverse
+>631	MemberAccess	from_baselink_to_asus . inverse
+>632	Identifier	inverse
+>633	Identifier	from_baselink_to_asus
+>634	Identifier	accumulated_transform
+>635	Argument	h
+>636	Identifier	h
+>637	Callee	publishPose
+>638	Identifier	publishPose
+>639	Condition	 
+>640	Identifier	use_dense_tracking_estimate_
+>641	ExpressionStatement	 
+>642	CallExpression	publishTransform ( h , accumulated_transform * from_baselink_to_asus . inverse ( ) , \"base_link_estimate\" )
+>643	ArgumentList	h
+>644	Argument	\"base_link_estimate\"
+>645	PrimaryExpression	\"base_link_estimate\"
+>646	Argument	accumulated_transform * from_baselink_to_asus . inverse ( )
+>647	MultiplicativeExpression	accumulated_transform * from_baselink_to_asus . inverse ( )
+>648	CallExpression	from_baselink_to_asus . inverse ( )
+>649	ArgumentList	 
+>650	Callee	from_baselink_to_asus . inverse
+>651	MemberAccess	from_baselink_to_asus . inverse
+>652	Identifier	inverse
+>653	Identifier	from_baselink_to_asus
+>654	Identifier	accumulated_transform
+>655	Argument	h
+>656	Identifier	h
+>657	Callee	publishTransform
+>658	Identifier	publishTransform
+>659	IfStatement	if ( success )
+>660	ElseStatement	else
+>661	CompoundStatement	 
+>662	ExpressionStatement	 
+>663	CallExpression	ROS_WARN ( \"fail\" )
+>664	ArgumentList	\"fail\"
+>665	Argument	\"fail\"
+>666	PrimaryExpression	\"fail\"
+>667	Callee	ROS_WARN
+>668	Identifier	ROS_WARN
+>669	ExpressionStatement	 
+>670	CallExpression	reference . swap ( current )
+>671	ArgumentList	current
+>672	Argument	current
+>673	Identifier	current
+>674	Callee	reference . swap
+>675	MemberAccess	reference . swap
+>676	Identifier	swap
+>677	Identifier	reference
+>678	ExpressionStatement	 
+>679	IncDecOp	frames_since_last_success ++
+>680	IncDec	++
+>681	Identifier	frames_since_last_success
+>682	CompoundStatement	 
+>683	ExpressionStatement	 
+>684	CallExpression	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>685	ArgumentList	 
+>686	Callee	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>687	MemberAccess	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>688	Identifier	show
+>689	CallExpression	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>690	ArgumentList	current -> level ( 0 )
+>691	Argument	accumulated_transform
+>692	Identifier	accumulated_transform
+>693	Argument	current -> level ( 0 )
+>694	CallExpression	current -> level ( 0 )
+>695	ArgumentList	0
+>696	Argument	0
+>697	PrimaryExpression	0
+>698	Callee	current -> level
+>699	PtrMemberAccess	current -> level
+>700	Identifier	level
+>701	Identifier	current
+>702	Callee	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>703	MemberAccess	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>704	Identifier	update
+>705	CallExpression	vis_ -> camera ( \"current\" ) -> color ( dvo 
+>706	ArgumentList	dvo 
+>707	Argument	dvo 
+>708	CallExpression	dvo 
+>709	ArgumentList	 
+>710	Callee	dvo 
+>711	Identifier	dvo 
+>712	Callee	vis_ -> camera ( \"current\" ) -> color
+>713	PtrMemberAccess	vis_ -> camera ( \"current\" ) -> color
+>714	Identifier	color
+>715	CallExpression	vis_ -> camera ( \"current\" )
+>716	ArgumentList	\"current\"
+>717	Argument	\"current\"
+>718	PrimaryExpression	\"current\"
+>719	Callee	vis_ -> camera
+>720	PtrMemberAccess	vis_ -> camera
+>721	Identifier	camera
+>722	Identifier	vis_
+>723	ExpressionStatement	 
+>724	CallExpression	vis_ -> trajectory ( \"estimate\" ) -> color ( dvo 
+>725	ArgumentList	accumulated_transform
+>726	Argument	accumulated_transform
+>727	Identifier	accumulated_transform
+>728	Callee	vis_ -> trajectory ( \"estimate\" ) -> color ( dvo 
+>729	MemberAccess	vis_ -> trajectory ( \"estimate\" ) -> color ( dvo 
+>730	Identifier	add
+>731	CallExpression	vis_ -> trajectory ( \"estimate\" ) -> color ( dvo 
+>732	ArgumentList	dvo 
+>733	Argument	dvo 
+>734	CallExpression	dvo 
+>735	ArgumentList	 
+>736	Callee	dvo 
+>737	Identifier	dvo 
+>738	Callee	vis_ -> trajectory ( \"estimate\" ) -> color
+>739	PtrMemberAccess	vis_ -> trajectory ( \"estimate\" ) -> color
+>740	Identifier	color
+>741	CallExpression	vis_ -> trajectory ( \"estimate\" )
+>742	ArgumentList	\"estimate\"
+>743	Argument	\"estimate\"
+>744	PrimaryExpression	\"estimate\"
+>745	Callee	vis_ -> trajectory
+>746	PtrMemberAccess	vis_ -> trajectory
+>747	Identifier	trajectory
+>748	Identifier	vis_
+>749	IdentifierDeclStatement	 
+>750	IdentifierDecl	covariance
+>751	Identifier	covariance
+>752	IdentifierDeclType	Eigen 
+>753	ExpressionStatement	 
+>754	AssignmentExpr	accumulated_transform = accumulated_transform * transform
+>755	MultiplicativeExpression	accumulated_transform * transform
+>756	Identifier	transform
+>757	Identifier	accumulated_transform
+>758	Identifier	accumulated_transform
+>759	ExpressionStatement	 
+>760	AssignmentExpr	frames_since_last_success = 0
+>761	PrimaryExpression	0
+>762	Identifier	frames_since_last_success
+>763	Condition	 
+>764	Identifier	success
+>765	ExpressionStatement	 
+>766	CallExpression	sw_match . stopAndPrint ( )
+>767	ArgumentList	 
+>768	Callee	sw_match . stopAndPrint
+>769	MemberAccess	sw_match . stopAndPrint
+>770	Identifier	stopAndPrint
+>771	Identifier	sw_match
+>772	IdentifierDeclStatement	 
+>773	IdentifierDecl	success = tracker -> match ( * reference , * current , transform )
+>774	AssignmentExpr	success = tracker -> match ( * reference , * current , transform )
+>775	CallExpression	tracker -> match ( * reference , * current , transform )
+>776	ArgumentList	* reference
+>777	Argument	transform
+>778	Identifier	transform
+>779	Argument	* current
+>780	UnaryOp	* current
+>781	Identifier	current
+>782	UnaryOperator	*
+>783	Argument	* reference
+>784	UnaryOp	* reference
+>785	Identifier	reference
+>786	UnaryOperator	*
+>787	Callee	tracker -> match
+>788	PtrMemberAccess	tracker -> match
+>789	Identifier	match
+>790	Identifier	tracker
+>791	Identifier	success
+>792	Identifier	success
+>793	IdentifierDeclType	bool
+>794	ExpressionStatement	 
+>795	CallExpression	sw_match . start ( )
+>796	ArgumentList	 
+>797	Callee	sw_match . start
+>798	MemberAccess	sw_match . start
+>799	Identifier	start
+>800	Identifier	sw_match
+>801	IdentifierDeclStatement	 
+>802	IdentifierDecl	sw_match ( \"match\" , 100 )
+>803	Expression	\"match\" , 100
+>804	PrimaryExpression	100
+>805	PrimaryExpression	\"match\"
+>806	Identifier	sw_match
+>807	IdentifierDeclType	stopwatch
+>808	Statement	 
+>809	IdentifierDeclStatement	 
+>810	IdentifierDecl	transform
+>811	Identifier	transform
+>812	IdentifierDeclType	Eigen 
+>813	IfStatement	if ( ! reference )
+>814	CompoundStatement	 
+>815	ReturnStatement	 
+>816	ExpressionStatement	 
+>817	CallExpression	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>818	ArgumentList	 
+>819	Callee	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>820	MemberAccess	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>821	Identifier	show
+>822	CallExpression	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>823	ArgumentList	current -> level ( 0 )
+>824	Argument	accumulated_transform
+>825	Identifier	accumulated_transform
+>826	Argument	current -> level ( 0 )
+>827	CallExpression	current -> level ( 0 )
+>828	ArgumentList	0
+>829	Argument	0
+>830	PrimaryExpression	0
+>831	Callee	current -> level
+>832	PtrMemberAccess	current -> level
+>833	Identifier	level
+>834	Identifier	current
+>835	Callee	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>836	MemberAccess	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>837	Identifier	update
+>838	CallExpression	vis_ -> camera ( \"first\" ) -> color ( dvo 
+>839	ArgumentList	dvo 
+>840	Argument	dvo 
+>841	CallExpression	dvo 
+>842	ArgumentList	 
+>843	Callee	dvo 
+>844	Identifier	dvo 
+>845	Callee	vis_ -> camera ( \"first\" ) -> color
+>846	PtrMemberAccess	vis_ -> camera ( \"first\" ) -> color
+>847	Identifier	color
+>848	CallExpression	vis_ -> camera ( \"first\" )
+>849	ArgumentList	\"first\"
+>850	Argument	\"first\"
+>851	PrimaryExpression	\"first\"
+>852	Callee	vis_ -> camera
+>853	PtrMemberAccess	vis_ -> camera
+>854	Identifier	camera
+>855	Identifier	vis_
+>856	ExpressionStatement	 
+>857	AssignmentExpr	first = accumulated_transform
+>858	Identifier	accumulated_transform
+>859	Identifier	first
+>860	ExpressionStatement	 
+>861	AssignmentExpr	accumulated_transform = latest_absolute_transform_ * from_baselink_to_asus
+>862	MultiplicativeExpression	latest_absolute_transform_ * from_baselink_to_asus
+>863	Identifier	from_baselink_to_asus
+>864	Identifier	latest_absolute_transform_
+>865	Identifier	accumulated_transform
+>866	Condition	 
+>867	UnaryOp	! reference
+>868	Identifier	reference
+>869	UnaryOperator	!
+>870	IdentifierDeclStatement	 
+>871	IdentifierDecl	first
+>872	Identifier	first
+>873	IdentifierDeclType	Eigen 
+>874	Statement	 
+>875	IdentifierDeclStatement	 
+>876	IdentifierDecl	h = rgb_image_msg -> header
+>877	AssignmentExpr	h = rgb_image_msg -> header
+>878	PtrMemberAccess	rgb_image_msg -> header
+>879	Identifier	header
+>880	Identifier	rgb_image_msg
+>881	Identifier	h
+>882	Identifier	h
+>883	IdentifierDeclType	std_msgs 
+>884	ExpressionStatement	 
+>885	AssignmentExpr	current = camera -> create ( intensity , depth )
+>886	CallExpression	camera -> create ( intensity , depth )
+>887	ArgumentList	intensity
+>888	Argument	depth
+>889	Identifier	depth
+>890	Argument	intensity
+>891	Identifier	intensity
+>892	Callee	camera -> create
+>893	PtrMemberAccess	camera -> create
+>894	Identifier	create
+>895	Identifier	camera
+>896	Identifier	current
+>897	ExpressionStatement	 
+>898	CallExpression	reference . swap ( current )
+>899	ArgumentList	current
+>900	Argument	current
+>901	Identifier	current
+>902	Callee	reference . swap
+>903	MemberAccess	reference . swap
+>904	Identifier	swap
+>905	Identifier	reference
+>906	IfStatement	if ( depth_in . type ( ) == CV_16UC1 )
+>907	ElseStatement	else
+>908	CompoundStatement	 
+>909	ExpressionStatement	 
+>910	AssignmentExpr	depth = depth_in
+>911	Identifier	depth_in
+>912	Identifier	depth
+>913	CompoundStatement	 
+>914	ExpressionStatement	 
+>915	CallExpression	SurfacePyramid 
+>916	ArgumentList	depth_in
+>917	Argument	0.001
+>918	PrimaryExpression	0.001
+>919	Argument	depth
+>920	Identifier	depth
+>921	Argument	depth_in
+>922	Identifier	depth_in
+>923	Callee	SurfacePyramid 
+>924	Identifier	SurfacePyramid 
+>925	Condition	 
+>926	EqualityExpression	depth_in . type ( ) == CV_16UC1
+>927	Identifier	CV_16UC1
+>928	CallExpression	depth_in . type ( )
+>929	ArgumentList	 
+>930	Callee	depth_in . type
+>931	MemberAccess	depth_in . type
+>932	Identifier	type
+>933	Identifier	depth_in
+>934	IdentifierDeclStatement	 
+>935	IdentifierDecl	depth_in = cv_bridge 
+>936	AssignmentExpr	depth_in = cv_bridge 
+>937	PtrMemberAccess	cv_bridge 
+>938	Identifier	image
+>939	CallExpression	cv_bridge 
+>940	ArgumentList	depth_image_msg
+>941	Argument	depth_image_msg
+>942	Identifier	depth_image_msg
+>943	Callee	cv_bridge 
+>944	Identifier	cv_bridge 
+>945	Identifier	depth_in
+>946	Identifier	depth_in
+>947	IdentifierDeclType	cv 
+>948	IfStatement	if ( rgb_in . channels ( ) == 3 )
+>949	ElseStatement	else
+>950	CompoundStatement	 
+>951	ExpressionStatement	 
+>952	CallExpression	rgb_in . convertTo ( intensity , CV_32F )
+>953	ArgumentList	intensity
+>954	Argument	CV_32F
+>955	Identifier	CV_32F
+>956	Argument	intensity
+>957	Identifier	intensity
+>958	Callee	rgb_in . convertTo
+>959	MemberAccess	rgb_in . convertTo
+>960	Identifier	convertTo
+>961	Identifier	rgb_in
+>962	CompoundStatement	 
+>963	ExpressionStatement	 
+>964	CallExpression	tmp . convertTo ( intensity , CV_32F )
+>965	ArgumentList	intensity
+>966	Argument	CV_32F
+>967	Identifier	CV_32F
+>968	Argument	intensity
+>969	Identifier	intensity
+>970	Callee	tmp . convertTo
+>971	MemberAccess	tmp . convertTo
+>972	Identifier	convertTo
+>973	Identifier	tmp
+>974	ExpressionStatement	 
+>975	CallExpression	cv 
+>976	ArgumentList	rgb_in
+>977	Argument	1
+>978	PrimaryExpression	1
+>979	Argument	CV_BGR2GRAY
+>980	Identifier	CV_BGR2GRAY
+>981	Argument	tmp
+>982	Identifier	tmp
+>983	Argument	rgb_in
+>984	Identifier	rgb_in
+>985	Callee	cv 
+>986	Identifier	cv 
+>987	IdentifierDeclStatement	 
+>988	IdentifierDecl	tmp
+>989	Identifier	tmp
+>990	IdentifierDeclType	cv 
+>991	Condition	 
+>992	EqualityExpression	rgb_in . channels ( ) == 3
+>993	PrimaryExpression	3
+>994	CallExpression	rgb_in . channels ( )
+>995	ArgumentList	 
+>996	Callee	rgb_in . channels
+>997	MemberAccess	rgb_in . channels
+>998	Identifier	channels
+>999	Identifier	rgb_in
+>1000	IdentifierDeclStatement	 
+>1001	IdentifierDecl	rgb_in = cv_bridge 
+>1002	AssignmentExpr	rgb_in = cv_bridge 
+>1003	PtrMemberAccess	cv_bridge 
+>1004	Identifier	image
+>1005	CallExpression	cv_bridge 
+>1006	ArgumentList	rgb_image_msg
+>1007	Argument	rgb_image_msg
+>1008	Identifier	rgb_image_msg
+>1009	Callee	cv_bridge 
+>1010	Identifier	cv_bridge 
+>1011	Identifier	rgb_in
+>1012	Identifier	rgb_in
+>1013	IdentifierDeclType	cv 
+>1014	IdentifierDeclStatement	 
+>1015	IdentifierDecl	depth
+>1016	Identifier	depth
+>1017	IdentifierDeclType	cv 
+>1018	IdentifierDecl	intensity
+>1019	Identifier	intensity
+>1020	IdentifierDeclType	cv 
+>1021	IfStatement	if ( hasChanged ( rgb_camera_info_msg ) )
+>1022	CompoundStatement	 
+>1023	ExpressionStatement	 
+>1024	CallExpression	reset ( rgb_camera_info_msg )
+>1025	ArgumentList	rgb_camera_info_msg
+>1026	Argument	rgb_camera_info_msg
+>1027	Identifier	rgb_camera_info_msg
+>1028	Callee	reset
+>1029	Identifier	reset
+>1030	ExpressionStatement	 
+>1031	CallExpression	ROS_WARN ( \"RGB image size has changed, resetting tracker!\" )
+>1032	ArgumentList	\"RGB image size has changed, resetting tracker!\"
+>1033	Argument	\"RGB image size has changed, resetting tracker!\"
+>1034	PrimaryExpression	\"RGB image size has changed, resetting tracker!\"
+>1035	Callee	ROS_WARN
+>1036	Identifier	ROS_WARN
+>1037	Condition	 
+>1038	CallExpression	hasChanged ( rgb_camera_info_msg )
+>1039	ArgumentList	rgb_camera_info_msg
+>1040	Argument	rgb_camera_info_msg
+>1041	Identifier	rgb_camera_info_msg
+>1042	Callee	hasChanged
+>1043	Identifier	hasChanged
+>1044	IfStatement	if ( depth_camera_info_msg -> width != rgb_camera_info_msg -> width || depth_camera_info_msg -> height != rgb_camera_\
+>1045	CompoundStatement	 
+>1046	ReturnStatement	 
+>1047	ExpressionStatement	 
+>1048	CallExpression	ROS_WARN ( \"RGB and depth image have different size!\" )
+>1049	ArgumentList	\"RGB and depth image have different size!\"
+>1050	Argument	\"RGB and depth image have different size!\"
+>1051	PrimaryExpression	\"RGB and depth image have different size!\"
+>1052	Callee	ROS_WARN
+>1053	Identifier	ROS_WARN
+>1054	Condition	 
+>1055	OrExpression	depth_camera_info_msg -> width != rgb_camera_info_msg -> width || depth_camera_info_msg -> height != \
+>1056	EqualityExpression	depth_camera_info_msg -> height != rgb_camera_info_msg -> height
+>1057	PtrMemberAccess	rgb_camera_info_msg -> height
+>1058	Identifier	height
+>1059	Identifier	rgb_camera_info_msg
+>1060	PtrMemberAccess	depth_camera_info_msg -> height
+>1061	Identifier	height
+>1062	Identifier	depth_camera_info_msg
+>1063	EqualityExpression	depth_camera_info_msg -> width != rgb_camera_info_msg -> width
+>1064	PtrMemberAccess	rgb_camera_info_msg -> width
+>1065	Identifier	width
+>1066	Identifier	rgb_camera_info_msg
+>1067	PtrMemberAccess	depth_camera_info_msg -> width
+>1068	Identifier	width
+>1069	Identifier	depth_camera_info_msg
+>1070	IdentifierDeclStatement	 
+>1071	IdentifierDecl	lock ( tracker_mutex_ )
+>1072	Identifier	tracker_mutex_
+>1073	Identifier	lock
+>1074	IdentifierDeclType	boost 
+>1075	ExpressionStatement	 
+>1076	CallExpression	sw_callback . start ( )
+>1077	ArgumentList	 
+>1078	Callee	sw_callback . start
+>1079	MemberAccess	sw_callback . start
+>1080	Identifier	start
+>1081	Identifier	sw_callback
+>1082	IdentifierDeclStatement	 
+>1083	IdentifierDecl	sw_callback ( \"callback\" )
+>1084	PrimaryExpression	\"callback\"
+>1085	Identifier	sw_callback
+>1086	IdentifierDeclType	stopwatch
+>1087	Statement	 
+>1157	FunctionDef	CameraDenseTracker 
+>1158	ParameterList	const std_msgs 
+>1159	Parameter	 
+>1160	Identifier	frame
+>1161	ParameterType	const std 
+>1162	Parameter	 
+>1163	Identifier	transform
+>1164	ParameterType	const Eigen 
+>1165	Parameter	 
+>1166	Identifier	header
+>1167	ParameterType	const std_msgs 
+>1168	ReturnType	void
+>1169	CompoundStatement	 
+>1170	ExpressionStatement	 
+>1171	CallExpression	tb . sendTransform ( tf_transform )
+>1172	ArgumentList	tf_transform
+>1173	Argument	tf_transform
+>1174	Identifier	tf_transform
+>1175	Callee	tb . sendTransform
+>1176	MemberAccess	tb . sendTransform
+>1177	Identifier	sendTransform
+>1178	Identifier	tb
+>1179	ExpressionStatement	 
+>1180	CallExpression	tf 
+>1181	ArgumentList	transform
+>1182	Argument	tf_transform
+>1183	Identifier	tf_transform
+>1184	Argument	transform
+>1185	Identifier	transform
+>1186	Callee	tf 
+>1187	Identifier	tf 
+>1188	ExpressionStatement	 
+>1189	AssignmentExpr	tf_transform . stamp_ = header . stamp
+>1190	MemberAccess	header . stamp
+>1191	Identifier	stamp
+>1192	Identifier	header
+>1193	MemberAccess	tf_transform . stamp_
+>1194	Identifier	stamp_
+>1195	Identifier	tf_transform
+>1196	ExpressionStatement	 
+>1197	AssignmentExpr	tf_transform . child_frame_id_ = frame
+>1198	Identifier	frame
+>1199	MemberAccess	tf_transform . child_frame_id_
+>1200	Identifier	child_frame_id_
+>1201	Identifier	tf_transform
+>1202	ExpressionStatement	 
+>1203	AssignmentExpr	tf_transform . frame_id_ = \"world\"
+>1204	PrimaryExpression	\"world\"
+>1205	MemberAccess	tf_transform . frame_id_
+>1206	Identifier	frame_id_
+>1207	Identifier	tf_transform
+>1208	IdentifierDeclStatement	 
+>1209	IdentifierDecl	tf_transform
+>1210	Identifier	tf_transform
+>1211	IdentifierDeclType	tf 
+>1212	IdentifierDeclStatement	 
+>1213	IdentifierDecl	tb
+>1214	Identifier	tb
+>1215	IdentifierDeclType	tf 
+>1216	Statement	 
+>1229	FunctionDef	CameraDenseTracker 
+>1230	ParameterList	const std_msgs 
+>1231	Parameter	 
+>1232	Identifier	frame
+>1233	ParameterType	const std 
+>1234	Parameter	 
+>1235	Identifier	transform
+>1236	ParameterType	const Eigen 
+>1237	Parameter	 
+>1238	Identifier	header
+>1239	ParameterType	const std_msgs 
+>1240	ReturnType	void
+>1241	CompoundStatement	 
+>1242	ExpressionStatement	 
+>1243	CallExpression	pose_pub_ . publish ( msg )
+>1244	ArgumentList	msg
+>1245	Argument	msg
+>1246	Identifier	msg
+>1247	Callee	pose_pub_ . publish
+>1248	MemberAccess	pose_pub_ . publish
+>1249	Identifier	publish
+>1250	Identifier	pose_pub_
+>1251	ExpressionStatement	 
+>1252	CallExpression	msg -> pose . covariance . assign ( 0.0 )
+>1253	ArgumentList	0.0
+>1254	Argument	0.0
+>1255	PrimaryExpression	0.0
+>1256	Callee	msg -> pose . covariance . assign
+>1257	MemberAccess	msg -> pose . covariance . assign
+>1258	Identifier	assign
+>1259	MemberAccess	msg -> pose . covariance
+>1260	Identifier	covariance
+>1261	PtrMemberAccess	msg -> pose
+>1262	Identifier	pose
+>1263	Identifier	msg
+>1264	ExpressionStatement	 
+>1265	CallExpression	tf 
+>1266	ArgumentList	tmp
+>1267	Argument	msg -> pose . pose
+>1268	MemberAccess	msg -> pose . pose
+>1269	Identifier	pose
+>1270	PtrMemberAccess	msg -> pose
+>1271	Identifier	pose
+>1272	Identifier	msg
+>1273	Argument	tmp
+>1274	Identifier	tmp
+>1275	Callee	tf 
+>1276	Identifier	tf 
+>1277	ExpressionStatement	 
+>1278	CallExpression	tf 
+>1279	ArgumentList	transform
+>1280	Argument	tmp
+>1281	Identifier	tmp
+>1282	Argument	transform
+>1283	Identifier	transform
+>1284	Callee	tf 
+>1285	Identifier	tf 
+>1286	IdentifierDeclStatement	 
+>1287	IdentifierDecl	tmp
+>1288	Identifier	tmp
+>1289	IdentifierDeclType	tf 
+>1290	ExpressionStatement	 
+>1291	AssignmentExpr	msg -> header . stamp = header . stamp
+>1292	MemberAccess	header . stamp
+>1293	Identifier	stamp
+>1294	Identifier	header
+>1295	MemberAccess	msg -> header . stamp
+>1296	Identifier	stamp
+>1297	PtrMemberAccess	msg -> header
+>1298	Identifier	header
+>1299	Identifier	msg
+>1300	ExpressionStatement	 
+>1301	AssignmentExpr	msg -> header . frame_id = frame
+>1302	Identifier	frame
+>1303	MemberAccess	msg -> header . frame_id
+>1304	Identifier	frame_id
+>1305	PtrMemberAccess	msg -> header
+>1306	Identifier	header
+>1307	Identifier	msg
+>1308	ExpressionStatement	 
+>1309	AssignmentExpr	msg -> header . seq = seq ++
+>1310	IncDecOp	seq ++
+>1311	IncDec	++
+>1312	Identifier	seq
+>1313	MemberAccess	msg -> header . seq
+>1314	Identifier	seq
+>1315	PtrMemberAccess	msg -> header
+>1316	Identifier	header
+>1317	Identifier	msg
+>1318	IdentifierDeclStatement	 
+>1319	IdentifierDecl	seq = 1
+>1320	AssignmentExpr	seq = 1
+>1321	PrimaryExpression	1
+>1322	Identifier	seq
+>1323	Identifier	seq
+>1324	IdentifierDeclType	int
+>1325	Statement	 
+>1326	ExpressionStatement	 
+>1327	Statement	 
+>1328	Statement	 
+>1329	Statement	 
+>1330	Statement	 
+>1331	Statement	 
+>1332	Statement	 
+>1333	Statement	 
+>1334	Statement	 
+>1335	Statement	 
+>1336	Statement	 
+>1337	IfStatement	if ( pose_pub_ . getNumSubscribers ( ) == 0 )
+>1338	ReturnStatement	 
+>1339	Condition	 
+>1340	EqualityExpression	pose_pub_ . getNumSubscribers ( ) == 0
+>1341	PrimaryExpression	0
+>1342	CallExpression	pose_pub_ . getNumSubscribers ( )
+>1343	ArgumentList	 
+>1344	Callee	pose_pub_ . getNumSubscribers
+>1345	MemberAccess	pose_pub_ . getNumSubscribers
+>1346	Identifier	getNumSubscribers
+>1347	Identifier	pose_pub_
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=114,102,82,73,60,44,26,19,12
+<12=13
+<13=15,14
+<15=16
+<16=18,17
+<19=20
+<20=22,21
+<22=23
+<23=25,24
+<26=27
+<27=43,28
+<28=40,29
+<29=39,30
+<30=38,31
+<31=37,32
+<32=34,33
+<34=36,35
+<40=42,41
+<44=45
+<45=58,46
+<46=47
+<47=48
+<48=57,49
+<49=56,50
+<50=52,51
+<52=53
+<53=55,54
+<58=59
+<60=61
+<61=71,62
+<62=69,67,65,63
+<63=64
+<65=66
+<67=68
+<69=70
+<71=72
+<73=74
+<74=78,75
+<75=76
+<76=77
+<78=79
+<79=81,80
+<82=83
+<83=101,100,84
+<84=99,85
+<85=97,86
+<86=93,91,89,87
+<87=88
+<89=90
+<91=92
+<93=94
+<94=96,95
+<97=98
+<102=103
+<103=113,104
+<104=110,105
+<105=109,106
+<106=108,107
+<110=112,111
+<114=115
+<115=119,116
+<116=117
+<117=118
+<119=120
+<145=147,146
+<147=150,148
+<148=149
+<154=160,159,155
+<155=156
+<156=158,157
+<160=161
+<161=162
+<162=168,163
+<163=167,164
+<164=166,165
+<168=172,169
+<169=171,170
+<182=188,187,183
+<183=184
+<184=186,185
+<188=274,257,243,234,233,232,231,230,226,217,208,202,196,189
+<189=190
+<190=192,191
+<192=193
+<193=195,194
+<196=197
+<197=201,198
+<198=200,199
+<202=203
+<203=207,204
+<204=206,205
+<208=209
+<209=213,210
+<210=211
+<211=212
+<213=214
+<214=216,215
+<217=218
+<218=222,219
+<219=220
+<220=221
+<222=223
+<223=225,224
+<226=227
+<227=229,228
+<234=235
+<235=239,236
+<236=237
+<237=238
+<239=240
+<240=242,241
+<243=244
+<244=253,245
+<245=246
+<246=247
+<247=249,248
+<249=250
+<250=252,251
+<253=254
+<254=256,255
+<257=258
+<258=270,259
+<259=260
+<260=261
+<261=267,262
+<262=264,263
+<264=266,265
+<267=269,268
+<270=271
+<271=273,272
+<274=275
+<275=307,306,276
+<276=305,277
+<277=303,278
+<278=297,291,285,279
+<279=280
+<280=282,281
+<282=284,283
+<285=286
+<286=288,287
+<288=290,289
+<291=292
+<292=294,293
+<294=296,295
+<297=298
+<298=300,299
+<300=302,301
+<303=304
+<330=339,338,331
+<331=335,332
+<332=334,333
+<335=337,336
+<339=504,472,454,448,372,340
+<340=368,341
+<341=361,360,358,342
+<342=354,349,343
+<343=344
+<344=345
+<345=346
+<346=348,347
+<349=350
+<350=351
+<351=353,352
+<354=355
+<355=357,356
+<358=359
+<361=362
+<362=364,363
+<364=365
+<365=367,366
+<368=369
+<369=371,370
+<372=444,373
+<373=426,417,385,374
+<374=375
+<375=383,376
+<376=377
+<377=378
+<378=382,379
+<379=381,380
+<383=384
+<385=415,386
+<386=410,401,387
+<387=388
+<388=397,389
+<389=390
+<390=391
+<391=393,392
+<393=394
+<394=396,395
+<397=398
+<398=400,399
+<401=402
+<402=406,403
+<403=404
+<404=405
+<406=407
+<407=409,408
+<410=411
+<411=414,413,412
+<415=416
+<417=418
+<418=424,419
+<419=422,420
+<420=421
+<422=423
+<424=425
+<426=436,427
+<427=428
+<428=429
+<429=433,430
+<430=432,431
+<433=435,434
+<436=437
+<437=441,438
+<438=440,439
+<441=443,442
+<444=445
+<445=447,446
+<448=449
+<449=453,450
+<450=452,451
+<454=462,455
+<455=456
+<456=457
+<457=459,458
+<459=461,460
+<462=463
+<463=467,464
+<464=466,465
+<467=471,468
+<468=470,469
+<472=500,473
+<473=474
+<474=496,490,475
+<475=476
+<476=485,481,477
+<477=478
+<478=480,479
+<481=482
+<482=484,483
+<485=486
+<486=488,487
+<488=489
+<490=491
+<491=492
+<492=494,493
+<494=495
+<496=497
+<497=499,498
+<500=501
+<501=503,502
+<504=506,505
+<506=507
+<507=509,508
+<534=540,539,535
+<535=536
+<536=538,537
+<540=581,568,559,541
+<541=555,542
+<542=543
+<543=553,544
+<544=549,547,545
+<545=546
+<547=548
+<549=550
+<550=552,551
+<553=554
+<555=556
+<556=558,557
+<559=560
+<560=566,561
+<561=564,562
+<562=563
+<564=565
+<566=567
+<568=569
+<569=579,570
+<570=573,571
+<571=572
+<573=574
+<574=576,575
+<576=578,577
+<579=580
+<581=582
+<582=584,583
+<596=611,610,597
+<597=607,604,601,598
+<598=600,599
+<601=603,602
+<604=606,605
+<607=609,608
+<611=1087,1082,1075,1070,1044,1021,1014,1000,948,934,906,897,884,875,874,870,813,809,808,801,794,772,765,659,641,619,612
+<612=613
+<613=615,614
+<615=616
+<616=618,617
+<619=639,620
+<620=621
+<621=622
+<622=637,623
+<623=635,626,624
+<624=625
+<626=627
+<627=634,628
+<628=630,629
+<630=631
+<631=633,632
+<635=636
+<637=638
+<639=640
+<641=642
+<642=657,643
+<643=655,646,644
+<644=645
+<646=647
+<647=654,648
+<648=650,649
+<650=651
+<651=653,652
+<655=656
+<657=658
+<659=763,682,660
+<660=661
+<661=678,669,662
+<662=663
+<663=667,664
+<664=665
+<665=666
+<667=668
+<669=670
+<670=674,671
+<671=672
+<672=673
+<674=675
+<675=677,676
+<678=679
+<679=681,680
+<682=759,753,749,723,683
+<683=684
+<684=686,685
+<686=687
+<687=689,688
+<689=702,690
+<690=693,691
+<691=692
+<693=694
+<694=698,695
+<695=696
+<696=697
+<698=699
+<699=701,700
+<702=703
+<703=705,704
+<705=712,706
+<706=707
+<707=708
+<708=710,709
+<710=711
+<712=713
+<713=715,714
+<715=719,716
+<716=717
+<717=718
+<719=720
+<720=722,721
+<723=724
+<724=728,725
+<725=726
+<726=727
+<728=729
+<729=731,730
+<731=738,732
+<732=733
+<733=734
+<734=736,735
+<736=737
+<738=739
+<739=741,740
+<741=745,742
+<742=743
+<743=744
+<745=746
+<746=748,747
+<749=750
+<750=752,751
+<753=754
+<754=758,755
+<755=757,756
+<759=760
+<760=762,761
+<763=764
+<765=766
+<766=768,767
+<768=769
+<769=771,770
+<772=773
+<773=793,792,774
+<774=791,775
+<775=787,776
+<776=783,779,777
+<777=778
+<779=780
+<780=782,781
+<783=784
+<784=786,785
+<787=788
+<788=790,789
+<794=795
+<795=797,796
+<797=798
+<798=800,799
+<801=802
+<802=807,806,803
+<803=805,804
+<809=810
+<810=812,811
+<813=866,814
+<814=860,856,816,815
+<816=817
+<817=819,818
+<819=820
+<820=822,821
+<822=835,823
+<823=826,824
+<824=825
+<826=827
+<827=831,828
+<828=829
+<829=830
+<831=832
+<832=834,833
+<835=836
+<836=838,837
+<838=845,839
+<839=840
+<840=841
+<841=843,842
+<843=844
+<845=846
+<846=848,847
+<848=852,849
+<849=850
+<850=851
+<852=853
+<853=855,854
+<856=857
+<857=859,858
+<860=861
+<861=865,862
+<862=864,863
+<866=867
+<867=869,868
+<870=871
+<871=873,872
+<875=876
+<876=883,882,877
+<877=881,878
+<878=880,879
+<884=885
+<885=896,886
+<886=892,887
+<887=890,888
+<888=889
+<890=891
+<892=893
+<893=895,894
+<897=898
+<898=902,899
+<899=900
+<900=901
+<902=903
+<903=905,904
+<906=925,913,907
+<907=908
+<908=909
+<909=910
+<910=912,911
+<913=914
+<914=915
+<915=923,916
+<916=921,919,917
+<917=918
+<919=920
+<921=922
+<923=924
+<925=926
+<926=928,927
+<928=930,929
+<930=931
+<931=933,932
+<934=935
+<935=947,946,936
+<936=945,937
+<937=939,938
+<939=943,940
+<940=941
+<941=942
+<943=944
+<948=991,962,949
+<949=950
+<950=951
+<951=952
+<952=958,953
+<953=956,954
+<954=955
+<956=957
+<958=959
+<959=961,960
+<962=987,974,963
+<963=964
+<964=970,965
+<965=968,966
+<966=967
+<968=969
+<970=971
+<971=973,972
+<974=975
+<975=985,976
+<976=983,981,979,977
+<977=978
+<979=980
+<981=982
+<983=984
+<985=986
+<987=988
+<988=990,989
+<991=992
+<992=994,993
+<994=996,995
+<996=997
+<997=999,998
+<1000=1001
+<1001=1013,1012,1002
+<1002=1011,1003
+<1003=1005,1004
+<1005=1009,1006
+<1006=1007
+<1007=1008
+<1009=1010
+<1014=1018,1015
+<1015=1017,1016
+<1018=1020,1019
+<1021=1037,1022
+<1022=1030,1023
+<1023=1024
+<1024=1028,1025
+<1025=1026
+<1026=1027
+<1028=1029
+<1030=1031
+<1031=1035,1032
+<1032=1033
+<1033=1034
+<1035=1036
+<1037=1038
+<1038=1042,1039
+<1039=1040
+<1040=1041
+<1042=1043
+<1044=1054,1045
+<1045=1047,1046
+<1047=1048
+<1048=1052,1049
+<1049=1050
+<1050=1051
+<1052=1053
+<1054=1055
+<1055=1063,1056
+<1056=1060,1057
+<1057=1059,1058
+<1060=1062,1061
+<1063=1067,1064
+<1064=1066,1065
+<1067=1069,1068
+<1070=1071
+<1071=1074,1073,1072
+<1075=1076
+<1076=1078,1077
+<1078=1079
+<1079=1081,1080
+<1082=1083
+<1083=1086,1085,1084
+<1157=1169,1168,1158
+<1158=1165,1162,1159
+<1159=1161,1160
+<1162=1164,1163
+<1165=1167,1166
+<1169=1216,1212,1208,1202,1196,1188,1179,1170
+<1170=1171
+<1171=1175,1172
+<1172=1173
+<1173=1174
+<1175=1176
+<1176=1178,1177
+<1179=1180
+<1180=1186,1181
+<1181=1184,1182
+<1182=1183
+<1184=1185
+<1186=1187
+<1188=1189
+<1189=1193,1190
+<1190=1192,1191
+<1193=1195,1194
+<1196=1197
+<1197=1199,1198
+<1199=1201,1200
+<1202=1203
+<1203=1205,1204
+<1205=1207,1206
+<1208=1209
+<1209=1211,1210
+<1212=1213
+<1213=1215,1214
+<1229=1241,1240,1230
+<1230=1237,1234,1231
+<1231=1233,1232
+<1234=1236,1235
+<1237=1239,1238
+<1241=1337,1336,1335,1334,1333,1332,1331,1330,1329,1328,1327,1326,1325,1318,1308,1300,1290,1286,1277,1264,1251,1242
+<1242=1243
+<1243=1247,1244
+<1244=1245
+<1245=1246
+<1247=1248
+<1248=1250,1249
+<1251=1252
+<1252=1256,1253
+<1253=1254
+<1254=1255
+<1256=1257
+<1257=1259,1258
+<1259=1261,1260
+<1261=1263,1262
+<1264=1265
+<1265=1275,1266
+<1266=1273,1267
+<1267=1268
+<1268=1270,1269
+<1270=1272,1271
+<1273=1274
+<1275=1276
+<1277=1278
+<1278=1284,1279
+<1279=1282,1280
+<1280=1281
+<1282=1283
+<1284=1285
+<1286=1287
+<1287=1289,1288
+<1290=1291
+<1291=1295,1292
+<1292=1294,1293
+<1295=1297,1296
+<1297=1299,1298
+<1300=1301
+<1301=1303,1302
+<1303=1305,1304
+<1305=1307,1306
+<1308=1309
+<1309=1313,1310
+<1310=1312,1311
+<1313=1315,1314
+<1315=1317,1316
+<1318=1319
+<1319=1324,1323,1320
+<1320=1322,1321
+<1337=1339,1338
+<1339=1340
+<1340=1342,1341
+<1342=1344,1343
+<1344=1345
+<1345=1347,1346

@@ -1,0 +1,5997 @@
+>4	FunctionDef	str_wrap (const string & l , const string & r)
+>5	ParameterList	const string & l , const string & r
+>6	Parameter	 
+>7	Identifier	r
+>8	ParameterType	const string &
+>9	Parameter	 
+>10	Identifier	l
+>11	ParameterType	const string &
+>12	CompoundStatement	 
+>18	FunctionDef	str_wrap (const string & w)
+>19	ParameterList	const string & w
+>20	Parameter	 
+>21	Identifier	w
+>22	ParameterType	const string &
+>23	CompoundStatement	 
+>28	FunctionDef	operator ( ) (const string & s)
+>29	ParameterList	const string & s
+>30	Parameter	 
+>31	Identifier	s
+>32	ParameterType	const string &
+>33	ReturnType	string
+>34	CompoundStatement	 
+>35	ReturnStatement	 
+>36	AdditiveExpression	lwrap + s + rwrap
+>37	AdditiveExpression	s + rwrap
+>38	Identifier	rwrap
+>39	Identifier	s
+>40	Identifier	lwrap
+>50	FunctionDef	str_join_trans (const string & sep , InputIterator begin , InputIterator end , UnaryOperator op)
+>51	ParameterList	const string & sep , InputIterator begin , InputIterator end , UnaryOperator op
+>52	Parameter	 
+>53	Identifier	op
+>54	ParameterType	UnaryOperator
+>55	Parameter	 
+>56	Identifier	end
+>57	ParameterType	InputIterator
+>58	Parameter	 
+>59	Identifier	begin
+>60	ParameterType	InputIterator
+>61	Parameter	 
+>62	Identifier	sep
+>63	ParameterType	const string &
+>64	ReturnType	static string
+>65	CompoundStatement	 
+>66	ReturnStatement	 
+>67	Identifier	buf
+>68	ForStatement	for ( InputIterator it = begin ; it != end ; ++ it )
+>69	CompoundStatement	 
+>70	ExpressionStatement	 
+>71	AssignmentExpr	buf += op ( * it )
+>72	CallExpression	op ( * it )
+>73	ArgumentList	* it
+>74	Argument	* it
+>75	UnaryOp	* it
+>76	Identifier	it
+>77	UnaryOperator	*
+>78	Callee	op
+>79	Identifier	op
+>80	Identifier	buf
+>81	IfStatement	if ( it != begin )
+>82	ExpressionStatement	 
+>83	AssignmentExpr	buf += sep
+>84	Identifier	sep
+>85	Identifier	buf
+>86	Condition	 
+>87	EqualityExpression	it != begin
+>88	Identifier	begin
+>89	Identifier	it
+>90	UnaryExpression	 
+>91	Identifier	it
+>92	IncDec	++
+>93	Condition	 
+>94	EqualityExpression	it != end
+>95	Identifier	end
+>96	Identifier	it
+>97	ForInit	 
+>98	IdentifierDeclStatement	InputIterator it = begin ;
+>99	IdentifierDecl	it = begin
+>100	AssignmentExpr	it = begin
+>101	Identifier	begin
+>102	Identifier	begin
+>103	Identifier	it
+>104	IdentifierDeclType	InputIterator
+>105	IdentifierDeclStatement	 
+>106	IdentifierDecl	buf
+>107	Identifier	buf
+>108	IdentifierDeclType	string
+>119	FunctionDef	str_join (const string & sep , InputIterator begin , InputIterator end)
+>120	ParameterList	const string & sep , InputIterator begin , InputIterator end
+>121	Parameter	 
+>122	Identifier	end
+>123	ParameterType	InputIterator
+>124	Parameter	 
+>125	Identifier	begin
+>126	ParameterType	InputIterator
+>127	Parameter	 
+>128	Identifier	sep
+>129	ParameterType	const string &
+>130	ReturnType	static string
+>131	CompoundStatement	 
+>132	ReturnStatement	 
+>133	CallExpression	str_join_trans ( sep , begin , end , str_wrap ( \"\" ) )
+>134	ArgumentList	sep
+>135	Argument	str_wrap ( \"\" )
+>136	CallExpression	str_wrap ( \"\" )
+>137	ArgumentList	\"\"
+>138	Argument	\"\"
+>139	PrimaryExpression	\"\"
+>140	Callee	str_wrap
+>141	Identifier	str_wrap
+>142	Argument	end
+>143	Identifier	end
+>144	Argument	begin
+>145	Identifier	begin
+>146	Argument	sep
+>147	Identifier	sep
+>148	Callee	str_join_trans
+>149	Identifier	str_join_trans
+>158	FunctionDef	str_replace (string & s , const string & patt , const string & repl)
+>159	ParameterList	string & s , const string & patt , const string & repl
+>160	Parameter	 
+>161	Identifier	repl
+>162	ParameterType	const string &
+>163	Parameter	 
+>164	Identifier	patt
+>165	ParameterType	const string &
+>166	Parameter	 
+>167	Identifier	s
+>168	ParameterType	string &
+>169	ReturnType	static string &
+>170	CompoundStatement	 
+>171	ReturnStatement	 
+>172	Identifier	s
+>173	WhileStatement	while ( true )
+>174	CompoundStatement	 
+>175	ExpressionStatement	 
+>176	AssignmentExpr	pos += repl . size ( )
+>177	CallExpression	repl . size ( )
+>178	ArgumentList	 
+>179	Callee	repl . size
+>180	MemberAccess	repl . size
+>181	Identifier	size
+>182	Identifier	repl
+>183	Identifier	pos
+>184	ExpressionStatement	 
+>185	CallExpression	s . replace ( pos , n , repl )
+>186	ArgumentList	pos
+>187	Argument	repl
+>188	Identifier	repl
+>189	Argument	n
+>190	Identifier	n
+>191	Argument	pos
+>192	Identifier	pos
+>193	Callee	s . replace
+>194	MemberAccess	s . replace
+>195	Identifier	replace
+>196	Identifier	s
+>197	IfStatement	if ( pos == string 
+>198	BreakStatement	 
+>199	Condition	 
+>200	EqualityExpression	pos == string 
+>201	Identifier	string 
+>202	Identifier	pos
+>203	ExpressionStatement	 
+>204	AssignmentExpr	pos = s . find ( patt , pos )
+>205	CallExpression	s . find ( patt , pos )
+>206	ArgumentList	patt
+>207	Argument	pos
+>208	Identifier	pos
+>209	Argument	patt
+>210	Identifier	patt
+>211	Callee	s . find
+>212	MemberAccess	s . find
+>213	Identifier	find
+>214	Identifier	s
+>215	Identifier	pos
+>216	Condition	 
+>217	Identifier	true
+>218	IdentifierDeclStatement	 
+>219	IdentifierDecl	n = patt . length ( )
+>220	AssignmentExpr	n = patt . length ( )
+>221	CallExpression	patt . length ( )
+>222	ArgumentList	 
+>223	Callee	patt . length
+>224	MemberAccess	patt . length
+>225	Identifier	length
+>226	Identifier	patt
+>227	Identifier	n
+>228	Identifier	n
+>229	IdentifierDeclType	size_t
+>230	IdentifierDecl	pos = 0
+>231	AssignmentExpr	pos = 0
+>232	PrimaryExpression	0
+>233	Identifier	pos
+>234	Identifier	pos
+>235	IdentifierDeclType	size_t
+>249	FunctionDef	str_replace (const string & s , const string & patt , const string & repl)
+>250	ParameterList	const string & s , const string & patt , const string & repl
+>251	Parameter	 
+>252	Identifier	repl
+>253	ParameterType	const string &
+>254	Parameter	 
+>255	Identifier	patt
+>256	ParameterType	const string &
+>257	Parameter	 
+>258	Identifier	s
+>259	ParameterType	const string &
+>260	ReturnType	static string
+>261	CompoundStatement	 
+>262	ReturnStatement	 
+>263	Identifier	tmp
+>264	ExpressionStatement	 
+>265	CallExpression	str_replace ( tmp , patt , repl )
+>266	ArgumentList	tmp
+>267	Argument	repl
+>268	Identifier	repl
+>269	Argument	patt
+>270	Identifier	patt
+>271	Argument	tmp
+>272	Identifier	tmp
+>273	Callee	str_replace
+>274	Identifier	str_replace
+>275	IdentifierDeclStatement	 
+>276	IdentifierDecl	tmp = s
+>277	AssignmentExpr	tmp = s
+>278	Identifier	s
+>279	Identifier	s
+>280	Identifier	tmp
+>281	IdentifierDeclType	string
+>302	FunctionDef	str_inc (const string & s)
+>303	ParameterList	const string & s
+>304	Parameter	 
+>305	Identifier	s
+>306	ParameterType	const string &
+>307	ReturnType	static string
+>308	CompoundStatement	 
+>309	ReturnStatement	 
+>310	CallExpression	ss . str ( )
+>311	ArgumentList	 
+>312	Callee	ss . str
+>313	MemberAccess	ss . str
+>314	Identifier	str
+>315	Identifier	ss
+>316	ExpressionStatement	 
+>317	ShiftExpression	ss << i + 1
+>318	AdditiveExpression	i + 1
+>319	PrimaryExpression	1
+>320	Identifier	i
+>321	Identifier	ss
+>322	ExpressionStatement	 
+>323	ShiftExpression	istringstream ( v ) >> i
+>324	Identifier	i
+>325	CallExpression	istringstream ( v )
+>326	ArgumentList	v
+>327	Argument	v
+>328	Identifier	v
+>329	Callee	istringstream
+>330	Identifier	istringstream
+>331	IdentifierDeclStatement	 
+>332	IdentifierDecl	i
+>333	Identifier	i
+>334	IdentifierDeclType	long
+>335	IdentifierDeclStatement	 
+>336	IdentifierDecl	v = ( s != \"\" ) ? s 
+>337	AssignmentExpr	v = ( s != \"\" ) ? s 
+>338	ConditionalExpression	( s != \"\" ) ? s 
+>339	PrimaryExpression	\"0\"
+>340	Identifier	s
+>341	Condition	s != \"\"
+>342	EqualityExpression	s != \"\"
+>343	PrimaryExpression	\"\"
+>344	Identifier	s
+>345	Identifier	v
+>346	Identifier	v
+>347	IdentifierDeclType	string
+>348	IdentifierDeclStatement	 
+>349	IdentifierDecl	ss
+>350	Identifier	ss
+>351	IdentifierDeclType	stringstream
+>360	FunctionDef	cols ()
+>361	ParameterList	 
+>362	ReturnType	static unsigned int
+>363	CompoundStatement	 
+>364	ReturnStatement	 
+>365	Identifier	n
+>366	IfStatement	if ( s )
+>367	ExpressionStatement	 
+>368	ShiftExpression	istringstream ( s ) >> n
+>369	Identifier	n
+>370	CallExpression	istringstream ( s )
+>371	ArgumentList	s
+>372	Argument	s
+>373	Identifier	s
+>374	Callee	istringstream
+>375	Identifier	istringstream
+>376	Condition	 
+>377	Identifier	s
+>378	IdentifierDeclStatement	 
+>379	IdentifierDecl	* s = getenv ( \"COLUMNS\" )
+>380	AssignmentExpr	* s = getenv ( \"COLUMNS\" )
+>381	CallExpression	getenv ( \"COLUMNS\" )
+>382	ArgumentList	\"COLUMNS\"
+>383	Argument	\"COLUMNS\"
+>384	PrimaryExpression	\"COLUMNS\"
+>385	Callee	getenv
+>386	Identifier	getenv
+>387	Identifier	s
+>388	Identifier	s
+>389	IdentifierDeclType	const char *
+>390	IdentifierDeclStatement	 
+>391	IdentifierDecl	n = 80
+>392	AssignmentExpr	n = 80
+>393	PrimaryExpression	80
+>394	Identifier	n
+>395	Identifier	n
+>396	IdentifierDeclType	unsigned int
+>403	FunctionDef	basename (const string & s)
+>404	ParameterList	const string & s
+>405	Parameter	 
+>406	Identifier	s
+>407	ParameterType	const string &
+>408	ReturnType	static string
+>409	CompoundStatement	 
+>410	ReturnStatement	 
+>411	Identifier	b
+>412	IfStatement	if ( i != string 
+>413	ExpressionStatement	 
+>414	CallExpression	b . erase ( 0 , i + 1 )
+>415	ArgumentList	0
+>416	Argument	i + 1
+>417	AdditiveExpression	i + 1
+>418	PrimaryExpression	1
+>419	Identifier	i
+>420	Argument	0
+>421	PrimaryExpression	0
+>422	Callee	b . erase
+>423	MemberAccess	b . erase
+>424	Identifier	erase
+>425	Identifier	b
+>426	Condition	 
+>427	EqualityExpression	i != string 
+>428	Identifier	string 
+>429	Identifier	i
+>430	ExpressionStatement	 
+>431	AssignmentExpr	i = b . find_last_of ( \"/\" )
+>432	CallExpression	b . find_last_of ( \"/\" )
+>433	ArgumentList	\"/\"
+>434	Argument	\"/\"
+>435	PrimaryExpression	\"/\"
+>436	Callee	b . find_last_of
+>437	MemberAccess	b . find_last_of
+>438	Identifier	find_last_of
+>439	Identifier	b
+>440	Identifier	i
+>441	ExpressionStatement	 
+>442	CallExpression	b . erase ( i + 1 , b . length ( ) - i - 1 )
+>443	ArgumentList	i + 1
+>444	Argument	b . length ( ) - i - 1
+>445	AdditiveExpression	b . length ( ) - i - 1
+>446	AdditiveExpression	i - 1
+>447	PrimaryExpression	1
+>448	Identifier	i
+>449	CallExpression	b . length ( )
+>450	ArgumentList	 
+>451	Callee	b . length
+>452	MemberAccess	b . length
+>453	Identifier	length
+>454	Identifier	b
+>455	Argument	i + 1
+>456	AdditiveExpression	i + 1
+>457	PrimaryExpression	1
+>458	Identifier	i
+>459	Callee	b . erase
+>460	MemberAccess	b . erase
+>461	Identifier	erase
+>462	Identifier	b
+>463	IfStatement	if ( i == string 
+>464	CompoundStatement	 
+>465	ReturnStatement	 
+>466	Identifier	b
+>467	IfStatement	if ( b [ 0 ] == '/' )
+>468	ExpressionStatement	 
+>469	CallExpression	b . erase ( 1 )
+>470	ArgumentList	1
+>471	Argument	1
+>472	PrimaryExpression	1
+>473	Callee	b . erase
+>474	MemberAccess	b . erase
+>475	Identifier	erase
+>476	Identifier	b
+>477	Condition	 
+>478	EqualityExpression	b [ 0 ] == '/'
+>479	PrimaryExpression	'/'
+>480	ArrayIndexing	b [ 0 ]
+>481	PrimaryExpression	0
+>482	Identifier	b
+>483	Condition	 
+>484	EqualityExpression	i == string 
+>485	Identifier	string 
+>486	Identifier	i
+>487	IdentifierDeclStatement	 
+>488	IdentifierDecl	i = b . find_last_not_of ( '/' )
+>489	AssignmentExpr	i = b . find_last_not_of ( '/' )
+>490	CallExpression	b . find_last_not_of ( '/' )
+>491	ArgumentList	'/'
+>492	Argument	'/'
+>493	PrimaryExpression	'/'
+>494	Callee	b . find_last_not_of
+>495	MemberAccess	b . find_last_not_of
+>496	Identifier	find_last_not_of
+>497	Identifier	b
+>498	Identifier	i
+>499	Identifier	i
+>500	IdentifierDeclType	size_t
+>501	IdentifierDeclStatement	 
+>502	IdentifierDecl	b = s
+>503	AssignmentExpr	b = s
+>504	Identifier	s
+>505	Identifier	s
+>506	Identifier	b
+>507	IdentifierDeclType	string
+>519	FunctionDef	OptionParser 
+>520	ParameterList	 
+>521	CompoundStatement	 
+>525	FunctionDef	OptionParser 
+>526	ParameterList	const string & opt
+>527	Parameter	 
+>528	Identifier	opt
+>529	ParameterType	const string &
+>530	ReturnType	Option &
+>531	CompoundStatement	 
+>532	ReturnStatement	 
+>533	CallExpression	add_option ( vector < string > ( & tmp [ 0 ] , & tmp [ 1 ] ) )
+>534	ArgumentList	vector < string > ( & tmp [ 0 ] , & tmp [ 1 ] )
+>535	Argument	vector < string > ( & tmp [ 0 ] , & tmp [ 1 ] )
+>536	RelationalExpression	vector < string > ( & tmp [ 0 ] , & tmp [ 1 ] )
+>537	RelationalExpression	string > ( & tmp [ 0 ] , & tmp [ 1 ] )
+>538	Expression	& tmp [ 0 ] , & tmp [ 1 ]
+>539	UnaryOp	& tmp [ 1 ]
+>540	ArrayIndexing	tmp [ 1 ]
+>541	PrimaryExpression	1
+>542	Identifier	tmp
+>543	UnaryOperator	&
+>544	UnaryOp	& tmp [ 0 ]
+>545	ArrayIndexing	tmp [ 0 ]
+>546	PrimaryExpression	0
+>547	Identifier	tmp
+>548	UnaryOperator	&
+>549	Identifier	string
+>550	Identifier	vector
+>551	Callee	add_option
+>552	Identifier	add_option
+>553	IdentifierDeclStatement	 
+>554	IdentifierDecl	tmp [ 1 ] = { opt }
+>555	AssignmentExpr	tmp [ 1 ] = { opt }
+>556	InitializerList	opt
+>557	Identifier	opt
+>558	Identifier	tmp
+>559	PrimaryExpression	1
+>560	Identifier	tmp
+>561	IdentifierDeclType	const string [ 1 ]
+>571	FunctionDef	OptionParser 
+>572	ParameterList	const string & opt1 , const string & opt2
+>573	Parameter	 
+>574	Identifier	opt2
+>575	ParameterType	const string &
+>576	Parameter	 
+>577	Identifier	opt1
+>578	ParameterType	const string &
+>579	ReturnType	Option &
+>580	CompoundStatement	 
+>581	ReturnStatement	 
+>582	CallExpression	add_option ( vector < string > ( & tmp [ 0 ] , & tmp [ 2 ] ) )
+>583	ArgumentList	vector < string > ( & tmp [ 0 ] , & tmp [ 2 ] )
+>584	Argument	vector < string > ( & tmp [ 0 ] , & tmp [ 2 ] )
+>585	RelationalExpression	vector < string > ( & tmp [ 0 ] , & tmp [ 2 ] )
+>586	RelationalExpression	string > ( & tmp [ 0 ] , & tmp [ 2 ] )
+>587	Expression	& tmp [ 0 ] , & tmp [ 2 ]
+>588	UnaryOp	& tmp [ 2 ]
+>589	ArrayIndexing	tmp [ 2 ]
+>590	PrimaryExpression	2
+>591	Identifier	tmp
+>592	UnaryOperator	&
+>593	UnaryOp	& tmp [ 0 ]
+>594	ArrayIndexing	tmp [ 0 ]
+>595	PrimaryExpression	0
+>596	Identifier	tmp
+>597	UnaryOperator	&
+>598	Identifier	string
+>599	Identifier	vector
+>600	Callee	add_option
+>601	Identifier	add_option
+>602	IdentifierDeclStatement	 
+>603	IdentifierDecl	tmp [ 2 ] = { opt1 , opt2 }
+>604	AssignmentExpr	tmp [ 2 ] = { opt1 , opt2 }
+>605	InitializerList	opt1
+>606	Identifier	opt2
+>607	Identifier	opt1
+>608	Identifier	tmp
+>609	PrimaryExpression	2
+>610	Identifier	tmp
+>611	IdentifierDeclType	const string [ 2 ]
+>622	FunctionDef	OptionParser 
+>623	ParameterList	const string & opt1 , const string & opt2 , const string & opt3
+>624	Parameter	 
+>625	Identifier	opt3
+>626	ParameterType	const string &
+>627	Parameter	 
+>628	Identifier	opt2
+>629	ParameterType	const string &
+>630	Parameter	 
+>631	Identifier	opt1
+>632	ParameterType	const string &
+>633	ReturnType	Option &
+>634	CompoundStatement	 
+>635	ReturnStatement	 
+>636	CallExpression	add_option ( vector < string > ( & tmp [ 0 ] , & tmp [ 3 ] ) )
+>637	ArgumentList	vector < string > ( & tmp [ 0 ] , & tmp [ 3 ] )
+>638	Argument	vector < string > ( & tmp [ 0 ] , & tmp [ 3 ] )
+>639	RelationalExpression	vector < string > ( & tmp [ 0 ] , & tmp [ 3 ] )
+>640	RelationalExpression	string > ( & tmp [ 0 ] , & tmp [ 3 ] )
+>641	Expression	& tmp [ 0 ] , & tmp [ 3 ]
+>642	UnaryOp	& tmp [ 3 ]
+>643	ArrayIndexing	tmp [ 3 ]
+>644	PrimaryExpression	3
+>645	Identifier	tmp
+>646	UnaryOperator	&
+>647	UnaryOp	& tmp [ 0 ]
+>648	ArrayIndexing	tmp [ 0 ]
+>649	PrimaryExpression	0
+>650	Identifier	tmp
+>651	UnaryOperator	&
+>652	Identifier	string
+>653	Identifier	vector
+>654	Callee	add_option
+>655	Identifier	add_option
+>656	IdentifierDeclStatement	 
+>657	IdentifierDecl	tmp [ 3 ] = { opt1 , opt2 , opt3 }
+>658	AssignmentExpr	tmp [ 3 ] = { opt1 , opt2 , opt3 }
+>659	InitializerList	opt1
+>660	Identifier	opt3
+>661	Identifier	opt2
+>662	Identifier	opt1
+>663	Identifier	tmp
+>664	PrimaryExpression	3
+>665	Identifier	tmp
+>666	IdentifierDeclType	const string [ 3 ]
+>678	FunctionDef	OptionParser 
+>679	ParameterList	const vector < string > & v
+>680	Parameter	 
+>681	Identifier	v
+>682	ParameterType	const vector < string > &
+>683	ReturnType	Option &
+>684	CompoundStatement	 
+>685	ReturnStatement	 
+>686	Identifier	option
+>687	IfStatement	if ( option . dest ( ) == \"\" )
+>688	ExpressionStatement	 
+>689	CallExpression	option . dest ( dest_fallback )
+>690	ArgumentList	dest_fallback
+>691	Argument	dest_fallback
+>692	Identifier	dest_fallback
+>693	Callee	option . dest
+>694	MemberAccess	option . dest
+>695	Identifier	dest
+>696	Identifier	option
+>697	Condition	 
+>698	EqualityExpression	option . dest ( ) == \"\"
+>699	PrimaryExpression	\"\"
+>700	CallExpression	option . dest ( )
+>701	ArgumentList	 
+>702	Callee	option . dest
+>703	MemberAccess	option . dest
+>704	Identifier	dest
+>705	Identifier	option
+>706	ForStatement	for ( vector < string > 
+>707	CompoundStatement	 
+>708	IfStatement	if ( it -> substr ( 0 , 2 ) == \"--\" )
+>709	ElseStatement	else
+>710	CompoundStatement	 
+>711	ExpressionStatement	 
+>712	AssignmentExpr	_optmap_s [ s ] = & option
+>713	UnaryOp	& option
+>714	Identifier	option
+>715	UnaryOperator	&
+>716	ArrayIndexing	_optmap_s [ s ]
+>717	Identifier	s
+>718	Identifier	_optmap_s
+>719	ExpressionStatement	 
+>720	CallExpression	option . _short_opts . insert ( s )
+>721	ArgumentList	s
+>722	Argument	s
+>723	Identifier	s
+>724	Callee	option . _short_opts . insert
+>725	MemberAccess	option . _short_opts . insert
+>726	Identifier	insert
+>727	MemberAccess	option . _short_opts
+>728	Identifier	_short_opts
+>729	Identifier	option
+>730	IfStatement	if ( dest_fallback == \"\" )
+>731	ExpressionStatement	 
+>732	AssignmentExpr	dest_fallback = s
+>733	Identifier	s
+>734	Identifier	dest_fallback
+>735	Condition	 
+>736	EqualityExpression	dest_fallback == \"\"
+>737	PrimaryExpression	\"\"
+>738	Identifier	dest_fallback
+>739	IdentifierDeclStatement	 
+>740	IdentifierDecl	s = it -> substr ( 1 , 1 )
+>741	AssignmentExpr	s = it -> substr ( 1 , 1 )
+>742	CallExpression	it -> substr ( 1 , 1 )
+>743	ArgumentList	1
+>744	Argument	1
+>745	PrimaryExpression	1
+>746	Argument	1
+>747	PrimaryExpression	1
+>748	Callee	it -> substr
+>749	PtrMemberAccess	it -> substr
+>750	Identifier	substr
+>751	Identifier	it
+>752	Identifier	s
+>753	Identifier	s
+>754	IdentifierDeclType	const string
+>755	CompoundStatement	 
+>756	ExpressionStatement	 
+>757	AssignmentExpr	_optmap_l [ s ] = & option
+>758	UnaryOp	& option
+>759	Identifier	option
+>760	UnaryOperator	&
+>761	ArrayIndexing	_optmap_l [ s ]
+>762	Identifier	s
+>763	Identifier	_optmap_l
+>764	ExpressionStatement	 
+>765	CallExpression	option . _long_opts . insert ( s )
+>766	ArgumentList	s
+>767	Argument	s
+>768	Identifier	s
+>769	Callee	option . _long_opts . insert
+>770	MemberAccess	option . _long_opts . insert
+>771	Identifier	insert
+>772	MemberAccess	option . _long_opts
+>773	Identifier	_long_opts
+>774	Identifier	option
+>775	IfStatement	if ( option . dest ( ) == \"\" )
+>776	ExpressionStatement	 
+>777	CallExpression	option . dest ( str_replace ( s , \"-\" , \"_\" ) )
+>778	ArgumentList	str_replace ( s , \"-\" , \"_\" )
+>779	Argument	str_replace ( s , \"-\" , \"_\" )
+>780	CallExpression	str_replace ( s , \"-\" , \"_\" )
+>781	ArgumentList	s
+>782	Argument	\"_\"
+>783	PrimaryExpression	\"_\"
+>784	Argument	\"-\"
+>785	PrimaryExpression	\"-\"
+>786	Argument	s
+>787	Identifier	s
+>788	Callee	str_replace
+>789	Identifier	str_replace
+>790	Callee	option . dest
+>791	MemberAccess	option . dest
+>792	Identifier	dest
+>793	Identifier	option
+>794	Condition	 
+>795	EqualityExpression	option . dest ( ) == \"\"
+>796	PrimaryExpression	\"\"
+>797	CallExpression	option . dest ( )
+>798	ArgumentList	 
+>799	Callee	option . dest
+>800	MemberAccess	option . dest
+>801	Identifier	dest
+>802	Identifier	option
+>803	IdentifierDeclStatement	 
+>804	IdentifierDecl	s = it -> substr ( 2 )
+>805	AssignmentExpr	s = it -> substr ( 2 )
+>806	CallExpression	it -> substr ( 2 )
+>807	ArgumentList	2
+>808	Argument	2
+>809	PrimaryExpression	2
+>810	Callee	it -> substr
+>811	PtrMemberAccess	it -> substr
+>812	Identifier	substr
+>813	Identifier	it
+>814	Identifier	s
+>815	Identifier	s
+>816	IdentifierDeclType	const string
+>817	Condition	 
+>818	EqualityExpression	it -> substr ( 0 , 2 ) == \"--\"
+>819	PrimaryExpression	\"--\"
+>820	CallExpression	it -> substr ( 0 , 2 )
+>821	ArgumentList	0
+>822	Argument	2
+>823	PrimaryExpression	2
+>824	Argument	0
+>825	PrimaryExpression	0
+>826	Callee	it -> substr
+>827	PtrMemberAccess	it -> substr
+>828	Identifier	substr
+>829	Identifier	it
+>830	UnaryExpression	 
+>831	Identifier	it
+>832	IncDec	++
+>833	Condition	 
+>834	EqualityExpression	it != v . end ( )
+>835	CallExpression	v . end ( )
+>836	ArgumentList	 
+>837	Callee	v . end
+>838	MemberAccess	v . end
+>839	Identifier	end
+>840	Identifier	v
+>841	Identifier	it
+>842	ForInit	 
+>843	IdentifierDeclStatement	vector < string > 
+>844	IdentifierDecl	it = v . begin ( )
+>845	AssignmentExpr	it = v . begin ( )
+>846	CallExpression	v . begin ( )
+>847	ArgumentList	 
+>848	Callee	v . begin
+>849	MemberAccess	v . begin
+>850	Identifier	begin
+>851	Identifier	v
+>852	Identifier	it
+>853	Identifier	it
+>854	IdentifierDeclType	vector < string > 
+>855	IdentifierDeclStatement	 
+>856	IdentifierDecl	dest_fallback
+>857	Identifier	dest_fallback
+>858	IdentifierDeclType	string
+>859	IdentifierDeclStatement	 
+>860	IdentifierDecl	& option = _opts . back ( )
+>861	AssignmentExpr	& option = _opts . back ( )
+>862	CallExpression	_opts . back ( )
+>863	ArgumentList	 
+>864	Callee	_opts . back
+>865	MemberAccess	_opts . back
+>866	Identifier	back
+>867	Identifier	_opts
+>868	Identifier	option
+>869	Identifier	option
+>870	IdentifierDeclType	Option &
+>871	ExpressionStatement	 
+>872	CallExpression	_opts . resize ( _opts . size ( ) + 1 )
+>873	ArgumentList	_opts . size ( ) + 1
+>874	Argument	_opts . size ( ) + 1
+>875	AdditiveExpression	_opts . size ( ) + 1
+>876	PrimaryExpression	1
+>877	CallExpression	_opts . size ( )
+>878	ArgumentList	 
+>879	Callee	_opts . size
+>880	MemberAccess	_opts . size
+>881	Identifier	size
+>882	Identifier	_opts
+>883	Callee	_opts . resize
+>884	MemberAccess	_opts . resize
+>885	Identifier	resize
+>886	Identifier	_opts
+>912	FunctionDef	OptionParser 
+>913	ParameterList	const OptionGroup & group
+>914	Parameter	 
+>915	Identifier	group
+>916	ParameterType	const OptionGroup &
+>917	ReturnType	OptionParser &
+>918	CompoundStatement	 
+>919	ReturnStatement	 
+>920	UnaryOp	* this
+>921	Identifier	this
+>922	UnaryOperator	*
+>923	ExpressionStatement	 
+>924	CallExpression	_groups . push_back ( & group )
+>925	ArgumentList	& group
+>926	Argument	& group
+>927	UnaryOp	& group
+>928	Identifier	group
+>929	UnaryOperator	&
+>930	Callee	_groups . push_back
+>931	MemberAccess	_groups . push_back
+>932	Identifier	push_back
+>933	Identifier	_groups
+>934	ForStatement	for ( list < Option > 
+>935	CompoundStatement	 
+>936	ForStatement	for ( set < string > 
+>937	ExpressionStatement	 
+>938	AssignmentExpr	_optmap_l [ * it ] = & option
+>939	UnaryOp	& option
+>940	Identifier	option
+>941	UnaryOperator	&
+>942	ArrayIndexing	_optmap_l [ * it ]
+>943	UnaryOp	* it
+>944	Identifier	it
+>945	UnaryOperator	*
+>946	Identifier	_optmap_l
+>947	UnaryExpression	 
+>948	Identifier	it
+>949	IncDec	++
+>950	Condition	 
+>951	EqualityExpression	it != option . _long_opts . end ( )
+>952	CallExpression	option . _long_opts . end ( )
+>953	ArgumentList	 
+>954	Callee	option . _long_opts . end
+>955	MemberAccess	option . _long_opts . end
+>956	Identifier	end
+>957	MemberAccess	option . _long_opts
+>958	Identifier	_long_opts
+>959	Identifier	option
+>960	Identifier	it
+>961	ForInit	 
+>962	IdentifierDeclStatement	set < string > 
+>963	IdentifierDecl	it = option . _long_opts . begin ( )
+>964	AssignmentExpr	it = option . _long_opts . begin ( )
+>965	CallExpression	option . _long_opts . begin ( )
+>966	ArgumentList	 
+>967	Callee	option . _long_opts . begin
+>968	MemberAccess	option . _long_opts . begin
+>969	Identifier	begin
+>970	MemberAccess	option . _long_opts
+>971	Identifier	_long_opts
+>972	Identifier	option
+>973	Identifier	it
+>974	Identifier	it
+>975	IdentifierDeclType	set < string > 
+>976	ForStatement	for ( set < string > 
+>977	ExpressionStatement	 
+>978	AssignmentExpr	_optmap_s [ * it ] = & option
+>979	UnaryOp	& option
+>980	Identifier	option
+>981	UnaryOperator	&
+>982	ArrayIndexing	_optmap_s [ * it ]
+>983	UnaryOp	* it
+>984	Identifier	it
+>985	UnaryOperator	*
+>986	Identifier	_optmap_s
+>987	UnaryExpression	 
+>988	Identifier	it
+>989	IncDec	++
+>990	Condition	 
+>991	EqualityExpression	it != option . _short_opts . end ( )
+>992	CallExpression	option . _short_opts . end ( )
+>993	ArgumentList	 
+>994	Callee	option . _short_opts . end
+>995	MemberAccess	option . _short_opts . end
+>996	Identifier	end
+>997	MemberAccess	option . _short_opts
+>998	Identifier	_short_opts
+>999	Identifier	option
+>1000	Identifier	it
+>1001	ForInit	 
+>1002	IdentifierDeclStatement	set < string > 
+>1003	IdentifierDecl	it = option . _short_opts . begin ( )
+>1004	AssignmentExpr	it = option . _short_opts . begin ( )
+>1005	CallExpression	option . _short_opts . begin ( )
+>1006	ArgumentList	 
+>1007	Callee	option . _short_opts . begin
+>1008	MemberAccess	option . _short_opts . begin
+>1009	Identifier	begin
+>1010	MemberAccess	option . _short_opts
+>1011	Identifier	_short_opts
+>1012	Identifier	option
+>1013	Identifier	it
+>1014	Identifier	it
+>1015	IdentifierDeclType	set < string > 
+>1016	IdentifierDeclStatement	 
+>1017	IdentifierDecl	& option = * oit
+>1018	AssignmentExpr	& option = * oit
+>1019	UnaryOp	* oit
+>1020	Identifier	oit
+>1021	UnaryOperator	*
+>1022	Identifier	option
+>1023	Identifier	option
+>1024	IdentifierDeclType	const Option &
+>1025	UnaryExpression	 
+>1026	Identifier	oit
+>1027	IncDec	++
+>1028	Condition	 
+>1029	EqualityExpression	oit != group . _opts . end ( )
+>1030	CallExpression	group . _opts . end ( )
+>1031	ArgumentList	 
+>1032	Callee	group . _opts . end
+>1033	MemberAccess	group . _opts . end
+>1034	Identifier	end
+>1035	MemberAccess	group . _opts
+>1036	Identifier	_opts
+>1037	Identifier	group
+>1038	Identifier	oit
+>1039	ForInit	 
+>1040	IdentifierDeclStatement	list < Option > 
+>1041	IdentifierDecl	oit = group . _opts . begin ( )
+>1042	AssignmentExpr	oit = group . _opts . begin ( )
+>1043	CallExpression	group . _opts . begin ( )
+>1044	ArgumentList	 
+>1045	Callee	group . _opts . begin
+>1046	MemberAccess	group . _opts . begin
+>1047	Identifier	begin
+>1048	MemberAccess	group . _opts
+>1049	Identifier	_opts
+>1050	Identifier	group
+>1051	Identifier	oit
+>1052	Identifier	oit
+>1053	IdentifierDeclType	list < Option > 
+>1082	FunctionDef	OptionParser 
+>1083	ParameterList	const string & opt
+>1084	Parameter	 
+>1085	Identifier	opt
+>1086	ParameterType	const string &
+>1087	ReturnType	const Option &
+>1088	CompoundStatement	 
+>1089	ReturnStatement	 
+>1090	UnaryOp	* it -> second
+>1091	PtrMemberAccess	it -> second
+>1092	Identifier	second
+>1093	Identifier	it
+>1094	UnaryOperator	*
+>1095	IfStatement	if ( it == _optmap_s . end ( ) )
+>1096	ExpressionStatement	 
+>1097	CallExpression	error ( _ ( \"no such option\" ) + string ( \"
+>1098	ArgumentList	_ ( \"no such option\" ) + string ( \"
+>1099	Argument	_ ( \"no such option\" ) + string ( \"
+>1100	AdditiveExpression	_ ( \"no such option\" ) + string ( \"
+>1101	AdditiveExpression	string ( \"
+>1102	Identifier	opt
+>1103	CallExpression	string ( \"
+>1104	ArgumentList	\"
+>1105	Argument	\"
+>1106	PrimaryExpression	\"
+>1107	Callee	string
+>1108	Identifier	string
+>1109	CallExpression	_ ( \"no such option\" )
+>1110	ArgumentList	\"no such option\"
+>1111	Argument	\"no such option\"
+>1112	PrimaryExpression	\"no such option\"
+>1113	Callee	_
+>1114	Identifier	_
+>1115	Callee	error
+>1116	Identifier	error
+>1117	Condition	 
+>1118	EqualityExpression	it == _optmap_s . end ( )
+>1119	CallExpression	_optmap_s . end ( )
+>1120	ArgumentList	 
+>1121	Callee	_optmap_s . end
+>1122	MemberAccess	_optmap_s . end
+>1123	Identifier	end
+>1124	Identifier	_optmap_s
+>1125	Identifier	it
+>1126	IdentifierDeclStatement	 
+>1127	IdentifierDecl	it = _optmap_s . find ( opt )
+>1128	AssignmentExpr	it = _optmap_s . find ( opt )
+>1129	CallExpression	_optmap_s . find ( opt )
+>1130	ArgumentList	opt
+>1131	Argument	opt
+>1132	Identifier	opt
+>1133	Callee	_optmap_s . find
+>1134	MemberAccess	_optmap_s . find
+>1135	Identifier	find
+>1136	Identifier	_optmap_s
+>1137	Identifier	it
+>1138	Identifier	it
+>1139	IdentifierDeclType	optMap 
+>1154	FunctionDef	OptionParser 
+>1155	ParameterList	const string & opt , const string & arg
+>1156	Parameter	 
+>1157	Identifier	arg
+>1158	ParameterType	const string &
+>1159	Parameter	 
+>1160	Identifier	opt
+>1161	ParameterType	const string &
+>1162	ReturnType	void
+>1163	CompoundStatement	 
+>1164	ExpressionStatement	 
+>1165	CallExpression	process_opt ( option , string ( \"-\" ) + opt , value )
+>1166	ArgumentList	option
+>1167	Argument	value
+>1168	Identifier	value
+>1169	Argument	string ( \"-\" ) + opt
+>1170	AdditiveExpression	string ( \"-\" ) + opt
+>1171	Identifier	opt
+>1172	CallExpression	string ( \"-\" )
+>1173	ArgumentList	\"-\"
+>1174	Argument	\"-\"
+>1175	PrimaryExpression	\"-\"
+>1176	Callee	string
+>1177	Identifier	string
+>1178	Argument	option
+>1179	Identifier	option
+>1180	Callee	process_opt
+>1181	Identifier	process_opt
+>1182	IfStatement	if ( option . _nargs == 1 )
+>1183	ElseStatement	else
+>1184	CompoundStatement	 
+>1185	IfStatement	if ( arg . length ( ) > 2 )
+>1186	ExpressionStatement	 
+>1187	CallExpression	_remaining . push_front ( string ( \"-\" ) + arg . substr ( 2 ) )
+>1188	ArgumentList	string ( \"-\" ) + arg . substr ( 2 )
+>1189	Argument	string ( \"-\" ) + arg . substr ( 2 )
+>1190	AdditiveExpression	string ( \"-\" ) + arg . substr ( 2 )
+>1191	CallExpression	arg . substr ( 2 )
+>1192	ArgumentList	2
+>1193	Argument	2
+>1194	PrimaryExpression	2
+>1195	Callee	arg . substr
+>1196	MemberAccess	arg . substr
+>1197	Identifier	substr
+>1198	Identifier	arg
+>1199	CallExpression	string ( \"-\" )
+>1200	ArgumentList	\"-\"
+>1201	Argument	\"-\"
+>1202	PrimaryExpression	\"-\"
+>1203	Callee	string
+>1204	Identifier	string
+>1205	Callee	_remaining . push_front
+>1206	MemberAccess	_remaining . push_front
+>1207	Identifier	push_front
+>1208	Identifier	_remaining
+>1209	Condition	 
+>1210	RelationalExpression	arg . length ( ) > 2
+>1211	PrimaryExpression	2
+>1212	CallExpression	arg . length ( )
+>1213	ArgumentList	 
+>1214	Callee	arg . length
+>1215	MemberAccess	arg . length
+>1216	Identifier	length
+>1217	Identifier	arg
+>1218	CompoundStatement	 
+>1219	IfStatement	if ( value == \"\" )
+>1220	CompoundStatement	 
+>1221	ExpressionStatement	 
+>1222	CallExpression	_remaining . pop_front ( )
+>1223	ArgumentList	 
+>1224	Callee	_remaining . pop_front
+>1225	MemberAccess	_remaining . pop_front
+>1226	Identifier	pop_front
+>1227	Identifier	_remaining
+>1228	ExpressionStatement	 
+>1229	AssignmentExpr	value = _remaining . front ( )
+>1230	CallExpression	_remaining . front ( )
+>1231	ArgumentList	 
+>1232	Callee	_remaining . front
+>1233	MemberAccess	_remaining . front
+>1234	Identifier	front
+>1235	Identifier	_remaining
+>1236	Identifier	value
+>1237	IfStatement	if ( _remaining . empty ( ) )
+>1238	ExpressionStatement	 
+>1239	CallExpression	error ( \"-\" + opt + \" \" + _ ( \"option requires an argument\" ) )
+>1240	ArgumentList	\"-\" + opt + \" \" + _ ( \"option requires an argument\" )
+>1241	Argument	\"-\" + opt + \" \" + _ ( \"option requires an argument\" )
+>1242	AdditiveExpression	\"-\" + opt + \" \" + _ ( \"option requires an argument\" )
+>1243	AdditiveExpression	opt + \" \" + _ ( \"option requires an argument\" )
+>1244	AdditiveExpression	\" \" + _ ( \"option requires an argument\" )
+>1245	CallExpression	_ ( \"option requires an argument\" )
+>1246	ArgumentList	\"option requires an argument\"
+>1247	Argument	\"option requires an argument\"
+>1248	PrimaryExpression	\"option requires an argument\"
+>1249	Callee	_
+>1250	Identifier	_
+>1251	PrimaryExpression	\" \"
+>1252	Identifier	opt
+>1253	PrimaryExpression	\"-\"
+>1254	Callee	error
+>1255	Identifier	error
+>1256	Condition	 
+>1257	CallExpression	_remaining . empty ( )
+>1258	ArgumentList	 
+>1259	Callee	_remaining . empty
+>1260	MemberAccess	_remaining . empty
+>1261	Identifier	empty
+>1262	Identifier	_remaining
+>1263	Condition	 
+>1264	EqualityExpression	value == \"\"
+>1265	PrimaryExpression	\"\"
+>1266	Identifier	value
+>1267	ExpressionStatement	 
+>1268	AssignmentExpr	value = arg . substr ( 2 )
+>1269	CallExpression	arg . substr ( 2 )
+>1270	ArgumentList	2
+>1271	Argument	2
+>1272	PrimaryExpression	2
+>1273	Callee	arg . substr
+>1274	MemberAccess	arg . substr
+>1275	Identifier	substr
+>1276	Identifier	arg
+>1277	Identifier	value
+>1278	Condition	 
+>1279	EqualityExpression	option . _nargs == 1
+>1280	PrimaryExpression	1
+>1281	MemberAccess	option . _nargs
+>1282	Identifier	_nargs
+>1283	Identifier	option
+>1284	IdentifierDeclStatement	 
+>1285	IdentifierDecl	& option = lookup_short_opt ( opt )
+>1286	AssignmentExpr	& option = lookup_short_opt ( opt )
+>1287	CallExpression	lookup_short_opt ( opt )
+>1288	ArgumentList	opt
+>1289	Argument	opt
+>1290	Identifier	opt
+>1291	Callee	lookup_short_opt
+>1292	Identifier	lookup_short_opt
+>1293	Identifier	option
+>1294	Identifier	option
+>1295	IdentifierDeclType	const Option &
+>1296	IdentifierDeclStatement	 
+>1297	IdentifierDecl	value
+>1298	Identifier	value
+>1299	IdentifierDeclType	string
+>1300	ExpressionStatement	 
+>1301	CallExpression	_remaining . pop_front ( )
+>1302	ArgumentList	 
+>1303	Callee	_remaining . pop_front
+>1304	MemberAccess	_remaining . pop_front
+>1305	Identifier	pop_front
+>1306	Identifier	_remaining
+>1323	FunctionDef	OptionParser 
+>1324	ParameterList	const string & opt
+>1325	Parameter	 
+>1326	Identifier	opt
+>1327	ParameterType	const string &
+>1328	ReturnType	const Option &
+>1329	CompoundStatement	 
+>1330	ReturnStatement	 
+>1331	UnaryOp	* _optmap_l . find ( matching . front ( ) ) -> second
+>1332	PtrMemberAccess	_optmap_l . find ( matching . front ( ) ) -> second
+>1333	Identifier	second
+>1334	CallExpression	_optmap_l . find ( matching . front ( ) )
+>1335	ArgumentList	matching . front ( )
+>1336	Argument	matching . front ( )
+>1337	CallExpression	matching . front ( )
+>1338	ArgumentList	 
+>1339	Callee	matching . front
+>1340	MemberAccess	matching . front
+>1341	Identifier	front
+>1342	Identifier	matching
+>1343	Callee	_optmap_l . find
+>1344	MemberAccess	_optmap_l . find
+>1345	Identifier	find
+>1346	Identifier	_optmap_l
+>1347	UnaryOperator	*
+>1348	IfStatement	if ( matching . size ( ) == 0 )
+>1349	ExpressionStatement	 
+>1350	CallExpression	error ( _ ( \"no such option\" ) + string ( \"
+>1351	ArgumentList	_ ( \"no such option\" ) + string ( \"
+>1352	Argument	_ ( \"no such option\" ) + string ( \"
+>1353	AdditiveExpression	_ ( \"no such option\" ) + string ( \"
+>1354	AdditiveExpression	string ( \"
+>1355	Identifier	opt
+>1356	CallExpression	string ( \"
+>1357	ArgumentList	\"
+>1358	Argument	\"
+>1359	PrimaryExpression	\"
+>1360	Callee	string
+>1361	Identifier	string
+>1362	CallExpression	_ ( \"no such option\" )
+>1363	ArgumentList	\"no such option\"
+>1364	Argument	\"no such option\"
+>1365	PrimaryExpression	\"no such option\"
+>1366	Callee	_
+>1367	Identifier	_
+>1368	Callee	error
+>1369	Identifier	error
+>1370	Condition	 
+>1371	EqualityExpression	matching . size ( ) == 0
+>1372	PrimaryExpression	0
+>1373	CallExpression	matching . size ( )
+>1374	ArgumentList	 
+>1375	Callee	matching . size
+>1376	MemberAccess	matching . size
+>1377	Identifier	size
+>1378	Identifier	matching
+>1379	IfStatement	if ( matching . size ( ) > 1 )
+>1380	CompoundStatement	 
+>1381	ExpressionStatement	 
+>1382	CallExpression	error ( _ ( \"ambiguous option\" ) + string ( \"
+>1383	ArgumentList	_ ( \"ambiguous option\" ) + string ( \"
+>1384	Argument	_ ( \"ambiguous option\" ) + string ( \"
+>1385	AdditiveExpression	_ ( \"ambiguous option\" ) + string ( \"
+>1386	AdditiveExpression	string ( \"
+>1387	AdditiveExpression	opt + \" (\" + x + \"?)\"
+>1388	AdditiveExpression	\" (\" + x + \"?)\"
+>1389	AdditiveExpression	x + \"?)\"
+>1390	PrimaryExpression	\"?)\"
+>1391	Identifier	x
+>1392	PrimaryExpression	\" (\"
+>1393	Identifier	opt
+>1394	CallExpression	string ( \"
+>1395	ArgumentList	\"
+>1396	Argument	\"
+>1397	PrimaryExpression	\"
+>1398	Callee	string
+>1399	Identifier	string
+>1400	CallExpression	_ ( \"ambiguous option\" )
+>1401	ArgumentList	\"ambiguous option\"
+>1402	Argument	\"ambiguous option\"
+>1403	PrimaryExpression	\"ambiguous option\"
+>1404	Callee	_
+>1405	Identifier	_
+>1406	Callee	error
+>1407	Identifier	error
+>1408	IdentifierDeclStatement	 
+>1409	IdentifierDecl	x = str_join ( \", \" , matching . begin ( ) , matching . end ( ) )
+>1410	AssignmentExpr	x = str_join ( \", \" , matching . begin ( ) , matching . end ( ) )
+>1411	CallExpression	str_join ( \", \" , matching . begin ( ) , matching . end ( ) )
+>1412	ArgumentList	\", \"
+>1413	Argument	matching . end ( )
+>1414	CallExpression	matching . end ( )
+>1415	ArgumentList	 
+>1416	Callee	matching . end
+>1417	MemberAccess	matching . end
+>1418	Identifier	end
+>1419	Identifier	matching
+>1420	Argument	matching . begin ( )
+>1421	CallExpression	matching . begin ( )
+>1422	ArgumentList	 
+>1423	Callee	matching . begin
+>1424	MemberAccess	matching . begin
+>1425	Identifier	begin
+>1426	Identifier	matching
+>1427	Argument	\", \"
+>1428	PrimaryExpression	\", \"
+>1429	Callee	str_join
+>1430	Identifier	str_join
+>1431	Identifier	x
+>1432	Identifier	x
+>1433	IdentifierDeclType	string
+>1434	Condition	 
+>1435	RelationalExpression	matching . size ( ) > 1
+>1436	PrimaryExpression	1
+>1437	CallExpression	matching . size ( )
+>1438	ArgumentList	 
+>1439	Callee	matching . size
+>1440	MemberAccess	matching . size
+>1441	Identifier	size
+>1442	Identifier	matching
+>1443	ForStatement	for ( optMap 
+>1444	CompoundStatement	 
+>1445	IfStatement	if ( it -> first . compare ( 0 , opt . length ( ) , opt ) == 0 )
+>1446	ExpressionStatement	 
+>1447	CallExpression	matching . push_back ( it -> first )
+>1448	ArgumentList	it -> first
+>1449	Argument	it -> first
+>1450	PtrMemberAccess	it -> first
+>1451	Identifier	first
+>1452	Identifier	it
+>1453	Callee	matching . push_back
+>1454	MemberAccess	matching . push_back
+>1455	Identifier	push_back
+>1456	Identifier	matching
+>1457	Condition	 
+>1458	EqualityExpression	it -> first . compare ( 0 , opt . length ( ) , opt ) == 0
+>1459	PrimaryExpression	0
+>1460	CallExpression	it -> first . compare ( 0 , opt . length ( ) , opt )
+>1461	ArgumentList	0
+>1462	Argument	opt
+>1463	Identifier	opt
+>1464	Argument	opt . length ( )
+>1465	CallExpression	opt . length ( )
+>1466	ArgumentList	 
+>1467	Callee	opt . length
+>1468	MemberAccess	opt . length
+>1469	Identifier	length
+>1470	Identifier	opt
+>1471	Argument	0
+>1472	PrimaryExpression	0
+>1473	Callee	it -> first . compare
+>1474	MemberAccess	it -> first . compare
+>1475	Identifier	compare
+>1476	PtrMemberAccess	it -> first
+>1477	Identifier	first
+>1478	Identifier	it
+>1479	UnaryExpression	 
+>1480	Identifier	it
+>1481	IncDec	++
+>1482	Condition	 
+>1483	EqualityExpression	it != _optmap_l . end ( )
+>1484	CallExpression	_optmap_l . end ( )
+>1485	ArgumentList	 
+>1486	Callee	_optmap_l . end
+>1487	MemberAccess	_optmap_l . end
+>1488	Identifier	end
+>1489	Identifier	_optmap_l
+>1490	Identifier	it
+>1491	ForInit	 
+>1492	IdentifierDeclStatement	optMap 
+>1493	IdentifierDecl	it = _optmap_l . begin ( )
+>1494	AssignmentExpr	it = _optmap_l . begin ( )
+>1495	CallExpression	_optmap_l . begin ( )
+>1496	ArgumentList	 
+>1497	Callee	_optmap_l . begin
+>1498	MemberAccess	_optmap_l . begin
+>1499	Identifier	begin
+>1500	Identifier	_optmap_l
+>1501	Identifier	it
+>1502	Identifier	it
+>1503	IdentifierDeclType	optMap 
+>1504	IdentifierDeclStatement	 
+>1505	IdentifierDecl	matching
+>1506	Identifier	matching
+>1507	IdentifierDeclType	list < string >
+>1536	FunctionDef	OptionParser 
+>1537	ParameterList	const string & optstr
+>1538	Parameter	 
+>1539	Identifier	optstr
+>1540	ParameterType	const string &
+>1541	ReturnType	void
+>1542	CompoundStatement	 
+>1543	ExpressionStatement	 
+>1544	CallExpression	process_opt ( option , string ( \"--\" ) + opt , value )
+>1545	ArgumentList	option
+>1546	Argument	value
+>1547	Identifier	value
+>1548	Argument	string ( \"--\" ) + opt
+>1549	AdditiveExpression	string ( \"--\" ) + opt
+>1550	Identifier	opt
+>1551	CallExpression	string ( \"--\" )
+>1552	ArgumentList	\"--\"
+>1553	Argument	\"--\"
+>1554	PrimaryExpression	\"--\"
+>1555	Callee	string
+>1556	Identifier	string
+>1557	Argument	option
+>1558	Identifier	option
+>1559	Callee	process_opt
+>1560	Identifier	process_opt
+>1561	ExpressionStatement	 
+>1562	CallExpression	error ( \"--\" + opt + \" \" + _ ( \"option requires an argument\" ) )
+>1563	ArgumentList	\"--\" + opt + \" \" + _ ( \"option requires an argument\" )
+>1564	Argument	\"--\" + opt + \" \" + _ ( \"option requires an argument\" )
+>1565	AdditiveExpression	\"--\" + opt + \" \" + _ ( \"option requires an argument\" )
+>1566	AdditiveExpression	opt + \" \" + _ ( \"option requires an argument\" )
+>1567	AdditiveExpression	\" \" + _ ( \"option requires an argument\" )
+>1568	CallExpression	_ ( \"option requires an argument\" )
+>1569	ArgumentList	\"option requires an argument\"
+>1570	Argument	\"option requires an argument\"
+>1571	PrimaryExpression	\"option requires an argument\"
+>1572	Callee	_
+>1573	Identifier	_
+>1574	PrimaryExpression	\" \"
+>1575	Identifier	opt
+>1576	PrimaryExpression	\"--\"
+>1577	Callee	error
+>1578	Identifier	error
+>1579	Statement	 
+>1580	Statement	 
+>1581	Statement	 
+>1582	Statement	 
+>1583	Statement	 
+>1584	Statement	 
+>1585	Statement	 
+>1586	Statement	 
+>1587	Statement	 
+>1588	Statement	 
+>1589	Statement	 
+>1590	Statement	 
+>1591	CompoundStatement	 
+>1592	CompoundStatement	 
+>1593	ExpressionStatement	 
+>1594	CallExpression	_remaining . pop_front ( )
+>1595	ArgumentList	 
+>1596	Callee	_remaining . pop_front
+>1597	MemberAccess	_remaining . pop_front
+>1598	Identifier	pop_front
+>1599	Identifier	_remaining
+>1600	ExpressionStatement	 
+>1601	AssignmentExpr	value = _remaining . front ( )
+>1602	CallExpression	_remaining . front ( )
+>1603	ArgumentList	 
+>1604	Callee	_remaining . front
+>1605	MemberAccess	_remaining . front
+>1606	Identifier	front
+>1607	Identifier	_remaining
+>1608	Identifier	value
+>1609	Statement	 
+>1610	Statement	 
+>1611	Statement	 
+>1612	Statement	 
+>1613	Statement	 
+>1614	Statement	 
+>1615	Statement	 
+>1616	Statement	 
+>1617	Statement	 
+>1618	Statement	 
+>1619	Statement	 
+>1620	Statement	 
+>1621	Statement	 
+>1622	Statement	 
+>1623	Statement	 
+>1624	Statement	 
+>1625	Statement	 
+>1626	Statement	 
+>1627	Statement	 
+>1628	Statement	 
+>1629	Statement	 
+>1630	Statement	 
+>1631	Statement	 
+>1632	IdentifierDeclStatement	 
+>1633	IdentifierDecl	& option = lookup_long_opt ( opt )
+>1634	AssignmentExpr	& option = lookup_long_opt ( opt )
+>1635	CallExpression	lookup_long_opt ( opt )
+>1636	ArgumentList	opt
+>1637	Argument	opt
+>1638	Identifier	opt
+>1639	Callee	lookup_long_opt
+>1640	Identifier	lookup_long_opt
+>1641	Identifier	option
+>1642	Identifier	option
+>1643	IdentifierDeclType	const Option &
+>1644	IfStatement	if ( delim != string 
+>1645	ElseStatement	else
+>1646	ExpressionStatement	 
+>1647	AssignmentExpr	opt = optstr
+>1648	Identifier	optstr
+>1649	Identifier	opt
+>1650	CompoundStatement	 
+>1651	ExpressionStatement	 
+>1652	AssignmentExpr	value = optstr . substr ( delim + 1 )
+>1653	CallExpression	optstr . substr ( delim + 1 )
+>1654	ArgumentList	delim + 1
+>1655	Argument	delim + 1
+>1656	AdditiveExpression	delim + 1
+>1657	PrimaryExpression	1
+>1658	Identifier	delim
+>1659	Callee	optstr . substr
+>1660	MemberAccess	optstr . substr
+>1661	Identifier	substr
+>1662	Identifier	optstr
+>1663	Identifier	value
+>1664	ExpressionStatement	 
+>1665	AssignmentExpr	opt = optstr . substr ( 0 , delim )
+>1666	CallExpression	optstr . substr ( 0 , delim )
+>1667	ArgumentList	0
+>1668	Argument	delim
+>1669	Identifier	delim
+>1670	Argument	0
+>1671	PrimaryExpression	0
+>1672	Callee	optstr . substr
+>1673	MemberAccess	optstr . substr
+>1674	Identifier	substr
+>1675	Identifier	optstr
+>1676	Identifier	opt
+>1677	Condition	 
+>1678	EqualityExpression	delim != string 
+>1679	Identifier	string 
+>1680	Identifier	delim
+>1681	IdentifierDeclStatement	 
+>1682	IdentifierDecl	delim = optstr . find ( \"=\" )
+>1683	AssignmentExpr	delim = optstr . find ( \"=\" )
+>1684	CallExpression	optstr . find ( \"=\" )
+>1685	ArgumentList	\"=\"
+>1686	Argument	\"=\"
+>1687	PrimaryExpression	\"=\"
+>1688	Callee	optstr . find
+>1689	MemberAccess	optstr . find
+>1690	Identifier	find
+>1691	Identifier	optstr
+>1692	Identifier	delim
+>1693	Identifier	delim
+>1694	IdentifierDeclType	size_t
+>1695	IdentifierDeclStatement	 
+>1696	IdentifierDecl	value
+>1697	Identifier	value
+>1698	IdentifierDeclType	string
+>1699	IdentifierDecl	opt
+>1700	Identifier	opt
+>1701	IdentifierDeclType	string
+>1702	ExpressionStatement	 
+>1703	CallExpression	_remaining . pop_front ( )
+>1704	ArgumentList	 
+>1705	Callee	_remaining . pop_front
+>1706	MemberAccess	_remaining . pop_front
+>1707	Identifier	pop_front
+>1708	Identifier	_remaining
+>1725	FunctionDef	OptionParser 
+>1726	ParameterList	const vector < string > & v
+>1727	Parameter	 
+>1728	Identifier	v
+>1729	ParameterType	const vector < string > &
+>1730	ReturnType	Values &
+>1731	CompoundStatement	 
+>1732	ReturnStatement	 
+>1733	Identifier	_values
+>1734	ForStatement	for ( list < Option > 
+>1735	CompoundStatement	 
+>1736	ExpressionStatement	 
+>1737	AssignmentExpr	_values [ it -> dest ( ) ] = it -> get_default ( )
+>1738	CallExpression	it -> get_default ( )
+>1739	ArgumentList	 
+>1740	Callee	it -> get_default
+>1741	PtrMemberAccess	it -> get_default
+>1742	Identifier	get_default
+>1743	Identifier	it
+>1744	ArrayIndexing	_values [ it -> dest ( ) ]
+>1745	CallExpression	it -> dest ( )
+>1746	ArgumentList	 
+>1747	Callee	it -> dest
+>1748	PtrMemberAccess	it -> dest
+>1749	Identifier	dest
+>1750	Identifier	it
+>1751	Identifier	_values
+>1752	Statement	 
+>1753	Statement	 
+>1754	Statement	 
+>1755	Statement	 
+>1756	Statement	 
+>1757	Statement	 
+>1758	Statement	 
+>1759	Statement	 
+>1760	Statement	 
+>1761	Statement	 
+>1762	Statement	 
+>1763	Statement	 
+>1764	Statement	 
+>1765	Statement	 
+>1766	Statement	 
+>1767	Statement	 
+>1768	Statement	 
+>1769	Statement	 
+>1770	Statement	 
+>1771	Statement	 
+>1772	Statement	 
+>1773	Statement	 
+>1774	UnaryExpression	 
+>1775	Identifier	it
+>1776	IncDec	++
+>1777	Condition	 
+>1778	EqualityExpression	it != _opts . end ( )
+>1779	CallExpression	_opts . end ( )
+>1780	ArgumentList	 
+>1781	Callee	_opts . end
+>1782	MemberAccess	_opts . end
+>1783	Identifier	end
+>1784	Identifier	_opts
+>1785	Identifier	it
+>1786	ForInit	 
+>1787	IdentifierDeclStatement	list < Option > 
+>1788	IdentifierDecl	it = _opts . begin ( )
+>1789	AssignmentExpr	it = _opts . begin ( )
+>1790	CallExpression	_opts . begin ( )
+>1791	ArgumentList	 
+>1792	Callee	_opts . begin
+>1793	MemberAccess	_opts . begin
+>1794	Identifier	begin
+>1795	Identifier	_opts
+>1796	Identifier	it
+>1797	Identifier	it
+>1798	IdentifierDeclType	list < Option > 
+>1799	ForStatement	for ( strMap 
+>1800	CompoundStatement	 
+>1801	ExpressionStatement	 
+>1802	AssignmentExpr	_values [ it -> first ] = it -> second
+>1803	PtrMemberAccess	it -> second
+>1804	Identifier	second
+>1805	Identifier	it
+>1806	ArrayIndexing	_values [ it -> first ]
+>1807	PtrMemberAccess	it -> first
+>1808	Identifier	first
+>1809	Identifier	it
+>1810	Identifier	_values
+>1811	Statement	 
+>1812	Statement	 
+>1813	Statement	 
+>1814	Statement	 
+>1815	Statement	 
+>1816	Statement	 
+>1817	Statement	 
+>1818	Statement	 
+>1819	Statement	 
+>1820	Statement	 
+>1821	Statement	 
+>1822	Statement	 
+>1823	UnaryExpression	 
+>1824	Identifier	it
+>1825	IncDec	++
+>1826	Condition	 
+>1827	EqualityExpression	it != _defaults . end ( )
+>1828	CallExpression	_defaults . end ( )
+>1829	ArgumentList	 
+>1830	Callee	_defaults . end
+>1831	MemberAccess	_defaults . end
+>1832	Identifier	end
+>1833	Identifier	_defaults
+>1834	Identifier	it
+>1835	ForInit	 
+>1836	IdentifierDeclStatement	strMap 
+>1837	IdentifierDecl	it = _defaults . begin ( )
+>1838	AssignmentExpr	it = _defaults . begin ( )
+>1839	CallExpression	_defaults . begin ( )
+>1840	ArgumentList	 
+>1841	Callee	_defaults . begin
+>1842	MemberAccess	_defaults . begin
+>1843	Identifier	begin
+>1844	Identifier	_defaults
+>1845	Identifier	it
+>1846	Identifier	it
+>1847	IdentifierDeclType	strMap 
+>1848	CompoundStatement	 
+>1849	ExpressionStatement	 
+>1850	CallExpression	_leftover . push_back ( arg )
+>1851	ArgumentList	arg
+>1852	Argument	arg
+>1853	Identifier	arg
+>1854	Callee	_leftover . push_back
+>1855	MemberAccess	_leftover . push_back
+>1856	Identifier	push_back
+>1857	Identifier	_leftover
+>1858	ExpressionStatement	 
+>1859	CallExpression	_remaining . pop_front ( )
+>1860	ArgumentList	 
+>1861	Callee	_remaining . pop_front
+>1862	MemberAccess	_remaining . pop_front
+>1863	Identifier	pop_front
+>1864	Identifier	_remaining
+>1865	IdentifierDeclStatement	 
+>1866	IdentifierDecl	arg = _remaining . front ( )
+>1867	AssignmentExpr	arg = _remaining . front ( )
+>1868	CallExpression	_remaining . front ( )
+>1869	ArgumentList	 
+>1870	Callee	_remaining . front
+>1871	MemberAccess	_remaining . front
+>1872	Identifier	front
+>1873	Identifier	_remaining
+>1874	Identifier	arg
+>1875	Identifier	arg
+>1876	IdentifierDeclType	const string
+>1877	Statement	 
+>1878	Statement	 
+>1879	Statement	 
+>1880	Statement	 
+>1881	Statement	 
+>1882	Statement	 
+>1883	Statement	 
+>1884	Statement	 
+>1885	Statement	 
+>1886	CompoundStatement	 
+>1887	CompoundStatement	 
+>1888	ExpressionStatement	 
+>1889	CallExpression	handle_short_opt ( arg . substr ( 1 , 1 ) , arg )
+>1890	ArgumentList	arg . substr ( 1 , 1 )
+>1891	Argument	arg
+>1892	Identifier	arg
+>1893	Argument	arg . substr ( 1 , 1 )
+>1894	CallExpression	arg . substr ( 1 , 1 )
+>1895	ArgumentList	1
+>1896	Argument	1
+>1897	PrimaryExpression	1
+>1898	Argument	1
+>1899	PrimaryExpression	1
+>1900	Callee	arg . substr
+>1901	MemberAccess	arg . substr
+>1902	Identifier	substr
+>1903	Identifier	arg
+>1904	Callee	handle_short_opt
+>1905	Identifier	handle_short_opt
+>1906	Statement	 
+>1907	Statement	 
+>1908	Statement	 
+>1909	Statement	 
+>1910	Statement	 
+>1911	Statement	 
+>1912	Statement	 
+>1913	Statement	 
+>1914	Statement	 
+>1915	Statement	 
+>1916	Statement	 
+>1917	Statement	 
+>1918	Statement	 
+>1919	Statement	 
+>1920	Statement	 
+>1921	Statement	 
+>1922	Statement	 
+>1923	Statement	 
+>1924	Statement	 
+>1925	Statement	 
+>1926	IfStatement	if ( arg . substr ( 0 , 2 ) == \"--\" )
+>1927	ElseStatement	else
+>1928	Statement	 
+>1929	CompoundStatement	 
+>1930	ExpressionStatement	 
+>1931	CallExpression	handle_long_opt ( arg . substr ( 2 ) )
+>1932	ArgumentList	arg . substr ( 2 )
+>1933	Argument	arg . substr ( 2 )
+>1934	CallExpression	arg . substr ( 2 )
+>1935	ArgumentList	2
+>1936	Argument	2
+>1937	PrimaryExpression	2
+>1938	Callee	arg . substr
+>1939	MemberAccess	arg . substr
+>1940	Identifier	substr
+>1941	Identifier	arg
+>1942	Callee	handle_long_opt
+>1943	Identifier	handle_long_opt
+>1944	Condition	 
+>1945	EqualityExpression	arg . substr ( 0 , 2 ) == \"--\"
+>1946	PrimaryExpression	\"--\"
+>1947	CallExpression	arg . substr ( 0 , 2 )
+>1948	ArgumentList	0
+>1949	Argument	2
+>1950	PrimaryExpression	2
+>1951	Argument	0
+>1952	PrimaryExpression	0
+>1953	Callee	arg . substr
+>1954	MemberAccess	arg . substr
+>1955	Identifier	substr
+>1956	Identifier	arg
+>1957	IfStatement	if ( arg == \"--\" )
+>1958	ElseStatement	else
+>1959	CompoundStatement	 
+>1960	BreakStatement	 
+>1961	Statement	 
+>1962	Statement	 
+>1963	Statement	 
+>1964	Statement	 
+>1965	Statement	 
+>1966	Statement	 
+>1967	Statement	 
+>1968	ExpressionStatement	 
+>1969	CallExpression	_leftover . push_back ( arg )
+>1970	ArgumentList	arg
+>1971	Argument	arg
+>1972	Identifier	arg
+>1973	Callee	_leftover . push_back
+>1974	MemberAccess	_leftover . push_back
+>1975	Identifier	push_back
+>1976	Identifier	_leftover
+>1977	ExpressionStatement	 
+>1978	CallExpression	_remaining . pop_front ( )
+>1979	ArgumentList	 
+>1980	Callee	_remaining . pop_front
+>1981	MemberAccess	_remaining . pop_front
+>1982	Identifier	pop_front
+>1983	Identifier	_remaining
+>1984	CompoundStatement	 
+>1985	BreakStatement	 
+>1986	ExpressionStatement	 
+>1987	CallExpression	_remaining . pop_front ( )
+>1988	ArgumentList	 
+>1989	Callee	_remaining . pop_front
+>1990	MemberAccess	_remaining . pop_front
+>1991	Identifier	pop_front
+>1992	Identifier	_remaining
+>1993	Condition	 
+>1994	EqualityExpression	arg == \"--\"
+>1995	PrimaryExpression	\"--\"
+>1996	Identifier	arg
+>1997	IdentifierDeclStatement	 
+>1998	IdentifierDecl	arg = _remaining . front ( )
+>1999	AssignmentExpr	arg = _remaining . front ( )
+>2000	CallExpression	_remaining . front ( )
+>2001	ArgumentList	 
+>2002	Callee	_remaining . front
+>2003	MemberAccess	_remaining . front
+>2004	Identifier	front
+>2005	Identifier	_remaining
+>2006	Identifier	arg
+>2007	Identifier	arg
+>2008	IdentifierDeclType	const string
+>2009	Statement	 
+>2010	Statement	 
+>2011	Statement	 
+>2012	Statement	 
+>2013	Statement	 
+>2014	Statement	 
+>2015	Statement	 
+>2016	Statement	 
+>2017	Statement	 
+>2018	IfStatement	if ( add_help_option ( ) )
+>2019	CompoundStatement	 
+>2020	ExpressionStatement	 
+>2021	CallExpression	_opts . splice ( _opts . begin ( ) , _opts , -- ( _opts . end ( ) ) )
+>2022	ArgumentList	_opts . begin ( )
+>2023	Argument	-- ( _opts . end ( ) )
+>2024	UnaryExpression	-- ( _opts . end ( ) )
+>2025	CallExpression	_opts . end ( )
+>2026	ArgumentList	 
+>2027	Callee	_opts . end
+>2028	MemberAccess	_opts . end
+>2029	Identifier	end
+>2030	Identifier	_opts
+>2031	IncDec	--
+>2032	Argument	_opts
+>2033	Identifier	_opts
+>2034	Argument	_opts . begin ( )
+>2035	CallExpression	_opts . begin ( )
+>2036	ArgumentList	 
+>2037	Callee	_opts . begin
+>2038	MemberAccess	_opts . begin
+>2039	Identifier	begin
+>2040	Identifier	_opts
+>2041	Callee	_opts . splice
+>2042	MemberAccess	_opts . splice
+>2043	Identifier	splice
+>2044	Identifier	_opts
+>2045	ExpressionStatement	 
+>2046	CallExpression	add_option ( \"-h\" , \"--help\" ) . action ( \"help\" ) . help ( _ ( \"show this help message and exit\" ) )
+>2047	ArgumentList	_ ( \"show this help message and exit\" )
+>2048	Argument	_ ( \"show this help message and exit\" )
+>2049	CallExpression	_ ( \"show this help message and exit\" )
+>2050	ArgumentList	\"show this help message and exit\"
+>2051	Argument	\"show this help message and exit\"
+>2052	PrimaryExpression	\"show this help message and exit\"
+>2053	Callee	_
+>2054	Identifier	_
+>2055	Callee	add_option ( \"-h\" , \"--help\" ) . action ( \"help\" ) . help
+>2056	MemberAccess	add_option ( \"-h\" , \"--help\" ) . action ( \"help\" ) . help
+>2057	Identifier	help
+>2058	CallExpression	add_option ( \"-h\" , \"--help\" ) . action ( \"help\" )
+>2059	ArgumentList	\"help\"
+>2060	Argument	\"help\"
+>2061	PrimaryExpression	\"help\"
+>2062	Callee	add_option ( \"-h\" , \"--help\" ) . action
+>2063	MemberAccess	add_option ( \"-h\" , \"--help\" ) . action
+>2064	Identifier	action
+>2065	CallExpression	add_option ( \"-h\" , \"--help\" )
+>2066	ArgumentList	\"-h\"
+>2067	Argument	\"--help\"
+>2068	PrimaryExpression	\"--help\"
+>2069	Argument	\"-h\"
+>2070	PrimaryExpression	\"-h\"
+>2071	Callee	add_option
+>2072	Identifier	add_option
+>2073	Condition	 
+>2074	CallExpression	add_help_option ( )
+>2075	ArgumentList	 
+>2076	Callee	add_help_option
+>2077	Identifier	add_help_option
+>2078	CompoundStatement	 
+>2079	ExpressionStatement	 
+>2080	CallExpression	_opts . splice ( _opts . begin ( ) , _opts , -- ( _opts . end ( ) ) )
+>2081	ArgumentList	_opts . begin ( )
+>2082	Argument	-- ( _opts . end ( ) )
+>2083	UnaryExpression	-- ( _opts . end ( ) )
+>2084	CallExpression	_opts . end ( )
+>2085	ArgumentList	 
+>2086	Callee	_opts . end
+>2087	MemberAccess	_opts . end
+>2088	Identifier	end
+>2089	Identifier	_opts
+>2090	IncDec	--
+>2091	Argument	_opts
+>2092	Identifier	_opts
+>2093	Argument	_opts . begin ( )
+>2094	CallExpression	_opts . begin ( )
+>2095	ArgumentList	 
+>2096	Callee	_opts . begin
+>2097	MemberAccess	_opts . begin
+>2098	Identifier	begin
+>2099	Identifier	_opts
+>2100	Callee	_opts . splice
+>2101	MemberAccess	_opts . splice
+>2102	Identifier	splice
+>2103	Identifier	_opts
+>2104	ExpressionStatement	 
+>2105	CallExpression	add_option ( \"--version\" ) . action ( \"version\" ) . help ( _ ( \"show program's version number and exit\" ) )
+>2106	ArgumentList	_ ( \"show program's version number and exit\" )
+>2107	Argument	_ ( \"show program's version number and exit\" )
+>2108	CallExpression	_ ( \"show program's version number and exit\" )
+>2109	ArgumentList	\"show program's version number and exit\"
+>2110	Argument	\"show program's version number and exit\"
+>2111	PrimaryExpression	\"show program's version number and exit\"
+>2112	Callee	_
+>2113	Identifier	_
+>2114	Callee	add_option ( \"--version\" ) . action ( \"version\" ) . help
+>2115	MemberAccess	add_option ( \"--version\" ) . action ( \"version\" ) . help
+>2116	Identifier	help
+>2117	CallExpression	add_option ( \"--version\" ) . action ( \"version\" )
+>2118	ArgumentList	\"version\"
+>2119	Argument	\"version\"
+>2120	PrimaryExpression	\"version\"
+>2121	Callee	add_option ( \"--version\" ) . action
+>2122	MemberAccess	add_option ( \"--version\" ) . action
+>2123	Identifier	action
+>2124	CallExpression	add_option ( \"--version\" )
+>2125	ArgumentList	\"--version\"
+>2126	Argument	\"--version\"
+>2127	PrimaryExpression	\"--version\"
+>2128	Callee	add_option
+>2129	Identifier	add_option
+>2130	Statement	 
+>2131	Statement	 
+>2132	Statement	 
+>2133	Statement	 
+>2134	Statement	 
+>2135	Statement	 
+>2136	Statement	 
+>2137	Statement	 
+>2138	Statement	 
+>2139	Statement	 
+>2140	Statement	 
+>2141	Statement	 
+>2142	ExpressionStatement	 
+>2143	CallExpression	_remaining . assign ( v . begin ( ) , v . end ( ) )
+>2144	ArgumentList	v . begin ( )
+>2145	Argument	v . end ( )
+>2146	CallExpression	v . end ( )
+>2147	ArgumentList	 
+>2148	Callee	v . end
+>2149	MemberAccess	v . end
+>2150	Identifier	end
+>2151	Identifier	v
+>2152	Argument	v . begin ( )
+>2153	CallExpression	v . begin ( )
+>2154	ArgumentList	 
+>2155	Callee	v . begin
+>2156	MemberAccess	v . begin
+>2157	Identifier	begin
+>2158	Identifier	v
+>2159	Callee	_remaining . assign
+>2160	MemberAccess	_remaining . assign
+>2161	Identifier	assign
+>2162	Identifier	_remaining
+>2197	FunctionDef	OptionParser 
+>2198	ParameterList	const Option & o , const string & opt , const string & value
+>2199	Parameter	 
+>2200	Identifier	value
+>2201	ParameterType	const string &
+>2202	Parameter	 
+>2203	Identifier	opt
+>2204	ParameterType	const string &
+>2205	Parameter	 
+>2206	Identifier	o
+>2207	ParameterType	const Option &
+>2208	ReturnType	void
+>2209	CompoundStatement	 
+>2210	IfStatement	if ( o . action ( ) == \"store\" )
+>2211	ElseStatement	else
+>2212	IfStatement	if ( o . action ( ) == \"store_const\" )
+>2213	ElseStatement	else
+>2214	IfStatement	if ( o . action ( ) == \"store_true\" )
+>2215	ElseStatement	else
+>2216	IfStatement	if ( o . action ( ) == \"store_false\" )
+>2217	ElseStatement	else
+>2218	IfStatement	if ( o . action ( ) == \"append\" )
+>2219	ElseStatement	else
+>2220	IfStatement	if ( o . action ( ) == \"append_const\" )
+>2221	ElseStatement	else
+>2222	IfStatement	if ( o . action ( ) == \"count\" )
+>2223	ElseStatement	else
+>2224	IfStatement	if ( o . action ( ) == \"help\" )
+>2225	ElseStatement	else
+>2226	IfStatement	if ( o . action ( ) == \"version\" )
+>2227	ElseStatement	else
+>2228	IfStatement	if ( o . action ( ) == \"callback\" && o . callback ( ) )
+>2229	CompoundStatement	 
+>2230	ExpressionStatement	 
+>2231	CallExpression	( * o . callback ( ) ) ( o , opt , value , * this )
+>2232	ArgumentList	o
+>2233	Argument	* this
+>2234	UnaryOp	* this
+>2235	Identifier	this
+>2236	UnaryOperator	*
+>2237	Argument	value
+>2238	Identifier	value
+>2239	Argument	opt
+>2240	Identifier	opt
+>2241	Argument	o
+>2242	Identifier	o
+>2243	Callee	* o . callback ( )
+>2244	UnaryOp	* o . callback ( )
+>2245	CallExpression	o . callback ( )
+>2246	ArgumentList	 
+>2247	Callee	o . callback
+>2248	MemberAccess	o . callback
+>2249	Identifier	callback
+>2250	Identifier	o
+>2251	UnaryOperator	*
+>2252	Condition	 
+>2253	AndExpression	o . action ( ) == \"callback\" && o . callback ( )
+>2254	CallExpression	o . callback ( )
+>2255	ArgumentList	 
+>2256	Callee	o . callback
+>2257	MemberAccess	o . callback
+>2258	Identifier	callback
+>2259	Identifier	o
+>2260	EqualityExpression	o . action ( ) == \"callback\"
+>2261	PrimaryExpression	\"callback\"
+>2262	CallExpression	o . action ( )
+>2263	ArgumentList	 
+>2264	Callee	o . action
+>2265	MemberAccess	o . action
+>2266	Identifier	action
+>2267	Identifier	o
+>2268	CompoundStatement	 
+>2269	ExpressionStatement	 
+>2270	CallExpression	std 
+>2271	ArgumentList	0
+>2272	Argument	0
+>2273	PrimaryExpression	0
+>2274	Callee	std 
+>2275	Identifier	std 
+>2276	ExpressionStatement	 
+>2277	CallExpression	print_version ( )
+>2278	ArgumentList	 
+>2279	Callee	print_version
+>2280	Identifier	print_version
+>2281	Condition	 
+>2282	EqualityExpression	o . action ( ) == \"version\"
+>2283	PrimaryExpression	\"version\"
+>2284	CallExpression	o . action ( )
+>2285	ArgumentList	 
+>2286	Callee	o . action
+>2287	MemberAccess	o . action
+>2288	Identifier	action
+>2289	Identifier	o
+>2290	CompoundStatement	 
+>2291	ExpressionStatement	 
+>2292	CallExpression	std 
+>2293	ArgumentList	0
+>2294	Argument	0
+>2295	PrimaryExpression	0
+>2296	Callee	std 
+>2297	Identifier	std 
+>2298	ExpressionStatement	 
+>2299	CallExpression	print_help ( )
+>2300	ArgumentList	 
+>2301	Callee	print_help
+>2302	Identifier	print_help
+>2303	Condition	 
+>2304	EqualityExpression	o . action ( ) == \"help\"
+>2305	PrimaryExpression	\"help\"
+>2306	CallExpression	o . action ( )
+>2307	ArgumentList	 
+>2308	Callee	o . action
+>2309	MemberAccess	o . action
+>2310	Identifier	action
+>2311	Identifier	o
+>2312	CompoundStatement	 
+>2313	ExpressionStatement	 
+>2314	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2315	ArgumentList	o . dest ( )
+>2316	Argument	true
+>2317	Identifier	true
+>2318	Argument	o . dest ( )
+>2319	CallExpression	o . dest ( )
+>2320	ArgumentList	 
+>2321	Callee	o . dest
+>2322	MemberAccess	o . dest
+>2323	Identifier	dest
+>2324	Identifier	o
+>2325	Callee	_values . is_set_by_user
+>2326	MemberAccess	_values . is_set_by_user
+>2327	Identifier	is_set_by_user
+>2328	Identifier	_values
+>2329	ExpressionStatement	 
+>2330	AssignmentExpr	_values [ o . dest ( ) ] = str_inc ( _values [ o . dest ( ) ] )
+>2331	CallExpression	str_inc ( _values [ o . dest ( ) ] )
+>2332	ArgumentList	_values [ o . dest ( ) ]
+>2333	Argument	_values [ o . dest ( ) ]
+>2334	ArrayIndexing	_values [ o . dest ( ) ]
+>2335	CallExpression	o . dest ( )
+>2336	ArgumentList	 
+>2337	Callee	o . dest
+>2338	MemberAccess	o . dest
+>2339	Identifier	dest
+>2340	Identifier	o
+>2341	Identifier	_values
+>2342	Callee	str_inc
+>2343	Identifier	str_inc
+>2344	ArrayIndexing	_values [ o . dest ( ) ]
+>2345	CallExpression	o . dest ( )
+>2346	ArgumentList	 
+>2347	Callee	o . dest
+>2348	MemberAccess	o . dest
+>2349	Identifier	dest
+>2350	Identifier	o
+>2351	Identifier	_values
+>2352	Condition	 
+>2353	EqualityExpression	o . action ( ) == \"count\"
+>2354	PrimaryExpression	\"count\"
+>2355	CallExpression	o . action ( )
+>2356	ArgumentList	 
+>2357	Callee	o . action
+>2358	MemberAccess	o . action
+>2359	Identifier	action
+>2360	Identifier	o
+>2361	CompoundStatement	 
+>2362	ExpressionStatement	 
+>2363	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2364	ArgumentList	o . dest ( )
+>2365	Argument	true
+>2366	Identifier	true
+>2367	Argument	o . dest ( )
+>2368	CallExpression	o . dest ( )
+>2369	ArgumentList	 
+>2370	Callee	o . dest
+>2371	MemberAccess	o . dest
+>2372	Identifier	dest
+>2373	Identifier	o
+>2374	Callee	_values . is_set_by_user
+>2375	MemberAccess	_values . is_set_by_user
+>2376	Identifier	is_set_by_user
+>2377	Identifier	_values
+>2378	ExpressionStatement	 
+>2379	CallExpression	_values . all ( o . dest ( ) ) . push_back ( o . get_const ( ) )
+>2380	ArgumentList	o . get_const ( )
+>2381	Argument	o . get_const ( )
+>2382	CallExpression	o . get_const ( )
+>2383	ArgumentList	 
+>2384	Callee	o . get_const
+>2385	MemberAccess	o . get_const
+>2386	Identifier	get_const
+>2387	Identifier	o
+>2388	Callee	_values . all ( o . dest ( ) ) . push_back
+>2389	MemberAccess	_values . all ( o . dest ( ) ) . push_back
+>2390	Identifier	push_back
+>2391	CallExpression	_values . all ( o . dest ( ) )
+>2392	ArgumentList	o . dest ( )
+>2393	Argument	o . dest ( )
+>2394	CallExpression	o . dest ( )
+>2395	ArgumentList	 
+>2396	Callee	o . dest
+>2397	MemberAccess	o . dest
+>2398	Identifier	dest
+>2399	Identifier	o
+>2400	Callee	_values . all
+>2401	MemberAccess	_values . all
+>2402	Identifier	all
+>2403	Identifier	_values
+>2404	ExpressionStatement	 
+>2405	AssignmentExpr	_values [ o . dest ( ) ] = o . get_const ( )
+>2406	CallExpression	o . get_const ( )
+>2407	ArgumentList	 
+>2408	Callee	o . get_const
+>2409	MemberAccess	o . get_const
+>2410	Identifier	get_const
+>2411	Identifier	o
+>2412	ArrayIndexing	_values [ o . dest ( ) ]
+>2413	CallExpression	o . dest ( )
+>2414	ArgumentList	 
+>2415	Callee	o . dest
+>2416	MemberAccess	o . dest
+>2417	Identifier	dest
+>2418	Identifier	o
+>2419	Identifier	_values
+>2420	Condition	 
+>2421	EqualityExpression	o . action ( ) == \"append_const\"
+>2422	PrimaryExpression	\"append_const\"
+>2423	CallExpression	o . action ( )
+>2424	ArgumentList	 
+>2425	Callee	o . action
+>2426	MemberAccess	o . action
+>2427	Identifier	action
+>2428	Identifier	o
+>2429	CompoundStatement	 
+>2430	ExpressionStatement	 
+>2431	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2432	ArgumentList	o . dest ( )
+>2433	Argument	true
+>2434	Identifier	true
+>2435	Argument	o . dest ( )
+>2436	CallExpression	o . dest ( )
+>2437	ArgumentList	 
+>2438	Callee	o . dest
+>2439	MemberAccess	o . dest
+>2440	Identifier	dest
+>2441	Identifier	o
+>2442	Callee	_values . is_set_by_user
+>2443	MemberAccess	_values . is_set_by_user
+>2444	Identifier	is_set_by_user
+>2445	Identifier	_values
+>2446	ExpressionStatement	 
+>2447	CallExpression	_values . all ( o . dest ( ) ) . push_back ( value )
+>2448	ArgumentList	value
+>2449	Argument	value
+>2450	Identifier	value
+>2451	Callee	_values . all ( o . dest ( ) ) . push_back
+>2452	MemberAccess	_values . all ( o . dest ( ) ) . push_back
+>2453	Identifier	push_back
+>2454	CallExpression	_values . all ( o . dest ( ) )
+>2455	ArgumentList	o . dest ( )
+>2456	Argument	o . dest ( )
+>2457	CallExpression	o . dest ( )
+>2458	ArgumentList	 
+>2459	Callee	o . dest
+>2460	MemberAccess	o . dest
+>2461	Identifier	dest
+>2462	Identifier	o
+>2463	Callee	_values . all
+>2464	MemberAccess	_values . all
+>2465	Identifier	all
+>2466	Identifier	_values
+>2467	ExpressionStatement	 
+>2468	AssignmentExpr	_values [ o . dest ( ) ] = value
+>2469	Identifier	value
+>2470	ArrayIndexing	_values [ o . dest ( ) ]
+>2471	CallExpression	o . dest ( )
+>2472	ArgumentList	 
+>2473	Callee	o . dest
+>2474	MemberAccess	o . dest
+>2475	Identifier	dest
+>2476	Identifier	o
+>2477	Identifier	_values
+>2478	IfStatement	if ( err != \"\" )
+>2479	ExpressionStatement	 
+>2480	CallExpression	error ( err )
+>2481	ArgumentList	err
+>2482	Argument	err
+>2483	Identifier	err
+>2484	Callee	error
+>2485	Identifier	error
+>2486	Condition	 
+>2487	EqualityExpression	err != \"\"
+>2488	PrimaryExpression	\"\"
+>2489	Identifier	err
+>2490	IdentifierDeclStatement	 
+>2491	IdentifierDecl	err = o . check_type ( opt , value )
+>2492	AssignmentExpr	err = o . check_type ( opt , value )
+>2493	CallExpression	o . check_type ( opt , value )
+>2494	ArgumentList	opt
+>2495	Argument	value
+>2496	Identifier	value
+>2497	Argument	opt
+>2498	Identifier	opt
+>2499	Callee	o . check_type
+>2500	MemberAccess	o . check_type
+>2501	Identifier	check_type
+>2502	Identifier	o
+>2503	Identifier	err
+>2504	Identifier	err
+>2505	IdentifierDeclType	string
+>2506	Condition	 
+>2507	EqualityExpression	o . action ( ) == \"append\"
+>2508	PrimaryExpression	\"append\"
+>2509	CallExpression	o . action ( )
+>2510	ArgumentList	 
+>2511	Callee	o . action
+>2512	MemberAccess	o . action
+>2513	Identifier	action
+>2514	Identifier	o
+>2515	CompoundStatement	 
+>2516	ExpressionStatement	 
+>2517	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2518	ArgumentList	o . dest ( )
+>2519	Argument	true
+>2520	Identifier	true
+>2521	Argument	o . dest ( )
+>2522	CallExpression	o . dest ( )
+>2523	ArgumentList	 
+>2524	Callee	o . dest
+>2525	MemberAccess	o . dest
+>2526	Identifier	dest
+>2527	Identifier	o
+>2528	Callee	_values . is_set_by_user
+>2529	MemberAccess	_values . is_set_by_user
+>2530	Identifier	is_set_by_user
+>2531	Identifier	_values
+>2532	ExpressionStatement	 
+>2533	AssignmentExpr	_values [ o . dest ( ) ] = \"0\"
+>2534	PrimaryExpression	\"0\"
+>2535	ArrayIndexing	_values [ o . dest ( ) ]
+>2536	CallExpression	o . dest ( )
+>2537	ArgumentList	 
+>2538	Callee	o . dest
+>2539	MemberAccess	o . dest
+>2540	Identifier	dest
+>2541	Identifier	o
+>2542	Identifier	_values
+>2543	Condition	 
+>2544	EqualityExpression	o . action ( ) == \"store_false\"
+>2545	PrimaryExpression	\"store_false\"
+>2546	CallExpression	o . action ( )
+>2547	ArgumentList	 
+>2548	Callee	o . action
+>2549	MemberAccess	o . action
+>2550	Identifier	action
+>2551	Identifier	o
+>2552	CompoundStatement	 
+>2553	ExpressionStatement	 
+>2554	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2555	ArgumentList	o . dest ( )
+>2556	Argument	true
+>2557	Identifier	true
+>2558	Argument	o . dest ( )
+>2559	CallExpression	o . dest ( )
+>2560	ArgumentList	 
+>2561	Callee	o . dest
+>2562	MemberAccess	o . dest
+>2563	Identifier	dest
+>2564	Identifier	o
+>2565	Callee	_values . is_set_by_user
+>2566	MemberAccess	_values . is_set_by_user
+>2567	Identifier	is_set_by_user
+>2568	Identifier	_values
+>2569	ExpressionStatement	 
+>2570	AssignmentExpr	_values [ o . dest ( ) ] = \"1\"
+>2571	PrimaryExpression	\"1\"
+>2572	ArrayIndexing	_values [ o . dest ( ) ]
+>2573	CallExpression	o . dest ( )
+>2574	ArgumentList	 
+>2575	Callee	o . dest
+>2576	MemberAccess	o . dest
+>2577	Identifier	dest
+>2578	Identifier	o
+>2579	Identifier	_values
+>2580	Condition	 
+>2581	EqualityExpression	o . action ( ) == \"store_true\"
+>2582	PrimaryExpression	\"store_true\"
+>2583	CallExpression	o . action ( )
+>2584	ArgumentList	 
+>2585	Callee	o . action
+>2586	MemberAccess	o . action
+>2587	Identifier	action
+>2588	Identifier	o
+>2589	CompoundStatement	 
+>2590	ExpressionStatement	 
+>2591	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2592	ArgumentList	o . dest ( )
+>2593	Argument	true
+>2594	Identifier	true
+>2595	Argument	o . dest ( )
+>2596	CallExpression	o . dest ( )
+>2597	ArgumentList	 
+>2598	Callee	o . dest
+>2599	MemberAccess	o . dest
+>2600	Identifier	dest
+>2601	Identifier	o
+>2602	Callee	_values . is_set_by_user
+>2603	MemberAccess	_values . is_set_by_user
+>2604	Identifier	is_set_by_user
+>2605	Identifier	_values
+>2606	ExpressionStatement	 
+>2607	AssignmentExpr	_values [ o . dest ( ) ] = o . get_const ( )
+>2608	CallExpression	o . get_const ( )
+>2609	ArgumentList	 
+>2610	Callee	o . get_const
+>2611	MemberAccess	o . get_const
+>2612	Identifier	get_const
+>2613	Identifier	o
+>2614	ArrayIndexing	_values [ o . dest ( ) ]
+>2615	CallExpression	o . dest ( )
+>2616	ArgumentList	 
+>2617	Callee	o . dest
+>2618	MemberAccess	o . dest
+>2619	Identifier	dest
+>2620	Identifier	o
+>2621	Identifier	_values
+>2622	Condition	 
+>2623	EqualityExpression	o . action ( ) == \"store_const\"
+>2624	PrimaryExpression	\"store_const\"
+>2625	CallExpression	o . action ( )
+>2626	ArgumentList	 
+>2627	Callee	o . action
+>2628	MemberAccess	o . action
+>2629	Identifier	action
+>2630	Identifier	o
+>2631	CompoundStatement	 
+>2632	ExpressionStatement	 
+>2633	CallExpression	_values . is_set_by_user ( o . dest ( ) , true )
+>2634	ArgumentList	o . dest ( )
+>2635	Argument	true
+>2636	Identifier	true
+>2637	Argument	o . dest ( )
+>2638	CallExpression	o . dest ( )
+>2639	ArgumentList	 
+>2640	Callee	o . dest
+>2641	MemberAccess	o . dest
+>2642	Identifier	dest
+>2643	Identifier	o
+>2644	Callee	_values . is_set_by_user
+>2645	MemberAccess	_values . is_set_by_user
+>2646	Identifier	is_set_by_user
+>2647	Identifier	_values
+>2648	ExpressionStatement	 
+>2649	AssignmentExpr	_values [ o . dest ( ) ] = value
+>2650	Identifier	value
+>2651	ArrayIndexing	_values [ o . dest ( ) ]
+>2652	CallExpression	o . dest ( )
+>2653	ArgumentList	 
+>2654	Callee	o . dest
+>2655	MemberAccess	o . dest
+>2656	Identifier	dest
+>2657	Identifier	o
+>2658	Identifier	_values
+>2659	IfStatement	if ( err != \"\" )
+>2660	ExpressionStatement	 
+>2661	CallExpression	error ( err )
+>2662	ArgumentList	err
+>2663	Argument	err
+>2664	Identifier	err
+>2665	Callee	error
+>2666	Identifier	error
+>2667	Condition	 
+>2668	EqualityExpression	err != \"\"
+>2669	PrimaryExpression	\"\"
+>2670	Identifier	err
+>2671	IdentifierDeclStatement	 
+>2672	IdentifierDecl	err = o . check_type ( opt , value )
+>2673	AssignmentExpr	err = o . check_type ( opt , value )
+>2674	CallExpression	o . check_type ( opt , value )
+>2675	ArgumentList	opt
+>2676	Argument	value
+>2677	Identifier	value
+>2678	Argument	opt
+>2679	Identifier	opt
+>2680	Callee	o . check_type
+>2681	MemberAccess	o . check_type
+>2682	Identifier	check_type
+>2683	Identifier	o
+>2684	Identifier	err
+>2685	Identifier	err
+>2686	IdentifierDeclType	string
+>2687	Condition	 
+>2688	EqualityExpression	o . action ( ) == \"store\"
+>2689	PrimaryExpression	\"store\"
+>2690	CallExpression	o . action ( )
+>2691	ArgumentList	 
+>2692	Callee	o . action
+>2693	MemberAccess	o . action
+>2694	Identifier	action
+>2695	Identifier	o
+>2717	FunctionDef	OptionParser 
+>2718	ParameterList	unsigned int indent
+>2719	Parameter	 
+>2720	Identifier	indent
+>2721	ParameterType	unsigned int
+>2722	ReturnType	string
+>2723	CompoundStatement	 
+>2724	ReturnStatement	 
+>2725	CallExpression	ss . str ( )
+>2726	ArgumentList	 
+>2727	Callee	ss . str
+>2728	MemberAccess	ss . str
+>2729	Identifier	str
+>2730	Identifier	ss
+>2731	ForStatement	for ( list < Option > 
+>2732	CompoundStatement	 
+>2733	IfStatement	if ( it -> help ( ) != SUPPRESS_HELP )
+>2734	ExpressionStatement	 
+>2735	ShiftExpression	ss << it -> format_help ( indent )
+>2736	CallExpression	it -> format_help ( indent )
+>2737	ArgumentList	indent
+>2738	Argument	indent
+>2739	Identifier	indent
+>2740	Callee	it -> format_help
+>2741	PtrMemberAccess	it -> format_help
+>2742	Identifier	format_help
+>2743	Identifier	it
+>2744	Identifier	ss
+>2745	Condition	 
+>2746	EqualityExpression	it -> help ( ) != SUPPRESS_HELP
+>2747	Identifier	SUPPRESS_HELP
+>2748	CallExpression	it -> help ( )
+>2749	ArgumentList	 
+>2750	Callee	it -> help
+>2751	PtrMemberAccess	it -> help
+>2752	Identifier	help
+>2753	Identifier	it
+>2754	UnaryExpression	 
+>2755	Identifier	it
+>2756	IncDec	++
+>2757	Condition	 
+>2758	EqualityExpression	it != _opts . end ( )
+>2759	CallExpression	_opts . end ( )
+>2760	ArgumentList	 
+>2761	Callee	_opts . end
+>2762	MemberAccess	_opts . end
+>2763	Identifier	end
+>2764	Identifier	_opts
+>2765	Identifier	it
+>2766	ForInit	 
+>2767	IdentifierDeclStatement	list < Option > 
+>2768	IdentifierDecl	it = _opts . begin ( )
+>2769	AssignmentExpr	it = _opts . begin ( )
+>2770	CallExpression	_opts . begin ( )
+>2771	ArgumentList	 
+>2772	Callee	_opts . begin
+>2773	MemberAccess	_opts . begin
+>2774	Identifier	begin
+>2775	Identifier	_opts
+>2776	Identifier	it
+>2777	Identifier	it
+>2778	IdentifierDeclType	list < Option > 
+>2779	IfStatement	if ( _opts . empty ( ) )
+>2780	ReturnStatement	 
+>2781	CallExpression	ss . str ( )
+>2782	ArgumentList	 
+>2783	Callee	ss . str
+>2784	MemberAccess	ss . str
+>2785	Identifier	str
+>2786	Identifier	ss
+>2787	Condition	 
+>2788	CallExpression	_opts . empty ( )
+>2789	ArgumentList	 
+>2790	Callee	_opts . empty
+>2791	MemberAccess	_opts . empty
+>2792	Identifier	empty
+>2793	Identifier	_opts
+>2794	IdentifierDeclStatement	 
+>2795	IdentifierDecl	ss
+>2796	Identifier	ss
+>2797	IdentifierDeclType	stringstream
+>2812	FunctionDef	OptionParser 
+>2813	ParameterList	 
+>2814	ReturnType	string
+>2815	CompoundStatement	 
+>2816	ReturnStatement	 
+>2817	CallExpression	ss . str ( )
+>2818	ArgumentList	 
+>2819	Callee	ss . str
+>2820	MemberAccess	ss . str
+>2821	Identifier	str
+>2822	Identifier	ss
+>2823	IfStatement	if ( epilog ( ) != \"\" )
+>2824	ExpressionStatement	 
+>2825	ShiftExpression	ss << endl << str_format ( epilog ( ) , 0 , cols ( ) )
+>2826	ShiftExpression	endl << str_format ( epilog ( ) , 0 , cols ( ) )
+>2827	CallExpression	str_format ( epilog ( ) , 0 , cols ( ) )
+>2828	ArgumentList	epilog ( )
+>2829	Argument	cols ( )
+>2830	CallExpression	cols ( )
+>2831	ArgumentList	 
+>2832	Callee	cols
+>2833	Identifier	cols
+>2834	Argument	0
+>2835	PrimaryExpression	0
+>2836	Argument	epilog ( )
+>2837	CallExpression	epilog ( )
+>2838	ArgumentList	 
+>2839	Callee	epilog
+>2840	Identifier	epilog
+>2841	Callee	str_format
+>2842	Identifier	str_format
+>2843	Identifier	endl
+>2844	Identifier	ss
+>2845	Condition	 
+>2846	EqualityExpression	epilog ( ) != \"\"
+>2847	PrimaryExpression	\"\"
+>2848	CallExpression	epilog ( )
+>2849	ArgumentList	 
+>2850	Callee	epilog
+>2851	Identifier	epilog
+>2852	ForStatement	for ( list < OptionGroup const * > 
+>2853	CompoundStatement	 
+>2854	ExpressionStatement	 
+>2855	ShiftExpression	ss << group . format_option_help ( 4 )
+>2856	CallExpression	group . format_option_help ( 4 )
+>2857	ArgumentList	4
+>2858	Argument	4
+>2859	PrimaryExpression	4
+>2860	Callee	group . format_option_help
+>2861	MemberAccess	group . format_option_help
+>2862	Identifier	format_option_help
+>2863	Identifier	group
+>2864	Identifier	ss
+>2865	IfStatement	if ( group . group_description ( ) != \"\" )
+>2866	ExpressionStatement	 
+>2867	ShiftExpression	ss << str_format ( group . group_description ( ) , 4 , cols ( ) ) << endl
+>2868	ShiftExpression	str_format ( group . group_description ( ) , 4 , cols ( ) ) << endl
+>2869	Identifier	endl
+>2870	CallExpression	str_format ( group . group_description ( ) , 4 , cols ( ) )
+>2871	ArgumentList	group . group_description ( )
+>2872	Argument	cols ( )
+>2873	CallExpression	cols ( )
+>2874	ArgumentList	 
+>2875	Callee	cols
+>2876	Identifier	cols
+>2877	Argument	4
+>2878	PrimaryExpression	4
+>2879	Argument	group . group_description ( )
+>2880	CallExpression	group . group_description ( )
+>2881	ArgumentList	 
+>2882	Callee	group . group_description
+>2883	MemberAccess	group . group_description
+>2884	Identifier	group_description
+>2885	Identifier	group
+>2886	Callee	str_format
+>2887	Identifier	str_format
+>2888	Identifier	ss
+>2889	Condition	 
+>2890	EqualityExpression	group . group_description ( ) != \"\"
+>2891	PrimaryExpression	\"\"
+>2892	CallExpression	group . group_description ( )
+>2893	ArgumentList	 
+>2894	Callee	group . group_description
+>2895	MemberAccess	group . group_description
+>2896	Identifier	group_description
+>2897	Identifier	group
+>2898	ExpressionStatement	 
+>2899	ShiftExpression	ss << endl << \"  \" << group . title ( ) << \"
+>2900	ShiftExpression	endl << \"  \" << group . title ( ) << \"
+>2901	ShiftExpression	\"  \" << group . title ( ) << \"
+>2902	ShiftExpression	group . title ( ) << \"
+>2903	ShiftExpression	\"
+>2904	Identifier	endl
+>2905	PrimaryExpression	\"
+>2906	CallExpression	group . title ( )
+>2907	ArgumentList	 
+>2908	Callee	group . title
+>2909	MemberAccess	group . title
+>2910	Identifier	title
+>2911	Identifier	group
+>2912	PrimaryExpression	\"  \"
+>2913	Identifier	endl
+>2914	Identifier	ss
+>2915	IdentifierDeclStatement	 
+>2916	IdentifierDecl	& group = * * it
+>2917	AssignmentExpr	& group = * * it
+>2918	UnaryOp	* * it
+>2919	UnaryOp	* it
+>2920	Identifier	it
+>2921	UnaryOperator	*
+>2922	UnaryOperator	*
+>2923	Identifier	group
+>2924	Identifier	group
+>2925	IdentifierDeclType	const OptionGroup &
+>2926	UnaryExpression	 
+>2927	Identifier	it
+>2928	IncDec	++
+>2929	Condition	 
+>2930	EqualityExpression	it != _groups . end ( )
+>2931	CallExpression	_groups . end ( )
+>2932	ArgumentList	 
+>2933	Callee	_groups . end
+>2934	MemberAccess	_groups . end
+>2935	Identifier	end
+>2936	Identifier	_groups
+>2937	Identifier	it
+>2938	ForInit	 
+>2939	IdentifierDeclStatement	list < OptionGroup const * > 
+>2940	IdentifierDecl	it = _groups . begin ( )
+>2941	AssignmentExpr	it = _groups . begin ( )
+>2942	CallExpression	_groups . begin ( )
+>2943	ArgumentList	 
+>2944	Callee	_groups . begin
+>2945	MemberAccess	_groups . begin
+>2946	Identifier	begin
+>2947	Identifier	_groups
+>2948	Identifier	it
+>2949	Identifier	it
+>2950	IdentifierDeclType	list < OptionGroup const * > 
+>2951	ExpressionStatement	 
+>2952	ShiftExpression	ss << format_option_help ( )
+>2953	CallExpression	format_option_help ( )
+>2954	ArgumentList	 
+>2955	Callee	format_option_help
+>2956	Identifier	format_option_help
+>2957	Identifier	ss
+>2958	ExpressionStatement	 
+>2959	ShiftExpression	ss << _ ( \"Options\" ) << \"
+>2960	ShiftExpression	_ ( \"Options\" ) << \"
+>2961	ShiftExpression	\"
+>2962	Identifier	endl
+>2963	PrimaryExpression	\"
+>2964	CallExpression	_ ( \"Options\" )
+>2965	ArgumentList	\"Options\"
+>2966	Argument	\"Options\"
+>2967	PrimaryExpression	\"Options\"
+>2968	Callee	_
+>2969	Identifier	_
+>2970	Identifier	ss
+>2971	IfStatement	if ( description ( ) != \"\" )
+>2972	ExpressionStatement	 
+>2973	ShiftExpression	ss << str_format ( description ( ) , 0 , cols ( ) ) << endl
+>2974	ShiftExpression	str_format ( description ( ) , 0 , cols ( ) ) << endl
+>2975	Identifier	endl
+>2976	CallExpression	str_format ( description ( ) , 0 , cols ( ) )
+>2977	ArgumentList	description ( )
+>2978	Argument	cols ( )
+>2979	CallExpression	cols ( )
+>2980	ArgumentList	 
+>2981	Callee	cols
+>2982	Identifier	cols
+>2983	Argument	0
+>2984	PrimaryExpression	0
+>2985	Argument	description ( )
+>2986	CallExpression	description ( )
+>2987	ArgumentList	 
+>2988	Callee	description
+>2989	Identifier	description
+>2990	Callee	str_format
+>2991	Identifier	str_format
+>2992	Identifier	ss
+>2993	Condition	 
+>2994	EqualityExpression	description ( ) != \"\"
+>2995	PrimaryExpression	\"\"
+>2996	CallExpression	description ( )
+>2997	ArgumentList	 
+>2998	Callee	description
+>2999	Identifier	description
+>3000	IfStatement	if ( usage ( ) != SUPPRESS_USAGE )
+>3001	ExpressionStatement	 
+>3002	ShiftExpression	ss << get_usage ( ) << endl
+>3003	ShiftExpression	get_usage ( ) << endl
+>3004	Identifier	endl
+>3005	CallExpression	get_usage ( )
+>3006	ArgumentList	 
+>3007	Callee	get_usage
+>3008	Identifier	get_usage
+>3009	Identifier	ss
+>3010	Condition	 
+>3011	EqualityExpression	usage ( ) != SUPPRESS_USAGE
+>3012	Identifier	SUPPRESS_USAGE
+>3013	CallExpression	usage ( )
+>3014	ArgumentList	 
+>3015	Callee	usage
+>3016	Identifier	usage
+>3017	IdentifierDeclStatement	 
+>3018	IdentifierDecl	ss
+>3019	Identifier	ss
+>3020	IdentifierDeclType	stringstream
+>3039	FunctionDef	OptionParser 
+>3040	ParameterList	 
+>3041	ReturnType	void
+>3042	CompoundStatement	 
+>3043	ExpressionStatement	 
+>3044	ShiftExpression	cout << format_help ( )
+>3045	CallExpression	format_help ( )
+>3046	ArgumentList	 
+>3047	Callee	format_help
+>3048	Identifier	format_help
+>3049	Identifier	cout
+>3053	FunctionDef	OptionParser 
+>3054	ParameterList	const string & u
+>3055	Parameter	 
+>3056	Identifier	u
+>3057	ParameterType	const string &
+>3058	ReturnType	void
+>3059	CompoundStatement	 
+>3060	IfStatement	if ( lower . compare ( 0 , 7 , \"usage
+>3061	ElseStatement	else
+>3062	ExpressionStatement	 
+>3063	AssignmentExpr	_usage = u
+>3064	Identifier	u
+>3065	Identifier	_usage
+>3066	ExpressionStatement	 
+>3067	AssignmentExpr	_usage = u . substr ( 7 )
+>3068	CallExpression	u . substr ( 7 )
+>3069	ArgumentList	7
+>3070	Argument	7
+>3071	PrimaryExpression	7
+>3072	Callee	u . substr
+>3073	MemberAccess	u . substr
+>3074	Identifier	substr
+>3075	Identifier	u
+>3076	Identifier	_usage
+>3077	Condition	 
+>3078	EqualityExpression	lower . compare ( 0 , 7 , \"usage
+>3079	PrimaryExpression	0
+>3080	CallExpression	lower . compare ( 0 , 7 , \"usage
+>3081	ArgumentList	0
+>3082	Argument	\"usage
+>3083	PrimaryExpression	\"usage
+>3084	Argument	7
+>3085	PrimaryExpression	7
+>3086	Argument	0
+>3087	PrimaryExpression	0
+>3088	Callee	lower . compare
+>3089	MemberAccess	lower . compare
+>3090	Identifier	compare
+>3091	Identifier	lower
+>3092	ExpressionStatement	 
+>3093	Statement	 
+>3094	Statement	 
+>3095	Statement	 
+>3096	Statement	 
+>3097	Statement	 
+>3098	Statement	 
+>3099	Statement	 
+>3100	Statement	 
+>3101	Statement	 
+>3102	Statement	 
+>3103	Statement	 
+>3104	Statement	 
+>3105	Statement	 
+>3106	Statement	 
+>3107	Statement	 
+>3108	Statement	 
+>3109	Statement	 
+>3110	Statement	 
+>3111	Statement	 
+>3112	Statement	 
+>3113	Statement	 
+>3114	Statement	 
+>3115	Statement	 
+>3116	IdentifierDeclStatement	 
+>3117	IdentifierDecl	lower = u
+>3118	AssignmentExpr	lower = u
+>3119	Identifier	u
+>3120	Identifier	u
+>3121	Identifier	lower
+>3122	IdentifierDeclType	string
+>3131	FunctionDef	OptionParser 
+>3132	ParameterList	const string & u
+>3133	Parameter	 
+>3134	Identifier	u
+>3135	ParameterType	const string &
+>3136	ReturnType	string
+>3137	CompoundStatement	 
+>3138	ReturnStatement	 
+>3139	CallExpression	ss . str ( )
+>3140	ArgumentList	 
+>3141	Callee	ss . str
+>3142	MemberAccess	ss . str
+>3143	Identifier	str
+>3144	Identifier	ss
+>3145	ExpressionStatement	 
+>3146	ShiftExpression	ss << _ ( \"Usage\" ) << \"
+>3147	ShiftExpression	_ ( \"Usage\" ) << \"
+>3148	ShiftExpression	\"
+>3149	ShiftExpression	u << endl
+>3150	Identifier	endl
+>3151	Identifier	u
+>3152	PrimaryExpression	\"
+>3153	CallExpression	_ ( \"Usage\" )
+>3154	ArgumentList	\"Usage\"
+>3155	Argument	\"Usage\"
+>3156	PrimaryExpression	\"Usage\"
+>3157	Callee	_
+>3158	Identifier	_
+>3159	Identifier	ss
+>3160	IdentifierDeclStatement	 
+>3161	IdentifierDecl	ss
+>3162	Identifier	ss
+>3163	IdentifierDeclType	stringstream
+>3170	FunctionDef	OptionParser 
+>3171	ParameterList	 
+>3172	ReturnType	string
+>3173	CompoundStatement	 
+>3174	ReturnStatement	 
+>3175	CallExpression	format_usage ( str_replace ( usage ( ) , \"%prog\" , prog ( ) ) )
+>3176	ArgumentList	str_replace ( usage ( ) , \"%prog\" , prog ( ) )
+>3177	Argument	str_replace ( usage ( ) , \"%prog\" , prog ( ) )
+>3178	CallExpression	str_replace ( usage ( ) , \"%prog\" , prog ( ) )
+>3179	ArgumentList	usage ( )
+>3180	Argument	prog ( )
+>3181	CallExpression	prog ( )
+>3182	ArgumentList	 
+>3183	Callee	prog
+>3184	Identifier	prog
+>3185	Argument	\"%prog\"
+>3186	PrimaryExpression	\"%prog\"
+>3187	Argument	usage ( )
+>3188	CallExpression	usage ( )
+>3189	ArgumentList	 
+>3190	Callee	usage
+>3191	Identifier	usage
+>3192	Callee	str_replace
+>3193	Identifier	str_replace
+>3194	Callee	format_usage
+>3195	Identifier	format_usage
+>3196	IfStatement	if ( usage ( ) == SUPPRESS_USAGE )
+>3197	ReturnStatement	 
+>3198	CallExpression	string ( \"\" )
+>3199	ArgumentList	\"\"
+>3200	Argument	\"\"
+>3201	PrimaryExpression	\"\"
+>3202	Callee	string
+>3203	Identifier	string
+>3204	Condition	 
+>3205	EqualityExpression	usage ( ) == SUPPRESS_USAGE
+>3206	Identifier	SUPPRESS_USAGE
+>3207	CallExpression	usage ( )
+>3208	ArgumentList	 
+>3209	Callee	usage
+>3210	Identifier	usage
+>3220	FunctionDef	OptionParser 
+>3221	ParameterList	ostream & out
+>3222	Parameter	 
+>3223	Identifier	out
+>3224	ParameterType	ostream &
+>3225	ReturnType	void
+>3226	CompoundStatement	 
+>3227	IfStatement	if ( u != \"\" )
+>3228	ExpressionStatement	 
+>3229	ShiftExpression	out << u << endl
+>3230	ShiftExpression	u << endl
+>3231	Identifier	endl
+>3232	Identifier	u
+>3233	Identifier	out
+>3234	Condition	 
+>3235	EqualityExpression	u != \"\"
+>3236	PrimaryExpression	\"\"
+>3237	Identifier	u
+>3238	IdentifierDeclStatement	 
+>3239	IdentifierDecl	u = get_usage ( )
+>3240	AssignmentExpr	u = get_usage ( )
+>3241	CallExpression	get_usage ( )
+>3242	ArgumentList	 
+>3243	Callee	get_usage
+>3244	Identifier	get_usage
+>3245	Identifier	u
+>3246	Identifier	u
+>3247	IdentifierDeclType	string
+>3254	FunctionDef	OptionParser 
+>3255	ParameterList	 
+>3256	ReturnType	void
+>3257	CompoundStatement	 
+>3258	ExpressionStatement	 
+>3259	CallExpression	print_usage ( cout )
+>3260	ArgumentList	cout
+>3261	Argument	cout
+>3262	Identifier	cout
+>3263	Callee	print_usage
+>3264	Identifier	print_usage
+>3269	FunctionDef	OptionParser 
+>3270	ParameterList	 
+>3271	ReturnType	string
+>3272	CompoundStatement	 
+>3273	ReturnStatement	 
+>3274	CallExpression	str_replace ( _version , \"%prog\" , prog ( ) )
+>3275	ArgumentList	_version
+>3276	Argument	prog ( )
+>3277	CallExpression	prog ( )
+>3278	ArgumentList	 
+>3279	Callee	prog
+>3280	Identifier	prog
+>3281	Argument	\"%prog\"
+>3282	PrimaryExpression	\"%prog\"
+>3283	Argument	_version
+>3284	Identifier	_version
+>3285	Callee	str_replace
+>3286	Identifier	str_replace
+>3293	FunctionDef	OptionParser 
+>3294	ParameterList	ostream & out
+>3295	Parameter	 
+>3296	Identifier	out
+>3297	ParameterType	ostream &
+>3298	ReturnType	void
+>3299	CompoundStatement	 
+>3300	ExpressionStatement	 
+>3301	ShiftExpression	out << get_version ( ) << endl
+>3302	ShiftExpression	get_version ( ) << endl
+>3303	Identifier	endl
+>3304	CallExpression	get_version ( )
+>3305	ArgumentList	 
+>3306	Callee	get_version
+>3307	Identifier	get_version
+>3308	Identifier	out
+>3313	FunctionDef	OptionParser 
+>3314	ParameterList	 
+>3315	ReturnType	void
+>3316	CompoundStatement	 
+>3317	ExpressionStatement	 
+>3318	CallExpression	print_version ( cout )
+>3319	ArgumentList	cout
+>3320	Argument	cout
+>3321	Identifier	cout
+>3322	Callee	print_version
+>3323	Identifier	print_version
+>3328	FunctionDef	OptionParser 
+>3329	ParameterList	 
+>3330	ReturnType	void
+>3331	CompoundStatement	 
+>3332	ExpressionStatement	 
+>3333	CallExpression	std 
+>3334	ArgumentList	2
+>3335	Argument	2
+>3336	PrimaryExpression	2
+>3337	Callee	std 
+>3338	Identifier	std 
+>3342	FunctionDef	OptionParser 
+>3343	ParameterList	const string & msg
+>3344	Parameter	 
+>3345	Identifier	msg
+>3346	ParameterType	const string &
+>3347	ReturnType	void
+>3348	CompoundStatement	 
+>3349	ExpressionStatement	 
+>3350	CallExpression	exit ( )
+>3351	ArgumentList	 
+>3352	Callee	exit
+>3353	Identifier	exit
+>3354	ExpressionStatement	 
+>3355	ShiftExpression	cerr << prog ( ) << \"
+>3356	ShiftExpression	prog ( ) << \"
+>3357	ShiftExpression	\"
+>3358	ShiftExpression	_ ( \"error\" ) << \"
+>3359	ShiftExpression	\"
+>3360	ShiftExpression	msg << endl
+>3361	Identifier	endl
+>3362	Identifier	msg
+>3363	PrimaryExpression	\"
+>3364	CallExpression	_ ( \"error\" )
+>3365	ArgumentList	\"error\"
+>3366	Argument	\"error\"
+>3367	PrimaryExpression	\"error\"
+>3368	Callee	_
+>3369	Identifier	_
+>3370	PrimaryExpression	\"
+>3371	CallExpression	prog ( )
+>3372	ArgumentList	 
+>3373	Callee	prog
+>3374	Identifier	prog
+>3375	Identifier	cerr
+>3376	ExpressionStatement	 
+>3377	CallExpression	print_usage ( cerr )
+>3378	ArgumentList	cerr
+>3379	Argument	cerr
+>3380	Identifier	cerr
+>3381	Callee	print_usage
+>3382	Identifier	print_usage
+>3388	FunctionDef	operator [ ] (const string & d)
+>3389	ParameterList	const string & d
+>3390	Parameter	 
+>3391	Identifier	d
+>3392	ParameterType	const string &
+>3393	CompoundStatement	 
+>3394	ReturnStatement	 
+>3395	ConditionalExpression	( it != _map . end ( ) ) ? it -> second 
+>3396	Identifier	empty
+>3397	PtrMemberAccess	it -> second
+>3398	Identifier	second
+>3399	Identifier	it
+>3400	Condition	it != _map . end ( )
+>3401	EqualityExpression	it != _map . end ( )
+>3402	CallExpression	_map . end ( )
+>3403	ArgumentList	 
+>3404	Callee	_map . end
+>3405	MemberAccess	_map . end
+>3406	Identifier	end
+>3407	Identifier	_map
+>3408	Identifier	it
+>3409	IdentifierDeclStatement	 
+>3410	IdentifierDecl	empty = \"\"
+>3411	AssignmentExpr	empty = \"\"
+>3412	PrimaryExpression	\"\"
+>3413	Identifier	empty
+>3414	Identifier	empty
+>3415	IdentifierDeclType	const string
+>3416	Statement	 
+>3417	IdentifierDeclStatement	 
+>3418	IdentifierDecl	it = _map . find ( d )
+>3419	AssignmentExpr	it = _map . find ( d )
+>3420	CallExpression	_map . find ( d )
+>3421	ArgumentList	d
+>3422	Argument	d
+>3423	Identifier	d
+>3424	Callee	_map . find
+>3425	MemberAccess	_map . find
+>3426	Identifier	find
+>3427	Identifier	_map
+>3428	Identifier	it
+>3429	Identifier	it
+>3430	IdentifierDeclType	strMap 
+>3442	FunctionDef	Values 
+>3443	ParameterList	const string & d , bool yes
+>3444	Parameter	 
+>3445	Identifier	yes
+>3446	ParameterType	bool
+>3447	Parameter	 
+>3448	Identifier	d
+>3449	ParameterType	const string &
+>3450	ReturnType	void
+>3451	CompoundStatement	 
+>3452	IfStatement	if ( yes )
+>3453	ElseStatement	else
+>3454	ExpressionStatement	 
+>3455	CallExpression	_userSet . erase ( d )
+>3456	ArgumentList	d
+>3457	Argument	d
+>3458	Identifier	d
+>3459	Callee	_userSet . erase
+>3460	MemberAccess	_userSet . erase
+>3461	Identifier	erase
+>3462	Identifier	_userSet
+>3463	ExpressionStatement	 
+>3464	CallExpression	_userSet . insert ( d )
+>3465	ArgumentList	d
+>3466	Argument	d
+>3467	Identifier	d
+>3468	Callee	_userSet . insert
+>3469	MemberAccess	_userSet . insert
+>3470	Identifier	insert
+>3471	Identifier	_userSet
+>3472	Condition	 
+>3473	Identifier	yes
+>3480	FunctionDef	Option 
+>3481	ParameterList	const string & opt , const string & val
+>3482	Parameter	 
+>3483	Identifier	val
+>3484	ParameterType	const string &
+>3485	Parameter	 
+>3486	Identifier	opt
+>3487	ParameterType	const string &
+>3488	ReturnType	string
+>3489	CompoundStatement	 
+>3490	ReturnStatement	 
+>3491	CallExpression	err . str ( )
+>3492	ArgumentList	 
+>3493	Callee	err . str
+>3494	MemberAccess	err . str
+>3495	Identifier	str
+>3496	Identifier	err
+>3497	IfStatement	if ( type ( ) == \"int\" || type ( ) == \"long\" )
+>3498	ElseStatement	else
+>3499	IfStatement	if ( type ( ) == \"float\" || type ( ) == \"double\" )
+>3500	ElseStatement	else
+>3501	IfStatement	if ( type ( ) == \"choice\" )
+>3502	ElseStatement	else
+>3503	IfStatement	if ( type ( ) == \"complex\" )
+>3504	CompoundStatement	 
+>3505	IfStatement	if ( not ( ss >> t ) )
+>3506	ExpressionStatement	 
+>3507		err << _ ( \"option\" ) << \" \" << opt << \"
+>3508	ShiftExpression	_ ( \"option\" ) << \" \" << opt << \"
+>3509	ShiftExpression	\" \" << opt << \"
+>3510	ShiftExpression	opt << \"
+>3511	ShiftExpression	\"
+>3512	ShiftExpression	_ ( \"invalid complex value\" ) << \"
+>3513	ShiftExpression	\"
+>3514	ShiftExpression	val << \"'\"
+>3515	PrimaryExpression	\"'\"
+>3516	Identifier	val
+>3517	PrimaryExpression	\"
+>3518	CallExpression	_ ( \"invalid complex value\" )
+>3519	ArgumentList	\"invalid complex value\"
+>3520	Argument	\"invalid complex value\"
+>3521	PrimaryExpression	\"invalid complex value\"
+>3522	Callee	_
+>3523	Identifier	_
+>3524	PrimaryExpression	\"
+>3525	Identifier	opt
+>3526	PrimaryExpression	\" \"
+>3527	CallExpression	_ ( \"option\" )
+>3528	ArgumentList	\"option\"
+>3529	Argument	\"option\"
+>3530	PrimaryExpression	\"option\"
+>3531	Callee	_
+>3532	Identifier	_
+>3533	Identifier	err
+>3534	Condition	 
+>3535	CallExpression	not ( ss >> t )
+>3536	ArgumentList	ss >> t
+>3537	Argument	ss >> t
+>3538	ShiftExpression	ss >> t
+>3539	Identifier	t
+>3540	Identifier	ss
+>3541	Callee	not
+>3542	Identifier	not
+>3543	IdentifierDeclStatement	 
+>3544	IdentifierDecl	t
+>3545	Identifier	t
+>3546	IdentifierDeclType	complex < double >
+>3547	Condition	 
+>3548	EqualityExpression	type ( ) == \"complex\"
+>3549	PrimaryExpression	\"complex\"
+>3550	CallExpression	type ( )
+>3551	ArgumentList	 
+>3552	Callee	type
+>3553	Identifier	type
+>3554	CompoundStatement	 
+>3555	IfStatement	if ( find ( choices ( ) . begin ( ) , choices ( ) . end ( ) , val ) == choices ( ) . end ( ) )
+>3556	CompoundStatement	 
+>3557	ExpressionStatement	 
+>3558	ShiftExpression	err << _ ( \"option\" ) << \" \" << opt << \"
+>3559	ShiftExpression	_ ( \"option\" ) << \" \" << opt << \"
+>3560	ShiftExpression	\" \" << opt << \"
+>3561	ShiftExpression	opt << \"
+>3562	ShiftExpression	\"
+>3563	ShiftExpression	_ ( \"invalid choice\" ) << \"
+>3564	ShiftExpression	\"
+>3565	ShiftExpression	val << \"'\" << \" (\" << _ ( \"choose from\" ) << \" \" << str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) ) << \")\"\
+>3566	ShiftExpression	\"'\" << \" (\" << _ ( \"choose from\" ) << \" \" << str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) ) << \")\"\
+>3567	ShiftExpression	\" (\" << _ ( \"choose from\" ) << \" \" << str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) ) << \")\"
+>3568	ShiftExpression	_ ( \"choose from\" ) << \" \" << str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) ) << \")\"
+>3569	ShiftExpression	\" \" << str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) ) << \")\"
+>3570	ShiftExpression	str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) ) << \")\"
+>3571	PrimaryExpression	\")\"
+>3572	CallExpression	str_join ( \", \" , tmp . begin ( ) , tmp . end ( ) )
+>3573	ArgumentList	\", \"
+>3574	Argument	tmp . end ( )
+>3575	CallExpression	tmp . end ( )
+>3576	ArgumentList	 
+>3577	Callee	tmp . end
+>3578	MemberAccess	tmp . end
+>3579	Identifier	end
+>3580	Identifier	tmp
+>3581	Argument	tmp . begin ( )
+>3582	CallExpression	tmp . begin ( )
+>3583	ArgumentList	 
+>3584	Callee	tmp . begin
+>3585	MemberAccess	tmp . begin
+>3586	Identifier	begin
+>3587	Identifier	tmp
+>3588	Argument	\", \"
+>3589	PrimaryExpression	\", \"
+>3590	Callee	str_join
+>3591	Identifier	str_join
+>3592	PrimaryExpression	\" \"
+>3593	CallExpression	_ ( \"choose from\" )
+>3594	ArgumentList	\"choose from\"
+>3595	Argument	\"choose from\"
+>3596	PrimaryExpression	\"choose from\"
+>3597	Callee	_
+>3598	Identifier	_
+>3599	PrimaryExpression	\" (\"
+>3600	PrimaryExpression	\"'\"
+>3601	Identifier	val
+>3602	PrimaryExpression	\"
+>3603	CallExpression	_ ( \"invalid choice\" )
+>3604	ArgumentList	\"invalid choice\"
+>3605	Argument	\"invalid choice\"
+>3606	PrimaryExpression	\"invalid choice\"
+>3607	Callee	_
+>3608	Identifier	_
+>3609	PrimaryExpression	\"
+>3610	Identifier	opt
+>3611	PrimaryExpression	\" \"
+>3612	CallExpression	_ ( \"option\" )
+>3613	ArgumentList	\"option\"
+>3614	Argument	\"option\"
+>3615	PrimaryExpression	\"option\"
+>3616	Callee	_
+>3617	Identifier	_
+>3618	Identifier	err
+>3619	ExpressionStatement	 
+>3620	CallExpression	transform ( tmp . begin ( ) , tmp . end ( ) , tmp . begin ( ) , str_wrap ( \"'\" ) )
+>3621	ArgumentList	tmp . begin ( )
+>3622	Argument	str_wrap ( \"'\" )
+>3623	CallExpression	str_wrap ( \"'\" )
+>3624	ArgumentList	\"'\"
+>3625	Argument	\"'\"
+>3626	PrimaryExpression	\"'\"
+>3627	Callee	str_wrap
+>3628	Identifier	str_wrap
+>3629	Argument	tmp . begin ( )
+>3630	CallExpression	tmp . begin ( )
+>3631	ArgumentList	 
+>3632	Callee	tmp . begin
+>3633	MemberAccess	tmp . begin
+>3634	Identifier	begin
+>3635	Identifier	tmp
+>3636	Argument	tmp . end ( )
+>3637	CallExpression	tmp . end ( )
+>3638	ArgumentList	 
+>3639	Callee	tmp . end
+>3640	MemberAccess	tmp . end
+>3641	Identifier	end
+>3642	Identifier	tmp
+>3643	Argument	tmp . begin ( )
+>3644	CallExpression	tmp . begin ( )
+>3645	ArgumentList	 
+>3646	Callee	tmp . begin
+>3647	MemberAccess	tmp . begin
+>3648	Identifier	begin
+>3649	Identifier	tmp
+>3650	Callee	transform
+>3651	Identifier	transform
+>3652	IdentifierDeclStatement	 
+>3653	IdentifierDecl	tmp = choices ( )
+>3654	AssignmentExpr	tmp = choices ( )
+>3655	CallExpression	choices ( )
+>3656	ArgumentList	 
+>3657	Callee	choices
+>3658	Identifier	choices
+>3659	Identifier	tmp
+>3660	Identifier	tmp
+>3661	IdentifierDeclType	list < string >
+>3662	Condition	 
+>3663	EqualityExpression	find ( choices ( ) . begin ( ) , choices ( ) . end ( ) , val ) == choices ( ) . end ( )
+>3664	CallExpression	choices ( ) . end ( )
+>3665	ArgumentList	 
+>3666	Callee	choices ( ) . end
+>3667	MemberAccess	choices ( ) . end
+>3668	Identifier	end
+>3669	CallExpression	choices ( )
+>3670	ArgumentList	 
+>3671	Callee	choices
+>3672	Identifier	choices
+>3673	CallExpression	find ( choices ( ) . begin ( ) , choices ( ) . end ( ) , val )
+>3674	ArgumentList	choices ( ) . begin ( )
+>3675	Argument	val
+>3676	Identifier	val
+>3677	Argument	choices ( ) . end ( )
+>3678	CallExpression	choices ( ) . end ( )
+>3679	ArgumentList	 
+>3680	Callee	choices ( ) . end
+>3681	MemberAccess	choices ( ) . end
+>3682	Identifier	end
+>3683	CallExpression	choices ( )
+>3684	ArgumentList	 
+>3685	Callee	choices
+>3686	Identifier	choices
+>3687	Argument	choices ( ) . begin ( )
+>3688	CallExpression	choices ( ) . begin ( )
+>3689	ArgumentList	 
+>3690	Callee	choices ( ) . begin
+>3691	MemberAccess	choices ( ) . begin
+>3692	Identifier	begin
+>3693	CallExpression	choices ( )
+>3694	ArgumentList	 
+>3695	Callee	choices
+>3696	Identifier	choices
+>3697	Callee	find
+>3698	Identifier	find
+>3699	Condition	 
+>3700	EqualityExpression	type ( ) == \"choice\"
+>3701	PrimaryExpression	\"choice\"
+>3702	CallExpression	type ( )
+>3703	ArgumentList	 
+>3704	Callee	type
+>3705	Identifier	type
+>3706	CompoundStatement	 
+>3707	IfStatement	if ( not ( ss >> t ) )
+>3708	ExpressionStatement	 
+>3709	ShiftExpression	err << _ ( \"option\" ) << \" \" << opt << \"
+>3710		_ ( \"option\" ) << \" \" << opt << \"
+>3711	ShiftExpression	\" \" << opt << \"
+>3712	ShiftExpression	opt << \"
+>3713	ShiftExpression	\"
+>3714	ShiftExpression	_ ( \"invalid floating-point value\" ) << \"
+>3715	ShiftExpression	\"
+>3716	ShiftExpression	val << \"'\"
+>3717	PrimaryExpression	\"'\"
+>3718	Identifier	val
+>3719	PrimaryExpression	\"
+>3720	CallExpression	_ ( \"invalid floating-point value\" )
+>3721	ArgumentList	\"invalid floating-point value\"
+>3722	Argument	\"invalid floating-point value\"
+>3723	PrimaryExpression	\"invalid floating-point value\"
+>3724	Callee	_
+>3725	Identifier	_
+>3726	PrimaryExpression	\"
+>3727	Identifier	opt
+>3728	PrimaryExpression	\" \"
+>3729	CallExpression	_ ( \"option\" )
+>3730	ArgumentList	\"option\"
+>3731	Argument	\"option\"
+>3732	PrimaryExpression	\"option\"
+>3733	Callee	_
+>3734	Identifier	_
+>3735	Identifier	err
+>3736	Condition	 
+>3737	CallExpression	not ( ss >> t )
+>3738	ArgumentList	ss >> t
+>3739	Argument	ss >> t
+>3740	ShiftExpression	ss >> t
+>3741	Identifier	t
+>3742	Identifier	ss
+>3743	Callee	not
+>3744	Identifier	not
+>3745	IdentifierDeclStatement	 
+>3746	IdentifierDecl	t
+>3747	Identifier	t
+>3748	IdentifierDeclType	double
+>3749	Condition	 
+>3750	OrExpression	type ( ) == \"float\" || type ( ) == \"double\"
+>3751	EqualityExpression	type ( ) == \"double\"
+>3752	PrimaryExpression	\"double\"
+>3753	CallExpression	type ( )
+>3754	ArgumentList	 
+>3755	Callee	type
+>3756	Identifier	type
+>3757	EqualityExpression	type ( ) == \"float\"
+>3758	PrimaryExpression	\"float\"
+>3759	CallExpression	type ( )
+>3760	ArgumentList	 
+>3761	Callee	type
+>3762	Identifier	type
+>3763	CompoundStatement	 
+>3764	IfStatement	if ( not ( ss >> t ) )
+>3765	ExpressionStatement	 
+>3766		err << _ ( \"option\" ) << \" \" << opt << \"
+>3767	ShiftExpression	_ ( \"option\" ) << \" \" << opt << \"
+>3768	ShiftExpression	\" \" << opt << \"
+>3769	ShiftExpression	opt << \"
+>3770	ShiftExpression	\"
+>3771	ShiftExpression	_ ( \"invalid integer value\" ) << \"
+>3772	ShiftExpression	\"
+>3773	ShiftExpression	val << \"'\"
+>3774	PrimaryExpression	\"'\"
+>3775	Identifier	val
+>3776	PrimaryExpression	\"
+>3777	CallExpression	_ ( \"invalid integer value\" )
+>3778	ArgumentList	\"invalid integer value\"
+>3779	Argument	\"invalid integer value\"
+>3780	PrimaryExpression	\"invalid integer value\"
+>3781	Callee	_
+>3782	Identifier	_
+>3783	PrimaryExpression	\"
+>3784	Identifier	opt
+>3785	PrimaryExpression	\" \"
+>3786	CallExpression	_ ( \"option\" )
+>3787	ArgumentList	\"option\"
+>3788	Argument	\"option\"
+>3789	PrimaryExpression	\"option\"
+>3790	Callee	_
+>3791	Identifier	_
+>3792	Identifier	err
+>3793	Condition	 
+>3794	CallExpression	not ( ss >> t )
+>3795	ArgumentList	ss >> t
+>3796	Argument	ss >> t
+>3797	ShiftExpression	ss >> t
+>3798	Identifier	t
+>3799	Identifier	ss
+>3800	Callee	not
+>3801	Identifier	not
+>3802	IdentifierDeclStatement	 
+>3803	IdentifierDecl	t
+>3804	Identifier	t
+>3805	IdentifierDeclType	long
+>3806	Condition	 
+>3807	OrExpression	type ( ) == \"int\" || type ( ) == \"long\"
+>3808	EqualityExpression	type ( ) == \"long\"
+>3809	PrimaryExpression	\"long\"
+>3810	CallExpression	type ( )
+>3811	ArgumentList	 
+>3812	Callee	type
+>3813	Identifier	type
+>3814	EqualityExpression	type ( ) == \"int\"
+>3815	PrimaryExpression	\"int\"
+>3816	CallExpression	type ( )
+>3817	ArgumentList	 
+>3818	Callee	type
+>3819	Identifier	type
+>3820	IdentifierDeclStatement	 
+>3821	IdentifierDecl	err
+>3822	Identifier	err
+>3823	IdentifierDeclType	stringstream
+>3824	IdentifierDeclStatement	 
+>3825	IdentifierDecl	ss ( val )
+>3826	Identifier	val
+>3827	Identifier	ss
+>3828	IdentifierDeclType	istringstream
+>3848	FunctionDef	Option 
+>3849	ParameterList	unsigned int indent
+>3850	Parameter	 
+>3851	Identifier	indent
+>3852	ParameterType	unsigned int
+>3853	ReturnType	string
+>3854	CompoundStatement	 
+>3855	ReturnStatement	 
+>3856	CallExpression	ss . str ( )
+>3857	ArgumentList	 
+>3858	Callee	ss . str
+>3859	MemberAccess	ss . str
+>3860	Identifier	str
+>3861	Identifier	ss
+>3862	ExpressionStatement	 
+>3863	ShiftExpression	ss << str_join_trans ( \", \" , _long_opts . begin ( ) , _long_opts . end ( ) , str_wrap ( \"--\" , mvar_\
+>3864	CallExpression	str_join_trans ( \", \" , _long_opts . begin ( ) , _long_opts . end ( ) , str_wrap ( \"--\" , mvar_long ) )
+>3865	ArgumentList	\", \"
+>3866	Argument	str_wrap ( \"--\" , mvar_long )
+>3867	CallExpression	str_wrap ( \"--\" , mvar_long )
+>3868	ArgumentList	\"--\"
+>3869	Argument	mvar_long
+>3870	Identifier	mvar_long
+>3871	Argument	\"--\"
+>3872	PrimaryExpression	\"--\"
+>3873	Callee	str_wrap
+>3874	Identifier	str_wrap
+>3875	Argument	_long_opts . end ( )
+>3876	CallExpression	_long_opts . end ( )
+>3877	ArgumentList	 
+>3878	Callee	_long_opts . end
+>3879	MemberAccess	_long_opts . end
+>3880	Identifier	end
+>3881	Identifier	_long_opts
+>3882	Argument	_long_opts . begin ( )
+>3883	CallExpression	_long_opts . begin ( )
+>3884	ArgumentList	 
+>3885	Callee	_long_opts . begin
+>3886	MemberAccess	_long_opts . begin
+>3887	Identifier	begin
+>3888	Identifier	_long_opts
+>3889	Argument	\", \"
+>3890	PrimaryExpression	\", \"
+>3891	Callee	str_join_trans
+>3892	Identifier	str_join_trans
+>3893	Identifier	ss
+>3894	Statement	 
+>3895	Statement	 
+>3896	Statement	 
+>3897	Statement	 
+>3898	Statement	 
+>3899	Statement	 
+>3900	Statement	 
+>3901	Statement	 
+>3902	Statement	 
+>3903	CompoundStatement	 
+>3904	ExpressionStatement	 
+>3905	ShiftExpression	ss << \", \"
+>3906	PrimaryExpression	\", \"
+>3907	Identifier	ss
+>3908	Statement	 
+>3909	Statement	 
+>3910	Statement	 
+>3911	Statement	 
+>3912	Statement	 
+>3913	Statement	 
+>3914	Statement	 
+>3915	Statement	 
+>3916	Statement	 
+>3917	ExpressionStatement	 
+>3918	ShiftExpression	ss << str_join_trans ( \", \" , _short_opts . begin ( ) , _short_opts . end ( ) , str_wrap ( \"-\" , mvar_\
+>3919	CallExpression	str_join_trans ( \", \" , _short_opts . begin ( ) , _short_opts . end ( ) , str_wrap ( \"-\" , mvar_short ) )
+>3920	ArgumentList	\", \"
+>3921	Argument	str_wrap ( \"-\" , mvar_short )
+>3922	CallExpression	str_wrap ( \"-\" , mvar_short )
+>3923	ArgumentList	\"-\"
+>3924	Argument	mvar_short
+>3925	Identifier	mvar_short
+>3926	Argument	\"-\"
+>3927	PrimaryExpression	\"-\"
+>3928	Callee	str_wrap
+>3929	Identifier	str_wrap
+>3930	Argument	_short_opts . end ( )
+>3931	CallExpression	_short_opts . end ( )
+>3932	ArgumentList	 
+>3933	Callee	_short_opts . end
+>3934	MemberAccess	_short_opts . end
+>3935	Identifier	end
+>3936	Identifier	_short_opts
+>3937	Argument	_short_opts . begin ( )
+>3938	CallExpression	_short_opts . begin ( )
+>3939	ArgumentList	 
+>3940	Callee	_short_opts . begin
+>3941	MemberAccess	_short_opts . begin
+>3942	Identifier	begin
+>3943	Identifier	_short_opts
+>3944	Argument	\", \"
+>3945	PrimaryExpression	\", \"
+>3946	Callee	str_join_trans
+>3947	Identifier	str_join_trans
+>3948	Identifier	ss
+>3949	Statement	 
+>3950	Statement	 
+>3951	Statement	 
+>3952	Statement	 
+>3953	Statement	 
+>3954	Statement	 
+>3955	Statement	 
+>3956	Statement	 
+>3957	Statement	 
+>3958	ExpressionStatement	 
+>3959	ShiftExpression	ss << string ( indent , ' ' )
+>3960	CallExpression	string ( indent , ' ' )
+>3961	ArgumentList	indent
+>3962	Argument	' '
+>3963	PrimaryExpression	' '
+>3964	Argument	indent
+>3965	Identifier	indent
+>3966	Callee	string
+>3967	Identifier	string
+>3968	Identifier	ss
+>3969	IdentifierDeclStatement	 
+>3970	IdentifierDecl	ss
+>3971	Identifier	ss
+>3972	IdentifierDeclType	stringstream
+>3973	IfStatement	if ( nargs ( ) == 1 )
+>3974	CompoundStatement	 
+>3975	ExpressionStatement	 
+>3976	AssignmentExpr	mvar_long = \"=\" + mvar
+>3977	AdditiveExpression	\"=\" + mvar
+>3978	Identifier	mvar
+>3979	PrimaryExpression	\"=\"
+>3980	Identifier	mvar_long
+>3981	ExpressionStatement	 
+>3982	AssignmentExpr	mvar_short = \" \" + mvar
+>3983	AdditiveExpression	\" \" + mvar
+>3984	Identifier	mvar
+>3985	PrimaryExpression	\" \"
+>3986	Identifier	mvar_short
+>3987	IfStatement	if ( mvar == \"\" )
+>3988	CompoundStatement	 
+>3989	ExpressionStatement	 
+>3990	Statement	 
+>3991	Statement	 
+>3992	Statement	 
+>3993	Statement	 
+>3994	Statement	 
+>3995	Statement	 
+>3996	Statement	 
+>3997	Statement	 
+>3998	Statement	 
+>3999	Statement	 
+>4000	Statement	 
+>4001	Statement	 
+>4002	Statement	 
+>4003	Statement	 
+>4004	Statement	 
+>4005	Statement	 
+>4006	Statement	 
+>4007	Statement	 
+>4008	Statement	 
+>4009	Statement	 
+>4010	Statement	 
+>4011	Statement	 
+>4012	Statement	 
+>4013	ExpressionStatement	 
+>4014	AssignmentExpr	mvar = type ( )
+>4015	CallExpression	type ( )
+>4016	ArgumentList	 
+>4017	Callee	type
+>4018	Identifier	type
+>4019	Identifier	mvar
+>4020	Condition	 
+>4021	EqualityExpression	mvar == \"\"
+>4022	PrimaryExpression	\"\"
+>4023	Identifier	mvar
+>4024	IdentifierDeclStatement	 
+>4025	IdentifierDecl	mvar = metavar ( )
+>4026	AssignmentExpr	mvar = metavar ( )
+>4027	CallExpression	metavar ( )
+>4028	ArgumentList	 
+>4029	Callee	metavar
+>4030	Identifier	metavar
+>4031	Identifier	mvar
+>4032	Identifier	mvar
+>4033	IdentifierDeclType	string
+>4034	Condition	 
+>4035	EqualityExpression	nargs ( ) == 1
+>4036	PrimaryExpression	1
+>4037	CallExpression	nargs ( )
+>4038	ArgumentList	 
+>4039	Callee	nargs
+>4040	Identifier	nargs
+>4041	IdentifierDeclStatement	 
+>4042	IdentifierDecl	mvar_long
+>4043	Identifier	mvar_long
+>4044	IdentifierDeclType	string
+>4045	IdentifierDecl	mvar_short
+>4046	Identifier	mvar_short
+>4047	IdentifierDeclType	string
+>4067	FunctionDef	Option 
+>4068	ParameterList	unsigned int indent
+>4069	Parameter	 
+>4070	Identifier	indent
+>4071	ParameterType	unsigned int
+>4072	ReturnType	string
+>4073	CompoundStatement	 
+>4074	ReturnStatement	 
+>4075	CallExpression	ss . str ( )
+>4076	ArgumentList	 
+>4077	Callee	ss . str
+>4078	MemberAccess	ss . str
+>4079	Identifier	str
+>4080	Identifier	ss
+>4081	IfStatement	if ( help ( ) != \"\" )
+>4082	CompoundStatement	 
+>4083	ExpressionStatement	 
+>4084	ShiftExpression	ss << str_format ( help_str , opt_width , width , indent_first )
+>4085	CallExpression	str_format ( help_str , opt_width , width , indent_first )
+>4086	ArgumentList	help_str
+>4087	Argument	indent_first
+>4088	Identifier	indent_first
+>4089	Argument	width
+>4090	Identifier	width
+>4091	Argument	opt_width
+>4092	Identifier	opt_width
+>4093	Argument	help_str
+>4094	Identifier	help_str
+>4095	Callee	str_format
+>4096	Identifier	str_format
+>4097	Identifier	ss
+>4098	IdentifierDeclStatement	 
+>4099	IdentifierDecl	help_str = ( get_default ( ) != \"\" ) ? str_replace ( help ( ) , \"%default\" , get_default ( ) ) 
+>4100	AssignmentExpr	help_str = ( get_default ( ) != \"\" ) ? str_replace ( help ( ) , \"%default\" , get_default ( ) ) 
+>4101	ConditionalExpression	( get_default ( ) != \"\" ) ? str_replace ( help ( ) , \"%default\" , get_default ( ) ) 
+>4102	CallExpression	help ( )
+>4103	ArgumentList	 
+>4104	Callee	help
+>4105	Identifier	help
+>4106	CallExpression	str_replace ( help ( ) , \"%default\" , get_default ( ) )
+>4107	ArgumentList	help ( )
+>4108	Argument	get_default ( )
+>4109	CallExpression	get_default ( )
+>4110	ArgumentList	 
+>4111	Callee	get_default
+>4112	Identifier	get_default
+>4113	Argument	\"%default\"
+>4114	PrimaryExpression	\"%default\"
+>4115	Argument	help ( )
+>4116	CallExpression	help ( )
+>4117	ArgumentList	 
+>4118	Callee	help
+>4119	Identifier	help
+>4120	Callee	str_replace
+>4121	Identifier	str_replace
+>4122	Condition	get_default ( ) != \"\"
+>4123	EqualityExpression	get_default ( ) != \"\"
+>4124	PrimaryExpression	\"\"
+>4125	CallExpression	get_default ( )
+>4126	ArgumentList	 
+>4127	Callee	get_default
+>4128	Identifier	get_default
+>4129	Identifier	help_str
+>4130	Identifier	help_str
+>4131	IdentifierDeclType	string
+>4132	Condition	 
+>4133	EqualityExpression	help ( ) != \"\"
+>4134	PrimaryExpression	\"\"
+>4135	CallExpression	help ( )
+>4136	ArgumentList	 
+>4137	Callee	help
+>4138	Identifier	help
+>4139	IfStatement	if ( h . length ( ) >= ( opt_width - 1 ) )
+>4140	ElseStatement	else
+>4141	CompoundStatement	 
+>4142	IfStatement	if ( help ( ) == \"\" )
+>4143	ExpressionStatement	 
+>4144	ShiftExpression	ss << endl
+>4145	Identifier	endl
+>4146	Identifier	ss
+>4147	Condition	 
+>4148	EqualityExpression	help ( ) == \"\"
+>4149	PrimaryExpression	\"\"
+>4150	CallExpression	help ( )
+>4151	ArgumentList	 
+>4152	Callee	help
+>4153	Identifier	help
+>4154	ExpressionStatement	 
+>4155	ShiftExpression	ss << string ( opt_width - h . length ( ) , ' ' )
+>4156	CallExpression	string ( opt_width - h . length ( ) , ' ' )
+>4157	ArgumentList	opt_width - h . length ( )
+>4158	Argument	' '
+>4159	PrimaryExpression	' '
+>4160	Argument	opt_width - h . length ( )
+>4161	AdditiveExpression	opt_width - h . length ( )
+>4162	CallExpression	h . length ( )
+>4163	ArgumentList	 
+>4164	Callee	h . length
+>4165	MemberAccess	h . length
+>4166	Identifier	length
+>4167	Identifier	h
+>4168	Identifier	opt_width
+>4169	Callee	string
+>4170	Identifier	string
+>4171	Identifier	ss
+>4172	CompoundStatement	 
+>4173	ExpressionStatement	 
+>4174	AssignmentExpr	indent_first = true
+>4175	Identifier	true
+>4176	Identifier	indent_first
+>4177	ExpressionStatement	 
+>4178	ShiftExpression	ss << endl
+>4179	Identifier	endl
+>4180	Identifier	ss
+>4181	Condition	 
+>4182	RelationalExpression	h . length ( ) >= ( opt_width - 1 )
+>4183	AdditiveExpression	opt_width - 1
+>4184	PrimaryExpression	1
+>4185	Identifier	opt_width
+>4186	CallExpression	h . length ( )
+>4187	ArgumentList	 
+>4188	Callee	h . length
+>4189	MemberAccess	h . length
+>4190	Identifier	length
+>4191	Identifier	h
+>4192	ExpressionStatement	 
+>4193	ShiftExpression	ss << h
+>4194	Identifier	h
+>4195	Identifier	ss
+>4196	IdentifierDeclStatement	 
+>4197	IdentifierDecl	indent_first = false
+>4198	AssignmentExpr	indent_first = false
+>4199	Identifier	false
+>4200	Identifier	false
+>4201	Identifier	indent_first
+>4202	IdentifierDeclType	bool
+>4203	IdentifierDeclStatement	 
+>4204	IdentifierDecl	opt_width = min ( width * 3 / 10 , 36u )
+>4205	AssignmentExpr	opt_width = min ( width * 3 / 10 , 36u )
+>4206	CallExpression	min ( width * 3 / 10 , 36u )
+>4207	ArgumentList	width * 3 / 10
+>4208	Argument	36u
+>4209	PrimaryExpression	36u
+>4210	Argument	width * 3 / 10
+>4211	MultiplicativeExpression	width * 3 / 10
+>4212	MultiplicativeExpression	3 / 10
+>4213	PrimaryExpression	10
+>4214	PrimaryExpression	3
+>4215	Identifier	width
+>4216	Callee	min
+>4217	Identifier	min
+>4218	Identifier	opt_width
+>4219	Identifier	opt_width
+>4220	IdentifierDeclType	unsigned int
+>4221	IdentifierDeclStatement	 
+>4222	IdentifierDecl	width = cols ( )
+>4223	AssignmentExpr	width = cols ( )
+>4224	CallExpression	cols ( )
+>4225	ArgumentList	 
+>4226	Callee	cols
+>4227	Identifier	cols
+>4228	Identifier	width
+>4229	Identifier	width
+>4230	IdentifierDeclType	unsigned int
+>4231	IdentifierDeclStatement	 
+>4232	IdentifierDecl	h = format_option_help ( indent )
+>4233	AssignmentExpr	h = format_option_help ( indent )
+>4234	CallExpression	format_option_help ( indent )
+>4235	ArgumentList	indent
+>4236	Argument	indent
+>4237	Identifier	indent
+>4238	Callee	format_option_help
+>4239	Identifier	format_option_help
+>4240	Identifier	h
+>4241	Identifier	h
+>4242	IdentifierDeclType	string
+>4243	IdentifierDeclStatement	 
+>4244	IdentifierDecl	ss
+>4245	Identifier	ss
+>4246	IdentifierDeclType	stringstream
+>4267	FunctionDef	Option 
+>4268	ParameterList	const string & a
+>4269	Parameter	 
+>4270	Identifier	a
+>4271	ParameterType	const string &
+>4272	ReturnType	Option &
+>4273	CompoundStatement	 
+>4274	ReturnStatement	 
+>4275	UnaryOp	* this
+>4276	Identifier	this
+>4277	UnaryOperator	*
+>4278	IfStatement	if ( a == \"store_const\" || a == \"store_true\" || a == \"store_false\" || a == \"append_const\" || a == \"count\" || a == \"\
+>4279	ExpressionStatement	 
+>4280	CallExpression	nargs ( 0 )
+>4281	ArgumentList	0
+>4282	Argument	0
+>4283	PrimaryExpression	0
+>4284	Callee	nargs
+>4285	Identifier	nargs
+>4286	Condition	 
+>4287	OrExpression	a == \"store_const\" || a == \"store_true\" || a == \"store_false\" || a == \"append_const\" || a == \"count\" || \
+>4288	OrExpression	a == \"store_true\" || a == \"store_false\" || a == \"append_const\" || a == \"count\" || a == \"help\" || a == \"\
+>4289	OrExpression	a == \"store_false\" || a == \"append_const\" || a == \"count\" || a == \"help\" || a == \"version\"
+>4290	OrExpression	a == \"append_const\" || a == \"count\" || a == \"help\" || a == \"version\"
+>4291	OrExpression	a == \"count\" || a == \"help\" || a == \"version\"
+>4292	OrExpression	a == \"help\" || a == \"version\"
+>4293	EqualityExpression	a == \"version\"
+>4294	PrimaryExpression	\"version\"
+>4295	Identifier	a
+>4296	EqualityExpression	a == \"help\"
+>4297	PrimaryExpression	\"help\"
+>4298	Identifier	a
+>4299	EqualityExpression	a == \"count\"
+>4300	PrimaryExpression	\"count\"
+>4301	Identifier	a
+>4302	EqualityExpression	a == \"append_const\"
+>4303	PrimaryExpression	\"append_const\"
+>4304	Identifier	a
+>4305	EqualityExpression	a == \"store_false\"
+>4306	PrimaryExpression	\"store_false\"
+>4307	Identifier	a
+>4308	EqualityExpression	a == \"store_true\"
+>4309	PrimaryExpression	\"store_true\"
+>4310	Identifier	a
+>4311	EqualityExpression	a == \"store_const\"
+>4312	PrimaryExpression	\"store_const\"
+>4313	Identifier	a
+>4314	ExpressionStatement	 
+>4315	AssignmentExpr	_action = a
+>4316	Identifier	a
+>4317	Identifier	_action
+<4=12,5
+<5=9,6
+<6=8,7
+<9=11,10
+<18=23,19
+<19=20
+<20=22,21
+<28=34,33,29
+<29=30
+<30=32,31
+<34=35
+<35=36
+<36=40,37
+<37=39,38
+<50=65,64,51
+<51=61,58,55,52
+<52=54,53
+<55=57,56
+<58=60,59
+<61=63,62
+<65=105,68,66
+<66=67
+<68=97,93,90,69
+<69=81,70
+<70=71
+<71=80,72
+<72=78,73
+<73=74
+<74=75
+<75=77,76
+<78=79
+<81=86,82
+<82=83
+<83=85,84
+<86=87
+<87=89,88
+<90=92,91
+<93=94
+<94=96,95
+<97=98
+<98=99
+<99=104,103,100
+<100=102,101
+<105=106
+<106=108,107
+<119=131,130,120
+<120=127,124,121
+<121=123,122
+<124=126,125
+<127=129,128
+<131=132
+<132=133
+<133=148,134
+<134=146,144,142,135
+<135=136
+<136=140,137
+<137=138
+<138=139
+<140=141
+<142=143
+<144=145
+<146=147
+<148=149
+<158=170,169,159
+<159=166,163,160
+<160=162,161
+<163=165,164
+<166=168,167
+<170=218,173,171
+<171=172
+<173=216,174
+<174=203,197,184,175
+<175=176
+<176=183,177
+<177=179,178
+<179=180
+<180=182,181
+<184=185
+<185=193,186
+<186=191,189,187
+<187=188
+<189=190
+<191=192
+<193=194
+<194=196,195
+<197=199,198
+<199=200
+<200=202,201
+<203=204
+<204=215,205
+<205=211,206
+<206=209,207
+<207=208
+<209=210
+<211=212
+<212=214,213
+<216=217
+<218=230,219
+<219=229,228,220
+<220=227,221
+<221=223,222
+<223=224
+<224=226,225
+<230=235,234,231
+<231=233,232
+<249=261,260,250
+<250=257,254,251
+<251=253,252
+<254=256,255
+<257=259,258
+<261=275,264,262
+<262=263
+<264=265
+<265=273,266
+<266=271,269,267
+<267=268
+<269=270
+<271=272
+<273=274
+<275=276
+<276=281,280,277
+<277=279,278
+<302=308,307,303
+<303=304
+<304=306,305
+<308=348,335,331,322,316,309
+<309=310
+<310=312,311
+<312=313
+<313=315,314
+<316=317
+<317=321,318
+<318=320,319
+<322=323
+<323=325,324
+<325=329,326
+<326=327
+<327=328
+<329=330
+<331=332
+<332=334,333
+<335=336
+<336=347,346,337
+<337=345,338
+<338=341,340,339
+<341=342
+<342=344,343
+<348=349
+<349=351,350
+<360=363,362,361
+<363=390,378,366,364
+<364=365
+<366=376,367
+<367=368
+<368=370,369
+<370=374,371
+<371=372
+<372=373
+<374=375
+<376=377
+<378=379
+<379=389,388,380
+<380=387,381
+<381=385,382
+<382=383
+<383=384
+<385=386
+<390=391
+<391=396,395,392
+<392=394,393
+<403=409,408,404
+<404=405
+<405=407,406
+<409=501,487,463,441,430,412,410
+<410=411
+<412=426,413
+<413=414
+<414=422,415
+<415=420,416
+<416=417
+<417=419,418
+<420=421
+<422=423
+<423=425,424
+<426=427
+<427=429,428
+<430=431
+<431=440,432
+<432=436,433
+<433=434
+<434=435
+<436=437
+<437=439,438
+<441=442
+<442=459,443
+<443=455,444
+<444=445
+<445=449,446
+<446=448,447
+<449=451,450
+<451=452
+<452=454,453
+<455=456
+<456=458,457
+<459=460
+<460=462,461
+<463=483,464
+<464=467,465
+<465=466
+<467=477,468
+<468=469
+<469=473,470
+<470=471
+<471=472
+<473=474
+<474=476,475
+<477=478
+<478=480,479
+<480=482,481
+<483=484
+<484=486,485
+<487=488
+<488=500,499,489
+<489=498,490
+<490=494,491
+<491=492
+<492=493
+<494=495
+<495=497,496
+<501=502
+<502=507,506,503
+<503=505,504
+<519=521,520
+<525=531,530,526
+<526=527
+<527=529,528
+<531=553,532
+<532=533
+<533=551,534
+<534=535
+<535=536
+<536=550,537
+<537=549,538
+<538=544,539
+<539=543,540
+<540=542,541
+<544=548,545
+<545=547,546
+<551=552
+<553=554
+<554=561,560,559,555
+<555=558,556
+<556=557
+<571=580,579,572
+<572=576,573
+<573=575,574
+<576=578,577
+<580=602,581
+<581=582
+<582=600,583
+<583=584
+<584=585
+<585=599,586
+<586=598,587
+<587=593,588
+<588=592,589
+<589=591,590
+<593=597,594
+<594=596,595
+<600=601
+<602=603
+<603=611,610,609,604
+<604=608,605
+<605=607,606
+<622=634,633,623
+<623=630,627,624
+<624=626,625
+<627=629,628
+<630=632,631
+<634=656,635
+<635=636
+<636=654,637
+<637=638
+<638=639
+<639=653,640
+<640=652,641
+<641=647,642
+<642=646,643
+<643=645,644
+<647=651,648
+<648=650,649
+<654=655
+<656=657
+<657=666,665,664,658
+<658=663,659
+<659=662,661,660
+<678=684,683,679
+<679=680
+<680=682,681
+<684=871,859,855,706,687,685
+<685=686
+<687=697,688
+<688=689
+<689=693,690
+<690=691
+<691=692
+<693=694
+<694=696,695
+<697=698
+<698=700,699
+<700=702,701
+<702=703
+<703=705,704
+<706=842,833,830,707
+<707=708
+<708=817,755,709
+<709=710
+<710=739,730,719,711
+<711=712
+<712=716,713
+<713=715,714
+<716=718,717
+<719=720
+<720=724,721
+<721=722
+<722=723
+<724=725
+<725=727,726
+<727=729,728
+<730=735,731
+<731=732
+<732=734,733
+<735=736
+<736=738,737
+<739=740
+<740=754,753,741
+<741=752,742
+<742=748,743
+<743=746,744
+<744=745
+<746=747
+<748=749
+<749=751,750
+<755=803,775,764,756
+<756=757
+<757=761,758
+<758=760,759
+<761=763,762
+<764=765
+<765=769,766
+<766=767
+<767=768
+<769=770
+<770=772,771
+<772=774,773
+<775=794,776
+<776=777
+<777=790,778
+<778=779
+<779=780
+<780=788,781
+<781=786,784,782
+<782=783
+<784=785
+<786=787
+<788=789
+<790=791
+<791=793,792
+<794=795
+<795=797,796
+<797=799,798
+<799=800
+<800=802,801
+<803=804
+<804=816,815,805
+<805=814,806
+<806=810,807
+<807=808
+<808=809
+<810=811
+<811=813,812
+<817=818
+<818=820,819
+<820=826,821
+<821=824,822
+<822=823
+<824=825
+<826=827
+<827=829,828
+<830=832,831
+<833=834
+<834=841,835
+<835=837,836
+<837=838
+<838=840,839
+<842=843
+<843=844
+<844=854,853,845
+<845=852,846
+<846=848,847
+<848=849
+<849=851,850
+<855=856
+<856=858,857
+<859=860
+<860=870,869,861
+<861=868,862
+<862=864,863
+<864=865
+<865=867,866
+<871=872
+<872=883,873
+<873=874
+<874=875
+<875=877,876
+<877=879,878
+<879=880
+<880=882,881
+<883=884
+<884=886,885
+<912=918,917,913
+<913=914
+<914=916,915
+<918=934,923,919
+<919=920
+<920=922,921
+<923=924
+<924=930,925
+<925=926
+<926=927
+<927=929,928
+<930=931
+<931=933,932
+<934=1039,1028,1025,935
+<935=1016,976,936
+<936=961,950,947,937
+<937=938
+<938=942,939
+<939=941,940
+<942=946,943
+<943=945,944
+<947=949,948
+<950=951
+<951=960,952
+<952=954,953
+<954=955
+<955=957,956
+<957=959,958
+<961=962
+<962=963
+<963=975,974,964
+<964=973,965
+<965=967,966
+<967=968
+<968=970,969
+<970=972,971
+<976=1001,990,987,977
+<977=978
+<978=982,979
+<979=981,980
+<982=986,983
+<983=985,984
+<987=989,988
+<990=991
+<991=1000,992
+<992=994,993
+<994=995
+<995=997,996
+<997=999,998
+<1001=1002
+<1002=1003
+<1003=1015,1014,1004
+<1004=1013,1005
+<1005=1007,1006
+<1007=1008
+<1008=1010,1009
+<1010=1012,1011
+<1016=1017
+<1017=1024,1023,1018
+<1018=1022,1019
+<1019=1021,1020
+<1025=1027,1026
+<1028=1029
+<1029=1038,1030
+<1030=1032,1031
+<1032=1033
+<1033=1035,1034
+<1035=1037,1036
+<1039=1040
+<1040=1041
+<1041=1053,1052,1042
+<1042=1051,1043
+<1043=1045,1044
+<1045=1046
+<1046=1048,1047
+<1048=1050,1049
+<1082=1088,1087,1083
+<1083=1084
+<1084=1086,1085
+<1088=1126,1095,1089
+<1089=1090
+<1090=1094,1091
+<1091=1093,1092
+<1095=1117,1096
+<1096=1097
+<1097=1115,1098
+<1098=1099
+<1099=1100
+<1100=1109,1101
+<1101=1103,1102
+<1103=1107,1104
+<1104=1105
+<1105=1106
+<1107=1108
+<1109=1113,1110
+<1110=1111
+<1111=1112
+<1113=1114
+<1115=1116
+<1117=1118
+<1118=1125,1119
+<1119=1121,1120
+<1121=1122
+<1122=1124,1123
+<1126=1127
+<1127=1139,1138,1128
+<1128=1137,1129
+<1129=1133,1130
+<1130=1131
+<1131=1132
+<1133=1134
+<1134=1136,1135
+<1154=1163,1162,1155
+<1155=1159,1156
+<1156=1158,1157
+<1159=1161,1160
+<1163=1300,1296,1284,1182,1164
+<1164=1165
+<1165=1180,1166
+<1166=1178,1169,1167
+<1167=1168
+<1169=1170
+<1170=1172,1171
+<1172=1176,1173
+<1173=1174
+<1174=1175
+<1176=1177
+<1178=1179
+<1180=1181
+<1182=1278,1218,1183
+<1183=1184
+<1184=1185
+<1185=1209,1186
+<1186=1187
+<1187=1205,1188
+<1188=1189
+<1189=1190
+<1190=1199,1191
+<1191=1195,1192
+<1192=1193
+<1193=1194
+<1195=1196
+<1196=1198,1197
+<1199=1203,1200
+<1200=1201
+<1201=1202
+<1203=1204
+<1205=1206
+<1206=1208,1207
+<1209=1210
+<1210=1212,1211
+<1212=1214,1213
+<1214=1215
+<1215=1217,1216
+<1218=1267,1219
+<1219=1263,1220
+<1220=1237,1228,1221
+<1221=1222
+<1222=1224,1223
+<1224=1225
+<1225=1227,1226
+<1228=1229
+<1229=1236,1230
+<1230=1232,1231
+<1232=1233
+<1233=1235,1234
+<1237=1256,1238
+<1238=1239
+<1239=1254,1240
+<1240=1241
+<1241=1242
+<1242=1253,1243
+<1243=1252,1244
+<1244=1251,1245
+<1245=1249,1246
+<1246=1247
+<1247=1248
+<1249=1250
+<1254=1255
+<1256=1257
+<1257=1259,1258
+<1259=1260
+<1260=1262,1261
+<1263=1264
+<1264=1266,1265
+<1267=1268
+<1268=1277,1269
+<1269=1273,1270
+<1270=1271
+<1271=1272
+<1273=1274
+<1274=1276,1275
+<1278=1279
+<1279=1281,1280
+<1281=1283,1282
+<1284=1285
+<1285=1295,1294,1286
+<1286=1293,1287
+<1287=1291,1288
+<1288=1289
+<1289=1290
+<1291=1292
+<1296=1297
+<1297=1299,1298
+<1300=1301
+<1301=1303,1302
+<1303=1304
+<1304=1306,1305
+<1323=1329,1328,1324
+<1324=1325
+<1325=1327,1326
+<1329=1504,1443,1379,1348,1330
+<1330=1331
+<1331=1347,1332
+<1332=1334,1333
+<1334=1343,1335
+<1335=1336
+<1336=1337
+<1337=1339,1338
+<1339=1340
+<1340=1342,1341
+<1343=1344
+<1344=1346,1345
+<1348=1370,1349
+<1349=1350
+<1350=1368,1351
+<1351=1352
+<1352=1353
+<1353=1362,1354
+<1354=1356,1355
+<1356=1360,1357
+<1357=1358
+<1358=1359
+<1360=1361
+<1362=1366,1363
+<1363=1364
+<1364=1365
+<1366=1367
+<1368=1369
+<1370=1371
+<1371=1373,1372
+<1373=1375,1374
+<1375=1376
+<1376=1378,1377
+<1379=1434,1380
+<1380=1408,1381
+<1381=1382
+<1382=1406,1383
+<1383=1384
+<1384=1385
+<1385=1400,1386
+<1386=1394,1387
+<1387=1393,1388
+<1388=1392,1389
+<1389=1391,1390
+<1394=1398,1395
+<1395=1396
+<1396=1397
+<1398=1399
+<1400=1404,1401
+<1401=1402
+<1402=1403
+<1404=1405
+<1406=1407
+<1408=1409
+<1409=1433,1432,1410
+<1410=1431,1411
+<1411=1429,1412
+<1412=1427,1420,1413
+<1413=1414
+<1414=1416,1415
+<1416=1417
+<1417=1419,1418
+<1420=1421
+<1421=1423,1422
+<1423=1424
+<1424=1426,1425
+<1427=1428
+<1429=1430
+<1434=1435
+<1435=1437,1436
+<1437=1439,1438
+<1439=1440
+<1440=1442,1441
+<1443=1491,1482,1479,1444
+<1444=1445
+<1445=1457,1446
+<1446=1447
+<1447=1453,1448
+<1448=1449
+<1449=1450
+<1450=1452,1451
+<1453=1454
+<1454=1456,1455
+<1457=1458
+<1458=1460,1459
+<1460=1473,1461
+<1461=1471,1464,1462
+<1462=1463
+<1464=1465
+<1465=1467,1466
+<1467=1468
+<1468=1470,1469
+<1471=1472
+<1473=1474
+<1474=1476,1475
+<1476=1478,1477
+<1479=1481,1480
+<1482=1483
+<1483=1490,1484
+<1484=1486,1485
+<1486=1487
+<1487=1489,1488
+<1491=1492
+<1492=1493
+<1493=1503,1502,1494
+<1494=1501,1495
+<1495=1497,1496
+<1497=1498
+<1498=1500,1499
+<1504=1505
+<1505=1507,1506
+<1536=1542,1541,1537
+<1537=1538
+<1538=1540,1539
+<1542=1702,1695,1681,1644,1632,1631,1630,1629,1628,1627,1626,1625,1624,1623,1622,1621,1620,1619,1618,1591,1590,1589,1588,1587,1586,1585,1584,1583,1582,1581,1580,1579,1561,1543
+<1543=1544
+<1544=1559,1545
+<1545=1557,1548,1546
+<1546=1547
+<1548=1549
+<1549=1551,1550
+<1551=1555,1552
+<1552=1553
+<1553=1554
+<1555=1556
+<1557=1558
+<1559=1560
+<1561=1562
+<1562=1577,1563
+<1563=1564
+<1564=1565
+<1565=1576,1566
+<1566=1575,1567
+<1567=1574,1568
+<1568=1572,1569
+<1569=1570
+<1570=1571
+<1572=1573
+<1577=1578
+<1591=1617,1616,1615,1614,1613,1612,1611,1610,1609,1592
+<1592=1600,1593
+<1593=1594
+<1594=1596,1595
+<1596=1597
+<1597=1599,1598
+<1600=1601
+<1601=1608,1602
+<1602=1604,1603
+<1604=1605
+<1605=1607,1606
+<1632=1633
+<1633=1643,1642,1634
+<1634=1641,1635
+<1635=1639,1636
+<1636=1637
+<1637=1638
+<1639=1640
+<1644=1677,1650,1645
+<1645=1646
+<1646=1647
+<1647=1649,1648
+<1650=1664,1651
+<1651=1652
+<1652=1663,1653
+<1653=1659,1654
+<1654=1655
+<1655=1656
+<1656=1658,1657
+<1659=1660
+<1660=1662,1661
+<1664=1665
+<1665=1676,1666
+<1666=1672,1667
+<1667=1670,1668
+<1668=1669
+<1670=1671
+<1672=1673
+<1673=1675,1674
+<1677=1678
+<1678=1680,1679
+<1681=1682
+<1682=1694,1693,1683
+<1683=1692,1684
+<1684=1688,1685
+<1685=1686
+<1686=1687
+<1688=1689
+<1689=1691,1690
+<1695=1699,1696
+<1696=1698,1697
+<1699=1701,1700
+<1702=1703
+<1703=1705,1704
+<1705=1706
+<1706=1708,1707
+<1725=1731,1730,1726
+<1726=1727
+<1727=1729,1728
+<1731=2142,2141,2140,2139,2138,2137,2136,2135,2134,2133,2132,2131,2130,2078,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,1886,1885,1884,1883,1882,1881,1880,1879,1878,1877,1848,1799,1734,1732
+<1732=1733
+<1734=1786,1777,1774,1735
+<1735=1773,1772,1771,1770,1769,1768,1767,1766,1765,1764,1763,1762,1761,1760,1759,1758,1757,1756,1755,1754,1753,1752,1736
+<1736=1737
+<1737=1744,1738
+<1738=1740,1739
+<1740=1741
+<1741=1743,1742
+<1744=1751,1745
+<1745=1747,1746
+<1747=1748
+<1748=1750,1749
+<1774=1776,1775
+<1777=1778
+<1778=1785,1779
+<1779=1781,1780
+<1781=1782
+<1782=1784,1783
+<1786=1787
+<1787=1788
+<1788=1798,1797,1789
+<1789=1796,1790
+<1790=1792,1791
+<1792=1793
+<1793=1795,1794
+<1799=1835,1826,1823,1800
+<1800=1822,1821,1820,1819,1818,1817,1816,1815,1814,1813,1812,1811,1801
+<1801=1802
+<1802=1806,1803
+<1803=1805,1804
+<1806=1810,1807
+<1807=1809,1808
+<1823=1825,1824
+<1826=1827
+<1827=1834,1828
+<1828=1830,1829
+<1830=1831
+<1831=1833,1832
+<1835=1836
+<1836=1837
+<1837=1847,1846,1838
+<1838=1845,1839
+<1839=1841,1840
+<1841=1842
+<1842=1844,1843
+<1848=1865,1858,1849
+<1849=1850
+<1850=1854,1851
+<1851=1852
+<1852=1853
+<1854=1855
+<1855=1857,1856
+<1858=1859
+<1859=1861,1860
+<1861=1862
+<1862=1864,1863
+<1865=1866
+<1866=1876,1875,1867
+<1867=1874,1868
+<1868=1870,1869
+<1870=1871
+<1871=1873,1872
+<1886=1997,1957,1926,1925,1924,1923,1922,1921,1920,1919,1918,1917,1916,1915,1914,1913,1912,1911,1910,1909,1908,1907,1906,1887
+<1887=1888
+<1888=1889
+<1889=1904,1890
+<1890=1893,1891
+<1891=1892
+<1893=1894
+<1894=1900,1895
+<1895=1898,1896
+<1896=1897
+<1898=1899
+<1900=1901
+<1901=1903,1902
+<1904=1905
+<1926=1944,1929,1927
+<1927=1928
+<1929=1930
+<1930=1931
+<1931=1942,1932
+<1932=1933
+<1933=1934
+<1934=1938,1935
+<1935=1936
+<1936=1937
+<1938=1939
+<1939=1941,1940
+<1942=1943
+<1944=1945
+<1945=1947,1946
+<1947=1953,1948
+<1948=1951,1949
+<1949=1950
+<1951=1952
+<1953=1954
+<1954=1956,1955
+<1957=1993,1984,1958
+<1958=1959
+<1959=1977,1968,1967,1966,1965,1964,1963,1962,1961,1960
+<1968=1969
+<1969=1973,1970
+<1970=1971
+<1971=1972
+<1973=1974
+<1974=1976,1975
+<1977=1978
+<1978=1980,1979
+<1980=1981
+<1981=1983,1982
+<1984=1986,1985
+<1986=1987
+<1987=1989,1988
+<1989=1990
+<1990=1992,1991
+<1993=1994
+<1994=1996,1995
+<1997=1998
+<1998=2008,2007,1999
+<1999=2006,2000
+<2000=2002,2001
+<2002=2003
+<2003=2005,2004
+<2018=2073,2019
+<2019=2045,2020
+<2020=2021
+<2021=2041,2022
+<2022=2034,2032,2023
+<2023=2024
+<2024=2031,2025
+<2025=2027,2026
+<2027=2028
+<2028=2030,2029
+<2032=2033
+<2034=2035
+<2035=2037,2036
+<2037=2038
+<2038=2040,2039
+<2041=2042
+<2042=2044,2043
+<2045=2046
+<2046=2055,2047
+<2047=2048
+<2048=2049
+<2049=2053,2050
+<2050=2051
+<2051=2052
+<2053=2054
+<2055=2056
+<2056=2058,2057
+<2058=2062,2059
+<2059=2060
+<2060=2061
+<2062=2063
+<2063=2065,2064
+<2065=2071,2066
+<2066=2069,2067
+<2067=2068
+<2069=2070
+<2071=2072
+<2073=2074
+<2074=2076,2075
+<2076=2077
+<2078=2104,2079
+<2079=2080
+<2080=2100,2081
+<2081=2093,2091,2082
+<2082=2083
+<2083=2090,2084
+<2084=2086,2085
+<2086=2087
+<2087=2089,2088
+<2091=2092
+<2093=2094
+<2094=2096,2095
+<2096=2097
+<2097=2099,2098
+<2100=2101
+<2101=2103,2102
+<2104=2105
+<2105=2114,2106
+<2106=2107
+<2107=2108
+<2108=2112,2109
+<2109=2110
+<2110=2111
+<2112=2113
+<2114=2115
+<2115=2117,2116
+<2117=2121,2118
+<2118=2119
+<2119=2120
+<2121=2122
+<2122=2124,2123
+<2124=2128,2125
+<2125=2126
+<2126=2127
+<2128=2129
+<2142=2143
+<2143=2159,2144
+<2144=2152,2145
+<2145=2146
+<2146=2148,2147
+<2148=2149
+<2149=2151,2150
+<2152=2153
+<2153=2155,2154
+<2155=2156
+<2156=2158,2157
+<2159=2160
+<2160=2162,2161
+<2197=2209,2208,2198
+<2198=2205,2202,2199
+<2199=2201,2200
+<2202=2204,2203
+<2205=2207,2206
+<2209=2210
+<2210=2687,2631,2211
+<2211=2212
+<2212=2622,2589,2213
+<2213=2214
+<2214=2580,2552,2215
+<2215=2216
+<2216=2543,2515,2217
+<2217=2218
+<2218=2506,2429,2219
+<2219=2220
+<2220=2420,2361,2221
+<2221=2222
+<2222=2352,2312,2223
+<2223=2224
+<2224=2303,2290,2225
+<2225=2226
+<2226=2281,2268,2227
+<2227=2228
+<2228=2252,2229
+<2229=2230
+<2230=2231
+<2231=2243,2232
+<2232=2241,2239,2237,2233
+<2233=2234
+<2234=2236,2235
+<2237=2238
+<2239=2240
+<2241=2242
+<2243=2244
+<2244=2251,2245
+<2245=2247,2246
+<2247=2248
+<2248=2250,2249
+<2252=2253
+<2253=2260,2254
+<2254=2256,2255
+<2256=2257
+<2257=2259,2258
+<2260=2262,2261
+<2262=2264,2263
+<2264=2265
+<2265=2267,2266
+<2268=2276,2269
+<2269=2270
+<2270=2274,2271
+<2271=2272
+<2272=2273
+<2274=2275
+<2276=2277
+<2277=2279,2278
+<2279=2280
+<2281=2282
+<2282=2284,2283
+<2284=2286,2285
+<2286=2287
+<2287=2289,2288
+<2290=2298,2291
+<2291=2292
+<2292=2296,2293
+<2293=2294
+<2294=2295
+<2296=2297
+<2298=2299
+<2299=2301,2300
+<2301=2302
+<2303=2304
+<2304=2306,2305
+<2306=2308,2307
+<2308=2309
+<2309=2311,2310
+<2312=2329,2313
+<2313=2314
+<2314=2325,2315
+<2315=2318,2316
+<2316=2317
+<2318=2319
+<2319=2321,2320
+<2321=2322
+<2322=2324,2323
+<2325=2326
+<2326=2328,2327
+<2329=2330
+<2330=2344,2331
+<2331=2342,2332
+<2332=2333
+<2333=2334
+<2334=2341,2335
+<2335=2337,2336
+<2337=2338
+<2338=2340,2339
+<2342=2343
+<2344=2351,2345
+<2345=2347,2346
+<2347=2348
+<2348=2350,2349
+<2352=2353
+<2353=2355,2354
+<2355=2357,2356
+<2357=2358
+<2358=2360,2359
+<2361=2404,2378,2362
+<2362=2363
+<2363=2374,2364
+<2364=2367,2365
+<2365=2366
+<2367=2368
+<2368=2370,2369
+<2370=2371
+<2371=2373,2372
+<2374=2375
+<2375=2377,2376
+<2378=2379
+<2379=2388,2380
+<2380=2381
+<2381=2382
+<2382=2384,2383
+<2384=2385
+<2385=2387,2386
+<2388=2389
+<2389=2391,2390
+<2391=2400,2392
+<2392=2393
+<2393=2394
+<2394=2396,2395
+<2396=2397
+<2397=2399,2398
+<2400=2401
+<2401=2403,2402
+<2404=2405
+<2405=2412,2406
+<2406=2408,2407
+<2408=2409
+<2409=2411,2410
+<2412=2419,2413
+<2413=2415,2414
+<2415=2416
+<2416=2418,2417
+<2420=2421
+<2421=2423,2422
+<2423=2425,2424
+<2425=2426
+<2426=2428,2427
+<2429=2490,2478,2467,2446,2430
+<2430=2431
+<2431=2442,2432
+<2432=2435,2433
+<2433=2434
+<2435=2436
+<2436=2438,2437
+<2438=2439
+<2439=2441,2440
+<2442=2443
+<2443=2445,2444
+<2446=2447
+<2447=2451,2448
+<2448=2449
+<2449=2450
+<2451=2452
+<2452=2454,2453
+<2454=2463,2455
+<2455=2456
+<2456=2457
+<2457=2459,2458
+<2459=2460
+<2460=2462,2461
+<2463=2464
+<2464=2466,2465
+<2467=2468
+<2468=2470,2469
+<2470=2477,2471
+<2471=2473,2472
+<2473=2474
+<2474=2476,2475
+<2478=2486,2479
+<2479=2480
+<2480=2484,2481
+<2481=2482
+<2482=2483
+<2484=2485
+<2486=2487
+<2487=2489,2488
+<2490=2491
+<2491=2505,2504,2492
+<2492=2503,2493
+<2493=2499,2494
+<2494=2497,2495
+<2495=2496
+<2497=2498
+<2499=2500
+<2500=2502,2501
+<2506=2507
+<2507=2509,2508
+<2509=2511,2510
+<2511=2512
+<2512=2514,2513
+<2515=2532,2516
+<2516=2517
+<2517=2528,2518
+<2518=2521,2519
+<2519=2520
+<2521=2522
+<2522=2524,2523
+<2524=2525
+<2525=2527,2526
+<2528=2529
+<2529=2531,2530
+<2532=2533
+<2533=2535,2534
+<2535=2542,2536
+<2536=2538,2537
+<2538=2539
+<2539=2541,2540
+<2543=2544
+<2544=2546,2545
+<2546=2548,2547
+<2548=2549
+<2549=2551,2550
+<2552=2569,2553
+<2553=2554
+<2554=2565,2555
+<2555=2558,2556
+<2556=2557
+<2558=2559
+<2559=2561,2560
+<2561=2562
+<2562=2564,2563
+<2565=2566
+<2566=2568,2567
+<2569=2570
+<2570=2572,2571
+<2572=2579,2573
+<2573=2575,2574
+<2575=2576
+<2576=2578,2577
+<2580=2581
+<2581=2583,2582
+<2583=2585,2584
+<2585=2586
+<2586=2588,2587
+<2589=2606,2590
+<2590=2591
+<2591=2602,2592
+<2592=2595,2593
+<2593=2594
+<2595=2596
+<2596=2598,2597
+<2598=2599
+<2599=2601,2600
+<2602=2603
+<2603=2605,2604
+<2606=2607
+<2607=2614,2608
+<2608=2610,2609
+<2610=2611
+<2611=2613,2612
+<2614=2621,2615
+<2615=2617,2616
+<2617=2618
+<2618=2620,2619
+<2622=2623
+<2623=2625,2624
+<2625=2627,2626
+<2627=2628
+<2628=2630,2629
+<2631=2671,2659,2648,2632
+<2632=2633
+<2633=2644,2634
+<2634=2637,2635
+<2635=2636
+<2637=2638
+<2638=2640,2639
+<2640=2641
+<2641=2643,2642
+<2644=2645
+<2645=2647,2646
+<2648=2649
+<2649=2651,2650
+<2651=2658,2652
+<2652=2654,2653
+<2654=2655
+<2655=2657,2656
+<2659=2667,2660
+<2660=2661
+<2661=2665,2662
+<2662=2663
+<2663=2664
+<2665=2666
+<2667=2668
+<2668=2670,2669
+<2671=2672
+<2672=2686,2685,2673
+<2673=2684,2674
+<2674=2680,2675
+<2675=2678,2676
+<2676=2677
+<2678=2679
+<2680=2681
+<2681=2683,2682
+<2687=2688
+<2688=2690,2689
+<2690=2692,2691
+<2692=2693
+<2693=2695,2694
+<2717=2723,2722,2718
+<2718=2719
+<2719=2721,2720
+<2723=2794,2779,2731,2724
+<2724=2725
+<2725=2727,2726
+<2727=2728
+<2728=2730,2729
+<2731=2766,2757,2754,2732
+<2732=2733
+<2733=2745,2734
+<2734=2735
+<2735=2744,2736
+<2736=2740,2737
+<2737=2738
+<2738=2739
+<2740=2741
+<2741=2743,2742
+<2745=2746
+<2746=2748,2747
+<2748=2750,2749
+<2750=2751
+<2751=2753,2752
+<2754=2756,2755
+<2757=2758
+<2758=2765,2759
+<2759=2761,2760
+<2761=2762
+<2762=2764,2763
+<2766=2767
+<2767=2768
+<2768=2778,2777,2769
+<2769=2776,2770
+<2770=2772,2771
+<2772=2773
+<2773=2775,2774
+<2779=2787,2780
+<2780=2781
+<2781=2783,2782
+<2783=2784
+<2784=2786,2785
+<2787=2788
+<2788=2790,2789
+<2790=2791
+<2791=2793,2792
+<2794=2795
+<2795=2797,2796
+<2812=2815,2814,2813
+<2815=3017,3000,2971,2958,2951,2852,2823,2816
+<2816=2817
+<2817=2819,2818
+<2819=2820
+<2820=2822,2821
+<2823=2845,2824
+<2824=2825
+<2825=2844,2826
+<2826=2843,2827
+<2827=2841,2828
+<2828=2836,2834,2829
+<2829=2830
+<2830=2832,2831
+<2832=2833
+<2834=2835
+<2836=2837
+<2837=2839,2838
+<2839=2840
+<2841=2842
+<2845=2846
+<2846=2848,2847
+<2848=2850,2849
+<2850=2851
+<2852=2938,2929,2926,2853
+<2853=2915,2898,2865,2854
+<2854=2855
+<2855=2864,2856
+<2856=2860,2857
+<2857=2858
+<2858=2859
+<2860=2861
+<2861=2863,2862
+<2865=2889,2866
+<2866=2867
+<2867=2888,2868
+<2868=2870,2869
+<2870=2886,2871
+<2871=2879,2877,2872
+<2872=2873
+<2873=2875,2874
+<2875=2876
+<2877=2878
+<2879=2880
+<2880=2882,2881
+<2882=2883
+<2883=2885,2884
+<2886=2887
+<2889=2890
+<2890=2892,2891
+<2892=2894,2893
+<2894=2895
+<2895=2897,2896
+<2898=2899
+<2899=2914,2900
+<2900=2913,2901
+<2901=2912,2902
+<2902=2906,2903
+<2903=2905,2904
+<2906=2908,2907
+<2908=2909
+<2909=2911,2910
+<2915=2916
+<2916=2925,2924,2917
+<2917=2923,2918
+<2918=2922,2919
+<2919=2921,2920
+<2926=2928,2927
+<2929=2930
+<2930=2937,2931
+<2931=2933,2932
+<2933=2934
+<2934=2936,2935
+<2938=2939
+<2939=2940
+<2940=2950,2949,2941
+<2941=2948,2942
+<2942=2944,2943
+<2944=2945
+<2945=2947,2946
+<2951=2952
+<2952=2957,2953
+<2953=2955,2954
+<2955=2956
+<2958=2959
+<2959=2970,2960
+<2960=2964,2961
+<2961=2963,2962
+<2964=2968,2965
+<2965=2966
+<2966=2967
+<2968=2969
+<2971=2993,2972
+<2972=2973
+<2973=2992,2974
+<2974=2976,2975
+<2976=2990,2977
+<2977=2985,2983,2978
+<2978=2979
+<2979=2981,2980
+<2981=2982
+<2983=2984
+<2985=2986
+<2986=2988,2987
+<2988=2989
+<2990=2991
+<2993=2994
+<2994=2996,2995
+<2996=2998,2997
+<2998=2999
+<3000=3010,3001
+<3001=3002
+<3002=3009,3003
+<3003=3005,3004
+<3005=3007,3006
+<3007=3008
+<3010=3011
+<3011=3013,3012
+<3013=3015,3014
+<3015=3016
+<3017=3018
+<3018=3020,3019
+<3039=3042,3041,3040
+<3042=3043
+<3043=3044
+<3044=3049,3045
+<3045=3047,3046
+<3047=3048
+<3053=3059,3058,3054
+<3054=3055
+<3055=3057,3056
+<3059=3116,3115,3114,3113,3112,3111,3110,3109,3108,3107,3106,3105,3104,3103,3102,3101,3100,3099,3098,3097,3096,3095,3094,3093,3092,3060
+<3060=3077,3066,3061
+<3061=3062
+<3062=3063
+<3063=3065,3064
+<3066=3067
+<3067=3076,3068
+<3068=3072,3069
+<3069=3070
+<3070=3071
+<3072=3073
+<3073=3075,3074
+<3077=3078
+<3078=3080,3079
+<3080=3088,3081
+<3081=3086,3084,3082
+<3082=3083
+<3084=3085
+<3086=3087
+<3088=3089
+<3089=3091,3090
+<3116=3117
+<3117=3122,3121,3118
+<3118=3120,3119
+<3131=3137,3136,3132
+<3132=3133
+<3133=3135,3134
+<3137=3160,3145,3138
+<3138=3139
+<3139=3141,3140
+<3141=3142
+<3142=3144,3143
+<3145=3146
+<3146=3159,3147
+<3147=3153,3148
+<3148=3152,3149
+<3149=3151,3150
+<3153=3157,3154
+<3154=3155
+<3155=3156
+<3157=3158
+<3160=3161
+<3161=3163,3162
+<3170=3173,3172,3171
+<3173=3196,3174
+<3174=3175
+<3175=3194,3176
+<3176=3177
+<3177=3178
+<3178=3192,3179
+<3179=3187,3185,3180
+<3180=3181
+<3181=3183,3182
+<3183=3184
+<3185=3186
+<3187=3188
+<3188=3190,3189
+<3190=3191
+<3192=3193
+<3194=3195
+<3196=3204,3197
+<3197=3198
+<3198=3202,3199
+<3199=3200
+<3200=3201
+<3202=3203
+<3204=3205
+<3205=3207,3206
+<3207=3209,3208
+<3209=3210
+<3220=3226,3225,3221
+<3221=3222
+<3222=3224,3223
+<3226=3238,3227
+<3227=3234,3228
+<3228=3229
+<3229=3233,3230
+<3230=3232,3231
+<3234=3235
+<3235=3237,3236
+<3238=3239
+<3239=3247,3246,3240
+<3240=3245,3241
+<3241=3243,3242
+<3243=3244
+<3254=3257,3256,3255
+<3257=3258
+<3258=3259
+<3259=3263,3260
+<3260=3261
+<3261=3262
+<3263=3264
+<3269=3272,3271,3270
+<3272=3273
+<3273=3274
+<3274=3285,3275
+<3275=3283,3281,3276
+<3276=3277
+<3277=3279,3278
+<3279=3280
+<3281=3282
+<3283=3284
+<3285=3286
+<3293=3299,3298,3294
+<3294=3295
+<3295=3297,3296
+<3299=3300
+<3300=3301
+<3301=3308,3302
+<3302=3304,3303
+<3304=3306,3305
+<3306=3307
+<3313=3316,3315,3314
+<3316=3317
+<3317=3318
+<3318=3322,3319
+<3319=3320
+<3320=3321
+<3322=3323
+<3328=3331,3330,3329
+<3331=3332
+<3332=3333
+<3333=3337,3334
+<3334=3335
+<3335=3336
+<3337=3338
+<3342=3348,3347,3343
+<3343=3344
+<3344=3346,3345
+<3348=3376,3354,3349
+<3349=3350
+<3350=3352,3351
+<3352=3353
+<3354=3355
+<3355=3375,3356
+<3356=3371,3357
+<3357=3370,3358
+<3358=3364,3359
+<3359=3363,3360
+<3360=3362,3361
+<3364=3368,3365
+<3365=3366
+<3366=3367
+<3368=3369
+<3371=3373,3372
+<3373=3374
+<3376=3377
+<3377=3381,3378
+<3378=3379
+<3379=3380
+<3381=3382
+<3388=3393,3389
+<3389=3390
+<3390=3392,3391
+<3393=3417,3416,3409,3394
+<3394=3395
+<3395=3400,3397,3396
+<3397=3399,3398
+<3400=3401
+<3401=3408,3402
+<3402=3404,3403
+<3404=3405
+<3405=3407,3406
+<3409=3410
+<3410=3415,3414,3411
+<3411=3413,3412
+<3417=3418
+<3418=3430,3429,3419
+<3419=3428,3420
+<3420=3424,3421
+<3421=3422
+<3422=3423
+<3424=3425
+<3425=3427,3426
+<3442=3451,3450,3443
+<3443=3447,3444
+<3444=3446,3445
+<3447=3449,3448
+<3451=3452
+<3452=3472,3463,3453
+<3453=3454
+<3454=3455
+<3455=3459,3456
+<3456=3457
+<3457=3458
+<3459=3460
+<3460=3462,3461
+<3463=3464
+<3464=3468,3465
+<3465=3466
+<3466=3467
+<3468=3469
+<3469=3471,3470
+<3472=3473
+<3480=3489,3488,3481
+<3481=3485,3482
+<3482=3484,3483
+<3485=3487,3486
+<3489=3824,3820,3497,3490
+<3490=3491
+<3491=3493,3492
+<3493=3494
+<3494=3496,3495
+<3497=3806,3763,3498
+<3498=3499
+<3499=3749,3706,3500
+<3500=3501
+<3501=3699,3554,3502
+<3502=3503
+<3503=3547,3504
+<3504=3543,3505
+<3505=3534,3506
+<3506=3507
+<3507=3533,3508
+<3508=3527,3509
+<3509=3526,3510
+<3510=3525,3511
+<3511=3524,3512
+<3512=3518,3513
+<3513=3517,3514
+<3514=3516,3515
+<3518=3522,3519
+<3519=3520
+<3520=3521
+<3522=3523
+<3527=3531,3528
+<3528=3529
+<3529=3530
+<3531=3532
+<3534=3535
+<3535=3541,3536
+<3536=3537
+<3537=3538
+<3538=3540,3539
+<3541=3542
+<3543=3544
+<3544=3546,3545
+<3547=3548
+<3548=3550,3549
+<3550=3552,3551
+<3552=3553
+<3554=3555
+<3555=3662,3556
+<3556=3652,3619,3557
+<3557=3558
+<3558=3618,3559
+<3559=3612,3560
+<3560=3611,3561
+<3561=3610,3562
+<3562=3609,3563
+<3563=3603,3564
+<3564=3602,3565
+<3565=3601,3566
+<3566=3600,3567
+<3567=3599,3568
+<3568=3593,3569
+<3569=3592,3570
+<3570=3572,3571
+<3572=3590,3573
+<3573=3588,3581,3574
+<3574=3575
+<3575=3577,3576
+<3577=3578
+<3578=3580,3579
+<3581=3582
+<3582=3584,3583
+<3584=3585
+<3585=3587,3586
+<3588=3589
+<3590=3591
+<3593=3597,3594
+<3594=3595
+<3595=3596
+<3597=3598
+<3603=3607,3604
+<3604=3605
+<3605=3606
+<3607=3608
+<3612=3616,3613
+<3613=3614
+<3614=3615
+<3616=3617
+<3619=3620
+<3620=3650,3621
+<3621=3643,3636,3629,3622
+<3622=3623
+<3623=3627,3624
+<3624=3625
+<3625=3626
+<3627=3628
+<3629=3630
+<3630=3632,3631
+<3632=3633
+<3633=3635,3634
+<3636=3637
+<3637=3639,3638
+<3639=3640
+<3640=3642,3641
+<3643=3644
+<3644=3646,3645
+<3646=3647
+<3647=3649,3648
+<3650=3651
+<3652=3653
+<3653=3661,3660,3654
+<3654=3659,3655
+<3655=3657,3656
+<3657=3658
+<3662=3663
+<3663=3673,3664
+<3664=3666,3665
+<3666=3667
+<3667=3669,3668
+<3669=3671,3670
+<3671=3672
+<3673=3697,3674
+<3674=3687,3677,3675
+<3675=3676
+<3677=3678
+<3678=3680,3679
+<3680=3681
+<3681=3683,3682
+<3683=3685,3684
+<3685=3686
+<3687=3688
+<3688=3690,3689
+<3690=3691
+<3691=3693,3692
+<3693=3695,3694
+<3695=3696
+<3697=3698
+<3699=3700
+<3700=3702,3701
+<3702=3704,3703
+<3704=3705
+<3706=3745,3707
+<3707=3736,3708
+<3708=3709
+<3709=3735,3710
+<3710=3729,3711
+<3711=3728,3712
+<3712=3727,3713
+<3713=3726,3714
+<3714=3720,3715
+<3715=3719,3716
+<3716=3718,3717
+<3720=3724,3721
+<3721=3722
+<3722=3723
+<3724=3725
+<3729=3733,3730
+<3730=3731
+<3731=3732
+<3733=3734
+<3736=3737
+<3737=3743,3738
+<3738=3739
+<3739=3740
+<3740=3742,3741
+<3743=3744
+<3745=3746
+<3746=3748,3747
+<3749=3750
+<3750=3757,3751
+<3751=3753,3752
+<3753=3755,3754
+<3755=3756
+<3757=3759,3758
+<3759=3761,3760
+<3761=3762
+<3763=3802,3764
+<3764=3793,3765
+<3765=3766
+<3766=3792,3767
+<3767=3786,3768
+<3768=3785,3769
+<3769=3784,3770
+<3770=3783,3771
+<3771=3777,3772
+<3772=3776,3773
+<3773=3775,3774
+<3777=3781,3778
+<3778=3779
+<3779=3780
+<3781=3782
+<3786=3790,3787
+<3787=3788
+<3788=3789
+<3790=3791
+<3793=3794
+<3794=3800,3795
+<3795=3796
+<3796=3797
+<3797=3799,3798
+<3800=3801
+<3802=3803
+<3803=3805,3804
+<3806=3807
+<3807=3814,3808
+<3808=3810,3809
+<3810=3812,3811
+<3812=3813
+<3814=3816,3815
+<3816=3818,3817
+<3818=3819
+<3820=3821
+<3821=3823,3822
+<3824=3825
+<3825=3828,3827,3826
+<3848=3854,3853,3849
+<3849=3850
+<3850=3852,3851
+<3854=4041,3973,3969,3958,3957,3956,3955,3954,3953,3952,3951,3950,3949,3903,3902,3901,3900,3899,3898,3897,3896,3895,3894,3862,3855
+<3855=3856
+<3856=3858,3857
+<3858=3859
+<3859=3861,3860
+<3862=3863
+<3863=3893,3864
+<3864=3891,3865
+<3865=3889,3882,3875,3866
+<3866=3867
+<3867=3873,3868
+<3868=3871,3869
+<3869=3870
+<3871=3872
+<3873=3874
+<3875=3876
+<3876=3878,3877
+<3878=3879
+<3879=3881,3880
+<3882=3883
+<3883=3885,3884
+<3885=3886
+<3886=3888,3887
+<3889=3890
+<3891=3892
+<3903=3917,3916,3915,3914,3913,3912,3911,3910,3909,3908,3904
+<3904=3905
+<3905=3907,3906
+<3917=3918
+<3918=3948,3919
+<3919=3946,3920
+<3920=3944,3937,3930,3921
+<3921=3922
+<3922=3928,3923
+<3923=3926,3924
+<3924=3925
+<3926=3927
+<3928=3929
+<3930=3931
+<3931=3933,3932
+<3933=3934
+<3934=3936,3935
+<3937=3938
+<3938=3940,3939
+<3940=3941
+<3941=3943,3942
+<3944=3945
+<3946=3947
+<3958=3959
+<3959=3968,3960
+<3960=3966,3961
+<3961=3964,3962
+<3962=3963
+<3964=3965
+<3966=3967
+<3969=3970
+<3970=3972,3971
+<3973=4034,3974
+<3974=4024,3987,3981,3975
+<3975=3976
+<3976=3980,3977
+<3977=3979,3978
+<3981=3982
+<3982=3986,3983
+<3983=3985,3984
+<3987=4020,3988
+<3988=4013,4012,4011,4010,4009,4008,4007,4006,4005,4004,4003,4002,4001,4000,3999,3998,3997,3996,3995,3994,3993,3992,3991,3990,3989
+<4013=4014
+<4014=4019,4015
+<4015=4017,4016
+<4017=4018
+<4020=4021
+<4021=4023,4022
+<4024=4025
+<4025=4033,4032,4026
+<4026=4031,4027
+<4027=4029,4028
+<4029=4030
+<4034=4035
+<4035=4037,4036
+<4037=4039,4038
+<4039=4040
+<4041=4045,4042
+<4042=4044,4043
+<4045=4047,4046
+<4067=4073,4072,4068
+<4068=4069
+<4069=4071,4070
+<4073=4243,4231,4221,4203,4196,4192,4139,4081,4074
+<4074=4075
+<4075=4077,4076
+<4077=4078
+<4078=4080,4079
+<4081=4132,4082
+<4082=4098,4083
+<4083=4084
+<4084=4097,4085
+<4085=4095,4086
+<4086=4093,4091,4089,4087
+<4087=4088
+<4089=4090
+<4091=4092
+<4093=4094
+<4095=4096
+<4098=4099
+<4099=4131,4130,4100
+<4100=4129,4101
+<4101=4122,4106,4102
+<4102=4104,4103
+<4104=4105
+<4106=4120,4107
+<4107=4115,4113,4108
+<4108=4109
+<4109=4111,4110
+<4111=4112
+<4113=4114
+<4115=4116
+<4116=4118,4117
+<4118=4119
+<4120=4121
+<4122=4123
+<4123=4125,4124
+<4125=4127,4126
+<4127=4128
+<4132=4133
+<4133=4135,4134
+<4135=4137,4136
+<4137=4138
+<4139=4181,4172,4140
+<4140=4141
+<4141=4154,4142
+<4142=4147,4143
+<4143=4144
+<4144=4146,4145
+<4147=4148
+<4148=4150,4149
+<4150=4152,4151
+<4152=4153
+<4154=4155
+<4155=4171,4156
+<4156=4169,4157
+<4157=4160,4158
+<4158=4159
+<4160=4161
+<4161=4168,4162
+<4162=4164,4163
+<4164=4165
+<4165=4167,4166
+<4169=4170
+<4172=4177,4173
+<4173=4174
+<4174=4176,4175
+<4177=4178
+<4178=4180,4179
+<4181=4182
+<4182=4186,4183
+<4183=4185,4184
+<4186=4188,4187
+<4188=4189
+<4189=4191,4190
+<4192=4193
+<4193=4195,4194
+<4196=4197
+<4197=4202,4201,4198
+<4198=4200,4199
+<4203=4204
+<4204=4220,4219,4205
+<4205=4218,4206
+<4206=4216,4207
+<4207=4210,4208
+<4208=4209
+<4210=4211
+<4211=4215,4212
+<4212=4214,4213
+<4216=4217
+<4221=4222
+<4222=4230,4229,4223
+<4223=4228,4224
+<4224=4226,4225
+<4226=4227
+<4231=4232
+<4232=4242,4241,4233
+<4233=4240,4234
+<4234=4238,4235
+<4235=4236
+<4236=4237
+<4238=4239
+<4243=4244
+<4244=4246,4245
+<4267=4273,4272,4268
+<4268=4269
+<4269=4271,4270
+<4273=4314,4278,4274
+<4274=4275
+<4275=4277,4276
+<4278=4286,4279
+<4279=4280
+<4280=4284,4281
+<4281=4282
+<4282=4283
+<4284=4285
+<4286=4287
+<4287=4311,4288
+<4288=4308,4289
+<4289=4305,4290
+<4290=4302,4291
+<4291=4299,4292
+<4292=4296,4293
+<4293=4295,4294
+<4296=4298,4297
+<4299=4301,4300
+<4302=4304,4303
+<4305=4307,4306
+<4308=4310,4309
+<4311=4313,4312
+<4314=4315
+<4315=4317,4316

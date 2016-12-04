@@ -1,0 +1,1048 @@
+>3	FunctionDef	LiveSLAMWrapper 
+>4	ParameterList	InputImageStream * imageStream , Output3DWrapper * outputWrapper
+>5	Parameter	 
+>6	Identifier	outputWrapper
+>7	ParameterType	Output3DWrapper *
+>8	Parameter	 
+>9	Identifier	imageStream
+>10	ParameterType	InputImageStream *
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	AssignmentExpr	imageSeqNumber = 0
+>14	PrimaryExpression	0
+>15	Identifier	imageSeqNumber
+>16	ExpressionStatement	 
+>17	CallExpression	monoOdometry -> setVisualization ( outputWrapper )
+>18	ArgumentList	outputWrapper
+>19	Argument	outputWrapper
+>20	Identifier	outputWrapper
+>21	Callee	monoOdometry -> setVisualization
+>22	PtrMemberAccess	monoOdometry -> setVisualization
+>23	Identifier	setVisualization
+>24	Identifier	monoOdometry
+>25	ExpressionStatement	 
+>26	AssignmentExpr	monoOdometry = new SlamSystem ( width , height , K_sophus , doSlam )
+>27	Expression	width , height , K_sophus , doSlam
+>28	Expression	height , K_sophus , doSlam
+>29	Expression	K_sophus , doSlam
+>30	Identifier	doSlam
+>31	Identifier	K_sophus
+>32	Identifier	height
+>33	Identifier	width
+>34	Identifier	monoOdometry
+>35	ExpressionStatement	 
+>36	AssignmentExpr	outFile = nullptr
+>37	Identifier	nullptr
+>38	Identifier	outFile
+>39	ExpressionStatement	 
+>40	Expression	K_sophus << fx , 0.0 , cx , 0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>41	Expression	0.0 , cx , 0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>42	Expression	cx , 0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>43	Expression	0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>44	Expression	fy , cy , 0.0 , 0.0 , 1.0
+>45	Expression	cy , 0.0 , 0.0 , 1.0
+>46	Expression	0.0 , 0.0 , 1.0
+>47	Expression	0.0 , 1.0
+>48	PrimaryExpression	1.0
+>49	PrimaryExpression	0.0
+>50	PrimaryExpression	0.0
+>51	Identifier	cy
+>52	Identifier	fy
+>53	PrimaryExpression	0.0
+>54	Identifier	cx
+>55	PrimaryExpression	0.0
+>56	ShiftExpression	K_sophus << fx
+>57	Identifier	fx
+>58	Identifier	K_sophus
+>59	IdentifierDeclStatement	 
+>60	IdentifierDecl	K_sophus
+>61	Identifier	K_sophus
+>62	IdentifierDeclType	Sophus 
+>63	ExpressionStatement	 
+>64	AssignmentExpr	isInitialized = false
+>65	Identifier	false
+>66	Identifier	isInitialized
+>67	ExpressionStatement	 
+>68	AssignmentExpr	outFileName = packagePath + \"estimated_poses.txt\"
+>69	AdditiveExpression	packagePath + \"estimated_poses.txt\"
+>70	PrimaryExpression	\"estimated_poses.txt\"
+>71	Identifier	packagePath
+>72	Identifier	outFileName
+>73	ExpressionStatement	 
+>74	AssignmentExpr	height = imageStream -> height ( )
+>75	CallExpression	imageStream -> height ( )
+>76	ArgumentList	 
+>77	Callee	imageStream -> height
+>78	PtrMemberAccess	imageStream -> height
+>79	Identifier	height
+>80	Identifier	imageStream
+>81	Identifier	height
+>82	ExpressionStatement	 
+>83	AssignmentExpr	width = imageStream -> width ( )
+>84	CallExpression	imageStream -> width ( )
+>85	ArgumentList	 
+>86	Callee	imageStream -> width
+>87	PtrMemberAccess	imageStream -> width
+>88	Identifier	width
+>89	Identifier	imageStream
+>90	Identifier	width
+>91	ExpressionStatement	 
+>92	AssignmentExpr	cy = imageStream -> cy ( )
+>93	CallExpression	imageStream -> cy ( )
+>94	ArgumentList	 
+>95	Callee	imageStream -> cy
+>96	PtrMemberAccess	imageStream -> cy
+>97	Identifier	cy
+>98	Identifier	imageStream
+>99	Identifier	cy
+>100	ExpressionStatement	 
+>101	AssignmentExpr	cx = imageStream -> cx ( )
+>102	CallExpression	imageStream -> cx ( )
+>103	ArgumentList	 
+>104	Callee	imageStream -> cx
+>105	PtrMemberAccess	imageStream -> cx
+>106	Identifier	cx
+>107	Identifier	imageStream
+>108	Identifier	cx
+>109	ExpressionStatement	 
+>110	AssignmentExpr	fy = imageStream -> fy ( )
+>111	CallExpression	imageStream -> fy ( )
+>112	ArgumentList	 
+>113	Callee	imageStream -> fy
+>114	PtrMemberAccess	imageStream -> fy
+>115	Identifier	fy
+>116	Identifier	imageStream
+>117	Identifier	fy
+>118	ExpressionStatement	 
+>119	AssignmentExpr	fx = imageStream -> fx ( )
+>120	CallExpression	imageStream -> fx ( )
+>121	ArgumentList	 
+>122	Callee	imageStream -> fx
+>123	PtrMemberAccess	imageStream -> fx
+>124	Identifier	fx
+>125	Identifier	imageStream
+>126	Identifier	fx
+>127	ExpressionStatement	 
+>128	CallExpression	imageStream -> getBuffer ( ) -> setReceiver ( this )
+>129	ArgumentList	this
+>130	Argument	this
+>131	Identifier	this
+>132	Callee	imageStream -> getBuffer ( ) -> setReceiver
+>133	PtrMemberAccess	imageStream -> getBuffer ( ) -> setReceiver
+>134	Identifier	setReceiver
+>135	CallExpression	imageStream -> getBuffer ( )
+>136	ArgumentList	 
+>137	Callee	imageStream -> getBuffer
+>138	PtrMemberAccess	imageStream -> getBuffer
+>139	Identifier	getBuffer
+>140	Identifier	imageStream
+>141	ExpressionStatement	 
+>142	AssignmentExpr	this -> outputWrapper = outputWrapper
+>143	Identifier	outputWrapper
+>144	PtrMemberAccess	this -> outputWrapper
+>145	Identifier	outputWrapper
+>146	Identifier	this
+>147	ExpressionStatement	 
+>148	AssignmentExpr	this -> imageStream = imageStream
+>149	Identifier	imageStream
+>150	PtrMemberAccess	this -> imageStream
+>151	Identifier	imageStream
+>152	Identifier	this
+>186	FunctionDef	LiveSLAMWrapper 
+>187	ParameterList	 
+>188	CompoundStatement	 
+>189	IfStatement	if ( outFile != 0 )
+>190	CompoundStatement	 
+>191	ExpressionStatement	 
+>192	Identifier	outFile
+>193	Statement	 
+>194	ExpressionStatement	 
+>195	CallExpression	outFile -> close ( )
+>196	ArgumentList	 
+>197	Callee	outFile -> close
+>198	PtrMemberAccess	outFile -> close
+>199	Identifier	close
+>200	Identifier	outFile
+>201	ExpressionStatement	 
+>202	CallExpression	outFile -> flush ( )
+>203	ArgumentList	 
+>204	Callee	outFile -> flush
+>205	PtrMemberAccess	outFile -> flush
+>206	Identifier	flush
+>207	Identifier	outFile
+>208	Condition	 
+>209	EqualityExpression	outFile != 0
+>210	PrimaryExpression	0
+>211	Identifier	outFile
+>212	ExpressionStatement	 
+>213	Identifier	monoOdometry
+>214	IfStatement	if ( monoOdometry != 0 )
+>215	Statement	 
+>216	Condition	 
+>217	EqualityExpression	monoOdometry != 0
+>218	PrimaryExpression	0
+>219	Identifier	monoOdometry
+>225	FunctionDef	LiveSLAMWrapper 
+>226	ParameterList	 
+>227	ReturnType	void
+>228	CompoundStatement	 
+>229	WhileStatement	while ( true )
+>230	CompoundStatement	 
+>231	ExpressionStatement	 
+>232	CallExpression	newImageCallback ( image . data , image . timestamp )
+>233	ArgumentList	image . data
+>234	Argument	image . timestamp
+>235	MemberAccess	image . timestamp
+>236	Identifier	timestamp
+>237	Identifier	image
+>238	Argument	image . data
+>239	MemberAccess	image . data
+>240	Identifier	data
+>241	Identifier	image
+>242	Callee	newImageCallback
+>243	Identifier	newImageCallback
+>244	ExpressionStatement	 
+>245	CallExpression	imageStream -> getBuffer ( ) -> popFront ( )
+>246	ArgumentList	 
+>247	Callee	imageStream -> getBuffer ( ) -> popFront
+>248	PtrMemberAccess	imageStream -> getBuffer ( ) -> popFront
+>249	Identifier	popFront
+>250	CallExpression	imageStream -> getBuffer ( )
+>251	ArgumentList	 
+>252	Callee	imageStream -> getBuffer
+>253	PtrMemberAccess	imageStream -> getBuffer
+>254	Identifier	getBuffer
+>255	Identifier	imageStream
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	image = imageStream -> getBuffer ( ) -> first ( )
+>258	AssignmentExpr	image = imageStream -> getBuffer ( ) -> first ( )
+>259	CallExpression	imageStream -> getBuffer ( ) -> first ( )
+>260	ArgumentList	 
+>261	Callee	imageStream -> getBuffer ( ) -> first
+>262	PtrMemberAccess	imageStream -> getBuffer ( ) -> first
+>263	Identifier	first
+>264	CallExpression	imageStream -> getBuffer ( )
+>265	ArgumentList	 
+>266	Callee	imageStream -> getBuffer
+>267	PtrMemberAccess	imageStream -> getBuffer
+>268	Identifier	getBuffer
+>269	Identifier	imageStream
+>270	Identifier	image
+>271	Identifier	image
+>272	IdentifierDeclType	TimestampedMat
+>273	IfStatement	if ( fullResetRequested )
+>274	CompoundStatement	 
+>275	IfStatement	if ( ! ( imageStream -> getBuffer ( ) -> size ( ) > 0 ) )
+>276	ContinueStatement	 
+>277	Condition	 
+>278	UnaryOp	! ( imageStream -> getBuffer ( ) -> size ( ) > 0 )
+>279	RelationalExpression	imageStream -> getBuffer ( ) -> size ( ) > 0
+>280	PrimaryExpression	0
+>281	CallExpression	imageStream -> getBuffer ( ) -> size ( )
+>282	ArgumentList	 
+>283	Callee	imageStream -> getBuffer ( ) -> size
+>284	PtrMemberAccess	imageStream -> getBuffer ( ) -> size
+>285	Identifier	size
+>286	CallExpression	imageStream -> getBuffer ( )
+>287	ArgumentList	 
+>288	Callee	imageStream -> getBuffer
+>289	PtrMemberAccess	imageStream -> getBuffer
+>290	Identifier	getBuffer
+>291	Identifier	imageStream
+>292	UnaryOperator	!
+>293	ExpressionStatement	 
+>294	AssignmentExpr	fullResetRequested = false
+>295	Identifier	false
+>296	Identifier	fullResetRequested
+>297	ExpressionStatement	 
+>298	CallExpression	resetAll ( )
+>299	ArgumentList	 
+>300	Callee	resetAll
+>301	Identifier	resetAll
+>302	Condition	 
+>303	Identifier	fullResetRequested
+>304	ExpressionStatement	 
+>305	CallExpression	waitLock . unlock ( )
+>306	ArgumentList	 
+>307	Callee	waitLock . unlock
+>308	MemberAccess	waitLock . unlock
+>309	Identifier	unlock
+>310	Identifier	waitLock
+>311	WhileStatement	while ( ! fullResetRequested && ! ( imageStream -> getBuffer ( ) -> size ( ) > 0 ) )
+>312	CompoundStatement	 
+>313	ExpressionStatement	 
+>314	CallExpression	notifyCondition . wait ( waitLock )
+>315	ArgumentList	waitLock
+>316	Argument	waitLock
+>317	Identifier	waitLock
+>318	Callee	notifyCondition . wait
+>319	MemberAccess	notifyCondition . wait
+>320	Identifier	wait
+>321	Identifier	notifyCondition
+>322	Condition	 
+>323	AndExpression	! fullResetRequested && ! ( imageStream -> getBuffer ( ) -> size ( ) > 0 )
+>324	UnaryOp	! ( imageStream -> getBuffer ( ) -> size ( ) > 0 )
+>325	RelationalExpression	imageStream -> getBuffer ( ) -> size ( ) > 0
+>326	PrimaryExpression	0
+>327	CallExpression	imageStream -> getBuffer ( ) -> size ( )
+>328	ArgumentList	 
+>329	Callee	imageStream -> getBuffer ( ) -> size
+>330	PtrMemberAccess	imageStream -> getBuffer ( ) -> size
+>331	Identifier	size
+>332	CallExpression	imageStream -> getBuffer ( )
+>333	ArgumentList	 
+>334	Callee	imageStream -> getBuffer
+>335	PtrMemberAccess	imageStream -> getBuffer
+>336	Identifier	getBuffer
+>337	Identifier	imageStream
+>338	UnaryOperator	!
+>339	UnaryOp	! fullResetRequested
+>340	Identifier	fullResetRequested
+>341	UnaryOperator	!
+>342	IdentifierDeclStatement	 
+>343	IdentifierDecl	waitLock ( imageStream -> getBuffer ( ) -> getMutex ( ) )
+>344	CallExpression	imageStream -> getBuffer ( ) -> getMutex ( )
+>345	ArgumentList	 
+>346	Callee	imageStream -> getBuffer ( ) -> getMutex
+>347	PtrMemberAccess	imageStream -> getBuffer ( ) -> getMutex
+>348	Identifier	getMutex
+>349	CallExpression	imageStream -> getBuffer ( )
+>350	ArgumentList	 
+>351	Callee	imageStream -> getBuffer
+>352	PtrMemberAccess	imageStream -> getBuffer
+>353	Identifier	getBuffer
+>354	Identifier	imageStream
+>355	Identifier	waitLock
+>356	IdentifierDeclType	boost 
+>357	Condition	 
+>358	Identifier	true
+>377	FunctionDef	LiveSLAMWrapper 
+>378	ParameterList	const cv 
+>379	Parameter	 
+>380	Identifier	imgTime
+>381	ParameterType	Timestamp
+>382	Parameter	 
+>383	Identifier	img
+>384	ParameterType	const cv 
+>385	ReturnType	void
+>386	CompoundStatement	 
+>387	IfStatement	if ( ! isInitialized )
+>388	ElseStatement	else
+>389	IfStatement	if ( isInitialized && monoOdometry != nullptr )
+>390	CompoundStatement	 
+>391	ExpressionStatement	 
+>392	CallExpression	monoOdometry -> trackFrame ( grayImg . data , imageSeqNumber , false , imgTime . toSec ( ) )
+>393	ArgumentList	grayImg . data
+>394	Argument	imgTime . toSec ( )
+>395	CallExpression	imgTime . toSec ( )
+>396	ArgumentList	 
+>397	Callee	imgTime . toSec
+>398	MemberAccess	imgTime . toSec
+>399	Identifier	toSec
+>400	Identifier	imgTime
+>401	Argument	false
+>402	Identifier	false
+>403	Argument	imageSeqNumber
+>404	Identifier	imageSeqNumber
+>405	Argument	grayImg . data
+>406	MemberAccess	grayImg . data
+>407	Identifier	data
+>408	Identifier	grayImg
+>409	Callee	monoOdometry -> trackFrame
+>410	PtrMemberAccess	monoOdometry -> trackFrame
+>411	Identifier	trackFrame
+>412	Identifier	monoOdometry
+>413	Condition	 
+>414	AndExpression	isInitialized && monoOdometry != nullptr
+>415	EqualityExpression	monoOdometry != nullptr
+>416	Identifier	nullptr
+>417	Identifier	monoOdometry
+>418	Identifier	isInitialized
+>419	CompoundStatement	 
+>420	ExpressionStatement	 
+>421	AssignmentExpr	isInitialized = true
+>422	Identifier	true
+>423	Identifier	isInitialized
+>424	ExpressionStatement	 
+>425	CallExpression	monoOdometry -> randomInit ( grayImg . data , imgTime . toSec ( ) , 1 )
+>426	ArgumentList	grayImg . data
+>427	Argument	1
+>428	PrimaryExpression	1
+>429	Argument	imgTime . toSec ( )
+>430	CallExpression	imgTime . toSec ( )
+>431	ArgumentList	 
+>432	Callee	imgTime . toSec
+>433	MemberAccess	imgTime . toSec
+>434	Identifier	toSec
+>435	Identifier	imgTime
+>436	Argument	grayImg . data
+>437	MemberAccess	grayImg . data
+>438	Identifier	data
+>439	Identifier	grayImg
+>440	Callee	monoOdometry -> randomInit
+>441	PtrMemberAccess	monoOdometry -> randomInit
+>442	Identifier	randomInit
+>443	Identifier	monoOdometry
+>444	Condition	 
+>445	UnaryOp	! isInitialized
+>446	Identifier	isInitialized
+>447	UnaryOperator	!
+>448	ExpressionStatement	 
+>449	CallExpression	assert ( fx != 0 || fy != 0 )
+>450	ArgumentList	fx != 0 || fy != 0
+>451	Argument	fx != 0 || fy != 0
+>452	OrExpression	fx != 0 || fy != 0
+>453	EqualityExpression	fy != 0
+>454	PrimaryExpression	0
+>455	Identifier	fy
+>456	EqualityExpression	fx != 0
+>457	PrimaryExpression	0
+>458	Identifier	fx
+>459	Callee	assert
+>460	Identifier	assert
+>461	ExpressionStatement	 
+>462	CallExpression	assert ( grayImg . elemSize ( ) == 1 )
+>463	ArgumentList	grayImg . elemSize ( ) == 1
+>464	Argument	grayImg . elemSize ( ) == 1
+>465	EqualityExpression	grayImg . elemSize ( ) == 1
+>466	PrimaryExpression	1
+>467	CallExpression	grayImg . elemSize ( )
+>468	ArgumentList	 
+>469	Callee	grayImg . elemSize
+>470	MemberAccess	grayImg . elemSize
+>471	Identifier	elemSize
+>472	Identifier	grayImg
+>473	Callee	assert
+>474	Identifier	assert
+>475	IfStatement	if ( img . channels ( ) == 1 )
+>476	ElseStatement	else
+>477	ExpressionStatement	 
+>478	CallExpression	cvtColor ( img , grayImg , CV_RGB2GRAY )
+>479	ArgumentList	img
+>480	Argument	CV_RGB2GRAY
+>481	Identifier	CV_RGB2GRAY
+>482	Argument	grayImg
+>483	Identifier	grayImg
+>484	Argument	img
+>485	Identifier	img
+>486	Callee	cvtColor
+>487	Identifier	cvtColor
+>488	ExpressionStatement	 
+>489	AssignmentExpr	grayImg = img
+>490	Identifier	img
+>491	Identifier	grayImg
+>492	Condition	 
+>493	EqualityExpression	img . channels ( ) == 1
+>494	PrimaryExpression	1
+>495	CallExpression	img . channels ( )
+>496	ArgumentList	 
+>497	Callee	img . channels
+>498	MemberAccess	img . channels
+>499	Identifier	channels
+>500	Identifier	img
+>501	IdentifierDeclStatement	 
+>502	IdentifierDecl	grayImg
+>503	Identifier	grayImg
+>504	IdentifierDeclType	cv 
+>505	ExpressionStatement	 
+>506	UnaryExpression	++ imageSeqNumber
+>507	Identifier	imageSeqNumber
+>508	IncDec	++
+>528	FunctionDef	LiveSLAMWrapper 
+>529	ParameterList	const SE3 & camToWorld , double time
+>530	Parameter	 
+>531	Identifier	time
+>532	ParameterType	double
+>533	Parameter	 
+>534	Identifier	camToWorld
+>535	ParameterType	const SE3 &
+>536	ReturnType	void
+>537	CompoundStatement	 
+>538	ExpressionStatement	 
+>539	CallExpression	outFile -> flush ( )
+>540	ArgumentList	 
+>541	Callee	outFile -> flush
+>542	PtrMemberAccess	outFile -> flush
+>543	Identifier	flush
+>544	Identifier	outFile
+>545	ExpressionStatement	 
+>546	CallExpression	outFile -> write ( buffer , num )
+>547	ArgumentList	buffer
+>548	Argument	num
+>549	Identifier	num
+>550	Argument	buffer
+>551	Identifier	buffer
+>552	Callee	outFile -> write
+>553	PtrMemberAccess	outFile -> write
+>554	Identifier	write
+>555	Identifier	outFile
+>556	IfStatement	if ( outFile == 0 )
+>557	ExpressionStatement	 
+>558	AssignmentExpr	outFile = new std 
+>559	CallExpression	outFileName . c_str ( )
+>560	ArgumentList	 
+>561	Callee	outFileName . c_str
+>562	MemberAccess	outFileName . c_str
+>563	Identifier	c_str
+>564	Identifier	outFileName
+>565	Identifier	outFile
+>566	Condition	 
+>567	EqualityExpression	outFile == 0
+>568	PrimaryExpression	0
+>569	Identifier	outFile
+>570	IdentifierDeclStatement	 
+>571	IdentifierDecl	num = snprintf ( buffer , 1000 , \"%f %f %f %f %f %f %f %f\n\" , time , trans [ 0 ] , trans [ 1 ] , trans [ 2 ] , \
+>572	AssignmentExpr	num = snprintf ( buffer , 1000 , \"%f %f %f %f %f %f %f %f\n\" , time , trans [ 0 ] , trans [ 1 ] , trans [ \
+>573	CallExpression	snprintf ( buffer , 1000 , \"%f %f %f %f %f %f %f %f\n\" , time , trans [ 0 ] , trans [ 1 ] , trans [ 2 ] , quat . \
+>574	ArgumentList	buffer
+>575	Argument	quat . w ( )
+>576	CallExpression	quat . w ( )
+>577	ArgumentList	 
+>578	Callee	quat . w
+>579	MemberAccess	quat . w
+>580	Identifier	w
+>581	Identifier	quat
+>582	Argument	quat . z ( )
+>583	CallExpression	quat . z ( )
+>584	ArgumentList	 
+>585	Callee	quat . z
+>586	MemberAccess	quat . z
+>587	Identifier	z
+>588	Identifier	quat
+>589	Argument	quat . y ( )
+>590	CallExpression	quat . y ( )
+>591	ArgumentList	 
+>592	Callee	quat . y
+>593	MemberAccess	quat . y
+>594	Identifier	y
+>595	Identifier	quat
+>596	Argument	quat . x ( )
+>597	CallExpression	quat . x ( )
+>598	ArgumentList	 
+>599	Callee	quat . x
+>600	MemberAccess	quat . x
+>601	Identifier	x
+>602	Identifier	quat
+>603	Argument	trans [ 2 ]
+>604	ArrayIndexing	trans [ 2 ]
+>605	PrimaryExpression	2
+>606	Identifier	trans
+>607	Argument	trans [ 1 ]
+>608	ArrayIndexing	trans [ 1 ]
+>609	PrimaryExpression	1
+>610	Identifier	trans
+>611	Argument	trans [ 0 ]
+>612	ArrayIndexing	trans [ 0 ]
+>613	PrimaryExpression	0
+>614	Identifier	trans
+>615	Argument	time
+>616	Identifier	time
+>617	Argument	\"%f %f %f %f %f %f %f %f\n\"
+>618	PrimaryExpression	\"%f %f %f %f %f %f %f %f\n\"
+>619	Argument	1000
+>620	PrimaryExpression	1000
+>621	Argument	buffer
+>622	Identifier	buffer
+>623	Callee	snprintf
+>624	Identifier	snprintf
+>625	Identifier	num
+>626	Identifier	num
+>627	IdentifierDeclType	int
+>628	IdentifierDeclStatement	 
+>629	IdentifierDecl	buffer [ 1000 ]
+>630	PrimaryExpression	1000
+>631	Identifier	buffer
+>632	IdentifierDeclType	char [ 1000 ]
+>633	ExpressionStatement	 
+>634	Statement	 
+>635	Statement	 
+>636	Statement	 
+>637	Statement	 
+>638	Statement	 
+>639	Statement	 
+>640	Statement	 
+>641	Statement	 
+>642	Statement	 
+>643	Statement	 
+>644	Statement	 
+>645	Statement	 
+>646	Statement	 
+>647	Statement	 
+>648	Statement	 
+>649	Statement	 
+>650	Statement	 
+>651	ExpressionStatement	 
+>652	Statement	 
+>653	Statement	 
+>654	Statement	 
+>655	Statement	 
+>656	Statement	 
+>657	Statement	 
+>658	Statement	 
+>659	Statement	 
+>660	Statement	 
+>661	Statement	 
+>662	Statement	 
+>663	Statement	 
+>664	Statement	 
+>665	Statement	 
+>666	Statement	 
+>667	Statement	 
+>668	Statement	 
+>687	FunctionDef	LiveSLAMWrapper 
+>688	ParameterList	 
+>689	ReturnType	void
+>690	CompoundStatement	 
+>691	ExpressionStatement	 
+>692	CallExpression	notifyCondition . notify_all ( )
+>693	ArgumentList	 
+>694	Callee	notifyCondition . notify_all
+>695	MemberAccess	notifyCondition . notify_all
+>696	Identifier	notify_all
+>697	Identifier	notifyCondition
+>698	ExpressionStatement	 
+>699	AssignmentExpr	fullResetRequested = true
+>700	Identifier	true
+>701	Identifier	fullResetRequested
+>708	FunctionDef	LiveSLAMWrapper 
+>709	ParameterList	 
+>710	ReturnType	void
+>711	CompoundStatement	 
+>712	ExpressionStatement	 
+>713	CallExpression	Util 
+>714	ArgumentList	 
+>715	Callee	Util 
+>716	Identifier	Util 
+>717	ExpressionStatement	 
+>718	AssignmentExpr	isInitialized = false
+>719	Identifier	false
+>720	Identifier	isInitialized
+>721	ExpressionStatement	 
+>722	AssignmentExpr	imageSeqNumber = 0
+>723	PrimaryExpression	0
+>724	Identifier	imageSeqNumber
+>725	IfStatement	if ( monoOdometry != nullptr )
+>726	CompoundStatement	 
+>727	ExpressionStatement	 
+>728	CallExpression	monoOdometry -> setVisualization ( outputWrapper )
+>729	ArgumentList	outputWrapper
+>730	Argument	outputWrapper
+>731	Identifier	outputWrapper
+>732	Callee	monoOdometry -> setVisualization
+>733	PtrMemberAccess	monoOdometry -> setVisualization
+>734	Identifier	setVisualization
+>735	Identifier	monoOdometry
+>736	ExpressionStatement	 
+>737	AssignmentExpr	monoOdometry = new SlamSystem ( width , height , K , doSlam )
+>738	Expression	width , height , K , doSlam
+>739	Expression	height , K , doSlam
+>740	Expression	K , doSlam
+>741	Identifier	doSlam
+>742	Identifier	K
+>743	Identifier	height
+>744	Identifier	width
+>745	Identifier	monoOdometry
+>746	ExpressionStatement	 
+>747	Expression	K << fx , 0.0 , cx , 0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>748	Expression	0.0 , cx , 0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>749	Expression	cx , 0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>750	Expression	0.0 , fy , cy , 0.0 , 0.0 , 1.0
+>751	Expression	fy , cy , 0.0 , 0.0 , 1.0
+>752	Expression	cy , 0.0 , 0.0 , 1.0
+>753	Expression	0.0 , 0.0 , 1.0
+>754	Expression	0.0 , 1.0
+>755	PrimaryExpression	1.0
+>756	PrimaryExpression	0.0
+>757	PrimaryExpression	0.0
+>758	Identifier	cy
+>759	Identifier	fy
+>760	PrimaryExpression	0.0
+>761	Identifier	cx
+>762	PrimaryExpression	0.0
+>763	ShiftExpression	K << fx
+>764	Identifier	fx
+>765	Identifier	K
+>766	IdentifierDeclStatement	 
+>767	IdentifierDecl	K
+>768	Identifier	K
+>769	IdentifierDeclType	Sophus 
+>770	ExpressionStatement	 
+>771	CallExpression	printf ( \"Deleted SlamSystem Object!\n\" )
+>772	ArgumentList	\"Deleted SlamSystem Object!\n\"
+>773	Argument	\"Deleted SlamSystem Object!\n\"
+>774	PrimaryExpression	\"Deleted SlamSystem Object!\n\"
+>775	Callee	printf
+>776	Identifier	printf
+>777	ExpressionStatement	 
+>778	Identifier	monoOdometry
+>779	Statement	 
+>780	Condition	 
+>781	EqualityExpression	monoOdometry != nullptr
+>782	Identifier	nullptr
+>783	Identifier	monoOdometry
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=147,141,127,118,109,100,91,82,73,67,63,59,39,35,25,16,12
+<12=13
+<13=15,14
+<16=17
+<17=21,18
+<18=19
+<19=20
+<21=22
+<22=24,23
+<25=26
+<26=34,27
+<27=33,28
+<28=32,29
+<29=31,30
+<35=36
+<36=38,37
+<39=40
+<40=56,41
+<41=55,42
+<42=54,43
+<43=53,44
+<44=52,45
+<45=51,46
+<46=50,47
+<47=49,48
+<56=58,57
+<59=60
+<60=62,61
+<63=64
+<64=66,65
+<67=68
+<68=72,69
+<69=71,70
+<73=74
+<74=81,75
+<75=77,76
+<77=78
+<78=80,79
+<82=83
+<83=90,84
+<84=86,85
+<86=87
+<87=89,88
+<91=92
+<92=99,93
+<93=95,94
+<95=96
+<96=98,97
+<100=101
+<101=108,102
+<102=104,103
+<104=105
+<105=107,106
+<109=110
+<110=117,111
+<111=113,112
+<113=114
+<114=116,115
+<118=119
+<119=126,120
+<120=122,121
+<122=123
+<123=125,124
+<127=128
+<128=132,129
+<129=130
+<130=131
+<132=133
+<133=135,134
+<135=137,136
+<137=138
+<138=140,139
+<141=142
+<142=144,143
+<144=146,145
+<147=148
+<148=150,149
+<150=152,151
+<186=188,187
+<188=214,212,189
+<189=208,190
+<190=201,194,193,191
+<191=192
+<194=195
+<195=197,196
+<197=198
+<198=200,199
+<201=202
+<202=204,203
+<204=205
+<205=207,206
+<208=209
+<209=211,210
+<212=213
+<214=216,215
+<216=217
+<217=219,218
+<225=228,227,226
+<228=229
+<229=357,230
+<230=342,311,304,273,256,244,231
+<231=232
+<232=242,233
+<233=238,234
+<234=235
+<235=237,236
+<238=239
+<239=241,240
+<242=243
+<244=245
+<245=247,246
+<247=248
+<248=250,249
+<250=252,251
+<252=253
+<253=255,254
+<256=257
+<257=272,271,258
+<258=270,259
+<259=261,260
+<261=262
+<262=264,263
+<264=266,265
+<266=267
+<267=269,268
+<273=302,274
+<274=297,293,275
+<275=277,276
+<277=278
+<278=292,279
+<279=281,280
+<281=283,282
+<283=284
+<284=286,285
+<286=288,287
+<288=289
+<289=291,290
+<293=294
+<294=296,295
+<297=298
+<298=300,299
+<300=301
+<302=303
+<304=305
+<305=307,306
+<307=308
+<308=310,309
+<311=322,312
+<312=313
+<313=314
+<314=318,315
+<315=316
+<316=317
+<318=319
+<319=321,320
+<322=323
+<323=339,324
+<324=338,325
+<325=327,326
+<327=329,328
+<329=330
+<330=332,331
+<332=334,333
+<334=335
+<335=337,336
+<339=341,340
+<342=343
+<343=356,355,344
+<344=346,345
+<346=347
+<347=349,348
+<349=351,350
+<351=352
+<352=354,353
+<357=358
+<377=386,385,378
+<378=382,379
+<379=381,380
+<382=384,383
+<386=505,501,475,461,448,387
+<387=444,419,388
+<388=389
+<389=413,390
+<390=391
+<391=392
+<392=409,393
+<393=405,403,401,394
+<394=395
+<395=397,396
+<397=398
+<398=400,399
+<401=402
+<403=404
+<405=406
+<406=408,407
+<409=410
+<410=412,411
+<413=414
+<414=418,415
+<415=417,416
+<419=424,420
+<420=421
+<421=423,422
+<424=425
+<425=440,426
+<426=436,429,427
+<427=428
+<429=430
+<430=432,431
+<432=433
+<433=435,434
+<436=437
+<437=439,438
+<440=441
+<441=443,442
+<444=445
+<445=447,446
+<448=449
+<449=459,450
+<450=451
+<451=452
+<452=456,453
+<453=455,454
+<456=458,457
+<459=460
+<461=462
+<462=473,463
+<463=464
+<464=465
+<465=467,466
+<467=469,468
+<469=470
+<470=472,471
+<473=474
+<475=492,488,476
+<476=477
+<477=478
+<478=486,479
+<479=484,482,480
+<480=481
+<482=483
+<484=485
+<486=487
+<488=489
+<489=491,490
+<492=493
+<493=495,494
+<495=497,496
+<497=498
+<498=500,499
+<501=502
+<502=504,503
+<505=506
+<506=508,507
+<528=537,536,529
+<529=533,530
+<530=532,531
+<533=535,534
+<537=668,667,666,665,664,663,662,661,660,659,658,657,656,655,654,653,652,651,650,649,648,647,646,645,644,643,642,641,640,639,638,637,636,635,634,633,628,570,556,545,538
+<538=539
+<539=541,540
+<541=542
+<542=544,543
+<545=546
+<546=552,547
+<547=550,548
+<548=549
+<550=551
+<552=553
+<553=555,554
+<556=566,557
+<557=558
+<558=565,559
+<559=561,560
+<561=562
+<562=564,563
+<566=567
+<567=569,568
+<570=571
+<571=627,626,572
+<572=625,573
+<573=623,574
+<574=621,619,617,615,611,607,603,596,589,582,575
+<575=576
+<576=578,577
+<578=579
+<579=581,580
+<582=583
+<583=585,584
+<585=586
+<586=588,587
+<589=590
+<590=592,591
+<592=593
+<593=595,594
+<596=597
+<597=599,598
+<599=600
+<600=602,601
+<603=604
+<604=606,605
+<607=608
+<608=610,609
+<611=612
+<612=614,613
+<615=616
+<617=618
+<619=620
+<621=622
+<623=624
+<628=629
+<629=632,631,630
+<687=690,689,688
+<690=698,691
+<691=692
+<692=694,693
+<694=695
+<695=697,696
+<698=699
+<699=701,700
+<708=711,710,709
+<711=725,721,717,712
+<712=713
+<713=715,714
+<715=716
+<717=718
+<718=720,719
+<721=722
+<722=724,723
+<725=780,726
+<726=779,777,770,766,746,736,727
+<727=728
+<728=732,729
+<729=730
+<730=731
+<732=733
+<733=735,734
+<736=737
+<737=745,738
+<738=744,739
+<739=743,740
+<740=742,741
+<746=747
+<747=763,748
+<748=762,749
+<749=761,750
+<750=760,751
+<751=759,752
+<752=758,753
+<753=757,754
+<754=756,755
+<763=765,764
+<766=767
+<767=769,768
+<770=771
+<771=775,772
+<772=773
+<773=774
+<775=776
+<777=778
+<780=781
+<781=783,782

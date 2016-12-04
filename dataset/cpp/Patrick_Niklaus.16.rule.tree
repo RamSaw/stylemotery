@@ -1,0 +1,296 @@
+>3	FunctionDef	Rule 
+>4	ParameterList	const shared_ptr < Geodata > & geodata
+>5	Parameter	 
+>6	Identifier	geodata
+>7	ParameterType	const shared_ptr < Geodata > &
+>8	CompoundStatement	 
+>13	FunctionDef	Rule 
+>14	ParameterList	const shared_ptr < std 
+>15	Parameter	 
+>16	Identifier	renderAttributes
+>17	ParameterType	RenderAttributes *
+>18	Parameter	 
+>19	Identifier	ti
+>20	ParameterType	const shared_ptr < TileIdentifier > &
+>21	Parameter	 
+>22	Identifier	relIDs
+>23	ParameterType	const shared_ptr < std 
+>24	Parameter	 
+>25	Identifier	wayIDs
+>26	ParameterType	const shared_ptr < std 
+>27	Parameter	 
+>28	Identifier	nodeIDs
+>29	ParameterType	const shared_ptr < std 
+>30	ReturnType	void
+>31	CompoundStatement	 
+>32	IfStatement	if ( zoombottom <= ti -> getZoom ( ) && ti -> getZoom ( ) <= zoomtop )
+>33	CompoundStatement	 
+>34	IfStatement	if ( accepableType & Accept_Relation )
+>35	CompoundStatement	 
+>36	CompoundStatement	 
+>37	ExpressionStatement	 
+>38	CallExpression	first -> matchRelation ( relID , ti , renderAttributes )
+>39	ArgumentList	relID
+>40	Argument	renderAttributes
+>41	Identifier	renderAttributes
+>42	Argument	ti
+>43	Identifier	ti
+>44	Argument	relID
+>45	Identifier	relID
+>46	Callee	first -> matchRelation
+>47	PtrMemberAccess	first -> matchRelation
+>48	Identifier	matchRelation
+>49	Identifier	first
+>50	Statement	 
+>51	Statement	 
+>52	Statement	 
+>53	Label	 
+>54	Identifier	relID
+>55	Statement	 
+>56	Statement	 
+>57	Statement	 
+>58	Condition	 
+>59	BitAndExpression	accepableType & Accept_Relation
+>60	Identifier	Accept_Relation
+>61	Identifier	accepableType
+>62	IfStatement	if ( accepableType & Accept_Way )
+>63	CompoundStatement	 
+>64	CompoundStatement	 
+>65	ExpressionStatement	 
+>66	CallExpression	first -> matchWay ( wayID , ti , renderAttributes )
+>67	ArgumentList	wayID
+>68	Argument	renderAttributes
+>69	Identifier	renderAttributes
+>70	Argument	ti
+>71	Identifier	ti
+>72	Argument	wayID
+>73	Identifier	wayID
+>74	Callee	first -> matchWay
+>75	PtrMemberAccess	first -> matchWay
+>76	Identifier	matchWay
+>77	Identifier	first
+>78	Statement	 
+>79	Statement	 
+>80	Statement	 
+>81	Label	 
+>82	Identifier	wayID
+>83	Statement	 
+>84	Statement	 
+>85	Statement	 
+>86	Condition	 
+>87	BitAndExpression	accepableType & Accept_Way
+>88	Identifier	Accept_Way
+>89	Identifier	accepableType
+>90	IfStatement	if ( accepableType & Accept_Node )
+>91	CompoundStatement	 
+>92	CompoundStatement	 
+>93	ExpressionStatement	 
+>94	CallExpression	first -> matchNode ( nodeID , ti , renderAttributes )
+>95	ArgumentList	nodeID
+>96	Argument	renderAttributes
+>97	Identifier	renderAttributes
+>98	Argument	ti
+>99	Identifier	ti
+>100	Argument	nodeID
+>101	Identifier	nodeID
+>102	Callee	first -> matchNode
+>103	PtrMemberAccess	first -> matchNode
+>104	Identifier	matchNode
+>105	Identifier	first
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Label	 
+>110	Identifier	nodeID
+>111	Statement	 
+>112	Statement	 
+>113	Statement	 
+>114	Condition	 
+>115	BitAndExpression	accepableType & Accept_Node
+>116	Identifier	Accept_Node
+>117	Identifier	accepableType
+>118	Condition	 
+>119	AndExpression	zoombottom <= ti -> getZoom ( ) && ti -> getZoom ( ) <= zoomtop
+>120	RelationalExpression	ti -> getZoom ( ) <= zoomtop
+>121	Identifier	zoomtop
+>122	CallExpression	ti -> getZoom ( )
+>123	ArgumentList	 
+>124	Callee	ti -> getZoom
+>125	PtrMemberAccess	ti -> getZoom
+>126	Identifier	getZoom
+>127	Identifier	ti
+>128	RelationalExpression	zoombottom <= ti -> getZoom ( )
+>129	CallExpression	ti -> getZoom ( )
+>130	ArgumentList	 
+>131	Callee	ti -> getZoom
+>132	PtrMemberAccess	ti -> getZoom
+>133	Identifier	getZoom
+>134	Identifier	ti
+>135	Identifier	zoombottom
+>156	FunctionDef	Rule 
+>157	ParameterList	 
+>158	ReturnType	const shared_ptr < Geodata > &
+>159	CompoundStatement	 
+>160	ReturnStatement	 
+>161	Identifier	geodata
+>166	FunctionDef	Rule 
+>167	ParameterList	 
+>168	ReturnType	const shared_ptr < StyleTemplate > &
+>169	CompoundStatement	 
+>170	ReturnStatement	 
+>171	Identifier	styleTemplate
+>176	FunctionDef	Rule 
+>177	ParameterList	const shared_ptr < StyleTemplate > & styleTemplate
+>178	Parameter	 
+>179	Identifier	styleTemplate
+>180	ParameterType	const shared_ptr < StyleTemplate > &
+>181	ReturnType	void
+>182	CompoundStatement	 
+>183	ExpressionStatement	 
+>184	AssignmentExpr	this -> styleTemplate = styleTemplate
+>185	Identifier	styleTemplate
+>186	PtrMemberAccess	this -> styleTemplate
+>187	Identifier	styleTemplate
+>188	Identifier	this
+>196	FunctionDef	Rule 
+>197	ParameterList	const shared_ptr < Selector > & first
+>198	Parameter	 
+>199	Identifier	first
+>200	ParameterType	const shared_ptr < Selector > &
+>201	ReturnType	void
+>202	CompoundStatement	 
+>203	ExpressionStatement	 
+>204	AssignmentExpr	this -> first = first
+>205	Identifier	first
+>206	PtrMemberAccess	this -> first
+>207	Identifier	first
+>208	Identifier	this
+>216	FunctionDef	Rule 
+>217	ParameterList	int bottom , int top
+>218	Parameter	 
+>219	Identifier	top
+>220	ParameterType	int
+>221	Parameter	 
+>222	Identifier	bottom
+>223	ParameterType	int
+>224	ReturnType	void
+>225	CompoundStatement	 
+>226	ExpressionStatement	 
+>227	AssignmentExpr	zoomtop = top
+>228	Identifier	top
+>229	Identifier	zoomtop
+>230	ExpressionStatement	 
+>231	AssignmentExpr	zoombottom = bottom
+>232	Identifier	bottom
+>233	Identifier	zoombottom
+>241	FunctionDef	Rule 
+>242	ParameterList	AcceptableTypes type
+>243	Parameter	 
+>244	Identifier	type
+>245	ParameterType	AcceptableTypes
+>246	ReturnType	void
+>247	CompoundStatement	 
+>248	ExpressionStatement	 
+>249	AssignmentExpr	accepableType = type
+>250	Identifier	type
+>251	Identifier	accepableType
+<3=8,4
+<4=5
+<5=7,6
+<13=31,30,14
+<14=27,24,21,18,15
+<15=17,16
+<18=20,19
+<21=23,22
+<24=26,25
+<27=29,28
+<31=32
+<32=118,33
+<33=90,62,34
+<34=58,35
+<35=57,56,55,53,52,51,50,36
+<36=37
+<37=38
+<38=46,39
+<39=44,42,40
+<40=41
+<42=43
+<44=45
+<46=47
+<47=49,48
+<53=54
+<58=59
+<59=61,60
+<62=86,63
+<63=85,84,83,81,80,79,78,64
+<64=65
+<65=66
+<66=74,67
+<67=72,70,68
+<68=69
+<70=71
+<72=73
+<74=75
+<75=77,76
+<81=82
+<86=87
+<87=89,88
+<90=114,91
+<91=113,112,111,109,108,107,106,92
+<92=93
+<93=94
+<94=102,95
+<95=100,98,96
+<96=97
+<98=99
+<100=101
+<102=103
+<103=105,104
+<109=110
+<114=115
+<115=117,116
+<118=119
+<119=128,120
+<120=122,121
+<122=124,123
+<124=125
+<125=127,126
+<128=135,129
+<129=131,130
+<131=132
+<132=134,133
+<156=159,158,157
+<159=160
+<160=161
+<166=169,168,167
+<169=170
+<170=171
+<176=182,181,177
+<177=178
+<178=180,179
+<182=183
+<183=184
+<184=186,185
+<186=188,187
+<196=202,201,197
+<197=198
+<198=200,199
+<202=203
+<203=204
+<204=206,205
+<206=208,207
+<216=225,224,217
+<217=221,218
+<218=220,219
+<221=223,222
+<225=230,226
+<226=227
+<227=229,228
+<230=231
+<231=233,232
+<241=247,246,242
+<242=243
+<243=245,244
+<247=248
+<248=249
+<249=251,250

@@ -1,0 +1,383 @@
+>7	FunctionDef	CInternalTrace 
+>8	ParameterList	long Tag , CTraceLevel Level , char * File , int Line
+>9	Parameter	 
+>10	Identifier	Line
+>11	ParameterType	int
+>12	Parameter	 
+>13	Identifier	File
+>14	ParameterType	char *
+>15	Parameter	 
+>16	Identifier	Level
+>17	ParameterType	CTraceLevel
+>18	Parameter	 
+>19	Identifier	Tag
+>20	ParameterType	long
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	AssignmentExpr	m_Line = Line
+>24	Identifier	Line
+>25	Identifier	m_Line
+>26	IfStatement	if ( ! m_File )
+>27	ElseStatement	else
+>28	ExpressionStatement	 
+>29	IncDecOp	m_File ++
+>30	IncDec	++
+>31	Identifier	m_File
+>32	ExpressionStatement	 
+>33	AssignmentExpr	m_File = File
+>34	Identifier	File
+>35	Identifier	m_File
+>36	Condition	 
+>37	UnaryOp	! m_File
+>38	Identifier	m_File
+>39	UnaryOperator	!
+>40	ExpressionStatement	 
+>41	AssignmentExpr	m_File = strrchr ( File , PATH_SEPARATOR )
+>42	CallExpression	strrchr ( File , PATH_SEPARATOR )
+>43	ArgumentList	File
+>44	Argument	PATH_SEPARATOR
+>45	Identifier	PATH_SEPARATOR
+>46	Argument	File
+>47	Identifier	File
+>48	Callee	strrchr
+>49	Identifier	strrchr
+>50	Identifier	m_File
+>51	ExpressionStatement	 
+>52	AssignmentExpr	m_Level = Level
+>53	Identifier	Level
+>54	Identifier	m_Level
+>55	ExpressionStatement	 
+>56	AssignmentExpr	m_Tag = Tag
+>57	Identifier	Tag
+>58	Identifier	m_Tag
+>72	FunctionDef	CInternalTrace 
+>73	ParameterList	char * Format
+>74	Parameter	 
+>75	Identifier	Format
+>76	ParameterType	char *
+>77	ReturnType	void
+>78	CompoundStatement	 
+>79	ExpressionStatement	 
+>80	CallExpression	va_end ( Args )
+>81	ArgumentList	Args
+>82	Argument	Args
+>83	Identifier	Args
+>84	Callee	va_end
+>85	Identifier	va_end
+>86	ExpressionStatement	 
+>87	Statement	 
+>88	Statement	 
+>89	Statement	 
+>90	Statement	 
+>91	Statement	 
+>92	Statement	 
+>93	Statement	 
+>94	Statement	 
+>95	Statement	 
+>96	Statement	 
+>97	Statement	 
+>98	Statement	 
+>99	Statement	 
+>100	Statement	 
+>101	Statement	 
+>102	Statement	 
+>103	Statement	 
+>104	Statement	 
+>105	Statement	 
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Statement	 
+>110	Statement	 
+>111	Statement	 
+>112	Statement	 
+>113	Statement	 
+>114	Statement	 
+>115	ExpressionStatement	 
+>116	AssignmentExpr	TraceMsg [ nChars ] = 0
+>117	PrimaryExpression	0
+>118	ArrayIndexing	TraceMsg [ nChars ]
+>119	Identifier	nChars
+>120	Identifier	TraceMsg
+>121	IdentifierDeclStatement	 
+>122	IdentifierDecl	nChars = base_vsnprintf ( TraceMsg , MAX_TRACE , Format , Args )
+>123	AssignmentExpr	nChars = base_vsnprintf ( TraceMsg , MAX_TRACE , Format , Args )
+>124	CallExpression	base_vsnprintf ( TraceMsg , MAX_TRACE , Format , Args )
+>125	ArgumentList	TraceMsg
+>126	Argument	Args
+>127	Identifier	Args
+>128	Argument	Format
+>129	Identifier	Format
+>130	Argument	MAX_TRACE
+>131	Identifier	MAX_TRACE
+>132	Argument	TraceMsg
+>133	Identifier	TraceMsg
+>134	Callee	base_vsnprintf
+>135	Identifier	base_vsnprintf
+>136	Identifier	nChars
+>137	Identifier	nChars
+>138	IdentifierDeclType	int
+>139	ExpressionStatement	 
+>140	CallExpression	time ( & Time )
+>141	ArgumentList	& Time
+>142	Argument	& Time
+>143	UnaryOp	& Time
+>144	Identifier	Time
+>145	UnaryOperator	&
+>146	Callee	time
+>147	Identifier	time
+>148	IdentifierDeclStatement	 
+>149	IdentifierDecl	Time
+>150	Identifier	Time
+>151	IdentifierDeclType	time_t
+>152	ExpressionStatement	 
+>153	CallExpression	va_start ( Args , Format )
+>154	ArgumentList	Args
+>155	Argument	Format
+>156	Identifier	Format
+>157	Argument	Args
+>158	Identifier	Args
+>159	Callee	va_start
+>160	Identifier	va_start
+>161	IdentifierDeclStatement	 
+>162	IdentifierDecl	Args
+>163	Identifier	Args
+>164	IdentifierDeclType	va_list
+>178	FunctionDef	CInternalTrace 
+>179	ParameterList	long Tag , CInternalTraceTagDesc pDesc [ ] , int nSize
+>180	Parameter	 
+>181	Identifier	nSize
+>182	ParameterType	int
+>183	Parameter	 
+>184	Identifier	pDesc
+>185	ParameterType	CInternalTraceTagDesc [ ]
+>186	Parameter	 
+>187	Identifier	Tag
+>188	ParameterType	long
+>189	ReturnType	CInternalTraceTagDesc *
+>190	CompoundStatement	 
+>191	ReturnStatement	 
+>192	Identifier	NULL
+>193	ForStatement	for ( int i = 0 ; i < nSize ; i ++ )
+>194	CompoundStatement	 
+>195	IfStatement	if ( pDesc [ i ] . m_nTag == Tag )
+>196	CompoundStatement	 
+>197	ReturnStatement	 
+>198	UnaryOp	& pDesc [ i ]
+>199	ArrayIndexing	pDesc [ i ]
+>200	Identifier	i
+>201	Identifier	pDesc
+>202	UnaryOperator	&
+>203	Condition	 
+>204	EqualityExpression	pDesc [ i ] . m_nTag == Tag
+>205	Identifier	Tag
+>206	MemberAccess	pDesc [ i ] . m_nTag
+>207	Identifier	m_nTag
+>208	ArrayIndexing	pDesc [ i ]
+>209	Identifier	i
+>210	Identifier	pDesc
+>211	IncDecOp	 
+>212	IncDec	++
+>213	Identifier	i
+>214	Condition	 
+>215	RelationalExpression	i < nSize
+>216	Identifier	nSize
+>217	Identifier	i
+>218	ForInit	 
+>219	IdentifierDeclStatement	int i = 0 ;
+>220	IdentifierDecl	i = 0
+>221	AssignmentExpr	i = 0
+>222	PrimaryExpression	0
+>223	Identifier	i
+>224	Identifier	i
+>225	IdentifierDeclType	int
+>239	FunctionDef	CInternalTrace 
+>240	ParameterList	long Min , long Max , CInternalTraceTagDesc pTagDesc [ ] , int nSize
+>241	Parameter	 
+>242	Identifier	nSize
+>243	ParameterType	int
+>244	Parameter	 
+>245	Identifier	pTagDesc
+>246	ParameterType	CInternalTraceTagDesc [ ]
+>247	Parameter	 
+>248	Identifier	Max
+>249	ParameterType	long
+>250	Parameter	 
+>251	Identifier	Min
+>252	ParameterType	long
+>253	ReturnType	void
+>254	CompoundStatement	 
+>255	ForStatement	for ( long n = Min ; n <= Max ; n ++ )
+>256	CompoundStatement	 
+>257	IfStatement	if ( pDesc )
+>258	CompoundStatement	 
+>259	ExpressionStatement	 
+>260	ShiftExpression	cout << n << \"
+>261	ShiftExpression	n << \"
+>262	ShiftExpression	\"
+>263	ShiftExpression	pDesc -> m_szDescription << endl
+>264	Identifier	endl
+>265	PtrMemberAccess	pDesc -> m_szDescription
+>266	Identifier	m_szDescription
+>267	Identifier	pDesc
+>268	PrimaryExpression	\"
+>269	Identifier	n
+>270	Identifier	cout
+>271	Condition	 
+>272	Identifier	pDesc
+>273	IdentifierDeclStatement	 
+>274	IdentifierDecl	* pDesc = GetTagInfo ( n , pTagDesc , nSize )
+>275	AssignmentExpr	* pDesc = GetTagInfo ( n , pTagDesc , nSize )
+>276	CallExpression	GetTagInfo ( n , pTagDesc , nSize )
+>277	ArgumentList	n
+>278	Argument	nSize
+>279	Identifier	nSize
+>280	Argument	pTagDesc
+>281	Identifier	pTagDesc
+>282	Argument	n
+>283	Identifier	n
+>284	Callee	GetTagInfo
+>285	Identifier	GetTagInfo
+>286	Identifier	pDesc
+>287	Identifier	pDesc
+>288	IdentifierDeclType	CInternalTraceTagDesc *
+>289	IncDecOp	 
+>290	IncDec	++
+>291	Identifier	n
+>292	Condition	 
+>293	RelationalExpression	n <= Max
+>294	Identifier	Max
+>295	Identifier	n
+>296	ForInit	 
+>297	IdentifierDeclStatement	long n = Min ;
+>298	IdentifierDecl	n = Min
+>299	AssignmentExpr	n = Min
+>300	Identifier	Min
+>301	Identifier	Min
+>302	Identifier	n
+>303	IdentifierDeclType	long
+<7=21,8
+<8=18,15,12,9
+<9=11,10
+<12=14,13
+<15=17,16
+<18=20,19
+<21=55,51,40,26,22
+<22=23
+<23=25,24
+<26=36,32,27
+<27=28
+<28=29
+<29=31,30
+<32=33
+<33=35,34
+<36=37
+<37=39,38
+<40=41
+<41=50,42
+<42=48,43
+<43=46,44
+<44=45
+<46=47
+<48=49
+<51=52
+<52=54,53
+<55=56
+<56=58,57
+<72=78,77,73
+<73=74
+<74=76,75
+<78=161,152,148,139,121,115,114,113,112,111,110,109,108,107,106,105,104,103,102,101,100,99,98,97,96,95,94,93,92,91,90,89,88,87,86,79
+<79=80
+<80=84,81
+<81=82
+<82=83
+<84=85
+<115=116
+<116=118,117
+<118=120,119
+<121=122
+<122=138,137,123
+<123=136,124
+<124=134,125
+<125=132,130,128,126
+<126=127
+<128=129
+<130=131
+<132=133
+<134=135
+<139=140
+<140=146,141
+<141=142
+<142=143
+<143=145,144
+<146=147
+<148=149
+<149=151,150
+<152=153
+<153=159,154
+<154=157,155
+<155=156
+<157=158
+<159=160
+<161=162
+<162=164,163
+<178=190,189,179
+<179=186,183,180
+<180=182,181
+<183=185,184
+<186=188,187
+<190=193,191
+<191=192
+<193=218,214,211,194
+<194=195
+<195=203,196
+<196=197
+<197=198
+<198=202,199
+<199=201,200
+<203=204
+<204=206,205
+<206=208,207
+<208=210,209
+<211=213,212
+<214=215
+<215=217,216
+<218=219
+<219=220
+<220=225,224,221
+<221=223,222
+<239=254,253,240
+<240=250,247,244,241
+<241=243,242
+<244=246,245
+<247=249,248
+<250=252,251
+<254=255
+<255=296,292,289,256
+<256=273,257
+<257=271,258
+<258=259
+<259=260
+<260=270,261
+<261=269,262
+<262=268,263
+<263=265,264
+<265=267,266
+<271=272
+<273=274
+<274=288,287,275
+<275=286,276
+<276=284,277
+<277=282,280,278
+<278=279
+<280=281
+<282=283
+<284=285
+<289=291,290
+<292=293
+<293=295,294
+<296=297
+<297=298
+<298=303,302,299
+<299=301,300

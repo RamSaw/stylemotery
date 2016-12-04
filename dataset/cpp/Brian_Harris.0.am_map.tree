@@ -1,0 +1,4218 @@
+>17	FunctionDef	AM_getIslope (mline_t * ml , islope_t * is)
+>18	ParameterList	mline_t * ml , islope_t * is
+>19	Parameter	 
+>20	Identifier	is
+>21	ParameterType	islope_t *
+>22	Parameter	 
+>23	Identifier	ml
+>24	ParameterType	mline_t *
+>25	ReturnType	void
+>26	CompoundStatement	 
+>27	IfStatement	if ( ! dx )
+>28	ElseStatement	else
+>29	ExpressionStatement	 
+>30	AssignmentExpr	is -> slp = FixedDiv ( dy , dx )
+>31	CallExpression	FixedDiv ( dy , dx )
+>32	ArgumentList	dy
+>33	Argument	dx
+>34	Identifier	dx
+>35	Argument	dy
+>36	Identifier	dy
+>37	Callee	FixedDiv
+>38	Identifier	FixedDiv
+>39	PtrMemberAccess	is -> slp
+>40	Identifier	slp
+>41	Identifier	is
+>42	ExpressionStatement	 
+>43	AssignmentExpr	is -> slp = ( dy < 0 ? - MAXINT 
+>44	ConditionalExpression	dy < 0 ? - MAXINT 
+>45	Identifier	MAXINT
+>46	UnaryOp	- MAXINT
+>47	Identifier	MAXINT
+>48	UnaryOperator	-
+>49	Condition	dy < 0
+>50	RelationalExpression	dy < 0
+>51	PrimaryExpression	0
+>52	Identifier	dy
+>53	PtrMemberAccess	is -> slp
+>54	Identifier	slp
+>55	Identifier	is
+>56	Condition	 
+>57	UnaryOp	! dx
+>58	Identifier	dx
+>59	UnaryOperator	!
+>60	IfStatement	if ( ! dy )
+>61	ElseStatement	else
+>62	ExpressionStatement	 
+>63	AssignmentExpr	is -> islp = FixedDiv ( dx , dy )
+>64	CallExpression	FixedDiv ( dx , dy )
+>65	ArgumentList	dx
+>66	Argument	dy
+>67	Identifier	dy
+>68	Argument	dx
+>69	Identifier	dx
+>70	Callee	FixedDiv
+>71	Identifier	FixedDiv
+>72	PtrMemberAccess	is -> islp
+>73	Identifier	islp
+>74	Identifier	is
+>75	ExpressionStatement	 
+>76	AssignmentExpr	is -> islp = ( dx < 0 ? - MAXINT 
+>77	ConditionalExpression	dx < 0 ? - MAXINT 
+>78	Identifier	MAXINT
+>79	UnaryOp	- MAXINT
+>80	Identifier	MAXINT
+>81	UnaryOperator	-
+>82	Condition	dx < 0
+>83	RelationalExpression	dx < 0
+>84	PrimaryExpression	0
+>85	Identifier	dx
+>86	PtrMemberAccess	is -> islp
+>87	Identifier	islp
+>88	Identifier	is
+>89	Condition	 
+>90	UnaryOp	! dy
+>91	Identifier	dy
+>92	UnaryOperator	!
+>93	ExpressionStatement	 
+>94	AssignmentExpr	dx = ml -> b . x - ml -> a . x
+>95	AdditiveExpression	ml -> b . x - ml -> a . x
+>96	MemberAccess	ml -> a . x
+>97	Identifier	x
+>98	PtrMemberAccess	ml -> a
+>99	Identifier	a
+>100	Identifier	ml
+>101	MemberAccess	ml -> b . x
+>102	Identifier	x
+>103	PtrMemberAccess	ml -> b
+>104	Identifier	b
+>105	Identifier	ml
+>106	Identifier	dx
+>107	ExpressionStatement	 
+>108	AssignmentExpr	dy = ml -> a . y - ml -> b . y
+>109	AdditiveExpression	ml -> a . y - ml -> b . y
+>110	MemberAccess	ml -> b . y
+>111	Identifier	y
+>112	PtrMemberAccess	ml -> b
+>113	Identifier	b
+>114	Identifier	ml
+>115	MemberAccess	ml -> a . y
+>116	Identifier	y
+>117	PtrMemberAccess	ml -> a
+>118	Identifier	a
+>119	Identifier	ml
+>120	Identifier	dy
+>121	IdentifierDeclStatement	 
+>122	IdentifierDecl	dy
+>123	Identifier	dy
+>124	IdentifierDeclType	int
+>125	IdentifierDecl	dx
+>126	Identifier	dx
+>127	IdentifierDeclType	int
+>147	FunctionDef	AM_activateNewScale ()
+>148	ParameterList	 
+>149	ReturnType	void
+>150	CompoundStatement	 
+>151	ExpressionStatement	 
+>152	PtrMemberAccess	g -> m_h
+>153	Identifier	m_h
+>154	Identifier	g
+>155	Statement	 
+>156	Statement	 
+>157	Statement	 
+>158	Statement	 
+>159	Statement	 
+>160	Statement	 
+>161	Statement	 
+>162	Statement	 
+>163	Statement	 
+>164	Statement	 
+>165	Statement	 
+>166	ExpressionStatement	 
+>167	PtrMemberAccess	g -> m_w
+>168	Identifier	m_w
+>169	Identifier	g
+>170	Statement	 
+>171	Statement	 
+>172	Statement	 
+>173	Statement	 
+>174	Statement	 
+>175	Statement	 
+>176	Statement	 
+>177	Statement	 
+>178	Statement	 
+>179	Statement	 
+>180	Statement	 
+>181	ExpressionStatement	 
+>182	MultiplicativeExpression	g -> m_h / 2
+>183	PrimaryExpression	2
+>184	PtrMemberAccess	g -> m_h
+>185	Identifier	m_h
+>186	Identifier	g
+>187	Statement	 
+>188	Statement	 
+>189	Statement	 
+>190	Statement	 
+>191	Statement	 
+>192	Statement	 
+>193	ExpressionStatement	 
+>194	MultiplicativeExpression	g -> m_w / 2
+>195	PrimaryExpression	2
+>196	PtrMemberAccess	g -> m_w
+>197	Identifier	m_w
+>198	Identifier	g
+>199	Statement	 
+>200	Statement	 
+>201	Statement	 
+>202	Statement	 
+>203	Statement	 
+>204	Statement	 
+>205	ExpressionStatement	 
+>206	Statement	 
+>207	Statement	 
+>208	Statement	 
+>209	Statement	 
+>210	Statement	 
+>211	Statement	 
+>212	Statement	 
+>213	Statement	 
+>214	Statement	 
+>215	Statement	 
+>216	Statement	 
+>217	Statement	 
+>218	ExpressionStatement	 
+>219	Statement	 
+>220	Statement	 
+>221	Statement	 
+>222	Statement	 
+>223	Statement	 
+>224	Statement	 
+>225	Statement	 
+>226	Statement	 
+>227	Statement	 
+>228	Statement	 
+>229	Statement	 
+>230	Statement	 
+>231	ExpressionStatement	 
+>232	MultiplicativeExpression	g -> m_h / 2
+>233	PrimaryExpression	2
+>234	PtrMemberAccess	g -> m_h
+>235	Identifier	m_h
+>236	Identifier	g
+>237	Statement	 
+>238	Statement	 
+>239	Statement	 
+>240	Statement	 
+>241	Statement	 
+>242	Statement	 
+>243	ExpressionStatement	 
+>244	MultiplicativeExpression	g -> m_w / 2
+>245	PrimaryExpression	2
+>246	PtrMemberAccess	g -> m_w
+>247	Identifier	m_w
+>248	Identifier	g
+>249	Statement	 
+>250	Statement	 
+>251	Statement	 
+>252	Statement	 
+>253	Statement	 
+>254	Statement	 
+>259	FunctionDef	AM_saveScaleAndLoc ()
+>260	ParameterList	 
+>261	ReturnType	void
+>262	CompoundStatement	 
+>263	ExpressionStatement	 
+>264	PtrMemberAccess	g -> m_h
+>265	Identifier	m_h
+>266	Identifier	g
+>267	Statement	 
+>268	Statement	 
+>269	Statement	 
+>270	Statement	 
+>271	Statement	 
+>272	Statement	 
+>273	ExpressionStatement	 
+>274	PtrMemberAccess	g -> m_w
+>275	Identifier	m_w
+>276	Identifier	g
+>277	Statement	 
+>278	Statement	 
+>279	Statement	 
+>280	Statement	 
+>281	Statement	 
+>282	Statement	 
+>283	ExpressionStatement	 
+>284	PtrMemberAccess	g -> m_y
+>285	Identifier	m_y
+>286	Identifier	g
+>287	Statement	 
+>288	Statement	 
+>289	Statement	 
+>290	Statement	 
+>291	Statement	 
+>292	Statement	 
+>293	ExpressionStatement	 
+>294	PtrMemberAccess	g -> m_x
+>295	Identifier	m_x
+>296	Identifier	g
+>297	Statement	 
+>298	Statement	 
+>299	Statement	 
+>300	Statement	 
+>301	Statement	 
+>302	Statement	 
+>307	FunctionDef	AM_restoreScaleAndLoc ()
+>308	ParameterList	 
+>309	ReturnType	void
+>310	CompoundStatement	 
+>311	CompoundStatement	 
+>312	ExpressionStatement	 
+>313	PtrMemberAccess	g -> old_m_y
+>314	Identifier	old_m_y
+>315	Identifier	g
+>316	Statement	 
+>317	Statement	 
+>318	Statement	 
+>319	Statement	 
+>320	Statement	 
+>321	Statement	 
+>322	ExpressionStatement	 
+>323	PtrMemberAccess	g -> old_m_x
+>324	Identifier	old_m_x
+>325	Identifier	g
+>326	Statement	 
+>327	Statement	 
+>328	Statement	 
+>329	Statement	 
+>330	Statement	 
+>331	Statement	 
+>332	Statement	 
+>333	Statement	 
+>334	Statement	 
+>335	Statement	 
+>336	Statement	 
+>337	Statement	 
+>338	Statement	 
+>339	Statement	 
+>340	ExpressionStatement	 
+>341	PtrMemberAccess	g -> old_m_h
+>342	Identifier	old_m_h
+>343	Identifier	g
+>344	Statement	 
+>345	Statement	 
+>346	Statement	 
+>347	Statement	 
+>348	Statement	 
+>349	Statement	 
+>350	ExpressionStatement	 
+>351	PtrMemberAccess	g -> old_m_w
+>352	Identifier	old_m_w
+>353	Identifier	g
+>354	Statement	 
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>364	FunctionDef	AM_addMark ()
+>365	ParameterList	 
+>366	ReturnType	void
+>367	CompoundStatement	 
+>368	ExpressionStatement	 
+>369	Identifier	AM_NUMMARKPOINTS
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	Statement	 
+>378	Statement	 
+>379	Statement	 
+>380	Statement	 
+>381	Statement	 
+>382	Statement	 
+>383	Statement	 
+>384	ExpressionStatement	 
+>385	MultiplicativeExpression	g -> m_h / 2
+>386	PrimaryExpression	2
+>387	PtrMemberAccess	g -> m_h
+>388	Identifier	m_h
+>389	Identifier	g
+>390	Statement	 
+>391	Statement	 
+>392	Statement	 
+>393	Statement	 
+>394	Statement	 
+>395	Statement	 
+>396	Statement	 
+>397	Statement	 
+>398	Statement	 
+>399	Statement	 
+>400	Statement	 
+>401	Statement	 
+>402	Statement	 
+>403	Statement	 
+>404	Statement	 
+>405	Statement	 
+>406	Statement	 
+>407	Statement	 
+>408	Statement	 
+>409	ExpressionStatement	 
+>410	MultiplicativeExpression	g -> m_w / 2
+>411	PrimaryExpression	2
+>412	PtrMemberAccess	g -> m_w
+>413	Identifier	m_w
+>414	Identifier	g
+>415	Statement	 
+>416	Statement	 
+>417	Statement	 
+>418	Statement	 
+>419	Statement	 
+>420	Statement	 
+>421	Statement	 
+>422	Statement	 
+>423	Statement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	Statement	 
+>430	Statement	 
+>431	Statement	 
+>432	Statement	 
+>433	Statement	 
+>438	FunctionDef	AM_findMinMaxBoundaries ()
+>439	ParameterList	 
+>440	ReturnType	void
+>441	CompoundStatement	 
+>442	Statement	 
+>443	Statement	 
+>444	Statement	 
+>445	ExpressionStatement	 
+>446	PtrMemberAccess	g -> numvertexes
+>447	Identifier	numvertexes
+>448	Identifier	g
+>449	Statement	 
+>450	Statement	 
+>451	Statement	 
+>452	ExpressionStatement	 
+>453	AssignmentExpr	i = 0
+>454	PrimaryExpression	0
+>455	Identifier	i
+>456	Statement	 
+>457	Statement	 
+>458	ExpressionStatement	 
+>459	AssignmentExpr	g -> max_y = - MAXINT
+>460	UnaryOp	- MAXINT
+>461	Identifier	MAXINT
+>462	UnaryOperator	-
+>463	PtrMemberAccess	g -> max_y
+>464	Identifier	max_y
+>465	Identifier	g
+>466	Statement	 
+>467	Statement	 
+>468	Statement	 
+>469	Statement	 
+>470	Statement	 
+>471	Statement	 
+>472	ExpressionStatement	 
+>473	AssignmentExpr	g -> min_y = MAXINT
+>474	Identifier	MAXINT
+>475	PtrMemberAccess	g -> min_y
+>476	Identifier	min_y
+>477	Identifier	g
+>478	Statement	 
+>479	Statement	 
+>480	Statement	 
+>481	Statement	 
+>482	Statement	 
+>483	Statement	 
+>484	IdentifierDeclStatement	 
+>485	IdentifierDecl	b
+>486	Identifier	b
+>487	IdentifierDeclType	fixed_t
+>488	IdentifierDeclStatement	 
+>489	IdentifierDecl	a
+>490	Identifier	a
+>491	IdentifierDeclType	fixed_t
+>492	IdentifierDeclStatement	 
+>493	IdentifierDecl	i
+>494	Identifier	i
+>495	IdentifierDeclType	int
+>507	FunctionDef	AM_changeWindowLoc ()
+>508	ParameterList	 
+>509	ReturnType	void
+>510	CompoundStatement	 
+>511	ExpressionStatement	 
+>512	MultiplicativeExpression	g -> m_w / 2
+>513	PrimaryExpression	2
+>514	PtrMemberAccess	g -> m_w
+>515	Identifier	m_w
+>516	Identifier	g
+>517	Statement	 
+>518	Statement	 
+>519	Statement	 
+>520	Statement	 
+>521	Statement	 
+>522	Statement	 
+>523	Statement	 
+>524	Statement	 
+>525	Statement	 
+>526	Statement	 
+>527	Statement	 
+>528	Statement	 
+>529	Statement	 
+>530	Statement	 
+>531	Statement	 
+>532	Statement	 
+>533	Statement	 
+>534	Statement	 
+>535	Statement	 
+>536	Statement	 
+>537	Statement	 
+>538	Statement	 
+>539	Statement	 
+>540	Statement	 
+>541	Statement	 
+>542	Statement	 
+>543	Statement	 
+>544	Statement	 
+>545	Statement	 
+>546	Statement	 
+>547	ExpressionStatement	 
+>548	MemberAccess	g -> m_paninc . y
+>549	Identifier	y
+>550	PtrMemberAccess	g -> m_paninc
+>551	Identifier	m_paninc
+>552	Identifier	g
+>553	Statement	 
+>554	Statement	 
+>555	Statement	 
+>556	Statement	 
+>557	Statement	 
+>558	Statement	 
+>559	ExpressionStatement	 
+>560	MemberAccess	g -> m_paninc . x
+>561	Identifier	x
+>562	PtrMemberAccess	g -> m_paninc
+>563	Identifier	m_paninc
+>564	Identifier	g
+>565	Statement	 
+>566	Statement	 
+>567	Statement	 
+>568	Statement	 
+>569	Statement	 
+>570	Statement	 
+>571	CompoundStatement	 
+>572	ExpressionStatement	 
+>573	AssignmentExpr	g -> f_oldloc . x = MAXINT
+>574	Identifier	MAXINT
+>575	MemberAccess	g -> f_oldloc . x
+>576	Identifier	x
+>577	PtrMemberAccess	g -> f_oldloc
+>578	Identifier	f_oldloc
+>579	Identifier	g
+>580	Statement	 
+>581	ExpressionStatement	 
+>582	AssignmentExpr	g -> followplayer = 0
+>583	PrimaryExpression	0
+>584	PtrMemberAccess	g -> followplayer
+>585	Identifier	followplayer
+>586	Identifier	g
+>587	Statement	 
+>588	Statement	 
+>589	Statement	 
+>590	Statement	 
+>591	Statement	 
+>592	Statement	 
+>593	Statement	 
+>594	Statement	 
+>595	Statement	 
+>596	Statement	 
+>597	Statement	 
+>598	Statement	 
+>599	Statement	 
+>600	Statement	 
+>601	Statement	 
+>602	Statement	 
+>603	Statement	 
+>614	FunctionDef	AM_initVariables ()
+>615	ParameterList	 
+>616	ReturnType	void
+>617	CompoundStatement	 
+>618	ExpressionStatement	 
+>619	CallExpression	ST_Responder ( & st_notify )
+>620	ArgumentList	& st_notify
+>621	Argument	& st_notify
+>622	UnaryOp	& st_notify
+>623	Identifier	st_notify
+>624	UnaryOperator	&
+>625	Callee	ST_Responder
+>626	Identifier	ST_Responder
+>627	ExpressionStatement	 
+>628	PtrMemberAccess	g -> m_h
+>629	Identifier	m_h
+>630	Identifier	g
+>631	Statement	 
+>632	Statement	 
+>633	Statement	 
+>634	Statement	 
+>635	Statement	 
+>636	Statement	 
+>637	ExpressionStatement	 
+>638	PtrMemberAccess	g -> m_w
+>639	Identifier	m_w
+>640	Identifier	g
+>641	Statement	 
+>642	Statement	 
+>643	Statement	 
+>644	Statement	 
+>645	Statement	 
+>646	Statement	 
+>647	ExpressionStatement	 
+>648	PtrMemberAccess	g -> m_y
+>649	Identifier	m_y
+>650	Identifier	g
+>651	Statement	 
+>652	Statement	 
+>653	Statement	 
+>654	Statement	 
+>655	Statement	 
+>656	Statement	 
+>657	ExpressionStatement	 
+>658	PtrMemberAccess	g -> m_x
+>659	Identifier	m_x
+>660	Identifier	g
+>661	Statement	 
+>662	Statement	 
+>663	Statement	 
+>664	Statement	 
+>665	Statement	 
+>666	Statement	 
+>667	ExpressionStatement	 
+>668	CallExpression	AM_changeWindowLoc ( )
+>669	ArgumentList	 
+>670	Callee	AM_changeWindowLoc
+>671	Identifier	AM_changeWindowLoc
+>672	ExpressionStatement	 
+>673	MultiplicativeExpression	g -> m_h / 2
+>674	PrimaryExpression	2
+>675	PtrMemberAccess	g -> m_h
+>676	Identifier	m_h
+>677	Identifier	g
+>678	Statement	 
+>679	Statement	 
+>680	Statement	 
+>681	Statement	 
+>682	Statement	 
+>683	Statement	 
+>684	Statement	 
+>685	Statement	 
+>686	Statement	 
+>687	Statement	 
+>688	Statement	 
+>689	Statement	 
+>690	Statement	 
+>691	Statement	 
+>692	Statement	 
+>693	ExpressionStatement	 
+>694	MultiplicativeExpression	g -> m_w / 2
+>695	PrimaryExpression	2
+>696	PtrMemberAccess	g -> m_w
+>697	Identifier	m_w
+>698	Identifier	g
+>699	Statement	 
+>700	Statement	 
+>701	Statement	 
+>702	Statement	 
+>703	Statement	 
+>704	Statement	 
+>705	Statement	 
+>706	Statement	 
+>707	Statement	 
+>708	Statement	 
+>709	Statement	 
+>710	Statement	 
+>711	Statement	 
+>712	Statement	 
+>713	Statement	 
+>714	ExpressionStatement	 
+>715	ArrayIndexing	g -> players [ pnum ]
+>716	Identifier	pnum
+>717	PtrMemberAccess	g -> players
+>718	Identifier	players
+>719	Identifier	g
+>720	Statement	 
+>721	Statement	 
+>722	Statement	 
+>723	Statement	 
+>724	Statement	 
+>725	Statement	 
+>726	Statement	 
+>727	BreakStatement	 
+>728	Statement	 
+>729	Statement	 
+>730	Statement	 
+>731	Statement	 
+>732	Statement	 
+>733	Statement	 
+>734	Statement	 
+>735	Statement	 
+>736	Statement	 
+>737	ForStatement	for ( pnum = 0 ; pnum < MAXPLAYERS ; pnum ++ )
+>738	Statement	 
+>739	IncDecOp	 
+>740	IncDec	++
+>741	Identifier	pnum
+>742	Condition	 
+>743	RelationalExpression	pnum < MAXPLAYERS
+>744	Identifier	MAXPLAYERS
+>745	Identifier	pnum
+>746	ForInit	 
+>747	AssignmentExpr	pnum = 0
+>748	PrimaryExpression	0
+>749	Identifier	pnum
+>750	Statement	 
+>751	Statement	 
+>752	Statement	 
+>753	Statement	 
+>754	Statement	 
+>755	Statement	 
+>756	Statement	 
+>757	Statement	 
+>758	Statement	 
+>759	Statement	 
+>760	Statement	 
+>761	Statement	 
+>762	Statement	 
+>763	Statement	 
+>764	Statement	 
+>765	Statement	 
+>766	ExpressionStatement	 
+>767	Statement	 
+>768	Statement	 
+>769	Statement	 
+>770	Statement	 
+>771	Statement	 
+>772	Statement	 
+>773	Statement	 
+>774	Statement	 
+>775	Statement	 
+>776	Statement	 
+>777	Statement	 
+>778	Statement	 
+>779	ExpressionStatement	 
+>780	Statement	 
+>781	Statement	 
+>782	Statement	 
+>783	Statement	 
+>784	Statement	 
+>785	Statement	 
+>786	Statement	 
+>787	Statement	 
+>788	Statement	 
+>789	Statement	 
+>790	Statement	 
+>791	Statement	 
+>792	ExpressionStatement	 
+>793	AssignmentExpr	g -> mtof_zoommul = FRACUNIT
+>794	Identifier	FRACUNIT
+>795	PtrMemberAccess	g -> mtof_zoommul
+>796	Identifier	mtof_zoommul
+>797	Identifier	g
+>798	Statement	 
+>799	ExpressionStatement	 
+>800	AssignmentExpr	g -> ftom_zoommul = FRACUNIT
+>801	Identifier	FRACUNIT
+>802	PtrMemberAccess	g -> ftom_zoommul
+>803	Identifier	ftom_zoommul
+>804	Identifier	g
+>805	Statement	 
+>806	ExpressionStatement	 
+>807	AssignmentExpr	g -> m_paninc . y = 0
+>808	PrimaryExpression	0
+>809	MemberAccess	g -> m_paninc . y
+>810	Identifier	y
+>811	PtrMemberAccess	g -> m_paninc
+>812	Identifier	m_paninc
+>813	Identifier	g
+>814	Statement	 
+>815	Statement	 
+>816	Statement	 
+>817	Statement	 
+>818	Statement	 
+>819	Statement	 
+>820	Statement	 
+>821	Statement	 
+>822	ExpressionStatement	 
+>823	AssignmentExpr	g -> lightlev = 0
+>824	PrimaryExpression	0
+>825	PtrMemberAccess	g -> lightlev
+>826	Identifier	lightlev
+>827	Identifier	g
+>828	Statement	 
+>829	ExpressionStatement	 
+>830	AssignmentExpr	g -> amclock = 0
+>831	PrimaryExpression	0
+>832	PtrMemberAccess	g -> amclock
+>833	Identifier	amclock
+>834	Identifier	g
+>835	Statement	 
+>836	ExpressionStatement	 
+>837	AssignmentExpr	g -> f_oldloc . x = MAXINT
+>838	Identifier	MAXINT
+>839	MemberAccess	g -> f_oldloc . x
+>840	Identifier	x
+>841	PtrMemberAccess	g -> f_oldloc
+>842	Identifier	f_oldloc
+>843	Identifier	g
+>844	Statement	 
+>845	ExpressionStatement	 
+>846	ArrayIndexing	g -> screens [ 0 ]
+>847	PrimaryExpression	0
+>848	PtrMemberAccess	g -> screens
+>849	Identifier	screens
+>850	Identifier	g
+>851	Statement	 
+>852	Statement	 
+>853	Statement	 
+>854	Statement	 
+>855	Statement	 
+>856	Statement	 
+>857	ExpressionStatement	 
+>858	AssignmentExpr	g -> automapactive = true
+>859	Identifier	true
+>860	PtrMemberAccess	g -> automapactive
+>861	Identifier	automapactive
+>862	Identifier	g
+>863	Statement	 
+>864	IdentifierDeclStatement	 
+>865	IdentifierDecl	pnum
+>866	Identifier	pnum
+>867	IdentifierDeclType	int
+>868	IdentifierDeclStatement	 
+>869	IdentifierDecl	st_notify = { ev_keyup , AM_MSGENTERED }
+>870	AssignmentExpr	st_notify = { ev_keyup , AM_MSGENTERED }
+>871	InitializerList	ev_keyup
+>872	Identifier	AM_MSGENTERED
+>873	Identifier	ev_keyup
+>874	Identifier	st_notify
+>875	Identifier	st_notify
+>876	IdentifierDeclType	event_t
+>877	Statement	 
+>904	FunctionDef	AM_loadPics ()
+>905	ParameterList	 
+>906	ReturnType	void
+>907	CompoundStatement	 
+>908	ForStatement	for ( i = 0 ; i < 10 ; i ++ )
+>909	CompoundStatement	 
+>910	ExpressionStatement	 
+>911	AssignmentExpr	g -> marknums [ i ] = ( patch_t * ) W_CacheLumpName ( namebuf , PU_STATIC_SHARED )
+>912	CastExpression	( patch_t * ) W_CacheLumpName ( namebuf , PU_STATIC_SHARED )
+>913	CallExpression	W_CacheLumpName ( namebuf , PU_STATIC_SHARED )
+>914	ArgumentList	namebuf
+>915	Argument	PU_STATIC_SHARED
+>916	Identifier	PU_STATIC_SHARED
+>917	Argument	namebuf
+>918	Identifier	namebuf
+>919	Callee	W_CacheLumpName
+>920	Identifier	W_CacheLumpName
+>921	CastTarget	patch_t *
+>922	ArrayIndexing	g -> marknums [ i ]
+>923	Identifier	i
+>924	PtrMemberAccess	g -> marknums
+>925	Identifier	marknums
+>926	Identifier	g
+>927	Statement	 
+>928	ExpressionStatement	 
+>929	CallExpression	sprintf ( namebuf , \"AMMNUM%d\" , i )
+>930	ArgumentList	namebuf
+>931	Argument	i
+>932	Identifier	i
+>933	Argument	\"AMMNUM%d\"
+>934	PrimaryExpression	\"AMMNUM%d\"
+>935	Argument	namebuf
+>936	Identifier	namebuf
+>937	Callee	sprintf
+>938	Identifier	sprintf
+>939	IncDecOp	 
+>940	IncDec	++
+>941	Identifier	i
+>942	Condition	 
+>943	RelationalExpression	i < 10
+>944	PrimaryExpression	10
+>945	Identifier	i
+>946	ForInit	 
+>947	AssignmentExpr	i = 0
+>948	PrimaryExpression	0
+>949	Identifier	i
+>950	IdentifierDeclStatement	 
+>951	IdentifierDecl	namebuf [ 9 ]
+>952	PrimaryExpression	9
+>953	Identifier	namebuf
+>954	IdentifierDeclType	char [ 9 ]
+>955	IdentifierDeclStatement	 
+>956	IdentifierDecl	i
+>957	Identifier	i
+>958	IdentifierDeclType	int
+>972	FunctionDef	AM_unloadPics ()
+>973	ParameterList	 
+>974	ReturnType	void
+>975	CompoundStatement	 
+>979	FunctionDef	AM_clearMarks ()
+>980	ParameterList	 
+>981	ReturnType	void
+>982	CompoundStatement	 
+>983	ExpressionStatement	 
+>984	AssignmentExpr	g -> markpointnum = 0
+>985	PrimaryExpression	0
+>986	PtrMemberAccess	g -> markpointnum
+>987	Identifier	markpointnum
+>988	Identifier	g
+>989	Statement	 
+>990	ExpressionStatement	 
+>991	AssignmentExpr	g -> markpoints [ i ] . x = - 1
+>992	UnaryOp	- 1
+>993	PrimaryExpression	1
+>994	UnaryOperator	-
+>995	MemberAccess	g -> markpoints [ i ] . x
+>996	Identifier	x
+>997	ArrayIndexing	g -> markpoints [ i ]
+>998	Identifier	i
+>999	PtrMemberAccess	g -> markpoints
+>1000	Identifier	markpoints
+>1001	Identifier	g
+>1002	ForStatement	for ( i = 0 ; i < AM_NUMMARKPOINTS ; i ++ )
+>1003	Statement	 
+>1004	IncDecOp	 
+>1005	IncDec	++
+>1006	Identifier	i
+>1007	Condition	 
+>1008	RelationalExpression	i < AM_NUMMARKPOINTS
+>1009	Identifier	AM_NUMMARKPOINTS
+>1010	Identifier	i
+>1011	ForInit	 
+>1012	AssignmentExpr	i = 0
+>1013	PrimaryExpression	0
+>1014	Identifier	i
+>1015	IdentifierDeclStatement	 
+>1016	IdentifierDecl	i
+>1017	Identifier	i
+>1018	IdentifierDeclType	int
+>1032	FunctionDef	AM_LevelInit ()
+>1033	ParameterList	 
+>1034	ReturnType	void
+>1035	CompoundStatement	 
+>1036	ExpressionStatement	 
+>1037	Statement	 
+>1038	Statement	 
+>1039	Statement	 
+>1040	Statement	 
+>1041	Statement	 
+>1042	Statement	 
+>1043	Statement	 
+>1044	Statement	 
+>1045	Statement	 
+>1046	Statement	 
+>1047	Statement	 
+>1048	Statement	 
+>1049	Statement	 
+>1050	Statement	 
+>1051	ExpressionStatement	 
+>1052	PtrMemberAccess	g -> min_scale_mtof
+>1053	Identifier	min_scale_mtof
+>1054	Identifier	g
+>1055	Statement	 
+>1056	Statement	 
+>1057	Statement	 
+>1058	Statement	 
+>1059	Statement	 
+>1060	Statement	 
+>1061	Statement	 
+>1062	Statement	 
+>1063	Statement	 
+>1064	Statement	 
+>1065	Statement	 
+>1066	Statement	 
+>1067	Statement	 
+>1068	Statement	 
+>1069	Statement	 
+>1070	Statement	 
+>1071	Statement	 
+>1072	Statement	 
+>1073	ExpressionStatement	 
+>1074	Statement	 
+>1075	Statement	 
+>1076	Statement	 
+>1077	Statement	 
+>1078	Statement	 
+>1079	Statement	 
+>1080	Statement	 
+>1081	Statement	 
+>1082	Statement	 
+>1083	Statement	 
+>1084	Statement	 
+>1085	Statement	 
+>1086	Statement	 
+>1087	Statement	 
+>1088	Statement	 
+>1089	Statement	 
+>1090	Statement	 
+>1091	Statement	 
+>1092	Statement	 
+>1093	Statement	 
+>1094	Statement	 
+>1095	ExpressionStatement	 
+>1096	CallExpression	AM_findMinMaxBoundaries ( )
+>1097	ArgumentList	 
+>1098	Callee	AM_findMinMaxBoundaries
+>1099	Identifier	AM_findMinMaxBoundaries
+>1100	ExpressionStatement	 
+>1101	CallExpression	AM_clearMarks ( )
+>1102	ArgumentList	 
+>1103	Callee	AM_clearMarks
+>1104	Identifier	AM_clearMarks
+>1105	ExpressionStatement	 
+>1106	PtrMemberAccess	g -> finit_height
+>1107	Identifier	finit_height
+>1108	Identifier	g
+>1109	Statement	 
+>1110	Statement	 
+>1111	Statement	 
+>1112	Statement	 
+>1113	Statement	 
+>1114	Statement	 
+>1115	ExpressionStatement	 
+>1116	PtrMemberAccess	g -> finit_width
+>1117	Identifier	finit_width
+>1118	Identifier	g
+>1119	Statement	 
+>1120	Statement	 
+>1121	Statement	 
+>1122	Statement	 
+>1123	Statement	 
+>1124	Statement	 
+>1125	ExpressionStatement	 
+>1126	AssignmentExpr	g -> f_y = 0
+>1127	PrimaryExpression	0
+>1128	PtrMemberAccess	g -> f_y
+>1129	Identifier	f_y
+>1130	Identifier	g
+>1131	Statement	 
+>1132	Statement	 
+>1133	Statement	 
+>1134	Statement	 
+>1135	Statement	 
+>1136	Statement	 
+>1137	ExpressionStatement	 
+>1138	AssignmentExpr	g -> leveljuststarted = 0
+>1139	PrimaryExpression	0
+>1140	PtrMemberAccess	g -> leveljuststarted
+>1141	Identifier	leveljuststarted
+>1142	Identifier	g
+>1143	Statement	 
+>1151	FunctionDef	AM_Stop ()
+>1152	ParameterList	 
+>1153	ReturnType	void
+>1154	CompoundStatement	 
+>1155	ExpressionStatement	 
+>1156	AssignmentExpr	g -> stopped = true
+>1157	Identifier	true
+>1158	PtrMemberAccess	g -> stopped
+>1159	Identifier	stopped
+>1160	Identifier	g
+>1161	Statement	 
+>1162	ExpressionStatement	 
+>1163	CallExpression	ST_Responder ( & st_notify )
+>1164	ArgumentList	& st_notify
+>1165	Argument	& st_notify
+>1166	UnaryOp	& st_notify
+>1167	Identifier	st_notify
+>1168	UnaryOperator	&
+>1169	Callee	ST_Responder
+>1170	Identifier	ST_Responder
+>1171	ExpressionStatement	 
+>1172	AssignmentExpr	g -> automapactive = false
+>1173	Identifier	false
+>1174	PtrMemberAccess	g -> automapactive
+>1175	Identifier	automapactive
+>1176	Identifier	g
+>1177	Statement	 
+>1178	ExpressionStatement	 
+>1179	CallExpression	AM_unloadPics ( )
+>1180	ArgumentList	 
+>1181	Callee	AM_unloadPics
+>1182	Identifier	AM_unloadPics
+>1183	IdentifierDeclStatement	 
+>1184	IdentifierDecl	st_notify = { ( evtype_t ) 0 , ev_keyup , AM_MSGEXITED }
+>1185	AssignmentExpr	st_notify = { ( evtype_t ) 0 , ev_keyup , AM_MSGEXITED }
+>1186	InitializerList	( evtype_t ) 0
+>1187	Identifier	AM_MSGEXITED
+>1188	Identifier	ev_keyup
+>1189	CastExpression	( evtype_t ) 0
+>1190	PrimaryExpression	0
+>1191	CastTarget	evtype_t
+>1192	Identifier	st_notify
+>1193	Identifier	st_notify
+>1194	IdentifierDeclType	event_t
+>1195	Statement	 
+>1209	FunctionDef	AM_Start ()
+>1210	ParameterList	 
+>1211	ReturnType	void
+>1212	CompoundStatement	 
+>1213	ExpressionStatement	 
+>1214	CallExpression	AM_loadPics ( )
+>1215	ArgumentList	 
+>1216	Callee	AM_loadPics
+>1217	Identifier	AM_loadPics
+>1218	ExpressionStatement	 
+>1219	CallExpression	AM_initVariables ( )
+>1220	ArgumentList	 
+>1221	Callee	AM_initVariables
+>1222	Identifier	AM_initVariables
+>1223	CompoundStatement	 
+>1224	ExpressionStatement	 
+>1225	PtrMemberAccess	g -> gameepisode
+>1226	Identifier	gameepisode
+>1227	Identifier	g
+>1228	Statement	 
+>1229	Statement	 
+>1230	Statement	 
+>1231	Statement	 
+>1232	Statement	 
+>1233	Statement	 
+>1234	ExpressionStatement	 
+>1235	PtrMemberAccess	g -> gamemap
+>1236	Identifier	gamemap
+>1237	Identifier	g
+>1238	Statement	 
+>1239	Statement	 
+>1240	Statement	 
+>1241	Statement	 
+>1242	Statement	 
+>1243	Statement	 
+>1244	ExpressionStatement	 
+>1245	CallExpression	AM_LevelInit ( )
+>1246	ArgumentList	 
+>1247	Callee	AM_LevelInit
+>1248	Identifier	AM_LevelInit
+>1249	Statement	 
+>1250	Statement	 
+>1251	Statement	 
+>1252	Statement	 
+>1253	Statement	 
+>1254	Statement	 
+>1255	Statement	 
+>1256	Statement	 
+>1257	Statement	 
+>1258	Statement	 
+>1259	Statement	 
+>1260	Statement	 
+>1261	Statement	 
+>1262	Statement	 
+>1263	Statement	 
+>1264	Statement	 
+>1265	Statement	 
+>1266	Statement	 
+>1267	Statement	 
+>1268	Statement	 
+>1269	Statement	 
+>1270	Statement	 
+>1271	ExpressionStatement	 
+>1272	AssignmentExpr	g -> stopped = false
+>1273	Identifier	false
+>1274	PtrMemberAccess	g -> stopped
+>1275	Identifier	stopped
+>1276	Identifier	g
+>1277	Statement	 
+>1278	ExpressionStatement	 
+>1279	CallExpression	AM_Stop ( )
+>1280	ArgumentList	 
+>1281	Callee	AM_Stop
+>1282	Identifier	AM_Stop
+>1283	Statement	 
+>1284	Statement	 
+>1285	Statement	 
+>1286	Statement	 
+>1287	Statement	 
+>1288	Statement	 
+>1289	Statement	 
+>1290	Statement	 
+>1298	FunctionDef	AM_minOutWindowScale ()
+>1299	ParameterList	 
+>1300	ReturnType	void
+>1301	CompoundStatement	 
+>1302	ExpressionStatement	 
+>1303	CallExpression	AM_activateNewScale ( )
+>1304	ArgumentList	 
+>1305	Callee	AM_activateNewScale
+>1306	Identifier	AM_activateNewScale
+>1307	ExpressionStatement	 
+>1308	Statement	 
+>1309	Statement	 
+>1310	Statement	 
+>1311	Statement	 
+>1312	Statement	 
+>1313	Statement	 
+>1314	Statement	 
+>1315	Statement	 
+>1316	Statement	 
+>1317	Statement	 
+>1318	Statement	 
+>1319	Statement	 
+>1320	Statement	 
+>1321	Statement	 
+>1322	ExpressionStatement	 
+>1323	PtrMemberAccess	g -> min_scale_mtof
+>1324	Identifier	min_scale_mtof
+>1325	Identifier	g
+>1326	Statement	 
+>1327	Statement	 
+>1328	Statement	 
+>1329	Statement	 
+>1330	Statement	 
+>1331	Statement	 
+>1336	FunctionDef	AM_maxOutWindowScale ()
+>1337	ParameterList	 
+>1338	ReturnType	void
+>1339	CompoundStatement	 
+>1340	ExpressionStatement	 
+>1341	CallExpression	AM_activateNewScale ( )
+>1342	ArgumentList	 
+>1343	Callee	AM_activateNewScale
+>1344	Identifier	AM_activateNewScale
+>1345	ExpressionStatement	 
+>1346	Statement	 
+>1347	Statement	 
+>1348	Statement	 
+>1349	Statement	 
+>1350	Statement	 
+>1351	Statement	 
+>1352	Statement	 
+>1353	Statement	 
+>1354	Statement	 
+>1355	Statement	 
+>1356	Statement	 
+>1357	Statement	 
+>1358	Statement	 
+>1359	Statement	 
+>1360	ExpressionStatement	 
+>1361	PtrMemberAccess	g -> max_scale_mtof
+>1362	Identifier	max_scale_mtof
+>1363	Identifier	g
+>1364	Statement	 
+>1365	Statement	 
+>1366	Statement	 
+>1367	Statement	 
+>1368	Statement	 
+>1369	Statement	 
+>1374	FunctionDef	AM_Responder (event_t * ev)
+>1375	ParameterList	event_t * ev
+>1376	Parameter	 
+>1377	Identifier	ev
+>1378	ParameterType	event_t *
+>1379	ReturnType	qboolean
+>1380	CompoundStatement	 
+>1381	CompoundStatement	 
+>1382	IfStatement	if ( ev -> type == ev_keydown && ev -> data1 == AM_STARTKEY )
+>1383	CompoundStatement	 
+>1384	ExpressionStatement	 
+>1385	AssignmentExpr	rc = true
+>1386	Identifier	true
+>1387	Identifier	rc
+>1388	ExpressionStatement	 
+>1389	AssignmentExpr	g -> viewactive = false
+>1390	Identifier	false
+>1391	PtrMemberAccess	g -> viewactive
+>1392	Identifier	viewactive
+>1393	Identifier	g
+>1394	Statement	 
+>1395	ExpressionStatement	 
+>1396	CallExpression	AM_Start ( )
+>1397	ArgumentList	 
+>1398	Callee	AM_Start
+>1399	Identifier	AM_Start
+>1400	Condition	 
+>1401	AndExpression	ev -> type == ev_keydown && ev -> data1 == AM_STARTKEY
+>1402	EqualityExpression	ev -> data1 == AM_STARTKEY
+>1403	Identifier	AM_STARTKEY
+>1404	PtrMemberAccess	ev -> data1
+>1405	Identifier	data1
+>1406	Identifier	ev
+>1407	EqualityExpression	ev -> type == ev_keydown
+>1408	Identifier	ev_keydown
+>1409	PtrMemberAccess	ev -> type
+>1410	Identifier	type
+>1411	Identifier	ev
+>1412	Statement	 
+>1413	Statement	 
+>1414	Statement	 
+>1415	Statement	 
+>1416	Statement	 
+>1417	Statement	 
+>1418	Statement	 
+>1419	Statement	 
+>1420	ExpressionStatement	 
+>1421	AssignmentExpr	rc = false
+>1422	Identifier	false
+>1423	Identifier	rc
+>1424	IdentifierDeclStatement	 
+>1425	IdentifierDecl	rc
+>1426	Identifier	rc
+>1427	IdentifierDeclType	int
+>1443	FunctionDef	AM_changeWindowScale ()
+>1444	ParameterList	 
+>1445	ReturnType	void
+>1446	CompoundStatement	 
+>1447	ExpressionStatement	 
+>1448	CallExpression	AM_minOutWindowScale ( )
+>1449	ArgumentList	 
+>1450	Callee	AM_minOutWindowScale
+>1451	Identifier	AM_minOutWindowScale
+>1452	Statement	 
+>1453	Statement	 
+>1454	Statement	 
+>1455	Statement	 
+>1456	Statement	 
+>1457	Statement	 
+>1458	Statement	 
+>1459	Statement	 
+>1460	Statement	 
+>1461	Statement	 
+>1462	Statement	 
+>1463	Statement	 
+>1464	ExpressionStatement	 
+>1465	Statement	 
+>1466	Statement	 
+>1467	Statement	 
+>1468	Statement	 
+>1469	Statement	 
+>1470	Statement	 
+>1471	Statement	 
+>1472	Statement	 
+>1473	Statement	 
+>1474	Statement	 
+>1475	Statement	 
+>1476	Statement	 
+>1477	Statement	 
+>1478	Statement	 
+>1479	ExpressionStatement	 
+>1480	Statement	 
+>1481	Statement	 
+>1482	Statement	 
+>1483	Statement	 
+>1484	Statement	 
+>1485	Statement	 
+>1486	Statement	 
+>1487	Statement	 
+>1488	Statement	 
+>1489	Statement	 
+>1490	Statement	 
+>1491	Statement	 
+>1492	Statement	 
+>1493	Statement	 
+>1494	Statement	 
+>1495	Statement	 
+>1496	Statement	 
+>1500	FunctionDef	AM_doFollowPlayer ()
+>1501	ParameterList	 
+>1502	ReturnType	void
+>1503	CompoundStatement	 
+>1504	CompoundStatement	 
+>1505	ExpressionStatement	 
+>1506	PtrMemberAccess	g -> amap_plr -> mo -> y
+>1507	Identifier	y
+>1508	PtrMemberAccess	g -> amap_plr -> mo
+>1509	Identifier	mo
+>1510	PtrMemberAccess	g -> amap_plr
+>1511	Identifier	amap_plr
+>1512	Identifier	g
+>1513	Statement	 
+>1514	Statement	 
+>1515	Statement	 
+>1516	Statement	 
+>1517	Statement	 
+>1518	Statement	 
+>1519	Statement	 
+>1520	Statement	 
+>1521	ExpressionStatement	 
+>1522	PtrMemberAccess	g -> amap_plr -> mo -> x
+>1523	Identifier	x
+>1524	PtrMemberAccess	g -> amap_plr -> mo
+>1525	Identifier	mo
+>1526	PtrMemberAccess	g -> amap_plr
+>1527	Identifier	amap_plr
+>1528	Identifier	g
+>1529	Statement	 
+>1530	Statement	 
+>1531	Statement	 
+>1532	Statement	 
+>1533	Statement	 
+>1534	Statement	 
+>1535	Statement	 
+>1536	Statement	 
+>1537	ExpressionStatement	 
+>1538	PtrMemberAccess	g -> m_h
+>1539	Identifier	m_h
+>1540	Identifier	g
+>1541	Statement	 
+>1542	Statement	 
+>1543	Statement	 
+>1544	Statement	 
+>1545	Statement	 
+>1546	Statement	 
+>1547	Statement	 
+>1548	Statement	 
+>1549	Statement	 
+>1550	Statement	 
+>1551	Statement	 
+>1552	ExpressionStatement	 
+>1553	PtrMemberAccess	g -> m_w
+>1554	Identifier	m_w
+>1555	Identifier	g
+>1556	Statement	 
+>1557	Statement	 
+>1558	Statement	 
+>1559	Statement	 
+>1560	Statement	 
+>1561	Statement	 
+>1562	Statement	 
+>1563	Statement	 
+>1564	Statement	 
+>1565	Statement	 
+>1566	Statement	 
+>1567	ExpressionStatement	 
+>1568	MultiplicativeExpression	g -> m_h / 2
+>1569	PrimaryExpression	2
+>1570	PtrMemberAccess	g -> m_h
+>1571	Identifier	m_h
+>1572	Identifier	g
+>1573	Statement	 
+>1574	Statement	 
+>1575	Statement	 
+>1576	Statement	 
+>1577	Statement	 
+>1578	Statement	 
+>1579	Statement	 
+>1580	Statement	 
+>1581	Statement	 
+>1582	Statement	 
+>1583	Statement	 
+>1584	Statement	 
+>1585	Statement	 
+>1586	Statement	 
+>1587	Statement	 
+>1588	Statement	 
+>1589	Statement	 
+>1590	Statement	 
+>1591	Statement	 
+>1592	Statement	 
+>1593	Statement	 
+>1594	ExpressionStatement	 
+>1595	MultiplicativeExpression	g -> m_w / 2
+>1596	PrimaryExpression	2
+>1597	PtrMemberAccess	g -> m_w
+>1598	Identifier	m_w
+>1599	Identifier	g
+>1600	Statement	 
+>1601	Statement	 
+>1602	Statement	 
+>1603	Statement	 
+>1604	Statement	 
+>1605	Statement	 
+>1606	Statement	 
+>1607	Statement	 
+>1608	Statement	 
+>1609	Statement	 
+>1610	Statement	 
+>1611	Statement	 
+>1612	Statement	 
+>1613	Statement	 
+>1614	Statement	 
+>1615	Statement	 
+>1616	Statement	 
+>1617	Statement	 
+>1618	Statement	 
+>1619	Statement	 
+>1620	Statement	 
+>1621	Statement	 
+>1622	Statement	 
+>1623	Statement	 
+>1624	Statement	 
+>1625	Statement	 
+>1626	Statement	 
+>1627	Statement	 
+>1628	Statement	 
+>1629	Statement	 
+>1630	Statement	 
+>1631	Statement	 
+>1632	Statement	 
+>1633	Statement	 
+>1634	Statement	 
+>1635	Statement	 
+>1636	Statement	 
+>1637	Statement	 
+>1638	Statement	 
+>1639	Statement	 
+>1640	Statement	 
+>1641	Statement	 
+>1642	Statement	 
+>1643	Statement	 
+>1644	Statement	 
+>1645	Statement	 
+>1646	Statement	 
+>1647	Statement	 
+>1648	Statement	 
+>1649	Statement	 
+>1650	Statement	 
+>1651	Statement	 
+>1652	Statement	 
+>1653	Statement	 
+>1654	Statement	 
+>1664	FunctionDef	AM_updateLightLev ()
+>1665	ParameterList	 
+>1666	ReturnType	void
+>1667	CompoundStatement	 
+>1668	CompoundStatement	 
+>1669	ExpressionStatement	 
+>1670	Statement	 
+>1671	Statement	 
+>1672	Statement	 
+>1673	Statement	 
+>1674	Statement	 
+>1675	Statement	 
+>1676	Statement	 
+>1677	Statement	 
+>1678	Statement	 
+>1679	Statement	 
+>1680	Statement	 
+>1681	Statement	 
+>1682	Statement	 
+>1683	Statement	 
+>1684	Statement	 
+>1685	Statement	 
+>1686	Statement	 
+>1687	Statement	 
+>1688	Statement	 
+>1689	Statement	 
+>1690	ExpressionStatement	 
+>1691	AssignmentExpr	g -> litelevelscnt = 0
+>1692	PrimaryExpression	0
+>1693	PtrMemberAccess	g -> litelevelscnt
+>1694	Identifier	litelevelscnt
+>1695	Identifier	g
+>1696	Statement	 
+>1697	Statement	 
+>1698	Statement	 
+>1699	Statement	 
+>1700	Statement	 
+>1701	Statement	 
+>1702	Statement	 
+>1703	Statement	 
+>1704	Statement	 
+>1705	Statement	 
+>1706	Statement	 
+>1707	Statement	 
+>1708	Statement	 
+>1709	Statement	 
+>1710	Statement	 
+>1711	Statement	 
+>1712	Statement	 
+>1713	Statement	 
+>1714	ExpressionStatement	 
+>1715	Statement	 
+>1716	Statement	 
+>1717	Statement	 
+>1718	Statement	 
+>1719	Statement	 
+>1720	Statement	 
+>1721	Statement	 
+>1722	Statement	 
+>1723	Statement	 
+>1724	Statement	 
+>1725	Statement	 
+>1726	Statement	 
+>1727	Statement	 
+>1728	Statement	 
+>1729	Statement	 
+>1730	Statement	 
+>1731	Statement	 
+>1732	Statement	 
+>1733	Statement	 
+>1734	Statement	 
+>1735	Statement	 
+>1736	Statement	 
+>1737	Statement	 
+>1738	Statement	 
+>1739	Statement	 
+>1740	IdentifierDeclStatement	 
+>1741	IdentifierDecl	litelevels [ ] = { 0 , 4 , 7 , 10 , 12 , 14 , 15 , 15 }
+>1742	AssignmentExpr	litelevels [ ] = { 0 , 4 , 7 , 10 , 12 , 14 , 15 , 15 }
+>1743	InitializerList	0
+>1744	PrimaryExpression	15
+>1745	PrimaryExpression	15
+>1746	PrimaryExpression	14
+>1747	PrimaryExpression	12
+>1748	PrimaryExpression	10
+>1749	PrimaryExpression	7
+>1750	PrimaryExpression	4
+>1751	PrimaryExpression	0
+>1752	Identifier	litelevels
+>1753	Identifier	litelevels
+>1754	IdentifierDeclType	int [ ]
+>1755	Statement	 
+>1756	Statement	 
+>1764	FunctionDef	AM_Ticker ()
+>1765	ParameterList	 
+>1766	ReturnType	void
+>1767	CompoundStatement	 
+>1768	ExpressionStatement	 
+>1769	CallExpression	AM_changeWindowLoc ( )
+>1770	ArgumentList	 
+>1771	Callee	AM_changeWindowLoc
+>1772	Identifier	AM_changeWindowLoc
+>1773	Statement	 
+>1774	Statement	 
+>1775	Statement	 
+>1776	Statement	 
+>1777	Statement	 
+>1778	Statement	 
+>1779	Statement	 
+>1780	Statement	 
+>1781	Statement	 
+>1782	Statement	 
+>1783	Statement	 
+>1784	Statement	 
+>1785	Statement	 
+>1786	Statement	 
+>1787	Statement	 
+>1788	Statement	 
+>1789	ExpressionStatement	 
+>1790	CallExpression	AM_changeWindowScale ( )
+>1791	ArgumentList	 
+>1792	Callee	AM_changeWindowScale
+>1793	Identifier	AM_changeWindowScale
+>1794	Statement	 
+>1795	Statement	 
+>1796	Statement	 
+>1797	Statement	 
+>1798	Statement	 
+>1799	Statement	 
+>1800	Statement	 
+>1801	Statement	 
+>1802	Statement	 
+>1803	ExpressionStatement	 
+>1804	CallExpression	AM_doFollowPlayer ( )
+>1805	ArgumentList	 
+>1806	Callee	AM_doFollowPlayer
+>1807	Identifier	AM_doFollowPlayer
+>1808	Statement	 
+>1809	Statement	 
+>1810	Statement	 
+>1811	Statement	 
+>1812	Statement	 
+>1813	Statement	 
+>1814	Statement	 
+>1815	ExpressionStatement	 
+>1816	IncDecOp	g -> amclock ++
+>1817	IncDec	++
+>1818	PtrMemberAccess	g -> amclock
+>1819	Identifier	amclock
+>1820	Identifier	g
+>1821	Statement	 
+>1822	ReturnStatement	 
+>1823	Statement	 
+>1824	Statement	 
+>1825	Statement	 
+>1826	Statement	 
+>1827	Statement	 
+>1828	Statement	 
+>1829	Statement	 
+>1830	Statement	 
+>1837	FunctionDef	AM_clearFB (int color)
+>1838	ParameterList	int color
+>1839	Parameter	 
+>1840	Identifier	color
+>1841	ParameterType	int
+>1842	ReturnType	void
+>1843	CompoundStatement	 
+>1844	ExpressionStatement	 
+>1845	Statement	 
+>1846	Statement	 
+>1847	Statement	 
+>1848	Statement	 
+>1849	Statement	 
+>1850	Statement	 
+>1851	Statement	 
+>1852	Statement	 
+>1853	Statement	 
+>1854	Statement	 
+>1855	Statement	 
+>1856	Statement	 
+>1857	Statement	 
+>1858	Statement	 
+>1859	Statement	 
+>1860	Statement	 
+>1861	Statement	 
+>1862	Statement	 
+>1863	Statement	 
+>1868	FunctionDef	AM_clipMline (mline_t * ml , fline_t * fl)
+>1869	ParameterList	mline_t * ml , fline_t * fl
+>1870	Parameter	 
+>1871	Identifier	fl
+>1872	ParameterType	fline_t *
+>1873	Parameter	 
+>1874	Identifier	ml
+>1875	ParameterType	mline_t *
+>1876	ReturnType	qboolean
+>1877	CompoundStatement	 
+>1878	ExpressionStatement	 
+>1879	AssignmentExpr	outcode1 = TOP
+>1880	Identifier	TOP
+>1881	Identifier	outcode1
+>1882	Statement	 
+>1883	Statement	 
+>1884	Statement	 
+>1885	Statement	 
+>1886	Statement	 
+>1887	Statement	 
+>1888	Statement	 
+>1889	Statement	 
+>1890	Statement	 
+>1891	Statement	 
+>1892	Statement	 
+>1893	Statement	 
+>1894	Statement	 
+>1895	IdentifierDeclStatement	 
+>1896	IdentifierDecl	dy
+>1897	Identifier	dy
+>1898	IdentifierDeclType	int
+>1899	IdentifierDeclStatement	 
+>1900	IdentifierDecl	dx
+>1901	Identifier	dx
+>1902	IdentifierDeclType	int
+>1903	IdentifierDeclStatement	 
+>1904	IdentifierDecl	tmp = { 0 , 0 }
+>1905	AssignmentExpr	tmp = { 0 , 0 }
+>1906	InitializerList	0
+>1907	PrimaryExpression	0
+>1908	PrimaryExpression	0
+>1909	Identifier	tmp
+>1910	Identifier	tmp
+>1911	IdentifierDeclType	fpoint_t
+>1912	IdentifierDeclStatement	 
+>1913	IdentifierDecl	outside
+>1914	Identifier	outside
+>1915	IdentifierDeclType	int
+>1916	Statement	 
+>1917	IdentifierDeclStatement	 
+>1918	IdentifierDecl	outcode2 = 0
+>1919	AssignmentExpr	outcode2 = 0
+>1920	PrimaryExpression	0
+>1921	Identifier	outcode2
+>1922	Identifier	outcode2
+>1923	IdentifierDeclType	int
+>1924	Statement	 
+>1925	IdentifierDeclStatement	 
+>1926	IdentifierDecl	outcode1 = 0
+>1927	AssignmentExpr	outcode1 = 0
+>1928	PrimaryExpression	0
+>1929	Identifier	outcode1
+>1930	Identifier	outcode1
+>1931	IdentifierDeclType	int
+>1932	Statement	 
+>1933	ExpressionStatement	 
+>1934	ClassDefStatement	 
+>1947	FunctionDef	AM_drawFline (fline_t * fl , int color)
+>1948	ParameterList	fline_t * fl , int color
+>1949	Parameter	 
+>1950	Identifier	color
+>1951	ParameterType	int
+>1952	Parameter	 
+>1953	Identifier	fl
+>1954	ParameterType	fline_t *
+>1955	ReturnType	undef DOOUTCODE void
+>1956	CompoundStatement	 
+>1957	IfStatement	if ( ax > ay )
+>1958	ElseStatement	else
+>1959	CompoundStatement	 
+>1960	WhileStatement	while ( 1 )
+>1961	CompoundStatement	 
+>1962	ExpressionStatement	 
+>1963	AssignmentExpr	d += ax
+>1964	Identifier	ax
+>1965	Identifier	d
+>1966	ExpressionStatement	 
+>1967	AssignmentExpr	y += sy
+>1968	Identifier	sy
+>1969	Identifier	y
+>1970	IfStatement	if ( d >= 0 )
+>1971	CompoundStatement	 
+>1972	ExpressionStatement	 
+>1973	AssignmentExpr	d -= ay
+>1974	Identifier	ay
+>1975	Identifier	d
+>1976	ExpressionStatement	 
+>1977	AssignmentExpr	x += sx
+>1978	Identifier	sx
+>1979	Identifier	x
+>1980	Condition	 
+>1981	RelationalExpression	d >= 0
+>1982	PrimaryExpression	0
+>1983	Identifier	d
+>1984	IfStatement	if ( y == fl -> b . y )
+>1985	ReturnStatement	 
+>1986	Condition	 
+>1987	EqualityExpression	y == fl -> b . y
+>1988	MemberAccess	fl -> b . y
+>1989	Identifier	y
+>1990	PtrMemberAccess	fl -> b
+>1991	Identifier	b
+>1992	Identifier	fl
+>1993	Identifier	y
+>1994	ExpressionStatement	 
+>1995	CallExpression	PUTDOT ( x , y , color )
+>1996	ArgumentList	x
+>1997	Argument	color
+>1998	Identifier	color
+>1999	Argument	y
+>2000	Identifier	y
+>2001	Argument	x
+>2002	Identifier	x
+>2003	Callee	PUTDOT
+>2004	Identifier	PUTDOT
+>2005	Condition	 
+>2006	PrimaryExpression	1
+>2007	ExpressionStatement	 
+>2008	AssignmentExpr	d = ax - ay / 2
+>2009	AdditiveExpression	ax - ay / 2
+>2010	MultiplicativeExpression	ay / 2
+>2011	PrimaryExpression	2
+>2012	Identifier	ay
+>2013	Identifier	ax
+>2014	Identifier	d
+>2015	CompoundStatement	 
+>2016	WhileStatement	while ( 1 )
+>2017	CompoundStatement	 
+>2018	ExpressionStatement	 
+>2019	AssignmentExpr	d += ay
+>2020	Identifier	ay
+>2021	Identifier	d
+>2022	ExpressionStatement	 
+>2023	AssignmentExpr	x += sx
+>2024	Identifier	sx
+>2025	Identifier	x
+>2026	IfStatement	if ( d >= 0 )
+>2027	CompoundStatement	 
+>2028	ExpressionStatement	 
+>2029	AssignmentExpr	d -= ax
+>2030	Identifier	ax
+>2031	Identifier	d
+>2032	ExpressionStatement	 
+>2033	AssignmentExpr	y += sy
+>2034	Identifier	sy
+>2035	Identifier	y
+>2036	Condition	 
+>2037	RelationalExpression	d >= 0
+>2038	PrimaryExpression	0
+>2039	Identifier	d
+>2040	IfStatement	if ( x == fl -> b . x )
+>2041	ReturnStatement	 
+>2042	Condition	 
+>2043	EqualityExpression	x == fl -> b . x
+>2044	MemberAccess	fl -> b . x
+>2045	Identifier	x
+>2046	PtrMemberAccess	fl -> b
+>2047	Identifier	b
+>2048	Identifier	fl
+>2049	Identifier	x
+>2050	ExpressionStatement	 
+>2051	CallExpression	PUTDOT ( x , y , color )
+>2052	ArgumentList	x
+>2053	Argument	color
+>2054	Identifier	color
+>2055	Argument	y
+>2056	Identifier	y
+>2057	Argument	x
+>2058	Identifier	x
+>2059	Callee	PUTDOT
+>2060	Identifier	PUTDOT
+>2061	Condition	 
+>2062	PrimaryExpression	1
+>2063	ExpressionStatement	 
+>2064	AssignmentExpr	d = ay - ax / 2
+>2065	AdditiveExpression	ay - ax / 2
+>2066	MultiplicativeExpression	ax / 2
+>2067	PrimaryExpression	2
+>2068	Identifier	ax
+>2069	Identifier	ay
+>2070	Identifier	d
+>2071	Condition	 
+>2072	RelationalExpression	ax > ay
+>2073	Identifier	ay
+>2074	Identifier	ax
+>2075	ExpressionStatement	 
+>2076	AssignmentExpr	y = fl -> a . y
+>2077	MemberAccess	fl -> a . y
+>2078	Identifier	y
+>2079	PtrMemberAccess	fl -> a
+>2080	Identifier	a
+>2081	Identifier	fl
+>2082	Identifier	y
+>2083	ExpressionStatement	 
+>2084	AssignmentExpr	x = fl -> a . x
+>2085	MemberAccess	fl -> a . x
+>2086	Identifier	x
+>2087	PtrMemberAccess	fl -> a
+>2088	Identifier	a
+>2089	Identifier	fl
+>2090	Identifier	x
+>2091	ExpressionStatement	 
+>2092	AssignmentExpr	sy = dy < 0 ? - 1 
+>2093	ConditionalExpression	dy < 0 ? - 1 
+>2094	PrimaryExpression	1
+>2095	UnaryOp	- 1
+>2096	PrimaryExpression	1
+>2097	UnaryOperator	-
+>2098	Condition	dy < 0
+>2099	RelationalExpression	dy < 0
+>2100	PrimaryExpression	0
+>2101	Identifier	dy
+>2102	Identifier	sy
+>2103	ExpressionStatement	 
+>2104	AssignmentExpr	ay = 2 * ( dy < 0 ? - dy 
+>2105	MultiplicativeExpression	2 * ( dy < 0 ? - dy 
+>2106	ConditionalExpression	dy < 0 ? - dy 
+>2107	Identifier	dy
+>2108	UnaryOp	- dy
+>2109	Identifier	dy
+>2110	UnaryOperator	-
+>2111	Condition	dy < 0
+>2112	RelationalExpression	dy < 0
+>2113	PrimaryExpression	0
+>2114	Identifier	dy
+>2115	PrimaryExpression	2
+>2116	Identifier	ay
+>2117	ExpressionStatement	 
+>2118	AssignmentExpr	dy = fl -> b . y - fl -> a . y
+>2119	AdditiveExpression	fl -> b . y - fl -> a . y
+>2120	MemberAccess	fl -> a . y
+>2121	Identifier	y
+>2122	PtrMemberAccess	fl -> a
+>2123	Identifier	a
+>2124	Identifier	fl
+>2125	MemberAccess	fl -> b . y
+>2126	Identifier	y
+>2127	PtrMemberAccess	fl -> b
+>2128	Identifier	b
+>2129	Identifier	fl
+>2130	Identifier	dy
+>2131	ExpressionStatement	 
+>2132	AssignmentExpr	sx = dx < 0 ? - 1 
+>2133	ConditionalExpression	dx < 0 ? - 1 
+>2134	PrimaryExpression	1
+>2135	UnaryOp	- 1
+>2136	PrimaryExpression	1
+>2137	UnaryOperator	-
+>2138	Condition	dx < 0
+>2139	RelationalExpression	dx < 0
+>2140	PrimaryExpression	0
+>2141	Identifier	dx
+>2142	Identifier	sx
+>2143	ExpressionStatement	 
+>2144	AssignmentExpr	ax = 2 * ( dx < 0 ? - dx 
+>2145	MultiplicativeExpression	2 * ( dx < 0 ? - dx 
+>2146	ConditionalExpression	dx < 0 ? - dx 
+>2147	Identifier	dx
+>2148	UnaryOp	- dx
+>2149	Identifier	dx
+>2150	UnaryOperator	-
+>2151	Condition	dx < 0
+>2152	RelationalExpression	dx < 0
+>2153	PrimaryExpression	0
+>2154	Identifier	dx
+>2155	PrimaryExpression	2
+>2156	Identifier	ax
+>2157	ExpressionStatement	 
+>2158	AssignmentExpr	dx = fl -> b . x - fl -> a . x
+>2159	AdditiveExpression	fl -> b . x - fl -> a . x
+>2160	MemberAccess	fl -> a . x
+>2161	Identifier	x
+>2162	PtrMemberAccess	fl -> a
+>2163	Identifier	a
+>2164	Identifier	fl
+>2165	MemberAccess	fl -> b . x
+>2166	Identifier	x
+>2167	PtrMemberAccess	fl -> b
+>2168	Identifier	b
+>2169	Identifier	fl
+>2170	Identifier	dx
+>2171	CompoundStatement	 
+>2172	ReturnStatement	 
+>2173	ExpressionStatement	 
+>2174	CallExpression	I_PrintfE ( \"fuck %d \r\" , fuck ++ )
+>2175	ArgumentList	\"fuck %d \r\"
+>2176	Argument	fuck ++
+>2177	IncDecOp	fuck ++
+>2178	IncDec	++
+>2179	Identifier	fuck
+>2180	Argument	\"fuck %d \r\"
+>2181	PrimaryExpression	\"fuck %d \r\"
+>2182	Callee	I_PrintfE
+>2183	Identifier	I_PrintfE
+>2184	Statement	 
+>2185	Statement	 
+>2186	Statement	 
+>2187	Statement	 
+>2188	Statement	 
+>2189	Statement	 
+>2190	Statement	 
+>2191	Statement	 
+>2192	Statement	 
+>2193	Statement	 
+>2194	Statement	 
+>2195	Statement	 
+>2196	Statement	 
+>2197	Statement	 
+>2198	Statement	 
+>2199	Statement	 
+>2200	Statement	 
+>2201	Statement	 
+>2202	Statement	 
+>2203	Statement	 
+>2204	Statement	 
+>2205	Statement	 
+>2206	Statement	 
+>2207	Statement	 
+>2208	Statement	 
+>2209	Statement	 
+>2210	Statement	 
+>2211	Statement	 
+>2212	Statement	 
+>2213	Statement	 
+>2214	Statement	 
+>2215	Statement	 
+>2216	Statement	 
+>2217	Statement	 
+>2218	Statement	 
+>2219	Statement	 
+>2220	Statement	 
+>2221	Statement	 
+>2222	Statement	 
+>2223	Statement	 
+>2224	Statement	 
+>2225	Statement	 
+>2226	Statement	 
+>2227	Statement	 
+>2228	Statement	 
+>2229	Statement	 
+>2230	Statement	 
+>2231	Statement	 
+>2232	Statement	 
+>2233	Statement	 
+>2234	Statement	 
+>2235	Statement	 
+>2236	Statement	 
+>2237	Statement	 
+>2238	Statement	 
+>2239	Statement	 
+>2240	Statement	 
+>2241	Statement	 
+>2242	Statement	 
+>2243	Statement	 
+>2244	Statement	 
+>2245	Statement	 
+>2246	Statement	 
+>2247	Statement	 
+>2248	Statement	 
+>2249	Statement	 
+>2250	Statement	 
+>2251	Statement	 
+>2252	Statement	 
+>2253	Statement	 
+>2254	Statement	 
+>2255	Statement	 
+>2256	Statement	 
+>2257	Statement	 
+>2258	Statement	 
+>2259	Statement	 
+>2260	Statement	 
+>2261	Statement	 
+>2262	IdentifierDeclStatement	 
+>2263	IdentifierDecl	fuck = 0
+>2264	AssignmentExpr	fuck = 0
+>2265	PrimaryExpression	0
+>2266	Identifier	fuck
+>2267	Identifier	fuck
+>2268	IdentifierDeclType	int
+>2269	Statement	 
+>2270	IdentifierDeclStatement	 
+>2271	IdentifierDecl	d
+>2272	Identifier	d
+>2273	IdentifierDeclType	int
+>2274	Statement	 
+>2275	IdentifierDeclStatement	 
+>2276	IdentifierDecl	ay
+>2277	Identifier	ay
+>2278	IdentifierDeclType	int
+>2279	Statement	 
+>2280	IdentifierDeclStatement	 
+>2281	IdentifierDecl	ax
+>2282	Identifier	ax
+>2283	IdentifierDeclType	int
+>2284	Statement	 
+>2285	IdentifierDeclStatement	 
+>2286	IdentifierDecl	sy
+>2287	Identifier	sy
+>2288	IdentifierDeclType	int
+>2289	Statement	 
+>2290	IdentifierDeclStatement	 
+>2291	IdentifierDecl	sx
+>2292	Identifier	sx
+>2293	IdentifierDeclType	int
+>2294	Statement	 
+>2295	IdentifierDeclStatement	 
+>2296	IdentifierDecl	dy
+>2297	Identifier	dy
+>2298	IdentifierDeclType	int
+>2299	Statement	 
+>2300	IdentifierDeclStatement	 
+>2301	IdentifierDecl	dx
+>2302	Identifier	dx
+>2303	IdentifierDeclType	int
+>2304	Statement	 
+>2305	IdentifierDeclStatement	 
+>2306	IdentifierDecl	y
+>2307	Identifier	y
+>2308	IdentifierDeclType	int
+>2309	Statement	 
+>2310	IdentifierDeclStatement	 
+>2311	IdentifierDecl	x
+>2312	Identifier	x
+>2313	IdentifierDeclType	int
+>2314	Statement	 
+>2337	FunctionDef	AM_drawMline (mline_t * ml , int color)
+>2338	ParameterList	mline_t * ml , int color
+>2339	Parameter	 
+>2340	Identifier	color
+>2341	ParameterType	int
+>2342	Parameter	 
+>2343	Identifier	ml
+>2344	ParameterType	mline_t *
+>2345	ReturnType	void
+>2346	CompoundStatement	 
+>2347	IfStatement	if ( AM_clipMline ( ml , & fl ) )
+>2348	ExpressionStatement	 
+>2349	CallExpression	AM_drawFline ( & fl , color )
+>2350	ArgumentList	& fl
+>2351	Argument	color
+>2352	Identifier	color
+>2353	Argument	& fl
+>2354	UnaryOp	& fl
+>2355	Identifier	fl
+>2356	UnaryOperator	&
+>2357	Callee	AM_drawFline
+>2358	Identifier	AM_drawFline
+>2359	Condition	 
+>2360	CallExpression	AM_clipMline ( ml , & fl )
+>2361	ArgumentList	ml
+>2362	Argument	& fl
+>2363	UnaryOp	& fl
+>2364	Identifier	fl
+>2365	UnaryOperator	&
+>2366	Argument	ml
+>2367	Identifier	ml
+>2368	Callee	AM_clipMline
+>2369	Identifier	AM_clipMline
+>2370	IdentifierDeclStatement	 
+>2371	IdentifierDecl	fl
+>2372	Identifier	fl
+>2373	IdentifierDeclType	fline_t
+>2374	Statement	 
+>2383	FunctionDef	AM_drawGrid (int color)
+>2384	ParameterList	int color
+>2385	Parameter	 
+>2386	Identifier	color
+>2387	ParameterType	int
+>2388	ReturnType	void
+>2389	CompoundStatement	 
+>2390	ForStatement	for ( y = start ; y < end ; y += ( MAPBLOCKUNITS << FRACBITS ) )
+>2391	CompoundStatement	 
+>2392	ExpressionStatement	 
+>2393	CallExpression	AM_drawMline ( & ml , color )
+>2394	ArgumentList	& ml
+>2395	Argument	color
+>2396	Identifier	color
+>2397	Argument	& ml
+>2398	UnaryOp	& ml
+>2399	Identifier	ml
+>2400	UnaryOperator	&
+>2401	Callee	AM_drawMline
+>2402	Identifier	AM_drawMline
+>2403	ExpressionStatement	 
+>2404	AssignmentExpr	ml . b . y = y
+>2405	Identifier	y
+>2406	MemberAccess	ml . b . y
+>2407	Identifier	y
+>2408	MemberAccess	ml . b
+>2409	Identifier	b
+>2410	Identifier	ml
+>2411	ExpressionStatement	 
+>2412	AssignmentExpr	ml . a . y = y
+>2413	Identifier	y
+>2414	MemberAccess	ml . a . y
+>2415	Identifier	y
+>2416	MemberAccess	ml . a
+>2417	Identifier	a
+>2418	Identifier	ml
+>2419	AssignmentExpr	 
+>2420	ShiftExpression	MAPBLOCKUNITS << FRACBITS
+>2421	Identifier	FRACBITS
+>2422	Identifier	MAPBLOCKUNITS
+>2423	Identifier	y
+>2424	Condition	 
+>2425	RelationalExpression	y < end
+>2426	Identifier	end
+>2427	Identifier	y
+>2428	ForInit	 
+>2429	AssignmentExpr	y = start
+>2430	Identifier	start
+>2431	Identifier	y
+>2432	ExpressionStatement	 
+>2433	PtrMemberAccess	g -> m_w
+>2434	Identifier	m_w
+>2435	Identifier	g
+>2436	Statement	 
+>2437	Statement	 
+>2438	Statement	 
+>2439	Statement	 
+>2440	Statement	 
+>2441	Statement	 
+>2442	Statement	 
+>2443	Statement	 
+>2444	Statement	 
+>2445	Statement	 
+>2446	Statement	 
+>2447	Statement	 
+>2448	ExpressionStatement	 
+>2449	PtrMemberAccess	g -> m_x
+>2450	Identifier	m_x
+>2451	Identifier	g
+>2452	Statement	 
+>2453	Statement	 
+>2454	Statement	 
+>2455	Statement	 
+>2456	Statement	 
+>2457	Statement	 
+>2458	Statement	 
+>2459	ExpressionStatement	 
+>2460	PtrMemberAccess	g -> m_h
+>2461	Identifier	m_h
+>2462	Identifier	g
+>2463	Statement	 
+>2464	Statement	 
+>2465	Statement	 
+>2466	Statement	 
+>2467	Statement	 
+>2468	Statement	 
+>2469	Statement	 
+>2470	Statement	 
+>2471	ExpressionStatement	 
+>2472	Statement	 
+>2473	Statement	 
+>2474	Statement	 
+>2475	Statement	 
+>2476	Statement	 
+>2477	Statement	 
+>2478	Statement	 
+>2479	Statement	 
+>2480	Statement	 
+>2481	Statement	 
+>2482	Statement	 
+>2483	Statement	 
+>2484	Statement	 
+>2485	Statement	 
+>2486	Statement	 
+>2487	Statement	 
+>2488	Statement	 
+>2489	Statement	 
+>2490	Statement	 
+>2491	Statement	 
+>2492	Statement	 
+>2493	Statement	 
+>2494	Statement	 
+>2495	Statement	 
+>2496	Statement	 
+>2497	Statement	 
+>2498	Statement	 
+>2499	Statement	 
+>2500	Statement	 
+>2501	Statement	 
+>2502	Statement	 
+>2503	Statement	 
+>2504	Statement	 
+>2505	Statement	 
+>2506	Statement	 
+>2507	Statement	 
+>2508	Statement	 
+>2509	Statement	 
+>2510	Statement	 
+>2511	Statement	 
+>2512	Statement	 
+>2513	ExpressionStatement	 
+>2514	PtrMemberAccess	g -> m_y
+>2515	Identifier	m_y
+>2516	Identifier	g
+>2517	Statement	 
+>2518	Statement	 
+>2519	Statement	 
+>2520	ForStatement	for ( x = start ; x < end ; x += ( MAPBLOCKUNITS << FRACBITS ) )
+>2521	CompoundStatement	 
+>2522	ExpressionStatement	 
+>2523	CallExpression	AM_drawMline ( & ml , color )
+>2524	ArgumentList	& ml
+>2525	Argument	color
+>2526	Identifier	color
+>2527	Argument	& ml
+>2528	UnaryOp	& ml
+>2529	Identifier	ml
+>2530	UnaryOperator	&
+>2531	Callee	AM_drawMline
+>2532	Identifier	AM_drawMline
+>2533	ExpressionStatement	 
+>2534	AssignmentExpr	ml . b . x = x
+>2535	Identifier	x
+>2536	MemberAccess	ml . b . x
+>2537	Identifier	x
+>2538	MemberAccess	ml . b
+>2539	Identifier	b
+>2540	Identifier	ml
+>2541	ExpressionStatement	 
+>2542	AssignmentExpr	ml . a . x = x
+>2543	Identifier	x
+>2544	MemberAccess	ml . a . x
+>2545	Identifier	x
+>2546	MemberAccess	ml . a
+>2547	Identifier	a
+>2548	Identifier	ml
+>2549	AssignmentExpr	 
+>2550	ShiftExpression	MAPBLOCKUNITS << FRACBITS
+>2551	Identifier	FRACBITS
+>2552	Identifier	MAPBLOCKUNITS
+>2553	Identifier	x
+>2554	Condition	 
+>2555	RelationalExpression	x < end
+>2556	Identifier	end
+>2557	Identifier	x
+>2558	ForInit	 
+>2559	AssignmentExpr	x = start
+>2560	Identifier	start
+>2561	Identifier	x
+>2562	ExpressionStatement	 
+>2563	PtrMemberAccess	g -> m_h
+>2564	Identifier	m_h
+>2565	Identifier	g
+>2566	Statement	 
+>2567	Statement	 
+>2568	Statement	 
+>2569	Statement	 
+>2570	Statement	 
+>2571	Statement	 
+>2572	Statement	 
+>2573	Statement	 
+>2574	Statement	 
+>2575	Statement	 
+>2576	Statement	 
+>2577	Statement	 
+>2578	ExpressionStatement	 
+>2579	PtrMemberAccess	g -> m_y
+>2580	Identifier	m_y
+>2581	Identifier	g
+>2582	Statement	 
+>2583	Statement	 
+>2584	Statement	 
+>2585	Statement	 
+>2586	Statement	 
+>2587	Statement	 
+>2588	Statement	 
+>2589	ExpressionStatement	 
+>2590	PtrMemberAccess	g -> m_w
+>2591	Identifier	m_w
+>2592	Identifier	g
+>2593	Statement	 
+>2594	Statement	 
+>2595	Statement	 
+>2596	Statement	 
+>2597	Statement	 
+>2598	Statement	 
+>2599	Statement	 
+>2600	Statement	 
+>2601	ExpressionStatement	 
+>2602	Statement	 
+>2603	Statement	 
+>2604	Statement	 
+>2605	Statement	 
+>2606	Statement	 
+>2607	Statement	 
+>2608	Statement	 
+>2609	Statement	 
+>2610	Statement	 
+>2611	Statement	 
+>2612	Statement	 
+>2613	Statement	 
+>2614	Statement	 
+>2615	Statement	 
+>2616	Statement	 
+>2617	Statement	 
+>2618	Statement	 
+>2619	Statement	 
+>2620	Statement	 
+>2621	Statement	 
+>2622	Statement	 
+>2623	Statement	 
+>2624	Statement	 
+>2625	Statement	 
+>2626	Statement	 
+>2627	Statement	 
+>2628	Statement	 
+>2629	Statement	 
+>2630	Statement	 
+>2631	Statement	 
+>2632	Statement	 
+>2633	Statement	 
+>2634	Statement	 
+>2635	Statement	 
+>2636	Statement	 
+>2637	Statement	 
+>2638	Statement	 
+>2639	Statement	 
+>2640	Statement	 
+>2641	Statement	 
+>2642	Statement	 
+>2643	ExpressionStatement	 
+>2644	PtrMemberAccess	g -> m_x
+>2645	Identifier	m_x
+>2646	Identifier	g
+>2647	Statement	 
+>2648	Statement	 
+>2649	Statement	 
+>2650	IdentifierDeclStatement	 
+>2651	IdentifierDecl	ml
+>2652	Identifier	ml
+>2653	IdentifierDeclType	mline_t
+>2654	IdentifierDeclStatement	 
+>2655	IdentifierDecl	end
+>2656	Identifier	end
+>2657	IdentifierDeclType	fixed_t
+>2658	IdentifierDecl	start
+>2659	Identifier	start
+>2660	IdentifierDeclType	fixed_t
+>2661	IdentifierDeclStatement	 
+>2662	IdentifierDecl	y
+>2663	Identifier	y
+>2664	IdentifierDeclType	fixed_t
+>2665	IdentifierDecl	x
+>2666	Identifier	x
+>2667	IdentifierDeclType	fixed_t
+>2687	FunctionDef	AM_drawWalls ()
+>2688	ParameterList	 
+>2689	ReturnType	void
+>2690	CompoundStatement	 
+>2691	Statement	 
+>2692	Statement	 
+>2693	Statement	 
+>2694	ExpressionStatement	 
+>2695	PtrMemberAccess	g -> numlines
+>2696	Identifier	numlines
+>2697	Identifier	g
+>2698	Statement	 
+>2699	Statement	 
+>2700	Statement	 
+>2701	ExpressionStatement	 
+>2702	AssignmentExpr	i = 0
+>2703	PrimaryExpression	0
+>2704	Identifier	i
+>2705	Statement	 
+>2706	Statement	 
+>2707	IdentifierDeclStatement	 
+>2708	IdentifierDecl	l
+>2709	Identifier	l
+>2710	IdentifierDeclType	mline_t
+>2711	Statement	 
+>2712	IdentifierDeclStatement	 
+>2713	IdentifierDecl	i
+>2714	Identifier	i
+>2715	IdentifierDeclType	int
+>2722	FunctionDef	AM_rotate (fixed_t * x , fixed_t * y , angle_t a)
+>2723	ParameterList	fixed_t * x , fixed_t * y , angle_t a
+>2724	Parameter	 
+>2725	Identifier	a
+>2726	ParameterType	angle_t
+>2727	Parameter	 
+>2728	Identifier	y
+>2729	ParameterType	fixed_t *
+>2730	Parameter	 
+>2731	Identifier	x
+>2732	ParameterType	fixed_t *
+>2733	ReturnType	void
+>2734	CompoundStatement	 
+>2735	ExpressionStatement	 
+>2736	AssignmentExpr	* x = tmpx
+>2737	Identifier	tmpx
+>2738	UnaryOp	* x
+>2739	Identifier	x
+>2740	UnaryOperator	*
+>2741	ExpressionStatement	 
+>2742	AssignmentExpr	* y = FixedMul ( * x , finesine [ a >> ANGLETOFINESHIFT ] ) + FixedMul ( * y , finecosine [ a >> ANGLETOFINESHIFT ] )
+>2743	AdditiveExpression	FixedMul ( * x , finesine [ a >> ANGLETOFINESHIFT ] ) + FixedMul ( * y , finecosine [ a >> ANGLETOFINESHIFT ] )
+>2744	CallExpression	FixedMul ( * y , finecosine [ a >> ANGLETOFINESHIFT ] )
+>2745	ArgumentList	* y
+>2746	Argument	finecosine [ a >> ANGLETOFINESHIFT ]
+>2747	ArrayIndexing	finecosine [ a >> ANGLETOFINESHIFT ]
+>2748	ShiftExpression	a >> ANGLETOFINESHIFT
+>2749	Identifier	ANGLETOFINESHIFT
+>2750	Identifier	a
+>2751	Identifier	finecosine
+>2752	Argument	* y
+>2753	UnaryOp	* y
+>2754	Identifier	y
+>2755	UnaryOperator	*
+>2756	Callee	FixedMul
+>2757	Identifier	FixedMul
+>2758	CallExpression	FixedMul ( * x , finesine [ a >> ANGLETOFINESHIFT ] )
+>2759	ArgumentList	* x
+>2760	Argument	finesine [ a >> ANGLETOFINESHIFT ]
+>2761	ArrayIndexing	finesine [ a >> ANGLETOFINESHIFT ]
+>2762	ShiftExpression	a >> ANGLETOFINESHIFT
+>2763	Identifier	ANGLETOFINESHIFT
+>2764	Identifier	a
+>2765	Identifier	finesine
+>2766	Argument	* x
+>2767	UnaryOp	* x
+>2768	Identifier	x
+>2769	UnaryOperator	*
+>2770	Callee	FixedMul
+>2771	Identifier	FixedMul
+>2772	UnaryOp	* y
+>2773	Identifier	y
+>2774	UnaryOperator	*
+>2775	ExpressionStatement	 
+>2776	AssignmentExpr	tmpx = FixedMul ( * x , finecosine [ a >> ANGLETOFINESHIFT ] ) - FixedMul ( * y , finesine [ a >> ANGLETOFINESHIFT ] )
+>2777	AdditiveExpression	FixedMul ( * x , finecosine [ a >> ANGLETOFINESHIFT ] ) - FixedMul ( * y , finesine [ a >> ANGLETOFINESHIFT ] )
+>2778	CallExpression	FixedMul ( * y , finesine [ a >> ANGLETOFINESHIFT ] )
+>2779	ArgumentList	* y
+>2780	Argument	finesine [ a >> ANGLETOFINESHIFT ]
+>2781	ArrayIndexing	finesine [ a >> ANGLETOFINESHIFT ]
+>2782	ShiftExpression	a >> ANGLETOFINESHIFT
+>2783	Identifier	ANGLETOFINESHIFT
+>2784	Identifier	a
+>2785	Identifier	finesine
+>2786	Argument	* y
+>2787	UnaryOp	* y
+>2788	Identifier	y
+>2789	UnaryOperator	*
+>2790	Callee	FixedMul
+>2791	Identifier	FixedMul
+>2792	CallExpression	FixedMul ( * x , finecosine [ a >> ANGLETOFINESHIFT ] )
+>2793	ArgumentList	* x
+>2794	Argument	finecosine [ a >> ANGLETOFINESHIFT ]
+>2795	ArrayIndexing	finecosine [ a >> ANGLETOFINESHIFT ]
+>2796	ShiftExpression	a >> ANGLETOFINESHIFT
+>2797	Identifier	ANGLETOFINESHIFT
+>2798	Identifier	a
+>2799	Identifier	finecosine
+>2800	Argument	* x
+>2801	UnaryOp	* x
+>2802	Identifier	x
+>2803	UnaryOperator	*
+>2804	Callee	FixedMul
+>2805	Identifier	FixedMul
+>2806	Identifier	tmpx
+>2807	IdentifierDeclStatement	 
+>2808	IdentifierDecl	tmpx
+>2809	Identifier	tmpx
+>2810	IdentifierDeclType	fixed_t
+>2828	FunctionDef	AM_drawLineCharacter (mline_t * lineguy , int lineguylines , fixed_t scale , angle_t angle , int color , fixed_t \
+>2829	ParameterList	mline_t * lineguy , int lineguylines , fixed_t scale , angle_t angle , int color , fixed_t x , fixed_t y
+>2830	Parameter	 
+>2831	Identifier	y
+>2832	ParameterType	fixed_t
+>2833	Parameter	 
+>2834	Identifier	x
+>2835	ParameterType	fixed_t
+>2836	Parameter	 
+>2837	Identifier	color
+>2838	ParameterType	int
+>2839	Parameter	 
+>2840	Identifier	angle
+>2841	ParameterType	angle_t
+>2842	Parameter	 
+>2843	Identifier	scale
+>2844	ParameterType	fixed_t
+>2845	Parameter	 
+>2846	Identifier	lineguylines
+>2847	ParameterType	int
+>2848	Parameter	 
+>2849	Identifier	lineguy
+>2850	ParameterType	mline_t *
+>2851	ReturnType	void
+>2852	CompoundStatement	 
+>2853	ForStatement	for ( i = 0 ; i < lineguylines ; i ++ )
+>2854	CompoundStatement	 
+>2855	ExpressionStatement	 
+>2856	CallExpression	AM_drawMline ( & l , color )
+>2857	ArgumentList	& l
+>2858	Argument	color
+>2859	Identifier	color
+>2860	Argument	& l
+>2861	UnaryOp	& l
+>2862	Identifier	l
+>2863	UnaryOperator	&
+>2864	Callee	AM_drawMline
+>2865	Identifier	AM_drawMline
+>2866	ExpressionStatement	 
+>2867	AssignmentExpr	l . b . y += y
+>2868	Identifier	y
+>2869	MemberAccess	l . b . y
+>2870	Identifier	y
+>2871	MemberAccess	l . b
+>2872	Identifier	b
+>2873	Identifier	l
+>2874	ExpressionStatement	 
+>2875	AssignmentExpr	l . b . x += x
+>2876	Identifier	x
+>2877	MemberAccess	l . b . x
+>2878	Identifier	x
+>2879	MemberAccess	l . b
+>2880	Identifier	b
+>2881	Identifier	l
+>2882	IfStatement	if ( angle )
+>2883	ExpressionStatement	 
+>2884	CallExpression	AM_rotate ( & l . b . x , & l . b . y , angle )
+>2885	ArgumentList	& l . b . x
+>2886	Argument	angle
+>2887	Identifier	angle
+>2888	Argument	& l . b . y
+>2889	UnaryOp	& l . b . y
+>2890	MemberAccess	l . b . y
+>2891	Identifier	y
+>2892	MemberAccess	l . b
+>2893	Identifier	b
+>2894	Identifier	l
+>2895	UnaryOperator	&
+>2896	Argument	& l . b . x
+>2897	UnaryOp	& l . b . x
+>2898	MemberAccess	l . b . x
+>2899	Identifier	x
+>2900	MemberAccess	l . b
+>2901	Identifier	b
+>2902	Identifier	l
+>2903	UnaryOperator	&
+>2904	Callee	AM_rotate
+>2905	Identifier	AM_rotate
+>2906	Condition	 
+>2907	Identifier	angle
+>2908	IfStatement	if ( scale )
+>2909	CompoundStatement	 
+>2910	ExpressionStatement	 
+>2911	AssignmentExpr	l . b . y = FixedMul ( scale , l . b . y )
+>2912	CallExpression	FixedMul ( scale , l . b . y )
+>2913	ArgumentList	scale
+>2914	Argument	l . b . y
+>2915	MemberAccess	l . b . y
+>2916	Identifier	y
+>2917	MemberAccess	l . b
+>2918	Identifier	b
+>2919	Identifier	l
+>2920	Argument	scale
+>2921	Identifier	scale
+>2922	Callee	FixedMul
+>2923	Identifier	FixedMul
+>2924	MemberAccess	l . b . y
+>2925	Identifier	y
+>2926	MemberAccess	l . b
+>2927	Identifier	b
+>2928	Identifier	l
+>2929	ExpressionStatement	 
+>2930	AssignmentExpr	l . b . x = FixedMul ( scale , l . b . x )
+>2931	CallExpression	FixedMul ( scale , l . b . x )
+>2932	ArgumentList	scale
+>2933	Argument	l . b . x
+>2934	MemberAccess	l . b . x
+>2935	Identifier	x
+>2936	MemberAccess	l . b
+>2937	Identifier	b
+>2938	Identifier	l
+>2939	Argument	scale
+>2940	Identifier	scale
+>2941	Callee	FixedMul
+>2942	Identifier	FixedMul
+>2943	MemberAccess	l . b . x
+>2944	Identifier	x
+>2945	MemberAccess	l . b
+>2946	Identifier	b
+>2947	Identifier	l
+>2948	Condition	 
+>2949	Identifier	scale
+>2950	ExpressionStatement	 
+>2951	AssignmentExpr	l . b . y = lineguy [ i ] . b . y
+>2952	MemberAccess	lineguy [ i ] . b . y
+>2953	Identifier	y
+>2954	MemberAccess	lineguy [ i ] . b
+>2955	Identifier	b
+>2956	ArrayIndexing	lineguy [ i ]
+>2957	Identifier	i
+>2958	Identifier	lineguy
+>2959	MemberAccess	l . b . y
+>2960	Identifier	y
+>2961	MemberAccess	l . b
+>2962	Identifier	b
+>2963	Identifier	l
+>2964	ExpressionStatement	 
+>2965	AssignmentExpr	l . b . x = lineguy [ i ] . b . x
+>2966	MemberAccess	lineguy [ i ] . b . x
+>2967	Identifier	x
+>2968	MemberAccess	lineguy [ i ] . b
+>2969	Identifier	b
+>2970	ArrayIndexing	lineguy [ i ]
+>2971	Identifier	i
+>2972	Identifier	lineguy
+>2973	MemberAccess	l . b . x
+>2974	Identifier	x
+>2975	MemberAccess	l . b
+>2976	Identifier	b
+>2977	Identifier	l
+>2978	ExpressionStatement	 
+>2979	AssignmentExpr	l . a . y += y
+>2980	Identifier	y
+>2981	MemberAccess	l . a . y
+>2982	Identifier	y
+>2983	MemberAccess	l . a
+>2984	Identifier	a
+>2985	Identifier	l
+>2986	ExpressionStatement	 
+>2987	AssignmentExpr	l . a . x += x
+>2988	Identifier	x
+>2989	MemberAccess	l . a . x
+>2990	Identifier	x
+>2991	MemberAccess	l . a
+>2992	Identifier	a
+>2993	Identifier	l
+>2994	IfStatement	if ( angle )
+>2995	ExpressionStatement	 
+>2996	CallExpression	AM_rotate ( & l . a . x , & l . a . y , angle )
+>2997	ArgumentList	& l . a . x
+>2998	Argument	angle
+>2999	Identifier	angle
+>3000	Argument	& l . a . y
+>3001	UnaryOp	& l . a . y
+>3002	MemberAccess	l . a . y
+>3003	Identifier	y
+>3004	MemberAccess	l . a
+>3005	Identifier	a
+>3006	Identifier	l
+>3007	UnaryOperator	&
+>3008	Argument	& l . a . x
+>3009	UnaryOp	& l . a . x
+>3010	MemberAccess	l . a . x
+>3011	Identifier	x
+>3012	MemberAccess	l . a
+>3013	Identifier	a
+>3014	Identifier	l
+>3015	UnaryOperator	&
+>3016	Callee	AM_rotate
+>3017	Identifier	AM_rotate
+>3018	Condition	 
+>3019	Identifier	angle
+>3020	IfStatement	if ( scale )
+>3021	CompoundStatement	 
+>3022	ExpressionStatement	 
+>3023	AssignmentExpr	l . a . y = FixedMul ( scale , l . a . y )
+>3024	CallExpression	FixedMul ( scale , l . a . y )
+>3025	ArgumentList	scale
+>3026	Argument	l . a . y
+>3027	MemberAccess	l . a . y
+>3028	Identifier	y
+>3029	MemberAccess	l . a
+>3030	Identifier	a
+>3031	Identifier	l
+>3032	Argument	scale
+>3033	Identifier	scale
+>3034	Callee	FixedMul
+>3035	Identifier	FixedMul
+>3036	MemberAccess	l . a . y
+>3037	Identifier	y
+>3038	MemberAccess	l . a
+>3039	Identifier	a
+>3040	Identifier	l
+>3041	ExpressionStatement	 
+>3042	AssignmentExpr	l . a . x = FixedMul ( scale , l . a . x )
+>3043	CallExpression	FixedMul ( scale , l . a . x )
+>3044	ArgumentList	scale
+>3045	Argument	l . a . x
+>3046	MemberAccess	l . a . x
+>3047	Identifier	x
+>3048	MemberAccess	l . a
+>3049	Identifier	a
+>3050	Identifier	l
+>3051	Argument	scale
+>3052	Identifier	scale
+>3053	Callee	FixedMul
+>3054	Identifier	FixedMul
+>3055	MemberAccess	l . a . x
+>3056	Identifier	x
+>3057	MemberAccess	l . a
+>3058	Identifier	a
+>3059	Identifier	l
+>3060	Condition	 
+>3061	Identifier	scale
+>3062	ExpressionStatement	 
+>3063	AssignmentExpr	l . a . y = lineguy [ i ] . a . y
+>3064	MemberAccess	lineguy [ i ] . a . y
+>3065	Identifier	y
+>3066	MemberAccess	lineguy [ i ] . a
+>3067	Identifier	a
+>3068	ArrayIndexing	lineguy [ i ]
+>3069	Identifier	i
+>3070	Identifier	lineguy
+>3071	MemberAccess	l . a . y
+>3072	Identifier	y
+>3073	MemberAccess	l . a
+>3074	Identifier	a
+>3075	Identifier	l
+>3076	ExpressionStatement	 
+>3077	AssignmentExpr	l . a . x = lineguy [ i ] . a . x
+>3078	MemberAccess	lineguy [ i ] . a . x
+>3079	Identifier	x
+>3080	MemberAccess	lineguy [ i ] . a
+>3081	Identifier	a
+>3082	ArrayIndexing	lineguy [ i ]
+>3083	Identifier	i
+>3084	Identifier	lineguy
+>3085	MemberAccess	l . a . x
+>3086	Identifier	x
+>3087	MemberAccess	l . a
+>3088	Identifier	a
+>3089	Identifier	l
+>3090	IncDecOp	 
+>3091	IncDec	++
+>3092	Identifier	i
+>3093	Condition	 
+>3094	RelationalExpression	i < lineguylines
+>3095	Identifier	lineguylines
+>3096	Identifier	i
+>3097	ForInit	 
+>3098	AssignmentExpr	i = 0
+>3099	PrimaryExpression	0
+>3100	Identifier	i
+>3101	IdentifierDeclStatement	 
+>3102	IdentifierDecl	l
+>3103	Identifier	l
+>3104	IdentifierDeclType	mline_t
+>3105	IdentifierDeclStatement	 
+>3106	IdentifierDecl	i
+>3107	Identifier	i
+>3108	IdentifierDeclType	int
+>3143	FunctionDef	AM_drawPlayers ()
+>3144	ParameterList	 
+>3145	ReturnType	void
+>3146	CompoundStatement	 
+>3147	Statement	 
+>3148	Statement	 
+>3149	Statement	 
+>3150	Statement	 
+>3151	Statement	 
+>3152	Statement	 
+>3153	Statement	 
+>3154	Statement	 
+>3155	IdentifierDeclStatement	 
+>3156	IdentifierDecl	color
+>3157	Identifier	color
+>3158	IdentifierDeclType	int
+>3159	IdentifierDeclStatement	 
+>3160	IdentifierDecl	their_color = - 1
+>3161	AssignmentExpr	their_color = - 1
+>3162	UnaryOp	- 1
+>3163	PrimaryExpression	1
+>3164	UnaryOperator	-
+>3165	Identifier	their_color
+>3166	Identifier	their_color
+>3167	IdentifierDeclType	int
+>3168	IdentifierDeclStatement	 
+>3169	IdentifierDecl	their_colors [ ] = { GREENS , GRAYS , BROWNS , REDS }
+>3170	AssignmentExpr	their_colors [ ] = { GREENS , GRAYS , BROWNS , REDS }
+>3171	InitializerList	GREENS
+>3172	Identifier	REDS
+>3173	Identifier	BROWNS
+>3174	Identifier	GRAYS
+>3175	Identifier	GREENS
+>3176	Identifier	their_colors
+>3177	Identifier	their_colors
+>3178	IdentifierDeclType	int [ ]
+>3179	Statement	 
+>3180	IdentifierDeclStatement	 
+>3181	IdentifierDecl	* p
+>3182	Identifier	p
+>3183	IdentifierDeclType	player_t *
+>3184	IdentifierDeclStatement	 
+>3185	IdentifierDecl	i
+>3186	Identifier	i
+>3187	IdentifierDeclType	int
+>3200	FunctionDef	AM_drawThings (int colors , int colorrange)
+>3201	ParameterList	int colors , int colorrange
+>3202	Parameter	 
+>3203	Identifier	colorrange
+>3204	ParameterType	int
+>3205	Parameter	 
+>3206	Identifier	colors
+>3207	ParameterType	int
+>3208	ReturnType	void
+>3209	CompoundStatement	 
+>3210	CompoundStatement	 
+>3211	WhileStatement	while ( t )
+>3212	CompoundStatement	 
+>3213	ExpressionStatement	 
+>3214	AssignmentExpr	t = t -> snext
+>3215	PtrMemberAccess	t -> snext
+>3216	Identifier	snext
+>3217	Identifier	t
+>3218	Identifier	t
+>3219	ExpressionStatement	 
+>3220	Statement	 
+>3221	Statement	 
+>3222	Statement	 
+>3223	Statement	 
+>3224	Statement	 
+>3225	Statement	 
+>3226	Statement	 
+>3227	Statement	 
+>3228	Statement	 
+>3229	Statement	 
+>3230	Statement	 
+>3231	Statement	 
+>3232	Statement	 
+>3233	Statement	 
+>3234	Statement	 
+>3235	Statement	 
+>3236	Statement	 
+>3237	Statement	 
+>3238	Statement	 
+>3239	Statement	 
+>3240	Statement	 
+>3241	Statement	 
+>3242	Statement	 
+>3243	Statement	 
+>3244	Statement	 
+>3245	Statement	 
+>3246	Statement	 
+>3247	Statement	 
+>3248	Statement	 
+>3249	Condition	 
+>3250	Identifier	t
+>3251	ExpressionStatement	 
+>3252	MemberAccess	g -> sectors [ i ] . thinglist
+>3253	Identifier	thinglist
+>3254	ArrayIndexing	g -> sectors [ i ]
+>3255	Identifier	i
+>3256	PtrMemberAccess	g -> sectors
+>3257	Identifier	sectors
+>3258	Identifier	g
+>3259	Statement	 
+>3260	Statement	 
+>3261	Statement	 
+>3262	Statement	 
+>3263	Statement	 
+>3264	Statement	 
+>3265	ExpressionStatement	 
+>3266	PtrMemberAccess	g -> numsectors
+>3267	Identifier	numsectors
+>3268	Identifier	g
+>3269	Statement	 
+>3270	Statement	 
+>3271	Statement	 
+>3272	ExpressionStatement	 
+>3273	AssignmentExpr	i = 0
+>3274	PrimaryExpression	0
+>3275	Identifier	i
+>3276	Statement	 
+>3277	Statement	 
+>3278	IdentifierDeclStatement	 
+>3279	IdentifierDecl	* t
+>3280	Identifier	t
+>3281	IdentifierDeclType	mobj_t *
+>3282	IdentifierDeclStatement	 
+>3283	IdentifierDecl	i
+>3284	Identifier	i
+>3285	IdentifierDeclType	int
+>3301	FunctionDef	AM_drawMarks ()
+>3302	ParameterList	 
+>3303	ReturnType	void
+>3304	CompoundStatement	 
+>3305	ForStatement	for ( i = 0 ; i < AM_NUMMARKPOINTS ; i ++ )
+>3306	CompoundStatement	 
+>3307	CompoundStatement	 
+>3308	ExpressionStatement	 
+>3309	Statement	 
+>3310	Statement	 
+>3311	Statement	 
+>3312	Statement	 
+>3313	Statement	 
+>3314	Statement	 
+>3315	Statement	 
+>3316	Statement	 
+>3317	Statement	 
+>3318	Statement	 
+>3319	Statement	 
+>3320	Statement	 
+>3321	Statement	 
+>3322	Statement	 
+>3323	Statement	 
+>3324	Statement	 
+>3325	Statement	 
+>3326	Statement	 
+>3327	Statement	 
+>3328	Statement	 
+>3329	Statement	 
+>3330	Statement	 
+>3331	Statement	 
+>3332	Statement	 
+>3333	Statement	 
+>3334	Statement	 
+>3335	Statement	 
+>3336	Statement	 
+>3337	Statement	 
+>3338	Statement	 
+>3339	Statement	 
+>3340	Statement	 
+>3341	Statement	 
+>3342	Statement	 
+>3343	Statement	 
+>3344	Statement	 
+>3345	Statement	 
+>3346	Statement	 
+>3347	Statement	 
+>3348	Statement	 
+>3349	Statement	 
+>3350	Statement	 
+>3351	Statement	 
+>3352	Statement	 
+>3353	Statement	 
+>3354	Statement	 
+>3355	Statement	 
+>3356	Statement	 
+>3357	Statement	 
+>3358	Statement	 
+>3359	Statement	 
+>3360	Statement	 
+>3361	Statement	 
+>3362	Statement	 
+>3363	ExpressionStatement	 
+>3364	Statement	 
+>3365	Statement	 
+>3366	Statement	 
+>3367	Statement	 
+>3368	Statement	 
+>3369	Statement	 
+>3370	Statement	 
+>3371	Statement	 
+>3372	Statement	 
+>3373	Statement	 
+>3374	Statement	 
+>3375	Statement	 
+>3376	Statement	 
+>3377	Statement	 
+>3378	ExpressionStatement	 
+>3379	Statement	 
+>3380	Statement	 
+>3381	Statement	 
+>3382	Statement	 
+>3383	Statement	 
+>3384	Statement	 
+>3385	Statement	 
+>3386	Statement	 
+>3387	Statement	 
+>3388	Statement	 
+>3389	Statement	 
+>3390	Statement	 
+>3391	Statement	 
+>3392	Statement	 
+>3393	ExpressionStatement	 
+>3394	AssignmentExpr	h = 6
+>3395	PrimaryExpression	6
+>3396	Identifier	h
+>3397	ExpressionStatement	 
+>3398	AssignmentExpr	w = 5
+>3399	PrimaryExpression	5
+>3400	Identifier	w
+>3401	Statement	 
+>3402	Statement	 
+>3403	Statement	 
+>3404	Statement	 
+>3405	Statement	 
+>3406	Statement	 
+>3407	Statement	 
+>3408	Statement	 
+>3409	Statement	 
+>3410	Statement	 
+>3411	Statement	 
+>3412	Statement	 
+>3413	Statement	 
+>3414	Statement	 
+>3415	Statement	 
+>3416	IncDecOp	 
+>3417	IncDec	++
+>3418	Identifier	i
+>3419	Condition	 
+>3420	RelationalExpression	i < AM_NUMMARKPOINTS
+>3421	Identifier	AM_NUMMARKPOINTS
+>3422	Identifier	i
+>3423	ForInit	 
+>3424	AssignmentExpr	i = 0
+>3425	PrimaryExpression	0
+>3426	Identifier	i
+>3427	IdentifierDeclStatement	 
+>3428	IdentifierDecl	h
+>3429	Identifier	h
+>3430	IdentifierDeclType	int
+>3431	IdentifierDecl	w
+>3432	Identifier	w
+>3433	IdentifierDeclType	int
+>3434	IdentifierDecl	fy
+>3435	Identifier	fy
+>3436	IdentifierDeclType	int
+>3437	IdentifierDecl	fx
+>3438	Identifier	fx
+>3439	IdentifierDeclType	int
+>3440	IdentifierDecl	i
+>3441	Identifier	i
+>3442	IdentifierDeclType	int
+>3452	FunctionDef	AM_drawCrosshair (int color)
+>3453	ParameterList	int color
+>3454	Parameter	 
+>3455	Identifier	color
+>3456	ParameterType	int
+>3457	ReturnType	void
+>3458	CompoundStatement	 
+>3459	ExpressionStatement	 
+>3460	Identifier	color
+>3461	Statement	 
+>3462	Statement	 
+>3463	Statement	 
+>3464	Statement	 
+>3465	Statement	 
+>3466	Statement	 
+>3467	Statement	 
+>3468	Statement	 
+>3469	Statement	 
+>3470	Statement	 
+>3471	Statement	 
+>3472	Statement	 
+>3473	Statement	 
+>3474	Statement	 
+>3475	Statement	 
+>3476	Statement	 
+>3477	Statement	 
+>3478	Statement	 
+>3479	Statement	 
+>3480	Statement	 
+>3481	Statement	 
+>3482	Statement	 
+>3483	Statement	 
+>3484	Statement	 
+>3489	FunctionDef	AM_Drawer ()
+>3490	ParameterList	 
+>3491	ReturnType	void
+>3492	CompoundStatement	 
+>3493	ExpressionStatement	 
+>3494	Statement	 
+>3495	Statement	 
+>3496	Statement	 
+>3497	Statement	 
+>3498	Statement	 
+>3499	Statement	 
+>3500	Statement	 
+>3501	Statement	 
+>3502	Statement	 
+>3503	Statement	 
+>3504	Statement	 
+>3505	Statement	 
+>3506	Statement	 
+>3507	Statement	 
+>3508	Statement	 
+>3509	Statement	 
+>3510	Statement	 
+>3511	Statement	 
+>3512	Statement	 
+>3513	Statement	 
+>3514	Statement	 
+>3515	Statement	 
+>3516	ExpressionStatement	 
+>3517	CallExpression	AM_drawMarks ( )
+>3518	ArgumentList	 
+>3519	Callee	AM_drawMarks
+>3520	Identifier	AM_drawMarks
+>3521	ExpressionStatement	 
+>3522	CallExpression	AM_drawCrosshair ( XHAIRCOLORS )
+>3523	ArgumentList	XHAIRCOLORS
+>3524	Argument	XHAIRCOLORS
+>3525	Identifier	XHAIRCOLORS
+>3526	Callee	AM_drawCrosshair
+>3527	Identifier	AM_drawCrosshair
+>3528	ExpressionStatement	 
+>3529	CallExpression	AM_drawThings ( THINGCOLORS , THINGRANGE )
+>3530	ArgumentList	THINGCOLORS
+>3531	Argument	THINGRANGE
+>3532	Identifier	THINGRANGE
+>3533	Argument	THINGCOLORS
+>3534	Identifier	THINGCOLORS
+>3535	Callee	AM_drawThings
+>3536	Identifier	AM_drawThings
+>3537	Statement	 
+>3538	Statement	 
+>3539	Statement	 
+>3540	Statement	 
+>3541	Statement	 
+>3542	Statement	 
+>3543	Statement	 
+>3544	Statement	 
+>3545	Statement	 
+>3546	ExpressionStatement	 
+>3547	CallExpression	AM_drawPlayers ( )
+>3548	ArgumentList	 
+>3549	Callee	AM_drawPlayers
+>3550	Identifier	AM_drawPlayers
+>3551	ExpressionStatement	 
+>3552	CallExpression	AM_drawWalls ( )
+>3553	ArgumentList	 
+>3554	Callee	AM_drawWalls
+>3555	Identifier	AM_drawWalls
+>3556	ExpressionStatement	 
+>3557	CallExpression	AM_drawGrid ( GRIDCOLORS )
+>3558	ArgumentList	GRIDCOLORS
+>3559	Argument	GRIDCOLORS
+>3560	Identifier	GRIDCOLORS
+>3561	Callee	AM_drawGrid
+>3562	Identifier	AM_drawGrid
+>3563	Statement	 
+>3564	Statement	 
+>3565	Statement	 
+>3566	Statement	 
+>3567	Statement	 
+>3568	Statement	 
+>3569	Statement	 
+>3570	ExpressionStatement	 
+>3571	CallExpression	AM_clearFB ( BACKGROUND )
+>3572	ArgumentList	BACKGROUND
+>3573	Argument	BACKGROUND
+>3574	Identifier	BACKGROUND
+>3575	Callee	AM_clearFB
+>3576	Identifier	AM_clearFB
+>3577	ReturnStatement	 
+>3578	Statement	 
+>3579	Statement	 
+>3580	Statement	 
+>3581	Statement	 
+>3582	Statement	 
+>3583	Statement	 
+>3584	Statement	 
+>3585	Statement	 
+<17=26,25,18
+<18=22,19
+<19=21,20
+<22=24,23
+<26=121,107,93,60,27
+<27=56,42,28
+<28=29
+<29=30
+<30=39,31
+<31=37,32
+<32=35,33
+<33=34
+<35=36
+<37=38
+<39=41,40
+<42=43
+<43=53,44
+<44=49,46,45
+<46=48,47
+<49=50
+<50=52,51
+<53=55,54
+<56=57
+<57=59,58
+<60=89,75,61
+<61=62
+<62=63
+<63=72,64
+<64=70,65
+<65=68,66
+<66=67
+<68=69
+<70=71
+<72=74,73
+<75=76
+<76=86,77
+<77=82,79,78
+<79=81,80
+<82=83
+<83=85,84
+<86=88,87
+<89=90
+<90=92,91
+<93=94
+<94=106,95
+<95=101,96
+<96=98,97
+<98=100,99
+<101=103,102
+<103=105,104
+<107=108
+<108=120,109
+<109=115,110
+<110=112,111
+<112=114,113
+<115=117,116
+<117=119,118
+<121=125,122
+<122=124,123
+<125=127,126
+<147=150,149,148
+<150=254,253,252,251,250,249,243,242,241,240,239,238,237,231,230,229,228,227,226,225,224,223,222,221,220,219,218,217,151,155,156,157,158,159,160,161,162,163,164,165,166,170,171,172,173,174,175,176,177,178,179,180,181,187,188,189,190,191,192,193,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216
+<151=152
+<152=154,153
+<166=167
+<167=169,168
+<181=182
+<182=184,183
+<184=186,185
+<193=194
+<194=196,195
+<196=198,197
+<231=232
+<232=234,233
+<234=236,235
+<243=244
+<244=246,245
+<246=248,247
+<259=262,261,260
+<262=302,301,300,299,298,297,293,292,291,290,289,288,287,283,282,281,280,279,278,277,273,272,271,270,269,268,267,263
+<263=264
+<264=266,265
+<273=274
+<274=276,275
+<283=284
+<284=286,285
+<293=294
+<294=296,295
+<307=310,309,308
+<310=359,358,357,356,355,354,350,349,348,347,346,345,344,340,339,338,337,336,335,334,333,332,311
+<311=331,330,329,328,327,326,322,321,320,319,318,317,316,312
+<312=313
+<313=315,314
+<322=323
+<323=325,324
+<340=341
+<341=343,342
+<350=351
+<351=353,352
+<364=367,366,365
+<367=433,432,431,430,429,368,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,390,391,392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,415,416,417,418,419,420,421,422,423,424,425,426,427,428
+<368=369
+<384=385
+<385=387,386
+<387=389,388
+<409=410
+<410=412,411
+<412=414,413
+<438=441,440,439
+<441=492,488,484,483,482,481,480,479,478,472,471,470,469,468,467,466,458,457,456,452,451,450,449,445,444,443,442
+<445=446
+<446=448,447
+<452=453
+<453=455,454
+<458=459
+<459=463,460
+<460=462,461
+<463=465,464
+<472=473
+<473=475,474
+<475=477,476
+<484=485
+<485=487,486
+<488=489
+<489=491,490
+<492=493
+<493=495,494
+<507=510,509,508
+<510=603,602,601,600,599,598,597,596,595,594,593,592,511,517,518,519,520,521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,536,537,538,539,540,541,542,543,544,545,546,547,553,554,555,556,557,558,559,565,566,567,568,569,570,571,588,589,590,591
+<511=512
+<512=514,513
+<514=516,515
+<547=548
+<548=550,549
+<550=552,551
+<559=560
+<560=562,561
+<562=564,563
+<571=587,581,580,572
+<572=573
+<573=575,574
+<575=577,576
+<577=579,578
+<581=582
+<582=584,583
+<584=586,585
+<614=617,616,615
+<617=877,868,864,863,857,856,855,854,853,852,851,845,844,836,835,829,828,822,821,820,819,818,817,816,815,814,806,805,799,798,792,791,790,789,788,787,786,785,784,783,782,781,780,779,778,777,776,775,774,773,772,771,770,769,768,767,766,765,764,763,762,761,760,759,758,757,756,755,754,753,752,751,750,737,736,735,734,733,732,731,730,729,728,727,726,725,724,723,722,721,720,714,713,712,711,710,709,708,707,706,705,704,703,702,618,627,631,632,633,634,635,636,637,641,642,643,644,645,646,647,651,652,653,654,655,656,657,661,662,663,664,665,666,667,672,678,679,680,681,682,683,684,685,686,687,688,689,690,691,692,693,699,700,701
+<618=619
+<619=625,620
+<620=621
+<621=622
+<622=624,623
+<625=626
+<627=628
+<628=630,629
+<637=638
+<638=640,639
+<647=648
+<648=650,649
+<657=658
+<658=660,659
+<667=668
+<668=670,669
+<670=671
+<672=673
+<673=675,674
+<675=677,676
+<693=694
+<694=696,695
+<696=698,697
+<714=715
+<715=717,716
+<717=719,718
+<737=746,742,739,738
+<739=741,740
+<742=743
+<743=745,744
+<746=747
+<747=749,748
+<792=793
+<793=795,794
+<795=797,796
+<799=800
+<800=802,801
+<802=804,803
+<806=807
+<807=809,808
+<809=811,810
+<811=813,812
+<822=823
+<823=825,824
+<825=827,826
+<829=830
+<830=832,831
+<832=834,833
+<836=837
+<837=839,838
+<839=841,840
+<841=843,842
+<845=846
+<846=848,847
+<848=850,849
+<857=858
+<858=860,859
+<860=862,861
+<864=865
+<865=867,866
+<868=869
+<869=876,875,870
+<870=874,871
+<871=873,872
+<904=907,906,905
+<907=955,950,908
+<908=946,942,939,909
+<909=928,927,910
+<910=911
+<911=922,912
+<912=921,913
+<913=919,914
+<914=917,915
+<915=916
+<917=918
+<919=920
+<922=924,923
+<924=926,925
+<928=929
+<929=937,930
+<930=935,933,931
+<931=932
+<933=934
+<935=936
+<937=938
+<939=941,940
+<942=943
+<943=945,944
+<946=947
+<947=949,948
+<950=951
+<951=954,953,952
+<955=956
+<956=958,957
+<972=975,974,973
+<979=982,981,980
+<982=1015,1002,990,989,983
+<983=984
+<984=986,985
+<986=988,987
+<990=991
+<991=995,992
+<992=994,993
+<995=997,996
+<997=999,998
+<999=1001,1000
+<1002=1011,1007,1004,1003
+<1004=1006,1005
+<1007=1008
+<1008=1010,1009
+<1011=1012
+<1012=1014,1013
+<1015=1016
+<1016=1018,1017
+<1032=1035,1034,1033
+<1035=1143,1137,1136,1135,1134,1133,1132,1131,1125,1124,1123,1122,1121,1120,1119,1115,1114,1113,1112,1111,1110,1109,1105,1100,1095,1094,1093,1092,1091,1090,1089,1036,1037,1038,1039,1040,1041,1042,1043,1044,1045,1046,1047,1048,1049,1050,1051,1055,1056,1057,1058,1059,1060,1061,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1075,1076,1077,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088
+<1051=1052
+<1052=1054,1053
+<1095=1096
+<1096=1098,1097
+<1098=1099
+<1100=1101
+<1101=1103,1102
+<1103=1104
+<1105=1106
+<1106=1108,1107
+<1115=1116
+<1116=1118,1117
+<1125=1126
+<1126=1128,1127
+<1128=1130,1129
+<1137=1138
+<1138=1140,1139
+<1140=1142,1141
+<1151=1154,1153,1152
+<1154=1195,1183,1178,1177,1171,1162,1161,1155
+<1155=1156
+<1156=1158,1157
+<1158=1160,1159
+<1162=1163
+<1163=1169,1164
+<1164=1165
+<1165=1166
+<1166=1168,1167
+<1169=1170
+<1171=1172
+<1172=1174,1173
+<1174=1176,1175
+<1178=1179
+<1179=1181,1180
+<1181=1182
+<1183=1184
+<1184=1194,1193,1185
+<1185=1192,1186
+<1186=1189,1188,1187
+<1189=1191,1190
+<1209=1212,1211,1210
+<1212=1290,1289,1288,1287,1286,1285,1284,1283,1278,1277,1271,1270,1269,1268,1267,1266,1265,1264,1263,1262,1261,1260,1259,1258,1257,1256,1255,1254,1253,1252,1251,1250,1249,1223,1218,1213
+<1213=1214
+<1214=1216,1215
+<1216=1217
+<1218=1219
+<1219=1221,1220
+<1221=1222
+<1223=1244,1243,1242,1241,1240,1239,1238,1234,1233,1232,1231,1230,1229,1228,1224
+<1224=1225
+<1225=1227,1226
+<1234=1235
+<1235=1237,1236
+<1244=1245
+<1245=1247,1246
+<1247=1248
+<1271=1272
+<1272=1274,1273
+<1274=1276,1275
+<1278=1279
+<1279=1281,1280
+<1281=1282
+<1298=1301,1300,1299
+<1301=1331,1330,1329,1328,1327,1326,1322,1321,1320,1319,1318,1317,1316,1315,1314,1313,1312,1311,1310,1309,1308,1307,1302
+<1302=1303
+<1303=1305,1304
+<1305=1306
+<1322=1323
+<1323=1325,1324
+<1336=1339,1338,1337
+<1339=1369,1368,1367,1366,1365,1364,1360,1359,1358,1357,1356,1355,1354,1353,1352,1351,1350,1349,1348,1347,1346,1345,1340
+<1340=1341
+<1341=1343,1342
+<1343=1344
+<1360=1361
+<1361=1363,1362
+<1374=1380,1379,1375
+<1375=1376
+<1376=1378,1377
+<1380=1424,1420,1419,1418,1417,1416,1415,1414,1413,1412,1381
+<1381=1382
+<1382=1400,1383
+<1383=1395,1394,1388,1384
+<1384=1385
+<1385=1387,1386
+<1388=1389
+<1389=1391,1390
+<1391=1393,1392
+<1395=1396
+<1396=1398,1397
+<1398=1399
+<1400=1401
+<1401=1407,1402
+<1402=1404,1403
+<1404=1406,1405
+<1407=1409,1408
+<1409=1411,1410
+<1420=1421
+<1421=1423,1422
+<1424=1425
+<1425=1427,1426
+<1443=1446,1445,1444
+<1446=1496,1495,1494,1493,1492,1491,1490,1489,1488,1487,1486,1485,1484,1483,1482,1481,1480,1479,1478,1477,1476,1475,1474,1473,1472,1471,1470,1469,1468,1467,1466,1465,1464,1463,1462,1461,1460,1459,1458,1457,1456,1455,1454,1453,1452,1447
+<1447=1448
+<1448=1450,1449
+<1450=1451
+<1500=1503,1502,1501
+<1503=1654,1653,1652,1651,1650,1649,1648,1647,1646,1645,1644,1643,1642,1641,1640,1639,1638,1637,1636,1635,1634,1633,1632,1631,1630,1629,1628,1627,1626,1625,1624,1623,1622,1621,1504
+<1504=1620,1619,1618,1617,1616,1615,1614,1613,1612,1611,1610,1609,1608,1607,1606,1605,1604,1603,1602,1601,1600,1594,1593,1592,1591,1590,1589,1588,1587,1586,1585,1584,1583,1582,1581,1580,1505,1513,1514,1515,1516,1517,1518,1519,1520,1521,1529,1530,1531,1532,1533,1534,1535,1536,1537,1541,1542,1543,1544,1545,1546,1547,1548,1549,1550,1551,1552,1556,1557,1558,1559,1560,1561,1562,1563,1564,1565,1566,1567,1573,1574,1575,1576,1577,1578,1579
+<1505=1506
+<1506=1508,1507
+<1508=1510,1509
+<1510=1512,1511
+<1521=1522
+<1522=1524,1523
+<1524=1526,1525
+<1526=1528,1527
+<1537=1538
+<1538=1540,1539
+<1552=1553
+<1553=1555,1554
+<1567=1568
+<1568=1570,1569
+<1570=1572,1571
+<1594=1595
+<1595=1597,1596
+<1597=1599,1598
+<1664=1667,1666,1665
+<1667=1756,1755,1740,1739,1738,1737,1736,1735,1734,1733,1732,1731,1730,1729,1728,1668
+<1668=1727,1726,1725,1724,1669,1670,1671,1672,1673,1674,1675,1676,1677,1678,1679,1680,1681,1682,1683,1684,1685,1686,1687,1688,1689,1690,1696,1697,1698,1699,1700,1701,1702,1703,1704,1705,1706,1707,1708,1709,1710,1711,1712,1713,1714,1715,1716,1717,1718,1719,1720,1721,1722,1723
+<1690=1691
+<1691=1693,1692
+<1693=1695,1694
+<1740=1741
+<1741=1754,1753,1742
+<1742=1752,1743
+<1743=1751,1750,1749,1748,1747,1746,1745,1744
+<1764=1767,1766,1765
+<1767=1830,1829,1828,1827,1826,1825,1824,1823,1822,1821,1815,1814,1813,1812,1811,1810,1809,1808,1803,1802,1801,1800,1799,1798,1797,1796,1795,1794,1789,1788,1787,1786,1785,1784,1783,1782,1781,1780,1779,1778,1777,1776,1775,1774,1773,1768
+<1768=1769
+<1769=1771,1770
+<1771=1772
+<1789=1790
+<1790=1792,1791
+<1792=1793
+<1803=1804
+<1804=1806,1805
+<1806=1807
+<1815=1816
+<1816=1818,1817
+<1818=1820,1819
+<1837=1843,1842,1838
+<1838=1839
+<1839=1841,1840
+<1843=1863,1862,1861,1860,1859,1858,1857,1856,1855,1854,1853,1852,1851,1850,1849,1848,1847,1846,1845,1844
+<1868=1877,1876,1869
+<1869=1873,1870
+<1870=1872,1871
+<1873=1875,1874
+<1877=1934,1933,1932,1925,1924,1917,1916,1912,1903,1899,1895,1894,1893,1892,1891,1890,1889,1888,1887,1886,1885,1884,1883,1882,1878
+<1878=1879
+<1879=1881,1880
+<1895=1896
+<1896=1898,1897
+<1899=1900
+<1900=1902,1901
+<1903=1904
+<1904=1911,1910,1905
+<1905=1909,1906
+<1906=1908,1907
+<1912=1913
+<1913=1915,1914
+<1917=1918
+<1918=1923,1922,1919
+<1919=1921,1920
+<1925=1926
+<1926=1931,1930,1927
+<1927=1929,1928
+<1947=1956,1955,1948
+<1948=1952,1949
+<1949=1951,1950
+<1952=1954,1953
+<1956=2314,2310,2309,2305,2304,2300,2299,2295,2294,2290,2289,2285,2284,2280,2279,2275,2274,2270,2269,2262,2261,2260,2259,2258,2257,2256,2255,2254,2253,2252,2251,2250,2249,2248,2247,2246,2245,2244,2243,2242,2241,2240,2239,2238,2237,2236,2235,2234,2233,2232,2231,2230,2229,2228,2227,2226,2225,2224,1957,2075,2083,2091,2103,2117,2131,2143,2157,2171,2184,2185,2186,2187,2188,2189,2190,2191,2192,2193,2194,2195,2196,2197,2198,2199,2200,2201,2202,2203,2204,2205,2206,2207,2208,2209,2210,2211,2212,2213,2214,2215,2216,2217,2218,2219,2220,2221,2222,2223
+<1957=2071,2015,1958
+<1958=1959
+<1959=2007,1960
+<1960=2005,1961
+<1961=1994,1984,1970,1966,1962
+<1962=1963
+<1963=1965,1964
+<1966=1967
+<1967=1969,1968
+<1970=1980,1971
+<1971=1976,1972
+<1972=1973
+<1973=1975,1974
+<1976=1977
+<1977=1979,1978
+<1980=1981
+<1981=1983,1982
+<1984=1986,1985
+<1986=1987
+<1987=1993,1988
+<1988=1990,1989
+<1990=1992,1991
+<1994=1995
+<1995=2003,1996
+<1996=2001,1999,1997
+<1997=1998
+<1999=2000
+<2001=2002
+<2003=2004
+<2005=2006
+<2007=2008
+<2008=2014,2009
+<2009=2013,2010
+<2010=2012,2011
+<2015=2063,2016
+<2016=2061,2017
+<2017=2050,2040,2026,2022,2018
+<2018=2019
+<2019=2021,2020
+<2022=2023
+<2023=2025,2024
+<2026=2036,2027
+<2027=2032,2028
+<2028=2029
+<2029=2031,2030
+<2032=2033
+<2033=2035,2034
+<2036=2037
+<2037=2039,2038
+<2040=2042,2041
+<2042=2043
+<2043=2049,2044
+<2044=2046,2045
+<2046=2048,2047
+<2050=2051
+<2051=2059,2052
+<2052=2057,2055,2053
+<2053=2054
+<2055=2056
+<2057=2058
+<2059=2060
+<2061=2062
+<2063=2064
+<2064=2070,2065
+<2065=2069,2066
+<2066=2068,2067
+<2071=2072
+<2072=2074,2073
+<2075=2076
+<2076=2082,2077
+<2077=2079,2078
+<2079=2081,2080
+<2083=2084
+<2084=2090,2085
+<2085=2087,2086
+<2087=2089,2088
+<2091=2092
+<2092=2102,2093
+<2093=2098,2095,2094
+<2095=2097,2096
+<2098=2099
+<2099=2101,2100
+<2103=2104
+<2104=2116,2105
+<2105=2115,2106
+<2106=2111,2108,2107
+<2108=2110,2109
+<2111=2112
+<2112=2114,2113
+<2117=2118
+<2118=2130,2119
+<2119=2125,2120
+<2120=2122,2121
+<2122=2124,2123
+<2125=2127,2126
+<2127=2129,2128
+<2131=2132
+<2132=2142,2133
+<2133=2138,2135,2134
+<2135=2137,2136
+<2138=2139
+<2139=2141,2140
+<2143=2144
+<2144=2156,2145
+<2145=2155,2146
+<2146=2151,2148,2147
+<2148=2150,2149
+<2151=2152
+<2152=2154,2153
+<2157=2158
+<2158=2170,2159
+<2159=2165,2160
+<2160=2162,2161
+<2162=2164,2163
+<2165=2167,2166
+<2167=2169,2168
+<2171=2173,2172
+<2173=2174
+<2174=2182,2175
+<2175=2180,2176
+<2176=2177
+<2177=2179,2178
+<2180=2181
+<2182=2183
+<2262=2263
+<2263=2268,2267,2264
+<2264=2266,2265
+<2270=2271
+<2271=2273,2272
+<2275=2276
+<2276=2278,2277
+<2280=2281
+<2281=2283,2282
+<2285=2286
+<2286=2288,2287
+<2290=2291
+<2291=2293,2292
+<2295=2296
+<2296=2298,2297
+<2300=2301
+<2301=2303,2302
+<2305=2306
+<2306=2308,2307
+<2310=2311
+<2311=2313,2312
+<2337=2346,2345,2338
+<2338=2342,2339
+<2339=2341,2340
+<2342=2344,2343
+<2346=2374,2370,2347
+<2347=2359,2348
+<2348=2349
+<2349=2357,2350
+<2350=2353,2351
+<2351=2352
+<2353=2354
+<2354=2356,2355
+<2357=2358
+<2359=2360
+<2360=2368,2361
+<2361=2366,2362
+<2362=2363
+<2363=2365,2364
+<2366=2367
+<2368=2369
+<2370=2371
+<2371=2373,2372
+<2383=2389,2388,2384
+<2384=2385
+<2385=2387,2386
+<2389=2661,2654,2650,2649,2648,2647,2643,2642,2641,2640,2639,2638,2637,2636,2635,2634,2633,2632,2631,2630,2629,2628,2627,2626,2625,2624,2623,2622,2621,2620,2619,2618,2617,2616,2615,2614,2613,2612,2611,2610,2609,2608,2607,2606,2605,2604,2603,2602,2601,2600,2599,2598,2597,2596,2595,2594,2593,2589,2588,2587,2586,2585,2584,2583,2582,2578,2577,2576,2575,2574,2573,2572,2571,2570,2569,2568,2567,2566,2562,2520,2519,2518,2517,2513,2512,2511,2510,2509,2508,2507,2506,2505,2504,2503,2502,2501,2500,2499,2498,2497,2496,2495,2494,2493,2492,2491,2490,2390,2432,2436,2437,2438,2439,2440,2441,2442,2443,2444,2445,2446,2447,2448,2452,2453,2454,2455,2456,2457,2458,2459,2463,2464,2465,2466,2467,2468,2469,2470,2471,2472,2473,2474,2475,2476,2477,2478,2479,2480,2481,2482,2483,2484,2485,2486,2487,2488,2489
+<2390=2428,2424,2419,2391
+<2391=2411,2403,2392
+<2392=2393
+<2393=2401,2394
+<2394=2397,2395
+<2395=2396
+<2397=2398
+<2398=2400,2399
+<2401=2402
+<2403=2404
+<2404=2406,2405
+<2406=2408,2407
+<2408=2410,2409
+<2411=2412
+<2412=2414,2413
+<2414=2416,2415
+<2416=2418,2417
+<2419=2423,2420
+<2420=2422,2421
+<2424=2425
+<2425=2427,2426
+<2428=2429
+<2429=2431,2430
+<2432=2433
+<2433=2435,2434
+<2448=2449
+<2449=2451,2450
+<2459=2460
+<2460=2462,2461
+<2513=2514
+<2514=2516,2515
+<2520=2558,2554,2549,2521
+<2521=2541,2533,2522
+<2522=2523
+<2523=2531,2524
+<2524=2527,2525
+<2525=2526
+<2527=2528
+<2528=2530,2529
+<2531=2532
+<2533=2534
+<2534=2536,2535
+<2536=2538,2537
+<2538=2540,2539
+<2541=2542
+<2542=2544,2543
+<2544=2546,2545
+<2546=2548,2547
+<2549=2553,2550
+<2550=2552,2551
+<2554=2555
+<2555=2557,2556
+<2558=2559
+<2559=2561,2560
+<2562=2563
+<2563=2565,2564
+<2578=2579
+<2579=2581,2580
+<2589=2590
+<2590=2592,2591
+<2643=2644
+<2644=2646,2645
+<2650=2651
+<2651=2653,2652
+<2654=2658,2655
+<2655=2657,2656
+<2658=2660,2659
+<2661=2665,2662
+<2662=2664,2663
+<2665=2667,2666
+<2687=2690,2689,2688
+<2690=2712,2711,2707,2706,2705,2701,2700,2699,2698,2694,2693,2692,2691
+<2694=2695
+<2695=2697,2696
+<2701=2702
+<2702=2704,2703
+<2707=2708
+<2708=2710,2709
+<2712=2713
+<2713=2715,2714
+<2722=2734,2733,2723
+<2723=2730,2727,2724
+<2724=2726,2725
+<2727=2729,2728
+<2730=2732,2731
+<2734=2807,2775,2741,2735
+<2735=2736
+<2736=2738,2737
+<2738=2740,2739
+<2741=2742
+<2742=2772,2743
+<2743=2758,2744
+<2744=2756,2745
+<2745=2752,2746
+<2746=2747
+<2747=2751,2748
+<2748=2750,2749
+<2752=2753
+<2753=2755,2754
+<2756=2757
+<2758=2770,2759
+<2759=2766,2760
+<2760=2761
+<2761=2765,2762
+<2762=2764,2763
+<2766=2767
+<2767=2769,2768
+<2770=2771
+<2772=2774,2773
+<2775=2776
+<2776=2806,2777
+<2777=2792,2778
+<2778=2790,2779
+<2779=2786,2780
+<2780=2781
+<2781=2785,2782
+<2782=2784,2783
+<2786=2787
+<2787=2789,2788
+<2790=2791
+<2792=2804,2793
+<2793=2800,2794
+<2794=2795
+<2795=2799,2796
+<2796=2798,2797
+<2800=2801
+<2801=2803,2802
+<2804=2805
+<2807=2808
+<2808=2810,2809
+<2828=2852,2851,2829
+<2829=2848,2845,2842,2839,2836,2833,2830
+<2830=2832,2831
+<2833=2835,2834
+<2836=2838,2837
+<2839=2841,2840
+<2842=2844,2843
+<2845=2847,2846
+<2848=2850,2849
+<2852=3105,3101,2853
+<2853=3097,3093,3090,2854
+<2854=3076,3062,3020,2994,2986,2978,2964,2950,2908,2882,2874,2866,2855
+<2855=2856
+<2856=2864,2857
+<2857=2860,2858
+<2858=2859
+<2860=2861
+<2861=2863,2862
+<2864=2865
+<2866=2867
+<2867=2869,2868
+<2869=2871,2870
+<2871=2873,2872
+<2874=2875
+<2875=2877,2876
+<2877=2879,2878
+<2879=2881,2880
+<2882=2906,2883
+<2883=2884
+<2884=2904,2885
+<2885=2896,2888,2886
+<2886=2887
+<2888=2889
+<2889=2895,2890
+<2890=2892,2891
+<2892=2894,2893
+<2896=2897
+<2897=2903,2898
+<2898=2900,2899
+<2900=2902,2901
+<2904=2905
+<2906=2907
+<2908=2948,2909
+<2909=2929,2910
+<2910=2911
+<2911=2924,2912
+<2912=2922,2913
+<2913=2920,2914
+<2914=2915
+<2915=2917,2916
+<2917=2919,2918
+<2920=2921
+<2922=2923
+<2924=2926,2925
+<2926=2928,2927
+<2929=2930
+<2930=2943,2931
+<2931=2941,2932
+<2932=2939,2933
+<2933=2934
+<2934=2936,2935
+<2936=2938,2937
+<2939=2940
+<2941=2942
+<2943=2945,2944
+<2945=2947,2946
+<2948=2949
+<2950=2951
+<2951=2959,2952
+<2952=2954,2953
+<2954=2956,2955
+<2956=2958,2957
+<2959=2961,2960
+<2961=2963,2962
+<2964=2965
+<2965=2973,2966
+<2966=2968,2967
+<2968=2970,2969
+<2970=2972,2971
+<2973=2975,2974
+<2975=2977,2976
+<2978=2979
+<2979=2981,2980
+<2981=2983,2982
+<2983=2985,2984
+<2986=2987
+<2987=2989,2988
+<2989=2991,2990
+<2991=2993,2992
+<2994=3018,2995
+<2995=2996
+<2996=3016,2997
+<2997=3008,3000,2998
+<2998=2999
+<3000=3001
+<3001=3007,3002
+<3002=3004,3003
+<3004=3006,3005
+<3008=3009
+<3009=3015,3010
+<3010=3012,3011
+<3012=3014,3013
+<3016=3017
+<3018=3019
+<3020=3060,3021
+<3021=3041,3022
+<3022=3023
+<3023=3036,3024
+<3024=3034,3025
+<3025=3032,3026
+<3026=3027
+<3027=3029,3028
+<3029=3031,3030
+<3032=3033
+<3034=3035
+<3036=3038,3037
+<3038=3040,3039
+<3041=3042
+<3042=3055,3043
+<3043=3053,3044
+<3044=3051,3045
+<3045=3046
+<3046=3048,3047
+<3048=3050,3049
+<3051=3052
+<3053=3054
+<3055=3057,3056
+<3057=3059,3058
+<3060=3061
+<3062=3063
+<3063=3071,3064
+<3064=3066,3065
+<3066=3068,3067
+<3068=3070,3069
+<3071=3073,3072
+<3073=3075,3074
+<3076=3077
+<3077=3085,3078
+<3078=3080,3079
+<3080=3082,3081
+<3082=3084,3083
+<3085=3087,3086
+<3087=3089,3088
+<3090=3092,3091
+<3093=3094
+<3094=3096,3095
+<3097=3098
+<3098=3100,3099
+<3101=3102
+<3102=3104,3103
+<3105=3106
+<3106=3108,3107
+<3143=3146,3145,3144
+<3146=3184,3180,3179,3168,3159,3155,3154,3153,3152,3151,3150,3149,3148,3147
+<3155=3156
+<3156=3158,3157
+<3159=3160
+<3160=3167,3166,3161
+<3161=3165,3162
+<3162=3164,3163
+<3168=3169
+<3169=3178,3177,3170
+<3170=3176,3171
+<3171=3175,3174,3173,3172
+<3180=3181
+<3181=3183,3182
+<3184=3185
+<3185=3187,3186
+<3200=3209,3208,3201
+<3201=3205,3202
+<3202=3204,3203
+<3205=3207,3206
+<3209=3282,3278,3277,3276,3272,3271,3270,3269,3265,3264,3263,3262,3210
+<3210=3261,3260,3259,3251,3211
+<3211=3249,3212
+<3212=3248,3247,3246,3245,3244,3243,3242,3241,3240,3239,3238,3237,3236,3235,3234,3233,3232,3231,3230,3229,3228,3227,3226,3225,3224,3223,3222,3221,3220,3219,3213
+<3213=3214
+<3214=3218,3215
+<3215=3217,3216
+<3249=3250
+<3251=3252
+<3252=3254,3253
+<3254=3256,3255
+<3256=3258,3257
+<3265=3266
+<3266=3268,3267
+<3272=3273
+<3273=3275,3274
+<3278=3279
+<3279=3281,3280
+<3282=3283
+<3283=3285,3284
+<3301=3304,3303,3302
+<3304=3427,3305
+<3305=3423,3419,3416,3306
+<3306=3415,3414,3413,3412,3411,3410,3409,3408,3407,3406,3405,3404,3403,3402,3401,3307
+<3307=3397,3393,3392,3391,3390,3389,3388,3387,3386,3385,3384,3383,3382,3381,3380,3379,3378,3377,3376,3375,3374,3373,3372,3371,3370,3369,3368,3367,3366,3365,3364,3363,3362,3361,3360,3359,3358,3308,3309,3310,3311,3312,3313,3314,3315,3316,3317,3318,3319,3320,3321,3322,3323,3324,3325,3326,3327,3328,3329,3330,3331,3332,3333,3334,3335,3336,3337,3338,3339,3340,3341,3342,3343,3344,3345,3346,3347,3348,3349,3350,3351,3352,3353,3354,3355,3356,3357
+<3393=3394
+<3394=3396,3395
+<3397=3398
+<3398=3400,3399
+<3416=3418,3417
+<3419=3420
+<3420=3422,3421
+<3423=3424
+<3424=3426,3425
+<3427=3440,3437,3434,3431,3428
+<3428=3430,3429
+<3431=3433,3432
+<3434=3436,3435
+<3437=3439,3438
+<3440=3442,3441
+<3452=3458,3457,3453
+<3453=3454
+<3454=3456,3455
+<3458=3484,3483,3482,3481,3480,3479,3478,3477,3476,3475,3474,3473,3472,3471,3470,3469,3468,3467,3466,3465,3464,3463,3462,3461,3459
+<3459=3460
+<3489=3492,3491,3490
+<3492=3585,3584,3583,3582,3581,3493,3494,3495,3496,3497,3498,3499,3500,3501,3502,3503,3504,3505,3506,3507,3508,3509,3510,3511,3512,3513,3514,3515,3516,3521,3528,3537,3538,3539,3540,3541,3542,3543,3544,3545,3546,3551,3556,3563,3564,3565,3566,3567,3568,3569,3570,3577,3578,3579,3580
+<3516=3517
+<3517=3519,3518
+<3519=3520
+<3521=3522
+<3522=3526,3523
+<3523=3524
+<3524=3525
+<3526=3527
+<3528=3529
+<3529=3535,3530
+<3530=3533,3531
+<3531=3532
+<3533=3534
+<3535=3536
+<3546=3547
+<3547=3549,3548
+<3549=3550
+<3551=3552
+<3552=3554,3553
+<3554=3555
+<3556=3557
+<3557=3561,3558
+<3558=3559
+<3559=3560
+<3561=3562
+<3570=3571
+<3571=3575,3572
+<3572=3573
+<3573=3574
+<3575=3576

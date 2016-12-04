@@ -1,0 +1,398 @@
+>3	FunctionDef	CProgress 
+>4	ParameterList	int Segment , bool Verbose
+>5	Parameter	 
+>6	Identifier	Verbose
+>7	ParameterType	bool
+>8	Parameter	 
+>9	Identifier	Segment
+>10	ParameterType	int
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	CallExpression	Init ( Verbose )
+>14	ArgumentList	Verbose
+>15	Argument	Verbose
+>16	Identifier	Verbose
+>17	Callee	Init
+>18	Identifier	Init
+>19	ExpressionStatement	 
+>20	AssignmentExpr	m_SegmentChar = '*'
+>21	PrimaryExpression	'*'
+>22	Identifier	m_SegmentChar
+>23	ExpressionStatement	 
+>24	AssignmentExpr	m_Segment = BASE_MAX ( 1 , Segment )
+>25	CallExpression	BASE_MAX ( 1 , Segment )
+>26	ArgumentList	1
+>27	Argument	Segment
+>28	Identifier	Segment
+>29	Argument	1
+>30	PrimaryExpression	1
+>31	Callee	BASE_MAX
+>32	Identifier	BASE_MAX
+>33	Identifier	m_Segment
+>42	FunctionDef	CProgress 
+>43	ParameterList	bool Verbose
+>44	Parameter	 
+>45	Identifier	Verbose
+>46	ParameterType	bool
+>47	ReturnType	void
+>48	CompoundStatement	 
+>49	IfStatement	if ( Verbose )
+>50	CompoundStatement	 
+>51	ExpressionStatement	 
+>52	CallExpression	cout . flush ( )
+>53	ArgumentList	 
+>54	Callee	cout . flush
+>55	MemberAccess	cout . flush
+>56	Identifier	flush
+>57	Identifier	cout
+>58	ExpressionStatement	 
+>59	ShiftExpression	cout << '['
+>60	PrimaryExpression	'['
+>61	Identifier	cout
+>62	Condition	 
+>63	Identifier	Verbose
+>64	ExpressionStatement	 
+>65	AssignmentExpr	m_Current = m_Previous = m_Shown = 0
+>66	AssignmentExpr	m_Previous = m_Shown = 0
+>67	AssignmentExpr	m_Shown = 0
+>68	PrimaryExpression	0
+>69	Identifier	m_Shown
+>70	Identifier	m_Previous
+>71	Identifier	m_Current
+>80	FunctionDef	CProgress 
+>81	ParameterList	int Segment , bool Verbose
+>82	Parameter	 
+>83	Identifier	Verbose
+>84	ParameterType	bool
+>85	Parameter	 
+>86	Identifier	Segment
+>87	ParameterType	int
+>88	ReturnType	void
+>89	CompoundStatement	 
+>90	ExpressionStatement	 
+>91	CallExpression	Init ( Verbose )
+>92	ArgumentList	Verbose
+>93	Argument	Verbose
+>94	Identifier	Verbose
+>95	Callee	Init
+>96	Identifier	Init
+>97	ExpressionStatement	 
+>98	AssignmentExpr	m_Segment = BASE_MAX ( 1 , Segment )
+>99	CallExpression	BASE_MAX ( 1 , Segment )
+>100	ArgumentList	1
+>101	Argument	Segment
+>102	Identifier	Segment
+>103	Argument	1
+>104	PrimaryExpression	1
+>105	Callee	BASE_MAX
+>106	Identifier	BASE_MAX
+>107	Identifier	m_Segment
+>115	FunctionDef	CProgress 
+>116	ParameterList	 
+>117	CompoundStatement	 
+>121	FunctionDef	CProgress 
+>122	ParameterList	int Current , int Total , bool Verbose
+>123	Parameter	 
+>124	Identifier	Verbose
+>125	ParameterType	bool
+>126	Parameter	 
+>127	Identifier	Total
+>128	ParameterType	int
+>129	Parameter	 
+>130	Identifier	Current
+>131	ParameterType	int
+>132	ReturnType	bool
+>133	CompoundStatement	 
+>134	IfStatement	if ( m_Current > m_Previous + m_Segment )
+>135	ElseStatement	else
+>136	ReturnStatement	 
+>137	Identifier	false
+>138	CompoundStatement	 
+>139	ReturnStatement	 
+>140	Identifier	true
+>141	ExpressionStatement	 
+>142	AssignmentExpr	m_Previous = m_Current
+>143	Identifier	m_Current
+>144	Identifier	m_Previous
+>145	IfStatement	if ( Verbose )
+>146	CompoundStatement	 
+>147	ExpressionStatement	 
+>148	IncDecOp	m_Shown ++
+>149	IncDec	++
+>150	Identifier	m_Shown
+>151	ExpressionStatement	 
+>152	CallExpression	cout . flush ( )
+>153	ArgumentList	 
+>154	Callee	cout . flush
+>155	MemberAccess	cout . flush
+>156	Identifier	flush
+>157	Identifier	cout
+>158	ExpressionStatement	 
+>159	ShiftExpression	cout << m_SegmentChar
+>160	Identifier	m_SegmentChar
+>161	Identifier	cout
+>162	Condition	 
+>163	Identifier	Verbose
+>164	Condition	 
+>165	RelationalExpression	m_Current > m_Previous + m_Segment
+>166	AdditiveExpression	m_Previous + m_Segment
+>167	Identifier	m_Segment
+>168	Identifier	m_Previous
+>169	Identifier	m_Current
+>170	ExpressionStatement	 
+>171	AssignmentExpr	m_Current = ( Current * 100 ) / BASE_MAX ( 1 , Total )
+>172	MultiplicativeExpression	( Current * 100 ) / BASE_MAX ( 1 , Total )
+>173	CallExpression	BASE_MAX ( 1 , Total )
+>174	ArgumentList	1
+>175	Argument	Total
+>176	Identifier	Total
+>177	Argument	1
+>178	PrimaryExpression	1
+>179	Callee	BASE_MAX
+>180	Identifier	BASE_MAX
+>181	MultiplicativeExpression	Current * 100
+>182	PrimaryExpression	100
+>183	Identifier	Current
+>184	Identifier	m_Current
+>185	IfStatement	if ( Total < Current )
+>186	ReturnStatement	 
+>187	Identifier	false
+>188	Condition	 
+>189	RelationalExpression	Total < Current
+>190	Identifier	Current
+>191	Identifier	Total
+>206	FunctionDef	CProgress 
+>207	ParameterList	bool Verbose
+>208	Parameter	 
+>209	Identifier	Verbose
+>210	ParameterType	bool
+>211	ReturnType	void
+>212	CompoundStatement	 
+>213	IfStatement	if ( Verbose )
+>214	CompoundStatement	 
+>215	ExpressionStatement	 
+>216	CallExpression	cout . flush ( )
+>217	ArgumentList	 
+>218	Callee	cout . flush
+>219	MemberAccess	cout . flush
+>220	Identifier	flush
+>221	Identifier	cout
+>222	ExpressionStatement	 
+>223	ShiftExpression	cout << ']'
+>224	PrimaryExpression	']'
+>225	Identifier	cout
+>226	ExpressionStatement	 
+>227	ShiftExpression	cout << m_SegmentChar
+>228	Identifier	m_SegmentChar
+>229	Identifier	cout
+>230	Statement	 
+>231	Statement	 
+>232	Statement	 
+>233	ExpressionStatement	 
+>234	RelationalExpression	i < ( 100 / m_Segment )
+>235	MultiplicativeExpression	100 / m_Segment
+>236	Identifier	m_Segment
+>237	PrimaryExpression	100
+>238	Identifier	i
+>239	IdentifierDeclStatement	 
+>240	IdentifierDecl	i = m_Shown
+>241	AssignmentExpr	i = m_Shown
+>242	Identifier	m_Shown
+>243	Identifier	m_Shown
+>244	Identifier	i
+>245	IdentifierDeclType	int
+>246	Statement	 
+>247	Statement	 
+>248	Statement	 
+>249	Condition	 
+>250	Identifier	Verbose
+>258	FunctionDef	CProgress 
+>259	ParameterList	bool Verbose
+>260	Parameter	 
+>261	Identifier	Verbose
+>262	ParameterType	bool
+>263	ReturnType	void
+>264	CompoundStatement	 
+>265	IfStatement	if ( Verbose )
+>266	CompoundStatement	 
+>267	ExpressionStatement	 
+>268	CallExpression	cout . flush ( )
+>269	ArgumentList	 
+>270	Callee	cout . flush
+>271	MemberAccess	cout . flush
+>272	Identifier	flush
+>273	Identifier	cout
+>274	ExpressionStatement	 
+>275	ShiftExpression	cout << ']'
+>276	PrimaryExpression	']'
+>277	Identifier	cout
+>278	ExpressionStatement	 
+>279	ShiftExpression	cout << ' '
+>280	PrimaryExpression	' '
+>281	Identifier	cout
+>282	Statement	 
+>283	Statement	 
+>284	Statement	 
+>285	ExpressionStatement	 
+>286	RelationalExpression	i < ( 100 / m_Segment )
+>287	MultiplicativeExpression	100 / m_Segment
+>288	Identifier	m_Segment
+>289	PrimaryExpression	100
+>290	Identifier	i
+>291	IdentifierDeclStatement	 
+>292	IdentifierDecl	i = ++ m_Shown
+>293	AssignmentExpr	i = ++ m_Shown
+>294	UnaryExpression	++ m_Shown
+>295	Identifier	m_Shown
+>296	IncDec	++
+>297	Identifier	i
+>298	Identifier	i
+>299	IdentifierDeclType	int
+>300	Statement	 
+>301	Statement	 
+>302	Statement	 
+>303	ExpressionStatement	 
+>304	ShiftExpression	cout << 'e'
+>305	PrimaryExpression	'e'
+>306	Identifier	cout
+>307	Condition	 
+>308	Identifier	Verbose
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=23,19,12
+<12=13
+<13=17,14
+<14=15
+<15=16
+<17=18
+<19=20
+<20=22,21
+<23=24
+<24=33,25
+<25=31,26
+<26=29,27
+<27=28
+<29=30
+<31=32
+<42=48,47,43
+<43=44
+<44=46,45
+<48=64,49
+<49=62,50
+<50=58,51
+<51=52
+<52=54,53
+<54=55
+<55=57,56
+<58=59
+<59=61,60
+<62=63
+<64=65
+<65=71,66
+<66=70,67
+<67=69,68
+<80=89,88,81
+<81=85,82
+<82=84,83
+<85=87,86
+<89=97,90
+<90=91
+<91=95,92
+<92=93
+<93=94
+<95=96
+<97=98
+<98=107,99
+<99=105,100
+<100=103,101
+<101=102
+<103=104
+<105=106
+<115=117,116
+<121=133,132,122
+<122=129,126,123
+<123=125,124
+<126=128,127
+<129=131,130
+<133=185,170,134
+<134=164,138,135
+<135=136
+<136=137
+<138=145,141,139
+<139=140
+<141=142
+<142=144,143
+<145=162,146
+<146=158,151,147
+<147=148
+<148=150,149
+<151=152
+<152=154,153
+<154=155
+<155=157,156
+<158=159
+<159=161,160
+<162=163
+<164=165
+<165=169,166
+<166=168,167
+<170=171
+<171=184,172
+<172=181,173
+<173=179,174
+<174=177,175
+<175=176
+<177=178
+<179=180
+<181=183,182
+<185=188,186
+<186=187
+<188=189
+<189=191,190
+<206=212,211,207
+<207=208
+<208=210,209
+<212=213
+<213=249,214
+<214=248,247,246,239,233,232,231,230,226,222,215
+<215=216
+<216=218,217
+<218=219
+<219=221,220
+<222=223
+<223=225,224
+<226=227
+<227=229,228
+<233=234
+<234=238,235
+<235=237,236
+<239=240
+<240=245,244,241
+<241=243,242
+<249=250
+<258=264,263,259
+<259=260
+<260=262,261
+<264=265
+<265=307,266
+<266=303,302,301,300,291,285,284,283,282,278,274,267
+<267=268
+<268=270,269
+<270=271
+<271=273,272
+<274=275
+<275=277,276
+<278=279
+<279=281,280
+<285=286
+<286=290,287
+<287=289,288
+<291=292
+<292=299,298,293
+<293=297,294
+<294=296,295
+<303=304
+<304=306,305
+<307=308

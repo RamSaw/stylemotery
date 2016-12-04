@@ -1,0 +1,1802 @@
+>3	FunctionDef	callFunction (mxArray * plhs [ ] , const mxArray * prhs [ ] , const long nlhs)
+>4	ParameterList	mxArray * plhs [ ] , const mxArray * prhs [ ] , const long nlhs
+>5	Parameter	 
+>6	Identifier	nlhs
+>7	ParameterType	const long
+>8	Parameter	 
+>9	Identifier	prhs
+>10	ParameterType	const mxArray * [ ]
+>11	Parameter	 
+>12	Identifier	plhs
+>13	ParameterType	mxArray * [ ]
+>14	ReturnType	inline void
+>15	CompoundStatement	 
+>16	IfStatement	if ( nlhs == 2 )
+>17	CompoundStatement	 
+>18	ForStatement	for ( long i = 0 ; i < val . n ( ) ; ++ i )
+>19	ExpressionStatement	 
+>20	AssignmentExpr	pr_val [ i ] = val [ i ]
+>21	ArrayIndexing	val [ i ]
+>22	Identifier	i
+>23	Identifier	val
+>24	ArrayIndexing	pr_val [ i ]
+>25	Identifier	i
+>26	Identifier	pr_val
+>27	UnaryExpression	 
+>28	Identifier	i
+>29	IncDec	++
+>30	Condition	 
+>31	RelationalExpression	i < val . n ( )
+>32	CallExpression	val . n ( )
+>33	ArgumentList	 
+>34	Callee	val . n
+>35	MemberAccess	val . n
+>36	Identifier	n
+>37	Identifier	val
+>38	Identifier	i
+>39	ForInit	 
+>40	IdentifierDeclStatement	long i = 0 ;
+>41	IdentifierDecl	i = 0
+>42	AssignmentExpr	i = 0
+>43	PrimaryExpression	0
+>44	Identifier	i
+>45	Identifier	i
+>46	IdentifierDeclType	long
+>47	ExpressionStatement	 
+>48	CallExpression	mxGetPr ( plhs [ 1 ] )
+>49	ArgumentList	plhs [ 1 ]
+>50	Argument	plhs [ 1 ]
+>51	ArrayIndexing	plhs [ 1 ]
+>52	PrimaryExpression	1
+>53	Identifier	plhs
+>54	Callee	mxGetPr
+>55	Identifier	mxGetPr
+>56	Statement	 
+>57	Statement	 
+>58	Statement	 
+>59	Statement	 
+>60	Statement	 
+>61	Statement	 
+>62	Statement	 
+>63	Statement	 
+>64	Statement	 
+>65	ExpressionStatement	 
+>66	AssignmentExpr	plhs [ 1 ] = createMatrix < T > ( 1 , val . n ( ) )
+>67	RelationalExpression	createMatrix < T > ( 1 , val . n ( ) )
+>68	RelationalExpression	T > ( 1 , val . n ( ) )
+>69	Expression	1 , val . n ( )
+>70	CallExpression	val . n ( )
+>71	ArgumentList	 
+>72	Callee	val . n
+>73	MemberAccess	val . n
+>74	Identifier	n
+>75	Identifier	val
+>76	PrimaryExpression	1
+>77	Identifier	T
+>78	Identifier	createMatrix
+>79	ArrayIndexing	plhs [ 1 ]
+>80	PrimaryExpression	1
+>81	Identifier	plhs
+>82	Condition	 
+>83	EqualityExpression	nlhs == 2
+>84	PrimaryExpression	2
+>85	Identifier	nlhs
+>86	ExpressionStatement	 
+>87	RelationalExpression	FISTA 
+>88	RelationalExpression	T > ( alpha0 , alpha , param , val , NULL , & tree )
+>89	Expression	alpha0 , alpha , param , val , NULL , & tree
+>90	Expression	alpha , param , val , NULL , & tree
+>91	Expression	param , val , NULL , & tree
+>92	Expression	val , NULL , & tree
+>93	Expression	NULL , & tree
+>94	UnaryOp	& tree
+>95	Identifier	tree
+>96	UnaryOperator	&
+>97	Identifier	NULL
+>98	Identifier	val
+>99	Identifier	param
+>100	Identifier	alpha
+>101	Identifier	alpha0
+>102	Identifier	T
+>103	Identifier	FISTA 
+>104	IdentifierDeclStatement	 
+>105	IdentifierDecl	val
+>106	Identifier	val
+>107	IdentifierDeclType	Vector < T >
+>108	IfStatement	if ( param . regul == GRAPH || param . regul == GRAPHMULT )
+>109	ExpressionStatement	 
+>110	CallExpression	mexErrMsgTxt ( \"Error
+>111	ArgumentList	\"Error
+>112	Argument	\"Error
+>113	PrimaryExpression	\"Error
+>114	Callee	mexErrMsgTxt
+>115	Identifier	mexErrMsgTxt
+>116	Condition	 
+>117	OrExpression	param . regul == GRAPH || param . regul == GRAPHMULT
+>118	EqualityExpression	param . regul == GRAPHMULT
+>119	Identifier	GRAPHMULT
+>120	MemberAccess	param . regul
+>121	Identifier	regul
+>122	Identifier	param
+>123	EqualityExpression	param . regul == GRAPH
+>124	Identifier	GRAPH
+>125	MemberAccess	param . regul
+>126	Identifier	regul
+>127	Identifier	param
+>128	IfStatement	if ( param . regul == TREEMULT && abs < T > ( param . lambda2 - 0 ) < 1e-20 )
+>129	CompoundStatement	 
+>130	ExpressionStatement	 
+>131	CallExpression	mexErrMsgTxt ( \"Error
+>132	ArgumentList	\"Error
+>133	Argument	\"Error
+>134	PrimaryExpression	\"Error
+>135	Callee	mexErrMsgTxt
+>136	Identifier	mexErrMsgTxt
+>137	Condition	 
+>138	AndExpression	param . regul == TREEMULT && abs < T > ( param . lambda2 - 0 ) < 1e-20
+>139	RelationalExpression	abs < T > ( param . lambda2 - 0 ) < 1e-20
+>140	RelationalExpression	T > ( param . lambda2 - 0 ) < 1e-20
+>141	RelationalExpression	( param . lambda2 - 0 ) < 1e-20
+>142	PrimaryExpression	1e-20
+>143	AdditiveExpression	param . lambda2 - 0
+>144	PrimaryExpression	0
+>145	MemberAccess	param . lambda2
+>146	Identifier	lambda2
+>147	Identifier	param
+>148	Identifier	T
+>149	Identifier	abs
+>150	EqualityExpression	param . regul == TREEMULT
+>151	Identifier	TREEMULT
+>152	MemberAccess	param . regul
+>153	Identifier	regul
+>154	Identifier	param
+>155	IfStatement	if ( param . intercept )
+>156	ElseStatement	else
+>157	CompoundStatement	 
+>158	IfStatement	if ( tree . Nv != pAlpha )
+>159	ExpressionStatement	 
+>160	CallExpression	mexErrMsgTxt ( \"Error in tree definition\" )
+>161	ArgumentList	\"Error in tree definition\"
+>162	Argument	\"Error in tree definition\"
+>163	PrimaryExpression	\"Error in tree definition\"
+>164	Callee	mexErrMsgTxt
+>165	Identifier	mexErrMsgTxt
+>166	Condition	 
+>167	EqualityExpression	tree . Nv != pAlpha
+>168	Identifier	pAlpha
+>169	MemberAccess	tree . Nv
+>170	Identifier	Nv
+>171	Identifier	tree
+>172	CompoundStatement	 
+>173	IfStatement	if ( tree . Nv != pAlpha - 1 )
+>174	ExpressionStatement	 
+>175	CallExpression	mexErrMsgTxt ( \"Error in tree definition\" )
+>176	ArgumentList	\"Error in tree definition\"
+>177	Argument	\"Error in tree definition\"
+>178	PrimaryExpression	\"Error in tree definition\"
+>179	Callee	mexErrMsgTxt
+>180	Identifier	mexErrMsgTxt
+>181	Condition	 
+>182	EqualityExpression	tree . Nv != pAlpha - 1
+>183	AdditiveExpression	pAlpha - 1
+>184	PrimaryExpression	1
+>185	Identifier	pAlpha
+>186	MemberAccess	tree . Nv
+>187	Identifier	Nv
+>188	Identifier	tree
+>189	Condition	 
+>190	MemberAccess	param . intercept
+>191	Identifier	intercept
+>192	Identifier	param
+>193	ExpressionStatement	 
+>194	AssignmentExpr	tree . groups_jc = pr_groups_jc
+>195	Identifier	pr_groups_jc
+>196	MemberAccess	tree . groups_jc
+>197	Identifier	groups_jc
+>198	Identifier	tree
+>199	ExpressionStatement	 
+>200	AssignmentExpr	tree . groups_ir = pr_groups_ir
+>201	Identifier	pr_groups_ir
+>202	MemberAccess	tree . groups_ir
+>203	Identifier	groups_ir
+>204	Identifier	tree
+>205	ExpressionStatement	 
+>206	AssignmentExpr	tree . N_own_variables = pr_N_own_variables
+>207	Identifier	pr_N_own_variables
+>208	MemberAccess	tree . N_own_variables
+>209	Identifier	N_own_variables
+>210	Identifier	tree
+>211	ExpressionStatement	 
+>212	AssignmentExpr	tree . own_variables = pr_own_variables
+>213	Identifier	pr_own_variables
+>214	MemberAccess	tree . own_variables
+>215	Identifier	own_variables
+>216	Identifier	tree
+>217	ExpressionStatement	 
+>218	AssignmentExpr	tree . weights = pr_lambda_g
+>219	Identifier	pr_lambda_g
+>220	MemberAccess	tree . weights
+>221	Identifier	weights
+>222	Identifier	tree
+>223	ExpressionStatement	 
+>224	AssignmentExpr	tree . Ng = num_groups
+>225	Identifier	num_groups
+>226	MemberAccess	tree . Ng
+>227	Identifier	Ng
+>228	Identifier	tree
+>229	ForStatement	for ( long i = 0 ; i < num_groups ; ++ i )
+>230	ExpressionStatement	 
+>231	AssignmentExpr	tree . Nv += pr_N_own_variables [ i ]
+>232	ArrayIndexing	pr_N_own_variables [ i ]
+>233	Identifier	i
+>234	Identifier	pr_N_own_variables
+>235	MemberAccess	tree . Nv
+>236	Identifier	Nv
+>237	Identifier	tree
+>238	UnaryExpression	 
+>239	Identifier	i
+>240	IncDec	++
+>241	Condition	 
+>242	RelationalExpression	i < num_groups
+>243	Identifier	num_groups
+>244	Identifier	i
+>245	ForInit	 
+>246	IdentifierDeclStatement	long i = 0 ;
+>247	IdentifierDecl	i = 0
+>248	AssignmentExpr	i = 0
+>249	PrimaryExpression	0
+>250	Identifier	i
+>251	Identifier	i
+>252	IdentifierDeclType	long
+>253	ExpressionStatement	 
+>254	AssignmentExpr	tree . Nv = 0
+>255	PrimaryExpression	0
+>256	MemberAccess	tree . Nv
+>257	Identifier	Nv
+>258	Identifier	tree
+>259	IdentifierDeclStatement	 
+>260	IdentifierDecl	tree
+>261	Identifier	tree
+>262	IdentifierDeclType	TreeStruct < T >
+>263	IfStatement	if ( param . num_threads == - 1 )
+>264	CompoundStatement	 
+>265	ExpressionStatement	 
+>266	AssignmentExpr	param . num_threads = MIN ( MAX_THREADS , omp_get_num_procs ( ) )
+>267	CallExpression	MIN ( MAX_THREADS , omp_get_num_procs ( ) )
+>268	ArgumentList	MAX_THREADS
+>269	Argument	omp_get_num_procs ( )
+>270	CallExpression	omp_get_num_procs ( )
+>271	ArgumentList	 
+>272	Callee	omp_get_num_procs
+>273	Identifier	omp_get_num_procs
+>274	Argument	MAX_THREADS
+>275	Identifier	MAX_THREADS
+>276	Callee	MIN
+>277	Identifier	MIN
+>278	MemberAccess	param . num_threads
+>279	Identifier	num_threads
+>280	Identifier	param
+>281	ExpressionStatement	 
+>282	AssignmentExpr	param . num_threads = 1
+>283	PrimaryExpression	1
+>284	MemberAccess	param . num_threads
+>285	Identifier	num_threads
+>286	Identifier	param
+>287	Condition	 
+>288	EqualityExpression	param . num_threads == - 1
+>289	UnaryOp	- 1
+>290	PrimaryExpression	1
+>291	UnaryOperator	-
+>292	MemberAccess	param . num_threads
+>293	Identifier	num_threads
+>294	Identifier	param
+>295	IfStatement	if ( param . regul == INCORRECT_REG )
+>296	ExpressionStatement	 
+>297	CallExpression	mexErrMsgTxt ( \"Unknown regularization\" )
+>298	ArgumentList	\"Unknown regularization\"
+>299	Argument	\"Unknown regularization\"
+>300	PrimaryExpression	\"Unknown regularization\"
+>301	Callee	mexErrMsgTxt
+>302	Identifier	mexErrMsgTxt
+>303	Condition	 
+>304	EqualityExpression	param . regul == INCORRECT_REG
+>305	Identifier	INCORRECT_REG
+>306	MemberAccess	param . regul
+>307	Identifier	regul
+>308	Identifier	param
+>309	ExpressionStatement	 
+>310	AssignmentExpr	param . eval = nlhs == 2
+>311	EqualityExpression	nlhs == 2
+>312	PrimaryExpression	2
+>313	Identifier	nlhs
+>314	MemberAccess	param . eval
+>315	Identifier	eval
+>316	Identifier	param
+>317	ExpressionStatement	 
+>318	AssignmentExpr	param . regul = regul_from_string ( param . name_regul )
+>319	CallExpression	regul_from_string ( param . name_regul )
+>320	ArgumentList	param . name_regul
+>321	Argument	param . name_regul
+>322	MemberAccess	param . name_regul
+>323	Identifier	name_regul
+>324	Identifier	param
+>325	Callee	regul_from_string
+>326	Identifier	regul_from_string
+>327	MemberAccess	param . regul
+>328	Identifier	regul
+>329	Identifier	param
+>330	ExpressionStatement	 
+>331	CallExpression	getStringStruct ( prhs [ 2 ] , \"regul\" , param . name_regul , param . length_names )
+>332	ArgumentList	prhs [ 2 ]
+>333	Argument	param . length_names
+>334	MemberAccess	param . length_names
+>335	Identifier	length_names
+>336	Identifier	param
+>337	Argument	param . name_regul
+>338	MemberAccess	param . name_regul
+>339	Identifier	name_regul
+>340	Identifier	param
+>341	Argument	\"regul\"
+>342	PrimaryExpression	\"regul\"
+>343	Argument	prhs [ 2 ]
+>344	ArrayIndexing	prhs [ 2 ]
+>345	PrimaryExpression	2
+>346	Identifier	prhs
+>347	Callee	getStringStruct
+>348	Identifier	getStringStruct
+>349	ExpressionStatement	 
+>350	AssignmentExpr	param . transpose = getScalarStructDef < bool > ( prhs [ 2 ] , \"transpose\" , false )
+>351	RelationalExpression	getScalarStructDef < bool > ( prhs [ 2 ] , \"transpose\" , false )
+>352	RelationalExpression	bool > ( prhs [ 2 ] , \"transpose\" , false )
+>353	Expression	prhs [ 2 ] , \"transpose\" , false
+>354	Expression	\"transpose\" , false
+>355	Identifier	false
+>356	PrimaryExpression	\"transpose\"
+>357	ArrayIndexing	prhs [ 2 ]
+>358	PrimaryExpression	2
+>359	Identifier	prhs
+>360	Identifier	bool
+>361	Identifier	getScalarStructDef
+>362	MemberAccess	param . transpose
+>363	Identifier	transpose
+>364	Identifier	param
+>365	ExpressionStatement	 
+>366	AssignmentExpr	param . verbose = getScalarStructDef < bool > ( prhs [ 2 ] , \"verbose\" , false )
+>367	RelationalExpression	getScalarStructDef < bool > ( prhs [ 2 ] , \"verbose\" , false )
+>368	RelationalExpression	bool > ( prhs [ 2 ] , \"verbose\" , false )
+>369	Expression	prhs [ 2 ] , \"verbose\" , false
+>370	Expression	\"verbose\" , false
+>371	Identifier	false
+>372	PrimaryExpression	\"verbose\"
+>373	ArrayIndexing	prhs [ 2 ]
+>374	PrimaryExpression	2
+>375	Identifier	prhs
+>376	Identifier	bool
+>377	Identifier	getScalarStructDef
+>378	MemberAccess	param . verbose
+>379	Identifier	verbose
+>380	Identifier	param
+>381	ExpressionStatement	 
+>382	AssignmentExpr	param . resetflow = getScalarStructDef < bool > ( prhs [ 2 ] , \"resetflow\" , false )
+>383	RelationalExpression	getScalarStructDef < bool > ( prhs [ 2 ] , \"resetflow\" , false )
+>384	RelationalExpression	bool > ( prhs [ 2 ] , \"resetflow\" , false )
+>385	Expression	prhs [ 2 ] , \"resetflow\" , false
+>386	Expression	\"resetflow\" , false
+>387	Identifier	false
+>388	PrimaryExpression	\"resetflow\"
+>389	ArrayIndexing	prhs [ 2 ]
+>390	PrimaryExpression	2
+>391	Identifier	prhs
+>392	Identifier	bool
+>393	Identifier	getScalarStructDef
+>394	MemberAccess	param . resetflow
+>395	Identifier	resetflow
+>396	Identifier	param
+>397	ExpressionStatement	 
+>398	AssignmentExpr	param . intercept = getScalarStructDef < bool > ( prhs [ 2 ] , \"intercept\" , false )
+>399	RelationalExpression	getScalarStructDef < bool > ( prhs [ 2 ] , \"intercept\" , false )
+>400	RelationalExpression	bool > ( prhs [ 2 ] , \"intercept\" , false )
+>401	Expression	prhs [ 2 ] , \"intercept\" , false
+>402	Expression	\"intercept\" , false
+>403	Identifier	false
+>404	PrimaryExpression	\"intercept\"
+>405	ArrayIndexing	prhs [ 2 ]
+>406	PrimaryExpression	2
+>407	Identifier	prhs
+>408	Identifier	bool
+>409	Identifier	getScalarStructDef
+>410	MemberAccess	param . intercept
+>411	Identifier	intercept
+>412	Identifier	param
+>413	ExpressionStatement	 
+>414	Expression	prhs [ 2 ] , \"size_group\" , 1
+>415	Expression	\"size_group\" , 1
+>416	PrimaryExpression	1
+>417	PrimaryExpression	\"size_group\"
+>418	ArrayIndexing	prhs [ 2 ]
+>419	PrimaryExpression	2
+>420	Identifier	prhs
+>421	Statement	 
+>422	Statement	 
+>423	Statement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	ExpressionStatement	 
+>430	AssignmentExpr	param . lambda3 = getScalarStructDef < T > ( prhs [ 2 ] , \"lambda3\" , 0.0 )
+>431	RelationalExpression	getScalarStructDef < T > ( prhs [ 2 ] , \"lambda3\" , 0.0 )
+>432	RelationalExpression	T > ( prhs [ 2 ] , \"lambda3\" , 0.0 )
+>433	Expression	prhs [ 2 ] , \"lambda3\" , 0.0
+>434	Expression	\"lambda3\" , 0.0
+>435	PrimaryExpression	0.0
+>436	PrimaryExpression	\"lambda3\"
+>437	ArrayIndexing	prhs [ 2 ]
+>438	PrimaryExpression	2
+>439	Identifier	prhs
+>440	Identifier	T
+>441	Identifier	getScalarStructDef
+>442	MemberAccess	param . lambda3
+>443	Identifier	lambda3
+>444	Identifier	param
+>445	ExpressionStatement	 
+>446	AssignmentExpr	param . lambda2 = getScalarStructDef < T > ( prhs [ 2 ] , \"lambda2\" , 0.0 )
+>447	RelationalExpression	getScalarStructDef < T > ( prhs [ 2 ] , \"lambda2\" , 0.0 )
+>448	RelationalExpression	T > ( prhs [ 2 ] , \"lambda2\" , 0.0 )
+>449	Expression	prhs [ 2 ] , \"lambda2\" , 0.0
+>450	Expression	\"lambda2\" , 0.0
+>451	PrimaryExpression	0.0
+>452	PrimaryExpression	\"lambda2\"
+>453	ArrayIndexing	prhs [ 2 ]
+>454	PrimaryExpression	2
+>455	Identifier	prhs
+>456	Identifier	T
+>457	Identifier	getScalarStructDef
+>458	MemberAccess	param . lambda2
+>459	Identifier	lambda2
+>460	Identifier	param
+>461	ExpressionStatement	 
+>462	AssignmentExpr	param . lambda = getScalarStructDef < T > ( prhs [ 2 ] , \"lambda\" , 1.0 )
+>463	RelationalExpression	getScalarStructDef < T > ( prhs [ 2 ] , \"lambda\" , 1.0 )
+>464	RelationalExpression	T > ( prhs [ 2 ] , \"lambda\" , 1.0 )
+>465	Expression	prhs [ 2 ] , \"lambda\" , 1.0
+>466	Expression	\"lambda\" , 1.0
+>467	PrimaryExpression	1.0
+>468	PrimaryExpression	\"lambda\"
+>469	ArrayIndexing	prhs [ 2 ]
+>470	PrimaryExpression	2
+>471	Identifier	prhs
+>472	Identifier	T
+>473	Identifier	getScalarStructDef
+>474	MemberAccess	param . lambda
+>475	Identifier	lambda
+>476	Identifier	param
+>477	ExpressionStatement	 
+>478	AssignmentExpr	param . pos = getScalarStructDef < bool > ( prhs [ 2 ] , \"pos\" , false )
+>479	RelationalExpression	getScalarStructDef < bool > ( prhs [ 2 ] , \"pos\" , false )
+>480	RelationalExpression	bool > ( prhs [ 2 ] , \"pos\" , false )
+>481	Expression	prhs [ 2 ] , \"pos\" , false
+>482	Expression	\"pos\" , false
+>483	Identifier	false
+>484	PrimaryExpression	\"pos\"
+>485	ArrayIndexing	prhs [ 2 ]
+>486	PrimaryExpression	2
+>487	Identifier	prhs
+>488	Identifier	bool
+>489	Identifier	getScalarStructDef
+>490	MemberAccess	param . pos
+>491	Identifier	pos
+>492	Identifier	param
+>493	ExpressionStatement	 
+>494	Expression	prhs [ 2 ] , \"numThreads\" , - 1
+>495	Expression	\"numThreads\" , - 1
+>496	UnaryOp	- 1
+>497	PrimaryExpression	1
+>498	UnaryOperator	-
+>499	PrimaryExpression	\"numThreads\"
+>500	ArrayIndexing	prhs [ 2 ]
+>501	PrimaryExpression	2
+>502	Identifier	prhs
+>503	Statement	 
+>504	Statement	 
+>505	Statement	 
+>506	Statement	 
+>507	Statement	 
+>508	Statement	 
+>509	Statement	 
+>510	Statement	 
+>511	IdentifierDeclStatement	 
+>512	IdentifierDecl	param
+>513	Identifier	param
+>514	IdentifierDeclType	FISTA 
+>515	IdentifierDeclStatement	 
+>516	IdentifierDecl	alpha ( pr_alpha , pAlpha , nAlpha )
+>517	Expression	pr_alpha , pAlpha , nAlpha
+>518	Expression	pAlpha , nAlpha
+>519	Identifier	nAlpha
+>520	Identifier	pAlpha
+>521	Identifier	pr_alpha
+>522	Identifier	alpha
+>523	IdentifierDeclType	Matrix < T >
+>524	ExpressionStatement	 
+>525	CallExpression	mxGetPr ( plhs [ 0 ] )
+>526	ArgumentList	plhs [ 0 ]
+>527	Argument	plhs [ 0 ]
+>528	ArrayIndexing	plhs [ 0 ]
+>529	PrimaryExpression	0
+>530	Identifier	plhs
+>531	Callee	mxGetPr
+>532	Identifier	mxGetPr
+>533	Statement	 
+>534	Statement	 
+>535	Statement	 
+>536	Statement	 
+>537	Statement	 
+>538	Statement	 
+>539	Statement	 
+>540	Statement	 
+>541	Statement	 
+>542	ExpressionStatement	 
+>543	AssignmentExpr	plhs [ 0 ] = createMatrix < T > ( pAlpha , nAlpha )
+>544	RelationalExpression	createMatrix < T > ( pAlpha , nAlpha )
+>545	RelationalExpression	T > ( pAlpha , nAlpha )
+>546	Expression	pAlpha , nAlpha
+>547	Identifier	nAlpha
+>548	Identifier	pAlpha
+>549	Identifier	T
+>550	Identifier	createMatrix
+>551	ArrayIndexing	plhs [ 0 ]
+>552	PrimaryExpression	0
+>553	Identifier	plhs
+>554	ExpressionStatement	 
+>555	CallExpression	mxGetJc ( ppr_groups )
+>556	ArgumentList	ppr_groups
+>557	Argument	ppr_groups
+>558	Identifier	ppr_groups
+>559	Callee	mxGetJc
+>560	Identifier	mxGetJc
+>561	Statement	 
+>562	Statement	 
+>563	Statement	 
+>564	Statement	 
+>565	Statement	 
+>566	Statement	 
+>567	Statement	 
+>568	Statement	 
+>569	Statement	 
+>570	ExpressionStatement	 
+>571	CallExpression	mxGetIr ( ppr_groups )
+>572	ArgumentList	ppr_groups
+>573	Argument	ppr_groups
+>574	Identifier	ppr_groups
+>575	Callee	mxGetIr
+>576	Identifier	mxGetIr
+>577	Statement	 
+>578	Statement	 
+>579	Statement	 
+>580	Statement	 
+>581	Statement	 
+>582	Statement	 
+>583	Statement	 
+>584	Statement	 
+>585	Statement	 
+>586	IfStatement	if ( ! ppr_groups )
+>587	ExpressionStatement	 
+>588	CallExpression	mexErrMsgTxt ( \"field groups is not provided\" )
+>589	ArgumentList	\"field groups is not provided\"
+>590	Argument	\"field groups is not provided\"
+>591	PrimaryExpression	\"field groups is not provided\"
+>592	Callee	mexErrMsgTxt
+>593	Identifier	mexErrMsgTxt
+>594	Condition	 
+>595	UnaryOp	! ppr_groups
+>596	Identifier	ppr_groups
+>597	UnaryOperator	!
+>598	ExpressionStatement	 
+>599	CallExpression	mexErrMsgTxt ( \"Error in tree definition\" )
+>600	ArgumentList	\"Error in tree definition\"
+>601	Argument	\"Error in tree definition\"
+>602	PrimaryExpression	\"Error in tree definition\"
+>603	Callee	mexErrMsgTxt
+>604	Identifier	mexErrMsgTxt
+>605	Statement	 
+>606	Statement	 
+>607	Statement	 
+>608	Statement	 
+>609	Statement	 
+>610	Statement	 
+>611	Statement	 
+>612	Statement	 
+>613	Statement	 
+>614	Statement	 
+>615	Statement	 
+>616	Statement	 
+>617	Statement	 
+>618	Statement	 
+>619	Statement	 
+>620	Statement	 
+>621	Statement	 
+>622	Statement	 
+>623	Statement	 
+>624	Statement	 
+>625	Statement	 
+>626	Statement	 
+>627	Statement	 
+>628	Statement	 
+>629	Statement	 
+>630	Statement	 
+>631	Statement	 
+>632	Statement	 
+>633	Statement	 
+>634	Statement	 
+>635	Statement	 
+>636	Statement	 
+>637	IdentifierDeclStatement	 
+>638	IdentifierDecl	* dims_gg = mxGetDimensions ( ppr_groups )
+>639	AssignmentExpr	* dims_gg = mxGetDimensions ( ppr_groups )
+>640	CallExpression	mxGetDimensions ( ppr_groups )
+>641	ArgumentList	ppr_groups
+>642	Argument	ppr_groups
+>643	Identifier	ppr_groups
+>644	Callee	mxGetDimensions
+>645	Identifier	mxGetDimensions
+>646	Identifier	dims_gg
+>647	Identifier	dims_gg
+>648	IdentifierDeclType	const mwSize *
+>649	IdentifierDeclStatement	 
+>650	IdentifierDecl	* ppr_groups = mxGetField ( prhs [ 1 ] , 0 , \"groups\" )
+>651	AssignmentExpr	* ppr_groups = mxGetField ( prhs [ 1 ] , 0 , \"groups\" )
+>652	CallExpression	mxGetField ( prhs [ 1 ] , 0 , \"groups\" )
+>653	ArgumentList	prhs [ 1 ]
+>654	Argument	\"groups\"
+>655	PrimaryExpression	\"groups\"
+>656	Argument	0
+>657	PrimaryExpression	0
+>658	Argument	prhs [ 1 ]
+>659	ArrayIndexing	prhs [ 1 ]
+>660	PrimaryExpression	1
+>661	Identifier	prhs
+>662	Callee	mxGetField
+>663	Identifier	mxGetField
+>664	Identifier	ppr_groups
+>665	Identifier	ppr_groups
+>666	IdentifierDeclType	mxArray *
+>667	ExpressionStatement	 
+>668	CallExpression	mxGetPr ( ppr_lambda_g )
+>669	ArgumentList	ppr_lambda_g
+>670	Argument	ppr_lambda_g
+>671	Identifier	ppr_lambda_g
+>672	Callee	mxGetPr
+>673	Identifier	mxGetPr
+>674	Statement	 
+>675	Statement	 
+>676	Statement	 
+>677	Statement	 
+>678	Statement	 
+>679	Statement	 
+>680	Statement	 
+>681	Statement	 
+>682	Statement	 
+>683	IfStatement	if ( num_groups != num_groups3 )
+>684	ExpressionStatement	 
+>685	CallExpression	mexErrMsgTxt ( \"Error in tree definition\" )
+>686	ArgumentList	\"Error in tree definition\"
+>687	Argument	\"Error in tree definition\"
+>688	PrimaryExpression	\"Error in tree definition\"
+>689	Callee	mexErrMsgTxt
+>690	Identifier	mexErrMsgTxt
+>691	Condition	 
+>692	EqualityExpression	num_groups != num_groups3
+>693	Identifier	num_groups3
+>694	Identifier	num_groups
+>695	ExpressionStatement	 
+>696	ArrayIndexing	dims_weights [ 1 ]
+>697	PrimaryExpression	1
+>698	Identifier	dims_weights
+>699	Statement	 
+>700	Statement	 
+>701	Statement	 
+>702	Statement	 
+>703	Statement	 
+>704	Statement	 
+>705	Statement	 
+>706	Statement	 
+>707	Statement	 
+>708	Statement	 
+>709	Statement	 
+>710	Statement	 
+>711	Statement	 
+>712	Statement	 
+>713	Statement	 
+>714	Statement	 
+>715	Statement	 
+>716	Statement	 
+>717	IdentifierDeclStatement	 
+>718	IdentifierDecl	* dims_weights = mxGetDimensions ( ppr_lambda_g )
+>719	AssignmentExpr	* dims_weights = mxGetDimensions ( ppr_lambda_g )
+>720	CallExpression	mxGetDimensions ( ppr_lambda_g )
+>721	ArgumentList	ppr_lambda_g
+>722	Argument	ppr_lambda_g
+>723	Identifier	ppr_lambda_g
+>724	Callee	mxGetDimensions
+>725	Identifier	mxGetDimensions
+>726	Identifier	dims_weights
+>727	Identifier	dims_weights
+>728	IdentifierDeclType	const mwSize *
+>729	IfStatement	if ( ! ppr_lambda_g )
+>730	ExpressionStatement	 
+>731	CallExpression	mexErrMsgTxt ( \"field eta_g is not provided\" )
+>732	ArgumentList	\"field eta_g is not provided\"
+>733	Argument	\"field eta_g is not provided\"
+>734	PrimaryExpression	\"field eta_g is not provided\"
+>735	Callee	mexErrMsgTxt
+>736	Identifier	mexErrMsgTxt
+>737	Condition	 
+>738	UnaryOp	! ppr_lambda_g
+>739	Identifier	ppr_lambda_g
+>740	UnaryOperator	!
+>741	IdentifierDeclStatement	 
+>742	IdentifierDecl	* ppr_lambda_g = mxGetField ( prhs [ 1 ] , 0 , \"eta_g\" )
+>743	AssignmentExpr	* ppr_lambda_g = mxGetField ( prhs [ 1 ] , 0 , \"eta_g\" )
+>744	CallExpression	mxGetField ( prhs [ 1 ] , 0 , \"eta_g\" )
+>745	ArgumentList	prhs [ 1 ]
+>746	Argument	\"eta_g\"
+>747	PrimaryExpression	\"eta_g\"
+>748	Argument	0
+>749	PrimaryExpression	0
+>750	Argument	prhs [ 1 ]
+>751	ArrayIndexing	prhs [ 1 ]
+>752	PrimaryExpression	1
+>753	Identifier	prhs
+>754	Callee	mxGetField
+>755	Identifier	mxGetField
+>756	Identifier	ppr_lambda_g
+>757	Identifier	ppr_lambda_g
+>758	IdentifierDeclType	mxArray *
+>759	IfStatement	if ( pAlpha < num_var )
+>760	ExpressionStatement	 
+>761	CallExpression	mexErrMsgTxt ( \"Input alpha is too small\" )
+>762	ArgumentList	\"Input alpha is too small\"
+>763	Argument	\"Input alpha is too small\"
+>764	PrimaryExpression	\"Input alpha is too small\"
+>765	Callee	mexErrMsgTxt
+>766	Identifier	mexErrMsgTxt
+>767	Condition	 
+>768	RelationalExpression	pAlpha < num_var
+>769	Identifier	num_var
+>770	Identifier	pAlpha
+>771	ForStatement	for ( long i = 0 ; i < num_groups ; ++ i )
+>772	ExpressionStatement	 
+>773	AssignmentExpr	num_var += pr_N_own_variables [ i ]
+>774	ArrayIndexing	pr_N_own_variables [ i ]
+>775	Identifier	i
+>776	Identifier	pr_N_own_variables
+>777	Identifier	num_var
+>778	UnaryExpression	 
+>779	Identifier	i
+>780	IncDec	++
+>781	Condition	 
+>782	RelationalExpression	i < num_groups
+>783	Identifier	num_groups
+>784	Identifier	i
+>785	ForInit	 
+>786	IdentifierDeclStatement	long i = 0 ;
+>787	IdentifierDecl	i = 0
+>788	AssignmentExpr	i = 0
+>789	PrimaryExpression	0
+>790	Identifier	i
+>791	Identifier	i
+>792	IdentifierDeclType	long
+>793	IdentifierDeclStatement	 
+>794	IdentifierDecl	num_var = 0
+>795	AssignmentExpr	num_var = 0
+>796	PrimaryExpression	0
+>797	Identifier	num_var
+>798	Identifier	num_var
+>799	IdentifierDeclType	long
+>800	ExpressionStatement	 
+>801	CallExpression	mxGetPr ( ppr_N_own_variables )
+>802	ArgumentList	ppr_N_own_variables
+>803	Argument	ppr_N_own_variables
+>804	Identifier	ppr_N_own_variables
+>805	Callee	mxGetPr
+>806	Identifier	mxGetPr
+>807	Statement	 
+>808	Statement	 
+>809	Statement	 
+>810	Statement	 
+>811	Statement	 
+>812	Statement	 
+>813	Statement	 
+>814	Statement	 
+>815	Statement	 
+>816	IfStatement	if ( num_groups != num_groups2 )
+>817	ExpressionStatement	 
+>818	CallExpression	mexErrMsgTxt ( \"Error in tree definition\" )
+>819	ArgumentList	\"Error in tree definition\"
+>820	Argument	\"Error in tree definition\"
+>821	PrimaryExpression	\"Error in tree definition\"
+>822	Callee	mexErrMsgTxt
+>823	Identifier	mexErrMsgTxt
+>824	Condition	 
+>825	EqualityExpression	num_groups != num_groups2
+>826	Identifier	num_groups2
+>827	Identifier	num_groups
+>828	ExpressionStatement	 
+>829	ArrayIndexing	dims_var [ 1 ]
+>830	PrimaryExpression	1
+>831	Identifier	dims_var
+>832	Statement	 
+>833	Statement	 
+>834	Statement	 
+>835	Statement	 
+>836	Statement	 
+>837	Statement	 
+>838	Statement	 
+>839	Statement	 
+>840	Statement	 
+>841	Statement	 
+>842	Statement	 
+>843	Statement	 
+>844	Statement	 
+>845	Statement	 
+>846	Statement	 
+>847	Statement	 
+>848	Statement	 
+>849	Statement	 
+>850	IdentifierDeclStatement	 
+>851	IdentifierDecl	* dims_var = mxGetDimensions ( ppr_N_own_variables )
+>852	AssignmentExpr	* dims_var = mxGetDimensions ( ppr_N_own_variables )
+>853	CallExpression	mxGetDimensions ( ppr_N_own_variables )
+>854	ArgumentList	ppr_N_own_variables
+>855	Argument	ppr_N_own_variables
+>856	Identifier	ppr_N_own_variables
+>857	Callee	mxGetDimensions
+>858	Identifier	mxGetDimensions
+>859	Identifier	dims_var
+>860	Identifier	dims_var
+>861	IdentifierDeclType	const mwSize *
+>862	ExpressionStatement	 
+>863	CallExpression	mexErrMsgTxt ( \"N_own_variables field should be int32\" )
+>864	ArgumentList	\"N_own_variables field should be int32\"
+>865	Argument	\"N_own_variables field should be int32\"
+>866	PrimaryExpression	\"N_own_variables field should be int32\"
+>867	Callee	mexErrMsgTxt
+>868	Identifier	mexErrMsgTxt
+>869	Statement	 
+>870	Statement	 
+>871	Statement	 
+>872	Statement	 
+>873	Statement	 
+>874	Statement	 
+>875	Statement	 
+>876	Statement	 
+>877	Statement	 
+>878	Statement	 
+>879	Statement	 
+>880	IfStatement	if ( ! ppr_N_own_variables )
+>881	ExpressionStatement	 
+>882	CallExpression	mexErrMsgTxt ( \"field N_own_variables is not provided\" )
+>883	ArgumentList	\"field N_own_variables is not provided\"
+>884	Argument	\"field N_own_variables is not provided\"
+>885	PrimaryExpression	\"field N_own_variables is not provided\"
+>886	Callee	mexErrMsgTxt
+>887	Identifier	mexErrMsgTxt
+>888	Condition	 
+>889	UnaryOp	! ppr_N_own_variables
+>890	Identifier	ppr_N_own_variables
+>891	UnaryOperator	!
+>892	IdentifierDeclStatement	 
+>893	IdentifierDecl	* ppr_N_own_variables = mxGetField ( prhs [ 1 ] , 0 , \"N_own_variables\" )
+>894	AssignmentExpr	* ppr_N_own_variables = mxGetField ( prhs [ 1 ] , 0 , \"N_own_variables\" )
+>895	CallExpression	mxGetField ( prhs [ 1 ] , 0 , \"N_own_variables\" )
+>896	ArgumentList	prhs [ 1 ]
+>897	Argument	\"N_own_variables\"
+>898	PrimaryExpression	\"N_own_variables\"
+>899	Argument	0
+>900	PrimaryExpression	0
+>901	Argument	prhs [ 1 ]
+>902	ArrayIndexing	prhs [ 1 ]
+>903	PrimaryExpression	1
+>904	Identifier	prhs
+>905	Callee	mxGetField
+>906	Identifier	mxGetField
+>907	Identifier	ppr_N_own_variables
+>908	Identifier	ppr_N_own_variables
+>909	IdentifierDeclType	mxArray *
+>910	ExpressionStatement	 
+>911	ArrayIndexing	dims_groups [ 1 ]
+>912	PrimaryExpression	1
+>913	Identifier	dims_groups
+>914	Statement	 
+>915	Statement	 
+>916	Statement	 
+>917	Statement	 
+>918	Statement	 
+>919	Statement	 
+>920	Statement	 
+>921	Statement	 
+>922	Statement	 
+>923	Statement	 
+>924	Statement	 
+>925	Statement	 
+>926	Statement	 
+>927	Statement	 
+>928	Statement	 
+>929	Statement	 
+>930	Statement	 
+>931	Statement	 
+>932	IdentifierDeclStatement	 
+>933	IdentifierDecl	* dims_groups = mxGetDimensions ( ppr_own_variables )
+>934	AssignmentExpr	* dims_groups = mxGetDimensions ( ppr_own_variables )
+>935	CallExpression	mxGetDimensions ( ppr_own_variables )
+>936	ArgumentList	ppr_own_variables
+>937	Argument	ppr_own_variables
+>938	Identifier	ppr_own_variables
+>939	Callee	mxGetDimensions
+>940	Identifier	mxGetDimensions
+>941	Identifier	dims_groups
+>942	Identifier	dims_groups
+>943	IdentifierDeclType	const mwSize *
+>944	ExpressionStatement	 
+>945	CallExpression	mxGetPr ( ppr_own_variables )
+>946	ArgumentList	ppr_own_variables
+>947	Argument	ppr_own_variables
+>948	Identifier	ppr_own_variables
+>949	Callee	mxGetPr
+>950	Identifier	mxGetPr
+>951	Statement	 
+>952	Statement	 
+>953	Statement	 
+>954	Statement	 
+>955	Statement	 
+>956	Statement	 
+>957	Statement	 
+>958	Statement	 
+>959	Statement	 
+>960	IfStatement	if ( ! ppr_own_variables )
+>961	ExpressionStatement	 
+>962	CallExpression	mexErrMsgTxt ( \"field own_variables is not provided\" )
+>963	ArgumentList	\"field own_variables is not provided\"
+>964	Argument	\"field own_variables is not provided\"
+>965	PrimaryExpression	\"field own_variables is not provided\"
+>966	Callee	mexErrMsgTxt
+>967	Identifier	mexErrMsgTxt
+>968	Condition	 
+>969	UnaryOp	! ppr_own_variables
+>970	Identifier	ppr_own_variables
+>971	UnaryOperator	!
+>972	ExpressionStatement	 
+>973	CallExpression	mexErrMsgTxt ( \"own_variables field should be int32\" )
+>974	ArgumentList	\"own_variables field should be int32\"
+>975	Argument	\"own_variables field should be int32\"
+>976	PrimaryExpression	\"own_variables field should be int32\"
+>977	Callee	mexErrMsgTxt
+>978	Identifier	mexErrMsgTxt
+>979	Statement	 
+>980	Statement	 
+>981	Statement	 
+>982	Statement	 
+>983	Statement	 
+>984	Statement	 
+>985	Statement	 
+>986	Statement	 
+>987	Statement	 
+>988	Statement	 
+>989	Statement	 
+>990	IdentifierDeclStatement	 
+>991	IdentifierDecl	* ppr_own_variables = mxGetField ( prhs [ 1 ] , 0 , \"own_variables\" )
+>992	AssignmentExpr	* ppr_own_variables = mxGetField ( prhs [ 1 ] , 0 , \"own_variables\" )
+>993	CallExpression	mxGetField ( prhs [ 1 ] , 0 , \"own_variables\" )
+>994	ArgumentList	prhs [ 1 ]
+>995	Argument	\"own_variables\"
+>996	PrimaryExpression	\"own_variables\"
+>997	Argument	0
+>998	PrimaryExpression	0
+>999	Argument	prhs [ 1 ]
+>1000	ArrayIndexing	prhs [ 1 ]
+>1001	PrimaryExpression	1
+>1002	Identifier	prhs
+>1003	Callee	mxGetField
+>1004	Identifier	mxGetField
+>1005	Identifier	ppr_own_variables
+>1006	Identifier	ppr_own_variables
+>1007	IdentifierDeclType	mxArray *
+>1008	IdentifierDeclStatement	 
+>1009	IdentifierDecl	alpha0 ( pr_alpha0 , pAlpha , nAlpha )
+>1010	Expression	pr_alpha0 , pAlpha , nAlpha
+>1011	Expression	pAlpha , nAlpha
+>1012	Identifier	nAlpha
+>1013	Identifier	pAlpha
+>1014	Identifier	pr_alpha0
+>1015	Identifier	alpha0
+>1016	IdentifierDeclType	Matrix < T >
+>1017	ExpressionStatement	 
+>1018	ArrayIndexing	dimsAlpha [ 1 ]
+>1019	PrimaryExpression	1
+>1020	Identifier	dimsAlpha
+>1021	Statement	 
+>1022	Statement	 
+>1023	Statement	 
+>1024	Statement	 
+>1025	Statement	 
+>1026	Statement	 
+>1027	Statement	 
+>1028	ExpressionStatement	 
+>1029	ArrayIndexing	dimsAlpha [ 0 ]
+>1030	PrimaryExpression	0
+>1031	Identifier	dimsAlpha
+>1032	Statement	 
+>1033	Statement	 
+>1034	Statement	 
+>1035	Statement	 
+>1036	Statement	 
+>1037	Statement	 
+>1038	Statement	 
+>1039	IdentifierDeclStatement	 
+>1040	IdentifierDecl	* dimsAlpha = mxGetDimensions ( prhs [ 0 ] )
+>1041	AssignmentExpr	* dimsAlpha = mxGetDimensions ( prhs [ 0 ] )
+>1042	CallExpression	mxGetDimensions ( prhs [ 0 ] )
+>1043	ArgumentList	prhs [ 0 ]
+>1044	Argument	prhs [ 0 ]
+>1045	ArrayIndexing	prhs [ 0 ]
+>1046	PrimaryExpression	0
+>1047	Identifier	prhs
+>1048	Callee	mxGetDimensions
+>1049	Identifier	mxGetDimensions
+>1050	Identifier	dimsAlpha
+>1051	Identifier	dimsAlpha
+>1052	IdentifierDeclType	const mwSize *
+>1053	ExpressionStatement	 
+>1054	CallExpression	mxGetPr ( prhs [ 0 ] )
+>1055	ArgumentList	prhs [ 0 ]
+>1056	Argument	prhs [ 0 ]
+>1057	ArrayIndexing	prhs [ 0 ]
+>1058	PrimaryExpression	0
+>1059	Identifier	prhs
+>1060	Callee	mxGetPr
+>1061	Identifier	mxGetPr
+>1062	Statement	 
+>1063	Statement	 
+>1064	Statement	 
+>1065	Statement	 
+>1066	Statement	 
+>1067	Statement	 
+>1068	Statement	 
+>1069	Statement	 
+>1070	Statement	 
+>1071	IfStatement	if ( ! mxIsStruct ( prhs [ 2 ] ) )
+>1072	ExpressionStatement	 
+>1073	CallExpression	mexErrMsgTxt ( \"argument 3 should be struct\" )
+>1074	ArgumentList	\"argument 3 should be struct\"
+>1075	Argument	\"argument 3 should be struct\"
+>1076	PrimaryExpression	\"argument 3 should be struct\"
+>1077	Callee	mexErrMsgTxt
+>1078	Identifier	mexErrMsgTxt
+>1079	Condition	 
+>1080	UnaryOp	! mxIsStruct ( prhs [ 2 ] )
+>1081	CallExpression	mxIsStruct ( prhs [ 2 ] )
+>1082	ArgumentList	prhs [ 2 ]
+>1083	Argument	prhs [ 2 ]
+>1084	ArrayIndexing	prhs [ 2 ]
+>1085	PrimaryExpression	2
+>1086	Identifier	prhs
+>1087	Callee	mxIsStruct
+>1088	Identifier	mxIsStruct
+>1089	UnaryOperator	!
+>1090	IfStatement	if ( ! mxIsStruct ( prhs [ 1 ] ) )
+>1091	ExpressionStatement	 
+>1092	CallExpression	mexErrMsgTxt ( \"argument 2 should be struct\" )
+>1093	ArgumentList	\"argument 2 should be struct\"
+>1094	Argument	\"argument 2 should be struct\"
+>1095	PrimaryExpression	\"argument 2 should be struct\"
+>1096	Callee	mexErrMsgTxt
+>1097	Identifier	mexErrMsgTxt
+>1098	Condition	 
+>1099	UnaryOp	! mxIsStruct ( prhs [ 1 ] )
+>1100	CallExpression	mxIsStruct ( prhs [ 1 ] )
+>1101	ArgumentList	prhs [ 1 ]
+>1102	Argument	prhs [ 1 ]
+>1103	ArrayIndexing	prhs [ 1 ]
+>1104	PrimaryExpression	1
+>1105	Identifier	prhs
+>1106	Callee	mxIsStruct
+>1107	Identifier	mxIsStruct
+>1108	UnaryOperator	!
+>1109	IfStatement	if ( mxIsSparse ( prhs [ 0 ] ) )
+>1110	ExpressionStatement	 
+>1111	CallExpression	mexErrMsgTxt ( \"argument 1 should not be sparse\" )
+>1112	ArgumentList	\"argument 1 should not be sparse\"
+>1113	Argument	\"argument 1 should not be sparse\"
+>1114	PrimaryExpression	\"argument 1 should not be sparse\"
+>1115	Callee	mexErrMsgTxt
+>1116	Identifier	mexErrMsgTxt
+>1117	Condition	 
+>1118	CallExpression	mxIsSparse ( prhs [ 0 ] )
+>1119	ArgumentList	prhs [ 0 ]
+>1120	Argument	prhs [ 0 ]
+>1121	ArrayIndexing	prhs [ 0 ]
+>1122	PrimaryExpression	0
+>1123	Identifier	prhs
+>1124	Callee	mxIsSparse
+>1125	Identifier	mxIsSparse
+>1126	IfStatement	if ( ! mexCheckType < T > ( prhs [ 0 ] ) )
+>1127	ExpressionStatement	 
+>1128	CallExpression	mexErrMsgTxt ( \"type of argument 1 is not consistent\" )
+>1129	ArgumentList	\"type of argument 1 is not consistent\"
+>1130	Argument	\"type of argument 1 is not consistent\"
+>1131	PrimaryExpression	\"type of argument 1 is not consistent\"
+>1132	Callee	mexErrMsgTxt
+>1133	Identifier	mexErrMsgTxt
+>1134	Condition	 
+>1135	RelationalExpression	! mexCheckType < T > ( prhs [ 0 ] )
+>1136	RelationalExpression	T > ( prhs [ 0 ] )
+>1137	ArrayIndexing	prhs [ 0 ]
+>1138	PrimaryExpression	0
+>1139	Identifier	prhs
+>1140	Identifier	T
+>1141	UnaryOp	! mexCheckType
+>1142	Identifier	mexCheckType
+>1143	UnaryOperator	!
+>1223	FunctionDef	mexFunction (int nlhs , mxArray * plhs [ ] , int nrhs , const mxArray * prhs [ ])
+>1224	ParameterList	int nlhs , mxArray * plhs [ ] , int nrhs , const mxArray * prhs [ ]
+>1225	Parameter	 
+>1226	Identifier	prhs
+>1227	ParameterType	const mxArray * [ ]
+>1228	Parameter	 
+>1229	Identifier	nrhs
+>1230	ParameterType	int
+>1231	Parameter	 
+>1232	Identifier	plhs
+>1233	ParameterType	mxArray * [ ]
+>1234	Parameter	 
+>1235	Identifier	nlhs
+>1236	ParameterType	int
+>1237	ReturnType	void
+>1238	CompoundStatement	 
+>1239	IfStatement	if ( mxGetClassID ( prhs [ 0 ] ) == mxDOUBLE_CLASS )
+>1240	ElseStatement	else
+>1241	CompoundStatement	 
+>1242	ExpressionStatement	 
+>1243	RelationalExpression	callFunction < float > ( plhs , prhs , nlhs )
+>1244	RelationalExpression	float > ( plhs , prhs , nlhs )
+>1245	Expression	plhs , prhs , nlhs
+>1246	Expression	prhs , nlhs
+>1247	Identifier	nlhs
+>1248	Identifier	prhs
+>1249	Identifier	plhs
+>1250	Identifier	float
+>1251	Identifier	callFunction
+>1252	CompoundStatement	 
+>1253	ExpressionStatement	 
+>1254	RelationalExpression	callFunction < double > ( plhs , prhs , nlhs )
+>1255	RelationalExpression	double > ( plhs , prhs , nlhs )
+>1256	Expression	plhs , prhs , nlhs
+>1257	Expression	prhs , nlhs
+>1258	Identifier	nlhs
+>1259	Identifier	prhs
+>1260	Identifier	plhs
+>1261	Identifier	double
+>1262	Identifier	callFunction
+>1263	Condition	 
+>1264	EqualityExpression	mxGetClassID ( prhs [ 0 ] ) == mxDOUBLE_CLASS
+>1265	Identifier	mxDOUBLE_CLASS
+>1266	CallExpression	mxGetClassID ( prhs [ 0 ] )
+>1267	ArgumentList	prhs [ 0 ]
+>1268	Argument	prhs [ 0 ]
+>1269	ArrayIndexing	prhs [ 0 ]
+>1270	PrimaryExpression	0
+>1271	Identifier	prhs
+>1272	Callee	mxGetClassID
+>1273	Identifier	mxGetClassID
+>1274	IfStatement	if ( nlhs != 1 && nlhs != 2 )
+>1275	ExpressionStatement	 
+>1276	CallExpression	mexErrMsgTxt ( \"Bad number of output arguments\" )
+>1277	ArgumentList	\"Bad number of output arguments\"
+>1278	Argument	\"Bad number of output arguments\"
+>1279	PrimaryExpression	\"Bad number of output arguments\"
+>1280	Callee	mexErrMsgTxt
+>1281	Identifier	mexErrMsgTxt
+>1282	Condition	 
+>1283	AndExpression	nlhs != 1 && nlhs != 2
+>1284	EqualityExpression	nlhs != 2
+>1285	PrimaryExpression	2
+>1286	Identifier	nlhs
+>1287	EqualityExpression	nlhs != 1
+>1288	PrimaryExpression	1
+>1289	Identifier	nlhs
+>1290	IfStatement	if ( nrhs != 3 )
+>1291	ExpressionStatement	 
+>1292	CallExpression	mexErrMsgTxt ( \"Bad number of inputs arguments\" )
+>1293	ArgumentList	\"Bad number of inputs arguments\"
+>1294	Argument	\"Bad number of inputs arguments\"
+>1295	PrimaryExpression	\"Bad number of inputs arguments\"
+>1296	Callee	mexErrMsgTxt
+>1297	Identifier	mexErrMsgTxt
+>1298	Condition	 
+>1299	EqualityExpression	nrhs != 3
+>1300	PrimaryExpression	3
+>1301	Identifier	nrhs
+<3=15,14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<15=1126,1109,1090,1071,1070,1069,1068,1067,1066,1065,1064,1063,1062,1053,1039,1038,1037,1036,1035,1034,1033,1032,1028,1027,1026,1025,1024,1023,1022,1021,1017,1008,990,989,988,987,986,985,984,983,982,981,980,979,972,960,959,958,957,956,955,954,953,952,951,944,932,931,930,929,928,927,926,925,924,923,922,921,920,919,918,917,916,915,914,910,892,880,879,878,877,876,875,874,873,872,871,870,869,862,850,849,848,847,846,845,844,843,842,841,840,839,838,837,836,835,834,833,832,828,816,815,814,813,812,811,810,809,808,807,800,793,771,759,741,729,717,716,715,714,713,712,711,710,709,708,707,706,705,704,703,702,701,700,699,695,683,682,681,680,679,678,677,676,675,674,667,649,637,636,635,634,633,632,631,630,629,628,627,626,625,624,623,622,621,620,619,618,617,616,615,614,613,612,611,610,609,608,607,606,605,598,586,585,584,583,582,581,580,579,578,577,570,569,568,567,566,565,564,563,562,561,554,542,541,540,539,538,537,536,535,534,16,86,104,108,128,155,193,199,205,211,217,223,229,253,259,263,295,309,317,330,349,365,381,397,413,421,422,423,424,425,426,427,428,429,445,461,477,493,503,504,505,506,507,508,509,510,511,515,524,533
+<16=82,17
+<17=65,64,63,62,61,60,59,58,57,56,47,18
+<18=39,30,27,19
+<19=20
+<20=24,21
+<21=23,22
+<24=26,25
+<27=29,28
+<30=31
+<31=38,32
+<32=34,33
+<34=35
+<35=37,36
+<39=40
+<40=41
+<41=46,45,42
+<42=44,43
+<47=48
+<48=54,49
+<49=50
+<50=51
+<51=53,52
+<54=55
+<65=66
+<66=79,67
+<67=78,68
+<68=77,69
+<69=76,70
+<70=72,71
+<72=73
+<73=75,74
+<79=81,80
+<82=83
+<83=85,84
+<86=87
+<87=103,88
+<88=102,89
+<89=101,90
+<90=100,91
+<91=99,92
+<92=98,93
+<93=97,94
+<94=96,95
+<104=105
+<105=107,106
+<108=116,109
+<109=110
+<110=114,111
+<111=112
+<112=113
+<114=115
+<116=117
+<117=123,118
+<118=120,119
+<120=122,121
+<123=125,124
+<125=127,126
+<128=137,129
+<129=130
+<130=131
+<131=135,132
+<132=133
+<133=134
+<135=136
+<137=138
+<138=150,139
+<139=149,140
+<140=148,141
+<141=143,142
+<143=145,144
+<145=147,146
+<150=152,151
+<152=154,153
+<155=189,172,156
+<156=157
+<157=158
+<158=166,159
+<159=160
+<160=164,161
+<161=162
+<162=163
+<164=165
+<166=167
+<167=169,168
+<169=171,170
+<172=173
+<173=181,174
+<174=175
+<175=179,176
+<176=177
+<177=178
+<179=180
+<181=182
+<182=186,183
+<183=185,184
+<186=188,187
+<189=190
+<190=192,191
+<193=194
+<194=196,195
+<196=198,197
+<199=200
+<200=202,201
+<202=204,203
+<205=206
+<206=208,207
+<208=210,209
+<211=212
+<212=214,213
+<214=216,215
+<217=218
+<218=220,219
+<220=222,221
+<223=224
+<224=226,225
+<226=228,227
+<229=245,241,238,230
+<230=231
+<231=235,232
+<232=234,233
+<235=237,236
+<238=240,239
+<241=242
+<242=244,243
+<245=246
+<246=247
+<247=252,251,248
+<248=250,249
+<253=254
+<254=256,255
+<256=258,257
+<259=260
+<260=262,261
+<263=287,264
+<264=281,265
+<265=266
+<266=278,267
+<267=276,268
+<268=274,269
+<269=270
+<270=272,271
+<272=273
+<274=275
+<276=277
+<278=280,279
+<281=282
+<282=284,283
+<284=286,285
+<287=288
+<288=292,289
+<289=291,290
+<292=294,293
+<295=303,296
+<296=297
+<297=301,298
+<298=299
+<299=300
+<301=302
+<303=304
+<304=306,305
+<306=308,307
+<309=310
+<310=314,311
+<311=313,312
+<314=316,315
+<317=318
+<318=327,319
+<319=325,320
+<320=321
+<321=322
+<322=324,323
+<325=326
+<327=329,328
+<330=331
+<331=347,332
+<332=343,341,337,333
+<333=334
+<334=336,335
+<337=338
+<338=340,339
+<341=342
+<343=344
+<344=346,345
+<347=348
+<349=350
+<350=362,351
+<351=361,352
+<352=360,353
+<353=357,354
+<354=356,355
+<357=359,358
+<362=364,363
+<365=366
+<366=378,367
+<367=377,368
+<368=376,369
+<369=373,370
+<370=372,371
+<373=375,374
+<378=380,379
+<381=382
+<382=394,383
+<383=393,384
+<384=392,385
+<385=389,386
+<386=388,387
+<389=391,390
+<394=396,395
+<397=398
+<398=410,399
+<399=409,400
+<400=408,401
+<401=405,402
+<402=404,403
+<405=407,406
+<410=412,411
+<413=414
+<414=418,415
+<415=417,416
+<418=420,419
+<429=430
+<430=442,431
+<431=441,432
+<432=440,433
+<433=437,434
+<434=436,435
+<437=439,438
+<442=444,443
+<445=446
+<446=458,447
+<447=457,448
+<448=456,449
+<449=453,450
+<450=452,451
+<453=455,454
+<458=460,459
+<461=462
+<462=474,463
+<463=473,464
+<464=472,465
+<465=469,466
+<466=468,467
+<469=471,470
+<474=476,475
+<477=478
+<478=490,479
+<479=489,480
+<480=488,481
+<481=485,482
+<482=484,483
+<485=487,486
+<490=492,491
+<493=494
+<494=500,495
+<495=499,496
+<496=498,497
+<500=502,501
+<511=512
+<512=514,513
+<515=516
+<516=523,522,517
+<517=521,518
+<518=520,519
+<524=525
+<525=531,526
+<526=527
+<527=528
+<528=530,529
+<531=532
+<542=543
+<543=551,544
+<544=550,545
+<545=549,546
+<546=548,547
+<551=553,552
+<554=555
+<555=559,556
+<556=557
+<557=558
+<559=560
+<570=571
+<571=575,572
+<572=573
+<573=574
+<575=576
+<586=594,587
+<587=588
+<588=592,589
+<589=590
+<590=591
+<592=593
+<594=595
+<595=597,596
+<598=599
+<599=603,600
+<600=601
+<601=602
+<603=604
+<637=638
+<638=648,647,639
+<639=646,640
+<640=644,641
+<641=642
+<642=643
+<644=645
+<649=650
+<650=666,665,651
+<651=664,652
+<652=662,653
+<653=658,656,654
+<654=655
+<656=657
+<658=659
+<659=661,660
+<662=663
+<667=668
+<668=672,669
+<669=670
+<670=671
+<672=673
+<683=691,684
+<684=685
+<685=689,686
+<686=687
+<687=688
+<689=690
+<691=692
+<692=694,693
+<695=696
+<696=698,697
+<717=718
+<718=728,727,719
+<719=726,720
+<720=724,721
+<721=722
+<722=723
+<724=725
+<729=737,730
+<730=731
+<731=735,732
+<732=733
+<733=734
+<735=736
+<737=738
+<738=740,739
+<741=742
+<742=758,757,743
+<743=756,744
+<744=754,745
+<745=750,748,746
+<746=747
+<748=749
+<750=751
+<751=753,752
+<754=755
+<759=767,760
+<760=761
+<761=765,762
+<762=763
+<763=764
+<765=766
+<767=768
+<768=770,769
+<771=785,781,778,772
+<772=773
+<773=777,774
+<774=776,775
+<778=780,779
+<781=782
+<782=784,783
+<785=786
+<786=787
+<787=792,791,788
+<788=790,789
+<793=794
+<794=799,798,795
+<795=797,796
+<800=801
+<801=805,802
+<802=803
+<803=804
+<805=806
+<816=824,817
+<817=818
+<818=822,819
+<819=820
+<820=821
+<822=823
+<824=825
+<825=827,826
+<828=829
+<829=831,830
+<850=851
+<851=861,860,852
+<852=859,853
+<853=857,854
+<854=855
+<855=856
+<857=858
+<862=863
+<863=867,864
+<864=865
+<865=866
+<867=868
+<880=888,881
+<881=882
+<882=886,883
+<883=884
+<884=885
+<886=887
+<888=889
+<889=891,890
+<892=893
+<893=909,908,894
+<894=907,895
+<895=905,896
+<896=901,899,897
+<897=898
+<899=900
+<901=902
+<902=904,903
+<905=906
+<910=911
+<911=913,912
+<932=933
+<933=943,942,934
+<934=941,935
+<935=939,936
+<936=937
+<937=938
+<939=940
+<944=945
+<945=949,946
+<946=947
+<947=948
+<949=950
+<960=968,961
+<961=962
+<962=966,963
+<963=964
+<964=965
+<966=967
+<968=969
+<969=971,970
+<972=973
+<973=977,974
+<974=975
+<975=976
+<977=978
+<990=991
+<991=1007,1006,992
+<992=1005,993
+<993=1003,994
+<994=999,997,995
+<995=996
+<997=998
+<999=1000
+<1000=1002,1001
+<1003=1004
+<1008=1009
+<1009=1016,1015,1010
+<1010=1014,1011
+<1011=1013,1012
+<1017=1018
+<1018=1020,1019
+<1028=1029
+<1029=1031,1030
+<1039=1040
+<1040=1052,1051,1041
+<1041=1050,1042
+<1042=1048,1043
+<1043=1044
+<1044=1045
+<1045=1047,1046
+<1048=1049
+<1053=1054
+<1054=1060,1055
+<1055=1056
+<1056=1057
+<1057=1059,1058
+<1060=1061
+<1071=1079,1072
+<1072=1073
+<1073=1077,1074
+<1074=1075
+<1075=1076
+<1077=1078
+<1079=1080
+<1080=1089,1081
+<1081=1087,1082
+<1082=1083
+<1083=1084
+<1084=1086,1085
+<1087=1088
+<1090=1098,1091
+<1091=1092
+<1092=1096,1093
+<1093=1094
+<1094=1095
+<1096=1097
+<1098=1099
+<1099=1108,1100
+<1100=1106,1101
+<1101=1102
+<1102=1103
+<1103=1105,1104
+<1106=1107
+<1109=1117,1110
+<1110=1111
+<1111=1115,1112
+<1112=1113
+<1113=1114
+<1115=1116
+<1117=1118
+<1118=1124,1119
+<1119=1120
+<1120=1121
+<1121=1123,1122
+<1124=1125
+<1126=1134,1127
+<1127=1128
+<1128=1132,1129
+<1129=1130
+<1130=1131
+<1132=1133
+<1134=1135
+<1135=1141,1136
+<1136=1140,1137
+<1137=1139,1138
+<1141=1143,1142
+<1223=1238,1237,1224
+<1224=1234,1231,1228,1225
+<1225=1227,1226
+<1228=1230,1229
+<1231=1233,1232
+<1234=1236,1235
+<1238=1290,1274,1239
+<1239=1263,1252,1240
+<1240=1241
+<1241=1242
+<1242=1243
+<1243=1251,1244
+<1244=1250,1245
+<1245=1249,1246
+<1246=1248,1247
+<1252=1253
+<1253=1254
+<1254=1262,1255
+<1255=1261,1256
+<1256=1260,1257
+<1257=1259,1258
+<1263=1264
+<1264=1266,1265
+<1266=1272,1267
+<1267=1268
+<1268=1269
+<1269=1271,1270
+<1272=1273
+<1274=1282,1275
+<1275=1276
+<1276=1280,1277
+<1277=1278
+<1278=1279
+<1280=1281
+<1282=1283
+<1283=1287,1284
+<1284=1286,1285
+<1287=1289,1288
+<1290=1298,1291
+<1291=1292
+<1292=1296,1293
+<1293=1294
+<1294=1295
+<1296=1297
+<1298=1299
+<1299=1301,1300

@@ -1,0 +1,3825 @@
+>3	FunctionDef	P_AproxDistance (fixed_t dx , fixed_t dy)
+>4	ParameterList	fixed_t dx , fixed_t dy
+>5	Parameter	 
+>6	Identifier	dy
+>7	ParameterType	fixed_t
+>8	Parameter	 
+>9	Identifier	dx
+>10	ParameterType	fixed_t
+>11	ReturnType	fixed_t
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	AdditiveExpression	dx + dy - ( dy >> 1 )
+>15	AdditiveExpression	dy - ( dy >> 1 )
+>16	ShiftExpression	dy >> 1
+>17	PrimaryExpression	1
+>18	Identifier	dy
+>19	Identifier	dy
+>20	Identifier	dx
+>21	IfStatement	if ( dx < dy )
+>22	ReturnStatement	 
+>23	AdditiveExpression	dx + dy - ( dx >> 1 )
+>24	AdditiveExpression	dy - ( dx >> 1 )
+>25	ShiftExpression	dx >> 1
+>26	PrimaryExpression	1
+>27	Identifier	dx
+>28	Identifier	dy
+>29	Identifier	dx
+>30	Condition	 
+>31	RelationalExpression	dx < dy
+>32	Identifier	dy
+>33	Identifier	dx
+>34	ExpressionStatement	 
+>35	AssignmentExpr	dy = abs ( dy )
+>36	CallExpression	abs ( dy )
+>37	ArgumentList	dy
+>38	Argument	dy
+>39	Identifier	dy
+>40	Callee	abs
+>41	Identifier	abs
+>42	Identifier	dy
+>43	ExpressionStatement	 
+>44	AssignmentExpr	dx = abs ( dx )
+>45	CallExpression	abs ( dx )
+>46	ArgumentList	dx
+>47	Argument	dx
+>48	Identifier	dx
+>49	Callee	abs
+>50	Identifier	abs
+>51	Identifier	dx
+>58	FunctionDef	P_PointOnLineSide (fixed_t x , fixed_t y , line_t * line)
+>59	ParameterList	fixed_t x , fixed_t y , line_t * line
+>60	Parameter	 
+>61	Identifier	line
+>62	ParameterType	line_t *
+>63	Parameter	 
+>64	Identifier	y
+>65	ParameterType	fixed_t
+>66	Parameter	 
+>67	Identifier	x
+>68	ParameterType	fixed_t
+>69	ReturnType	int
+>70	CompoundStatement	 
+>71	ReturnStatement	 
+>72	PrimaryExpression	1
+>73	IfStatement	if ( right < left )
+>74	ReturnStatement	 
+>75	PrimaryExpression	0
+>76	Condition	 
+>77	RelationalExpression	right < left
+>78	Identifier	left
+>79	Identifier	right
+>80	ExpressionStatement	 
+>81	AssignmentExpr	right = FixedMul ( dy , line -> dx >> FRACBITS )
+>82	CallExpression	FixedMul ( dy , line -> dx >> FRACBITS )
+>83	ArgumentList	dy
+>84	Argument	line -> dx >> FRACBITS
+>85	ShiftExpression	line -> dx >> FRACBITS
+>86	Identifier	FRACBITS
+>87	PtrMemberAccess	line -> dx
+>88	Identifier	dx
+>89	Identifier	line
+>90	Argument	dy
+>91	Identifier	dy
+>92	Callee	FixedMul
+>93	Identifier	FixedMul
+>94	Identifier	right
+>95	ExpressionStatement	 
+>96	AssignmentExpr	left = FixedMul ( line -> dy >> FRACBITS , dx )
+>97	CallExpression	FixedMul ( line -> dy >> FRACBITS , dx )
+>98	ArgumentList	line -> dy >> FRACBITS
+>99	Argument	dx
+>100	Identifier	dx
+>101	Argument	line -> dy >> FRACBITS
+>102	ShiftExpression	line -> dy >> FRACBITS
+>103	Identifier	FRACBITS
+>104	PtrMemberAccess	line -> dy
+>105	Identifier	dy
+>106	Identifier	line
+>107	Callee	FixedMul
+>108	Identifier	FixedMul
+>109	Identifier	left
+>110	ExpressionStatement	 
+>111	AssignmentExpr	dy = ( y - line -> v1 -> y )
+>112	AdditiveExpression	y - line -> v1 -> y
+>113	PtrMemberAccess	line -> v1 -> y
+>114	Identifier	y
+>115	PtrMemberAccess	line -> v1
+>116	Identifier	v1
+>117	Identifier	line
+>118	Identifier	y
+>119	Identifier	dy
+>120	ExpressionStatement	 
+>121	AssignmentExpr	dx = ( x - line -> v1 -> x )
+>122	AdditiveExpression	x - line -> v1 -> x
+>123	PtrMemberAccess	line -> v1 -> x
+>124	Identifier	x
+>125	PtrMemberAccess	line -> v1
+>126	Identifier	v1
+>127	Identifier	line
+>128	Identifier	x
+>129	Identifier	dx
+>130	IfStatement	if ( ! line -> dy )
+>131	CompoundStatement	 
+>132	ReturnStatement	 
+>133	RelationalExpression	line -> dx > 0
+>134	PrimaryExpression	0
+>135	PtrMemberAccess	line -> dx
+>136	Identifier	dx
+>137	Identifier	line
+>138	IfStatement	if ( y <= line -> v1 -> y )
+>139	ReturnStatement	 
+>140	RelationalExpression	line -> dx < 0
+>141	PrimaryExpression	0
+>142	PtrMemberAccess	line -> dx
+>143	Identifier	dx
+>144	Identifier	line
+>145	Condition	 
+>146	RelationalExpression	y <= line -> v1 -> y
+>147	PtrMemberAccess	line -> v1 -> y
+>148	Identifier	y
+>149	PtrMemberAccess	line -> v1
+>150	Identifier	v1
+>151	Identifier	line
+>152	Identifier	y
+>153	Condition	 
+>154	UnaryOp	! line -> dy
+>155	PtrMemberAccess	line -> dy
+>156	Identifier	dy
+>157	Identifier	line
+>158	UnaryOperator	!
+>159	IfStatement	if ( ! line -> dx )
+>160	CompoundStatement	 
+>161	ReturnStatement	 
+>162	RelationalExpression	line -> dy < 0
+>163	PrimaryExpression	0
+>164	PtrMemberAccess	line -> dy
+>165	Identifier	dy
+>166	Identifier	line
+>167	IfStatement	if ( x <= line -> v1 -> x )
+>168	ReturnStatement	 
+>169	RelationalExpression	line -> dy > 0
+>170	PrimaryExpression	0
+>171	PtrMemberAccess	line -> dy
+>172	Identifier	dy
+>173	Identifier	line
+>174	Condition	 
+>175	RelationalExpression	x <= line -> v1 -> x
+>176	PtrMemberAccess	line -> v1 -> x
+>177	Identifier	x
+>178	PtrMemberAccess	line -> v1
+>179	Identifier	v1
+>180	Identifier	line
+>181	Identifier	x
+>182	Condition	 
+>183	UnaryOp	! line -> dx
+>184	PtrMemberAccess	line -> dx
+>185	Identifier	dx
+>186	Identifier	line
+>187	UnaryOperator	!
+>188	IdentifierDeclStatement	 
+>189	IdentifierDecl	right
+>190	Identifier	right
+>191	IdentifierDeclType	fixed_t
+>192	IdentifierDeclStatement	 
+>193	IdentifierDecl	left
+>194	Identifier	left
+>195	IdentifierDeclType	fixed_t
+>196	IdentifierDeclStatement	 
+>197	IdentifierDecl	dy
+>198	Identifier	dy
+>199	IdentifierDeclType	fixed_t
+>200	IdentifierDeclStatement	 
+>201	IdentifierDecl	dx
+>202	Identifier	dx
+>203	IdentifierDeclType	fixed_t
+>224	FunctionDef	P_BoxOnLineSide (fixed_t * tmbox , line_t * ld)
+>225	ParameterList	fixed_t * tmbox , line_t * ld
+>226	Parameter	 
+>227	Identifier	ld
+>228	ParameterType	line_t *
+>229	Parameter	 
+>230	Identifier	tmbox
+>231	ParameterType	fixed_t *
+>232	ReturnType	int
+>233	CompoundStatement	 
+>234	ReturnStatement	 
+>235	UnaryOp	- 1
+>236	PrimaryExpression	1
+>237	UnaryOperator	-
+>238	IfStatement	if ( p1 == p2 )
+>239	ReturnStatement	 
+>240	Identifier	p1
+>241	Condition	 
+>242	EqualityExpression	p1 == p2
+>243	Identifier	p2
+>244	Identifier	p1
+>245	SwitchStatement	switch ( ld -> slopetype )
+>246	CompoundStatement	 
+>247	BreakStatement	 
+>248	ExpressionStatement	 
+>249	AssignmentExpr	p2 = P_PointOnLineSide ( tmbox [ BOXLEFT ] , tmbox [ BOXBOTTOM ] , ld )
+>250	CallExpression	P_PointOnLineSide ( tmbox [ BOXLEFT ] , tmbox [ BOXBOTTOM ] , ld )
+>251	ArgumentList	tmbox [ BOXLEFT ]
+>252	Argument	ld
+>253	Identifier	ld
+>254	Argument	tmbox [ BOXBOTTOM ]
+>255	ArrayIndexing	tmbox [ BOXBOTTOM ]
+>256	Identifier	BOXBOTTOM
+>257	Identifier	tmbox
+>258	Argument	tmbox [ BOXLEFT ]
+>259	ArrayIndexing	tmbox [ BOXLEFT ]
+>260	Identifier	BOXLEFT
+>261	Identifier	tmbox
+>262	Callee	P_PointOnLineSide
+>263	Identifier	P_PointOnLineSide
+>264	Identifier	p2
+>265	ExpressionStatement	 
+>266	AssignmentExpr	p1 = P_PointOnLineSide ( tmbox [ BOXRIGHT ] , tmbox [ BOXTOP ] , ld )
+>267	CallExpression	P_PointOnLineSide ( tmbox [ BOXRIGHT ] , tmbox [ BOXTOP ] , ld )
+>268	ArgumentList	tmbox [ BOXRIGHT ]
+>269	Argument	ld
+>270	Identifier	ld
+>271	Argument	tmbox [ BOXTOP ]
+>272	ArrayIndexing	tmbox [ BOXTOP ]
+>273	Identifier	BOXTOP
+>274	Identifier	tmbox
+>275	Argument	tmbox [ BOXRIGHT ]
+>276	ArrayIndexing	tmbox [ BOXRIGHT ]
+>277	Identifier	BOXRIGHT
+>278	Identifier	tmbox
+>279	Callee	P_PointOnLineSide
+>280	Identifier	P_PointOnLineSide
+>281	Identifier	p1
+>282	Label	 
+>283	Identifier	ST_NEGATIVE
+>284	BreakStatement	 
+>285	ExpressionStatement	 
+>286	AssignmentExpr	p2 = P_PointOnLineSide ( tmbox [ BOXRIGHT ] , tmbox [ BOXBOTTOM ] , ld )
+>287	CallExpression	P_PointOnLineSide ( tmbox [ BOXRIGHT ] , tmbox [ BOXBOTTOM ] , ld )
+>288	ArgumentList	tmbox [ BOXRIGHT ]
+>289	Argument	ld
+>290	Identifier	ld
+>291	Argument	tmbox [ BOXBOTTOM ]
+>292	ArrayIndexing	tmbox [ BOXBOTTOM ]
+>293	Identifier	BOXBOTTOM
+>294	Identifier	tmbox
+>295	Argument	tmbox [ BOXRIGHT ]
+>296	ArrayIndexing	tmbox [ BOXRIGHT ]
+>297	Identifier	BOXRIGHT
+>298	Identifier	tmbox
+>299	Callee	P_PointOnLineSide
+>300	Identifier	P_PointOnLineSide
+>301	Identifier	p2
+>302	ExpressionStatement	 
+>303	AssignmentExpr	p1 = P_PointOnLineSide ( tmbox [ BOXLEFT ] , tmbox [ BOXTOP ] , ld )
+>304	CallExpression	P_PointOnLineSide ( tmbox [ BOXLEFT ] , tmbox [ BOXTOP ] , ld )
+>305	ArgumentList	tmbox [ BOXLEFT ]
+>306	Argument	ld
+>307	Identifier	ld
+>308	Argument	tmbox [ BOXTOP ]
+>309	ArrayIndexing	tmbox [ BOXTOP ]
+>310	Identifier	BOXTOP
+>311	Identifier	tmbox
+>312	Argument	tmbox [ BOXLEFT ]
+>313	ArrayIndexing	tmbox [ BOXLEFT ]
+>314	Identifier	BOXLEFT
+>315	Identifier	tmbox
+>316	Callee	P_PointOnLineSide
+>317	Identifier	P_PointOnLineSide
+>318	Identifier	p1
+>319	Label	 
+>320	Identifier	ST_POSITIVE
+>321	BreakStatement	 
+>322	IfStatement	if ( ld -> dy < 0 )
+>323	CompoundStatement	 
+>324	ExpressionStatement	 
+>325	AssignmentExpr	p2 ^= 1
+>326	PrimaryExpression	1
+>327	Identifier	p2
+>328	ExpressionStatement	 
+>329	AssignmentExpr	p1 ^= 1
+>330	PrimaryExpression	1
+>331	Identifier	p1
+>332	Condition	 
+>333	RelationalExpression	ld -> dy < 0
+>334	PrimaryExpression	0
+>335	PtrMemberAccess	ld -> dy
+>336	Identifier	dy
+>337	Identifier	ld
+>338	ExpressionStatement	 
+>339	AssignmentExpr	p2 = tmbox [ BOXLEFT ] < ld -> v1 -> x
+>340	RelationalExpression	tmbox [ BOXLEFT ] < ld -> v1 -> x
+>341	PtrMemberAccess	ld -> v1 -> x
+>342	Identifier	x
+>343	PtrMemberAccess	ld -> v1
+>344	Identifier	v1
+>345	Identifier	ld
+>346	ArrayIndexing	tmbox [ BOXLEFT ]
+>347	Identifier	BOXLEFT
+>348	Identifier	tmbox
+>349	Identifier	p2
+>350	ExpressionStatement	 
+>351	AssignmentExpr	p1 = tmbox [ BOXRIGHT ] < ld -> v1 -> x
+>352	RelationalExpression	tmbox [ BOXRIGHT ] < ld -> v1 -> x
+>353	PtrMemberAccess	ld -> v1 -> x
+>354	Identifier	x
+>355	PtrMemberAccess	ld -> v1
+>356	Identifier	v1
+>357	Identifier	ld
+>358	ArrayIndexing	tmbox [ BOXRIGHT ]
+>359	Identifier	BOXRIGHT
+>360	Identifier	tmbox
+>361	Identifier	p1
+>362	Label	 
+>363	Identifier	ST_VERTICAL
+>364	BreakStatement	 
+>365	IfStatement	if ( ld -> dx < 0 )
+>366	CompoundStatement	 
+>367	ExpressionStatement	 
+>368	AssignmentExpr	p2 ^= 1
+>369	PrimaryExpression	1
+>370	Identifier	p2
+>371	ExpressionStatement	 
+>372	AssignmentExpr	p1 ^= 1
+>373	PrimaryExpression	1
+>374	Identifier	p1
+>375	Condition	 
+>376	RelationalExpression	ld -> dx < 0
+>377	PrimaryExpression	0
+>378	PtrMemberAccess	ld -> dx
+>379	Identifier	dx
+>380	Identifier	ld
+>381	ExpressionStatement	 
+>382	AssignmentExpr	p2 = tmbox [ BOXBOTTOM ] > ld -> v1 -> y
+>383	RelationalExpression	tmbox [ BOXBOTTOM ] > ld -> v1 -> y
+>384	PtrMemberAccess	ld -> v1 -> y
+>385	Identifier	y
+>386	PtrMemberAccess	ld -> v1
+>387	Identifier	v1
+>388	Identifier	ld
+>389	ArrayIndexing	tmbox [ BOXBOTTOM ]
+>390	Identifier	BOXBOTTOM
+>391	Identifier	tmbox
+>392	Identifier	p2
+>393	ExpressionStatement	 
+>394	AssignmentExpr	p1 = tmbox [ BOXTOP ] > ld -> v1 -> y
+>395	RelationalExpression	tmbox [ BOXTOP ] > ld -> v1 -> y
+>396	PtrMemberAccess	ld -> v1 -> y
+>397	Identifier	y
+>398	PtrMemberAccess	ld -> v1
+>399	Identifier	v1
+>400	Identifier	ld
+>401	ArrayIndexing	tmbox [ BOXTOP ]
+>402	Identifier	BOXTOP
+>403	Identifier	tmbox
+>404	Identifier	p1
+>405	Label	 
+>406	Identifier	ST_HORIZONTAL
+>407	Condition	 
+>408	PtrMemberAccess	ld -> slopetype
+>409	Identifier	slopetype
+>410	Identifier	ld
+>411	IdentifierDeclStatement	 
+>412	IdentifierDecl	p2 = 0
+>413	AssignmentExpr	p2 = 0
+>414	PrimaryExpression	0
+>415	Identifier	p2
+>416	Identifier	p2
+>417	IdentifierDeclType	int
+>418	IdentifierDeclStatement	 
+>419	IdentifierDecl	p1 = 0
+>420	AssignmentExpr	p1 = 0
+>421	PrimaryExpression	0
+>422	Identifier	p1
+>423	Identifier	p1
+>424	IdentifierDeclType	int
+>451	FunctionDef	P_PointOnDivlineSide (fixed_t x , fixed_t y , divline_t * line)
+>452	ParameterList	fixed_t x , fixed_t y , divline_t * line
+>453	Parameter	 
+>454	Identifier	line
+>455	ParameterType	divline_t *
+>456	Parameter	 
+>457	Identifier	y
+>458	ParameterType	fixed_t
+>459	Parameter	 
+>460	Identifier	x
+>461	ParameterType	fixed_t
+>462	ReturnType	int
+>463	CompoundStatement	 
+>464	ReturnStatement	 
+>465	PrimaryExpression	1
+>466	IfStatement	if ( right < left )
+>467	ReturnStatement	 
+>468	PrimaryExpression	0
+>469	Condition	 
+>470	RelationalExpression	right < left
+>471	Identifier	left
+>472	Identifier	right
+>473	ExpressionStatement	 
+>474	AssignmentExpr	right = FixedMul ( dy >> 8 , line -> dx >> 8 )
+>475	CallExpression	FixedMul ( dy >> 8 , line -> dx >> 8 )
+>476	ArgumentList	dy >> 8
+>477	Argument	line -> dx >> 8
+>478	ShiftExpression	line -> dx >> 8
+>479	PrimaryExpression	8
+>480	PtrMemberAccess	line -> dx
+>481	Identifier	dx
+>482	Identifier	line
+>483	Argument	dy >> 8
+>484	ShiftExpression	dy >> 8
+>485	PrimaryExpression	8
+>486	Identifier	dy
+>487	Callee	FixedMul
+>488	Identifier	FixedMul
+>489	Identifier	right
+>490	ExpressionStatement	 
+>491	AssignmentExpr	left = FixedMul ( line -> dy >> 8 , dx >> 8 )
+>492	CallExpression	FixedMul ( line -> dy >> 8 , dx >> 8 )
+>493	ArgumentList	line -> dy >> 8
+>494	Argument	dx >> 8
+>495	ShiftExpression	dx >> 8
+>496	PrimaryExpression	8
+>497	Identifier	dx
+>498	Argument	line -> dy >> 8
+>499	ShiftExpression	line -> dy >> 8
+>500	PrimaryExpression	8
+>501	PtrMemberAccess	line -> dy
+>502	Identifier	dy
+>503	Identifier	line
+>504	Callee	FixedMul
+>505	Identifier	FixedMul
+>506	Identifier	left
+>507	IfStatement	if ( ( line -> dy ^ line -> dx ^ dx ^ dy ) & 0x80000000 )
+>508	CompoundStatement	 
+>509	ReturnStatement	 
+>510	PrimaryExpression	0
+>511	IfStatement	if ( ( line -> dy ^ dx ) & 0x80000000 )
+>512	ReturnStatement	 
+>513	PrimaryExpression	1
+>514	Condition	 
+>515	BitAndExpression	( line -> dy ^ dx ) & 0x80000000
+>516	PrimaryExpression	0x80000000
+>517	ExclusiveOrExpression	line -> dy ^ dx
+>518	Identifier	dx
+>519	PtrMemberAccess	line -> dy
+>520	Identifier	dy
+>521	Identifier	line
+>522	Condition	 
+>523	BitAndExpression	( line -> dy ^ line -> dx ^ dx ^ dy ) & 0x80000000
+>524	PrimaryExpression	0x80000000
+>525	ExclusiveOrExpression	line -> dy ^ line -> dx ^ dx ^ dy
+>526	ExclusiveOrExpression	line -> dx ^ dx ^ dy
+>527	ExclusiveOrExpression	dx ^ dy
+>528	Identifier	dy
+>529	Identifier	dx
+>530	PtrMemberAccess	line -> dx
+>531	Identifier	dx
+>532	Identifier	line
+>533	PtrMemberAccess	line -> dy
+>534	Identifier	dy
+>535	Identifier	line
+>536	ExpressionStatement	 
+>537	AssignmentExpr	dy = ( y - line -> y )
+>538	AdditiveExpression	y - line -> y
+>539	PtrMemberAccess	line -> y
+>540	Identifier	y
+>541	Identifier	line
+>542	Identifier	y
+>543	Identifier	dy
+>544	ExpressionStatement	 
+>545	AssignmentExpr	dx = ( x - line -> x )
+>546	AdditiveExpression	x - line -> x
+>547	PtrMemberAccess	line -> x
+>548	Identifier	x
+>549	Identifier	line
+>550	Identifier	x
+>551	Identifier	dx
+>552	IfStatement	if ( ! line -> dy )
+>553	CompoundStatement	 
+>554	ReturnStatement	 
+>555	RelationalExpression	line -> dx > 0
+>556	PrimaryExpression	0
+>557	PtrMemberAccess	line -> dx
+>558	Identifier	dx
+>559	Identifier	line
+>560	IfStatement	if ( y <= line -> y )
+>561	ReturnStatement	 
+>562	RelationalExpression	line -> dx < 0
+>563	PrimaryExpression	0
+>564	PtrMemberAccess	line -> dx
+>565	Identifier	dx
+>566	Identifier	line
+>567	Condition	 
+>568	RelationalExpression	y <= line -> y
+>569	PtrMemberAccess	line -> y
+>570	Identifier	y
+>571	Identifier	line
+>572	Identifier	y
+>573	Condition	 
+>574	UnaryOp	! line -> dy
+>575	PtrMemberAccess	line -> dy
+>576	Identifier	dy
+>577	Identifier	line
+>578	UnaryOperator	!
+>579	IfStatement	if ( ! line -> dx )
+>580	CompoundStatement	 
+>581	ReturnStatement	 
+>582	RelationalExpression	line -> dy < 0
+>583	PrimaryExpression	0
+>584	PtrMemberAccess	line -> dy
+>585	Identifier	dy
+>586	Identifier	line
+>587	IfStatement	if ( x <= line -> x )
+>588	ReturnStatement	 
+>589	RelationalExpression	line -> dy > 0
+>590	PrimaryExpression	0
+>591	PtrMemberAccess	line -> dy
+>592	Identifier	dy
+>593	Identifier	line
+>594	Condition	 
+>595	RelationalExpression	x <= line -> x
+>596	PtrMemberAccess	line -> x
+>597	Identifier	x
+>598	Identifier	line
+>599	Identifier	x
+>600	Condition	 
+>601	UnaryOp	! line -> dx
+>602	PtrMemberAccess	line -> dx
+>603	Identifier	dx
+>604	Identifier	line
+>605	UnaryOperator	!
+>606	IdentifierDeclStatement	 
+>607	IdentifierDecl	right
+>608	Identifier	right
+>609	IdentifierDeclType	fixed_t
+>610	IdentifierDeclStatement	 
+>611	IdentifierDecl	left
+>612	Identifier	left
+>613	IdentifierDeclType	fixed_t
+>614	IdentifierDeclStatement	 
+>615	IdentifierDecl	dy
+>616	Identifier	dy
+>617	IdentifierDeclType	fixed_t
+>618	IdentifierDeclStatement	 
+>619	IdentifierDecl	dx
+>620	Identifier	dx
+>621	IdentifierDeclType	fixed_t
+>638	FunctionDef	P_MakeDivline (line_t * li , divline_t * dl)
+>639	ParameterList	line_t * li , divline_t * dl
+>640	Parameter	 
+>641	Identifier	dl
+>642	ParameterType	divline_t *
+>643	Parameter	 
+>644	Identifier	li
+>645	ParameterType	line_t *
+>646	ReturnType	void
+>647	CompoundStatement	 
+>648	ExpressionStatement	 
+>649	AssignmentExpr	dl -> dy = li -> dy
+>650	PtrMemberAccess	li -> dy
+>651	Identifier	dy
+>652	Identifier	li
+>653	PtrMemberAccess	dl -> dy
+>654	Identifier	dy
+>655	Identifier	dl
+>656	ExpressionStatement	 
+>657	AssignmentExpr	dl -> dx = li -> dx
+>658	PtrMemberAccess	li -> dx
+>659	Identifier	dx
+>660	Identifier	li
+>661	PtrMemberAccess	dl -> dx
+>662	Identifier	dx
+>663	Identifier	dl
+>664	ExpressionStatement	 
+>665	AssignmentExpr	dl -> y = li -> v1 -> y
+>666	PtrMemberAccess	li -> v1 -> y
+>667	Identifier	y
+>668	PtrMemberAccess	li -> v1
+>669	Identifier	v1
+>670	Identifier	li
+>671	PtrMemberAccess	dl -> y
+>672	Identifier	y
+>673	Identifier	dl
+>674	ExpressionStatement	 
+>675	AssignmentExpr	dl -> x = li -> v1 -> x
+>676	PtrMemberAccess	li -> v1 -> x
+>677	Identifier	x
+>678	PtrMemberAccess	li -> v1
+>679	Identifier	v1
+>680	Identifier	li
+>681	PtrMemberAccess	dl -> x
+>682	Identifier	x
+>683	Identifier	dl
+>702	FunctionDef	P_InterceptVector (divline_t * v2 , divline_t * v1)
+>703	ParameterList	divline_t * v2 , divline_t * v1
+>704	Parameter	 
+>705	Identifier	v1
+>706	ParameterType	divline_t *
+>707	Parameter	 
+>708	Identifier	v2
+>709	ParameterType	divline_t *
+>710	ReturnType	fixed_t
+>711	CompoundStatement	 
+>712	ReturnStatement	 
+>713	Identifier	frac
+>714	ExpressionStatement	 
+>715	AssignmentExpr	frac = FixedDiv ( num , den )
+>716	CallExpression	FixedDiv ( num , den )
+>717	ArgumentList	num
+>718	Argument	den
+>719	Identifier	den
+>720	Argument	num
+>721	Identifier	num
+>722	Callee	FixedDiv
+>723	Identifier	FixedDiv
+>724	Identifier	frac
+>725	ExpressionStatement	 
+>726	AssignmentExpr	num = FixedMul ( ( v1 -> x - v2 -> x ) >> 8 , v1 -> dy ) + FixedMul ( ( v2 -> y - v1 -> y ) >> 8 , v1 \
+>727	AdditiveExpression	FixedMul ( ( v1 -> x - v2 -> x ) >> 8 , v1 -> dy ) + FixedMul ( ( v2 -> y - v1 -> y ) >> 8 , v1 -> dx )
+>728	CallExpression	FixedMul ( ( v2 -> y - v1 -> y ) >> 8 , v1 -> dx )
+>729	ArgumentList	( v2 -> y - v1 -> y ) >> 8
+>730	Argument	v1 -> dx
+>731	PtrMemberAccess	v1 -> dx
+>732	Identifier	dx
+>733	Identifier	v1
+>734	Argument	( v2 -> y - v1 -> y ) >> 8
+>735	ShiftExpression	( v2 -> y - v1 -> y ) >> 8
+>736	PrimaryExpression	8
+>737	AdditiveExpression	v2 -> y - v1 -> y
+>738	PtrMemberAccess	v1 -> y
+>739	Identifier	y
+>740	Identifier	v1
+>741	PtrMemberAccess	v2 -> y
+>742	Identifier	y
+>743	Identifier	v2
+>744	Callee	FixedMul
+>745	Identifier	FixedMul
+>746	CallExpression	FixedMul ( ( v1 -> x - v2 -> x ) >> 8 , v1 -> dy )
+>747	ArgumentList	( v1 -> x - v2 -> x ) >> 8
+>748	Argument	v1 -> dy
+>749	PtrMemberAccess	v1 -> dy
+>750	Identifier	dy
+>751	Identifier	v1
+>752	Argument	( v1 -> x - v2 -> x ) >> 8
+>753	ShiftExpression	( v1 -> x - v2 -> x ) >> 8
+>754	PrimaryExpression	8
+>755	AdditiveExpression	v1 -> x - v2 -> x
+>756	PtrMemberAccess	v2 -> x
+>757	Identifier	x
+>758	Identifier	v2
+>759	PtrMemberAccess	v1 -> x
+>760	Identifier	x
+>761	Identifier	v1
+>762	Callee	FixedMul
+>763	Identifier	FixedMul
+>764	Identifier	num
+>765	IfStatement	if ( den == 0 )
+>766	ReturnStatement	 
+>767	PrimaryExpression	0
+>768	Condition	 
+>769	EqualityExpression	den == 0
+>770	PrimaryExpression	0
+>771	Identifier	den
+>772	ExpressionStatement	 
+>773	AssignmentExpr	den = FixedMul ( v1 -> dy >> 8 , v2 -> dx ) - FixedMul ( v1 -> dx >> 8 , v2 -> dy )
+>774	AdditiveExpression	FixedMul ( v1 -> dy >> 8 , v2 -> dx ) - FixedMul ( v1 -> dx >> 8 , v2 -> dy )
+>775	CallExpression	FixedMul ( v1 -> dx >> 8 , v2 -> dy )
+>776	ArgumentList	v1 -> dx >> 8
+>777	Argument	v2 -> dy
+>778	PtrMemberAccess	v2 -> dy
+>779	Identifier	dy
+>780	Identifier	v2
+>781	Argument	v1 -> dx >> 8
+>782	ShiftExpression	v1 -> dx >> 8
+>783	PrimaryExpression	8
+>784	PtrMemberAccess	v1 -> dx
+>785	Identifier	dx
+>786	Identifier	v1
+>787	Callee	FixedMul
+>788	Identifier	FixedMul
+>789	CallExpression	FixedMul ( v1 -> dy >> 8 , v2 -> dx )
+>790	ArgumentList	v1 -> dy >> 8
+>791	Argument	v2 -> dx
+>792	PtrMemberAccess	v2 -> dx
+>793	Identifier	dx
+>794	Identifier	v2
+>795	Argument	v1 -> dy >> 8
+>796	ShiftExpression	v1 -> dy >> 8
+>797	PrimaryExpression	8
+>798	PtrMemberAccess	v1 -> dy
+>799	Identifier	dy
+>800	Identifier	v1
+>801	Callee	FixedMul
+>802	Identifier	FixedMul
+>803	Identifier	den
+>804	IdentifierDeclStatement	 
+>805	IdentifierDecl	den
+>806	Identifier	den
+>807	IdentifierDeclType	fixed_t
+>808	IdentifierDeclStatement	 
+>809	IdentifierDecl	num
+>810	Identifier	num
+>811	IdentifierDeclType	fixed_t
+>812	IdentifierDeclStatement	 
+>813	IdentifierDecl	frac
+>814	Identifier	frac
+>815	IdentifierDeclType	fixed_t
+>836	FunctionDef	P_LineOpening (line_t * maputil_linedef)
+>837	ParameterList	line_t * maputil_linedef
+>838	Parameter	 
+>839	Identifier	maputil_linedef
+>840	ParameterType	line_t *
+>841	ReturnType	void
+>842	CompoundStatement	 
+>843	ExpressionStatement	 
+>844	PtrMemberAccess	g -> openbottom
+>845	Identifier	openbottom
+>846	Identifier	g
+>847	Statement	 
+>848	Statement	 
+>849	Statement	 
+>850	Statement	 
+>851	Statement	 
+>852	Statement	 
+>853	Statement	 
+>854	Statement	 
+>855	Statement	 
+>856	Statement	 
+>857	Statement	 
+>858	IfStatement	if ( front -> floorheight > back -> floorheight )
+>859	ElseStatement	else
+>860	CompoundStatement	 
+>861	ExpressionStatement	 
+>862	AssignmentExpr	g -> lowfloor = front -> floorheight
+>863	PtrMemberAccess	front -> floorheight
+>864	Identifier	floorheight
+>865	Identifier	front
+>866	PtrMemberAccess	g -> lowfloor
+>867	Identifier	lowfloor
+>868	Identifier	g
+>869	Statement	 
+>870	ExpressionStatement	 
+>871	AssignmentExpr	g -> openbottom = back -> floorheight
+>872	PtrMemberAccess	back -> floorheight
+>873	Identifier	floorheight
+>874	Identifier	back
+>875	PtrMemberAccess	g -> openbottom
+>876	Identifier	openbottom
+>877	Identifier	g
+>878	Statement	 
+>879	CompoundStatement	 
+>880	ExpressionStatement	 
+>881	AssignmentExpr	g -> lowfloor = back -> floorheight
+>882	PtrMemberAccess	back -> floorheight
+>883	Identifier	floorheight
+>884	Identifier	back
+>885	PtrMemberAccess	g -> lowfloor
+>886	Identifier	lowfloor
+>887	Identifier	g
+>888	Statement	 
+>889	ExpressionStatement	 
+>890	AssignmentExpr	g -> openbottom = front -> floorheight
+>891	PtrMemberAccess	front -> floorheight
+>892	Identifier	floorheight
+>893	Identifier	front
+>894	PtrMemberAccess	g -> openbottom
+>895	Identifier	openbottom
+>896	Identifier	g
+>897	Statement	 
+>898	Condition	 
+>899	RelationalExpression	front -> floorheight > back -> floorheight
+>900	PtrMemberAccess	back -> floorheight
+>901	Identifier	floorheight
+>902	Identifier	back
+>903	PtrMemberAccess	front -> floorheight
+>904	Identifier	floorheight
+>905	Identifier	front
+>906	ExpressionStatement	 
+>907	AssignmentExpr	g -> opentop = back -> ceilingheight
+>908	PtrMemberAccess	back -> ceilingheight
+>909	Identifier	ceilingheight
+>910	Identifier	back
+>911	PtrMemberAccess	g -> opentop
+>912	Identifier	opentop
+>913	Identifier	g
+>914	ExpressionStatement	 
+>915	AssignmentExpr	g -> opentop = front -> ceilingheight
+>916	PtrMemberAccess	front -> ceilingheight
+>917	Identifier	ceilingheight
+>918	Identifier	front
+>919	PtrMemberAccess	g -> opentop
+>920	Identifier	opentop
+>921	Identifier	g
+>922	IfStatement	if ( front -> ceilingheight < back -> ceilingheight )
+>923	ElseStatement	else
+>924	Statement	 
+>925	Statement	 
+>926	Condition	 
+>927	RelationalExpression	front -> ceilingheight < back -> ceilingheight
+>928	PtrMemberAccess	back -> ceilingheight
+>929	Identifier	ceilingheight
+>930	Identifier	back
+>931	PtrMemberAccess	front -> ceilingheight
+>932	Identifier	ceilingheight
+>933	Identifier	front
+>934	ExpressionStatement	 
+>935	AssignmentExpr	back = maputil_linedef -> backsector
+>936	PtrMemberAccess	maputil_linedef -> backsector
+>937	Identifier	backsector
+>938	Identifier	maputil_linedef
+>939	Identifier	back
+>940	ExpressionStatement	 
+>941	AssignmentExpr	front = maputil_linedef -> frontsector
+>942	PtrMemberAccess	maputil_linedef -> frontsector
+>943	Identifier	frontsector
+>944	Identifier	maputil_linedef
+>945	Identifier	front
+>946	IfStatement	if ( maputil_linedef -> sidenum [ 1 ] == - 1 )
+>947	CompoundStatement	 
+>948	ReturnStatement	 
+>949	ExpressionStatement	 
+>950	AssignmentExpr	g -> openrange = 0
+>951	PrimaryExpression	0
+>952	PtrMemberAccess	g -> openrange
+>953	Identifier	openrange
+>954	Identifier	g
+>955	Statement	 
+>956	Condition	 
+>957	EqualityExpression	maputil_linedef -> sidenum [ 1 ] == - 1
+>958	UnaryOp	- 1
+>959	PrimaryExpression	1
+>960	UnaryOperator	-
+>961	ArrayIndexing	maputil_linedef -> sidenum [ 1 ]
+>962	PrimaryExpression	1
+>963	PtrMemberAccess	maputil_linedef -> sidenum
+>964	Identifier	sidenum
+>965	Identifier	maputil_linedef
+>966	IdentifierDeclStatement	 
+>967	IdentifierDecl	* back
+>968	Identifier	back
+>969	IdentifierDeclType	sector_t *
+>970	IdentifierDeclStatement	 
+>971	IdentifierDecl	* front
+>972	Identifier	front
+>973	IdentifierDeclType	sector_t *
+>998	FunctionDef	P_UnsetThingPosition (mobj_t * thing)
+>999	ParameterList	mobj_t * thing
+>1000	Parameter	 
+>1001	Identifier	thing
+>1002	ParameterType	mobj_t *
+>1003	ReturnType	void
+>1004	CompoundStatement	 
+>1005	IfStatement	if ( ! ( thing -> flags & MF_NOBLOCKMAP ) )
+>1006	CompoundStatement	 
+>1007	IfStatement	if ( thing -> bprev )
+>1008	ElseStatement	else
+>1009	CompoundStatement	 
+>1010	CompoundStatement	 
+>1011	ExpressionStatement	 
+>1012	PtrMemberAccess	thing -> bnext
+>1013	Identifier	bnext
+>1014	Identifier	thing
+>1015	Statement	 
+>1016	Statement	 
+>1017	Statement	 
+>1018	Statement	 
+>1019	Statement	 
+>1020	Statement	 
+>1021	Statement	 
+>1022	Statement	 
+>1023	Statement	 
+>1024	Statement	 
+>1025	Statement	 
+>1026	Statement	 
+>1027	Statement	 
+>1028	Statement	 
+>1029	Statement	 
+>1030	Statement	 
+>1031	Statement	 
+>1032	Statement	 
+>1033	Statement	 
+>1034	Statement	 
+>1035	Statement	 
+>1036	Statement	 
+>1037	Statement	 
+>1038	Statement	 
+>1039	Statement	 
+>1040	Statement	 
+>1041	Statement	 
+>1042	Statement	 
+>1043	Statement	 
+>1044	Statement	 
+>1045	Statement	 
+>1046	Statement	 
+>1047	Statement	 
+>1048	Statement	 
+>1049	Statement	 
+>1050	Statement	 
+>1051	Statement	 
+>1052	Statement	 
+>1053	Statement	 
+>1054	ExpressionStatement	 
+>1055	Identifier	MAPBLOCKSHIFT
+>1056	Statement	 
+>1057	Statement	 
+>1058	Statement	 
+>1059	Statement	 
+>1060	Statement	 
+>1061	Statement	 
+>1062	Statement	 
+>1063	Statement	 
+>1064	Statement	 
+>1065	Statement	 
+>1066	Statement	 
+>1067	Statement	 
+>1068	Statement	 
+>1069	ExpressionStatement	 
+>1070	Identifier	MAPBLOCKSHIFT
+>1071	Statement	 
+>1072	Statement	 
+>1073	Statement	 
+>1074	Statement	 
+>1075	Statement	 
+>1076	Statement	 
+>1077	Statement	 
+>1078	Statement	 
+>1079	Statement	 
+>1080	Statement	 
+>1081	Statement	 
+>1082	Statement	 
+>1083	Statement	 
+>1084	ExpressionStatement	 
+>1085	AssignmentExpr	thing -> bprev -> bnext = thing -> bnext
+>1086	PtrMemberAccess	thing -> bnext
+>1087	Identifier	bnext
+>1088	Identifier	thing
+>1089	PtrMemberAccess	thing -> bprev -> bnext
+>1090	Identifier	bnext
+>1091	PtrMemberAccess	thing -> bprev
+>1092	Identifier	bprev
+>1093	Identifier	thing
+>1094	Condition	 
+>1095	PtrMemberAccess	thing -> bprev
+>1096	Identifier	bprev
+>1097	Identifier	thing
+>1098	IfStatement	if ( thing -> bnext )
+>1099	ExpressionStatement	 
+>1100	AssignmentExpr	thing -> bnext -> bprev = thing -> bprev
+>1101	PtrMemberAccess	thing -> bprev
+>1102	Identifier	bprev
+>1103	Identifier	thing
+>1104	PtrMemberAccess	thing -> bnext -> bprev
+>1105	Identifier	bprev
+>1106	PtrMemberAccess	thing -> bnext
+>1107	Identifier	bnext
+>1108	Identifier	thing
+>1109	Condition	 
+>1110	PtrMemberAccess	thing -> bnext
+>1111	Identifier	bnext
+>1112	Identifier	thing
+>1113	Condition	 
+>1114	UnaryOp	! ( thing -> flags & MF_NOBLOCKMAP )
+>1115	BitAndExpression	thing -> flags & MF_NOBLOCKMAP
+>1116	Identifier	MF_NOBLOCKMAP
+>1117	PtrMemberAccess	thing -> flags
+>1118	Identifier	flags
+>1119	Identifier	thing
+>1120	UnaryOperator	!
+>1121	IfStatement	if ( ! ( thing -> flags & MF_NOSECTOR ) )
+>1122	CompoundStatement	 
+>1123	IfStatement	if ( thing -> sprev )
+>1124	ElseStatement	else
+>1125	ExpressionStatement	 
+>1126	AssignmentExpr	thing -> subsector -> sector -> thinglist = thing -> snext
+>1127	PtrMemberAccess	thing -> snext
+>1128	Identifier	snext
+>1129	Identifier	thing
+>1130	PtrMemberAccess	thing -> subsector -> sector -> thinglist
+>1131	Identifier	thinglist
+>1132	PtrMemberAccess	thing -> subsector -> sector
+>1133	Identifier	sector
+>1134	PtrMemberAccess	thing -> subsector
+>1135	Identifier	subsector
+>1136	Identifier	thing
+>1137	ExpressionStatement	 
+>1138	AssignmentExpr	thing -> sprev -> snext = thing -> snext
+>1139	PtrMemberAccess	thing -> snext
+>1140	Identifier	snext
+>1141	Identifier	thing
+>1142	PtrMemberAccess	thing -> sprev -> snext
+>1143	Identifier	snext
+>1144	PtrMemberAccess	thing -> sprev
+>1145	Identifier	sprev
+>1146	Identifier	thing
+>1147	Condition	 
+>1148	PtrMemberAccess	thing -> sprev
+>1149	Identifier	sprev
+>1150	Identifier	thing
+>1151	IfStatement	if ( thing -> snext )
+>1152	ExpressionStatement	 
+>1153	AssignmentExpr	thing -> snext -> sprev = thing -> sprev
+>1154	PtrMemberAccess	thing -> sprev
+>1155	Identifier	sprev
+>1156	Identifier	thing
+>1157	PtrMemberAccess	thing -> snext -> sprev
+>1158	Identifier	sprev
+>1159	PtrMemberAccess	thing -> snext
+>1160	Identifier	snext
+>1161	Identifier	thing
+>1162	Condition	 
+>1163	PtrMemberAccess	thing -> snext
+>1164	Identifier	snext
+>1165	Identifier	thing
+>1166	Condition	 
+>1167	UnaryOp	! ( thing -> flags & MF_NOSECTOR )
+>1168	BitAndExpression	thing -> flags & MF_NOSECTOR
+>1169	Identifier	MF_NOSECTOR
+>1170	PtrMemberAccess	thing -> flags
+>1171	Identifier	flags
+>1172	Identifier	thing
+>1173	UnaryOperator	!
+>1174	IdentifierDeclStatement	 
+>1175	IdentifierDecl	blocky
+>1176	Identifier	blocky
+>1177	IdentifierDeclType	int
+>1178	IdentifierDeclStatement	 
+>1179	IdentifierDecl	blockx
+>1180	Identifier	blockx
+>1181	IdentifierDeclType	int
+>1212	FunctionDef	P_SetThingPosition (mobj_t * thing)
+>1213	ParameterList	mobj_t * thing
+>1214	Parameter	 
+>1215	Identifier	thing
+>1216	ParameterType	mobj_t *
+>1217	ReturnType	void
+>1218	CompoundStatement	 
+>1219	IfStatement	if ( ! ( thing -> flags & MF_NOBLOCKMAP ) )
+>1220	ElseStatement	else
+>1221	CompoundStatement	 
+>1222	ExpressionStatement	 
+>1223	AssignmentExpr	thing -> bnext = thing -> bprev = NULL
+>1224	AssignmentExpr	thing -> bprev = NULL
+>1225	Identifier	NULL
+>1226	PtrMemberAccess	thing -> bprev
+>1227	Identifier	bprev
+>1228	Identifier	thing
+>1229	PtrMemberAccess	thing -> bnext
+>1230	Identifier	bnext
+>1231	Identifier	thing
+>1232	CompoundStatement	 
+>1233	CompoundStatement	 
+>1234	ExpressionStatement	 
+>1235	AssignmentExpr	* link = thing
+>1236	Identifier	thing
+>1237	UnaryOp	* link
+>1238	Identifier	link
+>1239	UnaryOperator	*
+>1240	IfStatement	if ( * link )
+>1241	ExpressionStatement	 
+>1242	AssignmentExpr	( * link ) -> bprev = thing
+>1243	Identifier	thing
+>1244	PtrMemberAccess	( * link ) -> bprev
+>1245	Identifier	bprev
+>1246	UnaryOp	* link
+>1247	Identifier	link
+>1248	UnaryOperator	*
+>1249	Condition	 
+>1250	UnaryOp	* link
+>1251	Identifier	link
+>1252	UnaryOperator	*
+>1253	ExpressionStatement	 
+>1254	AssignmentExpr	thing -> bnext = * link
+>1255	UnaryOp	* link
+>1256	Identifier	link
+>1257	UnaryOperator	*
+>1258	PtrMemberAccess	thing -> bnext
+>1259	Identifier	bnext
+>1260	Identifier	thing
+>1261	ExpressionStatement	 
+>1262	AssignmentExpr	thing -> bprev = NULL
+>1263	Identifier	NULL
+>1264	PtrMemberAccess	thing -> bprev
+>1265	Identifier	bprev
+>1266	Identifier	thing
+>1267	ExpressionStatement	 
+>1268	Statement	 
+>1269	Statement	 
+>1270	Statement	 
+>1271	Statement	 
+>1272	Statement	 
+>1273	Statement	 
+>1274	Statement	 
+>1275	Statement	 
+>1276	Statement	 
+>1277	Statement	 
+>1278	Statement	 
+>1279	Statement	 
+>1280	Statement	 
+>1281	Statement	 
+>1282	Statement	 
+>1283	Statement	 
+>1284	Statement	 
+>1285	Statement	 
+>1286	Statement	 
+>1287	Statement	 
+>1288	Statement	 
+>1289	Statement	 
+>1290	Statement	 
+>1291	Statement	 
+>1292	Statement	 
+>1293	Statement	 
+>1294	Statement	 
+>1295	Statement	 
+>1296	Statement	 
+>1297	Statement	 
+>1298	Statement	 
+>1299	Statement	 
+>1300	Statement	 
+>1301	Statement	 
+>1302	Statement	 
+>1303	Statement	 
+>1304	Statement	 
+>1305	Statement	 
+>1306	Statement	 
+>1307	Statement	 
+>1308	Statement	 
+>1309	ExpressionStatement	 
+>1310	Identifier	MAPBLOCKSHIFT
+>1311	Statement	 
+>1312	Statement	 
+>1313	Statement	 
+>1314	Statement	 
+>1315	Statement	 
+>1316	Statement	 
+>1317	Statement	 
+>1318	Statement	 
+>1319	Statement	 
+>1320	Statement	 
+>1321	Statement	 
+>1322	Statement	 
+>1323	Statement	 
+>1324	ExpressionStatement	 
+>1325	Identifier	MAPBLOCKSHIFT
+>1326	Statement	 
+>1327	Statement	 
+>1328	Statement	 
+>1329	Statement	 
+>1330	Statement	 
+>1331	Statement	 
+>1332	Statement	 
+>1333	Statement	 
+>1334	Statement	 
+>1335	Statement	 
+>1336	Statement	 
+>1337	Statement	 
+>1338	Statement	 
+>1339	Condition	 
+>1340	UnaryOp	! ( thing -> flags & MF_NOBLOCKMAP )
+>1341	BitAndExpression	thing -> flags & MF_NOBLOCKMAP
+>1342	Identifier	MF_NOBLOCKMAP
+>1343	PtrMemberAccess	thing -> flags
+>1344	Identifier	flags
+>1345	Identifier	thing
+>1346	UnaryOperator	!
+>1347	IfStatement	if ( ! ( thing -> flags & MF_NOSECTOR ) )
+>1348	CompoundStatement	 
+>1349	ExpressionStatement	 
+>1350	AssignmentExpr	sec -> thinglist = thing
+>1351	Identifier	thing
+>1352	PtrMemberAccess	sec -> thinglist
+>1353	Identifier	thinglist
+>1354	Identifier	sec
+>1355	IfStatement	if ( sec -> thinglist )
+>1356	ExpressionStatement	 
+>1357	AssignmentExpr	sec -> thinglist -> sprev = thing
+>1358	Identifier	thing
+>1359	PtrMemberAccess	sec -> thinglist -> sprev
+>1360	Identifier	sprev
+>1361	PtrMemberAccess	sec -> thinglist
+>1362	Identifier	thinglist
+>1363	Identifier	sec
+>1364	Condition	 
+>1365	PtrMemberAccess	sec -> thinglist
+>1366	Identifier	thinglist
+>1367	Identifier	sec
+>1368	ExpressionStatement	 
+>1369	AssignmentExpr	thing -> snext = sec -> thinglist
+>1370	PtrMemberAccess	sec -> thinglist
+>1371	Identifier	thinglist
+>1372	Identifier	sec
+>1373	PtrMemberAccess	thing -> snext
+>1374	Identifier	snext
+>1375	Identifier	thing
+>1376	ExpressionStatement	 
+>1377	AssignmentExpr	thing -> sprev = NULL
+>1378	Identifier	NULL
+>1379	PtrMemberAccess	thing -> sprev
+>1380	Identifier	sprev
+>1381	Identifier	thing
+>1382	ExpressionStatement	 
+>1383	AssignmentExpr	sec = ss -> sector
+>1384	PtrMemberAccess	ss -> sector
+>1385	Identifier	sector
+>1386	Identifier	ss
+>1387	Identifier	sec
+>1388	Condition	 
+>1389	UnaryOp	! ( thing -> flags & MF_NOSECTOR )
+>1390	BitAndExpression	thing -> flags & MF_NOSECTOR
+>1391	Identifier	MF_NOSECTOR
+>1392	PtrMemberAccess	thing -> flags
+>1393	Identifier	flags
+>1394	Identifier	thing
+>1395	UnaryOperator	!
+>1396	ExpressionStatement	 
+>1397	AssignmentExpr	thing -> subsector = ss
+>1398	Identifier	ss
+>1399	PtrMemberAccess	thing -> subsector
+>1400	Identifier	subsector
+>1401	Identifier	thing
+>1402	ExpressionStatement	 
+>1403	AssignmentExpr	ss = R_PointInSubsector ( thing -> x , thing -> y )
+>1404	CallExpression	R_PointInSubsector ( thing -> x , thing -> y )
+>1405	ArgumentList	thing -> x
+>1406	Argument	thing -> y
+>1407	PtrMemberAccess	thing -> y
+>1408	Identifier	y
+>1409	Identifier	thing
+>1410	Argument	thing -> x
+>1411	PtrMemberAccess	thing -> x
+>1412	Identifier	x
+>1413	Identifier	thing
+>1414	Callee	R_PointInSubsector
+>1415	Identifier	R_PointInSubsector
+>1416	Identifier	ss
+>1417	IdentifierDeclStatement	 
+>1418	IdentifierDecl	* * link
+>1419	Identifier	link
+>1420	IdentifierDeclType	mobj_t * *
+>1421	IdentifierDeclStatement	 
+>1422	IdentifierDecl	blocky
+>1423	Identifier	blocky
+>1424	IdentifierDeclType	int
+>1425	IdentifierDeclStatement	 
+>1426	IdentifierDecl	blockx
+>1427	Identifier	blockx
+>1428	IdentifierDeclType	int
+>1429	IdentifierDeclStatement	 
+>1430	IdentifierDecl	* sec
+>1431	Identifier	sec
+>1432	IdentifierDeclType	sector_t *
+>1433	IdentifierDeclStatement	 
+>1434	IdentifierDecl	* ss
+>1435	Identifier	ss
+>1436	IdentifierDeclType	subsector_t *
+>1469	FunctionDef	P_BlockLinesIterator (int x , int y , qboolean ( * func ) ( line_t * ))
+>1470	ParameterList	int x , int y , qboolean ( * func ) ( line_t * )
+>1471	Parameter	 
+>1472	Identifier	func
+>1473	ParameterType	(( line_t * ) qboolean) *
+>1474	Parameter	 
+>1475	Identifier	y
+>1476	ParameterType	int
+>1477	Parameter	 
+>1478	Identifier	x
+>1479	ParameterType	int
+>1480	ReturnType	qboolean
+>1481	CompoundStatement	 
+>1482	ReturnStatement	 
+>1483	Identifier	true
+>1484	CompoundStatement	 
+>1485	IfStatement	if ( ! func ( ld ) )
+>1486	ReturnStatement	 
+>1487	Identifier	false
+>1488	Condition	 
+>1489	UnaryOp	! func ( ld )
+>1490	CallExpression	func ( ld )
+>1491	ArgumentList	ld
+>1492	Argument	ld
+>1493	Identifier	ld
+>1494	Callee	func
+>1495	Identifier	func
+>1496	UnaryOperator	!
+>1497	ExpressionStatement	 
+>1498	PtrMemberAccess	g -> validcount
+>1499	Identifier	validcount
+>1500	Identifier	g
+>1501	Statement	 
+>1502	Statement	 
+>1503	Statement	 
+>1504	Statement	 
+>1505	Statement	 
+>1506	ContinueStatement	 
+>1507	Statement	 
+>1508	Statement	 
+>1509	Statement	 
+>1510	Statement	 
+>1511	Statement	 
+>1512	Statement	 
+>1513	Statement	 
+>1514	Statement	 
+>1515	Statement	 
+>1516	Statement	 
+>1517	Statement	 
+>1518	ExpressionStatement	 
+>1519	ArrayIndexing	g -> lines [ * list ]
+>1520	UnaryOp	* list
+>1521	Identifier	list
+>1522	UnaryOperator	*
+>1523	PtrMemberAccess	g -> lines
+>1524	Identifier	lines
+>1525	Identifier	g
+>1526	Statement	 
+>1527	Statement	 
+>1528	Statement	 
+>1529	Statement	 
+>1530	Statement	 
+>1531	Statement	 
+>1532	Statement	 
+>1533	ExpressionStatement	 
+>1534	EqualityExpression	* list != - 1
+>1535	UnaryOp	- 1
+>1536	PrimaryExpression	1
+>1537	UnaryOperator	-
+>1538	UnaryOp	* list
+>1539	Identifier	list
+>1540	UnaryOperator	*
+>1541	ExpressionStatement	 
+>1542	AdditiveExpression	g -> blockmaplump + offset
+>1543	Identifier	offset
+>1544	PtrMemberAccess	g -> blockmaplump
+>1545	Identifier	blockmaplump
+>1546	Identifier	g
+>1547	Statement	 
+>1548	Statement	 
+>1549	Statement	 
+>1550	Statement	 
+>1551	Statement	 
+>1552	ExpressionStatement	 
+>1553	Statement	 
+>1554	Statement	 
+>1555	Statement	 
+>1556	Statement	 
+>1557	Statement	 
+>1558	Statement	 
+>1559	Statement	 
+>1560	Statement	 
+>1561	Statement	 
+>1562	Statement	 
+>1563	Statement	 
+>1564	ExpressionStatement	 
+>1565	AdditiveExpression	g -> bmapwidth + x
+>1566	Identifier	x
+>1567	PtrMemberAccess	g -> bmapwidth
+>1568	Identifier	bmapwidth
+>1569	Identifier	g
+>1570	Statement	 
+>1571	Statement	 
+>1572	Statement	 
+>1573	Statement	 
+>1574	Statement	 
+>1575	CompoundStatement	 
+>1576	ReturnStatement	 
+>1577	Identifier	true
+>1578	Statement	 
+>1579	Statement	 
+>1580	Statement	 
+>1581	Statement	 
+>1582	Statement	 
+>1583	Statement	 
+>1584	Statement	 
+>1585	Statement	 
+>1586	Statement	 
+>1587	Statement	 
+>1588	Statement	 
+>1589	Statement	 
+>1590	Statement	 
+>1591	Statement	 
+>1592	Statement	 
+>1593	Statement	 
+>1594	Statement	 
+>1595	Statement	 
+>1596	Statement	 
+>1597	Statement	 
+>1598	Statement	 
+>1599	Statement	 
+>1600	Statement	 
+>1601	Statement	 
+>1602	IdentifierDeclStatement	 
+>1603	IdentifierDecl	* ld
+>1604	Identifier	ld
+>1605	IdentifierDeclType	line_t *
+>1606	IdentifierDeclStatement	 
+>1607	IdentifierDecl	* list
+>1608	Identifier	list
+>1609	IdentifierDeclType	short *
+>1610	IdentifierDeclStatement	 
+>1611	IdentifierDecl	offset
+>1612	Identifier	offset
+>1613	IdentifierDeclType	int
+>1630	FunctionDef	P_BlockThingsIterator (int x , int y , qboolean ( * func ) ( mobj_t * ))
+>1631	ParameterList	int x , int y , qboolean ( * func ) ( mobj_t * )
+>1632	Parameter	 
+>1633	Identifier	func
+>1634	ParameterType	(( mobj_t * ) qboolean) *
+>1635	Parameter	 
+>1636	Identifier	y
+>1637	ParameterType	int
+>1638	Parameter	 
+>1639	Identifier	x
+>1640	ParameterType	int
+>1641	ReturnType	qboolean
+>1642	CompoundStatement	 
+>1643	ReturnStatement	 
+>1644	Identifier	true
+>1645	CompoundStatement	 
+>1646	IfStatement	if ( ! func ( mobj ) )
+>1647	ReturnStatement	 
+>1648	Identifier	false
+>1649	Condition	 
+>1650	UnaryOp	! func ( mobj )
+>1651	CallExpression	func ( mobj )
+>1652	ArgumentList	mobj
+>1653	Argument	mobj
+>1654	Identifier	mobj
+>1655	Callee	func
+>1656	Identifier	func
+>1657	UnaryOperator	!
+>1658	Statement	 
+>1659	Statement	 
+>1660	Statement	 
+>1661	Statement	 
+>1662	Statement	 
+>1663	Statement	 
+>1664	ExpressionStatement	 
+>1665	Identifier	mobj
+>1666	ExpressionStatement	 
+>1667	Statement	 
+>1668	Statement	 
+>1669	Statement	 
+>1670	Statement	 
+>1671	Statement	 
+>1672	Statement	 
+>1673	Statement	 
+>1674	Statement	 
+>1675	Statement	 
+>1676	Statement	 
+>1677	Statement	 
+>1678	Statement	 
+>1679	Statement	 
+>1680	Statement	 
+>1681	Statement	 
+>1682	Statement	 
+>1683	Statement	 
+>1684	Statement	 
+>1685	CompoundStatement	 
+>1686	ReturnStatement	 
+>1687	Identifier	true
+>1688	Statement	 
+>1689	Statement	 
+>1690	Statement	 
+>1691	Statement	 
+>1692	Statement	 
+>1693	Statement	 
+>1694	Statement	 
+>1695	Statement	 
+>1696	Statement	 
+>1697	Statement	 
+>1698	Statement	 
+>1699	Statement	 
+>1700	Statement	 
+>1701	Statement	 
+>1702	Statement	 
+>1703	Statement	 
+>1704	Statement	 
+>1705	Statement	 
+>1706	Statement	 
+>1707	Statement	 
+>1708	Statement	 
+>1709	Statement	 
+>1710	Statement	 
+>1711	Statement	 
+>1712	IdentifierDeclStatement	 
+>1713	IdentifierDecl	* mobj
+>1714	Identifier	mobj
+>1715	IdentifierDeclType	mobj_t *
+>1725	FunctionDef	PIT_AddLineIntercepts (line_t * ld)
+>1726	ParameterList	line_t * ld
+>1727	Parameter	 
+>1728	Identifier	ld
+>1729	ParameterType	line_t *
+>1730	ReturnType	qboolean
+>1731	CompoundStatement	 
+>1732	CompoundStatement	 
+>1733	ExpressionStatement	 
+>1734	Statement	 
+>1735	Statement	 
+>1736	Statement	 
+>1737	Statement	 
+>1738	Statement	 
+>1739	Statement	 
+>1740	Statement	 
+>1741	Statement	 
+>1742	Statement	 
+>1743	Statement	 
+>1744	Statement	 
+>1745	Statement	 
+>1746	Statement	 
+>1747	Statement	 
+>1748	Statement	 
+>1749	Statement	 
+>1750	Statement	 
+>1751	Statement	 
+>1752	Statement	 
+>1753	Statement	 
+>1754	Statement	 
+>1755	Statement	 
+>1756	ExpressionStatement	 
+>1757	Statement	 
+>1758	Statement	 
+>1759	Statement	 
+>1760	Statement	 
+>1761	Statement	 
+>1762	Statement	 
+>1763	Statement	 
+>1764	Statement	 
+>1765	Statement	 
+>1766	Statement	 
+>1767	Statement	 
+>1768	Statement	 
+>1769	Statement	 
+>1770	Statement	 
+>1771	Statement	 
+>1772	Statement	 
+>1773	Statement	 
+>1774	Statement	 
+>1775	Statement	 
+>1776	Statement	 
+>1777	Statement	 
+>1778	Statement	 
+>1779	Statement	 
+>1780	Statement	 
+>1781	Statement	 
+>1782	Statement	 
+>1783	Statement	 
+>1784	Statement	 
+>1785	Statement	 
+>1786	Statement	 
+>1787	Statement	 
+>1788	Statement	 
+>1789	Statement	 
+>1790	Statement	 
+>1791	Statement	 
+>1792	Statement	 
+>1793	Statement	 
+>1794	Statement	 
+>1795	Statement	 
+>1796	Statement	 
+>1797	Statement	 
+>1798	Statement	 
+>1799	Statement	 
+>1800	Statement	 
+>1801	Statement	 
+>1802	Statement	 
+>1803	Statement	 
+>1804	Statement	 
+>1805	Statement	 
+>1806	Statement	 
+>1807	Statement	 
+>1808	Statement	 
+>1809	Statement	 
+>1810	Statement	 
+>1811	Statement	 
+>1812	Statement	 
+>1813	Statement	 
+>1814	Statement	 
+>1815	Statement	 
+>1816	Statement	 
+>1817	Statement	 
+>1818	Statement	 
+>1819	Statement	 
+>1820	Statement	 
+>1821	Statement	 
+>1822	Statement	 
+>1823	Statement	 
+>1824	Statement	 
+>1825	Statement	 
+>1826	Statement	 
+>1827	IdentifierDeclStatement	 
+>1828	IdentifierDecl	dl
+>1829	Identifier	dl
+>1830	IdentifierDeclType	divline_t
+>1831	IdentifierDeclStatement	 
+>1832	IdentifierDecl	frac
+>1833	Identifier	frac
+>1834	IdentifierDeclType	fixed_t
+>1835	IdentifierDeclStatement	 
+>1836	IdentifierDecl	s2
+>1837	Identifier	s2
+>1838	IdentifierDeclType	int
+>1839	IdentifierDeclStatement	 
+>1840	IdentifierDecl	s1
+>1841	Identifier	s1
+>1842	IdentifierDeclType	int
+>1851	FunctionDef	PIT_AddThingIntercepts (mobj_t * thing)
+>1852	ParameterList	mobj_t * thing
+>1853	Parameter	 
+>1854	Identifier	thing
+>1855	ParameterType	mobj_t *
+>1856	ReturnType	qboolean
+>1857	CompoundStatement	 
+>1858	ReturnStatement	 
+>1859	Identifier	true
+>1860	ExpressionStatement	 
+>1861	IncDecOp	g -> intercept_p ++
+>1862	IncDec	++
+>1863	PtrMemberAccess	g -> intercept_p
+>1864	Identifier	intercept_p
+>1865	Identifier	g
+>1866	Statement	 
+>1867	ExpressionStatement	 
+>1868	AssignmentExpr	g -> intercept_p -> d . thing = thing
+>1869	Identifier	thing
+>1870	MemberAccess	g -> intercept_p -> d . thing
+>1871	Identifier	thing
+>1872	PtrMemberAccess	g -> intercept_p -> d
+>1873	Identifier	d
+>1874	PtrMemberAccess	g -> intercept_p
+>1875	Identifier	intercept_p
+>1876	Identifier	g
+>1877	Statement	 
+>1878	ExpressionStatement	 
+>1879	AssignmentExpr	g -> intercept_p -> isaline = false
+>1880	Identifier	false
+>1881	PtrMemberAccess	g -> intercept_p -> isaline
+>1882	Identifier	isaline
+>1883	PtrMemberAccess	g -> intercept_p
+>1884	Identifier	intercept_p
+>1885	Identifier	g
+>1886	Statement	 
+>1887	ExpressionStatement	 
+>1888	AssignmentExpr	g -> intercept_p -> frac = frac
+>1889	Identifier	frac
+>1890	PtrMemberAccess	g -> intercept_p -> frac
+>1891	Identifier	frac
+>1892	PtrMemberAccess	g -> intercept_p
+>1893	Identifier	intercept_p
+>1894	Identifier	g
+>1895	Statement	 
+>1896	IfStatement	if ( frac < 0 )
+>1897	ReturnStatement	 
+>1898	Identifier	true
+>1899	Condition	 
+>1900	RelationalExpression	frac < 0
+>1901	PrimaryExpression	0
+>1902	Identifier	frac
+>1903	ExpressionStatement	 
+>1904	Statement	 
+>1905	Statement	 
+>1906	Statement	 
+>1907	Statement	 
+>1908	Statement	 
+>1909	Statement	 
+>1910	Statement	 
+>1911	Statement	 
+>1912	Statement	 
+>1913	Statement	 
+>1914	Statement	 
+>1915	Statement	 
+>1916	Statement	 
+>1917	ExpressionStatement	 
+>1918	AssignmentExpr	dl . dy = y2 - y1
+>1919	AdditiveExpression	y2 - y1
+>1920	Identifier	y1
+>1921	Identifier	y2
+>1922	MemberAccess	dl . dy
+>1923	Identifier	dy
+>1924	Identifier	dl
+>1925	ExpressionStatement	 
+>1926	AssignmentExpr	dl . dx = x2 - x1
+>1927	AdditiveExpression	x2 - x1
+>1928	Identifier	x1
+>1929	Identifier	x2
+>1930	MemberAccess	dl . dx
+>1931	Identifier	dx
+>1932	Identifier	dl
+>1933	ExpressionStatement	 
+>1934	AssignmentExpr	dl . y = y1
+>1935	Identifier	y1
+>1936	MemberAccess	dl . y
+>1937	Identifier	y
+>1938	Identifier	dl
+>1939	ExpressionStatement	 
+>1940	AssignmentExpr	dl . x = x1
+>1941	Identifier	x1
+>1942	MemberAccess	dl . x
+>1943	Identifier	x
+>1944	Identifier	dl
+>1945	IfStatement	if ( s1 == s2 )
+>1946	ReturnStatement	 
+>1947	Identifier	true
+>1948	Condition	 
+>1949	EqualityExpression	s1 == s2
+>1950	Identifier	s2
+>1951	Identifier	s1
+>1952	ExpressionStatement	 
+>1953	Statement	 
+>1954	Statement	 
+>1955	Statement	 
+>1956	Statement	 
+>1957	Statement	 
+>1958	Statement	 
+>1959	Statement	 
+>1960	Statement	 
+>1961	Statement	 
+>1962	Statement	 
+>1963	Statement	 
+>1964	Statement	 
+>1965	Statement	 
+>1966	Statement	 
+>1967	ExpressionStatement	 
+>1968	Statement	 
+>1969	Statement	 
+>1970	Statement	 
+>1971	Statement	 
+>1972	Statement	 
+>1973	Statement	 
+>1974	Statement	 
+>1975	Statement	 
+>1976	Statement	 
+>1977	Statement	 
+>1978	Statement	 
+>1979	Statement	 
+>1980	Statement	 
+>1981	Statement	 
+>1982	IfStatement	if ( tracepositive )
+>1983	ElseStatement	else
+>1984	CompoundStatement	 
+>1985	ExpressionStatement	 
+>1986	AssignmentExpr	y2 = thing -> y + thing -> radius
+>1987	AdditiveExpression	thing -> y + thing -> radius
+>1988	PtrMemberAccess	thing -> radius
+>1989	Identifier	radius
+>1990	Identifier	thing
+>1991	PtrMemberAccess	thing -> y
+>1992	Identifier	y
+>1993	Identifier	thing
+>1994	Identifier	y2
+>1995	ExpressionStatement	 
+>1996	AssignmentExpr	x2 = thing -> x + thing -> radius
+>1997	AdditiveExpression	thing -> x + thing -> radius
+>1998	PtrMemberAccess	thing -> radius
+>1999	Identifier	radius
+>2000	Identifier	thing
+>2001	PtrMemberAccess	thing -> x
+>2002	Identifier	x
+>2003	Identifier	thing
+>2004	Identifier	x2
+>2005	ExpressionStatement	 
+>2006	AssignmentExpr	y1 = thing -> y - thing -> radius
+>2007	AdditiveExpression	thing -> y - thing -> radius
+>2008	PtrMemberAccess	thing -> radius
+>2009	Identifier	radius
+>2010	Identifier	thing
+>2011	PtrMemberAccess	thing -> y
+>2012	Identifier	y
+>2013	Identifier	thing
+>2014	Identifier	y1
+>2015	ExpressionStatement	 
+>2016	AssignmentExpr	x1 = thing -> x - thing -> radius
+>2017	AdditiveExpression	thing -> x - thing -> radius
+>2018	PtrMemberAccess	thing -> radius
+>2019	Identifier	radius
+>2020	Identifier	thing
+>2021	PtrMemberAccess	thing -> x
+>2022	Identifier	x
+>2023	Identifier	thing
+>2024	Identifier	x1
+>2025	CompoundStatement	 
+>2026	ExpressionStatement	 
+>2027	AssignmentExpr	y2 = thing -> y - thing -> radius
+>2028	AdditiveExpression	thing -> y - thing -> radius
+>2029	PtrMemberAccess	thing -> radius
+>2030	Identifier	radius
+>2031	Identifier	thing
+>2032	PtrMemberAccess	thing -> y
+>2033	Identifier	y
+>2034	Identifier	thing
+>2035	Identifier	y2
+>2036	ExpressionStatement	 
+>2037	AssignmentExpr	x2 = thing -> x + thing -> radius
+>2038	AdditiveExpression	thing -> x + thing -> radius
+>2039	PtrMemberAccess	thing -> radius
+>2040	Identifier	radius
+>2041	Identifier	thing
+>2042	PtrMemberAccess	thing -> x
+>2043	Identifier	x
+>2044	Identifier	thing
+>2045	Identifier	x2
+>2046	ExpressionStatement	 
+>2047	AssignmentExpr	y1 = thing -> y + thing -> radius
+>2048	AdditiveExpression	thing -> y + thing -> radius
+>2049	PtrMemberAccess	thing -> radius
+>2050	Identifier	radius
+>2051	Identifier	thing
+>2052	PtrMemberAccess	thing -> y
+>2053	Identifier	y
+>2054	Identifier	thing
+>2055	Identifier	y1
+>2056	ExpressionStatement	 
+>2057	AssignmentExpr	x1 = thing -> x - thing -> radius
+>2058	AdditiveExpression	thing -> x - thing -> radius
+>2059	PtrMemberAccess	thing -> radius
+>2060	Identifier	radius
+>2061	Identifier	thing
+>2062	PtrMemberAccess	thing -> x
+>2063	Identifier	x
+>2064	Identifier	thing
+>2065	Identifier	x1
+>2066	Condition	 
+>2067	Identifier	tracepositive
+>2068	ExpressionStatement	 
+>2069	PrimaryExpression	0
+>2070	Statement	 
+>2071	Statement	 
+>2072	Statement	 
+>2073	Statement	 
+>2074	Statement	 
+>2075	Statement	 
+>2076	Statement	 
+>2077	Statement	 
+>2078	Statement	 
+>2079	Statement	 
+>2080	Statement	 
+>2081	Statement	 
+>2082	Statement	 
+>2083	Statement	 
+>2084	Statement	 
+>2085	Statement	 
+>2086	Statement	 
+>2087	Statement	 
+>2088	IdentifierDeclStatement	 
+>2089	IdentifierDecl	frac
+>2090	Identifier	frac
+>2091	IdentifierDeclType	fixed_t
+>2092	IdentifierDeclStatement	 
+>2093	IdentifierDecl	dl
+>2094	Identifier	dl
+>2095	IdentifierDeclType	divline_t
+>2096	IdentifierDeclStatement	 
+>2097	IdentifierDecl	tracepositive
+>2098	Identifier	tracepositive
+>2099	IdentifierDeclType	qboolean
+>2100	IdentifierDeclStatement	 
+>2101	IdentifierDecl	s2
+>2102	Identifier	s2
+>2103	IdentifierDeclType	int
+>2104	IdentifierDeclStatement	 
+>2105	IdentifierDecl	s1
+>2106	Identifier	s1
+>2107	IdentifierDeclType	int
+>2108	IdentifierDeclStatement	 
+>2109	IdentifierDecl	y2
+>2110	Identifier	y2
+>2111	IdentifierDeclType	fixed_t
+>2112	IdentifierDeclStatement	 
+>2113	IdentifierDecl	x2
+>2114	Identifier	x2
+>2115	IdentifierDeclType	fixed_t
+>2116	IdentifierDeclStatement	 
+>2117	IdentifierDecl	y1
+>2118	Identifier	y1
+>2119	IdentifierDeclType	fixed_t
+>2120	IdentifierDeclStatement	 
+>2121	IdentifierDecl	x1
+>2122	Identifier	x1
+>2123	IdentifierDeclType	fixed_t
+>2156	FunctionDef	P_TraverseIntercepts (traverser_t func , fixed_t maxfrac)
+>2157	ParameterList	traverser_t func , fixed_t maxfrac
+>2158	Parameter	 
+>2159	Identifier	maxfrac
+>2160	ParameterType	fixed_t
+>2161	Parameter	 
+>2162	Identifier	func
+>2163	ParameterType	traverser_t
+>2164	ReturnType	qboolean
+>2165	CompoundStatement	 
+>2166	ReturnStatement	 
+>2167	Identifier	true
+>2168	WhileStatement	while ( count -- )
+>2169	CompoundStatement	 
+>2170	ExpressionStatement	 
+>2171	AssignmentExpr	in -> frac = MAXINT
+>2172	Identifier	MAXINT
+>2173	PtrMemberAccess	in -> frac
+>2174	Identifier	frac
+>2175	Identifier	in
+>2176	IfStatement	if ( ! func ( in ) )
+>2177	ReturnStatement	 
+>2178	Identifier	false
+>2179	Condition	 
+>2180	UnaryOp	! func ( in )
+>2181	CallExpression	func ( in )
+>2182	ArgumentList	in
+>2183	Argument	in
+>2184	Identifier	in
+>2185	Callee	func
+>2186	Identifier	func
+>2187	UnaryOperator	!
+>2188	CompoundStatement	 
+>2189	ReturnStatement	 
+>2190	Identifier	false
+>2191	ExpressionStatement	 
+>2192	AssignmentExpr	g -> intercept_p = in
+>2193	Identifier	in
+>2194	PtrMemberAccess	g -> intercept_p
+>2195	Identifier	intercept_p
+>2196	Identifier	g
+>2197	Statement	 
+>2198	IfStatement	if ( scan -> frac > maxfrac )
+>2199	ExpressionStatement	 
+>2200	AssignmentExpr	* in ++ = * scan
+>2201	UnaryOp	* scan
+>2202	Identifier	scan
+>2203	UnaryOperator	*
+>2204	UnaryOp	* in ++
+>2205	IncDecOp	in ++
+>2206	IncDec	++
+>2207	Identifier	in
+>2208	UnaryOperator	*
+>2209	Condition	 
+>2210	RelationalExpression	scan -> frac > maxfrac
+>2211	Identifier	maxfrac
+>2212	PtrMemberAccess	scan -> frac
+>2213	Identifier	frac
+>2214	Identifier	scan
+>2215	Statement	 
+>2216	Statement	 
+>2217	Statement	 
+>2218	ExpressionStatement	 
+>2219	PtrMemberAccess	g -> intercept_p
+>2220	Identifier	intercept_p
+>2221	Identifier	g
+>2222	Statement	 
+>2223	Statement	 
+>2224	Statement	 
+>2225	ExpressionStatement	 
+>2226	PtrMemberAccess	g -> intercepts
+>2227	Identifier	intercepts
+>2228	Identifier	g
+>2229	Statement	 
+>2230	Statement	 
+>2231	Statement	 
+>2232	Statement	 
+>2233	Statement	 
+>2234	ExpressionStatement	 
+>2235	PtrMemberAccess	g -> intercepts
+>2236	Identifier	intercepts
+>2237	Identifier	g
+>2238	Statement	 
+>2239	Statement	 
+>2240	Statement	 
+>2241	Statement	 
+>2242	Statement	 
+>2243	IfStatement	if ( dist > maxfrac )
+>2244	ReturnStatement	 
+>2245	Identifier	true
+>2246	Condition	 
+>2247	RelationalExpression	dist > maxfrac
+>2248	Identifier	maxfrac
+>2249	Identifier	dist
+>2250	CompoundStatement	 
+>2251	IfStatement	if ( scan -> frac < dist )
+>2252	CompoundStatement	 
+>2253	ExpressionStatement	 
+>2254	AssignmentExpr	in = scan
+>2255	Identifier	scan
+>2256	Identifier	in
+>2257	ExpressionStatement	 
+>2258	AssignmentExpr	dist = scan -> frac
+>2259	PtrMemberAccess	scan -> frac
+>2260	Identifier	frac
+>2261	Identifier	scan
+>2262	Identifier	dist
+>2263	Condition	 
+>2264	RelationalExpression	scan -> frac < dist
+>2265	Identifier	dist
+>2266	PtrMemberAccess	scan -> frac
+>2267	Identifier	frac
+>2268	Identifier	scan
+>2269	Statement	 
+>2270	Statement	 
+>2271	Statement	 
+>2272	ExpressionStatement	 
+>2273	PtrMemberAccess	g -> intercept_p
+>2274	Identifier	intercept_p
+>2275	Identifier	g
+>2276	Statement	 
+>2277	Statement	 
+>2278	Statement	 
+>2279	ExpressionStatement	 
+>2280	PtrMemberAccess	g -> intercepts
+>2281	Identifier	intercepts
+>2282	Identifier	g
+>2283	Statement	 
+>2284	Statement	 
+>2285	Statement	 
+>2286	Statement	 
+>2287	Statement	 
+>2288	ExpressionStatement	 
+>2289	AssignmentExpr	dist = MAXINT
+>2290	Identifier	MAXINT
+>2291	Identifier	dist
+>2292	Condition	 
+>2293	IncDecOp	count --
+>2294	IncDec	--
+>2295	Identifier	count
+>2296	ExpressionStatement	 
+>2297	AssignmentExpr	in = 0
+>2298	PrimaryExpression	0
+>2299	Identifier	in
+>2300	ExpressionStatement	 
+>2301	PtrMemberAccess	g -> intercepts
+>2302	Identifier	intercepts
+>2303	Identifier	g
+>2304	Statement	 
+>2305	Statement	 
+>2306	Statement	 
+>2307	Statement	 
+>2308	Statement	 
+>2309	Statement	 
+>2310	Statement	 
+>2311	Statement	 
+>2312	IdentifierDeclStatement	 
+>2313	IdentifierDecl	* in
+>2314	Identifier	in
+>2315	IdentifierDeclType	intercept_t *
+>2316	IdentifierDeclStatement	 
+>2317	IdentifierDecl	* scan
+>2318	Identifier	scan
+>2319	IdentifierDeclType	intercept_t *
+>2320	IdentifierDeclStatement	 
+>2321	IdentifierDecl	dist
+>2322	Identifier	dist
+>2323	IdentifierDeclType	fixed_t
+>2324	IdentifierDeclStatement	 
+>2325	IdentifierDecl	count
+>2326	Identifier	count
+>2327	IdentifierDeclType	int
+>2348	FunctionDef	P_PathTraverse (fixed_t x1 , fixed_t y1 , fixed_t x2 , fixed_t y2 , int flags , qboolean ( * trav ) ( intercept_\
+>2349	ParameterList	fixed_t x1 , fixed_t y1 , fixed_t x2 , fixed_t y2 , int flags , qboolean ( * trav ) ( intercept_t * )
+>2350	Parameter	 
+>2351	Identifier	trav
+>2352	ParameterType	(( intercept_t * ) qboolean) *
+>2353	Parameter	 
+>2354	Identifier	flags
+>2355	ParameterType	int
+>2356	Parameter	 
+>2357	Identifier	y2
+>2358	ParameterType	fixed_t
+>2359	Parameter	 
+>2360	Identifier	x2
+>2361	ParameterType	fixed_t
+>2362	Parameter	 
+>2363	Identifier	y1
+>2364	ParameterType	fixed_t
+>2365	Parameter	 
+>2366	Identifier	x1
+>2367	ParameterType	fixed_t
+>2368	ReturnType	qboolean
+>2369	CompoundStatement	 
+>2370	ReturnStatement	 
+>2371	CallExpression	P_TraverseIntercepts ( trav , FRACUNIT )
+>2372	ArgumentList	trav
+>2373	Argument	FRACUNIT
+>2374	Identifier	FRACUNIT
+>2375	Argument	trav
+>2376	Identifier	trav
+>2377	Callee	P_TraverseIntercepts
+>2378	Identifier	P_TraverseIntercepts
+>2379	ForStatement	for ( count = 0 ; count < 64 ; count ++ )
+>2380	CompoundStatement	 
+>2381	IfStatement	if ( ( yintercept >> FRACBITS ) == mapy )
+>2382	ElseStatement	else
+>2383	IfStatement	if ( ( xintercept >> FRACBITS ) == mapx )
+>2384	CompoundStatement	 
+>2385	ExpressionStatement	 
+>2386	AssignmentExpr	mapy += mapystep
+>2387	Identifier	mapystep
+>2388	Identifier	mapy
+>2389	ExpressionStatement	 
+>2390	AssignmentExpr	xintercept += xstep
+>2391	Identifier	xstep
+>2392	Identifier	xintercept
+>2393	Condition	 
+>2394	EqualityExpression	( xintercept >> FRACBITS ) == mapx
+>2395	Identifier	mapx
+>2396	ShiftExpression	xintercept >> FRACBITS
+>2397	Identifier	FRACBITS
+>2398	Identifier	xintercept
+>2399	CompoundStatement	 
+>2400	ExpressionStatement	 
+>2401	AssignmentExpr	mapx += mapxstep
+>2402	Identifier	mapxstep
+>2403	Identifier	mapx
+>2404	ExpressionStatement	 
+>2405	AssignmentExpr	yintercept += ystep
+>2406	Identifier	ystep
+>2407	Identifier	yintercept
+>2408	Condition	 
+>2409	EqualityExpression	( yintercept >> FRACBITS ) == mapy
+>2410	Identifier	mapy
+>2411	ShiftExpression	yintercept >> FRACBITS
+>2412	Identifier	FRACBITS
+>2413	Identifier	yintercept
+>2414	IfStatement	if ( mapx == xt2 && mapy == yt2 )
+>2415	CompoundStatement	 
+>2416	BreakStatement	 
+>2417	Condition	 
+>2418	AndExpression	mapx == xt2 && mapy == yt2
+>2419	EqualityExpression	mapy == yt2
+>2420	Identifier	yt2
+>2421	Identifier	mapy
+>2422	EqualityExpression	mapx == xt2
+>2423	Identifier	xt2
+>2424	Identifier	mapx
+>2425	IfStatement	if ( flags & PT_ADDTHINGS )
+>2426	CompoundStatement	 
+>2427	IfStatement	if ( ! P_BlockThingsIterator ( mapx , mapy , PIT_AddThingIntercepts ) )
+>2428	ReturnStatement	 
+>2429	Identifier	false
+>2430	Condition	 
+>2431	UnaryOp	! P_BlockThingsIterator ( mapx , mapy , PIT_AddThingIntercepts )
+>2432	CallExpression	P_BlockThingsIterator ( mapx , mapy , PIT_AddThingIntercepts )
+>2433	ArgumentList	mapx
+>2434	Argument	PIT_AddThingIntercepts
+>2435	Identifier	PIT_AddThingIntercepts
+>2436	Argument	mapy
+>2437	Identifier	mapy
+>2438	Argument	mapx
+>2439	Identifier	mapx
+>2440	Callee	P_BlockThingsIterator
+>2441	Identifier	P_BlockThingsIterator
+>2442	UnaryOperator	!
+>2443	Condition	 
+>2444	BitAndExpression	flags & PT_ADDTHINGS
+>2445	Identifier	PT_ADDTHINGS
+>2446	Identifier	flags
+>2447	IfStatement	if ( flags & PT_ADDLINES )
+>2448	CompoundStatement	 
+>2449	IfStatement	if ( ! P_BlockLinesIterator ( mapx , mapy , PIT_AddLineIntercepts ) )
+>2450	ReturnStatement	 
+>2451	Identifier	false
+>2452	Condition	 
+>2453	UnaryOp	! P_BlockLinesIterator ( mapx , mapy , PIT_AddLineIntercepts )
+>2454	CallExpression	P_BlockLinesIterator ( mapx , mapy , PIT_AddLineIntercepts )
+>2455	ArgumentList	mapx
+>2456	Argument	PIT_AddLineIntercepts
+>2457	Identifier	PIT_AddLineIntercepts
+>2458	Argument	mapy
+>2459	Identifier	mapy
+>2460	Argument	mapx
+>2461	Identifier	mapx
+>2462	Callee	P_BlockLinesIterator
+>2463	Identifier	P_BlockLinesIterator
+>2464	UnaryOperator	!
+>2465	Condition	 
+>2466	BitAndExpression	flags & PT_ADDLINES
+>2467	Identifier	PT_ADDLINES
+>2468	Identifier	flags
+>2469	IncDecOp	 
+>2470	IncDec	++
+>2471	Identifier	count
+>2472	Condition	 
+>2473	RelationalExpression	count < 64
+>2474	PrimaryExpression	64
+>2475	Identifier	count
+>2476	ForInit	 
+>2477	AssignmentExpr	count = 0
+>2478	PrimaryExpression	0
+>2479	Identifier	count
+>2480	ExpressionStatement	 
+>2481	AssignmentExpr	mapy = yt1
+>2482	Identifier	yt1
+>2483	Identifier	mapy
+>2484	ExpressionStatement	 
+>2485	AssignmentExpr	mapx = xt1
+>2486	Identifier	xt1
+>2487	Identifier	mapx
+>2488	ExpressionStatement	 
+>2489	AssignmentExpr	xintercept = ( x1 >> MAPBTOFRAC ) + FixedMul ( partial , xstep )
+>2490	AdditiveExpression	( x1 >> MAPBTOFRAC ) + FixedMul ( partial , xstep )
+>2491	CallExpression	FixedMul ( partial , xstep )
+>2492	ArgumentList	partial
+>2493	Argument	xstep
+>2494	Identifier	xstep
+>2495	Argument	partial
+>2496	Identifier	partial
+>2497	Callee	FixedMul
+>2498	Identifier	FixedMul
+>2499	ShiftExpression	x1 >> MAPBTOFRAC
+>2500	Identifier	MAPBTOFRAC
+>2501	Identifier	x1
+>2502	Identifier	xintercept
+>2503	IfStatement	if ( yt2 > yt1 )
+>2504	ElseStatement	else
+>2505	IfStatement	if ( yt2 < yt1 )
+>2506	ElseStatement	else
+>2507	CompoundStatement	 
+>2508	ExpressionStatement	 
+>2509	AssignmentExpr	xstep = 256 * FRACUNIT
+>2510	MultiplicativeExpression	256 * FRACUNIT
+>2511	Identifier	FRACUNIT
+>2512	PrimaryExpression	256
+>2513	Identifier	xstep
+>2514	ExpressionStatement	 
+>2515	AssignmentExpr	partial = FRACUNIT
+>2516	Identifier	FRACUNIT
+>2517	Identifier	partial
+>2518	ExpressionStatement	 
+>2519	AssignmentExpr	mapystep = 0
+>2520	PrimaryExpression	0
+>2521	Identifier	mapystep
+>2522	CompoundStatement	 
+>2523	ExpressionStatement	 
+>2524	AssignmentExpr	xstep = FixedDiv ( x2 - x1 , abs ( y2 - y1 ) )
+>2525	CallExpression	FixedDiv ( x2 - x1 , abs ( y2 - y1 ) )
+>2526	ArgumentList	x2 - x1
+>2527	Argument	abs ( y2 - y1 )
+>2528	CallExpression	abs ( y2 - y1 )
+>2529	ArgumentList	y2 - y1
+>2530	Argument	y2 - y1
+>2531	AdditiveExpression	y2 - y1
+>2532	Identifier	y1
+>2533	Identifier	y2
+>2534	Callee	abs
+>2535	Identifier	abs
+>2536	Argument	x2 - x1
+>2537	AdditiveExpression	x2 - x1
+>2538	Identifier	x1
+>2539	Identifier	x2
+>2540	Callee	FixedDiv
+>2541	Identifier	FixedDiv
+>2542	Identifier	xstep
+>2543	ExpressionStatement	 
+>2544	AssignmentExpr	partial = ( y1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 )
+>2545	BitAndExpression	( y1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 )
+>2546	AdditiveExpression	FRACUNIT - 1
+>2547	PrimaryExpression	1
+>2548	Identifier	FRACUNIT
+>2549	ShiftExpression	y1 >> MAPBTOFRAC
+>2550	Identifier	MAPBTOFRAC
+>2551	Identifier	y1
+>2552	Identifier	partial
+>2553	ExpressionStatement	 
+>2554	AssignmentExpr	mapystep = - 1
+>2555	UnaryOp	- 1
+>2556	PrimaryExpression	1
+>2557	UnaryOperator	-
+>2558	Identifier	mapystep
+>2559	Condition	 
+>2560	RelationalExpression	yt2 < yt1
+>2561	Identifier	yt1
+>2562	Identifier	yt2
+>2563	CompoundStatement	 
+>2564	ExpressionStatement	 
+>2565	AssignmentExpr	xstep = FixedDiv ( x2 - x1 , abs ( y2 - y1 ) )
+>2566	CallExpression	FixedDiv ( x2 - x1 , abs ( y2 - y1 ) )
+>2567	ArgumentList	x2 - x1
+>2568	Argument	abs ( y2 - y1 )
+>2569	CallExpression	abs ( y2 - y1 )
+>2570	ArgumentList	y2 - y1
+>2571	Argument	y2 - y1
+>2572	AdditiveExpression	y2 - y1
+>2573	Identifier	y1
+>2574	Identifier	y2
+>2575	Callee	abs
+>2576	Identifier	abs
+>2577	Argument	x2 - x1
+>2578	AdditiveExpression	x2 - x1
+>2579	Identifier	x1
+>2580	Identifier	x2
+>2581	Callee	FixedDiv
+>2582	Identifier	FixedDiv
+>2583	Identifier	xstep
+>2584	ExpressionStatement	 
+>2585	AssignmentExpr	partial = FRACUNIT - ( ( y1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 ) )
+>2586	AdditiveExpression	FRACUNIT - ( ( y1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 ) )
+>2587	BitAndExpression	( y1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 )
+>2588	AdditiveExpression	FRACUNIT - 1
+>2589	PrimaryExpression	1
+>2590	Identifier	FRACUNIT
+>2591	ShiftExpression	y1 >> MAPBTOFRAC
+>2592	Identifier	MAPBTOFRAC
+>2593	Identifier	y1
+>2594	Identifier	FRACUNIT
+>2595	Identifier	partial
+>2596	ExpressionStatement	 
+>2597	AssignmentExpr	mapystep = 1
+>2598	PrimaryExpression	1
+>2599	Identifier	mapystep
+>2600	Condition	 
+>2601	RelationalExpression	yt2 > yt1
+>2602	Identifier	yt1
+>2603	Identifier	yt2
+>2604	ExpressionStatement	 
+>2605	AssignmentExpr	yintercept = ( y1 >> MAPBTOFRAC ) + FixedMul ( partial , ystep )
+>2606	AdditiveExpression	( y1 >> MAPBTOFRAC ) + FixedMul ( partial , ystep )
+>2607	CallExpression	FixedMul ( partial , ystep )
+>2608	ArgumentList	partial
+>2609	Argument	ystep
+>2610	Identifier	ystep
+>2611	Argument	partial
+>2612	Identifier	partial
+>2613	Callee	FixedMul
+>2614	Identifier	FixedMul
+>2615	ShiftExpression	y1 >> MAPBTOFRAC
+>2616	Identifier	MAPBTOFRAC
+>2617	Identifier	y1
+>2618	Identifier	yintercept
+>2619	IfStatement	if ( xt2 > xt1 )
+>2620	ElseStatement	else
+>2621	IfStatement	if ( xt2 < xt1 )
+>2622	ElseStatement	else
+>2623	CompoundStatement	 
+>2624	ExpressionStatement	 
+>2625	AssignmentExpr	ystep = 256 * FRACUNIT
+>2626	MultiplicativeExpression	256 * FRACUNIT
+>2627	Identifier	FRACUNIT
+>2628	PrimaryExpression	256
+>2629	Identifier	ystep
+>2630	ExpressionStatement	 
+>2631	AssignmentExpr	partial = FRACUNIT
+>2632	Identifier	FRACUNIT
+>2633	Identifier	partial
+>2634	ExpressionStatement	 
+>2635	AssignmentExpr	mapxstep = 0
+>2636	PrimaryExpression	0
+>2637	Identifier	mapxstep
+>2638	CompoundStatement	 
+>2639	ExpressionStatement	 
+>2640	AssignmentExpr	ystep = FixedDiv ( y2 - y1 , abs ( x2 - x1 ) )
+>2641	CallExpression	FixedDiv ( y2 - y1 , abs ( x2 - x1 ) )
+>2642	ArgumentList	y2 - y1
+>2643	Argument	abs ( x2 - x1 )
+>2644	CallExpression	abs ( x2 - x1 )
+>2645	ArgumentList	x2 - x1
+>2646	Argument	x2 - x1
+>2647	AdditiveExpression	x2 - x1
+>2648	Identifier	x1
+>2649	Identifier	x2
+>2650	Callee	abs
+>2651	Identifier	abs
+>2652	Argument	y2 - y1
+>2653	AdditiveExpression	y2 - y1
+>2654	Identifier	y1
+>2655	Identifier	y2
+>2656	Callee	FixedDiv
+>2657	Identifier	FixedDiv
+>2658	Identifier	ystep
+>2659	ExpressionStatement	 
+>2660	AssignmentExpr	partial = ( x1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 )
+>2661	BitAndExpression	( x1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 )
+>2662	AdditiveExpression	FRACUNIT - 1
+>2663	PrimaryExpression	1
+>2664	Identifier	FRACUNIT
+>2665	ShiftExpression	x1 >> MAPBTOFRAC
+>2666	Identifier	MAPBTOFRAC
+>2667	Identifier	x1
+>2668	Identifier	partial
+>2669	ExpressionStatement	 
+>2670	AssignmentExpr	mapxstep = - 1
+>2671	UnaryOp	- 1
+>2672	PrimaryExpression	1
+>2673	UnaryOperator	-
+>2674	Identifier	mapxstep
+>2675	Condition	 
+>2676	RelationalExpression	xt2 < xt1
+>2677	Identifier	xt1
+>2678	Identifier	xt2
+>2679	CompoundStatement	 
+>2680	ExpressionStatement	 
+>2681	AssignmentExpr	ystep = FixedDiv ( y2 - y1 , abs ( x2 - x1 ) )
+>2682	CallExpression	FixedDiv ( y2 - y1 , abs ( x2 - x1 ) )
+>2683	ArgumentList	y2 - y1
+>2684	Argument	abs ( x2 - x1 )
+>2685	CallExpression	abs ( x2 - x1 )
+>2686	ArgumentList	x2 - x1
+>2687	Argument	x2 - x1
+>2688	AdditiveExpression	x2 - x1
+>2689	Identifier	x1
+>2690	Identifier	x2
+>2691	Callee	abs
+>2692	Identifier	abs
+>2693	Argument	y2 - y1
+>2694	AdditiveExpression	y2 - y1
+>2695	Identifier	y1
+>2696	Identifier	y2
+>2697	Callee	FixedDiv
+>2698	Identifier	FixedDiv
+>2699	Identifier	ystep
+>2700	ExpressionStatement	 
+>2701	AssignmentExpr	partial = FRACUNIT - ( ( x1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 ) )
+>2702	AdditiveExpression	FRACUNIT - ( ( x1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 ) )
+>2703	BitAndExpression	( x1 >> MAPBTOFRAC ) & ( FRACUNIT - 1 )
+>2704	AdditiveExpression	FRACUNIT - 1
+>2705	PrimaryExpression	1
+>2706	Identifier	FRACUNIT
+>2707	ShiftExpression	x1 >> MAPBTOFRAC
+>2708	Identifier	MAPBTOFRAC
+>2709	Identifier	x1
+>2710	Identifier	FRACUNIT
+>2711	Identifier	partial
+>2712	ExpressionStatement	 
+>2713	AssignmentExpr	mapxstep = 1
+>2714	PrimaryExpression	1
+>2715	Identifier	mapxstep
+>2716	Condition	 
+>2717	RelationalExpression	xt2 > xt1
+>2718	Identifier	xt1
+>2719	Identifier	xt2
+>2720	ExpressionStatement	 
+>2721	AssignmentExpr	yt2 = y2 >> MAPBLOCKSHIFT
+>2722	ShiftExpression	y2 >> MAPBLOCKSHIFT
+>2723	Identifier	MAPBLOCKSHIFT
+>2724	Identifier	y2
+>2725	Identifier	yt2
+>2726	ExpressionStatement	 
+>2727	AssignmentExpr	xt2 = x2 >> MAPBLOCKSHIFT
+>2728	ShiftExpression	x2 >> MAPBLOCKSHIFT
+>2729	Identifier	MAPBLOCKSHIFT
+>2730	Identifier	x2
+>2731	Identifier	xt2
+>2732	ExpressionStatement	 
+>2733	PtrMemberAccess	g -> bmaporgy
+>2734	Identifier	bmaporgy
+>2735	Identifier	g
+>2736	Statement	 
+>2737	Statement	 
+>2738	Statement	 
+>2739	ExpressionStatement	 
+>2740	PtrMemberAccess	g -> bmaporgx
+>2741	Identifier	bmaporgx
+>2742	Identifier	g
+>2743	Statement	 
+>2744	Statement	 
+>2745	Statement	 
+>2746	ExpressionStatement	 
+>2747	AssignmentExpr	yt1 = y1 >> MAPBLOCKSHIFT
+>2748	ShiftExpression	y1 >> MAPBLOCKSHIFT
+>2749	Identifier	MAPBLOCKSHIFT
+>2750	Identifier	y1
+>2751	Identifier	yt1
+>2752	ExpressionStatement	 
+>2753	AssignmentExpr	xt1 = x1 >> MAPBLOCKSHIFT
+>2754	ShiftExpression	x1 >> MAPBLOCKSHIFT
+>2755	Identifier	MAPBLOCKSHIFT
+>2756	Identifier	x1
+>2757	Identifier	xt1
+>2758	ExpressionStatement	 
+>2759	PtrMemberAccess	g -> bmaporgy
+>2760	Identifier	bmaporgy
+>2761	Identifier	g
+>2762	Statement	 
+>2763	Statement	 
+>2764	Statement	 
+>2765	ExpressionStatement	 
+>2766	PtrMemberAccess	g -> bmaporgx
+>2767	Identifier	bmaporgx
+>2768	Identifier	g
+>2769	Statement	 
+>2770	Statement	 
+>2771	Statement	 
+>2772	ExpressionStatement	 
+>2773	AssignmentExpr	g -> trace . dy = y2 - y1
+>2774	AdditiveExpression	y2 - y1
+>2775	Identifier	y1
+>2776	Identifier	y2
+>2777	MemberAccess	g -> trace . dy
+>2778	Identifier	dy
+>2779	PtrMemberAccess	g -> trace
+>2780	Identifier	trace
+>2781	Identifier	g
+>2782	Statement	 
+>2783	ExpressionStatement	 
+>2784	AssignmentExpr	g -> trace . dx = x2 - x1
+>2785	AdditiveExpression	x2 - x1
+>2786	Identifier	x1
+>2787	Identifier	x2
+>2788	MemberAccess	g -> trace . dx
+>2789	Identifier	dx
+>2790	PtrMemberAccess	g -> trace
+>2791	Identifier	trace
+>2792	Identifier	g
+>2793	Statement	 
+>2794	ExpressionStatement	 
+>2795	AssignmentExpr	g -> trace . y = y1
+>2796	Identifier	y1
+>2797	MemberAccess	g -> trace . y
+>2798	Identifier	y
+>2799	PtrMemberAccess	g -> trace
+>2800	Identifier	trace
+>2801	Identifier	g
+>2802	Statement	 
+>2803	ExpressionStatement	 
+>2804	AssignmentExpr	g -> trace . x = x1
+>2805	Identifier	x1
+>2806	MemberAccess	g -> trace . x
+>2807	Identifier	x
+>2808	PtrMemberAccess	g -> trace
+>2809	Identifier	trace
+>2810	Identifier	g
+>2811	Statement	 
+>2812	ExpressionStatement	 
+>2813	AssignmentExpr	y1 += FRACUNIT
+>2814	Identifier	FRACUNIT
+>2815	Identifier	y1
+>2816	Statement	 
+>2817	Statement	 
+>2818	Statement	 
+>2819	Statement	 
+>2820	Statement	 
+>2821	Statement	 
+>2822	Statement	 
+>2823	Statement	 
+>2824	Statement	 
+>2825	Statement	 
+>2826	Statement	 
+>2827	Statement	 
+>2828	Statement	 
+>2829	Statement	 
+>2830	Statement	 
+>2831	Statement	 
+>2832	Statement	 
+>2833	Statement	 
+>2834	Statement	 
+>2835	Statement	 
+>2836	Statement	 
+>2837	ExpressionStatement	 
+>2838	AssignmentExpr	x1 += FRACUNIT
+>2839	Identifier	FRACUNIT
+>2840	Identifier	x1
+>2841	Statement	 
+>2842	Statement	 
+>2843	Statement	 
+>2844	Statement	 
+>2845	Statement	 
+>2846	Statement	 
+>2847	Statement	 
+>2848	Statement	 
+>2849	Statement	 
+>2850	Statement	 
+>2851	Statement	 
+>2852	Statement	 
+>2853	Statement	 
+>2854	Statement	 
+>2855	Statement	 
+>2856	Statement	 
+>2857	Statement	 
+>2858	Statement	 
+>2859	Statement	 
+>2860	Statement	 
+>2861	Statement	 
+>2862	ExpressionStatement	 
+>2863	PtrMemberAccess	g -> intercepts
+>2864	Identifier	intercepts
+>2865	Identifier	g
+>2866	Statement	 
+>2867	Statement	 
+>2868	Statement	 
+>2869	Statement	 
+>2870	Statement	 
+>2871	Statement	 
+>2872	ExpressionStatement	 
+>2873	IncDecOp	g -> validcount ++
+>2874	IncDec	++
+>2875	PtrMemberAccess	g -> validcount
+>2876	Identifier	validcount
+>2877	Identifier	g
+>2878	Statement	 
+>2879	ExpressionStatement	 
+>2880	AssignmentExpr	g -> earlyout = flags & PT_EARLYOUT
+>2881	BitAndExpression	flags & PT_EARLYOUT
+>2882	Identifier	PT_EARLYOUT
+>2883	Identifier	flags
+>2884	PtrMemberAccess	g -> earlyout
+>2885	Identifier	earlyout
+>2886	Identifier	g
+>2887	Statement	 
+>2888	IdentifierDeclStatement	 
+>2889	IdentifierDecl	count
+>2890	Identifier	count
+>2891	IdentifierDeclType	int
+>2892	IdentifierDeclStatement	 
+>2893	IdentifierDecl	mapystep
+>2894	Identifier	mapystep
+>2895	IdentifierDeclType	int
+>2896	IdentifierDeclStatement	 
+>2897	IdentifierDecl	mapxstep
+>2898	Identifier	mapxstep
+>2899	IdentifierDeclType	int
+>2900	IdentifierDeclStatement	 
+>2901	IdentifierDecl	mapy
+>2902	Identifier	mapy
+>2903	IdentifierDeclType	int
+>2904	IdentifierDeclStatement	 
+>2905	IdentifierDecl	mapx
+>2906	Identifier	mapx
+>2907	IdentifierDeclType	int
+>2908	IdentifierDeclStatement	 
+>2909	IdentifierDecl	yintercept
+>2910	Identifier	yintercept
+>2911	IdentifierDeclType	fixed_t
+>2912	IdentifierDeclStatement	 
+>2913	IdentifierDecl	xintercept
+>2914	Identifier	xintercept
+>2915	IdentifierDeclType	fixed_t
+>2916	IdentifierDeclStatement	 
+>2917	IdentifierDecl	partial
+>2918	Identifier	partial
+>2919	IdentifierDeclType	fixed_t
+>2920	IdentifierDeclStatement	 
+>2921	IdentifierDecl	ystep
+>2922	Identifier	ystep
+>2923	IdentifierDeclType	fixed_t
+>2924	IdentifierDeclStatement	 
+>2925	IdentifierDecl	xstep
+>2926	Identifier	xstep
+>2927	IdentifierDeclType	fixed_t
+>2928	IdentifierDeclStatement	 
+>2929	IdentifierDecl	yt2
+>2930	Identifier	yt2
+>2931	IdentifierDeclType	fixed_t
+>2932	IdentifierDeclStatement	 
+>2933	IdentifierDecl	xt2
+>2934	Identifier	xt2
+>2935	IdentifierDeclType	fixed_t
+>2936	IdentifierDeclStatement	 
+>2937	IdentifierDecl	yt1
+>2938	Identifier	yt1
+>2939	IdentifierDeclType	fixed_t
+>2940	IdentifierDeclStatement	 
+>2941	IdentifierDecl	xt1
+>2942	Identifier	xt1
+>2943	IdentifierDeclType	fixed_t
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=43,34,21,13
+<13=14
+<14=20,15
+<15=19,16
+<16=18,17
+<21=30,22
+<22=23
+<23=29,24
+<24=28,25
+<25=27,26
+<30=31
+<31=33,32
+<34=35
+<35=42,36
+<36=40,37
+<37=38
+<38=39
+<40=41
+<43=44
+<44=51,45
+<45=49,46
+<46=47
+<47=48
+<49=50
+<58=70,69,59
+<59=66,63,60
+<60=62,61
+<63=65,64
+<66=68,67
+<70=200,196,192,188,159,130,120,110,95,80,73,71
+<71=72
+<73=76,74
+<74=75
+<76=77
+<77=79,78
+<80=81
+<81=94,82
+<82=92,83
+<83=90,84
+<84=85
+<85=87,86
+<87=89,88
+<90=91
+<92=93
+<95=96
+<96=109,97
+<97=107,98
+<98=101,99
+<99=100
+<101=102
+<102=104,103
+<104=106,105
+<107=108
+<110=111
+<111=119,112
+<112=118,113
+<113=115,114
+<115=117,116
+<120=121
+<121=129,122
+<122=128,123
+<123=125,124
+<125=127,126
+<130=153,131
+<131=138,132
+<132=133
+<133=135,134
+<135=137,136
+<138=145,139
+<139=140
+<140=142,141
+<142=144,143
+<145=146
+<146=152,147
+<147=149,148
+<149=151,150
+<153=154
+<154=158,155
+<155=157,156
+<159=182,160
+<160=167,161
+<161=162
+<162=164,163
+<164=166,165
+<167=174,168
+<168=169
+<169=171,170
+<171=173,172
+<174=175
+<175=181,176
+<176=178,177
+<178=180,179
+<182=183
+<183=187,184
+<184=186,185
+<188=189
+<189=191,190
+<192=193
+<193=195,194
+<196=197
+<197=199,198
+<200=201
+<201=203,202
+<224=233,232,225
+<225=229,226
+<226=228,227
+<229=231,230
+<233=418,411,245,238,234
+<234=235
+<235=237,236
+<238=241,239
+<239=240
+<241=242
+<242=244,243
+<245=407,246
+<246=405,393,381,365,364,362,350,338,322,321,319,302,285,284,282,265,248,247
+<248=249
+<249=264,250
+<250=262,251
+<251=258,254,252
+<252=253
+<254=255
+<255=257,256
+<258=259
+<259=261,260
+<262=263
+<265=266
+<266=281,267
+<267=279,268
+<268=275,271,269
+<269=270
+<271=272
+<272=274,273
+<275=276
+<276=278,277
+<279=280
+<282=283
+<285=286
+<286=301,287
+<287=299,288
+<288=295,291,289
+<289=290
+<291=292
+<292=294,293
+<295=296
+<296=298,297
+<299=300
+<302=303
+<303=318,304
+<304=316,305
+<305=312,308,306
+<306=307
+<308=309
+<309=311,310
+<312=313
+<313=315,314
+<316=317
+<319=320
+<322=332,323
+<323=328,324
+<324=325
+<325=327,326
+<328=329
+<329=331,330
+<332=333
+<333=335,334
+<335=337,336
+<338=339
+<339=349,340
+<340=346,341
+<341=343,342
+<343=345,344
+<346=348,347
+<350=351
+<351=361,352
+<352=358,353
+<353=355,354
+<355=357,356
+<358=360,359
+<362=363
+<365=375,366
+<366=371,367
+<367=368
+<368=370,369
+<371=372
+<372=374,373
+<375=376
+<376=378,377
+<378=380,379
+<381=382
+<382=392,383
+<383=389,384
+<384=386,385
+<386=388,387
+<389=391,390
+<393=394
+<394=404,395
+<395=401,396
+<396=398,397
+<398=400,399
+<401=403,402
+<405=406
+<407=408
+<408=410,409
+<411=412
+<412=417,416,413
+<413=415,414
+<418=419
+<419=424,423,420
+<420=422,421
+<451=463,462,452
+<452=459,456,453
+<453=455,454
+<456=458,457
+<459=461,460
+<463=618,614,610,606,579,552,544,536,507,490,473,466,464
+<464=465
+<466=469,467
+<467=468
+<469=470
+<470=472,471
+<473=474
+<474=489,475
+<475=487,476
+<476=483,477
+<477=478
+<478=480,479
+<480=482,481
+<483=484
+<484=486,485
+<487=488
+<490=491
+<491=506,492
+<492=504,493
+<493=498,494
+<494=495
+<495=497,496
+<498=499
+<499=501,500
+<501=503,502
+<504=505
+<507=522,508
+<508=511,509
+<509=510
+<511=514,512
+<512=513
+<514=515
+<515=517,516
+<517=519,518
+<519=521,520
+<522=523
+<523=525,524
+<525=533,526
+<526=530,527
+<527=529,528
+<530=532,531
+<533=535,534
+<536=537
+<537=543,538
+<538=542,539
+<539=541,540
+<544=545
+<545=551,546
+<546=550,547
+<547=549,548
+<552=573,553
+<553=560,554
+<554=555
+<555=557,556
+<557=559,558
+<560=567,561
+<561=562
+<562=564,563
+<564=566,565
+<567=568
+<568=572,569
+<569=571,570
+<573=574
+<574=578,575
+<575=577,576
+<579=600,580
+<580=587,581
+<581=582
+<582=584,583
+<584=586,585
+<587=594,588
+<588=589
+<589=591,590
+<591=593,592
+<594=595
+<595=599,596
+<596=598,597
+<600=601
+<601=605,602
+<602=604,603
+<606=607
+<607=609,608
+<610=611
+<611=613,612
+<614=615
+<615=617,616
+<618=619
+<619=621,620
+<638=647,646,639
+<639=643,640
+<640=642,641
+<643=645,644
+<647=674,664,656,648
+<648=649
+<649=653,650
+<650=652,651
+<653=655,654
+<656=657
+<657=661,658
+<658=660,659
+<661=663,662
+<664=665
+<665=671,666
+<666=668,667
+<668=670,669
+<671=673,672
+<674=675
+<675=681,676
+<676=678,677
+<678=680,679
+<681=683,682
+<702=711,710,703
+<703=707,704
+<704=706,705
+<707=709,708
+<711=812,808,804,772,765,725,714,712
+<712=713
+<714=715
+<715=724,716
+<716=722,717
+<717=720,718
+<718=719
+<720=721
+<722=723
+<725=726
+<726=764,727
+<727=746,728
+<728=744,729
+<729=734,730
+<730=731
+<731=733,732
+<734=735
+<735=737,736
+<737=741,738
+<738=740,739
+<741=743,742
+<744=745
+<746=762,747
+<747=752,748
+<748=749
+<749=751,750
+<752=753
+<753=755,754
+<755=759,756
+<756=758,757
+<759=761,760
+<762=763
+<765=768,766
+<766=767
+<768=769
+<769=771,770
+<772=773
+<773=803,774
+<774=789,775
+<775=787,776
+<776=781,777
+<777=778
+<778=780,779
+<781=782
+<782=784,783
+<784=786,785
+<787=788
+<789=801,790
+<790=795,791
+<791=792
+<792=794,793
+<795=796
+<796=798,797
+<798=800,799
+<801=802
+<804=805
+<805=807,806
+<808=809
+<809=811,810
+<812=813
+<813=815,814
+<836=842,841,837
+<837=838
+<838=840,839
+<842=970,966,946,940,934,922,914,906,858,857,856,855,854,853,852,851,850,849,848,847,843
+<843=844
+<844=846,845
+<858=898,879,859
+<859=860
+<860=878,870,869,861
+<861=862
+<862=866,863
+<863=865,864
+<866=868,867
+<870=871
+<871=875,872
+<872=874,873
+<875=877,876
+<879=897,889,888,880
+<880=881
+<881=885,882
+<882=884,883
+<885=887,886
+<889=890
+<890=894,891
+<891=893,892
+<894=896,895
+<898=899
+<899=903,900
+<900=902,901
+<903=905,904
+<906=907
+<907=911,908
+<908=910,909
+<911=913,912
+<914=915
+<915=919,916
+<916=918,917
+<919=921,920
+<922=926,925,923
+<923=924
+<926=927
+<927=931,928
+<928=930,929
+<931=933,932
+<934=935
+<935=939,936
+<936=938,937
+<940=941
+<941=945,942
+<942=944,943
+<946=956,947
+<947=955,949,948
+<949=950
+<950=952,951
+<952=954,953
+<956=957
+<957=961,958
+<958=960,959
+<961=963,962
+<963=965,964
+<966=967
+<967=969,968
+<970=971
+<971=973,972
+<998=1004,1003,999
+<999=1000
+<1000=1002,1001
+<1004=1178,1174,1121,1005
+<1005=1113,1006
+<1006=1098,1007
+<1007=1094,1084,1008
+<1008=1009
+<1009=1083,1082,1081,1010,1030,1031,1032,1033,1034,1035,1036,1037,1038,1039,1040,1041,1042,1043,1044,1045,1046,1047,1048,1049,1050,1051,1052,1053,1054,1056,1057,1058,1059,1060,1061,1062,1063,1064,1065,1066,1067,1068,1069,1071,1072,1073,1074,1075,1076,1077,1078,1079,1080
+<1010=1029,1028,1027,1026,1025,1024,1023,1022,1021,1020,1019,1018,1017,1016,1015,1011
+<1011=1012
+<1012=1014,1013
+<1054=1055
+<1069=1070
+<1084=1085
+<1085=1089,1086
+<1086=1088,1087
+<1089=1091,1090
+<1091=1093,1092
+<1094=1095
+<1095=1097,1096
+<1098=1109,1099
+<1099=1100
+<1100=1104,1101
+<1101=1103,1102
+<1104=1106,1105
+<1106=1108,1107
+<1109=1110
+<1110=1112,1111
+<1113=1114
+<1114=1120,1115
+<1115=1117,1116
+<1117=1119,1118
+<1121=1166,1122
+<1122=1151,1123
+<1123=1147,1137,1124
+<1124=1125
+<1125=1126
+<1126=1130,1127
+<1127=1129,1128
+<1130=1132,1131
+<1132=1134,1133
+<1134=1136,1135
+<1137=1138
+<1138=1142,1139
+<1139=1141,1140
+<1142=1144,1143
+<1144=1146,1145
+<1147=1148
+<1148=1150,1149
+<1151=1162,1152
+<1152=1153
+<1153=1157,1154
+<1154=1156,1155
+<1157=1159,1158
+<1159=1161,1160
+<1162=1163
+<1163=1165,1164
+<1166=1167
+<1167=1173,1168
+<1168=1170,1169
+<1170=1172,1171
+<1174=1175
+<1175=1177,1176
+<1178=1179
+<1179=1181,1180
+<1212=1218,1217,1213
+<1213=1214
+<1214=1216,1215
+<1218=1433,1429,1425,1421,1417,1402,1396,1347,1219
+<1219=1339,1232,1220
+<1220=1221
+<1221=1222
+<1222=1223
+<1223=1229,1224
+<1224=1226,1225
+<1226=1228,1227
+<1229=1231,1230
+<1232=1338,1337,1336,1233,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1311,1312,1313,1314,1315,1316,1317,1318,1319,1320,1321,1322,1323,1324,1326,1327,1328,1329,1330,1331,1332,1333,1334,1335
+<1233=1284,1283,1282,1281,1280,1279,1278,1277,1276,1275,1274,1273,1272,1271,1270,1269,1268,1267,1261,1253,1240,1234
+<1234=1235
+<1235=1237,1236
+<1237=1239,1238
+<1240=1249,1241
+<1241=1242
+<1242=1244,1243
+<1244=1246,1245
+<1246=1248,1247
+<1249=1250
+<1250=1252,1251
+<1253=1254
+<1254=1258,1255
+<1255=1257,1256
+<1258=1260,1259
+<1261=1262
+<1262=1264,1263
+<1264=1266,1265
+<1309=1310
+<1324=1325
+<1339=1340
+<1340=1346,1341
+<1341=1343,1342
+<1343=1345,1344
+<1347=1388,1348
+<1348=1382,1376,1368,1355,1349
+<1349=1350
+<1350=1352,1351
+<1352=1354,1353
+<1355=1364,1356
+<1356=1357
+<1357=1359,1358
+<1359=1361,1360
+<1361=1363,1362
+<1364=1365
+<1365=1367,1366
+<1368=1369
+<1369=1373,1370
+<1370=1372,1371
+<1373=1375,1374
+<1376=1377
+<1377=1379,1378
+<1379=1381,1380
+<1382=1383
+<1383=1387,1384
+<1384=1386,1385
+<1388=1389
+<1389=1395,1390
+<1390=1392,1391
+<1392=1394,1393
+<1396=1397
+<1397=1399,1398
+<1399=1401,1400
+<1402=1403
+<1403=1416,1404
+<1404=1414,1405
+<1405=1410,1406
+<1406=1407
+<1407=1409,1408
+<1410=1411
+<1411=1413,1412
+<1414=1415
+<1417=1418
+<1418=1420,1419
+<1421=1422
+<1422=1424,1423
+<1425=1426
+<1426=1428,1427
+<1429=1430
+<1430=1432,1431
+<1433=1434
+<1434=1436,1435
+<1469=1481,1480,1470
+<1470=1477,1474,1471
+<1471=1473,1472
+<1474=1476,1475
+<1477=1479,1478
+<1481=1610,1606,1602,1601,1600,1599,1598,1597,1482,1484,1530,1531,1532,1533,1541,1547,1548,1549,1550,1551,1552,1553,1554,1555,1556,1557,1558,1559,1560,1561,1562,1563,1564,1570,1571,1572,1573,1574,1575,1578,1579,1580,1581,1582,1583,1584,1585,1586,1587,1588,1589,1590,1591,1592,1593,1594,1595,1596
+<1482=1483
+<1484=1529,1528,1527,1526,1518,1517,1516,1515,1514,1513,1512,1511,1510,1509,1508,1507,1506,1505,1504,1503,1502,1501,1497,1485
+<1485=1488,1486
+<1486=1487
+<1488=1489
+<1489=1496,1490
+<1490=1494,1491
+<1491=1492
+<1492=1493
+<1494=1495
+<1497=1498
+<1498=1500,1499
+<1518=1519
+<1519=1523,1520
+<1520=1522,1521
+<1523=1525,1524
+<1533=1534
+<1534=1538,1535
+<1535=1537,1536
+<1538=1540,1539
+<1541=1542
+<1542=1544,1543
+<1544=1546,1545
+<1564=1565
+<1565=1567,1566
+<1567=1569,1568
+<1575=1576
+<1576=1577
+<1602=1603
+<1603=1605,1604
+<1606=1607
+<1607=1609,1608
+<1610=1611
+<1611=1613,1612
+<1630=1642,1641,1631
+<1631=1638,1635,1632
+<1632=1634,1633
+<1635=1637,1636
+<1638=1640,1639
+<1642=1712,1711,1710,1709,1643,1645,1658,1659,1660,1661,1662,1663,1664,1666,1667,1668,1669,1670,1671,1672,1673,1674,1675,1676,1677,1678,1679,1680,1681,1682,1683,1684,1685,1688,1689,1690,1691,1692,1693,1694,1695,1696,1697,1698,1699,1700,1701,1702,1703,1704,1705,1706,1707,1708
+<1643=1644
+<1645=1646
+<1646=1649,1647
+<1647=1648
+<1649=1650
+<1650=1657,1651
+<1651=1655,1652
+<1652=1653
+<1653=1654
+<1655=1656
+<1664=1665
+<1685=1686
+<1686=1687
+<1712=1713
+<1713=1715,1714
+<1725=1731,1730,1726
+<1726=1727
+<1727=1729,1728
+<1731=1839,1835,1831,1732,1779,1780,1781,1782,1783,1784,1785,1786,1787,1788,1789,1790,1791,1792,1793,1794,1795,1796,1797,1798,1799,1800,1801,1802,1803,1804,1805,1806,1807,1808,1809,1810,1811,1812,1813,1814,1815,1816,1817,1818,1819,1820,1821,1822,1823,1824,1825,1826,1827
+<1732=1778,1777,1776,1775,1774,1773,1772,1771,1770,1769,1768,1767,1766,1765,1764,1763,1762,1761,1760,1759,1758,1757,1756,1755,1754,1753,1752,1751,1750,1749,1748,1747,1746,1745,1744,1743,1742,1741,1740,1739,1738,1737,1736,1735,1734,1733
+<1827=1828
+<1828=1830,1829
+<1831=1832
+<1832=1834,1833
+<1835=1836
+<1836=1838,1837
+<1839=1840
+<1840=1842,1841
+<1851=1857,1856,1852
+<1852=1853
+<1853=1855,1854
+<1857=2120,2116,2112,2108,2104,2100,2096,2092,2088,2087,2086,2085,2084,2083,2082,2081,2080,2079,2078,2077,2076,2075,2074,2073,2072,2071,2070,2068,1982,1981,1980,1979,1978,1977,1976,1975,1974,1973,1858,1860,1866,1867,1877,1878,1886,1887,1895,1896,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1925,1933,1939,1945,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972
+<1858=1859
+<1860=1861
+<1861=1863,1862
+<1863=1865,1864
+<1867=1868
+<1868=1870,1869
+<1870=1872,1871
+<1872=1874,1873
+<1874=1876,1875
+<1878=1879
+<1879=1881,1880
+<1881=1883,1882
+<1883=1885,1884
+<1887=1888
+<1888=1890,1889
+<1890=1892,1891
+<1892=1894,1893
+<1896=1899,1897
+<1897=1898
+<1899=1900
+<1900=1902,1901
+<1917=1918
+<1918=1922,1919
+<1919=1921,1920
+<1922=1924,1923
+<1925=1926
+<1926=1930,1927
+<1927=1929,1928
+<1930=1932,1931
+<1933=1934
+<1934=1936,1935
+<1936=1938,1937
+<1939=1940
+<1940=1942,1941
+<1942=1944,1943
+<1945=1948,1946
+<1946=1947
+<1948=1949
+<1949=1951,1950
+<1982=2066,2025,1983
+<1983=1984
+<1984=2015,2005,1995,1985
+<1985=1986
+<1986=1994,1987
+<1987=1991,1988
+<1988=1990,1989
+<1991=1993,1992
+<1995=1996
+<1996=2004,1997
+<1997=2001,1998
+<1998=2000,1999
+<2001=2003,2002
+<2005=2006
+<2006=2014,2007
+<2007=2011,2008
+<2008=2010,2009
+<2011=2013,2012
+<2015=2016
+<2016=2024,2017
+<2017=2021,2018
+<2018=2020,2019
+<2021=2023,2022
+<2025=2056,2046,2036,2026
+<2026=2027
+<2027=2035,2028
+<2028=2032,2029
+<2029=2031,2030
+<2032=2034,2033
+<2036=2037
+<2037=2045,2038
+<2038=2042,2039
+<2039=2041,2040
+<2042=2044,2043
+<2046=2047
+<2047=2055,2048
+<2048=2052,2049
+<2049=2051,2050
+<2052=2054,2053
+<2056=2057
+<2057=2065,2058
+<2058=2062,2059
+<2059=2061,2060
+<2062=2064,2063
+<2066=2067
+<2068=2069
+<2088=2089
+<2089=2091,2090
+<2092=2093
+<2093=2095,2094
+<2096=2097
+<2097=2099,2098
+<2100=2101
+<2101=2103,2102
+<2104=2105
+<2105=2107,2106
+<2108=2109
+<2109=2111,2110
+<2112=2113
+<2113=2115,2114
+<2116=2117
+<2117=2119,2118
+<2120=2121
+<2121=2123,2122
+<2156=2165,2164,2157
+<2157=2161,2158
+<2158=2160,2159
+<2161=2163,2162
+<2165=2324,2320,2316,2312,2311,2310,2309,2308,2307,2306,2305,2304,2300,2296,2168,2166
+<2166=2167
+<2168=2292,2169
+<2169=2288,2287,2286,2285,2284,2283,2279,2278,2277,2276,2272,2271,2270,2269,2250,2243,2188,2176,2170
+<2170=2171
+<2171=2173,2172
+<2173=2175,2174
+<2176=2179,2177
+<2177=2178
+<2179=2180
+<2180=2187,2181
+<2181=2185,2182
+<2182=2183
+<2183=2184
+<2185=2186
+<2188=2242,2241,2240,2239,2238,2234,2233,2232,2231,2230,2229,2225,2224,2223,2222,2218,2217,2216,2215,2198,2197,2191,2189
+<2189=2190
+<2191=2192
+<2192=2194,2193
+<2194=2196,2195
+<2198=2209,2199
+<2199=2200
+<2200=2204,2201
+<2201=2203,2202
+<2204=2208,2205
+<2205=2207,2206
+<2209=2210
+<2210=2212,2211
+<2212=2214,2213
+<2218=2219
+<2219=2221,2220
+<2225=2226
+<2226=2228,2227
+<2234=2235
+<2235=2237,2236
+<2243=2246,2244
+<2244=2245
+<2246=2247
+<2247=2249,2248
+<2250=2251
+<2251=2263,2252
+<2252=2257,2253
+<2253=2254
+<2254=2256,2255
+<2257=2258
+<2258=2262,2259
+<2259=2261,2260
+<2263=2264
+<2264=2266,2265
+<2266=2268,2267
+<2272=2273
+<2273=2275,2274
+<2279=2280
+<2280=2282,2281
+<2288=2289
+<2289=2291,2290
+<2292=2293
+<2293=2295,2294
+<2296=2297
+<2297=2299,2298
+<2300=2301
+<2301=2303,2302
+<2312=2313
+<2313=2315,2314
+<2316=2317
+<2317=2319,2318
+<2320=2321
+<2321=2323,2322
+<2324=2325
+<2325=2327,2326
+<2348=2369,2368,2349
+<2349=2365,2362,2359,2356,2353,2350
+<2350=2352,2351
+<2353=2355,2354
+<2356=2358,2357
+<2359=2361,2360
+<2362=2364,2363
+<2365=2367,2366
+<2369=2940,2936,2932,2928,2924,2920,2916,2912,2908,2904,2900,2896,2892,2888,2887,2879,2878,2872,2871,2870,2869,2868,2867,2866,2862,2861,2860,2859,2858,2857,2856,2855,2854,2853,2852,2851,2850,2849,2848,2847,2846,2845,2844,2843,2842,2841,2837,2836,2835,2834,2833,2832,2831,2830,2829,2370,2379,2480,2484,2488,2503,2604,2619,2720,2726,2732,2736,2737,2738,2739,2743,2744,2745,2746,2752,2758,2762,2763,2764,2765,2769,2770,2771,2772,2782,2783,2793,2794,2802,2803,2811,2812,2816,2817,2818,2819,2820,2821,2822,2823,2824,2825,2826,2827,2828
+<2370=2371
+<2371=2377,2372
+<2372=2375,2373
+<2373=2374
+<2375=2376
+<2377=2378
+<2379=2476,2472,2469,2380
+<2380=2447,2425,2414,2381
+<2381=2408,2399,2382
+<2382=2383
+<2383=2393,2384
+<2384=2389,2385
+<2385=2386
+<2386=2388,2387
+<2389=2390
+<2390=2392,2391
+<2393=2394
+<2394=2396,2395
+<2396=2398,2397
+<2399=2404,2400
+<2400=2401
+<2401=2403,2402
+<2404=2405
+<2405=2407,2406
+<2408=2409
+<2409=2411,2410
+<2411=2413,2412
+<2414=2417,2415
+<2415=2416
+<2417=2418
+<2418=2422,2419
+<2419=2421,2420
+<2422=2424,2423
+<2425=2443,2426
+<2426=2427
+<2427=2430,2428
+<2428=2429
+<2430=2431
+<2431=2442,2432
+<2432=2440,2433
+<2433=2438,2436,2434
+<2434=2435
+<2436=2437
+<2438=2439
+<2440=2441
+<2443=2444
+<2444=2446,2445
+<2447=2465,2448
+<2448=2449
+<2449=2452,2450
+<2450=2451
+<2452=2453
+<2453=2464,2454
+<2454=2462,2455
+<2455=2460,2458,2456
+<2456=2457
+<2458=2459
+<2460=2461
+<2462=2463
+<2465=2466
+<2466=2468,2467
+<2469=2471,2470
+<2472=2473
+<2473=2475,2474
+<2476=2477
+<2477=2479,2478
+<2480=2481
+<2481=2483,2482
+<2484=2485
+<2485=2487,2486
+<2488=2489
+<2489=2502,2490
+<2490=2499,2491
+<2491=2497,2492
+<2492=2495,2493
+<2493=2494
+<2495=2496
+<2497=2498
+<2499=2501,2500
+<2503=2600,2563,2504
+<2504=2505
+<2505=2559,2522,2506
+<2506=2507
+<2507=2518,2514,2508
+<2508=2509
+<2509=2513,2510
+<2510=2512,2511
+<2514=2515
+<2515=2517,2516
+<2518=2519
+<2519=2521,2520
+<2522=2553,2543,2523
+<2523=2524
+<2524=2542,2525
+<2525=2540,2526
+<2526=2536,2527
+<2527=2528
+<2528=2534,2529
+<2529=2530
+<2530=2531
+<2531=2533,2532
+<2534=2535
+<2536=2537
+<2537=2539,2538
+<2540=2541
+<2543=2544
+<2544=2552,2545
+<2545=2549,2546
+<2546=2548,2547
+<2549=2551,2550
+<2553=2554
+<2554=2558,2555
+<2555=2557,2556
+<2559=2560
+<2560=2562,2561
+<2563=2596,2584,2564
+<2564=2565
+<2565=2583,2566
+<2566=2581,2567
+<2567=2577,2568
+<2568=2569
+<2569=2575,2570
+<2570=2571
+<2571=2572
+<2572=2574,2573
+<2575=2576
+<2577=2578
+<2578=2580,2579
+<2581=2582
+<2584=2585
+<2585=2595,2586
+<2586=2594,2587
+<2587=2591,2588
+<2588=2590,2589
+<2591=2593,2592
+<2596=2597
+<2597=2599,2598
+<2600=2601
+<2601=2603,2602
+<2604=2605
+<2605=2618,2606
+<2606=2615,2607
+<2607=2613,2608
+<2608=2611,2609
+<2609=2610
+<2611=2612
+<2613=2614
+<2615=2617,2616
+<2619=2716,2679,2620
+<2620=2621
+<2621=2675,2638,2622
+<2622=2623
+<2623=2634,2630,2624
+<2624=2625
+<2625=2629,2626
+<2626=2628,2627
+<2630=2631
+<2631=2633,2632
+<2634=2635
+<2635=2637,2636
+<2638=2669,2659,2639
+<2639=2640
+<2640=2658,2641
+<2641=2656,2642
+<2642=2652,2643
+<2643=2644
+<2644=2650,2645
+<2645=2646
+<2646=2647
+<2647=2649,2648
+<2650=2651
+<2652=2653
+<2653=2655,2654
+<2656=2657
+<2659=2660
+<2660=2668,2661
+<2661=2665,2662
+<2662=2664,2663
+<2665=2667,2666
+<2669=2670
+<2670=2674,2671
+<2671=2673,2672
+<2675=2676
+<2676=2678,2677
+<2679=2712,2700,2680
+<2680=2681
+<2681=2699,2682
+<2682=2697,2683
+<2683=2693,2684
+<2684=2685
+<2685=2691,2686
+<2686=2687
+<2687=2688
+<2688=2690,2689
+<2691=2692
+<2693=2694
+<2694=2696,2695
+<2697=2698
+<2700=2701
+<2701=2711,2702
+<2702=2710,2703
+<2703=2707,2704
+<2704=2706,2705
+<2707=2709,2708
+<2712=2713
+<2713=2715,2714
+<2716=2717
+<2717=2719,2718
+<2720=2721
+<2721=2725,2722
+<2722=2724,2723
+<2726=2727
+<2727=2731,2728
+<2728=2730,2729
+<2732=2733
+<2733=2735,2734
+<2739=2740
+<2740=2742,2741
+<2746=2747
+<2747=2751,2748
+<2748=2750,2749
+<2752=2753
+<2753=2757,2754
+<2754=2756,2755
+<2758=2759
+<2759=2761,2760
+<2765=2766
+<2766=2768,2767
+<2772=2773
+<2773=2777,2774
+<2774=2776,2775
+<2777=2779,2778
+<2779=2781,2780
+<2783=2784
+<2784=2788,2785
+<2785=2787,2786
+<2788=2790,2789
+<2790=2792,2791
+<2794=2795
+<2795=2797,2796
+<2797=2799,2798
+<2799=2801,2800
+<2803=2804
+<2804=2806,2805
+<2806=2808,2807
+<2808=2810,2809
+<2812=2813
+<2813=2815,2814
+<2837=2838
+<2838=2840,2839
+<2862=2863
+<2863=2865,2864
+<2872=2873
+<2873=2875,2874
+<2875=2877,2876
+<2879=2880
+<2880=2884,2881
+<2881=2883,2882
+<2884=2886,2885
+<2888=2889
+<2889=2891,2890
+<2892=2893
+<2893=2895,2894
+<2896=2897
+<2897=2899,2898
+<2900=2901
+<2901=2903,2902
+<2904=2905
+<2905=2907,2906
+<2908=2909
+<2909=2911,2910
+<2912=2913
+<2913=2915,2914
+<2916=2917
+<2917=2919,2918
+<2920=2921
+<2921=2923,2922
+<2924=2925
+<2925=2927,2926
+<2928=2929
+<2929=2931,2930
+<2932=2933
+<2933=2935,2934
+<2936=2937
+<2937=2939,2938
+<2940=2941
+<2941=2943,2942

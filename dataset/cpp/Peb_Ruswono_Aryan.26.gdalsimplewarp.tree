@@ -1,0 +1,2423 @@
+>5	FunctionDef	GDALSimpleImageWarp (GDALDatasetH hSrcDS , GDALDatasetH hDstDS , int nBandCount , int * panBandList , GDALTransformerFunc \
+>6	ParameterList	GDALDatasetH hSrcDS , GDALDatasetH hDstDS , int nBandCount , int * panBandList , GDALTransformerFunc pfnTransform , \
+>7	Parameter	 
+>8	Identifier	papszWarpOptions
+>9	ParameterType	char * *
+>10	Parameter	 
+>11	Identifier	pProgressArg
+>12	ParameterType	void *
+>13	Parameter	 
+>14	Identifier	pfnProgress
+>15	ParameterType	GDALProgressFunc
+>16	Parameter	 
+>17	Identifier	pTransformArg
+>18	ParameterType	void *
+>19	Parameter	 
+>20	Identifier	pfnTransform
+>21	ParameterType	GDALTransformerFunc
+>22	Parameter	 
+>23	Identifier	panBandList
+>24	ParameterType	int *
+>25	Parameter	 
+>26	Identifier	nBandCount
+>27	ParameterType	int
+>28	Parameter	 
+>29	Identifier	hDstDS
+>30	ParameterType	GDALDatasetH
+>31	Parameter	 
+>32	Identifier	hSrcDS
+>33	ParameterType	GDALDatasetH
+>34	ReturnType	int CPL_STDCALL
+>35	CompoundStatement	 
+>36	ReturnStatement	 
+>37	UnaryOp	! bCancelled
+>38	Identifier	bCancelled
+>39	UnaryOperator	!
+>40	ExpressionStatement	 
+>41	CallExpression	CPLFree ( pabSuccess )
+>42	ArgumentList	pabSuccess
+>43	Argument	pabSuccess
+>44	Identifier	pabSuccess
+>45	Callee	CPLFree
+>46	Identifier	CPLFree
+>47	ExpressionStatement	 
+>48	CallExpression	CPLFree ( padfZ )
+>49	ArgumentList	padfZ
+>50	Argument	padfZ
+>51	Identifier	padfZ
+>52	Callee	CPLFree
+>53	Identifier	CPLFree
+>54	ExpressionStatement	 
+>55	CallExpression	CPLFree ( padfY )
+>56	ArgumentList	padfY
+>57	Argument	padfY
+>58	Identifier	padfY
+>59	Callee	CPLFree
+>60	Identifier	CPLFree
+>61	ExpressionStatement	 
+>62	CallExpression	CPLFree ( padfX )
+>63	ArgumentList	padfX
+>64	Argument	padfX
+>65	Identifier	padfX
+>66	Callee	CPLFree
+>67	Identifier	CPLFree
+>68	ExpressionStatement	 
+>69	CallExpression	CPLFree ( papabySrcData )
+>70	ArgumentList	papabySrcData
+>71	Argument	papabySrcData
+>72	Identifier	papabySrcData
+>73	Callee	CPLFree
+>74	Identifier	CPLFree
+>75	ExpressionStatement	 
+>76	CallExpression	CPLFree ( papabyDstLine )
+>77	ArgumentList	papabyDstLine
+>78	Argument	papabyDstLine
+>79	Identifier	papabyDstLine
+>80	Callee	CPLFree
+>81	Identifier	CPLFree
+>82	ExpressionStatement	 
+>83	CallExpression	CPLFree ( panBandInit )
+>84	ArgumentList	panBandInit
+>85	Argument	panBandInit
+>86	Identifier	panBandInit
+>87	Callee	CPLFree
+>88	Identifier	CPLFree
+>89	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>90	CompoundStatement	 
+>91	ExpressionStatement	 
+>92	CallExpression	CPLFree ( papabySrcData [ iBand ] )
+>93	ArgumentList	papabySrcData [ iBand ]
+>94	Argument	papabySrcData [ iBand ]
+>95	ArrayIndexing	papabySrcData [ iBand ]
+>96	Identifier	iBand
+>97	Identifier	papabySrcData
+>98	Callee	CPLFree
+>99	Identifier	CPLFree
+>100	ExpressionStatement	 
+>101	CallExpression	CPLFree ( papabyDstLine [ iBand ] )
+>102	ArgumentList	papabyDstLine [ iBand ]
+>103	Argument	papabyDstLine [ iBand ]
+>104	ArrayIndexing	papabyDstLine [ iBand ]
+>105	Identifier	iBand
+>106	Identifier	papabyDstLine
+>107	Callee	CPLFree
+>108	Identifier	CPLFree
+>109	IncDecOp	 
+>110	IncDec	++
+>111	Identifier	iBand
+>112	Condition	 
+>113	RelationalExpression	iBand < nBandCount
+>114	Identifier	nBandCount
+>115	Identifier	iBand
+>116	ForInit	 
+>117	AssignmentExpr	iBand = 0
+>118	PrimaryExpression	0
+>119	Identifier	iBand
+>120	ForStatement	for ( iDstY = 0 ; iDstY < nDstYSize ; iDstY ++ )
+>121	CompoundStatement	 
+>122	IfStatement	if ( pfnProgress != NULL )
+>123	CompoundStatement	 
+>124	IfStatement	if ( ! pfnProgress ( ( iDstY + 1 ) / ( double ) nDstYSize , \"\" , pProgressArg ) )
+>125	CompoundStatement	 
+>126	BreakStatement	 
+>127	ExpressionStatement	 
+>128	AssignmentExpr	bCancelled = TRUE
+>129	Identifier	TRUE
+>130	Identifier	bCancelled
+>131	ExpressionStatement	 
+>132	CallExpression	CPLError ( CE_Failure , CPLE_UserInterrupt , \"User terminated\" )
+>133	ArgumentList	CE_Failure
+>134	Argument	\"User terminated\"
+>135	PrimaryExpression	\"User terminated\"
+>136	Argument	CPLE_UserInterrupt
+>137	Identifier	CPLE_UserInterrupt
+>138	Argument	CE_Failure
+>139	Identifier	CE_Failure
+>140	Callee	CPLError
+>141	Identifier	CPLError
+>142	Condition	 
+>143	UnaryOp	! pfnProgress ( ( iDstY + 1 ) / ( double ) nDstYSize , \"\" , pProgressArg )
+>144	CallExpression	pfnProgress ( ( iDstY + 1 ) / ( double ) nDstYSize , \"\" , pProgressArg )
+>145	ArgumentList	( iDstY + 1 ) / ( double ) nDstYSize
+>146	Argument	pProgressArg
+>147	Identifier	pProgressArg
+>148	Argument	\"\"
+>149	PrimaryExpression	\"\"
+>150	Argument	( iDstY + 1 ) / ( double ) nDstYSize
+>151	MultiplicativeExpression	( iDstY + 1 ) / ( double ) nDstYSize
+>152	CastExpression	( double ) nDstYSize
+>153	Identifier	nDstYSize
+>154	CastTarget	double
+>155	AdditiveExpression	iDstY + 1
+>156	PrimaryExpression	1
+>157	Identifier	iDstY
+>158	Callee	pfnProgress
+>159	Identifier	pfnProgress
+>160	UnaryOperator	!
+>161	Condition	 
+>162	EqualityExpression	pfnProgress != NULL
+>163	Identifier	NULL
+>164	Identifier	pfnProgress
+>165	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>166	CompoundStatement	 
+>167	ExpressionStatement	 
+>168	CallExpression	GDALRasterIO ( GDALGetRasterBand ( hDstDS , iBand + 1 ) , GF_Write , 0 , iDstY , nDstXSize , 1 , papabyDstLine [ \
+>169	ArgumentList	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>170	Argument	0
+>171	PrimaryExpression	0
+>172	Argument	0
+>173	PrimaryExpression	0
+>174	Argument	GDT_Byte
+>175	Identifier	GDT_Byte
+>176	Argument	1
+>177	PrimaryExpression	1
+>178	Argument	nDstXSize
+>179	Identifier	nDstXSize
+>180	Argument	papabyDstLine [ iBand ]
+>181	ArrayIndexing	papabyDstLine [ iBand ]
+>182	Identifier	iBand
+>183	Identifier	papabyDstLine
+>184	Argument	1
+>185	PrimaryExpression	1
+>186	Argument	nDstXSize
+>187	Identifier	nDstXSize
+>188	Argument	iDstY
+>189	Identifier	iDstY
+>190	Argument	0
+>191	PrimaryExpression	0
+>192	Argument	GF_Write
+>193	Identifier	GF_Write
+>194	Argument	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>195	CallExpression	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>196	ArgumentList	hDstDS
+>197	Argument	iBand + 1
+>198	AdditiveExpression	iBand + 1
+>199	PrimaryExpression	1
+>200	Identifier	iBand
+>201	Argument	hDstDS
+>202	Identifier	hDstDS
+>203	Callee	GDALGetRasterBand
+>204	Identifier	GDALGetRasterBand
+>205	Callee	GDALRasterIO
+>206	Identifier	GDALRasterIO
+>207	IncDecOp	 
+>208	IncDec	++
+>209	Identifier	iBand
+>210	Condition	 
+>211	RelationalExpression	iBand < nBandCount
+>212	Identifier	nBandCount
+>213	Identifier	iBand
+>214	ForInit	 
+>215	AssignmentExpr	iBand = 0
+>216	PrimaryExpression	0
+>217	Identifier	iBand
+>218	ForStatement	for ( iDstX = 0 ; iDstX < nDstXSize ; iDstX ++ )
+>219	CompoundStatement	 
+>220	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>221	ExpressionStatement	 
+>222	AssignmentExpr	papabyDstLine [ iBand ] [ iDstX ] = papabySrcData [ iBand ] [ iSrcOffset ]
+>223	ArrayIndexing	papabySrcData [ iBand ] [ iSrcOffset ]
+>224	Identifier	iSrcOffset
+>225	ArrayIndexing	papabySrcData [ iBand ]
+>226	Identifier	iBand
+>227	Identifier	papabySrcData
+>228	ArrayIndexing	papabyDstLine [ iBand ] [ iDstX ]
+>229	Identifier	iDstX
+>230	ArrayIndexing	papabyDstLine [ iBand ]
+>231	Identifier	iBand
+>232	Identifier	papabyDstLine
+>233	IncDecOp	 
+>234	IncDec	++
+>235	Identifier	iBand
+>236	Condition	 
+>237	RelationalExpression	iBand < nBandCount
+>238	Identifier	nBandCount
+>239	Identifier	iBand
+>240	ForInit	 
+>241	AssignmentExpr	iBand = 0
+>242	PrimaryExpression	0
+>243	Identifier	iBand
+>244	ExpressionStatement	 
+>245	AssignmentExpr	iSrcOffset = iSrcX + iSrcY * nSrcXSize
+>246	AdditiveExpression	iSrcX + iSrcY * nSrcXSize
+>247	MultiplicativeExpression	iSrcY * nSrcXSize
+>248	Identifier	nSrcXSize
+>249	Identifier	iSrcY
+>250	Identifier	iSrcX
+>251	Identifier	iSrcOffset
+>252	IfStatement	if ( iSrcX >= nSrcXSize || iSrcY >= nSrcYSize )
+>253	ContinueStatement	 
+>254	Condition	 
+>255	OrExpression	iSrcX >= nSrcXSize || iSrcY >= nSrcYSize
+>256	RelationalExpression	iSrcY >= nSrcYSize
+>257	Identifier	nSrcYSize
+>258	Identifier	iSrcY
+>259	RelationalExpression	iSrcX >= nSrcXSize
+>260	Identifier	nSrcXSize
+>261	Identifier	iSrcX
+>262	ExpressionStatement	 
+>263	AssignmentExpr	iSrcY = ( int ) padfY [ iDstX ]
+>264	CastExpression	( int ) padfY [ iDstX ]
+>265	ArrayIndexing	padfY [ iDstX ]
+>266	Identifier	iDstX
+>267	Identifier	padfY
+>268	CastTarget	int
+>269	Identifier	iSrcY
+>270	ExpressionStatement	 
+>271	AssignmentExpr	iSrcX = ( int ) padfX [ iDstX ]
+>272	CastExpression	( int ) padfX [ iDstX ]
+>273	ArrayIndexing	padfX [ iDstX ]
+>274	Identifier	iDstX
+>275	Identifier	padfX
+>276	CastTarget	int
+>277	Identifier	iSrcX
+>278	IdentifierDeclStatement	 
+>279	IdentifierDecl	iSrcOffset
+>280	Identifier	iSrcOffset
+>281	IdentifierDeclType	int
+>282	IdentifierDecl	iSrcY
+>283	Identifier	iSrcY
+>284	IdentifierDeclType	int
+>285	IdentifierDecl	iSrcX
+>286	Identifier	iSrcX
+>287	IdentifierDeclType	int
+>288	IfStatement	if ( padfX [ iDstX ] < 0.0 || padfY [ iDstX ] < 0.0 )
+>289	ContinueStatement	 
+>290	Condition	 
+>291	OrExpression	padfX [ iDstX ] < 0.0 || padfY [ iDstX ] < 0.0
+>292	RelationalExpression	padfY [ iDstX ] < 0.0
+>293	PrimaryExpression	0.0
+>294	ArrayIndexing	padfY [ iDstX ]
+>295	Identifier	iDstX
+>296	Identifier	padfY
+>297	RelationalExpression	padfX [ iDstX ] < 0.0
+>298	PrimaryExpression	0.0
+>299	ArrayIndexing	padfX [ iDstX ]
+>300	Identifier	iDstX
+>301	Identifier	padfX
+>302	IfStatement	if ( ! pabSuccess [ iDstX ] )
+>303	ContinueStatement	 
+>304	Condition	 
+>305	UnaryOp	! pabSuccess [ iDstX ]
+>306	ArrayIndexing	pabSuccess [ iDstX ]
+>307	Identifier	iDstX
+>308	Identifier	pabSuccess
+>309	UnaryOperator	!
+>310	IncDecOp	 
+>311	IncDec	++
+>312	Identifier	iDstX
+>313	Condition	 
+>314	RelationalExpression	iDstX < nDstXSize
+>315	Identifier	nDstXSize
+>316	Identifier	iDstX
+>317	ForInit	 
+>318	AssignmentExpr	iDstX = 0
+>319	PrimaryExpression	0
+>320	Identifier	iDstX
+>321	ExpressionStatement	 
+>322	CallExpression	pfnTransform ( pTransformArg , TRUE , nDstXSize , padfX , padfY , padfZ , pabSuccess )
+>323	ArgumentList	pTransformArg
+>324	Argument	pabSuccess
+>325	Identifier	pabSuccess
+>326	Argument	padfZ
+>327	Identifier	padfZ
+>328	Argument	padfY
+>329	Identifier	padfY
+>330	Argument	padfX
+>331	Identifier	padfX
+>332	Argument	nDstXSize
+>333	Identifier	nDstXSize
+>334	Argument	TRUE
+>335	Identifier	TRUE
+>336	Argument	pTransformArg
+>337	Identifier	pTransformArg
+>338	Callee	pfnTransform
+>339	Identifier	pfnTransform
+>340	ForStatement	for ( iDstX = 0 ; iDstX < nDstXSize ; iDstX ++ )
+>341	CompoundStatement	 
+>342	ExpressionStatement	 
+>343	AssignmentExpr	padfZ [ iDstX ] = 0.0
+>344	PrimaryExpression	0.0
+>345	ArrayIndexing	padfZ [ iDstX ]
+>346	Identifier	iDstX
+>347	Identifier	padfZ
+>348	ExpressionStatement	 
+>349	AssignmentExpr	padfY [ iDstX ] = iDstY + 0.5
+>350	AdditiveExpression	iDstY + 0.5
+>351	PrimaryExpression	0.5
+>352	Identifier	iDstY
+>353	ArrayIndexing	padfY [ iDstX ]
+>354	Identifier	iDstX
+>355	Identifier	padfY
+>356	ExpressionStatement	 
+>357	AssignmentExpr	padfX [ iDstX ] = iDstX + 0.5
+>358	AdditiveExpression	iDstX + 0.5
+>359	PrimaryExpression	0.5
+>360	Identifier	iDstX
+>361	ArrayIndexing	padfX [ iDstX ]
+>362	Identifier	iDstX
+>363	Identifier	padfX
+>364	IncDecOp	 
+>365	IncDec	++
+>366	Identifier	iDstX
+>367	Condition	 
+>368	RelationalExpression	iDstX < nDstXSize
+>369	Identifier	nDstXSize
+>370	Identifier	iDstX
+>371	ForInit	 
+>372	AssignmentExpr	iDstX = 0
+>373	PrimaryExpression	0
+>374	Identifier	iDstX
+>375	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>376	CompoundStatement	 
+>377	IfStatement	if ( panBandInit [ iBand ] == - 1 )
+>378	ElseStatement	else
+>379	ExpressionStatement	 
+>380	CallExpression	memset ( papabyDstLine [ iBand ] , panBandInit [ iBand ] , nDstXSize )
+>381	ArgumentList	papabyDstLine [ iBand ]
+>382	Argument	nDstXSize
+>383	Identifier	nDstXSize
+>384	Argument	panBandInit [ iBand ]
+>385	ArrayIndexing	panBandInit [ iBand ]
+>386	Identifier	iBand
+>387	Identifier	panBandInit
+>388	Argument	papabyDstLine [ iBand ]
+>389	ArrayIndexing	papabyDstLine [ iBand ]
+>390	Identifier	iBand
+>391	Identifier	papabyDstLine
+>392	Callee	memset
+>393	Identifier	memset
+>394	ExpressionStatement	 
+>395	CallExpression	GDALRasterIO ( GDALGetRasterBand ( hDstDS , iBand + 1 ) , GF_Read , 0 , iDstY , nDstXSize , 1 , papabyDstLine [ \
+>396	ArgumentList	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>397	Argument	0
+>398	PrimaryExpression	0
+>399	Argument	0
+>400	PrimaryExpression	0
+>401	Argument	GDT_Byte
+>402	Identifier	GDT_Byte
+>403	Argument	1
+>404	PrimaryExpression	1
+>405	Argument	nDstXSize
+>406	Identifier	nDstXSize
+>407	Argument	papabyDstLine [ iBand ]
+>408	ArrayIndexing	papabyDstLine [ iBand ]
+>409	Identifier	iBand
+>410	Identifier	papabyDstLine
+>411	Argument	1
+>412	PrimaryExpression	1
+>413	Argument	nDstXSize
+>414	Identifier	nDstXSize
+>415	Argument	iDstY
+>416	Identifier	iDstY
+>417	Argument	0
+>418	PrimaryExpression	0
+>419	Argument	GF_Read
+>420	Identifier	GF_Read
+>421	Argument	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>422	CallExpression	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>423	ArgumentList	hDstDS
+>424	Argument	iBand + 1
+>425	AdditiveExpression	iBand + 1
+>426	PrimaryExpression	1
+>427	Identifier	iBand
+>428	Argument	hDstDS
+>429	Identifier	hDstDS
+>430	Callee	GDALGetRasterBand
+>431	Identifier	GDALGetRasterBand
+>432	Callee	GDALRasterIO
+>433	Identifier	GDALRasterIO
+>434	Condition	 
+>435	EqualityExpression	panBandInit [ iBand ] == - 1
+>436	UnaryOp	- 1
+>437	PrimaryExpression	1
+>438	UnaryOperator	-
+>439	ArrayIndexing	panBandInit [ iBand ]
+>440	Identifier	iBand
+>441	Identifier	panBandInit
+>442	IncDecOp	 
+>443	IncDec	++
+>444	Identifier	iBand
+>445	Condition	 
+>446	RelationalExpression	iBand < nBandCount
+>447	Identifier	nBandCount
+>448	Identifier	iBand
+>449	ForInit	 
+>450	AssignmentExpr	iBand = 0
+>451	PrimaryExpression	0
+>452	Identifier	iBand
+>453	IdentifierDeclStatement	 
+>454	IdentifierDecl	iDstX
+>455	Identifier	iDstX
+>456	IdentifierDeclType	int
+>457	IncDecOp	 
+>458	IncDec	++
+>459	Identifier	iDstY
+>460	Condition	 
+>461	RelationalExpression	iDstY < nDstYSize
+>462	Identifier	nDstYSize
+>463	Identifier	iDstY
+>464	ForInit	 
+>465	AssignmentExpr	iDstY = 0
+>466	PrimaryExpression	0
+>467	Identifier	iDstY
+>468	IdentifierDeclStatement	 
+>469	IdentifierDecl	iDstY
+>470	Identifier	iDstY
+>471	IdentifierDeclType	int
+>472	IfStatement	if ( CSLFetchNameValue ( papszWarpOptions , \"INIT\" ) )
+>473	CompoundStatement	 
+>474	ExpressionStatement	 
+>475	CallExpression	CSLDestroy ( papszTokens )
+>476	ArgumentList	papszTokens
+>477	Argument	papszTokens
+>478	Identifier	papszTokens
+>479	Callee	CSLDestroy
+>480	Identifier	CSLDestroy
+>481	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>482	CompoundStatement	 
+>483	IfStatement	if ( nTokenCount == 0 )
+>484	ElseStatement	else
+>485	ExpressionStatement	 
+>486	AssignmentExpr	panBandInit [ iBand ] = atoi ( papszTokens [ MIN ( iBand , nTokenCount - 1 ) ] )
+>487	CallExpression	atoi ( papszTokens [ MIN ( iBand , nTokenCount - 1 ) ] )
+>488	ArgumentList	papszTokens [ MIN ( iBand , nTokenCount - 1 ) ]
+>489	Argument	papszTokens [ MIN ( iBand , nTokenCount - 1 ) ]
+>490	ArrayIndexing	papszTokens [ MIN ( iBand , nTokenCount - 1 ) ]
+>491	CallExpression	MIN ( iBand , nTokenCount - 1 )
+>492	ArgumentList	iBand
+>493	Argument	nTokenCount - 1
+>494	AdditiveExpression	nTokenCount - 1
+>495	PrimaryExpression	1
+>496	Identifier	nTokenCount
+>497	Argument	iBand
+>498	Identifier	iBand
+>499	Callee	MIN
+>500	Identifier	MIN
+>501	Identifier	papszTokens
+>502	Callee	atoi
+>503	Identifier	atoi
+>504	ArrayIndexing	panBandInit [ iBand ]
+>505	Identifier	iBand
+>506	Identifier	panBandInit
+>507	ExpressionStatement	 
+>508	AssignmentExpr	panBandInit [ iBand ] = 0
+>509	PrimaryExpression	0
+>510	ArrayIndexing	panBandInit [ iBand ]
+>511	Identifier	iBand
+>512	Identifier	panBandInit
+>513	Condition	 
+>514	EqualityExpression	nTokenCount == 0
+>515	PrimaryExpression	0
+>516	Identifier	nTokenCount
+>517	IncDecOp	 
+>518	IncDec	++
+>519	Identifier	iBand
+>520	Condition	 
+>521	RelationalExpression	iBand < nBandCount
+>522	Identifier	nBandCount
+>523	Identifier	iBand
+>524	ForInit	 
+>525	AssignmentExpr	iBand = 0
+>526	PrimaryExpression	0
+>527	Identifier	iBand
+>528	ExpressionStatement	 
+>529	AssignmentExpr	nTokenCount = CSLCount ( papszTokens )
+>530	CallExpression	CSLCount ( papszTokens )
+>531	ArgumentList	papszTokens
+>532	Argument	papszTokens
+>533	Identifier	papszTokens
+>534	Callee	CSLCount
+>535	Identifier	CSLCount
+>536	Identifier	nTokenCount
+>537	IdentifierDeclStatement	 
+>538	IdentifierDecl	* * papszTokens = CSLTokenizeStringComplex ( CSLFetchNameValue ( papszWarpOptions , \"INIT\" ) , \" ,\" , FALSE , FALSE )
+>539	AssignmentExpr	* * papszTokens = CSLTokenizeStringComplex ( CSLFetchNameValue ( papszWarpOptions , \"INIT\" ) , \" ,\" , \
+>540	CallExpression	CSLTokenizeStringComplex ( CSLFetchNameValue ( papszWarpOptions , \"INIT\" ) , \" ,\" , FALSE , FALSE )
+>541	ArgumentList	CSLFetchNameValue ( papszWarpOptions , \"INIT\" )
+>542	Argument	FALSE
+>543	Identifier	FALSE
+>544	Argument	FALSE
+>545	Identifier	FALSE
+>546	Argument	\" ,\"
+>547	PrimaryExpression	\" ,\"
+>548	Argument	CSLFetchNameValue ( papszWarpOptions , \"INIT\" )
+>549	CallExpression	CSLFetchNameValue ( papszWarpOptions , \"INIT\" )
+>550	ArgumentList	papszWarpOptions
+>551	Argument	\"INIT\"
+>552	PrimaryExpression	\"INIT\"
+>553	Argument	papszWarpOptions
+>554	Identifier	papszWarpOptions
+>555	Callee	CSLFetchNameValue
+>556	Identifier	CSLFetchNameValue
+>557	Callee	CSLTokenizeStringComplex
+>558	Identifier	CSLTokenizeStringComplex
+>559	Identifier	papszTokens
+>560	Identifier	papszTokens
+>561	IdentifierDeclType	char * *
+>562	IdentifierDeclStatement	 
+>563	IdentifierDecl	nTokenCount
+>564	Identifier	nTokenCount
+>565	IdentifierDeclType	int
+>566	IdentifierDecl	iBand
+>567	Identifier	iBand
+>568	IdentifierDeclType	int
+>569	Condition	 
+>570	CallExpression	CSLFetchNameValue ( papszWarpOptions , \"INIT\" )
+>571	ArgumentList	papszWarpOptions
+>572	Argument	\"INIT\"
+>573	PrimaryExpression	\"INIT\"
+>574	Argument	papszWarpOptions
+>575	Identifier	papszWarpOptions
+>576	Callee	CSLFetchNameValue
+>577	Identifier	CSLFetchNameValue
+>578	ExpressionStatement	 
+>579	AssignmentExpr	panBandInit = ( int * ) CPLCalloc ( sizeof ( int ) , nBandCount )
+>580	CastExpression	( int * ) CPLCalloc ( sizeof ( int ) , nBandCount )
+>581	CallExpression	CPLCalloc ( sizeof ( int ) , nBandCount )
+>582	ArgumentList	sizeof ( int )
+>583	Argument	nBandCount
+>584	Identifier	nBandCount
+>585	Argument	sizeof ( int )
+>586	SizeofExpr	sizeof ( int )
+>587	SizeofOperand	int
+>588	Sizeof	sizeof
+>589	Callee	CPLCalloc
+>590	Identifier	CPLCalloc
+>591	CastTarget	int *
+>592	Identifier	panBandInit
+>593	IdentifierDeclStatement	 
+>594	IdentifierDecl	* panBandInit
+>595	Identifier	panBandInit
+>596	IdentifierDeclType	int *
+>597	ExpressionStatement	 
+>598	AssignmentExpr	pabSuccess = ( int * ) CPLMalloc ( sizeof ( int ) * nDstXSize )
+>599	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * nDstXSize )
+>600	CallExpression	CPLMalloc ( sizeof ( int ) * nDstXSize )
+>601	ArgumentList	sizeof ( int ) * nDstXSize
+>602	Argument	sizeof ( int ) * nDstXSize
+>603	MultiplicativeExpression	sizeof ( int ) * nDstXSize
+>604	Identifier	nDstXSize
+>605	SizeofExpr	sizeof ( int )
+>606	SizeofOperand	int
+>607	Sizeof	sizeof
+>608	Callee	CPLMalloc
+>609	Identifier	CPLMalloc
+>610	CastTarget	int *
+>611	Identifier	pabSuccess
+>612	ExpressionStatement	 
+>613	AssignmentExpr	padfZ = ( double * ) CPLMalloc ( sizeof ( double ) * nDstXSize )
+>614	CastExpression	( double * ) CPLMalloc ( sizeof ( double ) * nDstXSize )
+>615	CallExpression	CPLMalloc ( sizeof ( double ) * nDstXSize )
+>616	ArgumentList	sizeof ( double ) * nDstXSize
+>617	Argument	sizeof ( double ) * nDstXSize
+>618	MultiplicativeExpression	sizeof ( double ) * nDstXSize
+>619	Identifier	nDstXSize
+>620	SizeofExpr	sizeof ( double )
+>621	SizeofOperand	double
+>622	Sizeof	sizeof
+>623	Callee	CPLMalloc
+>624	Identifier	CPLMalloc
+>625	CastTarget	double *
+>626	Identifier	padfZ
+>627	ExpressionStatement	 
+>628	AssignmentExpr	padfY = ( double * ) CPLMalloc ( sizeof ( double ) * nDstXSize )
+>629	CastExpression	( double * ) CPLMalloc ( sizeof ( double ) * nDstXSize )
+>630	CallExpression	CPLMalloc ( sizeof ( double ) * nDstXSize )
+>631	ArgumentList	sizeof ( double ) * nDstXSize
+>632	Argument	sizeof ( double ) * nDstXSize
+>633	MultiplicativeExpression	sizeof ( double ) * nDstXSize
+>634	Identifier	nDstXSize
+>635	SizeofExpr	sizeof ( double )
+>636	SizeofOperand	double
+>637	Sizeof	sizeof
+>638	Callee	CPLMalloc
+>639	Identifier	CPLMalloc
+>640	CastTarget	double *
+>641	Identifier	padfY
+>642	ExpressionStatement	 
+>643	AssignmentExpr	padfX = ( double * ) CPLMalloc ( sizeof ( double ) * nDstXSize )
+>644	CastExpression	( double * ) CPLMalloc ( sizeof ( double ) * nDstXSize )
+>645	CallExpression	CPLMalloc ( sizeof ( double ) * nDstXSize )
+>646	ArgumentList	sizeof ( double ) * nDstXSize
+>647	Argument	sizeof ( double ) * nDstXSize
+>648	MultiplicativeExpression	sizeof ( double ) * nDstXSize
+>649	Identifier	nDstXSize
+>650	SizeofExpr	sizeof ( double )
+>651	SizeofOperand	double
+>652	Sizeof	sizeof
+>653	Callee	CPLMalloc
+>654	Identifier	CPLMalloc
+>655	CastTarget	double *
+>656	Identifier	padfX
+>657	IdentifierDeclStatement	 
+>658	IdentifierDecl	* pabSuccess
+>659	Identifier	pabSuccess
+>660	IdentifierDeclType	int *
+>661	IdentifierDeclStatement	 
+>662	IdentifierDecl	* padfZ
+>663	Identifier	padfZ
+>664	IdentifierDeclType	double *
+>665	IdentifierDecl	* padfY
+>666	Identifier	padfY
+>667	IdentifierDeclType	double *
+>668	IdentifierDecl	* padfX
+>669	Identifier	padfX
+>670	IdentifierDeclType	double *
+>671	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>672	ExpressionStatement	 
+>673	AssignmentExpr	papabyDstLine [ iBand ] = ( GByte * ) CPLMalloc ( nDstXSize )
+>674	CastExpression	( GByte * ) CPLMalloc ( nDstXSize )
+>675	CallExpression	CPLMalloc ( nDstXSize )
+>676	ArgumentList	nDstXSize
+>677	Argument	nDstXSize
+>678	Identifier	nDstXSize
+>679	Callee	CPLMalloc
+>680	Identifier	CPLMalloc
+>681	CastTarget	GByte *
+>682	ArrayIndexing	papabyDstLine [ iBand ]
+>683	Identifier	iBand
+>684	Identifier	papabyDstLine
+>685	IncDecOp	 
+>686	IncDec	++
+>687	Identifier	iBand
+>688	Condition	 
+>689	RelationalExpression	iBand < nBandCount
+>690	Identifier	nBandCount
+>691	Identifier	iBand
+>692	ForInit	 
+>693	AssignmentExpr	iBand = 0
+>694	PrimaryExpression	0
+>695	Identifier	iBand
+>696	ExpressionStatement	 
+>697	AssignmentExpr	papabyDstLine = ( GByte * * ) CPLCalloc ( nBandCount , sizeof ( GByte * ) )
+>698	CastExpression	( GByte * * ) CPLCalloc ( nBandCount , sizeof ( GByte * ) )
+>699	CallExpression	CPLCalloc ( nBandCount , sizeof ( GByte * ) )
+>700	ArgumentList	nBandCount
+>701	Argument	sizeof ( GByte * )
+>702	SizeofExpr	sizeof ( GByte * )
+>703	SizeofOperand	GByte *
+>704	Sizeof	sizeof
+>705	Argument	nBandCount
+>706	Identifier	nBandCount
+>707	Callee	CPLCalloc
+>708	Identifier	CPLCalloc
+>709	CastTarget	GByte * *
+>710	Identifier	papabyDstLine
+>711	IdentifierDeclStatement	 
+>712	IdentifierDecl	* * papabyDstLine
+>713	Identifier	papabyDstLine
+>714	IdentifierDeclType	GByte * *
+>715	IdentifierDeclStatement	 
+>716	IdentifierDecl	nDstYSize = GDALGetRasterYSize ( hDstDS )
+>717	AssignmentExpr	nDstYSize = GDALGetRasterYSize ( hDstDS )
+>718	CallExpression	GDALGetRasterYSize ( hDstDS )
+>719	ArgumentList	hDstDS
+>720	Argument	hDstDS
+>721	Identifier	hDstDS
+>722	Callee	GDALGetRasterYSize
+>723	Identifier	GDALGetRasterYSize
+>724	Identifier	nDstYSize
+>725	Identifier	nDstYSize
+>726	IdentifierDeclType	int
+>727	IdentifierDeclStatement	 
+>728	IdentifierDecl	nDstXSize = GDALGetRasterXSize ( hDstDS )
+>729	AssignmentExpr	nDstXSize = GDALGetRasterXSize ( hDstDS )
+>730	CallExpression	GDALGetRasterXSize ( hDstDS )
+>731	ArgumentList	hDstDS
+>732	Argument	hDstDS
+>733	Identifier	hDstDS
+>734	Callee	GDALGetRasterXSize
+>735	Identifier	GDALGetRasterXSize
+>736	Identifier	nDstXSize
+>737	Identifier	nDstXSize
+>738	IdentifierDeclType	int
+>739	ExpressionStatement	 
+>740	CallExpression	GDALSimpleWarpRemapping ( nBandCount , papabySrcData , nSrcXSize , nSrcYSize , papszWarpOptions )
+>741	ArgumentList	nBandCount
+>742	Argument	papszWarpOptions
+>743	Identifier	papszWarpOptions
+>744	Argument	nSrcYSize
+>745	Identifier	nSrcYSize
+>746	Argument	nSrcXSize
+>747	Identifier	nSrcXSize
+>748	Argument	papabySrcData
+>749	Identifier	papabySrcData
+>750	Argument	nBandCount
+>751	Identifier	nBandCount
+>752	Callee	GDALSimpleWarpRemapping
+>753	Identifier	GDALSimpleWarpRemapping
+>754	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>755	CompoundStatement	 
+>756	ExpressionStatement	 
+>757	CallExpression	GDALRasterIO ( GDALGetRasterBand ( hSrcDS , panBandList [ iBand ] ) , GF_Read , 0 , 0 , nSrcXSize , nSrcYSize , \
+>758	ArgumentList	GDALGetRasterBand ( hSrcDS , panBandList [ iBand ] )
+>759	Argument	0
+>760	PrimaryExpression	0
+>761	Argument	0
+>762	PrimaryExpression	0
+>763	Argument	GDT_Byte
+>764	Identifier	GDT_Byte
+>765	Argument	nSrcYSize
+>766	Identifier	nSrcYSize
+>767	Argument	nSrcXSize
+>768	Identifier	nSrcXSize
+>769	Argument	papabySrcData [ iBand ]
+>770	ArrayIndexing	papabySrcData [ iBand ]
+>771	Identifier	iBand
+>772	Identifier	papabySrcData
+>773	Argument	nSrcYSize
+>774	Identifier	nSrcYSize
+>775	Argument	nSrcXSize
+>776	Identifier	nSrcXSize
+>777	Argument	0
+>778	PrimaryExpression	0
+>779	Argument	0
+>780	PrimaryExpression	0
+>781	Argument	GF_Read
+>782	Identifier	GF_Read
+>783	Argument	GDALGetRasterBand ( hSrcDS , panBandList [ iBand ] )
+>784	CallExpression	GDALGetRasterBand ( hSrcDS , panBandList [ iBand ] )
+>785	ArgumentList	hSrcDS
+>786	Argument	panBandList [ iBand ]
+>787	ArrayIndexing	panBandList [ iBand ]
+>788	Identifier	iBand
+>789	Identifier	panBandList
+>790	Argument	hSrcDS
+>791	Identifier	hSrcDS
+>792	Callee	GDALGetRasterBand
+>793	Identifier	GDALGetRasterBand
+>794	Callee	GDALRasterIO
+>795	Identifier	GDALRasterIO
+>796	ExpressionStatement	 
+>797	AssignmentExpr	papabySrcData [ iBand ] = ( GByte * ) VSIMalloc ( nSrcXSize * nSrcYSize )
+>798	CastExpression	( GByte * ) VSIMalloc ( nSrcXSize * nSrcYSize )
+>799	CallExpression	VSIMalloc ( nSrcXSize * nSrcYSize )
+>800	ArgumentList	nSrcXSize * nSrcYSize
+>801	Argument	nSrcXSize * nSrcYSize
+>802	MultiplicativeExpression	nSrcXSize * nSrcYSize
+>803	Identifier	nSrcYSize
+>804	Identifier	nSrcXSize
+>805	Callee	VSIMalloc
+>806	Identifier	VSIMalloc
+>807	CastTarget	GByte *
+>808	ArrayIndexing	papabySrcData [ iBand ]
+>809	Identifier	iBand
+>810	Identifier	papabySrcData
+>811	IncDecOp	 
+>812	IncDec	++
+>813	Identifier	iBand
+>814	Condition	 
+>815	RelationalExpression	iBand < nBandCount
+>816	Identifier	nBandCount
+>817	Identifier	iBand
+>818	ForInit	 
+>819	AssignmentExpr	iBand = 0
+>820	PrimaryExpression	0
+>821	Identifier	iBand
+>822	ExpressionStatement	 
+>823	AssignmentExpr	papabySrcData = ( GByte * * ) CPLCalloc ( nBandCount , sizeof ( GByte * ) )
+>824	CastExpression	( GByte * * ) CPLCalloc ( nBandCount , sizeof ( GByte * ) )
+>825	CallExpression	CPLCalloc ( nBandCount , sizeof ( GByte * ) )
+>826	ArgumentList	nBandCount
+>827	Argument	sizeof ( GByte * )
+>828	SizeofExpr	sizeof ( GByte * )
+>829	SizeofOperand	GByte *
+>830	Sizeof	sizeof
+>831	Argument	nBandCount
+>832	Identifier	nBandCount
+>833	Callee	CPLCalloc
+>834	Identifier	CPLCalloc
+>835	CastTarget	GByte * *
+>836	Identifier	papabySrcData
+>837	IdentifierDeclStatement	 
+>838	IdentifierDecl	* * papabySrcData
+>839	Identifier	papabySrcData
+>840	IdentifierDeclType	GByte * *
+>841	IdentifierDeclStatement	 
+>842	IdentifierDecl	nSrcYSize = GDALGetRasterYSize ( hSrcDS )
+>843	AssignmentExpr	nSrcYSize = GDALGetRasterYSize ( hSrcDS )
+>844	CallExpression	GDALGetRasterYSize ( hSrcDS )
+>845	ArgumentList	hSrcDS
+>846	Argument	hSrcDS
+>847	Identifier	hSrcDS
+>848	Callee	GDALGetRasterYSize
+>849	Identifier	GDALGetRasterYSize
+>850	Identifier	nSrcYSize
+>851	Identifier	nSrcYSize
+>852	IdentifierDeclType	int
+>853	IdentifierDeclStatement	 
+>854	IdentifierDecl	nSrcXSize = GDALGetRasterXSize ( hSrcDS )
+>855	AssignmentExpr	nSrcXSize = GDALGetRasterXSize ( hSrcDS )
+>856	CallExpression	GDALGetRasterXSize ( hSrcDS )
+>857	ArgumentList	hSrcDS
+>858	Argument	hSrcDS
+>859	Identifier	hSrcDS
+>860	Callee	GDALGetRasterXSize
+>861	Identifier	GDALGetRasterXSize
+>862	Identifier	nSrcXSize
+>863	Identifier	nSrcXSize
+>864	IdentifierDeclType	int
+>865	IfStatement	if ( pfnProgress )
+>866	CompoundStatement	 
+>867	IfStatement	if ( ! pfnProgress ( 0.0 , \"\" , pProgressArg ) )
+>868	ReturnStatement	 
+>869	Identifier	FALSE
+>870	Condition	 
+>871	UnaryOp	! pfnProgress ( 0.0 , \"\" , pProgressArg )
+>872	CallExpression	pfnProgress ( 0.0 , \"\" , pProgressArg )
+>873	ArgumentList	0.0
+>874	Argument	pProgressArg
+>875	Identifier	pProgressArg
+>876	Argument	\"\"
+>877	PrimaryExpression	\"\"
+>878	Argument	0.0
+>879	PrimaryExpression	0.0
+>880	Callee	pfnProgress
+>881	Identifier	pfnProgress
+>882	UnaryOperator	!
+>883	Condition	 
+>884	Identifier	pfnProgress
+>885	IfStatement	if ( nBandCount == 0 )
+>886	CompoundStatement	 
+>887	ReturnStatement	 
+>888	Identifier	nResult
+>889	ExpressionStatement	 
+>890	CallExpression	CPLFree ( panBandList )
+>891	ArgumentList	panBandList
+>892	Argument	panBandList
+>893	Identifier	panBandList
+>894	Callee	CPLFree
+>895	Identifier	CPLFree
+>896	ExpressionStatement	 
+>897	AssignmentExpr	nResult = GDALSimpleImageWarp ( hSrcDS , hDstDS , nBandCount , panBandList , pfnTransform , pTransformArg , \
+>898	CallExpression	GDALSimpleImageWarp ( hSrcDS , hDstDS , nBandCount , panBandList , pfnTransform , pTransformArg , pfnProgress , \
+>899	ArgumentList	hSrcDS
+>900	Argument	papszWarpOptions
+>901	Identifier	papszWarpOptions
+>902	Argument	pProgressArg
+>903	Identifier	pProgressArg
+>904	Argument	pfnProgress
+>905	Identifier	pfnProgress
+>906	Argument	pTransformArg
+>907	Identifier	pTransformArg
+>908	Argument	pfnTransform
+>909	Identifier	pfnTransform
+>910	Argument	panBandList
+>911	Identifier	panBandList
+>912	Argument	nBandCount
+>913	Identifier	nBandCount
+>914	Argument	hDstDS
+>915	Identifier	hDstDS
+>916	Argument	hSrcDS
+>917	Identifier	hSrcDS
+>918	Callee	GDALSimpleImageWarp
+>919	Identifier	GDALSimpleImageWarp
+>920	Identifier	nResult
+>921	ForStatement	for ( iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>922	ExpressionStatement	 
+>923	AssignmentExpr	panBandList [ iBand ] = iBand + 1
+>924	AdditiveExpression	iBand + 1
+>925	PrimaryExpression	1
+>926	Identifier	iBand
+>927	ArrayIndexing	panBandList [ iBand ]
+>928	Identifier	iBand
+>929	Identifier	panBandList
+>930	IncDecOp	 
+>931	IncDec	++
+>932	Identifier	iBand
+>933	Condition	 
+>934	RelationalExpression	iBand < nBandCount
+>935	Identifier	nBandCount
+>936	Identifier	iBand
+>937	ForInit	 
+>938	AssignmentExpr	iBand = 0
+>939	PrimaryExpression	0
+>940	Identifier	iBand
+>941	ExpressionStatement	 
+>942	AssignmentExpr	panBandList = ( int * ) CPLCalloc ( sizeof ( int ) , nBandCount )
+>943	CastExpression	( int * ) CPLCalloc ( sizeof ( int ) , nBandCount )
+>944	CallExpression	CPLCalloc ( sizeof ( int ) , nBandCount )
+>945	ArgumentList	sizeof ( int )
+>946	Argument	nBandCount
+>947	Identifier	nBandCount
+>948	Argument	sizeof ( int )
+>949	SizeofExpr	sizeof ( int )
+>950	SizeofOperand	int
+>951	Sizeof	sizeof
+>952	Callee	CPLCalloc
+>953	Identifier	CPLCalloc
+>954	CastTarget	int *
+>955	Identifier	panBandList
+>956	IfStatement	if ( nBandCount == 0 )
+>957	CompoundStatement	 
+>958	ReturnStatement	 
+>959	Identifier	FALSE
+>960	ExpressionStatement	 
+>961	CallExpression	CPLError ( CE_Failure , CPLE_AppDefined , \"No raster band in source dataset\" )
+>962	ArgumentList	CE_Failure
+>963	Argument	\"No raster band in source dataset\"
+>964	PrimaryExpression	\"No raster band in source dataset\"
+>965	Argument	CPLE_AppDefined
+>966	Identifier	CPLE_AppDefined
+>967	Argument	CE_Failure
+>968	Identifier	CE_Failure
+>969	Callee	CPLError
+>970	Identifier	CPLError
+>971	Condition	 
+>972	EqualityExpression	nBandCount == 0
+>973	PrimaryExpression	0
+>974	Identifier	nBandCount
+>975	ExpressionStatement	 
+>976	AssignmentExpr	nBandCount = GDALGetRasterCount ( hSrcDS )
+>977	CallExpression	GDALGetRasterCount ( hSrcDS )
+>978	ArgumentList	hSrcDS
+>979	Argument	hSrcDS
+>980	Identifier	hSrcDS
+>981	Callee	GDALGetRasterCount
+>982	Identifier	GDALGetRasterCount
+>983	Identifier	nBandCount
+>984	IdentifierDeclStatement	 
+>985	IdentifierDecl	nResult
+>986	Identifier	nResult
+>987	IdentifierDeclType	int
+>988	Condition	 
+>989	EqualityExpression	nBandCount == 0
+>990	PrimaryExpression	0
+>991	Identifier	nBandCount
+>992	IdentifierDeclStatement	 
+>993	IdentifierDecl	bCancelled = FALSE
+>994	AssignmentExpr	bCancelled = FALSE
+>995	Identifier	FALSE
+>996	Identifier	FALSE
+>997	Identifier	bCancelled
+>998	IdentifierDeclType	int
+>999	IdentifierDecl	iBand
+>1000	Identifier	iBand
+>1001	IdentifierDeclType	int
+>1002	ExpressionStatement	 
+>1003	CallExpression	VALIDATE_POINTER1 ( hDstDS , \"GDALSimpleImageWarp\" , 0 )
+>1004	ArgumentList	hDstDS
+>1005	Argument	0
+>1006	PrimaryExpression	0
+>1007	Argument	\"GDALSimpleImageWarp\"
+>1008	PrimaryExpression	\"GDALSimpleImageWarp\"
+>1009	Argument	hDstDS
+>1010	Identifier	hDstDS
+>1011	Callee	VALIDATE_POINTER1
+>1012	Identifier	VALIDATE_POINTER1
+>1013	ExpressionStatement	 
+>1014	CallExpression	VALIDATE_POINTER1 ( hSrcDS , \"GDALSimpleImageWarp\" , 0 )
+>1015	ArgumentList	hSrcDS
+>1016	Argument	0
+>1017	PrimaryExpression	0
+>1018	Argument	\"GDALSimpleImageWarp\"
+>1019	PrimaryExpression	\"GDALSimpleImageWarp\"
+>1020	Argument	hSrcDS
+>1021	Identifier	hSrcDS
+>1022	Callee	VALIDATE_POINTER1
+>1023	Identifier	VALIDATE_POINTER1
+>1095	FunctionDef	GDALSimpleWarpRemapping (int nBandCount , GByte * * papabySrcData , int nSrcXSize , int nSrcYSize , char * * papszWarpOptions)
+>1096	ParameterList	int nBandCount , GByte * * papabySrcData , int nSrcXSize , int nSrcYSize , char * * papszWarpOptions
+>1097	Parameter	 
+>1098	Identifier	papszWarpOptions
+>1099	ParameterType	char * *
+>1100	Parameter	 
+>1101	Identifier	nSrcYSize
+>1102	ParameterType	int
+>1103	Parameter	 
+>1104	Identifier	nSrcXSize
+>1105	ParameterType	int
+>1106	Parameter	 
+>1107	Identifier	papabySrcData
+>1108	ParameterType	GByte * *
+>1109	Parameter	 
+>1110	Identifier	nBandCount
+>1111	ParameterType	int
+>1112	ReturnType	static void
+>1113	CompoundStatement	 
+>1114	ExpressionStatement	 
+>1115	CallExpression	CSLDestroy ( papszRemaps )
+>1116	ArgumentList	papszRemaps
+>1117	Argument	papszRemaps
+>1118	Identifier	papszRemaps
+>1119	Callee	CSLDestroy
+>1120	Identifier	CSLDestroy
+>1121	ForStatement	for ( iRemap = 0 ; iRemap < CSLCount ( papszRemaps ) ; iRemap ++ )
+>1122	CompoundStatement	 
+>1123	ExpressionStatement	 
+>1124	CallExpression	CPLFree ( panToValue )
+>1125	ArgumentList	panToValue
+>1126	Argument	panToValue
+>1127	Identifier	panToValue
+>1128	Callee	CPLFree
+>1129	Identifier	CPLFree
+>1130	ExpressionStatement	 
+>1131	CallExpression	CPLFree ( panFromValue )
+>1132	ArgumentList	panFromValue
+>1133	Argument	panFromValue
+>1134	Identifier	panFromValue
+>1135	Callee	CPLFree
+>1136	Identifier	CPLFree
+>1137	ForStatement	for ( iPixel = 0 ; iPixel < nPixelCount ; iPixel ++ )
+>1138	CompoundStatement	 
+>1139	ForStatement	for ( iBand = 0 ; iBand < nMapBandCount ; iBand ++ )
+>1140	ExpressionStatement	 
+>1141	AssignmentExpr	papabySrcData [ iBand ] [ iPixel ] = ( GByte ) panToValue [ iBand ]
+>1142	CastExpression	( GByte ) panToValue [ iBand ]
+>1143	ArrayIndexing	panToValue [ iBand ]
+>1144	Identifier	iBand
+>1145	Identifier	panToValue
+>1146	CastTarget	GByte
+>1147	ArrayIndexing	papabySrcData [ iBand ] [ iPixel ]
+>1148	Identifier	iPixel
+>1149	ArrayIndexing	papabySrcData [ iBand ]
+>1150	Identifier	iBand
+>1151	Identifier	papabySrcData
+>1152	IncDecOp	 
+>1153	IncDec	++
+>1154	Identifier	iBand
+>1155	Condition	 
+>1156	RelationalExpression	iBand < nMapBandCount
+>1157	Identifier	nMapBandCount
+>1158	Identifier	iBand
+>1159	ForInit	 
+>1160	AssignmentExpr	iBand = 0
+>1161	PrimaryExpression	0
+>1162	Identifier	iBand
+>1163	IfStatement	if ( ! bMatch )
+>1164	ContinueStatement	 
+>1165	Condition	 
+>1166	UnaryOp	! bMatch
+>1167	Identifier	bMatch
+>1168	UnaryOperator	!
+>1169	ForStatement	for ( iBand = 1 ; iBand < nMapBandCount ; iBand ++ )
+>1170	CompoundStatement	 
+>1171	IfStatement	if ( papabySrcData [ iBand ] [ iPixel ] != panFromValue [ iBand ] )
+>1172	ExpressionStatement	 
+>1173	AssignmentExpr	bMatch = FALSE
+>1174	Identifier	FALSE
+>1175	Identifier	bMatch
+>1176	Condition	 
+>1177	EqualityExpression	papabySrcData [ iBand ] [ iPixel ] != panFromValue [ iBand ]
+>1178	ArrayIndexing	panFromValue [ iBand ]
+>1179	Identifier	iBand
+>1180	Identifier	panFromValue
+>1181	ArrayIndexing	papabySrcData [ iBand ] [ iPixel ]
+>1182	Identifier	iPixel
+>1183	ArrayIndexing	papabySrcData [ iBand ]
+>1184	Identifier	iBand
+>1185	Identifier	papabySrcData
+>1186	IncDecOp	 
+>1187	IncDec	++
+>1188	Identifier	iBand
+>1189	Condition	 
+>1190	RelationalExpression	iBand < nMapBandCount
+>1191	Identifier	nMapBandCount
+>1192	Identifier	iBand
+>1193	ForInit	 
+>1194	AssignmentExpr	iBand = 1
+>1195	PrimaryExpression	1
+>1196	Identifier	iBand
+>1197	IdentifierDeclStatement	 
+>1198	IdentifierDecl	bMatch = TRUE
+>1199	AssignmentExpr	bMatch = TRUE
+>1200	Identifier	TRUE
+>1201	Identifier	TRUE
+>1202	Identifier	bMatch
+>1203	IdentifierDeclType	int
+>1204	IfStatement	if ( papabySrcData [ 0 ] [ iPixel ] != panFromValue [ 0 ] )
+>1205	ContinueStatement	 
+>1206	Condition	 
+>1207	EqualityExpression	papabySrcData [ 0 ] [ iPixel ] != panFromValue [ 0 ]
+>1208	ArrayIndexing	panFromValue [ 0 ]
+>1209	PrimaryExpression	0
+>1210	Identifier	panFromValue
+>1211	ArrayIndexing	papabySrcData [ 0 ] [ iPixel ]
+>1212	Identifier	iPixel
+>1213	ArrayIndexing	papabySrcData [ 0 ]
+>1214	PrimaryExpression	0
+>1215	Identifier	papabySrcData
+>1216	IncDecOp	 
+>1217	IncDec	++
+>1218	Identifier	iPixel
+>1219	Condition	 
+>1220	RelationalExpression	iPixel < nPixelCount
+>1221	Identifier	nPixelCount
+>1222	Identifier	iPixel
+>1223	ForInit	 
+>1224	AssignmentExpr	iPixel = 0
+>1225	PrimaryExpression	0
+>1226	Identifier	iPixel
+>1227	IdentifierDeclStatement	 
+>1228	IdentifierDecl	iPixel
+>1229	Identifier	iPixel
+>1230	IdentifierDeclType	int
+>1231	IdentifierDeclStatement	 
+>1232	IdentifierDecl	nPixelCount = nSrcXSize * nSrcYSize
+>1233	AssignmentExpr	nPixelCount = nSrcXSize * nSrcYSize
+>1234	MultiplicativeExpression	nSrcXSize * nSrcYSize
+>1235	Identifier	nSrcYSize
+>1236	Identifier	nSrcXSize
+>1237	Identifier	nPixelCount
+>1238	Identifier	nPixelCount
+>1239	IdentifierDeclType	int
+>1240	ExpressionStatement	 
+>1241	CallExpression	CSLDestroy ( papszTokens )
+>1242	ArgumentList	papszTokens
+>1243	Argument	papszTokens
+>1244	Identifier	papszTokens
+>1245	Callee	CSLDestroy
+>1246	Identifier	CSLDestroy
+>1247	ForStatement	for ( iBand = 0 ; iBand < nMapBandCount ; iBand ++ )
+>1248	CompoundStatement	 
+>1249	ExpressionStatement	 
+>1250	AssignmentExpr	panToValue [ iBand ] = atoi ( papszTokens [ iBand + nMapBandCount ] )
+>1251	CallExpression	atoi ( papszTokens [ iBand + nMapBandCount ] )
+>1252	ArgumentList	papszTokens [ iBand + nMapBandCount ]
+>1253	Argument	papszTokens [ iBand + nMapBandCount ]
+>1254	ArrayIndexing	papszTokens [ iBand + nMapBandCount ]
+>1255	AdditiveExpression	iBand + nMapBandCount
+>1256	Identifier	nMapBandCount
+>1257	Identifier	iBand
+>1258	Identifier	papszTokens
+>1259	Callee	atoi
+>1260	Identifier	atoi
+>1261	ArrayIndexing	panToValue [ iBand ]
+>1262	Identifier	iBand
+>1263	Identifier	panToValue
+>1264	ExpressionStatement	 
+>1265	AssignmentExpr	panFromValue [ iBand ] = atoi ( papszTokens [ iBand ] )
+>1266	CallExpression	atoi ( papszTokens [ iBand ] )
+>1267	ArgumentList	papszTokens [ iBand ]
+>1268	Argument	papszTokens [ iBand ]
+>1269	ArrayIndexing	papszTokens [ iBand ]
+>1270	Identifier	iBand
+>1271	Identifier	papszTokens
+>1272	Callee	atoi
+>1273	Identifier	atoi
+>1274	ArrayIndexing	panFromValue [ iBand ]
+>1275	Identifier	iBand
+>1276	Identifier	panFromValue
+>1277	IncDecOp	 
+>1278	IncDec	++
+>1279	Identifier	iBand
+>1280	Condition	 
+>1281	RelationalExpression	iBand < nMapBandCount
+>1282	Identifier	nMapBandCount
+>1283	Identifier	iBand
+>1284	ForInit	 
+>1285	AssignmentExpr	iBand = 0
+>1286	PrimaryExpression	0
+>1287	Identifier	iBand
+>1288	ExpressionStatement	 
+>1289	AssignmentExpr	panToValue = ( int * ) CPLMalloc ( sizeof ( int ) * nMapBandCount )
+>1290	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * nMapBandCount )
+>1291	CallExpression	CPLMalloc ( sizeof ( int ) * nMapBandCount )
+>1292	ArgumentList	sizeof ( int ) * nMapBandCount
+>1293	Argument	sizeof ( int ) * nMapBandCount
+>1294	MultiplicativeExpression	sizeof ( int ) * nMapBandCount
+>1295	Identifier	nMapBandCount
+>1296	SizeofExpr	sizeof ( int )
+>1297	SizeofOperand	int
+>1298	Sizeof	sizeof
+>1299	Callee	CPLMalloc
+>1300	Identifier	CPLMalloc
+>1301	CastTarget	int *
+>1302	Identifier	panToValue
+>1303	ExpressionStatement	 
+>1304	AssignmentExpr	panFromValue = ( int * ) CPLMalloc ( sizeof ( int ) * nMapBandCount )
+>1305	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * nMapBandCount )
+>1306	CallExpression	CPLMalloc ( sizeof ( int ) * nMapBandCount )
+>1307	ArgumentList	sizeof ( int ) * nMapBandCount
+>1308	Argument	sizeof ( int ) * nMapBandCount
+>1309	MultiplicativeExpression	sizeof ( int ) * nMapBandCount
+>1310	Identifier	nMapBandCount
+>1311	SizeofExpr	sizeof ( int )
+>1312	SizeofOperand	int
+>1313	Sizeof	sizeof
+>1314	Callee	CPLMalloc
+>1315	Identifier	CPLMalloc
+>1316	CastTarget	int *
+>1317	Identifier	panFromValue
+>1318	ExpressionStatement	 
+>1319	AssignmentExpr	nMapBandCount = CSLCount ( papszTokens ) / 2
+>1320	MultiplicativeExpression	CSLCount ( papszTokens ) / 2
+>1321	PrimaryExpression	2
+>1322	CallExpression	CSLCount ( papszTokens )
+>1323	ArgumentList	papszTokens
+>1324	Argument	papszTokens
+>1325	Identifier	papszTokens
+>1326	Callee	CSLCount
+>1327	Identifier	CSLCount
+>1328	Identifier	nMapBandCount
+>1329	IfStatement	if ( CSLCount ( papszTokens ) % 2 == 1 || CSLCount ( papszTokens ) == 0 || CSLCount ( papszTokens ) > nBandCount * \
+>1330	CompoundStatement	 
+>1331	ContinueStatement	 
+>1332	ExpressionStatement	 
+>1333	CallExpression	CPLError ( CE_Warning , CPLE_AppDefined , \"Ill formed REMAP_MULTI `%s' ignored in GDALSimpleWarpRemapping()\" , papszRemaps [ \
+>1334	ArgumentList	CE_Warning
+>1335	Argument	papszRemaps [ iRemap ]
+>1336	ArrayIndexing	papszRemaps [ iRemap ]
+>1337	Identifier	iRemap
+>1338	Identifier	papszRemaps
+>1339	Argument	\"Ill formed REMAP_MULTI `%s' ignored in GDALSimpleWarpRemapping()\"
+>1340	PrimaryExpression	\"Ill formed REMAP_MULTI `%s' ignored in GDALSimpleWarpRemapping()\"
+>1341	Argument	CPLE_AppDefined
+>1342	Identifier	CPLE_AppDefined
+>1343	Argument	CE_Warning
+>1344	Identifier	CE_Warning
+>1345	Callee	CPLError
+>1346	Identifier	CPLError
+>1347	Condition	 
+>1348	OrExpression	CSLCount ( papszTokens ) % 2 == 1 || CSLCount ( papszTokens ) == 0 || CSLCount ( papszTokens ) > nBandCount * \
+>1349	OrExpression	CSLCount ( papszTokens ) == 0 || CSLCount ( papszTokens ) > nBandCount * 2
+>1350	RelationalExpression	CSLCount ( papszTokens ) > nBandCount * 2
+>1351	MultiplicativeExpression	nBandCount * 2
+>1352	PrimaryExpression	2
+>1353	Identifier	nBandCount
+>1354	CallExpression	CSLCount ( papszTokens )
+>1355	ArgumentList	papszTokens
+>1356	Argument	papszTokens
+>1357	Identifier	papszTokens
+>1358	Callee	CSLCount
+>1359	Identifier	CSLCount
+>1360	EqualityExpression	CSLCount ( papszTokens ) == 0
+>1361	PrimaryExpression	0
+>1362	CallExpression	CSLCount ( papszTokens )
+>1363	ArgumentList	papszTokens
+>1364	Argument	papszTokens
+>1365	Identifier	papszTokens
+>1366	Callee	CSLCount
+>1367	Identifier	CSLCount
+>1368	EqualityExpression	CSLCount ( papszTokens ) % 2 == 1
+>1369	PrimaryExpression	1
+>1370	MultiplicativeExpression	CSLCount ( papszTokens ) % 2
+>1371	PrimaryExpression	2
+>1372	CallExpression	CSLCount ( papszTokens )
+>1373	ArgumentList	papszTokens
+>1374	Argument	papszTokens
+>1375	Identifier	papszTokens
+>1376	Callee	CSLCount
+>1377	Identifier	CSLCount
+>1378	IdentifierDeclStatement	 
+>1379	IdentifierDecl	iBand
+>1380	Identifier	iBand
+>1381	IdentifierDeclType	int
+>1382	IdentifierDecl	nMapBandCount
+>1383	Identifier	nMapBandCount
+>1384	IdentifierDeclType	int
+>1385	IdentifierDeclStatement	 
+>1386	IdentifierDecl	* panToValue
+>1387	Identifier	panToValue
+>1388	IdentifierDeclType	int *
+>1389	IdentifierDecl	* panFromValue
+>1390	Identifier	panFromValue
+>1391	IdentifierDeclType	int *
+>1392	IdentifierDeclStatement	 
+>1393	IdentifierDecl	* * papszTokens = CSLTokenizeString ( papszRemaps [ iRemap ] )
+>1394	AssignmentExpr	* * papszTokens = CSLTokenizeString ( papszRemaps [ iRemap ] )
+>1395	CallExpression	CSLTokenizeString ( papszRemaps [ iRemap ] )
+>1396	ArgumentList	papszRemaps [ iRemap ]
+>1397	Argument	papszRemaps [ iRemap ]
+>1398	ArrayIndexing	papszRemaps [ iRemap ]
+>1399	Identifier	iRemap
+>1400	Identifier	papszRemaps
+>1401	Callee	CSLTokenizeString
+>1402	Identifier	CSLTokenizeString
+>1403	Identifier	papszTokens
+>1404	Identifier	papszTokens
+>1405	IdentifierDeclType	char * *
+>1406	IncDecOp	 
+>1407	IncDec	++
+>1408	Identifier	iRemap
+>1409	Condition	 
+>1410	RelationalExpression	iRemap < CSLCount ( papszRemaps )
+>1411	CallExpression	CSLCount ( papszRemaps )
+>1412	ArgumentList	papszRemaps
+>1413	Argument	papszRemaps
+>1414	Identifier	papszRemaps
+>1415	Callee	CSLCount
+>1416	Identifier	CSLCount
+>1417	Identifier	iRemap
+>1418	ForInit	 
+>1419	AssignmentExpr	iRemap = 0
+>1420	PrimaryExpression	0
+>1421	Identifier	iRemap
+>1422	ExpressionStatement	 
+>1423	AssignmentExpr	papszRemaps = CSLFetchNameValueMultiple ( papszWarpOptions , \"REMAP_MULTI\" )
+>1424	CallExpression	CSLFetchNameValueMultiple ( papszWarpOptions , \"REMAP_MULTI\" )
+>1425	ArgumentList	papszWarpOptions
+>1426	Argument	\"REMAP_MULTI\"
+>1427	PrimaryExpression	\"REMAP_MULTI\"
+>1428	Argument	papszWarpOptions
+>1429	Identifier	papszWarpOptions
+>1430	Callee	CSLFetchNameValueMultiple
+>1431	Identifier	CSLFetchNameValueMultiple
+>1432	Identifier	papszRemaps
+>1433	ExpressionStatement	 
+>1434	CallExpression	CSLDestroy ( papszRemaps )
+>1435	ArgumentList	papszRemaps
+>1436	Argument	papszRemaps
+>1437	Identifier	papszRemaps
+>1438	Callee	CSLDestroy
+>1439	Identifier	CSLDestroy
+>1440	ForStatement	for ( iRemap = 0 ; iRemap < CSLCount ( papszRemaps ) ; iRemap ++ )
+>1441	CompoundStatement	 
+>1442	ForStatement	for ( int iBand = 0 ; iBand < nBandCount ; iBand ++ )
+>1443	CompoundStatement	 
+>1444	WhileStatement	while ( nPixelCount != 0 )
+>1445	CompoundStatement	 
+>1446	ExpressionStatement	 
+>1447	IncDecOp	nPixelCount --
+>1448	IncDec	--
+>1449	Identifier	nPixelCount
+>1450	ExpressionStatement	 
+>1451	IncDecOp	pabyData ++
+>1452	IncDec	++
+>1453	Identifier	pabyData
+>1454	IfStatement	if ( * pabyData == nFromValue )
+>1455	ExpressionStatement	 
+>1456	AssignmentExpr	* pabyData = ( GByte ) nToValue
+>1457	CastExpression	( GByte ) nToValue
+>1458	Identifier	nToValue
+>1459	CastTarget	GByte
+>1460	UnaryOp	* pabyData
+>1461	Identifier	pabyData
+>1462	UnaryOperator	*
+>1463	Condition	 
+>1464	EqualityExpression	* pabyData == nFromValue
+>1465	Identifier	nFromValue
+>1466	UnaryOp	* pabyData
+>1467	Identifier	pabyData
+>1468	UnaryOperator	*
+>1469	Condition	 
+>1470	EqualityExpression	nPixelCount != 0
+>1471	PrimaryExpression	0
+>1472	Identifier	nPixelCount
+>1473	IdentifierDeclStatement	 
+>1474	IdentifierDecl	nPixelCount = nSrcXSize * nSrcYSize
+>1475	AssignmentExpr	nPixelCount = nSrcXSize * nSrcYSize
+>1476	MultiplicativeExpression	nSrcXSize * nSrcYSize
+>1477	Identifier	nSrcYSize
+>1478	Identifier	nSrcXSize
+>1479	Identifier	nPixelCount
+>1480	Identifier	nPixelCount
+>1481	IdentifierDeclType	int
+>1482	IdentifierDeclStatement	 
+>1483	IdentifierDecl	* pabyData = papabySrcData [ iBand ]
+>1484	AssignmentExpr	* pabyData = papabySrcData [ iBand ]
+>1485	ArrayIndexing	papabySrcData [ iBand ]
+>1486	Identifier	iBand
+>1487	Identifier	papabySrcData
+>1488	Identifier	pabyData
+>1489	Identifier	pabyData
+>1490	IdentifierDeclType	GByte *
+>1491	IncDecOp	 
+>1492	IncDec	++
+>1493	Identifier	iBand
+>1494	Condition	 
+>1495	RelationalExpression	iBand < nBandCount
+>1496	Identifier	nBandCount
+>1497	Identifier	iBand
+>1498	ForInit	 
+>1499	IdentifierDeclStatement	int iBand = 0 ;
+>1500	IdentifierDecl	iBand = 0
+>1501	AssignmentExpr	iBand = 0
+>1502	PrimaryExpression	0
+>1503	Identifier	iBand
+>1504	Identifier	iBand
+>1505	IdentifierDeclType	int
+>1506	ExpressionStatement	 
+>1507	CallExpression	CSLDestroy ( papszTokens )
+>1508	ArgumentList	papszTokens
+>1509	Argument	papszTokens
+>1510	Identifier	papszTokens
+>1511	Callee	CSLDestroy
+>1512	Identifier	CSLDestroy
+>1513	ExpressionStatement	 
+>1514	AssignmentExpr	nToValue = atoi ( papszTokens [ 1 ] )
+>1515	CallExpression	atoi ( papszTokens [ 1 ] )
+>1516	ArgumentList	papszTokens [ 1 ]
+>1517	Argument	papszTokens [ 1 ]
+>1518	ArrayIndexing	papszTokens [ 1 ]
+>1519	PrimaryExpression	1
+>1520	Identifier	papszTokens
+>1521	Callee	atoi
+>1522	Identifier	atoi
+>1523	Identifier	nToValue
+>1524	ExpressionStatement	 
+>1525	AssignmentExpr	nFromValue = atoi ( papszTokens [ 0 ] )
+>1526	CallExpression	atoi ( papszTokens [ 0 ] )
+>1527	ArgumentList	papszTokens [ 0 ]
+>1528	Argument	papszTokens [ 0 ]
+>1529	ArrayIndexing	papszTokens [ 0 ]
+>1530	PrimaryExpression	0
+>1531	Identifier	papszTokens
+>1532	Callee	atoi
+>1533	Identifier	atoi
+>1534	Identifier	nFromValue
+>1535	IfStatement	if ( CSLCount ( papszTokens ) != 2 )
+>1536	CompoundStatement	 
+>1537	ContinueStatement	 
+>1538	ExpressionStatement	 
+>1539	CallExpression	CPLError ( CE_Warning , CPLE_AppDefined , \"Ill formed REMAP `%s' ignored in GDALSimpleWarpRemapping()\" , papszRemaps [ \
+>1540	ArgumentList	CE_Warning
+>1541	Argument	papszRemaps [ iRemap ]
+>1542	ArrayIndexing	papszRemaps [ iRemap ]
+>1543	Identifier	iRemap
+>1544	Identifier	papszRemaps
+>1545	Argument	\"Ill formed REMAP `%s' ignored in GDALSimpleWarpRemapping()\"
+>1546	PrimaryExpression	\"Ill formed REMAP `%s' ignored in GDALSimpleWarpRemapping()\"
+>1547	Argument	CPLE_AppDefined
+>1548	Identifier	CPLE_AppDefined
+>1549	Argument	CE_Warning
+>1550	Identifier	CE_Warning
+>1551	Callee	CPLError
+>1552	Identifier	CPLError
+>1553	Condition	 
+>1554	EqualityExpression	CSLCount ( papszTokens ) != 2
+>1555	PrimaryExpression	2
+>1556	CallExpression	CSLCount ( papszTokens )
+>1557	ArgumentList	papszTokens
+>1558	Argument	papszTokens
+>1559	Identifier	papszTokens
+>1560	Callee	CSLCount
+>1561	Identifier	CSLCount
+>1562	IdentifierDeclStatement	 
+>1563	IdentifierDecl	nToValue
+>1564	Identifier	nToValue
+>1565	IdentifierDeclType	int
+>1566	IdentifierDecl	nFromValue
+>1567	Identifier	nFromValue
+>1568	IdentifierDeclType	int
+>1569	IdentifierDeclStatement	 
+>1570	IdentifierDecl	* * papszTokens = CSLTokenizeString ( papszRemaps [ iRemap ] )
+>1571	AssignmentExpr	* * papszTokens = CSLTokenizeString ( papszRemaps [ iRemap ] )
+>1572	CallExpression	CSLTokenizeString ( papszRemaps [ iRemap ] )
+>1573	ArgumentList	papszRemaps [ iRemap ]
+>1574	Argument	papszRemaps [ iRemap ]
+>1575	ArrayIndexing	papszRemaps [ iRemap ]
+>1576	Identifier	iRemap
+>1577	Identifier	papszRemaps
+>1578	Callee	CSLTokenizeString
+>1579	Identifier	CSLTokenizeString
+>1580	Identifier	papszTokens
+>1581	Identifier	papszTokens
+>1582	IdentifierDeclType	char * *
+>1583	IncDecOp	 
+>1584	IncDec	++
+>1585	Identifier	iRemap
+>1586	Condition	 
+>1587	RelationalExpression	iRemap < CSLCount ( papszRemaps )
+>1588	CallExpression	CSLCount ( papszRemaps )
+>1589	ArgumentList	papszRemaps
+>1590	Argument	papszRemaps
+>1591	Identifier	papszRemaps
+>1592	Callee	CSLCount
+>1593	Identifier	CSLCount
+>1594	Identifier	iRemap
+>1595	ForInit	 
+>1596	AssignmentExpr	iRemap = 0
+>1597	PrimaryExpression	0
+>1598	Identifier	iRemap
+>1599	IdentifierDeclStatement	 
+>1600	IdentifierDecl	* * papszRemaps = CSLFetchNameValueMultiple ( papszWarpOptions , \"REMAP\" )
+>1601	AssignmentExpr	* * papszRemaps = CSLFetchNameValueMultiple ( papszWarpOptions , \"REMAP\" )
+>1602	CallExpression	CSLFetchNameValueMultiple ( papszWarpOptions , \"REMAP\" )
+>1603	ArgumentList	papszWarpOptions
+>1604	Argument	\"REMAP\"
+>1605	PrimaryExpression	\"REMAP\"
+>1606	Argument	papszWarpOptions
+>1607	Identifier	papszWarpOptions
+>1608	Callee	CSLFetchNameValueMultiple
+>1609	Identifier	CSLFetchNameValueMultiple
+>1610	Identifier	papszRemaps
+>1611	Identifier	papszRemaps
+>1612	IdentifierDeclType	char * *
+>1613	IdentifierDeclStatement	 
+>1614	IdentifierDecl	iRemap
+>1615	Identifier	iRemap
+>1616	IdentifierDeclType	int
+<5=35,34,6
+<6=31,28,25,22,19,16,13,10,7
+<7=9,8
+<10=12,11
+<13=15,14
+<16=18,17
+<19=21,20
+<22=24,23
+<25=27,26
+<28=30,29
+<31=33,32
+<35=1013,1002,992,885,865,853,841,837,822,754,739,727,715,711,696,671,661,657,642,627,612,597,593,578,472,468,120,89,82,75,68,61,54,47,40,36
+<36=37
+<37=39,38
+<40=41
+<41=45,42
+<42=43
+<43=44
+<45=46
+<47=48
+<48=52,49
+<49=50
+<50=51
+<52=53
+<54=55
+<55=59,56
+<56=57
+<57=58
+<59=60
+<61=62
+<62=66,63
+<63=64
+<64=65
+<66=67
+<68=69
+<69=73,70
+<70=71
+<71=72
+<73=74
+<75=76
+<76=80,77
+<77=78
+<78=79
+<80=81
+<82=83
+<83=87,84
+<84=85
+<85=86
+<87=88
+<89=116,112,109,90
+<90=100,91
+<91=92
+<92=98,93
+<93=94
+<94=95
+<95=97,96
+<98=99
+<100=101
+<101=107,102
+<102=103
+<103=104
+<104=106,105
+<107=108
+<109=111,110
+<112=113
+<113=115,114
+<116=117
+<117=119,118
+<120=464,460,457,121
+<121=453,375,340,321,218,165,122
+<122=161,123
+<123=124
+<124=142,125
+<125=131,127,126
+<127=128
+<128=130,129
+<131=132
+<132=140,133
+<133=138,136,134
+<134=135
+<136=137
+<138=139
+<140=141
+<142=143
+<143=160,144
+<144=158,145
+<145=150,148,146
+<146=147
+<148=149
+<150=151
+<151=155,152
+<152=154,153
+<155=157,156
+<158=159
+<161=162
+<162=164,163
+<165=214,210,207,166
+<166=167
+<167=168
+<168=205,169
+<169=194,192,190,188,186,184,180,178,176,174,172,170
+<170=171
+<172=173
+<174=175
+<176=177
+<178=179
+<180=181
+<181=183,182
+<184=185
+<186=187
+<188=189
+<190=191
+<192=193
+<194=195
+<195=203,196
+<196=201,197
+<197=198
+<198=200,199
+<201=202
+<203=204
+<205=206
+<207=209,208
+<210=211
+<211=213,212
+<214=215
+<215=217,216
+<218=317,313,310,219
+<219=302,288,278,270,262,252,244,220
+<220=240,236,233,221
+<221=222
+<222=228,223
+<223=225,224
+<225=227,226
+<228=230,229
+<230=232,231
+<233=235,234
+<236=237
+<237=239,238
+<240=241
+<241=243,242
+<244=245
+<245=251,246
+<246=250,247
+<247=249,248
+<252=254,253
+<254=255
+<255=259,256
+<256=258,257
+<259=261,260
+<262=263
+<263=269,264
+<264=268,265
+<265=267,266
+<270=271
+<271=277,272
+<272=276,273
+<273=275,274
+<278=285,282,279
+<279=281,280
+<282=284,283
+<285=287,286
+<288=290,289
+<290=291
+<291=297,292
+<292=294,293
+<294=296,295
+<297=299,298
+<299=301,300
+<302=304,303
+<304=305
+<305=309,306
+<306=308,307
+<310=312,311
+<313=314
+<314=316,315
+<317=318
+<318=320,319
+<321=322
+<322=338,323
+<323=336,334,332,330,328,326,324
+<324=325
+<326=327
+<328=329
+<330=331
+<332=333
+<334=335
+<336=337
+<338=339
+<340=371,367,364,341
+<341=356,348,342
+<342=343
+<343=345,344
+<345=347,346
+<348=349
+<349=353,350
+<350=352,351
+<353=355,354
+<356=357
+<357=361,358
+<358=360,359
+<361=363,362
+<364=366,365
+<367=368
+<368=370,369
+<371=372
+<372=374,373
+<375=449,445,442,376
+<376=377
+<377=434,394,378
+<378=379
+<379=380
+<380=392,381
+<381=388,384,382
+<382=383
+<384=385
+<385=387,386
+<388=389
+<389=391,390
+<392=393
+<394=395
+<395=432,396
+<396=421,419,417,415,413,411,407,405,403,401,399,397
+<397=398
+<399=400
+<401=402
+<403=404
+<405=406
+<407=408
+<408=410,409
+<411=412
+<413=414
+<415=416
+<417=418
+<419=420
+<421=422
+<422=430,423
+<423=428,424
+<424=425
+<425=427,426
+<428=429
+<430=431
+<432=433
+<434=435
+<435=439,436
+<436=438,437
+<439=441,440
+<442=444,443
+<445=446
+<446=448,447
+<449=450
+<450=452,451
+<453=454
+<454=456,455
+<457=459,458
+<460=461
+<461=463,462
+<464=465
+<465=467,466
+<468=469
+<469=471,470
+<472=569,473
+<473=562,537,528,481,474
+<474=475
+<475=479,476
+<476=477
+<477=478
+<479=480
+<481=524,520,517,482
+<482=483
+<483=513,507,484
+<484=485
+<485=486
+<486=504,487
+<487=502,488
+<488=489
+<489=490
+<490=501,491
+<491=499,492
+<492=497,493
+<493=494
+<494=496,495
+<497=498
+<499=500
+<502=503
+<504=506,505
+<507=508
+<508=510,509
+<510=512,511
+<513=514
+<514=516,515
+<517=519,518
+<520=521
+<521=523,522
+<524=525
+<525=527,526
+<528=529
+<529=536,530
+<530=534,531
+<531=532
+<532=533
+<534=535
+<537=538
+<538=561,560,539
+<539=559,540
+<540=557,541
+<541=548,546,544,542
+<542=543
+<544=545
+<546=547
+<548=549
+<549=555,550
+<550=553,551
+<551=552
+<553=554
+<555=556
+<557=558
+<562=566,563
+<563=565,564
+<566=568,567
+<569=570
+<570=576,571
+<571=574,572
+<572=573
+<574=575
+<576=577
+<578=579
+<579=592,580
+<580=591,581
+<581=589,582
+<582=585,583
+<583=584
+<585=586
+<586=588,587
+<589=590
+<593=594
+<594=596,595
+<597=598
+<598=611,599
+<599=610,600
+<600=608,601
+<601=602
+<602=603
+<603=605,604
+<605=607,606
+<608=609
+<612=613
+<613=626,614
+<614=625,615
+<615=623,616
+<616=617
+<617=618
+<618=620,619
+<620=622,621
+<623=624
+<627=628
+<628=641,629
+<629=640,630
+<630=638,631
+<631=632
+<632=633
+<633=635,634
+<635=637,636
+<638=639
+<642=643
+<643=656,644
+<644=655,645
+<645=653,646
+<646=647
+<647=648
+<648=650,649
+<650=652,651
+<653=654
+<657=658
+<658=660,659
+<661=668,665,662
+<662=664,663
+<665=667,666
+<668=670,669
+<671=692,688,685,672
+<672=673
+<673=682,674
+<674=681,675
+<675=679,676
+<676=677
+<677=678
+<679=680
+<682=684,683
+<685=687,686
+<688=689
+<689=691,690
+<692=693
+<693=695,694
+<696=697
+<697=710,698
+<698=709,699
+<699=707,700
+<700=705,701
+<701=702
+<702=704,703
+<705=706
+<707=708
+<711=712
+<712=714,713
+<715=716
+<716=726,725,717
+<717=724,718
+<718=722,719
+<719=720
+<720=721
+<722=723
+<727=728
+<728=738,737,729
+<729=736,730
+<730=734,731
+<731=732
+<732=733
+<734=735
+<739=740
+<740=752,741
+<741=750,748,746,744,742
+<742=743
+<744=745
+<746=747
+<748=749
+<750=751
+<752=753
+<754=818,814,811,755
+<755=796,756
+<756=757
+<757=794,758
+<758=783,781,779,777,775,773,769,767,765,763,761,759
+<759=760
+<761=762
+<763=764
+<765=766
+<767=768
+<769=770
+<770=772,771
+<773=774
+<775=776
+<777=778
+<779=780
+<781=782
+<783=784
+<784=792,785
+<785=790,786
+<786=787
+<787=789,788
+<790=791
+<792=793
+<794=795
+<796=797
+<797=808,798
+<798=807,799
+<799=805,800
+<800=801
+<801=802
+<802=804,803
+<805=806
+<808=810,809
+<811=813,812
+<814=815
+<815=817,816
+<818=819
+<819=821,820
+<822=823
+<823=836,824
+<824=835,825
+<825=833,826
+<826=831,827
+<827=828
+<828=830,829
+<831=832
+<833=834
+<837=838
+<838=840,839
+<841=842
+<842=852,851,843
+<843=850,844
+<844=848,845
+<845=846
+<846=847
+<848=849
+<853=854
+<854=864,863,855
+<855=862,856
+<856=860,857
+<857=858
+<858=859
+<860=861
+<865=883,866
+<866=867
+<867=870,868
+<868=869
+<870=871
+<871=882,872
+<872=880,873
+<873=878,876,874
+<874=875
+<876=877
+<878=879
+<880=881
+<883=884
+<885=988,886
+<886=984,975,956,941,921,896,889,887
+<887=888
+<889=890
+<890=894,891
+<891=892
+<892=893
+<894=895
+<896=897
+<897=920,898
+<898=918,899
+<899=916,914,912,910,908,906,904,902,900
+<900=901
+<902=903
+<904=905
+<906=907
+<908=909
+<910=911
+<912=913
+<914=915
+<916=917
+<918=919
+<921=937,933,930,922
+<922=923
+<923=927,924
+<924=926,925
+<927=929,928
+<930=932,931
+<933=934
+<934=936,935
+<937=938
+<938=940,939
+<941=942
+<942=955,943
+<943=954,944
+<944=952,945
+<945=948,946
+<946=947
+<948=949
+<949=951,950
+<952=953
+<956=971,957
+<957=960,958
+<958=959
+<960=961
+<961=969,962
+<962=967,965,963
+<963=964
+<965=966
+<967=968
+<969=970
+<971=972
+<972=974,973
+<975=976
+<976=983,977
+<977=981,978
+<978=979
+<979=980
+<981=982
+<984=985
+<985=987,986
+<988=989
+<989=991,990
+<992=999,993
+<993=998,997,994
+<994=996,995
+<999=1001,1000
+<1002=1003
+<1003=1011,1004
+<1004=1009,1007,1005
+<1005=1006
+<1007=1008
+<1009=1010
+<1011=1012
+<1013=1014
+<1014=1022,1015
+<1015=1020,1018,1016
+<1016=1017
+<1018=1019
+<1020=1021
+<1022=1023
+<1095=1113,1112,1096
+<1096=1109,1106,1103,1100,1097
+<1097=1099,1098
+<1100=1102,1101
+<1103=1105,1104
+<1106=1108,1107
+<1109=1111,1110
+<1113=1613,1599,1440,1433,1422,1121,1114
+<1114=1115
+<1115=1119,1116
+<1116=1117
+<1117=1118
+<1119=1120
+<1121=1418,1409,1406,1122
+<1122=1392,1385,1378,1329,1318,1303,1288,1247,1240,1231,1227,1137,1130,1123
+<1123=1124
+<1124=1128,1125
+<1125=1126
+<1126=1127
+<1128=1129
+<1130=1131
+<1131=1135,1132
+<1132=1133
+<1133=1134
+<1135=1136
+<1137=1223,1219,1216,1138
+<1138=1204,1197,1169,1163,1139
+<1139=1159,1155,1152,1140
+<1140=1141
+<1141=1147,1142
+<1142=1146,1143
+<1143=1145,1144
+<1147=1149,1148
+<1149=1151,1150
+<1152=1154,1153
+<1155=1156
+<1156=1158,1157
+<1159=1160
+<1160=1162,1161
+<1163=1165,1164
+<1165=1166
+<1166=1168,1167
+<1169=1193,1189,1186,1170
+<1170=1171
+<1171=1176,1172
+<1172=1173
+<1173=1175,1174
+<1176=1177
+<1177=1181,1178
+<1178=1180,1179
+<1181=1183,1182
+<1183=1185,1184
+<1186=1188,1187
+<1189=1190
+<1190=1192,1191
+<1193=1194
+<1194=1196,1195
+<1197=1198
+<1198=1203,1202,1199
+<1199=1201,1200
+<1204=1206,1205
+<1206=1207
+<1207=1211,1208
+<1208=1210,1209
+<1211=1213,1212
+<1213=1215,1214
+<1216=1218,1217
+<1219=1220
+<1220=1222,1221
+<1223=1224
+<1224=1226,1225
+<1227=1228
+<1228=1230,1229
+<1231=1232
+<1232=1239,1238,1233
+<1233=1237,1234
+<1234=1236,1235
+<1240=1241
+<1241=1245,1242
+<1242=1243
+<1243=1244
+<1245=1246
+<1247=1284,1280,1277,1248
+<1248=1264,1249
+<1249=1250
+<1250=1261,1251
+<1251=1259,1252
+<1252=1253
+<1253=1254
+<1254=1258,1255
+<1255=1257,1256
+<1259=1260
+<1261=1263,1262
+<1264=1265
+<1265=1274,1266
+<1266=1272,1267
+<1267=1268
+<1268=1269
+<1269=1271,1270
+<1272=1273
+<1274=1276,1275
+<1277=1279,1278
+<1280=1281
+<1281=1283,1282
+<1284=1285
+<1285=1287,1286
+<1288=1289
+<1289=1302,1290
+<1290=1301,1291
+<1291=1299,1292
+<1292=1293
+<1293=1294
+<1294=1296,1295
+<1296=1298,1297
+<1299=1300
+<1303=1304
+<1304=1317,1305
+<1305=1316,1306
+<1306=1314,1307
+<1307=1308
+<1308=1309
+<1309=1311,1310
+<1311=1313,1312
+<1314=1315
+<1318=1319
+<1319=1328,1320
+<1320=1322,1321
+<1322=1326,1323
+<1323=1324
+<1324=1325
+<1326=1327
+<1329=1347,1330
+<1330=1332,1331
+<1332=1333
+<1333=1345,1334
+<1334=1343,1341,1339,1335
+<1335=1336
+<1336=1338,1337
+<1339=1340
+<1341=1342
+<1343=1344
+<1345=1346
+<1347=1348
+<1348=1368,1349
+<1349=1360,1350
+<1350=1354,1351
+<1351=1353,1352
+<1354=1358,1355
+<1355=1356
+<1356=1357
+<1358=1359
+<1360=1362,1361
+<1362=1366,1363
+<1363=1364
+<1364=1365
+<1366=1367
+<1368=1370,1369
+<1370=1372,1371
+<1372=1376,1373
+<1373=1374
+<1374=1375
+<1376=1377
+<1378=1382,1379
+<1379=1381,1380
+<1382=1384,1383
+<1385=1389,1386
+<1386=1388,1387
+<1389=1391,1390
+<1392=1393
+<1393=1405,1404,1394
+<1394=1403,1395
+<1395=1401,1396
+<1396=1397
+<1397=1398
+<1398=1400,1399
+<1401=1402
+<1406=1408,1407
+<1409=1410
+<1410=1417,1411
+<1411=1415,1412
+<1412=1413
+<1413=1414
+<1415=1416
+<1418=1419
+<1419=1421,1420
+<1422=1423
+<1423=1432,1424
+<1424=1430,1425
+<1425=1428,1426
+<1426=1427
+<1428=1429
+<1430=1431
+<1433=1434
+<1434=1438,1435
+<1435=1436
+<1436=1437
+<1438=1439
+<1440=1595,1586,1583,1441
+<1441=1569,1562,1535,1524,1513,1506,1442
+<1442=1498,1494,1491,1443
+<1443=1482,1473,1444
+<1444=1469,1445
+<1445=1454,1450,1446
+<1446=1447
+<1447=1449,1448
+<1450=1451
+<1451=1453,1452
+<1454=1463,1455
+<1455=1456
+<1456=1460,1457
+<1457=1459,1458
+<1460=1462,1461
+<1463=1464
+<1464=1466,1465
+<1466=1468,1467
+<1469=1470
+<1470=1472,1471
+<1473=1474
+<1474=1481,1480,1475
+<1475=1479,1476
+<1476=1478,1477
+<1482=1483
+<1483=1490,1489,1484
+<1484=1488,1485
+<1485=1487,1486
+<1491=1493,1492
+<1494=1495
+<1495=1497,1496
+<1498=1499
+<1499=1500
+<1500=1505,1504,1501
+<1501=1503,1502
+<1506=1507
+<1507=1511,1508
+<1508=1509
+<1509=1510
+<1511=1512
+<1513=1514
+<1514=1523,1515
+<1515=1521,1516
+<1516=1517
+<1517=1518
+<1518=1520,1519
+<1521=1522
+<1524=1525
+<1525=1534,1526
+<1526=1532,1527
+<1527=1528
+<1528=1529
+<1529=1531,1530
+<1532=1533
+<1535=1553,1536
+<1536=1538,1537
+<1538=1539
+<1539=1551,1540
+<1540=1549,1547,1545,1541
+<1541=1542
+<1542=1544,1543
+<1545=1546
+<1547=1548
+<1549=1550
+<1551=1552
+<1553=1554
+<1554=1556,1555
+<1556=1560,1557
+<1557=1558
+<1558=1559
+<1560=1561
+<1562=1566,1563
+<1563=1565,1564
+<1566=1568,1567
+<1569=1570
+<1570=1582,1581,1571
+<1571=1580,1572
+<1572=1578,1573
+<1573=1574
+<1574=1575
+<1575=1577,1576
+<1578=1579
+<1583=1585,1584
+<1586=1587
+<1587=1594,1588
+<1588=1592,1589
+<1589=1590
+<1590=1591
+<1592=1593
+<1595=1596
+<1596=1598,1597
+<1599=1600
+<1600=1612,1611,1601
+<1601=1610,1602
+<1602=1608,1603
+<1603=1606,1604
+<1604=1605
+<1606=1607
+<1608=1609
+<1613=1614
+<1614=1616,1615

@@ -1,0 +1,1818 @@
+>3	FunctionDef	SpatialPooler 
+>4	ParameterList	const std 
+>5	Parameter	 
+>6	Identifier	prodModeScaling
+>7	ParameterType	bool
+>8	Parameter	 
+>9	Identifier	maxD
+>10	ParameterType	Real
+>11	Parameter	 
+>12	Identifier	var
+>13	ParameterType	Real
+>14	Parameter	 
+>15	Identifier	mode
+>16	ParameterType	Mode
+>17	Parameter	 
+>18	Identifier	boundaries
+>19	ParameterType	const std 
+>20	CompoundStatement	 
+>21	BlockStarter	 
+>22	CompoundStatement	 
+>23	ExpressionStatement	NTA_THROW << where << \"Not enough memory to allocate coincidence matrix\"
+>24	ShiftExpression	NTA_THROW << where << \"Not enough memory to allocate coincidence matrix\"
+>25	ShiftExpression	where << \"Not enough memory to allocate coincidence matrix\"
+>26	PrimaryExpression	\"Not enough memory to allocate coincidence matrix\"
+>27	Identifier	where
+>28	Identifier	NTA_THROW
+>29	BlockStarter	 
+>30	CompoundStatement	 
+>31	SwitchStatement	switch ( mode_ )
+>32	CompoundStatement	 
+>33	BreakStatement	break ;
+>34	ExpressionStatement	W01_ = new SparseMatrix01 < UInt , Real > ( ncols , nrows , nchildren )
+>35	AssignmentExpr	W01_ = new SparseMatrix01 < UInt , Real > ( ncols , nrows , nchildren )
+>36	Expression	ncols , nrows , nchildren
+>37	Expression	nrows , nchildren
+>38	Identifier	nchildren
+>39	Identifier	nrows
+>40	Identifier	ncols
+>41	Identifier	W01_
+>42	Label	case product_maxD 
+>43	Identifier	product_maxD
+>44	Label	case dot_maxD 
+>45	Identifier	dot_maxD
+>46	Label	case product 
+>47	Identifier	product
+>48	Label	case dot 
+>49	Identifier	dot
+>50	BreakStatement	break ;
+>51	ExpressionStatement	W_ = new NearestNeighbor < SparseMatrix < UInt , Real > > ( 0 , ncols )
+>52	AssignmentExpr	W_ = new NearestNeighbor < SparseMatrix < UInt , Real > > ( 0 , ncols )
+>53	Expression	0 , ncols
+>54	Identifier	ncols
+>55	PrimaryExpression	0
+>56	Identifier	W_
+>57	Label	case gaussian 
+>58	Identifier	gaussian
+>59	Condition	mode_
+>60	Identifier	mode_
+>61	IdentifierDeclStatement	 
+>62	IdentifierDecl	nchildren = UInt ( boundaries . size ( ) )
+>63	AssignmentExpr	nchildren = UInt ( boundaries . size ( ) )
+>64	CallExpression	UInt ( boundaries . size ( ) )
+>65	ArgumentList	boundaries . size ( )
+>66	Argument	boundaries . size ( )
+>67	CallExpression	boundaries . size ( )
+>68	ArgumentList	 
+>69	Callee	boundaries . size
+>70	MemberAccess	boundaries . size
+>71	Identifier	size
+>72	Identifier	boundaries
+>73	Callee	UInt
+>74	Identifier	UInt
+>75	Identifier	nchildren
+>76	Identifier	nchildren
+>77	IdentifierDeclType	UInt
+>78	IdentifierDeclStatement	 
+>79	IdentifierDecl	nrows = 16
+>80	AssignmentExpr	nrows = 16
+>81	PrimaryExpression	16
+>82	Identifier	nrows
+>83	Identifier	nrows
+>84	IdentifierDeclType	UInt
+>85	IdentifierDeclStatement	 
+>86	IdentifierDecl	ncols = getInputSize ( )
+>87	AssignmentExpr	ncols = getInputSize ( )
+>88	CallExpression	getInputSize ( )
+>89	ArgumentList	 
+>90	Callee	getInputSize
+>91	Identifier	getInputSize
+>92	Identifier	ncols
+>93	Identifier	ncols
+>94	IdentifierDeclType	UInt
+>95	CompoundStatement	 
+>96	ForStatement	for ( UInt i = 1 ; i < boundaries_ . size ( ) ; ++ i )
+>97	ExpressionStatement	 
+>98	ShiftExpression	NTA_CHECK ( boundaries_ [ i ] > boundaries_ [ i - 1 ] ) << where << \"Passed invalid boundaries
+>99	ShiftExpression	where << \"Passed invalid boundaries
+>100	ShiftExpression	\"Passed invalid boundaries
+>101	ShiftExpression	boundaries_ [ i - 1 ] << \" and \" << boundaries_ [ i ] << \" - Boundaries need to be passed in strictly \
+>102	ShiftExpression	\" and \" << boundaries_ [ i ] << \" - Boundaries need to be passed in strictly increasing order\" << \" \
+>103	ShiftExpression	boundaries_ [ i ] << \" - Boundaries need to be passed in strictly increasing order\" << \" and no child \
+>104	ShiftExpression	\" - Boundaries need to be passed in strictly increasing order\" << \" and no child output element count \
+>105	PrimaryExpression	\" and no child output element count can be zero\"
+>106	PrimaryExpression	\" - Boundaries need to be passed in strictly increasing order\"
+>107	ArrayIndexing	boundaries_ [ i ]
+>108	Identifier	i
+>109	Identifier	boundaries_
+>110	PrimaryExpression	\" and \"
+>111	ArrayIndexing	boundaries_ [ i - 1 ]
+>112	AdditiveExpression	i - 1
+>113	PrimaryExpression	1
+>114	Identifier	i
+>115	Identifier	boundaries_
+>116	PrimaryExpression	\"Passed invalid boundaries
+>117	Identifier	where
+>118	CallExpression	NTA_CHECK ( boundaries_ [ i ] > boundaries_ [ i - 1 ] )
+>119	ArgumentList	boundaries_ [ i ] > boundaries_ [ i - 1 ]
+>120	Argument	boundaries_ [ i ] > boundaries_ [ i - 1 ]
+>121	RelationalExpression	boundaries_ [ i ] > boundaries_ [ i - 1 ]
+>122	ArrayIndexing	boundaries_ [ i - 1 ]
+>123	AdditiveExpression	i - 1
+>124	PrimaryExpression	1
+>125	Identifier	i
+>126	Identifier	boundaries_
+>127	ArrayIndexing	boundaries_ [ i ]
+>128	Identifier	i
+>129	Identifier	boundaries_
+>130	Callee	NTA_CHECK
+>131	Identifier	NTA_CHECK
+>132	UnaryExpression	 
+>133	Identifier	i
+>134	IncDec	++
+>135	Condition	 
+>136	RelationalExpression	i < boundaries_ . size ( )
+>137	CallExpression	boundaries_ . size ( )
+>138	ArgumentList	 
+>139	Callee	boundaries_ . size
+>140	MemberAccess	boundaries_ . size
+>141	Identifier	size
+>142	Identifier	boundaries_
+>143	Identifier	i
+>144	ForInit	 
+>145	IdentifierDeclStatement	UInt i = 1 ;
+>146	IdentifierDecl	i = 1
+>147	AssignmentExpr	i = 1
+>148	PrimaryExpression	1
+>149	Identifier	i
+>150	Identifier	i
+>151	IdentifierDeclType	UInt
+>152	ExpressionStatement	 
+>153	ShiftExpression	NTA_CHECK ( boundaries_ [ 0 ] > 0 ) << where << \"Zero width child output is not allowed\"
+>154	ShiftExpression	where << \"Zero width child output is not allowed\"
+>155	PrimaryExpression	\"Zero width child output is not allowed\"
+>156	Identifier	where
+>157	CallExpression	NTA_CHECK ( boundaries_ [ 0 ] > 0 )
+>158	ArgumentList	boundaries_ [ 0 ] > 0
+>159	Argument	boundaries_ [ 0 ] > 0
+>160	RelationalExpression	boundaries_ [ 0 ] > 0
+>161	PrimaryExpression	0
+>162	ArrayIndexing	boundaries_ [ 0 ]
+>163	PrimaryExpression	0
+>164	Identifier	boundaries_
+>165	Callee	NTA_CHECK
+>166	Identifier	NTA_CHECK
+>167	ExpressionStatement	 
+>168	ShiftExpression	NTA_CHECK ( boundaries . size ( ) >= 1 ) << where << \"Need at least one child\"
+>169	ShiftExpression	where << \"Need at least one child\"
+>170	PrimaryExpression	\"Need at least one child\"
+>171	Identifier	where
+>172	CallExpression	NTA_CHECK ( boundaries . size ( ) >= 1 )
+>173	ArgumentList	boundaries . size ( ) >= 1
+>174	Argument	boundaries . size ( ) >= 1
+>175	RelationalExpression	boundaries . size ( ) >= 1
+>176	PrimaryExpression	1
+>177	CallExpression	boundaries . size ( )
+>178	ArgumentList	 
+>179	Callee	boundaries . size
+>180	MemberAccess	boundaries . size
+>181	Identifier	size
+>182	Identifier	boundaries
+>183	Callee	NTA_CHECK
+>184	Identifier	NTA_CHECK
+>185	ExpressionStatement	 
+>186	ShiftExpression	NTA_CHECK ( var > 0 ) << where << \"Invalid value for variance, should be > 0\"
+>187	ShiftExpression	where << \"Invalid value for variance, should be > 0\"
+>188	PrimaryExpression	\"Invalid value for variance, should be > 0\"
+>189	Identifier	where
+>190	CallExpression	NTA_CHECK ( var > 0 )
+>191	ArgumentList	var > 0
+>192	Argument	var > 0
+>193	RelationalExpression	var > 0
+>194	PrimaryExpression	0
+>195	Identifier	var
+>196	Callee	NTA_CHECK
+>197	Identifier	NTA_CHECK
+>198	ExpressionStatement	 
+>199	ShiftExpression	NTA_CHECK ( maxD >= 0 ) << where << \"Invalid value for maxDistance, should be >= 0\"
+>200	ShiftExpression	where << \"Invalid value for maxDistance, should be >= 0\"
+>201	PrimaryExpression	\"Invalid value for maxDistance, should be >= 0\"
+>202	Identifier	where
+>203	CallExpression	NTA_CHECK ( maxD >= 0 )
+>204	ArgumentList	maxD >= 0
+>205	Argument	maxD >= 0
+>206	RelationalExpression	maxD >= 0
+>207	PrimaryExpression	0
+>208	Identifier	maxD
+>209	Callee	NTA_CHECK
+>210	Identifier	NTA_CHECK
+>211	IdentifierDeclStatement	 
+>212	IdentifierDecl	* where = \"SpatialPooler
+>213	AssignmentExpr	* where = \"SpatialPooler
+>214	PrimaryExpression	\"SpatialPooler
+>215	Identifier	where
+>216	Identifier	where
+>217	IdentifierDeclType	const char *
+>241	FunctionDef	SpatialPooler 
+>242	ParameterList	std 
+>243	Parameter	 
+>244	Identifier	inStream
+>245	ParameterType	std 
+>246	CompoundStatement	 
+>247	ExpressionStatement	 
+>248	CallExpression	readState ( inStream )
+>249	ArgumentList	inStream
+>250	Argument	inStream
+>251	Identifier	inStream
+>252	Callee	readState
+>253	Identifier	readState
+>258	FunctionDef	SpatialPooler 
+>259	ParameterList	 
+>260	CompoundStatement	 
+>261	ExpressionStatement	 
+>262	Identifier	W01_
+>263	Statement	 
+>264	ExpressionStatement	 
+>265	Identifier	W_
+>266	Statement	 
+>270	FunctionDef	SpatialPooler 
+>271	ParameterList	 
+>272	ReturnType	SpatialPooler 
+>273	CompoundStatement	 
+>274	ReturnStatement	 
+>275	Identifier	rowCounts
+>276	SwitchStatement	switch ( mode_ )
+>277	CompoundStatement	 
+>278	BreakStatement	 
+>279	ForStatement	for ( UInt i = 0 ; i < counts_ . size ( ) ; ++ i )
+>280	ExpressionStatement	 
+>281	CallExpression	rowCounts . push_back ( std 
+>282	ArgumentList	std 
+>283	Argument	std 
+>284	CallExpression	std 
+>285	ArgumentList	i
+>286	Argument	counts_ [ i ]
+>287	ArrayIndexing	counts_ [ i ]
+>288	Identifier	i
+>289	Identifier	counts_
+>290	Argument	i
+>291	Identifier	i
+>292	Callee	std 
+>293	Identifier	std 
+>294	Callee	rowCounts . push_back
+>295	MemberAccess	rowCounts . push_back
+>296	Identifier	push_back
+>297	Identifier	rowCounts
+>298	UnaryExpression	 
+>299	Identifier	i
+>300	IncDec	++
+>301	Condition	 
+>302	RelationalExpression	i < counts_ . size ( )
+>303	CallExpression	counts_ . size ( )
+>304	ArgumentList	 
+>305	Callee	counts_ . size
+>306	MemberAccess	counts_ . size
+>307	Identifier	size
+>308	Identifier	counts_
+>309	Identifier	i
+>310	ForInit	 
+>311	IdentifierDeclStatement	UInt i = 0 ;
+>312	IdentifierDecl	i = 0
+>313	AssignmentExpr	i = 0
+>314	PrimaryExpression	0
+>315	Identifier	i
+>316	Identifier	i
+>317	IdentifierDeclType	UInt
+>318	Label	 
+>319	Identifier	gaussian
+>320	BreakStatement	 
+>321	IfStatement	if ( W01_ )
+>322	ElseStatement	else
+>323	ReturnStatement	 
+>324	Identifier	rowCounts
+>325	ReturnStatement	 
+>326	CallExpression	W01_ -> getRowCounts ( )
+>327	ArgumentList	 
+>328	Callee	W01_ -> getRowCounts
+>329	PtrMemberAccess	W01_ -> getRowCounts
+>330	Identifier	getRowCounts
+>331	Identifier	W01_
+>332	Condition	 
+>333	Identifier	W01_
+>334	Label	 
+>335	Identifier	product_maxD
+>336	Label	 
+>337	Identifier	dot_maxD
+>338	Label	 
+>339	Identifier	product
+>340	Label	 
+>341	Identifier	dot
+>342	Condition	 
+>343	Identifier	mode_
+>344	IdentifierDeclStatement	 
+>345	IdentifierDecl	rowCounts
+>346	Identifier	rowCounts
+>347	IdentifierDeclType	SpatialPooler 
+>362	FunctionDef	SpatialPooler 
+>363	ParameterList	const UInt & threshold , std 
+>364	Parameter	 
+>365	Identifier	del
+>366	ParameterType	std 
+>367	Parameter	 
+>368	Identifier	threshold
+>369	ParameterType	const UInt &
+>370	ReturnType	void
+>371	CompoundStatement	 
+>372	IfStatement	if ( mode_ == dot || mode_ == product || mode_ == dot_maxD || mode_ == product_maxD )
+>373	ElseStatement	else
+>374	CompoundStatement	 
+>375	ExpressionStatement	 
+>376	CallExpression	counts_ . swap ( counts_new )
+>377	ArgumentList	counts_new
+>378	Argument	counts_new
+>379	Identifier	counts_new
+>380	Callee	counts_ . swap
+>381	MemberAccess	counts_ . swap
+>382	Identifier	swap
+>383	Identifier	counts_
+>384	ExpressionStatement	 
+>385	CallExpression	W_ -> deleteRows ( del . begin ( ) , del . end ( ) )
+>386	ArgumentList	del . begin ( )
+>387	Argument	del . end ( )
+>388	CallExpression	del . end ( )
+>389	ArgumentList	 
+>390	Callee	del . end
+>391	MemberAccess	del . end
+>392	Identifier	end
+>393	Identifier	del
+>394	Argument	del . begin ( )
+>395	CallExpression	del . begin ( )
+>396	ArgumentList	 
+>397	Callee	del . begin
+>398	MemberAccess	del . begin
+>399	Identifier	begin
+>400	Identifier	del
+>401	Callee	W_ -> deleteRows
+>402	PtrMemberAccess	W_ -> deleteRows
+>403	Identifier	deleteRows
+>404	Identifier	W_
+>405	IfStatement	if ( counts_ [ i ] < threshold )
+>406	ElseStatement	else
+>407	CompoundStatement	 
+>408	ExpressionStatement	 
+>409	CallExpression	counts_new . push_back ( counts_ [ i ] )
+>410	ArgumentList	counts_ [ i ]
+>411	Argument	counts_ [ i ]
+>412	ArrayIndexing	counts_ [ i ]
+>413	Identifier	i
+>414	Identifier	counts_
+>415	Callee	counts_new . push_back
+>416	MemberAccess	counts_new . push_back
+>417	Identifier	push_back
+>418	Identifier	counts_new
+>419	CompoundStatement	 
+>420	ExpressionStatement	 
+>421	CallExpression	del . push_back ( i )
+>422	ArgumentList	i
+>423	Argument	i
+>424	Identifier	i
+>425	Callee	del . push_back
+>426	MemberAccess	del . push_back
+>427	Identifier	push_back
+>428	Identifier	del
+>429	Condition	 
+>430	RelationalExpression	counts_ [ i ] < threshold
+>431	Identifier	threshold
+>432	ArrayIndexing	counts_ [ i ]
+>433	Identifier	i
+>434	Identifier	counts_
+>435	Statement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	IdentifierDeclStatement	 
+>444	IdentifierDecl	counts_new
+>445	Identifier	counts_new
+>446	IdentifierDeclType	std 
+>447	CompoundStatement	 
+>448	ExpressionStatement	 
+>449	Statement	 
+>450	Statement	 
+>451	Statement	 
+>452	Statement	 
+>453	Statement	 
+>454	Statement	 
+>455	Statement	 
+>456	Statement	 
+>457	Statement	 
+>458	Statement	 
+>459	Statement	 
+>460	Statement	 
+>461	Statement	 
+>462	Statement	 
+>463	Statement	 
+>464	Statement	 
+>465	Statement	 
+>466	Statement	 
+>467	Statement	 
+>468	Statement	 
+>469	Statement	 
+>470	Statement	 
+>471	Statement	 
+>472	Statement	 
+>473	Statement	 
+>474	Statement	 
+>475	Statement	 
+>476	Statement	 
+>477	Statement	 
+>478	Statement	 
+>479	Statement	 
+>480	Statement	 
+>481	Statement	 
+>482	Statement	 
+>483	Statement	 
+>484	ExpressionStatement	 
+>485	CallExpression	W01_ -> deleteRows ( threshold , back_inserter ( del_rows ) )
+>486	ArgumentList	threshold
+>487	Argument	back_inserter ( del_rows )
+>488	CallExpression	back_inserter ( del_rows )
+>489	ArgumentList	del_rows
+>490	Argument	del_rows
+>491	Identifier	del_rows
+>492	Callee	back_inserter
+>493	Identifier	back_inserter
+>494	Argument	threshold
+>495	Identifier	threshold
+>496	Callee	W01_ -> deleteRows
+>497	PtrMemberAccess	W01_ -> deleteRows
+>498	Identifier	deleteRows
+>499	Identifier	W01_
+>500	IdentifierDeclStatement	 
+>501	IdentifierDecl	del_rows
+>502	Identifier	del_rows
+>503	IdentifierDeclType	std 
+>504	Condition	 
+>505	OrExpression	mode_ == dot || mode_ == product || mode_ == dot_maxD || mode_ == product_maxD
+>506	OrExpression	mode_ == product || mode_ == dot_maxD || mode_ == product_maxD
+>507	OrExpression	mode_ == dot_maxD || mode_ == product_maxD
+>508	EqualityExpression	mode_ == product_maxD
+>509	Identifier	product_maxD
+>510	Identifier	mode_
+>511	EqualityExpression	mode_ == dot_maxD
+>512	Identifier	dot_maxD
+>513	Identifier	mode_
+>514	EqualityExpression	mode_ == product
+>515	Identifier	product
+>516	Identifier	mode_
+>517	EqualityExpression	mode_ == dot
+>518	Identifier	dot
+>519	Identifier	mode_
+>520	ExpressionStatement	 
+>521	CallExpression	del . clear ( )
+>522	ArgumentList	 
+>523	Callee	del . clear
+>524	MemberAccess	del . clear
+>525	Identifier	clear
+>526	Identifier	del
+>548	FunctionDef	SpatialPooler 
+>549	ParameterList	std 
+>550	Parameter	 
+>551	Identifier	state
+>552	ParameterType	std 
+>553	ReturnType	void
+>554	CompoundStatement	 
+>555	SwitchStatement	switch ( mode_ )
+>556	CompoundStatement	 
+>557	BreakStatement	 
+>558	ExpressionStatement	 
+>559	CallExpression	W01_ -> toCSR ( state )
+>560	ArgumentList	state
+>561	Argument	state
+>562	Identifier	state
+>563	Callee	W01_ -> toCSR
+>564	PtrMemberAccess	W01_ -> toCSR
+>565	Identifier	toCSR
+>566	Identifier	W01_
+>567	Label	 
+>568	Identifier	product_maxD
+>569	Label	 
+>570	Identifier	dot_maxD
+>571	Label	 
+>572	Identifier	product
+>573	Label	 
+>574	Identifier	dot
+>575	BreakStatement	 
+>576	ExpressionStatement	 
+>577	CallExpression	W_ -> toCSR ( state )
+>578	ArgumentList	state
+>579	Argument	state
+>580	Identifier	state
+>581	Callee	W_ -> toCSR
+>582	PtrMemberAccess	W_ -> toCSR
+>583	Identifier	toCSR
+>584	Identifier	W_
+>585	ForStatement	for ( UInt i = 0 ; i < counts_ . size ( ) ; ++ i )
+>586	ExpressionStatement	 
+>587	ShiftExpression	state << counts_ [ i ] << \" \"
+>588	ShiftExpression	counts_ [ i ] << \" \"
+>589	PrimaryExpression	\" \"
+>590	ArrayIndexing	counts_ [ i ]
+>591	Identifier	i
+>592	Identifier	counts_
+>593	Identifier	state
+>594	UnaryExpression	 
+>595	Identifier	i
+>596	IncDec	++
+>597	Condition	 
+>598	RelationalExpression	i < counts_ . size ( )
+>599	CallExpression	counts_ . size ( )
+>600	ArgumentList	 
+>601	Callee	counts_ . size
+>602	MemberAccess	counts_ . size
+>603	Identifier	size
+>604	Identifier	counts_
+>605	Identifier	i
+>606	ForInit	 
+>607	IdentifierDeclStatement	UInt i = 0 ;
+>608	IdentifierDecl	i = 0
+>609	AssignmentExpr	i = 0
+>610	PrimaryExpression	0
+>611	Identifier	i
+>612	Identifier	i
+>613	IdentifierDeclType	UInt
+>614	ExpressionStatement	 
+>615	ShiftExpression	state << counts_ . size ( ) << \" \"
+>616	ShiftExpression	counts_ . size ( ) << \" \"
+>617	PrimaryExpression	\" \"
+>618	CallExpression	counts_ . size ( )
+>619	ArgumentList	 
+>620	Callee	counts_ . size
+>621	MemberAccess	counts_ . size
+>622	Identifier	size
+>623	Identifier	counts_
+>624	Identifier	state
+>625	Label	 
+>626	Identifier	gaussian
+>627	Condition	 
+>628	Identifier	mode_
+>629	ForStatement	for ( UInt i = 0 ; i < boundaries_ . size ( ) ; ++ i )
+>630	ExpressionStatement	 
+>631	ShiftExpression	state << boundaries_ [ i ] << \" \"
+>632	ShiftExpression	boundaries_ [ i ] << \" \"
+>633	PrimaryExpression	\" \"
+>634	ArrayIndexing	boundaries_ [ i ]
+>635	Identifier	i
+>636	Identifier	boundaries_
+>637	Identifier	state
+>638	UnaryExpression	 
+>639	Identifier	i
+>640	IncDec	++
+>641	Condition	 
+>642	RelationalExpression	i < boundaries_ . size ( )
+>643	CallExpression	boundaries_ . size ( )
+>644	ArgumentList	 
+>645	Callee	boundaries_ . size
+>646	MemberAccess	boundaries_ . size
+>647	Identifier	size
+>648	Identifier	boundaries_
+>649	Identifier	i
+>650	ForInit	 
+>651	IdentifierDeclStatement	UInt i = 0 ;
+>652	IdentifierDecl	i = 0
+>653	AssignmentExpr	i = 0
+>654	PrimaryExpression	0
+>655	Identifier	i
+>656	Identifier	i
+>657	IdentifierDeclType	UInt
+>658	ExpressionStatement	 
+>659	ShiftExpression	state << boundaries_ . size ( ) << \" \"
+>660	ShiftExpression	boundaries_ . size ( ) << \" \"
+>661	PrimaryExpression	\" \"
+>662	CallExpression	boundaries_ . size ( )
+>663	ArgumentList	 
+>664	Callee	boundaries_ . size
+>665	MemberAccess	boundaries_ . size
+>666	Identifier	size
+>667	Identifier	boundaries_
+>668	Identifier	state
+>669	ExpressionStatement	 
+>670	ShiftExpression	state << ( unsigned int ) mode_ << \" \" << maxDistance_ << \" 1 \" << \"1\" << \" \" << k2_ << \" \" << ( unsigned \
+>671	ShiftExpression	( unsigned int ) mode_ << \" \" << maxDistance_ << \" 1 \" << \"1\" << \" \" << k2_ << \" \" << ( unsigned int ) \
+>672	ShiftExpression	\" \" << maxDistance_ << \" 1 \" << \"1\" << \" \" << k2_ << \" \" << ( unsigned int ) prodModeScaling_ << \" \"\
+>673	ShiftExpression	maxDistance_ << \" 1 \" << \"1\" << \" \" << k2_ << \" \" << ( unsigned int ) prodModeScaling_ << \" \"
+>674	ShiftExpression	\" 1 \" << \"1\" << \" \" << k2_ << \" \" << ( unsigned int ) prodModeScaling_ << \" \"
+>675	ShiftExpression	\"1\" << \" \" << k2_ << \" \" << ( unsigned int ) prodModeScaling_ << \" \"
+>676	ShiftExpression	\" \" << k2_ << \" \" << ( unsigned int ) prodModeScaling_ << \" \"
+>677	ShiftExpression	k2_ << \" \" << ( unsigned int ) prodModeScaling_ << \" \"
+>678	ShiftExpression	\" \" << ( unsigned int ) prodModeScaling_ << \" \"
+>679	ShiftExpression	( unsigned int ) prodModeScaling_ << \" \"
+>680	PrimaryExpression	\" \"
+>681	CastExpression	( unsigned int ) prodModeScaling_
+>682	Identifier	prodModeScaling_
+>683	CastTarget	unsigned int
+>684	PrimaryExpression	\" \"
+>685	Identifier	k2_
+>686	PrimaryExpression	\" \"
+>687	PrimaryExpression	\"1\"
+>688	PrimaryExpression	\" 1 \"
+>689	Identifier	maxDistance_
+>690	PrimaryExpression	\" \"
+>691	CastExpression	( unsigned int ) mode_
+>692	Identifier	mode_
+>693	CastTarget	unsigned int
+>694	Identifier	state
+>695	ExpressionStatement	 
+>696	ShiftExpression	state << \"SpatialPooler15 \"
+>697	PrimaryExpression	\"SpatialPooler15 \"
+>698	Identifier	state
+>699	CompoundStatement	 
+>700	ExpressionStatement	 
+>701	ShiftExpression	NTA_CHECK ( W_ != NULL || W01_ != NULL ) << \"SpatialPooler
+>702	ShiftExpression	\"SpatialPooler
+>703	PrimaryExpression	\"- Null coincidence matrix\"
+>704	PrimaryExpression	\"SpatialPooler
+>705	CallExpression	NTA_CHECK ( W_ != NULL || W01_ != NULL )
+>706	ArgumentList	W_ != NULL || W01_ != NULL
+>707	Argument	W_ != NULL || W01_ != NULL
+>708	OrExpression	W_ != NULL || W01_ != NULL
+>709	EqualityExpression	W01_ != NULL
+>710	Identifier	NULL
+>711	Identifier	W01_
+>712	EqualityExpression	W_ != NULL
+>713	Identifier	NULL
+>714	Identifier	W_
+>715	Callee	NTA_CHECK
+>716	Identifier	NTA_CHECK
+>717	ExpressionStatement	 
+>718	ShiftExpression	NTA_CHECK ( state . good ( ) ) << \"SpatialPooler
+>719	ShiftExpression	\"SpatialPooler
+>720	PrimaryExpression	\"- Bad stream\"
+>721	PrimaryExpression	\"SpatialPooler
+>722	CallExpression	NTA_CHECK ( state . good ( ) )
+>723	ArgumentList	state . good ( )
+>724	Argument	state . good ( )
+>725	CallExpression	state . good ( )
+>726	ArgumentList	 
+>727	Callee	state . good
+>728	MemberAccess	state . good
+>729	Identifier	good
+>730	Identifier	state
+>731	Callee	NTA_CHECK
+>732	Identifier	NTA_CHECK
+>747	FunctionDef	SpatialPooler 
+>748	ParameterList	std 
+>749	Parameter	 
+>750	Identifier	state
+>751	ParameterType	std 
+>752	ReturnType	void
+>753	CompoundStatement	 
+>754	IfStatement	if ( mode_ == gaussian )
+>755	ElseStatement	else
+>756	ExpressionStatement	 
+>757	ShiftExpression	NTA_CHECK ( W01_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ] ) << where << \"Invalid number \
+>758	ShiftExpression	where << \"Invalid number of colums for coincidence matrix
+>759	ShiftExpression	\"Invalid number of colums for coincidence matrix
+>760	ShiftExpression	W01_ -> nCols ( ) << \" - doesn't match children nodes aggregated output size
+>761	ShiftExpression	\" - doesn't match children nodes aggregated output size
+>762	ArrayIndexing	boundaries_ [ boundaries_ . size ( ) - 1 ]
+>763	AdditiveExpression	boundaries_ . size ( ) - 1
+>764	PrimaryExpression	1
+>765	CallExpression	boundaries_ . size ( )
+>766	ArgumentList	 
+>767	Callee	boundaries_ . size
+>768	MemberAccess	boundaries_ . size
+>769	Identifier	size
+>770	Identifier	boundaries_
+>771	Identifier	boundaries_
+>772	PrimaryExpression	\" - doesn't match children nodes aggregated output size
+>773	CallExpression	W01_ -> nCols ( )
+>774	ArgumentList	 
+>775	Callee	W01_ -> nCols
+>776	PtrMemberAccess	W01_ -> nCols
+>777	Identifier	nCols
+>778	Identifier	W01_
+>779	PrimaryExpression	\"Invalid number of colums for coincidence matrix
+>780	Identifier	where
+>781	CallExpression	NTA_CHECK ( W01_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ] )
+>782	ArgumentList	W01_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ]
+>783	Argument	W01_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ]
+>784	EqualityExpression	W01_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ]
+>785	ArrayIndexing	boundaries_ [ boundaries_ . size ( ) - 1 ]
+>786	AdditiveExpression	boundaries_ . size ( ) - 1
+>787	PrimaryExpression	1
+>788	CallExpression	boundaries_ . size ( )
+>789	ArgumentList	 
+>790	Callee	boundaries_ . size
+>791	MemberAccess	boundaries_ . size
+>792	Identifier	size
+>793	Identifier	boundaries_
+>794	Identifier	boundaries_
+>795	CallExpression	W01_ -> nCols ( )
+>796	ArgumentList	 
+>797	Callee	W01_ -> nCols
+>798	PtrMemberAccess	W01_ -> nCols
+>799	Identifier	nCols
+>800	Identifier	W01_
+>801	Callee	NTA_CHECK
+>802	Identifier	NTA_CHECK
+>803	ExpressionStatement	 
+>804	ShiftExpression	NTA_CHECK ( W_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ] ) << where << \"Invalid number \
+>805	ShiftExpression	where << \"Invalid number of colums for coincidence matrix
+>806	ShiftExpression	\"Invalid number of colums for coincidence matrix
+>807	ShiftExpression	W_ -> nCols ( ) << \" - doesn't match children nodes aggregated output size
+>808	ShiftExpression	\" - doesn't match children nodes aggregated output size
+>809	ArrayIndexing	boundaries_ [ boundaries_ . size ( ) - 1 ]
+>810	AdditiveExpression	boundaries_ . size ( ) - 1
+>811	PrimaryExpression	1
+>812	CallExpression	boundaries_ . size ( )
+>813	ArgumentList	 
+>814	Callee	boundaries_ . size
+>815	MemberAccess	boundaries_ . size
+>816	Identifier	size
+>817	Identifier	boundaries_
+>818	Identifier	boundaries_
+>819	PrimaryExpression	\" - doesn't match children nodes aggregated output size
+>820	CallExpression	W_ -> nCols ( )
+>821	ArgumentList	 
+>822	Callee	W_ -> nCols
+>823	PtrMemberAccess	W_ -> nCols
+>824	Identifier	nCols
+>825	Identifier	W_
+>826	PrimaryExpression	\"Invalid number of colums for coincidence matrix
+>827	Identifier	where
+>828	CallExpression	NTA_CHECK ( W_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ] )
+>829	ArgumentList	W_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ]
+>830	Argument	W_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ]
+>831	EqualityExpression	W_ -> nCols ( ) == boundaries_ [ boundaries_ . size ( ) - 1 ]
+>832	ArrayIndexing	boundaries_ [ boundaries_ . size ( ) - 1 ]
+>833	AdditiveExpression	boundaries_ . size ( ) - 1
+>834	PrimaryExpression	1
+>835	CallExpression	boundaries_ . size ( )
+>836	ArgumentList	 
+>837	Callee	boundaries_ . size
+>838	MemberAccess	boundaries_ . size
+>839	Identifier	size
+>840	Identifier	boundaries_
+>841	Identifier	boundaries_
+>842	CallExpression	W_ -> nCols ( )
+>843	ArgumentList	 
+>844	Callee	W_ -> nCols
+>845	PtrMemberAccess	W_ -> nCols
+>846	Identifier	nCols
+>847	Identifier	W_
+>848	Callee	NTA_CHECK
+>849	Identifier	NTA_CHECK
+>850	Condition	 
+>851	EqualityExpression	mode_ == gaussian
+>852	Identifier	gaussian
+>853	Identifier	mode_
+>854	SwitchStatement	switch ( mode_ )
+>855	CompoundStatement	 
+>856	BreakStatement	 
+>857	ExpressionStatement	 
+>858	CallExpression	W01_ -> fromCSR ( state )
+>859	ArgumentList	state
+>860	Argument	state
+>861	Identifier	state
+>862	Callee	W01_ -> fromCSR
+>863	PtrMemberAccess	W01_ -> fromCSR
+>864	Identifier	fromCSR
+>865	Identifier	W01_
+>866	Label	 
+>867	Identifier	product_maxD
+>868	Label	 
+>869	Identifier	dot_maxD
+>870	Label	 
+>871	Identifier	product
+>872	Label	 
+>873	Identifier	dot
+>874	BreakStatement	 
+>875	ExpressionStatement	 
+>876	CallExpression	W_ -> fromCSR ( state )
+>877	ArgumentList	state
+>878	Argument	state
+>879	Identifier	state
+>880	Callee	W_ -> fromCSR
+>881	PtrMemberAccess	W_ -> fromCSR
+>882	Identifier	fromCSR
+>883	Identifier	W_
+>884	ForStatement	for ( UInt i = 0 ; i < ncounts ; ++ i )
+>885	ExpressionStatement	 
+>886	ShiftExpression	state >> counts_ [ i ]
+>887	ArrayIndexing	counts_ [ i ]
+>888	Identifier	i
+>889	Identifier	counts_
+>890	Identifier	state
+>891	UnaryExpression	 
+>892	Identifier	i
+>893	IncDec	++
+>894	Condition	 
+>895	RelationalExpression	i < ncounts
+>896	Identifier	ncounts
+>897	Identifier	i
+>898	ForInit	 
+>899	IdentifierDeclStatement	UInt i = 0 ;
+>900	IdentifierDecl	i = 0
+>901	AssignmentExpr	i = 0
+>902	PrimaryExpression	0
+>903	Identifier	i
+>904	Identifier	i
+>905	IdentifierDeclType	UInt
+>906	ExpressionStatement	 
+>907	CallExpression	counts_ . resize ( ncounts , 0 )
+>908	ArgumentList	ncounts
+>909	Argument	0
+>910	PrimaryExpression	0
+>911	Argument	ncounts
+>912	Identifier	ncounts
+>913	Callee	counts_ . resize
+>914	MemberAccess	counts_ . resize
+>915	Identifier	resize
+>916	Identifier	counts_
+>917	ExpressionStatement	 
+>918	ShiftExpression	state >> ncounts
+>919	Identifier	ncounts
+>920	Identifier	state
+>921	IdentifierDeclStatement	 
+>922	IdentifierDecl	ncounts
+>923	Identifier	ncounts
+>924	IdentifierDeclType	UInt
+>925	Label	 
+>926	Identifier	gaussian
+>927	Condition	 
+>928	Identifier	mode_
+>929	BlockStarter	 
+>930	CompoundStatement	 
+>931	ExpressionStatement	NTA_THROW << where << \"Not enough memory to allocate coincidence matrix\"
+>932	ShiftExpression	NTA_THROW << where << \"Not enough memory to allocate coincidence matrix\"
+>933	ShiftExpression	where << \"Not enough memory to allocate coincidence matrix\"
+>934	PrimaryExpression	\"Not enough memory to allocate coincidence matrix\"
+>935	Identifier	where
+>936	Identifier	NTA_THROW
+>937	BlockStarter	 
+>938	CompoundStatement	 
+>939	SwitchStatement	switch ( mode_ )
+>940	CompoundStatement	 
+>941	BreakStatement	break ;
+>942	ExpressionStatement	W01_ = new SparseMatrix01 < UInt , Real > ( 1 , 16 , UInt ( boundaries_ . size ( ) ) )
+>943	AssignmentExpr	W01_ = new SparseMatrix01 < UInt , Real > ( 1 , 16 , UInt ( boundaries_ . size ( ) ) )
+>944	Expression	1 , 16 , UInt ( boundaries_ . size ( ) )
+>945	Expression	16 , UInt ( boundaries_ . size ( ) )
+>946	CallExpression	UInt ( boundaries_ . size ( ) )
+>947	ArgumentList	boundaries_ . size ( )
+>948	Argument	boundaries_ . size ( )
+>949	CallExpression	boundaries_ . size ( )
+>950	ArgumentList	 
+>951	Callee	boundaries_ . size
+>952	MemberAccess	boundaries_ . size
+>953	Identifier	size
+>954	Identifier	boundaries_
+>955	Callee	UInt
+>956	Identifier	UInt
+>957	PrimaryExpression	16
+>958	PrimaryExpression	1
+>959	Identifier	W01_
+>960	Label	case product_maxD 
+>961	Identifier	product_maxD
+>962	Label	case dot_maxD 
+>963	Identifier	dot_maxD
+>964	Label	case product 
+>965	Identifier	product
+>966	Label	case dot 
+>967	Identifier	dot
+>968	BreakStatement	break ;
+>969	ExpressionStatement	W_ = new NearestNeighbor < SparseMatrix < UInt , Real > > ( 0 , 16 )
+>970	AssignmentExpr	W_ = new NearestNeighbor < SparseMatrix < UInt , Real > > ( 0 , 16 )
+>971	Expression	0 , 16
+>972	PrimaryExpression	16
+>973	PrimaryExpression	0
+>974	Identifier	W_
+>975	Label	case gaussian 
+>976	Identifier	gaussian
+>977	Condition	mode_
+>978	Identifier	mode_
+>979	ExpressionStatement	 
+>980	Identifier	W01_
+>981	Statement	 
+>982	ExpressionStatement	 
+>983	Identifier	W_
+>984	Statement	 
+>985	ForStatement	for ( UInt i = 0 ; i < nChildren ; ++ i )
+>986	CompoundStatement	 
+>987	ExpressionStatement	 
+>988	CallExpression	boundaries_ . push_back ( UInt ( childOutputSize ) )
+>989	ArgumentList	UInt ( childOutputSize )
+>990	Argument	UInt ( childOutputSize )
+>991	CallExpression	UInt ( childOutputSize )
+>992	ArgumentList	childOutputSize
+>993	Argument	childOutputSize
+>994	Identifier	childOutputSize
+>995	Callee	UInt
+>996	Identifier	UInt
+>997	Callee	boundaries_ . push_back
+>998	MemberAccess	boundaries_ . push_back
+>999	Identifier	push_back
+>1000	Identifier	boundaries_
+>1001	IfStatement	if ( i > 0 )
+>1002	CompoundStatement	 
+>1003	ExpressionStatement	 
+>1004	ShiftExpression	NTA_CHECK ( UInt ( childOutputSize ) > boundaries_ [ boundaries_ . size ( ) - 1 ] ) << where << \"Invalid \
+>1005	ShiftExpression	where << \"Invalid child node output size
+>1006	ShiftExpression	\"Invalid child node output size
+>1007	ShiftExpression	childOutputSize << \" for child
+>1008	ShiftExpression	\" for child
+>1009	ShiftExpression	i << \" - the previous boundary is
+>1010	ShiftExpression	\" - the previous boundary is
+>1011	ShiftExpression	boundaries_ [ boundaries_ . size ( ) - 1 ] << \" - Boundaries should be in strictly increasing order\"\
+>1012	PrimaryExpression	\" - Boundaries should be in strictly increasing order\"
+>1013	ArrayIndexing	boundaries_ [ boundaries_ . size ( ) - 1 ]
+>1014	AdditiveExpression	boundaries_ . size ( ) - 1
+>1015	PrimaryExpression	1
+>1016	CallExpression	boundaries_ . size ( )
+>1017	ArgumentList	 
+>1018	Callee	boundaries_ . size
+>1019	MemberAccess	boundaries_ . size
+>1020	Identifier	size
+>1021	Identifier	boundaries_
+>1022	Identifier	boundaries_
+>1023	PrimaryExpression	\" - the previous boundary is
+>1024	Identifier	i
+>1025	PrimaryExpression	\" for child
+>1026	Identifier	childOutputSize
+>1027	PrimaryExpression	\"Invalid child node output size
+>1028	Identifier	where
+>1029	CallExpression	NTA_CHECK ( UInt ( childOutputSize ) > boundaries_ [ boundaries_ . size ( ) - 1 ] )
+>1030	ArgumentList	UInt ( childOutputSize ) > boundaries_ [ boundaries_ . size ( ) - 1 ]
+>1031	Argument	UInt ( childOutputSize ) > boundaries_ [ boundaries_ . size ( ) - 1 ]
+>1032	RelationalExpression	UInt ( childOutputSize ) > boundaries_ [ boundaries_ . size ( ) - 1 ]
+>1033	ArrayIndexing	boundaries_ [ boundaries_ . size ( ) - 1 ]
+>1034	AdditiveExpression	boundaries_ . size ( ) - 1
+>1035	PrimaryExpression	1
+>1036	CallExpression	boundaries_ . size ( )
+>1037	ArgumentList	 
+>1038	Callee	boundaries_ . size
+>1039	MemberAccess	boundaries_ . size
+>1040	Identifier	size
+>1041	Identifier	boundaries_
+>1042	Identifier	boundaries_
+>1043	CallExpression	UInt ( childOutputSize )
+>1044	ArgumentList	childOutputSize
+>1045	Argument	childOutputSize
+>1046	Identifier	childOutputSize
+>1047	Callee	UInt
+>1048	Identifier	UInt
+>1049	Callee	NTA_CHECK
+>1050	Identifier	NTA_CHECK
+>1051	Condition	 
+>1052	RelationalExpression	i > 0
+>1053	PrimaryExpression	0
+>1054	Identifier	i
+>1055	ExpressionStatement	 
+>1056	ShiftExpression	NTA_CHECK ( childOutputSize > 0 ) << where << \"Invalid child node output size
+>1057	ShiftExpression	where << \"Invalid child node output size
+>1058	ShiftExpression	\"Invalid child node output size
+>1059	ShiftExpression	childOutputSize << \" for child
+>1060	ShiftExpression	\" for child
+>1061	ShiftExpression	i << \" - Child output size should be > 0\"
+>1062	PrimaryExpression	\" - Child output size should be > 0\"
+>1063	Identifier	i
+>1064	PrimaryExpression	\" for child
+>1065	Identifier	childOutputSize
+>1066	PrimaryExpression	\"Invalid child node output size
+>1067	Identifier	where
+>1068	CallExpression	NTA_CHECK ( childOutputSize > 0 )
+>1069	ArgumentList	childOutputSize > 0
+>1070	Argument	childOutputSize > 0
+>1071	RelationalExpression	childOutputSize > 0
+>1072	PrimaryExpression	0
+>1073	Identifier	childOutputSize
+>1074	Callee	NTA_CHECK
+>1075	Identifier	NTA_CHECK
+>1076	ExpressionStatement	 
+>1077	ShiftExpression	state >> childOutputSize
+>1078	Identifier	childOutputSize
+>1079	Identifier	state
+>1080	UnaryExpression	 
+>1081	Identifier	i
+>1082	IncDec	++
+>1083	Condition	 
+>1084	RelationalExpression	i < nChildren
+>1085	Identifier	nChildren
+>1086	Identifier	i
+>1087	ForInit	 
+>1088	IdentifierDeclStatement	UInt i = 0 ;
+>1089	IdentifierDecl	i = 0
+>1090	AssignmentExpr	i = 0
+>1091	PrimaryExpression	0
+>1092	Identifier	i
+>1093	Identifier	i
+>1094	IdentifierDeclType	UInt
+>1095	ExpressionStatement	 
+>1096	ShiftExpression	NTA_CHECK ( nChildren > 0 ) << where << \"Invalid number of children
+>1097	ShiftExpression	where << \"Invalid number of children
+>1098	ShiftExpression	\"Invalid number of children
+>1099	ShiftExpression	nChildren << \" - Number of children should be > 0\"
+>1100	PrimaryExpression	\" - Number of children should be > 0\"
+>1101	Identifier	nChildren
+>1102	PrimaryExpression	\"Invalid number of children
+>1103	Identifier	where
+>1104	CallExpression	NTA_CHECK ( nChildren > 0 )
+>1105	ArgumentList	nChildren > 0
+>1106	Argument	nChildren > 0
+>1107	RelationalExpression	nChildren > 0
+>1108	PrimaryExpression	0
+>1109	Identifier	nChildren
+>1110	Callee	NTA_CHECK
+>1111	Identifier	NTA_CHECK
+>1112	ExpressionStatement	 
+>1113	ShiftExpression	NTA_CHECK ( maxDistance_ >= 0 ) << where << \"Invalid maxDistance
+>1114	ShiftExpression	where << \"Invalid maxDistance
+>1115	ShiftExpression	\"Invalid maxDistance
+>1116	ShiftExpression	maxDistance_ << \" - Should be >= 0\"
+>1117	PrimaryExpression	\" - Should be >= 0\"
+>1118	Identifier	maxDistance_
+>1119	PrimaryExpression	\"Invalid maxDistance
+>1120	Identifier	where
+>1121	CallExpression	NTA_CHECK ( maxDistance_ >= 0 )
+>1122	ArgumentList	maxDistance_ >= 0
+>1123	Argument	maxDistance_ >= 0
+>1124	RelationalExpression	maxDistance_ >= 0
+>1125	PrimaryExpression	0
+>1126	Identifier	maxDistance_
+>1127	Callee	NTA_CHECK
+>1128	Identifier	NTA_CHECK
+>1129	ExpressionStatement	 
+>1130	ShiftExpression	state >> nChildren
+>1131	Identifier	nChildren
+>1132	Identifier	state
+>1133	IfStatement	if ( version >= 15 )
+>1134	ElseStatement	else
+>1135	ExpressionStatement	 
+>1136	AssignmentExpr	prodModeScaling_ = true
+>1137	Identifier	true
+>1138	Identifier	prodModeScaling_
+>1139	ExpressionStatement	 
+>1140	ShiftExpression	state >> prodModeScaling_
+>1141	Identifier	prodModeScaling_
+>1142	Identifier	state
+>1143	Condition	 
+>1144	RelationalExpression	version >= 15
+>1145	PrimaryExpression	15
+>1146	Identifier	version
+>1147	ExpressionStatement	 
+>1148	ShiftExpression	state >> sigma >> k1 >> k2_
+>1149	ShiftExpression	sigma >> k1 >> k2_
+>1150	ShiftExpression	k1 >> k2_
+>1151	Identifier	k2_
+>1152	Identifier	k1
+>1153	Identifier	sigma
+>1154	Identifier	state
+>1155	ExpressionStatement	 
+>1156	ShiftExpression	state >> maxDistance_
+>1157	Identifier	maxDistance_
+>1158	Identifier	state
+>1159	ExpressionStatement	 
+>1160	AssignmentExpr	mode_ = ( Mode ) mode
+>1161	CastExpression	( Mode ) mode
+>1162	Identifier	mode
+>1163	CastTarget	Mode
+>1164	Identifier	mode_
+>1165	ExpressionStatement	 
+>1166	ShiftExpression	state >> mode
+>1167	Identifier	mode
+>1168	Identifier	state
+>1169	IdentifierDeclStatement	 
+>1170	IdentifierDecl	k1
+>1171	Identifier	k1
+>1172	IdentifierDeclType	Real
+>1173	IdentifierDecl	sigma
+>1174	Identifier	sigma
+>1175	IdentifierDeclType	Real
+>1176	IdentifierDeclStatement	 
+>1177	IdentifierDecl	mode
+>1178	Identifier	mode
+>1179	IdentifierDeclType	unsigned int
+>1180	IfStatement	if ( str == \"SpatialPooler\" )
+>1181	ElseStatement	else
+>1182	IfStatement	if ( str == \"SpatialPooler15\" )
+>1183	ElseStatement	else
+>1184	ExpressionStatement	 
+>1185	ShiftExpression	NTA_THROW << where << \" - Wrong class data format, expected data for SpatialPooler\"
+>1186	ShiftExpression	where << \" - Wrong class data format, expected data for SpatialPooler\"
+>1187	PrimaryExpression	\" - Wrong class data format, expected data for SpatialPooler\"
+>1188	Identifier	where
+>1189	Identifier	NTA_THROW
+>1190	ExpressionStatement	 
+>1191	AssignmentExpr	version = 15
+>1192	PrimaryExpression	15
+>1193	Identifier	version
+>1194	Condition	 
+>1195	EqualityExpression	str == \"SpatialPooler15\"
+>1196	PrimaryExpression	\"SpatialPooler15\"
+>1197	Identifier	str
+>1198	ExpressionStatement	 
+>1199	AssignmentExpr	version = 10
+>1200	PrimaryExpression	10
+>1201	Identifier	version
+>1202	Condition	 
+>1203	EqualityExpression	str == \"SpatialPooler\"
+>1204	PrimaryExpression	\"SpatialPooler\"
+>1205	Identifier	str
+>1206	IdentifierDeclStatement	 
+>1207	IdentifierDecl	version = 10
+>1208	AssignmentExpr	version = 10
+>1209	PrimaryExpression	10
+>1210	Identifier	version
+>1211	Identifier	version
+>1212	IdentifierDeclType	UInt
+>1213	ExpressionStatement	 
+>1214	ShiftExpression	state >> str
+>1215	Identifier	str
+>1216	Identifier	state
+>1217	IdentifierDeclStatement	 
+>1218	IdentifierDecl	str
+>1219	Identifier	str
+>1220	IdentifierDeclType	std 
+>1221	ExpressionStatement	 
+>1222	CallExpression	boundaries_ . clear ( )
+>1223	ArgumentList	 
+>1224	Callee	boundaries_ . clear
+>1225	MemberAccess	boundaries_ . clear
+>1226	Identifier	clear
+>1227	Identifier	boundaries_
+>1228	IdentifierDeclStatement	 
+>1229	IdentifierDecl	childOutputSize
+>1230	Identifier	childOutputSize
+>1231	IdentifierDeclType	UInt
+>1232	IdentifierDecl	nChildren
+>1233	Identifier	nChildren
+>1234	IdentifierDeclType	UInt
+>1235	CompoundStatement	 
+>1236	ExpressionStatement	 
+>1237	ShiftExpression	NTA_CHECK ( state . good ( ) ) << where << \"- Bad stream\"
+>1238	ShiftExpression	where << \"- Bad stream\"
+>1239	PrimaryExpression	\"- Bad stream\"
+>1240	Identifier	where
+>1241	CallExpression	NTA_CHECK ( state . good ( ) )
+>1242	ArgumentList	state . good ( )
+>1243	Argument	state . good ( )
+>1244	CallExpression	state . good ( )
+>1245	ArgumentList	 
+>1246	Callee	state . good
+>1247	MemberAccess	state . good
+>1248	Identifier	good
+>1249	Identifier	state
+>1250	Callee	NTA_CHECK
+>1251	Identifier	NTA_CHECK
+>1252	IdentifierDeclStatement	 
+>1253	IdentifierDecl	* where = \"SpatialPooler
+>1254	AssignmentExpr	* where = \"SpatialPooler
+>1255	PrimaryExpression	\"SpatialPooler
+>1256	Identifier	where
+>1257	Identifier	where
+>1258	IdentifierDeclType	const char *
+<3=20,4
+<4=17,14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=19,18
+<20=211,95,85,78,61,29,21
+<21=22
+<22=23
+<23=24
+<24=28,25
+<25=27,26
+<29=30
+<30=31
+<31=59,32
+<32=57,51,50,48,46,44,42,34,33
+<34=35
+<35=41,36
+<36=40,37
+<37=39,38
+<42=43
+<44=45
+<46=47
+<48=49
+<51=52
+<52=56,53
+<53=55,54
+<57=58
+<59=60
+<61=62
+<62=77,76,63
+<63=75,64
+<64=73,65
+<65=66
+<66=67
+<67=69,68
+<69=70
+<70=72,71
+<73=74
+<78=79
+<79=84,83,80
+<80=82,81
+<85=86
+<86=94,93,87
+<87=92,88
+<88=90,89
+<90=91
+<95=198,185,167,152,96
+<96=144,135,132,97
+<97=98
+<98=118,99
+<99=117,100
+<100=116,101
+<101=111,102
+<102=110,103
+<103=107,104
+<104=106,105
+<107=109,108
+<111=115,112
+<112=114,113
+<118=130,119
+<119=120
+<120=121
+<121=127,122
+<122=126,123
+<123=125,124
+<127=129,128
+<130=131
+<132=134,133
+<135=136
+<136=143,137
+<137=139,138
+<139=140
+<140=142,141
+<144=145
+<145=146
+<146=151,150,147
+<147=149,148
+<152=153
+<153=157,154
+<154=156,155
+<157=165,158
+<158=159
+<159=160
+<160=162,161
+<162=164,163
+<165=166
+<167=168
+<168=172,169
+<169=171,170
+<172=183,173
+<173=174
+<174=175
+<175=177,176
+<177=179,178
+<179=180
+<180=182,181
+<183=184
+<185=186
+<186=190,187
+<187=189,188
+<190=196,191
+<191=192
+<192=193
+<193=195,194
+<196=197
+<198=199
+<199=203,200
+<200=202,201
+<203=209,204
+<204=205
+<205=206
+<206=208,207
+<209=210
+<211=212
+<212=217,216,213
+<213=215,214
+<241=246,242
+<242=243
+<243=245,244
+<246=247
+<247=248
+<248=252,249
+<249=250
+<250=251
+<252=253
+<258=260,259
+<260=266,264,263,261
+<261=262
+<264=265
+<270=273,272,271
+<273=344,276,274
+<274=275
+<276=342,277
+<277=340,338,336,334,321,320,318,279,278
+<279=310,301,298,280
+<280=281
+<281=294,282
+<282=283
+<283=284
+<284=292,285
+<285=290,286
+<286=287
+<287=289,288
+<290=291
+<292=293
+<294=295
+<295=297,296
+<298=300,299
+<301=302
+<302=309,303
+<303=305,304
+<305=306
+<306=308,307
+<310=311
+<311=312
+<312=317,316,313
+<313=315,314
+<318=319
+<321=332,325,322
+<322=323
+<323=324
+<325=326
+<326=328,327
+<328=329
+<329=331,330
+<332=333
+<334=335
+<336=337
+<338=339
+<340=341
+<342=343
+<344=345
+<345=347,346
+<362=371,370,363
+<363=367,364
+<364=366,365
+<367=369,368
+<371=520,372
+<372=504,447,373
+<373=374
+<374=443,442,441,440,439,438,437,436,435,405,384,375
+<375=376
+<376=380,377
+<377=378
+<378=379
+<380=381
+<381=383,382
+<384=385
+<385=401,386
+<386=394,387
+<387=388
+<388=390,389
+<390=391
+<391=393,392
+<394=395
+<395=397,396
+<397=398
+<398=400,399
+<401=402
+<402=404,403
+<405=429,419,406
+<406=407
+<407=408
+<408=409
+<409=415,410
+<410=411
+<411=412
+<412=414,413
+<415=416
+<416=418,417
+<419=420
+<420=421
+<421=425,422
+<422=423
+<423=424
+<425=426
+<426=428,427
+<429=430
+<430=432,431
+<432=434,433
+<443=444
+<444=446,445
+<447=500,484,483,482,481,480,479,478,477,476,475,474,473,472,471,470,469,468,467,466,465,464,463,462,461,460,459,458,457,456,455,454,453,452,451,450,449,448
+<484=485
+<485=496,486
+<486=494,487
+<487=488
+<488=492,489
+<489=490
+<490=491
+<492=493
+<494=495
+<496=497
+<497=499,498
+<500=501
+<501=503,502
+<504=505
+<505=517,506
+<506=514,507
+<507=511,508
+<508=510,509
+<511=513,512
+<514=516,515
+<517=519,518
+<520=521
+<521=523,522
+<523=524
+<524=526,525
+<548=554,553,549
+<549=550
+<550=552,551
+<554=699,695,669,658,629,555
+<555=627,556
+<556=625,614,585,576,575,573,571,569,567,558,557
+<558=559
+<559=563,560
+<560=561
+<561=562
+<563=564
+<564=566,565
+<567=568
+<569=570
+<571=572
+<573=574
+<576=577
+<577=581,578
+<578=579
+<579=580
+<581=582
+<582=584,583
+<585=606,597,594,586
+<586=587
+<587=593,588
+<588=590,589
+<590=592,591
+<594=596,595
+<597=598
+<598=605,599
+<599=601,600
+<601=602
+<602=604,603
+<606=607
+<607=608
+<608=613,612,609
+<609=611,610
+<614=615
+<615=624,616
+<616=618,617
+<618=620,619
+<620=621
+<621=623,622
+<625=626
+<627=628
+<629=650,641,638,630
+<630=631
+<631=637,632
+<632=634,633
+<634=636,635
+<638=640,639
+<641=642
+<642=649,643
+<643=645,644
+<645=646
+<646=648,647
+<650=651
+<651=652
+<652=657,656,653
+<653=655,654
+<658=659
+<659=668,660
+<660=662,661
+<662=664,663
+<664=665
+<665=667,666
+<669=670
+<670=694,671
+<671=691,672
+<672=690,673
+<673=689,674
+<674=688,675
+<675=687,676
+<676=686,677
+<677=685,678
+<678=684,679
+<679=681,680
+<681=683,682
+<691=693,692
+<695=696
+<696=698,697
+<699=717,700
+<700=701
+<701=705,702
+<702=704,703
+<705=715,706
+<706=707
+<707=708
+<708=712,709
+<709=711,710
+<712=714,713
+<715=716
+<717=718
+<718=722,719
+<719=721,720
+<722=731,723
+<723=724
+<724=725
+<725=727,726
+<727=728
+<728=730,729
+<731=732
+<747=753,752,748
+<748=749
+<749=751,750
+<753=1252,1235,1228,1221,1217,1213,1206,1180,1176,1169,1165,1159,1155,1147,1133,1129,1112,1095,985,984,982,981,979,937,929,854,754
+<754=850,803,755
+<755=756
+<756=757
+<757=781,758
+<758=780,759
+<759=779,760
+<760=773,761
+<761=772,762
+<762=771,763
+<763=765,764
+<765=767,766
+<767=768
+<768=770,769
+<773=775,774
+<775=776
+<776=778,777
+<781=801,782
+<782=783
+<783=784
+<784=795,785
+<785=794,786
+<786=788,787
+<788=790,789
+<790=791
+<791=793,792
+<795=797,796
+<797=798
+<798=800,799
+<801=802
+<803=804
+<804=828,805
+<805=827,806
+<806=826,807
+<807=820,808
+<808=819,809
+<809=818,810
+<810=812,811
+<812=814,813
+<814=815
+<815=817,816
+<820=822,821
+<822=823
+<823=825,824
+<828=848,829
+<829=830
+<830=831
+<831=842,832
+<832=841,833
+<833=835,834
+<835=837,836
+<837=838
+<838=840,839
+<842=844,843
+<844=845
+<845=847,846
+<848=849
+<850=851
+<851=853,852
+<854=927,855
+<855=925,921,917,906,884,875,874,872,870,868,866,857,856
+<857=858
+<858=862,859
+<859=860
+<860=861
+<862=863
+<863=865,864
+<866=867
+<868=869
+<870=871
+<872=873
+<875=876
+<876=880,877
+<877=878
+<878=879
+<880=881
+<881=883,882
+<884=898,894,891,885
+<885=886
+<886=890,887
+<887=889,888
+<891=893,892
+<894=895
+<895=897,896
+<898=899
+<899=900
+<900=905,904,901
+<901=903,902
+<906=907
+<907=913,908
+<908=911,909
+<909=910
+<911=912
+<913=914
+<914=916,915
+<917=918
+<918=920,919
+<921=922
+<922=924,923
+<925=926
+<927=928
+<929=930
+<930=931
+<931=932
+<932=936,933
+<933=935,934
+<937=938
+<938=939
+<939=977,940
+<940=975,969,968,966,964,962,960,942,941
+<942=943
+<943=959,944
+<944=958,945
+<945=957,946
+<946=955,947
+<947=948
+<948=949
+<949=951,950
+<951=952
+<952=954,953
+<955=956
+<960=961
+<962=963
+<964=965
+<966=967
+<969=970
+<970=974,971
+<971=973,972
+<975=976
+<977=978
+<979=980
+<982=983
+<985=1087,1083,1080,986
+<986=1076,1055,1001,987
+<987=988
+<988=997,989
+<989=990
+<990=991
+<991=995,992
+<992=993
+<993=994
+<995=996
+<997=998
+<998=1000,999
+<1001=1051,1002
+<1002=1003
+<1003=1004
+<1004=1029,1005
+<1005=1028,1006
+<1006=1027,1007
+<1007=1026,1008
+<1008=1025,1009
+<1009=1024,1010
+<1010=1023,1011
+<1011=1013,1012
+<1013=1022,1014
+<1014=1016,1015
+<1016=1018,1017
+<1018=1019
+<1019=1021,1020
+<1029=1049,1030
+<1030=1031
+<1031=1032
+<1032=1043,1033
+<1033=1042,1034
+<1034=1036,1035
+<1036=1038,1037
+<1038=1039
+<1039=1041,1040
+<1043=1047,1044
+<1044=1045
+<1045=1046
+<1047=1048
+<1049=1050
+<1051=1052
+<1052=1054,1053
+<1055=1056
+<1056=1068,1057
+<1057=1067,1058
+<1058=1066,1059
+<1059=1065,1060
+<1060=1064,1061
+<1061=1063,1062
+<1068=1074,1069
+<1069=1070
+<1070=1071
+<1071=1073,1072
+<1074=1075
+<1076=1077
+<1077=1079,1078
+<1080=1082,1081
+<1083=1084
+<1084=1086,1085
+<1087=1088
+<1088=1089
+<1089=1094,1093,1090
+<1090=1092,1091
+<1095=1096
+<1096=1104,1097
+<1097=1103,1098
+<1098=1102,1099
+<1099=1101,1100
+<1104=1110,1105
+<1105=1106
+<1106=1107
+<1107=1109,1108
+<1110=1111
+<1112=1113
+<1113=1121,1114
+<1114=1120,1115
+<1115=1119,1116
+<1116=1118,1117
+<1121=1127,1122
+<1122=1123
+<1123=1124
+<1124=1126,1125
+<1127=1128
+<1129=1130
+<1130=1132,1131
+<1133=1143,1139,1134
+<1134=1135
+<1135=1136
+<1136=1138,1137
+<1139=1140
+<1140=1142,1141
+<1143=1144
+<1144=1146,1145
+<1147=1148
+<1148=1154,1149
+<1149=1153,1150
+<1150=1152,1151
+<1155=1156
+<1156=1158,1157
+<1159=1160
+<1160=1164,1161
+<1161=1163,1162
+<1165=1166
+<1166=1168,1167
+<1169=1173,1170
+<1170=1172,1171
+<1173=1175,1174
+<1176=1177
+<1177=1179,1178
+<1180=1202,1198,1181
+<1181=1182
+<1182=1194,1190,1183
+<1183=1184
+<1184=1185
+<1185=1189,1186
+<1186=1188,1187
+<1190=1191
+<1191=1193,1192
+<1194=1195
+<1195=1197,1196
+<1198=1199
+<1199=1201,1200
+<1202=1203
+<1203=1205,1204
+<1206=1207
+<1207=1212,1211,1208
+<1208=1210,1209
+<1213=1214
+<1214=1216,1215
+<1217=1218
+<1218=1220,1219
+<1221=1222
+<1222=1224,1223
+<1224=1225
+<1225=1227,1226
+<1228=1232,1229
+<1229=1231,1230
+<1232=1234,1233
+<1235=1236
+<1236=1237
+<1237=1241,1238
+<1238=1240,1239
+<1241=1250,1242
+<1242=1243
+<1243=1244
+<1244=1246,1245
+<1246=1247
+<1247=1249,1248
+<1250=1251
+<1252=1253
+<1253=1258,1257,1254
+<1254=1256,1255

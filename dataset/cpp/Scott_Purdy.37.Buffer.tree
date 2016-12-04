@@ -1,0 +1,5015 @@
+>3	FunctionDef	staticReadBufferGetSize (NTA_ReadBufferHandle handle)
+>4	ParameterList	NTA_ReadBufferHandle handle
+>5	Parameter	 
+>6	Identifier	handle
+>7	ParameterType	NTA_ReadBufferHandle
+>8	ReturnType	NTA_Size
+>9	CompoundStatement	 
+>10	ReturnStatement	 
+>11	CallExpression	rb -> getSize ( )
+>12	ArgumentList	 
+>13	Callee	rb -> getSize
+>14	PtrMemberAccess	rb -> getSize
+>15	Identifier	getSize
+>16	Identifier	rb
+>17	ExpressionStatement	 
+>18	Identifier	handle
+>19	Statement	 
+>20	Statement	 
+>21	Statement	 
+>22	Statement	 
+>23	Statement	 
+>24	Statement	 
+>25	Statement	 
+>26	Statement	 
+>27	Statement	 
+>28	ExpressionStatement	 
+>29	CallExpression	NTA_CHECK ( handle != NULL )
+>30	ArgumentList	handle != NULL
+>31	Argument	handle != NULL
+>32	EqualityExpression	handle != NULL
+>33	Identifier	NULL
+>34	Identifier	handle
+>35	Callee	NTA_CHECK
+>36	Identifier	NTA_CHECK
+>45	FunctionDef	staticGetData (NTA_ReadBufferHandle handle)
+>46	ParameterList	NTA_ReadBufferHandle handle
+>47	Parameter	 
+>48	Identifier	handle
+>49	ParameterType	NTA_ReadBufferHandle
+>50	ReturnType	const NTA_Byte *
+>51	CompoundStatement	 
+>52	ReturnStatement	 
+>53	CallExpression	rb -> getData ( )
+>54	ArgumentList	 
+>55	Callee	rb -> getData
+>56	PtrMemberAccess	rb -> getData
+>57	Identifier	getData
+>58	Identifier	rb
+>59	ExpressionStatement	 
+>60	Identifier	handle
+>61	Statement	 
+>62	Statement	 
+>63	Statement	 
+>64	Statement	 
+>65	Statement	 
+>66	Statement	 
+>67	Statement	 
+>68	Statement	 
+>69	Statement	 
+>70	ExpressionStatement	 
+>71	CallExpression	NTA_CHECK ( handle != NULL )
+>72	ArgumentList	handle != NULL
+>73	Argument	handle != NULL
+>74	EqualityExpression	handle != NULL
+>75	Identifier	NULL
+>76	Identifier	handle
+>77	Callee	NTA_CHECK
+>78	Identifier	NTA_CHECK
+>87	FunctionDef	staticReset (NTA_ReadBufferHandle handle)
+>88	ParameterList	NTA_ReadBufferHandle handle
+>89	Parameter	 
+>90	Identifier	handle
+>91	ParameterType	NTA_ReadBufferHandle
+>92	ReturnType	void
+>93	CompoundStatement	 
+>94	ReturnStatement	 
+>95	CallExpression	rb -> reset ( )
+>96	ArgumentList	 
+>97	Callee	rb -> reset
+>98	PtrMemberAccess	rb -> reset
+>99	Identifier	reset
+>100	Identifier	rb
+>101	ExpressionStatement	 
+>102	Identifier	handle
+>103	Statement	 
+>104	Statement	 
+>105	Statement	 
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Statement	 
+>110	Statement	 
+>111	Statement	 
+>112	ExpressionStatement	 
+>113	CallExpression	NTA_CHECK ( handle != NULL )
+>114	ArgumentList	handle != NULL
+>115	Argument	handle != NULL
+>116	EqualityExpression	handle != NULL
+>117	Identifier	NULL
+>118	Identifier	handle
+>119	Callee	NTA_CHECK
+>120	Identifier	NTA_CHECK
+>129	FunctionDef	staticReadByte (NTA_ReadBufferHandle handle , NTA_Byte * value)
+>130	ParameterList	NTA_ReadBufferHandle handle , NTA_Byte * value
+>131	Parameter	 
+>132	Identifier	value
+>133	ParameterType	NTA_Byte *
+>134	Parameter	 
+>135	Identifier	handle
+>136	ParameterType	NTA_ReadBufferHandle
+>137	ReturnType	static NTA_Int32
+>138	CompoundStatement	 
+>139	ReturnStatement	 
+>140	CallExpression	rb -> read ( * value )
+>141	ArgumentList	* value
+>142	Argument	* value
+>143	UnaryOp	* value
+>144	Identifier	value
+>145	UnaryOperator	*
+>146	Callee	rb -> read
+>147	PtrMemberAccess	rb -> read
+>148	Identifier	read
+>149	Identifier	rb
+>150	ExpressionStatement	 
+>151	Identifier	handle
+>152	Statement	 
+>153	Statement	 
+>154	Statement	 
+>155	Statement	 
+>156	Statement	 
+>157	Statement	 
+>158	Statement	 
+>159	Statement	 
+>160	Statement	 
+>161	IfStatement	if ( ! handle || ! value )
+>162	ReturnStatement	 
+>163	UnaryOp	- 1
+>164	PrimaryExpression	1
+>165	UnaryOperator	-
+>166	Condition	 
+>167	OrExpression	! handle || ! value
+>168	UnaryOp	! value
+>169	Identifier	value
+>170	UnaryOperator	!
+>171	UnaryOp	! handle
+>172	Identifier	handle
+>173	UnaryOperator	!
+>183	FunctionDef	staticReadByteArray (NTA_ReadBufferHandle handle , NTA_Byte * value , NTA_Size * size)
+>184	ParameterList	NTA_ReadBufferHandle handle , NTA_Byte * value , NTA_Size * size
+>185	Parameter	 
+>186	Identifier	size
+>187	ParameterType	NTA_Size *
+>188	Parameter	 
+>189	Identifier	value
+>190	ParameterType	NTA_Byte *
+>191	Parameter	 
+>192	Identifier	handle
+>193	ParameterType	NTA_ReadBufferHandle
+>194	ReturnType	NTA_Int32
+>195	CompoundStatement	 
+>196	ReturnStatement	 
+>197	CallExpression	rb -> read ( value , * size )
+>198	ArgumentList	value
+>199	Argument	* size
+>200	UnaryOp	* size
+>201	Identifier	size
+>202	UnaryOperator	*
+>203	Argument	value
+>204	Identifier	value
+>205	Callee	rb -> read
+>206	PtrMemberAccess	rb -> read
+>207	Identifier	read
+>208	Identifier	rb
+>209	ExpressionStatement	 
+>210	Identifier	handle
+>211	Statement	 
+>212	Statement	 
+>213	Statement	 
+>214	Statement	 
+>215	Statement	 
+>216	Statement	 
+>217	Statement	 
+>218	Statement	 
+>219	Statement	 
+>220	IfStatement	if ( ! handle || ! value || ! size || * size <= 0 )
+>221	ReturnStatement	 
+>222	UnaryOp	- 1
+>223	PrimaryExpression	1
+>224	UnaryOperator	-
+>225	Condition	 
+>226	OrExpression	! handle || ! value || ! size || * size <= 0
+>227	OrExpression	! value || ! size || * size <= 0
+>228	OrExpression	! size || * size <= 0
+>229	RelationalExpression	* size <= 0
+>230	PrimaryExpression	0
+>231	UnaryOp	* size
+>232	Identifier	size
+>233	UnaryOperator	*
+>234	UnaryOp	! size
+>235	Identifier	size
+>236	UnaryOperator	!
+>237	UnaryOp	! value
+>238	Identifier	value
+>239	UnaryOperator	!
+>240	UnaryOp	! handle
+>241	Identifier	handle
+>242	UnaryOperator	!
+>253	FunctionDef	staticReadString (NTA_ReadBufferHandle handle , NTA_Byte * * value , NTA_UInt32 * size , NTA_Byte * ( * fAlloc ) ( \
+>254	ParameterList	NTA_ReadBufferHandle handle , NTA_Byte * * value , NTA_UInt32 * size , NTA_Byte * ( * fAlloc ) ( NTA_UInt32 ) , \
+>255	Parameter	 
+>256	Identifier	fDealloc
+>257	ParameterType	(( NTA_Byte * ) void) *
+>258	Parameter	 
+>259	Identifier	fAlloc
+>260	ParameterType	(* ( NTA_UInt32 ) NTA_Byte) *
+>261	Parameter	 
+>262	Identifier	size
+>263	ParameterType	NTA_UInt32 *
+>264	Parameter	 
+>265	Identifier	value
+>266	ParameterType	NTA_Byte * *
+>267	Parameter	 
+>268	Identifier	handle
+>269	ParameterType	NTA_ReadBufferHandle
+>270	ReturnType	NTA_Int32
+>271	CompoundStatement	 
+>272	ReturnStatement	 
+>273	CallExpression	rb -> readString ( * value , * size , fAlloc , fDealloc )
+>274	ArgumentList	* value
+>275	Argument	fDealloc
+>276	Identifier	fDealloc
+>277	Argument	fAlloc
+>278	Identifier	fAlloc
+>279	Argument	* size
+>280	UnaryOp	* size
+>281	Identifier	size
+>282	UnaryOperator	*
+>283	Argument	* value
+>284	UnaryOp	* value
+>285	Identifier	value
+>286	UnaryOperator	*
+>287	Callee	rb -> readString
+>288	PtrMemberAccess	rb -> readString
+>289	Identifier	readString
+>290	Identifier	rb
+>291	ExpressionStatement	 
+>292	Identifier	handle
+>293	Statement	 
+>294	Statement	 
+>295	Statement	 
+>296	Statement	 
+>297	Statement	 
+>298	Statement	 
+>299	Statement	 
+>300	Statement	 
+>301	Statement	 
+>302	IfStatement	if ( ! handle || ! value )
+>303	CompoundStatement	 
+>304	ReturnStatement	 
+>305	UnaryOp	- 1
+>306	PrimaryExpression	1
+>307	UnaryOperator	-
+>308	Condition	 
+>309	OrExpression	! handle || ! value
+>310	UnaryOp	! value
+>311	Identifier	value
+>312	UnaryOperator	!
+>313	UnaryOp	! handle
+>314	Identifier	handle
+>315	UnaryOperator	!
+>329	FunctionDef	staticReadUInt32 (NTA_ReadBufferHandle handle , NTA_UInt32 * value)
+>330	ParameterList	NTA_ReadBufferHandle handle , NTA_UInt32 * value
+>331	Parameter	 
+>332	Identifier	value
+>333	ParameterType	NTA_UInt32 *
+>334	Parameter	 
+>335	Identifier	handle
+>336	ParameterType	NTA_ReadBufferHandle
+>337	ReturnType	static NTA_Int32
+>338	CompoundStatement	 
+>339	ReturnStatement	 
+>340	CallExpression	rb -> read ( * value )
+>341	ArgumentList	* value
+>342	Argument	* value
+>343	UnaryOp	* value
+>344	Identifier	value
+>345	UnaryOperator	*
+>346	Callee	rb -> read
+>347	PtrMemberAccess	rb -> read
+>348	Identifier	read
+>349	Identifier	rb
+>350	ExpressionStatement	 
+>351	Identifier	handle
+>352	Statement	 
+>353	Statement	 
+>354	Statement	 
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	IfStatement	if ( ! handle || ! value )
+>362	ReturnStatement	 
+>363	UnaryOp	- 1
+>364	PrimaryExpression	1
+>365	UnaryOperator	-
+>366	Condition	 
+>367	OrExpression	! handle || ! value
+>368	UnaryOp	! value
+>369	Identifier	value
+>370	UnaryOperator	!
+>371	UnaryOp	! handle
+>372	Identifier	handle
+>373	UnaryOperator	!
+>383	FunctionDef	staticReadUInt32Array (NTA_ReadBufferHandle handle , NTA_UInt32 * value , NTA_Size size)
+>384	ParameterList	NTA_ReadBufferHandle handle , NTA_UInt32 * value , NTA_Size size
+>385	Parameter	 
+>386	Identifier	size
+>387	ParameterType	NTA_Size
+>388	Parameter	 
+>389	Identifier	value
+>390	ParameterType	NTA_UInt32 *
+>391	Parameter	 
+>392	Identifier	handle
+>393	ParameterType	NTA_ReadBufferHandle
+>394	ReturnType	NTA_Int32
+>395	CompoundStatement	 
+>396	ReturnStatement	 
+>397	CallExpression	rb -> read ( value , size )
+>398	ArgumentList	value
+>399	Argument	size
+>400	Identifier	size
+>401	Argument	value
+>402	Identifier	value
+>403	Callee	rb -> read
+>404	PtrMemberAccess	rb -> read
+>405	Identifier	read
+>406	Identifier	rb
+>407	ExpressionStatement	 
+>408	Identifier	handle
+>409	Statement	 
+>410	Statement	 
+>411	Statement	 
+>412	Statement	 
+>413	Statement	 
+>414	Statement	 
+>415	Statement	 
+>416	Statement	 
+>417	Statement	 
+>418	IfStatement	if ( ! handle || ! value || size <= 0 )
+>419	ReturnStatement	 
+>420	UnaryOp	- 1
+>421	PrimaryExpression	1
+>422	UnaryOperator	-
+>423	Condition	 
+>424	OrExpression	! handle || ! value || size <= 0
+>425	OrExpression	! value || size <= 0
+>426	RelationalExpression	size <= 0
+>427	PrimaryExpression	0
+>428	Identifier	size
+>429	UnaryOp	! value
+>430	Identifier	value
+>431	UnaryOperator	!
+>432	UnaryOp	! handle
+>433	Identifier	handle
+>434	UnaryOperator	!
+>444	FunctionDef	staticReadInt32 (NTA_ReadBufferHandle handle , NTA_Int32 * value)
+>445	ParameterList	NTA_ReadBufferHandle handle , NTA_Int32 * value
+>446	Parameter	 
+>447	Identifier	value
+>448	ParameterType	NTA_Int32 *
+>449	Parameter	 
+>450	Identifier	handle
+>451	ParameterType	NTA_ReadBufferHandle
+>452	ReturnType	static NTA_Int32
+>453	CompoundStatement	 
+>454	ReturnStatement	 
+>455	CallExpression	rb -> read ( * value )
+>456	ArgumentList	* value
+>457	Argument	* value
+>458	UnaryOp	* value
+>459	Identifier	value
+>460	UnaryOperator	*
+>461	Callee	rb -> read
+>462	PtrMemberAccess	rb -> read
+>463	Identifier	read
+>464	Identifier	rb
+>465	ExpressionStatement	 
+>466	Identifier	handle
+>467	Statement	 
+>468	Statement	 
+>469	Statement	 
+>470	Statement	 
+>471	Statement	 
+>472	Statement	 
+>473	Statement	 
+>474	Statement	 
+>475	Statement	 
+>476	IfStatement	if ( ! handle || ! value )
+>477	ReturnStatement	 
+>478	UnaryOp	- 1
+>479	PrimaryExpression	1
+>480	UnaryOperator	-
+>481	Condition	 
+>482	OrExpression	! handle || ! value
+>483	UnaryOp	! value
+>484	Identifier	value
+>485	UnaryOperator	!
+>486	UnaryOp	! handle
+>487	Identifier	handle
+>488	UnaryOperator	!
+>498	FunctionDef	staticReadInt32Array (NTA_ReadBufferHandle handle , NTA_Int32 * value , NTA_Size size)
+>499	ParameterList	NTA_ReadBufferHandle handle , NTA_Int32 * value , NTA_Size size
+>500	Parameter	 
+>501	Identifier	size
+>502	ParameterType	NTA_Size
+>503	Parameter	 
+>504	Identifier	value
+>505	ParameterType	NTA_Int32 *
+>506	Parameter	 
+>507	Identifier	handle
+>508	ParameterType	NTA_ReadBufferHandle
+>509	ReturnType	NTA_Int32
+>510	CompoundStatement	 
+>511	ReturnStatement	 
+>512	CallExpression	rb -> read ( value , size )
+>513	ArgumentList	value
+>514	Argument	size
+>515	Identifier	size
+>516	Argument	value
+>517	Identifier	value
+>518	Callee	rb -> read
+>519	PtrMemberAccess	rb -> read
+>520	Identifier	read
+>521	Identifier	rb
+>522	ExpressionStatement	 
+>523	Identifier	handle
+>524	Statement	 
+>525	Statement	 
+>526	Statement	 
+>527	Statement	 
+>528	Statement	 
+>529	Statement	 
+>530	Statement	 
+>531	Statement	 
+>532	Statement	 
+>533	IfStatement	if ( ! handle || ! value || size <= 0 )
+>534	ReturnStatement	 
+>535	UnaryOp	- 1
+>536	PrimaryExpression	1
+>537	UnaryOperator	-
+>538	Condition	 
+>539	OrExpression	! handle || ! value || size <= 0
+>540	OrExpression	! value || size <= 0
+>541	RelationalExpression	size <= 0
+>542	PrimaryExpression	0
+>543	Identifier	size
+>544	UnaryOp	! value
+>545	Identifier	value
+>546	UnaryOperator	!
+>547	UnaryOp	! handle
+>548	Identifier	handle
+>549	UnaryOperator	!
+>559	FunctionDef	staticReadUInt64 (NTA_ReadBufferHandle handle , NTA_UInt64 * value)
+>560	ParameterList	NTA_ReadBufferHandle handle , NTA_UInt64 * value
+>561	Parameter	 
+>562	Identifier	value
+>563	ParameterType	NTA_UInt64 *
+>564	Parameter	 
+>565	Identifier	handle
+>566	ParameterType	NTA_ReadBufferHandle
+>567	ReturnType	static NTA_Int32
+>568	CompoundStatement	 
+>569	ReturnStatement	 
+>570	CallExpression	rb -> read ( * value )
+>571	ArgumentList	* value
+>572	Argument	* value
+>573	UnaryOp	* value
+>574	Identifier	value
+>575	UnaryOperator	*
+>576	Callee	rb -> read
+>577	PtrMemberAccess	rb -> read
+>578	Identifier	read
+>579	Identifier	rb
+>580	ExpressionStatement	 
+>581	Identifier	handle
+>582	Statement	 
+>583	Statement	 
+>584	Statement	 
+>585	Statement	 
+>586	Statement	 
+>587	Statement	 
+>588	Statement	 
+>589	Statement	 
+>590	Statement	 
+>591	IfStatement	if ( ! handle || ! value )
+>592	ReturnStatement	 
+>593	UnaryOp	- 1
+>594	PrimaryExpression	1
+>595	UnaryOperator	-
+>596	Condition	 
+>597	OrExpression	! handle || ! value
+>598	UnaryOp	! value
+>599	Identifier	value
+>600	UnaryOperator	!
+>601	UnaryOp	! handle
+>602	Identifier	handle
+>603	UnaryOperator	!
+>613	FunctionDef	staticReadUInt64Array (NTA_ReadBufferHandle handle , NTA_UInt64 * value , NTA_Size size)
+>614	ParameterList	NTA_ReadBufferHandle handle , NTA_UInt64 * value , NTA_Size size
+>615	Parameter	 
+>616	Identifier	size
+>617	ParameterType	NTA_Size
+>618	Parameter	 
+>619	Identifier	value
+>620	ParameterType	NTA_UInt64 *
+>621	Parameter	 
+>622	Identifier	handle
+>623	ParameterType	NTA_ReadBufferHandle
+>624	ReturnType	NTA_Int32
+>625	CompoundStatement	 
+>626	ReturnStatement	 
+>627	CallExpression	rb -> read ( value , size )
+>628	ArgumentList	value
+>629	Argument	size
+>630	Identifier	size
+>631	Argument	value
+>632	Identifier	value
+>633	Callee	rb -> read
+>634	PtrMemberAccess	rb -> read
+>635	Identifier	read
+>636	Identifier	rb
+>637	ExpressionStatement	 
+>638	Identifier	handle
+>639	Statement	 
+>640	Statement	 
+>641	Statement	 
+>642	Statement	 
+>643	Statement	 
+>644	Statement	 
+>645	Statement	 
+>646	Statement	 
+>647	Statement	 
+>648	IfStatement	if ( ! handle || ! value || size <= 0 )
+>649	ReturnStatement	 
+>650	UnaryOp	- 1
+>651	PrimaryExpression	1
+>652	UnaryOperator	-
+>653	Condition	 
+>654	OrExpression	! handle || ! value || size <= 0
+>655	OrExpression	! value || size <= 0
+>656	RelationalExpression	size <= 0
+>657	PrimaryExpression	0
+>658	Identifier	size
+>659	UnaryOp	! value
+>660	Identifier	value
+>661	UnaryOperator	!
+>662	UnaryOp	! handle
+>663	Identifier	handle
+>664	UnaryOperator	!
+>674	FunctionDef	staticReadInt64 (NTA_ReadBufferHandle handle , NTA_Int64 * value)
+>675	ParameterList	NTA_ReadBufferHandle handle , NTA_Int64 * value
+>676	Parameter	 
+>677	Identifier	value
+>678	ParameterType	NTA_Int64 *
+>679	Parameter	 
+>680	Identifier	handle
+>681	ParameterType	NTA_ReadBufferHandle
+>682	ReturnType	static NTA_Int32
+>683	CompoundStatement	 
+>684	ReturnStatement	 
+>685	CallExpression	rb -> read ( * value )
+>686	ArgumentList	* value
+>687	Argument	* value
+>688	UnaryOp	* value
+>689	Identifier	value
+>690	UnaryOperator	*
+>691	Callee	rb -> read
+>692	PtrMemberAccess	rb -> read
+>693	Identifier	read
+>694	Identifier	rb
+>695	ExpressionStatement	 
+>696	Identifier	handle
+>697	Statement	 
+>698	Statement	 
+>699	Statement	 
+>700	Statement	 
+>701	Statement	 
+>702	Statement	 
+>703	Statement	 
+>704	Statement	 
+>705	Statement	 
+>706	IfStatement	if ( ! handle || ! value )
+>707	ReturnStatement	 
+>708	UnaryOp	- 1
+>709	PrimaryExpression	1
+>710	UnaryOperator	-
+>711	Condition	 
+>712	OrExpression	! handle || ! value
+>713	UnaryOp	! value
+>714	Identifier	value
+>715	UnaryOperator	!
+>716	UnaryOp	! handle
+>717	Identifier	handle
+>718	UnaryOperator	!
+>728	FunctionDef	staticReadInt64Array (NTA_ReadBufferHandle handle , NTA_Int64 * value , NTA_Size size)
+>729	ParameterList	NTA_ReadBufferHandle handle , NTA_Int64 * value , NTA_Size size
+>730	Parameter	 
+>731	Identifier	size
+>732	ParameterType	NTA_Size
+>733	Parameter	 
+>734	Identifier	value
+>735	ParameterType	NTA_Int64 *
+>736	Parameter	 
+>737	Identifier	handle
+>738	ParameterType	NTA_ReadBufferHandle
+>739	ReturnType	NTA_Int32
+>740	CompoundStatement	 
+>741	ReturnStatement	 
+>742	CallExpression	rb -> read ( value , size )
+>743	ArgumentList	value
+>744	Argument	size
+>745	Identifier	size
+>746	Argument	value
+>747	Identifier	value
+>748	Callee	rb -> read
+>749	PtrMemberAccess	rb -> read
+>750	Identifier	read
+>751	Identifier	rb
+>752	ExpressionStatement	 
+>753	Identifier	handle
+>754	Statement	 
+>755	Statement	 
+>756	Statement	 
+>757	Statement	 
+>758	Statement	 
+>759	Statement	 
+>760	Statement	 
+>761	Statement	 
+>762	Statement	 
+>763	IfStatement	if ( ! handle || ! value || size <= 0 )
+>764	ReturnStatement	 
+>765	UnaryOp	- 1
+>766	PrimaryExpression	1
+>767	UnaryOperator	-
+>768	Condition	 
+>769	OrExpression	! handle || ! value || size <= 0
+>770	OrExpression	! value || size <= 0
+>771	RelationalExpression	size <= 0
+>772	PrimaryExpression	0
+>773	Identifier	size
+>774	UnaryOp	! value
+>775	Identifier	value
+>776	UnaryOperator	!
+>777	UnaryOp	! handle
+>778	Identifier	handle
+>779	UnaryOperator	!
+>789	FunctionDef	staticReadReal32 (NTA_ReadBufferHandle handle , NTA_Real32 * value)
+>790	ParameterList	NTA_ReadBufferHandle handle , NTA_Real32 * value
+>791	Parameter	 
+>792	Identifier	value
+>793	ParameterType	NTA_Real32 *
+>794	Parameter	 
+>795	Identifier	handle
+>796	ParameterType	NTA_ReadBufferHandle
+>797	ReturnType	static NTA_Int32
+>798	CompoundStatement	 
+>799	ReturnStatement	 
+>800	CallExpression	rb -> read ( * value )
+>801	ArgumentList	* value
+>802	Argument	* value
+>803	UnaryOp	* value
+>804	Identifier	value
+>805	UnaryOperator	*
+>806	Callee	rb -> read
+>807	PtrMemberAccess	rb -> read
+>808	Identifier	read
+>809	Identifier	rb
+>810	ExpressionStatement	 
+>811	Identifier	handle
+>812	Statement	 
+>813	Statement	 
+>814	Statement	 
+>815	Statement	 
+>816	Statement	 
+>817	Statement	 
+>818	Statement	 
+>819	Statement	 
+>820	Statement	 
+>821	IfStatement	if ( ! handle || ! value )
+>822	ReturnStatement	 
+>823	UnaryOp	- 1
+>824	PrimaryExpression	1
+>825	UnaryOperator	-
+>826	Condition	 
+>827	OrExpression	! handle || ! value
+>828	UnaryOp	! value
+>829	Identifier	value
+>830	UnaryOperator	!
+>831	UnaryOp	! handle
+>832	Identifier	handle
+>833	UnaryOperator	!
+>843	FunctionDef	staticReadReal32Array (NTA_ReadBufferHandle handle , NTA_Real32 * value , NTA_Size size)
+>844	ParameterList	NTA_ReadBufferHandle handle , NTA_Real32 * value , NTA_Size size
+>845	Parameter	 
+>846	Identifier	size
+>847	ParameterType	NTA_Size
+>848	Parameter	 
+>849	Identifier	value
+>850	ParameterType	NTA_Real32 *
+>851	Parameter	 
+>852	Identifier	handle
+>853	ParameterType	NTA_ReadBufferHandle
+>854	ReturnType	NTA_Int32
+>855	CompoundStatement	 
+>856	ReturnStatement	 
+>857	CallExpression	rb -> read ( value , size )
+>858	ArgumentList	value
+>859	Argument	size
+>860	Identifier	size
+>861	Argument	value
+>862	Identifier	value
+>863	Callee	rb -> read
+>864	PtrMemberAccess	rb -> read
+>865	Identifier	read
+>866	Identifier	rb
+>867	ExpressionStatement	 
+>868	Identifier	handle
+>869	Statement	 
+>870	Statement	 
+>871	Statement	 
+>872	Statement	 
+>873	Statement	 
+>874	Statement	 
+>875	Statement	 
+>876	Statement	 
+>877	Statement	 
+>878	IfStatement	if ( ! handle || ! value || size <= 0 )
+>879	ReturnStatement	 
+>880	UnaryOp	- 1
+>881	PrimaryExpression	1
+>882	UnaryOperator	-
+>883	Condition	 
+>884	OrExpression	! handle || ! value || size <= 0
+>885	OrExpression	! value || size <= 0
+>886	RelationalExpression	size <= 0
+>887	PrimaryExpression	0
+>888	Identifier	size
+>889	UnaryOp	! value
+>890	Identifier	value
+>891	UnaryOperator	!
+>892	UnaryOp	! handle
+>893	Identifier	handle
+>894	UnaryOperator	!
+>904	FunctionDef	staticReadReal64 (NTA_ReadBufferHandle handle , NTA_Real64 * value)
+>905	ParameterList	NTA_ReadBufferHandle handle , NTA_Real64 * value
+>906	Parameter	 
+>907	Identifier	value
+>908	ParameterType	NTA_Real64 *
+>909	Parameter	 
+>910	Identifier	handle
+>911	ParameterType	NTA_ReadBufferHandle
+>912	ReturnType	static NTA_Int32
+>913	CompoundStatement	 
+>914	ReturnStatement	 
+>915	CallExpression	rb -> read ( * value )
+>916	ArgumentList	* value
+>917	Argument	* value
+>918	UnaryOp	* value
+>919	Identifier	value
+>920	UnaryOperator	*
+>921	Callee	rb -> read
+>922	PtrMemberAccess	rb -> read
+>923	Identifier	read
+>924	Identifier	rb
+>925	ExpressionStatement	 
+>926	Identifier	handle
+>927	Statement	 
+>928	Statement	 
+>929	Statement	 
+>930	Statement	 
+>931	Statement	 
+>932	Statement	 
+>933	Statement	 
+>934	Statement	 
+>935	Statement	 
+>936	IfStatement	if ( ! handle || ! value )
+>937	ReturnStatement	 
+>938	UnaryOp	- 1
+>939	PrimaryExpression	1
+>940	UnaryOperator	-
+>941	Condition	 
+>942	OrExpression	! handle || ! value
+>943	UnaryOp	! value
+>944	Identifier	value
+>945	UnaryOperator	!
+>946	UnaryOp	! handle
+>947	Identifier	handle
+>948	UnaryOperator	!
+>958	FunctionDef	staticReadReal64Array (NTA_ReadBufferHandle handle , NTA_Real64 * value , NTA_Size size)
+>959	ParameterList	NTA_ReadBufferHandle handle , NTA_Real64 * value , NTA_Size size
+>960	Parameter	 
+>961	Identifier	size
+>962	ParameterType	NTA_Size
+>963	Parameter	 
+>964	Identifier	value
+>965	ParameterType	NTA_Real64 *
+>966	Parameter	 
+>967	Identifier	handle
+>968	ParameterType	NTA_ReadBufferHandle
+>969	ReturnType	NTA_Int32
+>970	CompoundStatement	 
+>971	ReturnStatement	 
+>972	CallExpression	rb -> read ( value , size )
+>973	ArgumentList	value
+>974	Argument	size
+>975	Identifier	size
+>976	Argument	value
+>977	Identifier	value
+>978	Callee	rb -> read
+>979	PtrMemberAccess	rb -> read
+>980	Identifier	read
+>981	Identifier	rb
+>982	ExpressionStatement	 
+>983	Identifier	handle
+>984	Statement	 
+>985	Statement	 
+>986	Statement	 
+>987	Statement	 
+>988	Statement	 
+>989	Statement	 
+>990	Statement	 
+>991	Statement	 
+>992	Statement	 
+>993	IfStatement	if ( ! handle || ! value || size <= 0 )
+>994	ReturnStatement	 
+>995	UnaryOp	- 1
+>996	PrimaryExpression	1
+>997	UnaryOperator	-
+>998	Condition	 
+>999	OrExpression	! handle || ! value || size <= 0
+>1000	OrExpression	! value || size <= 0
+>1001	RelationalExpression	size <= 0
+>1002	PrimaryExpression	0
+>1003	Identifier	size
+>1004	UnaryOp	! value
+>1005	Identifier	value
+>1006	UnaryOperator	!
+>1007	UnaryOp	! handle
+>1008	Identifier	handle
+>1009	UnaryOperator	!
+>1019	FunctionDef	ReadBuffer 
+>1020	ParameterList	const char * bytes , Size size , bool copy
+>1021	Parameter	 
+>1022	Identifier	copy
+>1023	ParameterType	bool
+>1024	Parameter	 
+>1025	Identifier	size
+>1026	ParameterType	Size
+>1027	Parameter	 
+>1028	Identifier	bytes
+>1029	ParameterType	const char *
+>1030	CompoundStatement	 
+>1031	ExpressionStatement	 
+>1032	AssignmentExpr	readReal64Array = staticReadReal64Array
+>1033	Identifier	staticReadReal64Array
+>1034	Identifier	readReal64Array
+>1035	ExpressionStatement	 
+>1036	AssignmentExpr	readReal64 = staticReadReal64
+>1037	Identifier	staticReadReal64
+>1038	Identifier	readReal64
+>1039	ExpressionStatement	 
+>1040	AssignmentExpr	readReal32Array = staticReadReal32Array
+>1041	Identifier	staticReadReal32Array
+>1042	Identifier	readReal32Array
+>1043	ExpressionStatement	 
+>1044	AssignmentExpr	readReal32 = staticReadReal32
+>1045	Identifier	staticReadReal32
+>1046	Identifier	readReal32
+>1047	ExpressionStatement	 
+>1048	AssignmentExpr	readUInt64Array = staticReadUInt64Array
+>1049	Identifier	staticReadUInt64Array
+>1050	Identifier	readUInt64Array
+>1051	ExpressionStatement	 
+>1052	AssignmentExpr	readUInt64 = staticReadUInt64
+>1053	Identifier	staticReadUInt64
+>1054	Identifier	readUInt64
+>1055	ExpressionStatement	 
+>1056	AssignmentExpr	readInt64Array = staticReadInt64Array
+>1057	Identifier	staticReadInt64Array
+>1058	Identifier	readInt64Array
+>1059	ExpressionStatement	 
+>1060	AssignmentExpr	readInt64 = staticReadInt64
+>1061	Identifier	staticReadInt64
+>1062	Identifier	readInt64
+>1063	ExpressionStatement	 
+>1064	AssignmentExpr	readUInt32Array = staticReadUInt32Array
+>1065	Identifier	staticReadUInt32Array
+>1066	Identifier	readUInt32Array
+>1067	ExpressionStatement	 
+>1068	AssignmentExpr	readUInt32 = staticReadUInt32
+>1069	Identifier	staticReadUInt32
+>1070	Identifier	readUInt32
+>1071	ExpressionStatement	 
+>1072	AssignmentExpr	readInt32Array = staticReadInt32Array
+>1073	Identifier	staticReadInt32Array
+>1074	Identifier	readInt32Array
+>1075	ExpressionStatement	 
+>1076	AssignmentExpr	readInt32 = staticReadInt32
+>1077	Identifier	staticReadInt32
+>1078	Identifier	readInt32
+>1079	ExpressionStatement	 
+>1080	AssignmentExpr	readAsString = staticReadString
+>1081	Identifier	staticReadString
+>1082	Identifier	readAsString
+>1083	ExpressionStatement	 
+>1084	AssignmentExpr	readByteArray = staticReadByteArray
+>1085	Identifier	staticReadByteArray
+>1086	Identifier	readByteArray
+>1087	ExpressionStatement	 
+>1088	AssignmentExpr	readByte = staticReadByte
+>1089	Identifier	staticReadByte
+>1090	Identifier	readByte
+>1091	ExpressionStatement	 
+>1092	AssignmentExpr	NTA_ReadBuffer 
+>1093	Identifier	staticGetData
+>1094	Identifier	NTA_ReadBuffer 
+>1095	ExpressionStatement	 
+>1096	AssignmentExpr	NTA_ReadBuffer 
+>1097	Identifier	staticReadBufferGetSize
+>1098	Identifier	NTA_ReadBuffer 
+>1099	ExpressionStatement	 
+>1100	AssignmentExpr	NTA_ReadBuffer 
+>1101	Identifier	staticReset
+>1102	Identifier	NTA_ReadBuffer 
+>1103	ExpressionStatement	 
+>1104	AssignmentExpr	handle = reinterpret_cast < NTA_ReadBufferHandle > ( this )
+>1105	RelationalExpression	reinterpret_cast < NTA_ReadBufferHandle > ( this )
+>1106	RelationalExpression	NTA_ReadBufferHandle > ( this )
+>1107	Identifier	this
+>1108	Identifier	NTA_ReadBufferHandle
+>1109	Identifier	reinterpret_cast
+>1110	Identifier	handle
+>1111	ExpressionStatement	 
+>1112	CallExpression	memStream_ . exceptions ( std 
+>1113	ArgumentList	std 
+>1114	Argument	std 
+>1115	InclusiveOrExpression	std 
+>1116	Identifier	std 
+>1117	Identifier	std 
+>1118	Callee	memStream_ . exceptions
+>1119	MemberAccess	memStream_ . exceptions
+>1120	Identifier	exceptions
+>1121	Identifier	memStream_
+>1122	ExpressionStatement	 
+>1123	CallExpression	memcpy ( bytes_ . get ( ) , bytes , size )
+>1124	ArgumentList	bytes_ . get ( )
+>1125	Argument	size
+>1126	Identifier	size
+>1127	Argument	bytes
+>1128	Identifier	bytes
+>1129	Argument	bytes_ . get ( )
+>1130	CallExpression	bytes_ . get ( )
+>1131	ArgumentList	 
+>1132	Callee	bytes_ . get
+>1133	MemberAccess	bytes_ . get
+>1134	Identifier	get
+>1135	Identifier	bytes_
+>1136	Callee	memcpy
+>1137	Identifier	memcpy
+>1138	IfStatement	if ( copy )
+>1139	Statement	 
+>1140	Condition	 
+>1141	Identifier	copy
+>1193	FunctionDef	ReadBuffer 
+>1194	ParameterList	const ReadBuffer & other
+>1195	Parameter	 
+>1196	Identifier	other
+>1197	ParameterType	const ReadBuffer &
+>1198	CompoundStatement	 
+>1199	ExpressionStatement	 
+>1200	CallExpression	assign ( other )
+>1201	ArgumentList	other
+>1202	Argument	other
+>1203	Identifier	other
+>1204	Callee	assign
+>1205	Identifier	assign
+>1210	FunctionDef	operator = (const ReadBuffer & other)
+>1211	ParameterList	const ReadBuffer & other
+>1212	Parameter	 
+>1213	Identifier	other
+>1214	ParameterType	const ReadBuffer &
+>1215	CompoundStatement	 
+>1216	ReturnStatement	 
+>1217	UnaryOp	* this
+>1218	Identifier	this
+>1219	UnaryOperator	*
+>1220	ExpressionStatement	 
+>1221	CallExpression	assign ( other )
+>1222	ArgumentList	other
+>1223	Argument	other
+>1224	Identifier	other
+>1225	Callee	assign
+>1226	Identifier	assign
+>1233	FunctionDef	ReadBuffer 
+>1234	ParameterList	const ReadBuffer & other
+>1235	Parameter	 
+>1236	Identifier	other
+>1237	ParameterType	const ReadBuffer &
+>1238	ReturnType	void
+>1239	CompoundStatement	 
+>1240	ExpressionStatement	 
+>1241	CallExpression	memStream_ . str ( bytes_ . get ( ) , other . getSize ( ) )
+>1242	ArgumentList	bytes_ . get ( )
+>1243	Argument	other . getSize ( )
+>1244	CallExpression	other . getSize ( )
+>1245	ArgumentList	 
+>1246	Callee	other . getSize
+>1247	MemberAccess	other . getSize
+>1248	Identifier	getSize
+>1249	Identifier	other
+>1250	Argument	bytes_ . get ( )
+>1251	CallExpression	bytes_ . get ( )
+>1252	ArgumentList	 
+>1253	Callee	bytes_ . get
+>1254	MemberAccess	bytes_ . get
+>1255	Identifier	get
+>1256	Identifier	bytes_
+>1257	Callee	memStream_ . str
+>1258	MemberAccess	memStream_ . str
+>1259	Identifier	str
+>1260	Identifier	memStream_
+>1261	ExpressionStatement	 
+>1262	AssignmentExpr	bytes_ = other . bytes_
+>1263	MemberAccess	other . bytes_
+>1264	Identifier	bytes_
+>1265	Identifier	other
+>1266	Identifier	bytes_
+>1267	ExpressionStatement	 
+>1268	AssignmentExpr	readReal64Array = staticReadReal64Array
+>1269	Identifier	staticReadReal64Array
+>1270	Identifier	readReal64Array
+>1271	ExpressionStatement	 
+>1272	AssignmentExpr	readReal64 = staticReadReal64
+>1273	Identifier	staticReadReal64
+>1274	Identifier	readReal64
+>1275	ExpressionStatement	 
+>1276	AssignmentExpr	readReal32Array = staticReadReal32Array
+>1277	Identifier	staticReadReal32Array
+>1278	Identifier	readReal32Array
+>1279	ExpressionStatement	 
+>1280	AssignmentExpr	readReal32 = staticReadReal32
+>1281	Identifier	staticReadReal32
+>1282	Identifier	readReal32
+>1283	ExpressionStatement	 
+>1284	AssignmentExpr	readUInt64Array = staticReadUInt64Array
+>1285	Identifier	staticReadUInt64Array
+>1286	Identifier	readUInt64Array
+>1287	ExpressionStatement	 
+>1288	AssignmentExpr	readUInt64 = staticReadUInt64
+>1289	Identifier	staticReadUInt64
+>1290	Identifier	readUInt64
+>1291	ExpressionStatement	 
+>1292	AssignmentExpr	readInt64Array = staticReadInt64Array
+>1293	Identifier	staticReadInt64Array
+>1294	Identifier	readInt64Array
+>1295	ExpressionStatement	 
+>1296	AssignmentExpr	readInt64 = staticReadInt64
+>1297	Identifier	staticReadInt64
+>1298	Identifier	readInt64
+>1299	ExpressionStatement	 
+>1300	AssignmentExpr	readUInt32Array = staticReadUInt32Array
+>1301	Identifier	staticReadUInt32Array
+>1302	Identifier	readUInt32Array
+>1303	ExpressionStatement	 
+>1304	AssignmentExpr	readUInt32 = staticReadUInt32
+>1305	Identifier	staticReadUInt32
+>1306	Identifier	readUInt32
+>1307	ExpressionStatement	 
+>1308	AssignmentExpr	readInt32Array = staticReadInt32Array
+>1309	Identifier	staticReadInt32Array
+>1310	Identifier	readInt32Array
+>1311	ExpressionStatement	 
+>1312	AssignmentExpr	readInt32 = staticReadInt32
+>1313	Identifier	staticReadInt32
+>1314	Identifier	readInt32
+>1315	ExpressionStatement	 
+>1316	AssignmentExpr	readAsString = staticReadString
+>1317	Identifier	staticReadString
+>1318	Identifier	readAsString
+>1319	ExpressionStatement	 
+>1320	AssignmentExpr	readByteArray = staticReadByteArray
+>1321	Identifier	staticReadByteArray
+>1322	Identifier	readByteArray
+>1323	ExpressionStatement	 
+>1324	AssignmentExpr	readByte = staticReadByte
+>1325	Identifier	staticReadByte
+>1326	Identifier	readByte
+>1327	ExpressionStatement	 
+>1328	AssignmentExpr	NTA_ReadBuffer 
+>1329	Identifier	staticGetData
+>1330	Identifier	NTA_ReadBuffer 
+>1331	ExpressionStatement	 
+>1332	AssignmentExpr	NTA_ReadBuffer 
+>1333	Identifier	staticReadBufferGetSize
+>1334	Identifier	NTA_ReadBuffer 
+>1335	ExpressionStatement	 
+>1336	AssignmentExpr	NTA_ReadBuffer 
+>1337	Identifier	staticReset
+>1338	Identifier	NTA_ReadBuffer 
+>1339	ExpressionStatement	 
+>1340	AssignmentExpr	handle = reinterpret_cast < NTA_ReadBufferHandle > ( this )
+>1341	RelationalExpression	reinterpret_cast < NTA_ReadBufferHandle > ( this )
+>1342	RelationalExpression	NTA_ReadBufferHandle > ( this )
+>1343	Identifier	this
+>1344	Identifier	NTA_ReadBufferHandle
+>1345	Identifier	reinterpret_cast
+>1346	Identifier	handle
+>1396	FunctionDef	ReadBuffer 
+>1397	ParameterList	 
+>1398	ReturnType	void
+>1399	CompoundStatement	 
+>1400	ExpressionStatement	 
+>1401	CallExpression	memStream_ . clear ( )
+>1402	ArgumentList	 
+>1403	Callee	memStream_ . clear
+>1404	MemberAccess	memStream_ . clear
+>1405	Identifier	clear
+>1406	Identifier	memStream_
+>1407	ExpressionStatement	 
+>1408	CallExpression	s -> setg ( bytes_ . get ( ) , bytes_ . get ( ) , bytes_ . get ( ) + memStream_ . pcount ( ) )
+>1409	ArgumentList	bytes_ . get ( )
+>1410	Argument	bytes_ . get ( ) + memStream_ . pcount ( )
+>1411	AdditiveExpression	bytes_ . get ( ) + memStream_ . pcount ( )
+>1412	CallExpression	memStream_ . pcount ( )
+>1413	ArgumentList	 
+>1414	Callee	memStream_ . pcount
+>1415	MemberAccess	memStream_ . pcount
+>1416	Identifier	pcount
+>1417	Identifier	memStream_
+>1418	CallExpression	bytes_ . get ( )
+>1419	ArgumentList	 
+>1420	Callee	bytes_ . get
+>1421	MemberAccess	bytes_ . get
+>1422	Identifier	get
+>1423	Identifier	bytes_
+>1424	Argument	bytes_ . get ( )
+>1425	CallExpression	bytes_ . get ( )
+>1426	ArgumentList	 
+>1427	Callee	bytes_ . get
+>1428	MemberAccess	bytes_ . get
+>1429	Identifier	get
+>1430	Identifier	bytes_
+>1431	Argument	bytes_ . get ( )
+>1432	CallExpression	bytes_ . get ( )
+>1433	ArgumentList	 
+>1434	Callee	bytes_ . get
+>1435	MemberAccess	bytes_ . get
+>1436	Identifier	get
+>1437	Identifier	bytes_
+>1438	Callee	s -> setg
+>1439	PtrMemberAccess	s -> setg
+>1440	Identifier	setg
+>1441	Identifier	s
+>1442	ExpressionStatement	 
+>1443	CallExpression	memStream_ . rdbuf ( )
+>1444	ArgumentList	 
+>1445	Callee	memStream_ . rdbuf
+>1446	MemberAccess	memStream_ . rdbuf
+>1447	Identifier	rdbuf
+>1448	Identifier	memStream_
+>1449	Statement	 
+>1450	Statement	 
+>1451	Statement	 
+>1452	Statement	 
+>1453	Statement	 
+>1454	Statement	 
+>1455	Statement	 
+>1456	Statement	 
+>1457	Statement	 
+>1458	Statement	 
+>1459	Statement	 
+>1460	Statement	 
+>1461	Statement	 
+>1470	FunctionDef	ReadBuffer 
+>1471	ParameterList	 
+>1472	ReturnType	Size
+>1473	CompoundStatement	 
+>1474	ReturnStatement	 
+>1475	CastExpression	( Size ) memStream_ . pcount ( )
+>1476	CallExpression	memStream_ . pcount ( )
+>1477	ArgumentList	 
+>1478	Callee	memStream_ . pcount
+>1479	MemberAccess	memStream_ . pcount
+>1480	Identifier	pcount
+>1481	Identifier	memStream_
+>1482	CastTarget	Size
+>1488	FunctionDef	ReadBuffer 
+>1489	ParameterList	 
+>1490	ReturnType	const char *
+>1491	CompoundStatement	 
+>1492	ReturnStatement	 
+>1493	CallExpression	memStream_ . str ( )
+>1494	ArgumentList	 
+>1495	Callee	memStream_ . str
+>1496	MemberAccess	memStream_ . str
+>1497	Identifier	str
+>1498	Identifier	memStream_
+>1504	FunctionDef	ReadBuffer 
+>1505	ParameterList	Byte & value
+>1506	Parameter	 
+>1507	Identifier	value
+>1508	ParameterType	Byte &
+>1509	ReturnType	Int32
+>1510	CompoundStatement	 
+>1511	ReturnStatement	 
+>1512	CallExpression	readT ( value )
+>1513	ArgumentList	value
+>1514	Argument	value
+>1515	Identifier	value
+>1516	Callee	readT
+>1517	Identifier	readT
+>1523	FunctionDef	ReadBuffer 
+>1524	ParameterList	Byte * bytes , Size & size
+>1525	Parameter	 
+>1526	Identifier	size
+>1527	ParameterType	Size &
+>1528	Parameter	 
+>1529	Identifier	bytes
+>1530	ParameterType	Byte *
+>1531	ReturnType	Int32
+>1532	CompoundStatement	 
+>1533	CompoundStatement	 
+>1534	ReturnStatement	 
+>1535	UnaryOp	- 1
+>1536	PrimaryExpression	1
+>1537	UnaryOperator	-
+>1538	ExpressionStatement	 
+>1539	AssignmentExpr	size = 0
+>1540	PrimaryExpression	0
+>1541	Identifier	size
+>1542	Statement	 
+>1543	Statement	 
+>1544	Statement	 
+>1545	Statement	 
+>1546	Statement	 
+>1547	Statement	 
+>1548	BlockStarter	 
+>1549	CompoundStatement	 
+>1550	ReturnStatement	return 0 ;
+>1551	PrimaryExpression	0
+>1552	ExpressionStatement	size = r -> memStream_ . _Readsome_s ( bytes , size , ( std 
+>1553	AssignmentExpr	size = r -> memStream_ . _Readsome_s ( bytes , size , ( std 
+>1554	CallExpression	r -> memStream_ . _Readsome_s ( bytes , size , ( std 
+>1555	ArgumentList	bytes
+>1556	Argument	( std 
+>1557	CastExpression	( std 
+>1558	Identifier	size
+>1559	CastTarget	std 
+>1560	Argument	size
+>1561	Identifier	size
+>1562	Argument	bytes
+>1563	Identifier	bytes
+>1564	Callee	r -> memStream_ . _Readsome_s
+>1565	MemberAccess	r -> memStream_ . _Readsome_s
+>1566	Identifier	_Readsome_s
+>1567	PtrMemberAccess	r -> memStream_
+>1568	Identifier	memStream_
+>1569	Identifier	r
+>1570	Identifier	size
+>1571	ExpressionStatement	 
+>1572	Identifier	this
+>1573	Statement	 
+>1574	Statement	 
+>1575	Statement	 
+>1576	Statement	 
+>1577	Statement	 
+>1578	Statement	 
+>1579	Statement	 
+>1580	Statement	 
+>1581	Statement	 
+>1591	FunctionDef	ReadBuffer 
+>1592	ParameterList	Int32 & value
+>1593	Parameter	 
+>1594	Identifier	value
+>1595	ParameterType	Int32 &
+>1596	ReturnType	Int32
+>1597	CompoundStatement	 
+>1598	ReturnStatement	 
+>1599	CallExpression	readT ( value )
+>1600	ArgumentList	value
+>1601	Argument	value
+>1602	Identifier	value
+>1603	Callee	readT
+>1604	Identifier	readT
+>1610	FunctionDef	ReadBuffer 
+>1611	ParameterList	Int32 * value , Size size
+>1612	Parameter	 
+>1613	Identifier	size
+>1614	ParameterType	Size
+>1615	Parameter	 
+>1616	Identifier	value
+>1617	ParameterType	Int32 *
+>1618	ReturnType	Int32
+>1619	CompoundStatement	 
+>1620	ReturnStatement	 
+>1621	CallExpression	readT ( value , size )
+>1622	ArgumentList	value
+>1623	Argument	size
+>1624	Identifier	size
+>1625	Argument	value
+>1626	Identifier	value
+>1627	Callee	readT
+>1628	Identifier	readT
+>1635	FunctionDef	ReadBuffer 
+>1636	ParameterList	UInt32 & value
+>1637	Parameter	 
+>1638	Identifier	value
+>1639	ParameterType	UInt32 &
+>1640	ReturnType	Int32
+>1641	CompoundStatement	 
+>1642	ReturnStatement	 
+>1643	CallExpression	readT ( value )
+>1644	ArgumentList	value
+>1645	Argument	value
+>1646	Identifier	value
+>1647	Callee	readT
+>1648	Identifier	readT
+>1654	FunctionDef	ReadBuffer 
+>1655	ParameterList	UInt32 * value , Size size
+>1656	Parameter	 
+>1657	Identifier	size
+>1658	ParameterType	Size
+>1659	Parameter	 
+>1660	Identifier	value
+>1661	ParameterType	UInt32 *
+>1662	ReturnType	Int32
+>1663	CompoundStatement	 
+>1664	ReturnStatement	 
+>1665	CallExpression	readT ( value , size )
+>1666	ArgumentList	value
+>1667	Argument	size
+>1668	Identifier	size
+>1669	Argument	value
+>1670	Identifier	value
+>1671	Callee	readT
+>1672	Identifier	readT
+>1679	FunctionDef	ReadBuffer 
+>1680	ParameterList	Int64 & value
+>1681	Parameter	 
+>1682	Identifier	value
+>1683	ParameterType	Int64 &
+>1684	ReturnType	Int32
+>1685	CompoundStatement	 
+>1686	ReturnStatement	 
+>1687	CallExpression	readT ( value )
+>1688	ArgumentList	value
+>1689	Argument	value
+>1690	Identifier	value
+>1691	Callee	readT
+>1692	Identifier	readT
+>1698	FunctionDef	ReadBuffer 
+>1699	ParameterList	Int64 * value , Size size
+>1700	Parameter	 
+>1701	Identifier	size
+>1702	ParameterType	Size
+>1703	Parameter	 
+>1704	Identifier	value
+>1705	ParameterType	Int64 *
+>1706	ReturnType	Int32
+>1707	CompoundStatement	 
+>1708	ReturnStatement	 
+>1709	CallExpression	readT ( value , size )
+>1710	ArgumentList	value
+>1711	Argument	size
+>1712	Identifier	size
+>1713	Argument	value
+>1714	Identifier	value
+>1715	Callee	readT
+>1716	Identifier	readT
+>1723	FunctionDef	ReadBuffer 
+>1724	ParameterList	UInt64 & value
+>1725	Parameter	 
+>1726	Identifier	value
+>1727	ParameterType	UInt64 &
+>1728	ReturnType	Int32
+>1729	CompoundStatement	 
+>1730	ReturnStatement	 
+>1731	CallExpression	readT ( value )
+>1732	ArgumentList	value
+>1733	Argument	value
+>1734	Identifier	value
+>1735	Callee	readT
+>1736	Identifier	readT
+>1742	FunctionDef	ReadBuffer 
+>1743	ParameterList	UInt64 * value , Size size
+>1744	Parameter	 
+>1745	Identifier	size
+>1746	ParameterType	Size
+>1747	Parameter	 
+>1748	Identifier	value
+>1749	ParameterType	UInt64 *
+>1750	ReturnType	Int32
+>1751	CompoundStatement	 
+>1752	ReturnStatement	 
+>1753	CallExpression	readT ( value , size )
+>1754	ArgumentList	value
+>1755	Argument	size
+>1756	Identifier	size
+>1757	Argument	value
+>1758	Identifier	value
+>1759	Callee	readT
+>1760	Identifier	readT
+>1767	FunctionDef	ReadBuffer 
+>1768	ParameterList	Real32 & value
+>1769	Parameter	 
+>1770	Identifier	value
+>1771	ParameterType	Real32 &
+>1772	ReturnType	Int32
+>1773	CompoundStatement	 
+>1774	ReturnStatement	 
+>1775	CallExpression	readT ( value )
+>1776	ArgumentList	value
+>1777	Argument	value
+>1778	Identifier	value
+>1779	Callee	readT
+>1780	Identifier	readT
+>1786	FunctionDef	ReadBuffer 
+>1787	ParameterList	Real32 * value , Size size
+>1788	Parameter	 
+>1789	Identifier	size
+>1790	ParameterType	Size
+>1791	Parameter	 
+>1792	Identifier	value
+>1793	ParameterType	Real32 *
+>1794	ReturnType	Int32
+>1795	CompoundStatement	 
+>1796	ReturnStatement	 
+>1797	CallExpression	readT ( value , size )
+>1798	ArgumentList	value
+>1799	Argument	size
+>1800	Identifier	size
+>1801	Argument	value
+>1802	Identifier	value
+>1803	Callee	readT
+>1804	Identifier	readT
+>1811	FunctionDef	ReadBuffer 
+>1812	ParameterList	Real64 & value
+>1813	Parameter	 
+>1814	Identifier	value
+>1815	ParameterType	Real64 &
+>1816	ReturnType	Int32
+>1817	CompoundStatement	 
+>1818	ReturnStatement	 
+>1819	CallExpression	readT ( value )
+>1820	ArgumentList	value
+>1821	Argument	value
+>1822	Identifier	value
+>1823	Callee	readT
+>1824	Identifier	readT
+>1830	FunctionDef	ReadBuffer 
+>1831	ParameterList	Real64 * value , Size size
+>1832	Parameter	 
+>1833	Identifier	size
+>1834	ParameterType	Size
+>1835	Parameter	 
+>1836	Identifier	value
+>1837	ParameterType	Real64 *
+>1838	ReturnType	Int32
+>1839	CompoundStatement	 
+>1840	ReturnStatement	 
+>1841	CallExpression	readT ( value , size )
+>1842	ArgumentList	value
+>1843	Argument	size
+>1844	Identifier	size
+>1845	Argument	value
+>1846	Identifier	value
+>1847	Callee	readT
+>1848	Identifier	readT
+>1855	FunctionDef	findWithLeadingWhitespace (const ReadBuffer & r , char c , int maxSearch)
+>1856	ParameterList	const ReadBuffer & r , char c , int maxSearch
+>1857	Parameter	 
+>1858	Identifier	maxSearch
+>1859	ParameterType	int
+>1860	Parameter	 
+>1861	Identifier	c
+>1862	ParameterType	char
+>1863	Parameter	 
+>1864	Identifier	r
+>1865	ParameterType	const ReadBuffer &
+>1866	ReturnType	inline Int32
+>1867	CompoundStatement	 
+>1868	ReturnStatement	 
+>1869	UnaryOp	- 1
+>1870	PrimaryExpression	1
+>1871	UnaryOperator	-
+>1872	ForStatement	for ( int i = 0 ; i < maxSearch ; ++ i )
+>1873	CompoundStatement	 
+>1874	ExpressionStatement	 
+>1875	Statement	 
+>1876	Statement	 
+>1877	Statement	 
+>1878	Statement	 
+>1879	Statement	 
+>1880	Statement	 
+>1881	Statement	 
+>1882	CompoundStatement	 
+>1883	ReturnStatement	 
+>1884	UnaryOp	- 1
+>1885	PrimaryExpression	1
+>1886	UnaryOperator	-
+>1887	Statement	 
+>1888	Statement	 
+>1889	Statement	 
+>1890	Statement	 
+>1891	Statement	 
+>1892	Statement	 
+>1893	Statement	 
+>1894	Statement	 
+>1895	IfStatement	if ( dummy == c )
+>1896	ElseStatement	else
+>1897	Statement	 
+>1898	ReturnStatement	 
+>1899	PrimaryExpression	0
+>1900	Condition	 
+>1901	EqualityExpression	dummy == c
+>1902	Identifier	c
+>1903	Identifier	dummy
+>1904	IfStatement	if ( result != 0 )
+>1905	ElseStatement	else
+>1906	Statement	 
+>1907	ReturnStatement	 
+>1908	Identifier	result
+>1909	Condition	 
+>1910	EqualityExpression	result != 0
+>1911	PrimaryExpression	0
+>1912	Identifier	result
+>1913	ExpressionStatement	 
+>1914	AssignmentExpr	result = r . readT ( dummy )
+>1915	CallExpression	r . readT ( dummy )
+>1916	ArgumentList	dummy
+>1917	Argument	dummy
+>1918	Identifier	dummy
+>1919	Callee	r . readT
+>1920	MemberAccess	r . readT
+>1921	Identifier	readT
+>1922	Identifier	r
+>1923	Identifier	result
+>1924	ExpressionStatement	 
+>1925	AssignmentExpr	dummy = 0
+>1926	PrimaryExpression	0
+>1927	Identifier	dummy
+>1928	UnaryExpression	 
+>1929	Identifier	i
+>1930	IncDec	++
+>1931	Condition	 
+>1932	RelationalExpression	i < maxSearch
+>1933	Identifier	maxSearch
+>1934	Identifier	i
+>1935	ForInit	 
+>1936	IdentifierDeclStatement	int i = 0 ;
+>1937	IdentifierDecl	i = 0
+>1938	AssignmentExpr	i = 0
+>1939	PrimaryExpression	0
+>1940	Identifier	i
+>1941	Identifier	i
+>1942	IdentifierDeclType	int
+>1943	IdentifierDeclStatement	 
+>1944	IdentifierDecl	result
+>1945	Identifier	result
+>1946	IdentifierDeclType	Int32
+>1947	IdentifierDeclStatement	 
+>1948	IdentifierDecl	dummy
+>1949	Identifier	dummy
+>1950	IdentifierDeclType	char
+>1961	FunctionDef	findWithLeadingWhitespace (const ReadBuffer & r , const char * s , int maxSearch)
+>1962	ParameterList	const ReadBuffer & r , const char * s , int maxSearch
+>1963	Parameter	 
+>1964	Identifier	maxSearch
+>1965	ParameterType	int
+>1966	Parameter	 
+>1967	Identifier	s
+>1968	ParameterType	const char *
+>1969	Parameter	 
+>1970	Identifier	r
+>1971	ParameterType	const ReadBuffer &
+>1972	ReturnType	inline Int32
+>1973	CompoundStatement	 
+>1974	ReturnStatement	 
+>1975	PrimaryExpression	0
+>1976	WhileStatement	while ( * s )
+>1977	CompoundStatement	 
+>1978	ExpressionStatement	 
+>1979	AssignmentExpr	maxSearch = 1
+>1980	PrimaryExpression	1
+>1981	Identifier	maxSearch
+>1982	ExpressionStatement	 
+>1983	UnaryExpression	++ s
+>1984	Identifier	s
+>1985	IncDec	++
+>1986	IfStatement	if ( result != 0 )
+>1987	ReturnStatement	 
+>1988	Identifier	result
+>1989	Condition	 
+>1990	EqualityExpression	result != 0
+>1991	PrimaryExpression	0
+>1992	Identifier	result
+>1993	ExpressionStatement	 
+>1994	AssignmentExpr	result = findWithLeadingWhitespace ( r , * s , maxSearch )
+>1995	CallExpression	findWithLeadingWhitespace ( r , * s , maxSearch )
+>1996	ArgumentList	r
+>1997	Argument	maxSearch
+>1998	Identifier	maxSearch
+>1999	Argument	* s
+>2000	UnaryOp	* s
+>2001	Identifier	s
+>2002	UnaryOperator	*
+>2003	Argument	r
+>2004	Identifier	r
+>2005	Callee	findWithLeadingWhitespace
+>2006	Identifier	findWithLeadingWhitespace
+>2007	Identifier	result
+>2008	Condition	 
+>2009	UnaryOp	* s
+>2010	Identifier	s
+>2011	UnaryOperator	*
+>2012	IdentifierDeclStatement	 
+>2013	IdentifierDecl	result = 0
+>2014	AssignmentExpr	result = 0
+>2015	PrimaryExpression	0
+>2016	Identifier	result
+>2017	Identifier	result
+>2018	IdentifierDeclType	Int32
+>2028	FunctionDef	ReadBuffer 
+>2029	ParameterList	NTA_Byte * & value , NTA_UInt32 & size , fp_alloc fAlloc , fp_dealloc fDealloc
+>2030	Parameter	 
+>2031	Identifier	fDealloc
+>2032	ParameterType	fp_dealloc
+>2033	Parameter	 
+>2034	Identifier	fAlloc
+>2035	ParameterType	fp_alloc
+>2036	Parameter	 
+>2037	Identifier	size
+>2038	ParameterType	NTA_UInt32 &
+>2039	Parameter	 
+>2040	Identifier	value
+>2041	ParameterType	NTA_Byte * &
+>2042	ReturnType	Int32
+>2043	CompoundStatement	 
+>2044	ReturnStatement	 
+>2045	CallExpression	findWithLeadingWhitespace ( * this , \"</s>\" , 1 )
+>2046	ArgumentList	* this
+>2047	Argument	1
+>2048	PrimaryExpression	1
+>2049	Argument	\"</s>\"
+>2050	PrimaryExpression	\"</s>\"
+>2051	Argument	* this
+>2052	UnaryOp	* this
+>2053	Identifier	this
+>2054	UnaryOperator	*
+>2055	Callee	findWithLeadingWhitespace
+>2056	Identifier	findWithLeadingWhitespace
+>2057	IfStatement	if ( size )
+>2058	ElseStatement	else
+>2059	CompoundStatement	 
+>2060	ExpressionStatement	 
+>2061	Statement	 
+>2062	Statement	 
+>2063	Statement	 
+>2064	Statement	 
+>2065	Statement	 
+>2066	Statement	 
+>2067	Statement	 
+>2068	Statement	 
+>2069	Statement	 
+>2070	Statement	 
+>2071	Statement	 
+>2072	Statement	 
+>2073	Statement	 
+>2074	Statement	 
+>2075	Statement	 
+>2076	Statement	 
+>2077	Statement	 
+>2078	Statement	 
+>2079	CompoundStatement	 
+>2080	IfStatement	if ( result != 0 )
+>2081	ReturnStatement	 
+>2082	Identifier	result
+>2083	Condition	 
+>2084	EqualityExpression	result != 0
+>2085	PrimaryExpression	0
+>2086	Identifier	result
+>2087	CompoundStatement	 
+>2088	ExpressionStatement	 
+>2089	Statement	 
+>2090	ExpressionStatement	 
+>2091	Identifier	allocated
+>2092	Statement	 
+>2093	Statement	 
+>2094	IfStatement	if ( fDealloc )
+>2095	ElseStatement	else
+>2096	IfStatement	if ( fAlloc )
+>2097	ElseStatement	else
+>2098	Statement	 
+>2099	CompoundStatement	 
+>2100	Condition	 
+>2101	Identifier	fAlloc
+>2102	ExpressionStatement	 
+>2103	CallExpression	fDealloc ( allocated )
+>2104	ArgumentList	allocated
+>2105	Argument	allocated
+>2106	Identifier	allocated
+>2107	Callee	fDealloc
+>2108	Identifier	fDealloc
+>2109	Condition	 
+>2110	Identifier	fDealloc
+>2111	ExpressionStatement	 
+>2112	AssignmentExpr	size = 0
+>2113	PrimaryExpression	0
+>2114	Identifier	size
+>2115	ExpressionStatement	 
+>2116	AssignmentExpr	value = 0
+>2117	PrimaryExpression	0
+>2118	Identifier	value
+>2119	Statement	 
+>2120	Statement	 
+>2121	Statement	 
+>2122	Statement	 
+>2123	Statement	 
+>2124	Statement	 
+>2125	BlockStarter	 
+>2126	CompoundStatement	 
+>2127	ExpressionStatement	value = allocated
+>2128	AssignmentExpr	value = allocated
+>2129	Identifier	allocated
+>2130	Identifier	value
+>2131	ExpressionStatement	result = readT ( allocated , size )
+>2132	AssignmentExpr	result = readT ( allocated , size )
+>2133	CallExpression	readT ( allocated , size )
+>2134	ArgumentList	allocated
+>2135	Argument	size
+>2136	Identifier	size
+>2137	Argument	allocated
+>2138	Identifier	allocated
+>2139	Callee	readT
+>2140	Identifier	readT
+>2141	Identifier	result
+>2142	IfStatement	if ( fAlloc )
+>2143	ElseStatement	else
+>2144	ExpressionStatement	 
+>2145	AssignmentExpr	allocated = new char [ size ]
+>2146	Identifier	size
+>2147	Identifier	allocated
+>2148	ExpressionStatement	 
+>2149	AssignmentExpr	allocated = fAlloc ( size )
+>2150	CallExpression	fAlloc ( size )
+>2151	ArgumentList	size
+>2152	Argument	size
+>2153	Identifier	size
+>2154	Callee	fAlloc
+>2155	Identifier	fAlloc
+>2156	Identifier	allocated
+>2157	Condition	 
+>2158	Identifier	fAlloc
+>2159	IdentifierDeclStatement	 
+>2160	IdentifierDecl	* allocated = 0
+>2161	AssignmentExpr	* allocated = 0
+>2162	PrimaryExpression	0
+>2163	Identifier	allocated
+>2164	Identifier	allocated
+>2165	IdentifierDeclType	char *
+>2166	Condition	 
+>2167	Identifier	size
+>2168	IfStatement	if ( result != 0 )
+>2169	ReturnStatement	 
+>2170	Identifier	result
+>2171	Condition	 
+>2172	EqualityExpression	result != 0
+>2173	PrimaryExpression	0
+>2174	Identifier	result
+>2175	ExpressionStatement	 
+>2176	AssignmentExpr	result = findWithLeadingWhitespace ( * this , '>' , 16 )
+>2177	CallExpression	findWithLeadingWhitespace ( * this , '>' , 16 )
+>2178	ArgumentList	* this
+>2179	Argument	16
+>2180	PrimaryExpression	16
+>2181	Argument	'>'
+>2182	PrimaryExpression	'>'
+>2183	Argument	* this
+>2184	UnaryOp	* this
+>2185	Identifier	this
+>2186	UnaryOperator	*
+>2187	Callee	findWithLeadingWhitespace
+>2188	Identifier	findWithLeadingWhitespace
+>2189	Identifier	result
+>2190	IfStatement	if ( result != 0 )
+>2191	ReturnStatement	 
+>2192	Identifier	result
+>2193	Condition	 
+>2194	EqualityExpression	result != 0
+>2195	PrimaryExpression	0
+>2196	Identifier	result
+>2197	ExpressionStatement	 
+>2198	AssignmentExpr	result = read ( size )
+>2199	CallExpression	read ( size )
+>2200	ArgumentList	size
+>2201	Argument	size
+>2202	Identifier	size
+>2203	Callee	read
+>2204	Identifier	read
+>2205	Identifier	result
+>2206	IfStatement	if ( result != 0 )
+>2207	ReturnStatement	 
+>2208	Identifier	result
+>2209	Condition	 
+>2210	EqualityExpression	result != 0
+>2211	PrimaryExpression	0
+>2212	Identifier	result
+>2213	ExpressionStatement	 
+>2214	AssignmentExpr	result = findWithLeadingWhitespace ( * this , \"=\" , 16 )
+>2215	CallExpression	findWithLeadingWhitespace ( * this , \"=\" , 16 )
+>2216	ArgumentList	* this
+>2217	Argument	16
+>2218	PrimaryExpression	16
+>2219	Argument	\"=\"
+>2220	PrimaryExpression	\"=\"
+>2221	Argument	* this
+>2222	UnaryOp	* this
+>2223	Identifier	this
+>2224	UnaryOperator	*
+>2225	Callee	findWithLeadingWhitespace
+>2226	Identifier	findWithLeadingWhitespace
+>2227	Identifier	result
+>2228	IfStatement	if ( result != 0 )
+>2229	ReturnStatement	 
+>2230	Identifier	result
+>2231	Condition	 
+>2232	EqualityExpression	result != 0
+>2233	PrimaryExpression	0
+>2234	Identifier	result
+>2235	ExpressionStatement	 
+>2236	AssignmentExpr	result = findWithLeadingWhitespace ( * this , \"n\" , 16 )
+>2237	CallExpression	findWithLeadingWhitespace ( * this , \"n\" , 16 )
+>2238	ArgumentList	* this
+>2239	Argument	16
+>2240	PrimaryExpression	16
+>2241	Argument	\"n\"
+>2242	PrimaryExpression	\"n\"
+>2243	Argument	* this
+>2244	UnaryOp	* this
+>2245	Identifier	this
+>2246	UnaryOperator	*
+>2247	Callee	findWithLeadingWhitespace
+>2248	Identifier	findWithLeadingWhitespace
+>2249	Identifier	result
+>2250	IfStatement	if ( result != 0 )
+>2251	ReturnStatement	 
+>2252	Identifier	result
+>2253	Condition	 
+>2254	EqualityExpression	result != 0
+>2255	PrimaryExpression	0
+>2256	Identifier	result
+>2257	IdentifierDeclStatement	 
+>2258	IdentifierDecl	result = findWithLeadingWhitespace ( * this , \"<s\" , 16 )
+>2259	AssignmentExpr	result = findWithLeadingWhitespace ( * this , \"<s\" , 16 )
+>2260	CallExpression	findWithLeadingWhitespace ( * this , \"<s\" , 16 )
+>2261	ArgumentList	* this
+>2262	Argument	16
+>2263	PrimaryExpression	16
+>2264	Argument	\"<s\"
+>2265	PrimaryExpression	\"<s\"
+>2266	Argument	* this
+>2267	UnaryOp	* this
+>2268	Identifier	this
+>2269	UnaryOperator	*
+>2270	Callee	findWithLeadingWhitespace
+>2271	Identifier	findWithLeadingWhitespace
+>2272	Identifier	result
+>2273	Identifier	result
+>2274	IdentifierDeclType	Int32
+>2275	ExpressionStatement	 
+>2276	AssignmentExpr	size = 0
+>2277	PrimaryExpression	0
+>2278	Identifier	size
+>2279	ExpressionStatement	 
+>2280	AssignmentExpr	value = 0
+>2281	PrimaryExpression	0
+>2282	Identifier	value
+>2283	ExpressionStatement	 
+>2284	CallExpression	NTA_ASSERT ( fDealloc || ! fAlloc )
+>2285	ArgumentList	fDealloc || ! fAlloc
+>2286	Argument	fDealloc || ! fAlloc
+>2287	OrExpression	fDealloc || ! fAlloc
+>2288	UnaryOp	! fAlloc
+>2289	Identifier	fAlloc
+>2290	UnaryOperator	!
+>2291	Identifier	fDealloc
+>2292	Callee	NTA_ASSERT
+>2293	Identifier	NTA_ASSERT
+>2308	FunctionDef	staticNext (NTA_ReadBufferIteratorHandle handle)
+>2309	ParameterList	NTA_ReadBufferIteratorHandle handle
+>2310	Parameter	 
+>2311	Identifier	handle
+>2312	ParameterType	NTA_ReadBufferIteratorHandle
+>2313	ReturnType	static const NTA_ReadBuffer *
+>2314	CompoundStatement	 
+>2315	ExpressionStatement	 
+>2316	CallExpression	rbi -> next ( )
+>2317	ArgumentList	 
+>2318	Callee	rbi -> next
+>2319	PtrMemberAccess	rbi -> next
+>2320	Identifier	next
+>2321	Identifier	rbi
+>2322	Statement	 
+>2323	Statement	 
+>2324	Statement	 
+>2325	Statement	 
+>2326	Statement	 
+>2327	Statement	 
+>2328	Statement	 
+>2329	ExpressionStatement	 
+>2330	Statement	 
+>2331	Statement	 
+>2332	Statement	 
+>2333	Statement	 
+>2334	Statement	 
+>2335	Statement	 
+>2336	Statement	 
+>2337	Statement	 
+>2338	Statement	 
+>2339	Statement	 
+>2340	Statement	 
+>2341	Statement	 
+>2342	Statement	 
+>2343	Statement	 
+>2344	Statement	 
+>2345	Statement	 
+>2346	Statement	 
+>2347	Statement	 
+>2348	Statement	 
+>2349	ExpressionStatement	 
+>2350	CallExpression	NTA_CHECK ( handle != NULL )
+>2351	ArgumentList	handle != NULL
+>2352	Argument	handle != NULL
+>2353	EqualityExpression	handle != NULL
+>2354	Identifier	NULL
+>2355	Identifier	handle
+>2356	Callee	NTA_CHECK
+>2357	Identifier	NTA_CHECK
+>2364	FunctionDef	staticReset (NTA_ReadBufferIteratorHandle handle)
+>2365	ParameterList	NTA_ReadBufferIteratorHandle handle
+>2366	Parameter	 
+>2367	Identifier	handle
+>2368	ParameterType	NTA_ReadBufferIteratorHandle
+>2369	ReturnType	static void
+>2370	CompoundStatement	 
+>2371	ReturnStatement	 
+>2372	CallExpression	rbi -> reset ( )
+>2373	ArgumentList	 
+>2374	Callee	rbi -> reset
+>2375	PtrMemberAccess	rbi -> reset
+>2376	Identifier	reset
+>2377	Identifier	rbi
+>2378	ExpressionStatement	 
+>2379	Statement	 
+>2380	Statement	 
+>2381	Statement	 
+>2382	Statement	 
+>2383	Statement	 
+>2384	Statement	 
+>2385	Statement	 
+>2386	Statement	 
+>2387	Statement	 
+>2388	Statement	 
+>2389	Statement	 
+>2390	Statement	 
+>2391	Statement	 
+>2392	Statement	 
+>2393	Statement	 
+>2394	Statement	 
+>2395	Statement	 
+>2396	Statement	 
+>2397	Statement	 
+>2398	ExpressionStatement	 
+>2399	CallExpression	NTA_CHECK ( handle != NULL )
+>2400	ArgumentList	handle != NULL
+>2401	Argument	handle != NULL
+>2402	EqualityExpression	handle != NULL
+>2403	Identifier	NULL
+>2404	Identifier	handle
+>2405	Callee	NTA_CHECK
+>2406	Identifier	NTA_CHECK
+>2415	FunctionDef	ReadBufferIterator 
+>2416	ParameterList	ReadBufferVec & rbv
+>2417	Parameter	 
+>2418	Identifier	rbv
+>2419	ParameterType	ReadBufferVec &
+>2420	CompoundStatement	 
+>2421	ExpressionStatement	 
+>2422	AssignmentExpr	NTA_ReadBufferIterator 
+>2423	Identifier	staticReset
+>2424	Identifier	NTA_ReadBufferIterator 
+>2425	ExpressionStatement	 
+>2426	AssignmentExpr	NTA_ReadBufferIterator 
+>2427	Identifier	staticNext
+>2428	Identifier	NTA_ReadBufferIterator 
+>2429	ExpressionStatement	 
+>2430	Statement	 
+>2431	Statement	 
+>2432	Statement	 
+>2433	Statement	 
+>2434	Statement	 
+>2435	Statement	 
+>2436	Statement	 
+>2437	Statement	 
+>2438	Statement	 
+>2439	Statement	 
+>2440	Statement	 
+>2441	Statement	 
+>2442	Statement	 
+>2443	Statement	 
+>2444	Statement	 
+>2445	Statement	 
+>2446	Statement	 
+>2447	Statement	 
+>2456	FunctionDef	ReadBufferIterator 
+>2457	ParameterList	 
+>2458	ReturnType	const IReadBuffer *
+>2459	CompoundStatement	 
+>2460	ReturnStatement	 
+>2461	ArrayIndexing	readBufferVec_ [ index_ ++ ]
+>2462	IncDecOp	index_ ++
+>2463	IncDec	++
+>2464	Identifier	index_
+>2465	Identifier	readBufferVec_
+>2466	IfStatement	if ( index_ == readBufferVec_ . size ( ) )
+>2467	ReturnStatement	 
+>2468	Identifier	NULL
+>2469	Condition	 
+>2470	EqualityExpression	index_ == readBufferVec_ . size ( )
+>2471	CallExpression	readBufferVec_ . size ( )
+>2472	ArgumentList	 
+>2473	Callee	readBufferVec_ . size
+>2474	MemberAccess	readBufferVec_ . size
+>2475	Identifier	size
+>2476	Identifier	readBufferVec_
+>2477	Identifier	index_
+>2487	FunctionDef	ReadBufferIterator 
+>2488	ParameterList	 
+>2489	ReturnType	void
+>2490	CompoundStatement	 
+>2491	ExpressionStatement	 
+>2492	AssignmentExpr	index_ = 0
+>2493	PrimaryExpression	0
+>2494	Identifier	index_
+>2499	FunctionDef	staticWriteUInt32 (NTA_WriteBufferHandle handle , NTA_UInt32 value)
+>2500	ParameterList	NTA_WriteBufferHandle handle , NTA_UInt32 value
+>2501	Parameter	 
+>2502	Identifier	value
+>2503	ParameterType	NTA_UInt32
+>2504	Parameter	 
+>2505	Identifier	handle
+>2506	ParameterType	NTA_WriteBufferHandle
+>2507	ReturnType	NTA_Int32
+>2508	CompoundStatement	 
+>2509	ReturnStatement	 
+>2510	CallExpression	wb -> write ( value )
+>2511	ArgumentList	value
+>2512	Argument	value
+>2513	Identifier	value
+>2514	Callee	wb -> write
+>2515	PtrMemberAccess	wb -> write
+>2516	Identifier	write
+>2517	Identifier	wb
+>2518	ExpressionStatement	 
+>2519	Identifier	handle
+>2520	Statement	 
+>2521	Statement	 
+>2522	Statement	 
+>2523	Statement	 
+>2524	Statement	 
+>2525	Statement	 
+>2526	Statement	 
+>2527	Statement	 
+>2528	Statement	 
+>2529	ExpressionStatement	 
+>2530	CallExpression	NTA_CHECK ( handle != NULL )
+>2531	ArgumentList	handle != NULL
+>2532	Argument	handle != NULL
+>2533	EqualityExpression	handle != NULL
+>2534	Identifier	NULL
+>2535	Identifier	handle
+>2536	Callee	NTA_CHECK
+>2537	Identifier	NTA_CHECK
+>2547	FunctionDef	staticWriteUInt32Array (NTA_WriteBufferHandle handle , const NTA_UInt32 * value , NTA_Size size)
+>2548	ParameterList	NTA_WriteBufferHandle handle , const NTA_UInt32 * value , NTA_Size size
+>2549	Parameter	 
+>2550	Identifier	size
+>2551	ParameterType	NTA_Size
+>2552	Parameter	 
+>2553	Identifier	value
+>2554	ParameterType	const NTA_UInt32 *
+>2555	Parameter	 
+>2556	Identifier	handle
+>2557	ParameterType	NTA_WriteBufferHandle
+>2558	ReturnType	NTA_Int32
+>2559	CompoundStatement	 
+>2560	ReturnStatement	 
+>2561	CallExpression	wb -> write ( value , size )
+>2562	ArgumentList	value
+>2563	Argument	size
+>2564	Identifier	size
+>2565	Argument	value
+>2566	Identifier	value
+>2567	Callee	wb -> write
+>2568	PtrMemberAccess	wb -> write
+>2569	Identifier	write
+>2570	Identifier	wb
+>2571	ExpressionStatement	 
+>2572	Identifier	handle
+>2573	Statement	 
+>2574	Statement	 
+>2575	Statement	 
+>2576	Statement	 
+>2577	Statement	 
+>2578	Statement	 
+>2579	Statement	 
+>2580	Statement	 
+>2581	Statement	 
+>2582	ExpressionStatement	 
+>2583	CallExpression	NTA_CHECK ( size > 0 )
+>2584	ArgumentList	size > 0
+>2585	Argument	size > 0
+>2586	RelationalExpression	size > 0
+>2587	PrimaryExpression	0
+>2588	Identifier	size
+>2589	Callee	NTA_CHECK
+>2590	Identifier	NTA_CHECK
+>2591	ExpressionStatement	 
+>2592	CallExpression	NTA_CHECK ( value != NULL )
+>2593	ArgumentList	value != NULL
+>2594	Argument	value != NULL
+>2595	EqualityExpression	value != NULL
+>2596	Identifier	NULL
+>2597	Identifier	value
+>2598	Callee	NTA_CHECK
+>2599	Identifier	NTA_CHECK
+>2600	ExpressionStatement	 
+>2601	CallExpression	NTA_CHECK ( handle != NULL )
+>2602	ArgumentList	handle != NULL
+>2603	Argument	handle != NULL
+>2604	EqualityExpression	handle != NULL
+>2605	Identifier	NULL
+>2606	Identifier	handle
+>2607	Callee	NTA_CHECK
+>2608	Identifier	NTA_CHECK
+>2619	FunctionDef	staticWriteInt32 (NTA_WriteBufferHandle handle , NTA_Int32 value)
+>2620	ParameterList	NTA_WriteBufferHandle handle , NTA_Int32 value
+>2621	Parameter	 
+>2622	Identifier	value
+>2623	ParameterType	NTA_Int32
+>2624	Parameter	 
+>2625	Identifier	handle
+>2626	ParameterType	NTA_WriteBufferHandle
+>2627	ReturnType	NTA_Int32
+>2628	CompoundStatement	 
+>2629	ReturnStatement	 
+>2630	CallExpression	wb -> write ( value )
+>2631	ArgumentList	value
+>2632	Argument	value
+>2633	Identifier	value
+>2634	Callee	wb -> write
+>2635	PtrMemberAccess	wb -> write
+>2636	Identifier	write
+>2637	Identifier	wb
+>2638	ExpressionStatement	 
+>2639	Identifier	handle
+>2640	Statement	 
+>2641	Statement	 
+>2642	Statement	 
+>2643	Statement	 
+>2644	Statement	 
+>2645	Statement	 
+>2646	Statement	 
+>2647	Statement	 
+>2648	Statement	 
+>2649	ExpressionStatement	 
+>2650	CallExpression	NTA_CHECK ( handle != NULL )
+>2651	ArgumentList	handle != NULL
+>2652	Argument	handle != NULL
+>2653	EqualityExpression	handle != NULL
+>2654	Identifier	NULL
+>2655	Identifier	handle
+>2656	Callee	NTA_CHECK
+>2657	Identifier	NTA_CHECK
+>2667	FunctionDef	staticWriteInt32Array (NTA_WriteBufferHandle handle , const NTA_Int32 * value , NTA_Size size)
+>2668	ParameterList	NTA_WriteBufferHandle handle , const NTA_Int32 * value , NTA_Size size
+>2669	Parameter	 
+>2670	Identifier	size
+>2671	ParameterType	NTA_Size
+>2672	Parameter	 
+>2673	Identifier	value
+>2674	ParameterType	const NTA_Int32 *
+>2675	Parameter	 
+>2676	Identifier	handle
+>2677	ParameterType	NTA_WriteBufferHandle
+>2678	ReturnType	NTA_Int32
+>2679	CompoundStatement	 
+>2680	ReturnStatement	 
+>2681	CallExpression	wb -> write ( value , size )
+>2682	ArgumentList	value
+>2683	Argument	size
+>2684	Identifier	size
+>2685	Argument	value
+>2686	Identifier	value
+>2687	Callee	wb -> write
+>2688	PtrMemberAccess	wb -> write
+>2689	Identifier	write
+>2690	Identifier	wb
+>2691	ExpressionStatement	 
+>2692	Identifier	handle
+>2693	Statement	 
+>2694	Statement	 
+>2695	Statement	 
+>2696	Statement	 
+>2697	Statement	 
+>2698	Statement	 
+>2699	Statement	 
+>2700	Statement	 
+>2701	Statement	 
+>2702	ExpressionStatement	 
+>2703	CallExpression	NTA_CHECK ( size > 0 )
+>2704	ArgumentList	size > 0
+>2705	Argument	size > 0
+>2706	RelationalExpression	size > 0
+>2707	PrimaryExpression	0
+>2708	Identifier	size
+>2709	Callee	NTA_CHECK
+>2710	Identifier	NTA_CHECK
+>2711	ExpressionStatement	 
+>2712	CallExpression	NTA_CHECK ( value != NULL )
+>2713	ArgumentList	value != NULL
+>2714	Argument	value != NULL
+>2715	EqualityExpression	value != NULL
+>2716	Identifier	NULL
+>2717	Identifier	value
+>2718	Callee	NTA_CHECK
+>2719	Identifier	NTA_CHECK
+>2720	ExpressionStatement	 
+>2721	CallExpression	NTA_CHECK ( handle != NULL )
+>2722	ArgumentList	handle != NULL
+>2723	Argument	handle != NULL
+>2724	EqualityExpression	handle != NULL
+>2725	Identifier	NULL
+>2726	Identifier	handle
+>2727	Callee	NTA_CHECK
+>2728	Identifier	NTA_CHECK
+>2739	FunctionDef	staticWriteInt64 (NTA_WriteBufferHandle handle , NTA_Int64 value)
+>2740	ParameterList	NTA_WriteBufferHandle handle , NTA_Int64 value
+>2741	Parameter	 
+>2742	Identifier	value
+>2743	ParameterType	NTA_Int64
+>2744	Parameter	 
+>2745	Identifier	handle
+>2746	ParameterType	NTA_WriteBufferHandle
+>2747	ReturnType	NTA_Int32
+>2748	CompoundStatement	 
+>2749	ReturnStatement	 
+>2750	CallExpression	wb -> write ( value )
+>2751	ArgumentList	value
+>2752	Argument	value
+>2753	Identifier	value
+>2754	Callee	wb -> write
+>2755	PtrMemberAccess	wb -> write
+>2756	Identifier	write
+>2757	Identifier	wb
+>2758	ExpressionStatement	 
+>2759	Identifier	handle
+>2760	Statement	 
+>2761	Statement	 
+>2762	Statement	 
+>2763	Statement	 
+>2764	Statement	 
+>2765	Statement	 
+>2766	Statement	 
+>2767	Statement	 
+>2768	Statement	 
+>2769	ExpressionStatement	 
+>2770	CallExpression	NTA_CHECK ( handle != NULL )
+>2771	ArgumentList	handle != NULL
+>2772	Argument	handle != NULL
+>2773	EqualityExpression	handle != NULL
+>2774	Identifier	NULL
+>2775	Identifier	handle
+>2776	Callee	NTA_CHECK
+>2777	Identifier	NTA_CHECK
+>2787	FunctionDef	staticWriteInt64Array (NTA_WriteBufferHandle handle , const NTA_Int64 * value , NTA_Size size)
+>2788	ParameterList	NTA_WriteBufferHandle handle , const NTA_Int64 * value , NTA_Size size
+>2789	Parameter	 
+>2790	Identifier	size
+>2791	ParameterType	NTA_Size
+>2792	Parameter	 
+>2793	Identifier	value
+>2794	ParameterType	const NTA_Int64 *
+>2795	Parameter	 
+>2796	Identifier	handle
+>2797	ParameterType	NTA_WriteBufferHandle
+>2798	ReturnType	NTA_Int32
+>2799	CompoundStatement	 
+>2800	ReturnStatement	 
+>2801	CallExpression	wb -> write ( value , size )
+>2802	ArgumentList	value
+>2803	Argument	size
+>2804	Identifier	size
+>2805	Argument	value
+>2806	Identifier	value
+>2807	Callee	wb -> write
+>2808	PtrMemberAccess	wb -> write
+>2809	Identifier	write
+>2810	Identifier	wb
+>2811	ExpressionStatement	 
+>2812	Identifier	handle
+>2813	Statement	 
+>2814	Statement	 
+>2815	Statement	 
+>2816	Statement	 
+>2817	Statement	 
+>2818	Statement	 
+>2819	Statement	 
+>2820	Statement	 
+>2821	Statement	 
+>2822	ExpressionStatement	 
+>2823	CallExpression	NTA_CHECK ( size > 0 )
+>2824	ArgumentList	size > 0
+>2825	Argument	size > 0
+>2826	RelationalExpression	size > 0
+>2827	PrimaryExpression	0
+>2828	Identifier	size
+>2829	Callee	NTA_CHECK
+>2830	Identifier	NTA_CHECK
+>2831	ExpressionStatement	 
+>2832	CallExpression	NTA_CHECK ( value != NULL )
+>2833	ArgumentList	value != NULL
+>2834	Argument	value != NULL
+>2835	EqualityExpression	value != NULL
+>2836	Identifier	NULL
+>2837	Identifier	value
+>2838	Callee	NTA_CHECK
+>2839	Identifier	NTA_CHECK
+>2840	ExpressionStatement	 
+>2841	CallExpression	NTA_CHECK ( handle != NULL )
+>2842	ArgumentList	handle != NULL
+>2843	Argument	handle != NULL
+>2844	EqualityExpression	handle != NULL
+>2845	Identifier	NULL
+>2846	Identifier	handle
+>2847	Callee	NTA_CHECK
+>2848	Identifier	NTA_CHECK
+>2859	FunctionDef	staticWriteUInt64 (NTA_WriteBufferHandle handle , NTA_UInt64 value)
+>2860	ParameterList	NTA_WriteBufferHandle handle , NTA_UInt64 value
+>2861	Parameter	 
+>2862	Identifier	value
+>2863	ParameterType	NTA_UInt64
+>2864	Parameter	 
+>2865	Identifier	handle
+>2866	ParameterType	NTA_WriteBufferHandle
+>2867	ReturnType	NTA_Int32
+>2868	CompoundStatement	 
+>2869	ReturnStatement	 
+>2870	CallExpression	wb -> write ( value )
+>2871	ArgumentList	value
+>2872	Argument	value
+>2873	Identifier	value
+>2874	Callee	wb -> write
+>2875	PtrMemberAccess	wb -> write
+>2876	Identifier	write
+>2877	Identifier	wb
+>2878	ExpressionStatement	 
+>2879	Identifier	handle
+>2880	Statement	 
+>2881	Statement	 
+>2882	Statement	 
+>2883	Statement	 
+>2884	Statement	 
+>2885	Statement	 
+>2886	Statement	 
+>2887	Statement	 
+>2888	Statement	 
+>2889	ExpressionStatement	 
+>2890	CallExpression	NTA_CHECK ( handle != NULL )
+>2891	ArgumentList	handle != NULL
+>2892	Argument	handle != NULL
+>2893	EqualityExpression	handle != NULL
+>2894	Identifier	NULL
+>2895	Identifier	handle
+>2896	Callee	NTA_CHECK
+>2897	Identifier	NTA_CHECK
+>2907	FunctionDef	staticWriteUInt64Array (NTA_WriteBufferHandle handle , const NTA_UInt64 * value , NTA_Size size)
+>2908	ParameterList	NTA_WriteBufferHandle handle , const NTA_UInt64 * value , NTA_Size size
+>2909	Parameter	 
+>2910	Identifier	size
+>2911	ParameterType	NTA_Size
+>2912	Parameter	 
+>2913	Identifier	value
+>2914	ParameterType	const NTA_UInt64 *
+>2915	Parameter	 
+>2916	Identifier	handle
+>2917	ParameterType	NTA_WriteBufferHandle
+>2918	ReturnType	NTA_Int32
+>2919	CompoundStatement	 
+>2920	ReturnStatement	 
+>2921	CallExpression	wb -> write ( value , size )
+>2922	ArgumentList	value
+>2923	Argument	size
+>2924	Identifier	size
+>2925	Argument	value
+>2926	Identifier	value
+>2927	Callee	wb -> write
+>2928	PtrMemberAccess	wb -> write
+>2929	Identifier	write
+>2930	Identifier	wb
+>2931	ExpressionStatement	 
+>2932	Identifier	handle
+>2933	Statement	 
+>2934	Statement	 
+>2935	Statement	 
+>2936	Statement	 
+>2937	Statement	 
+>2938	Statement	 
+>2939	Statement	 
+>2940	Statement	 
+>2941	Statement	 
+>2942	ExpressionStatement	 
+>2943	CallExpression	NTA_CHECK ( size > 0 )
+>2944	ArgumentList	size > 0
+>2945	Argument	size > 0
+>2946	RelationalExpression	size > 0
+>2947	PrimaryExpression	0
+>2948	Identifier	size
+>2949	Callee	NTA_CHECK
+>2950	Identifier	NTA_CHECK
+>2951	ExpressionStatement	 
+>2952	CallExpression	NTA_CHECK ( value != NULL )
+>2953	ArgumentList	value != NULL
+>2954	Argument	value != NULL
+>2955	EqualityExpression	value != NULL
+>2956	Identifier	NULL
+>2957	Identifier	value
+>2958	Callee	NTA_CHECK
+>2959	Identifier	NTA_CHECK
+>2960	ExpressionStatement	 
+>2961	CallExpression	NTA_CHECK ( handle != NULL )
+>2962	ArgumentList	handle != NULL
+>2963	Argument	handle != NULL
+>2964	EqualityExpression	handle != NULL
+>2965	Identifier	NULL
+>2966	Identifier	handle
+>2967	Callee	NTA_CHECK
+>2968	Identifier	NTA_CHECK
+>2979	FunctionDef	staticWriteReal32 (NTA_WriteBufferHandle handle , NTA_Real32 value)
+>2980	ParameterList	NTA_WriteBufferHandle handle , NTA_Real32 value
+>2981	Parameter	 
+>2982	Identifier	value
+>2983	ParameterType	NTA_Real32
+>2984	Parameter	 
+>2985	Identifier	handle
+>2986	ParameterType	NTA_WriteBufferHandle
+>2987	ReturnType	NTA_Int32
+>2988	CompoundStatement	 
+>2989	ReturnStatement	 
+>2990	CallExpression	wb -> write ( value )
+>2991	ArgumentList	value
+>2992	Argument	value
+>2993	Identifier	value
+>2994	Callee	wb -> write
+>2995	PtrMemberAccess	wb -> write
+>2996	Identifier	write
+>2997	Identifier	wb
+>2998	ExpressionStatement	 
+>2999	Identifier	handle
+>3000	Statement	 
+>3001	Statement	 
+>3002	Statement	 
+>3003	Statement	 
+>3004	Statement	 
+>3005	Statement	 
+>3006	Statement	 
+>3007	Statement	 
+>3008	Statement	 
+>3009	ExpressionStatement	 
+>3010	CallExpression	NTA_CHECK ( handle != NULL )
+>3011	ArgumentList	handle != NULL
+>3012	Argument	handle != NULL
+>3013	EqualityExpression	handle != NULL
+>3014	Identifier	NULL
+>3015	Identifier	handle
+>3016	Callee	NTA_CHECK
+>3017	Identifier	NTA_CHECK
+>3027	FunctionDef	staticWriteReal32Array (NTA_WriteBufferHandle handle , const NTA_Real32 * value , NTA_Size size)
+>3028	ParameterList	NTA_WriteBufferHandle handle , const NTA_Real32 * value , NTA_Size size
+>3029	Parameter	 
+>3030	Identifier	size
+>3031	ParameterType	NTA_Size
+>3032	Parameter	 
+>3033	Identifier	value
+>3034	ParameterType	const NTA_Real32 *
+>3035	Parameter	 
+>3036	Identifier	handle
+>3037	ParameterType	NTA_WriteBufferHandle
+>3038	ReturnType	NTA_Int32
+>3039	CompoundStatement	 
+>3040	ReturnStatement	 
+>3041	CallExpression	wb -> write ( value , size )
+>3042	ArgumentList	value
+>3043	Argument	size
+>3044	Identifier	size
+>3045	Argument	value
+>3046	Identifier	value
+>3047	Callee	wb -> write
+>3048	PtrMemberAccess	wb -> write
+>3049	Identifier	write
+>3050	Identifier	wb
+>3051	ExpressionStatement	 
+>3052	Identifier	handle
+>3053	Statement	 
+>3054	Statement	 
+>3055	Statement	 
+>3056	Statement	 
+>3057	Statement	 
+>3058	Statement	 
+>3059	Statement	 
+>3060	Statement	 
+>3061	Statement	 
+>3062	ExpressionStatement	 
+>3063	CallExpression	NTA_CHECK ( size > 0 )
+>3064	ArgumentList	size > 0
+>3065	Argument	size > 0
+>3066	RelationalExpression	size > 0
+>3067	PrimaryExpression	0
+>3068	Identifier	size
+>3069	Callee	NTA_CHECK
+>3070	Identifier	NTA_CHECK
+>3071	ExpressionStatement	 
+>3072	CallExpression	NTA_CHECK ( value != NULL )
+>3073	ArgumentList	value != NULL
+>3074	Argument	value != NULL
+>3075	EqualityExpression	value != NULL
+>3076	Identifier	NULL
+>3077	Identifier	value
+>3078	Callee	NTA_CHECK
+>3079	Identifier	NTA_CHECK
+>3080	ExpressionStatement	 
+>3081	CallExpression	NTA_CHECK ( handle != NULL )
+>3082	ArgumentList	handle != NULL
+>3083	Argument	handle != NULL
+>3084	EqualityExpression	handle != NULL
+>3085	Identifier	NULL
+>3086	Identifier	handle
+>3087	Callee	NTA_CHECK
+>3088	Identifier	NTA_CHECK
+>3099	FunctionDef	staticWriteReal64 (NTA_WriteBufferHandle handle , NTA_Real64 value)
+>3100	ParameterList	NTA_WriteBufferHandle handle , NTA_Real64 value
+>3101	Parameter	 
+>3102	Identifier	value
+>3103	ParameterType	NTA_Real64
+>3104	Parameter	 
+>3105	Identifier	handle
+>3106	ParameterType	NTA_WriteBufferHandle
+>3107	ReturnType	NTA_Int32
+>3108	CompoundStatement	 
+>3109	ReturnStatement	 
+>3110	CallExpression	wb -> write ( value )
+>3111	ArgumentList	value
+>3112	Argument	value
+>3113	Identifier	value
+>3114	Callee	wb -> write
+>3115	PtrMemberAccess	wb -> write
+>3116	Identifier	write
+>3117	Identifier	wb
+>3118	ExpressionStatement	 
+>3119	Identifier	handle
+>3120	Statement	 
+>3121	Statement	 
+>3122	Statement	 
+>3123	Statement	 
+>3124	Statement	 
+>3125	Statement	 
+>3126	Statement	 
+>3127	Statement	 
+>3128	Statement	 
+>3129	ExpressionStatement	 
+>3130	CallExpression	NTA_CHECK ( handle != NULL )
+>3131	ArgumentList	handle != NULL
+>3132	Argument	handle != NULL
+>3133	EqualityExpression	handle != NULL
+>3134	Identifier	NULL
+>3135	Identifier	handle
+>3136	Callee	NTA_CHECK
+>3137	Identifier	NTA_CHECK
+>3147	FunctionDef	staticWriteReal64Array (NTA_WriteBufferHandle handle , const NTA_Real64 * value , NTA_Size size)
+>3148	ParameterList	NTA_WriteBufferHandle handle , const NTA_Real64 * value , NTA_Size size
+>3149	Parameter	 
+>3150	Identifier	size
+>3151	ParameterType	NTA_Size
+>3152	Parameter	 
+>3153	Identifier	value
+>3154	ParameterType	const NTA_Real64 *
+>3155	Parameter	 
+>3156	Identifier	handle
+>3157	ParameterType	NTA_WriteBufferHandle
+>3158	ReturnType	NTA_Int32
+>3159	CompoundStatement	 
+>3160	ReturnStatement	 
+>3161	CallExpression	wb -> write ( value , size )
+>3162	ArgumentList	value
+>3163	Argument	size
+>3164	Identifier	size
+>3165	Argument	value
+>3166	Identifier	value
+>3167	Callee	wb -> write
+>3168	PtrMemberAccess	wb -> write
+>3169	Identifier	write
+>3170	Identifier	wb
+>3171	ExpressionStatement	 
+>3172	Identifier	handle
+>3173	Statement	 
+>3174	Statement	 
+>3175	Statement	 
+>3176	Statement	 
+>3177	Statement	 
+>3178	Statement	 
+>3179	Statement	 
+>3180	Statement	 
+>3181	Statement	 
+>3182	ExpressionStatement	 
+>3183	CallExpression	NTA_CHECK ( size > 0 )
+>3184	ArgumentList	size > 0
+>3185	Argument	size > 0
+>3186	RelationalExpression	size > 0
+>3187	PrimaryExpression	0
+>3188	Identifier	size
+>3189	Callee	NTA_CHECK
+>3190	Identifier	NTA_CHECK
+>3191	ExpressionStatement	 
+>3192	CallExpression	NTA_CHECK ( value != NULL )
+>3193	ArgumentList	value != NULL
+>3194	Argument	value != NULL
+>3195	EqualityExpression	value != NULL
+>3196	Identifier	NULL
+>3197	Identifier	value
+>3198	Callee	NTA_CHECK
+>3199	Identifier	NTA_CHECK
+>3200	ExpressionStatement	 
+>3201	CallExpression	NTA_CHECK ( handle != NULL )
+>3202	ArgumentList	handle != NULL
+>3203	Argument	handle != NULL
+>3204	EqualityExpression	handle != NULL
+>3205	Identifier	NULL
+>3206	Identifier	handle
+>3207	Callee	NTA_CHECK
+>3208	Identifier	NTA_CHECK
+>3219	FunctionDef	staticWriteByte (NTA_WriteBufferHandle handle , NTA_Byte value)
+>3220	ParameterList	NTA_WriteBufferHandle handle , NTA_Byte value
+>3221	Parameter	 
+>3222	Identifier	value
+>3223	ParameterType	NTA_Byte
+>3224	Parameter	 
+>3225	Identifier	handle
+>3226	ParameterType	NTA_WriteBufferHandle
+>3227	ReturnType	NTA_Int32
+>3228	CompoundStatement	 
+>3229	ReturnStatement	 
+>3230	CallExpression	wb -> write ( value )
+>3231	ArgumentList	value
+>3232	Argument	value
+>3233	Identifier	value
+>3234	Callee	wb -> write
+>3235	PtrMemberAccess	wb -> write
+>3236	Identifier	write
+>3237	Identifier	wb
+>3238	ExpressionStatement	 
+>3239	Identifier	handle
+>3240	Statement	 
+>3241	Statement	 
+>3242	Statement	 
+>3243	Statement	 
+>3244	Statement	 
+>3245	Statement	 
+>3246	Statement	 
+>3247	Statement	 
+>3248	Statement	 
+>3249	ExpressionStatement	 
+>3250	CallExpression	NTA_CHECK ( handle != NULL )
+>3251	ArgumentList	handle != NULL
+>3252	Argument	handle != NULL
+>3253	EqualityExpression	handle != NULL
+>3254	Identifier	NULL
+>3255	Identifier	handle
+>3256	Callee	NTA_CHECK
+>3257	Identifier	NTA_CHECK
+>3267	FunctionDef	staticWriteByteArray (NTA_WriteBufferHandle handle , const NTA_Byte * value , NTA_Size size)
+>3268	ParameterList	NTA_WriteBufferHandle handle , const NTA_Byte * value , NTA_Size size
+>3269	Parameter	 
+>3270	Identifier	size
+>3271	ParameterType	NTA_Size
+>3272	Parameter	 
+>3273	Identifier	value
+>3274	ParameterType	const NTA_Byte *
+>3275	Parameter	 
+>3276	Identifier	handle
+>3277	ParameterType	NTA_WriteBufferHandle
+>3278	ReturnType	NTA_Int32
+>3279	CompoundStatement	 
+>3280	ReturnStatement	 
+>3281	CallExpression	wb -> write ( value , size )
+>3282	ArgumentList	value
+>3283	Argument	size
+>3284	Identifier	size
+>3285	Argument	value
+>3286	Identifier	value
+>3287	Callee	wb -> write
+>3288	PtrMemberAccess	wb -> write
+>3289	Identifier	write
+>3290	Identifier	wb
+>3291	ExpressionStatement	 
+>3292	Identifier	handle
+>3293	Statement	 
+>3294	Statement	 
+>3295	Statement	 
+>3296	Statement	 
+>3297	Statement	 
+>3298	Statement	 
+>3299	Statement	 
+>3300	Statement	 
+>3301	Statement	 
+>3302	ExpressionStatement	 
+>3303	CallExpression	NTA_CHECK ( size > 0 )
+>3304	ArgumentList	size > 0
+>3305	Argument	size > 0
+>3306	RelationalExpression	size > 0
+>3307	PrimaryExpression	0
+>3308	Identifier	size
+>3309	Callee	NTA_CHECK
+>3310	Identifier	NTA_CHECK
+>3311	ExpressionStatement	 
+>3312	CallExpression	NTA_CHECK ( value != NULL )
+>3313	ArgumentList	value != NULL
+>3314	Argument	value != NULL
+>3315	EqualityExpression	value != NULL
+>3316	Identifier	NULL
+>3317	Identifier	value
+>3318	Callee	NTA_CHECK
+>3319	Identifier	NTA_CHECK
+>3320	ExpressionStatement	 
+>3321	CallExpression	NTA_CHECK ( handle != NULL )
+>3322	ArgumentList	handle != NULL
+>3323	Argument	handle != NULL
+>3324	EqualityExpression	handle != NULL
+>3325	Identifier	NULL
+>3326	Identifier	handle
+>3327	Callee	NTA_CHECK
+>3328	Identifier	NTA_CHECK
+>3339	FunctionDef	staticWriteString (NTA_WriteBufferHandle handle , const NTA_Byte * value , NTA_Size size)
+>3340	ParameterList	NTA_WriteBufferHandle handle , const NTA_Byte * value , NTA_Size size
+>3341	Parameter	 
+>3342	Identifier	size
+>3343	ParameterType	NTA_Size
+>3344	Parameter	 
+>3345	Identifier	value
+>3346	ParameterType	const NTA_Byte *
+>3347	Parameter	 
+>3348	Identifier	handle
+>3349	ParameterType	NTA_WriteBufferHandle
+>3350	ReturnType	NTA_Int32
+>3351	CompoundStatement	 
+>3352	ReturnStatement	 
+>3353	CallExpression	wb -> writeString ( value , size )
+>3354	ArgumentList	value
+>3355	Argument	size
+>3356	Identifier	size
+>3357	Argument	value
+>3358	Identifier	value
+>3359	Callee	wb -> writeString
+>3360	PtrMemberAccess	wb -> writeString
+>3361	Identifier	writeString
+>3362	Identifier	wb
+>3363	ExpressionStatement	 
+>3364	Identifier	handle
+>3365	Statement	 
+>3366	Statement	 
+>3367	Statement	 
+>3368	Statement	 
+>3369	Statement	 
+>3370	Statement	 
+>3371	Statement	 
+>3372	Statement	 
+>3373	Statement	 
+>3374	ExpressionStatement	 
+>3375	CallExpression	NTA_CHECK ( value != NULL )
+>3376	ArgumentList	value != NULL
+>3377	Argument	value != NULL
+>3378	EqualityExpression	value != NULL
+>3379	Identifier	NULL
+>3380	Identifier	value
+>3381	Callee	NTA_CHECK
+>3382	Identifier	NTA_CHECK
+>3383	ExpressionStatement	 
+>3384	CallExpression	NTA_CHECK ( handle != NULL )
+>3385	ArgumentList	handle != NULL
+>3386	Argument	handle != NULL
+>3387	EqualityExpression	handle != NULL
+>3388	Identifier	NULL
+>3389	Identifier	handle
+>3390	Callee	NTA_CHECK
+>3391	Identifier	NTA_CHECK
+>3402	FunctionDef	staticGetData (NTA_WriteBufferHandle handle)
+>3403	ParameterList	NTA_WriteBufferHandle handle
+>3404	Parameter	 
+>3405	Identifier	handle
+>3406	ParameterType	NTA_WriteBufferHandle
+>3407	ReturnType	const Byte *
+>3408	CompoundStatement	 
+>3409	ReturnStatement	 
+>3410	CallExpression	wb -> getData ( )
+>3411	ArgumentList	 
+>3412	Callee	wb -> getData
+>3413	PtrMemberAccess	wb -> getData
+>3414	Identifier	getData
+>3415	Identifier	wb
+>3416	ExpressionStatement	 
+>3417	Identifier	handle
+>3418	Statement	 
+>3419	Statement	 
+>3420	Statement	 
+>3421	Statement	 
+>3422	Statement	 
+>3423	Statement	 
+>3424	Statement	 
+>3425	Statement	 
+>3426	Statement	 
+>3427	ExpressionStatement	 
+>3428	CallExpression	NTA_CHECK ( handle != NULL )
+>3429	ArgumentList	handle != NULL
+>3430	Argument	handle != NULL
+>3431	EqualityExpression	handle != NULL
+>3432	Identifier	NULL
+>3433	Identifier	handle
+>3434	Callee	NTA_CHECK
+>3435	Identifier	NTA_CHECK
+>3444	FunctionDef	staticWriteBufferGetSize (NTA_WriteBufferHandle handle)
+>3445	ParameterList	NTA_WriteBufferHandle handle
+>3446	Parameter	 
+>3447	Identifier	handle
+>3448	ParameterType	NTA_WriteBufferHandle
+>3449	ReturnType	NTA_Size
+>3450	CompoundStatement	 
+>3451	ReturnStatement	 
+>3452	CallExpression	wb -> getSize ( )
+>3453	ArgumentList	 
+>3454	Callee	wb -> getSize
+>3455	PtrMemberAccess	wb -> getSize
+>3456	Identifier	getSize
+>3457	Identifier	wb
+>3458	ExpressionStatement	 
+>3459	Identifier	handle
+>3460	Statement	 
+>3461	Statement	 
+>3462	Statement	 
+>3463	Statement	 
+>3464	Statement	 
+>3465	Statement	 
+>3466	Statement	 
+>3467	Statement	 
+>3468	Statement	 
+>3469	ExpressionStatement	 
+>3470	CallExpression	NTA_CHECK ( handle != NULL )
+>3471	ArgumentList	handle != NULL
+>3472	Argument	handle != NULL
+>3473	EqualityExpression	handle != NULL
+>3474	Identifier	NULL
+>3475	Identifier	handle
+>3476	Callee	NTA_CHECK
+>3477	Identifier	NTA_CHECK
+>3486	FunctionDef	WriteBuffer 
+>3487	ParameterList	 
+>3488	CompoundStatement	 
+>3489	ExpressionStatement	 
+>3490	CallExpression	OMemStream 
+>3491	ArgumentList	std 
+>3492	Argument	std 
+>3493	InclusiveOrExpression	std 
+>3494	Identifier	std 
+>3495	Identifier	std 
+>3496	Callee	OMemStream 
+>3497	Identifier	OMemStream 
+>3498	ExpressionStatement	 
+>3499	AssignmentExpr	writeReal64Array = staticWriteReal64Array
+>3500	Identifier	staticWriteReal64Array
+>3501	Identifier	writeReal64Array
+>3502	ExpressionStatement	 
+>3503	AssignmentExpr	writeReal64 = staticWriteReal64
+>3504	Identifier	staticWriteReal64
+>3505	Identifier	writeReal64
+>3506	ExpressionStatement	 
+>3507	AssignmentExpr	writeReal32Array = staticWriteReal32Array
+>3508	Identifier	staticWriteReal32Array
+>3509	Identifier	writeReal32Array
+>3510	ExpressionStatement	 
+>3511	AssignmentExpr	writeReal32 = staticWriteReal32
+>3512	Identifier	staticWriteReal32
+>3513	Identifier	writeReal32
+>3514	ExpressionStatement	 
+>3515	AssignmentExpr	writeUInt64Array = staticWriteUInt64Array
+>3516	Identifier	staticWriteUInt64Array
+>3517	Identifier	writeUInt64Array
+>3518	ExpressionStatement	 
+>3519	AssignmentExpr	writeUInt64 = staticWriteUInt64
+>3520	Identifier	staticWriteUInt64
+>3521	Identifier	writeUInt64
+>3522	ExpressionStatement	 
+>3523	AssignmentExpr	writeInt64Array = staticWriteInt64Array
+>3524	Identifier	staticWriteInt64Array
+>3525	Identifier	writeInt64Array
+>3526	ExpressionStatement	 
+>3527	AssignmentExpr	writeInt64 = staticWriteInt64
+>3528	Identifier	staticWriteInt64
+>3529	Identifier	writeInt64
+>3530	ExpressionStatement	 
+>3531	AssignmentExpr	writeUInt32Array = staticWriteUInt32Array
+>3532	Identifier	staticWriteUInt32Array
+>3533	Identifier	writeUInt32Array
+>3534	ExpressionStatement	 
+>3535	AssignmentExpr	writeUInt32 = staticWriteUInt32
+>3536	Identifier	staticWriteUInt32
+>3537	Identifier	writeUInt32
+>3538	ExpressionStatement	 
+>3539	AssignmentExpr	writeInt32Array = staticWriteInt32Array
+>3540	Identifier	staticWriteInt32Array
+>3541	Identifier	writeInt32Array
+>3542	ExpressionStatement	 
+>3543	AssignmentExpr	writeInt32 = staticWriteInt32
+>3544	Identifier	staticWriteInt32
+>3545	Identifier	writeInt32
+>3546	ExpressionStatement	 
+>3547	AssignmentExpr	writeAsString = staticWriteString
+>3548	Identifier	staticWriteString
+>3549	Identifier	writeAsString
+>3550	ExpressionStatement	 
+>3551	AssignmentExpr	writeByteArray = staticWriteByteArray
+>3552	Identifier	staticWriteByteArray
+>3553	Identifier	writeByteArray
+>3554	ExpressionStatement	 
+>3555	AssignmentExpr	writeByte = staticWriteByte
+>3556	Identifier	staticWriteByte
+>3557	Identifier	writeByte
+>3558	ExpressionStatement	 
+>3559	AssignmentExpr	NTA_WriteBuffer 
+>3560	Identifier	staticWriteBufferGetSize
+>3561	Identifier	NTA_WriteBuffer 
+>3562	ExpressionStatement	 
+>3563	AssignmentExpr	NTA_WriteBuffer 
+>3564	Identifier	staticGetData
+>3565	Identifier	NTA_WriteBuffer 
+>3566	ExpressionStatement	 
+>3567	AssignmentExpr	handle = reinterpret_cast < NTA_WriteBufferHandle > ( this )
+>3568	RelationalExpression	reinterpret_cast < NTA_WriteBufferHandle > ( this )
+>3569	RelationalExpression	NTA_WriteBufferHandle > ( this )
+>3570	Identifier	this
+>3571	Identifier	NTA_WriteBufferHandle
+>3572	Identifier	reinterpret_cast
+>3573	Identifier	handle
+>3617	FunctionDef	WriteBuffer 
+>3618	ParameterList	Byte value
+>3619	Parameter	 
+>3620	Identifier	value
+>3621	ParameterType	Byte
+>3622	ReturnType	Int32
+>3623	CompoundStatement	 
+>3624	ReturnStatement	 
+>3625	CallExpression	writeT ( value )
+>3626	ArgumentList	value
+>3627	Argument	value
+>3628	Identifier	value
+>3629	Callee	writeT
+>3630	Identifier	writeT
+>3636	FunctionDef	WriteBuffer 
+>3637	ParameterList	const Byte * bytes , Size size
+>3638	Parameter	 
+>3639	Identifier	size
+>3640	ParameterType	Size
+>3641	Parameter	 
+>3642	Identifier	bytes
+>3643	ParameterType	const Byte *
+>3644	ReturnType	Int32
+>3645	CompoundStatement	 
+>3646	CompoundStatement	 
+>3647	ReturnStatement	 
+>3648	UnaryOp	- 1
+>3649	PrimaryExpression	1
+>3650	UnaryOperator	-
+>3651	Statement	 
+>3652	Statement	 
+>3653	Statement	 
+>3654	Statement	 
+>3655	Statement	 
+>3656	Statement	 
+>3657	BlockStarter	 
+>3658	CompoundStatement	 
+>3659	ReturnStatement	return 0 ;
+>3660	PrimaryExpression	0
+>3661	ExpressionStatement	OMemStream 
+>3662	CallExpression	OMemStream 
+>3663	ArgumentList	bytes
+>3664	Argument	( std 
+>3665	CastExpression	( std 
+>3666	Identifier	size
+>3667	CastTarget	std 
+>3668	Argument	bytes
+>3669	Identifier	bytes
+>3670	Callee	OMemStream 
+>3671	Identifier	OMemStream 
+>3677	FunctionDef	WriteBuffer 
+>3678	ParameterList	Int32 value
+>3679	Parameter	 
+>3680	Identifier	value
+>3681	ParameterType	Int32
+>3682	ReturnType	Int32
+>3683	CompoundStatement	 
+>3684	ReturnStatement	 
+>3685	CallExpression	writeT ( value )
+>3686	ArgumentList	value
+>3687	Argument	value
+>3688	Identifier	value
+>3689	Callee	writeT
+>3690	Identifier	writeT
+>3696	FunctionDef	WriteBuffer 
+>3697	ParameterList	const Int32 * value , Size size
+>3698	Parameter	 
+>3699	Identifier	size
+>3700	ParameterType	Size
+>3701	Parameter	 
+>3702	Identifier	value
+>3703	ParameterType	const Int32 *
+>3704	ReturnType	Int32
+>3705	CompoundStatement	 
+>3706	ReturnStatement	 
+>3707	CallExpression	writeT ( value , size )
+>3708	ArgumentList	value
+>3709	Argument	size
+>3710	Identifier	size
+>3711	Argument	value
+>3712	Identifier	value
+>3713	Callee	writeT
+>3714	Identifier	writeT
+>3721	FunctionDef	WriteBuffer 
+>3722	ParameterList	UInt32 value
+>3723	Parameter	 
+>3724	Identifier	value
+>3725	ParameterType	UInt32
+>3726	ReturnType	Int32
+>3727	CompoundStatement	 
+>3728	ReturnStatement	 
+>3729	CallExpression	writeT ( value )
+>3730	ArgumentList	value
+>3731	Argument	value
+>3732	Identifier	value
+>3733	Callee	writeT
+>3734	Identifier	writeT
+>3740	FunctionDef	WriteBuffer 
+>3741	ParameterList	const UInt32 * value , Size size
+>3742	Parameter	 
+>3743	Identifier	size
+>3744	ParameterType	Size
+>3745	Parameter	 
+>3746	Identifier	value
+>3747	ParameterType	const UInt32 *
+>3748	ReturnType	Int32
+>3749	CompoundStatement	 
+>3750	ReturnStatement	 
+>3751	CallExpression	writeT ( value , size )
+>3752	ArgumentList	value
+>3753	Argument	size
+>3754	Identifier	size
+>3755	Argument	value
+>3756	Identifier	value
+>3757	Callee	writeT
+>3758	Identifier	writeT
+>3765	FunctionDef	WriteBuffer 
+>3766	ParameterList	Int64 value
+>3767	Parameter	 
+>3768	Identifier	value
+>3769	ParameterType	Int64
+>3770	ReturnType	Int32
+>3771	CompoundStatement	 
+>3772	ReturnStatement	 
+>3773	CallExpression	writeT ( value )
+>3774	ArgumentList	value
+>3775	Argument	value
+>3776	Identifier	value
+>3777	Callee	writeT
+>3778	Identifier	writeT
+>3784	FunctionDef	WriteBuffer 
+>3785	ParameterList	const Int64 * value , Size size
+>3786	Parameter	 
+>3787	Identifier	size
+>3788	ParameterType	Size
+>3789	Parameter	 
+>3790	Identifier	value
+>3791	ParameterType	const Int64 *
+>3792	ReturnType	Int32
+>3793	CompoundStatement	 
+>3794	ReturnStatement	 
+>3795	CallExpression	writeT ( value , size )
+>3796	ArgumentList	value
+>3797	Argument	size
+>3798	Identifier	size
+>3799	Argument	value
+>3800	Identifier	value
+>3801	Callee	writeT
+>3802	Identifier	writeT
+>3809	FunctionDef	WriteBuffer 
+>3810	ParameterList	UInt64 value
+>3811	Parameter	 
+>3812	Identifier	value
+>3813	ParameterType	UInt64
+>3814	ReturnType	Int32
+>3815	CompoundStatement	 
+>3816	ReturnStatement	 
+>3817	CallExpression	writeT ( value )
+>3818	ArgumentList	value
+>3819	Argument	value
+>3820	Identifier	value
+>3821	Callee	writeT
+>3822	Identifier	writeT
+>3828	FunctionDef	WriteBuffer 
+>3829	ParameterList	const UInt64 * value , Size size
+>3830	Parameter	 
+>3831	Identifier	size
+>3832	ParameterType	Size
+>3833	Parameter	 
+>3834	Identifier	value
+>3835	ParameterType	const UInt64 *
+>3836	ReturnType	Int32
+>3837	CompoundStatement	 
+>3838	ReturnStatement	 
+>3839	CallExpression	writeT ( value , size )
+>3840	ArgumentList	value
+>3841	Argument	size
+>3842	Identifier	size
+>3843	Argument	value
+>3844	Identifier	value
+>3845	Callee	writeT
+>3846	Identifier	writeT
+>3853	FunctionDef	WriteBuffer 
+>3854	ParameterList	Real32 value
+>3855	Parameter	 
+>3856	Identifier	value
+>3857	ParameterType	Real32
+>3858	ReturnType	Int32
+>3859	CompoundStatement	 
+>3860	ReturnStatement	 
+>3861	CallExpression	writeT ( value )
+>3862	ArgumentList	value
+>3863	Argument	value
+>3864	Identifier	value
+>3865	Callee	writeT
+>3866	Identifier	writeT
+>3872	FunctionDef	WriteBuffer 
+>3873	ParameterList	const Real32 * value , Size size
+>3874	Parameter	 
+>3875	Identifier	size
+>3876	ParameterType	Size
+>3877	Parameter	 
+>3878	Identifier	value
+>3879	ParameterType	const Real32 *
+>3880	ReturnType	Int32
+>3881	CompoundStatement	 
+>3882	ReturnStatement	 
+>3883	CallExpression	writeT ( value , size )
+>3884	ArgumentList	value
+>3885	Argument	size
+>3886	Identifier	size
+>3887	Argument	value
+>3888	Identifier	value
+>3889	Callee	writeT
+>3890	Identifier	writeT
+>3897	FunctionDef	WriteBuffer 
+>3898	ParameterList	Real64 value
+>3899	Parameter	 
+>3900	Identifier	value
+>3901	ParameterType	Real64
+>3902	ReturnType	Int32
+>3903	CompoundStatement	 
+>3904	ReturnStatement	 
+>3905	CallExpression	writeT ( value )
+>3906	ArgumentList	value
+>3907	Argument	value
+>3908	Identifier	value
+>3909	Callee	writeT
+>3910	Identifier	writeT
+>3916	FunctionDef	WriteBuffer 
+>3917	ParameterList	const Real64 * value , Size size
+>3918	Parameter	 
+>3919	Identifier	size
+>3920	ParameterType	Size
+>3921	Parameter	 
+>3922	Identifier	value
+>3923	ParameterType	const Real64 *
+>3924	ReturnType	Int32
+>3925	CompoundStatement	 
+>3926	ReturnStatement	 
+>3927	CallExpression	writeT ( value , size )
+>3928	ArgumentList	value
+>3929	Argument	size
+>3930	Identifier	size
+>3931	Argument	value
+>3932	Identifier	value
+>3933	Callee	writeT
+>3934	Identifier	writeT
+>3941	FunctionDef	WriteBuffer 
+>3942	ParameterList	const NTA_Byte * value , NTA_Size size
+>3943	Parameter	 
+>3944	Identifier	size
+>3945	ParameterType	NTA_Size
+>3946	Parameter	 
+>3947	Identifier	value
+>3948	ParameterType	const NTA_Byte *
+>3949	ReturnType	NTA_Int32
+>3950	CompoundStatement	 
+>3951	ReturnStatement	 
+>3952	Identifier	result
+>3953	ExpressionStatement	 
+>3954	AssignmentExpr	result = write ( \"</s>\" , 4 )
+>3955	CallExpression	write ( \"</s>\" , 4 )
+>3956	ArgumentList	\"</s>\"
+>3957	Argument	4
+>3958	PrimaryExpression	4
+>3959	Argument	\"</s>\"
+>3960	PrimaryExpression	\"</s>\"
+>3961	Callee	write
+>3962	Identifier	write
+>3963	Identifier	result
+>3964	IfStatement	if ( size )
+>3965	CompoundStatement	 
+>3966	IfStatement	if ( result != 0 )
+>3967	ReturnStatement	 
+>3968	Identifier	result
+>3969	Condition	 
+>3970	EqualityExpression	result != 0
+>3971	PrimaryExpression	0
+>3972	Identifier	result
+>3973	ExpressionStatement	 
+>3974	AssignmentExpr	result = write ( value , size )
+>3975	CallExpression	write ( value , size )
+>3976	ArgumentList	value
+>3977	Argument	size
+>3978	Identifier	size
+>3979	Argument	value
+>3980	Identifier	value
+>3981	Callee	write
+>3982	Identifier	write
+>3983	Identifier	result
+>3984	Condition	 
+>3985	Identifier	size
+>3986	IfStatement	if ( result != 0 )
+>3987	ReturnStatement	 
+>3988	Identifier	result
+>3989	Condition	 
+>3990	EqualityExpression	result != 0
+>3991	PrimaryExpression	0
+>3992	Identifier	result
+>3993	ExpressionStatement	 
+>3994	AssignmentExpr	result = writeT ( '>' , 0 )
+>3995	CallExpression	writeT ( '>' , 0 )
+>3996	ArgumentList	'>'
+>3997	Argument	0
+>3998	PrimaryExpression	0
+>3999	Argument	'>'
+>4000	PrimaryExpression	'>'
+>4001	Callee	writeT
+>4002	Identifier	writeT
+>4003	Identifier	result
+>4004	IfStatement	if ( result != 0 )
+>4005	ReturnStatement	 
+>4006	Identifier	result
+>4007	Condition	 
+>4008	EqualityExpression	result != 0
+>4009	PrimaryExpression	0
+>4010	Identifier	result
+>4011	ExpressionStatement	 
+>4012	AssignmentExpr	result = writeT ( size , 0 )
+>4013	CallExpression	writeT ( size , 0 )
+>4014	ArgumentList	size
+>4015	Argument	0
+>4016	PrimaryExpression	0
+>4017	Argument	size
+>4018	Identifier	size
+>4019	Callee	writeT
+>4020	Identifier	writeT
+>4021	Identifier	result
+>4022	IfStatement	if ( result != 0 )
+>4023	ReturnStatement	 
+>4024	Identifier	result
+>4025	Condition	 
+>4026	EqualityExpression	result != 0
+>4027	PrimaryExpression	0
+>4028	Identifier	result
+>4029	IdentifierDeclStatement	 
+>4030	IdentifierDecl	result = write ( \"<s n=\" , 5 )
+>4031	AssignmentExpr	result = write ( \"<s n=\" , 5 )
+>4032	CallExpression	write ( \"<s n=\" , 5 )
+>4033	ArgumentList	\"<s n=\"
+>4034	Argument	5
+>4035	PrimaryExpression	5
+>4036	Argument	\"<s n=\"
+>4037	PrimaryExpression	\"<s n=\"
+>4038	Callee	write
+>4039	Identifier	write
+>4040	Identifier	result
+>4041	Identifier	result
+>4042	IdentifierDeclType	NTA_Int32
+>4051	FunctionDef	WriteBuffer 
+>4052	ParameterList	 
+>4053	ReturnType	const Byte *
+>4054	CompoundStatement	 
+>4055	CompoundStatement	 
+>4056	ReturnStatement	 
+>4057	Identifier	NULL
+>4058	Statement	 
+>4059	Statement	 
+>4060	Statement	 
+>4061	Statement	 
+>4062	Statement	 
+>4063	Statement	 
+>4064	BlockStarter	 
+>4065	CompoundStatement	 
+>4066	ReturnStatement	return OMemStream 
+>4067	CallExpression	OMemStream 
+>4068	ArgumentList	 
+>4069	Callee	OMemStream 
+>4070	Identifier	OMemStream 
+>4076	FunctionDef	WriteBuffer 
+>4077	ParameterList	 
+>4078	ReturnType	Size
+>4079	CompoundStatement	 
+>4080	ReturnStatement	 
+>4081	CastExpression	( Size ) OMemStream 
+>4082	CallExpression	OMemStream 
+>4083	ArgumentList	 
+>4084	Callee	OMemStream 
+>4085	Identifier	OMemStream 
+>4086	CastTarget	Size
+<3=9,8,4
+<4=5
+<5=7,6
+<9=28,27,26,25,24,23,22,21,20,19,17,10
+<10=11
+<11=13,12
+<13=14
+<14=16,15
+<17=18
+<28=29
+<29=35,30
+<30=31
+<31=32
+<32=34,33
+<35=36
+<45=51,50,46
+<46=47
+<47=49,48
+<51=70,69,68,67,66,65,64,63,62,61,59,52
+<52=53
+<53=55,54
+<55=56
+<56=58,57
+<59=60
+<70=71
+<71=77,72
+<72=73
+<73=74
+<74=76,75
+<77=78
+<87=93,92,88
+<88=89
+<89=91,90
+<93=112,111,110,109,108,107,106,105,104,103,101,94
+<94=95
+<95=97,96
+<97=98
+<98=100,99
+<101=102
+<112=113
+<113=119,114
+<114=115
+<115=116
+<116=118,117
+<119=120
+<129=138,137,130
+<130=134,131
+<131=133,132
+<134=136,135
+<138=161,160,159,158,157,156,155,154,153,152,150,139
+<139=140
+<140=146,141
+<141=142
+<142=143
+<143=145,144
+<146=147
+<147=149,148
+<150=151
+<161=166,162
+<162=163
+<163=165,164
+<166=167
+<167=171,168
+<168=170,169
+<171=173,172
+<183=195,194,184
+<184=191,188,185
+<185=187,186
+<188=190,189
+<191=193,192
+<195=220,219,218,217,216,215,214,213,212,211,209,196
+<196=197
+<197=205,198
+<198=203,199
+<199=200
+<200=202,201
+<203=204
+<205=206
+<206=208,207
+<209=210
+<220=225,221
+<221=222
+<222=224,223
+<225=226
+<226=240,227
+<227=237,228
+<228=234,229
+<229=231,230
+<231=233,232
+<234=236,235
+<237=239,238
+<240=242,241
+<253=271,270,254
+<254=267,264,261,258,255
+<255=257,256
+<258=260,259
+<261=263,262
+<264=266,265
+<267=269,268
+<271=302,301,300,299,298,297,296,295,294,293,291,272
+<272=273
+<273=287,274
+<274=283,279,277,275
+<275=276
+<277=278
+<279=280
+<280=282,281
+<283=284
+<284=286,285
+<287=288
+<288=290,289
+<291=292
+<302=308,303
+<303=304
+<304=305
+<305=307,306
+<308=309
+<309=313,310
+<310=312,311
+<313=315,314
+<329=338,337,330
+<330=334,331
+<331=333,332
+<334=336,335
+<338=361,360,359,358,357,356,355,354,353,352,350,339
+<339=340
+<340=346,341
+<341=342
+<342=343
+<343=345,344
+<346=347
+<347=349,348
+<350=351
+<361=366,362
+<362=363
+<363=365,364
+<366=367
+<367=371,368
+<368=370,369
+<371=373,372
+<383=395,394,384
+<384=391,388,385
+<385=387,386
+<388=390,389
+<391=393,392
+<395=418,417,416,415,414,413,412,411,410,409,407,396
+<396=397
+<397=403,398
+<398=401,399
+<399=400
+<401=402
+<403=404
+<404=406,405
+<407=408
+<418=423,419
+<419=420
+<420=422,421
+<423=424
+<424=432,425
+<425=429,426
+<426=428,427
+<429=431,430
+<432=434,433
+<444=453,452,445
+<445=449,446
+<446=448,447
+<449=451,450
+<453=476,475,474,473,472,471,470,469,468,467,465,454
+<454=455
+<455=461,456
+<456=457
+<457=458
+<458=460,459
+<461=462
+<462=464,463
+<465=466
+<476=481,477
+<477=478
+<478=480,479
+<481=482
+<482=486,483
+<483=485,484
+<486=488,487
+<498=510,509,499
+<499=506,503,500
+<500=502,501
+<503=505,504
+<506=508,507
+<510=533,532,531,530,529,528,527,526,525,524,522,511
+<511=512
+<512=518,513
+<513=516,514
+<514=515
+<516=517
+<518=519
+<519=521,520
+<522=523
+<533=538,534
+<534=535
+<535=537,536
+<538=539
+<539=547,540
+<540=544,541
+<541=543,542
+<544=546,545
+<547=549,548
+<559=568,567,560
+<560=564,561
+<561=563,562
+<564=566,565
+<568=591,590,589,588,587,586,585,584,583,582,580,569
+<569=570
+<570=576,571
+<571=572
+<572=573
+<573=575,574
+<576=577
+<577=579,578
+<580=581
+<591=596,592
+<592=593
+<593=595,594
+<596=597
+<597=601,598
+<598=600,599
+<601=603,602
+<613=625,624,614
+<614=621,618,615
+<615=617,616
+<618=620,619
+<621=623,622
+<625=648,647,646,645,644,643,642,641,640,639,637,626
+<626=627
+<627=633,628
+<628=631,629
+<629=630
+<631=632
+<633=634
+<634=636,635
+<637=638
+<648=653,649
+<649=650
+<650=652,651
+<653=654
+<654=662,655
+<655=659,656
+<656=658,657
+<659=661,660
+<662=664,663
+<674=683,682,675
+<675=679,676
+<676=678,677
+<679=681,680
+<683=706,705,704,703,702,701,700,699,698,697,695,684
+<684=685
+<685=691,686
+<686=687
+<687=688
+<688=690,689
+<691=692
+<692=694,693
+<695=696
+<706=711,707
+<707=708
+<708=710,709
+<711=712
+<712=716,713
+<713=715,714
+<716=718,717
+<728=740,739,729
+<729=736,733,730
+<730=732,731
+<733=735,734
+<736=738,737
+<740=763,762,761,760,759,758,757,756,755,754,752,741
+<741=742
+<742=748,743
+<743=746,744
+<744=745
+<746=747
+<748=749
+<749=751,750
+<752=753
+<763=768,764
+<764=765
+<765=767,766
+<768=769
+<769=777,770
+<770=774,771
+<771=773,772
+<774=776,775
+<777=779,778
+<789=798,797,790
+<790=794,791
+<791=793,792
+<794=796,795
+<798=821,820,819,818,817,816,815,814,813,812,810,799
+<799=800
+<800=806,801
+<801=802
+<802=803
+<803=805,804
+<806=807
+<807=809,808
+<810=811
+<821=826,822
+<822=823
+<823=825,824
+<826=827
+<827=831,828
+<828=830,829
+<831=833,832
+<843=855,854,844
+<844=851,848,845
+<845=847,846
+<848=850,849
+<851=853,852
+<855=878,877,876,875,874,873,872,871,870,869,867,856
+<856=857
+<857=863,858
+<858=861,859
+<859=860
+<861=862
+<863=864
+<864=866,865
+<867=868
+<878=883,879
+<879=880
+<880=882,881
+<883=884
+<884=892,885
+<885=889,886
+<886=888,887
+<889=891,890
+<892=894,893
+<904=913,912,905
+<905=909,906
+<906=908,907
+<909=911,910
+<913=936,935,934,933,932,931,930,929,928,927,925,914
+<914=915
+<915=921,916
+<916=917
+<917=918
+<918=920,919
+<921=922
+<922=924,923
+<925=926
+<936=941,937
+<937=938
+<938=940,939
+<941=942
+<942=946,943
+<943=945,944
+<946=948,947
+<958=970,969,959
+<959=966,963,960
+<960=962,961
+<963=965,964
+<966=968,967
+<970=993,992,991,990,989,988,987,986,985,984,982,971
+<971=972
+<972=978,973
+<973=976,974
+<974=975
+<976=977
+<978=979
+<979=981,980
+<982=983
+<993=998,994
+<994=995
+<995=997,996
+<998=999
+<999=1007,1000
+<1000=1004,1001
+<1001=1003,1002
+<1004=1006,1005
+<1007=1009,1008
+<1019=1030,1020
+<1020=1027,1024,1021
+<1021=1023,1022
+<1024=1026,1025
+<1027=1029,1028
+<1030=1138,1122,1111,1103,1099,1095,1091,1087,1083,1079,1075,1071,1067,1063,1059,1055,1051,1047,1043,1039,1035,1031
+<1031=1032
+<1032=1034,1033
+<1035=1036
+<1036=1038,1037
+<1039=1040
+<1040=1042,1041
+<1043=1044
+<1044=1046,1045
+<1047=1048
+<1048=1050,1049
+<1051=1052
+<1052=1054,1053
+<1055=1056
+<1056=1058,1057
+<1059=1060
+<1060=1062,1061
+<1063=1064
+<1064=1066,1065
+<1067=1068
+<1068=1070,1069
+<1071=1072
+<1072=1074,1073
+<1075=1076
+<1076=1078,1077
+<1079=1080
+<1080=1082,1081
+<1083=1084
+<1084=1086,1085
+<1087=1088
+<1088=1090,1089
+<1091=1092
+<1092=1094,1093
+<1095=1096
+<1096=1098,1097
+<1099=1100
+<1100=1102,1101
+<1103=1104
+<1104=1110,1105
+<1105=1109,1106
+<1106=1108,1107
+<1111=1112
+<1112=1118,1113
+<1113=1114
+<1114=1115
+<1115=1117,1116
+<1118=1119
+<1119=1121,1120
+<1122=1123
+<1123=1136,1124
+<1124=1129,1127,1125
+<1125=1126
+<1127=1128
+<1129=1130
+<1130=1132,1131
+<1132=1133
+<1133=1135,1134
+<1136=1137
+<1138=1140,1139
+<1140=1141
+<1193=1198,1194
+<1194=1195
+<1195=1197,1196
+<1198=1199
+<1199=1200
+<1200=1204,1201
+<1201=1202
+<1202=1203
+<1204=1205
+<1210=1215,1211
+<1211=1212
+<1212=1214,1213
+<1215=1220,1216
+<1216=1217
+<1217=1219,1218
+<1220=1221
+<1221=1225,1222
+<1222=1223
+<1223=1224
+<1225=1226
+<1233=1239,1238,1234
+<1234=1235
+<1235=1237,1236
+<1239=1339,1335,1331,1327,1323,1319,1315,1311,1307,1303,1299,1295,1291,1287,1283,1279,1275,1271,1267,1261,1240
+<1240=1241
+<1241=1257,1242
+<1242=1250,1243
+<1243=1244
+<1244=1246,1245
+<1246=1247
+<1247=1249,1248
+<1250=1251
+<1251=1253,1252
+<1253=1254
+<1254=1256,1255
+<1257=1258
+<1258=1260,1259
+<1261=1262
+<1262=1266,1263
+<1263=1265,1264
+<1267=1268
+<1268=1270,1269
+<1271=1272
+<1272=1274,1273
+<1275=1276
+<1276=1278,1277
+<1279=1280
+<1280=1282,1281
+<1283=1284
+<1284=1286,1285
+<1287=1288
+<1288=1290,1289
+<1291=1292
+<1292=1294,1293
+<1295=1296
+<1296=1298,1297
+<1299=1300
+<1300=1302,1301
+<1303=1304
+<1304=1306,1305
+<1307=1308
+<1308=1310,1309
+<1311=1312
+<1312=1314,1313
+<1315=1316
+<1316=1318,1317
+<1319=1320
+<1320=1322,1321
+<1323=1324
+<1324=1326,1325
+<1327=1328
+<1328=1330,1329
+<1331=1332
+<1332=1334,1333
+<1335=1336
+<1336=1338,1337
+<1339=1340
+<1340=1346,1341
+<1341=1345,1342
+<1342=1344,1343
+<1396=1399,1398,1397
+<1399=1461,1460,1459,1458,1457,1456,1455,1454,1453,1452,1451,1450,1449,1442,1407,1400
+<1400=1401
+<1401=1403,1402
+<1403=1404
+<1404=1406,1405
+<1407=1408
+<1408=1438,1409
+<1409=1431,1424,1410
+<1410=1411
+<1411=1418,1412
+<1412=1414,1413
+<1414=1415
+<1415=1417,1416
+<1418=1420,1419
+<1420=1421
+<1421=1423,1422
+<1424=1425
+<1425=1427,1426
+<1427=1428
+<1428=1430,1429
+<1431=1432
+<1432=1434,1433
+<1434=1435
+<1435=1437,1436
+<1438=1439
+<1439=1441,1440
+<1442=1443
+<1443=1445,1444
+<1445=1446
+<1446=1448,1447
+<1470=1473,1472,1471
+<1473=1474
+<1474=1475
+<1475=1482,1476
+<1476=1478,1477
+<1478=1479
+<1479=1481,1480
+<1488=1491,1490,1489
+<1491=1492
+<1492=1493
+<1493=1495,1494
+<1495=1496
+<1496=1498,1497
+<1504=1510,1509,1505
+<1505=1506
+<1506=1508,1507
+<1510=1511
+<1511=1512
+<1512=1516,1513
+<1513=1514
+<1514=1515
+<1516=1517
+<1523=1532,1531,1524
+<1524=1528,1525
+<1525=1527,1526
+<1528=1530,1529
+<1532=1581,1580,1579,1578,1577,1576,1575,1574,1573,1571,1548,1547,1546,1545,1544,1543,1542,1533
+<1533=1538,1534
+<1534=1535
+<1535=1537,1536
+<1538=1539
+<1539=1541,1540
+<1548=1549
+<1549=1552,1550
+<1550=1551
+<1552=1553
+<1553=1570,1554
+<1554=1564,1555
+<1555=1562,1560,1556
+<1556=1557
+<1557=1559,1558
+<1560=1561
+<1562=1563
+<1564=1565
+<1565=1567,1566
+<1567=1569,1568
+<1571=1572
+<1591=1597,1596,1592
+<1592=1593
+<1593=1595,1594
+<1597=1598
+<1598=1599
+<1599=1603,1600
+<1600=1601
+<1601=1602
+<1603=1604
+<1610=1619,1618,1611
+<1611=1615,1612
+<1612=1614,1613
+<1615=1617,1616
+<1619=1620
+<1620=1621
+<1621=1627,1622
+<1622=1625,1623
+<1623=1624
+<1625=1626
+<1627=1628
+<1635=1641,1640,1636
+<1636=1637
+<1637=1639,1638
+<1641=1642
+<1642=1643
+<1643=1647,1644
+<1644=1645
+<1645=1646
+<1647=1648
+<1654=1663,1662,1655
+<1655=1659,1656
+<1656=1658,1657
+<1659=1661,1660
+<1663=1664
+<1664=1665
+<1665=1671,1666
+<1666=1669,1667
+<1667=1668
+<1669=1670
+<1671=1672
+<1679=1685,1684,1680
+<1680=1681
+<1681=1683,1682
+<1685=1686
+<1686=1687
+<1687=1691,1688
+<1688=1689
+<1689=1690
+<1691=1692
+<1698=1707,1706,1699
+<1699=1703,1700
+<1700=1702,1701
+<1703=1705,1704
+<1707=1708
+<1708=1709
+<1709=1715,1710
+<1710=1713,1711
+<1711=1712
+<1713=1714
+<1715=1716
+<1723=1729,1728,1724
+<1724=1725
+<1725=1727,1726
+<1729=1730
+<1730=1731
+<1731=1735,1732
+<1732=1733
+<1733=1734
+<1735=1736
+<1742=1751,1750,1743
+<1743=1747,1744
+<1744=1746,1745
+<1747=1749,1748
+<1751=1752
+<1752=1753
+<1753=1759,1754
+<1754=1757,1755
+<1755=1756
+<1757=1758
+<1759=1760
+<1767=1773,1772,1768
+<1768=1769
+<1769=1771,1770
+<1773=1774
+<1774=1775
+<1775=1779,1776
+<1776=1777
+<1777=1778
+<1779=1780
+<1786=1795,1794,1787
+<1787=1791,1788
+<1788=1790,1789
+<1791=1793,1792
+<1795=1796
+<1796=1797
+<1797=1803,1798
+<1798=1801,1799
+<1799=1800
+<1801=1802
+<1803=1804
+<1811=1817,1816,1812
+<1812=1813
+<1813=1815,1814
+<1817=1818
+<1818=1819
+<1819=1823,1820
+<1820=1821
+<1821=1822
+<1823=1824
+<1830=1839,1838,1831
+<1831=1835,1832
+<1832=1834,1833
+<1835=1837,1836
+<1839=1840
+<1840=1841
+<1841=1847,1842
+<1842=1845,1843
+<1843=1844
+<1845=1846
+<1847=1848
+<1855=1867,1866,1856
+<1856=1863,1860,1857
+<1857=1859,1858
+<1860=1862,1861
+<1863=1865,1864
+<1867=1947,1943,1872,1868
+<1868=1869
+<1869=1871,1870
+<1872=1935,1931,1928,1873
+<1873=1924,1913,1904,1895,1894,1893,1892,1891,1890,1889,1888,1887,1882,1881,1880,1879,1878,1877,1876,1875,1874
+<1882=1883
+<1883=1884
+<1884=1886,1885
+<1895=1900,1898,1896
+<1896=1897
+<1898=1899
+<1900=1901
+<1901=1903,1902
+<1904=1909,1907,1905
+<1905=1906
+<1907=1908
+<1909=1910
+<1910=1912,1911
+<1913=1914
+<1914=1923,1915
+<1915=1919,1916
+<1916=1917
+<1917=1918
+<1919=1920
+<1920=1922,1921
+<1924=1925
+<1925=1927,1926
+<1928=1930,1929
+<1931=1932
+<1932=1934,1933
+<1935=1936
+<1936=1937
+<1937=1942,1941,1938
+<1938=1940,1939
+<1943=1944
+<1944=1946,1945
+<1947=1948
+<1948=1950,1949
+<1961=1973,1972,1962
+<1962=1969,1966,1963
+<1963=1965,1964
+<1966=1968,1967
+<1969=1971,1970
+<1973=2012,1976,1974
+<1974=1975
+<1976=2008,1977
+<1977=1993,1986,1982,1978
+<1978=1979
+<1979=1981,1980
+<1982=1983
+<1983=1985,1984
+<1986=1989,1987
+<1987=1988
+<1989=1990
+<1990=1992,1991
+<1993=1994
+<1994=2007,1995
+<1995=2005,1996
+<1996=2003,1999,1997
+<1997=1998
+<1999=2000
+<2000=2002,2001
+<2003=2004
+<2005=2006
+<2008=2009
+<2009=2011,2010
+<2012=2013
+<2013=2018,2017,2014
+<2014=2016,2015
+<2028=2043,2042,2029
+<2029=2039,2036,2033,2030
+<2030=2032,2031
+<2033=2035,2034
+<2036=2038,2037
+<2039=2041,2040
+<2043=2283,2279,2275,2257,2250,2235,2228,2213,2206,2197,2190,2175,2168,2057,2044
+<2044=2045
+<2045=2055,2046
+<2046=2051,2049,2047
+<2047=2048
+<2049=2050
+<2051=2052
+<2052=2054,2053
+<2055=2056
+<2057=2166,2079,2058
+<2058=2059
+<2059=2078,2077,2076,2075,2074,2073,2072,2071,2070,2069,2068,2067,2066,2065,2064,2063,2062,2061,2060
+<2079=2159,2142,2125,2124,2123,2122,2121,2120,2119,2087,2080
+<2080=2083,2081
+<2081=2082
+<2083=2084
+<2084=2086,2085
+<2087=2115,2111,2094,2093,2092,2090,2089,2088
+<2090=2091
+<2094=2109,2102,2095
+<2095=2096
+<2096=2100,2099,2097
+<2097=2098
+<2100=2101
+<2102=2103
+<2103=2107,2104
+<2104=2105
+<2105=2106
+<2107=2108
+<2109=2110
+<2111=2112
+<2112=2114,2113
+<2115=2116
+<2116=2118,2117
+<2125=2126
+<2126=2131,2127
+<2127=2128
+<2128=2130,2129
+<2131=2132
+<2132=2141,2133
+<2133=2139,2134
+<2134=2137,2135
+<2135=2136
+<2137=2138
+<2139=2140
+<2142=2157,2148,2143
+<2143=2144
+<2144=2145
+<2145=2147,2146
+<2148=2149
+<2149=2156,2150
+<2150=2154,2151
+<2151=2152
+<2152=2153
+<2154=2155
+<2157=2158
+<2159=2160
+<2160=2165,2164,2161
+<2161=2163,2162
+<2166=2167
+<2168=2171,2169
+<2169=2170
+<2171=2172
+<2172=2174,2173
+<2175=2176
+<2176=2189,2177
+<2177=2187,2178
+<2178=2183,2181,2179
+<2179=2180
+<2181=2182
+<2183=2184
+<2184=2186,2185
+<2187=2188
+<2190=2193,2191
+<2191=2192
+<2193=2194
+<2194=2196,2195
+<2197=2198
+<2198=2205,2199
+<2199=2203,2200
+<2200=2201
+<2201=2202
+<2203=2204
+<2206=2209,2207
+<2207=2208
+<2209=2210
+<2210=2212,2211
+<2213=2214
+<2214=2227,2215
+<2215=2225,2216
+<2216=2221,2219,2217
+<2217=2218
+<2219=2220
+<2221=2222
+<2222=2224,2223
+<2225=2226
+<2228=2231,2229
+<2229=2230
+<2231=2232
+<2232=2234,2233
+<2235=2236
+<2236=2249,2237
+<2237=2247,2238
+<2238=2243,2241,2239
+<2239=2240
+<2241=2242
+<2243=2244
+<2244=2246,2245
+<2247=2248
+<2250=2253,2251
+<2251=2252
+<2253=2254
+<2254=2256,2255
+<2257=2258
+<2258=2274,2273,2259
+<2259=2272,2260
+<2260=2270,2261
+<2261=2266,2264,2262
+<2262=2263
+<2264=2265
+<2266=2267
+<2267=2269,2268
+<2270=2271
+<2275=2276
+<2276=2278,2277
+<2279=2280
+<2280=2282,2281
+<2283=2284
+<2284=2292,2285
+<2285=2286
+<2286=2287
+<2287=2291,2288
+<2288=2290,2289
+<2292=2293
+<2308=2314,2313,2309
+<2309=2310
+<2310=2312,2311
+<2314=2349,2348,2347,2346,2345,2344,2343,2342,2341,2340,2339,2338,2337,2336,2335,2334,2333,2332,2331,2330,2329,2328,2327,2326,2325,2324,2323,2322,2315
+<2315=2316
+<2316=2318,2317
+<2318=2319
+<2319=2321,2320
+<2349=2350
+<2350=2356,2351
+<2351=2352
+<2352=2353
+<2353=2355,2354
+<2356=2357
+<2364=2370,2369,2365
+<2365=2366
+<2366=2368,2367
+<2370=2398,2397,2396,2395,2394,2393,2392,2391,2390,2389,2388,2387,2386,2385,2384,2383,2382,2381,2380,2379,2378,2371
+<2371=2372
+<2372=2374,2373
+<2374=2375
+<2375=2377,2376
+<2398=2399
+<2399=2405,2400
+<2400=2401
+<2401=2402
+<2402=2404,2403
+<2405=2406
+<2415=2420,2416
+<2416=2417
+<2417=2419,2418
+<2420=2447,2446,2445,2444,2443,2442,2441,2440,2439,2438,2437,2436,2435,2434,2433,2432,2431,2430,2429,2425,2421
+<2421=2422
+<2422=2424,2423
+<2425=2426
+<2426=2428,2427
+<2456=2459,2458,2457
+<2459=2466,2460
+<2460=2461
+<2461=2465,2462
+<2462=2464,2463
+<2466=2469,2467
+<2467=2468
+<2469=2470
+<2470=2477,2471
+<2471=2473,2472
+<2473=2474
+<2474=2476,2475
+<2487=2490,2489,2488
+<2490=2491
+<2491=2492
+<2492=2494,2493
+<2499=2508,2507,2500
+<2500=2504,2501
+<2501=2503,2502
+<2504=2506,2505
+<2508=2529,2528,2527,2526,2525,2524,2523,2522,2521,2520,2518,2509
+<2509=2510
+<2510=2514,2511
+<2511=2512
+<2512=2513
+<2514=2515
+<2515=2517,2516
+<2518=2519
+<2529=2530
+<2530=2536,2531
+<2531=2532
+<2532=2533
+<2533=2535,2534
+<2536=2537
+<2547=2559,2558,2548
+<2548=2555,2552,2549
+<2549=2551,2550
+<2552=2554,2553
+<2555=2557,2556
+<2559=2600,2591,2582,2581,2580,2579,2578,2577,2576,2575,2574,2573,2571,2560
+<2560=2561
+<2561=2567,2562
+<2562=2565,2563
+<2563=2564
+<2565=2566
+<2567=2568
+<2568=2570,2569
+<2571=2572
+<2582=2583
+<2583=2589,2584
+<2584=2585
+<2585=2586
+<2586=2588,2587
+<2589=2590
+<2591=2592
+<2592=2598,2593
+<2593=2594
+<2594=2595
+<2595=2597,2596
+<2598=2599
+<2600=2601
+<2601=2607,2602
+<2602=2603
+<2603=2604
+<2604=2606,2605
+<2607=2608
+<2619=2628,2627,2620
+<2620=2624,2621
+<2621=2623,2622
+<2624=2626,2625
+<2628=2649,2648,2647,2646,2645,2644,2643,2642,2641,2640,2638,2629
+<2629=2630
+<2630=2634,2631
+<2631=2632
+<2632=2633
+<2634=2635
+<2635=2637,2636
+<2638=2639
+<2649=2650
+<2650=2656,2651
+<2651=2652
+<2652=2653
+<2653=2655,2654
+<2656=2657
+<2667=2679,2678,2668
+<2668=2675,2672,2669
+<2669=2671,2670
+<2672=2674,2673
+<2675=2677,2676
+<2679=2720,2711,2702,2701,2700,2699,2698,2697,2696,2695,2694,2693,2691,2680
+<2680=2681
+<2681=2687,2682
+<2682=2685,2683
+<2683=2684
+<2685=2686
+<2687=2688
+<2688=2690,2689
+<2691=2692
+<2702=2703
+<2703=2709,2704
+<2704=2705
+<2705=2706
+<2706=2708,2707
+<2709=2710
+<2711=2712
+<2712=2718,2713
+<2713=2714
+<2714=2715
+<2715=2717,2716
+<2718=2719
+<2720=2721
+<2721=2727,2722
+<2722=2723
+<2723=2724
+<2724=2726,2725
+<2727=2728
+<2739=2748,2747,2740
+<2740=2744,2741
+<2741=2743,2742
+<2744=2746,2745
+<2748=2769,2768,2767,2766,2765,2764,2763,2762,2761,2760,2758,2749
+<2749=2750
+<2750=2754,2751
+<2751=2752
+<2752=2753
+<2754=2755
+<2755=2757,2756
+<2758=2759
+<2769=2770
+<2770=2776,2771
+<2771=2772
+<2772=2773
+<2773=2775,2774
+<2776=2777
+<2787=2799,2798,2788
+<2788=2795,2792,2789
+<2789=2791,2790
+<2792=2794,2793
+<2795=2797,2796
+<2799=2840,2831,2822,2821,2820,2819,2818,2817,2816,2815,2814,2813,2811,2800
+<2800=2801
+<2801=2807,2802
+<2802=2805,2803
+<2803=2804
+<2805=2806
+<2807=2808
+<2808=2810,2809
+<2811=2812
+<2822=2823
+<2823=2829,2824
+<2824=2825
+<2825=2826
+<2826=2828,2827
+<2829=2830
+<2831=2832
+<2832=2838,2833
+<2833=2834
+<2834=2835
+<2835=2837,2836
+<2838=2839
+<2840=2841
+<2841=2847,2842
+<2842=2843
+<2843=2844
+<2844=2846,2845
+<2847=2848
+<2859=2868,2867,2860
+<2860=2864,2861
+<2861=2863,2862
+<2864=2866,2865
+<2868=2889,2888,2887,2886,2885,2884,2883,2882,2881,2880,2878,2869
+<2869=2870
+<2870=2874,2871
+<2871=2872
+<2872=2873
+<2874=2875
+<2875=2877,2876
+<2878=2879
+<2889=2890
+<2890=2896,2891
+<2891=2892
+<2892=2893
+<2893=2895,2894
+<2896=2897
+<2907=2919,2918,2908
+<2908=2915,2912,2909
+<2909=2911,2910
+<2912=2914,2913
+<2915=2917,2916
+<2919=2960,2951,2942,2941,2940,2939,2938,2937,2936,2935,2934,2933,2931,2920
+<2920=2921
+<2921=2927,2922
+<2922=2925,2923
+<2923=2924
+<2925=2926
+<2927=2928
+<2928=2930,2929
+<2931=2932
+<2942=2943
+<2943=2949,2944
+<2944=2945
+<2945=2946
+<2946=2948,2947
+<2949=2950
+<2951=2952
+<2952=2958,2953
+<2953=2954
+<2954=2955
+<2955=2957,2956
+<2958=2959
+<2960=2961
+<2961=2967,2962
+<2962=2963
+<2963=2964
+<2964=2966,2965
+<2967=2968
+<2979=2988,2987,2980
+<2980=2984,2981
+<2981=2983,2982
+<2984=2986,2985
+<2988=3009,3008,3007,3006,3005,3004,3003,3002,3001,3000,2998,2989
+<2989=2990
+<2990=2994,2991
+<2991=2992
+<2992=2993
+<2994=2995
+<2995=2997,2996
+<2998=2999
+<3009=3010
+<3010=3016,3011
+<3011=3012
+<3012=3013
+<3013=3015,3014
+<3016=3017
+<3027=3039,3038,3028
+<3028=3035,3032,3029
+<3029=3031,3030
+<3032=3034,3033
+<3035=3037,3036
+<3039=3080,3071,3062,3061,3060,3059,3058,3057,3056,3055,3054,3053,3051,3040
+<3040=3041
+<3041=3047,3042
+<3042=3045,3043
+<3043=3044
+<3045=3046
+<3047=3048
+<3048=3050,3049
+<3051=3052
+<3062=3063
+<3063=3069,3064
+<3064=3065
+<3065=3066
+<3066=3068,3067
+<3069=3070
+<3071=3072
+<3072=3078,3073
+<3073=3074
+<3074=3075
+<3075=3077,3076
+<3078=3079
+<3080=3081
+<3081=3087,3082
+<3082=3083
+<3083=3084
+<3084=3086,3085
+<3087=3088
+<3099=3108,3107,3100
+<3100=3104,3101
+<3101=3103,3102
+<3104=3106,3105
+<3108=3129,3128,3127,3126,3125,3124,3123,3122,3121,3120,3118,3109
+<3109=3110
+<3110=3114,3111
+<3111=3112
+<3112=3113
+<3114=3115
+<3115=3117,3116
+<3118=3119
+<3129=3130
+<3130=3136,3131
+<3131=3132
+<3132=3133
+<3133=3135,3134
+<3136=3137
+<3147=3159,3158,3148
+<3148=3155,3152,3149
+<3149=3151,3150
+<3152=3154,3153
+<3155=3157,3156
+<3159=3200,3191,3182,3181,3180,3179,3178,3177,3176,3175,3174,3173,3171,3160
+<3160=3161
+<3161=3167,3162
+<3162=3165,3163
+<3163=3164
+<3165=3166
+<3167=3168
+<3168=3170,3169
+<3171=3172
+<3182=3183
+<3183=3189,3184
+<3184=3185
+<3185=3186
+<3186=3188,3187
+<3189=3190
+<3191=3192
+<3192=3198,3193
+<3193=3194
+<3194=3195
+<3195=3197,3196
+<3198=3199
+<3200=3201
+<3201=3207,3202
+<3202=3203
+<3203=3204
+<3204=3206,3205
+<3207=3208
+<3219=3228,3227,3220
+<3220=3224,3221
+<3221=3223,3222
+<3224=3226,3225
+<3228=3249,3248,3247,3246,3245,3244,3243,3242,3241,3240,3238,3229
+<3229=3230
+<3230=3234,3231
+<3231=3232
+<3232=3233
+<3234=3235
+<3235=3237,3236
+<3238=3239
+<3249=3250
+<3250=3256,3251
+<3251=3252
+<3252=3253
+<3253=3255,3254
+<3256=3257
+<3267=3279,3278,3268
+<3268=3275,3272,3269
+<3269=3271,3270
+<3272=3274,3273
+<3275=3277,3276
+<3279=3320,3311,3302,3301,3300,3299,3298,3297,3296,3295,3294,3293,3291,3280
+<3280=3281
+<3281=3287,3282
+<3282=3285,3283
+<3283=3284
+<3285=3286
+<3287=3288
+<3288=3290,3289
+<3291=3292
+<3302=3303
+<3303=3309,3304
+<3304=3305
+<3305=3306
+<3306=3308,3307
+<3309=3310
+<3311=3312
+<3312=3318,3313
+<3313=3314
+<3314=3315
+<3315=3317,3316
+<3318=3319
+<3320=3321
+<3321=3327,3322
+<3322=3323
+<3323=3324
+<3324=3326,3325
+<3327=3328
+<3339=3351,3350,3340
+<3340=3347,3344,3341
+<3341=3343,3342
+<3344=3346,3345
+<3347=3349,3348
+<3351=3383,3374,3373,3372,3371,3370,3369,3368,3367,3366,3365,3363,3352
+<3352=3353
+<3353=3359,3354
+<3354=3357,3355
+<3355=3356
+<3357=3358
+<3359=3360
+<3360=3362,3361
+<3363=3364
+<3374=3375
+<3375=3381,3376
+<3376=3377
+<3377=3378
+<3378=3380,3379
+<3381=3382
+<3383=3384
+<3384=3390,3385
+<3385=3386
+<3386=3387
+<3387=3389,3388
+<3390=3391
+<3402=3408,3407,3403
+<3403=3404
+<3404=3406,3405
+<3408=3427,3426,3425,3424,3423,3422,3421,3420,3419,3418,3416,3409
+<3409=3410
+<3410=3412,3411
+<3412=3413
+<3413=3415,3414
+<3416=3417
+<3427=3428
+<3428=3434,3429
+<3429=3430
+<3430=3431
+<3431=3433,3432
+<3434=3435
+<3444=3450,3449,3445
+<3445=3446
+<3446=3448,3447
+<3450=3469,3468,3467,3466,3465,3464,3463,3462,3461,3460,3458,3451
+<3451=3452
+<3452=3454,3453
+<3454=3455
+<3455=3457,3456
+<3458=3459
+<3469=3470
+<3470=3476,3471
+<3471=3472
+<3472=3473
+<3473=3475,3474
+<3476=3477
+<3486=3488,3487
+<3488=3566,3562,3558,3554,3550,3546,3542,3538,3534,3530,3526,3522,3518,3514,3510,3506,3502,3498,3489
+<3489=3490
+<3490=3496,3491
+<3491=3492
+<3492=3493
+<3493=3495,3494
+<3496=3497
+<3498=3499
+<3499=3501,3500
+<3502=3503
+<3503=3505,3504
+<3506=3507
+<3507=3509,3508
+<3510=3511
+<3511=3513,3512
+<3514=3515
+<3515=3517,3516
+<3518=3519
+<3519=3521,3520
+<3522=3523
+<3523=3525,3524
+<3526=3527
+<3527=3529,3528
+<3530=3531
+<3531=3533,3532
+<3534=3535
+<3535=3537,3536
+<3538=3539
+<3539=3541,3540
+<3542=3543
+<3543=3545,3544
+<3546=3547
+<3547=3549,3548
+<3550=3551
+<3551=3553,3552
+<3554=3555
+<3555=3557,3556
+<3558=3559
+<3559=3561,3560
+<3562=3563
+<3563=3565,3564
+<3566=3567
+<3567=3573,3568
+<3568=3572,3569
+<3569=3571,3570
+<3617=3623,3622,3618
+<3618=3619
+<3619=3621,3620
+<3623=3624
+<3624=3625
+<3625=3629,3626
+<3626=3627
+<3627=3628
+<3629=3630
+<3636=3645,3644,3637
+<3637=3641,3638
+<3638=3640,3639
+<3641=3643,3642
+<3645=3657,3656,3655,3654,3653,3652,3651,3646
+<3646=3647
+<3647=3648
+<3648=3650,3649
+<3657=3658
+<3658=3661,3659
+<3659=3660
+<3661=3662
+<3662=3670,3663
+<3663=3668,3664
+<3664=3665
+<3665=3667,3666
+<3668=3669
+<3670=3671
+<3677=3683,3682,3678
+<3678=3679
+<3679=3681,3680
+<3683=3684
+<3684=3685
+<3685=3689,3686
+<3686=3687
+<3687=3688
+<3689=3690
+<3696=3705,3704,3697
+<3697=3701,3698
+<3698=3700,3699
+<3701=3703,3702
+<3705=3706
+<3706=3707
+<3707=3713,3708
+<3708=3711,3709
+<3709=3710
+<3711=3712
+<3713=3714
+<3721=3727,3726,3722
+<3722=3723
+<3723=3725,3724
+<3727=3728
+<3728=3729
+<3729=3733,3730
+<3730=3731
+<3731=3732
+<3733=3734
+<3740=3749,3748,3741
+<3741=3745,3742
+<3742=3744,3743
+<3745=3747,3746
+<3749=3750
+<3750=3751
+<3751=3757,3752
+<3752=3755,3753
+<3753=3754
+<3755=3756
+<3757=3758
+<3765=3771,3770,3766
+<3766=3767
+<3767=3769,3768
+<3771=3772
+<3772=3773
+<3773=3777,3774
+<3774=3775
+<3775=3776
+<3777=3778
+<3784=3793,3792,3785
+<3785=3789,3786
+<3786=3788,3787
+<3789=3791,3790
+<3793=3794
+<3794=3795
+<3795=3801,3796
+<3796=3799,3797
+<3797=3798
+<3799=3800
+<3801=3802
+<3809=3815,3814,3810
+<3810=3811
+<3811=3813,3812
+<3815=3816
+<3816=3817
+<3817=3821,3818
+<3818=3819
+<3819=3820
+<3821=3822
+<3828=3837,3836,3829
+<3829=3833,3830
+<3830=3832,3831
+<3833=3835,3834
+<3837=3838
+<3838=3839
+<3839=3845,3840
+<3840=3843,3841
+<3841=3842
+<3843=3844
+<3845=3846
+<3853=3859,3858,3854
+<3854=3855
+<3855=3857,3856
+<3859=3860
+<3860=3861
+<3861=3865,3862
+<3862=3863
+<3863=3864
+<3865=3866
+<3872=3881,3880,3873
+<3873=3877,3874
+<3874=3876,3875
+<3877=3879,3878
+<3881=3882
+<3882=3883
+<3883=3889,3884
+<3884=3887,3885
+<3885=3886
+<3887=3888
+<3889=3890
+<3897=3903,3902,3898
+<3898=3899
+<3899=3901,3900
+<3903=3904
+<3904=3905
+<3905=3909,3906
+<3906=3907
+<3907=3908
+<3909=3910
+<3916=3925,3924,3917
+<3917=3921,3918
+<3918=3920,3919
+<3921=3923,3922
+<3925=3926
+<3926=3927
+<3927=3933,3928
+<3928=3931,3929
+<3929=3930
+<3931=3932
+<3933=3934
+<3941=3950,3949,3942
+<3942=3946,3943
+<3943=3945,3944
+<3946=3948,3947
+<3950=4029,4022,4011,4004,3993,3986,3964,3953,3951
+<3951=3952
+<3953=3954
+<3954=3963,3955
+<3955=3961,3956
+<3956=3959,3957
+<3957=3958
+<3959=3960
+<3961=3962
+<3964=3984,3965
+<3965=3973,3966
+<3966=3969,3967
+<3967=3968
+<3969=3970
+<3970=3972,3971
+<3973=3974
+<3974=3983,3975
+<3975=3981,3976
+<3976=3979,3977
+<3977=3978
+<3979=3980
+<3981=3982
+<3984=3985
+<3986=3989,3987
+<3987=3988
+<3989=3990
+<3990=3992,3991
+<3993=3994
+<3994=4003,3995
+<3995=4001,3996
+<3996=3999,3997
+<3997=3998
+<3999=4000
+<4001=4002
+<4004=4007,4005
+<4005=4006
+<4007=4008
+<4008=4010,4009
+<4011=4012
+<4012=4021,4013
+<4013=4019,4014
+<4014=4017,4015
+<4015=4016
+<4017=4018
+<4019=4020
+<4022=4025,4023
+<4023=4024
+<4025=4026
+<4026=4028,4027
+<4029=4030
+<4030=4042,4041,4031
+<4031=4040,4032
+<4032=4038,4033
+<4033=4036,4034
+<4034=4035
+<4036=4037
+<4038=4039
+<4051=4054,4053,4052
+<4054=4064,4063,4062,4061,4060,4059,4058,4055
+<4055=4056
+<4056=4057
+<4064=4065
+<4065=4066
+<4066=4067
+<4067=4069,4068
+<4069=4070
+<4076=4079,4078,4077
+<4079=4080
+<4080=4081
+<4081=4086,4082
+<4082=4084,4083
+<4084=4085

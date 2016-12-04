@@ -1,0 +1,1297 @@
+>5	FunctionDef	ParticleEffect 
+>6	ParameterList	vec2 const & pos , float emit_rate , unsigned int num_particles , float particle_ttl , GLuint * texture , unsigned \
+>7	Parameter	 
+>8	Identifier	mep
+>9	ParameterType	unsigned int
+>10	Parameter	 
+>11	Identifier	texture
+>12	ParameterType	GLuint *
+>13	Parameter	 
+>14	Identifier	particle_ttl
+>15	ParameterType	float
+>16	Parameter	 
+>17	Identifier	num_particles
+>18	ParameterType	unsigned int
+>19	Parameter	 
+>20	Identifier	emit_rate
+>21	ParameterType	float
+>22	Parameter	 
+>23	Identifier	pos
+>24	ParameterType	vec2 const &
+>25	CompoundStatement	 
+>26	ExpressionStatement	 
+>27	AssignmentExpr	m_lifetime_num_emitted = 0
+>28	PrimaryExpression	0
+>29	Identifier	m_lifetime_num_emitted
+>30	ExpressionStatement	 
+>31	AssignmentExpr	m_last_update_time = g_timer -> now ( )
+>32	CallExpression	g_timer -> now ( )
+>33	ArgumentList	 
+>34	Callee	g_timer -> now
+>35	PtrMemberAccess	g_timer -> now
+>36	Identifier	now
+>37	Identifier	g_timer
+>38	Identifier	m_last_update_time
+>39	ExpressionStatement	 
+>40	AssignmentExpr	m_start_time = g_timer -> now ( )
+>41	CallExpression	g_timer -> now ( )
+>42	ArgumentList	 
+>43	Callee	g_timer -> now
+>44	PtrMemberAccess	g_timer -> now
+>45	Identifier	now
+>46	Identifier	g_timer
+>47	Identifier	m_start_time
+>48	ExpressionStatement	 
+>49	AssignmentExpr	m_particles_to_emit = 0.0
+>50	PrimaryExpression	0.0
+>51	Identifier	m_particles_to_emit
+>52	ForStatement	for ( unsigned int i = 0 ; i < m_num_particles ; ++ i )
+>53	CompoundStatement	 
+>54	ExpressionStatement	 
+>55	AssignmentExpr	m_pstore [ i * 4 + 3 ] . c_y = 0.0
+>56	PrimaryExpression	0.0
+>57	MemberAccess	m_pstore [ i * 4 + 3 ] . c_y
+>58	Identifier	c_y
+>59	ArrayIndexing	m_pstore [ i * 4 + 3 ]
+>60	AdditiveExpression	i * 4 + 3
+>61	PrimaryExpression	3
+>62	MultiplicativeExpression	i * 4
+>63	PrimaryExpression	4
+>64	Identifier	i
+>65	Identifier	m_pstore
+>66	ExpressionStatement	 
+>67	AssignmentExpr	m_pstore [ i * 4 + 3 ] . c_x = 1.0
+>68	PrimaryExpression	1.0
+>69	MemberAccess	m_pstore [ i * 4 + 3 ] . c_x
+>70	Identifier	c_x
+>71	ArrayIndexing	m_pstore [ i * 4 + 3 ]
+>72	AdditiveExpression	i * 4 + 3
+>73	PrimaryExpression	3
+>74	MultiplicativeExpression	i * 4
+>75	PrimaryExpression	4
+>76	Identifier	i
+>77	Identifier	m_pstore
+>78	ExpressionStatement	 
+>79	AssignmentExpr	m_pstore [ i * 4 + 2 ] . c_y = 1.0
+>80	PrimaryExpression	1.0
+>81	MemberAccess	m_pstore [ i * 4 + 2 ] . c_y
+>82	Identifier	c_y
+>83	ArrayIndexing	m_pstore [ i * 4 + 2 ]
+>84	AdditiveExpression	i * 4 + 2
+>85	PrimaryExpression	2
+>86	MultiplicativeExpression	i * 4
+>87	PrimaryExpression	4
+>88	Identifier	i
+>89	Identifier	m_pstore
+>90	ExpressionStatement	 
+>91	AssignmentExpr	m_pstore [ i * 4 + 2 ] . c_x = 1.0
+>92	PrimaryExpression	1.0
+>93	MemberAccess	m_pstore [ i * 4 + 2 ] . c_x
+>94	Identifier	c_x
+>95	ArrayIndexing	m_pstore [ i * 4 + 2 ]
+>96	AdditiveExpression	i * 4 + 2
+>97	PrimaryExpression	2
+>98	MultiplicativeExpression	i * 4
+>99	PrimaryExpression	4
+>100	Identifier	i
+>101	Identifier	m_pstore
+>102	ExpressionStatement	 
+>103	AssignmentExpr	m_pstore [ i * 4 + 1 ] . c_y = 1.0
+>104	PrimaryExpression	1.0
+>105	MemberAccess	m_pstore [ i * 4 + 1 ] . c_y
+>106	Identifier	c_y
+>107	ArrayIndexing	m_pstore [ i * 4 + 1 ]
+>108	AdditiveExpression	i * 4 + 1
+>109	PrimaryExpression	1
+>110	MultiplicativeExpression	i * 4
+>111	PrimaryExpression	4
+>112	Identifier	i
+>113	Identifier	m_pstore
+>114	ExpressionStatement	 
+>115	AssignmentExpr	m_pstore [ i * 4 + 1 ] . c_x = 0.0
+>116	PrimaryExpression	0.0
+>117	MemberAccess	m_pstore [ i * 4 + 1 ] . c_x
+>118	Identifier	c_x
+>119	ArrayIndexing	m_pstore [ i * 4 + 1 ]
+>120	AdditiveExpression	i * 4 + 1
+>121	PrimaryExpression	1
+>122	MultiplicativeExpression	i * 4
+>123	PrimaryExpression	4
+>124	Identifier	i
+>125	Identifier	m_pstore
+>126	ExpressionStatement	 
+>127	AssignmentExpr	m_pstore [ i * 4 + 0 ] . c_y = 0.0
+>128	PrimaryExpression	0.0
+>129	MemberAccess	m_pstore [ i * 4 + 0 ] . c_y
+>130	Identifier	c_y
+>131	ArrayIndexing	m_pstore [ i * 4 + 0 ]
+>132	AdditiveExpression	i * 4 + 0
+>133	PrimaryExpression	0
+>134	MultiplicativeExpression	i * 4
+>135	PrimaryExpression	4
+>136	Identifier	i
+>137	Identifier	m_pstore
+>138	ExpressionStatement	 
+>139	AssignmentExpr	m_pstore [ i * 4 + 0 ] . c_x = 0.0
+>140	PrimaryExpression	0.0
+>141	MemberAccess	m_pstore [ i * 4 + 0 ] . c_x
+>142	Identifier	c_x
+>143	ArrayIndexing	m_pstore [ i * 4 + 0 ]
+>144	AdditiveExpression	i * 4 + 0
+>145	PrimaryExpression	0
+>146	MultiplicativeExpression	i * 4
+>147	PrimaryExpression	4
+>148	Identifier	i
+>149	Identifier	m_pstore
+>150	ExpressionStatement	 
+>151	AssignmentExpr	m_particles [ i ] . alive = false
+>152	Identifier	false
+>153	MemberAccess	m_particles [ i ] . alive
+>154	Identifier	alive
+>155	ArrayIndexing	m_particles [ i ]
+>156	Identifier	i
+>157	Identifier	m_particles
+>158	UnaryExpression	 
+>159	Identifier	i
+>160	IncDec	++
+>161	Condition	 
+>162	RelationalExpression	i < m_num_particles
+>163	Identifier	m_num_particles
+>164	Identifier	i
+>165	ForInit	 
+>166	IdentifierDeclStatement	unsigned int i = 0 ;
+>167	IdentifierDecl	i = 0
+>168	AssignmentExpr	i = 0
+>169	PrimaryExpression	0
+>170	Identifier	i
+>171	Identifier	i
+>172	IdentifierDeclType	unsigned int
+>173	ExpressionStatement	 
+>174	AssignmentExpr	m_pstore = new pstore_s [ m_num_particles * 4 ]
+>175	MultiplicativeExpression	m_num_particles * 4
+>176	PrimaryExpression	4
+>177	Identifier	m_num_particles
+>178	Identifier	m_pstore
+>179	ExpressionStatement	 
+>180	AssignmentExpr	m_particles = new Particle [ m_num_particles ]
+>181	Identifier	m_num_particles
+>182	Identifier	m_particles
+>216	FunctionDef	ParticleEffect 
+>217	ParameterList	 
+>218	CompoundStatement	 
+>219	ExpressionStatement	 
+>220	Identifier	m_particles
+>221	Statement	 
+>222	Statement	 
+>223	Statement	 
+>224	ExpressionStatement	 
+>225	Identifier	m_pstore
+>226	Statement	 
+>227	Statement	 
+>228	Statement	 
+>232	FunctionDef	ParticleEffect 
+>233	ParameterList	float delta_t , float pe_time
+>234	Parameter	 
+>235	Identifier	pe_time
+>236	ParameterType	float
+>237	Parameter	 
+>238	Identifier	delta_t
+>239	ParameterType	float
+>240	ReturnType	void
+>241	CompoundStatement	 
+>247	FunctionDef	ParticleEffect 
+>248	ParameterList	 
+>249	ReturnType	void
+>250	CompoundStatement	 
+>251	WhileStatement	while ( m_particles_to_emit > 1.0f )
+>252	CompoundStatement	 
+>253	ExpressionStatement	 
+>254	IncDecOp	m_lifetime_num_emitted ++
+>255	IncDec	++
+>256	Identifier	m_lifetime_num_emitted
+>257	ExpressionStatement	 
+>258	CallExpression	emit_single_particle ( p )
+>259	ArgumentList	p
+>260	Argument	p
+>261	Identifier	p
+>262	Callee	emit_single_particle
+>263	Identifier	emit_single_particle
+>264	ExpressionStatement	 
+>265	AssignmentExpr	p . start_time = cur_t
+>266	Identifier	cur_t
+>267	MemberAccess	p . start_time
+>268	Identifier	start_time
+>269	Identifier	p
+>270	ExpressionStatement	 
+>271	AssignmentExpr	p . alive = true
+>272	Identifier	true
+>273	MemberAccess	p . alive
+>274	Identifier	alive
+>275	Identifier	p
+>276	IdentifierDeclStatement	 
+>277	IdentifierDecl	& p = m_particles [ pos ]
+>278	AssignmentExpr	& p = m_particles [ pos ]
+>279	ArrayIndexing	m_particles [ pos ]
+>280	Identifier	pos
+>281	Identifier	m_particles
+>282	Identifier	p
+>283	Identifier	p
+>284	IdentifierDeclType	Particle &
+>285	IfStatement	if ( ! m_emitting )
+>286	ContinueStatement	 
+>287	Condition	 
+>288	UnaryOp	! m_emitting
+>289	Identifier	m_emitting
+>290	UnaryOperator	!
+>291	IfStatement	if ( pos == - 1 )
+>292	CompoundStatement	 
+>293	BreakStatement	 
+>294	Condition	 
+>295	EqualityExpression	pos == - 1
+>296	UnaryOp	- 1
+>297	PrimaryExpression	1
+>298	UnaryOperator	-
+>299	Identifier	pos
+>300	ForStatement	for ( unsigned int i = 0 ; i < m_num_particles ; ++ i )
+>301	CompoundStatement	 
+>302	IfStatement	if ( ! m_particles [ i ] . alive )
+>303	CompoundStatement	 
+>304	BreakStatement	 
+>305	ExpressionStatement	 
+>306	AssignmentExpr	pos = i
+>307	Identifier	i
+>308	Identifier	pos
+>309	Condition	 
+>310	UnaryOp	! m_particles [ i ] . alive
+>311	MemberAccess	m_particles [ i ] . alive
+>312	Identifier	alive
+>313	ArrayIndexing	m_particles [ i ]
+>314	Identifier	i
+>315	Identifier	m_particles
+>316	UnaryOperator	!
+>317	UnaryExpression	 
+>318	Identifier	i
+>319	IncDec	++
+>320	Condition	 
+>321	RelationalExpression	i < m_num_particles
+>322	Identifier	m_num_particles
+>323	Identifier	i
+>324	ForInit	 
+>325	IdentifierDeclStatement	unsigned int i = 0 ;
+>326	IdentifierDecl	i = 0
+>327	AssignmentExpr	i = 0
+>328	PrimaryExpression	0
+>329	Identifier	i
+>330	Identifier	i
+>331	IdentifierDeclType	unsigned int
+>332	IdentifierDeclStatement	 
+>333	IdentifierDecl	pos = - 1
+>334	AssignmentExpr	pos = - 1
+>335	UnaryOp	- 1
+>336	PrimaryExpression	1
+>337	UnaryOperator	-
+>338	Identifier	pos
+>339	Identifier	pos
+>340	IdentifierDeclType	int
+>341	ExpressionStatement	 
+>342	AssignmentExpr	m_particles_to_emit -= 1.0f
+>343	PrimaryExpression	1.0f
+>344	Identifier	m_particles_to_emit
+>345	IfStatement	if ( m_mep != 0 && m_lifetime_num_emitted >= m_mep )
+>346	BreakStatement	 
+>347	Condition	 
+>348	AndExpression	m_mep != 0 && m_lifetime_num_emitted >= m_mep
+>349	RelationalExpression	m_lifetime_num_emitted >= m_mep
+>350	Identifier	m_mep
+>351	Identifier	m_lifetime_num_emitted
+>352	EqualityExpression	m_mep != 0
+>353	PrimaryExpression	0
+>354	Identifier	m_mep
+>355	Condition	 
+>356	RelationalExpression	m_particles_to_emit > 1.0f
+>357	PrimaryExpression	1.0f
+>358	Identifier	m_particles_to_emit
+>359	ExpressionStatement	 
+>360	AssignmentExpr	m_particles_to_emit += delta_t * m_emit_rate
+>361	MultiplicativeExpression	delta_t * m_emit_rate
+>362	Identifier	m_emit_rate
+>363	Identifier	delta_t
+>364	Identifier	m_particles_to_emit
+>365	ForStatement	for ( unsigned int i = 0 ; i < m_num_particles ; ++ i )
+>366	CompoundStatement	 
+>367	ExpressionStatement	 
+>368	CallExpression	update_single_particle ( p , delta_t , p_time )
+>369	ArgumentList	p
+>370	Argument	p_time
+>371	Identifier	p_time
+>372	Argument	delta_t
+>373	Identifier	delta_t
+>374	Argument	p
+>375	Identifier	p
+>376	Callee	update_single_particle
+>377	Identifier	update_single_particle
+>378	IfStatement	if ( p_time > m_particle_ttl )
+>379	CompoundStatement	 
+>380	ContinueStatement	 
+>381	ExpressionStatement	 
+>382	AssignmentExpr	p . alive = false
+>383	Identifier	false
+>384	MemberAccess	p . alive
+>385	Identifier	alive
+>386	Identifier	p
+>387	Condition	 
+>388	RelationalExpression	p_time > m_particle_ttl
+>389	Identifier	m_particle_ttl
+>390	Identifier	p_time
+>391	IdentifierDeclStatement	 
+>392	IdentifierDecl	p_time = cur_t - p . start_time
+>393	AssignmentExpr	p_time = cur_t - p . start_time
+>394	AdditiveExpression	cur_t - p . start_time
+>395	MemberAccess	p . start_time
+>396	Identifier	start_time
+>397	Identifier	p
+>398	Identifier	cur_t
+>399	Identifier	p_time
+>400	Identifier	p_time
+>401	IdentifierDeclType	float
+>402	IfStatement	if ( p . alive == false )
+>403	ContinueStatement	 
+>404	Condition	 
+>405	EqualityExpression	p . alive == false
+>406	Identifier	false
+>407	MemberAccess	p . alive
+>408	Identifier	alive
+>409	Identifier	p
+>410	IdentifierDeclStatement	 
+>411	IdentifierDecl	& p = m_particles [ i ]
+>412	AssignmentExpr	& p = m_particles [ i ]
+>413	ArrayIndexing	m_particles [ i ]
+>414	Identifier	i
+>415	Identifier	m_particles
+>416	Identifier	p
+>417	Identifier	p
+>418	IdentifierDeclType	Particle &
+>419	UnaryExpression	 
+>420	Identifier	i
+>421	IncDec	++
+>422	Condition	 
+>423	RelationalExpression	i < m_num_particles
+>424	Identifier	m_num_particles
+>425	Identifier	i
+>426	ForInit	 
+>427	IdentifierDeclStatement	unsigned int i = 0 ;
+>428	IdentifierDecl	i = 0
+>429	AssignmentExpr	i = 0
+>430	PrimaryExpression	0
+>431	Identifier	i
+>432	Identifier	i
+>433	IdentifierDeclType	unsigned int
+>434	ExpressionStatement	 
+>435	CallExpression	update_emitter ( delta_t , pe_time )
+>436	ArgumentList	delta_t
+>437	Argument	pe_time
+>438	Identifier	pe_time
+>439	Argument	delta_t
+>440	Identifier	delta_t
+>441	Callee	update_emitter
+>442	Identifier	update_emitter
+>443	IdentifierDeclStatement	 
+>444	IdentifierDecl	pe_time = cur_t - m_start_time
+>445	AssignmentExpr	pe_time = cur_t - m_start_time
+>446	AdditiveExpression	cur_t - m_start_time
+>447	Identifier	m_start_time
+>448	Identifier	cur_t
+>449	Identifier	pe_time
+>450	Identifier	pe_time
+>451	IdentifierDeclType	float
+>452	ExpressionStatement	 
+>453	AssignmentExpr	m_last_update_time = cur_t
+>454	Identifier	cur_t
+>455	Identifier	m_last_update_time
+>456	IdentifierDeclStatement	 
+>457	IdentifierDecl	delta_t = cur_t - m_last_update_time
+>458	AssignmentExpr	delta_t = cur_t - m_last_update_time
+>459	AdditiveExpression	cur_t - m_last_update_time
+>460	Identifier	m_last_update_time
+>461	Identifier	cur_t
+>462	Identifier	delta_t
+>463	Identifier	delta_t
+>464	IdentifierDeclType	float
+>465	IdentifierDeclStatement	 
+>466	IdentifierDecl	cur_t = g_timer -> now ( )
+>467	AssignmentExpr	cur_t = g_timer -> now ( )
+>468	CallExpression	g_timer -> now ( )
+>469	ArgumentList	 
+>470	Callee	g_timer -> now
+>471	PtrMemberAccess	g_timer -> now
+>472	Identifier	now
+>473	Identifier	g_timer
+>474	Identifier	cur_t
+>475	Identifier	cur_t
+>476	IdentifierDeclType	float
+>508	FunctionDef	ParticleEffect 
+>509	ParameterList	 
+>510	ReturnType	void
+>511	CompoundStatement	 
+>512	ExpressionStatement	 
+>513	CallExpression	glDisable ( GL_BLEND )
+>514	ArgumentList	GL_BLEND
+>515	Argument	GL_BLEND
+>516	Identifier	GL_BLEND
+>517	Callee	glDisable
+>518	Identifier	glDisable
+>519	ExpressionStatement	 
+>520	CallExpression	glBlendFunc ( GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA )
+>521	ArgumentList	GL_SRC_ALPHA
+>522	Argument	GL_ONE_MINUS_SRC_ALPHA
+>523	Identifier	GL_ONE_MINUS_SRC_ALPHA
+>524	Argument	GL_SRC_ALPHA
+>525	Identifier	GL_SRC_ALPHA
+>526	Callee	glBlendFunc
+>527	Identifier	glBlendFunc
+>528	ExpressionStatement	 
+>529	CallExpression	glDisable ( GL_TEXTURE_2D )
+>530	ArgumentList	GL_TEXTURE_2D
+>531	Argument	GL_TEXTURE_2D
+>532	Identifier	GL_TEXTURE_2D
+>533	Callee	glDisable
+>534	Identifier	glDisable
+>535	ExpressionStatement	 
+>536	CallExpression	sh -> unuse ( )
+>537	ArgumentList	 
+>538	Callee	sh -> unuse
+>539	PtrMemberAccess	sh -> unuse
+>540	Identifier	unuse
+>541	Identifier	sh
+>542	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>543	ExpressionStatement	 
+>544	CallExpression	my_glDisableVertexAttribArray ( i )
+>545	ArgumentList	i
+>546	Argument	i
+>547	Identifier	i
+>548	Callee	my_glDisableVertexAttribArray
+>549	Identifier	my_glDisableVertexAttribArray
+>550	UnaryExpression	 
+>551	Identifier	i
+>552	IncDec	++
+>553	Condition	 
+>554	RelationalExpression	i < 4
+>555	PrimaryExpression	4
+>556	Identifier	i
+>557	ForInit	 
+>558	IdentifierDeclStatement	int i = 0 ;
+>559	IdentifierDecl	i = 0
+>560	AssignmentExpr	i = 0
+>561	PrimaryExpression	0
+>562	Identifier	i
+>563	Identifier	i
+>564	IdentifierDeclType	int
+>565	ExpressionStatement	 
+>566	CallExpression	glDrawArrays ( GL_QUADS , 0 , ppos )
+>567	ArgumentList	GL_QUADS
+>568	Argument	ppos
+>569	Identifier	ppos
+>570	Argument	0
+>571	PrimaryExpression	0
+>572	Argument	GL_QUADS
+>573	Identifier	GL_QUADS
+>574	Callee	glDrawArrays
+>575	Identifier	glDrawArrays
+>576	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>577	ExpressionStatement	 
+>578	CallExpression	my_glEnableVertexAttribArray ( i )
+>579	ArgumentList	i
+>580	Argument	i
+>581	Identifier	i
+>582	Callee	my_glEnableVertexAttribArray
+>583	Identifier	my_glEnableVertexAttribArray
+>584	UnaryExpression	 
+>585	Identifier	i
+>586	IncDec	++
+>587	Condition	 
+>588	RelationalExpression	i < 4
+>589	PrimaryExpression	4
+>590	Identifier	i
+>591	ForInit	 
+>592	IdentifierDeclStatement	int i = 0 ;
+>593	IdentifierDecl	i = 0
+>594	AssignmentExpr	i = 0
+>595	PrimaryExpression	0
+>596	Identifier	i
+>597	Identifier	i
+>598	IdentifierDeclType	int
+>599	ExpressionStatement	 
+>600	CallExpression	my_glVertexAttribPointer ( 3 , 4 , GL_FLOAT , GL_FALSE , sizeof ( pstore_s ) , & m_pstore [ 0 ] . color . data )
+>601	ArgumentList	3
+>602	Argument	& m_pstore [ 0 ] . color . data
+>603	UnaryOp	& m_pstore [ 0 ] . color . data
+>604	MemberAccess	m_pstore [ 0 ] . color . data
+>605	Identifier	data
+>606	MemberAccess	m_pstore [ 0 ] . color
+>607	Identifier	color
+>608	ArrayIndexing	m_pstore [ 0 ]
+>609	PrimaryExpression	0
+>610	Identifier	m_pstore
+>611	UnaryOperator	&
+>612	Argument	sizeof ( pstore_s )
+>613	SizeofExpr	sizeof ( pstore_s )
+>614	SizeofOperand	pstore_s
+>615	Sizeof	sizeof
+>616	Argument	GL_FALSE
+>617	Identifier	GL_FALSE
+>618	Argument	GL_FLOAT
+>619	Identifier	GL_FLOAT
+>620	Argument	4
+>621	PrimaryExpression	4
+>622	Argument	3
+>623	PrimaryExpression	3
+>624	Callee	my_glVertexAttribPointer
+>625	Identifier	my_glVertexAttribPointer
+>626	ExpressionStatement	 
+>627	CallExpression	my_glVertexAttribPointer ( 2 , 1 , GL_FLOAT , GL_FALSE , sizeof ( pstore_s ) , & m_pstore [ 0 ] . size )
+>628	ArgumentList	2
+>629	Argument	& m_pstore [ 0 ] . size
+>630	UnaryOp	& m_pstore [ 0 ] . size
+>631	MemberAccess	m_pstore [ 0 ] . size
+>632	Identifier	size
+>633	ArrayIndexing	m_pstore [ 0 ]
+>634	PrimaryExpression	0
+>635	Identifier	m_pstore
+>636	UnaryOperator	&
+>637	Argument	sizeof ( pstore_s )
+>638	SizeofExpr	sizeof ( pstore_s )
+>639	SizeofOperand	pstore_s
+>640	Sizeof	sizeof
+>641	Argument	GL_FALSE
+>642	Identifier	GL_FALSE
+>643	Argument	GL_FLOAT
+>644	Identifier	GL_FLOAT
+>645	Argument	1
+>646	PrimaryExpression	1
+>647	Argument	2
+>648	PrimaryExpression	2
+>649	Callee	my_glVertexAttribPointer
+>650	Identifier	my_glVertexAttribPointer
+>651	ExpressionStatement	 
+>652	CallExpression	my_glVertexAttribPointer ( 1 , 2 , GL_FLOAT , GL_FALSE , sizeof ( pstore_s ) , & m_pstore [ 0 ] . c_x )
+>653	ArgumentList	1
+>654	Argument	& m_pstore [ 0 ] . c_x
+>655	UnaryOp	& m_pstore [ 0 ] . c_x
+>656	MemberAccess	m_pstore [ 0 ] . c_x
+>657	Identifier	c_x
+>658	ArrayIndexing	m_pstore [ 0 ]
+>659	PrimaryExpression	0
+>660	Identifier	m_pstore
+>661	UnaryOperator	&
+>662	Argument	sizeof ( pstore_s )
+>663	SizeofExpr	sizeof ( pstore_s )
+>664	SizeofOperand	pstore_s
+>665	Sizeof	sizeof
+>666	Argument	GL_FALSE
+>667	Identifier	GL_FALSE
+>668	Argument	GL_FLOAT
+>669	Identifier	GL_FLOAT
+>670	Argument	2
+>671	PrimaryExpression	2
+>672	Argument	1
+>673	PrimaryExpression	1
+>674	Callee	my_glVertexAttribPointer
+>675	Identifier	my_glVertexAttribPointer
+>676	ExpressionStatement	 
+>677	CallExpression	my_glVertexAttribPointer ( 0 , 2 , GL_FLOAT , GL_FALSE , sizeof ( pstore_s ) , & m_pstore [ 0 ] . pos . data )
+>678	ArgumentList	0
+>679	Argument	& m_pstore [ 0 ] . pos . data
+>680	UnaryOp	& m_pstore [ 0 ] . pos . data
+>681	MemberAccess	m_pstore [ 0 ] . pos . data
+>682	Identifier	data
+>683	MemberAccess	m_pstore [ 0 ] . pos
+>684	Identifier	pos
+>685	ArrayIndexing	m_pstore [ 0 ]
+>686	PrimaryExpression	0
+>687	Identifier	m_pstore
+>688	UnaryOperator	&
+>689	Argument	sizeof ( pstore_s )
+>690	SizeofExpr	sizeof ( pstore_s )
+>691	SizeofOperand	pstore_s
+>692	Sizeof	sizeof
+>693	Argument	GL_FALSE
+>694	Identifier	GL_FALSE
+>695	Argument	GL_FLOAT
+>696	Identifier	GL_FLOAT
+>697	Argument	2
+>698	PrimaryExpression	2
+>699	Argument	0
+>700	PrimaryExpression	0
+>701	Callee	my_glVertexAttribPointer
+>702	Identifier	my_glVertexAttribPointer
+>703	ForStatement	for ( unsigned int i = 0 ; i < m_num_particles ; ++ i )
+>704	CompoundStatement	 
+>705	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>706	CompoundStatement	 
+>707	ExpressionStatement	 
+>708	IncDecOp	ppos ++
+>709	IncDec	++
+>710	Identifier	ppos
+>711	ExpressionStatement	 
+>712	AssignmentExpr	m_pstore [ ppos ] . color = p . cur_color
+>713	MemberAccess	p . cur_color
+>714	Identifier	cur_color
+>715	Identifier	p
+>716	MemberAccess	m_pstore [ ppos ] . color
+>717	Identifier	color
+>718	ArrayIndexing	m_pstore [ ppos ]
+>719	Identifier	ppos
+>720	Identifier	m_pstore
+>721	ExpressionStatement	 
+>722	AssignmentExpr	m_pstore [ ppos ] . size = p . cur_size
+>723	MemberAccess	p . cur_size
+>724	Identifier	cur_size
+>725	Identifier	p
+>726	MemberAccess	m_pstore [ ppos ] . size
+>727	Identifier	size
+>728	ArrayIndexing	m_pstore [ ppos ]
+>729	Identifier	ppos
+>730	Identifier	m_pstore
+>731	ExpressionStatement	 
+>732	AssignmentExpr	m_pstore [ ppos ] . pos = p . cur_pos
+>733	MemberAccess	p . cur_pos
+>734	Identifier	cur_pos
+>735	Identifier	p
+>736	MemberAccess	m_pstore [ ppos ] . pos
+>737	Identifier	pos
+>738	ArrayIndexing	m_pstore [ ppos ]
+>739	Identifier	ppos
+>740	Identifier	m_pstore
+>741	UnaryExpression	 
+>742	Identifier	i
+>743	IncDec	++
+>744	Condition	 
+>745	RelationalExpression	i < 4
+>746	PrimaryExpression	4
+>747	Identifier	i
+>748	ForInit	 
+>749	IdentifierDeclStatement	int i = 0 ;
+>750	IdentifierDecl	i = 0
+>751	AssignmentExpr	i = 0
+>752	PrimaryExpression	0
+>753	Identifier	i
+>754	Identifier	i
+>755	IdentifierDeclType	int
+>756	IfStatement	if ( ! p . alive )
+>757	ContinueStatement	 
+>758	Condition	 
+>759	UnaryOp	! p . alive
+>760	MemberAccess	p . alive
+>761	Identifier	alive
+>762	Identifier	p
+>763	UnaryOperator	!
+>764	IdentifierDeclStatement	 
+>765	IdentifierDecl	& p = m_particles [ i ]
+>766	AssignmentExpr	& p = m_particles [ i ]
+>767	ArrayIndexing	m_particles [ i ]
+>768	Identifier	i
+>769	Identifier	m_particles
+>770	Identifier	p
+>771	Identifier	p
+>772	IdentifierDeclType	Particle const &
+>773	UnaryExpression	 
+>774	Identifier	i
+>775	IncDec	++
+>776	Condition	 
+>777	RelationalExpression	i < m_num_particles
+>778	Identifier	m_num_particles
+>779	Identifier	i
+>780	ForInit	 
+>781	IdentifierDeclStatement	unsigned int i = 0 ;
+>782	IdentifierDecl	i = 0
+>783	AssignmentExpr	i = 0
+>784	PrimaryExpression	0
+>785	Identifier	i
+>786	Identifier	i
+>787	IdentifierDeclType	unsigned int
+>788	IdentifierDeclStatement	 
+>789	IdentifierDecl	ppos = 0
+>790	AssignmentExpr	ppos = 0
+>791	PrimaryExpression	0
+>792	Identifier	ppos
+>793	Identifier	ppos
+>794	IdentifierDeclType	int
+>795	ExpressionStatement	 
+>796	CallExpression	sh -> use ( )
+>797	ArgumentList	 
+>798	Callee	sh -> use
+>799	PtrMemberAccess	sh -> use
+>800	Identifier	use
+>801	Identifier	sh
+>802	IdentifierDeclStatement	 
+>803	IdentifierDecl	* sh = g_resources . shader_particles
+>804	AssignmentExpr	* sh = g_resources . shader_particles
+>805	MemberAccess	g_resources . shader_particles
+>806	Identifier	shader_particles
+>807	Identifier	g_resources
+>808	Identifier	sh
+>809	Identifier	sh
+>810	IdentifierDeclType	Shader *
+>811	ExpressionStatement	 
+>812	CallExpression	glColor4f ( 1.0 , 1.0 , 1.0 , 0.0 )
+>813	ArgumentList	1.0
+>814	Argument	0.0
+>815	PrimaryExpression	0.0
+>816	Argument	1.0
+>817	PrimaryExpression	1.0
+>818	Argument	1.0
+>819	PrimaryExpression	1.0
+>820	Argument	1.0
+>821	PrimaryExpression	1.0
+>822	Callee	glColor4f
+>823	Identifier	glColor4f
+>824	ExpressionStatement	 
+>825	CallExpression	glBlendFunc ( GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA )
+>826	ArgumentList	GL_SRC_ALPHA
+>827	Argument	GL_ONE_MINUS_SRC_ALPHA
+>828	Identifier	GL_ONE_MINUS_SRC_ALPHA
+>829	Argument	GL_SRC_ALPHA
+>830	Identifier	GL_SRC_ALPHA
+>831	Callee	glBlendFunc
+>832	Identifier	glBlendFunc
+>833	ExpressionStatement	 
+>834	CallExpression	glEnable ( GL_BLEND )
+>835	ArgumentList	GL_BLEND
+>836	Argument	GL_BLEND
+>837	Identifier	GL_BLEND
+>838	Callee	glEnable
+>839	Identifier	glEnable
+>840	ExpressionStatement	 
+>841	CallExpression	glBindTexture ( GL_TEXTURE_2D , * m_texture )
+>842	ArgumentList	GL_TEXTURE_2D
+>843	Argument	* m_texture
+>844	UnaryOp	* m_texture
+>845	Identifier	m_texture
+>846	UnaryOperator	*
+>847	Argument	GL_TEXTURE_2D
+>848	Identifier	GL_TEXTURE_2D
+>849	Callee	glBindTexture
+>850	Identifier	glBindTexture
+>851	ExpressionStatement	 
+>852	CallExpression	glEnable ( GL_TEXTURE_2D )
+>853	ArgumentList	GL_TEXTURE_2D
+>854	Argument	GL_TEXTURE_2D
+>855	Identifier	GL_TEXTURE_2D
+>856	Callee	glEnable
+>857	Identifier	glEnable
+>899	FunctionDef	ParticleEffect 
+>900	ParameterList	 
+>901	ReturnType	void
+>902	CompoundStatement	 
+>903	ExpressionStatement	 
+>904	AssignmentExpr	m_emitting = false
+>905	Identifier	false
+>906	Identifier	m_emitting
+>912	FunctionDef	ParticleEffect 
+>913	ParameterList	 
+>914	ReturnType	void
+>915	CompoundStatement	 
+>916	ExpressionStatement	 
+>917	AssignmentExpr	m_emitting = true
+>918	Identifier	true
+>919	Identifier	m_emitting
+>925	FunctionDef	ParticleEffect 
+>926	ParameterList	 
+>927	ReturnType	unsigned int
+>928	CompoundStatement	 
+>929	ReturnStatement	 
+>930	Identifier	live_particles
+>931	ForStatement	for ( unsigned int i = 0 ; i < m_num_particles ; ++ i )
+>932	IfStatement	if ( m_particles [ i ] . alive )
+>933	ExpressionStatement	 
+>934	UnaryExpression	++ live_particles
+>935	Identifier	live_particles
+>936	IncDec	++
+>937	Condition	 
+>938	MemberAccess	m_particles [ i ] . alive
+>939	Identifier	alive
+>940	ArrayIndexing	m_particles [ i ]
+>941	Identifier	i
+>942	Identifier	m_particles
+>943	UnaryExpression	 
+>944	Identifier	i
+>945	IncDec	++
+>946	Condition	 
+>947	RelationalExpression	i < m_num_particles
+>948	Identifier	m_num_particles
+>949	Identifier	i
+>950	ForInit	 
+>951	IdentifierDeclStatement	unsigned int i = 0 ;
+>952	IdentifierDecl	i = 0
+>953	AssignmentExpr	i = 0
+>954	PrimaryExpression	0
+>955	Identifier	i
+>956	Identifier	i
+>957	IdentifierDeclType	unsigned int
+>958	IdentifierDeclStatement	 
+>959	IdentifierDecl	live_particles = 0
+>960	AssignmentExpr	live_particles = 0
+>961	PrimaryExpression	0
+>962	Identifier	live_particles
+>963	Identifier	live_particles
+>964	IdentifierDeclType	unsigned int
+>975	FunctionDef	ParticleEffect 
+>976	ParameterList	vec2 const & pos
+>977	Parameter	 
+>978	Identifier	pos
+>979	ParameterType	vec2 const &
+>980	ReturnType	void
+>981	CompoundStatement	 
+>982	ExpressionStatement	 
+>983	AssignmentExpr	m_pos = pos
+>984	Identifier	pos
+>985	Identifier	m_pos
+<5=25,6
+<6=22,19,16,13,10,7
+<7=9,8
+<10=12,11
+<13=15,14
+<16=18,17
+<19=21,20
+<22=24,23
+<25=179,173,52,48,39,30,26
+<26=27
+<27=29,28
+<30=31
+<31=38,32
+<32=34,33
+<34=35
+<35=37,36
+<39=40
+<40=47,41
+<41=43,42
+<43=44
+<44=46,45
+<48=49
+<49=51,50
+<52=165,161,158,53
+<53=150,138,126,114,102,90,78,66,54
+<54=55
+<55=57,56
+<57=59,58
+<59=65,60
+<60=62,61
+<62=64,63
+<66=67
+<67=69,68
+<69=71,70
+<71=77,72
+<72=74,73
+<74=76,75
+<78=79
+<79=81,80
+<81=83,82
+<83=89,84
+<84=86,85
+<86=88,87
+<90=91
+<91=93,92
+<93=95,94
+<95=101,96
+<96=98,97
+<98=100,99
+<102=103
+<103=105,104
+<105=107,106
+<107=113,108
+<108=110,109
+<110=112,111
+<114=115
+<115=117,116
+<117=119,118
+<119=125,120
+<120=122,121
+<122=124,123
+<126=127
+<127=129,128
+<129=131,130
+<131=137,132
+<132=134,133
+<134=136,135
+<138=139
+<139=141,140
+<141=143,142
+<143=149,144
+<144=146,145
+<146=148,147
+<150=151
+<151=153,152
+<153=155,154
+<155=157,156
+<158=160,159
+<161=162
+<162=164,163
+<165=166
+<166=167
+<167=172,171,168
+<168=170,169
+<173=174
+<174=178,175
+<175=177,176
+<179=180
+<180=182,181
+<216=218,217
+<218=228,227,226,224,223,222,221,219
+<219=220
+<224=225
+<232=241,240,233
+<233=237,234
+<234=236,235
+<237=239,238
+<247=250,249,248
+<250=465,456,452,443,434,365,359,251
+<251=355,252
+<252=345,341,332,300,291,285,276,270,264,257,253
+<253=254
+<254=256,255
+<257=258
+<258=262,259
+<259=260
+<260=261
+<262=263
+<264=265
+<265=267,266
+<267=269,268
+<270=271
+<271=273,272
+<273=275,274
+<276=277
+<277=284,283,278
+<278=282,279
+<279=281,280
+<285=287,286
+<287=288
+<288=290,289
+<291=294,292
+<292=293
+<294=295
+<295=299,296
+<296=298,297
+<300=324,320,317,301
+<301=302
+<302=309,303
+<303=305,304
+<305=306
+<306=308,307
+<309=310
+<310=316,311
+<311=313,312
+<313=315,314
+<317=319,318
+<320=321
+<321=323,322
+<324=325
+<325=326
+<326=331,330,327
+<327=329,328
+<332=333
+<333=340,339,334
+<334=338,335
+<335=337,336
+<341=342
+<342=344,343
+<345=347,346
+<347=348
+<348=352,349
+<349=351,350
+<352=354,353
+<355=356
+<356=358,357
+<359=360
+<360=364,361
+<361=363,362
+<365=426,422,419,366
+<366=410,402,391,378,367
+<367=368
+<368=376,369
+<369=374,372,370
+<370=371
+<372=373
+<374=375
+<376=377
+<378=387,379
+<379=381,380
+<381=382
+<382=384,383
+<384=386,385
+<387=388
+<388=390,389
+<391=392
+<392=401,400,393
+<393=399,394
+<394=398,395
+<395=397,396
+<402=404,403
+<404=405
+<405=407,406
+<407=409,408
+<410=411
+<411=418,417,412
+<412=416,413
+<413=415,414
+<419=421,420
+<422=423
+<423=425,424
+<426=427
+<427=428
+<428=433,432,429
+<429=431,430
+<434=435
+<435=441,436
+<436=439,437
+<437=438
+<439=440
+<441=442
+<443=444
+<444=451,450,445
+<445=449,446
+<446=448,447
+<452=453
+<453=455,454
+<456=457
+<457=464,463,458
+<458=462,459
+<459=461,460
+<465=466
+<466=476,475,467
+<467=474,468
+<468=470,469
+<470=471
+<471=473,472
+<508=511,510,509
+<511=851,840,833,824,811,802,795,788,703,676,651,626,599,576,565,542,535,528,519,512
+<512=513
+<513=517,514
+<514=515
+<515=516
+<517=518
+<519=520
+<520=526,521
+<521=524,522
+<522=523
+<524=525
+<526=527
+<528=529
+<529=533,530
+<530=531
+<531=532
+<533=534
+<535=536
+<536=538,537
+<538=539
+<539=541,540
+<542=557,553,550,543
+<543=544
+<544=548,545
+<545=546
+<546=547
+<548=549
+<550=552,551
+<553=554
+<554=556,555
+<557=558
+<558=559
+<559=564,563,560
+<560=562,561
+<565=566
+<566=574,567
+<567=572,570,568
+<568=569
+<570=571
+<572=573
+<574=575
+<576=591,587,584,577
+<577=578
+<578=582,579
+<579=580
+<580=581
+<582=583
+<584=586,585
+<587=588
+<588=590,589
+<591=592
+<592=593
+<593=598,597,594
+<594=596,595
+<599=600
+<600=624,601
+<601=622,620,618,616,612,602
+<602=603
+<603=611,604
+<604=606,605
+<606=608,607
+<608=610,609
+<612=613
+<613=615,614
+<616=617
+<618=619
+<620=621
+<622=623
+<624=625
+<626=627
+<627=649,628
+<628=647,645,643,641,637,629
+<629=630
+<630=636,631
+<631=633,632
+<633=635,634
+<637=638
+<638=640,639
+<641=642
+<643=644
+<645=646
+<647=648
+<649=650
+<651=652
+<652=674,653
+<653=672,670,668,666,662,654
+<654=655
+<655=661,656
+<656=658,657
+<658=660,659
+<662=663
+<663=665,664
+<666=667
+<668=669
+<670=671
+<672=673
+<674=675
+<676=677
+<677=701,678
+<678=699,697,695,693,689,679
+<679=680
+<680=688,681
+<681=683,682
+<683=685,684
+<685=687,686
+<689=690
+<690=692,691
+<693=694
+<695=696
+<697=698
+<699=700
+<701=702
+<703=780,776,773,704
+<704=764,756,705
+<705=748,744,741,706
+<706=731,721,711,707
+<707=708
+<708=710,709
+<711=712
+<712=716,713
+<713=715,714
+<716=718,717
+<718=720,719
+<721=722
+<722=726,723
+<723=725,724
+<726=728,727
+<728=730,729
+<731=732
+<732=736,733
+<733=735,734
+<736=738,737
+<738=740,739
+<741=743,742
+<744=745
+<745=747,746
+<748=749
+<749=750
+<750=755,754,751
+<751=753,752
+<756=758,757
+<758=759
+<759=763,760
+<760=762,761
+<764=765
+<765=772,771,766
+<766=770,767
+<767=769,768
+<773=775,774
+<776=777
+<777=779,778
+<780=781
+<781=782
+<782=787,786,783
+<783=785,784
+<788=789
+<789=794,793,790
+<790=792,791
+<795=796
+<796=798,797
+<798=799
+<799=801,800
+<802=803
+<803=810,809,804
+<804=808,805
+<805=807,806
+<811=812
+<812=822,813
+<813=820,818,816,814
+<814=815
+<816=817
+<818=819
+<820=821
+<822=823
+<824=825
+<825=831,826
+<826=829,827
+<827=828
+<829=830
+<831=832
+<833=834
+<834=838,835
+<835=836
+<836=837
+<838=839
+<840=841
+<841=849,842
+<842=847,843
+<843=844
+<844=846,845
+<847=848
+<849=850
+<851=852
+<852=856,853
+<853=854
+<854=855
+<856=857
+<899=902,901,900
+<902=903
+<903=904
+<904=906,905
+<912=915,914,913
+<915=916
+<916=917
+<917=919,918
+<925=928,927,926
+<928=958,931,929
+<929=930
+<931=950,946,943,932
+<932=937,933
+<933=934
+<934=936,935
+<937=938
+<938=940,939
+<940=942,941
+<943=945,944
+<946=947
+<947=949,948
+<950=951
+<951=952
+<952=957,956,953
+<953=955,954
+<958=959
+<959=964,963,960
+<960=962,961
+<975=981,980,976
+<976=977
+<977=979,978
+<981=982
+<982=983
+<983=985,984

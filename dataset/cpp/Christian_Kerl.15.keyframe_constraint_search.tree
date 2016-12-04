@@ -1,0 +1,464 @@
+>3	FunctionDef	NearestNeighborConstraintSearch 
+>4	ParameterList	 
+>5	ReturnType	float
+>6	CompoundStatement	 
+>7	ReturnStatement	 
+>8	Identifier	max_distance_
+>13	FunctionDef	NearestNeighborConstraintSearch 
+>14	ParameterList	const float & d
+>15	Parameter	 
+>16	Identifier	d
+>17	ParameterType	const float &
+>18	ReturnType	void
+>19	CompoundStatement	 
+>20	ExpressionStatement	 
+>21	AssignmentExpr	max_distance_ = d
+>22	Identifier	d
+>23	Identifier	max_distance_
+>29	FunctionDef	NearestNeighborConstraintSearch 
+>30	ParameterList	const KeyframeVector & all , const KeyframePtr & keyframe , KeyframeVector & candidates
+>31	Parameter	 
+>32	Identifier	candidates
+>33	ParameterType	KeyframeVector &
+>34	Parameter	 
+>35	Identifier	keyframe
+>36	ParameterType	const KeyframePtr &
+>37	Parameter	 
+>38	Identifier	all
+>39	ParameterType	const KeyframeVector &
+>40	ReturnType	void
+>41	CompoundStatement	 
+>42	ForStatement	for ( std 
+>43	CompoundStatement	 
+>44	ExpressionStatement	 
+>45	CallExpression	candidates . push_back ( all [ * it ] )
+>46	ArgumentList	all [ * it ]
+>47	Argument	all [ * it ]
+>48	ArrayIndexing	all [ * it ]
+>49	UnaryOp	* it
+>50	Identifier	it
+>51	UnaryOperator	*
+>52	Identifier	all
+>53	Callee	candidates . push_back
+>54	MemberAccess	candidates . push_back
+>55	Identifier	push_back
+>56	Identifier	candidates
+>57	UnaryExpression	 
+>58	Identifier	it
+>59	IncDec	++
+>60	Condition	 
+>61	EqualityExpression	it != indices . end ( )
+>62	CallExpression	indices . end ( )
+>63	ArgumentList	 
+>64	Callee	indices . end
+>65	MemberAccess	indices . end
+>66	Identifier	end
+>67	Identifier	indices
+>68	Identifier	it
+>69	ForInit	 
+>70	IdentifierDeclStatement	std 
+>71	IdentifierDecl	it = indices . begin ( )
+>72	AssignmentExpr	it = indices . begin ( )
+>73	CallExpression	indices . begin ( )
+>74	ArgumentList	 
+>75	Callee	indices . begin
+>76	MemberAccess	indices . begin
+>77	Identifier	begin
+>78	Identifier	indices
+>79	Identifier	it
+>80	Identifier	it
+>81	IdentifierDeclType	std 
+>82	ExpressionStatement	 
+>83	CallExpression	kdtree -> radiusSearch ( search_point , max_distance_ , indices , distances )
+>84	ArgumentList	search_point
+>85	Argument	distances
+>86	Identifier	distances
+>87	Argument	indices
+>88	Identifier	indices
+>89	Argument	max_distance_
+>90	Identifier	max_distance_
+>91	Argument	search_point
+>92	Identifier	search_point
+>93	Callee	kdtree -> radiusSearch
+>94	PtrMemberAccess	kdtree -> radiusSearch
+>95	Identifier	radiusSearch
+>96	Identifier	kdtree
+>97	ExpressionStatement	 
+>98	CallExpression	kdtree -> setInputCloud ( keyframe_points )
+>99	ArgumentList	keyframe_points
+>100	Argument	keyframe_points
+>101	Identifier	keyframe_points
+>102	Callee	kdtree -> setInputCloud
+>103	PtrMemberAccess	kdtree -> setInputCloud
+>104	Identifier	setInputCloud
+>105	Identifier	kdtree
+>106	IdentifierDeclStatement	 
+>107	IdentifierDecl	kdtree ( new pcl 
+>108	Identifier	false
+>109	Identifier	kdtree
+>110	IdentifierDeclType	pcl 
+>111	IdentifierDeclStatement	 
+>112	IdentifierDecl	distances
+>113	Identifier	distances
+>114	IdentifierDeclType	std 
+>115	IdentifierDeclStatement	 
+>116	IdentifierDecl	ids
+>117	Identifier	ids
+>118	IdentifierDeclType	std 
+>119	IdentifierDeclStatement	 
+>120	IdentifierDecl	indices
+>121	Identifier	indices
+>122	IdentifierDeclType	std 
+>123	ForStatement	for ( KeyframeVector 
+>124	CompoundStatement	 
+>125	ExpressionStatement	 
+>126	CallExpression	keyframe_points -> points . push_back ( p )
+>127	ArgumentList	p
+>128	Argument	p
+>129	Identifier	p
+>130	Callee	keyframe_points -> points . push_back
+>131	MemberAccess	keyframe_points -> points . push_back
+>132	Identifier	push_back
+>133	PtrMemberAccess	keyframe_points -> points
+>134	Identifier	points
+>135	Identifier	keyframe_points
+>136	ExpressionStatement	 
+>137	AssignmentExpr	p . z = ( * it ) -> pose ( ) . translation ( ) ( 2 )
+>138	CallExpression	( * it ) -> pose ( ) . translation ( ) ( 2 )
+>139	ArgumentList	2
+>140	Argument	2
+>141	PrimaryExpression	2
+>142	Callee	( * it ) -> pose ( ) . translation ( )
+>143	CallExpression	( * it ) -> pose ( ) . translation ( )
+>144	ArgumentList	 
+>145	Callee	( * it ) -> pose ( ) . translation
+>146	MemberAccess	( * it ) -> pose ( ) . translation
+>147	Identifier	translation
+>148	CallExpression	( * it ) -> pose ( )
+>149	ArgumentList	 
+>150	Callee	( * it ) -> pose
+>151	PtrMemberAccess	( * it ) -> pose
+>152	Identifier	pose
+>153	UnaryOp	* it
+>154	Identifier	it
+>155	UnaryOperator	*
+>156	MemberAccess	p . z
+>157	Identifier	z
+>158	Identifier	p
+>159	ExpressionStatement	 
+>160	AssignmentExpr	p . y = ( * it ) -> pose ( ) . translation ( ) ( 1 )
+>161	CallExpression	( * it ) -> pose ( ) . translation ( ) ( 1 )
+>162	ArgumentList	1
+>163	Argument	1
+>164	PrimaryExpression	1
+>165	Callee	( * it ) -> pose ( ) . translation ( )
+>166	CallExpression	( * it ) -> pose ( ) . translation ( )
+>167	ArgumentList	 
+>168	Callee	( * it ) -> pose ( ) . translation
+>169	MemberAccess	( * it ) -> pose ( ) . translation
+>170	Identifier	translation
+>171	CallExpression	( * it ) -> pose ( )
+>172	ArgumentList	 
+>173	Callee	( * it ) -> pose
+>174	PtrMemberAccess	( * it ) -> pose
+>175	Identifier	pose
+>176	UnaryOp	* it
+>177	Identifier	it
+>178	UnaryOperator	*
+>179	MemberAccess	p . y
+>180	Identifier	y
+>181	Identifier	p
+>182	ExpressionStatement	 
+>183	AssignmentExpr	p . x = ( * it ) -> pose ( ) . translation ( ) ( 0 )
+>184	CallExpression	( * it ) -> pose ( ) . translation ( ) ( 0 )
+>185	ArgumentList	0
+>186	Argument	0
+>187	PrimaryExpression	0
+>188	Callee	( * it ) -> pose ( ) . translation ( )
+>189	CallExpression	( * it ) -> pose ( ) . translation ( )
+>190	ArgumentList	 
+>191	Callee	( * it ) -> pose ( ) . translation
+>192	MemberAccess	( * it ) -> pose ( ) . translation
+>193	Identifier	translation
+>194	CallExpression	( * it ) -> pose ( )
+>195	ArgumentList	 
+>196	Callee	( * it ) -> pose
+>197	PtrMemberAccess	( * it ) -> pose
+>198	Identifier	pose
+>199	UnaryOp	* it
+>200	Identifier	it
+>201	UnaryOperator	*
+>202	MemberAccess	p . x
+>203	Identifier	x
+>204	Identifier	p
+>205	IdentifierDeclStatement	 
+>206	IdentifierDecl	p
+>207	Identifier	p
+>208	IdentifierDeclType	pcl 
+>209	UnaryExpression	 
+>210	Identifier	it
+>211	IncDec	++
+>212	Condition	 
+>213	EqualityExpression	it != all . end ( )
+>214	CallExpression	all . end ( )
+>215	ArgumentList	 
+>216	Callee	all . end
+>217	MemberAccess	all . end
+>218	Identifier	end
+>219	Identifier	all
+>220	Identifier	it
+>221	ForInit	 
+>222	IdentifierDeclStatement	KeyframeVector 
+>223	IdentifierDecl	it = all . begin ( )
+>224	AssignmentExpr	it = all . begin ( )
+>225	CallExpression	all . begin ( )
+>226	ArgumentList	 
+>227	Callee	all . begin
+>228	MemberAccess	all . begin
+>229	Identifier	begin
+>230	Identifier	all
+>231	Identifier	it
+>232	Identifier	it
+>233	IdentifierDeclType	KeyframeVector 
+>234	IdentifierDeclStatement	 
+>235	IdentifierDecl	keyframe_points ( new pcl 
+>236	UnaryExpression	new pcl 
+>237	Identifier	keyframe_points
+>238	IdentifierDeclType	pcl 
+>239	ExpressionStatement	 
+>240	AssignmentExpr	search_point . z = keyframe -> pose ( ) . translation ( ) ( 2 )
+>241	CallExpression	keyframe -> pose ( ) . translation ( ) ( 2 )
+>242	ArgumentList	2
+>243	Argument	2
+>244	PrimaryExpression	2
+>245	Callee	keyframe -> pose ( ) . translation ( )
+>246	CallExpression	keyframe -> pose ( ) . translation ( )
+>247	ArgumentList	 
+>248	Callee	keyframe -> pose ( ) . translation
+>249	MemberAccess	keyframe -> pose ( ) . translation
+>250	Identifier	translation
+>251	CallExpression	keyframe -> pose ( )
+>252	ArgumentList	 
+>253	Callee	keyframe -> pose
+>254	PtrMemberAccess	keyframe -> pose
+>255	Identifier	pose
+>256	Identifier	keyframe
+>257	MemberAccess	search_point . z
+>258	Identifier	z
+>259	Identifier	search_point
+>260	ExpressionStatement	 
+>261	AssignmentExpr	search_point . y = keyframe -> pose ( ) . translation ( ) ( 1 )
+>262	CallExpression	keyframe -> pose ( ) . translation ( ) ( 1 )
+>263	ArgumentList	1
+>264	Argument	1
+>265	PrimaryExpression	1
+>266	Callee	keyframe -> pose ( ) . translation ( )
+>267	CallExpression	keyframe -> pose ( ) . translation ( )
+>268	ArgumentList	 
+>269	Callee	keyframe -> pose ( ) . translation
+>270	MemberAccess	keyframe -> pose ( ) . translation
+>271	Identifier	translation
+>272	CallExpression	keyframe -> pose ( )
+>273	ArgumentList	 
+>274	Callee	keyframe -> pose
+>275	PtrMemberAccess	keyframe -> pose
+>276	Identifier	pose
+>277	Identifier	keyframe
+>278	MemberAccess	search_point . y
+>279	Identifier	y
+>280	Identifier	search_point
+>281	ExpressionStatement	 
+>282	AssignmentExpr	search_point . x = keyframe -> pose ( ) . translation ( ) ( 0 )
+>283	CallExpression	keyframe -> pose ( ) . translation ( ) ( 0 )
+>284	ArgumentList	0
+>285	Argument	0
+>286	PrimaryExpression	0
+>287	Callee	keyframe -> pose ( ) . translation ( )
+>288	CallExpression	keyframe -> pose ( ) . translation ( )
+>289	ArgumentList	 
+>290	Callee	keyframe -> pose ( ) . translation
+>291	MemberAccess	keyframe -> pose ( ) . translation
+>292	Identifier	translation
+>293	CallExpression	keyframe -> pose ( )
+>294	ArgumentList	 
+>295	Callee	keyframe -> pose
+>296	PtrMemberAccess	keyframe -> pose
+>297	Identifier	pose
+>298	Identifier	keyframe
+>299	MemberAccess	search_point . x
+>300	Identifier	x
+>301	Identifier	search_point
+>302	IdentifierDeclStatement	 
+>303	IdentifierDecl	search_point
+>304	Identifier	search_point
+>305	IdentifierDeclType	pcl 
+<3=6,5,4
+<6=7
+<7=8
+<13=19,18,14
+<14=15
+<15=17,16
+<19=20
+<20=21
+<21=23,22
+<29=41,40,30
+<30=37,34,31
+<31=33,32
+<34=36,35
+<37=39,38
+<41=302,281,260,239,234,123,119,115,111,106,97,82,42
+<42=69,60,57,43
+<43=44
+<44=45
+<45=53,46
+<46=47
+<47=48
+<48=52,49
+<49=51,50
+<53=54
+<54=56,55
+<57=59,58
+<60=61
+<61=68,62
+<62=64,63
+<64=65
+<65=67,66
+<69=70
+<70=71
+<71=81,80,72
+<72=79,73
+<73=75,74
+<75=76
+<76=78,77
+<82=83
+<83=93,84
+<84=91,89,87,85
+<85=86
+<87=88
+<89=90
+<91=92
+<93=94
+<94=96,95
+<97=98
+<98=102,99
+<99=100
+<100=101
+<102=103
+<103=105,104
+<106=107
+<107=110,109,108
+<111=112
+<112=114,113
+<115=116
+<116=118,117
+<119=120
+<120=122,121
+<123=221,212,209,124
+<124=205,182,159,136,125
+<125=126
+<126=130,127
+<127=128
+<128=129
+<130=131
+<131=133,132
+<133=135,134
+<136=137
+<137=156,138
+<138=142,139
+<139=140
+<140=141
+<142=143
+<143=145,144
+<145=146
+<146=148,147
+<148=150,149
+<150=151
+<151=153,152
+<153=155,154
+<156=158,157
+<159=160
+<160=179,161
+<161=165,162
+<162=163
+<163=164
+<165=166
+<166=168,167
+<168=169
+<169=171,170
+<171=173,172
+<173=174
+<174=176,175
+<176=178,177
+<179=181,180
+<182=183
+<183=202,184
+<184=188,185
+<185=186
+<186=187
+<188=189
+<189=191,190
+<191=192
+<192=194,193
+<194=196,195
+<196=197
+<197=199,198
+<199=201,200
+<202=204,203
+<205=206
+<206=208,207
+<209=211,210
+<212=213
+<213=220,214
+<214=216,215
+<216=217
+<217=219,218
+<221=222
+<222=223
+<223=233,232,224
+<224=231,225
+<225=227,226
+<227=228
+<228=230,229
+<234=235
+<235=238,237,236
+<239=240
+<240=257,241
+<241=245,242
+<242=243
+<243=244
+<245=246
+<246=248,247
+<248=249
+<249=251,250
+<251=253,252
+<253=254
+<254=256,255
+<257=259,258
+<260=261
+<261=278,262
+<262=266,263
+<263=264
+<264=265
+<266=267
+<267=269,268
+<269=270
+<270=272,271
+<272=274,273
+<274=275
+<275=277,276
+<278=280,279
+<281=282
+<282=299,283
+<283=287,284
+<284=285
+<285=286
+<287=288
+<288=290,289
+<290=291
+<291=293,292
+<293=295,294
+<295=296
+<296=298,297
+<299=301,300
+<302=303
+<303=305,304

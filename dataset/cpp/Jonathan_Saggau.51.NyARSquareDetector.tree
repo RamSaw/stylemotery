@@ -1,0 +1,2876 @@
+>8	FunctionDef	OverlapChecker ()
+>9	ParameterList	 
+>10	CompoundStatement	 
+>11	ReturnStatement	 
+>15	FunctionDef	~OverlapChecker ()
+>16	ParameterList	 
+>17	CompoundStatement	 
+>18	ReturnStatement	 
+>22	FunctionDef	reset (int i_max_label)
+>23	ParameterList	int i_max_label
+>24	Parameter	 
+>25	Identifier	i_max_label
+>26	ParameterType	int
+>27	ReturnType	void
+>28	CompoundStatement	 
+>29	ExpressionStatement	 
+>30	AssignmentExpr	this -> _length = 0
+>31	PrimaryExpression	0
+>32	PtrMemberAccess	this -> _length
+>33	Identifier	_length
+>34	Identifier	this
+>35	IfStatement	if ( i_max_label > this -> _labels . length )
+>36	CompoundStatement	 
+>37	ExpressionStatement	 
+>38	CallExpression	this -> _labels . renew ( i_max_label )
+>39	ArgumentList	i_max_label
+>40	Argument	i_max_label
+>41	Identifier	i_max_label
+>42	Callee	this -> _labels . renew
+>43	MemberAccess	this -> _labels . renew
+>44	Identifier	renew
+>45	PtrMemberAccess	this -> _labels
+>46	Identifier	_labels
+>47	Identifier	this
+>48	Condition	 
+>49	RelationalExpression	i_max_label > this -> _labels . length
+>50	MemberAccess	this -> _labels . length
+>51	Identifier	length
+>52	PtrMemberAccess	this -> _labels
+>53	Identifier	_labels
+>54	Identifier	this
+>55	Identifier	i_max_label
+>65	FunctionDef	push (const NyARLabelingLabel * i_label_ref)
+>66	ParameterList	const NyARLabelingLabel * i_label_ref
+>67	Parameter	 
+>68	Identifier	i_label_ref
+>69	ParameterType	const NyARLabelingLabel *
+>70	ReturnType	void
+>71	CompoundStatement	 
+>72	ExpressionStatement	 
+>73	IncDecOp	this -> _length ++
+>74	IncDec	++
+>75	PtrMemberAccess	this -> _length
+>76	Identifier	_length
+>77	Identifier	this
+>78	ExpressionStatement	 
+>79	AssignmentExpr	this -> _labels . item [ this -> _length ] = i_label_ref
+>80	Identifier	i_label_ref
+>81	ArrayIndexing	this -> _labels . item [ this -> _length ]
+>82	PtrMemberAccess	this -> _length
+>83	Identifier	_length
+>84	Identifier	this
+>85	MemberAccess	this -> _labels . item
+>86	Identifier	item
+>87	PtrMemberAccess	this -> _labels
+>88	Identifier	_labels
+>89	Identifier	this
+>103	FunctionDef	check (const NyARLabelingLabel & i_label)
+>104	ParameterList	const NyARLabelingLabel & i_label
+>105	Parameter	 
+>106	Identifier	i_label
+>107	ParameterType	const NyARLabelingLabel &
+>108	ReturnType	bool
+>109	CompoundStatement	 
+>110	ReturnStatement	 
+>111	Identifier	true
+>112	ForStatement	for ( int i = this -> _length - 1 ; i >= 0 ; i -- )
+>113	CompoundStatement	 
+>114	IfStatement	if ( d < label_pt [ i ] -> area / 4 )
+>115	CompoundStatement	 
+>116	ReturnStatement	 
+>117	Identifier	false
+>118	Condition	 
+>119	RelationalExpression	d < label_pt [ i ] -> area / 4
+>120	MultiplicativeExpression	label_pt [ i ] -> area / 4
+>121	PrimaryExpression	4
+>122	PtrMemberAccess	label_pt [ i ] -> area
+>123	Identifier	area
+>124	ArrayIndexing	label_pt [ i ]
+>125	Identifier	i
+>126	Identifier	label_pt
+>127	Identifier	d
+>128	IdentifierDeclStatement	 
+>129	IdentifierDecl	d = ( px1 - px2 ) * ( px1 - px2 ) + ( py1 - py2 ) * ( py1 - py2 )
+>130	AssignmentExpr	d = ( px1 - px2 ) * ( px1 - px2 ) + ( py1 - py2 ) * ( py1 - py2 )
+>131	AdditiveExpression	( px1 - px2 ) * ( px1 - px2 ) + ( py1 - py2 ) * ( py1 - py2 )
+>132	MultiplicativeExpression	( py1 - py2 ) * ( py1 - py2 )
+>133	AdditiveExpression	py1 - py2
+>134	Identifier	py2
+>135	Identifier	py1
+>136	AdditiveExpression	py1 - py2
+>137	Identifier	py2
+>138	Identifier	py1
+>139	MultiplicativeExpression	( px1 - px2 ) * ( px1 - px2 )
+>140	AdditiveExpression	px1 - px2
+>141	Identifier	px2
+>142	Identifier	px1
+>143	AdditiveExpression	px1 - px2
+>144	Identifier	px2
+>145	Identifier	px1
+>146	Identifier	d
+>147	Identifier	d
+>148	IdentifierDeclType	const int
+>149	IdentifierDeclStatement	 
+>150	IdentifierDecl	py2 = ( int ) label_pt [ i ] -> pos_y
+>151	AssignmentExpr	py2 = ( int ) label_pt [ i ] -> pos_y
+>152	CastExpression	( int ) label_pt [ i ] -> pos_y
+>153	PtrMemberAccess	label_pt [ i ] -> pos_y
+>154	Identifier	pos_y
+>155	ArrayIndexing	label_pt [ i ]
+>156	Identifier	i
+>157	Identifier	label_pt
+>158	CastTarget	int
+>159	Identifier	py2
+>160	Identifier	py2
+>161	IdentifierDeclType	const int
+>162	IdentifierDeclStatement	 
+>163	IdentifierDecl	px2 = ( int ) label_pt [ i ] -> pos_x
+>164	AssignmentExpr	px2 = ( int ) label_pt [ i ] -> pos_x
+>165	CastExpression	( int ) label_pt [ i ] -> pos_x
+>166	PtrMemberAccess	label_pt [ i ] -> pos_x
+>167	Identifier	pos_x
+>168	ArrayIndexing	label_pt [ i ]
+>169	Identifier	i
+>170	Identifier	label_pt
+>171	CastTarget	int
+>172	Identifier	px2
+>173	Identifier	px2
+>174	IdentifierDeclType	const int
+>175	IncDecOp	 
+>176	IncDec	--
+>177	Identifier	i
+>178	Condition	 
+>179	RelationalExpression	i >= 0
+>180	PrimaryExpression	0
+>181	Identifier	i
+>182	ForInit	 
+>183	IdentifierDeclStatement	int i = this -> _length - 1 ;
+>184	IdentifierDecl	i = this -> _length - 1
+>185	AssignmentExpr	i = this -> _length - 1
+>186	AdditiveExpression	this -> _length - 1
+>187	PrimaryExpression	1
+>188	PtrMemberAccess	this -> _length
+>189	Identifier	_length
+>190	Identifier	this
+>191	Identifier	i
+>192	Identifier	i
+>193	IdentifierDeclType	int
+>194	IdentifierDeclStatement	 
+>195	IdentifierDecl	py1 = ( int ) i_label . pos_y
+>196	AssignmentExpr	py1 = ( int ) i_label . pos_y
+>197	CastExpression	( int ) i_label . pos_y
+>198	MemberAccess	i_label . pos_y
+>199	Identifier	pos_y
+>200	Identifier	i_label
+>201	CastTarget	int
+>202	Identifier	py1
+>203	Identifier	py1
+>204	IdentifierDeclType	const int
+>205	IdentifierDeclStatement	 
+>206	IdentifierDecl	px1 = ( int ) i_label . pos_x
+>207	AssignmentExpr	px1 = ( int ) i_label . pos_x
+>208	CastExpression	( int ) i_label . pos_x
+>209	MemberAccess	i_label . pos_x
+>210	Identifier	pos_x
+>211	Identifier	i_label
+>212	CastTarget	int
+>213	Identifier	px1
+>214	Identifier	px1
+>215	IdentifierDeclType	const int
+>216	IdentifierDeclStatement	 
+>217	IdentifierDecl	* * label_pt = this -> _labels . item
+>218	AssignmentExpr	* * label_pt = this -> _labels . item
+>219	MemberAccess	this -> _labels . item
+>220	Identifier	item
+>221	PtrMemberAccess	this -> _labels
+>222	Identifier	_labels
+>223	Identifier	this
+>224	Identifier	label_pt
+>225	Identifier	label_pt
+>226	IdentifierDeclType	const NyARLabelingLabel * *
+>254	FunctionDef	NyARSquareDetector 
+>255	ParameterList	const NyARCameraDistortionFactor & i_dist_factor_ref , const TNyARIntSize & i_size
+>256	Parameter	 
+>257	Identifier	i_size
+>258	ParameterType	const TNyARIntSize &
+>259	Parameter	 
+>260	Identifier	i_dist_factor_ref
+>261	ParameterType	const NyARCameraDistortionFactor &
+>262	CompoundStatement	 
+>263	ReturnStatement	 
+>264	ExpressionStatement	 
+>265	AssignmentExpr	this -> _overlap_checker = new OverlapChecker ( )
+>266	UnaryExpression	new OverlapChecker ( )
+>267	PtrMemberAccess	this -> _overlap_checker
+>268	Identifier	_overlap_checker
+>269	Identifier	this
+>270	ExpressionStatement	 
+>271	AssignmentExpr	this -> _ypos = new double [ this -> _width + this -> _height ]
+>272	AdditiveExpression	this -> _width + this -> _height
+>273	PtrMemberAccess	this -> _height
+>274	Identifier	_height
+>275	Identifier	this
+>276	PtrMemberAccess	this -> _width
+>277	Identifier	_width
+>278	Identifier	this
+>279	PtrMemberAccess	this -> _ypos
+>280	Identifier	_ypos
+>281	Identifier	this
+>282	ExpressionStatement	 
+>283	AssignmentExpr	this -> _xpos = new double [ this -> _width + this -> _height ]
+>284	AdditiveExpression	this -> _width + this -> _height
+>285	PtrMemberAccess	this -> _height
+>286	Identifier	_height
+>287	Identifier	this
+>288	PtrMemberAccess	this -> _width
+>289	Identifier	_width
+>290	Identifier	this
+>291	PtrMemberAccess	this -> _xpos
+>292	Identifier	_xpos
+>293	Identifier	this
+>294	ExpressionStatement	 
+>295	AssignmentExpr	this -> _ycoord = new int [ number_of_coord * 2 ]
+>296	MultiplicativeExpression	number_of_coord * 2
+>297	PrimaryExpression	2
+>298	Identifier	number_of_coord
+>299	PtrMemberAccess	this -> _ycoord
+>300	Identifier	_ycoord
+>301	Identifier	this
+>302	ExpressionStatement	 
+>303	AssignmentExpr	this -> _xcoord = new int [ number_of_coord * 2 ]
+>304	MultiplicativeExpression	number_of_coord * 2
+>305	PrimaryExpression	2
+>306	Identifier	number_of_coord
+>307	PtrMemberAccess	this -> _xcoord
+>308	Identifier	_xcoord
+>309	Identifier	this
+>310	ExpressionStatement	 
+>311	AssignmentExpr	this -> _max_coord = number_of_coord
+>312	Identifier	number_of_coord
+>313	PtrMemberAccess	this -> _max_coord
+>314	Identifier	_max_coord
+>315	Identifier	this
+>316	IdentifierDeclStatement	 
+>317	IdentifierDecl	number_of_coord = ( this -> _width + this -> _height ) * 2
+>318	AssignmentExpr	number_of_coord = ( this -> _width + this -> _height ) * 2
+>319	MultiplicativeExpression	( this -> _width + this -> _height ) * 2
+>320	PrimaryExpression	2
+>321	AdditiveExpression	this -> _width + this -> _height
+>322	PtrMemberAccess	this -> _height
+>323	Identifier	_height
+>324	Identifier	this
+>325	PtrMemberAccess	this -> _width
+>326	Identifier	_width
+>327	Identifier	this
+>328	Identifier	number_of_coord
+>329	Identifier	number_of_coord
+>330	IdentifierDeclType	int
+>331	ExpressionStatement	 
+>332	AssignmentExpr	this -> _pca = new NyARPca2d_MatrixPCA_O2 ( )
+>333	UnaryExpression	new NyARPca2d_MatrixPCA_O2 ( )
+>334	PtrMemberAccess	this -> _pca
+>335	Identifier	_pca
+>336	Identifier	this
+>337	ExpressionStatement	 
+>338	CallExpression	this -> _labeling -> attachDestination ( this -> _limage )
+>339	ArgumentList	this -> _limage
+>340	Argument	this -> _limage
+>341	PtrMemberAccess	this -> _limage
+>342	Identifier	_limage
+>343	Identifier	this
+>344	Callee	this -> _labeling -> attachDestination
+>345	PtrMemberAccess	this -> _labeling -> attachDestination
+>346	Identifier	attachDestination
+>347	PtrMemberAccess	this -> _labeling
+>348	Identifier	_labeling
+>349	Identifier	this
+>350	ExpressionStatement	 
+>351	AssignmentExpr	this -> _labeling = new NyARLabeling_ARToolKit ( )
+>352	UnaryExpression	new NyARLabeling_ARToolKit ( )
+>353	PtrMemberAccess	this -> _labeling
+>354	Identifier	_labeling
+>355	Identifier	this
+>356	ExpressionStatement	 
+>357	AssignmentExpr	this -> _limage = new NyARLabelingImage ( this -> _width , this -> _height )
+>358	Expression	this -> _width , this -> _height
+>359	PtrMemberAccess	this -> _height
+>360	Identifier	_height
+>361	Identifier	this
+>362	PtrMemberAccess	this -> _width
+>363	Identifier	_width
+>364	Identifier	this
+>365	PtrMemberAccess	this -> _limage
+>366	Identifier	_limage
+>367	Identifier	this
+>368	ExpressionStatement	 
+>369	AssignmentExpr	this -> _dist_factor = new NyARObserv2IdealMap ( i_dist_factor_ref , i_size )
+>370	Expression	i_dist_factor_ref , i_size
+>371	Identifier	i_size
+>372	Identifier	i_dist_factor_ref
+>373	PtrMemberAccess	this -> _dist_factor
+>374	Identifier	_dist_factor
+>375	Identifier	this
+>376	ExpressionStatement	 
+>377	AssignmentExpr	this -> _height = i_size . h
+>378	MemberAccess	i_size . h
+>379	Identifier	h
+>380	Identifier	i_size
+>381	PtrMemberAccess	this -> _height
+>382	Identifier	_height
+>383	Identifier	this
+>384	ExpressionStatement	 
+>385	AssignmentExpr	this -> _width = i_size . w
+>386	MemberAccess	i_size . w
+>387	Identifier	w
+>388	Identifier	i_size
+>389	PtrMemberAccess	this -> _width
+>390	Identifier	_width
+>391	Identifier	this
+>414	FunctionDef	NyARSquareDetector 
+>415	ParameterList	 
+>416	CompoundStatement	 
+>417	ReturnStatement	 
+>418	ExpressionStatement	 
+>419	CallExpression	NyAR_SAFE_DELETE ( this -> _ypos )
+>420	ArgumentList	this -> _ypos
+>421	Argument	this -> _ypos
+>422	PtrMemberAccess	this -> _ypos
+>423	Identifier	_ypos
+>424	Identifier	this
+>425	Callee	NyAR_SAFE_DELETE
+>426	Identifier	NyAR_SAFE_DELETE
+>427	ExpressionStatement	 
+>428	CallExpression	NyAR_SAFE_DELETE ( this -> _xpos )
+>429	ArgumentList	this -> _xpos
+>430	Argument	this -> _xpos
+>431	PtrMemberAccess	this -> _xpos
+>432	Identifier	_xpos
+>433	Identifier	this
+>434	Callee	NyAR_SAFE_DELETE
+>435	Identifier	NyAR_SAFE_DELETE
+>436	ExpressionStatement	 
+>437	CallExpression	NyAR_SAFE_DELETE ( this -> _ycoord )
+>438	ArgumentList	this -> _ycoord
+>439	Argument	this -> _ycoord
+>440	PtrMemberAccess	this -> _ycoord
+>441	Identifier	_ycoord
+>442	Identifier	this
+>443	Callee	NyAR_SAFE_DELETE
+>444	Identifier	NyAR_SAFE_DELETE
+>445	ExpressionStatement	 
+>446	CallExpression	NyAR_SAFE_DELETE ( this -> _xcoord )
+>447	ArgumentList	this -> _xcoord
+>448	Argument	this -> _xcoord
+>449	PtrMemberAccess	this -> _xcoord
+>450	Identifier	_xcoord
+>451	Identifier	this
+>452	Callee	NyAR_SAFE_DELETE
+>453	Identifier	NyAR_SAFE_DELETE
+>454	ExpressionStatement	 
+>455	CallExpression	NyAR_SAFE_DELETE ( this -> _pca )
+>456	ArgumentList	this -> _pca
+>457	Argument	this -> _pca
+>458	PtrMemberAccess	this -> _pca
+>459	Identifier	_pca
+>460	Identifier	this
+>461	Callee	NyAR_SAFE_DELETE
+>462	Identifier	NyAR_SAFE_DELETE
+>463	ExpressionStatement	 
+>464	CallExpression	NyAR_SAFE_DELETE ( this -> _dist_factor )
+>465	ArgumentList	this -> _dist_factor
+>466	Argument	this -> _dist_factor
+>467	PtrMemberAccess	this -> _dist_factor
+>468	Identifier	_dist_factor
+>469	Identifier	this
+>470	Callee	NyAR_SAFE_DELETE
+>471	Identifier	NyAR_SAFE_DELETE
+>472	ExpressionStatement	 
+>473	CallExpression	NyAR_SAFE_DELETE ( this -> _limage )
+>474	ArgumentList	this -> _limage
+>475	Argument	this -> _limage
+>476	PtrMemberAccess	this -> _limage
+>477	Identifier	_limage
+>478	Identifier	this
+>479	Callee	NyAR_SAFE_DELETE
+>480	Identifier	NyAR_SAFE_DELETE
+>481	ExpressionStatement	 
+>482	CallExpression	NyAR_SAFE_DELETE ( this -> _labeling )
+>483	ArgumentList	this -> _labeling
+>484	Argument	this -> _labeling
+>485	PtrMemberAccess	this -> _labeling
+>486	Identifier	_labeling
+>487	Identifier	this
+>488	Callee	NyAR_SAFE_DELETE
+>489	Identifier	NyAR_SAFE_DELETE
+>490	ExpressionStatement	 
+>491	CallExpression	NyAR_SAFE_DELETE ( this -> _overlap_checker )
+>492	ArgumentList	this -> _overlap_checker
+>493	Argument	this -> _overlap_checker
+>494	PtrMemberAccess	this -> _overlap_checker
+>495	Identifier	_overlap_checker
+>496	Identifier	this
+>497	Callee	NyAR_SAFE_DELETE
+>498	Identifier	NyAR_SAFE_DELETE
+>513	FunctionDef	NyARSquareDetector 
+>514	ParameterList	int i_coord_x [ ] , int i_coord_y [ ] , int i_index , int i_coord_num
+>515	Parameter	 
+>516	Identifier	i_coord_num
+>517	ParameterType	int
+>518	Parameter	 
+>519	Identifier	i_index
+>520	ParameterType	int
+>521	Parameter	 
+>522	Identifier	i_coord_y
+>523	ParameterType	int [ ]
+>524	Parameter	 
+>525	Identifier	i_coord_x
+>526	ParameterType	int [ ]
+>527	ReturnType	void
+>528	CompoundStatement	 
+>529	ReturnStatement	 
+>530	ExpressionStatement	 
+>531	CallExpression	memcpy ( i_coord_y + i_coord_num , i_coord_y + 1 , i_index * sizeof ( int ) )
+>532	ArgumentList	i_coord_y + i_coord_num
+>533	Argument	i_index * sizeof ( int )
+>534	MultiplicativeExpression	i_index * sizeof ( int )
+>535	SizeofExpr	sizeof ( int )
+>536	SizeofOperand	int
+>537	Sizeof	sizeof
+>538	Identifier	i_index
+>539	Argument	i_coord_y + 1
+>540	AdditiveExpression	i_coord_y + 1
+>541	PrimaryExpression	1
+>542	Identifier	i_coord_y
+>543	Argument	i_coord_y + i_coord_num
+>544	AdditiveExpression	i_coord_y + i_coord_num
+>545	Identifier	i_coord_num
+>546	Identifier	i_coord_y
+>547	Callee	memcpy
+>548	Identifier	memcpy
+>549	ExpressionStatement	 
+>550	CallExpression	memcpy ( i_coord_x + i_coord_num , i_coord_x + 1 , i_index * sizeof ( int ) )
+>551	ArgumentList	i_coord_x + i_coord_num
+>552	Argument	i_index * sizeof ( int )
+>553	MultiplicativeExpression	i_index * sizeof ( int )
+>554	SizeofExpr	sizeof ( int )
+>555	SizeofOperand	int
+>556	Sizeof	sizeof
+>557	Identifier	i_index
+>558	Argument	i_coord_x + 1
+>559	AdditiveExpression	i_coord_x + 1
+>560	PrimaryExpression	1
+>561	Identifier	i_coord_x
+>562	Argument	i_coord_x + i_coord_num
+>563	AdditiveExpression	i_coord_x + i_coord_num
+>564	Identifier	i_coord_num
+>565	Identifier	i_coord_x
+>566	Callee	memcpy
+>567	Identifier	memcpy
+>575	FunctionDef	NyARSquareDetector 
+>576	ParameterList	const NyARBinRaster & i_raster , NyARSquareStack & o_square_stack
+>577	Parameter	 
+>578	Identifier	o_square_stack
+>579	ParameterType	NyARSquareStack &
+>580	Parameter	 
+>581	Identifier	i_raster
+>582	ParameterType	const NyARBinRaster &
+>583	ReturnType	void
+>584	CompoundStatement	 
+>585	ReturnStatement	 
+>586	ForStatement	for ( ; i < label_num ; i ++ )
+>587	CompoundStatement	 
+>588	ExpressionStatement	 
+>589	CallExpression	overlap -> push ( label_pt )
+>590	ArgumentList	label_pt
+>591	Argument	label_pt
+>592	Identifier	label_pt
+>593	Callee	overlap -> push
+>594	PtrMemberAccess	overlap -> push
+>595	Identifier	push
+>596	Identifier	overlap
+>597	IfStatement	if ( ! getSquareLine ( mkvertex , xcoord , ycoord , * square_ptr ) )
+>598	CompoundStatement	 
+>599	ContinueStatement	 
+>600	ExpressionStatement	 
+>601	CallExpression	o_square_stack . pop ( )
+>602	ArgumentList	 
+>603	Callee	o_square_stack . pop
+>604	MemberAccess	o_square_stack . pop
+>605	Identifier	pop
+>606	Identifier	o_square_stack
+>607	Condition	 
+>608	UnaryOp	! getSquareLine ( mkvertex , xcoord , ycoord , * square_ptr )
+>609	CallExpression	getSquareLine ( mkvertex , xcoord , ycoord , * square_ptr )
+>610	ArgumentList	mkvertex
+>611	Argument	* square_ptr
+>612	UnaryOp	* square_ptr
+>613	Identifier	square_ptr
+>614	UnaryOperator	*
+>615	Argument	ycoord
+>616	Identifier	ycoord
+>617	Argument	xcoord
+>618	Identifier	xcoord
+>619	Argument	mkvertex
+>620	Identifier	mkvertex
+>621	Callee	getSquareLine
+>622	Identifier	getSquareLine
+>623	UnaryOperator	!
+>624	IfStatement	if ( ! getSquareVertex ( xcoord , ycoord , vertex1 , coord_num , label_area , mkvertex ) )
+>625	CompoundStatement	 
+>626	ContinueStatement	 
+>627	ExpressionStatement	 
+>628	CallExpression	o_square_stack . pop ( )
+>629	ArgumentList	 
+>630	Callee	o_square_stack . pop
+>631	MemberAccess	o_square_stack . pop
+>632	Identifier	pop
+>633	Identifier	o_square_stack
+>634	Condition	 
+>635	UnaryOp	! getSquareVertex ( xcoord , ycoord , vertex1 , coord_num , label_area , mkvertex )
+>636	CallExpression	getSquareVertex ( xcoord , ycoord , vertex1 , coord_num , label_area , mkvertex )
+>637	ArgumentList	xcoord
+>638	Argument	mkvertex
+>639	Identifier	mkvertex
+>640	Argument	label_area
+>641	Identifier	label_area
+>642	Argument	coord_num
+>643	Identifier	coord_num
+>644	Argument	vertex1
+>645	Identifier	vertex1
+>646	Argument	ycoord
+>647	Identifier	ycoord
+>648	Argument	xcoord
+>649	Identifier	xcoord
+>650	Callee	getSquareVertex
+>651	Identifier	getSquareVertex
+>652	UnaryOperator	!
+>653	IdentifierDeclStatement	 
+>654	IdentifierDecl	* square_ptr = o_square_stack . prePush ( )
+>655	AssignmentExpr	* square_ptr = o_square_stack . prePush ( )
+>656	CallExpression	o_square_stack . prePush ( )
+>657	ArgumentList	 
+>658	Callee	o_square_stack . prePush
+>659	MemberAccess	o_square_stack . prePush
+>660	Identifier	prePush
+>661	Identifier	o_square_stack
+>662	Identifier	square_ptr
+>663	Identifier	square_ptr
+>664	IdentifierDeclType	NyARSquare *
+>665	ExpressionStatement	 
+>666	CallExpression	normalizeCoord ( xcoord , ycoord , vertex1 , coord_num )
+>667	ArgumentList	xcoord
+>668	Argument	coord_num
+>669	Identifier	coord_num
+>670	Argument	vertex1
+>671	Identifier	vertex1
+>672	Argument	ycoord
+>673	Identifier	ycoord
+>674	Argument	xcoord
+>675	Identifier	xcoord
+>676	Callee	normalizeCoord
+>677	Identifier	normalizeCoord
+>678	IdentifierDeclStatement	 
+>679	IdentifierDecl	vertex1 = scanVertex ( xcoord , ycoord , coord_num )
+>680	AssignmentExpr	vertex1 = scanVertex ( xcoord , ycoord , coord_num )
+>681	CallExpression	scanVertex ( xcoord , ycoord , coord_num )
+>682	ArgumentList	xcoord
+>683	Argument	coord_num
+>684	Identifier	coord_num
+>685	Argument	ycoord
+>686	Identifier	ycoord
+>687	Argument	xcoord
+>688	Identifier	xcoord
+>689	Callee	scanVertex
+>690	Identifier	scanVertex
+>691	Identifier	vertex1
+>692	Identifier	vertex1
+>693	IdentifierDeclType	const int
+>694	IfStatement	if ( coord_num == coord_max )
+>695	CompoundStatement	 
+>696	ContinueStatement	 
+>697	Condition	 
+>698	EqualityExpression	coord_num == coord_max
+>699	Identifier	coord_max
+>700	Identifier	coord_num
+>701	ExpressionStatement	 
+>702	AssignmentExpr	coord_num = limage . getContour ( i , coord_max , xcoord , ycoord )
+>703	CallExpression	limage . getContour ( i , coord_max , xcoord , ycoord )
+>704	ArgumentList	i
+>705	Argument	ycoord
+>706	Identifier	ycoord
+>707	Argument	xcoord
+>708	Identifier	xcoord
+>709	Argument	coord_max
+>710	Identifier	coord_max
+>711	Argument	i
+>712	Identifier	i
+>713	Callee	limage . getContour
+>714	MemberAccess	limage . getContour
+>715	Identifier	getContour
+>716	Identifier	limage
+>717	Identifier	coord_num
+>718	IfStatement	if ( ! overlap -> check ( * label_pt ) )
+>719	CompoundStatement	 
+>720	ContinueStatement	 
+>721	Condition	 
+>722	UnaryOp	! overlap -> check ( * label_pt )
+>723	CallExpression	overlap -> check ( * label_pt )
+>724	ArgumentList	* label_pt
+>725	Argument	* label_pt
+>726	UnaryOp	* label_pt
+>727	Identifier	label_pt
+>728	UnaryOperator	*
+>729	Callee	overlap -> check
+>730	PtrMemberAccess	overlap -> check
+>731	Identifier	check
+>732	Identifier	overlap
+>733	UnaryOperator	!
+>734	IfStatement	if ( label_pt -> clip_t == 1 || label_pt -> clip_b == ysize - 2 )
+>735	CompoundStatement	 
+>736	ContinueStatement	 
+>737	Condition	 
+>738	OrExpression	label_pt -> clip_t == 1 || label_pt -> clip_b == ysize - 2
+>739	EqualityExpression	label_pt -> clip_b == ysize - 2
+>740	AdditiveExpression	ysize - 2
+>741	PrimaryExpression	2
+>742	Identifier	ysize
+>743	PtrMemberAccess	label_pt -> clip_b
+>744	Identifier	clip_b
+>745	Identifier	label_pt
+>746	EqualityExpression	label_pt -> clip_t == 1
+>747	PrimaryExpression	1
+>748	PtrMemberAccess	label_pt -> clip_t
+>749	Identifier	clip_t
+>750	Identifier	label_pt
+>751	IfStatement	if ( label_pt -> clip_l == 1 || label_pt -> clip_r == xsize - 2 )
+>752	CompoundStatement	 
+>753	ContinueStatement	 
+>754	Condition	 
+>755	OrExpression	label_pt -> clip_l == 1 || label_pt -> clip_r == xsize - 2
+>756	EqualityExpression	label_pt -> clip_r == xsize - 2
+>757	AdditiveExpression	xsize - 2
+>758	PrimaryExpression	2
+>759	Identifier	xsize
+>760	PtrMemberAccess	label_pt -> clip_r
+>761	Identifier	clip_r
+>762	Identifier	label_pt
+>763	EqualityExpression	label_pt -> clip_l == 1
+>764	PrimaryExpression	1
+>765	PtrMemberAccess	label_pt -> clip_l
+>766	Identifier	clip_l
+>767	Identifier	label_pt
+>768	IfStatement	if ( label_area < AR_AREA_MIN )
+>769	CompoundStatement	 
+>770	BreakStatement	 
+>771	Condition	 
+>772	RelationalExpression	label_area < AR_AREA_MIN
+>773	Identifier	AR_AREA_MIN
+>774	Identifier	label_area
+>775	ExpressionStatement	 
+>776	AssignmentExpr	label_area = label_pt -> area
+>777	PtrMemberAccess	label_pt -> area
+>778	Identifier	area
+>779	Identifier	label_pt
+>780	Identifier	label_area
+>781	ExpressionStatement	 
+>782	AssignmentExpr	label_pt = labels -> item [ i ]
+>783	ArrayIndexing	labels -> item [ i ]
+>784	Identifier	i
+>785	PtrMemberAccess	labels -> item
+>786	Identifier	item
+>787	Identifier	labels
+>788	Identifier	label_pt
+>789	IncDecOp	 
+>790	IncDec	++
+>791	Identifier	i
+>792	Condition	 
+>793	RelationalExpression	i < label_num
+>794	Identifier	label_num
+>795	Identifier	i
+>796	ExpressionStatement	 
+>797	CallExpression	overlap -> reset ( label_num )
+>798	ArgumentList	label_num
+>799	Argument	label_num
+>800	Identifier	label_num
+>801	Callee	overlap -> reset
+>802	PtrMemberAccess	overlap -> reset
+>803	Identifier	reset
+>804	Identifier	overlap
+>805	IdentifierDeclStatement	 
+>806	IdentifierDecl	* label_pt
+>807	Identifier	label_pt
+>808	IdentifierDeclType	const NyARLabelingLabel *
+>809	IdentifierDeclStatement	 
+>810	IdentifierDecl	label_area
+>811	Identifier	label_area
+>812	IdentifierDeclType	int
+>813	IdentifierDeclStatement	 
+>814	IdentifierDecl	coord_num
+>815	Identifier	coord_num
+>816	IdentifierDeclType	int
+>817	IdentifierDeclStatement	 
+>818	IdentifierDecl	* overlap = this -> _overlap_checker
+>819	AssignmentExpr	* overlap = this -> _overlap_checker
+>820	PtrMemberAccess	this -> _overlap_checker
+>821	Identifier	_overlap_checker
+>822	Identifier	this
+>823	Identifier	overlap
+>824	Identifier	overlap
+>825	IdentifierDeclType	OverlapChecker *
+>826	IdentifierDeclStatement	 
+>827	IdentifierDecl	mkvertex [ 5 ]
+>828	PrimaryExpression	5
+>829	Identifier	mkvertex
+>830	IdentifierDeclType	int [ 5 ]
+>831	IdentifierDeclStatement	 
+>832	IdentifierDecl	coord_max = this -> _max_coord
+>833	AssignmentExpr	coord_max = this -> _max_coord
+>834	PtrMemberAccess	this -> _max_coord
+>835	Identifier	_max_coord
+>836	Identifier	this
+>837	Identifier	coord_max
+>838	Identifier	coord_max
+>839	IdentifierDeclType	const int
+>840	IdentifierDeclStatement	 
+>841	IdentifierDecl	* ycoord = this -> _ycoord
+>842	AssignmentExpr	* ycoord = this -> _ycoord
+>843	PtrMemberAccess	this -> _ycoord
+>844	Identifier	_ycoord
+>845	Identifier	this
+>846	Identifier	ycoord
+>847	Identifier	ycoord
+>848	IdentifierDeclType	int *
+>849	IdentifierDeclStatement	 
+>850	IdentifierDecl	* xcoord = this -> _xcoord
+>851	AssignmentExpr	* xcoord = this -> _xcoord
+>852	PtrMemberAccess	this -> _xcoord
+>853	Identifier	_xcoord
+>854	Identifier	this
+>855	Identifier	xcoord
+>856	Identifier	xcoord
+>857	IdentifierDeclType	int *
+>858	IdentifierDeclStatement	 
+>859	IdentifierDecl	ysize = this -> _height
+>860	AssignmentExpr	ysize = this -> _height
+>861	PtrMemberAccess	this -> _height
+>862	Identifier	_height
+>863	Identifier	this
+>864	Identifier	ysize
+>865	Identifier	ysize
+>866	IdentifierDeclType	const int
+>867	IdentifierDeclStatement	 
+>868	IdentifierDecl	xsize = this -> _width
+>869	AssignmentExpr	xsize = this -> _width
+>870	PtrMemberAccess	this -> _width
+>871	Identifier	_width
+>872	Identifier	this
+>873	Identifier	xsize
+>874	Identifier	xsize
+>875	IdentifierDeclType	const int
+>876	ForStatement	for ( i = 0 ; i < label_num ; i ++ )
+>877	CompoundStatement	 
+>878	IfStatement	if ( labels -> item [ i ] -> area <= AR_AREA_MAX )
+>879	CompoundStatement	 
+>880	BreakStatement	 
+>881	Condition	 
+>882	RelationalExpression	labels -> item [ i ] -> area <= AR_AREA_MAX
+>883	Identifier	AR_AREA_MAX
+>884	PtrMemberAccess	labels -> item [ i ] -> area
+>885	Identifier	area
+>886	ArrayIndexing	labels -> item [ i ]
+>887	Identifier	i
+>888	PtrMemberAccess	labels -> item
+>889	Identifier	item
+>890	Identifier	labels
+>891	IncDecOp	 
+>892	IncDec	++
+>893	Identifier	i
+>894	Condition	 
+>895	RelationalExpression	i < label_num
+>896	Identifier	label_num
+>897	Identifier	i
+>898	ForInit	 
+>899	AssignmentExpr	i = 0
+>900	PrimaryExpression	0
+>901	Identifier	i
+>902	IdentifierDeclStatement	 
+>903	IdentifierDecl	i
+>904	Identifier	i
+>905	IdentifierDeclType	int
+>906	ExpressionStatement	 
+>907	CallExpression	stack -> sortByArea ( )
+>908	ArgumentList	 
+>909	Callee	stack -> sortByArea
+>910	PtrMemberAccess	stack -> sortByArea
+>911	Identifier	sortByArea
+>912	Identifier	stack
+>913	IdentifierDeclStatement	 
+>914	IdentifierDecl	* labels = stack -> getArray ( )
+>915	AssignmentExpr	* labels = stack -> getArray ( )
+>916	CallExpression	stack -> getArray ( )
+>917	ArgumentList	 
+>918	Callee	stack -> getArray
+>919	PtrMemberAccess	stack -> getArray
+>920	Identifier	getArray
+>921	Identifier	stack
+>922	Identifier	labels
+>923	Identifier	labels
+>924	IdentifierDeclType	const NyArray < NyARLabelingLabel * > *
+>925	IdentifierDeclStatement	 
+>926	IdentifierDecl	* stack = limage . getLabelStack ( )
+>927	AssignmentExpr	* stack = limage . getLabelStack ( )
+>928	CallExpression	limage . getLabelStack ( )
+>929	ArgumentList	 
+>930	Callee	limage . getLabelStack
+>931	MemberAccess	limage . getLabelStack
+>932	Identifier	getLabelStack
+>933	Identifier	limage
+>934	Identifier	stack
+>935	Identifier	stack
+>936	IdentifierDeclType	NyARLabelingLabelStack *
+>937	IfStatement	if ( label_num < 1 )
+>938	CompoundStatement	 
+>939	ReturnStatement	 
+>940	Condition	 
+>941	RelationalExpression	label_num < 1
+>942	PrimaryExpression	1
+>943	Identifier	label_num
+>944	IdentifierDeclStatement	 
+>945	IdentifierDecl	label_num = limage . getLabelStack ( ) -> getLength ( )
+>946	AssignmentExpr	label_num = limage . getLabelStack ( ) -> getLength ( )
+>947	CallExpression	limage . getLabelStack ( ) -> getLength ( )
+>948	ArgumentList	 
+>949	Callee	limage . getLabelStack ( ) -> getLength
+>950	PtrMemberAccess	limage . getLabelStack ( ) -> getLength
+>951	Identifier	getLength
+>952	CallExpression	limage . getLabelStack ( )
+>953	ArgumentList	 
+>954	Callee	limage . getLabelStack
+>955	MemberAccess	limage . getLabelStack
+>956	Identifier	getLabelStack
+>957	Identifier	limage
+>958	Identifier	label_num
+>959	Identifier	label_num
+>960	IdentifierDeclType	int
+>961	ExpressionStatement	 
+>962	CallExpression	this -> _labeling -> labeling ( i_raster )
+>963	ArgumentList	i_raster
+>964	Argument	i_raster
+>965	Identifier	i_raster
+>966	Callee	this -> _labeling -> labeling
+>967	PtrMemberAccess	this -> _labeling -> labeling
+>968	Identifier	labeling
+>969	PtrMemberAccess	this -> _labeling
+>970	Identifier	_labeling
+>971	Identifier	this
+>972	ExpressionStatement	 
+>973	CallExpression	o_square_stack . clear ( )
+>974	ArgumentList	 
+>975	Callee	o_square_stack . clear
+>976	MemberAccess	o_square_stack . clear
+>977	Identifier	clear
+>978	Identifier	o_square_stack
+>979	IdentifierDeclStatement	 
+>980	IdentifierDecl	& limage = * this -> _limage
+>981	AssignmentExpr	& limage = * this -> _limage
+>982	UnaryOp	* this -> _limage
+>983	PtrMemberAccess	this -> _limage
+>984	Identifier	_limage
+>985	Identifier	this
+>986	UnaryOperator	*
+>987	Identifier	limage
+>988	Identifier	limage
+>989	IdentifierDeclType	NyARLabelingImage &
+>1055	FunctionDef	NyARSquareDetector 
+>1056	ParameterList	const int i_xcoord [ ] , const int i_ycoord [ ] , int i_coord_num
+>1057	Parameter	 
+>1058	Identifier	i_coord_num
+>1059	ParameterType	int
+>1060	Parameter	 
+>1061	Identifier	i_ycoord
+>1062	ParameterType	const int [ ]
+>1063	Parameter	 
+>1064	Identifier	i_xcoord
+>1065	ParameterType	const int [ ]
+>1066	ReturnType	int
+>1067	CompoundStatement	 
+>1068	ReturnStatement	 
+>1069	Identifier	ret
+>1070	ForStatement	for ( int i = 1 ; i < i_coord_num ; i ++ )
+>1071	CompoundStatement	 
+>1072	IfStatement	if ( w > d )
+>1073	CompoundStatement	 
+>1074	ExpressionStatement	 
+>1075	AssignmentExpr	ret = i
+>1076	Identifier	i
+>1077	Identifier	ret
+>1078	ExpressionStatement	 
+>1079	AssignmentExpr	d = w
+>1080	Identifier	w
+>1081	Identifier	d
+>1082	Condition	 
+>1083	RelationalExpression	w > d
+>1084	Identifier	d
+>1085	Identifier	w
+>1086	ExpressionStatement	 
+>1087	AssignmentExpr	w = x * x + y * y
+>1088	AdditiveExpression	x * x + y * y
+>1089	MultiplicativeExpression	y * y
+>1090	Identifier	y
+>1091	Identifier	y
+>1092	MultiplicativeExpression	x * x
+>1093	Identifier	x
+>1094	Identifier	x
+>1095	Identifier	w
+>1096	ExpressionStatement	 
+>1097	AssignmentExpr	y = i_ycoord [ i ] - sy
+>1098	AdditiveExpression	i_ycoord [ i ] - sy
+>1099	Identifier	sy
+>1100	ArrayIndexing	i_ycoord [ i ]
+>1101	Identifier	i
+>1102	Identifier	i_ycoord
+>1103	Identifier	y
+>1104	ExpressionStatement	 
+>1105	AssignmentExpr	x = i_xcoord [ i ] - sx
+>1106	AdditiveExpression	i_xcoord [ i ] - sx
+>1107	Identifier	sx
+>1108	ArrayIndexing	i_xcoord [ i ]
+>1109	Identifier	i
+>1110	Identifier	i_xcoord
+>1111	Identifier	x
+>1112	IncDecOp	 
+>1113	IncDec	++
+>1114	Identifier	i
+>1115	Condition	 
+>1116	RelationalExpression	i < i_coord_num
+>1117	Identifier	i_coord_num
+>1118	Identifier	i
+>1119	ForInit	 
+>1120	IdentifierDeclStatement	int i = 1 ;
+>1121	IdentifierDecl	i = 1
+>1122	AssignmentExpr	i = 1
+>1123	PrimaryExpression	1
+>1124	Identifier	i
+>1125	Identifier	i
+>1126	IdentifierDeclType	int
+>1127	IdentifierDeclStatement	 
+>1128	IdentifierDecl	ret = 0
+>1129	AssignmentExpr	ret = 0
+>1130	PrimaryExpression	0
+>1131	Identifier	ret
+>1132	Identifier	ret
+>1133	IdentifierDeclType	int
+>1134	IdentifierDeclStatement	 
+>1135	IdentifierDecl	y
+>1136	Identifier	y
+>1137	IdentifierDeclType	int
+>1138	IdentifierDecl	x
+>1139	Identifier	x
+>1140	IdentifierDeclType	int
+>1141	IdentifierDecl	w
+>1142	Identifier	w
+>1143	IdentifierDeclType	int
+>1144	IdentifierDeclStatement	 
+>1145	IdentifierDecl	d = 0
+>1146	AssignmentExpr	d = 0
+>1147	PrimaryExpression	0
+>1148	Identifier	d
+>1149	Identifier	d
+>1150	IdentifierDeclType	int
+>1151	IdentifierDeclStatement	 
+>1152	IdentifierDecl	sy = i_ycoord [ 0 ]
+>1153	AssignmentExpr	sy = i_ycoord [ 0 ]
+>1154	ArrayIndexing	i_ycoord [ 0 ]
+>1155	PrimaryExpression	0
+>1156	Identifier	i_ycoord
+>1157	Identifier	sy
+>1158	Identifier	sy
+>1159	IdentifierDeclType	const int
+>1160	IdentifierDeclStatement	 
+>1161	IdentifierDecl	sx = i_xcoord [ 0 ]
+>1162	AssignmentExpr	sx = i_xcoord [ 0 ]
+>1163	ArrayIndexing	i_xcoord [ 0 ]
+>1164	PrimaryExpression	0
+>1165	Identifier	i_xcoord
+>1166	Identifier	sx
+>1167	Identifier	sx
+>1168	IdentifierDeclType	const int
+>1190	FunctionDef	NyARSquareDetector 
+>1191	ParameterList	const int i_x_coord [ ] , const int i_y_coord [ ] , int i_vertex1_index , int i_coord_num , int i_area , int o_vertex [ ]
+>1192	Parameter	 
+>1193	Identifier	o_vertex
+>1194	ParameterType	int [ ]
+>1195	Parameter	 
+>1196	Identifier	i_area
+>1197	ParameterType	int
+>1198	Parameter	 
+>1199	Identifier	i_coord_num
+>1200	ParameterType	int
+>1201	Parameter	 
+>1202	Identifier	i_vertex1_index
+>1203	ParameterType	int
+>1204	Parameter	 
+>1205	Identifier	i_y_coord
+>1206	ParameterType	const int [ ]
+>1207	Parameter	 
+>1208	Identifier	i_x_coord
+>1209	ParameterType	const int [ ]
+>1210	ReturnType	bool
+>1211	CompoundStatement	 
+>1212	ReturnStatement	 
+>1213	Identifier	true
+>1214	ExpressionStatement	 
+>1215	AssignmentExpr	o_vertex [ 4 ] = end_of_coord
+>1216	Identifier	end_of_coord
+>1217	ArrayIndexing	o_vertex [ 4 ]
+>1218	PrimaryExpression	4
+>1219	Identifier	o_vertex
+>1220	IfStatement	if ( wv1 . number_of_vertex == 1 && wv2 . number_of_vertex == 1 )
+>1221	ElseStatement	else
+>1222	IfStatement	if ( wv1 . number_of_vertex > 1 && wv2 . number_of_vertex == 0 )
+>1223	ElseStatement	else
+>1224	IfStatement	if ( wv1 . number_of_vertex == 0 && wv2 . number_of_vertex > 1 )
+>1225	ElseStatement	else
+>1226	CompoundStatement	 
+>1227	ReturnStatement	 
+>1228	Identifier	false
+>1229	CompoundStatement	 
+>1230	IfStatement	if ( wv1 . number_of_vertex == 1 && wv2 . number_of_vertex == 1 )
+>1231	ElseStatement	else
+>1232	CompoundStatement	 
+>1233	ReturnStatement	 
+>1234	Identifier	false
+>1235	CompoundStatement	 
+>1236	ExpressionStatement	 
+>1237	AssignmentExpr	o_vertex [ 3 ] = wv2 . vertex [ 0 ]
+>1238	ArrayIndexing	wv2 . vertex [ 0 ]
+>1239	PrimaryExpression	0
+>1240	MemberAccess	wv2 . vertex
+>1241	Identifier	vertex
+>1242	Identifier	wv2
+>1243	ArrayIndexing	o_vertex [ 3 ]
+>1244	PrimaryExpression	3
+>1245	Identifier	o_vertex
+>1246	ExpressionStatement	 
+>1247	AssignmentExpr	o_vertex [ 2 ] = wv1 . vertex [ 0 ]
+>1248	ArrayIndexing	wv1 . vertex [ 0 ]
+>1249	PrimaryExpression	0
+>1250	MemberAccess	wv1 . vertex
+>1251	Identifier	vertex
+>1252	Identifier	wv1
+>1253	ArrayIndexing	o_vertex [ 2 ]
+>1254	PrimaryExpression	2
+>1255	Identifier	o_vertex
+>1256	ExpressionStatement	 
+>1257	AssignmentExpr	o_vertex [ 1 ] = v1
+>1258	Identifier	v1
+>1259	ArrayIndexing	o_vertex [ 1 ]
+>1260	PrimaryExpression	1
+>1261	Identifier	o_vertex
+>1262	Condition	 
+>1263	AndExpression	wv1 . number_of_vertex == 1 && wv2 . number_of_vertex == 1
+>1264	EqualityExpression	wv2 . number_of_vertex == 1
+>1265	PrimaryExpression	1
+>1266	MemberAccess	wv2 . number_of_vertex
+>1267	Identifier	number_of_vertex
+>1268	Identifier	wv2
+>1269	EqualityExpression	wv1 . number_of_vertex == 1
+>1270	PrimaryExpression	1
+>1271	MemberAccess	wv1 . number_of_vertex
+>1272	Identifier	number_of_vertex
+>1273	Identifier	wv1
+>1274	IfStatement	if ( ! wv2 . getVertex ( i_x_coord , i_y_coord , v2 , end_of_coord , thresh ) )
+>1275	CompoundStatement	 
+>1276	ReturnStatement	 
+>1277	Identifier	false
+>1278	Condition	 
+>1279	UnaryOp	! wv2 . getVertex ( i_x_coord , i_y_coord , v2 , end_of_coord , thresh )
+>1280	CallExpression	wv2 . getVertex ( i_x_coord , i_y_coord , v2 , end_of_coord , thresh )
+>1281	ArgumentList	i_x_coord
+>1282	Argument	thresh
+>1283	Identifier	thresh
+>1284	Argument	end_of_coord
+>1285	Identifier	end_of_coord
+>1286	Argument	v2
+>1287	Identifier	v2
+>1288	Argument	i_y_coord
+>1289	Identifier	i_y_coord
+>1290	Argument	i_x_coord
+>1291	Identifier	i_x_coord
+>1292	Callee	wv2 . getVertex
+>1293	MemberAccess	wv2 . getVertex
+>1294	Identifier	getVertex
+>1295	Identifier	wv2
+>1296	UnaryOperator	!
+>1297	IfStatement	if ( ! wv1 . getVertex ( i_x_coord , i_y_coord , v1 , v2 , thresh ) )
+>1298	CompoundStatement	 
+>1299	ReturnStatement	 
+>1300	Identifier	false
+>1301	Condition	 
+>1302	UnaryOp	! wv1 . getVertex ( i_x_coord , i_y_coord , v1 , v2 , thresh )
+>1303	CallExpression	wv1 . getVertex ( i_x_coord , i_y_coord , v1 , v2 , thresh )
+>1304	ArgumentList	i_x_coord
+>1305	Argument	thresh
+>1306	Identifier	thresh
+>1307	Argument	v2
+>1308	Identifier	v2
+>1309	Argument	v1
+>1310	Identifier	v1
+>1311	Argument	i_y_coord
+>1312	Identifier	i_y_coord
+>1313	Argument	i_x_coord
+>1314	Identifier	i_x_coord
+>1315	Callee	wv1 . getVertex
+>1316	MemberAccess	wv1 . getVertex
+>1317	Identifier	getVertex
+>1318	Identifier	wv1
+>1319	UnaryOperator	!
+>1320	ExpressionStatement	 
+>1321	AssignmentExpr	v2 = ( v1 + end_of_coord ) / 2
+>1322	MultiplicativeExpression	( v1 + end_of_coord ) / 2
+>1323	PrimaryExpression	2
+>1324	AdditiveExpression	v1 + end_of_coord
+>1325	Identifier	end_of_coord
+>1326	Identifier	v1
+>1327	Identifier	v2
+>1328	Condition	 
+>1329	AndExpression	wv1 . number_of_vertex == 0 && wv2 . number_of_vertex > 1
+>1330	RelationalExpression	wv2 . number_of_vertex > 1
+>1331	PrimaryExpression	1
+>1332	MemberAccess	wv2 . number_of_vertex
+>1333	Identifier	number_of_vertex
+>1334	Identifier	wv2
+>1335	EqualityExpression	wv1 . number_of_vertex == 0
+>1336	PrimaryExpression	0
+>1337	MemberAccess	wv1 . number_of_vertex
+>1338	Identifier	number_of_vertex
+>1339	Identifier	wv1
+>1340	CompoundStatement	 
+>1341	IfStatement	if ( wv1 . number_of_vertex == 1 && wv2 . number_of_vertex == 1 )
+>1342	ElseStatement	else
+>1343	CompoundStatement	 
+>1344	ReturnStatement	 
+>1345	Identifier	false
+>1346	CompoundStatement	 
+>1347	ExpressionStatement	 
+>1348	AssignmentExpr	o_vertex [ 3 ] = v1
+>1349	Identifier	v1
+>1350	ArrayIndexing	o_vertex [ 3 ]
+>1351	PrimaryExpression	3
+>1352	Identifier	o_vertex
+>1353	ExpressionStatement	 
+>1354	AssignmentExpr	o_vertex [ 2 ] = wv2 . vertex [ 0 ]
+>1355	ArrayIndexing	wv2 . vertex [ 0 ]
+>1356	PrimaryExpression	0
+>1357	MemberAccess	wv2 . vertex
+>1358	Identifier	vertex
+>1359	Identifier	wv2
+>1360	ArrayIndexing	o_vertex [ 2 ]
+>1361	PrimaryExpression	2
+>1362	Identifier	o_vertex
+>1363	ExpressionStatement	 
+>1364	AssignmentExpr	o_vertex [ 1 ] = wv1 . vertex [ 0 ]
+>1365	ArrayIndexing	wv1 . vertex [ 0 ]
+>1366	PrimaryExpression	0
+>1367	MemberAccess	wv1 . vertex
+>1368	Identifier	vertex
+>1369	Identifier	wv1
+>1370	ArrayIndexing	o_vertex [ 1 ]
+>1371	PrimaryExpression	1
+>1372	Identifier	o_vertex
+>1373	Condition	 
+>1374	AndExpression	wv1 . number_of_vertex == 1 && wv2 . number_of_vertex == 1
+>1375	EqualityExpression	wv2 . number_of_vertex == 1
+>1376	PrimaryExpression	1
+>1377	MemberAccess	wv2 . number_of_vertex
+>1378	Identifier	number_of_vertex
+>1379	Identifier	wv2
+>1380	EqualityExpression	wv1 . number_of_vertex == 1
+>1381	PrimaryExpression	1
+>1382	MemberAccess	wv1 . number_of_vertex
+>1383	Identifier	number_of_vertex
+>1384	Identifier	wv1
+>1385	IfStatement	if ( ! wv2 . getVertex ( i_x_coord , i_y_coord , v2 , v1 , thresh ) )
+>1386	CompoundStatement	 
+>1387	ReturnStatement	 
+>1388	Identifier	false
+>1389	Condition	 
+>1390	UnaryOp	! wv2 . getVertex ( i_x_coord , i_y_coord , v2 , v1 , thresh )
+>1391	CallExpression	wv2 . getVertex ( i_x_coord , i_y_coord , v2 , v1 , thresh )
+>1392	ArgumentList	i_x_coord
+>1393	Argument	thresh
+>1394	Identifier	thresh
+>1395	Argument	v1
+>1396	Identifier	v1
+>1397	Argument	v2
+>1398	Identifier	v2
+>1399	Argument	i_y_coord
+>1400	Identifier	i_y_coord
+>1401	Argument	i_x_coord
+>1402	Identifier	i_x_coord
+>1403	Callee	wv2 . getVertex
+>1404	MemberAccess	wv2 . getVertex
+>1405	Identifier	getVertex
+>1406	Identifier	wv2
+>1407	UnaryOperator	!
+>1408	IfStatement	if ( ! wv1 . getVertex ( i_x_coord , i_y_coord , i_vertex1_index , v2 , thresh ) )
+>1409	CompoundStatement	 
+>1410	ReturnStatement	 
+>1411	Identifier	false
+>1412	Condition	 
+>1413	UnaryOp	! wv1 . getVertex ( i_x_coord , i_y_coord , i_vertex1_index , v2 , thresh )
+>1414	CallExpression	wv1 . getVertex ( i_x_coord , i_y_coord , i_vertex1_index , v2 , thresh )
+>1415	ArgumentList	i_x_coord
+>1416	Argument	thresh
+>1417	Identifier	thresh
+>1418	Argument	v2
+>1419	Identifier	v2
+>1420	Argument	i_vertex1_index
+>1421	Identifier	i_vertex1_index
+>1422	Argument	i_y_coord
+>1423	Identifier	i_y_coord
+>1424	Argument	i_x_coord
+>1425	Identifier	i_x_coord
+>1426	Callee	wv1 . getVertex
+>1427	MemberAccess	wv1 . getVertex
+>1428	Identifier	getVertex
+>1429	Identifier	wv1
+>1430	UnaryOperator	!
+>1431	ExpressionStatement	 
+>1432	AssignmentExpr	v2 = ( v1 - i_vertex1_index ) / 2 + i_vertex1_index
+>1433	AdditiveExpression	( v1 - i_vertex1_index ) / 2 + i_vertex1_index
+>1434	Identifier	i_vertex1_index
+>1435	MultiplicativeExpression	( v1 - i_vertex1_index ) / 2
+>1436	PrimaryExpression	2
+>1437	AdditiveExpression	v1 - i_vertex1_index
+>1438	Identifier	i_vertex1_index
+>1439	Identifier	v1
+>1440	Identifier	v2
+>1441	Condition	 
+>1442	AndExpression	wv1 . number_of_vertex > 1 && wv2 . number_of_vertex == 0
+>1443	EqualityExpression	wv2 . number_of_vertex == 0
+>1444	PrimaryExpression	0
+>1445	MemberAccess	wv2 . number_of_vertex
+>1446	Identifier	number_of_vertex
+>1447	Identifier	wv2
+>1448	RelationalExpression	wv1 . number_of_vertex > 1
+>1449	PrimaryExpression	1
+>1450	MemberAccess	wv1 . number_of_vertex
+>1451	Identifier	number_of_vertex
+>1452	Identifier	wv1
+>1453	CompoundStatement	 
+>1454	ExpressionStatement	 
+>1455	AssignmentExpr	o_vertex [ 3 ] = wv2 . vertex [ 0 ]
+>1456	ArrayIndexing	wv2 . vertex [ 0 ]
+>1457	PrimaryExpression	0
+>1458	MemberAccess	wv2 . vertex
+>1459	Identifier	vertex
+>1460	Identifier	wv2
+>1461	ArrayIndexing	o_vertex [ 3 ]
+>1462	PrimaryExpression	3
+>1463	Identifier	o_vertex
+>1464	ExpressionStatement	 
+>1465	AssignmentExpr	o_vertex [ 2 ] = v1
+>1466	Identifier	v1
+>1467	ArrayIndexing	o_vertex [ 2 ]
+>1468	PrimaryExpression	2
+>1469	Identifier	o_vertex
+>1470	ExpressionStatement	 
+>1471	AssignmentExpr	o_vertex [ 1 ] = wv1 . vertex [ 0 ]
+>1472	ArrayIndexing	wv1 . vertex [ 0 ]
+>1473	PrimaryExpression	0
+>1474	MemberAccess	wv1 . vertex
+>1475	Identifier	vertex
+>1476	Identifier	wv1
+>1477	ArrayIndexing	o_vertex [ 1 ]
+>1478	PrimaryExpression	1
+>1479	Identifier	o_vertex
+>1480	Condition	 
+>1481	AndExpression	wv1 . number_of_vertex == 1 && wv2 . number_of_vertex == 1
+>1482	EqualityExpression	wv2 . number_of_vertex == 1
+>1483	PrimaryExpression	1
+>1484	MemberAccess	wv2 . number_of_vertex
+>1485	Identifier	number_of_vertex
+>1486	Identifier	wv2
+>1487	EqualityExpression	wv1 . number_of_vertex == 1
+>1488	PrimaryExpression	1
+>1489	MemberAccess	wv1 . number_of_vertex
+>1490	Identifier	number_of_vertex
+>1491	Identifier	wv1
+>1492	IdentifierDeclStatement	 
+>1493	IdentifierDecl	v2
+>1494	Identifier	v2
+>1495	IdentifierDeclType	int
+>1496	IfStatement	if ( ! wv2 . getVertex ( i_x_coord , i_y_coord , v1 , end_of_coord , thresh ) )
+>1497	CompoundStatement	 
+>1498	ReturnStatement	 
+>1499	Identifier	false
+>1500	Condition	 
+>1501	UnaryOp	! wv2 . getVertex ( i_x_coord , i_y_coord , v1 , end_of_coord , thresh )
+>1502	CallExpression	wv2 . getVertex ( i_x_coord , i_y_coord , v1 , end_of_coord , thresh )
+>1503	ArgumentList	i_x_coord
+>1504	Argument	thresh
+>1505	Identifier	thresh
+>1506	Argument	end_of_coord
+>1507	Identifier	end_of_coord
+>1508	Argument	v1
+>1509	Identifier	v1
+>1510	Argument	i_y_coord
+>1511	Identifier	i_y_coord
+>1512	Argument	i_x_coord
+>1513	Identifier	i_x_coord
+>1514	Callee	wv2 . getVertex
+>1515	MemberAccess	wv2 . getVertex
+>1516	Identifier	getVertex
+>1517	Identifier	wv2
+>1518	UnaryOperator	!
+>1519	IfStatement	if ( ! wv1 . getVertex ( i_x_coord , i_y_coord , i_vertex1_index , v1 , thresh ) )
+>1520	CompoundStatement	 
+>1521	ReturnStatement	 
+>1522	Identifier	false
+>1523	Condition	 
+>1524	UnaryOp	! wv1 . getVertex ( i_x_coord , i_y_coord , i_vertex1_index , v1 , thresh )
+>1525	CallExpression	wv1 . getVertex ( i_x_coord , i_y_coord , i_vertex1_index , v1 , thresh )
+>1526	ArgumentList	i_x_coord
+>1527	Argument	thresh
+>1528	Identifier	thresh
+>1529	Argument	v1
+>1530	Identifier	v1
+>1531	Argument	i_vertex1_index
+>1532	Identifier	i_vertex1_index
+>1533	Argument	i_y_coord
+>1534	Identifier	i_y_coord
+>1535	Argument	i_x_coord
+>1536	Identifier	i_x_coord
+>1537	Callee	wv1 . getVertex
+>1538	MemberAccess	wv1 . getVertex
+>1539	Identifier	getVertex
+>1540	Identifier	wv1
+>1541	UnaryOperator	!
+>1542	ExpressionStatement	 
+>1543	AssignmentExpr	o_vertex [ 0 ] = i_vertex1_index
+>1544	Identifier	i_vertex1_index
+>1545	ArrayIndexing	o_vertex [ 0 ]
+>1546	PrimaryExpression	0
+>1547	Identifier	o_vertex
+>1548	IdentifierDeclStatement	 
+>1549	IdentifierDecl	thresh = ( i_area / 0.75 ) * 0.01 * VERTEX_FACTOR
+>1550	AssignmentExpr	thresh = ( i_area / 0.75 ) * 0.01 * VERTEX_FACTOR
+>1551	MultiplicativeExpression	( i_area / 0.75 ) * 0.01 * VERTEX_FACTOR
+>1552	MultiplicativeExpression	0.01 * VERTEX_FACTOR
+>1553	Identifier	VERTEX_FACTOR
+>1554	PrimaryExpression	0.01
+>1555	MultiplicativeExpression	i_area / 0.75
+>1556	PrimaryExpression	0.75
+>1557	Identifier	i_area
+>1558	Identifier	thresh
+>1559	Identifier	thresh
+>1560	IdentifierDeclType	const double
+>1561	ForStatement	for ( int i = 1 + i_vertex1_index ; i < end_of_coord ; i ++ )
+>1562	CompoundStatement	 
+>1563	IfStatement	if ( d > dmax )
+>1564	CompoundStatement	 
+>1565	ExpressionStatement	 
+>1566	AssignmentExpr	v1 = i
+>1567	Identifier	i
+>1568	Identifier	v1
+>1569	ExpressionStatement	 
+>1570	AssignmentExpr	dmax = d
+>1571	Identifier	d
+>1572	Identifier	dmax
+>1573	Condition	 
+>1574	RelationalExpression	d > dmax
+>1575	Identifier	dmax
+>1576	Identifier	d
+>1577	IdentifierDeclStatement	 
+>1578	IdentifierDecl	d = ( i_x_coord [ i ] - sx ) * ( i_x_coord [ i ] - sx ) + ( i_y_coord [ i ] - sy ) * ( i_y_coord [ i ] - sy )
+>1579	AssignmentExpr	d = ( i_x_coord [ i ] - sx ) * ( i_x_coord [ i ] - sx ) + ( i_y_coord [ i ] - sy ) * ( i_y_coord [ i ] \
+>1580	AdditiveExpression	( i_x_coord [ i ] - sx ) * ( i_x_coord [ i ] - sx ) + ( i_y_coord [ i ] - sy ) * ( i_y_coord [ i ] - \
+>1581	MultiplicativeExpression	( i_y_coord [ i ] - sy ) * ( i_y_coord [ i ] - sy )
+>1582	AdditiveExpression	i_y_coord [ i ] - sy
+>1583	Identifier	sy
+>1584	ArrayIndexing	i_y_coord [ i ]
+>1585	Identifier	i
+>1586	Identifier	i_y_coord
+>1587	AdditiveExpression	i_y_coord [ i ] - sy
+>1588	Identifier	sy
+>1589	ArrayIndexing	i_y_coord [ i ]
+>1590	Identifier	i
+>1591	Identifier	i_y_coord
+>1592	MultiplicativeExpression	( i_x_coord [ i ] - sx ) * ( i_x_coord [ i ] - sx )
+>1593	AdditiveExpression	i_x_coord [ i ] - sx
+>1594	Identifier	sx
+>1595	ArrayIndexing	i_x_coord [ i ]
+>1596	Identifier	i
+>1597	Identifier	i_x_coord
+>1598	AdditiveExpression	i_x_coord [ i ] - sx
+>1599	Identifier	sx
+>1600	ArrayIndexing	i_x_coord [ i ]
+>1601	Identifier	i
+>1602	Identifier	i_x_coord
+>1603	Identifier	d
+>1604	Identifier	d
+>1605	IdentifierDeclType	const int
+>1606	IncDecOp	 
+>1607	IncDec	++
+>1608	Identifier	i
+>1609	Condition	 
+>1610	RelationalExpression	i < end_of_coord
+>1611	Identifier	end_of_coord
+>1612	Identifier	i
+>1613	ForInit	 
+>1614	IdentifierDeclStatement	int i = 1 + i_vertex1_index ;
+>1615	IdentifierDecl	i = 1 + i_vertex1_index
+>1616	AssignmentExpr	i = 1 + i_vertex1_index
+>1617	AdditiveExpression	1 + i_vertex1_index
+>1618	Identifier	i_vertex1_index
+>1619	PrimaryExpression	1
+>1620	Identifier	i
+>1621	Identifier	i
+>1622	IdentifierDeclType	int
+>1623	IdentifierDeclStatement	 
+>1624	IdentifierDecl	v1 = i_vertex1_index
+>1625	AssignmentExpr	v1 = i_vertex1_index
+>1626	Identifier	i_vertex1_index
+>1627	Identifier	i_vertex1_index
+>1628	Identifier	v1
+>1629	IdentifierDeclType	int
+>1630	IdentifierDeclStatement	 
+>1631	IdentifierDecl	dmax = 0
+>1632	AssignmentExpr	dmax = 0
+>1633	PrimaryExpression	0
+>1634	Identifier	dmax
+>1635	Identifier	dmax
+>1636	IdentifierDeclType	int
+>1637	IdentifierDeclStatement	 
+>1638	IdentifierDecl	sy = i_y_coord [ i_vertex1_index ]
+>1639	AssignmentExpr	sy = i_y_coord [ i_vertex1_index ]
+>1640	ArrayIndexing	i_y_coord [ i_vertex1_index ]
+>1641	Identifier	i_vertex1_index
+>1642	Identifier	i_y_coord
+>1643	Identifier	sy
+>1644	Identifier	sy
+>1645	IdentifierDeclType	const int
+>1646	IdentifierDeclStatement	 
+>1647	IdentifierDecl	sx = i_x_coord [ i_vertex1_index ]
+>1648	AssignmentExpr	sx = i_x_coord [ i_vertex1_index ]
+>1649	ArrayIndexing	i_x_coord [ i_vertex1_index ]
+>1650	Identifier	i_vertex1_index
+>1651	Identifier	i_x_coord
+>1652	Identifier	sx
+>1653	Identifier	sx
+>1654	IdentifierDeclType	const int
+>1655	IdentifierDeclStatement	 
+>1656	IdentifierDecl	end_of_coord = i_vertex1_index + i_coord_num - 1
+>1657	AssignmentExpr	end_of_coord = i_vertex1_index + i_coord_num - 1
+>1658	AdditiveExpression	i_vertex1_index + i_coord_num - 1
+>1659	AdditiveExpression	i_coord_num - 1
+>1660	PrimaryExpression	1
+>1661	Identifier	i_coord_num
+>1662	Identifier	i_vertex1_index
+>1663	Identifier	end_of_coord
+>1664	Identifier	end_of_coord
+>1665	IdentifierDeclType	const int
+>1666	IdentifierDeclStatement	 
+>1667	IdentifierDecl	& wv2 = this -> __getSquareVertex_wv2
+>1668	AssignmentExpr	& wv2 = this -> __getSquareVertex_wv2
+>1669	PtrMemberAccess	this -> __getSquareVertex_wv2
+>1670	Identifier	__getSquareVertex_wv2
+>1671	Identifier	this
+>1672	Identifier	wv2
+>1673	Identifier	wv2
+>1674	IdentifierDeclType	NyARVertexCounter &
+>1675	IdentifierDeclStatement	 
+>1676	IdentifierDecl	& wv1 = this -> __getSquareVertex_wv1
+>1677	AssignmentExpr	& wv1 = this -> __getSquareVertex_wv1
+>1678	PtrMemberAccess	this -> __getSquareVertex_wv1
+>1679	Identifier	__getSquareVertex_wv1
+>1680	Identifier	this
+>1681	Identifier	wv1
+>1682	Identifier	wv1
+>1683	IdentifierDeclType	NyARVertexCounter &
+>1726	FunctionDef	NyARSquareDetector 
+>1727	ParameterList	const int i_mkvertex [ ] , const int i_xcoord [ ] , const int i_ycoord [ ] , NyARSquare & o_square
+>1728	Parameter	 
+>1729	Identifier	o_square
+>1730	ParameterType	NyARSquare &
+>1731	Parameter	 
+>1732	Identifier	i_ycoord
+>1733	ParameterType	const int [ ]
+>1734	Parameter	 
+>1735	Identifier	i_xcoord
+>1736	ParameterType	const int [ ]
+>1737	Parameter	 
+>1738	Identifier	i_mkvertex
+>1739	ParameterType	const int [ ]
+>1740	ReturnType	bool
+>1741	CompoundStatement	 
+>1742	ReturnStatement	 
+>1743	Identifier	true
+>1744	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>1745	CompoundStatement	 
+>1746	ExpressionStatement	 
+>1747	AssignmentExpr	l_imvertex [ i ] . y = i_ycoord [ i_mkvertex [ i ] ]
+>1748	ArrayIndexing	i_ycoord [ i_mkvertex [ i ] ]
+>1749	ArrayIndexing	i_mkvertex [ i ]
+>1750	Identifier	i
+>1751	Identifier	i_mkvertex
+>1752	Identifier	i_ycoord
+>1753	MemberAccess	l_imvertex [ i ] . y
+>1754	Identifier	y
+>1755	ArrayIndexing	l_imvertex [ i ]
+>1756	Identifier	i
+>1757	Identifier	l_imvertex
+>1758	ExpressionStatement	 
+>1759	AssignmentExpr	l_imvertex [ i ] . x = i_xcoord [ i_mkvertex [ i ] ]
+>1760	ArrayIndexing	i_xcoord [ i_mkvertex [ i ] ]
+>1761	ArrayIndexing	i_mkvertex [ i ]
+>1762	Identifier	i
+>1763	Identifier	i_mkvertex
+>1764	Identifier	i_xcoord
+>1765	MemberAccess	l_imvertex [ i ] . x
+>1766	Identifier	x
+>1767	ArrayIndexing	l_imvertex [ i ]
+>1768	Identifier	i
+>1769	Identifier	l_imvertex
+>1770	ExpressionStatement	 
+>1771	AssignmentExpr	l_sqvertex [ i ] . y = ( l_line_i . run * l_line_2 . intercept - l_line_2 . run * l_line_i . intercept ) / \
+>1772	MultiplicativeExpression	( l_line_i . run * l_line_2 . intercept - l_line_2 . run * l_line_i . intercept ) / w1
+>1773	Identifier	w1
+>1774	AdditiveExpression	l_line_i . run * l_line_2 . intercept - l_line_2 . run * l_line_i . intercept
+>1775	MultiplicativeExpression	l_line_2 . run * l_line_i . intercept
+>1776	MemberAccess	l_line_i . intercept
+>1777	Identifier	intercept
+>1778	Identifier	l_line_i
+>1779	MemberAccess	l_line_2 . run
+>1780	Identifier	run
+>1781	Identifier	l_line_2
+>1782	MultiplicativeExpression	l_line_i . run * l_line_2 . intercept
+>1783	MemberAccess	l_line_2 . intercept
+>1784	Identifier	intercept
+>1785	Identifier	l_line_2
+>1786	MemberAccess	l_line_i . run
+>1787	Identifier	run
+>1788	Identifier	l_line_i
+>1789	MemberAccess	l_sqvertex [ i ] . y
+>1790	Identifier	y
+>1791	ArrayIndexing	l_sqvertex [ i ]
+>1792	Identifier	i
+>1793	Identifier	l_sqvertex
+>1794	ExpressionStatement	 
+>1795	AssignmentExpr	l_sqvertex [ i ] . x = ( l_line_2 . rise * l_line_i . intercept - l_line_i . rise * l_line_2 . intercept ) / \
+>1796	MultiplicativeExpression	( l_line_2 . rise * l_line_i . intercept - l_line_i . rise * l_line_2 . intercept ) / w1
+>1797	Identifier	w1
+>1798	AdditiveExpression	l_line_2 . rise * l_line_i . intercept - l_line_i . rise * l_line_2 . intercept
+>1799	MultiplicativeExpression	l_line_i . rise * l_line_2 . intercept
+>1800	MemberAccess	l_line_2 . intercept
+>1801	Identifier	intercept
+>1802	Identifier	l_line_2
+>1803	MemberAccess	l_line_i . rise
+>1804	Identifier	rise
+>1805	Identifier	l_line_i
+>1806	MultiplicativeExpression	l_line_2 . rise * l_line_i . intercept
+>1807	MemberAccess	l_line_i . intercept
+>1808	Identifier	intercept
+>1809	Identifier	l_line_i
+>1810	MemberAccess	l_line_2 . rise
+>1811	Identifier	rise
+>1812	Identifier	l_line_2
+>1813	MemberAccess	l_sqvertex [ i ] . x
+>1814	Identifier	x
+>1815	ArrayIndexing	l_sqvertex [ i ]
+>1816	Identifier	i
+>1817	Identifier	l_sqvertex
+>1818	IfStatement	if ( w1 == 0.0 )
+>1819	CompoundStatement	 
+>1820	ReturnStatement	 
+>1821	Identifier	false
+>1822	Condition	 
+>1823	EqualityExpression	w1 == 0.0
+>1824	PrimaryExpression	0.0
+>1825	Identifier	w1
+>1826	IdentifierDeclStatement	 
+>1827	IdentifierDecl	w1 = l_line_2 . run * l_line_i . rise - l_line_i . run * l_line_2 . rise
+>1828	AssignmentExpr	w1 = l_line_2 . run * l_line_i . rise - l_line_i . run * l_line_2 . rise
+>1829	AdditiveExpression	l_line_2 . run * l_line_i . rise - l_line_i . run * l_line_2 . rise
+>1830	MultiplicativeExpression	l_line_i . run * l_line_2 . rise
+>1831	MemberAccess	l_line_2 . rise
+>1832	Identifier	rise
+>1833	Identifier	l_line_2
+>1834	MemberAccess	l_line_i . run
+>1835	Identifier	run
+>1836	Identifier	l_line_i
+>1837	MultiplicativeExpression	l_line_2 . run * l_line_i . rise
+>1838	MemberAccess	l_line_i . rise
+>1839	Identifier	rise
+>1840	Identifier	l_line_i
+>1841	MemberAccess	l_line_2 . run
+>1842	Identifier	run
+>1843	Identifier	l_line_2
+>1844	Identifier	w1
+>1845	Identifier	w1
+>1846	IdentifierDeclType	const double
+>1847	IdentifierDeclStatement	 
+>1848	IdentifierDecl	& l_line_2 = o_square . line [ ( i + 3 ) % 4 ]
+>1849	AssignmentExpr	& l_line_2 = o_square . line [ ( i + 3 ) % 4 ]
+>1850	ArrayIndexing	o_square . line [ ( i + 3 ) % 4 ]
+>1851	MultiplicativeExpression	( i + 3 ) % 4
+>1852	PrimaryExpression	4
+>1853	AdditiveExpression	i + 3
+>1854	PrimaryExpression	3
+>1855	Identifier	i
+>1856	MemberAccess	o_square . line
+>1857	Identifier	line
+>1858	Identifier	o_square
+>1859	Identifier	l_line_2
+>1860	Identifier	l_line_2
+>1861	IdentifierDeclType	const TNyARLinear &
+>1862	IdentifierDeclStatement	 
+>1863	IdentifierDecl	& l_line_i = o_square . line [ i ]
+>1864	AssignmentExpr	& l_line_i = o_square . line [ i ]
+>1865	ArrayIndexing	o_square . line [ i ]
+>1866	Identifier	i
+>1867	MemberAccess	o_square . line
+>1868	Identifier	line
+>1869	Identifier	o_square
+>1870	Identifier	l_line_i
+>1871	Identifier	l_line_i
+>1872	IdentifierDeclType	const TNyARLinear &
+>1873	IncDecOp	 
+>1874	IncDec	++
+>1875	Identifier	i
+>1876	Condition	 
+>1877	RelationalExpression	i < 4
+>1878	PrimaryExpression	4
+>1879	Identifier	i
+>1880	ForInit	 
+>1881	IdentifierDeclStatement	int i = 0 ;
+>1882	IdentifierDecl	i = 0
+>1883	AssignmentExpr	i = 0
+>1884	PrimaryExpression	0
+>1885	Identifier	i
+>1886	Identifier	i
+>1887	IdentifierDeclType	int
+>1888	IdentifierDeclStatement	 
+>1889	IdentifierDecl	* l_imvertex = o_square . imvertex
+>1890	AssignmentExpr	* l_imvertex = o_square . imvertex
+>1891	MemberAccess	o_square . imvertex
+>1892	Identifier	imvertex
+>1893	Identifier	o_square
+>1894	Identifier	l_imvertex
+>1895	Identifier	l_imvertex
+>1896	IdentifierDeclType	TNyARIntPoint *
+>1897	IdentifierDeclStatement	 
+>1898	IdentifierDecl	* l_sqvertex = o_square . sqvertex
+>1899	AssignmentExpr	* l_sqvertex = o_square . sqvertex
+>1900	MemberAccess	o_square . sqvertex
+>1901	Identifier	sqvertex
+>1902	Identifier	o_square
+>1903	Identifier	l_sqvertex
+>1904	Identifier	l_sqvertex
+>1905	IdentifierDeclType	TNyARDoublePoint2d *
+>1906	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>1907	CompoundStatement	 
+>1908	ExpressionStatement	 
+>1909	AssignmentExpr	l_line_i . intercept = - ( l_line_i . run * mean . x + l_line_i . rise * mean . y )
+>1910	UnaryOp	- ( l_line_i . run * mean . x + l_line_i . rise * mean . y )
+>1911	AdditiveExpression	l_line_i . run * mean . x + l_line_i . rise * mean . y
+>1912	MultiplicativeExpression	l_line_i . rise * mean . y
+>1913	MemberAccess	mean . y
+>1914	Identifier	y
+>1915	Identifier	mean
+>1916	MemberAccess	l_line_i . rise
+>1917	Identifier	rise
+>1918	Identifier	l_line_i
+>1919	MultiplicativeExpression	l_line_i . run * mean . x
+>1920	MemberAccess	mean . x
+>1921	Identifier	x
+>1922	Identifier	mean
+>1923	MemberAccess	l_line_i . run
+>1924	Identifier	run
+>1925	Identifier	l_line_i
+>1926	UnaryOperator	-
+>1927	MemberAccess	l_line_i . intercept
+>1928	Identifier	intercept
+>1929	Identifier	l_line_i
+>1930	ExpressionStatement	 
+>1931	AssignmentExpr	l_line_i . rise = - evec . m00
+>1932	UnaryOp	- evec . m00
+>1933	MemberAccess	evec . m00
+>1934	Identifier	m00
+>1935	Identifier	evec
+>1936	UnaryOperator	-
+>1937	MemberAccess	l_line_i . rise
+>1938	Identifier	rise
+>1939	Identifier	l_line_i
+>1940	ExpressionStatement	 
+>1941	AssignmentExpr	l_line_i . run = evec . m01
+>1942	MemberAccess	evec . m01
+>1943	Identifier	m01
+>1944	Identifier	evec
+>1945	MemberAccess	l_line_i . run
+>1946	Identifier	run
+>1947	Identifier	l_line_i
+>1948	IdentifierDeclStatement	 
+>1949	IdentifierDecl	& l_line_i = o_square . line [ i ]
+>1950	AssignmentExpr	& l_line_i = o_square . line [ i ]
+>1951	ArrayIndexing	o_square . line [ i ]
+>1952	Identifier	i
+>1953	MemberAccess	o_square . line
+>1954	Identifier	line
+>1955	Identifier	o_square
+>1956	Identifier	l_line_i
+>1957	Identifier	l_line_i
+>1958	IdentifierDeclType	TNyARLinear &
+>1959	ExpressionStatement	 
+>1960	CallExpression	this -> _pca -> pca ( this -> _xpos , this -> _ypos , n , & evec , & ev , & mean )
+>1961	ArgumentList	this -> _xpos
+>1962	Argument	& mean
+>1963	UnaryOp	& mean
+>1964	Identifier	mean
+>1965	UnaryOperator	&
+>1966	Argument	& ev
+>1967	UnaryOp	& ev
+>1968	Identifier	ev
+>1969	UnaryOperator	&
+>1970	Argument	& evec
+>1971	UnaryOp	& evec
+>1972	Identifier	evec
+>1973	UnaryOperator	&
+>1974	Argument	n
+>1975	Identifier	n
+>1976	Argument	this -> _ypos
+>1977	PtrMemberAccess	this -> _ypos
+>1978	Identifier	_ypos
+>1979	Identifier	this
+>1980	Argument	this -> _xpos
+>1981	PtrMemberAccess	this -> _xpos
+>1982	Identifier	_xpos
+>1983	Identifier	this
+>1984	Callee	this -> _pca -> pca
+>1985	PtrMemberAccess	this -> _pca -> pca
+>1986	Identifier	pca
+>1987	PtrMemberAccess	this -> _pca
+>1988	Identifier	_pca
+>1989	Identifier	this
+>1990	ExpressionStatement	 
+>1991	CallExpression	this -> _dist_factor -> observ2IdealBatch ( i_xcoord , i_ycoord , st , n , this -> _xpos , this -> _ypos )
+>1992	ArgumentList	i_xcoord
+>1993	Argument	this -> _ypos
+>1994	PtrMemberAccess	this -> _ypos
+>1995	Identifier	_ypos
+>1996	Identifier	this
+>1997	Argument	this -> _xpos
+>1998	PtrMemberAccess	this -> _xpos
+>1999	Identifier	_xpos
+>2000	Identifier	this
+>2001	Argument	n
+>2002	Identifier	n
+>2003	Argument	st
+>2004	Identifier	st
+>2005	Argument	i_ycoord
+>2006	Identifier	i_ycoord
+>2007	Argument	i_xcoord
+>2008	Identifier	i_xcoord
+>2009	Callee	this -> _dist_factor -> observ2IdealBatch
+>2010	PtrMemberAccess	this -> _dist_factor -> observ2IdealBatch
+>2011	Identifier	observ2IdealBatch
+>2012	PtrMemberAccess	this -> _dist_factor
+>2013	Identifier	_dist_factor
+>2014	Identifier	this
+>2015	IfStatement	if ( n < 2 )
+>2016	CompoundStatement	 
+>2017	ReturnStatement	 
+>2018	Identifier	false
+>2019	Condition	 
+>2020	RelationalExpression	n < 2
+>2021	PrimaryExpression	2
+>2022	Identifier	n
+>2023	IdentifierDeclStatement	 
+>2024	IdentifierDecl	n = ed - st + 1
+>2025	AssignmentExpr	n = ed - st + 1
+>2026	AdditiveExpression	ed - st + 1
+>2027	AdditiveExpression	st + 1
+>2028	PrimaryExpression	1
+>2029	Identifier	st
+>2030	Identifier	ed
+>2031	Identifier	n
+>2032	Identifier	n
+>2033	IdentifierDeclType	const int
+>2034	IdentifierDeclStatement	 
+>2035	IdentifierDecl	ed = ( int ) ( i_mkvertex [ i + 1 ] - w1 )
+>2036	AssignmentExpr	ed = ( int ) ( i_mkvertex [ i + 1 ] - w1 )
+>2037	CastExpression	( int ) ( i_mkvertex [ i + 1 ] - w1 )
+>2038	AdditiveExpression	i_mkvertex [ i + 1 ] - w1
+>2039	Identifier	w1
+>2040	ArrayIndexing	i_mkvertex [ i + 1 ]
+>2041	AdditiveExpression	i + 1
+>2042	PrimaryExpression	1
+>2043	Identifier	i
+>2044	Identifier	i_mkvertex
+>2045	CastTarget	int
+>2046	Identifier	ed
+>2047	Identifier	ed
+>2048	IdentifierDeclType	const int
+>2049	IdentifierDeclStatement	 
+>2050	IdentifierDecl	st = ( int ) ( i_mkvertex [ i ] + w1 )
+>2051	AssignmentExpr	st = ( int ) ( i_mkvertex [ i ] + w1 )
+>2052	CastExpression	( int ) ( i_mkvertex [ i ] + w1 )
+>2053	AdditiveExpression	i_mkvertex [ i ] + w1
+>2054	Identifier	w1
+>2055	ArrayIndexing	i_mkvertex [ i ]
+>2056	Identifier	i
+>2057	Identifier	i_mkvertex
+>2058	CastTarget	int
+>2059	Identifier	st
+>2060	Identifier	st
+>2061	IdentifierDeclType	const int
+>2062	IdentifierDeclStatement	 
+>2063	IdentifierDecl	w1 = ( double ) ( i_mkvertex [ i + 1 ] - i_mkvertex [ i ] + 1 ) * 0.05 + 0.5
+>2064	AssignmentExpr	w1 = ( double ) ( i_mkvertex [ i + 1 ] - i_mkvertex [ i ] + 1 ) * 0.05 + 0.5
+>2065	AdditiveExpression	( double ) ( i_mkvertex [ i + 1 ] - i_mkvertex [ i ] + 1 ) * 0.05 + 0.5
+>2066	PrimaryExpression	0.5
+>2067	MultiplicativeExpression	( double ) ( i_mkvertex [ i + 1 ] - i_mkvertex [ i ] + 1 ) * 0.05
+>2068	PrimaryExpression	0.05
+>2069	CastExpression	( double ) ( i_mkvertex [ i + 1 ] - i_mkvertex [ i ] + 1 )
+>2070	AdditiveExpression	i_mkvertex [ i + 1 ] - i_mkvertex [ i ] + 1
+>2071	AdditiveExpression	i_mkvertex [ i ] + 1
+>2072	PrimaryExpression	1
+>2073	ArrayIndexing	i_mkvertex [ i ]
+>2074	Identifier	i
+>2075	Identifier	i_mkvertex
+>2076	ArrayIndexing	i_mkvertex [ i + 1 ]
+>2077	AdditiveExpression	i + 1
+>2078	PrimaryExpression	1
+>2079	Identifier	i
+>2080	Identifier	i_mkvertex
+>2081	CastTarget	double
+>2082	Identifier	w1
+>2083	Identifier	w1
+>2084	IdentifierDeclType	const double
+>2085	IncDecOp	 
+>2086	IncDec	++
+>2087	Identifier	i
+>2088	Condition	 
+>2089	RelationalExpression	i < 4
+>2090	PrimaryExpression	4
+>2091	Identifier	i
+>2092	ForInit	 
+>2093	IdentifierDeclStatement	int i = 0 ;
+>2094	IdentifierDecl	i = 0
+>2095	AssignmentExpr	i = 0
+>2096	PrimaryExpression	0
+>2097	Identifier	i
+>2098	Identifier	i
+>2099	IdentifierDeclType	int
+>2100	IdentifierDeclStatement	 
+>2101	IdentifierDecl	ev
+>2102	Identifier	ev
+>2103	IdentifierDeclType	TNyARDoublePoint2d
+>2104	IdentifierDeclStatement	 
+>2105	IdentifierDecl	mean
+>2106	Identifier	mean
+>2107	IdentifierDeclType	TNyARDoublePoint2d
+>2108	IdentifierDeclStatement	 
+>2109	IdentifierDecl	& evec = this -> __getSquareLine_evec
+>2110	AssignmentExpr	& evec = this -> __getSquareLine_evec
+>2111	PtrMemberAccess	this -> __getSquareLine_evec
+>2112	Identifier	__getSquareLine_evec
+>2113	Identifier	this
+>2114	Identifier	evec
+>2115	Identifier	evec
+>2116	IdentifierDeclType	NyARDoubleMatrix22 &
+<8=10,9
+<10=11
+<15=17,16
+<17=18
+<22=28,27,23
+<23=24
+<24=26,25
+<28=35,29
+<29=30
+<30=32,31
+<32=34,33
+<35=48,36
+<36=37
+<37=38
+<38=42,39
+<39=40
+<40=41
+<42=43
+<43=45,44
+<45=47,46
+<48=49
+<49=55,50
+<50=52,51
+<52=54,53
+<65=71,70,66
+<66=67
+<67=69,68
+<71=78,72
+<72=73
+<73=75,74
+<75=77,76
+<78=79
+<79=81,80
+<81=85,82
+<82=84,83
+<85=87,86
+<87=89,88
+<103=109,108,104
+<104=105
+<105=107,106
+<109=216,205,194,112,110
+<110=111
+<112=182,178,175,113
+<113=162,149,128,114
+<114=118,115
+<115=116
+<116=117
+<118=119
+<119=127,120
+<120=122,121
+<122=124,123
+<124=126,125
+<128=129
+<129=148,147,130
+<130=146,131
+<131=139,132
+<132=136,133
+<133=135,134
+<136=138,137
+<139=143,140
+<140=142,141
+<143=145,144
+<149=150
+<150=161,160,151
+<151=159,152
+<152=158,153
+<153=155,154
+<155=157,156
+<162=163
+<163=174,173,164
+<164=172,165
+<165=171,166
+<166=168,167
+<168=170,169
+<175=177,176
+<178=179
+<179=181,180
+<182=183
+<183=184
+<184=193,192,185
+<185=191,186
+<186=188,187
+<188=190,189
+<194=195
+<195=204,203,196
+<196=202,197
+<197=201,198
+<198=200,199
+<205=206
+<206=215,214,207
+<207=213,208
+<208=212,209
+<209=211,210
+<216=217
+<217=226,225,218
+<218=224,219
+<219=221,220
+<221=223,222
+<254=262,255
+<255=259,256
+<256=258,257
+<259=261,260
+<262=384,376,368,356,350,337,331,316,310,302,294,282,270,264,263
+<264=265
+<265=267,266
+<267=269,268
+<270=271
+<271=279,272
+<272=276,273
+<273=275,274
+<276=278,277
+<279=281,280
+<282=283
+<283=291,284
+<284=288,285
+<285=287,286
+<288=290,289
+<291=293,292
+<294=295
+<295=299,296
+<296=298,297
+<299=301,300
+<302=303
+<303=307,304
+<304=306,305
+<307=309,308
+<310=311
+<311=313,312
+<313=315,314
+<316=317
+<317=330,329,318
+<318=328,319
+<319=321,320
+<321=325,322
+<322=324,323
+<325=327,326
+<331=332
+<332=334,333
+<334=336,335
+<337=338
+<338=344,339
+<339=340
+<340=341
+<341=343,342
+<344=345
+<345=347,346
+<347=349,348
+<350=351
+<351=353,352
+<353=355,354
+<356=357
+<357=365,358
+<358=362,359
+<359=361,360
+<362=364,363
+<365=367,366
+<368=369
+<369=373,370
+<370=372,371
+<373=375,374
+<376=377
+<377=381,378
+<378=380,379
+<381=383,382
+<384=385
+<385=389,386
+<386=388,387
+<389=391,390
+<414=416,415
+<416=490,481,472,463,454,445,436,427,418,417
+<418=419
+<419=425,420
+<420=421
+<421=422
+<422=424,423
+<425=426
+<427=428
+<428=434,429
+<429=430
+<430=431
+<431=433,432
+<434=435
+<436=437
+<437=443,438
+<438=439
+<439=440
+<440=442,441
+<443=444
+<445=446
+<446=452,447
+<447=448
+<448=449
+<449=451,450
+<452=453
+<454=455
+<455=461,456
+<456=457
+<457=458
+<458=460,459
+<461=462
+<463=464
+<464=470,465
+<465=466
+<466=467
+<467=469,468
+<470=471
+<472=473
+<473=479,474
+<474=475
+<475=476
+<476=478,477
+<479=480
+<481=482
+<482=488,483
+<483=484
+<484=485
+<485=487,486
+<488=489
+<490=491
+<491=497,492
+<492=493
+<493=494
+<494=496,495
+<497=498
+<513=528,527,514
+<514=524,521,518,515
+<515=517,516
+<518=520,519
+<521=523,522
+<524=526,525
+<528=549,530,529
+<530=531
+<531=547,532
+<532=543,539,533
+<533=534
+<534=538,535
+<535=537,536
+<539=540
+<540=542,541
+<543=544
+<544=546,545
+<547=548
+<549=550
+<550=566,551
+<551=562,558,552
+<552=553
+<553=557,554
+<554=556,555
+<558=559
+<559=561,560
+<562=563
+<563=565,564
+<566=567
+<575=584,583,576
+<576=580,577
+<577=579,578
+<580=582,581
+<584=979,972,961,944,937,925,913,906,902,876,867,858,849,840,831,826,817,813,809,805,796,586,585
+<586=792,789,587
+<587=781,775,768,751,734,718,701,694,678,665,653,624,597,588
+<588=589
+<589=593,590
+<590=591
+<591=592
+<593=594
+<594=596,595
+<597=607,598
+<598=600,599
+<600=601
+<601=603,602
+<603=604
+<604=606,605
+<607=608
+<608=623,609
+<609=621,610
+<610=619,617,615,611
+<611=612
+<612=614,613
+<615=616
+<617=618
+<619=620
+<621=622
+<624=634,625
+<625=627,626
+<627=628
+<628=630,629
+<630=631
+<631=633,632
+<634=635
+<635=652,636
+<636=650,637
+<637=648,646,644,642,640,638
+<638=639
+<640=641
+<642=643
+<644=645
+<646=647
+<648=649
+<650=651
+<653=654
+<654=664,663,655
+<655=662,656
+<656=658,657
+<658=659
+<659=661,660
+<665=666
+<666=676,667
+<667=674,672,670,668
+<668=669
+<670=671
+<672=673
+<674=675
+<676=677
+<678=679
+<679=693,692,680
+<680=691,681
+<681=689,682
+<682=687,685,683
+<683=684
+<685=686
+<687=688
+<689=690
+<694=697,695
+<695=696
+<697=698
+<698=700,699
+<701=702
+<702=717,703
+<703=713,704
+<704=711,709,707,705
+<705=706
+<707=708
+<709=710
+<711=712
+<713=714
+<714=716,715
+<718=721,719
+<719=720
+<721=722
+<722=733,723
+<723=729,724
+<724=725
+<725=726
+<726=728,727
+<729=730
+<730=732,731
+<734=737,735
+<735=736
+<737=738
+<738=746,739
+<739=743,740
+<740=742,741
+<743=745,744
+<746=748,747
+<748=750,749
+<751=754,752
+<752=753
+<754=755
+<755=763,756
+<756=760,757
+<757=759,758
+<760=762,761
+<763=765,764
+<765=767,766
+<768=771,769
+<769=770
+<771=772
+<772=774,773
+<775=776
+<776=780,777
+<777=779,778
+<781=782
+<782=788,783
+<783=785,784
+<785=787,786
+<789=791,790
+<792=793
+<793=795,794
+<796=797
+<797=801,798
+<798=799
+<799=800
+<801=802
+<802=804,803
+<805=806
+<806=808,807
+<809=810
+<810=812,811
+<813=814
+<814=816,815
+<817=818
+<818=825,824,819
+<819=823,820
+<820=822,821
+<826=827
+<827=830,829,828
+<831=832
+<832=839,838,833
+<833=837,834
+<834=836,835
+<840=841
+<841=848,847,842
+<842=846,843
+<843=845,844
+<849=850
+<850=857,856,851
+<851=855,852
+<852=854,853
+<858=859
+<859=866,865,860
+<860=864,861
+<861=863,862
+<867=868
+<868=875,874,869
+<869=873,870
+<870=872,871
+<876=898,894,891,877
+<877=878
+<878=881,879
+<879=880
+<881=882
+<882=884,883
+<884=886,885
+<886=888,887
+<888=890,889
+<891=893,892
+<894=895
+<895=897,896
+<898=899
+<899=901,900
+<902=903
+<903=905,904
+<906=907
+<907=909,908
+<909=910
+<910=912,911
+<913=914
+<914=924,923,915
+<915=922,916
+<916=918,917
+<918=919
+<919=921,920
+<925=926
+<926=936,935,927
+<927=934,928
+<928=930,929
+<930=931
+<931=933,932
+<937=940,938
+<938=939
+<940=941
+<941=943,942
+<944=945
+<945=960,959,946
+<946=958,947
+<947=949,948
+<949=950
+<950=952,951
+<952=954,953
+<954=955
+<955=957,956
+<961=962
+<962=966,963
+<963=964
+<964=965
+<966=967
+<967=969,968
+<969=971,970
+<972=973
+<973=975,974
+<975=976
+<976=978,977
+<979=980
+<980=989,988,981
+<981=987,982
+<982=986,983
+<983=985,984
+<1055=1067,1066,1056
+<1056=1063,1060,1057
+<1057=1059,1058
+<1060=1062,1061
+<1063=1065,1064
+<1067=1160,1151,1144,1134,1127,1070,1068
+<1068=1069
+<1070=1119,1115,1112,1071
+<1071=1104,1096,1086,1072
+<1072=1082,1073
+<1073=1078,1074
+<1074=1075
+<1075=1077,1076
+<1078=1079
+<1079=1081,1080
+<1082=1083
+<1083=1085,1084
+<1086=1087
+<1087=1095,1088
+<1088=1092,1089
+<1089=1091,1090
+<1092=1094,1093
+<1096=1097
+<1097=1103,1098
+<1098=1100,1099
+<1100=1102,1101
+<1104=1105
+<1105=1111,1106
+<1106=1108,1107
+<1108=1110,1109
+<1112=1114,1113
+<1115=1116
+<1116=1118,1117
+<1119=1120
+<1120=1121
+<1121=1126,1125,1122
+<1122=1124,1123
+<1127=1128
+<1128=1133,1132,1129
+<1129=1131,1130
+<1134=1141,1138,1135
+<1135=1137,1136
+<1138=1140,1139
+<1141=1143,1142
+<1144=1145
+<1145=1150,1149,1146
+<1146=1148,1147
+<1151=1152
+<1152=1159,1158,1153
+<1153=1157,1154
+<1154=1156,1155
+<1160=1161
+<1161=1168,1167,1162
+<1162=1166,1163
+<1163=1165,1164
+<1190=1211,1210,1191
+<1191=1207,1204,1201,1198,1195,1192
+<1192=1194,1193
+<1195=1197,1196
+<1198=1200,1199
+<1201=1203,1202
+<1204=1206,1205
+<1207=1209,1208
+<1211=1675,1666,1655,1646,1637,1630,1623,1561,1548,1542,1519,1496,1492,1220,1214,1212
+<1212=1213
+<1214=1215
+<1215=1217,1216
+<1217=1219,1218
+<1220=1480,1453,1221
+<1221=1222
+<1222=1441,1340,1223
+<1223=1224
+<1224=1328,1229,1225
+<1225=1226
+<1226=1227
+<1227=1228
+<1229=1320,1297,1274,1230
+<1230=1262,1235,1231
+<1231=1232
+<1232=1233
+<1233=1234
+<1235=1256,1246,1236
+<1236=1237
+<1237=1243,1238
+<1238=1240,1239
+<1240=1242,1241
+<1243=1245,1244
+<1246=1247
+<1247=1253,1248
+<1248=1250,1249
+<1250=1252,1251
+<1253=1255,1254
+<1256=1257
+<1257=1259,1258
+<1259=1261,1260
+<1262=1263
+<1263=1269,1264
+<1264=1266,1265
+<1266=1268,1267
+<1269=1271,1270
+<1271=1273,1272
+<1274=1278,1275
+<1275=1276
+<1276=1277
+<1278=1279
+<1279=1296,1280
+<1280=1292,1281
+<1281=1290,1288,1286,1284,1282
+<1282=1283
+<1284=1285
+<1286=1287
+<1288=1289
+<1290=1291
+<1292=1293
+<1293=1295,1294
+<1297=1301,1298
+<1298=1299
+<1299=1300
+<1301=1302
+<1302=1319,1303
+<1303=1315,1304
+<1304=1313,1311,1309,1307,1305
+<1305=1306
+<1307=1308
+<1309=1310
+<1311=1312
+<1313=1314
+<1315=1316
+<1316=1318,1317
+<1320=1321
+<1321=1327,1322
+<1322=1324,1323
+<1324=1326,1325
+<1328=1329
+<1329=1335,1330
+<1330=1332,1331
+<1332=1334,1333
+<1335=1337,1336
+<1337=1339,1338
+<1340=1431,1408,1385,1341
+<1341=1373,1346,1342
+<1342=1343
+<1343=1344
+<1344=1345
+<1346=1363,1353,1347
+<1347=1348
+<1348=1350,1349
+<1350=1352,1351
+<1353=1354
+<1354=1360,1355
+<1355=1357,1356
+<1357=1359,1358
+<1360=1362,1361
+<1363=1364
+<1364=1370,1365
+<1365=1367,1366
+<1367=1369,1368
+<1370=1372,1371
+<1373=1374
+<1374=1380,1375
+<1375=1377,1376
+<1377=1379,1378
+<1380=1382,1381
+<1382=1384,1383
+<1385=1389,1386
+<1386=1387
+<1387=1388
+<1389=1390
+<1390=1407,1391
+<1391=1403,1392
+<1392=1401,1399,1397,1395,1393
+<1393=1394
+<1395=1396
+<1397=1398
+<1399=1400
+<1401=1402
+<1403=1404
+<1404=1406,1405
+<1408=1412,1409
+<1409=1410
+<1410=1411
+<1412=1413
+<1413=1430,1414
+<1414=1426,1415
+<1415=1424,1422,1420,1418,1416
+<1416=1417
+<1418=1419
+<1420=1421
+<1422=1423
+<1424=1425
+<1426=1427
+<1427=1429,1428
+<1431=1432
+<1432=1440,1433
+<1433=1435,1434
+<1435=1437,1436
+<1437=1439,1438
+<1441=1442
+<1442=1448,1443
+<1443=1445,1444
+<1445=1447,1446
+<1448=1450,1449
+<1450=1452,1451
+<1453=1470,1464,1454
+<1454=1455
+<1455=1461,1456
+<1456=1458,1457
+<1458=1460,1459
+<1461=1463,1462
+<1464=1465
+<1465=1467,1466
+<1467=1469,1468
+<1470=1471
+<1471=1477,1472
+<1472=1474,1473
+<1474=1476,1475
+<1477=1479,1478
+<1480=1481
+<1481=1487,1482
+<1482=1484,1483
+<1484=1486,1485
+<1487=1489,1488
+<1489=1491,1490
+<1492=1493
+<1493=1495,1494
+<1496=1500,1497
+<1497=1498
+<1498=1499
+<1500=1501
+<1501=1518,1502
+<1502=1514,1503
+<1503=1512,1510,1508,1506,1504
+<1504=1505
+<1506=1507
+<1508=1509
+<1510=1511
+<1512=1513
+<1514=1515
+<1515=1517,1516
+<1519=1523,1520
+<1520=1521
+<1521=1522
+<1523=1524
+<1524=1541,1525
+<1525=1537,1526
+<1526=1535,1533,1531,1529,1527
+<1527=1528
+<1529=1530
+<1531=1532
+<1533=1534
+<1535=1536
+<1537=1538
+<1538=1540,1539
+<1542=1543
+<1543=1545,1544
+<1545=1547,1546
+<1548=1549
+<1549=1560,1559,1550
+<1550=1558,1551
+<1551=1555,1552
+<1552=1554,1553
+<1555=1557,1556
+<1561=1613,1609,1606,1562
+<1562=1577,1563
+<1563=1573,1564
+<1564=1569,1565
+<1565=1566
+<1566=1568,1567
+<1569=1570
+<1570=1572,1571
+<1573=1574
+<1574=1576,1575
+<1577=1578
+<1578=1605,1604,1579
+<1579=1603,1580
+<1580=1592,1581
+<1581=1587,1582
+<1582=1584,1583
+<1584=1586,1585
+<1587=1589,1588
+<1589=1591,1590
+<1592=1598,1593
+<1593=1595,1594
+<1595=1597,1596
+<1598=1600,1599
+<1600=1602,1601
+<1606=1608,1607
+<1609=1610
+<1610=1612,1611
+<1613=1614
+<1614=1615
+<1615=1622,1621,1616
+<1616=1620,1617
+<1617=1619,1618
+<1623=1624
+<1624=1629,1628,1625
+<1625=1627,1626
+<1630=1631
+<1631=1636,1635,1632
+<1632=1634,1633
+<1637=1638
+<1638=1645,1644,1639
+<1639=1643,1640
+<1640=1642,1641
+<1646=1647
+<1647=1654,1653,1648
+<1648=1652,1649
+<1649=1651,1650
+<1655=1656
+<1656=1665,1664,1657
+<1657=1663,1658
+<1658=1662,1659
+<1659=1661,1660
+<1666=1667
+<1667=1674,1673,1668
+<1668=1672,1669
+<1669=1671,1670
+<1675=1676
+<1676=1683,1682,1677
+<1677=1681,1678
+<1678=1680,1679
+<1726=1741,1740,1727
+<1727=1737,1734,1731,1728
+<1728=1730,1729
+<1731=1733,1732
+<1734=1736,1735
+<1737=1739,1738
+<1741=2108,2104,2100,1906,1897,1888,1744,1742
+<1742=1743
+<1744=1880,1876,1873,1745
+<1745=1862,1847,1826,1818,1794,1770,1758,1746
+<1746=1747
+<1747=1753,1748
+<1748=1752,1749
+<1749=1751,1750
+<1753=1755,1754
+<1755=1757,1756
+<1758=1759
+<1759=1765,1760
+<1760=1764,1761
+<1761=1763,1762
+<1765=1767,1766
+<1767=1769,1768
+<1770=1771
+<1771=1789,1772
+<1772=1774,1773
+<1774=1782,1775
+<1775=1779,1776
+<1776=1778,1777
+<1779=1781,1780
+<1782=1786,1783
+<1783=1785,1784
+<1786=1788,1787
+<1789=1791,1790
+<1791=1793,1792
+<1794=1795
+<1795=1813,1796
+<1796=1798,1797
+<1798=1806,1799
+<1799=1803,1800
+<1800=1802,1801
+<1803=1805,1804
+<1806=1810,1807
+<1807=1809,1808
+<1810=1812,1811
+<1813=1815,1814
+<1815=1817,1816
+<1818=1822,1819
+<1819=1820
+<1820=1821
+<1822=1823
+<1823=1825,1824
+<1826=1827
+<1827=1846,1845,1828
+<1828=1844,1829
+<1829=1837,1830
+<1830=1834,1831
+<1831=1833,1832
+<1834=1836,1835
+<1837=1841,1838
+<1838=1840,1839
+<1841=1843,1842
+<1847=1848
+<1848=1861,1860,1849
+<1849=1859,1850
+<1850=1856,1851
+<1851=1853,1852
+<1853=1855,1854
+<1856=1858,1857
+<1862=1863
+<1863=1872,1871,1864
+<1864=1870,1865
+<1865=1867,1866
+<1867=1869,1868
+<1873=1875,1874
+<1876=1877
+<1877=1879,1878
+<1880=1881
+<1881=1882
+<1882=1887,1886,1883
+<1883=1885,1884
+<1888=1889
+<1889=1896,1895,1890
+<1890=1894,1891
+<1891=1893,1892
+<1897=1898
+<1898=1905,1904,1899
+<1899=1903,1900
+<1900=1902,1901
+<1906=2092,2088,2085,1907
+<1907=2062,2049,2034,2023,2015,1990,1959,1948,1940,1930,1908
+<1908=1909
+<1909=1927,1910
+<1910=1926,1911
+<1911=1919,1912
+<1912=1916,1913
+<1913=1915,1914
+<1916=1918,1917
+<1919=1923,1920
+<1920=1922,1921
+<1923=1925,1924
+<1927=1929,1928
+<1930=1931
+<1931=1937,1932
+<1932=1936,1933
+<1933=1935,1934
+<1937=1939,1938
+<1940=1941
+<1941=1945,1942
+<1942=1944,1943
+<1945=1947,1946
+<1948=1949
+<1949=1958,1957,1950
+<1950=1956,1951
+<1951=1953,1952
+<1953=1955,1954
+<1959=1960
+<1960=1984,1961
+<1961=1980,1976,1974,1970,1966,1962
+<1962=1963
+<1963=1965,1964
+<1966=1967
+<1967=1969,1968
+<1970=1971
+<1971=1973,1972
+<1974=1975
+<1976=1977
+<1977=1979,1978
+<1980=1981
+<1981=1983,1982
+<1984=1985
+<1985=1987,1986
+<1987=1989,1988
+<1990=1991
+<1991=2009,1992
+<1992=2007,2005,2003,2001,1997,1993
+<1993=1994
+<1994=1996,1995
+<1997=1998
+<1998=2000,1999
+<2001=2002
+<2003=2004
+<2005=2006
+<2007=2008
+<2009=2010
+<2010=2012,2011
+<2012=2014,2013
+<2015=2019,2016
+<2016=2017
+<2017=2018
+<2019=2020
+<2020=2022,2021
+<2023=2024
+<2024=2033,2032,2025
+<2025=2031,2026
+<2026=2030,2027
+<2027=2029,2028
+<2034=2035
+<2035=2048,2047,2036
+<2036=2046,2037
+<2037=2045,2038
+<2038=2040,2039
+<2040=2044,2041
+<2041=2043,2042
+<2049=2050
+<2050=2061,2060,2051
+<2051=2059,2052
+<2052=2058,2053
+<2053=2055,2054
+<2055=2057,2056
+<2062=2063
+<2063=2084,2083,2064
+<2064=2082,2065
+<2065=2067,2066
+<2067=2069,2068
+<2069=2081,2070
+<2070=2076,2071
+<2071=2073,2072
+<2073=2075,2074
+<2076=2080,2077
+<2077=2079,2078
+<2085=2087,2086
+<2088=2089
+<2089=2091,2090
+<2092=2093
+<2093=2094
+<2094=2099,2098,2095
+<2095=2097,2096
+<2100=2101
+<2101=2103,2102
+<2104=2105
+<2105=2107,2106
+<2108=2109
+<2109=2116,2115,2110
+<2110=2114,2111
+<2111=2113,2112

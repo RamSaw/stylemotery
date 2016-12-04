@@ -1,0 +1,365 @@
+>3	FunctionDef	CRWNamedMutex 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	CRWNamedMutex 
+>10	ParameterList	 
+>11	CompoundStatement	 
+>15	FunctionDef	CRWNamedTable 
+>16	ParameterList	 
+>17	CompoundStatement	 
+>21	FunctionDef	CRWNamedTable 
+>22	ParameterList	 
+>23	CompoundStatement	 
+>27	FunctionDef	CRWNamedTable 
+>28	ParameterList	const CString & Name , CMutexOpType OpType
+>29	Parameter	 
+>30	Identifier	OpType
+>31	ParameterType	CMutexOpType
+>32	Parameter	 
+>33	Identifier	Name
+>34	ParameterType	const CString &
+>35	ReturnType	void
+>36	CompoundStatement	 
+>37	ExpressionStatement	 
+>38	CallExpression	m_TableMutex . UnLock ( )
+>39	ArgumentList	 
+>40	Callee	m_TableMutex . UnLock
+>41	MemberAccess	m_TableMutex . UnLock
+>42	Identifier	UnLock
+>43	Identifier	m_TableMutex
+>44	IfStatement	if ( pMutex -> m_RefCount == 0 )
+>45	CompoundStatement	 
+>46	ExpressionStatement	 
+>47	Identifier	pMutex
+>48	Statement	 
+>49	ExpressionStatement	 
+>50	CallExpression	m_NamedList . Remove ( pMutex )
+>51	ArgumentList	pMutex
+>52	Argument	pMutex
+>53	Identifier	pMutex
+>54	Callee	m_NamedList . Remove
+>55	MemberAccess	m_NamedList . Remove
+>56	Identifier	Remove
+>57	Identifier	m_NamedList
+>58	Condition	 
+>59	EqualityExpression	pMutex -> m_RefCount == 0
+>60	PrimaryExpression	0
+>61	PtrMemberAccess	pMutex -> m_RefCount
+>62	Identifier	m_RefCount
+>63	Identifier	pMutex
+>64	ExpressionStatement	 
+>65	IncDecOp	pMutex -> m_RefCount --
+>66	IncDec	--
+>67	PtrMemberAccess	pMutex -> m_RefCount
+>68	Identifier	m_RefCount
+>69	Identifier	pMutex
+>70	SwitchStatement	switch ( OpType )
+>71	CompoundStatement	 
+>72	BreakStatement	 
+>73	ExpressionStatement	 
+>74	IncDecOp	pMutex -> m_RefCount --
+>75	IncDec	--
+>76	PtrMemberAccess	pMutex -> m_RefCount
+>77	Identifier	m_RefCount
+>78	Identifier	pMutex
+>79	Label	 
+>80	Identifier	mtxStopWriting
+>81	Label	 
+>82	Identifier	mtxStopReading
+>83	BreakStatement	 
+>84	ExpressionStatement	 
+>85	IncDecOp	pMutex -> m_RefCount ++
+>86	IncDec	++
+>87	PtrMemberAccess	pMutex -> m_RefCount
+>88	Identifier	m_RefCount
+>89	Identifier	pMutex
+>90	Label	 
+>91	Identifier	mtxStartWriting
+>92	Label	 
+>93	Identifier	mtxStartReading
+>94	Condition	 
+>95	Identifier	OpType
+>96	ExpressionStatement	 
+>97	CallExpression	m_TableMutex . Lock ( )
+>98	ArgumentList	 
+>99	Callee	m_TableMutex . Lock
+>100	MemberAccess	m_TableMutex . Lock
+>101	Identifier	Lock
+>102	Identifier	m_TableMutex
+>103	SwitchStatement	switch ( OpType )
+>104	CompoundStatement	 
+>105	BreakStatement	 
+>106	ExpressionStatement	 
+>107	CallExpression	pMutex -> m_Mutex . StopWriting ( )
+>108	ArgumentList	 
+>109	Callee	pMutex -> m_Mutex . StopWriting
+>110	MemberAccess	pMutex -> m_Mutex . StopWriting
+>111	Identifier	StopWriting
+>112	PtrMemberAccess	pMutex -> m_Mutex
+>113	Identifier	m_Mutex
+>114	Identifier	pMutex
+>115	Label	 
+>116	Identifier	mtxStopWriting
+>117	BreakStatement	 
+>118	ExpressionStatement	 
+>119	CallExpression	pMutex -> m_Mutex . StartWriting ( )
+>120	ArgumentList	 
+>121	Callee	pMutex -> m_Mutex . StartWriting
+>122	MemberAccess	pMutex -> m_Mutex . StartWriting
+>123	Identifier	StartWriting
+>124	PtrMemberAccess	pMutex -> m_Mutex
+>125	Identifier	m_Mutex
+>126	Identifier	pMutex
+>127	Label	 
+>128	Identifier	mtxStartWriting
+>129	BreakStatement	 
+>130	ExpressionStatement	 
+>131	CallExpression	pMutex -> m_Mutex . StopReading ( )
+>132	ArgumentList	 
+>133	Callee	pMutex -> m_Mutex . StopReading
+>134	MemberAccess	pMutex -> m_Mutex . StopReading
+>135	Identifier	StopReading
+>136	PtrMemberAccess	pMutex -> m_Mutex
+>137	Identifier	m_Mutex
+>138	Identifier	pMutex
+>139	Label	 
+>140	Identifier	mtxStopReading
+>141	BreakStatement	 
+>142	ExpressionStatement	 
+>143	CallExpression	pMutex -> m_Mutex . StartReading ( )
+>144	ArgumentList	 
+>145	Callee	pMutex -> m_Mutex . StartReading
+>146	MemberAccess	pMutex -> m_Mutex . StartReading
+>147	Identifier	StartReading
+>148	PtrMemberAccess	pMutex -> m_Mutex
+>149	Identifier	m_Mutex
+>150	Identifier	pMutex
+>151	Label	 
+>152	Identifier	mtxStartReading
+>153	Condition	 
+>154	Identifier	OpType
+>155	ExpressionStatement	 
+>156	CallExpression	m_TableMutex . UnLock ( )
+>157	ArgumentList	 
+>158	Callee	m_TableMutex . UnLock
+>159	MemberAccess	m_TableMutex . UnLock
+>160	Identifier	UnLock
+>161	Identifier	m_TableMutex
+>162	IfStatement	if ( ! pMutex )
+>163	CompoundStatement	 
+>164	ExpressionStatement	 
+>165	CallExpression	m_NamedList . Add ( pMutex )
+>166	ArgumentList	pMutex
+>167	Argument	pMutex
+>168	Identifier	pMutex
+>169	Callee	m_NamedList . Add
+>170	MemberAccess	m_NamedList . Add
+>171	Identifier	Add
+>172	Identifier	m_NamedList
+>173	ExpressionStatement	 
+>174	IncDecOp	pMutex -> m_RefCount ++
+>175	IncDec	++
+>176	PtrMemberAccess	pMutex -> m_RefCount
+>177	Identifier	m_RefCount
+>178	Identifier	pMutex
+>179	ExpressionStatement	 
+>180	AssignmentExpr	pMutex -> m_Name = Name
+>181	Identifier	Name
+>182	PtrMemberAccess	pMutex -> m_Name
+>183	Identifier	m_Name
+>184	Identifier	pMutex
+>185	ExpressionStatement	 
+>186	Identifier	CRWNamedMutex
+>187	Statement	 
+>188	Statement	 
+>189	Statement	 
+>190	Condition	 
+>191	UnaryOp	! pMutex
+>192	Identifier	pMutex
+>193	UnaryOperator	!
+>194	ForStatement	for ( int i = 0 ; i < ( int ) m_NamedList . GetSize ( ) ; i ++ )
+>195	CompoundStatement	 
+>196	IfStatement	if ( m_NamedList [ i ] -> m_Name == Name )
+>197	CompoundStatement	 
+>198	BreakStatement	 
+>199	ExpressionStatement	 
+>200	IncDecOp	pMutex -> m_RefCount ++
+>201	IncDec	++
+>202	PtrMemberAccess	pMutex -> m_RefCount
+>203	Identifier	m_RefCount
+>204	Identifier	pMutex
+>205	ExpressionStatement	 
+>206	AssignmentExpr	pMutex = m_NamedList [ i ]
+>207	ArrayIndexing	m_NamedList [ i ]
+>208	Identifier	i
+>209	Identifier	m_NamedList
+>210	Identifier	pMutex
+>211	Condition	 
+>212	EqualityExpression	m_NamedList [ i ] -> m_Name == Name
+>213	Identifier	Name
+>214	PtrMemberAccess	m_NamedList [ i ] -> m_Name
+>215	Identifier	m_Name
+>216	ArrayIndexing	m_NamedList [ i ]
+>217	Identifier	i
+>218	Identifier	m_NamedList
+>219	IncDecOp	 
+>220	IncDec	++
+>221	Identifier	i
+>222	Condition	 
+>223	RelationalExpression	i < ( int ) m_NamedList . GetSize ( )
+>224	CastExpression	( int ) m_NamedList . GetSize ( )
+>225	CallExpression	m_NamedList . GetSize ( )
+>226	ArgumentList	 
+>227	Callee	m_NamedList . GetSize
+>228	MemberAccess	m_NamedList . GetSize
+>229	Identifier	GetSize
+>230	Identifier	m_NamedList
+>231	CastTarget	int
+>232	Identifier	i
+>233	ForInit	 
+>234	IdentifierDeclStatement	int i = 0 ;
+>235	IdentifierDecl	i = 0
+>236	AssignmentExpr	i = 0
+>237	PrimaryExpression	0
+>238	Identifier	i
+>239	Identifier	i
+>240	IdentifierDeclType	int
+>241	ExpressionStatement	 
+>242	CallExpression	m_TableMutex . Lock ( )
+>243	ArgumentList	 
+>244	Callee	m_TableMutex . Lock
+>245	MemberAccess	m_TableMutex . Lock
+>246	Identifier	Lock
+>247	Identifier	m_TableMutex
+>248	IdentifierDeclStatement	 
+>249	IdentifierDecl	* pMutex = NULL
+>250	AssignmentExpr	* pMutex = NULL
+>251	Identifier	NULL
+>252	Identifier	NULL
+>253	Identifier	pMutex
+>254	IdentifierDeclType	CRWNamedMutex *
+<3=5,4
+<9=11,10
+<15=17,16
+<21=23,22
+<27=36,35,28
+<28=32,29
+<29=31,30
+<32=34,33
+<36=248,241,194,162,155,103,96,70,64,44,37
+<37=38
+<38=40,39
+<40=41
+<41=43,42
+<44=58,45
+<45=49,48,46
+<46=47
+<49=50
+<50=54,51
+<51=52
+<52=53
+<54=55
+<55=57,56
+<58=59
+<59=61,60
+<61=63,62
+<64=65
+<65=67,66
+<67=69,68
+<70=94,71
+<71=92,90,84,83,81,79,73,72
+<73=74
+<74=76,75
+<76=78,77
+<79=80
+<81=82
+<84=85
+<85=87,86
+<87=89,88
+<90=91
+<92=93
+<94=95
+<96=97
+<97=99,98
+<99=100
+<100=102,101
+<103=153,104
+<104=151,142,141,139,130,129,127,118,117,115,106,105
+<106=107
+<107=109,108
+<109=110
+<110=112,111
+<112=114,113
+<115=116
+<118=119
+<119=121,120
+<121=122
+<122=124,123
+<124=126,125
+<127=128
+<130=131
+<131=133,132
+<133=134
+<134=136,135
+<136=138,137
+<139=140
+<142=143
+<143=145,144
+<145=146
+<146=148,147
+<148=150,149
+<151=152
+<153=154
+<155=156
+<156=158,157
+<158=159
+<159=161,160
+<162=190,163
+<163=189,188,187,185,179,173,164
+<164=165
+<165=169,166
+<166=167
+<167=168
+<169=170
+<170=172,171
+<173=174
+<174=176,175
+<176=178,177
+<179=180
+<180=182,181
+<182=184,183
+<185=186
+<190=191
+<191=193,192
+<194=233,222,219,195
+<195=196
+<196=211,197
+<197=205,199,198
+<199=200
+<200=202,201
+<202=204,203
+<205=206
+<206=210,207
+<207=209,208
+<211=212
+<212=214,213
+<214=216,215
+<216=218,217
+<219=221,220
+<222=223
+<223=232,224
+<224=231,225
+<225=227,226
+<227=228
+<228=230,229
+<233=234
+<234=235
+<235=240,239,236
+<236=238,237
+<241=242
+<242=244,243
+<244=245
+<245=247,246
+<248=249
+<249=254,253,250
+<250=252,251

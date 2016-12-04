@@ -1,0 +1,397 @@
+>3	FunctionDef	quatmul_default (const Quat & a , const Quat & b , Quat & c)
+>4	ParameterList	const Quat & a , const Quat & b , Quat & c
+>5	Parameter	 
+>6	Identifier	c
+>7	ParameterType	Quat &
+>8	Parameter	 
+>9	Identifier	b
+>10	ParameterType	const Quat &
+>11	Parameter	 
+>12	Identifier	a
+>13	ParameterType	const Quat &
+>14	ReturnType	EIGEN_DONT_INLINE void
+>15	CompoundStatement	 
+>16	ExpressionStatement	 
+>17	AssignmentExpr	c = a * b
+>18	MultiplicativeExpression	a * b
+>19	Identifier	b
+>20	Identifier	a
+>21	Identifier	c
+>28	FunctionDef	quatmul_novec (const Quat & a , const Quat & b , Quat & c)
+>29	ParameterList	const Quat & a , const Quat & b , Quat & c
+>30	Parameter	 
+>31	Identifier	c
+>32	ParameterType	Quat &
+>33	Parameter	 
+>34	Identifier	b
+>35	ParameterType	const Quat &
+>36	Parameter	 
+>37	Identifier	a
+>38	ParameterType	const Quat &
+>39	ReturnType	EIGEN_DONT_INLINE void
+>40	CompoundStatement	 
+>41	ExpressionStatement	 
+>42	CallExpression	run ( a , b )
+>43	ArgumentList	a
+>44	Argument	b
+>45	Identifier	b
+>46	Argument	a
+>47	Identifier	a
+>48	Callee	run
+>49	Identifier	run
+>50	Statement	 
+>51	Statement	 
+>52	Statement	 
+>53	Statement	 
+>54	Statement	 
+>55	Statement	 
+>56	Statement	 
+>57	Statement	 
+>58	Statement	 
+>59	Statement	 
+>60	Statement	 
+>61	Statement	 
+>62	Statement	 
+>63	Statement	 
+>64	Statement	 
+>65	Statement	 
+>66	Statement	 
+>67	Statement	 
+>68	Statement	 
+>69	Statement	 
+>76	FunctionDef	bench (const std 
+>77	ParameterList	const std 
+>78	Parameter	 
+>79	Identifier	label
+>80	ParameterType	const std 
+>81	ReturnType	void
+>82	CompoundStatement	 
+>83	ExpressionStatement	 
+>84	ShiftExpression	std 
+>85	ShiftExpression	label << \" novec   \" << 1e3 * t . best ( CPU_TIMER ) << \"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( \
+>86	ShiftExpression	\" novec   \" << 1e3 * t . best ( CPU_TIMER ) << \"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( CPU_\
+>87	ShiftExpression	1e3 * t . best ( CPU_TIMER ) << \"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) ) << \" \
+>88	ShiftExpression	\"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) ) << \" M mul/s\n\"
+>89	ShiftExpression	1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) ) << \" M mul/s\n\"
+>90	PrimaryExpression	\" M mul/s\n\"
+>91	MultiplicativeExpression	1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) )
+>92	MultiplicativeExpression	double ( rep ) / ( t . best ( CPU_TIMER ) )
+>93	CallExpression	t . best ( CPU_TIMER )
+>94	ArgumentList	CPU_TIMER
+>95	Argument	CPU_TIMER
+>96	Identifier	CPU_TIMER
+>97	Callee	t . best
+>98	MemberAccess	t . best
+>99	Identifier	best
+>100	Identifier	t
+>101	CallExpression	double ( rep )
+>102	ArgumentList	rep
+>103	Argument	rep
+>104	Identifier	rep
+>105	Callee	double
+>106	Identifier	double
+>107	PrimaryExpression	1e-6
+>108	PrimaryExpression	\"ms  \t\"
+>109	MultiplicativeExpression	1e3 * t . best ( CPU_TIMER )
+>110	CallExpression	t . best ( CPU_TIMER )
+>111	ArgumentList	CPU_TIMER
+>112	Argument	CPU_TIMER
+>113	Identifier	CPU_TIMER
+>114	Callee	t . best
+>115	MemberAccess	t . best
+>116	Identifier	best
+>117	Identifier	t
+>118	PrimaryExpression	1e3
+>119	PrimaryExpression	\" novec   \"
+>120	Identifier	label
+>121	Identifier	std 
+>122	ExpressionStatement	 
+>123	CallExpression	BENCH ( t , tries , rep , quatmul_novec ( a , b , c ) )
+>124	ArgumentList	t
+>125	Argument	quatmul_novec ( a , b , c )
+>126	CallExpression	quatmul_novec ( a , b , c )
+>127	ArgumentList	a
+>128	Argument	c
+>129	Identifier	c
+>130	Argument	b
+>131	Identifier	b
+>132	Argument	a
+>133	Identifier	a
+>134	Callee	quatmul_novec
+>135	Identifier	quatmul_novec
+>136	Argument	rep
+>137	Identifier	rep
+>138	Argument	tries
+>139	Identifier	tries
+>140	Argument	t
+>141	Identifier	t
+>142	Callee	BENCH
+>143	Identifier	BENCH
+>144	ExpressionStatement	 
+>145	ShiftExpression	std 
+>146	ShiftExpression	label << \" default \" << 1e3 * t . best ( CPU_TIMER ) << \"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( \
+>147	ShiftExpression	\" default \" << 1e3 * t . best ( CPU_TIMER ) << \"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( CPU_\
+>148	ShiftExpression	1e3 * t . best ( CPU_TIMER ) << \"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) ) << \" \
+>149	ShiftExpression	\"ms  \t\" << 1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) ) << \" M mul/s\n\"
+>150	ShiftExpression	1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) ) << \" M mul/s\n\"
+>151	PrimaryExpression	\" M mul/s\n\"
+>152	MultiplicativeExpression	1e-6 * double ( rep ) / ( t . best ( CPU_TIMER ) )
+>153	MultiplicativeExpression	double ( rep ) / ( t . best ( CPU_TIMER ) )
+>154	CallExpression	t . best ( CPU_TIMER )
+>155	ArgumentList	CPU_TIMER
+>156	Argument	CPU_TIMER
+>157	Identifier	CPU_TIMER
+>158	Callee	t . best
+>159	MemberAccess	t . best
+>160	Identifier	best
+>161	Identifier	t
+>162	CallExpression	double ( rep )
+>163	ArgumentList	rep
+>164	Argument	rep
+>165	Identifier	rep
+>166	Callee	double
+>167	Identifier	double
+>168	PrimaryExpression	1e-6
+>169	PrimaryExpression	\"ms  \t\"
+>170	MultiplicativeExpression	1e3 * t . best ( CPU_TIMER )
+>171	CallExpression	t . best ( CPU_TIMER )
+>172	ArgumentList	CPU_TIMER
+>173	Argument	CPU_TIMER
+>174	Identifier	CPU_TIMER
+>175	Callee	t . best
+>176	MemberAccess	t . best
+>177	Identifier	best
+>178	Identifier	t
+>179	PrimaryExpression	1e3
+>180	PrimaryExpression	\" default \"
+>181	Identifier	label
+>182	Identifier	std 
+>183	ExpressionStatement	 
+>184	CallExpression	BENCH ( t , tries , rep , quatmul_default ( a , b , c ) )
+>185	ArgumentList	t
+>186	Argument	quatmul_default ( a , b , c )
+>187	CallExpression	quatmul_default ( a , b , c )
+>188	ArgumentList	a
+>189	Argument	c
+>190	Identifier	c
+>191	Argument	b
+>192	Identifier	b
+>193	Argument	a
+>194	Identifier	a
+>195	Callee	quatmul_default
+>196	Identifier	quatmul_default
+>197	Argument	rep
+>198	Identifier	rep
+>199	Argument	tries
+>200	Identifier	tries
+>201	Argument	t
+>202	Identifier	t
+>203	Callee	BENCH
+>204	Identifier	BENCH
+>205	ExpressionStatement	 
+>206	CallExpression	std 
+>207	ArgumentList	3
+>208	Argument	3
+>209	PrimaryExpression	3
+>210	Callee	std 
+>211	MemberAccess	std 
+>212	Identifier	precision
+>213	Identifier	std 
+>214	IdentifierDeclStatement	 
+>215	IdentifierDecl	c
+>216	Identifier	c
+>217	IdentifierDeclType	Quat
+>218	IdentifierDeclStatement	 
+>219	IdentifierDecl	b ( 2 , 3 , 4 , 5 )
+>220	Expression	2 , 3 , 4 , 5
+>221	Expression	3 , 4 , 5
+>222	Expression	4 , 5
+>223	PrimaryExpression	5
+>224	PrimaryExpression	4
+>225	PrimaryExpression	3
+>226	PrimaryExpression	2
+>227	Identifier	b
+>228	IdentifierDeclType	Quat
+>229	IdentifierDeclStatement	 
+>230	IdentifierDecl	a ( 4 , 1 , 2 , 3 )
+>231	Expression	4 , 1 , 2 , 3
+>232	Expression	1 , 2 , 3
+>233	Expression	2 , 3
+>234	PrimaryExpression	3
+>235	PrimaryExpression	2
+>236	PrimaryExpression	1
+>237	PrimaryExpression	4
+>238	Identifier	a
+>239	IdentifierDeclType	Quat
+>240	IdentifierDeclStatement	 
+>241	IdentifierDecl	t
+>242	Identifier	t
+>243	IdentifierDeclType	BenchTimer
+>244	IdentifierDeclStatement	 
+>245	IdentifierDecl	rep = 1000000
+>246	AssignmentExpr	rep = 1000000
+>247	PrimaryExpression	1000000
+>248	Identifier	rep
+>249	Identifier	rep
+>250	IdentifierDeclType	int
+>251	IdentifierDeclStatement	 
+>252	IdentifierDecl	tries = 10
+>253	AssignmentExpr	tries = 10
+>254	PrimaryExpression	10
+>255	Identifier	tries
+>256	Identifier	tries
+>257	IdentifierDeclType	int
+>272	FunctionDef	main ()
+>273	ParameterList	 
+>274	ReturnType	int
+>275	CompoundStatement	 
+>276	ReturnStatement	 
+>277	PrimaryExpression	0
+>278	ExpressionStatement	 
+>279	RelationalExpression	bench < Quaterniond > ( \"double\" )
+>280	RelationalExpression	Quaterniond > ( \"double\" )
+>281	PrimaryExpression	\"double\"
+>282	Identifier	Quaterniond
+>283	Identifier	bench
+>284	ExpressionStatement	 
+>285	RelationalExpression	bench < Quaternionf > ( \"float \" )
+>286	RelationalExpression	Quaternionf > ( \"float \" )
+>287	PrimaryExpression	\"float \"
+>288	Identifier	Quaternionf
+>289	Identifier	bench
+<3=15,14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<15=16
+<16=17
+<17=21,18
+<18=20,19
+<28=40,39,29
+<29=36,33,30
+<30=32,31
+<33=35,34
+<36=38,37
+<40=69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,41
+<41=42
+<42=48,43
+<43=46,44
+<44=45
+<46=47
+<48=49
+<76=82,81,77
+<77=78
+<78=80,79
+<82=251,244,240,229,218,214,205,183,144,122,83
+<83=84
+<84=121,85
+<85=120,86
+<86=119,87
+<87=109,88
+<88=108,89
+<89=91,90
+<91=107,92
+<92=101,93
+<93=97,94
+<94=95
+<95=96
+<97=98
+<98=100,99
+<101=105,102
+<102=103
+<103=104
+<105=106
+<109=118,110
+<110=114,111
+<111=112
+<112=113
+<114=115
+<115=117,116
+<122=123
+<123=142,124
+<124=140,138,136,125
+<125=126
+<126=134,127
+<127=132,130,128
+<128=129
+<130=131
+<132=133
+<134=135
+<136=137
+<138=139
+<140=141
+<142=143
+<144=145
+<145=182,146
+<146=181,147
+<147=180,148
+<148=170,149
+<149=169,150
+<150=152,151
+<152=168,153
+<153=162,154
+<154=158,155
+<155=156
+<156=157
+<158=159
+<159=161,160
+<162=166,163
+<163=164
+<164=165
+<166=167
+<170=179,171
+<171=175,172
+<172=173
+<173=174
+<175=176
+<176=178,177
+<183=184
+<184=203,185
+<185=201,199,197,186
+<186=187
+<187=195,188
+<188=193,191,189
+<189=190
+<191=192
+<193=194
+<195=196
+<197=198
+<199=200
+<201=202
+<203=204
+<205=206
+<206=210,207
+<207=208
+<208=209
+<210=211
+<211=213,212
+<214=215
+<215=217,216
+<218=219
+<219=228,227,220
+<220=226,221
+<221=225,222
+<222=224,223
+<229=230
+<230=239,238,231
+<231=237,232
+<232=236,233
+<233=235,234
+<240=241
+<241=243,242
+<244=245
+<245=250,249,246
+<246=248,247
+<251=252
+<252=257,256,253
+<253=255,254
+<272=275,274,273
+<275=284,278,276
+<276=277
+<278=279
+<279=283,280
+<280=282,281
+<284=285
+<285=289,286
+<286=288,287

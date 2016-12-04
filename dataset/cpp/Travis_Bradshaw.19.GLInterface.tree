@@ -1,0 +1,278 @@
+>5	FunctionDef	QERApp_ISelectedFace_GetTextureNumber ()
+>6	ParameterList	 
+>7	ReturnType	int WINAPI
+>8	CompoundStatement	 
+>9	ReturnStatement	 
+>10	PrimaryExpression	0
+>11	IfStatement	if ( g_ptrSelectedFaces . GetSize ( ) > 0 )
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	PtrMemberAccess	selFace -> d_texture -> texture_number
+>15	Identifier	texture_number
+>16	PtrMemberAccess	selFace -> d_texture
+>17	Identifier	d_texture
+>18	Identifier	selFace
+>19	ExpressionStatement	 
+>20	CallExpression	g_ptrSelectedFaces . GetAt ( 0 )
+>21	ArgumentList	0
+>22	Argument	0
+>23	PrimaryExpression	0
+>24	Callee	g_ptrSelectedFaces . GetAt
+>25	MemberAccess	g_ptrSelectedFaces . GetAt
+>26	Identifier	GetAt
+>27	Identifier	g_ptrSelectedFaces
+>28	Statement	 
+>29	Statement	 
+>30	Statement	 
+>31	Statement	 
+>32	Statement	 
+>33	Statement	 
+>34	Statement	 
+>35	Statement	 
+>36	Statement	 
+>37	Condition	 
+>38	RelationalExpression	g_ptrSelectedFaces . GetSize ( ) > 0
+>39	PrimaryExpression	0
+>40	CallExpression	g_ptrSelectedFaces . GetSize ( )
+>41	ArgumentList	 
+>42	Callee	g_ptrSelectedFaces . GetSize
+>43	MemberAccess	g_ptrSelectedFaces . GetSize
+>44	Identifier	GetSize
+>45	Identifier	g_ptrSelectedFaces
+>57	FunctionDef	QERApp_HookXYGLWindow (IGLWindow * pGLW)
+>58	ParameterList	IGLWindow * pGLW
+>59	Parameter	 
+>60	Identifier	pGLW
+>61	ParameterType	IGLWindow *
+>62	ReturnType	void WINAPI
+>63	CompoundStatement	 
+>64	ExpressionStatement	 
+>65	CallExpression	pGLW -> IncRef ( )
+>66	ArgumentList	 
+>67	Callee	pGLW -> IncRef
+>68	PtrMemberAccess	pGLW -> IncRef
+>69	Identifier	IncRef
+>70	Identifier	pGLW
+>71	ExpressionStatement	 
+>72	CallExpression	l_GLWindows . Add ( pGLW )
+>73	ArgumentList	pGLW
+>74	Argument	pGLW
+>75	Identifier	pGLW
+>76	Callee	l_GLWindows . Add
+>77	MemberAccess	l_GLWindows . Add
+>78	Identifier	Add
+>79	Identifier	l_GLWindows
+>85	FunctionDef	QERApp_UnHookGLWindow (IGLWindow * pGLW)
+>86	ParameterList	IGLWindow * pGLW
+>87	Parameter	 
+>88	Identifier	pGLW
+>89	ParameterType	IGLWindow *
+>90	ReturnType	void WINAPI
+>91	CompoundStatement	 
+>92	ExpressionStatement	 
+>93	CallExpression	Sys_Printf ( \"ERROR
+>94	ArgumentList	\"ERROR
+>95	Argument	\"ERROR
+>96	PrimaryExpression	\"ERROR
+>97	Callee	Sys_Printf
+>98	Identifier	Sys_Printf
+>99	ForStatement	for ( int i = 0 ; i < l_GLWindows . GetSize ( ) ; i ++ )
+>100	CompoundStatement	 
+>101	IfStatement	if ( l_GLWindows . GetAt ( i ) == pGLW )
+>102	CompoundStatement	 
+>103	ReturnStatement	 
+>104	ExpressionStatement	 
+>105	CallExpression	pGLW -> DecRef ( )
+>106	ArgumentList	 
+>107	Callee	pGLW -> DecRef
+>108	PtrMemberAccess	pGLW -> DecRef
+>109	Identifier	DecRef
+>110	Identifier	pGLW
+>111	ExpressionStatement	 
+>112	CallExpression	l_GLWindows . RemoveAt ( i )
+>113	ArgumentList	i
+>114	Argument	i
+>115	Identifier	i
+>116	Callee	l_GLWindows . RemoveAt
+>117	MemberAccess	l_GLWindows . RemoveAt
+>118	Identifier	RemoveAt
+>119	Identifier	l_GLWindows
+>120	Condition	 
+>121	EqualityExpression	l_GLWindows . GetAt ( i ) == pGLW
+>122	Identifier	pGLW
+>123	CallExpression	l_GLWindows . GetAt ( i )
+>124	ArgumentList	i
+>125	Argument	i
+>126	Identifier	i
+>127	Callee	l_GLWindows . GetAt
+>128	MemberAccess	l_GLWindows . GetAt
+>129	Identifier	GetAt
+>130	Identifier	l_GLWindows
+>131	IncDecOp	 
+>132	IncDec	++
+>133	Identifier	i
+>134	Condition	 
+>135	RelationalExpression	i < l_GLWindows . GetSize ( )
+>136	CallExpression	l_GLWindows . GetSize ( )
+>137	ArgumentList	 
+>138	Callee	l_GLWindows . GetSize
+>139	MemberAccess	l_GLWindows . GetSize
+>140	Identifier	GetSize
+>141	Identifier	l_GLWindows
+>142	Identifier	i
+>143	ForInit	 
+>144	IdentifierDeclStatement	int i = 0 ;
+>145	IdentifierDecl	i = 0
+>146	AssignmentExpr	i = 0
+>147	PrimaryExpression	0
+>148	Identifier	i
+>149	Identifier	i
+>150	IdentifierDeclType	int
+>159	FunctionDef	DrawPluginEntities (VIEWTYPE vt)
+>160	ParameterList	VIEWTYPE vt
+>161	Parameter	 
+>162	Identifier	vt
+>163	ParameterType	VIEWTYPE
+>164	ReturnType	void
+>165	CompoundStatement	 
+>166	ExpressionStatement	 
+>167	CallExpression	( l_GLWindows . GetAt ( i ) ) -> Draw ( vt )
+>168	ArgumentList	vt
+>169	Argument	vt
+>170	Identifier	vt
+>171	Callee	( l_GLWindows . GetAt ( i ) ) -> Draw
+>172	PtrMemberAccess	( l_GLWindows . GetAt ( i ) ) -> Draw
+>173	Identifier	Draw
+>174	CallExpression	l_GLWindows . GetAt ( i )
+>175	ArgumentList	i
+>176	Argument	i
+>177	Identifier	i
+>178	Callee	l_GLWindows . GetAt
+>179	MemberAccess	l_GLWindows . GetAt
+>180	Identifier	GetAt
+>181	Identifier	l_GLWindows
+>182	Statement	 
+>183	Statement	 
+>184	Statement	 
+>185	Statement	 
+>186	ForStatement	for ( int i = 0 ; i < l_GLWindows . GetSize ( ) ; i ++ )
+>187	Statement	 
+>188	IncDecOp	 
+>189	IncDec	++
+>190	Identifier	i
+>191	Condition	 
+>192	RelationalExpression	i < l_GLWindows . GetSize ( )
+>193	CallExpression	l_GLWindows . GetSize ( )
+>194	ArgumentList	 
+>195	Callee	l_GLWindows . GetSize
+>196	MemberAccess	l_GLWindows . GetSize
+>197	Identifier	GetSize
+>198	Identifier	l_GLWindows
+>199	Identifier	i
+>200	ForInit	 
+>201	IdentifierDeclStatement	int i = 0 ;
+>202	IdentifierDecl	i = 0
+>203	AssignmentExpr	i = 0
+>204	PrimaryExpression	0
+>205	Identifier	i
+>206	Identifier	i
+>207	IdentifierDeclType	int
+<5=8,7,6
+<8=11,9
+<9=10
+<11=37,12
+<12=36,35,34,33,32,31,30,29,28,19,13
+<13=14
+<14=16,15
+<16=18,17
+<19=20
+<20=24,21
+<21=22
+<22=23
+<24=25
+<25=27,26
+<37=38
+<38=40,39
+<40=42,41
+<42=43
+<43=45,44
+<57=63,62,58
+<58=59
+<59=61,60
+<63=71,64
+<64=65
+<65=67,66
+<67=68
+<68=70,69
+<71=72
+<72=76,73
+<73=74
+<74=75
+<76=77
+<77=79,78
+<85=91,90,86
+<86=87
+<87=89,88
+<91=99,92
+<92=93
+<93=97,94
+<94=95
+<95=96
+<97=98
+<99=143,134,131,100
+<100=101
+<101=120,102
+<102=111,104,103
+<104=105
+<105=107,106
+<107=108
+<108=110,109
+<111=112
+<112=116,113
+<113=114
+<114=115
+<116=117
+<117=119,118
+<120=121
+<121=123,122
+<123=127,124
+<124=125
+<125=126
+<127=128
+<128=130,129
+<131=133,132
+<134=135
+<135=142,136
+<136=138,137
+<138=139
+<139=141,140
+<143=144
+<144=145
+<145=150,149,146
+<146=148,147
+<159=165,164,160
+<160=161
+<161=163,162
+<165=186,185,184,183,182,166
+<166=167
+<167=171,168
+<168=169
+<169=170
+<171=172
+<172=174,173
+<174=178,175
+<175=176
+<176=177
+<178=179
+<179=181,180
+<186=200,191,188,187
+<188=190,189
+<191=192
+<192=199,193
+<193=195,194
+<195=196
+<196=198,197
+<200=201
+<201=202
+<202=207,206,203
+<203=205,204

@@ -1,0 +1,590 @@
+>3	FunctionDef	getNumberOfBins (float min , float max , float binWidth)
+>4	ParameterList	float min , float max , float binWidth
+>5	Parameter	 
+>6	Identifier	binWidth
+>7	ParameterType	float
+>8	Parameter	 
+>9	Identifier	max
+>10	ParameterType	float
+>11	Parameter	 
+>12	Identifier	min
+>13	ParameterType	float
+>14	ReturnType	int
+>15	CompoundStatement	 
+>16	ReturnStatement	 
+>17	CastExpression	( int ) ( ( max - min + 1 ) / binWidth )
+>18	MultiplicativeExpression	( max - min + 1 ) / binWidth
+>19	Identifier	binWidth
+>20	AdditiveExpression	max - min + 1
+>21	AdditiveExpression	min + 1
+>22	PrimaryExpression	1
+>23	Identifier	min
+>24	Identifier	max
+>25	CastTarget	int
+>32	FunctionDef	compute1DHistogram (const cv 
+>33	ParameterList	const cv 
+>34	Parameter	 
+>35	Identifier	binWidth
+>36	ParameterType	float
+>37	Parameter	 
+>38	Identifier	max
+>39	ParameterType	float
+>40	Parameter	 
+>41	Identifier	min
+>42	ParameterType	float
+>43	Parameter	 
+>44	Identifier	histogram
+>45	ParameterType	cv 
+>46	Parameter	 
+>47	Identifier	data
+>48	ParameterType	const cv 
+>49	ReturnType	void
+>50	CompoundStatement	 
+>51	ExpressionStatement	 
+>52	CallExpression	cv 
+>53	ArgumentList	images
+>54	Argument	false
+>55	Identifier	false
+>56	Argument	true
+>57	Identifier	true
+>58	Argument	ranges
+>59	Identifier	ranges
+>60	Argument	nbins
+>61	Identifier	nbins
+>62	Argument	1
+>63	PrimaryExpression	1
+>64	Argument	histogram
+>65	Identifier	histogram
+>66	Argument	mask
+>67	Identifier	mask
+>68	Argument	channels
+>69	Identifier	channels
+>70	Argument	1
+>71	PrimaryExpression	1
+>72	Argument	images
+>73	Identifier	images
+>74	Callee	cv 
+>75	Identifier	cv 
+>76	IdentifierDeclStatement	 
+>77	IdentifierDecl	* ranges [ ] = { range }
+>78	AssignmentExpr	* ranges [ ] = { range }
+>79	InitializerList	range
+>80	Identifier	range
+>81	Identifier	ranges
+>82	Identifier	ranges
+>83	IdentifierDeclType	const float * [ ]
+>84	IdentifierDeclStatement	 
+>85	IdentifierDecl	range [ ] = { min , max }
+>86	AssignmentExpr	range [ ] = { min , max }
+>87	InitializerList	min
+>88	Identifier	max
+>89	Identifier	min
+>90	Identifier	range
+>91	Identifier	range
+>92	IdentifierDeclType	float [ ]
+>93	IdentifierDeclStatement	 
+>94	IdentifierDecl	nbins [ ] = { getNumberOfBins ( min , max , binWidth ) }
+>95	AssignmentExpr	nbins [ ] = { getNumberOfBins ( min , max , binWidth ) }
+>96	InitializerList	getNumberOfBins ( min , max , binWidth )
+>97	CallExpression	getNumberOfBins ( min , max , binWidth )
+>98	ArgumentList	min
+>99	Argument	binWidth
+>100	Identifier	binWidth
+>101	Argument	max
+>102	Identifier	max
+>103	Argument	min
+>104	Identifier	min
+>105	Callee	getNumberOfBins
+>106	Identifier	getNumberOfBins
+>107	Identifier	nbins
+>108	Identifier	nbins
+>109	IdentifierDeclType	int [ ]
+>110	IdentifierDeclStatement	 
+>111	IdentifierDecl	channels [ ] = { 0 }
+>112	AssignmentExpr	channels [ ] = { 0 }
+>113	InitializerList	0
+>114	PrimaryExpression	0
+>115	Identifier	channels
+>116	Identifier	channels
+>117	IdentifierDeclType	int [ ]
+>118	IdentifierDeclStatement	 
+>119	IdentifierDecl	images [ ] = { data }
+>120	AssignmentExpr	images [ ] = { data }
+>121	InitializerList	data
+>122	Identifier	data
+>123	Identifier	images
+>124	Identifier	images
+>125	IdentifierDeclType	cv 
+>126	IdentifierDeclStatement	 
+>127	IdentifierDecl	mask
+>128	Identifier	mask
+>129	IdentifierDeclType	cv 
+>147	FunctionDef	computeMedianFromHistogram (const cv 
+>148	ParameterList	const cv 
+>149	Parameter	 
+>150	Identifier	max
+>151	ParameterType	float
+>152	Parameter	 
+>153	Identifier	min
+>154	ParameterType	float
+>155	Parameter	 
+>156	Identifier	histogram
+>157	ParameterType	const cv 
+>158	ReturnType	float
+>159	CompoundStatement	 
+>160	ReturnStatement	 
+>161	AdditiveExpression	median + min
+>162	Identifier	min
+>163	Identifier	median
+>164	ForStatement	for ( size_t idx = 0 ; idx < histogram . size ( ) . area ( ) ; ++ idx , ++ histogram_ptr )
+>165	CompoundStatement	 
+>166	IfStatement	if ( acc > total_half )
+>167	CompoundStatement	 
+>168	BreakStatement	 
+>169	ExpressionStatement	 
+>170	AssignmentExpr	median = idx
+>171	Identifier	idx
+>172	Identifier	median
+>173	Condition	 
+>174	RelationalExpression	acc > total_half
+>175	Identifier	total_half
+>176	Identifier	acc
+>177	ExpressionStatement	 
+>178	AssignmentExpr	acc += * histogram_ptr
+>179	UnaryOp	* histogram_ptr
+>180	Identifier	histogram_ptr
+>181	UnaryOperator	*
+>182	Identifier	acc
+>183	Expression	 
+>184	UnaryExpression	++ histogram_ptr
+>185	Identifier	histogram_ptr
+>186	IncDec	++
+>187	UnaryExpression	++ idx
+>188	Identifier	idx
+>189	IncDec	++
+>190	Condition	 
+>191	RelationalExpression	idx < histogram . size ( ) . area ( )
+>192	CallExpression	histogram . size ( ) . area ( )
+>193	ArgumentList	 
+>194	Callee	histogram . size ( ) . area
+>195	MemberAccess	histogram . size ( ) . area
+>196	Identifier	area
+>197	CallExpression	histogram . size ( )
+>198	ArgumentList	 
+>199	Callee	histogram . size
+>200	MemberAccess	histogram . size
+>201	Identifier	size
+>202	Identifier	histogram
+>203	Identifier	idx
+>204	ForInit	 
+>205	IdentifierDeclStatement	size_t idx = 0 ;
+>206	IdentifierDecl	idx = 0
+>207	AssignmentExpr	idx = 0
+>208	PrimaryExpression	0
+>209	Identifier	idx
+>210	Identifier	idx
+>211	IdentifierDeclType	size_t
+>212	IdentifierDeclStatement	 
+>213	IdentifierDecl	acc = 0.0f
+>214	AssignmentExpr	acc = 0.0f
+>215	PrimaryExpression	0.0f
+>216	Identifier	acc
+>217	Identifier	acc
+>218	IdentifierDeclType	float
+>219	IdentifierDeclStatement	 
+>220	IdentifierDecl	median = 0.0f
+>221	AssignmentExpr	median = 0.0f
+>222	PrimaryExpression	0.0f
+>223	Identifier	median
+>224	Identifier	median
+>225	IdentifierDeclType	float
+>226	ExpressionStatement	 
+>227	Statement	 
+>228	Statement	 
+>229	Statement	 
+>230	Statement	 
+>231	Statement	 
+>232	Statement	 
+>233	Statement	 
+>234	Statement	 
+>235	Statement	 
+>236	Statement	 
+>237	Statement	 
+>238	Statement	 
+>239	Statement	 
+>240	IdentifierDeclStatement	 
+>241	IdentifierDecl	total_half = countElementsInHistogram ( histogram ) / 2.0f
+>242	AssignmentExpr	total_half = countElementsInHistogram ( histogram ) / 2.0f
+>243	MultiplicativeExpression	countElementsInHistogram ( histogram ) / 2.0f
+>244	PrimaryExpression	2.0f
+>245	CallExpression	countElementsInHistogram ( histogram )
+>246	ArgumentList	histogram
+>247	Argument	histogram
+>248	Identifier	histogram
+>249	Callee	countElementsInHistogram
+>250	Identifier	countElementsInHistogram
+>251	Identifier	total_half
+>252	Identifier	total_half
+>253	IdentifierDeclType	float
+>269	FunctionDef	computeEntropyFromHistogram (const cv 
+>270	ParameterList	const cv 
+>271	Parameter	 
+>272	Identifier	histogram
+>273	ParameterType	const cv 
+>274	ReturnType	float
+>275	CompoundStatement	 
+>276	ReturnStatement	 
+>277	MultiplicativeExpression	entropy / std 
+>278	CallExpression	std 
+>279	ArgumentList	2.0
+>280	Argument	2.0
+>281	PrimaryExpression	2.0
+>282	Callee	std 
+>283	Identifier	std 
+>284	Identifier	entropy
+>285	ForStatement	for ( size_t idx = 0 ; idx < histogram . total ( ) ; ++ idx , ++ histogram_ptr )
+>286	CompoundStatement	 
+>287	ExpressionStatement	 
+>288	AssignmentExpr	entropy -= p * std 
+>289	MultiplicativeExpression	p * std 
+>290	CallExpression	std 
+>291	ArgumentList	p
+>292	Argument	p
+>293	Identifier	p
+>294	Callee	std 
+>295	Identifier	std 
+>296	Identifier	p
+>297	Identifier	entropy
+>298	IdentifierDeclStatement	 
+>299	IdentifierDecl	p = * histogram_ptr / sum
+>300	AssignmentExpr	p = * histogram_ptr / sum
+>301	MultiplicativeExpression	* histogram_ptr / sum
+>302	Identifier	sum
+>303	UnaryOp	* histogram_ptr
+>304	Identifier	histogram_ptr
+>305	UnaryOperator	*
+>306	Identifier	p
+>307	Identifier	p
+>308	IdentifierDeclType	float
+>309	IfStatement	if ( * histogram_ptr < 1.0f )
+>310	ContinueStatement	 
+>311	Condition	 
+>312	RelationalExpression	* histogram_ptr < 1.0f
+>313	PrimaryExpression	1.0f
+>314	UnaryOp	* histogram_ptr
+>315	Identifier	histogram_ptr
+>316	UnaryOperator	*
+>317	Expression	 
+>318	UnaryExpression	++ histogram_ptr
+>319	Identifier	histogram_ptr
+>320	IncDec	++
+>321	UnaryExpression	++ idx
+>322	Identifier	idx
+>323	IncDec	++
+>324	Condition	 
+>325	RelationalExpression	idx < histogram . total ( )
+>326	CallExpression	histogram . total ( )
+>327	ArgumentList	 
+>328	Callee	histogram . total
+>329	MemberAccess	histogram . total
+>330	Identifier	total
+>331	Identifier	histogram
+>332	Identifier	idx
+>333	ForInit	 
+>334	IdentifierDeclStatement	size_t idx = 0 ;
+>335	IdentifierDecl	idx = 0
+>336	AssignmentExpr	idx = 0
+>337	PrimaryExpression	0
+>338	Identifier	idx
+>339	Identifier	idx
+>340	IdentifierDeclType	size_t
+>341	IdentifierDeclStatement	 
+>342	IdentifierDecl	entropy = 0.0
+>343	AssignmentExpr	entropy = 0.0
+>344	PrimaryExpression	0.0
+>345	Identifier	entropy
+>346	Identifier	entropy
+>347	IdentifierDeclType	float
+>348	ExpressionStatement	 
+>349	Statement	 
+>350	Statement	 
+>351	Statement	 
+>352	Statement	 
+>353	Statement	 
+>354	Statement	 
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	Statement	 
+>362	IdentifierDeclStatement	 
+>363	IdentifierDecl	sum = countElementsInHistogram ( histogram )
+>364	AssignmentExpr	sum = countElementsInHistogram ( histogram )
+>365	CallExpression	countElementsInHistogram ( histogram )
+>366	ArgumentList	histogram
+>367	Argument	histogram
+>368	Identifier	histogram
+>369	Callee	countElementsInHistogram
+>370	Identifier	countElementsInHistogram
+>371	Identifier	sum
+>372	Identifier	sum
+>373	IdentifierDeclType	float
+>387	FunctionDef	countElementsInHistogram (const cv 
+>388	ParameterList	const cv 
+>389	Parameter	 
+>390	Identifier	histogram
+>391	ParameterType	const cv 
+>392	ReturnType	int
+>393	CompoundStatement	 
+>394	ReturnStatement	 
+>395	Identifier	num
+>396	ForStatement	for ( size_t idx = 0 ; idx < histogram . size ( ) . area ( ) ; ++ idx , ++ histogram_ptr )
+>397	CompoundStatement	 
+>398	ExpressionStatement	 
+>399	AssignmentExpr	num += ( int ) * histogram_ptr
+>400	CastExpression	( int ) * histogram_ptr
+>401	UnaryOp	* histogram_ptr
+>402	Identifier	histogram_ptr
+>403	UnaryOperator	*
+>404	CastTarget	int
+>405	Identifier	num
+>406	Expression	 
+>407	UnaryExpression	++ histogram_ptr
+>408	Identifier	histogram_ptr
+>409	IncDec	++
+>410	UnaryExpression	++ idx
+>411	Identifier	idx
+>412	IncDec	++
+>413	Condition	 
+>414	RelationalExpression	idx < histogram . size ( ) . area ( )
+>415	CallExpression	histogram . size ( ) . area ( )
+>416	ArgumentList	 
+>417	Callee	histogram . size ( ) . area
+>418	MemberAccess	histogram . size ( ) . area
+>419	Identifier	area
+>420	CallExpression	histogram . size ( )
+>421	ArgumentList	 
+>422	Callee	histogram . size
+>423	MemberAccess	histogram . size
+>424	Identifier	size
+>425	Identifier	histogram
+>426	Identifier	idx
+>427	ForInit	 
+>428	IdentifierDeclStatement	size_t idx = 0 ;
+>429	IdentifierDecl	idx = 0
+>430	AssignmentExpr	idx = 0
+>431	PrimaryExpression	0
+>432	Identifier	idx
+>433	Identifier	idx
+>434	IdentifierDeclType	size_t
+>435	ExpressionStatement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	Statement	 
+>444	Statement	 
+>445	Statement	 
+>446	Statement	 
+>447	Statement	 
+>448	Statement	 
+>449	IdentifierDeclStatement	 
+>450	IdentifierDecl	num = 0
+>451	AssignmentExpr	num = 0
+>452	PrimaryExpression	0
+>453	Identifier	num
+>454	Identifier	num
+>455	IdentifierDeclType	int
+<3=15,14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<15=16
+<16=17
+<17=25,18
+<18=20,19
+<20=24,21
+<21=23,22
+<32=50,49,33
+<33=46,43,40,37,34
+<34=36,35
+<37=39,38
+<40=42,41
+<43=45,44
+<46=48,47
+<50=126,118,110,93,84,76,51
+<51=52
+<52=74,53
+<53=72,70,68,66,64,62,60,58,56,54
+<54=55
+<56=57
+<58=59
+<60=61
+<62=63
+<64=65
+<66=67
+<68=69
+<70=71
+<72=73
+<74=75
+<76=77
+<77=83,82,78
+<78=81,79
+<79=80
+<84=85
+<85=92,91,86
+<86=90,87
+<87=89,88
+<93=94
+<94=109,108,95
+<95=107,96
+<96=97
+<97=105,98
+<98=103,101,99
+<99=100
+<101=102
+<103=104
+<105=106
+<110=111
+<111=117,116,112
+<112=115,113
+<113=114
+<118=119
+<119=125,124,120
+<120=123,121
+<121=122
+<126=127
+<127=129,128
+<147=159,158,148
+<148=155,152,149
+<149=151,150
+<152=154,153
+<155=157,156
+<159=240,239,238,237,236,235,234,233,232,231,230,229,228,227,226,219,212,164,160
+<160=161
+<161=163,162
+<164=204,190,183,165
+<165=177,166
+<166=173,167
+<167=169,168
+<169=170
+<170=172,171
+<173=174
+<174=176,175
+<177=178
+<178=182,179
+<179=181,180
+<183=187,184
+<184=186,185
+<187=189,188
+<190=191
+<191=203,192
+<192=194,193
+<194=195
+<195=197,196
+<197=199,198
+<199=200
+<200=202,201
+<204=205
+<205=206
+<206=211,210,207
+<207=209,208
+<212=213
+<213=218,217,214
+<214=216,215
+<219=220
+<220=225,224,221
+<221=223,222
+<240=241
+<241=253,252,242
+<242=251,243
+<243=245,244
+<245=249,246
+<246=247
+<247=248
+<249=250
+<269=275,274,270
+<270=271
+<271=273,272
+<275=362,361,360,359,358,357,356,355,354,353,352,351,350,349,348,341,285,276
+<276=277
+<277=284,278
+<278=282,279
+<279=280
+<280=281
+<282=283
+<285=333,324,317,286
+<286=309,298,287
+<287=288
+<288=297,289
+<289=296,290
+<290=294,291
+<291=292
+<292=293
+<294=295
+<298=299
+<299=308,307,300
+<300=306,301
+<301=303,302
+<303=305,304
+<309=311,310
+<311=312
+<312=314,313
+<314=316,315
+<317=321,318
+<318=320,319
+<321=323,322
+<324=325
+<325=332,326
+<326=328,327
+<328=329
+<329=331,330
+<333=334
+<334=335
+<335=340,339,336
+<336=338,337
+<341=342
+<342=347,346,343
+<343=345,344
+<362=363
+<363=373,372,364
+<364=371,365
+<365=369,366
+<366=367
+<367=368
+<369=370
+<387=393,392,388
+<388=389
+<389=391,390
+<393=449,448,447,446,445,444,443,442,441,440,439,438,437,436,435,396,394
+<394=395
+<396=427,413,406,397
+<397=398
+<398=399
+<399=405,400
+<400=404,401
+<401=403,402
+<406=410,407
+<407=409,408
+<410=412,411
+<413=414
+<414=426,415
+<415=417,416
+<417=418
+<418=420,419
+<420=422,421
+<422=423
+<423=425,424
+<427=428
+<428=429
+<429=434,433,430
+<430=432,431
+<449=450
+<450=455,454,451
+<451=453,452

@@ -1,0 +1,1823 @@
+>3	FunctionDef	T_PlatRaise (plat_t * plat)
+>4	ParameterList	plat_t * plat
+>5	Parameter	 
+>6	Identifier	plat
+>7	ParameterType	plat_t *
+>8	ReturnType	void
+>9	CompoundStatement	 
+>10	SwitchStatement	switch ( plat -> status )
+>11	CompoundStatement	 
+>12	BreakStatement	 
+>13	Label	 
+>14	Identifier	in_stasis
+>15	IfStatement	if ( ! -- plat -> count )
+>16	CompoundStatement	 
+>17	ExpressionStatement	 
+>18	CallExpression	S_StartSound ( & plat -> sector -> soundorg , sfx_pstart )
+>19	ArgumentList	& plat -> sector -> soundorg
+>20	Argument	sfx_pstart
+>21	Identifier	sfx_pstart
+>22	Argument	& plat -> sector -> soundorg
+>23	UnaryOp	& plat -> sector -> soundorg
+>24	PtrMemberAccess	plat -> sector -> soundorg
+>25	Identifier	soundorg
+>26	PtrMemberAccess	plat -> sector
+>27	Identifier	sector
+>28	Identifier	plat
+>29	UnaryOperator	&
+>30	Callee	S_StartSound
+>31	Identifier	S_StartSound
+>32	IfStatement	if ( plat -> sector -> floorheight == plat -> low )
+>33	ElseStatement	else
+>34	ExpressionStatement	 
+>35	AssignmentExpr	plat -> status = down
+>36	Identifier	down
+>37	PtrMemberAccess	plat -> status
+>38	Identifier	status
+>39	Identifier	plat
+>40	ExpressionStatement	 
+>41	AssignmentExpr	plat -> status = up
+>42	Identifier	up
+>43	PtrMemberAccess	plat -> status
+>44	Identifier	status
+>45	Identifier	plat
+>46	Condition	 
+>47	EqualityExpression	plat -> sector -> floorheight == plat -> low
+>48	PtrMemberAccess	plat -> low
+>49	Identifier	low
+>50	Identifier	plat
+>51	PtrMemberAccess	plat -> sector -> floorheight
+>52	Identifier	floorheight
+>53	PtrMemberAccess	plat -> sector
+>54	Identifier	sector
+>55	Identifier	plat
+>56	Condition	 
+>57	UnaryOp	! -- plat -> count
+>58	UnaryExpression	-- plat -> count
+>59	PtrMemberAccess	plat -> count
+>60	Identifier	count
+>61	Identifier	plat
+>62	IncDec	--
+>63	UnaryOperator	!
+>64	Label	 
+>65	Identifier	waiting
+>66	BreakStatement	 
+>67	IfStatement	if ( res == pastdest )
+>68	CompoundStatement	 
+>69	ExpressionStatement	 
+>70	CallExpression	S_StartSound ( & plat -> sector -> soundorg , sfx_pstop )
+>71	ArgumentList	& plat -> sector -> soundorg
+>72	Argument	sfx_pstop
+>73	Identifier	sfx_pstop
+>74	Argument	& plat -> sector -> soundorg
+>75	UnaryOp	& plat -> sector -> soundorg
+>76	PtrMemberAccess	plat -> sector -> soundorg
+>77	Identifier	soundorg
+>78	PtrMemberAccess	plat -> sector
+>79	Identifier	sector
+>80	Identifier	plat
+>81	UnaryOperator	&
+>82	Callee	S_StartSound
+>83	Identifier	S_StartSound
+>84	ExpressionStatement	 
+>85	AssignmentExpr	plat -> status = waiting
+>86	Identifier	waiting
+>87	PtrMemberAccess	plat -> status
+>88	Identifier	status
+>89	Identifier	plat
+>90	ExpressionStatement	 
+>91	AssignmentExpr	plat -> count = plat -> wait
+>92	PtrMemberAccess	plat -> wait
+>93	Identifier	wait
+>94	Identifier	plat
+>95	PtrMemberAccess	plat -> count
+>96	Identifier	count
+>97	Identifier	plat
+>98	Condition	 
+>99	EqualityExpression	res == pastdest
+>100	Identifier	pastdest
+>101	Identifier	res
+>102	ExpressionStatement	 
+>103	AssignmentExpr	res = T_MovePlane ( plat -> sector , plat -> speed , plat -> low , false , 0 , - 1 )
+>104	CallExpression	T_MovePlane ( plat -> sector , plat -> speed , plat -> low , false , 0 , - 1 )
+>105	ArgumentList	plat -> sector
+>106	Argument	- 1
+>107	UnaryOp	- 1
+>108	PrimaryExpression	1
+>109	UnaryOperator	-
+>110	Argument	0
+>111	PrimaryExpression	0
+>112	Argument	false
+>113	Identifier	false
+>114	Argument	plat -> low
+>115	PtrMemberAccess	plat -> low
+>116	Identifier	low
+>117	Identifier	plat
+>118	Argument	plat -> speed
+>119	PtrMemberAccess	plat -> speed
+>120	Identifier	speed
+>121	Identifier	plat
+>122	Argument	plat -> sector
+>123	PtrMemberAccess	plat -> sector
+>124	Identifier	sector
+>125	Identifier	plat
+>126	Callee	T_MovePlane
+>127	Identifier	T_MovePlane
+>128	Identifier	res
+>129	Label	 
+>130	Identifier	down
+>131	BreakStatement	 
+>132	IfStatement	if ( res == crushed && ( ! plat -> crush ) )
+>133	ElseStatement	else
+>134	CompoundStatement	 
+>135	IfStatement	if ( res == pastdest )
+>136	CompoundStatement	 
+>137	SwitchStatement	switch ( plat -> type )
+>138	CompoundStatement	 
+>139	BreakStatement	 
+>140	Label	 
+>141	Identifier	default
+>142	BreakStatement	 
+>143	ExpressionStatement	 
+>144	CallExpression	P_RemoveActivePlat ( plat )
+>145	ArgumentList	plat
+>146	Argument	plat
+>147	Identifier	plat
+>148	Callee	P_RemoveActivePlat
+>149	Identifier	P_RemoveActivePlat
+>150	Label	 
+>151	Identifier	raiseToNearestAndChange
+>152	Label	 
+>153	Identifier	raiseAndChange
+>154	BreakStatement	 
+>155	ExpressionStatement	 
+>156	CallExpression	P_RemoveActivePlat ( plat )
+>157	ArgumentList	plat
+>158	Argument	plat
+>159	Identifier	plat
+>160	Callee	P_RemoveActivePlat
+>161	Identifier	P_RemoveActivePlat
+>162	Label	 
+>163	Identifier	downWaitUpStay
+>164	Label	 
+>165	Identifier	blazeDWUS
+>166	Condition	 
+>167	PtrMemberAccess	plat -> type
+>168	Identifier	type
+>169	Identifier	plat
+>170	ExpressionStatement	 
+>171	CallExpression	S_StartSound ( & plat -> sector -> soundorg , sfx_pstop )
+>172	ArgumentList	& plat -> sector -> soundorg
+>173	Argument	sfx_pstop
+>174	Identifier	sfx_pstop
+>175	Argument	& plat -> sector -> soundorg
+>176	UnaryOp	& plat -> sector -> soundorg
+>177	PtrMemberAccess	plat -> sector -> soundorg
+>178	Identifier	soundorg
+>179	PtrMemberAccess	plat -> sector
+>180	Identifier	sector
+>181	Identifier	plat
+>182	UnaryOperator	&
+>183	Callee	S_StartSound
+>184	Identifier	S_StartSound
+>185	ExpressionStatement	 
+>186	AssignmentExpr	plat -> status = waiting
+>187	Identifier	waiting
+>188	PtrMemberAccess	plat -> status
+>189	Identifier	status
+>190	Identifier	plat
+>191	ExpressionStatement	 
+>192	AssignmentExpr	plat -> count = plat -> wait
+>193	PtrMemberAccess	plat -> wait
+>194	Identifier	wait
+>195	Identifier	plat
+>196	PtrMemberAccess	plat -> count
+>197	Identifier	count
+>198	Identifier	plat
+>199	Condition	 
+>200	EqualityExpression	res == pastdest
+>201	Identifier	pastdest
+>202	Identifier	res
+>203	CompoundStatement	 
+>204	ExpressionStatement	 
+>205	CallExpression	S_StartSound ( & plat -> sector -> soundorg , sfx_pstart )
+>206	ArgumentList	& plat -> sector -> soundorg
+>207	Argument	sfx_pstart
+>208	Identifier	sfx_pstart
+>209	Argument	& plat -> sector -> soundorg
+>210	UnaryOp	& plat -> sector -> soundorg
+>211	PtrMemberAccess	plat -> sector -> soundorg
+>212	Identifier	soundorg
+>213	PtrMemberAccess	plat -> sector
+>214	Identifier	sector
+>215	Identifier	plat
+>216	UnaryOperator	&
+>217	Callee	S_StartSound
+>218	Identifier	S_StartSound
+>219	ExpressionStatement	 
+>220	AssignmentExpr	plat -> status = down
+>221	Identifier	down
+>222	PtrMemberAccess	plat -> status
+>223	Identifier	status
+>224	Identifier	plat
+>225	ExpressionStatement	 
+>226	AssignmentExpr	plat -> count = plat -> wait
+>227	PtrMemberAccess	plat -> wait
+>228	Identifier	wait
+>229	Identifier	plat
+>230	PtrMemberAccess	plat -> count
+>231	Identifier	count
+>232	Identifier	plat
+>233	Condition	 
+>234	AndExpression	res == crushed && ( ! plat -> crush )
+>235	UnaryOp	! plat -> crush
+>236	PtrMemberAccess	plat -> crush
+>237	Identifier	crush
+>238	Identifier	plat
+>239	UnaryOperator	!
+>240	EqualityExpression	res == crushed
+>241	Identifier	crushed
+>242	Identifier	res
+>243	IfStatement	if ( plat -> type == raiseAndChange || plat -> type == raiseToNearestAndChange )
+>244	CompoundStatement	 
+>245	ExpressionStatement	 
+>246	CallExpression	S_StartSound ( & plat -> sector -> soundorg , sfx_stnmov )
+>247	ArgumentList	& plat -> sector -> soundorg
+>248	Argument	sfx_stnmov
+>249	Identifier	sfx_stnmov
+>250	Argument	& plat -> sector -> soundorg
+>251	UnaryOp	& plat -> sector -> soundorg
+>252	PtrMemberAccess	plat -> sector -> soundorg
+>253	Identifier	soundorg
+>254	PtrMemberAccess	plat -> sector
+>255	Identifier	sector
+>256	Identifier	plat
+>257	UnaryOperator	&
+>258	Callee	S_StartSound
+>259	Identifier	S_StartSound
+>260	Statement	 
+>261	Statement	 
+>262	Statement	 
+>263	Statement	 
+>264	Statement	 
+>265	Statement	 
+>266	Statement	 
+>267	Statement	 
+>268	Statement	 
+>269	Statement	 
+>270	Statement	 
+>271	Statement	 
+>272	Condition	 
+>273	OrExpression	plat -> type == raiseAndChange || plat -> type == raiseToNearestAndChange
+>274	EqualityExpression	plat -> type == raiseToNearestAndChange
+>275	Identifier	raiseToNearestAndChange
+>276	PtrMemberAccess	plat -> type
+>277	Identifier	type
+>278	Identifier	plat
+>279	EqualityExpression	plat -> type == raiseAndChange
+>280	Identifier	raiseAndChange
+>281	PtrMemberAccess	plat -> type
+>282	Identifier	type
+>283	Identifier	plat
+>284	ExpressionStatement	 
+>285	AssignmentExpr	res = T_MovePlane ( plat -> sector , plat -> speed , plat -> high , plat -> crush , 0 , 1 )
+>286	CallExpression	T_MovePlane ( plat -> sector , plat -> speed , plat -> high , plat -> crush , 0 , 1 )
+>287	ArgumentList	plat -> sector
+>288	Argument	1
+>289	PrimaryExpression	1
+>290	Argument	0
+>291	PrimaryExpression	0
+>292	Argument	plat -> crush
+>293	PtrMemberAccess	plat -> crush
+>294	Identifier	crush
+>295	Identifier	plat
+>296	Argument	plat -> high
+>297	PtrMemberAccess	plat -> high
+>298	Identifier	high
+>299	Identifier	plat
+>300	Argument	plat -> speed
+>301	PtrMemberAccess	plat -> speed
+>302	Identifier	speed
+>303	Identifier	plat
+>304	Argument	plat -> sector
+>305	PtrMemberAccess	plat -> sector
+>306	Identifier	sector
+>307	Identifier	plat
+>308	Callee	T_MovePlane
+>309	Identifier	T_MovePlane
+>310	Identifier	res
+>311	Label	 
+>312	Identifier	up
+>313	Condition	 
+>314	PtrMemberAccess	plat -> status
+>315	Identifier	status
+>316	Identifier	plat
+>317	IdentifierDeclStatement	 
+>318	IdentifierDecl	res
+>319	Identifier	res
+>320	IdentifierDeclType	result_e
+>354	FunctionDef	EV_DoPlat (line_t * line , plattype_e type , int amount)
+>355	ParameterList	line_t * line , plattype_e type , int amount
+>356	Parameter	 
+>357	Identifier	amount
+>358	ParameterType	int
+>359	Parameter	 
+>360	Identifier	type
+>361	ParameterType	plattype_e
+>362	Parameter	 
+>363	Identifier	line
+>364	ParameterType	line_t *
+>365	ReturnType	int
+>366	CompoundStatement	 
+>367	ReturnStatement	 
+>368	Identifier	rtn
+>369	WhileStatement	while ( ( secnum = P_FindSectorFromLineTag ( line , secnum ) ) >= 0 )
+>370	CompoundStatement	 
+>371	ExpressionStatement	 
+>372	CallExpression	P_AddActivePlat ( plat )
+>373	ArgumentList	plat
+>374	Argument	plat
+>375	Identifier	plat
+>376	Callee	P_AddActivePlat
+>377	Identifier	P_AddActivePlat
+>378	SwitchStatement	switch ( type )
+>379	CompoundStatement	 
+>380	BreakStatement	 
+>381	ExpressionStatement	 
+>382	CallExpression	S_StartSound ( & sec -> soundorg , sfx_pstart )
+>383	ArgumentList	& sec -> soundorg
+>384	Argument	sfx_pstart
+>385	Identifier	sfx_pstart
+>386	Argument	& sec -> soundorg
+>387	UnaryOp	& sec -> soundorg
+>388	PtrMemberAccess	sec -> soundorg
+>389	Identifier	soundorg
+>390	Identifier	sec
+>391	UnaryOperator	&
+>392	Callee	S_StartSound
+>393	Identifier	S_StartSound
+>394	ExpressionStatement	 
+>395	AssignmentExpr	plat -> status = ( plat_e ) ( P_Random ( ) & 1 )
+>396	CastExpression	( plat_e ) ( P_Random ( ) & 1 )
+>397	BitAndExpression	P_Random ( ) & 1
+>398	PrimaryExpression	1
+>399	CallExpression	P_Random ( )
+>400	ArgumentList	 
+>401	Callee	P_Random
+>402	Identifier	P_Random
+>403	CastTarget	plat_e
+>404	PtrMemberAccess	plat -> status
+>405	Identifier	status
+>406	Identifier	plat
+>407	ExpressionStatement	 
+>408	AssignmentExpr	plat -> wait = TICRATE * PLATWAIT
+>409	MultiplicativeExpression	TICRATE * PLATWAIT
+>410	Identifier	PLATWAIT
+>411	Identifier	TICRATE
+>412	PtrMemberAccess	plat -> wait
+>413	Identifier	wait
+>414	Identifier	plat
+>415	IfStatement	if ( plat -> high < sec -> floorheight )
+>416	ExpressionStatement	 
+>417	AssignmentExpr	plat -> high = sec -> floorheight
+>418	PtrMemberAccess	sec -> floorheight
+>419	Identifier	floorheight
+>420	Identifier	sec
+>421	PtrMemberAccess	plat -> high
+>422	Identifier	high
+>423	Identifier	plat
+>424	Condition	 
+>425	RelationalExpression	plat -> high < sec -> floorheight
+>426	PtrMemberAccess	sec -> floorheight
+>427	Identifier	floorheight
+>428	Identifier	sec
+>429	PtrMemberAccess	plat -> high
+>430	Identifier	high
+>431	Identifier	plat
+>432	ExpressionStatement	 
+>433	AssignmentExpr	plat -> high = P_FindHighestFloorSurrounding ( sec )
+>434	CallExpression	P_FindHighestFloorSurrounding ( sec )
+>435	ArgumentList	sec
+>436	Argument	sec
+>437	Identifier	sec
+>438	Callee	P_FindHighestFloorSurrounding
+>439	Identifier	P_FindHighestFloorSurrounding
+>440	PtrMemberAccess	plat -> high
+>441	Identifier	high
+>442	Identifier	plat
+>443	IfStatement	if ( plat -> low > sec -> floorheight )
+>444	ExpressionStatement	 
+>445	AssignmentExpr	plat -> low = sec -> floorheight
+>446	PtrMemberAccess	sec -> floorheight
+>447	Identifier	floorheight
+>448	Identifier	sec
+>449	PtrMemberAccess	plat -> low
+>450	Identifier	low
+>451	Identifier	plat
+>452	Condition	 
+>453	RelationalExpression	plat -> low > sec -> floorheight
+>454	PtrMemberAccess	sec -> floorheight
+>455	Identifier	floorheight
+>456	Identifier	sec
+>457	PtrMemberAccess	plat -> low
+>458	Identifier	low
+>459	Identifier	plat
+>460	ExpressionStatement	 
+>461	AssignmentExpr	plat -> low = P_FindLowestFloorSurrounding ( sec )
+>462	CallExpression	P_FindLowestFloorSurrounding ( sec )
+>463	ArgumentList	sec
+>464	Argument	sec
+>465	Identifier	sec
+>466	Callee	P_FindLowestFloorSurrounding
+>467	Identifier	P_FindLowestFloorSurrounding
+>468	PtrMemberAccess	plat -> low
+>469	Identifier	low
+>470	Identifier	plat
+>471	ExpressionStatement	 
+>472	AssignmentExpr	plat -> speed = PLATSPEED
+>473	Identifier	PLATSPEED
+>474	PtrMemberAccess	plat -> speed
+>475	Identifier	speed
+>476	Identifier	plat
+>477	Label	 
+>478	Identifier	perpetualRaise
+>479	BreakStatement	 
+>480	ExpressionStatement	 
+>481	CallExpression	S_StartSound ( & sec -> soundorg , sfx_pstart )
+>482	ArgumentList	& sec -> soundorg
+>483	Argument	sfx_pstart
+>484	Identifier	sfx_pstart
+>485	Argument	& sec -> soundorg
+>486	UnaryOp	& sec -> soundorg
+>487	PtrMemberAccess	sec -> soundorg
+>488	Identifier	soundorg
+>489	Identifier	sec
+>490	UnaryOperator	&
+>491	Callee	S_StartSound
+>492	Identifier	S_StartSound
+>493	ExpressionStatement	 
+>494	AssignmentExpr	plat -> status = down
+>495	Identifier	down
+>496	PtrMemberAccess	plat -> status
+>497	Identifier	status
+>498	Identifier	plat
+>499	ExpressionStatement	 
+>500	AssignmentExpr	plat -> wait = TICRATE * PLATWAIT
+>501	MultiplicativeExpression	TICRATE * PLATWAIT
+>502	Identifier	PLATWAIT
+>503	Identifier	TICRATE
+>504	PtrMemberAccess	plat -> wait
+>505	Identifier	wait
+>506	Identifier	plat
+>507	ExpressionStatement	 
+>508	AssignmentExpr	plat -> high = sec -> floorheight
+>509	PtrMemberAccess	sec -> floorheight
+>510	Identifier	floorheight
+>511	Identifier	sec
+>512	PtrMemberAccess	plat -> high
+>513	Identifier	high
+>514	Identifier	plat
+>515	IfStatement	if ( plat -> low > sec -> floorheight )
+>516	ExpressionStatement	 
+>517	AssignmentExpr	plat -> low = sec -> floorheight
+>518	PtrMemberAccess	sec -> floorheight
+>519	Identifier	floorheight
+>520	Identifier	sec
+>521	PtrMemberAccess	plat -> low
+>522	Identifier	low
+>523	Identifier	plat
+>524	Condition	 
+>525	RelationalExpression	plat -> low > sec -> floorheight
+>526	PtrMemberAccess	sec -> floorheight
+>527	Identifier	floorheight
+>528	Identifier	sec
+>529	PtrMemberAccess	plat -> low
+>530	Identifier	low
+>531	Identifier	plat
+>532	ExpressionStatement	 
+>533	AssignmentExpr	plat -> low = P_FindLowestFloorSurrounding ( sec )
+>534	CallExpression	P_FindLowestFloorSurrounding ( sec )
+>535	ArgumentList	sec
+>536	Argument	sec
+>537	Identifier	sec
+>538	Callee	P_FindLowestFloorSurrounding
+>539	Identifier	P_FindLowestFloorSurrounding
+>540	PtrMemberAccess	plat -> low
+>541	Identifier	low
+>542	Identifier	plat
+>543	ExpressionStatement	 
+>544	AssignmentExpr	plat -> speed = PLATSPEED * 8
+>545	MultiplicativeExpression	PLATSPEED * 8
+>546	PrimaryExpression	8
+>547	Identifier	PLATSPEED
+>548	PtrMemberAccess	plat -> speed
+>549	Identifier	speed
+>550	Identifier	plat
+>551	Label	 
+>552	Identifier	blazeDWUS
+>553	BreakStatement	 
+>554	ExpressionStatement	 
+>555	CallExpression	S_StartSound ( & sec -> soundorg , sfx_pstart )
+>556	ArgumentList	& sec -> soundorg
+>557	Argument	sfx_pstart
+>558	Identifier	sfx_pstart
+>559	Argument	& sec -> soundorg
+>560	UnaryOp	& sec -> soundorg
+>561	PtrMemberAccess	sec -> soundorg
+>562	Identifier	soundorg
+>563	Identifier	sec
+>564	UnaryOperator	&
+>565	Callee	S_StartSound
+>566	Identifier	S_StartSound
+>567	ExpressionStatement	 
+>568	AssignmentExpr	plat -> status = down
+>569	Identifier	down
+>570	PtrMemberAccess	plat -> status
+>571	Identifier	status
+>572	Identifier	plat
+>573	ExpressionStatement	 
+>574	AssignmentExpr	plat -> wait = TICRATE * PLATWAIT
+>575	MultiplicativeExpression	TICRATE * PLATWAIT
+>576	Identifier	PLATWAIT
+>577	Identifier	TICRATE
+>578	PtrMemberAccess	plat -> wait
+>579	Identifier	wait
+>580	Identifier	plat
+>581	ExpressionStatement	 
+>582	AssignmentExpr	plat -> high = sec -> floorheight
+>583	PtrMemberAccess	sec -> floorheight
+>584	Identifier	floorheight
+>585	Identifier	sec
+>586	PtrMemberAccess	plat -> high
+>587	Identifier	high
+>588	Identifier	plat
+>589	IfStatement	if ( plat -> low > sec -> floorheight )
+>590	ExpressionStatement	 
+>591	AssignmentExpr	plat -> low = sec -> floorheight
+>592	PtrMemberAccess	sec -> floorheight
+>593	Identifier	floorheight
+>594	Identifier	sec
+>595	PtrMemberAccess	plat -> low
+>596	Identifier	low
+>597	Identifier	plat
+>598	Condition	 
+>599	RelationalExpression	plat -> low > sec -> floorheight
+>600	PtrMemberAccess	sec -> floorheight
+>601	Identifier	floorheight
+>602	Identifier	sec
+>603	PtrMemberAccess	plat -> low
+>604	Identifier	low
+>605	Identifier	plat
+>606	ExpressionStatement	 
+>607	AssignmentExpr	plat -> low = P_FindLowestFloorSurrounding ( sec )
+>608	CallExpression	P_FindLowestFloorSurrounding ( sec )
+>609	ArgumentList	sec
+>610	Argument	sec
+>611	Identifier	sec
+>612	Callee	P_FindLowestFloorSurrounding
+>613	Identifier	P_FindLowestFloorSurrounding
+>614	PtrMemberAccess	plat -> low
+>615	Identifier	low
+>616	Identifier	plat
+>617	ExpressionStatement	 
+>618	AssignmentExpr	plat -> speed = PLATSPEED * 4
+>619	MultiplicativeExpression	PLATSPEED * 4
+>620	PrimaryExpression	4
+>621	Identifier	PLATSPEED
+>622	PtrMemberAccess	plat -> speed
+>623	Identifier	speed
+>624	Identifier	plat
+>625	Label	 
+>626	Identifier	downWaitUpStay
+>627	BreakStatement	 
+>628	ExpressionStatement	 
+>629	CallExpression	S_StartSound ( & sec -> soundorg , sfx_stnmov )
+>630	ArgumentList	& sec -> soundorg
+>631	Argument	sfx_stnmov
+>632	Identifier	sfx_stnmov
+>633	Argument	& sec -> soundorg
+>634	UnaryOp	& sec -> soundorg
+>635	PtrMemberAccess	sec -> soundorg
+>636	Identifier	soundorg
+>637	Identifier	sec
+>638	UnaryOperator	&
+>639	Callee	S_StartSound
+>640	Identifier	S_StartSound
+>641	ExpressionStatement	 
+>642	AssignmentExpr	plat -> status = up
+>643	Identifier	up
+>644	PtrMemberAccess	plat -> status
+>645	Identifier	status
+>646	Identifier	plat
+>647	ExpressionStatement	 
+>648	AssignmentExpr	plat -> wait = 0
+>649	PrimaryExpression	0
+>650	PtrMemberAccess	plat -> wait
+>651	Identifier	wait
+>652	Identifier	plat
+>653	ExpressionStatement	 
+>654	AssignmentExpr	plat -> high = sec -> floorheight + amount * FRACUNIT
+>655	AdditiveExpression	sec -> floorheight + amount * FRACUNIT
+>656	MultiplicativeExpression	amount * FRACUNIT
+>657	Identifier	FRACUNIT
+>658	Identifier	amount
+>659	PtrMemberAccess	sec -> floorheight
+>660	Identifier	floorheight
+>661	Identifier	sec
+>662	PtrMemberAccess	plat -> high
+>663	Identifier	high
+>664	Identifier	plat
+>665	ExpressionStatement	 
+>666	PtrMemberAccess	g -> sides [ line -> sidenum [ 0 ] ] . sector -> floorpic
+>667	Identifier	floorpic
+>668	MemberAccess	g -> sides [ line -> sidenum [ 0 ] ] . sector
+>669	Identifier	sector
+>670	ArrayIndexing	g -> sides [ line -> sidenum [ 0 ] ]
+>671	ArrayIndexing	line -> sidenum [ 0 ]
+>672	PrimaryExpression	0
+>673	PtrMemberAccess	line -> sidenum
+>674	Identifier	sidenum
+>675	Identifier	line
+>676	PtrMemberAccess	g -> sides
+>677	Identifier	sides
+>678	Identifier	g
+>679	Statement	 
+>680	Statement	 
+>681	Statement	 
+>682	Statement	 
+>683	Statement	 
+>684	ExpressionStatement	 
+>685	AssignmentExpr	plat -> speed = PLATSPEED / 2
+>686	MultiplicativeExpression	PLATSPEED / 2
+>687	PrimaryExpression	2
+>688	Identifier	PLATSPEED
+>689	PtrMemberAccess	plat -> speed
+>690	Identifier	speed
+>691	Identifier	plat
+>692	Label	 
+>693	Identifier	raiseAndChange
+>694	BreakStatement	 
+>695	ExpressionStatement	 
+>696	CallExpression	S_StartSound ( & sec -> soundorg , sfx_stnmov )
+>697	ArgumentList	& sec -> soundorg
+>698	Argument	sfx_stnmov
+>699	Identifier	sfx_stnmov
+>700	Argument	& sec -> soundorg
+>701	UnaryOp	& sec -> soundorg
+>702	PtrMemberAccess	sec -> soundorg
+>703	Identifier	soundorg
+>704	Identifier	sec
+>705	UnaryOperator	&
+>706	Callee	S_StartSound
+>707	Identifier	S_StartSound
+>708	ExpressionStatement	 
+>709	AssignmentExpr	sec -> special = 0
+>710	PrimaryExpression	0
+>711	PtrMemberAccess	sec -> special
+>712	Identifier	special
+>713	Identifier	sec
+>714	ExpressionStatement	 
+>715	AssignmentExpr	plat -> status = up
+>716	Identifier	up
+>717	PtrMemberAccess	plat -> status
+>718	Identifier	status
+>719	Identifier	plat
+>720	ExpressionStatement	 
+>721	AssignmentExpr	plat -> wait = 0
+>722	PrimaryExpression	0
+>723	PtrMemberAccess	plat -> wait
+>724	Identifier	wait
+>725	Identifier	plat
+>726	ExpressionStatement	 
+>727	AssignmentExpr	plat -> high = P_FindNextHighestFloor ( sec , sec -> floorheight )
+>728	CallExpression	P_FindNextHighestFloor ( sec , sec -> floorheight )
+>729	ArgumentList	sec
+>730	Argument	sec -> floorheight
+>731	PtrMemberAccess	sec -> floorheight
+>732	Identifier	floorheight
+>733	Identifier	sec
+>734	Argument	sec
+>735	Identifier	sec
+>736	Callee	P_FindNextHighestFloor
+>737	Identifier	P_FindNextHighestFloor
+>738	PtrMemberAccess	plat -> high
+>739	Identifier	high
+>740	Identifier	plat
+>741	ExpressionStatement	 
+>742	PtrMemberAccess	g -> sides [ line -> sidenum [ 0 ] ] . sector -> floorpic
+>743	Identifier	floorpic
+>744	MemberAccess	g -> sides [ line -> sidenum [ 0 ] ] . sector
+>745	Identifier	sector
+>746	ArrayIndexing	g -> sides [ line -> sidenum [ 0 ] ]
+>747	ArrayIndexing	line -> sidenum [ 0 ]
+>748	PrimaryExpression	0
+>749	PtrMemberAccess	line -> sidenum
+>750	Identifier	sidenum
+>751	Identifier	line
+>752	PtrMemberAccess	g -> sides
+>753	Identifier	sides
+>754	Identifier	g
+>755	Statement	 
+>756	Statement	 
+>757	Statement	 
+>758	Statement	 
+>759	Statement	 
+>760	ExpressionStatement	 
+>761	AssignmentExpr	plat -> speed = PLATSPEED / 2
+>762	MultiplicativeExpression	PLATSPEED / 2
+>763	PrimaryExpression	2
+>764	Identifier	PLATSPEED
+>765	PtrMemberAccess	plat -> speed
+>766	Identifier	speed
+>767	Identifier	plat
+>768	Label	 
+>769	Identifier	raiseToNearestAndChange
+>770	Condition	 
+>771	Identifier	type
+>772	ExpressionStatement	 
+>773	AssignmentExpr	plat -> tag = line -> tag
+>774	PtrMemberAccess	line -> tag
+>775	Identifier	tag
+>776	Identifier	line
+>777	PtrMemberAccess	plat -> tag
+>778	Identifier	tag
+>779	Identifier	plat
+>780	ExpressionStatement	 
+>781	AssignmentExpr	plat -> crush = false
+>782	Identifier	false
+>783	PtrMemberAccess	plat -> crush
+>784	Identifier	crush
+>785	Identifier	plat
+>786	ExpressionStatement	 
+>787	AssignmentExpr	plat -> thinker . function . acp1 = ( actionf_p1 ) T_PlatRaise
+>788	CastExpression	( actionf_p1 ) T_PlatRaise
+>789	Identifier	T_PlatRaise
+>790	CastTarget	actionf_p1
+>791	MemberAccess	plat -> thinker . function . acp1
+>792	Identifier	acp1
+>793	MemberAccess	plat -> thinker . function
+>794	Identifier	function
+>795	PtrMemberAccess	plat -> thinker
+>796	Identifier	thinker
+>797	Identifier	plat
+>798	ExpressionStatement	 
+>799	AssignmentExpr	plat -> sector -> specialdata = plat
+>800	Identifier	plat
+>801	PtrMemberAccess	plat -> sector -> specialdata
+>802	Identifier	specialdata
+>803	PtrMemberAccess	plat -> sector
+>804	Identifier	sector
+>805	Identifier	plat
+>806	ExpressionStatement	 
+>807	AssignmentExpr	plat -> sector = sec
+>808	Identifier	sec
+>809	PtrMemberAccess	plat -> sector
+>810	Identifier	sector
+>811	Identifier	plat
+>812	ExpressionStatement	 
+>813	AssignmentExpr	plat -> type = type
+>814	Identifier	type
+>815	PtrMemberAccess	plat -> type
+>816	Identifier	type
+>817	Identifier	plat
+>818	ExpressionStatement	 
+>819	CallExpression	P_AddThinker ( & plat -> thinker )
+>820	ArgumentList	& plat -> thinker
+>821	Argument	& plat -> thinker
+>822	UnaryOp	& plat -> thinker
+>823	PtrMemberAccess	plat -> thinker
+>824	Identifier	thinker
+>825	Identifier	plat
+>826	UnaryOperator	&
+>827	Callee	P_AddThinker
+>828	Identifier	P_AddThinker
+>829	ExpressionStatement	 
+>830	AssignmentExpr	plat = ( plat_t * ) DoomLib 
+>831	CastExpression	( plat_t * ) DoomLib 
+>832	CallExpression	DoomLib 
+>833	ArgumentList	sizeof ( * plat )
+>834	Argument	0
+>835	PrimaryExpression	0
+>836	Argument	PU_LEVEL
+>837	Identifier	PU_LEVEL
+>838	Argument	sizeof ( * plat )
+>839	SizeofExpr	sizeof ( * plat )
+>840	UnaryOp	* plat
+>841	Identifier	plat
+>842	UnaryOperator	*
+>843	Sizeof	sizeof
+>844	Callee	DoomLib 
+>845	Identifier	DoomLib 
+>846	CastTarget	plat_t *
+>847	Identifier	plat
+>848	ExpressionStatement	 
+>849	AssignmentExpr	rtn = 1
+>850	PrimaryExpression	1
+>851	Identifier	rtn
+>852	IfStatement	if ( sec -> specialdata )
+>853	ContinueStatement	 
+>854	Condition	 
+>855	PtrMemberAccess	sec -> specialdata
+>856	Identifier	specialdata
+>857	Identifier	sec
+>858	ExpressionStatement	 
+>859	ArrayIndexing	g -> sectors [ secnum ]
+>860	Identifier	secnum
+>861	PtrMemberAccess	g -> sectors
+>862	Identifier	sectors
+>863	Identifier	g
+>864	Statement	 
+>865	Statement	 
+>866	Statement	 
+>867	Statement	 
+>868	Condition	 
+>869	RelationalExpression	( secnum = P_FindSectorFromLineTag ( line , secnum ) ) >= 0
+>870	PrimaryExpression	0
+>871	AssignmentExpr	secnum = P_FindSectorFromLineTag ( line , secnum )
+>872	CallExpression	P_FindSectorFromLineTag ( line , secnum )
+>873	ArgumentList	line
+>874	Argument	secnum
+>875	Identifier	secnum
+>876	Argument	line
+>877	Identifier	line
+>878	Callee	P_FindSectorFromLineTag
+>879	Identifier	P_FindSectorFromLineTag
+>880	Identifier	secnum
+>881	SwitchStatement	switch ( type )
+>882	CompoundStatement	 
+>883	BreakStatement	 
+>884	Label	 
+>885	Identifier	default
+>886	BreakStatement	 
+>887	ExpressionStatement	 
+>888	CallExpression	P_ActivateInStasis ( line -> tag )
+>889	ArgumentList	line -> tag
+>890	Argument	line -> tag
+>891	PtrMemberAccess	line -> tag
+>892	Identifier	tag
+>893	Identifier	line
+>894	Callee	P_ActivateInStasis
+>895	Identifier	P_ActivateInStasis
+>896	Label	 
+>897	Identifier	perpetualRaise
+>898	Condition	 
+>899	Identifier	type
+>900	ExpressionStatement	 
+>901	AssignmentExpr	rtn = 0
+>902	PrimaryExpression	0
+>903	Identifier	rtn
+>904	ExpressionStatement	 
+>905	AssignmentExpr	secnum = - 1
+>906	UnaryOp	- 1
+>907	PrimaryExpression	1
+>908	UnaryOperator	-
+>909	Identifier	secnum
+>910	IdentifierDeclStatement	 
+>911	IdentifierDecl	* sec
+>912	Identifier	sec
+>913	IdentifierDeclType	sector_t *
+>914	IdentifierDeclStatement	 
+>915	IdentifierDecl	rtn
+>916	Identifier	rtn
+>917	IdentifierDeclType	int
+>918	IdentifierDeclStatement	 
+>919	IdentifierDecl	secnum
+>920	Identifier	secnum
+>921	IdentifierDeclType	int
+>922	IdentifierDeclStatement	 
+>923	IdentifierDecl	* plat
+>924	Identifier	plat
+>925	IdentifierDeclType	plat_t *
+>991	FunctionDef	P_ActivateInStasis (int tag)
+>992	ParameterList	int tag
+>993	Parameter	 
+>994	Identifier	tag
+>995	ParameterType	int
+>996	ReturnType	void
+>997	CompoundStatement	 
+>998	CompoundStatement	 
+>999	ExpressionStatement	 
+>1000	AssignmentExpr	thinker . function . acp1 = ( actionf_p1 ) T_PlatRaise
+>1001	CastExpression	( actionf_p1 ) T_PlatRaise
+>1002	Identifier	T_PlatRaise
+>1003	CastTarget	actionf_p1
+>1004	MemberAccess	thinker . function . acp1
+>1005	Identifier	acp1
+>1006	MemberAccess	thinker . function
+>1007	Identifier	function
+>1008	Identifier	thinker
+>1009	Statement	 
+>1010	Statement	 
+>1011	Statement	 
+>1012	Statement	 
+>1013	Statement	 
+>1014	Statement	 
+>1015	Statement	 
+>1016	Statement	 
+>1017	Statement	 
+>1018	Statement	 
+>1019	ExpressionStatement	 
+>1020	Identifier	oldstatus
+>1021	Statement	 
+>1022	Statement	 
+>1023	Statement	 
+>1024	Statement	 
+>1025	Statement	 
+>1026	Statement	 
+>1027	Statement	 
+>1028	Statement	 
+>1029	Statement	 
+>1030	Statement	 
+>1031	Statement	 
+>1032	Statement	 
+>1033	Statement	 
+>1034	Statement	 
+>1035	Statement	 
+>1036	Statement	 
+>1037	Statement	 
+>1038	Statement	 
+>1039	Statement	 
+>1040	Statement	 
+>1041	Statement	 
+>1042	Statement	 
+>1043	Statement	 
+>1044	Statement	 
+>1045	Statement	 
+>1046	Statement	 
+>1047	Statement	 
+>1048	Statement	 
+>1049	Statement	 
+>1050	Statement	 
+>1051	Statement	 
+>1052	Statement	 
+>1053	Statement	 
+>1054	Statement	 
+>1055	Statement	 
+>1056	Statement	 
+>1057	Statement	 
+>1058	Statement	 
+>1059	Statement	 
+>1060	Statement	 
+>1061	Statement	 
+>1062	Statement	 
+>1063	Statement	 
+>1064	Statement	 
+>1065	Statement	 
+>1066	Statement	 
+>1067	Statement	 
+>1068	Statement	 
+>1069	Statement	 
+>1070	Statement	 
+>1071	Statement	 
+>1072	Statement	 
+>1073	Statement	 
+>1074	Statement	 
+>1075	Statement	 
+>1076	Statement	 
+>1077	Statement	 
+>1078	Statement	 
+>1079	Statement	 
+>1080	ForStatement	for ( i = 0 ; i < MAXPLATS ; i ++ )
+>1081	Statement	 
+>1082	IncDecOp	 
+>1083	IncDec	++
+>1084	Identifier	i
+>1085	Condition	 
+>1086	RelationalExpression	i < MAXPLATS
+>1087	Identifier	MAXPLATS
+>1088	Identifier	i
+>1089	ForInit	 
+>1090	AssignmentExpr	i = 0
+>1091	PrimaryExpression	0
+>1092	Identifier	i
+>1093	IdentifierDeclStatement	 
+>1094	IdentifierDecl	i
+>1095	Identifier	i
+>1096	IdentifierDeclType	int
+>1107	FunctionDef	EV_StopPlat (line_t * line)
+>1108	ParameterList	line_t * line
+>1109	Parameter	 
+>1110	Identifier	line
+>1111	ParameterType	line_t *
+>1112	ReturnType	void
+>1113	CompoundStatement	 
+>1114	CompoundStatement	 
+>1115	ExpressionStatement	 
+>1116	AssignmentExpr	thinker . function . acv = ( actionf_v ) NULL
+>1117	CastExpression	( actionf_v ) NULL
+>1118	Identifier	NULL
+>1119	CastTarget	actionf_v
+>1120	MemberAccess	thinker . function . acv
+>1121	Identifier	acv
+>1122	MemberAccess	thinker . function
+>1123	Identifier	function
+>1124	Identifier	thinker
+>1125	Statement	 
+>1126	Statement	 
+>1127	Statement	 
+>1128	Statement	 
+>1129	Statement	 
+>1130	Statement	 
+>1131	Statement	 
+>1132	Statement	 
+>1133	Statement	 
+>1134	Statement	 
+>1135	ExpressionStatement	 
+>1136	AssignmentExpr	status = in_stasis
+>1137	Identifier	in_stasis
+>1138	Identifier	status
+>1139	Statement	 
+>1140	Statement	 
+>1141	Statement	 
+>1142	Statement	 
+>1143	Statement	 
+>1144	Statement	 
+>1145	Statement	 
+>1146	Statement	 
+>1147	Statement	 
+>1148	Statement	 
+>1149	ExpressionStatement	 
+>1150	Identifier	status
+>1151	Statement	 
+>1152	Statement	 
+>1153	Statement	 
+>1154	Statement	 
+>1155	Statement	 
+>1156	Statement	 
+>1157	Statement	 
+>1158	Statement	 
+>1159	Statement	 
+>1160	Statement	 
+>1161	Statement	 
+>1162	Statement	 
+>1163	Statement	 
+>1164	Statement	 
+>1165	Statement	 
+>1166	Statement	 
+>1167	Statement	 
+>1168	Statement	 
+>1169	Statement	 
+>1170	Statement	 
+>1171	Statement	 
+>1172	Statement	 
+>1173	Statement	 
+>1174	Statement	 
+>1175	Statement	 
+>1176	Statement	 
+>1177	Statement	 
+>1178	Statement	 
+>1179	Statement	 
+>1180	Statement	 
+>1181	Statement	 
+>1182	Statement	 
+>1183	Statement	 
+>1184	Statement	 
+>1185	Statement	 
+>1186	Statement	 
+>1187	Statement	 
+>1188	Statement	 
+>1189	Statement	 
+>1190	Statement	 
+>1191	Statement	 
+>1192	Statement	 
+>1193	Statement	 
+>1194	Statement	 
+>1195	Statement	 
+>1196	Statement	 
+>1197	Statement	 
+>1198	Statement	 
+>1199	Statement	 
+>1200	Statement	 
+>1201	Statement	 
+>1202	Statement	 
+>1203	Statement	 
+>1204	Statement	 
+>1205	Statement	 
+>1206	Statement	 
+>1207	Statement	 
+>1208	Statement	 
+>1209	Statement	 
+>1210	Statement	 
+>1211	Statement	 
+>1212	Statement	 
+>1213	Statement	 
+>1214	Statement	 
+>1215	Statement	 
+>1216	ForStatement	for ( j = 0 ; j < MAXPLATS ; j ++ )
+>1217	Statement	 
+>1218	IncDecOp	 
+>1219	IncDec	++
+>1220	Identifier	j
+>1221	Condition	 
+>1222	RelationalExpression	j < MAXPLATS
+>1223	Identifier	MAXPLATS
+>1224	Identifier	j
+>1225	ForInit	 
+>1226	AssignmentExpr	j = 0
+>1227	PrimaryExpression	0
+>1228	Identifier	j
+>1229	IdentifierDeclStatement	 
+>1230	IdentifierDecl	j
+>1231	Identifier	j
+>1232	IdentifierDeclType	int
+>1245	FunctionDef	P_AddActivePlat (plat_t * plat)
+>1246	ParameterList	plat_t * plat
+>1247	Parameter	 
+>1248	Identifier	plat
+>1249	ParameterType	plat_t *
+>1250	ReturnType	void
+>1251	CompoundStatement	 
+>1252	ExpressionStatement	 
+>1253	CallExpression	I_Error ( \"P_AddActivePlat
+>1254	ArgumentList	\"P_AddActivePlat
+>1255	Argument	\"P_AddActivePlat
+>1256	PrimaryExpression	\"P_AddActivePlat
+>1257	Callee	I_Error
+>1258	Identifier	I_Error
+>1259	CompoundStatement	 
+>1260	ReturnStatement	 
+>1261	ExpressionStatement	 
+>1262	AssignmentExpr	g -> activeplats [ i ] = plat
+>1263	Identifier	plat
+>1264	ArrayIndexing	g -> activeplats [ i ]
+>1265	Identifier	i
+>1266	PtrMemberAccess	g -> activeplats
+>1267	Identifier	activeplats
+>1268	Identifier	g
+>1269	Statement	 
+>1270	Statement	 
+>1271	Statement	 
+>1272	Statement	 
+>1273	Statement	 
+>1274	Statement	 
+>1275	Statement	 
+>1276	Statement	 
+>1277	Statement	 
+>1278	Statement	 
+>1279	Statement	 
+>1280	Statement	 
+>1281	ForStatement	for ( i = 0 ; i < MAXPLATS ; i ++ )
+>1282	Statement	 
+>1283	IncDecOp	 
+>1284	IncDec	++
+>1285	Identifier	i
+>1286	Condition	 
+>1287	RelationalExpression	i < MAXPLATS
+>1288	Identifier	MAXPLATS
+>1289	Identifier	i
+>1290	ForInit	 
+>1291	AssignmentExpr	i = 0
+>1292	PrimaryExpression	0
+>1293	Identifier	i
+>1294	IdentifierDeclStatement	 
+>1295	IdentifierDecl	i
+>1296	Identifier	i
+>1297	IdentifierDeclType	int
+>1310	FunctionDef	P_RemoveActivePlat (plat_t * plat)
+>1311	ParameterList	plat_t * plat
+>1312	Parameter	 
+>1313	Identifier	plat
+>1314	ParameterType	plat_t *
+>1315	ReturnType	void
+>1316	CompoundStatement	 
+>1317	ExpressionStatement	 
+>1318	CallExpression	I_Error ( \"P_RemoveActivePlat
+>1319	ArgumentList	\"P_RemoveActivePlat
+>1320	Argument	\"P_RemoveActivePlat
+>1321	PrimaryExpression	\"P_RemoveActivePlat
+>1322	Callee	I_Error
+>1323	Identifier	I_Error
+>1324	CompoundStatement	 
+>1325	ReturnStatement	 
+>1326	ExpressionStatement	 
+>1327	AssignmentExpr	g -> activeplats [ i ] = NULL
+>1328	Identifier	NULL
+>1329	ArrayIndexing	g -> activeplats [ i ]
+>1330	Identifier	i
+>1331	PtrMemberAccess	g -> activeplats
+>1332	Identifier	activeplats
+>1333	Identifier	g
+>1334	Statement	 
+>1335	ExpressionStatement	 
+>1336	Statement	 
+>1337	Statement	 
+>1338	Statement	 
+>1339	Statement	 
+>1340	Statement	 
+>1341	Statement	 
+>1342	Statement	 
+>1343	Statement	 
+>1344	Statement	 
+>1345	Statement	 
+>1346	Statement	 
+>1347	Statement	 
+>1348	Statement	 
+>1349	Statement	 
+>1350	Statement	 
+>1351	ExpressionStatement	 
+>1352	AssignmentExpr	sector -> specialdata = NULL
+>1353	Identifier	NULL
+>1354	PtrMemberAccess	sector -> specialdata
+>1355	Identifier	specialdata
+>1356	Identifier	sector
+>1357	Statement	 
+>1358	Statement	 
+>1359	Statement	 
+>1360	Statement	 
+>1361	Statement	 
+>1362	Statement	 
+>1363	Statement	 
+>1364	Statement	 
+>1365	Statement	 
+>1366	Statement	 
+>1367	Statement	 
+>1368	Statement	 
+>1369	Statement	 
+>1370	Statement	 
+>1371	Statement	 
+>1372	Statement	 
+>1373	Statement	 
+>1374	Statement	 
+>1375	Statement	 
+>1376	Statement	 
+>1377	Statement	 
+>1378	ForStatement	for ( i = 0 ; i < MAXPLATS ; i ++ )
+>1379	Statement	 
+>1380	IncDecOp	 
+>1381	IncDec	++
+>1382	Identifier	i
+>1383	Condition	 
+>1384	RelationalExpression	i < MAXPLATS
+>1385	Identifier	MAXPLATS
+>1386	Identifier	i
+>1387	ForInit	 
+>1388	AssignmentExpr	i = 0
+>1389	PrimaryExpression	0
+>1390	Identifier	i
+>1391	IdentifierDeclStatement	 
+>1392	IdentifierDecl	i
+>1393	Identifier	i
+>1394	IdentifierDeclType	int
+<3=9,8,4
+<4=5
+<5=7,6
+<9=317,10
+<10=313,11
+<11=311,284,243,132,131,129,102,67,66,64,15,13,12
+<13=14
+<15=56,16
+<16=32,17
+<17=18
+<18=30,19
+<19=22,20
+<20=21
+<22=23
+<23=29,24
+<24=26,25
+<26=28,27
+<30=31
+<32=46,40,33
+<33=34
+<34=35
+<35=37,36
+<37=39,38
+<40=41
+<41=43,42
+<43=45,44
+<46=47
+<47=51,48
+<48=50,49
+<51=53,52
+<53=55,54
+<56=57
+<57=63,58
+<58=62,59
+<59=61,60
+<64=65
+<67=98,68
+<68=90,84,69
+<69=70
+<70=82,71
+<71=74,72
+<72=73
+<74=75
+<75=81,76
+<76=78,77
+<78=80,79
+<82=83
+<84=85
+<85=87,86
+<87=89,88
+<90=91
+<91=95,92
+<92=94,93
+<95=97,96
+<98=99
+<99=101,100
+<102=103
+<103=128,104
+<104=126,105
+<105=122,118,114,112,110,106
+<106=107
+<107=109,108
+<110=111
+<112=113
+<114=115
+<115=117,116
+<118=119
+<119=121,120
+<122=123
+<123=125,124
+<126=127
+<129=130
+<132=233,203,133
+<133=134
+<134=135
+<135=199,136
+<136=191,185,170,137
+<137=166,138
+<138=164,162,155,154,152,150,143,142,140,139
+<140=141
+<143=144
+<144=148,145
+<145=146
+<146=147
+<148=149
+<150=151
+<152=153
+<155=156
+<156=160,157
+<157=158
+<158=159
+<160=161
+<162=163
+<164=165
+<166=167
+<167=169,168
+<170=171
+<171=183,172
+<172=175,173
+<173=174
+<175=176
+<176=182,177
+<177=179,178
+<179=181,180
+<183=184
+<185=186
+<186=188,187
+<188=190,189
+<191=192
+<192=196,193
+<193=195,194
+<196=198,197
+<199=200
+<200=202,201
+<203=225,219,204
+<204=205
+<205=217,206
+<206=209,207
+<207=208
+<209=210
+<210=216,211
+<211=213,212
+<213=215,214
+<217=218
+<219=220
+<220=222,221
+<222=224,223
+<225=226
+<226=230,227
+<227=229,228
+<230=232,231
+<233=234
+<234=240,235
+<235=239,236
+<236=238,237
+<240=242,241
+<243=272,244
+<244=271,270,269,268,267,266,265,264,263,262,261,260,245
+<245=246
+<246=258,247
+<247=250,248
+<248=249
+<250=251
+<251=257,252
+<252=254,253
+<254=256,255
+<258=259
+<272=273
+<273=279,274
+<274=276,275
+<276=278,277
+<279=281,280
+<281=283,282
+<284=285
+<285=310,286
+<286=308,287
+<287=304,300,296,292,290,288
+<288=289
+<290=291
+<292=293
+<293=295,294
+<296=297
+<297=299,298
+<300=301
+<301=303,302
+<304=305
+<305=307,306
+<308=309
+<311=312
+<313=314
+<314=316,315
+<317=318
+<318=320,319
+<354=366,365,355
+<355=362,359,356
+<356=358,357
+<359=361,360
+<362=364,363
+<366=922,918,914,910,904,900,881,369,367
+<367=368
+<369=868,370
+<370=867,866,865,864,858,852,848,829,818,812,806,798,786,780,772,378,371
+<371=372
+<372=376,373
+<373=374
+<374=375
+<376=377
+<378=770,379
+<379=768,760,759,758,757,380,381,394,407,415,432,443,460,471,477,479,480,493,499,507,515,532,543,551,553,554,567,573,581,589,606,617,625,627,628,641,647,653,665,679,680,681,682,683,684,692,694,695,708,714,720,726,741,755,756
+<381=382
+<382=392,383
+<383=386,384
+<384=385
+<386=387
+<387=391,388
+<388=390,389
+<392=393
+<394=395
+<395=404,396
+<396=403,397
+<397=399,398
+<399=401,400
+<401=402
+<404=406,405
+<407=408
+<408=412,409
+<409=411,410
+<412=414,413
+<415=424,416
+<416=417
+<417=421,418
+<418=420,419
+<421=423,422
+<424=425
+<425=429,426
+<426=428,427
+<429=431,430
+<432=433
+<433=440,434
+<434=438,435
+<435=436
+<436=437
+<438=439
+<440=442,441
+<443=452,444
+<444=445
+<445=449,446
+<446=448,447
+<449=451,450
+<452=453
+<453=457,454
+<454=456,455
+<457=459,458
+<460=461
+<461=468,462
+<462=466,463
+<463=464
+<464=465
+<466=467
+<468=470,469
+<471=472
+<472=474,473
+<474=476,475
+<477=478
+<480=481
+<481=491,482
+<482=485,483
+<483=484
+<485=486
+<486=490,487
+<487=489,488
+<491=492
+<493=494
+<494=496,495
+<496=498,497
+<499=500
+<500=504,501
+<501=503,502
+<504=506,505
+<507=508
+<508=512,509
+<509=511,510
+<512=514,513
+<515=524,516
+<516=517
+<517=521,518
+<518=520,519
+<521=523,522
+<524=525
+<525=529,526
+<526=528,527
+<529=531,530
+<532=533
+<533=540,534
+<534=538,535
+<535=536
+<536=537
+<538=539
+<540=542,541
+<543=544
+<544=548,545
+<545=547,546
+<548=550,549
+<551=552
+<554=555
+<555=565,556
+<556=559,557
+<557=558
+<559=560
+<560=564,561
+<561=563,562
+<565=566
+<567=568
+<568=570,569
+<570=572,571
+<573=574
+<574=578,575
+<575=577,576
+<578=580,579
+<581=582
+<582=586,583
+<583=585,584
+<586=588,587
+<589=598,590
+<590=591
+<591=595,592
+<592=594,593
+<595=597,596
+<598=599
+<599=603,600
+<600=602,601
+<603=605,604
+<606=607
+<607=614,608
+<608=612,609
+<609=610
+<610=611
+<612=613
+<614=616,615
+<617=618
+<618=622,619
+<619=621,620
+<622=624,623
+<625=626
+<628=629
+<629=639,630
+<630=633,631
+<631=632
+<633=634
+<634=638,635
+<635=637,636
+<639=640
+<641=642
+<642=644,643
+<644=646,645
+<647=648
+<648=650,649
+<650=652,651
+<653=654
+<654=662,655
+<655=659,656
+<656=658,657
+<659=661,660
+<662=664,663
+<665=666
+<666=668,667
+<668=670,669
+<670=676,671
+<671=673,672
+<673=675,674
+<676=678,677
+<684=685
+<685=689,686
+<686=688,687
+<689=691,690
+<692=693
+<695=696
+<696=706,697
+<697=700,698
+<698=699
+<700=701
+<701=705,702
+<702=704,703
+<706=707
+<708=709
+<709=711,710
+<711=713,712
+<714=715
+<715=717,716
+<717=719,718
+<720=721
+<721=723,722
+<723=725,724
+<726=727
+<727=738,728
+<728=736,729
+<729=734,730
+<730=731
+<731=733,732
+<734=735
+<736=737
+<738=740,739
+<741=742
+<742=744,743
+<744=746,745
+<746=752,747
+<747=749,748
+<749=751,750
+<752=754,753
+<760=761
+<761=765,762
+<762=764,763
+<765=767,766
+<768=769
+<770=771
+<772=773
+<773=777,774
+<774=776,775
+<777=779,778
+<780=781
+<781=783,782
+<783=785,784
+<786=787
+<787=791,788
+<788=790,789
+<791=793,792
+<793=795,794
+<795=797,796
+<798=799
+<799=801,800
+<801=803,802
+<803=805,804
+<806=807
+<807=809,808
+<809=811,810
+<812=813
+<813=815,814
+<815=817,816
+<818=819
+<819=827,820
+<820=821
+<821=822
+<822=826,823
+<823=825,824
+<827=828
+<829=830
+<830=847,831
+<831=846,832
+<832=844,833
+<833=838,836,834
+<834=835
+<836=837
+<838=839
+<839=843,840
+<840=842,841
+<844=845
+<848=849
+<849=851,850
+<852=854,853
+<854=855
+<855=857,856
+<858=859
+<859=861,860
+<861=863,862
+<868=869
+<869=871,870
+<871=880,872
+<872=878,873
+<873=876,874
+<874=875
+<876=877
+<878=879
+<881=898,882
+<882=896,887,886,884,883
+<884=885
+<887=888
+<888=894,889
+<889=890
+<890=891
+<891=893,892
+<894=895
+<896=897
+<898=899
+<900=901
+<901=903,902
+<904=905
+<905=909,906
+<906=908,907
+<910=911
+<911=913,912
+<914=915
+<915=917,916
+<918=919
+<919=921,920
+<922=923
+<923=925,924
+<991=997,996,992
+<992=993
+<993=995,994
+<997=1093,1080,1079,1078,1077,1076,1075,1074,1073,1072,1071,1070,1069,1068,1067,1066,1065,1064,1063,1062,1061,1060,1059,1058,1057,1056,1055,1054,1053,1052,1051,1050,1049,1048,1047,1046,1045,1044,1043,998
+<998=1042,1041,1040,1039,1038,1037,1036,1035,1034,1033,1032,1031,1030,1029,1028,1027,1026,1025,1024,1023,1022,1021,1019,1018,1017,1016,1015,1014,1013,1012,1011,1010,1009,999
+<999=1000
+<1000=1004,1001
+<1001=1003,1002
+<1004=1006,1005
+<1006=1008,1007
+<1019=1020
+<1080=1089,1085,1082,1081
+<1082=1084,1083
+<1085=1086
+<1086=1088,1087
+<1089=1090
+<1090=1092,1091
+<1093=1094
+<1094=1096,1095
+<1107=1113,1112,1108
+<1108=1109
+<1109=1111,1110
+<1113=1229,1216,1215,1214,1213,1212,1211,1210,1209,1208,1207,1206,1205,1204,1203,1202,1201,1200,1199,1198,1197,1196,1195,1194,1193,1192,1191,1190,1189,1188,1187,1186,1185,1184,1183,1182,1181,1180,1179,1178,1177,1176,1175,1174,1173,1114
+<1114=1172,1171,1170,1169,1168,1167,1166,1165,1164,1163,1162,1161,1160,1159,1158,1157,1156,1155,1154,1153,1152,1151,1149,1148,1147,1146,1145,1144,1143,1142,1141,1140,1139,1135,1134,1133,1132,1131,1130,1129,1128,1127,1126,1125,1115
+<1115=1116
+<1116=1120,1117
+<1117=1119,1118
+<1120=1122,1121
+<1122=1124,1123
+<1135=1136
+<1136=1138,1137
+<1149=1150
+<1216=1225,1221,1218,1217
+<1218=1220,1219
+<1221=1222
+<1222=1224,1223
+<1225=1226
+<1226=1228,1227
+<1229=1230
+<1230=1232,1231
+<1245=1251,1250,1246
+<1246=1247
+<1247=1249,1248
+<1251=1294,1281,1280,1279,1278,1277,1276,1275,1274,1273,1272,1271,1270,1259,1252
+<1252=1253
+<1253=1257,1254
+<1254=1255
+<1255=1256
+<1257=1258
+<1259=1269,1261,1260
+<1261=1262
+<1262=1264,1263
+<1264=1266,1265
+<1266=1268,1267
+<1281=1290,1286,1283,1282
+<1283=1285,1284
+<1286=1287
+<1287=1289,1288
+<1290=1291
+<1291=1293,1292
+<1294=1295
+<1295=1297,1296
+<1310=1316,1315,1311
+<1311=1312
+<1312=1314,1313
+<1316=1391,1378,1377,1376,1375,1374,1373,1372,1371,1370,1369,1368,1367,1324,1317
+<1317=1318
+<1318=1322,1319
+<1319=1320
+<1320=1321
+<1322=1323
+<1324=1366,1365,1364,1363,1362,1361,1360,1359,1358,1357,1351,1350,1349,1348,1347,1346,1345,1344,1343,1342,1341,1340,1339,1338,1337,1336,1335,1334,1326,1325
+<1326=1327
+<1327=1329,1328
+<1329=1331,1330
+<1331=1333,1332
+<1351=1352
+<1352=1354,1353
+<1354=1356,1355
+<1378=1387,1383,1380,1379
+<1380=1382,1381
+<1383=1384
+<1384=1386,1385
+<1387=1388
+<1388=1390,1389
+<1391=1392
+<1392=1394,1393

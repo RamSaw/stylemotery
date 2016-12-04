@@ -1,0 +1,658 @@
+>3	FunctionDef	DenseTracker 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	DenseTracker 
+>10	ParameterList	 
+>11	ReturnType	size_t
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	AdditiveExpression	FirstLevel + 1
+>15	PrimaryExpression	1
+>16	Identifier	FirstLevel
+>21	FunctionDef	DenseTracker 
+>22	ParameterList	 
+>23	ReturnType	bool
+>24	CompoundStatement	 
+>25	ReturnStatement	 
+>26	RelationalExpression	Mu > 1e-6
+>27	PrimaryExpression	1e-6
+>28	Identifier	Mu
+>33	FunctionDef	DenseTracker 
+>34	ParameterList	 
+>35	ReturnType	bool
+>36	CompoundStatement	 
+>37	ReturnStatement	 
+>38	RelationalExpression	FirstLevel >= LastLevel
+>39	Identifier	LastLevel
+>40	Identifier	FirstLevel
+>46	FunctionDef	DenseTracker 
+>47	ParameterList	const Config & cfg
+>48	Parameter	 
+>49	Identifier	cfg
+>50	ParameterType	const Config &
+>51	CompoundStatement	 
+>56	FunctionDef	DenseTracker 
+>57	ParameterList	 
+>58	ReturnType	bool
+>59	CompoundStatement	 
+>60	ReturnStatement	 
+>61	AndExpression	IsFirstLevel ( ) && IsFirstIterationOnLevel ( )
+>62	CallExpression	IsFirstIterationOnLevel ( )
+>63	ArgumentList	 
+>64	Callee	IsFirstIterationOnLevel
+>65	Identifier	IsFirstIterationOnLevel
+>66	CallExpression	IsFirstLevel ( )
+>67	ArgumentList	 
+>68	Callee	IsFirstLevel
+>69	Identifier	IsFirstLevel
+>75	FunctionDef	DenseTracker 
+>76	ParameterList	 
+>77	ReturnType	bool
+>78	CompoundStatement	 
+>79	ReturnStatement	 
+>80	EqualityExpression	Iteration == 0
+>81	PrimaryExpression	0
+>82	Identifier	Iteration
+>87	FunctionDef	DenseTracker 
+>88	ParameterList	 
+>89	ReturnType	bool
+>90	CompoundStatement	 
+>91	ReturnStatement	 
+>92	EqualityExpression	cfg . FirstLevel == Level
+>93	Identifier	Level
+>94	MemberAccess	cfg . FirstLevel
+>95	Identifier	FirstLevel
+>96	Identifier	cfg
+>103	FunctionDef	DenseTracker 
+>104	ParameterList	 
+>105	ReturnType	bool
+>106	CompoundStatement	 
+>107	ReturnStatement	 
+>108	EqualityExpression	cfg . LastLevel == Level
+>109	Identifier	Level
+>110	MemberAccess	cfg . LastLevel
+>111	Identifier	LastLevel
+>112	Identifier	cfg
+>119	FunctionDef	DenseTracker 
+>120	ParameterList	 
+>121	ReturnType	double
+>122	CompoundStatement	 
+>123	ReturnStatement	 
+>124	AdditiveExpression	LastError - Error
+>125	Identifier	Error
+>126	Identifier	LastError
+>132	FunctionDef	DenseTracker 
+>133	ParameterList	 
+>134	ReturnType	bool
+>135	CompoundStatement	 
+>136	ReturnStatement	 
+>137	RelationalExpression	Iteration >= max_iterations
+>138	Identifier	max_iterations
+>139	Identifier	Iteration
+>140	IdentifierDeclStatement	 
+>141	IdentifierDecl	max_iterations = cfg . MaxIterationsPerLevel
+>142	AssignmentExpr	max_iterations = cfg . MaxIterationsPerLevel
+>143	MemberAccess	cfg . MaxIterationsPerLevel
+>144	Identifier	MaxIterationsPerLevel
+>145	Identifier	cfg
+>146	Identifier	max_iterations
+>147	Identifier	max_iterations
+>148	IdentifierDeclType	int
+>156	FunctionDef	DenseTracker 
+>157	ParameterList	 
+>158	ReturnType	bool
+>159	CompoundStatement	 
+>160	ReturnStatement	 
+>161	OrExpression	! std 
+>162	UnaryOp	! std 
+>163	CallExpression	std 
+>164	ArgumentList	Information . sum ( )
+>165	Argument	Information . sum ( )
+>166	CallExpression	Information . sum ( )
+>167	ArgumentList	 
+>168	Callee	Information . sum
+>169	MemberAccess	Information . sum
+>170	Identifier	sum
+>171	Identifier	Information
+>172	Callee	std 
+>173	Identifier	std 
+>174	UnaryOperator	!
+>175	UnaryOp	! std 
+>176	CallExpression	std 
+>177	ArgumentList	Transformation . matrix ( ) . sum ( )
+>178	Argument	Transformation . matrix ( ) . sum ( )
+>179	CallExpression	Transformation . matrix ( ) . sum ( )
+>180	ArgumentList	 
+>181	Callee	Transformation . matrix ( ) . sum
+>182	MemberAccess	Transformation . matrix ( ) . sum
+>183	Identifier	sum
+>184	CallExpression	Transformation . matrix ( )
+>185	ArgumentList	 
+>186	Callee	Transformation . matrix
+>187	MemberAccess	Transformation . matrix
+>188	Identifier	matrix
+>189	Identifier	Transformation
+>190	Callee	std 
+>191	Identifier	std 
+>192	UnaryOperator	!
+>204	FunctionDef	DenseTracker 
+>205	ParameterList	 
+>206	ReturnType	void
+>207	CompoundStatement	 
+>208	ExpressionStatement	 
+>209	AssignmentExpr	LogLikelihood = 0.0
+>210	PrimaryExpression	0.0
+>211	Identifier	LogLikelihood
+>212	ExpressionStatement	 
+>213	CallExpression	Information . setIdentity ( )
+>214	ArgumentList	 
+>215	Callee	Information . setIdentity
+>216	MemberAccess	Information . setIdentity
+>217	Identifier	setIdentity
+>218	Identifier	Information
+>219	ExpressionStatement	 
+>220	CallExpression	Transformation . setIdentity ( )
+>221	ArgumentList	 
+>222	Callee	Transformation . setIdentity
+>223	MemberAccess	Transformation . setIdentity
+>224	Identifier	setIdentity
+>225	Identifier	Transformation
+>232	FunctionDef	DenseTracker 
+>233	ParameterList	 
+>234	ReturnType	void
+>235	CompoundStatement	 
+>236	ExpressionStatement	 
+>237	CallExpression	Statistics . Levels . clear ( )
+>238	ArgumentList	 
+>239	Callee	Statistics . Levels . clear
+>240	MemberAccess	Statistics . Levels . clear
+>241	Identifier	clear
+>242	MemberAccess	Statistics . Levels
+>243	Identifier	Levels
+>244	Identifier	Statistics
+>250	FunctionDef	DenseTracker 
+>251	ParameterList	dvo 
+>252	Parameter	 
+>253	Identifier	eigenvalues
+>254	ParameterType	dvo 
+>255	ReturnType	void
+>256	CompoundStatement	 
+>257	ExpressionStatement	 
+>258	CallExpression	std 
+>259	ArgumentList	eigenvalues . data ( )
+>260	Argument	eigenvalues . data ( ) + eigenvalues . rows ( )
+>261	AdditiveExpression	eigenvalues . data ( ) + eigenvalues . rows ( )
+>262	CallExpression	eigenvalues . rows ( )
+>263	ArgumentList	 
+>264	Callee	eigenvalues . rows
+>265	MemberAccess	eigenvalues . rows
+>266	Identifier	rows
+>267	Identifier	eigenvalues
+>268	CallExpression	eigenvalues . data ( )
+>269	ArgumentList	 
+>270	Callee	eigenvalues . data
+>271	MemberAccess	eigenvalues . data
+>272	Identifier	data
+>273	Identifier	eigenvalues
+>274	Argument	eigenvalues . data ( )
+>275	CallExpression	eigenvalues . data ( )
+>276	ArgumentList	 
+>277	Callee	eigenvalues . data
+>278	MemberAccess	eigenvalues . data
+>279	Identifier	data
+>280	Identifier	eigenvalues
+>281	Callee	std 
+>282	Identifier	std 
+>283	ExpressionStatement	 
+>284	AssignmentExpr	eigenvalues = evd . eigenvalues ( ) . real ( )
+>285	CallExpression	evd . eigenvalues ( ) . real ( )
+>286	ArgumentList	 
+>287	Callee	evd . eigenvalues ( ) . real
+>288	MemberAccess	evd . eigenvalues ( ) . real
+>289	Identifier	real
+>290	CallExpression	evd . eigenvalues ( )
+>291	ArgumentList	 
+>292	Callee	evd . eigenvalues
+>293	MemberAccess	evd . eigenvalues
+>294	Identifier	eigenvalues
+>295	Identifier	evd
+>296	Identifier	eigenvalues
+>297	IdentifierDeclStatement	 
+>298	IdentifierDecl	evd ( EstimateInformation )
+>299	Identifier	EstimateInformation
+>300	Identifier	evd
+>301	IdentifierDeclType	Eigen 
+>311	FunctionDef	DenseTracker 
+>312	ParameterList	 
+>313	ReturnType	double
+>314	CompoundStatement	 
+>315	ReturnStatement	 
+>316	CallExpression	std 
+>317	ArgumentList	ev ( 5 ) / ev ( 0 )
+>318	Argument	ev ( 5 ) / ev ( 0 )
+>319	MultiplicativeExpression	ev ( 5 ) / ev ( 0 )
+>320	CallExpression	ev ( 0 )
+>321	ArgumentList	0
+>322	Argument	0
+>323	PrimaryExpression	0
+>324	Callee	ev
+>325	Identifier	ev
+>326	CallExpression	ev ( 5 )
+>327	ArgumentList	5
+>328	Argument	5
+>329	PrimaryExpression	5
+>330	Callee	ev
+>331	Identifier	ev
+>332	Callee	std 
+>333	Identifier	std 
+>334	ExpressionStatement	 
+>335	CallExpression	InformationEigenValues ( ev )
+>336	ArgumentList	ev
+>337	Argument	ev
+>338	Identifier	ev
+>339	Callee	InformationEigenValues
+>340	Identifier	InformationEigenValues
+>341	IdentifierDeclStatement	 
+>342	IdentifierDecl	ev
+>343	Identifier	ev
+>344	IdentifierDeclType	dvo 
+>350	FunctionDef	DenseTracker 
+>351	ParameterList	 
+>352	ReturnType	bool
+>353	CompoundStatement	 
+>354	ReturnStatement	 
+>355	RelationalExpression	Iterations . size ( ) >= min
+>356	Identifier	min
+>357	CallExpression	Iterations . size ( )
+>358	ArgumentList	 
+>359	Callee	Iterations . size
+>360	MemberAccess	Iterations . size
+>361	Identifier	size
+>362	Identifier	Iterations
+>363	IdentifierDeclStatement	 
+>364	IdentifierDecl	min = TerminationCriterion == DenseTracker 
+>365	AssignmentExpr	min = TerminationCriterion == DenseTracker 
+>366	ConditionalExpression	TerminationCriterion == DenseTracker 
+>367	PrimaryExpression	1
+>368	PrimaryExpression	2
+>369	Condition	TerminationCriterion == DenseTracker 
+>370	OrExpression	TerminationCriterion == DenseTracker 
+>371	EqualityExpression	TerminationCriterion == DenseTracker 
+>372	Identifier	DenseTracker 
+>373	Identifier	TerminationCriterion
+>374	EqualityExpression	TerminationCriterion == DenseTracker 
+>375	Identifier	DenseTracker 
+>376	Identifier	TerminationCriterion
+>377	Identifier	min
+>378	Identifier	min
+>379	IdentifierDeclType	int
+>389	FunctionDef	DenseTracker 
+>390	ParameterList	 
+>391	ReturnType	DenseTracker 
+>392	CompoundStatement	 
+>393	ReturnStatement	 
+>394	ConditionalExpression	TerminationCriterion == DenseTracker 
+>395	ArrayIndexing	Iterations [ Iterations . size ( ) - 1 ]
+>396	AdditiveExpression	Iterations . size ( ) - 1
+>397	PrimaryExpression	1
+>398	CallExpression	Iterations . size ( )
+>399	ArgumentList	 
+>400	Callee	Iterations . size
+>401	MemberAccess	Iterations . size
+>402	Identifier	size
+>403	Identifier	Iterations
+>404	Identifier	Iterations
+>405	ArrayIndexing	Iterations [ Iterations . size ( ) - 2 ]
+>406	AdditiveExpression	Iterations . size ( ) - 2
+>407	PrimaryExpression	2
+>408	CallExpression	Iterations . size ( )
+>409	ArgumentList	 
+>410	Callee	Iterations . size
+>411	MemberAccess	Iterations . size
+>412	Identifier	size
+>413	Identifier	Iterations
+>414	Identifier	Iterations
+>415	Condition	TerminationCriterion == DenseTracker 
+>416	EqualityExpression	TerminationCriterion == DenseTracker 
+>417	Identifier	DenseTracker 
+>418	Identifier	TerminationCriterion
+>419	IfStatement	if ( ! HasIterationWithIncrement ( ) )
+>420	CompoundStatement	 
+>421	ExpressionStatement	 
+>422	CallExpression	assert ( false )
+>423	ArgumentList	false
+>424	Argument	false
+>425	Identifier	false
+>426	Callee	assert
+>427	Identifier	assert
+>428	ExpressionStatement	 
+>429	ShiftExpression	std 
+>430	ShiftExpression	\"awkward \" << * this << std 
+>431	ShiftExpression	* this << std 
+>432	Identifier	std 
+>433	UnaryOp	* this
+>434	Identifier	this
+>435	UnaryOperator	*
+>436	PrimaryExpression	\"awkward \"
+>437	Identifier	std 
+>438	Condition	 
+>439	UnaryOp	! HasIterationWithIncrement ( )
+>440	CallExpression	HasIterationWithIncrement ( )
+>441	ArgumentList	 
+>442	Callee	HasIterationWithIncrement
+>443	Identifier	HasIterationWithIncrement
+>444	UnaryOperator	!
+>457	FunctionDef	DenseTracker 
+>458	ParameterList	 
+>459	ReturnType	DenseTracker 
+>460	CompoundStatement	 
+>461	ReturnStatement	 
+>462	CallExpression	Iterations . back ( )
+>463	ArgumentList	 
+>464	Callee	Iterations . back
+>465	MemberAccess	Iterations . back
+>466	Identifier	back
+>467	Identifier	Iterations
+>473	FunctionDef	DenseTracker 
+>474	ParameterList	 
+>475	ReturnType	const DenseTracker 
+>476	CompoundStatement	 
+>477	ReturnStatement	 
+>478	ConditionalExpression	TerminationCriterion == DenseTracker 
+>479	ArrayIndexing	Iterations [ Iterations . size ( ) - 1 ]
+>480	AdditiveExpression	Iterations . size ( ) - 1
+>481	PrimaryExpression	1
+>482	CallExpression	Iterations . size ( )
+>483	ArgumentList	 
+>484	Callee	Iterations . size
+>485	MemberAccess	Iterations . size
+>486	Identifier	size
+>487	Identifier	Iterations
+>488	Identifier	Iterations
+>489	ArrayIndexing	Iterations [ Iterations . size ( ) - 2 ]
+>490	AdditiveExpression	Iterations . size ( ) - 2
+>491	PrimaryExpression	2
+>492	CallExpression	Iterations . size ( )
+>493	ArgumentList	 
+>494	Callee	Iterations . size
+>495	MemberAccess	Iterations . size
+>496	Identifier	size
+>497	Identifier	Iterations
+>498	Identifier	Iterations
+>499	Condition	TerminationCriterion == DenseTracker 
+>500	EqualityExpression	TerminationCriterion == DenseTracker 
+>501	Identifier	DenseTracker 
+>502	Identifier	TerminationCriterion
+>503	IfStatement	if ( ! HasIterationWithIncrement ( ) )
+>504	CompoundStatement	 
+>505	ExpressionStatement	 
+>506	CallExpression	assert ( false )
+>507	ArgumentList	false
+>508	Argument	false
+>509	Identifier	false
+>510	Callee	assert
+>511	Identifier	assert
+>512	ExpressionStatement	 
+>513	ShiftExpression	std 
+>514	ShiftExpression	\"awkward \" << * this << std 
+>515	ShiftExpression	* this << std 
+>516	Identifier	std 
+>517	UnaryOp	* this
+>518	Identifier	this
+>519	UnaryOperator	*
+>520	PrimaryExpression	\"awkward \"
+>521	Identifier	std 
+>522	Condition	 
+>523	UnaryOp	! HasIterationWithIncrement ( )
+>524	CallExpression	HasIterationWithIncrement ( )
+>525	ArgumentList	 
+>526	Callee	HasIterationWithIncrement
+>527	Identifier	HasIterationWithIncrement
+>528	UnaryOperator	!
+>541	FunctionDef	DenseTracker 
+>542	ParameterList	 
+>543	ReturnType	const DenseTracker 
+>544	CompoundStatement	 
+>545	ReturnStatement	 
+>546	CallExpression	Iterations . back ( )
+>547	ArgumentList	 
+>548	Callee	Iterations . back
+>549	MemberAccess	Iterations . back
+>550	Identifier	back
+>551	Identifier	Iterations
+<3=5,4
+<9=12,11,10
+<12=13
+<13=14
+<14=16,15
+<21=24,23,22
+<24=25
+<25=26
+<26=28,27
+<33=36,35,34
+<36=37
+<37=38
+<38=40,39
+<46=51,47
+<47=48
+<48=50,49
+<56=59,58,57
+<59=60
+<60=61
+<61=66,62
+<62=64,63
+<64=65
+<66=68,67
+<68=69
+<75=78,77,76
+<78=79
+<79=80
+<80=82,81
+<87=90,89,88
+<90=91
+<91=92
+<92=94,93
+<94=96,95
+<103=106,105,104
+<106=107
+<107=108
+<108=110,109
+<110=112,111
+<119=122,121,120
+<122=123
+<123=124
+<124=126,125
+<132=135,134,133
+<135=140,136
+<136=137
+<137=139,138
+<140=141
+<141=148,147,142
+<142=146,143
+<143=145,144
+<156=159,158,157
+<159=160
+<160=161
+<161=175,162
+<162=174,163
+<163=172,164
+<164=165
+<165=166
+<166=168,167
+<168=169
+<169=171,170
+<172=173
+<175=192,176
+<176=190,177
+<177=178
+<178=179
+<179=181,180
+<181=182
+<182=184,183
+<184=186,185
+<186=187
+<187=189,188
+<190=191
+<204=207,206,205
+<207=219,212,208
+<208=209
+<209=211,210
+<212=213
+<213=215,214
+<215=216
+<216=218,217
+<219=220
+<220=222,221
+<222=223
+<223=225,224
+<232=235,234,233
+<235=236
+<236=237
+<237=239,238
+<239=240
+<240=242,241
+<242=244,243
+<250=256,255,251
+<251=252
+<252=254,253
+<256=297,283,257
+<257=258
+<258=281,259
+<259=274,260
+<260=261
+<261=268,262
+<262=264,263
+<264=265
+<265=267,266
+<268=270,269
+<270=271
+<271=273,272
+<274=275
+<275=277,276
+<277=278
+<278=280,279
+<281=282
+<283=284
+<284=296,285
+<285=287,286
+<287=288
+<288=290,289
+<290=292,291
+<292=293
+<293=295,294
+<297=298
+<298=301,300,299
+<311=314,313,312
+<314=341,334,315
+<315=316
+<316=332,317
+<317=318
+<318=319
+<319=326,320
+<320=324,321
+<321=322
+<322=323
+<324=325
+<326=330,327
+<327=328
+<328=329
+<330=331
+<332=333
+<334=335
+<335=339,336
+<336=337
+<337=338
+<339=340
+<341=342
+<342=344,343
+<350=353,352,351
+<353=363,354
+<354=355
+<355=357,356
+<357=359,358
+<359=360
+<360=362,361
+<363=364
+<364=379,378,365
+<365=377,366
+<366=369,368,367
+<369=370
+<370=374,371
+<371=373,372
+<374=376,375
+<389=392,391,390
+<392=419,393
+<393=394
+<394=415,405,395
+<395=404,396
+<396=398,397
+<398=400,399
+<400=401
+<401=403,402
+<405=414,406
+<406=408,407
+<408=410,409
+<410=411
+<411=413,412
+<415=416
+<416=418,417
+<419=438,420
+<420=428,421
+<421=422
+<422=426,423
+<423=424
+<424=425
+<426=427
+<428=429
+<429=437,430
+<430=436,431
+<431=433,432
+<433=435,434
+<438=439
+<439=444,440
+<440=442,441
+<442=443
+<457=460,459,458
+<460=461
+<461=462
+<462=464,463
+<464=465
+<465=467,466
+<473=476,475,474
+<476=503,477
+<477=478
+<478=499,489,479
+<479=488,480
+<480=482,481
+<482=484,483
+<484=485
+<485=487,486
+<489=498,490
+<490=492,491
+<492=494,493
+<494=495
+<495=497,496
+<499=500
+<500=502,501
+<503=522,504
+<504=512,505
+<505=506
+<506=510,507
+<507=508
+<508=509
+<510=511
+<512=513
+<513=521,514
+<514=520,515
+<515=517,516
+<517=519,518
+<522=523
+<523=528,524
+<524=526,525
+<526=527
+<541=544,543,542
+<544=545
+<545=546
+<546=548,547
+<548=549
+<549=551,550

@@ -1,0 +1,3515 @@
+>11	FunctionDef	Group_Add (entity_t * e)
+>12	ParameterList	entity_t * e
+>13	Parameter	 
+>14	Identifier	e
+>15	ParameterType	entity_t *
+>16	ReturnType	void
+>17	CompoundStatement	 
+>18	ExpressionStatement	 
+>19	AssignmentExpr	g_pGroups = g
+>20	Identifier	g
+>21	Identifier	g_pGroups
+>22	ExpressionStatement	 
+>23	AssignmentExpr	g -> next = g_pGroups
+>24	Identifier	g_pGroups
+>25	PtrMemberAccess	g -> next
+>26	Identifier	next
+>27	Identifier	g
+>28	ExpressionStatement	 
+>29	AssignmentExpr	g -> itemOwner = g_wndGroup . m_wndTree . InsertItem ( & tvInsert )
+>30	CallExpression	g_wndGroup . m_wndTree . InsertItem ( & tvInsert )
+>31	ArgumentList	& tvInsert
+>32	Argument	& tvInsert
+>33	UnaryOp	& tvInsert
+>34	Identifier	tvInsert
+>35	UnaryOperator	&
+>36	Callee	g_wndGroup . m_wndTree . InsertItem
+>37	MemberAccess	g_wndGroup . m_wndTree . InsertItem
+>38	Identifier	InsertItem
+>39	MemberAccess	g_wndGroup . m_wndTree
+>40	Identifier	m_wndTree
+>41	Identifier	g_wndGroup
+>42	PtrMemberAccess	g -> itemOwner
+>43	Identifier	itemOwner
+>44	Identifier	g
+>45	ExpressionStatement	 
+>46	AssignmentExpr	tvInsert . item . pszText = _T ( ValueForKey ( g -> epairs , \"group\" ) )
+>47	CallExpression	_T ( ValueForKey ( g -> epairs , \"group\" ) )
+>48	ArgumentList	ValueForKey ( g -> epairs , \"group\" )
+>49	Argument	ValueForKey ( g -> epairs , \"group\" )
+>50	CallExpression	ValueForKey ( g -> epairs , \"group\" )
+>51	ArgumentList	g -> epairs
+>52	Argument	\"group\"
+>53	PrimaryExpression	\"group\"
+>54	Argument	g -> epairs
+>55	PtrMemberAccess	g -> epairs
+>56	Identifier	epairs
+>57	Identifier	g
+>58	Callee	ValueForKey
+>59	Identifier	ValueForKey
+>60	Callee	_T
+>61	Identifier	_T
+>62	MemberAccess	tvInsert . item . pszText
+>63	Identifier	pszText
+>64	MemberAccess	tvInsert . item
+>65	Identifier	item
+>66	Identifier	tvInsert
+>67	IdentifierDeclStatement	 
+>68	IdentifierDecl	* pipo = ValueForKey ( e -> epairs , \"group\" )
+>69	AssignmentExpr	* pipo = ValueForKey ( e -> epairs , \"group\" )
+>70	CallExpression	ValueForKey ( e -> epairs , \"group\" )
+>71	ArgumentList	e -> epairs
+>72	Argument	\"group\"
+>73	PrimaryExpression	\"group\"
+>74	Argument	e -> epairs
+>75	PtrMemberAccess	e -> epairs
+>76	Identifier	epairs
+>77	Identifier	e
+>78	Callee	ValueForKey
+>79	Identifier	ValueForKey
+>80	Identifier	pipo
+>81	Identifier	pipo
+>82	IdentifierDeclType	char *
+>83	ExpressionStatement	 
+>84	AssignmentExpr	tvInsert . item . mask = TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>85	InclusiveOrExpression	TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>86	InclusiveOrExpression	TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>87	Identifier	TVIF_SELECTEDIMAGE
+>88	Identifier	TVIF_IMAGE
+>89	Identifier	TVIF_TEXT
+>90	MemberAccess	tvInsert . item . mask
+>91	Identifier	mask
+>92	MemberAccess	tvInsert . item
+>93	Identifier	item
+>94	Identifier	tvInsert
+>95	ExpressionStatement	 
+>96	AssignmentExpr	tvInsert . hInsertAfter = NULL
+>97	Identifier	NULL
+>98	MemberAccess	tvInsert . hInsertAfter
+>99	Identifier	hInsertAfter
+>100	Identifier	tvInsert
+>101	ExpressionStatement	 
+>102	AssignmentExpr	tvInsert . hParent = g_wndGroup . m_hWorld
+>103	MemberAccess	g_wndGroup . m_hWorld
+>104	Identifier	m_hWorld
+>105	Identifier	g_wndGroup
+>106	MemberAccess	tvInsert . hParent
+>107	Identifier	hParent
+>108	Identifier	tvInsert
+>109	ExpressionStatement	 
+>110	AssignmentExpr	tvInsert . item . iSelectedImage = tvInsert . item . iImage
+>111	MemberAccess	tvInsert . item . iImage
+>112	Identifier	iImage
+>113	MemberAccess	tvInsert . item
+>114	Identifier	item
+>115	Identifier	tvInsert
+>116	MemberAccess	tvInsert . item . iSelectedImage
+>117	Identifier	iSelectedImage
+>118	MemberAccess	tvInsert . item
+>119	Identifier	item
+>120	Identifier	tvInsert
+>121	ExpressionStatement	 
+>122	AssignmentExpr	tvInsert . item . iImage = IMG_GROUP
+>123	Identifier	IMG_GROUP
+>124	MemberAccess	tvInsert . item . iImage
+>125	Identifier	iImage
+>126	MemberAccess	tvInsert . item
+>127	Identifier	item
+>128	Identifier	tvInsert
+>129	ExpressionStatement	 
+>130	CallExpression	memset ( & tvInsert , 0 , sizeof ( TVINSERTSTRUCT ) )
+>131	ArgumentList	& tvInsert
+>132	Argument	sizeof ( TVINSERTSTRUCT )
+>133	SizeofExpr	sizeof ( TVINSERTSTRUCT )
+>134	SizeofOperand	TVINSERTSTRUCT
+>135	Sizeof	sizeof
+>136	Argument	0
+>137	PrimaryExpression	0
+>138	Argument	& tvInsert
+>139	UnaryOp	& tvInsert
+>140	Identifier	tvInsert
+>141	UnaryOperator	&
+>142	Callee	memset
+>143	Identifier	memset
+>144	IdentifierDeclStatement	 
+>145	IdentifierDecl	tvInsert
+>146	Identifier	tvInsert
+>147	IdentifierDeclType	TVINSERTSTRUCT
+>148	IdentifierDeclStatement	 
+>149	IdentifierDecl	hItem = g_wndGroup . m_wndTree . GetSelectedItem ( )
+>150	AssignmentExpr	hItem = g_wndGroup . m_wndTree . GetSelectedItem ( )
+>151	CallExpression	g_wndGroup . m_wndTree . GetSelectedItem ( )
+>152	ArgumentList	 
+>153	Callee	g_wndGroup . m_wndTree . GetSelectedItem
+>154	MemberAccess	g_wndGroup . m_wndTree . GetSelectedItem
+>155	Identifier	GetSelectedItem
+>156	MemberAccess	g_wndGroup . m_wndTree
+>157	Identifier	m_wndTree
+>158	Identifier	g_wndGroup
+>159	Identifier	hItem
+>160	Identifier	hItem
+>161	IdentifierDeclType	HTREEITEM
+>162	ExpressionStatement	 
+>163	AssignmentExpr	e -> epairs = NULL
+>164	Identifier	NULL
+>165	PtrMemberAccess	e -> epairs
+>166	Identifier	epairs
+>167	Identifier	e
+>168	ExpressionStatement	 
+>169	AssignmentExpr	g -> next = NULL
+>170	Identifier	NULL
+>171	PtrMemberAccess	g -> next
+>172	Identifier	next
+>173	Identifier	g
+>174	ExpressionStatement	 
+>175	AssignmentExpr	g -> epairs = e -> epairs
+>176	PtrMemberAccess	e -> epairs
+>177	Identifier	epairs
+>178	Identifier	e
+>179	PtrMemberAccess	g -> epairs
+>180	Identifier	epairs
+>181	Identifier	g
+>182	IdentifierDeclStatement	 
+>183	IdentifierDecl	* g = ( group_t * ) qmalloc ( sizeof ( group_t ) )
+>184	AssignmentExpr	* g = ( group_t * ) qmalloc ( sizeof ( group_t ) )
+>185	CastExpression	( group_t * ) qmalloc ( sizeof ( group_t ) )
+>186	CallExpression	qmalloc ( sizeof ( group_t ) )
+>187	ArgumentList	sizeof ( group_t )
+>188	Argument	sizeof ( group_t )
+>189	SizeofExpr	sizeof ( group_t )
+>190	SizeofOperand	group_t
+>191	Sizeof	sizeof
+>192	Callee	qmalloc
+>193	Identifier	qmalloc
+>194	CastTarget	group_t *
+>195	Identifier	g
+>196	Identifier	g
+>197	IdentifierDeclType	group_t *
+>234	FunctionDef	Group_Alloc (char * name)
+>235	ParameterList	char * name
+>236	Parameter	 
+>237	Identifier	name
+>238	ParameterType	char *
+>239	ReturnType	group_t *
+>240	CompoundStatement	 
+>241	ReturnStatement	 
+>242	Identifier	g
+>243	ExpressionStatement	 
+>244	CallExpression	SetKeyValue ( g -> epairs , \"group\" , name )
+>245	ArgumentList	g -> epairs
+>246	Argument	name
+>247	Identifier	name
+>248	Argument	\"group\"
+>249	PrimaryExpression	\"group\"
+>250	Argument	g -> epairs
+>251	PtrMemberAccess	g -> epairs
+>252	Identifier	epairs
+>253	Identifier	g
+>254	Callee	SetKeyValue
+>255	Identifier	SetKeyValue
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	* g = ( group_t * ) qmalloc ( sizeof ( group_t ) )
+>258	AssignmentExpr	* g = ( group_t * ) qmalloc ( sizeof ( group_t ) )
+>259	CastExpression	( group_t * ) qmalloc ( sizeof ( group_t ) )
+>260	CallExpression	qmalloc ( sizeof ( group_t ) )
+>261	ArgumentList	sizeof ( group_t )
+>262	Argument	sizeof ( group_t )
+>263	SizeofExpr	sizeof ( group_t )
+>264	SizeofOperand	group_t
+>265	Sizeof	sizeof
+>266	Callee	qmalloc
+>267	Identifier	qmalloc
+>268	CastTarget	group_t *
+>269	Identifier	g
+>270	Identifier	g
+>271	IdentifierDeclType	group_t *
+>280	FunctionDef	Group_ForName (const char * name)
+>281	ParameterList	const char * name
+>282	Parameter	 
+>283	Identifier	name
+>284	ParameterType	const char *
+>285	ReturnType	group_t *
+>286	CompoundStatement	 
+>287	ReturnStatement	 
+>288	Identifier	g
+>289	WhileStatement	while ( g != NULL )
+>290	CompoundStatement	 
+>291	ExpressionStatement	 
+>292	AssignmentExpr	g = g -> next
+>293	PtrMemberAccess	g -> next
+>294	Identifier	next
+>295	Identifier	g
+>296	Identifier	g
+>297	IfStatement	if ( strcmp ( ValueForKey ( g -> epairs , \"group\" ) , name ) == 0 )
+>298	BreakStatement	 
+>299	Condition	 
+>300	EqualityExpression	strcmp ( ValueForKey ( g -> epairs , \"group\" ) , name ) == 0
+>301	PrimaryExpression	0
+>302	CallExpression	strcmp ( ValueForKey ( g -> epairs , \"group\" ) , name )
+>303	ArgumentList	ValueForKey ( g -> epairs , \"group\" )
+>304	Argument	name
+>305	Identifier	name
+>306	Argument	ValueForKey ( g -> epairs , \"group\" )
+>307	CallExpression	ValueForKey ( g -> epairs , \"group\" )
+>308	ArgumentList	g -> epairs
+>309	Argument	\"group\"
+>310	PrimaryExpression	\"group\"
+>311	Argument	g -> epairs
+>312	PtrMemberAccess	g -> epairs
+>313	Identifier	epairs
+>314	Identifier	g
+>315	Callee	ValueForKey
+>316	Identifier	ValueForKey
+>317	Callee	strcmp
+>318	Identifier	strcmp
+>319	Condition	 
+>320	EqualityExpression	g != NULL
+>321	Identifier	NULL
+>322	Identifier	g
+>323	IdentifierDeclStatement	 
+>324	IdentifierDecl	* g = g_pGroups
+>325	AssignmentExpr	* g = g_pGroups
+>326	Identifier	g_pGroups
+>327	Identifier	g_pGroups
+>328	Identifier	g
+>329	IdentifierDeclType	group_t *
+>342	FunctionDef	Group_AddToItem (brush_t * b , HTREEITEM item)
+>343	ParameterList	brush_t * b , HTREEITEM item
+>344	Parameter	 
+>345	Identifier	item
+>346	ParameterType	HTREEITEM
+>347	Parameter	 
+>348	Identifier	b
+>349	ParameterType	brush_t *
+>350	ReturnType	void
+>351	CompoundStatement	 
+>352	ExpressionStatement	 
+>353	CallExpression	g_pGroupDlg -> m_wndTree . RedrawWindow ( )
+>354	ArgumentList	 
+>355	Callee	g_pGroupDlg -> m_wndTree . RedrawWindow
+>356	MemberAccess	g_pGroupDlg -> m_wndTree . RedrawWindow
+>357	Identifier	RedrawWindow
+>358	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>359	Identifier	m_wndTree
+>360	Identifier	g_pGroupDlg
+>361	ExpressionStatement	 
+>362	AssignmentExpr	b -> itemOwner = itemNew
+>363	Identifier	itemNew
+>364	PtrMemberAccess	b -> itemOwner
+>365	Identifier	itemOwner
+>366	Identifier	b
+>367	ExpressionStatement	 
+>368	CallExpression	g_pGroupDlg -> m_wndTree . SetItemData ( itemNew , reinterpret_cast < DWORD > ( b ) )
+>369	ArgumentList	itemNew
+>370	Argument	reinterpret_cast < DWORD > ( b )
+>371	RelationalExpression	reinterpret_cast < DWORD > ( b )
+>372	RelationalExpression	DWORD > ( b )
+>373	Identifier	b
+>374	Identifier	DWORD
+>375	Identifier	reinterpret_cast
+>376	Argument	itemNew
+>377	Identifier	itemNew
+>378	Callee	g_pGroupDlg -> m_wndTree . SetItemData
+>379	MemberAccess	g_pGroupDlg -> m_wndTree . SetItemData
+>380	Identifier	SetItemData
+>381	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>382	Identifier	m_wndTree
+>383	Identifier	g_pGroupDlg
+>384	IdentifierDeclStatement	 
+>385	IdentifierDecl	itemNew = g_pGroupDlg -> m_wndTree . InsertItem ( & tvInsert )
+>386	AssignmentExpr	itemNew = g_pGroupDlg -> m_wndTree . InsertItem ( & tvInsert )
+>387	CallExpression	g_pGroupDlg -> m_wndTree . InsertItem ( & tvInsert )
+>388	ArgumentList	& tvInsert
+>389	Argument	& tvInsert
+>390	UnaryOp	& tvInsert
+>391	Identifier	tvInsert
+>392	UnaryOperator	&
+>393	Callee	g_pGroupDlg -> m_wndTree . InsertItem
+>394	MemberAccess	g_pGroupDlg -> m_wndTree . InsertItem
+>395	Identifier	InsertItem
+>396	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>397	Identifier	m_wndTree
+>398	Identifier	g_pGroupDlg
+>399	Identifier	itemNew
+>400	Identifier	itemNew
+>401	IdentifierDeclType	HTREEITEM
+>402	ExpressionStatement	 
+>403	AssignmentExpr	tvInsert . item . pszText = cBuff
+>404	Identifier	cBuff
+>405	MemberAccess	tvInsert . item . pszText
+>406	Identifier	pszText
+>407	MemberAccess	tvInsert . item
+>408	Identifier	item
+>409	Identifier	tvInsert
+>410	ExpressionStatement	 
+>411	AssignmentExpr	tvInsert . item . mask = TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>412	InclusiveOrExpression	TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>413	InclusiveOrExpression	TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>414	Identifier	TVIF_SELECTEDIMAGE
+>415	Identifier	TVIF_IMAGE
+>416	Identifier	TVIF_TEXT
+>417	MemberAccess	tvInsert . item . mask
+>418	Identifier	mask
+>419	MemberAccess	tvInsert . item
+>420	Identifier	item
+>421	Identifier	tvInsert
+>422	ExpressionStatement	 
+>423	AssignmentExpr	tvInsert . hInsertAfter = NULL
+>424	Identifier	NULL
+>425	MemberAccess	tvInsert . hInsertAfter
+>426	Identifier	hInsertAfter
+>427	Identifier	tvInsert
+>428	ExpressionStatement	 
+>429	AssignmentExpr	tvInsert . hParent = item
+>430	Identifier	item
+>431	MemberAccess	tvInsert . hParent
+>432	Identifier	hParent
+>433	Identifier	tvInsert
+>434	ExpressionStatement	 
+>435	AssignmentExpr	tvInsert . item . iSelectedImage = tvInsert . item . iImage
+>436	MemberAccess	tvInsert . item . iImage
+>437	Identifier	iImage
+>438	MemberAccess	tvInsert . item
+>439	Identifier	item
+>440	Identifier	tvInsert
+>441	MemberAccess	tvInsert . item . iSelectedImage
+>442	Identifier	iSelectedImage
+>443	MemberAccess	tvInsert . item
+>444	Identifier	item
+>445	Identifier	tvInsert
+>446	ExpressionStatement	 
+>447	AssignmentExpr	tvInsert . item . iImage = ( b -> patchBrush ) ? IMG_PATCH 
+>448	ConditionalExpression	( b -> patchBrush ) ? IMG_PATCH 
+>449	Identifier	IMG_BRUSH
+>450	Identifier	IMG_PATCH
+>451	Condition	b -> patchBrush
+>452	PtrMemberAccess	b -> patchBrush
+>453	Identifier	patchBrush
+>454	Identifier	b
+>455	MemberAccess	tvInsert . item . iImage
+>456	Identifier	iImage
+>457	MemberAccess	tvInsert . item
+>458	Identifier	item
+>459	Identifier	tvInsert
+>460	ExpressionStatement	 
+>461	CallExpression	memset ( & tvInsert , 0 , sizeof ( TVINSERTSTRUCT ) )
+>462	ArgumentList	& tvInsert
+>463	Argument	sizeof ( TVINSERTSTRUCT )
+>464	SizeofExpr	sizeof ( TVINSERTSTRUCT )
+>465	SizeofOperand	TVINSERTSTRUCT
+>466	Sizeof	sizeof
+>467	Argument	0
+>468	PrimaryExpression	0
+>469	Argument	& tvInsert
+>470	UnaryOp	& tvInsert
+>471	Identifier	tvInsert
+>472	UnaryOperator	&
+>473	Callee	memset
+>474	Identifier	memset
+>475	IdentifierDeclStatement	 
+>476	IdentifierDecl	tvInsert
+>477	Identifier	tvInsert
+>478	IdentifierDeclType	TVINSERTSTRUCT
+>479	ExpressionStatement	 
+>480	CallExpression	strcpy ( cBuff , pName )
+>481	ArgumentList	cBuff
+>482	Argument	pName
+>483	Identifier	pName
+>484	Argument	cBuff
+>485	Identifier	cBuff
+>486	Callee	strcpy
+>487	Identifier	strcpy
+>488	IfStatement	if ( ! b -> owner || ( b -> owner == world_entity ) )
+>489	ElseStatement	else
+>490	CompoundStatement	 
+>491	IfStatement	if ( b -> owner -> eclass -> fixedsize )
+>492	ElseStatement	else
+>493	CompoundStatement	 
+>494	ExpressionStatement	 
+>495	AssignmentExpr	nImage = IMG_ENTITYGROUP
+>496	Identifier	IMG_ENTITYGROUP
+>497	Identifier	nImage
+>498	CompoundStatement	 
+>499	ExpressionStatement	 
+>500	AssignmentExpr	nImage = IMG_ENTITY
+>501	Identifier	IMG_ENTITY
+>502	Identifier	nImage
+>503	Condition	 
+>504	PtrMemberAccess	b -> owner -> eclass -> fixedsize
+>505	Identifier	fixedsize
+>506	PtrMemberAccess	b -> owner -> eclass
+>507	Identifier	eclass
+>508	PtrMemberAccess	b -> owner
+>509	Identifier	owner
+>510	Identifier	b
+>511	ExpressionStatement	 
+>512	AssignmentExpr	pName = b -> owner -> eclass -> name
+>513	PtrMemberAccess	b -> owner -> eclass -> name
+>514	Identifier	name
+>515	PtrMemberAccess	b -> owner -> eclass
+>516	Identifier	eclass
+>517	PtrMemberAccess	b -> owner
+>518	Identifier	owner
+>519	Identifier	b
+>520	Identifier	pName
+>521	CompoundStatement	 
+>522	IfStatement	if ( b -> patchBrush )
+>523	ElseStatement	else
+>524	CompoundStatement	 
+>525	ExpressionStatement	 
+>526	AssignmentExpr	nImage = IMG_BRUSH
+>527	Identifier	IMG_BRUSH
+>528	Identifier	nImage
+>529	ExpressionStatement	 
+>530	AssignmentExpr	pName = \"Generic Brush\"
+>531	PrimaryExpression	\"Generic Brush\"
+>532	Identifier	pName
+>533	CompoundStatement	 
+>534	ExpressionStatement	 
+>535	AssignmentExpr	nImage = IMG_PATCH
+>536	Identifier	IMG_PATCH
+>537	Identifier	nImage
+>538	ExpressionStatement	 
+>539	AssignmentExpr	pName = \"Generic Patch\"
+>540	PrimaryExpression	\"Generic Patch\"
+>541	Identifier	pName
+>542	Condition	 
+>543	PtrMemberAccess	b -> patchBrush
+>544	Identifier	patchBrush
+>545	Identifier	b
+>546	Condition	 
+>547	OrExpression	! b -> owner || ( b -> owner == world_entity )
+>548	EqualityExpression	b -> owner == world_entity
+>549	Identifier	world_entity
+>550	PtrMemberAccess	b -> owner
+>551	Identifier	owner
+>552	Identifier	b
+>553	UnaryOp	! b -> owner
+>554	PtrMemberAccess	b -> owner
+>555	Identifier	owner
+>556	Identifier	b
+>557	UnaryOperator	!
+>558	IdentifierDeclStatement	 
+>559	IdentifierDecl	* pNamed = Brush_GetKeyValue ( b , \"name\" )
+>560	AssignmentExpr	* pNamed = Brush_GetKeyValue ( b , \"name\" )
+>561	CallExpression	Brush_GetKeyValue ( b , \"name\" )
+>562	ArgumentList	b
+>563	Argument	\"name\"
+>564	PrimaryExpression	\"name\"
+>565	Argument	b
+>566	Identifier	b
+>567	Callee	Brush_GetKeyValue
+>568	Identifier	Brush_GetKeyValue
+>569	Identifier	pNamed
+>570	Identifier	pNamed
+>571	IdentifierDeclType	const char *
+>572	IdentifierDeclStatement	 
+>573	IdentifierDecl	* pName = NULL
+>574	AssignmentExpr	* pName = NULL
+>575	Identifier	NULL
+>576	Identifier	NULL
+>577	Identifier	pName
+>578	IdentifierDeclType	const char *
+>579	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>580	CompoundStatement	 
+>581	ReturnStatement	 
+>582	Condition	 
+>583	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>584	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>585	Identifier	m_bBrushPrimitMode
+>586	Identifier	g_qeglobals
+>587	UnaryOperator	!
+>588	IdentifierDeclStatement	 
+>589	IdentifierDecl	nImage = IMG_BRUSH
+>590	AssignmentExpr	nImage = IMG_BRUSH
+>591	Identifier	IMG_BRUSH
+>592	Identifier	IMG_BRUSH
+>593	Identifier	nImage
+>594	IdentifierDeclType	int
+>595	IdentifierDeclStatement	 
+>596	IdentifierDecl	cBuff [ 1024 ]
+>597	PrimaryExpression	1024
+>598	Identifier	cBuff
+>599	IdentifierDeclType	char [ 1024 ]
+>649	FunctionDef	Group_RemoveBrush (brush_t * b)
+>650	ParameterList	brush_t * b
+>651	Parameter	 
+>652	Identifier	b
+>653	ParameterType	brush_t *
+>654	ReturnType	void
+>655	CompoundStatement	 
+>656	ExpressionStatement	 
+>657	CallExpression	DeleteKey ( b -> epairs , \"group\" )
+>658	ArgumentList	b -> epairs
+>659	Argument	\"group\"
+>660	PrimaryExpression	\"group\"
+>661	Argument	b -> epairs
+>662	PtrMemberAccess	b -> epairs
+>663	Identifier	epairs
+>664	Identifier	b
+>665	Callee	DeleteKey
+>666	Identifier	DeleteKey
+>667	IfStatement	if ( b -> itemOwner )
+>668	CompoundStatement	 
+>669	ExpressionStatement	 
+>670	CallExpression	g_pGroupDlg -> m_wndTree . RedrawWindow ( )
+>671	ArgumentList	 
+>672	Callee	g_pGroupDlg -> m_wndTree . RedrawWindow
+>673	MemberAccess	g_pGroupDlg -> m_wndTree . RedrawWindow
+>674	Identifier	RedrawWindow
+>675	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>676	Identifier	m_wndTree
+>677	Identifier	g_pGroupDlg
+>678	ExpressionStatement	 
+>679	AssignmentExpr	b -> itemOwner = NULL
+>680	Identifier	NULL
+>681	PtrMemberAccess	b -> itemOwner
+>682	Identifier	itemOwner
+>683	Identifier	b
+>684	ExpressionStatement	 
+>685	CallExpression	g_pGroupDlg -> m_wndTree . DeleteItem ( b -> itemOwner )
+>686	ArgumentList	b -> itemOwner
+>687	Argument	b -> itemOwner
+>688	PtrMemberAccess	b -> itemOwner
+>689	Identifier	itemOwner
+>690	Identifier	b
+>691	Callee	g_pGroupDlg -> m_wndTree . DeleteItem
+>692	MemberAccess	g_pGroupDlg -> m_wndTree . DeleteItem
+>693	Identifier	DeleteItem
+>694	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>695	Identifier	m_wndTree
+>696	Identifier	g_pGroupDlg
+>697	Condition	 
+>698	PtrMemberAccess	b -> itemOwner
+>699	Identifier	itemOwner
+>700	Identifier	b
+>701	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>702	CompoundStatement	 
+>703	ReturnStatement	 
+>704	Condition	 
+>705	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>706	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>707	Identifier	m_bBrushPrimitMode
+>708	Identifier	g_qeglobals
+>709	UnaryOperator	!
+>723	FunctionDef	Group_AddToWorld (brush_t * b)
+>724	ParameterList	brush_t * b
+>725	Parameter	 
+>726	Identifier	b
+>727	ParameterType	brush_t *
+>728	ReturnType	void
+>729	CompoundStatement	 
+>730	ExpressionStatement	 
+>731	CallExpression	Group_AddToItem ( b , itemParent )
+>732	ArgumentList	b
+>733	Argument	itemParent
+>734	Identifier	itemParent
+>735	Argument	b
+>736	Identifier	b
+>737	Callee	Group_AddToItem
+>738	Identifier	Group_AddToItem
+>739	IdentifierDeclStatement	 
+>740	IdentifierDecl	itemParent = g_pGroupDlg -> m_wndTree . GetRootItem ( )
+>741	AssignmentExpr	itemParent = g_pGroupDlg -> m_wndTree . GetRootItem ( )
+>742	CallExpression	g_pGroupDlg -> m_wndTree . GetRootItem ( )
+>743	ArgumentList	 
+>744	Callee	g_pGroupDlg -> m_wndTree . GetRootItem
+>745	MemberAccess	g_pGroupDlg -> m_wndTree . GetRootItem
+>746	Identifier	GetRootItem
+>747	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>748	Identifier	m_wndTree
+>749	Identifier	g_pGroupDlg
+>750	Identifier	itemParent
+>751	Identifier	itemParent
+>752	IdentifierDeclType	HTREEITEM
+>753	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>754	CompoundStatement	 
+>755	ReturnStatement	 
+>756	Condition	 
+>757	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>758	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>759	Identifier	m_bBrushPrimitMode
+>760	Identifier	g_qeglobals
+>761	UnaryOperator	!
+>773	FunctionDef	Group_AddToProperGroup (brush_t * b)
+>774	ParameterList	brush_t * b
+>775	Parameter	 
+>776	Identifier	b
+>777	ParameterType	brush_t *
+>778	ReturnType	void
+>779	CompoundStatement	 
+>780	IfStatement	if ( * pGroup != 0 )
+>781	ElseStatement	else
+>782	CompoundStatement	 
+>783	ExpressionStatement	 
+>784	CallExpression	Group_AddToWorld ( b )
+>785	ArgumentList	b
+>786	Argument	b
+>787	Identifier	b
+>788	Callee	Group_AddToWorld
+>789	Identifier	Group_AddToWorld
+>790	CompoundStatement	 
+>791	IfStatement	if ( g )
+>792	ElseStatement	else
+>793	ExpressionStatement	 
+>794	CallExpression	Sys_Printf ( \"WARNING
+>795	ArgumentList	\"WARNING
+>796	Argument	\"WARNING
+>797	PrimaryExpression	\"WARNING
+>798	Callee	Sys_Printf
+>799	Identifier	Sys_Printf
+>800	ExpressionStatement	 
+>801	CallExpression	Group_AddToItem ( b , g -> itemOwner )
+>802	ArgumentList	b
+>803	Argument	g -> itemOwner
+>804	PtrMemberAccess	g -> itemOwner
+>805	Identifier	itemOwner
+>806	Identifier	g
+>807	Argument	b
+>808	Identifier	b
+>809	Callee	Group_AddToItem
+>810	Identifier	Group_AddToItem
+>811	Condition	 
+>812	Identifier	g
+>813	IdentifierDeclStatement	 
+>814	IdentifierDecl	* g = Group_ForName ( pGroup )
+>815	AssignmentExpr	* g = Group_ForName ( pGroup )
+>816	CallExpression	Group_ForName ( pGroup )
+>817	ArgumentList	pGroup
+>818	Argument	pGroup
+>819	Identifier	pGroup
+>820	Callee	Group_ForName
+>821	Identifier	Group_ForName
+>822	Identifier	g
+>823	Identifier	g
+>824	IdentifierDeclType	group_t *
+>825	Condition	 
+>826	EqualityExpression	* pGroup != 0
+>827	PrimaryExpression	0
+>828	UnaryOp	* pGroup
+>829	Identifier	pGroup
+>830	UnaryOperator	*
+>831	IfStatement	if ( b -> itemOwner )
+>832	CompoundStatement	 
+>833	ExpressionStatement	 
+>834	CallExpression	g_pGroupDlg -> m_wndTree . RedrawWindow ( )
+>835	ArgumentList	 
+>836	Callee	g_pGroupDlg -> m_wndTree . RedrawWindow
+>837	MemberAccess	g_pGroupDlg -> m_wndTree . RedrawWindow
+>838	Identifier	RedrawWindow
+>839	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>840	Identifier	m_wndTree
+>841	Identifier	g_pGroupDlg
+>842	ExpressionStatement	 
+>843	AssignmentExpr	b -> itemOwner = NULL
+>844	Identifier	NULL
+>845	PtrMemberAccess	b -> itemOwner
+>846	Identifier	itemOwner
+>847	Identifier	b
+>848	ExpressionStatement	 
+>849	CallExpression	g_pGroupDlg -> m_wndTree . DeleteItem ( b -> itemOwner )
+>850	ArgumentList	b -> itemOwner
+>851	Argument	b -> itemOwner
+>852	PtrMemberAccess	b -> itemOwner
+>853	Identifier	itemOwner
+>854	Identifier	b
+>855	Callee	g_pGroupDlg -> m_wndTree . DeleteItem
+>856	MemberAccess	g_pGroupDlg -> m_wndTree . DeleteItem
+>857	Identifier	DeleteItem
+>858	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>859	Identifier	m_wndTree
+>860	Identifier	g_pGroupDlg
+>861	Condition	 
+>862	PtrMemberAccess	b -> itemOwner
+>863	Identifier	itemOwner
+>864	Identifier	b
+>865	IdentifierDeclStatement	 
+>866	IdentifierDecl	* pGroup = Brush_GetKeyValue ( b , \"group\" )
+>867	AssignmentExpr	* pGroup = Brush_GetKeyValue ( b , \"group\" )
+>868	CallExpression	Brush_GetKeyValue ( b , \"group\" )
+>869	ArgumentList	b
+>870	Argument	\"group\"
+>871	PrimaryExpression	\"group\"
+>872	Argument	b
+>873	Identifier	b
+>874	Callee	Brush_GetKeyValue
+>875	Identifier	Brush_GetKeyValue
+>876	Identifier	pGroup
+>877	Identifier	pGroup
+>878	IdentifierDeclType	const char *
+>879	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>880	CompoundStatement	 
+>881	ReturnStatement	 
+>882	Condition	 
+>883	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>884	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>885	Identifier	m_bBrushPrimitMode
+>886	Identifier	g_qeglobals
+>887	UnaryOperator	!
+>907	FunctionDef	Group_AddToSelected (brush_t * b)
+>908	ParameterList	brush_t * b
+>909	Parameter	 
+>910	Identifier	b
+>911	ParameterType	brush_t *
+>912	ReturnType	void
+>913	CompoundStatement	 
+>914	ExpressionStatement	 
+>915	CallExpression	Group_AddToItem ( b , hItem )
+>916	ArgumentList	b
+>917	Argument	hItem
+>918	Identifier	hItem
+>919	Argument	b
+>920	Identifier	b
+>921	Callee	Group_AddToItem
+>922	Identifier	Group_AddToItem
+>923	IfStatement	if ( hItem == NULL )
+>924	CompoundStatement	 
+>925	ExpressionStatement	 
+>926	AssignmentExpr	hItem = g_pGroupDlg -> m_wndTree . GetRootItem ( )
+>927	CallExpression	g_pGroupDlg -> m_wndTree . GetRootItem ( )
+>928	ArgumentList	 
+>929	Callee	g_pGroupDlg -> m_wndTree . GetRootItem
+>930	MemberAccess	g_pGroupDlg -> m_wndTree . GetRootItem
+>931	Identifier	GetRootItem
+>932	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>933	Identifier	m_wndTree
+>934	Identifier	g_pGroupDlg
+>935	Identifier	hItem
+>936	Condition	 
+>937	EqualityExpression	hItem == NULL
+>938	Identifier	NULL
+>939	Identifier	hItem
+>940	IdentifierDeclStatement	 
+>941	IdentifierDecl	hItem = g_pGroupDlg -> m_wndTree . GetSelectedItem ( )
+>942	AssignmentExpr	hItem = g_pGroupDlg -> m_wndTree . GetSelectedItem ( )
+>943	CallExpression	g_pGroupDlg -> m_wndTree . GetSelectedItem ( )
+>944	ArgumentList	 
+>945	Callee	g_pGroupDlg -> m_wndTree . GetSelectedItem
+>946	MemberAccess	g_pGroupDlg -> m_wndTree . GetSelectedItem
+>947	Identifier	GetSelectedItem
+>948	PtrMemberAccess	g_pGroupDlg -> m_wndTree
+>949	Identifier	m_wndTree
+>950	Identifier	g_pGroupDlg
+>951	Identifier	hItem
+>952	Identifier	hItem
+>953	IdentifierDeclType	HTREEITEM
+>954	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>955	CompoundStatement	 
+>956	ReturnStatement	 
+>957	Condition	 
+>958	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>959	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>960	Identifier	m_bBrushPrimitMode
+>961	Identifier	g_qeglobals
+>962	UnaryOperator	!
+>976	FunctionDef	Group_Save (FILE * f)
+>977	ParameterList	FILE * f
+>978	Parameter	 
+>979	Identifier	f
+>980	ParameterType	FILE *
+>981	ReturnType	void
+>982	CompoundStatement	 
+>983	WhileStatement	while ( g )
+>984	CompoundStatement	 
+>985	ExpressionStatement	 
+>986	AssignmentExpr	g = g -> next
+>987	PtrMemberAccess	g -> next
+>988	Identifier	next
+>989	Identifier	g
+>990	Identifier	g
+>991	ExpressionStatement	 
+>992	CallExpression	fprintf ( f , \"{\n\\"classname\\" \\"group_info\\"\n\\"group\\" \\"%s\\"\n}\n\" , ValueForKey ( g -> epairs , \"group\" ) )
+>993	ArgumentList	f
+>994	Argument	ValueForKey ( g -> epairs , \"group\" )
+>995	CallExpression	ValueForKey ( g -> epairs , \"group\" )
+>996	ArgumentList	g -> epairs
+>997	Argument	\"group\"
+>998	PrimaryExpression	\"group\"
+>999	Argument	g -> epairs
+>1000	PtrMemberAccess	g -> epairs
+>1001	Identifier	epairs
+>1002	Identifier	g
+>1003	Callee	ValueForKey
+>1004	Identifier	ValueForKey
+>1005	Argument	\"{\n\\"classname\\" \\"group_info\\"\n\\"group\\" \\"%s\\"\n}\n\"
+>1006	PrimaryExpression	\"{\n\\"classname\\" \\"group_info\\"\n\\"group\\" \\"%s\\"\n}\n\"
+>1007	Argument	f
+>1008	Identifier	f
+>1009	Callee	fprintf
+>1010	Identifier	fprintf
+>1011	Condition	 
+>1012	Identifier	g
+>1013	IdentifierDeclStatement	 
+>1014	IdentifierDecl	* g = g_pGroups
+>1015	AssignmentExpr	* g = g_pGroups
+>1016	Identifier	g_pGroups
+>1017	Identifier	g_pGroups
+>1018	Identifier	g
+>1019	IdentifierDeclType	group_t *
+>1030	FunctionDef	Group_Init ()
+>1031	ParameterList	 
+>1032	ReturnType	void
+>1033	CompoundStatement	 
+>1034	ForStatement	for ( b = selected_brushes . next ; b != & selected_brushes ; b = b -> next )
+>1035	CompoundStatement	 
+>1036	ExpressionStatement	 
+>1037	CallExpression	Group_AddToProperGroup ( b )
+>1038	ArgumentList	b
+>1039	Argument	b
+>1040	Identifier	b
+>1041	Callee	Group_AddToProperGroup
+>1042	Identifier	Group_AddToProperGroup
+>1043	ExpressionStatement	 
+>1044	AssignmentExpr	b -> itemOwner = NULL
+>1045	Identifier	NULL
+>1046	PtrMemberAccess	b -> itemOwner
+>1047	Identifier	itemOwner
+>1048	Identifier	b
+>1049	AssignmentExpr	 
+>1050	PtrMemberAccess	b -> next
+>1051	Identifier	next
+>1052	Identifier	b
+>1053	Identifier	b
+>1054	Condition	 
+>1055	EqualityExpression	b != & selected_brushes
+>1056	UnaryOp	& selected_brushes
+>1057	Identifier	selected_brushes
+>1058	UnaryOperator	&
+>1059	Identifier	b
+>1060	ForInit	 
+>1061	AssignmentExpr	b = selected_brushes . next
+>1062	MemberAccess	selected_brushes . next
+>1063	Identifier	next
+>1064	Identifier	selected_brushes
+>1065	Identifier	b
+>1066	ForStatement	for ( b = active_brushes . next ; b != & active_brushes ; b = b -> next )
+>1067	CompoundStatement	 
+>1068	ExpressionStatement	 
+>1069	CallExpression	Group_AddToProperGroup ( b )
+>1070	ArgumentList	b
+>1071	Argument	b
+>1072	Identifier	b
+>1073	Callee	Group_AddToProperGroup
+>1074	Identifier	Group_AddToProperGroup
+>1075	ExpressionStatement	 
+>1076	AssignmentExpr	b -> itemOwner = NULL
+>1077	Identifier	NULL
+>1078	PtrMemberAccess	b -> itemOwner
+>1079	Identifier	itemOwner
+>1080	Identifier	b
+>1081	AssignmentExpr	 
+>1082	PtrMemberAccess	b -> next
+>1083	Identifier	next
+>1084	Identifier	b
+>1085	Identifier	b
+>1086	Condition	 
+>1087	EqualityExpression	b != & active_brushes
+>1088	UnaryOp	& active_brushes
+>1089	Identifier	active_brushes
+>1090	UnaryOperator	&
+>1091	Identifier	b
+>1092	ForInit	 
+>1093	AssignmentExpr	b = active_brushes . next
+>1094	MemberAccess	active_brushes . next
+>1095	Identifier	next
+>1096	Identifier	active_brushes
+>1097	Identifier	b
+>1098	IdentifierDeclStatement	 
+>1099	IdentifierDecl	* b
+>1100	Identifier	b
+>1101	IdentifierDeclType	brush_t *
+>1102	IdentifierDeclStatement	 
+>1103	IdentifierDecl	hWorld = g_wndGroup . m_wndTree . InsertItem ( & tvInsert )
+>1104	AssignmentExpr	hWorld = g_wndGroup . m_wndTree . InsertItem ( & tvInsert )
+>1105	CallExpression	g_wndGroup . m_wndTree . InsertItem ( & tvInsert )
+>1106	ArgumentList	& tvInsert
+>1107	Argument	& tvInsert
+>1108	UnaryOp	& tvInsert
+>1109	Identifier	tvInsert
+>1110	UnaryOperator	&
+>1111	Callee	g_wndGroup . m_wndTree . InsertItem
+>1112	MemberAccess	g_wndGroup . m_wndTree . InsertItem
+>1113	Identifier	InsertItem
+>1114	MemberAccess	g_wndGroup . m_wndTree
+>1115	Identifier	m_wndTree
+>1116	Identifier	g_wndGroup
+>1117	Identifier	hWorld
+>1118	Identifier	hWorld
+>1119	IdentifierDeclType	HTREEITEM
+>1120	ExpressionStatement	 
+>1121	AssignmentExpr	tvInsert . item . iSelectedImage = IMG_GROUP
+>1122	Identifier	IMG_GROUP
+>1123	MemberAccess	tvInsert . item . iSelectedImage
+>1124	Identifier	iSelectedImage
+>1125	MemberAccess	tvInsert . item
+>1126	Identifier	item
+>1127	Identifier	tvInsert
+>1128	ExpressionStatement	 
+>1129	AssignmentExpr	tvInsert . item . iImage = IMG_GROUP
+>1130	Identifier	IMG_GROUP
+>1131	MemberAccess	tvInsert . item . iImage
+>1132	Identifier	iImage
+>1133	MemberAccess	tvInsert . item
+>1134	Identifier	item
+>1135	Identifier	tvInsert
+>1136	ExpressionStatement	 
+>1137	AssignmentExpr	tvInsert . item . pszText = _T ( \"World\" )
+>1138	CallExpression	_T ( \"World\" )
+>1139	ArgumentList	\"World\"
+>1140	Argument	\"World\"
+>1141	PrimaryExpression	\"World\"
+>1142	Callee	_T
+>1143	Identifier	_T
+>1144	MemberAccess	tvInsert . item . pszText
+>1145	Identifier	pszText
+>1146	MemberAccess	tvInsert . item
+>1147	Identifier	item
+>1148	Identifier	tvInsert
+>1149	ExpressionStatement	 
+>1150	AssignmentExpr	tvInsert . item . mask = TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>1151	InclusiveOrExpression	TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>1152	InclusiveOrExpression	TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>1153	Identifier	TVIF_SELECTEDIMAGE
+>1154	Identifier	TVIF_IMAGE
+>1155	Identifier	TVIF_TEXT
+>1156	MemberAccess	tvInsert . item . mask
+>1157	Identifier	mask
+>1158	MemberAccess	tvInsert . item
+>1159	Identifier	item
+>1160	Identifier	tvInsert
+>1161	ExpressionStatement	 
+>1162	AssignmentExpr	tvInsert . hInsertAfter = NULL
+>1163	Identifier	NULL
+>1164	MemberAccess	tvInsert . hInsertAfter
+>1165	Identifier	hInsertAfter
+>1166	Identifier	tvInsert
+>1167	ExpressionStatement	 
+>1168	AssignmentExpr	tvInsert . hParent = NULL
+>1169	Identifier	NULL
+>1170	MemberAccess	tvInsert . hParent
+>1171	Identifier	hParent
+>1172	Identifier	tvInsert
+>1173	ExpressionStatement	 
+>1174	CallExpression	memset ( & tvInsert , 0 , sizeof ( TVINSERTSTRUCT ) )
+>1175	ArgumentList	& tvInsert
+>1176	Argument	sizeof ( TVINSERTSTRUCT )
+>1177	SizeofExpr	sizeof ( TVINSERTSTRUCT )
+>1178	SizeofOperand	TVINSERTSTRUCT
+>1179	Sizeof	sizeof
+>1180	Argument	0
+>1181	PrimaryExpression	0
+>1182	Argument	& tvInsert
+>1183	UnaryOp	& tvInsert
+>1184	Identifier	tvInsert
+>1185	UnaryOperator	&
+>1186	Callee	memset
+>1187	Identifier	memset
+>1188	IdentifierDeclStatement	 
+>1189	IdentifierDecl	tvInsert
+>1190	Identifier	tvInsert
+>1191	IdentifierDeclType	TVINSERTSTRUCT
+>1192	ExpressionStatement	 
+>1193	CallExpression	g_wndGroup . m_wndTree . DeleteAllItems ( )
+>1194	ArgumentList	 
+>1195	Callee	g_wndGroup . m_wndTree . DeleteAllItems
+>1196	MemberAccess	g_wndGroup . m_wndTree . DeleteAllItems
+>1197	Identifier	DeleteAllItems
+>1198	MemberAccess	g_wndGroup . m_wndTree
+>1199	Identifier	m_wndTree
+>1200	Identifier	g_wndGroup
+>1201	ExpressionStatement	 
+>1202	AssignmentExpr	g_pGroups = NULL
+>1203	Identifier	NULL
+>1204	Identifier	g_pGroups
+>1205	WhileStatement	while ( g )
+>1206	CompoundStatement	 
+>1207	ExpressionStatement	 
+>1208	AssignmentExpr	g = g -> next
+>1209	PtrMemberAccess	g -> next
+>1210	Identifier	next
+>1211	Identifier	g
+>1212	Identifier	g
+>1213	ForStatement	for ( ep = g -> epairs ; ep ; ep = enext )
+>1214	CompoundStatement	 
+>1215	ExpressionStatement	 
+>1216	CallExpression	free ( ep )
+>1217	ArgumentList	ep
+>1218	Argument	ep
+>1219	Identifier	ep
+>1220	Callee	free
+>1221	Identifier	free
+>1222	ExpressionStatement	 
+>1223	CallExpression	free ( ep -> value )
+>1224	ArgumentList	ep -> value
+>1225	Argument	ep -> value
+>1226	PtrMemberAccess	ep -> value
+>1227	Identifier	value
+>1228	Identifier	ep
+>1229	Callee	free
+>1230	Identifier	free
+>1231	ExpressionStatement	 
+>1232	CallExpression	free ( ep -> key )
+>1233	ArgumentList	ep -> key
+>1234	Argument	ep -> key
+>1235	PtrMemberAccess	ep -> key
+>1236	Identifier	key
+>1237	Identifier	ep
+>1238	Callee	free
+>1239	Identifier	free
+>1240	ExpressionStatement	 
+>1241	AssignmentExpr	enext = ep -> next
+>1242	PtrMemberAccess	ep -> next
+>1243	Identifier	next
+>1244	Identifier	ep
+>1245	Identifier	enext
+>1246	AssignmentExpr	 
+>1247	Identifier	enext
+>1248	Identifier	ep
+>1249	Condition	 
+>1250	Identifier	ep
+>1251	ForInit	 
+>1252	AssignmentExpr	ep = g -> epairs
+>1253	PtrMemberAccess	g -> epairs
+>1254	Identifier	epairs
+>1255	Identifier	g
+>1256	Identifier	ep
+>1257	IdentifierDeclStatement	 
+>1258	IdentifierDecl	* enext
+>1259	Identifier	enext
+>1260	IdentifierDeclType	epair_t *
+>1261	IdentifierDecl	* ep
+>1262	Identifier	ep
+>1263	IdentifierDeclType	epair_t *
+>1264	Condition	 
+>1265	Identifier	g
+>1266	IdentifierDeclStatement	 
+>1267	IdentifierDecl	* g = g_pGroups
+>1268	AssignmentExpr	* g = g_pGroups
+>1269	Identifier	g_pGroups
+>1270	Identifier	g_pGroups
+>1271	Identifier	g
+>1272	IdentifierDeclType	group_t *
+>1273	ExpressionStatement	 
+>1274	CallExpression	Sys_Printf ( \"TODO
+>1275	ArgumentList	\"TODO
+>1276	Argument	\"TODO
+>1277	PrimaryExpression	\"TODO
+>1278	Callee	Sys_Printf
+>1279	Identifier	Sys_Printf
+>1280	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>1281	CompoundStatement	 
+>1282	ReturnStatement	 
+>1283	Condition	 
+>1284	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>1285	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>1286	Identifier	m_bBrushPrimitMode
+>1287	Identifier	g_qeglobals
+>1288	UnaryOperator	!
+>1334	FunctionDef	Group_GetListFromWorld (CStringArray * pArray)
+>1335	ParameterList	CStringArray * pArray
+>1336	Parameter	 
+>1337	Identifier	pArray
+>1338	ParameterType	CStringArray *
+>1339	ReturnType	void
+>1340	CompoundStatement	 
+>1341	ForStatement	for ( int i = 0 ; i < MAX_GROUPS ; i ++ )
+>1342	CompoundStatement	 
+>1343	IfStatement	if ( pGroup && strlen ( pGroup ) > 0 )
+>1344	ElseStatement	else
+>1345	CompoundStatement	 
+>1346	BreakStatement	 
+>1347	CompoundStatement	 
+>1348	ExpressionStatement	 
+>1349	CallExpression	pArray -> Add ( pGroup )
+>1350	ArgumentList	pGroup
+>1351	Argument	pGroup
+>1352	Identifier	pGroup
+>1353	Callee	pArray -> Add
+>1354	PtrMemberAccess	pArray -> Add
+>1355	Identifier	Add
+>1356	Identifier	pArray
+>1357	Condition	 
+>1358	AndExpression	pGroup && strlen ( pGroup ) > 0
+>1359	RelationalExpression	strlen ( pGroup ) > 0
+>1360	PrimaryExpression	0
+>1361	CallExpression	strlen ( pGroup )
+>1362	ArgumentList	pGroup
+>1363	Argument	pGroup
+>1364	Identifier	pGroup
+>1365	Callee	strlen
+>1366	Identifier	strlen
+>1367	Identifier	pGroup
+>1368	IdentifierDeclStatement	 
+>1369	IdentifierDecl	* pGroup = ValueForKey ( world_entity , cBuff )
+>1370	AssignmentExpr	* pGroup = ValueForKey ( world_entity , cBuff )
+>1371	CallExpression	ValueForKey ( world_entity , cBuff )
+>1372	ArgumentList	world_entity
+>1373	Argument	cBuff
+>1374	Identifier	cBuff
+>1375	Argument	world_entity
+>1376	Identifier	world_entity
+>1377	Callee	ValueForKey
+>1378	Identifier	ValueForKey
+>1379	Identifier	pGroup
+>1380	Identifier	pGroup
+>1381	IdentifierDeclType	char *
+>1382	ExpressionStatement	 
+>1383	CallExpression	sprintf ( cBuff , GROUPNAME , i )
+>1384	ArgumentList	cBuff
+>1385	Argument	i
+>1386	Identifier	i
+>1387	Argument	GROUPNAME
+>1388	Identifier	GROUPNAME
+>1389	Argument	cBuff
+>1390	Identifier	cBuff
+>1391	Callee	sprintf
+>1392	Identifier	sprintf
+>1393	IncDecOp	 
+>1394	IncDec	++
+>1395	Identifier	i
+>1396	Condition	 
+>1397	RelationalExpression	i < MAX_GROUPS
+>1398	Identifier	MAX_GROUPS
+>1399	Identifier	i
+>1400	ForInit	 
+>1401	IdentifierDeclStatement	int i = 0 ;
+>1402	IdentifierDecl	i = 0
+>1403	AssignmentExpr	i = 0
+>1404	PrimaryExpression	0
+>1405	Identifier	i
+>1406	Identifier	i
+>1407	IdentifierDeclType	int
+>1408	IdentifierDeclStatement	 
+>1409	IdentifierDecl	cBuff [ 1024 ]
+>1410	PrimaryExpression	1024
+>1411	Identifier	cBuff
+>1412	IdentifierDeclType	char [ 1024 ]
+>1413	ExpressionStatement	 
+>1414	CallExpression	pArray -> RemoveAll ( )
+>1415	ArgumentList	 
+>1416	Callee	pArray -> RemoveAll
+>1417	PtrMemberAccess	pArray -> RemoveAll
+>1418	Identifier	RemoveAll
+>1419	Identifier	pArray
+>1420	IfStatement	if ( world_entity == NULL )
+>1421	CompoundStatement	 
+>1422	ReturnStatement	 
+>1423	Condition	 
+>1424	EqualityExpression	world_entity == NULL
+>1425	Identifier	NULL
+>1426	Identifier	world_entity
+>1427	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>1428	CompoundStatement	 
+>1429	ReturnStatement	 
+>1430	Condition	 
+>1431	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>1432	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>1433	Identifier	m_bBrushPrimitMode
+>1434	Identifier	g_qeglobals
+>1435	UnaryOperator	!
+>1451	FunctionDef	Group_RemoveListFromWorld ()
+>1452	ParameterList	 
+>1453	ReturnType	void
+>1454	CompoundStatement	 
+>1455	ForStatement	for ( int i = 0 ; i < nCount ; i ++ )
+>1456	CompoundStatement	 
+>1457	ExpressionStatement	 
+>1458	CallExpression	DeleteKey ( world_entity , array . GetAt ( i ) )
+>1459	ArgumentList	world_entity
+>1460	Argument	array . GetAt ( i )
+>1461	CallExpression	array . GetAt ( i )
+>1462	ArgumentList	i
+>1463	Argument	i
+>1464	Identifier	i
+>1465	Callee	array . GetAt
+>1466	MemberAccess	array . GetAt
+>1467	Identifier	GetAt
+>1468	Identifier	array
+>1469	Argument	world_entity
+>1470	Identifier	world_entity
+>1471	Callee	DeleteKey
+>1472	Identifier	DeleteKey
+>1473	IncDecOp	 
+>1474	IncDec	++
+>1475	Identifier	i
+>1476	Condition	 
+>1477	RelationalExpression	i < nCount
+>1478	Identifier	nCount
+>1479	Identifier	i
+>1480	ForInit	 
+>1481	IdentifierDeclStatement	int i = 0 ;
+>1482	IdentifierDecl	i = 0
+>1483	AssignmentExpr	i = 0
+>1484	PrimaryExpression	0
+>1485	Identifier	i
+>1486	Identifier	i
+>1487	IdentifierDeclType	int
+>1488	IdentifierDeclStatement	 
+>1489	IdentifierDecl	nCount = array . GetSize ( )
+>1490	AssignmentExpr	nCount = array . GetSize ( )
+>1491	CallExpression	array . GetSize ( )
+>1492	ArgumentList	 
+>1493	Callee	array . GetSize
+>1494	MemberAccess	array . GetSize
+>1495	Identifier	GetSize
+>1496	Identifier	array
+>1497	Identifier	nCount
+>1498	Identifier	nCount
+>1499	IdentifierDeclType	int
+>1500	ExpressionStatement	 
+>1501	CallExpression	Group_GetListFromWorld ( & array )
+>1502	ArgumentList	& array
+>1503	Argument	& array
+>1504	UnaryOp	& array
+>1505	Identifier	array
+>1506	UnaryOperator	&
+>1507	Callee	Group_GetListFromWorld
+>1508	Identifier	Group_GetListFromWorld
+>1509	IdentifierDeclStatement	 
+>1510	IdentifierDecl	array
+>1511	Identifier	array
+>1512	IdentifierDeclType	CStringArray
+>1513	IfStatement	if ( ! g_qeglobals . m_bBrushPrimitMode )
+>1514	CompoundStatement	 
+>1515	ReturnStatement	 
+>1516	Condition	 
+>1517	UnaryOp	! g_qeglobals . m_bBrushPrimitMode
+>1518	MemberAccess	g_qeglobals . m_bBrushPrimitMode
+>1519	Identifier	m_bBrushPrimitMode
+>1520	Identifier	g_qeglobals
+>1521	UnaryOperator	!
+>1534	FunctionDef	CountChar (const char * p , char c)
+>1535	ParameterList	const char * p , char c
+>1536	Parameter	 
+>1537	Identifier	c
+>1538	ParameterType	char
+>1539	Parameter	 
+>1540	Identifier	p
+>1541	ParameterType	const char *
+>1542	ReturnType	int
+>1543	CompoundStatement	 
+>1544	ReturnStatement	 
+>1545	Identifier	nCount
+>1546	WhileStatement	while ( nLen -- >= 0 )
+>1547	CompoundStatement	 
+>1548	IfStatement	if ( p [ nLen ] == c )
+>1549	CompoundStatement	 
+>1550	ExpressionStatement	 
+>1551	IncDecOp	nCount ++
+>1552	IncDec	++
+>1553	Identifier	nCount
+>1554	Condition	 
+>1555	EqualityExpression	p [ nLen ] == c
+>1556	Identifier	c
+>1557	ArrayIndexing	p [ nLen ]
+>1558	Identifier	nLen
+>1559	Identifier	p
+>1560	Condition	 
+>1561	RelationalExpression	nLen -- >= 0
+>1562	PrimaryExpression	0
+>1563	IncDecOp	nLen --
+>1564	IncDec	--
+>1565	Identifier	nLen
+>1566	IdentifierDeclStatement	 
+>1567	IdentifierDecl	nLen = strlen ( p ) - 1
+>1568	AssignmentExpr	nLen = strlen ( p ) - 1
+>1569	AdditiveExpression	strlen ( p ) - 1
+>1570	PrimaryExpression	1
+>1571	CallExpression	strlen ( p )
+>1572	ArgumentList	p
+>1573	Argument	p
+>1574	Identifier	p
+>1575	Callee	strlen
+>1576	Identifier	strlen
+>1577	Identifier	nLen
+>1578	Identifier	nLen
+>1579	IdentifierDeclType	int
+>1580	IdentifierDeclStatement	 
+>1581	IdentifierDecl	nCount = 0
+>1582	AssignmentExpr	nCount = 0
+>1583	PrimaryExpression	0
+>1584	Identifier	nCount
+>1585	Identifier	nCount
+>1586	IdentifierDeclType	int
+>1597	FunctionDef	DecomposeSiblingList (const char * p , CStringArray * pArray , CTreeCtrl * pTree , HTREEITEM itemChild)
+>1598	ParameterList	const char * p , CStringArray * pArray , CTreeCtrl * pTree , HTREEITEM itemChild
+>1599	Parameter	 
+>1600	Identifier	itemChild
+>1601	ParameterType	HTREEITEM
+>1602	Parameter	 
+>1603	Identifier	pTree
+>1604	ParameterType	CTreeCtrl *
+>1605	Parameter	 
+>1606	Identifier	pArray
+>1607	ParameterType	CStringArray *
+>1608	Parameter	 
+>1609	Identifier	p
+>1610	ParameterType	const char *
+>1611	ReturnType	void
+>1612	CompoundStatement	 
+>1613	WhileStatement	while ( itemChild )
+>1614	CompoundStatement	 
+>1615	ExpressionStatement	 
+>1616	AssignmentExpr	itemChild = pTree -> GetNextSiblingItem ( itemChild )
+>1617	CallExpression	pTree -> GetNextSiblingItem ( itemChild )
+>1618	ArgumentList	itemChild
+>1619	Argument	itemChild
+>1620	Identifier	itemChild
+>1621	Callee	pTree -> GetNextSiblingItem
+>1622	PtrMemberAccess	pTree -> GetNextSiblingItem
+>1623	Identifier	GetNextSiblingItem
+>1624	Identifier	pTree
+>1625	Identifier	itemChild
+>1626	IfStatement	if ( pTree -> ItemHasChildren ( itemChild ) )
+>1627	CompoundStatement	 
+>1628	ExpressionStatement	 
+>1629	CallExpression	DecomposeSiblingList ( strAdd , pArray , pTree , itemOffspring )
+>1630	ArgumentList	strAdd
+>1631	Argument	itemOffspring
+>1632	Identifier	itemOffspring
+>1633	Argument	pTree
+>1634	Identifier	pTree
+>1635	Argument	pArray
+>1636	Identifier	pArray
+>1637	Argument	strAdd
+>1638	Identifier	strAdd
+>1639	Callee	DecomposeSiblingList
+>1640	Identifier	DecomposeSiblingList
+>1641	IdentifierDeclStatement	 
+>1642	IdentifierDecl	itemOffspring = pTree -> GetChildItem ( itemChild )
+>1643	AssignmentExpr	itemOffspring = pTree -> GetChildItem ( itemChild )
+>1644	CallExpression	pTree -> GetChildItem ( itemChild )
+>1645	ArgumentList	itemChild
+>1646	Argument	itemChild
+>1647	Identifier	itemChild
+>1648	Callee	pTree -> GetChildItem
+>1649	PtrMemberAccess	pTree -> GetChildItem
+>1650	Identifier	GetChildItem
+>1651	Identifier	pTree
+>1652	Identifier	itemOffspring
+>1653	Identifier	itemOffspring
+>1654	IdentifierDeclType	HTREEITEM
+>1655	Condition	 
+>1656	CallExpression	pTree -> ItemHasChildren ( itemChild )
+>1657	ArgumentList	itemChild
+>1658	Argument	itemChild
+>1659	Identifier	itemChild
+>1660	Callee	pTree -> ItemHasChildren
+>1661	PtrMemberAccess	pTree -> ItemHasChildren
+>1662	Identifier	ItemHasChildren
+>1663	Identifier	pTree
+>1664	IfStatement	if ( pTree -> GetItemData ( itemChild ) == 0 )
+>1665	CompoundStatement	 
+>1666	ExpressionStatement	 
+>1667	CallExpression	pArray -> Add ( strAdd )
+>1668	ArgumentList	strAdd
+>1669	Argument	strAdd
+>1670	Identifier	strAdd
+>1671	Callee	pArray -> Add
+>1672	PtrMemberAccess	pArray -> Add
+>1673	Identifier	Add
+>1674	Identifier	pArray
+>1675	Condition	 
+>1676	EqualityExpression	pTree -> GetItemData ( itemChild ) == 0
+>1677	PrimaryExpression	0
+>1678	CallExpression	pTree -> GetItemData ( itemChild )
+>1679	ArgumentList	itemChild
+>1680	Argument	itemChild
+>1681	Identifier	itemChild
+>1682	Callee	pTree -> GetItemData
+>1683	PtrMemberAccess	pTree -> GetItemData
+>1684	Identifier	GetItemData
+>1685	Identifier	pTree
+>1686	ExpressionStatement	 
+>1687	AssignmentExpr	strAdd += pTree -> GetItemText ( itemChild )
+>1688	CallExpression	pTree -> GetItemText ( itemChild )
+>1689	ArgumentList	itemChild
+>1690	Argument	itemChild
+>1691	Identifier	itemChild
+>1692	Callee	pTree -> GetItemText
+>1693	PtrMemberAccess	pTree -> GetItemText
+>1694	Identifier	GetItemText
+>1695	Identifier	pTree
+>1696	Identifier	strAdd
+>1697	IdentifierDeclStatement	 
+>1698	IdentifierDecl	strAdd = str
+>1699	AssignmentExpr	strAdd = str
+>1700	Identifier	str
+>1701	Identifier	str
+>1702	Identifier	strAdd
+>1703	IdentifierDeclType	CString
+>1704	Condition	 
+>1705	Identifier	itemChild
+>1706	ExpressionStatement	 
+>1707	AssignmentExpr	str += GROUP_DELIMETER
+>1708	Identifier	GROUP_DELIMETER
+>1709	Identifier	str
+>1710	IdentifierDeclStatement	 
+>1711	IdentifierDecl	str = p
+>1712	AssignmentExpr	str = p
+>1713	Identifier	p
+>1714	Identifier	p
+>1715	Identifier	str
+>1716	IdentifierDeclType	CString
+>1734	FunctionDef	CGroupDlg 
+>1735	ParameterList	CWnd * pParent
+>1736	Parameter	 
+>1737	Identifier	pParent
+>1738	ParameterType	CWnd *
+>1739	CompoundStatement	 
+>1744	FunctionDef	CGroupDlg 
+>1745	ParameterList	CDataExchange * pDX
+>1746	Parameter	 
+>1747	Identifier	pDX
+>1748	ParameterType	CDataExchange *
+>1749	ReturnType	void
+>1750	CompoundStatement	 
+>1751	ExpressionStatement	 
+>1752	CallExpression	DDX_Control ( pDX , IDC_BTN_ADD , m_wndAdd )
+>1753	ArgumentList	pDX
+>1754	Argument	m_wndAdd
+>1755	Identifier	m_wndAdd
+>1756	Argument	IDC_BTN_ADD
+>1757	Identifier	IDC_BTN_ADD
+>1758	Argument	pDX
+>1759	Identifier	pDX
+>1760	Callee	DDX_Control
+>1761	Identifier	DDX_Control
+>1762	ExpressionStatement	 
+>1763	CallExpression	DDX_Control ( pDX , IDC_BTN_DEL , m_wndDel )
+>1764	ArgumentList	pDX
+>1765	Argument	m_wndDel
+>1766	Identifier	m_wndDel
+>1767	Argument	IDC_BTN_DEL
+>1768	Identifier	IDC_BTN_DEL
+>1769	Argument	pDX
+>1770	Identifier	pDX
+>1771	Callee	DDX_Control
+>1772	Identifier	DDX_Control
+>1773	ExpressionStatement	 
+>1774	CallExpression	DDX_Control ( pDX , IDC_BTN_EDIT , m_wndEdit )
+>1775	ArgumentList	pDX
+>1776	Argument	m_wndEdit
+>1777	Identifier	m_wndEdit
+>1778	Argument	IDC_BTN_EDIT
+>1779	Identifier	IDC_BTN_EDIT
+>1780	Argument	pDX
+>1781	Identifier	pDX
+>1782	Callee	DDX_Control
+>1783	Identifier	DDX_Control
+>1784	ExpressionStatement	 
+>1785	CallExpression	DDX_Control ( pDX , IDC_TREE_GROUP , m_wndTree )
+>1786	ArgumentList	pDX
+>1787	Argument	m_wndTree
+>1788	Identifier	m_wndTree
+>1789	Argument	IDC_TREE_GROUP
+>1790	Identifier	IDC_TREE_GROUP
+>1791	Argument	pDX
+>1792	Identifier	pDX
+>1793	Callee	DDX_Control
+>1794	Identifier	DDX_Control
+>1795	ExpressionStatement	 
+>1796	CallExpression	CDialog 
+>1797	ArgumentList	pDX
+>1798	Argument	pDX
+>1799	Identifier	pDX
+>1800	Callee	CDialog 
+>1801	Identifier	CDialog 
+>1814	FunctionDef	CGroupDlg 
+>1815	ParameterList	UINT nType , int cx , int cy
+>1816	Parameter	 
+>1817	Identifier	cy
+>1818	ParameterType	int
+>1819	Parameter	 
+>1820	Identifier	cx
+>1821	ParameterType	int
+>1822	Parameter	 
+>1823	Identifier	nType
+>1824	ParameterType	UINT
+>1825	ReturnType	void
+>1826	CompoundStatement	 
+>1827	IfStatement	if ( m_wndAdd . GetSafeHwnd ( ) )
+>1828	CompoundStatement	 
+>1829	ExpressionStatement	 
+>1830	CallExpression	m_wndTree . SetWindowPos ( NULL , rct . left + 4 , rct . top + 4 , rct . Width ( ) - 8 , rct . Height ( ) - 8 , \
+>1831	ArgumentList	NULL
+>1832	Argument	SWP_SHOWWINDOW
+>1833	Identifier	SWP_SHOWWINDOW
+>1834	Argument	rct . Height ( ) - 8
+>1835	AdditiveExpression	rct . Height ( ) - 8
+>1836	PrimaryExpression	8
+>1837	CallExpression	rct . Height ( )
+>1838	ArgumentList	 
+>1839	Callee	rct . Height
+>1840	MemberAccess	rct . Height
+>1841	Identifier	Height
+>1842	Identifier	rct
+>1843	Argument	rct . Width ( ) - 8
+>1844	AdditiveExpression	rct . Width ( ) - 8
+>1845	PrimaryExpression	8
+>1846	CallExpression	rct . Width ( )
+>1847	ArgumentList	 
+>1848	Callee	rct . Width
+>1849	MemberAccess	rct . Width
+>1850	Identifier	Width
+>1851	Identifier	rct
+>1852	Argument	rct . top + 4
+>1853	AdditiveExpression	rct . top + 4
+>1854	PrimaryExpression	4
+>1855	MemberAccess	rct . top
+>1856	Identifier	top
+>1857	Identifier	rct
+>1858	Argument	rct . left + 4
+>1859	AdditiveExpression	rct . left + 4
+>1860	PrimaryExpression	4
+>1861	MemberAccess	rct . left
+>1862	Identifier	left
+>1863	Identifier	rct
+>1864	Argument	NULL
+>1865	Identifier	NULL
+>1866	Callee	m_wndTree . SetWindowPos
+>1867	MemberAccess	m_wndTree . SetWindowPos
+>1868	Identifier	SetWindowPos
+>1869	Identifier	m_wndTree
+>1870	ExpressionStatement	 
+>1871	AssignmentExpr	rct . bottom = nTop
+>1872	Identifier	nTop
+>1873	MemberAccess	rct . bottom
+>1874	Identifier	bottom
+>1875	Identifier	rct
+>1876	ExpressionStatement	 
+>1877	CallExpression	m_wndDel . SetWindowPos ( NULL , 12 + ( nWidth * 2 ) , nTop , 0 , 0 , SWP_NOSIZE )
+>1878	ArgumentList	NULL
+>1879	Argument	SWP_NOSIZE
+>1880	Identifier	SWP_NOSIZE
+>1881	Argument	0
+>1882	PrimaryExpression	0
+>1883	Argument	0
+>1884	PrimaryExpression	0
+>1885	Argument	nTop
+>1886	Identifier	nTop
+>1887	Argument	12 + ( nWidth * 2 )
+>1888	AdditiveExpression	12 + ( nWidth * 2 )
+>1889	MultiplicativeExpression	nWidth * 2
+>1890	PrimaryExpression	2
+>1891	Identifier	nWidth
+>1892	PrimaryExpression	12
+>1893	Argument	NULL
+>1894	Identifier	NULL
+>1895	Callee	m_wndDel . SetWindowPos
+>1896	MemberAccess	m_wndDel . SetWindowPos
+>1897	Identifier	SetWindowPos
+>1898	Identifier	m_wndDel
+>1899	ExpressionStatement	 
+>1900	CallExpression	m_wndEdit . SetWindowPos ( NULL , 8 + nWidth , nTop , 0 , 0 , SWP_NOSIZE )
+>1901	ArgumentList	NULL
+>1902	Argument	SWP_NOSIZE
+>1903	Identifier	SWP_NOSIZE
+>1904	Argument	0
+>1905	PrimaryExpression	0
+>1906	Argument	0
+>1907	PrimaryExpression	0
+>1908	Argument	nTop
+>1909	Identifier	nTop
+>1910	Argument	8 + nWidth
+>1911	AdditiveExpression	8 + nWidth
+>1912	Identifier	nWidth
+>1913	PrimaryExpression	8
+>1914	Argument	NULL
+>1915	Identifier	NULL
+>1916	Callee	m_wndEdit . SetWindowPos
+>1917	MemberAccess	m_wndEdit . SetWindowPos
+>1918	Identifier	SetWindowPos
+>1919	Identifier	m_wndEdit
+>1920	ExpressionStatement	 
+>1921	CallExpression	m_wndAdd . SetWindowPos ( NULL , 4 , nTop , 0 , 0 , SWP_NOSIZE )
+>1922	ArgumentList	NULL
+>1923	Argument	SWP_NOSIZE
+>1924	Identifier	SWP_NOSIZE
+>1925	Argument	0
+>1926	PrimaryExpression	0
+>1927	Argument	0
+>1928	PrimaryExpression	0
+>1929	Argument	nTop
+>1930	Identifier	nTop
+>1931	Argument	4
+>1932	PrimaryExpression	4
+>1933	Argument	NULL
+>1934	Identifier	NULL
+>1935	Callee	m_wndAdd . SetWindowPos
+>1936	MemberAccess	m_wndAdd . SetWindowPos
+>1937	Identifier	SetWindowPos
+>1938	Identifier	m_wndAdd
+>1939	IdentifierDeclStatement	 
+>1940	IdentifierDecl	nTop = rct . Height ( ) - nHeight - 4
+>1941	AssignmentExpr	nTop = rct . Height ( ) - nHeight - 4
+>1942	AdditiveExpression	rct . Height ( ) - nHeight - 4
+>1943	AdditiveExpression	nHeight - 4
+>1944	PrimaryExpression	4
+>1945	Identifier	nHeight
+>1946	CallExpression	rct . Height ( )
+>1947	ArgumentList	 
+>1948	Callee	rct . Height
+>1949	MemberAccess	rct . Height
+>1950	Identifier	Height
+>1951	Identifier	rct
+>1952	Identifier	nTop
+>1953	Identifier	nTop
+>1954	IdentifierDeclType	int
+>1955	IdentifierDeclStatement	 
+>1956	IdentifierDecl	nHeight = rctButton . Height ( )
+>1957	AssignmentExpr	nHeight = rctButton . Height ( )
+>1958	CallExpression	rctButton . Height ( )
+>1959	ArgumentList	 
+>1960	Callee	rctButton . Height
+>1961	MemberAccess	rctButton . Height
+>1962	Identifier	Height
+>1963	Identifier	rctButton
+>1964	Identifier	nHeight
+>1965	Identifier	nHeight
+>1966	IdentifierDeclType	int
+>1967	IdentifierDeclStatement	 
+>1968	IdentifierDecl	nWidth = rctButton . Width ( )
+>1969	AssignmentExpr	nWidth = rctButton . Width ( )
+>1970	CallExpression	rctButton . Width ( )
+>1971	ArgumentList	 
+>1972	Callee	rctButton . Width
+>1973	MemberAccess	rctButton . Width
+>1974	Identifier	Width
+>1975	Identifier	rctButton
+>1976	Identifier	nWidth
+>1977	Identifier	nWidth
+>1978	IdentifierDeclType	int
+>1979	ExpressionStatement	 
+>1980	CallExpression	m_wndAdd . GetWindowRect ( rctButton )
+>1981	ArgumentList	rctButton
+>1982	Argument	rctButton
+>1983	Identifier	rctButton
+>1984	Callee	m_wndAdd . GetWindowRect
+>1985	MemberAccess	m_wndAdd . GetWindowRect
+>1986	Identifier	GetWindowRect
+>1987	Identifier	m_wndAdd
+>1988	IdentifierDeclStatement	 
+>1989	IdentifierDecl	rctButton
+>1990	Identifier	rctButton
+>1991	IdentifierDeclType	CRect
+>1992	Condition	 
+>1993	CallExpression	m_wndAdd . GetSafeHwnd ( )
+>1994	ArgumentList	 
+>1995	Callee	m_wndAdd . GetSafeHwnd
+>1996	MemberAccess	m_wndAdd . GetSafeHwnd
+>1997	Identifier	GetSafeHwnd
+>1998	Identifier	m_wndAdd
+>1999	ExpressionStatement	 
+>2000	CallExpression	GetClientRect ( rct )
+>2001	ArgumentList	rct
+>2002	Argument	rct
+>2003	Identifier	rct
+>2004	Callee	GetClientRect
+>2005	Identifier	GetClientRect
+>2006	IdentifierDeclStatement	 
+>2007	IdentifierDecl	rct
+>2008	Identifier	rct
+>2009	IdentifierDeclType	CRect
+>2010	ExpressionStatement	 
+>2011	CallExpression	CDialog 
+>2012	ArgumentList	nType
+>2013	Argument	cy
+>2014	Identifier	cy
+>2015	Argument	cx
+>2016	Identifier	cx
+>2017	Argument	nType
+>2018	Identifier	nType
+>2019	Callee	CDialog 
+>2020	Identifier	CDialog 
+>2047	FunctionDef	CGroupDlg 
+>2048	ParameterList	 
+>2049	ReturnType	BOOL
+>2050	CompoundStatement	 
+>2051	ReturnStatement	 
+>2052	Identifier	TRUE
+>2053	ExpressionStatement	 
+>2054	CallExpression	InitGroups ( )
+>2055	ArgumentList	 
+>2056	Callee	InitGroups
+>2057	Identifier	InitGroups
+>2058	ExpressionStatement	 
+>2059	CallExpression	m_wndTree . SetImageList ( & m_imgList , TVSIL_NORMAL )
+>2060	ArgumentList	& m_imgList
+>2061	Argument	TVSIL_NORMAL
+>2062	Identifier	TVSIL_NORMAL
+>2063	Argument	& m_imgList
+>2064	UnaryOp	& m_imgList
+>2065	Identifier	m_imgList
+>2066	UnaryOperator	&
+>2067	Callee	m_wndTree . SetImageList
+>2068	MemberAccess	m_wndTree . SetImageList
+>2069	Identifier	SetImageList
+>2070	Identifier	m_wndTree
+>2071	ExpressionStatement	 
+>2072	CallExpression	m_imgList . Create ( IDB_BITMAP_GROUPS , 16 , 0 , ILC_COLOR )
+>2073	ArgumentList	IDB_BITMAP_GROUPS
+>2074	Argument	ILC_COLOR
+>2075	Identifier	ILC_COLOR
+>2076	Argument	0
+>2077	PrimaryExpression	0
+>2078	Argument	16
+>2079	PrimaryExpression	16
+>2080	Argument	IDB_BITMAP_GROUPS
+>2081	Identifier	IDB_BITMAP_GROUPS
+>2082	Callee	m_imgList . Create
+>2083	MemberAccess	m_imgList . Create
+>2084	Identifier	Create
+>2085	Identifier	m_imgList
+>2086	ExpressionStatement	 
+>2087	CallExpression	CDialog 
+>2088	ArgumentList	 
+>2089	Callee	CDialog 
+>2090	Identifier	CDialog 
+>2101	FunctionDef	CGroupDlg 
+>2102	ParameterList	 
+>2103	ReturnType	void
+>2104	CompoundStatement	 
+>2105	ExpressionStatement	 
+>2106	CallExpression	Group_Init ( )
+>2107	ArgumentList	 
+>2108	Callee	Group_Init
+>2109	Identifier	Group_Init
+>2113	FunctionDef	CGroupDlg 
+>2114	ParameterList	 
+>2115	ReturnType	void
+>2116	CompoundStatement	 
+>2117	IfStatement	if ( dlg . DoModal ( ) == IDOK )
+>2118	CompoundStatement	 
+>2119	ExpressionStatement	 
+>2120	CallExpression	Select_AddToGroup ( dlg . m_strName . GetBuffer ( 0 ) )
+>2121	ArgumentList	dlg . m_strName . GetBuffer ( 0 )
+>2122	Argument	dlg . m_strName . GetBuffer ( 0 )
+>2123	CallExpression	dlg . m_strName . GetBuffer ( 0 )
+>2124	ArgumentList	0
+>2125	Argument	0
+>2126	PrimaryExpression	0
+>2127	Callee	dlg . m_strName . GetBuffer
+>2128	MemberAccess	dlg . m_strName . GetBuffer
+>2129	Identifier	GetBuffer
+>2130	MemberAccess	dlg . m_strName
+>2131	Identifier	m_strName
+>2132	Identifier	dlg
+>2133	Callee	Select_AddToGroup
+>2134	Identifier	Select_AddToGroup
+>2135	ExpressionStatement	 
+>2136	AssignmentExpr	g_pGroups = g
+>2137	Identifier	g
+>2138	Identifier	g_pGroups
+>2139	ExpressionStatement	 
+>2140	AssignmentExpr	g -> next = g_pGroups
+>2141	Identifier	g_pGroups
+>2142	PtrMemberAccess	g -> next
+>2143	Identifier	next
+>2144	Identifier	g
+>2145	ExpressionStatement	 
+>2146	AssignmentExpr	g -> itemOwner = m_wndTree . InsertItem ( & tvInsert )
+>2147	CallExpression	m_wndTree . InsertItem ( & tvInsert )
+>2148	ArgumentList	& tvInsert
+>2149	Argument	& tvInsert
+>2150	UnaryOp	& tvInsert
+>2151	Identifier	tvInsert
+>2152	UnaryOperator	&
+>2153	Callee	m_wndTree . InsertItem
+>2154	MemberAccess	m_wndTree . InsertItem
+>2155	Identifier	InsertItem
+>2156	Identifier	m_wndTree
+>2157	PtrMemberAccess	g -> itemOwner
+>2158	Identifier	itemOwner
+>2159	Identifier	g
+>2160	IdentifierDeclStatement	 
+>2161	IdentifierDecl	* g = Group_Alloc ( dlg . m_strName . GetBuffer ( 0 ) )
+>2162	AssignmentExpr	* g = Group_Alloc ( dlg . m_strName . GetBuffer ( 0 ) )
+>2163	CallExpression	Group_Alloc ( dlg . m_strName . GetBuffer ( 0 ) )
+>2164	ArgumentList	dlg . m_strName . GetBuffer ( 0 )
+>2165	Argument	dlg . m_strName . GetBuffer ( 0 )
+>2166	CallExpression	dlg . m_strName . GetBuffer ( 0 )
+>2167	ArgumentList	0
+>2168	Argument	0
+>2169	PrimaryExpression	0
+>2170	Callee	dlg . m_strName . GetBuffer
+>2171	MemberAccess	dlg . m_strName . GetBuffer
+>2172	Identifier	GetBuffer
+>2173	MemberAccess	dlg . m_strName
+>2174	Identifier	m_strName
+>2175	Identifier	dlg
+>2176	Callee	Group_Alloc
+>2177	Identifier	Group_Alloc
+>2178	Identifier	g
+>2179	Identifier	g
+>2180	IdentifierDeclType	group_t *
+>2181	ExpressionStatement	 
+>2182	AssignmentExpr	tvInsert . item . pszText = _T ( dlg . m_strName . GetBuffer ( 0 ) )
+>2183	CallExpression	_T ( dlg . m_strName . GetBuffer ( 0 ) )
+>2184	ArgumentList	dlg . m_strName . GetBuffer ( 0 )
+>2185	Argument	dlg . m_strName . GetBuffer ( 0 )
+>2186	CallExpression	dlg . m_strName . GetBuffer ( 0 )
+>2187	ArgumentList	0
+>2188	Argument	0
+>2189	PrimaryExpression	0
+>2190	Callee	dlg . m_strName . GetBuffer
+>2191	MemberAccess	dlg . m_strName . GetBuffer
+>2192	Identifier	GetBuffer
+>2193	MemberAccess	dlg . m_strName
+>2194	Identifier	m_strName
+>2195	Identifier	dlg
+>2196	Callee	_T
+>2197	Identifier	_T
+>2198	MemberAccess	tvInsert . item . pszText
+>2199	Identifier	pszText
+>2200	MemberAccess	tvInsert . item
+>2201	Identifier	item
+>2202	Identifier	tvInsert
+>2203	ExpressionStatement	 
+>2204	AssignmentExpr	tvInsert . item . mask = TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>2205	InclusiveOrExpression	TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>2206	InclusiveOrExpression	TVIF_IMAGE | TVIF_SELECTEDIMAGE
+>2207	Identifier	TVIF_SELECTEDIMAGE
+>2208	Identifier	TVIF_IMAGE
+>2209	Identifier	TVIF_TEXT
+>2210	MemberAccess	tvInsert . item . mask
+>2211	Identifier	mask
+>2212	MemberAccess	tvInsert . item
+>2213	Identifier	item
+>2214	Identifier	tvInsert
+>2215	ExpressionStatement	 
+>2216	AssignmentExpr	tvInsert . hInsertAfter = NULL
+>2217	Identifier	NULL
+>2218	MemberAccess	tvInsert . hInsertAfter
+>2219	Identifier	hInsertAfter
+>2220	Identifier	tvInsert
+>2221	ExpressionStatement	 
+>2222	AssignmentExpr	tvInsert . hParent = m_hWorld
+>2223	Identifier	m_hWorld
+>2224	MemberAccess	tvInsert . hParent
+>2225	Identifier	hParent
+>2226	Identifier	tvInsert
+>2227	ExpressionStatement	 
+>2228	AssignmentExpr	tvInsert . item . iSelectedImage = tvInsert . item . iImage
+>2229	MemberAccess	tvInsert . item . iImage
+>2230	Identifier	iImage
+>2231	MemberAccess	tvInsert . item
+>2232	Identifier	item
+>2233	Identifier	tvInsert
+>2234	MemberAccess	tvInsert . item . iSelectedImage
+>2235	Identifier	iSelectedImage
+>2236	MemberAccess	tvInsert . item
+>2237	Identifier	item
+>2238	Identifier	tvInsert
+>2239	ExpressionStatement	 
+>2240	AssignmentExpr	tvInsert . item . iImage = IMG_GROUP
+>2241	Identifier	IMG_GROUP
+>2242	MemberAccess	tvInsert . item . iImage
+>2243	Identifier	iImage
+>2244	MemberAccess	tvInsert . item
+>2245	Identifier	item
+>2246	Identifier	tvInsert
+>2247	ExpressionStatement	 
+>2248	CallExpression	memset ( & tvInsert , 0 , sizeof ( TVINSERTSTRUCT ) )
+>2249	ArgumentList	& tvInsert
+>2250	Argument	sizeof ( TVINSERTSTRUCT )
+>2251	SizeofExpr	sizeof ( TVINSERTSTRUCT )
+>2252	SizeofOperand	TVINSERTSTRUCT
+>2253	Sizeof	sizeof
+>2254	Argument	0
+>2255	PrimaryExpression	0
+>2256	Argument	& tvInsert
+>2257	UnaryOp	& tvInsert
+>2258	Identifier	tvInsert
+>2259	UnaryOperator	&
+>2260	Callee	memset
+>2261	Identifier	memset
+>2262	IdentifierDeclStatement	 
+>2263	IdentifierDecl	tvInsert
+>2264	Identifier	tvInsert
+>2265	IdentifierDeclType	TVINSERTSTRUCT
+>2266	IdentifierDeclStatement	 
+>2267	IdentifierDecl	hItem = m_wndTree . GetSelectedItem ( )
+>2268	AssignmentExpr	hItem = m_wndTree . GetSelectedItem ( )
+>2269	CallExpression	m_wndTree . GetSelectedItem ( )
+>2270	ArgumentList	 
+>2271	Callee	m_wndTree . GetSelectedItem
+>2272	MemberAccess	m_wndTree . GetSelectedItem
+>2273	Identifier	GetSelectedItem
+>2274	Identifier	m_wndTree
+>2275	Identifier	hItem
+>2276	Identifier	hItem
+>2277	IdentifierDeclType	HTREEITEM
+>2278	Condition	 
+>2279	EqualityExpression	dlg . DoModal ( ) == IDOK
+>2280	Identifier	IDOK
+>2281	CallExpression	dlg . DoModal ( )
+>2282	ArgumentList	 
+>2283	Callee	dlg . DoModal
+>2284	MemberAccess	dlg . DoModal
+>2285	Identifier	DoModal
+>2286	Identifier	dlg
+>2287	IdentifierDeclStatement	 
+>2288	IdentifierDecl	dlg ( \"New Group\" , this )
+>2289	Expression	\"New Group\" , this
+>2290	Identifier	this
+>2291	PrimaryExpression	\"New Group\"
+>2292	Identifier	dlg
+>2293	IdentifierDeclType	CNameDlg
+>2328	FunctionDef	CGroupDlg 
+>2329	ParameterList	 
+>2330	ReturnType	void
+>2331	CompoundStatement	 
+>2335	FunctionDef	CGroupDlg 
+>2336	ParameterList	 
+>2337	ReturnType	void
+>2338	CompoundStatement	 
+>2342	FunctionDef	CGroupDlg 
+>2343	ParameterList	UINT message , WPARAM wParam , LPARAM lParam , LRESULT * pLResult
+>2344	Parameter	 
+>2345	Identifier	pLResult
+>2346	ParameterType	LRESULT *
+>2347	Parameter	 
+>2348	Identifier	lParam
+>2349	ParameterType	LPARAM
+>2350	Parameter	 
+>2351	Identifier	wParam
+>2352	ParameterType	WPARAM
+>2353	Parameter	 
+>2354	Identifier	message
+>2355	ParameterType	UINT
+>2356	ReturnType	BOOL
+>2357	CompoundStatement	 
+>2358	ReturnStatement	 
+>2359	CallExpression	CDialog 
+>2360	ArgumentList	message
+>2361	Argument	pLResult
+>2362	Identifier	pLResult
+>2363	Argument	lParam
+>2364	Identifier	lParam
+>2365	Argument	wParam
+>2366	Identifier	wParam
+>2367	Argument	message
+>2368	Identifier	message
+>2369	Callee	CDialog 
+>2370	Identifier	CDialog 
+>2379	FunctionDef	CGroupDlg 
+>2380	ParameterList	WPARAM wParam , LPARAM lParam , LRESULT * pResult
+>2381	Parameter	 
+>2382	Identifier	pResult
+>2383	ParameterType	LRESULT *
+>2384	Parameter	 
+>2385	Identifier	lParam
+>2386	ParameterType	LPARAM
+>2387	Parameter	 
+>2388	Identifier	wParam
+>2389	ParameterType	WPARAM
+>2390	ReturnType	BOOL
+>2391	CompoundStatement	 
+>2392	ReturnStatement	 
+>2393	CallExpression	CDialog 
+>2394	ArgumentList	wParam
+>2395	Argument	pResult
+>2396	Identifier	pResult
+>2397	Argument	lParam
+>2398	Identifier	lParam
+>2399	Argument	wParam
+>2400	Identifier	wParam
+>2401	Callee	CDialog 
+>2402	Identifier	CDialog 
+>2410	FunctionDef	CGroupDlg 
+>2411	ParameterList	NMHDR * pNMHDR , LRESULT * pResult
+>2412	Parameter	 
+>2413	Identifier	pResult
+>2414	ParameterType	LRESULT *
+>2415	Parameter	 
+>2416	Identifier	pNMHDR
+>2417	ParameterType	NMHDR *
+>2418	ReturnType	void
+>2419	CompoundStatement	 
+>2420	ExpressionStatement	 
+>2421	AssignmentExpr	* pResult = 0
+>2422	PrimaryExpression	0
+>2423	UnaryOp	* pResult
+>2424	Identifier	pResult
+>2425	UnaryOperator	*
+>2432	FunctionDef	CGroupDlg 
+>2433	ParameterList	NMHDR * pNMHDR , LRESULT * pResult
+>2434	Parameter	 
+>2435	Identifier	pResult
+>2436	ParameterType	LRESULT *
+>2437	Parameter	 
+>2438	Identifier	pNMHDR
+>2439	ParameterType	NMHDR *
+>2440	ReturnType	void
+>2441	CompoundStatement	 
+>2442	ExpressionStatement	 
+>2443	AssignmentExpr	* pResult = 0
+>2444	PrimaryExpression	0
+>2445	UnaryOp	* pResult
+>2446	Identifier	pResult
+>2447	UnaryOperator	*
+>2448	ExpressionStatement	 
+>2449	CallExpression	m_wndTree . RedrawWindow ( )
+>2450	ArgumentList	 
+>2451	Callee	m_wndTree . RedrawWindow
+>2452	MemberAccess	m_wndTree . RedrawWindow
+>2453	Identifier	RedrawWindow
+>2454	Identifier	m_wndTree
+>2455	IfStatement	if ( pText && strlen ( pText ) > 0 )
+>2456	CompoundStatement	 
+>2457	IfStatement	if ( m_wndTree . GetRootItem ( ) != item )
+>2458	ElseStatement	else
+>2459	CompoundStatement	 
+>2460	ExpressionStatement	 
+>2461	CallExpression	Sys_Printf ( \"Cannot rename the world\n\" )
+>2462	ArgumentList	\"Cannot rename the world\n\"
+>2463	Argument	\"Cannot rename the world\n\"
+>2464	PrimaryExpression	\"Cannot rename the world\n\"
+>2465	Callee	Sys_Printf
+>2466	Identifier	Sys_Printf
+>2467	CompoundStatement	 
+>2468	IfStatement	if ( pTVDispInfo -> item . iImage != IMG_GROUP )
+>2469	CompoundStatement	 
+>2470	Condition	 
+>2471	EqualityExpression	pTVDispInfo -> item . iImage != IMG_GROUP
+>2472	Identifier	IMG_GROUP
+>2473	MemberAccess	pTVDispInfo -> item . iImage
+>2474	Identifier	iImage
+>2475	PtrMemberAccess	pTVDispInfo -> item
+>2476	Identifier	item
+>2477	Identifier	pTVDispInfo
+>2478	ExpressionStatement	 
+>2479	CallExpression	m_wndTree . SetItemText ( item , pText )
+>2480	ArgumentList	item
+>2481	Argument	pText
+>2482	Identifier	pText
+>2483	Argument	item
+>2484	Identifier	item
+>2485	Callee	m_wndTree . SetItemText
+>2486	MemberAccess	m_wndTree . SetItemText
+>2487	Identifier	SetItemText
+>2488	Identifier	m_wndTree
+>2489	Condition	 
+>2490	EqualityExpression	m_wndTree . GetRootItem ( ) != item
+>2491	Identifier	item
+>2492	CallExpression	m_wndTree . GetRootItem ( )
+>2493	ArgumentList	 
+>2494	Callee	m_wndTree . GetRootItem
+>2495	MemberAccess	m_wndTree . GetRootItem
+>2496	Identifier	GetRootItem
+>2497	Identifier	m_wndTree
+>2498	IdentifierDeclStatement	 
+>2499	IdentifierDecl	item = pTVDispInfo -> item . hItem
+>2500	AssignmentExpr	item = pTVDispInfo -> item . hItem
+>2501	MemberAccess	pTVDispInfo -> item . hItem
+>2502	Identifier	hItem
+>2503	PtrMemberAccess	pTVDispInfo -> item
+>2504	Identifier	item
+>2505	Identifier	pTVDispInfo
+>2506	Identifier	item
+>2507	Identifier	item
+>2508	IdentifierDeclType	HTREEITEM
+>2509	Condition	 
+>2510	AndExpression	pText && strlen ( pText ) > 0
+>2511	RelationalExpression	strlen ( pText ) > 0
+>2512	PrimaryExpression	0
+>2513	CallExpression	strlen ( pText )
+>2514	ArgumentList	pText
+>2515	Argument	pText
+>2516	Identifier	pText
+>2517	Callee	strlen
+>2518	Identifier	strlen
+>2519	Identifier	pText
+>2520	IdentifierDeclStatement	 
+>2521	IdentifierDecl	* pText = pTVDispInfo -> item . pszText
+>2522	AssignmentExpr	* pText = pTVDispInfo -> item . pszText
+>2523	MemberAccess	pTVDispInfo -> item . pszText
+>2524	Identifier	pszText
+>2525	PtrMemberAccess	pTVDispInfo -> item
+>2526	Identifier	item
+>2527	Identifier	pTVDispInfo
+>2528	Identifier	pText
+>2529	Identifier	pText
+>2530	IdentifierDeclType	const char *
+>2531	IdentifierDeclStatement	 
+>2532	IdentifierDecl	* pTVDispInfo = ( TV_DISPINFO * ) pNMHDR
+>2533	AssignmentExpr	* pTVDispInfo = ( TV_DISPINFO * ) pNMHDR
+>2534	CastExpression	( TV_DISPINFO * ) pNMHDR
+>2535	Identifier	pNMHDR
+>2536	CastTarget	TV_DISPINFO *
+>2537	Identifier	pTVDispInfo
+>2538	Identifier	pTVDispInfo
+>2539	IdentifierDeclType	TV_DISPINFO *
+>2558	FunctionDef	CGroupDlg 
+>2559	ParameterList	NMHDR * pNMHDR , LRESULT * pResult
+>2560	Parameter	 
+>2561	Identifier	pResult
+>2562	ParameterType	LRESULT *
+>2563	Parameter	 
+>2564	Identifier	pNMHDR
+>2565	ParameterType	NMHDR *
+>2566	ReturnType	void
+>2567	CompoundStatement	 
+>2568	ExpressionStatement	 
+>2569	AssignmentExpr	* pResult = 0
+>2570	PrimaryExpression	0
+>2571	UnaryOp	* pResult
+>2572	Identifier	pResult
+>2573	UnaryOperator	*
+>2580	FunctionDef	CGroupDlg 
+>2581	ParameterList	NMHDR * pNMHDR , LRESULT * pResult
+>2582	Parameter	 
+>2583	Identifier	pResult
+>2584	ParameterType	LRESULT *
+>2585	Parameter	 
+>2586	Identifier	pNMHDR
+>2587	ParameterType	NMHDR *
+>2588	ReturnType	void
+>2589	CompoundStatement	 
+>2590	ExpressionStatement	 
+>2591	AssignmentExpr	* pResult = 0
+>2592	PrimaryExpression	0
+>2593	UnaryOp	* pResult
+>2594	Identifier	pResult
+>2595	UnaryOperator	*
+>2596	IdentifierDeclStatement	 
+>2597	IdentifierDecl	* pTVDispInfo = ( TV_DISPINFO * ) pNMHDR
+>2598	AssignmentExpr	* pTVDispInfo = ( TV_DISPINFO * ) pNMHDR
+>2599	CastExpression	( TV_DISPINFO * ) pNMHDR
+>2600	Identifier	pNMHDR
+>2601	CastTarget	TV_DISPINFO *
+>2602	Identifier	pTVDispInfo
+>2603	Identifier	pTVDispInfo
+>2604	IdentifierDeclType	TV_DISPINFO *
+>2612	FunctionDef	CGroupDlg 
+>2613	ParameterList	 
+>2614	ReturnType	void
+>2615	CompoundStatement	 
+>2616	ExpressionStatement	 
+>2617	CallExpression	TreeView_EndEditLabelNow ( m_wndTree . GetSafeHwnd ( ) , TRUE )
+>2618	ArgumentList	m_wndTree . GetSafeHwnd ( )
+>2619	Argument	TRUE
+>2620	Identifier	TRUE
+>2621	Argument	m_wndTree . GetSafeHwnd ( )
+>2622	CallExpression	m_wndTree . GetSafeHwnd ( )
+>2623	ArgumentList	 
+>2624	Callee	m_wndTree . GetSafeHwnd
+>2625	MemberAccess	m_wndTree . GetSafeHwnd
+>2626	Identifier	GetSafeHwnd
+>2627	Identifier	m_wndTree
+>2628	Callee	TreeView_EndEditLabelNow
+>2629	Identifier	TreeView_EndEditLabelNow
+>2636	FunctionDef	CGroupDlg 
+>2637	ParameterList	 
+>2638	ReturnType	void
+>2639	CompoundStatement	 
+>2640	ExpressionStatement	 
+>2641	CallExpression	TreeView_EndEditLabelNow ( m_wndTree . GetSafeHwnd ( ) , FALSE )
+>2642	ArgumentList	m_wndTree . GetSafeHwnd ( )
+>2643	Argument	FALSE
+>2644	Identifier	FALSE
+>2645	Argument	m_wndTree . GetSafeHwnd ( )
+>2646	CallExpression	m_wndTree . GetSafeHwnd ( )
+>2647	ArgumentList	 
+>2648	Callee	m_wndTree . GetSafeHwnd
+>2649	MemberAccess	m_wndTree . GetSafeHwnd
+>2650	Identifier	GetSafeHwnd
+>2651	Identifier	m_wndTree
+>2652	Callee	TreeView_EndEditLabelNow
+>2653	Identifier	TreeView_EndEditLabelNow
+>2660	FunctionDef	CGroupDlg 
+>2661	ParameterList	NMHDR * pNMHDR , LRESULT * pResult
+>2662	Parameter	 
+>2663	Identifier	pResult
+>2664	ParameterType	LRESULT *
+>2665	Parameter	 
+>2666	Identifier	pNMHDR
+>2667	ParameterType	NMHDR *
+>2668	ReturnType	void
+>2669	CompoundStatement	 
+>2670	ExpressionStatement	 
+>2671	AssignmentExpr	* pResult = 0
+>2672	PrimaryExpression	0
+>2673	UnaryOp	* pResult
+>2674	Identifier	pResult
+>2675	UnaryOperator	*
+>2676	IdentifierDeclStatement	 
+>2677	IdentifierDecl	* pNMTreeView = ( NM_TREEVIEW * ) pNMHDR
+>2678	AssignmentExpr	* pNMTreeView = ( NM_TREEVIEW * ) pNMHDR
+>2679	CastExpression	( NM_TREEVIEW * ) pNMHDR
+>2680	Identifier	pNMHDR
+>2681	CastTarget	NM_TREEVIEW *
+>2682	Identifier	pNMTreeView
+>2683	Identifier	pNMTreeView
+>2684	IdentifierDeclType	NM_TREEVIEW *
+<11=17,16,12
+<12=13
+<13=15,14
+<17=182,174,168,162,148,144,129,121,109,101,95,83,67,45,28,22,18
+<18=19
+<19=21,20
+<22=23
+<23=25,24
+<25=27,26
+<28=29
+<29=42,30
+<30=36,31
+<31=32
+<32=33
+<33=35,34
+<36=37
+<37=39,38
+<39=41,40
+<42=44,43
+<45=46
+<46=62,47
+<47=60,48
+<48=49
+<49=50
+<50=58,51
+<51=54,52
+<52=53
+<54=55
+<55=57,56
+<58=59
+<60=61
+<62=64,63
+<64=66,65
+<67=68
+<68=82,81,69
+<69=80,70
+<70=78,71
+<71=74,72
+<72=73
+<74=75
+<75=77,76
+<78=79
+<83=84
+<84=90,85
+<85=89,86
+<86=88,87
+<90=92,91
+<92=94,93
+<95=96
+<96=98,97
+<98=100,99
+<101=102
+<102=106,103
+<103=105,104
+<106=108,107
+<109=110
+<110=116,111
+<111=113,112
+<113=115,114
+<116=118,117
+<118=120,119
+<121=122
+<122=124,123
+<124=126,125
+<126=128,127
+<129=130
+<130=142,131
+<131=138,136,132
+<132=133
+<133=135,134
+<136=137
+<138=139
+<139=141,140
+<142=143
+<144=145
+<145=147,146
+<148=149
+<149=161,160,150
+<150=159,151
+<151=153,152
+<153=154
+<154=156,155
+<156=158,157
+<162=163
+<163=165,164
+<165=167,166
+<168=169
+<169=171,170
+<171=173,172
+<174=175
+<175=179,176
+<176=178,177
+<179=181,180
+<182=183
+<183=197,196,184
+<184=195,185
+<185=194,186
+<186=192,187
+<187=188
+<188=189
+<189=191,190
+<192=193
+<234=240,239,235
+<235=236
+<236=238,237
+<240=256,243,241
+<241=242
+<243=244
+<244=254,245
+<245=250,248,246
+<246=247
+<248=249
+<250=251
+<251=253,252
+<254=255
+<256=257
+<257=271,270,258
+<258=269,259
+<259=268,260
+<260=266,261
+<261=262
+<262=263
+<263=265,264
+<266=267
+<280=286,285,281
+<281=282
+<282=284,283
+<286=323,289,287
+<287=288
+<289=319,290
+<290=297,291
+<291=292
+<292=296,293
+<293=295,294
+<297=299,298
+<299=300
+<300=302,301
+<302=317,303
+<303=306,304
+<304=305
+<306=307
+<307=315,308
+<308=311,309
+<309=310
+<311=312
+<312=314,313
+<315=316
+<317=318
+<319=320
+<320=322,321
+<323=324
+<324=329,328,325
+<325=327,326
+<342=351,350,343
+<343=347,344
+<344=346,345
+<347=349,348
+<351=595,588,579,572,558,488,479,475,460,446,434,428,422,410,402,384,367,361,352
+<352=353
+<353=355,354
+<355=356
+<356=358,357
+<358=360,359
+<361=362
+<362=364,363
+<364=366,365
+<367=368
+<368=378,369
+<369=376,370
+<370=371
+<371=375,372
+<372=374,373
+<376=377
+<378=379
+<379=381,380
+<381=383,382
+<384=385
+<385=401,400,386
+<386=399,387
+<387=393,388
+<388=389
+<389=390
+<390=392,391
+<393=394
+<394=396,395
+<396=398,397
+<402=403
+<403=405,404
+<405=407,406
+<407=409,408
+<410=411
+<411=417,412
+<412=416,413
+<413=415,414
+<417=419,418
+<419=421,420
+<422=423
+<423=425,424
+<425=427,426
+<428=429
+<429=431,430
+<431=433,432
+<434=435
+<435=441,436
+<436=438,437
+<438=440,439
+<441=443,442
+<443=445,444
+<446=447
+<447=455,448
+<448=451,450,449
+<451=452
+<452=454,453
+<455=457,456
+<457=459,458
+<460=461
+<461=473,462
+<462=469,467,463
+<463=464
+<464=466,465
+<467=468
+<469=470
+<470=472,471
+<473=474
+<475=476
+<476=478,477
+<479=480
+<480=486,481
+<481=484,482
+<482=483
+<484=485
+<486=487
+<488=546,521,489
+<489=490
+<490=511,491
+<491=503,498,492
+<492=493
+<493=494
+<494=495
+<495=497,496
+<498=499
+<499=500
+<500=502,501
+<503=504
+<504=506,505
+<506=508,507
+<508=510,509
+<511=512
+<512=520,513
+<513=515,514
+<515=517,516
+<517=519,518
+<521=522
+<522=542,533,523
+<523=524
+<524=529,525
+<525=526
+<526=528,527
+<529=530
+<530=532,531
+<533=538,534
+<534=535
+<535=537,536
+<538=539
+<539=541,540
+<542=543
+<543=545,544
+<546=547
+<547=553,548
+<548=550,549
+<550=552,551
+<553=557,554
+<554=556,555
+<558=559
+<559=571,570,560
+<560=569,561
+<561=567,562
+<562=565,563
+<563=564
+<565=566
+<567=568
+<572=573
+<573=578,577,574
+<574=576,575
+<579=582,580
+<580=581
+<582=583
+<583=587,584
+<584=586,585
+<588=589
+<589=594,593,590
+<590=592,591
+<595=596
+<596=599,598,597
+<649=655,654,650
+<650=651
+<651=653,652
+<655=701,667,656
+<656=657
+<657=665,658
+<658=661,659
+<659=660
+<661=662
+<662=664,663
+<665=666
+<667=697,668
+<668=684,678,669
+<669=670
+<670=672,671
+<672=673
+<673=675,674
+<675=677,676
+<678=679
+<679=681,680
+<681=683,682
+<684=685
+<685=691,686
+<686=687
+<687=688
+<688=690,689
+<691=692
+<692=694,693
+<694=696,695
+<697=698
+<698=700,699
+<701=704,702
+<702=703
+<704=705
+<705=709,706
+<706=708,707
+<723=729,728,724
+<724=725
+<725=727,726
+<729=753,739,730
+<730=731
+<731=737,732
+<732=735,733
+<733=734
+<735=736
+<737=738
+<739=740
+<740=752,751,741
+<741=750,742
+<742=744,743
+<744=745
+<745=747,746
+<747=749,748
+<753=756,754
+<754=755
+<756=757
+<757=761,758
+<758=760,759
+<773=779,778,774
+<774=775
+<775=777,776
+<779=879,865,831,780
+<780=825,790,781
+<781=782
+<782=783
+<783=784
+<784=788,785
+<785=786
+<786=787
+<788=789
+<790=813,791
+<791=811,800,792
+<792=793
+<793=794
+<794=798,795
+<795=796
+<796=797
+<798=799
+<800=801
+<801=809,802
+<802=807,803
+<803=804
+<804=806,805
+<807=808
+<809=810
+<811=812
+<813=814
+<814=824,823,815
+<815=822,816
+<816=820,817
+<817=818
+<818=819
+<820=821
+<825=826
+<826=828,827
+<828=830,829
+<831=861,832
+<832=848,842,833
+<833=834
+<834=836,835
+<836=837
+<837=839,838
+<839=841,840
+<842=843
+<843=845,844
+<845=847,846
+<848=849
+<849=855,850
+<850=851
+<851=852
+<852=854,853
+<855=856
+<856=858,857
+<858=860,859
+<861=862
+<862=864,863
+<865=866
+<866=878,877,867
+<867=876,868
+<868=874,869
+<869=872,870
+<870=871
+<872=873
+<874=875
+<879=882,880
+<880=881
+<882=883
+<883=887,884
+<884=886,885
+<907=913,912,908
+<908=909
+<909=911,910
+<913=954,940,923,914
+<914=915
+<915=921,916
+<916=919,917
+<917=918
+<919=920
+<921=922
+<923=936,924
+<924=925
+<925=926
+<926=935,927
+<927=929,928
+<929=930
+<930=932,931
+<932=934,933
+<936=937
+<937=939,938
+<940=941
+<941=953,952,942
+<942=951,943
+<943=945,944
+<945=946
+<946=948,947
+<948=950,949
+<954=957,955
+<955=956
+<957=958
+<958=962,959
+<959=961,960
+<976=982,981,977
+<977=978
+<978=980,979
+<982=1013,983
+<983=1011,984
+<984=991,985
+<985=986
+<986=990,987
+<987=989,988
+<991=992
+<992=1009,993
+<993=1007,1005,994
+<994=995
+<995=1003,996
+<996=999,997
+<997=998
+<999=1000
+<1000=1002,1001
+<1003=1004
+<1005=1006
+<1007=1008
+<1009=1010
+<1011=1012
+<1013=1014
+<1014=1019,1018,1015
+<1015=1017,1016
+<1030=1033,1032,1031
+<1033=1280,1273,1266,1205,1201,1192,1188,1173,1167,1161,1149,1136,1128,1120,1102,1098,1066,1034
+<1034=1060,1054,1049,1035
+<1035=1043,1036
+<1036=1037
+<1037=1041,1038
+<1038=1039
+<1039=1040
+<1041=1042
+<1043=1044
+<1044=1046,1045
+<1046=1048,1047
+<1049=1053,1050
+<1050=1052,1051
+<1054=1055
+<1055=1059,1056
+<1056=1058,1057
+<1060=1061
+<1061=1065,1062
+<1062=1064,1063
+<1066=1092,1086,1081,1067
+<1067=1075,1068
+<1068=1069
+<1069=1073,1070
+<1070=1071
+<1071=1072
+<1073=1074
+<1075=1076
+<1076=1078,1077
+<1078=1080,1079
+<1081=1085,1082
+<1082=1084,1083
+<1086=1087
+<1087=1091,1088
+<1088=1090,1089
+<1092=1093
+<1093=1097,1094
+<1094=1096,1095
+<1098=1099
+<1099=1101,1100
+<1102=1103
+<1103=1119,1118,1104
+<1104=1117,1105
+<1105=1111,1106
+<1106=1107
+<1107=1108
+<1108=1110,1109
+<1111=1112
+<1112=1114,1113
+<1114=1116,1115
+<1120=1121
+<1121=1123,1122
+<1123=1125,1124
+<1125=1127,1126
+<1128=1129
+<1129=1131,1130
+<1131=1133,1132
+<1133=1135,1134
+<1136=1137
+<1137=1144,1138
+<1138=1142,1139
+<1139=1140
+<1140=1141
+<1142=1143
+<1144=1146,1145
+<1146=1148,1147
+<1149=1150
+<1150=1156,1151
+<1151=1155,1152
+<1152=1154,1153
+<1156=1158,1157
+<1158=1160,1159
+<1161=1162
+<1162=1164,1163
+<1164=1166,1165
+<1167=1168
+<1168=1170,1169
+<1170=1172,1171
+<1173=1174
+<1174=1186,1175
+<1175=1182,1180,1176
+<1176=1177
+<1177=1179,1178
+<1180=1181
+<1182=1183
+<1183=1185,1184
+<1186=1187
+<1188=1189
+<1189=1191,1190
+<1192=1193
+<1193=1195,1194
+<1195=1196
+<1196=1198,1197
+<1198=1200,1199
+<1201=1202
+<1202=1204,1203
+<1205=1264,1206
+<1206=1257,1213,1207
+<1207=1208
+<1208=1212,1209
+<1209=1211,1210
+<1213=1251,1249,1246,1214
+<1214=1240,1231,1222,1215
+<1215=1216
+<1216=1220,1217
+<1217=1218
+<1218=1219
+<1220=1221
+<1222=1223
+<1223=1229,1224
+<1224=1225
+<1225=1226
+<1226=1228,1227
+<1229=1230
+<1231=1232
+<1232=1238,1233
+<1233=1234
+<1234=1235
+<1235=1237,1236
+<1238=1239
+<1240=1241
+<1241=1245,1242
+<1242=1244,1243
+<1246=1248,1247
+<1249=1250
+<1251=1252
+<1252=1256,1253
+<1253=1255,1254
+<1257=1261,1258
+<1258=1260,1259
+<1261=1263,1262
+<1264=1265
+<1266=1267
+<1267=1272,1271,1268
+<1268=1270,1269
+<1273=1274
+<1274=1278,1275
+<1275=1276
+<1276=1277
+<1278=1279
+<1280=1283,1281
+<1281=1282
+<1283=1284
+<1284=1288,1285
+<1285=1287,1286
+<1334=1340,1339,1335
+<1335=1336
+<1336=1338,1337
+<1340=1427,1420,1413,1408,1341
+<1341=1400,1396,1393,1342
+<1342=1382,1368,1343
+<1343=1357,1347,1344
+<1344=1345
+<1345=1346
+<1347=1348
+<1348=1349
+<1349=1353,1350
+<1350=1351
+<1351=1352
+<1353=1354
+<1354=1356,1355
+<1357=1358
+<1358=1367,1359
+<1359=1361,1360
+<1361=1365,1362
+<1362=1363
+<1363=1364
+<1365=1366
+<1368=1369
+<1369=1381,1380,1370
+<1370=1379,1371
+<1371=1377,1372
+<1372=1375,1373
+<1373=1374
+<1375=1376
+<1377=1378
+<1382=1383
+<1383=1391,1384
+<1384=1389,1387,1385
+<1385=1386
+<1387=1388
+<1389=1390
+<1391=1392
+<1393=1395,1394
+<1396=1397
+<1397=1399,1398
+<1400=1401
+<1401=1402
+<1402=1407,1406,1403
+<1403=1405,1404
+<1408=1409
+<1409=1412,1411,1410
+<1413=1414
+<1414=1416,1415
+<1416=1417
+<1417=1419,1418
+<1420=1423,1421
+<1421=1422
+<1423=1424
+<1424=1426,1425
+<1427=1430,1428
+<1428=1429
+<1430=1431
+<1431=1435,1432
+<1432=1434,1433
+<1451=1454,1453,1452
+<1454=1513,1509,1500,1488,1455
+<1455=1480,1476,1473,1456
+<1456=1457
+<1457=1458
+<1458=1471,1459
+<1459=1469,1460
+<1460=1461
+<1461=1465,1462
+<1462=1463
+<1463=1464
+<1465=1466
+<1466=1468,1467
+<1469=1470
+<1471=1472
+<1473=1475,1474
+<1476=1477
+<1477=1479,1478
+<1480=1481
+<1481=1482
+<1482=1487,1486,1483
+<1483=1485,1484
+<1488=1489
+<1489=1499,1498,1490
+<1490=1497,1491
+<1491=1493,1492
+<1493=1494
+<1494=1496,1495
+<1500=1501
+<1501=1507,1502
+<1502=1503
+<1503=1504
+<1504=1506,1505
+<1507=1508
+<1509=1510
+<1510=1512,1511
+<1513=1516,1514
+<1514=1515
+<1516=1517
+<1517=1521,1518
+<1518=1520,1519
+<1534=1543,1542,1535
+<1535=1539,1536
+<1536=1538,1537
+<1539=1541,1540
+<1543=1580,1566,1546,1544
+<1544=1545
+<1546=1560,1547
+<1547=1548
+<1548=1554,1549
+<1549=1550
+<1550=1551
+<1551=1553,1552
+<1554=1555
+<1555=1557,1556
+<1557=1559,1558
+<1560=1561
+<1561=1563,1562
+<1563=1565,1564
+<1566=1567
+<1567=1579,1578,1568
+<1568=1577,1569
+<1569=1571,1570
+<1571=1575,1572
+<1572=1573
+<1573=1574
+<1575=1576
+<1580=1581
+<1581=1586,1585,1582
+<1582=1584,1583
+<1597=1612,1611,1598
+<1598=1608,1605,1602,1599
+<1599=1601,1600
+<1602=1604,1603
+<1605=1607,1606
+<1608=1610,1609
+<1612=1710,1706,1613
+<1613=1704,1614
+<1614=1697,1686,1664,1626,1615
+<1615=1616
+<1616=1625,1617
+<1617=1621,1618
+<1618=1619
+<1619=1620
+<1621=1622
+<1622=1624,1623
+<1626=1655,1627
+<1627=1641,1628
+<1628=1629
+<1629=1639,1630
+<1630=1637,1635,1633,1631
+<1631=1632
+<1633=1634
+<1635=1636
+<1637=1638
+<1639=1640
+<1641=1642
+<1642=1654,1653,1643
+<1643=1652,1644
+<1644=1648,1645
+<1645=1646
+<1646=1647
+<1648=1649
+<1649=1651,1650
+<1655=1656
+<1656=1660,1657
+<1657=1658
+<1658=1659
+<1660=1661
+<1661=1663,1662
+<1664=1675,1665
+<1665=1666
+<1666=1667
+<1667=1671,1668
+<1668=1669
+<1669=1670
+<1671=1672
+<1672=1674,1673
+<1675=1676
+<1676=1678,1677
+<1678=1682,1679
+<1679=1680
+<1680=1681
+<1682=1683
+<1683=1685,1684
+<1686=1687
+<1687=1696,1688
+<1688=1692,1689
+<1689=1690
+<1690=1691
+<1692=1693
+<1693=1695,1694
+<1697=1698
+<1698=1703,1702,1699
+<1699=1701,1700
+<1704=1705
+<1706=1707
+<1707=1709,1708
+<1710=1711
+<1711=1716,1715,1712
+<1712=1714,1713
+<1734=1739,1735
+<1735=1736
+<1736=1738,1737
+<1744=1750,1749,1745
+<1745=1746
+<1746=1748,1747
+<1750=1795,1784,1773,1762,1751
+<1751=1752
+<1752=1760,1753
+<1753=1758,1756,1754
+<1754=1755
+<1756=1757
+<1758=1759
+<1760=1761
+<1762=1763
+<1763=1771,1764
+<1764=1769,1767,1765
+<1765=1766
+<1767=1768
+<1769=1770
+<1771=1772
+<1773=1774
+<1774=1782,1775
+<1775=1780,1778,1776
+<1776=1777
+<1778=1779
+<1780=1781
+<1782=1783
+<1784=1785
+<1785=1793,1786
+<1786=1791,1789,1787
+<1787=1788
+<1789=1790
+<1791=1792
+<1793=1794
+<1795=1796
+<1796=1800,1797
+<1797=1798
+<1798=1799
+<1800=1801
+<1814=1826,1825,1815
+<1815=1822,1819,1816
+<1816=1818,1817
+<1819=1821,1820
+<1822=1824,1823
+<1826=2010,2006,1999,1827
+<1827=1992,1828
+<1828=1988,1979,1967,1955,1939,1920,1899,1876,1870,1829
+<1829=1830
+<1830=1866,1831
+<1831=1864,1858,1852,1843,1834,1832
+<1832=1833
+<1834=1835
+<1835=1837,1836
+<1837=1839,1838
+<1839=1840
+<1840=1842,1841
+<1843=1844
+<1844=1846,1845
+<1846=1848,1847
+<1848=1849
+<1849=1851,1850
+<1852=1853
+<1853=1855,1854
+<1855=1857,1856
+<1858=1859
+<1859=1861,1860
+<1861=1863,1862
+<1864=1865
+<1866=1867
+<1867=1869,1868
+<1870=1871
+<1871=1873,1872
+<1873=1875,1874
+<1876=1877
+<1877=1895,1878
+<1878=1893,1887,1885,1883,1881,1879
+<1879=1880
+<1881=1882
+<1883=1884
+<1885=1886
+<1887=1888
+<1888=1892,1889
+<1889=1891,1890
+<1893=1894
+<1895=1896
+<1896=1898,1897
+<1899=1900
+<1900=1916,1901
+<1901=1914,1910,1908,1906,1904,1902
+<1902=1903
+<1904=1905
+<1906=1907
+<1908=1909
+<1910=1911
+<1911=1913,1912
+<1914=1915
+<1916=1917
+<1917=1919,1918
+<1920=1921
+<1921=1935,1922
+<1922=1933,1931,1929,1927,1925,1923
+<1923=1924
+<1925=1926
+<1927=1928
+<1929=1930
+<1931=1932
+<1933=1934
+<1935=1936
+<1936=1938,1937
+<1939=1940
+<1940=1954,1953,1941
+<1941=1952,1942
+<1942=1946,1943
+<1943=1945,1944
+<1946=1948,1947
+<1948=1949
+<1949=1951,1950
+<1955=1956
+<1956=1966,1965,1957
+<1957=1964,1958
+<1958=1960,1959
+<1960=1961
+<1961=1963,1962
+<1967=1968
+<1968=1978,1977,1969
+<1969=1976,1970
+<1970=1972,1971
+<1972=1973
+<1973=1975,1974
+<1979=1980
+<1980=1984,1981
+<1981=1982
+<1982=1983
+<1984=1985
+<1985=1987,1986
+<1988=1989
+<1989=1991,1990
+<1992=1993
+<1993=1995,1994
+<1995=1996
+<1996=1998,1997
+<1999=2000
+<2000=2004,2001
+<2001=2002
+<2002=2003
+<2004=2005
+<2006=2007
+<2007=2009,2008
+<2010=2011
+<2011=2019,2012
+<2012=2017,2015,2013
+<2013=2014
+<2015=2016
+<2017=2018
+<2019=2020
+<2047=2050,2049,2048
+<2050=2086,2071,2058,2053,2051
+<2051=2052
+<2053=2054
+<2054=2056,2055
+<2056=2057
+<2058=2059
+<2059=2067,2060
+<2060=2063,2061
+<2061=2062
+<2063=2064
+<2064=2066,2065
+<2067=2068
+<2068=2070,2069
+<2071=2072
+<2072=2082,2073
+<2073=2080,2078,2076,2074
+<2074=2075
+<2076=2077
+<2078=2079
+<2080=2081
+<2082=2083
+<2083=2085,2084
+<2086=2087
+<2087=2089,2088
+<2089=2090
+<2101=2104,2103,2102
+<2104=2105
+<2105=2106
+<2106=2108,2107
+<2108=2109
+<2113=2116,2115,2114
+<2116=2287,2117
+<2117=2278,2118
+<2118=2266,2262,2247,2239,2227,2221,2215,2203,2181,2160,2145,2139,2135,2119
+<2119=2120
+<2120=2133,2121
+<2121=2122
+<2122=2123
+<2123=2127,2124
+<2124=2125
+<2125=2126
+<2127=2128
+<2128=2130,2129
+<2130=2132,2131
+<2133=2134
+<2135=2136
+<2136=2138,2137
+<2139=2140
+<2140=2142,2141
+<2142=2144,2143
+<2145=2146
+<2146=2157,2147
+<2147=2153,2148
+<2148=2149
+<2149=2150
+<2150=2152,2151
+<2153=2154
+<2154=2156,2155
+<2157=2159,2158
+<2160=2161
+<2161=2180,2179,2162
+<2162=2178,2163
+<2163=2176,2164
+<2164=2165
+<2165=2166
+<2166=2170,2167
+<2167=2168
+<2168=2169
+<2170=2171
+<2171=2173,2172
+<2173=2175,2174
+<2176=2177
+<2181=2182
+<2182=2198,2183
+<2183=2196,2184
+<2184=2185
+<2185=2186
+<2186=2190,2187
+<2187=2188
+<2188=2189
+<2190=2191
+<2191=2193,2192
+<2193=2195,2194
+<2196=2197
+<2198=2200,2199
+<2200=2202,2201
+<2203=2204
+<2204=2210,2205
+<2205=2209,2206
+<2206=2208,2207
+<2210=2212,2211
+<2212=2214,2213
+<2215=2216
+<2216=2218,2217
+<2218=2220,2219
+<2221=2222
+<2222=2224,2223
+<2224=2226,2225
+<2227=2228
+<2228=2234,2229
+<2229=2231,2230
+<2231=2233,2232
+<2234=2236,2235
+<2236=2238,2237
+<2239=2240
+<2240=2242,2241
+<2242=2244,2243
+<2244=2246,2245
+<2247=2248
+<2248=2260,2249
+<2249=2256,2254,2250
+<2250=2251
+<2251=2253,2252
+<2254=2255
+<2256=2257
+<2257=2259,2258
+<2260=2261
+<2262=2263
+<2263=2265,2264
+<2266=2267
+<2267=2277,2276,2268
+<2268=2275,2269
+<2269=2271,2270
+<2271=2272
+<2272=2274,2273
+<2278=2279
+<2279=2281,2280
+<2281=2283,2282
+<2283=2284
+<2284=2286,2285
+<2287=2288
+<2288=2293,2292,2289
+<2289=2291,2290
+<2328=2331,2330,2329
+<2335=2338,2337,2336
+<2342=2357,2356,2343
+<2343=2353,2350,2347,2344
+<2344=2346,2345
+<2347=2349,2348
+<2350=2352,2351
+<2353=2355,2354
+<2357=2358
+<2358=2359
+<2359=2369,2360
+<2360=2367,2365,2363,2361
+<2361=2362
+<2363=2364
+<2365=2366
+<2367=2368
+<2369=2370
+<2379=2391,2390,2380
+<2380=2387,2384,2381
+<2381=2383,2382
+<2384=2386,2385
+<2387=2389,2388
+<2391=2392
+<2392=2393
+<2393=2401,2394
+<2394=2399,2397,2395
+<2395=2396
+<2397=2398
+<2399=2400
+<2401=2402
+<2410=2419,2418,2411
+<2411=2415,2412
+<2412=2414,2413
+<2415=2417,2416
+<2419=2420
+<2420=2421
+<2421=2423,2422
+<2423=2425,2424
+<2432=2441,2440,2433
+<2433=2437,2434
+<2434=2436,2435
+<2437=2439,2438
+<2441=2531,2520,2455,2448,2442
+<2442=2443
+<2443=2445,2444
+<2445=2447,2446
+<2448=2449
+<2449=2451,2450
+<2451=2452
+<2452=2454,2453
+<2455=2509,2456
+<2456=2498,2457
+<2457=2489,2467,2458
+<2458=2459
+<2459=2460
+<2460=2461
+<2461=2465,2462
+<2462=2463
+<2463=2464
+<2465=2466
+<2467=2478,2468
+<2468=2470,2469
+<2470=2471
+<2471=2473,2472
+<2473=2475,2474
+<2475=2477,2476
+<2478=2479
+<2479=2485,2480
+<2480=2483,2481
+<2481=2482
+<2483=2484
+<2485=2486
+<2486=2488,2487
+<2489=2490
+<2490=2492,2491
+<2492=2494,2493
+<2494=2495
+<2495=2497,2496
+<2498=2499
+<2499=2508,2507,2500
+<2500=2506,2501
+<2501=2503,2502
+<2503=2505,2504
+<2509=2510
+<2510=2519,2511
+<2511=2513,2512
+<2513=2517,2514
+<2514=2515
+<2515=2516
+<2517=2518
+<2520=2521
+<2521=2530,2529,2522
+<2522=2528,2523
+<2523=2525,2524
+<2525=2527,2526
+<2531=2532
+<2532=2539,2538,2533
+<2533=2537,2534
+<2534=2536,2535
+<2558=2567,2566,2559
+<2559=2563,2560
+<2560=2562,2561
+<2563=2565,2564
+<2567=2568
+<2568=2569
+<2569=2571,2570
+<2571=2573,2572
+<2580=2589,2588,2581
+<2581=2585,2582
+<2582=2584,2583
+<2585=2587,2586
+<2589=2596,2590
+<2590=2591
+<2591=2593,2592
+<2593=2595,2594
+<2596=2597
+<2597=2604,2603,2598
+<2598=2602,2599
+<2599=2601,2600
+<2612=2615,2614,2613
+<2615=2616
+<2616=2617
+<2617=2628,2618
+<2618=2621,2619
+<2619=2620
+<2621=2622
+<2622=2624,2623
+<2624=2625
+<2625=2627,2626
+<2628=2629
+<2636=2639,2638,2637
+<2639=2640
+<2640=2641
+<2641=2652,2642
+<2642=2645,2643
+<2643=2644
+<2645=2646
+<2646=2648,2647
+<2648=2649
+<2649=2651,2650
+<2652=2653
+<2660=2669,2668,2661
+<2661=2665,2662
+<2662=2664,2663
+<2665=2667,2666
+<2669=2676,2670
+<2670=2671
+<2671=2673,2672
+<2673=2675,2674
+<2676=2677
+<2677=2684,2683,2678
+<2678=2682,2679
+<2679=2681,2680

@@ -1,0 +1,279 @@
+>8	FunctionDef	~poi ()
+>9	ParameterList	 
+>10	CompoundStatement	 
+>11	ExpressionStatement	 
+>12	Identifier	s_po
+>13	Statement	 
+>26	FunctionDef	execute ()
+>27	ParameterList	 
+>28	ReturnType	task *
+>29	CompoundStatement	 
+>30	ReturnStatement	 
+>31	Identifier	toBeReturned
+>32	ExpressionStatement	 
+>33	CallExpression	my_body ( my_value )
+>34	ArgumentList	my_value
+>35	Argument	my_value
+>36	Identifier	my_value
+>37	Callee	my_body
+>38	Identifier	my_body
+>44	FunctionDef	setNext (TaskWrapper2 < Body > * givenNext)
+>45	ParameterList	TaskWrapper2 < Body > * givenNext
+>46	Parameter	 
+>47	Identifier	givenNext
+>48	ParameterType	TaskWrapper2 < Body > *
+>49	ReturnType	void
+>50	CompoundStatement	 
+>51	ExpressionStatement	 
+>52	AssignmentExpr	toBeReturned = givenNext
+>53	Identifier	givenNext
+>54	Identifier	toBeReturned
+>60	FunctionDef	TaskWrapper2 (const typename Body 
+>61	ParameterList	const typename Body 
+>62	Parameter	 
+>63	Identifier	body
+>64	ParameterType	const Body &
+>65	Parameter	 
+>66	Identifier	value
+>67	ParameterType	const typename Body 
+>68	CompoundStatement	 
+>75	FunctionDef	operator ( ) (schedulable * stepInstance)
+>76	ParameterList	schedulable * stepInstance
+>77	Parameter	 
+>78	Identifier	stepInstance
+>79	ParameterType	schedulable *
+>80	ReturnType	void
+>81	CompoundStatement	 
+>82	ExpressionStatement	 
+>83	CallExpression	stepInstance -> scheduler ( ) . do_execute ( stepInstance )
+>84	ArgumentList	stepInstance
+>85	Argument	stepInstance
+>86	Identifier	stepInstance
+>87	Callee	stepInstance -> scheduler ( ) . do_execute
+>88	MemberAccess	stepInstance -> scheduler ( ) . do_execute
+>89	Identifier	do_execute
+>90	CallExpression	stepInstance -> scheduler ( )
+>91	ArgumentList	 
+>92	Callee	stepInstance -> scheduler
+>93	PtrMemberAccess	stepInstance -> scheduler
+>94	Identifier	scheduler
+>95	Identifier	stepInstance
+>96	ExpressionStatement	 
+>97	CallExpression	CNC_ASSERT ( stepInstance )
+>98	ArgumentList	stepInstance
+>99	Argument	stepInstance
+>100	Identifier	stepInstance
+>101	Callee	CNC_ASSERT
+>102	Identifier	CNC_ASSERT
+>111	FunctionDef	simplest_prioritized_scheduler 
+>112	ParameterList	context_base & context , int numThreads , int htstride
+>113	Parameter	 
+>114	Identifier	htstride
+>115	ParameterType	int
+>116	Parameter	 
+>117	Identifier	numThreads
+>118	ParameterType	int
+>119	Parameter	 
+>120	Identifier	context
+>121	ParameterType	context_base &
+>122	CompoundStatement	 
+>123	IfStatement	if ( m_allocated . compare_and_swap ( true , false ) == false )
+>124	CompoundStatement	 
+>125	ExpressionStatement	 
+>126	AssignmentExpr	m_applyStepInstance = new apply_step_instance ( )
+>127	UnaryExpression	new apply_step_instance ( )
+>128	Identifier	m_applyStepInstance
+>129	Condition	 
+>130	EqualityExpression	m_allocated . compare_and_swap ( true , false ) == false
+>131	Identifier	false
+>132	CallExpression	m_allocated . compare_and_swap ( true , false )
+>133	ArgumentList	true
+>134	Argument	false
+>135	Identifier	false
+>136	Argument	true
+>137	Identifier	true
+>138	Callee	m_allocated . compare_and_swap
+>139	MemberAccess	m_allocated . compare_and_swap
+>140	Identifier	compare_and_swap
+>141	Identifier	m_allocated
+>142	ExpressionStatement	 
+>143	AssignmentExpr	m_allocated = false
+>144	Identifier	false
+>145	Identifier	m_allocated
+>146	ExpressionStatement	 
+>147	AssignmentExpr	m_status = COMPLETED
+>148	Identifier	COMPLETED
+>149	Identifier	m_status
+>150	IfStatement	if ( htstride && s_have_pinning_observer . compare_and_swap ( true , false ) == false )
+>151	CompoundStatement	 
+>152	ExpressionStatement	 
+>153	AssignmentExpr	s_po = new pinning_observer ( htstride )
+>154	Identifier	htstride
+>155	Identifier	s_po
+>156	Condition	 
+>157	AndExpression	htstride && s_have_pinning_observer . compare_and_swap ( true , false ) == false
+>158	EqualityExpression	s_have_pinning_observer . compare_and_swap ( true , false ) == false
+>159	Identifier	false
+>160	CallExpression	s_have_pinning_observer . compare_and_swap ( true , false )
+>161	ArgumentList	true
+>162	Argument	false
+>163	Identifier	false
+>164	Argument	true
+>165	Identifier	true
+>166	Callee	s_have_pinning_observer . compare_and_swap
+>167	MemberAccess	s_have_pinning_observer . compare_and_swap
+>168	Identifier	compare_and_swap
+>169	Identifier	s_have_pinning_observer
+>170	Identifier	htstride
+>187	FunctionDef	simplest_prioritized_scheduler 
+>188	ParameterList	 
+>189	CompoundStatement	 
+>190	IfStatement	if ( m_allocated . compare_and_swap ( false , true ) == true )
+>191	CompoundStatement	 
+>192	ExpressionStatement	 
+>193	Identifier	m_applyStepInstance
+>194	Statement	 
+>195	Condition	 
+>196	EqualityExpression	m_allocated . compare_and_swap ( false , true ) == true
+>197	Identifier	true
+>198	CallExpression	m_allocated . compare_and_swap ( false , true )
+>199	ArgumentList	false
+>200	Argument	true
+>201	Identifier	true
+>202	Argument	false
+>203	Identifier	false
+>204	Callee	m_allocated . compare_and_swap
+>205	MemberAccess	m_allocated . compare_and_swap
+>206	Identifier	compare_and_swap
+>207	Identifier	m_allocated
+>215	FunctionDef	simplest_prioritized_scheduler 
+>216	ParameterList	schedulable * stepInstance
+>217	Parameter	 
+>218	Identifier	stepInstance
+>219	ParameterType	schedulable *
+>220	ReturnType	void
+>221	CompoundStatement	 
+>222	ExpressionStatement	 
+>223	CallExpression	m_runQueue . push ( stepInstance )
+>224	ArgumentList	stepInstance
+>225	Argument	stepInstance
+>226	Identifier	stepInstance
+>227	Callee	m_runQueue . push
+>228	MemberAccess	m_runQueue . push
+>229	Identifier	push
+>230	Identifier	m_runQueue
+>231	ExpressionStatement	 
+>232	CallExpression	m_status . compare_and_swap ( RUNNING , COMPLETED )
+>233	ArgumentList	RUNNING
+>234	Argument	COMPLETED
+>235	Identifier	COMPLETED
+>236	Argument	RUNNING
+>237	Identifier	RUNNING
+>238	Callee	m_status . compare_and_swap
+>239	MemberAccess	m_status . compare_and_swap
+>240	Identifier	compare_and_swap
+>241	Identifier	m_status
+<8=10,9
+<10=13,11
+<11=12
+<26=29,28,27
+<29=32,30
+<30=31
+<32=33
+<33=37,34
+<34=35
+<35=36
+<37=38
+<44=50,49,45
+<45=46
+<46=48,47
+<50=51
+<51=52
+<52=54,53
+<60=68,61
+<61=65,62
+<62=64,63
+<65=67,66
+<75=81,80,76
+<76=77
+<77=79,78
+<81=96,82
+<82=83
+<83=87,84
+<84=85
+<85=86
+<87=88
+<88=90,89
+<90=92,91
+<92=93
+<93=95,94
+<96=97
+<97=101,98
+<98=99
+<99=100
+<101=102
+<111=122,112
+<112=119,116,113
+<113=115,114
+<116=118,117
+<119=121,120
+<122=150,146,142,123
+<123=129,124
+<124=125
+<125=126
+<126=128,127
+<129=130
+<130=132,131
+<132=138,133
+<133=136,134
+<134=135
+<136=137
+<138=139
+<139=141,140
+<142=143
+<143=145,144
+<146=147
+<147=149,148
+<150=156,151
+<151=152
+<152=153
+<153=155,154
+<156=157
+<157=170,158
+<158=160,159
+<160=166,161
+<161=164,162
+<162=163
+<164=165
+<166=167
+<167=169,168
+<187=189,188
+<189=190
+<190=195,191
+<191=194,192
+<192=193
+<195=196
+<196=198,197
+<198=204,199
+<199=202,200
+<200=201
+<202=203
+<204=205
+<205=207,206
+<215=221,220,216
+<216=217
+<217=219,218
+<221=231,222
+<222=223
+<223=227,224
+<224=225
+<225=226
+<227=228
+<228=230,229
+<231=232
+<232=238,233
+<233=236,234
+<234=235
+<236=237
+<238=239
+<239=241,240

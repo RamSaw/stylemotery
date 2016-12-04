@@ -1,0 +1,356 @@
+>3	FunctionDef	BubbleRender 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	AssignmentExpr	cull = false
+>8	Identifier	false
+>9	Identifier	cull
+>10	ExpressionStatement	 
+>11	AssignmentExpr	bubble . scale = Vector ( 0.5 , 0.5 )
+>12	CallExpression	Vector ( 0.5 , 0.5 )
+>13	ArgumentList	0.5
+>14	Argument	0.5
+>15	PrimaryExpression	0.5
+>16	Argument	0.5
+>17	PrimaryExpression	0.5
+>18	Callee	Vector
+>19	Identifier	Vector
+>20	MemberAccess	bubble . scale
+>21	Identifier	scale
+>22	Identifier	bubble
+>23	ExpressionStatement	 
+>24	AssignmentExpr	bubble . alpha = 0.5
+>25	PrimaryExpression	0.5
+>26	MemberAccess	bubble . alpha
+>27	Identifier	alpha
+>28	Identifier	bubble
+>29	ExpressionStatement	 
+>30	CallExpression	bubble . setTexture ( \"particles/bubble\" )
+>31	ArgumentList	\"particles/bubble\"
+>32	Argument	\"particles/bubble\"
+>33	PrimaryExpression	\"particles/bubble\"
+>34	Callee	bubble . setTexture
+>35	MemberAccess	bubble . setTexture
+>36	Identifier	setTexture
+>37	Identifier	bubble
+>47	FunctionDef	BubbleRender 
+>48	ParameterList	 
+>49	ReturnType	void
+>50	CompoundStatement	 
+>51	ForStatement	for ( int x = dsq -> game -> cameraMin . x ; x < dsq -> game -> cameraMax . x ; x += 64 )
+>52	CompoundStatement	 
+>53	ForStatement	for ( int y = dsq -> game -> cameraMin . y ; y < dsq -> game -> cameraMax . y ; y += 64 )
+>54	CompoundStatement	 
+>55	ExpressionStatement	 
+>56	CallExpression	bubbles . push_back ( Vector ( x , y ) + Vector ( rand ( ) % 16 - 32 , rand ( ) % 16 - 32 ) )
+>57	ArgumentList	Vector ( x , y ) + Vector ( rand ( ) % 16 - 32 , rand ( ) % 16 - 32 )
+>58	Argument	Vector ( x , y ) + Vector ( rand ( ) % 16 - 32 , rand ( ) % 16 - 32 )
+>59	AdditiveExpression	Vector ( x , y ) + Vector ( rand ( ) % 16 - 32 , rand ( ) % 16 - 32 )
+>60	CallExpression	Vector ( rand ( ) % 16 - 32 , rand ( ) % 16 - 32 )
+>61	ArgumentList	rand ( ) % 16 - 32
+>62	Argument	rand ( ) % 16 - 32
+>63	AdditiveExpression	rand ( ) % 16 - 32
+>64	PrimaryExpression	32
+>65	MultiplicativeExpression	rand ( ) % 16
+>66	PrimaryExpression	16
+>67	CallExpression	rand ( )
+>68	ArgumentList	 
+>69	Callee	rand
+>70	Identifier	rand
+>71	Argument	rand ( ) % 16 - 32
+>72	AdditiveExpression	rand ( ) % 16 - 32
+>73	PrimaryExpression	32
+>74	MultiplicativeExpression	rand ( ) % 16
+>75	PrimaryExpression	16
+>76	CallExpression	rand ( )
+>77	ArgumentList	 
+>78	Callee	rand
+>79	Identifier	rand
+>80	Callee	Vector
+>81	Identifier	Vector
+>82	CallExpression	Vector ( x , y )
+>83	ArgumentList	x
+>84	Argument	y
+>85	Identifier	y
+>86	Argument	x
+>87	Identifier	x
+>88	Callee	Vector
+>89	Identifier	Vector
+>90	Callee	bubbles . push_back
+>91	MemberAccess	bubbles . push_back
+>92	Identifier	push_back
+>93	Identifier	bubbles
+>94	AssignmentExpr	 
+>95	PrimaryExpression	64
+>96	Identifier	y
+>97	Condition	 
+>98	RelationalExpression	y < dsq -> game -> cameraMax . y
+>99	MemberAccess	dsq -> game -> cameraMax . y
+>100	Identifier	y
+>101	PtrMemberAccess	dsq -> game -> cameraMax
+>102	Identifier	cameraMax
+>103	PtrMemberAccess	dsq -> game
+>104	Identifier	game
+>105	Identifier	dsq
+>106	Identifier	y
+>107	ForInit	 
+>108	IdentifierDeclStatement	int y = dsq -> game -> cameraMin . y ;
+>109	IdentifierDecl	y = dsq -> game -> cameraMin . y
+>110	AssignmentExpr	y = dsq -> game -> cameraMin . y
+>111	MemberAccess	dsq -> game -> cameraMin . y
+>112	Identifier	y
+>113	PtrMemberAccess	dsq -> game -> cameraMin
+>114	Identifier	cameraMin
+>115	PtrMemberAccess	dsq -> game
+>116	Identifier	game
+>117	Identifier	dsq
+>118	Identifier	y
+>119	Identifier	y
+>120	IdentifierDeclType	int
+>121	AssignmentExpr	 
+>122	PrimaryExpression	64
+>123	Identifier	x
+>124	Condition	 
+>125	RelationalExpression	x < dsq -> game -> cameraMax . x
+>126	MemberAccess	dsq -> game -> cameraMax . x
+>127	Identifier	x
+>128	PtrMemberAccess	dsq -> game -> cameraMax
+>129	Identifier	cameraMax
+>130	PtrMemberAccess	dsq -> game
+>131	Identifier	game
+>132	Identifier	dsq
+>133	Identifier	x
+>134	ForInit	 
+>135	IdentifierDeclStatement	int x = dsq -> game -> cameraMin . x ;
+>136	IdentifierDecl	x = dsq -> game -> cameraMin . x
+>137	AssignmentExpr	x = dsq -> game -> cameraMin . x
+>138	MemberAccess	dsq -> game -> cameraMin . x
+>139	Identifier	x
+>140	PtrMemberAccess	dsq -> game -> cameraMin
+>141	Identifier	cameraMin
+>142	PtrMemberAccess	dsq -> game
+>143	Identifier	game
+>144	Identifier	dsq
+>145	Identifier	x
+>146	Identifier	x
+>147	IdentifierDeclType	int
+>148	ExpressionStatement	 
+>149	CallExpression	bubbles . clear ( )
+>150	ArgumentList	 
+>151	Callee	bubbles . clear
+>152	MemberAccess	bubbles . clear
+>153	Identifier	clear
+>154	Identifier	bubbles
+>174	FunctionDef	BubbleRender 
+>175	ParameterList	 
+>176	ReturnType	void
+>177	CompoundStatement	 
+>178	ForStatement	for ( int i = 0 ; i < bubbles . size ( ) ; i ++ )
+>179	CompoundStatement	 
+>180	IfStatement	if ( bubbles [ i ] . x > core -> screenCullX1 && bubbles [ i ] . x < core -> screenCullX2 )
+>181	CompoundStatement	 
+>182	IfStatement	if ( bubbles [ i ] . y > core -> screenCullY1 && bubbles [ i ] . y < core -> screenCullY2 )
+>183	CompoundStatement	 
+>184	ExpressionStatement	 
+>185	CallExpression	bubble . render ( )
+>186	ArgumentList	 
+>187	Callee	bubble . render
+>188	MemberAccess	bubble . render
+>189	Identifier	render
+>190	Identifier	bubble
+>191	ExpressionStatement	 
+>192	AssignmentExpr	bubble . position = bubbles [ i ]
+>193	ArrayIndexing	bubbles [ i ]
+>194	Identifier	i
+>195	Identifier	bubbles
+>196	MemberAccess	bubble . position
+>197	Identifier	position
+>198	Identifier	bubble
+>199	Condition	 
+>200	AndExpression	bubbles [ i ] . y > core -> screenCullY1 && bubbles [ i ] . y < core -> screenCullY2
+>201	RelationalExpression	bubbles [ i ] . y < core -> screenCullY2
+>202	PtrMemberAccess	core -> screenCullY2
+>203	Identifier	screenCullY2
+>204	Identifier	core
+>205	MemberAccess	bubbles [ i ] . y
+>206	Identifier	y
+>207	ArrayIndexing	bubbles [ i ]
+>208	Identifier	i
+>209	Identifier	bubbles
+>210	RelationalExpression	bubbles [ i ] . y > core -> screenCullY1
+>211	PtrMemberAccess	core -> screenCullY1
+>212	Identifier	screenCullY1
+>213	Identifier	core
+>214	MemberAccess	bubbles [ i ] . y
+>215	Identifier	y
+>216	ArrayIndexing	bubbles [ i ]
+>217	Identifier	i
+>218	Identifier	bubbles
+>219	Condition	 
+>220	AndExpression	bubbles [ i ] . x > core -> screenCullX1 && bubbles [ i ] . x < core -> screenCullX2
+>221	RelationalExpression	bubbles [ i ] . x < core -> screenCullX2
+>222	PtrMemberAccess	core -> screenCullX2
+>223	Identifier	screenCullX2
+>224	Identifier	core
+>225	MemberAccess	bubbles [ i ] . x
+>226	Identifier	x
+>227	ArrayIndexing	bubbles [ i ]
+>228	Identifier	i
+>229	Identifier	bubbles
+>230	RelationalExpression	bubbles [ i ] . x > core -> screenCullX1
+>231	PtrMemberAccess	core -> screenCullX1
+>232	Identifier	screenCullX1
+>233	Identifier	core
+>234	MemberAccess	bubbles [ i ] . x
+>235	Identifier	x
+>236	ArrayIndexing	bubbles [ i ]
+>237	Identifier	i
+>238	Identifier	bubbles
+>239	IncDecOp	 
+>240	IncDec	++
+>241	Identifier	i
+>242	Condition	 
+>243	RelationalExpression	i < bubbles . size ( )
+>244	CallExpression	bubbles . size ( )
+>245	ArgumentList	 
+>246	Callee	bubbles . size
+>247	MemberAccess	bubbles . size
+>248	Identifier	size
+>249	Identifier	bubbles
+>250	Identifier	i
+>251	ForInit	 
+>252	IdentifierDeclStatement	int i = 0 ;
+>253	IdentifierDecl	i = 0
+>254	AssignmentExpr	i = 0
+>255	PrimaryExpression	0
+>256	Identifier	i
+>257	Identifier	i
+>258	IdentifierDeclType	int
+<3=5,4
+<5=29,23,10,6
+<6=7
+<7=9,8
+<10=11
+<11=20,12
+<12=18,13
+<13=16,14
+<14=15
+<16=17
+<18=19
+<20=22,21
+<23=24
+<24=26,25
+<26=28,27
+<29=30
+<30=34,31
+<31=32
+<32=33
+<34=35
+<35=37,36
+<47=50,49,48
+<50=148,51
+<51=134,124,121,52
+<52=53
+<53=107,97,94,54
+<54=55
+<55=56
+<56=90,57
+<57=58
+<58=59
+<59=82,60
+<60=80,61
+<61=71,62
+<62=63
+<63=65,64
+<65=67,66
+<67=69,68
+<69=70
+<71=72
+<72=74,73
+<74=76,75
+<76=78,77
+<78=79
+<80=81
+<82=88,83
+<83=86,84
+<84=85
+<86=87
+<88=89
+<90=91
+<91=93,92
+<94=96,95
+<97=98
+<98=106,99
+<99=101,100
+<101=103,102
+<103=105,104
+<107=108
+<108=109
+<109=120,119,110
+<110=118,111
+<111=113,112
+<113=115,114
+<115=117,116
+<121=123,122
+<124=125
+<125=133,126
+<126=128,127
+<128=130,129
+<130=132,131
+<134=135
+<135=136
+<136=147,146,137
+<137=145,138
+<138=140,139
+<140=142,141
+<142=144,143
+<148=149
+<149=151,150
+<151=152
+<152=154,153
+<174=177,176,175
+<177=178
+<178=251,242,239,179
+<179=180
+<180=219,181
+<181=182
+<182=199,183
+<183=191,184
+<184=185
+<185=187,186
+<187=188
+<188=190,189
+<191=192
+<192=196,193
+<193=195,194
+<196=198,197
+<199=200
+<200=210,201
+<201=205,202
+<202=204,203
+<205=207,206
+<207=209,208
+<210=214,211
+<211=213,212
+<214=216,215
+<216=218,217
+<219=220
+<220=230,221
+<221=225,222
+<222=224,223
+<225=227,226
+<227=229,228
+<230=234,231
+<231=233,232
+<234=236,235
+<236=238,237
+<239=241,240
+<242=243
+<243=250,244
+<244=246,245
+<246=247
+<247=249,248
+<251=252
+<252=253
+<253=258,257,254
+<254=256,255

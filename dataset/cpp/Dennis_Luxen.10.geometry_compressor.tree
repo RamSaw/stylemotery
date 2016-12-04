@@ -1,0 +1,1716 @@
+>3	FunctionDef	GeometryCompressor 
+>4	ParameterList	 
+>5	ReturnType	include < string >
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	CallExpression	IncreaseFreeList ( )
+>9	ArgumentList	 
+>10	Callee	IncreaseFreeList
+>11	Identifier	IncreaseFreeList
+>12	ExpressionStatement	 
+>13	CallExpression	m_free_list . reserve ( 100 )
+>14	ArgumentList	100
+>15	Argument	100
+>16	PrimaryExpression	100
+>17	Callee	m_free_list . reserve
+>18	MemberAccess	m_free_list . reserve
+>19	Identifier	reserve
+>20	Identifier	m_free_list
+>25	FunctionDef	GeometryCompressor 
+>26	ParameterList	 
+>27	ReturnType	void
+>28	CompoundStatement	 
+>29	ForStatement	for ( unsigned i = 100 ; i > 0 ; -- i )
+>30	CompoundStatement	 
+>31	ExpressionStatement	 
+>32	UnaryExpression	++ free_list_maximum
+>33	Identifier	free_list_maximum
+>34	IncDec	++
+>35	ExpressionStatement	 
+>36	CallExpression	m_free_list . emplace_back ( free_list_maximum )
+>37	ArgumentList	free_list_maximum
+>38	Argument	free_list_maximum
+>39	Identifier	free_list_maximum
+>40	Callee	m_free_list . emplace_back
+>41	MemberAccess	m_free_list . emplace_back
+>42	Identifier	emplace_back
+>43	Identifier	m_free_list
+>44	UnaryExpression	 
+>45	Identifier	i
+>46	IncDec	--
+>47	Condition	 
+>48	RelationalExpression	i > 0
+>49	PrimaryExpression	0
+>50	Identifier	i
+>51	ForInit	 
+>52	IdentifierDeclStatement	unsigned i = 100 ;
+>53	IdentifierDecl	i = 100
+>54	AssignmentExpr	i = 100
+>55	PrimaryExpression	100
+>56	Identifier	i
+>57	Identifier	i
+>58	IdentifierDeclType	unsigned
+>59	ExpressionStatement	 
+>60	CallExpression	m_compressed_geometries . resize ( m_compressed_geometries . size ( ) + 100 )
+>61	ArgumentList	m_compressed_geometries . size ( ) + 100
+>62	Argument	m_compressed_geometries . size ( ) + 100
+>63	AdditiveExpression	m_compressed_geometries . size ( ) + 100
+>64	PrimaryExpression	100
+>65	CallExpression	m_compressed_geometries . size ( )
+>66	ArgumentList	 
+>67	Callee	m_compressed_geometries . size
+>68	MemberAccess	m_compressed_geometries . size
+>69	Identifier	size
+>70	Identifier	m_compressed_geometries
+>71	Callee	m_compressed_geometries . resize
+>72	MemberAccess	m_compressed_geometries . resize
+>73	Identifier	resize
+>74	Identifier	m_compressed_geometries
+>83	FunctionDef	GeometryCompressor 
+>84	ParameterList	const EdgeID edge_id
+>85	Parameter	 
+>86	Identifier	edge_id
+>87	ParameterType	const EdgeID
+>88	ReturnType	bool
+>89	CompoundStatement	 
+>90	ReturnStatement	 
+>91	EqualityExpression	iter != m_edge_id_to_list_index_map . end ( )
+>92	CallExpression	m_edge_id_to_list_index_map . end ( )
+>93	ArgumentList	 
+>94	Callee	m_edge_id_to_list_index_map . end
+>95	MemberAccess	m_edge_id_to_list_index_map . end
+>96	Identifier	end
+>97	Identifier	m_edge_id_to_list_index_map
+>98	Identifier	iter
+>99	ExpressionStatement	 
+>100	AssignmentExpr	iter = m_edge_id_to_list_index_map . find ( edge_id )
+>101	CallExpression	m_edge_id_to_list_index_map . find ( edge_id )
+>102	ArgumentList	edge_id
+>103	Argument	edge_id
+>104	Identifier	edge_id
+>105	Callee	m_edge_id_to_list_index_map . find
+>106	MemberAccess	m_edge_id_to_list_index_map . find
+>107	Identifier	find
+>108	Identifier	m_edge_id_to_list_index_map
+>109	Identifier	iter
+>110	Statement	 
+>119	FunctionDef	GeometryCompressor 
+>120	ParameterList	const EdgeID edge_id
+>121	Parameter	 
+>122	Identifier	edge_id
+>123	ParameterType	const EdgeID
+>124	ReturnType	unsigned
+>125	CompoundStatement	 
+>126	ReturnStatement	 
+>127	PtrMemberAccess	map_iterator -> second
+>128	Identifier	second
+>129	Identifier	map_iterator
+>130	ExpressionStatement	 
+>131	CallExpression	BOOST_ASSERT ( map_iterator -> second < m_compressed_geometries . size ( ) )
+>132	ArgumentList	map_iterator -> second < m_compressed_geometries . size ( )
+>133	Argument	map_iterator -> second < m_compressed_geometries . size ( )
+>134	RelationalExpression	map_iterator -> second < m_compressed_geometries . size ( )
+>135	CallExpression	m_compressed_geometries . size ( )
+>136	ArgumentList	 
+>137	Callee	m_compressed_geometries . size
+>138	MemberAccess	m_compressed_geometries . size
+>139	Identifier	size
+>140	Identifier	m_compressed_geometries
+>141	PtrMemberAccess	map_iterator -> second
+>142	Identifier	second
+>143	Identifier	map_iterator
+>144	Callee	BOOST_ASSERT
+>145	Identifier	BOOST_ASSERT
+>146	ExpressionStatement	 
+>147	CallExpression	BOOST_ASSERT ( map_iterator != m_edge_id_to_list_index_map . end ( ) )
+>148	ArgumentList	map_iterator != m_edge_id_to_list_index_map . end ( )
+>149	Argument	map_iterator != m_edge_id_to_list_index_map . end ( )
+>150	EqualityExpression	map_iterator != m_edge_id_to_list_index_map . end ( )
+>151	CallExpression	m_edge_id_to_list_index_map . end ( )
+>152	ArgumentList	 
+>153	Callee	m_edge_id_to_list_index_map . end
+>154	MemberAccess	m_edge_id_to_list_index_map . end
+>155	Identifier	end
+>156	Identifier	m_edge_id_to_list_index_map
+>157	Identifier	map_iterator
+>158	Callee	BOOST_ASSERT
+>159	Identifier	BOOST_ASSERT
+>160	ExpressionStatement	 
+>161	AssignmentExpr	map_iterator = m_edge_id_to_list_index_map . find ( edge_id )
+>162	CallExpression	m_edge_id_to_list_index_map . find ( edge_id )
+>163	ArgumentList	edge_id
+>164	Argument	edge_id
+>165	Identifier	edge_id
+>166	Callee	m_edge_id_to_list_index_map . find
+>167	MemberAccess	m_edge_id_to_list_index_map . find
+>168	Identifier	find
+>169	Identifier	m_edge_id_to_list_index_map
+>170	Identifier	map_iterator
+>171	Statement	 
+>184	FunctionDef	GeometryCompressor 
+>185	ParameterList	const std 
+>186	Parameter	 
+>187	Identifier	path
+>188	ParameterType	const std 
+>189	ReturnType	void
+>190	CompoundStatement	 
+>191	ExpressionStatement	 
+>192	CallExpression	geometry_out_stream . close ( )
+>193	ArgumentList	 
+>194	Callee	geometry_out_stream . close
+>195	MemberAccess	geometry_out_stream . close
+>196	Identifier	close
+>197	Identifier	geometry_out_stream
+>198	ExpressionStatement	 
+>199	CallExpression	BOOST_ASSERT ( control_sum == prefix_sum_of_list_indices )
+>200	ArgumentList	control_sum == prefix_sum_of_list_indices
+>201	Argument	control_sum == prefix_sum_of_list_indices
+>202	EqualityExpression	control_sum == prefix_sum_of_list_indices
+>203	Identifier	prefix_sum_of_list_indices
+>204	Identifier	control_sum
+>205	Callee	BOOST_ASSERT
+>206	Identifier	BOOST_ASSERT
+>207	CompoundStatement	 
+>208	CompoundStatement	 
+>209	ExpressionStatement	 
+>210	CallExpression	geometry_out_stream . write ( ( char * ) & ( current_node . first ) , sizeof ( NodeID ) )
+>211	ArgumentList	( char * ) & ( current_node . first )
+>212	Argument	sizeof ( NodeID )
+>213	SizeofExpr	sizeof ( NodeID )
+>214	SizeofOperand	NodeID
+>215	Sizeof	sizeof
+>216	Argument	( char * ) & ( current_node . first )
+>217	CastExpression	( char * ) & ( current_node . first )
+>218	UnaryOp	& ( current_node . first )
+>219	MemberAccess	current_node . first
+>220	Identifier	first
+>221	Identifier	current_node
+>222	UnaryOperator	&
+>223	CastTarget	char *
+>224	Callee	geometry_out_stream . write
+>225	MemberAccess	geometry_out_stream . write
+>226	Identifier	write
+>227	Identifier	geometry_out_stream
+>228	Statement	 
+>229	Statement	 
+>230	Label	 
+>231	Identifier	current_node
+>232	Statement	 
+>233	Statement	 
+>234	Statement	 
+>235	Statement	 
+>236	ExpressionStatement	 
+>237	Statement	 
+>238	Statement	 
+>239	Statement	 
+>240	Statement	 
+>241	Statement	 
+>242	Statement	 
+>243	Statement	 
+>244	Statement	 
+>245	Statement	 
+>246	Statement	 
+>247	Statement	 
+>248	Statement	 
+>249	Statement	 
+>250	Statement	 
+>251	Statement	 
+>252	ExpressionStatement	 
+>253	AssignmentExpr	control_sum += unpacked_size
+>254	Identifier	unpacked_size
+>255	Identifier	control_sum
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	unpacked_size = current_vector . size ( )
+>258	AssignmentExpr	unpacked_size = current_vector . size ( )
+>259	CallExpression	current_vector . size ( )
+>260	ArgumentList	 
+>261	Callee	current_vector . size
+>262	MemberAccess	current_vector . size
+>263	Identifier	size
+>264	Identifier	current_vector
+>265	Identifier	unpacked_size
+>266	Identifier	unpacked_size
+>267	IdentifierDeclType	unsigned
+>268	Statement	 
+>269	IdentifierDeclStatement	 
+>270	IdentifierDecl	& current_vector = elem
+>271	AssignmentExpr	& current_vector = elem
+>272	Identifier	elem
+>273	Identifier	elem
+>274	Identifier	current_vector
+>275	IdentifierDeclType	const std 
+>276	Statement	 
+>277	Statement	 
+>278	Label	 
+>279	Identifier	elem
+>280	Statement	 
+>281	Statement	 
+>282	Statement	 
+>283	Statement	 
+>284	IdentifierDeclStatement	 
+>285	IdentifierDecl	control_sum = 0
+>286	AssignmentExpr	control_sum = 0
+>287	PrimaryExpression	0
+>288	Identifier	control_sum
+>289	Identifier	control_sum
+>290	IdentifierDeclType	unsigned
+>291	ExpressionStatement	 
+>292	CallExpression	geometry_out_stream . write ( ( char * ) & prefix_sum_of_list_indices , sizeof ( unsigned ) )
+>293	ArgumentList	( char * ) & prefix_sum_of_list_indices
+>294	Argument	sizeof ( unsigned )
+>295	SizeofExpr	sizeof ( unsigned )
+>296	SizeofOperand	unsigned
+>297	Sizeof	sizeof
+>298	Argument	( char * ) & prefix_sum_of_list_indices
+>299	CastExpression	( char * ) & prefix_sum_of_list_indices
+>300	UnaryOp	& prefix_sum_of_list_indices
+>301	Identifier	prefix_sum_of_list_indices
+>302	UnaryOperator	&
+>303	CastTarget	char *
+>304	Callee	geometry_out_stream . write
+>305	MemberAccess	geometry_out_stream . write
+>306	Identifier	write
+>307	Identifier	geometry_out_stream
+>308	ExpressionStatement	 
+>309	CallExpression	geometry_out_stream . write ( ( char * ) & prefix_sum_of_list_indices , sizeof ( unsigned ) )
+>310	ArgumentList	( char * ) & prefix_sum_of_list_indices
+>311	Argument	sizeof ( unsigned )
+>312	SizeofExpr	sizeof ( unsigned )
+>313	SizeofOperand	unsigned
+>314	Sizeof	sizeof
+>315	Argument	( char * ) & prefix_sum_of_list_indices
+>316	CastExpression	( char * ) & prefix_sum_of_list_indices
+>317	UnaryOp	& prefix_sum_of_list_indices
+>318	Identifier	prefix_sum_of_list_indices
+>319	UnaryOperator	&
+>320	CastTarget	char *
+>321	Callee	geometry_out_stream . write
+>322	MemberAccess	geometry_out_stream . write
+>323	Identifier	write
+>324	Identifier	geometry_out_stream
+>325	CompoundStatement	 
+>326	ExpressionStatement	 
+>327	AssignmentExpr	prefix_sum_of_list_indices += unpacked_size
+>328	Identifier	unpacked_size
+>329	Identifier	prefix_sum_of_list_indices
+>330	ExpressionStatement	 
+>331	Statement	 
+>332	Statement	 
+>333	Statement	 
+>334	Statement	 
+>335	Statement	 
+>336	Statement	 
+>337	Statement	 
+>338	Statement	 
+>339	Statement	 
+>340	Statement	 
+>341	Statement	 
+>342	Statement	 
+>343	Statement	 
+>344	Statement	 
+>345	Statement	 
+>346	IdentifierDeclStatement	 
+>347	IdentifierDecl	unpacked_size = current_vector . size ( )
+>348	AssignmentExpr	unpacked_size = current_vector . size ( )
+>349	CallExpression	current_vector . size ( )
+>350	ArgumentList	 
+>351	Callee	current_vector . size
+>352	MemberAccess	current_vector . size
+>353	Identifier	size
+>354	Identifier	current_vector
+>355	Identifier	unpacked_size
+>356	Identifier	unpacked_size
+>357	IdentifierDeclType	unsigned
+>358	Statement	 
+>359	IdentifierDeclStatement	 
+>360	IdentifierDecl	& current_vector = elem
+>361	AssignmentExpr	& current_vector = elem
+>362	Identifier	elem
+>363	Identifier	elem
+>364	Identifier	current_vector
+>365	IdentifierDeclType	const std 
+>366	ExpressionStatement	 
+>367	CallExpression	geometry_out_stream . write ( ( char * ) & prefix_sum_of_list_indices , sizeof ( unsigned ) )
+>368	ArgumentList	( char * ) & prefix_sum_of_list_indices
+>369	Argument	sizeof ( unsigned )
+>370	SizeofExpr	sizeof ( unsigned )
+>371	SizeofOperand	unsigned
+>372	Sizeof	sizeof
+>373	Argument	( char * ) & prefix_sum_of_list_indices
+>374	CastExpression	( char * ) & prefix_sum_of_list_indices
+>375	UnaryOp	& prefix_sum_of_list_indices
+>376	Identifier	prefix_sum_of_list_indices
+>377	UnaryOperator	&
+>378	CastTarget	char *
+>379	Callee	geometry_out_stream . write
+>380	MemberAccess	geometry_out_stream . write
+>381	Identifier	write
+>382	Identifier	geometry_out_stream
+>383	Statement	 
+>384	Statement	 
+>385	Label	 
+>386	Identifier	elem
+>387	Statement	 
+>388	Statement	 
+>389	Statement	 
+>390	Statement	 
+>391	Statement	 
+>392	IdentifierDeclStatement	 
+>393	IdentifierDecl	prefix_sum_of_list_indices = 0
+>394	AssignmentExpr	prefix_sum_of_list_indices = 0
+>395	PrimaryExpression	0
+>396	Identifier	prefix_sum_of_list_indices
+>397	Identifier	prefix_sum_of_list_indices
+>398	IdentifierDeclType	unsigned
+>399	ExpressionStatement	 
+>400	CallExpression	geometry_out_stream . write ( ( char * ) & compressed_geometries , sizeof ( unsigned ) )
+>401	ArgumentList	( char * ) & compressed_geometries
+>402	Argument	sizeof ( unsigned )
+>403	SizeofExpr	sizeof ( unsigned )
+>404	SizeofOperand	unsigned
+>405	Sizeof	sizeof
+>406	Argument	( char * ) & compressed_geometries
+>407	CastExpression	( char * ) & compressed_geometries
+>408	UnaryOp	& compressed_geometries
+>409	Identifier	compressed_geometries
+>410	UnaryOperator	&
+>411	CastTarget	char *
+>412	Callee	geometry_out_stream . write
+>413	MemberAccess	geometry_out_stream . write
+>414	Identifier	write
+>415	Identifier	geometry_out_stream
+>416	ExpressionStatement	 
+>417	Statement	 
+>418	Statement	 
+>419	Statement	 
+>420	Statement	 
+>421	Statement	 
+>422	Statement	 
+>423	Statement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	Statement	 
+>430	Statement	 
+>431	Statement	 
+>432	IdentifierDeclStatement	 
+>433	IdentifierDecl	compressed_geometries = m_compressed_geometries . size ( ) + 1
+>434	AssignmentExpr	compressed_geometries = m_compressed_geometries . size ( ) + 1
+>435	AdditiveExpression	m_compressed_geometries . size ( ) + 1
+>436	PrimaryExpression	1
+>437	CallExpression	m_compressed_geometries . size ( )
+>438	ArgumentList	 
+>439	Callee	m_compressed_geometries . size
+>440	MemberAccess	m_compressed_geometries . size
+>441	Identifier	size
+>442	Identifier	m_compressed_geometries
+>443	Identifier	compressed_geometries
+>444	Identifier	compressed_geometries
+>445	IdentifierDeclType	unsigned
+>446	Statement	 
+>447	IdentifierDeclStatement	 
+>448	IdentifierDecl	geometry_out_stream ( path , std 
+>449	Expression	path , std 
+>450	InclusiveOrExpression	std 
+>451	Identifier	std 
+>452	Identifier	std 
+>453	Identifier	path
+>454	Identifier	geometry_out_stream
+>455	IdentifierDeclType	boost 
+>475	FunctionDef	GeometryCompressor 
+>476	ParameterList	const EdgeID edge_id_1 , const EdgeID edge_id_2 , const NodeID via_node_id , const NodeID target_node_id , const \
+>477	Parameter	 
+>478	Identifier	weight2
+>479	ParameterType	const EdgeWeight
+>480	Parameter	 
+>481	Identifier	weight1
+>482	ParameterType	const EdgeWeight
+>483	Parameter	 
+>484	Identifier	target_node_id
+>485	ParameterType	const NodeID
+>486	Parameter	 
+>487	Identifier	via_node_id
+>488	ParameterType	const NodeID
+>489	Parameter	 
+>490	Identifier	edge_id_2
+>491	ParameterType	const EdgeID
+>492	Parameter	 
+>493	Identifier	edge_id_1
+>494	ParameterType	const EdgeID
+>495	ReturnType	void
+>496	CompoundStatement	 
+>497	IfStatement	if ( HasEntryForID ( edge_id_2 ) )
+>498	ElseStatement	else
+>499	CompoundStatement	 
+>500	ExpressionStatement	 
+>501	CallExpression	edge_bucket_list1 . emplace_back ( target_node_id , weight2 )
+>502	ArgumentList	target_node_id
+>503	Argument	weight2
+>504	Identifier	weight2
+>505	Argument	target_node_id
+>506	Identifier	target_node_id
+>507	Callee	edge_bucket_list1 . emplace_back
+>508	MemberAccess	edge_bucket_list1 . emplace_back
+>509	Identifier	emplace_back
+>510	Identifier	edge_bucket_list1
+>511	CompoundStatement	 
+>512	ExpressionStatement	 
+>513	CallExpression	BOOST_ASSERT ( list_to_remove_index == m_free_list . back ( ) )
+>514	ArgumentList	list_to_remove_index == m_free_list . back ( )
+>515	Argument	list_to_remove_index == m_free_list . back ( )
+>516	EqualityExpression	list_to_remove_index == m_free_list . back ( )
+>517	CallExpression	m_free_list . back ( )
+>518	ArgumentList	 
+>519	Callee	m_free_list . back
+>520	MemberAccess	m_free_list . back
+>521	Identifier	back
+>522	Identifier	m_free_list
+>523	Identifier	list_to_remove_index
+>524	Callee	BOOST_ASSERT
+>525	Identifier	BOOST_ASSERT
+>526	ExpressionStatement	 
+>527	CallExpression	m_free_list . emplace_back ( list_to_remove_index )
+>528	ArgumentList	list_to_remove_index
+>529	Argument	list_to_remove_index
+>530	Identifier	list_to_remove_index
+>531	Callee	m_free_list . emplace_back
+>532	MemberAccess	m_free_list . emplace_back
+>533	Identifier	emplace_back
+>534	Identifier	m_free_list
+>535	ExpressionStatement	 
+>536	CallExpression	BOOST_ASSERT ( 0 == edge_bucket_list2 . size ( ) )
+>537	ArgumentList	0 == edge_bucket_list2 . size ( )
+>538	Argument	0 == edge_bucket_list2 . size ( )
+>539	EqualityExpression	0 == edge_bucket_list2 . size ( )
+>540	CallExpression	edge_bucket_list2 . size ( )
+>541	ArgumentList	 
+>542	Callee	edge_bucket_list2 . size
+>543	MemberAccess	edge_bucket_list2 . size
+>544	Identifier	size
+>545	Identifier	edge_bucket_list2
+>546	PrimaryExpression	0
+>547	Callee	BOOST_ASSERT
+>548	Identifier	BOOST_ASSERT
+>549	ExpressionStatement	 
+>550	CallExpression	edge_bucket_list2 . clear ( )
+>551	ArgumentList	 
+>552	Callee	edge_bucket_list2 . clear
+>553	MemberAccess	edge_bucket_list2 . clear
+>554	Identifier	clear
+>555	Identifier	edge_bucket_list2
+>556	ExpressionStatement	 
+>557	CallExpression	BOOST_ASSERT ( m_edge_id_to_list_index_map . end ( ) == m_edge_id_to_list_index_map . find ( edge_id_2 ) )
+>558	ArgumentList	m_edge_id_to_list_index_map . end ( ) == m_edge_id_to_list_index_map . find ( edge_id_2 )
+>559	Argument	m_edge_id_to_list_index_map . end ( ) == m_edge_id_to_list_index_map . find ( edge_id_2 )
+>560	EqualityExpression	m_edge_id_to_list_index_map . end ( ) == m_edge_id_to_list_index_map . find ( edge_id_2 )
+>561	CallExpression	m_edge_id_to_list_index_map . find ( edge_id_2 )
+>562	ArgumentList	edge_id_2
+>563	Argument	edge_id_2
+>564	Identifier	edge_id_2
+>565	Callee	m_edge_id_to_list_index_map . find
+>566	MemberAccess	m_edge_id_to_list_index_map . find
+>567	Identifier	find
+>568	Identifier	m_edge_id_to_list_index_map
+>569	CallExpression	m_edge_id_to_list_index_map . end ( )
+>570	ArgumentList	 
+>571	Callee	m_edge_id_to_list_index_map . end
+>572	MemberAccess	m_edge_id_to_list_index_map . end
+>573	Identifier	end
+>574	Identifier	m_edge_id_to_list_index_map
+>575	Callee	BOOST_ASSERT
+>576	Identifier	BOOST_ASSERT
+>577	ExpressionStatement	 
+>578	CallExpression	m_edge_id_to_list_index_map . erase ( edge_id_2 )
+>579	ArgumentList	edge_id_2
+>580	Argument	edge_id_2
+>581	Identifier	edge_id_2
+>582	Callee	m_edge_id_to_list_index_map . erase
+>583	MemberAccess	m_edge_id_to_list_index_map . erase
+>584	Identifier	erase
+>585	Identifier	m_edge_id_to_list_index_map
+>586	ExpressionStatement	 
+>587	CallExpression	edge_bucket_list1 . insert ( edge_bucket_list1 . end ( ) , edge_bucket_list2 . begin ( ) , edge_bucket_list2 . end ( ) )
+>588	ArgumentList	edge_bucket_list1 . end ( )
+>589	Argument	edge_bucket_list2 . end ( )
+>590	CallExpression	edge_bucket_list2 . end ( )
+>591	ArgumentList	 
+>592	Callee	edge_bucket_list2 . end
+>593	MemberAccess	edge_bucket_list2 . end
+>594	Identifier	end
+>595	Identifier	edge_bucket_list2
+>596	Argument	edge_bucket_list2 . begin ( )
+>597	CallExpression	edge_bucket_list2 . begin ( )
+>598	ArgumentList	 
+>599	Callee	edge_bucket_list2 . begin
+>600	MemberAccess	edge_bucket_list2 . begin
+>601	Identifier	begin
+>602	Identifier	edge_bucket_list2
+>603	Argument	edge_bucket_list1 . end ( )
+>604	CallExpression	edge_bucket_list1 . end ( )
+>605	ArgumentList	 
+>606	Callee	edge_bucket_list1 . end
+>607	MemberAccess	edge_bucket_list1 . end
+>608	Identifier	end
+>609	Identifier	edge_bucket_list1
+>610	Callee	edge_bucket_list1 . insert
+>611	MemberAccess	edge_bucket_list1 . insert
+>612	Identifier	insert
+>613	Identifier	edge_bucket_list1
+>614	IdentifierDeclStatement	 
+>615	IdentifierDecl	& edge_bucket_list2 = m_compressed_geometries [ list_to_remove_index ]
+>616	AssignmentExpr	& edge_bucket_list2 = m_compressed_geometries [ list_to_remove_index ]
+>617	ArrayIndexing	m_compressed_geometries [ list_to_remove_index ]
+>618	Identifier	list_to_remove_index
+>619	Identifier	m_compressed_geometries
+>620	Identifier	edge_bucket_list2
+>621	Identifier	edge_bucket_list2
+>622	IdentifierDeclType	std 
+>623	ExpressionStatement	 
+>624	CallExpression	BOOST_ASSERT ( list_to_remove_index < m_compressed_geometries . size ( ) )
+>625	ArgumentList	list_to_remove_index < m_compressed_geometries . size ( )
+>626	Argument	list_to_remove_index < m_compressed_geometries . size ( )
+>627	RelationalExpression	list_to_remove_index < m_compressed_geometries . size ( )
+>628	CallExpression	m_compressed_geometries . size ( )
+>629	ArgumentList	 
+>630	Callee	m_compressed_geometries . size
+>631	MemberAccess	m_compressed_geometries . size
+>632	Identifier	size
+>633	Identifier	m_compressed_geometries
+>634	Identifier	list_to_remove_index
+>635	Callee	BOOST_ASSERT
+>636	Identifier	BOOST_ASSERT
+>637	IdentifierDeclStatement	 
+>638	IdentifierDecl	list_to_remove_index = GetPositionForID ( edge_id_2 )
+>639	AssignmentExpr	list_to_remove_index = GetPositionForID ( edge_id_2 )
+>640	CallExpression	GetPositionForID ( edge_id_2 )
+>641	ArgumentList	edge_id_2
+>642	Argument	edge_id_2
+>643	Identifier	edge_id_2
+>644	Callee	GetPositionForID
+>645	Identifier	GetPositionForID
+>646	Identifier	list_to_remove_index
+>647	Identifier	list_to_remove_index
+>648	IdentifierDeclType	unsigned
+>649	Statement	 
+>650	Condition	 
+>651	CallExpression	HasEntryForID ( edge_id_2 )
+>652	ArgumentList	edge_id_2
+>653	Argument	edge_id_2
+>654	Identifier	edge_id_2
+>655	Callee	HasEntryForID
+>656	Identifier	HasEntryForID
+>657	ExpressionStatement	 
+>658	CallExpression	BOOST_ASSERT ( ! edge_bucket_list1 . empty ( ) )
+>659	ArgumentList	! edge_bucket_list1 . empty ( )
+>660	Argument	! edge_bucket_list1 . empty ( )
+>661	UnaryOp	! edge_bucket_list1 . empty ( )
+>662	CallExpression	edge_bucket_list1 . empty ( )
+>663	ArgumentList	 
+>664	Callee	edge_bucket_list1 . empty
+>665	MemberAccess	edge_bucket_list1 . empty
+>666	Identifier	empty
+>667	Identifier	edge_bucket_list1
+>668	UnaryOperator	!
+>669	Callee	BOOST_ASSERT
+>670	Identifier	BOOST_ASSERT
+>671	ExpressionStatement	 
+>672	CallExpression	BOOST_ASSERT ( 0 < edge_bucket_list1 . size ( ) )
+>673	ArgumentList	0 < edge_bucket_list1 . size ( )
+>674	Argument	0 < edge_bucket_list1 . size ( )
+>675	RelationalExpression	0 < edge_bucket_list1 . size ( )
+>676	CallExpression	edge_bucket_list1 . size ( )
+>677	ArgumentList	 
+>678	Callee	edge_bucket_list1 . size
+>679	MemberAccess	edge_bucket_list1 . size
+>680	Identifier	size
+>681	Identifier	edge_bucket_list1
+>682	PrimaryExpression	0
+>683	Callee	BOOST_ASSERT
+>684	Identifier	BOOST_ASSERT
+>685	IfStatement	if ( edge_bucket_list1 . empty ( ) )
+>686	CompoundStatement	 
+>687	ExpressionStatement	 
+>688	CallExpression	edge_bucket_list1 . emplace_back ( via_node_id , weight1 )
+>689	ArgumentList	via_node_id
+>690	Argument	weight1
+>691	Identifier	weight1
+>692	Argument	via_node_id
+>693	Identifier	via_node_id
+>694	Callee	edge_bucket_list1 . emplace_back
+>695	MemberAccess	edge_bucket_list1 . emplace_back
+>696	Identifier	emplace_back
+>697	Identifier	edge_bucket_list1
+>698	Condition	 
+>699	CallExpression	edge_bucket_list1 . empty ( )
+>700	ArgumentList	 
+>701	Callee	edge_bucket_list1 . empty
+>702	MemberAccess	edge_bucket_list1 . empty
+>703	Identifier	empty
+>704	Identifier	edge_bucket_list1
+>705	IdentifierDeclStatement	 
+>706	IdentifierDecl	& edge_bucket_list1 = m_compressed_geometries [ edge_bucket_id1 ]
+>707	AssignmentExpr	& edge_bucket_list1 = m_compressed_geometries [ edge_bucket_id1 ]
+>708	ArrayIndexing	m_compressed_geometries [ edge_bucket_id1 ]
+>709	Identifier	edge_bucket_id1
+>710	Identifier	m_compressed_geometries
+>711	Identifier	edge_bucket_list1
+>712	Identifier	edge_bucket_list1
+>713	IdentifierDeclType	std 
+>714	ExpressionStatement	 
+>715	CallExpression	BOOST_ASSERT ( edge_bucket_id1 < m_compressed_geometries . size ( ) )
+>716	ArgumentList	edge_bucket_id1 < m_compressed_geometries . size ( )
+>717	Argument	edge_bucket_id1 < m_compressed_geometries . size ( )
+>718	RelationalExpression	edge_bucket_id1 < m_compressed_geometries . size ( )
+>719	CallExpression	m_compressed_geometries . size ( )
+>720	ArgumentList	 
+>721	Callee	m_compressed_geometries . size
+>722	MemberAccess	m_compressed_geometries . size
+>723	Identifier	size
+>724	Identifier	m_compressed_geometries
+>725	Identifier	edge_bucket_id1
+>726	Callee	BOOST_ASSERT
+>727	Identifier	BOOST_ASSERT
+>728	ExpressionStatement	 
+>729	CallExpression	BOOST_ASSERT ( edge_bucket_id1 == GetPositionForID ( edge_id_1 ) )
+>730	ArgumentList	edge_bucket_id1 == GetPositionForID ( edge_id_1 )
+>731	Argument	edge_bucket_id1 == GetPositionForID ( edge_id_1 )
+>732	EqualityExpression	edge_bucket_id1 == GetPositionForID ( edge_id_1 )
+>733	CallExpression	GetPositionForID ( edge_id_1 )
+>734	ArgumentList	edge_id_1
+>735	Argument	edge_id_1
+>736	Identifier	edge_id_1
+>737	Callee	GetPositionForID
+>738	Identifier	GetPositionForID
+>739	Identifier	edge_bucket_id1
+>740	Callee	BOOST_ASSERT
+>741	Identifier	BOOST_ASSERT
+>742	IdentifierDeclStatement	 
+>743	IdentifierDecl	edge_bucket_id1 = iter -> second
+>744	AssignmentExpr	edge_bucket_id1 = iter -> second
+>745	PtrMemberAccess	iter -> second
+>746	Identifier	second
+>747	Identifier	iter
+>748	Identifier	edge_bucket_id1
+>749	Identifier	edge_bucket_id1
+>750	IdentifierDeclType	unsigned
+>751	Statement	 
+>752	ExpressionStatement	 
+>753	CallExpression	BOOST_ASSERT ( iter != m_edge_id_to_list_index_map . end ( ) )
+>754	ArgumentList	iter != m_edge_id_to_list_index_map . end ( )
+>755	Argument	iter != m_edge_id_to_list_index_map . end ( )
+>756	EqualityExpression	iter != m_edge_id_to_list_index_map . end ( )
+>757	CallExpression	m_edge_id_to_list_index_map . end ( )
+>758	ArgumentList	 
+>759	Callee	m_edge_id_to_list_index_map . end
+>760	MemberAccess	m_edge_id_to_list_index_map . end
+>761	Identifier	end
+>762	Identifier	m_edge_id_to_list_index_map
+>763	Identifier	iter
+>764	Callee	BOOST_ASSERT
+>765	Identifier	BOOST_ASSERT
+>766	ExpressionStatement	 
+>767	AssignmentExpr	iter = m_edge_id_to_list_index_map . find ( edge_id_1 )
+>768	CallExpression	m_edge_id_to_list_index_map . find ( edge_id_1 )
+>769	ArgumentList	edge_id_1
+>770	Argument	edge_id_1
+>771	Identifier	edge_id_1
+>772	Callee	m_edge_id_to_list_index_map . find
+>773	MemberAccess	m_edge_id_to_list_index_map . find
+>774	Identifier	find
+>775	Identifier	m_edge_id_to_list_index_map
+>776	Identifier	iter
+>777	Statement	 
+>778	Statement	 
+>779	IfStatement	if ( ! HasEntryForID ( edge_id_1 ) )
+>780	CompoundStatement	 
+>781	ExpressionStatement	 
+>782	CallExpression	m_free_list . pop_back ( )
+>783	ArgumentList	 
+>784	Callee	m_free_list . pop_back
+>785	MemberAccess	m_free_list . pop_back
+>786	Identifier	pop_back
+>787	Identifier	m_free_list
+>788	ExpressionStatement	 
+>789	AssignmentExpr	m_edge_id_to_list_index_map [ edge_id_1 ] = m_free_list . back ( )
+>790	CallExpression	m_free_list . back ( )
+>791	ArgumentList	 
+>792	Callee	m_free_list . back
+>793	MemberAccess	m_free_list . back
+>794	Identifier	back
+>795	Identifier	m_free_list
+>796	ArrayIndexing	m_edge_id_to_list_index_map [ edge_id_1 ]
+>797	Identifier	edge_id_1
+>798	Identifier	m_edge_id_to_list_index_map
+>799	ExpressionStatement	 
+>800	CallExpression	BOOST_ASSERT ( ! m_free_list . empty ( ) )
+>801	ArgumentList	! m_free_list . empty ( )
+>802	Argument	! m_free_list . empty ( )
+>803	UnaryOp	! m_free_list . empty ( )
+>804	CallExpression	m_free_list . empty ( )
+>805	ArgumentList	 
+>806	Callee	m_free_list . empty
+>807	MemberAccess	m_free_list . empty
+>808	Identifier	empty
+>809	Identifier	m_free_list
+>810	UnaryOperator	!
+>811	Callee	BOOST_ASSERT
+>812	Identifier	BOOST_ASSERT
+>813	IfStatement	if ( 0 == m_free_list . size ( ) )
+>814	CompoundStatement	 
+>815	ExpressionStatement	 
+>816	CallExpression	IncreaseFreeList ( )
+>817	ArgumentList	 
+>818	Callee	IncreaseFreeList
+>819	Identifier	IncreaseFreeList
+>820	Condition	 
+>821	EqualityExpression	0 == m_free_list . size ( )
+>822	CallExpression	m_free_list . size ( )
+>823	ArgumentList	 
+>824	Callee	m_free_list . size
+>825	MemberAccess	m_free_list . size
+>826	Identifier	size
+>827	Identifier	m_free_list
+>828	PrimaryExpression	0
+>829	Condition	 
+>830	UnaryOp	! HasEntryForID ( edge_id_1 )
+>831	CallExpression	HasEntryForID ( edge_id_1 )
+>832	ArgumentList	edge_id_1
+>833	Argument	edge_id_1
+>834	Identifier	edge_id_1
+>835	Callee	HasEntryForID
+>836	Identifier	HasEntryForID
+>837	UnaryOperator	!
+>838	ExpressionStatement	 
+>839	CallExpression	BOOST_ASSERT ( INVALID_EDGE_WEIGHT != weight2 )
+>840	ArgumentList	INVALID_EDGE_WEIGHT != weight2
+>841	Argument	INVALID_EDGE_WEIGHT != weight2
+>842	EqualityExpression	INVALID_EDGE_WEIGHT != weight2
+>843	Identifier	weight2
+>844	Identifier	INVALID_EDGE_WEIGHT
+>845	Callee	BOOST_ASSERT
+>846	Identifier	BOOST_ASSERT
+>847	ExpressionStatement	 
+>848	CallExpression	BOOST_ASSERT ( INVALID_EDGE_WEIGHT != weight1 )
+>849	ArgumentList	INVALID_EDGE_WEIGHT != weight1
+>850	Argument	INVALID_EDGE_WEIGHT != weight1
+>851	EqualityExpression	INVALID_EDGE_WEIGHT != weight1
+>852	Identifier	weight1
+>853	Identifier	INVALID_EDGE_WEIGHT
+>854	Callee	BOOST_ASSERT
+>855	Identifier	BOOST_ASSERT
+>856	ExpressionStatement	 
+>857	CallExpression	BOOST_ASSERT ( SPECIAL_NODEID != target_node_id )
+>858	ArgumentList	SPECIAL_NODEID != target_node_id
+>859	Argument	SPECIAL_NODEID != target_node_id
+>860	EqualityExpression	SPECIAL_NODEID != target_node_id
+>861	Identifier	target_node_id
+>862	Identifier	SPECIAL_NODEID
+>863	Callee	BOOST_ASSERT
+>864	Identifier	BOOST_ASSERT
+>865	ExpressionStatement	 
+>866	CallExpression	BOOST_ASSERT ( SPECIAL_NODEID != via_node_id )
+>867	ArgumentList	SPECIAL_NODEID != via_node_id
+>868	Argument	SPECIAL_NODEID != via_node_id
+>869	EqualityExpression	SPECIAL_NODEID != via_node_id
+>870	Identifier	via_node_id
+>871	Identifier	SPECIAL_NODEID
+>872	Callee	BOOST_ASSERT
+>873	Identifier	BOOST_ASSERT
+>874	ExpressionStatement	 
+>875	CallExpression	BOOST_ASSERT ( SPECIAL_EDGEID != edge_id_2 )
+>876	ArgumentList	SPECIAL_EDGEID != edge_id_2
+>877	Argument	SPECIAL_EDGEID != edge_id_2
+>878	EqualityExpression	SPECIAL_EDGEID != edge_id_2
+>879	Identifier	edge_id_2
+>880	Identifier	SPECIAL_EDGEID
+>881	Callee	BOOST_ASSERT
+>882	Identifier	BOOST_ASSERT
+>883	ExpressionStatement	 
+>884	CallExpression	BOOST_ASSERT ( SPECIAL_EDGEID != edge_id_1 )
+>885	ArgumentList	SPECIAL_EDGEID != edge_id_1
+>886	Argument	SPECIAL_EDGEID != edge_id_1
+>887	EqualityExpression	SPECIAL_EDGEID != edge_id_1
+>888	Identifier	edge_id_1
+>889	Identifier	SPECIAL_EDGEID
+>890	Callee	BOOST_ASSERT
+>891	Identifier	BOOST_ASSERT
+>933	FunctionDef	GeometryCompressor 
+>934	ParameterList	 
+>935	ReturnType	void
+>936	CompoundStatement	 
+>937	ExpressionStatement	 
+>938	ShiftExpression	\"\n  compressed edges
+>939	ShiftExpression	compressed_edges << \"\n  compressed geometries
+>940	ShiftExpression	\"\n  compressed geometries
+>941	ShiftExpression	compressed_geometries << \"\n  longest chain length
+>942	ShiftExpression	\"\n  longest chain length
+>943	ShiftExpression	longest_chain_length << \"\n  cmpr ratio
+>944	ShiftExpression	\"\n  cmpr ratio
+>945	ShiftExpression	( ( float ) compressed_edges / std 
+>946	ShiftExpression	\"\n  avg chain length
+>947	MultiplicativeExpression	( float ) compressed_geometries / std 
+>948	CallExpression	std 
+>949	ArgumentList	( uint64_t ) 1
+>950	Argument	compressed_edges
+>951	Identifier	compressed_edges
+>952	Argument	( uint64_t ) 1
+>953	CastExpression	( uint64_t ) 1
+>954	PrimaryExpression	1
+>955	CastTarget	uint64_t
+>956	Callee	std 
+>957	Identifier	std 
+>958	CastExpression	( float ) compressed_geometries
+>959	Identifier	compressed_geometries
+>960	CastTarget	float
+>961	PrimaryExpression	\"\n  avg chain length
+>962	MultiplicativeExpression	( float ) compressed_edges / std 
+>963	CallExpression	std 
+>964	ArgumentList	compressed_geometries
+>965	Argument	( uint64_t ) 1
+>966	CastExpression	( uint64_t ) 1
+>967	PrimaryExpression	1
+>968	CastTarget	uint64_t
+>969	Argument	compressed_geometries
+>970	Identifier	compressed_geometries
+>971	Callee	std 
+>972	Identifier	std 
+>973	CastExpression	( float ) compressed_edges
+>974	Identifier	compressed_edges
+>975	CastTarget	float
+>976	PrimaryExpression	\"\n  cmpr ratio
+>977	Identifier	longest_chain_length
+>978	PrimaryExpression	\"\n  longest chain length
+>979	Identifier	compressed_geometries
+>980	PrimaryExpression	\"\n  compressed geometries
+>981	Identifier	compressed_edges
+>982	PrimaryExpression	\"\n  compressed edges
+>983	Statement	 
+>984	Statement	 
+>985	Statement	 
+>986	Statement	 
+>987	Statement	 
+>988	Statement	 
+>989	Statement	 
+>990	Statement	 
+>991	Statement	 
+>992	CompoundStatement	 
+>993	ExpressionStatement	 
+>994	AssignmentExpr	longest_chain_length = std 
+>995	CallExpression	std 
+>996	ArgumentList	longest_chain_length
+>997	Argument	( uint64_t ) current_vector . size ( )
+>998	CastExpression	( uint64_t ) current_vector . size ( )
+>999	CallExpression	current_vector . size ( )
+>1000	ArgumentList	 
+>1001	Callee	current_vector . size
+>1002	MemberAccess	current_vector . size
+>1003	Identifier	size
+>1004	Identifier	current_vector
+>1005	CastTarget	uint64_t
+>1006	Argument	longest_chain_length
+>1007	Identifier	longest_chain_length
+>1008	Callee	std 
+>1009	Identifier	std 
+>1010	Identifier	longest_chain_length
+>1011	ExpressionStatement	 
+>1012	AssignmentExpr	compressed_geometries += current_vector . size ( )
+>1013	CallExpression	current_vector . size ( )
+>1014	ArgumentList	 
+>1015	Callee	current_vector . size
+>1016	MemberAccess	current_vector . size
+>1017	Identifier	size
+>1018	Identifier	current_vector
+>1019	Identifier	compressed_geometries
+>1020	Statement	 
+>1021	Statement	 
+>1022	Label	 
+>1023	Identifier	current_vector
+>1024	Statement	 
+>1025	Statement	 
+>1026	Statement	 
+>1027	Statement	 
+>1028	Statement	 
+>1029	Statement	 
+>1030	Statement	 
+>1031	Statement	 
+>1032	Statement	 
+>1033	Statement	 
+>1034	IdentifierDeclStatement	 
+>1035	IdentifierDecl	longest_chain_length = 0
+>1036	AssignmentExpr	longest_chain_length = 0
+>1037	PrimaryExpression	0
+>1038	Identifier	longest_chain_length
+>1039	Identifier	longest_chain_length
+>1040	IdentifierDeclType	uint64_t
+>1041	IdentifierDeclStatement	 
+>1042	IdentifierDecl	compressed_geometries = 0
+>1043	AssignmentExpr	compressed_geometries = 0
+>1044	PrimaryExpression	0
+>1045	Identifier	compressed_geometries
+>1046	Identifier	compressed_geometries
+>1047	IdentifierDeclType	uint64_t
+>1048	ExpressionStatement	 
+>1049	CallExpression	BOOST_ASSERT ( m_compressed_geometries . size ( ) + m_free_list . size ( ) > 0 )
+>1050	ArgumentList	m_compressed_geometries . size ( ) + m_free_list . size ( ) > 0
+>1051	Argument	m_compressed_geometries . size ( ) + m_free_list . size ( ) > 0
+>1052	RelationalExpression	m_compressed_geometries . size ( ) + m_free_list . size ( ) > 0
+>1053	PrimaryExpression	0
+>1054	AdditiveExpression	m_compressed_geometries . size ( ) + m_free_list . size ( )
+>1055	CallExpression	m_free_list . size ( )
+>1056	ArgumentList	 
+>1057	Callee	m_free_list . size
+>1058	MemberAccess	m_free_list . size
+>1059	Identifier	size
+>1060	Identifier	m_free_list
+>1061	CallExpression	m_compressed_geometries . size ( )
+>1062	ArgumentList	 
+>1063	Callee	m_compressed_geometries . size
+>1064	MemberAccess	m_compressed_geometries . size
+>1065	Identifier	size
+>1066	Identifier	m_compressed_geometries
+>1067	Callee	BOOST_ASSERT
+>1068	Identifier	BOOST_ASSERT
+>1069	ExpressionStatement	 
+>1070	CallExpression	BOOST_ASSERT ( 0 == compressed_edges % 2 )
+>1071	ArgumentList	0 == compressed_edges % 2
+>1072	Argument	0 == compressed_edges % 2
+>1073	EqualityExpression	0 == compressed_edges % 2
+>1074	MultiplicativeExpression	compressed_edges % 2
+>1075	PrimaryExpression	2
+>1076	Identifier	compressed_edges
+>1077	PrimaryExpression	0
+>1078	Callee	BOOST_ASSERT
+>1079	Identifier	BOOST_ASSERT
+>1080	IdentifierDeclStatement	 
+>1081	IdentifierDecl	compressed_edges = m_compressed_geometries . size ( )
+>1082	AssignmentExpr	compressed_edges = m_compressed_geometries . size ( )
+>1083	CallExpression	m_compressed_geometries . size ( )
+>1084	ArgumentList	 
+>1085	Callee	m_compressed_geometries . size
+>1086	MemberAccess	m_compressed_geometries . size
+>1087	Identifier	size
+>1088	Identifier	m_compressed_geometries
+>1089	Identifier	compressed_edges
+>1090	Identifier	compressed_edges
+>1091	IdentifierDeclType	const uint64_t
+>1105	FunctionDef	GeometryCompressor 
+>1106	ParameterList	const EdgeID edge_id
+>1107	Parameter	 
+>1108	Identifier	edge_id
+>1109	ParameterType	const EdgeID
+>1110	ReturnType	const std 
+>1111	CompoundStatement	 
+>1112	ReturnStatement	 
+>1113	CallExpression	m_compressed_geometries . at ( index )
+>1114	ArgumentList	index
+>1115	Argument	index
+>1116	Identifier	index
+>1117	Callee	m_compressed_geometries . at
+>1118	MemberAccess	m_compressed_geometries . at
+>1119	Identifier	at
+>1120	Identifier	m_compressed_geometries
+>1121	IdentifierDeclStatement	 
+>1122	IdentifierDecl	index = m_edge_id_to_list_index_map . at ( edge_id )
+>1123	AssignmentExpr	index = m_edge_id_to_list_index_map . at ( edge_id )
+>1124	CallExpression	m_edge_id_to_list_index_map . at ( edge_id )
+>1125	ArgumentList	edge_id
+>1126	Argument	edge_id
+>1127	Identifier	edge_id
+>1128	Callee	m_edge_id_to_list_index_map . at
+>1129	MemberAccess	m_edge_id_to_list_index_map . at
+>1130	Identifier	at
+>1131	Identifier	m_edge_id_to_list_index_map
+>1132	Identifier	index
+>1133	Identifier	index
+>1134	IdentifierDeclType	unsigned
+>1135	Statement	 
+>1145	FunctionDef	GeometryCompressor 
+>1146	ParameterList	const EdgeID edge_id
+>1147	Parameter	 
+>1148	Identifier	edge_id
+>1149	ParameterType	const EdgeID
+>1150	ReturnType	NodeID
+>1151	CompoundStatement	 
+>1152	ReturnStatement	 
+>1153	MemberAccess	bucket [ 1 ] . first
+>1154	Identifier	first
+>1155	ArrayIndexing	bucket [ 1 ]
+>1156	PrimaryExpression	1
+>1157	Identifier	bucket
+>1158	ExpressionStatement	 
+>1159	CallExpression	BOOST_ASSERT ( bucket . size ( ) >= 2 )
+>1160	ArgumentList	bucket . size ( ) >= 2
+>1161	Argument	bucket . size ( ) >= 2
+>1162	RelationalExpression	bucket . size ( ) >= 2
+>1163	PrimaryExpression	2
+>1164	CallExpression	bucket . size ( )
+>1165	ArgumentList	 
+>1166	Callee	bucket . size
+>1167	MemberAccess	bucket . size
+>1168	Identifier	size
+>1169	Identifier	bucket
+>1170	Callee	BOOST_ASSERT
+>1171	Identifier	BOOST_ASSERT
+>1172	ExpressionStatement	 
+>1173	AssignmentExpr	& bucket = GetBucketReference ( edge_id )
+>1174	CallExpression	GetBucketReference ( edge_id )
+>1175	ArgumentList	edge_id
+>1176	Argument	edge_id
+>1177	Identifier	edge_id
+>1178	Callee	GetBucketReference
+>1179	Identifier	GetBucketReference
+>1180	UnaryOp	& bucket
+>1181	Identifier	bucket
+>1182	UnaryOperator	&
+>1183	Statement	 
+>1184	Statement	 
+>1195	FunctionDef	GeometryCompressor 
+>1196	ParameterList	const EdgeID edge_id
+>1197	Parameter	 
+>1198	Identifier	edge_id
+>1199	ParameterType	const EdgeID
+>1200	ReturnType	NodeID
+>1201	CompoundStatement	 
+>1202	ReturnStatement	 
+>1203	MemberAccess	bucket [ bucket . size ( ) - 2 ] . first
+>1204	Identifier	first
+>1205	ArrayIndexing	bucket [ bucket . size ( ) - 2 ]
+>1206	AdditiveExpression	bucket . size ( ) - 2
+>1207	PrimaryExpression	2
+>1208	CallExpression	bucket . size ( )
+>1209	ArgumentList	 
+>1210	Callee	bucket . size
+>1211	MemberAccess	bucket . size
+>1212	Identifier	size
+>1213	Identifier	bucket
+>1214	Identifier	bucket
+>1215	ExpressionStatement	 
+>1216	CallExpression	BOOST_ASSERT ( bucket . size ( ) >= 2 )
+>1217	ArgumentList	bucket . size ( ) >= 2
+>1218	Argument	bucket . size ( ) >= 2
+>1219	RelationalExpression	bucket . size ( ) >= 2
+>1220	PrimaryExpression	2
+>1221	CallExpression	bucket . size ( )
+>1222	ArgumentList	 
+>1223	Callee	bucket . size
+>1224	MemberAccess	bucket . size
+>1225	Identifier	size
+>1226	Identifier	bucket
+>1227	Callee	BOOST_ASSERT
+>1228	Identifier	BOOST_ASSERT
+>1229	ExpressionStatement	 
+>1230	AssignmentExpr	& bucket = GetBucketReference ( edge_id )
+>1231	CallExpression	GetBucketReference ( edge_id )
+>1232	ArgumentList	edge_id
+>1233	Argument	edge_id
+>1234	Identifier	edge_id
+>1235	Callee	GetBucketReference
+>1236	Identifier	GetBucketReference
+>1237	UnaryOp	& bucket
+>1238	Identifier	bucket
+>1239	UnaryOperator	&
+>1240	Statement	 
+>1241	Statement	 
+<3=6,5,4
+<6=12,7
+<7=8
+<8=10,9
+<10=11
+<12=13
+<13=17,14
+<14=15
+<15=16
+<17=18
+<18=20,19
+<25=28,27,26
+<28=59,29
+<29=51,47,44,30
+<30=35,31
+<31=32
+<32=34,33
+<35=36
+<36=40,37
+<37=38
+<38=39
+<40=41
+<41=43,42
+<44=46,45
+<47=48
+<48=50,49
+<51=52
+<52=53
+<53=58,57,54
+<54=56,55
+<59=60
+<60=71,61
+<61=62
+<62=63
+<63=65,64
+<65=67,66
+<67=68
+<68=70,69
+<71=72
+<72=74,73
+<83=89,88,84
+<84=85
+<85=87,86
+<89=110,99,90
+<90=91
+<91=98,92
+<92=94,93
+<94=95
+<95=97,96
+<99=100
+<100=109,101
+<101=105,102
+<102=103
+<103=104
+<105=106
+<106=108,107
+<119=125,124,120
+<120=121
+<121=123,122
+<125=171,160,146,130,126
+<126=127
+<127=129,128
+<130=131
+<131=144,132
+<132=133
+<133=134
+<134=141,135
+<135=137,136
+<137=138
+<138=140,139
+<141=143,142
+<144=145
+<146=147
+<147=158,148
+<148=149
+<149=150
+<150=157,151
+<151=153,152
+<153=154
+<154=156,155
+<158=159
+<160=161
+<161=170,162
+<162=166,163
+<163=164
+<164=165
+<166=167
+<167=169,168
+<184=190,189,185
+<185=186
+<186=188,187
+<190=447,446,432,431,430,429,428,427,426,425,424,423,422,421,420,419,418,417,416,399,392,391,390,389,388,387,385,384,383,325,308,291,284,283,282,281,280,278,277,276,207,198,191
+<191=192
+<192=194,193
+<194=195
+<195=197,196
+<198=199
+<199=205,200
+<200=201
+<201=202
+<202=204,203
+<205=206
+<207=269,268,256,252,251,250,249,248,247,246,245,244,243,242,241,240,239,238,237,236,235,234,233,232,230,229,228,208
+<208=209
+<209=210
+<210=224,211
+<211=216,212
+<212=213
+<213=215,214
+<216=217
+<217=223,218
+<218=222,219
+<219=221,220
+<224=225
+<225=227,226
+<230=231
+<252=253
+<253=255,254
+<256=257
+<257=267,266,258
+<258=265,259
+<259=261,260
+<261=262
+<262=264,263
+<269=270
+<270=275,274,271
+<271=273,272
+<278=279
+<284=285
+<285=290,289,286
+<286=288,287
+<291=292
+<292=304,293
+<293=298,294
+<294=295
+<295=297,296
+<298=299
+<299=303,300
+<300=302,301
+<304=305
+<305=307,306
+<308=309
+<309=321,310
+<310=315,311
+<311=312
+<312=314,313
+<315=316
+<316=320,317
+<317=319,318
+<321=322
+<322=324,323
+<325=366,359,358,346,345,344,343,342,341,340,339,338,337,336,335,334,333,332,331,330,326
+<326=327
+<327=329,328
+<346=347
+<347=357,356,348
+<348=355,349
+<349=351,350
+<351=352
+<352=354,353
+<359=360
+<360=365,364,361
+<361=363,362
+<366=367
+<367=379,368
+<368=373,369
+<369=370
+<370=372,371
+<373=374
+<374=378,375
+<375=377,376
+<379=380
+<380=382,381
+<385=386
+<392=393
+<393=398,397,394
+<394=396,395
+<399=400
+<400=412,401
+<401=406,402
+<402=403
+<403=405,404
+<406=407
+<407=411,408
+<408=410,409
+<412=413
+<413=415,414
+<432=433
+<433=445,444,434
+<434=443,435
+<435=437,436
+<437=439,438
+<439=440
+<440=442,441
+<447=448
+<448=455,454,449
+<449=453,450
+<450=452,451
+<475=496,495,476
+<476=492,489,486,483,480,477
+<477=479,478
+<480=482,481
+<483=485,484
+<486=488,487
+<489=491,490
+<492=494,493
+<496=883,874,865,856,847,838,779,778,777,766,752,751,742,728,714,705,685,671,657,497
+<497=650,511,498
+<498=499
+<499=500
+<500=501
+<501=507,502
+<502=505,503
+<503=504
+<505=506
+<507=508
+<508=510,509
+<511=649,637,623,614,586,577,556,549,535,526,512
+<512=513
+<513=524,514
+<514=515
+<515=516
+<516=523,517
+<517=519,518
+<519=520
+<520=522,521
+<524=525
+<526=527
+<527=531,528
+<528=529
+<529=530
+<531=532
+<532=534,533
+<535=536
+<536=547,537
+<537=538
+<538=539
+<539=546,540
+<540=542,541
+<542=543
+<543=545,544
+<547=548
+<549=550
+<550=552,551
+<552=553
+<553=555,554
+<556=557
+<557=575,558
+<558=559
+<559=560
+<560=569,561
+<561=565,562
+<562=563
+<563=564
+<565=566
+<566=568,567
+<569=571,570
+<571=572
+<572=574,573
+<575=576
+<577=578
+<578=582,579
+<579=580
+<580=581
+<582=583
+<583=585,584
+<586=587
+<587=610,588
+<588=603,596,589
+<589=590
+<590=592,591
+<592=593
+<593=595,594
+<596=597
+<597=599,598
+<599=600
+<600=602,601
+<603=604
+<604=606,605
+<606=607
+<607=609,608
+<610=611
+<611=613,612
+<614=615
+<615=622,621,616
+<616=620,617
+<617=619,618
+<623=624
+<624=635,625
+<625=626
+<626=627
+<627=634,628
+<628=630,629
+<630=631
+<631=633,632
+<635=636
+<637=638
+<638=648,647,639
+<639=646,640
+<640=644,641
+<641=642
+<642=643
+<644=645
+<650=651
+<651=655,652
+<652=653
+<653=654
+<655=656
+<657=658
+<658=669,659
+<659=660
+<660=661
+<661=668,662
+<662=664,663
+<664=665
+<665=667,666
+<669=670
+<671=672
+<672=683,673
+<673=674
+<674=675
+<675=682,676
+<676=678,677
+<678=679
+<679=681,680
+<683=684
+<685=698,686
+<686=687
+<687=688
+<688=694,689
+<689=692,690
+<690=691
+<692=693
+<694=695
+<695=697,696
+<698=699
+<699=701,700
+<701=702
+<702=704,703
+<705=706
+<706=713,712,707
+<707=711,708
+<708=710,709
+<714=715
+<715=726,716
+<716=717
+<717=718
+<718=725,719
+<719=721,720
+<721=722
+<722=724,723
+<726=727
+<728=729
+<729=740,730
+<730=731
+<731=732
+<732=739,733
+<733=737,734
+<734=735
+<735=736
+<737=738
+<740=741
+<742=743
+<743=750,749,744
+<744=748,745
+<745=747,746
+<752=753
+<753=764,754
+<754=755
+<755=756
+<756=763,757
+<757=759,758
+<759=760
+<760=762,761
+<764=765
+<766=767
+<767=776,768
+<768=772,769
+<769=770
+<770=771
+<772=773
+<773=775,774
+<779=829,780
+<780=813,799,788,781
+<781=782
+<782=784,783
+<784=785
+<785=787,786
+<788=789
+<789=796,790
+<790=792,791
+<792=793
+<793=795,794
+<796=798,797
+<799=800
+<800=811,801
+<801=802
+<802=803
+<803=810,804
+<804=806,805
+<806=807
+<807=809,808
+<811=812
+<813=820,814
+<814=815
+<815=816
+<816=818,817
+<818=819
+<820=821
+<821=828,822
+<822=824,823
+<824=825
+<825=827,826
+<829=830
+<830=837,831
+<831=835,832
+<832=833
+<833=834
+<835=836
+<838=839
+<839=845,840
+<840=841
+<841=842
+<842=844,843
+<845=846
+<847=848
+<848=854,849
+<849=850
+<850=851
+<851=853,852
+<854=855
+<856=857
+<857=863,858
+<858=859
+<859=860
+<860=862,861
+<863=864
+<865=866
+<866=872,867
+<867=868
+<868=869
+<869=871,870
+<872=873
+<874=875
+<875=881,876
+<876=877
+<877=878
+<878=880,879
+<881=882
+<883=884
+<884=890,885
+<885=886
+<886=887
+<887=889,888
+<890=891
+<933=936,935,934
+<936=1080,1069,1048,1041,1034,1033,1032,1031,1030,1029,1028,1027,1026,1025,1024,1022,1021,1020,992,991,990,989,988,987,986,985,984,983,937
+<937=938
+<938=982,939
+<939=981,940
+<940=980,941
+<941=979,942
+<942=978,943
+<943=977,944
+<944=976,945
+<945=962,946
+<946=961,947
+<947=958,948
+<948=956,949
+<949=952,950
+<950=951
+<952=953
+<953=955,954
+<956=957
+<958=960,959
+<962=973,963
+<963=971,964
+<964=969,965
+<965=966
+<966=968,967
+<969=970
+<971=972
+<973=975,974
+<992=1011,993
+<993=994
+<994=1010,995
+<995=1008,996
+<996=1006,997
+<997=998
+<998=1005,999
+<999=1001,1000
+<1001=1002
+<1002=1004,1003
+<1006=1007
+<1008=1009
+<1011=1012
+<1012=1019,1013
+<1013=1015,1014
+<1015=1016
+<1016=1018,1017
+<1022=1023
+<1034=1035
+<1035=1040,1039,1036
+<1036=1038,1037
+<1041=1042
+<1042=1047,1046,1043
+<1043=1045,1044
+<1048=1049
+<1049=1067,1050
+<1050=1051
+<1051=1052
+<1052=1054,1053
+<1054=1061,1055
+<1055=1057,1056
+<1057=1058
+<1058=1060,1059
+<1061=1063,1062
+<1063=1064
+<1064=1066,1065
+<1067=1068
+<1069=1070
+<1070=1078,1071
+<1071=1072
+<1072=1073
+<1073=1077,1074
+<1074=1076,1075
+<1078=1079
+<1080=1081
+<1081=1091,1090,1082
+<1082=1089,1083
+<1083=1085,1084
+<1085=1086
+<1086=1088,1087
+<1105=1111,1110,1106
+<1106=1107
+<1107=1109,1108
+<1111=1135,1121,1112
+<1112=1113
+<1113=1117,1114
+<1114=1115
+<1115=1116
+<1117=1118
+<1118=1120,1119
+<1121=1122
+<1122=1134,1133,1123
+<1123=1132,1124
+<1124=1128,1125
+<1125=1126
+<1126=1127
+<1128=1129
+<1129=1131,1130
+<1145=1151,1150,1146
+<1146=1147
+<1147=1149,1148
+<1151=1184,1183,1172,1158,1152
+<1152=1153
+<1153=1155,1154
+<1155=1157,1156
+<1158=1159
+<1159=1170,1160
+<1160=1161
+<1161=1162
+<1162=1164,1163
+<1164=1166,1165
+<1166=1167
+<1167=1169,1168
+<1170=1171
+<1172=1173
+<1173=1180,1174
+<1174=1178,1175
+<1175=1176
+<1176=1177
+<1178=1179
+<1180=1182,1181
+<1195=1201,1200,1196
+<1196=1197
+<1197=1199,1198
+<1201=1241,1240,1229,1215,1202
+<1202=1203
+<1203=1205,1204
+<1205=1214,1206
+<1206=1208,1207
+<1208=1210,1209
+<1210=1211
+<1211=1213,1212
+<1215=1216
+<1216=1227,1217
+<1217=1218
+<1218=1219
+<1219=1221,1220
+<1221=1223,1222
+<1223=1224
+<1224=1226,1225
+<1227=1228
+<1229=1230
+<1230=1237,1231
+<1231=1235,1232
+<1232=1233
+<1233=1234
+<1235=1236
+<1237=1239,1238

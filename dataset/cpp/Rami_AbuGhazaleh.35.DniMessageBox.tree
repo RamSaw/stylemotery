@@ -1,0 +1,261 @@
+>7	FunctionDef	MessageBoxCloseThreadProc (LPVOID msTilAutoClose)
+>8	ParameterList	LPVOID msTilAutoClose
+>9	Parameter	 
+>10	Identifier	msTilAutoClose
+>11	ParameterType	LPVOID
+>12	ReturnType	UINT
+>13	CompoundStatement	 
+>14	ReturnStatement	 
+>15	PrimaryExpression	0
+>16	IfStatement	if ( IsWindow ( g_hMessageBox ) )
+>17	CompoundStatement	 
+>18	ExpressionStatement	 
+>19	AssignmentExpr	g_hMessageBox = NULL
+>20	Identifier	NULL
+>21	Identifier	g_hMessageBox
+>22	ExpressionStatement	 
+>23	CallExpression	EndDialog ( g_hMessageBox , 0xFFFFFF )
+>24	ArgumentList	g_hMessageBox
+>25	Argument	0xFFFFFF
+>26	PrimaryExpression	0xFFFFFF
+>27	Argument	g_hMessageBox
+>28	Identifier	g_hMessageBox
+>29	Callee	EndDialog
+>30	Identifier	EndDialog
+>31	Condition	 
+>32	CallExpression	IsWindow ( g_hMessageBox )
+>33	ArgumentList	g_hMessageBox
+>34	Argument	g_hMessageBox
+>35	Identifier	g_hMessageBox
+>36	Callee	IsWindow
+>37	Identifier	IsWindow
+>38	ExpressionStatement	 
+>39	CallExpression	Sleep ( ( DWORD ) msTilAutoClose )
+>40	ArgumentList	( DWORD ) msTilAutoClose
+>41	Argument	( DWORD ) msTilAutoClose
+>42	CastExpression	( DWORD ) msTilAutoClose
+>43	Identifier	msTilAutoClose
+>44	CastTarget	DWORD
+>45	Callee	Sleep
+>46	Identifier	Sleep
+>54	FunctionDef	DniMessageBox 
+>55	ParameterList	const std 
+>56	Parameter	 
+>57	Identifier	p_nIDHelp
+>58	ParameterType	UINT
+>59	Parameter	 
+>60	Identifier	p_nDefaultResult
+>61	ParameterType	UINT
+>62	Parameter	 
+>63	Identifier	p_nType
+>64	ParameterType	UINT
+>65	Parameter	 
+>66	Identifier	p_lpszText
+>67	ParameterType	const std 
+>68	ReturnType	int
+>69	CompoundStatement	 
+>70	ReturnStatement	 
+>71	Identifier	result
+>72	SwitchStatement	switch ( InstallUILevelSetting 
+>73	CompoundStatement	 
+>74	BreakStatement	 
+>75	ExpressionStatement	 
+>76	AssignmentExpr	result = AfxMessageBox ( p_lpszText . c_str ( ) , p_nType , p_nIDHelp )
+>77	CallExpression	AfxMessageBox ( p_lpszText . c_str ( ) , p_nType , p_nIDHelp )
+>78	ArgumentList	p_lpszText . c_str ( )
+>79	Argument	p_nIDHelp
+>80	Identifier	p_nIDHelp
+>81	Argument	p_nType
+>82	Identifier	p_nType
+>83	Argument	p_lpszText . c_str ( )
+>84	CallExpression	p_lpszText . c_str ( )
+>85	ArgumentList	 
+>86	Callee	p_lpszText . c_str
+>87	MemberAccess	p_lpszText . c_str
+>88	Identifier	c_str
+>89	Identifier	p_lpszText
+>90	Callee	AfxMessageBox
+>91	Identifier	AfxMessageBox
+>92	Identifier	result
+>93	Label	 
+>94	Identifier	default
+>95	Label	 
+>96	Identifier	InstallUILevelFull
+>97	BreakStatement	 
+>98	ExpressionStatement	 
+>99	AssignmentExpr	result = p_nDefaultResult
+>100	Identifier	p_nDefaultResult
+>101	Identifier	result
+>102	Label	 
+>103	Identifier	InstallUILevelSilent
+>104	BreakStatement	 
+>105	CompoundStatement	 
+>106	IfStatement	if ( result == 0xFFFFFF )
+>107	ExpressionStatement	 
+>108	AssignmentExpr	result = p_nDefaultResult
+>109	Identifier	p_nDefaultResult
+>110	Identifier	result
+>111	Condition	 
+>112	EqualityExpression	result == 0xFFFFFF
+>113	PrimaryExpression	0xFFFFFF
+>114	Identifier	result
+>115	ExpressionStatement	 
+>116	Statement	 
+>117	Statement	 
+>118	Statement	 
+>119	Statement	 
+>120	Statement	 
+>121	Statement	 
+>122	Statement	 
+>123	Statement	 
+>124	Statement	 
+>125	ExpressionStatement	 
+>126	AssignmentExpr	result = AfxMessageBox ( p_lpszText . c_str ( ) , p_nType , p_nIDHelp )
+>127	CallExpression	AfxMessageBox ( p_lpszText . c_str ( ) , p_nType , p_nIDHelp )
+>128	ArgumentList	p_lpszText . c_str ( )
+>129	Argument	p_nIDHelp
+>130	Identifier	p_nIDHelp
+>131	Argument	p_nType
+>132	Identifier	p_nType
+>133	Argument	p_lpszText . c_str ( )
+>134	CallExpression	p_lpszText . c_str ( )
+>135	ArgumentList	 
+>136	Callee	p_lpszText . c_str
+>137	MemberAccess	p_lpszText . c_str
+>138	Identifier	c_str
+>139	Identifier	p_lpszText
+>140	Callee	AfxMessageBox
+>141	Identifier	AfxMessageBox
+>142	Identifier	result
+>143	ExpressionStatement	 
+>144	Statement	 
+>145	Statement	 
+>146	Statement	 
+>147	Statement	 
+>148	Statement	 
+>149	Statement	 
+>150	Statement	 
+>151	Statement	 
+>152	Statement	 
+>153	ExpressionStatement	 
+>154	AssignmentExpr	g_hHook = SetWindowsHookEx ( WH_CBT , CBTProc , NULL , GetCurrentThreadId ( ) )
+>155	CallExpression	SetWindowsHookEx ( WH_CBT , CBTProc , NULL , GetCurrentThreadId ( ) )
+>156	ArgumentList	WH_CBT
+>157	Argument	GetCurrentThreadId ( )
+>158	CallExpression	GetCurrentThreadId ( )
+>159	ArgumentList	 
+>160	Callee	GetCurrentThreadId
+>161	Identifier	GetCurrentThreadId
+>162	Argument	NULL
+>163	Identifier	NULL
+>164	Argument	CBTProc
+>165	Identifier	CBTProc
+>166	Argument	WH_CBT
+>167	Identifier	WH_CBT
+>168	Callee	SetWindowsHookEx
+>169	Identifier	SetWindowsHookEx
+>170	Identifier	g_hHook
+>171	Label	 
+>172	Identifier	InstallUILevelBasic
+>173	Condition	 
+>174	CallExpression	InstallUILevelSetting 
+>175	ArgumentList	 
+>176	Callee	InstallUILevelSetting 
+>177	PtrMemberAccess	InstallUILevelSetting 
+>178	Identifier	GetUILevel
+>179	Identifier	InstallUILevelSetting 
+>180	IdentifierDeclStatement	 
+>181	IdentifierDecl	result = p_nDefaultResult
+>182	AssignmentExpr	result = p_nDefaultResult
+>183	Identifier	p_nDefaultResult
+>184	Identifier	p_nDefaultResult
+>185	Identifier	result
+>186	IdentifierDeclType	int
+<7=13,12,8
+<8=9
+<9=11,10
+<13=38,16,14
+<14=15
+<16=31,17
+<17=22,18
+<18=19
+<19=21,20
+<22=23
+<23=29,24
+<24=27,25
+<25=26
+<27=28
+<29=30
+<31=32
+<32=36,33
+<33=34
+<34=35
+<36=37
+<38=39
+<39=45,40
+<40=41
+<41=42
+<42=44,43
+<45=46
+<54=69,68,55
+<55=65,62,59,56
+<56=58,57
+<59=61,60
+<62=64,63
+<65=67,66
+<69=180,72,70
+<70=71
+<72=173,73
+<73=171,105,104,102,98,97,95,93,75,74
+<75=76
+<76=92,77
+<77=90,78
+<78=83,81,79
+<79=80
+<81=82
+<83=84
+<84=86,85
+<86=87
+<87=89,88
+<90=91
+<93=94
+<95=96
+<98=99
+<99=101,100
+<102=103
+<105=153,152,151,150,149,148,147,146,145,144,143,125,124,123,122,121,120,119,118,117,116,115,106
+<106=111,107
+<107=108
+<108=110,109
+<111=112
+<112=114,113
+<125=126
+<126=142,127
+<127=140,128
+<128=133,131,129
+<129=130
+<131=132
+<133=134
+<134=136,135
+<136=137
+<137=139,138
+<140=141
+<153=154
+<154=170,155
+<155=168,156
+<156=166,164,162,157
+<157=158
+<158=160,159
+<160=161
+<162=163
+<164=165
+<166=167
+<168=169
+<171=172
+<173=174
+<174=176,175
+<176=177
+<177=179,178
+<180=181
+<181=186,185,182
+<182=184,183

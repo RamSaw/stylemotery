@@ -1,0 +1,1098 @@
+>3	FunctionDef	MemParser 
+>4	ParameterList	std 
+>5	Parameter	 
+>6	Identifier	bytes
+>7	ParameterType	UInt32
+>8	Parameter	 
+>9	Identifier	in
+>10	ParameterType	std 
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	AssignmentExpr	endP_ = startP_ + bytes_
+>14	AdditiveExpression	startP_ + bytes_
+>15	Identifier	bytes_
+>16	Identifier	startP_
+>17	Identifier	endP_
+>18	ExpressionStatement	 
+>19	AssignmentExpr	startP_ = bufP_
+>20	Identifier	bufP_
+>21	Identifier	startP_
+>22	IfStatement	if ( bytes == 0 )
+>23	ElseStatement	else
+>24	CompoundStatement	 
+>25	ExpressionStatement	 
+>26	ShiftExpression	NTA_CHECK ( in . good ( ) ) << \"MemParser
+>27	PrimaryExpression	\"MemParser
+>28	CallExpression	NTA_CHECK ( in . good ( ) )
+>29	ArgumentList	in . good ( )
+>30	Argument	in . good ( )
+>31	CallExpression	in . good ( )
+>32	ArgumentList	 
+>33	Callee	in . good
+>34	MemberAccess	in . good
+>35	Identifier	good
+>36	Identifier	in
+>37	Callee	NTA_CHECK
+>38	Identifier	NTA_CHECK
+>39	ExpressionStatement	 
+>40	AssignmentExpr	( ( char * ) bufP_ ) [ bytes ] = 0
+>41	PrimaryExpression	0
+>42	ArrayIndexing	( ( char * ) bufP_ ) [ bytes ]
+>43	Identifier	bytes
+>44	CastExpression	( char * ) bufP_
+>45	Identifier	bufP_
+>46	CastTarget	char *
+>47	ExpressionStatement	 
+>48	CallExpression	in . read ( ( char * ) bufP_ , bytes )
+>49	ArgumentList	( char * ) bufP_
+>50	Argument	bytes
+>51	Identifier	bytes
+>52	Argument	( char * ) bufP_
+>53	CastExpression	( char * ) bufP_
+>54	Identifier	bufP_
+>55	CastTarget	char *
+>56	Callee	in . read
+>57	MemberAccess	in . read
+>58	Identifier	read
+>59	Identifier	in
+>60	ExpressionStatement	 
+>61	ShiftExpression	NTA_CHECK ( bufP_ != NULL ) << \"MemParser
+>62	PrimaryExpression	\"MemParser
+>63	CallExpression	NTA_CHECK ( bufP_ != NULL )
+>64	ArgumentList	bufP_ != NULL
+>65	Argument	bufP_ != NULL
+>66	EqualityExpression	bufP_ != NULL
+>67	Identifier	NULL
+>68	Identifier	bufP_
+>69	Callee	NTA_CHECK
+>70	Identifier	NTA_CHECK
+>71	ExpressionStatement	 
+>72	AssignmentExpr	bufP_ = new char [ bytes_ + 1 ]
+>73	AdditiveExpression	bytes_ + 1
+>74	PrimaryExpression	1
+>75	Identifier	bytes_
+>76	Identifier	bufP_
+>77	ExpressionStatement	 
+>78	AssignmentExpr	bytes_ = bytes
+>79	Identifier	bytes
+>80	Identifier	bytes_
+>81	CompoundStatement	 
+>82	ExpressionStatement	 
+>83	Identifier	chunkP
+>84	Statement	 
+>85	Statement	 
+>86	Statement	 
+>87	ExpressionStatement	 
+>88	AssignmentExpr	( ( char * ) bufP_ ) [ bytes_ ] = 0
+>89	PrimaryExpression	0
+>90	ArrayIndexing	( ( char * ) bufP_ ) [ bytes_ ]
+>91	Identifier	bytes_
+>92	CastExpression	( char * ) bufP_
+>93	Identifier	bufP_
+>94	CastTarget	char *
+>95	ExpressionStatement	 
+>96	CallExpression	memmove ( ( void * ) bufP_ , data . data ( ) , bytes_ )
+>97	ArgumentList	( void * ) bufP_
+>98	Argument	bytes_
+>99	Identifier	bytes_
+>100	Argument	data . data ( )
+>101	CallExpression	data . data ( )
+>102	ArgumentList	 
+>103	Callee	data . data
+>104	MemberAccess	data . data
+>105	Identifier	data
+>106	Identifier	data
+>107	Argument	( void * ) bufP_
+>108	CastExpression	( void * ) bufP_
+>109	Identifier	bufP_
+>110	CastTarget	void *
+>111	Callee	memmove
+>112	Identifier	memmove
+>113	Statement	 
+>114	ExpressionStatement	 
+>115	ShiftExpression	NTA_CHECK ( bufP_ != NULL ) << \"MemParser
+>116	PrimaryExpression	\"MemParser
+>117	CallExpression	NTA_CHECK ( bufP_ != NULL )
+>118	ArgumentList	bufP_ != NULL
+>119	Argument	bufP_ != NULL
+>120	EqualityExpression	bufP_ != NULL
+>121	Identifier	NULL
+>122	Identifier	bufP_
+>123	Callee	NTA_CHECK
+>124	Identifier	NTA_CHECK
+>125	ExpressionStatement	 
+>126	AssignmentExpr	bufP_ = new char [ bytes_ + 1 ]
+>127	AdditiveExpression	bytes_ + 1
+>128	PrimaryExpression	1
+>129	Identifier	bytes_
+>130	Identifier	bufP_
+>131	ExpressionStatement	 
+>132	AssignmentExpr	bytes_ = ( UInt32 ) data . size ( )
+>133	CastExpression	( UInt32 ) data . size ( )
+>134	CallExpression	data . size ( )
+>135	ArgumentList	 
+>136	Callee	data . size
+>137	MemberAccess	data . size
+>138	Identifier	size
+>139	Identifier	data
+>140	CastTarget	UInt32
+>141	Identifier	bytes_
+>142	WhileStatement	while ( ! in . eof ( ) )
+>143	CompoundStatement	 
+>144	ExpressionStatement	 
+>145	CallExpression	data . append ( chunkP , in . gcount ( ) )
+>146	ArgumentList	chunkP
+>147	Argument	in . gcount ( )
+>148	CallExpression	in . gcount ( )
+>149	ArgumentList	 
+>150	Callee	in . gcount
+>151	MemberAccess	in . gcount
+>152	Identifier	gcount
+>153	Identifier	in
+>154	Argument	chunkP
+>155	Identifier	chunkP
+>156	Callee	data . append
+>157	MemberAccess	data . append
+>158	Identifier	append
+>159	Identifier	data
+>160	ExpressionStatement	 
+>161	ShiftExpression	NTA_CHECK ( in . good ( ) || in . eof ( ) ) << \"MemParser
+>162	PrimaryExpression	\"MemParser
+>163	CallExpression	NTA_CHECK ( in . good ( ) || in . eof ( ) )
+>164	ArgumentList	in . good ( ) || in . eof ( )
+>165	Argument	in . good ( ) || in . eof ( )
+>166	OrExpression	in . good ( ) || in . eof ( )
+>167	CallExpression	in . eof ( )
+>168	ArgumentList	 
+>169	Callee	in . eof
+>170	MemberAccess	in . eof
+>171	Identifier	eof
+>172	Identifier	in
+>173	CallExpression	in . good ( )
+>174	ArgumentList	 
+>175	Callee	in . good
+>176	MemberAccess	in . good
+>177	Identifier	good
+>178	Identifier	in
+>179	Callee	NTA_CHECK
+>180	Identifier	NTA_CHECK
+>181	ExpressionStatement	 
+>182	CallExpression	in . read ( chunkP , chunkSize )
+>183	ArgumentList	chunkP
+>184	Argument	chunkSize
+>185	Identifier	chunkSize
+>186	Argument	chunkP
+>187	Identifier	chunkP
+>188	Callee	in . read
+>189	MemberAccess	in . read
+>190	Identifier	read
+>191	Identifier	in
+>192	Condition	 
+>193	UnaryOp	! in . eof ( )
+>194	CallExpression	in . eof ( )
+>195	ArgumentList	 
+>196	Callee	in . eof
+>197	MemberAccess	in . eof
+>198	Identifier	eof
+>199	Identifier	in
+>200	UnaryOperator	!
+>201	IdentifierDeclStatement	 
+>202	IdentifierDecl	* chunkP = new char [ chunkSize ]
+>203	AssignmentExpr	* chunkP = new char [ chunkSize ]
+>204	Identifier	chunkSize
+>205	Identifier	chunkSize
+>206	Identifier	chunkP
+>207	IdentifierDeclType	char *
+>208	IdentifierDeclStatement	 
+>209	IdentifierDecl	chunkSize = 0x10000
+>210	AssignmentExpr	chunkSize = 0x10000
+>211	PrimaryExpression	0x10000
+>212	Identifier	chunkSize
+>213	Identifier	chunkSize
+>214	IdentifierDeclType	const int
+>215	IdentifierDeclStatement	 
+>216	IdentifierDecl	data
+>217	Identifier	data
+>218	IdentifierDeclType	std 
+>219	Condition	 
+>220	EqualityExpression	bytes == 0
+>221	PrimaryExpression	0
+>222	Identifier	bytes
+>244	FunctionDef	MemParser 
+>245	ParameterList	 
+>246	CompoundStatement	 
+>247	ExpressionStatement	 
+>248	Identifier	bufP_
+>249	Statement	 
+>250	Statement	 
+>251	Statement	 
+>255	FunctionDef	MemParser 
+>256	ParameterList	unsigned long & val
+>257	Parameter	 
+>258	Identifier	val
+>259	ParameterType	unsigned long &
+>260	ReturnType	void
+>261	CompoundStatement	 
+>262	ExpressionStatement	 
+>263	AssignmentExpr	startP_ = endP
+>264	Identifier	endP
+>265	Identifier	startP_
+>266	ExpressionStatement	 
+>267	ShiftExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ ) << prefix << \"parse error, not a valid integer\"
+>268	ShiftExpression	prefix << \"parse error, not a valid integer\"
+>269	PrimaryExpression	\"parse error, not a valid integer\"
+>270	Identifier	prefix
+>271	CallExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ )
+>272	ArgumentList	endP != startP_ && endP <= endP_
+>273	Argument	endP != startP_ && endP <= endP_
+>274	AndExpression	endP != startP_ && endP <= endP_
+>275	RelationalExpression	endP <= endP_
+>276	Identifier	endP_
+>277	Identifier	endP
+>278	EqualityExpression	endP != startP_
+>279	Identifier	startP_
+>280	Identifier	endP
+>281	Callee	NTA_CHECK
+>282	Identifier	NTA_CHECK
+>283	ExpressionStatement	 
+>284	CallExpression	strtoul ( startP_ , & endP , 0 )
+>285	ArgumentList	startP_
+>286	Argument	0
+>287	PrimaryExpression	0
+>288	Argument	& endP
+>289	UnaryOp	& endP
+>290	Identifier	endP
+>291	UnaryOperator	&
+>292	Argument	startP_
+>293	Identifier	startP_
+>294	Callee	strtoul
+>295	Identifier	strtoul
+>296	Statement	 
+>297	Statement	 
+>298	Statement	 
+>299	ExpressionStatement	 
+>300	ShiftExpression	NTA_CHECK ( startP_ < endP_ ) << prefix << \"EOF\"
+>301	ShiftExpression	prefix << \"EOF\"
+>302	PrimaryExpression	\"EOF\"
+>303	Identifier	prefix
+>304	CallExpression	NTA_CHECK ( startP_ < endP_ )
+>305	ArgumentList	startP_ < endP_
+>306	Argument	startP_ < endP_
+>307	RelationalExpression	startP_ < endP_
+>308	Identifier	endP_
+>309	Identifier	startP_
+>310	Callee	NTA_CHECK
+>311	Identifier	NTA_CHECK
+>312	IdentifierDeclStatement	 
+>313	IdentifierDecl	* endP
+>314	Identifier	endP
+>315	IdentifierDeclType	char *
+>316	IdentifierDeclStatement	 
+>317	IdentifierDecl	* prefix = \"MemParser
+>318	AssignmentExpr	* prefix = \"MemParser
+>319	PrimaryExpression	\"MemParser
+>320	Identifier	prefix
+>321	Identifier	prefix
+>322	IdentifierDeclType	const char *
+>332	FunctionDef	MemParser 
+>333	ParameterList	unsigned long long & val
+>334	Parameter	 
+>335	Identifier	val
+>336	ParameterType	unsigned long long &
+>337	ReturnType	void
+>338	CompoundStatement	 
+>339	ExpressionStatement	 
+>340	AssignmentExpr	startP_ = endP
+>341	Identifier	endP
+>342	Identifier	startP_
+>343	ExpressionStatement	 
+>344	ShiftExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ ) << prefix << \"parse error, not a valid integer\"
+>345	ShiftExpression	prefix << \"parse error, not a valid integer\"
+>346	PrimaryExpression	\"parse error, not a valid integer\"
+>347	Identifier	prefix
+>348	CallExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ )
+>349	ArgumentList	endP != startP_ && endP <= endP_
+>350	Argument	endP != startP_ && endP <= endP_
+>351	AndExpression	endP != startP_ && endP <= endP_
+>352	RelationalExpression	endP <= endP_
+>353	Identifier	endP_
+>354	Identifier	endP
+>355	EqualityExpression	endP != startP_
+>356	Identifier	startP_
+>357	Identifier	endP
+>358	Callee	NTA_CHECK
+>359	Identifier	NTA_CHECK
+>360	ExpressionStatement	 
+>361	CallExpression	strtoul ( startP_ , & endP , 0 )
+>362	ArgumentList	startP_
+>363	Argument	0
+>364	PrimaryExpression	0
+>365	Argument	& endP
+>366	UnaryOp	& endP
+>367	Identifier	endP
+>368	UnaryOperator	&
+>369	Argument	startP_
+>370	Identifier	startP_
+>371	Callee	strtoul
+>372	Identifier	strtoul
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	ExpressionStatement	 
+>377	ShiftExpression	NTA_CHECK ( startP_ < endP_ ) << prefix << \"EOF\"
+>378	ShiftExpression	prefix << \"EOF\"
+>379	PrimaryExpression	\"EOF\"
+>380	Identifier	prefix
+>381	CallExpression	NTA_CHECK ( startP_ < endP_ )
+>382	ArgumentList	startP_ < endP_
+>383	Argument	startP_ < endP_
+>384	RelationalExpression	startP_ < endP_
+>385	Identifier	endP_
+>386	Identifier	startP_
+>387	Callee	NTA_CHECK
+>388	Identifier	NTA_CHECK
+>389	IdentifierDeclStatement	 
+>390	IdentifierDecl	* endP
+>391	Identifier	endP
+>392	IdentifierDeclType	char *
+>393	IdentifierDeclStatement	 
+>394	IdentifierDecl	* prefix = \"MemParser
+>395	AssignmentExpr	* prefix = \"MemParser
+>396	PrimaryExpression	\"MemParser
+>397	Identifier	prefix
+>398	Identifier	prefix
+>399	IdentifierDeclType	const char *
+>409	FunctionDef	MemParser 
+>410	ParameterList	long & val
+>411	Parameter	 
+>412	Identifier	val
+>413	ParameterType	long &
+>414	ReturnType	void
+>415	CompoundStatement	 
+>416	ExpressionStatement	 
+>417	AssignmentExpr	startP_ = endP
+>418	Identifier	endP
+>419	Identifier	startP_
+>420	ExpressionStatement	 
+>421	ShiftExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ ) << prefix << \"parse error, not a valid integer\"
+>422	ShiftExpression	prefix << \"parse error, not a valid integer\"
+>423	PrimaryExpression	\"parse error, not a valid integer\"
+>424	Identifier	prefix
+>425	CallExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ )
+>426	ArgumentList	endP != startP_ && endP <= endP_
+>427	Argument	endP != startP_ && endP <= endP_
+>428	AndExpression	endP != startP_ && endP <= endP_
+>429	RelationalExpression	endP <= endP_
+>430	Identifier	endP_
+>431	Identifier	endP
+>432	EqualityExpression	endP != startP_
+>433	Identifier	startP_
+>434	Identifier	endP
+>435	Callee	NTA_CHECK
+>436	Identifier	NTA_CHECK
+>437	ExpressionStatement	 
+>438	CallExpression	strtol ( startP_ , & endP , 0 )
+>439	ArgumentList	startP_
+>440	Argument	0
+>441	PrimaryExpression	0
+>442	Argument	& endP
+>443	UnaryOp	& endP
+>444	Identifier	endP
+>445	UnaryOperator	&
+>446	Argument	startP_
+>447	Identifier	startP_
+>448	Callee	strtol
+>449	Identifier	strtol
+>450	Statement	 
+>451	Statement	 
+>452	Statement	 
+>453	ExpressionStatement	 
+>454	ShiftExpression	NTA_CHECK ( startP_ < endP_ ) << prefix << \"EOF\"
+>455	ShiftExpression	prefix << \"EOF\"
+>456	PrimaryExpression	\"EOF\"
+>457	Identifier	prefix
+>458	CallExpression	NTA_CHECK ( startP_ < endP_ )
+>459	ArgumentList	startP_ < endP_
+>460	Argument	startP_ < endP_
+>461	RelationalExpression	startP_ < endP_
+>462	Identifier	endP_
+>463	Identifier	startP_
+>464	Callee	NTA_CHECK
+>465	Identifier	NTA_CHECK
+>466	IdentifierDeclStatement	 
+>467	IdentifierDecl	* endP
+>468	Identifier	endP
+>469	IdentifierDeclType	char *
+>470	IdentifierDeclStatement	 
+>471	IdentifierDecl	* prefix = \"MemParser
+>472	AssignmentExpr	* prefix = \"MemParser
+>473	PrimaryExpression	\"MemParser
+>474	Identifier	prefix
+>475	Identifier	prefix
+>476	IdentifierDeclType	const char *
+>486	FunctionDef	MemParser 
+>487	ParameterList	double & val
+>488	Parameter	 
+>489	Identifier	val
+>490	ParameterType	double &
+>491	ReturnType	void
+>492	CompoundStatement	 
+>493	ExpressionStatement	 
+>494	AssignmentExpr	startP_ = endP
+>495	Identifier	endP
+>496	Identifier	startP_
+>497	ExpressionStatement	 
+>498	ShiftExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ ) << prefix << \"parse error, not a valid floating point \
+>499	ShiftExpression	prefix << \"parse error, not a valid floating point value\"
+>500	PrimaryExpression	\"parse error, not a valid floating point value\"
+>501	Identifier	prefix
+>502	CallExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ )
+>503	ArgumentList	endP != startP_ && endP <= endP_
+>504	Argument	endP != startP_ && endP <= endP_
+>505	AndExpression	endP != startP_ && endP <= endP_
+>506	RelationalExpression	endP <= endP_
+>507	Identifier	endP_
+>508	Identifier	endP
+>509	EqualityExpression	endP != startP_
+>510	Identifier	startP_
+>511	Identifier	endP
+>512	Callee	NTA_CHECK
+>513	Identifier	NTA_CHECK
+>514	ExpressionStatement	 
+>515	CallExpression	strtod ( startP_ , & endP )
+>516	ArgumentList	startP_
+>517	Argument	& endP
+>518	UnaryOp	& endP
+>519	Identifier	endP
+>520	UnaryOperator	&
+>521	Argument	startP_
+>522	Identifier	startP_
+>523	Callee	strtod
+>524	Identifier	strtod
+>525	Statement	 
+>526	Statement	 
+>527	Statement	 
+>528	ExpressionStatement	 
+>529	ShiftExpression	NTA_CHECK ( startP_ < endP_ ) << prefix << \"EOF\"
+>530	ShiftExpression	prefix << \"EOF\"
+>531	PrimaryExpression	\"EOF\"
+>532	Identifier	prefix
+>533	CallExpression	NTA_CHECK ( startP_ < endP_ )
+>534	ArgumentList	startP_ < endP_
+>535	Argument	startP_ < endP_
+>536	RelationalExpression	startP_ < endP_
+>537	Identifier	endP_
+>538	Identifier	startP_
+>539	Callee	NTA_CHECK
+>540	Identifier	NTA_CHECK
+>541	IdentifierDeclStatement	 
+>542	IdentifierDecl	* endP
+>543	Identifier	endP
+>544	IdentifierDeclType	char *
+>545	IdentifierDeclStatement	 
+>546	IdentifierDecl	* prefix = \"MemParser
+>547	AssignmentExpr	* prefix = \"MemParser
+>548	PrimaryExpression	\"MemParser
+>549	Identifier	prefix
+>550	Identifier	prefix
+>551	IdentifierDeclType	const char *
+>561	FunctionDef	MemParser 
+>562	ParameterList	long double & val
+>563	Parameter	 
+>564	Identifier	val
+>565	ParameterType	long double &
+>566	ReturnType	void
+>567	CompoundStatement	 
+>568	ExpressionStatement	 
+>569	AssignmentExpr	startP_ = endP
+>570	Identifier	endP
+>571	Identifier	startP_
+>572	ExpressionStatement	 
+>573	ShiftExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ ) << prefix << \"parse error, not a valid floating point \
+>574	ShiftExpression	prefix << \"parse error, not a valid floating point value\"
+>575	PrimaryExpression	\"parse error, not a valid floating point value\"
+>576	Identifier	prefix
+>577	CallExpression	NTA_CHECK ( endP != startP_ && endP <= endP_ )
+>578	ArgumentList	endP != startP_ && endP <= endP_
+>579	Argument	endP != startP_ && endP <= endP_
+>580	AndExpression	endP != startP_ && endP <= endP_
+>581	RelationalExpression	endP <= endP_
+>582	Identifier	endP_
+>583	Identifier	endP
+>584	EqualityExpression	endP != startP_
+>585	Identifier	startP_
+>586	Identifier	endP
+>587	Callee	NTA_CHECK
+>588	Identifier	NTA_CHECK
+>589	ExpressionStatement	 
+>590	CallExpression	strtold ( startP_ , & endP )
+>591	ArgumentList	startP_
+>592	Argument	& endP
+>593	UnaryOp	& endP
+>594	Identifier	endP
+>595	UnaryOperator	&
+>596	Argument	startP_
+>597	Identifier	startP_
+>598	Callee	strtold
+>599	Identifier	strtold
+>600	Statement	 
+>601	Statement	 
+>602	Statement	 
+>603	ExpressionStatement	 
+>604	ShiftExpression	NTA_CHECK ( startP_ < endP_ ) << prefix << \"EOF\"
+>605	ShiftExpression	prefix << \"EOF\"
+>606	PrimaryExpression	\"EOF\"
+>607	Identifier	prefix
+>608	CallExpression	NTA_CHECK ( startP_ < endP_ )
+>609	ArgumentList	startP_ < endP_
+>610	Argument	startP_ < endP_
+>611	RelationalExpression	startP_ < endP_
+>612	Identifier	endP_
+>613	Identifier	startP_
+>614	Callee	NTA_CHECK
+>615	Identifier	NTA_CHECK
+>616	IdentifierDeclStatement	 
+>617	IdentifierDecl	* endP
+>618	Identifier	endP
+>619	IdentifierDeclType	char *
+>620	IdentifierDeclStatement	 
+>621	IdentifierDecl	* prefix = \"MemParser
+>622	AssignmentExpr	* prefix = \"MemParser
+>623	PrimaryExpression	\"MemParser
+>624	Identifier	prefix
+>625	Identifier	prefix
+>626	IdentifierDeclType	const char *
+>636	FunctionDef	MemParser 
+>637	ParameterList	float & val
+>638	Parameter	 
+>639	Identifier	val
+>640	ParameterType	float &
+>641	ReturnType	void
+>642	CompoundStatement	 
+>643	ExpressionStatement	 
+>644	AssignmentExpr	val = ( float ) f
+>645	CastExpression	( float ) f
+>646	Identifier	f
+>647	CastTarget	float
+>648	Identifier	val
+>649	ExpressionStatement	 
+>650	CallExpression	get ( f )
+>651	ArgumentList	f
+>652	Argument	f
+>653	Identifier	f
+>654	Callee	get
+>655	Identifier	get
+>656	IdentifierDeclStatement	 
+>657	IdentifierDecl	f
+>658	Identifier	f
+>659	IdentifierDeclType	double
+>665	FunctionDef	MemParser 
+>666	ParameterList	std 
+>667	Parameter	 
+>668	Identifier	val
+>669	ParameterType	std 
+>670	ReturnType	void
+>671	CompoundStatement	 
+>672	ExpressionStatement	 
+>673	AssignmentExpr	startP_ = cP + len
+>674	AdditiveExpression	cP + len
+>675	Identifier	len
+>676	Identifier	cP
+>677	Identifier	startP_
+>678	ExpressionStatement	 
+>679	CallExpression	val . assign ( cP , len )
+>680	ArgumentList	cP
+>681	Argument	len
+>682	Identifier	len
+>683	Argument	cP
+>684	Identifier	cP
+>685	Callee	val . assign
+>686	MemberAccess	val . assign
+>687	Identifier	assign
+>688	Identifier	val
+>689	ExpressionStatement	 
+>690	ShiftExpression	NTA_CHECK ( len > 0 ) << prefix << \"parse error, not a valid string\"
+>691	ShiftExpression	prefix << \"parse error, not a valid string\"
+>692	PrimaryExpression	\"parse error, not a valid string\"
+>693	Identifier	prefix
+>694	CallExpression	NTA_CHECK ( len > 0 )
+>695	ArgumentList	len > 0
+>696	Argument	len > 0
+>697	RelationalExpression	len > 0
+>698	PrimaryExpression	0
+>699	Identifier	len
+>700	Callee	NTA_CHECK
+>701	Identifier	NTA_CHECK
+>702	IdentifierDeclStatement	 
+>703	IdentifierDecl	len = strcspn ( cP , \" \t\n\r\" )
+>704	AssignmentExpr	len = strcspn ( cP , \" \t\n\r\" )
+>705	CallExpression	strcspn ( cP , \" \t\n\r\" )
+>706	ArgumentList	cP
+>707	Argument	\" \t\n\r\"
+>708	PrimaryExpression	\" \t\n\r\"
+>709	Argument	cP
+>710	Identifier	cP
+>711	Callee	strcspn
+>712	Identifier	strcspn
+>713	Identifier	len
+>714	Identifier	len
+>715	IdentifierDeclType	size_t
+>716	ExpressionStatement	 
+>717	ShiftExpression	NTA_CHECK ( cP < endP_ ) << prefix << \"EOF\"
+>718	ShiftExpression	prefix << \"EOF\"
+>719	PrimaryExpression	\"EOF\"
+>720	Identifier	prefix
+>721	CallExpression	NTA_CHECK ( cP < endP_ )
+>722	ArgumentList	cP < endP_
+>723	Argument	cP < endP_
+>724	RelationalExpression	cP < endP_
+>725	Identifier	endP_
+>726	Identifier	cP
+>727	Callee	NTA_CHECK
+>728	Identifier	NTA_CHECK
+>729	WhileStatement	while ( cP < endP_ )
+>730	CompoundStatement	 
+>731	ExpressionStatement	 
+>732	IncDecOp	cP ++
+>733	IncDec	++
+>734	Identifier	cP
+>735	IfStatement	if ( c != 0 && c != ' ' && c != '\t' && c != '\n' && c != '\r' )
+>736	BreakStatement	 
+>737	Condition	 
+>738	AndExpression	c != 0 && c != ' ' && c != '\t' && c != '\n' && c != '\r'
+>739	AndExpression	c != ' ' && c != '\t' && c != '\n' && c != '\r'
+>740	AndExpression	c != '\t' && c != '\n' && c != '\r'
+>741	AndExpression	c != '\n' && c != '\r'
+>742	EqualityExpression	c != '\r'
+>743	PrimaryExpression	'\r'
+>744	Identifier	c
+>745	EqualityExpression	c != '\n'
+>746	PrimaryExpression	'\n'
+>747	Identifier	c
+>748	EqualityExpression	c != '\t'
+>749	PrimaryExpression	'\t'
+>750	Identifier	c
+>751	EqualityExpression	c != ' '
+>752	PrimaryExpression	' '
+>753	Identifier	c
+>754	EqualityExpression	c != 0
+>755	PrimaryExpression	0
+>756	Identifier	c
+>757	IdentifierDeclStatement	 
+>758	IdentifierDecl	c = * cP
+>759	AssignmentExpr	c = * cP
+>760	UnaryOp	* cP
+>761	Identifier	cP
+>762	UnaryOperator	*
+>763	Identifier	c
+>764	Identifier	c
+>765	IdentifierDeclType	char
+>766	Condition	 
+>767	RelationalExpression	cP < endP_
+>768	Identifier	endP_
+>769	Identifier	cP
+>770	IdentifierDeclStatement	 
+>771	IdentifierDecl	* cP = startP_
+>772	AssignmentExpr	* cP = startP_
+>773	Identifier	startP_
+>774	Identifier	startP_
+>775	Identifier	cP
+>776	IdentifierDeclType	const char *
+>777	IdentifierDeclStatement	 
+>778	IdentifierDecl	* prefix = \"MemParser
+>779	AssignmentExpr	* prefix = \"MemParser
+>780	PrimaryExpression	\"MemParser
+>781	Identifier	prefix
+>782	Identifier	prefix
+>783	IdentifierDeclType	const char *
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=22,18,12
+<12=13
+<13=17,14
+<14=16,15
+<18=19
+<19=21,20
+<22=219,81,23
+<23=24
+<24=77,71,60,47,39,25
+<25=26
+<26=28,27
+<28=37,29
+<29=30
+<30=31
+<31=33,32
+<33=34
+<34=36,35
+<37=38
+<39=40
+<40=42,41
+<42=44,43
+<44=46,45
+<47=48
+<48=56,49
+<49=52,50
+<50=51
+<52=53
+<53=55,54
+<56=57
+<57=59,58
+<60=61
+<61=63,62
+<63=69,64
+<64=65
+<65=66
+<66=68,67
+<69=70
+<71=72
+<72=76,73
+<73=75,74
+<77=78
+<78=80,79
+<81=215,208,201,142,131,125,114,113,95,87,86,85,84,82
+<82=83
+<87=88
+<88=90,89
+<90=92,91
+<92=94,93
+<95=96
+<96=111,97
+<97=107,100,98
+<98=99
+<100=101
+<101=103,102
+<103=104
+<104=106,105
+<107=108
+<108=110,109
+<111=112
+<114=115
+<115=117,116
+<117=123,118
+<118=119
+<119=120
+<120=122,121
+<123=124
+<125=126
+<126=130,127
+<127=129,128
+<131=132
+<132=141,133
+<133=140,134
+<134=136,135
+<136=137
+<137=139,138
+<142=192,143
+<143=181,160,144
+<144=145
+<145=156,146
+<146=154,147
+<147=148
+<148=150,149
+<150=151
+<151=153,152
+<154=155
+<156=157
+<157=159,158
+<160=161
+<161=163,162
+<163=179,164
+<164=165
+<165=166
+<166=173,167
+<167=169,168
+<169=170
+<170=172,171
+<173=175,174
+<175=176
+<176=178,177
+<179=180
+<181=182
+<182=188,183
+<183=186,184
+<184=185
+<186=187
+<188=189
+<189=191,190
+<192=193
+<193=200,194
+<194=196,195
+<196=197
+<197=199,198
+<201=202
+<202=207,206,203
+<203=205,204
+<208=209
+<209=214,213,210
+<210=212,211
+<215=216
+<216=218,217
+<219=220
+<220=222,221
+<244=246,245
+<246=251,250,249,247
+<247=248
+<255=261,260,256
+<256=257
+<257=259,258
+<261=316,312,299,298,297,296,283,266,262
+<262=263
+<263=265,264
+<266=267
+<267=271,268
+<268=270,269
+<271=281,272
+<272=273
+<273=274
+<274=278,275
+<275=277,276
+<278=280,279
+<281=282
+<283=284
+<284=294,285
+<285=292,288,286
+<286=287
+<288=289
+<289=291,290
+<292=293
+<294=295
+<299=300
+<300=304,301
+<301=303,302
+<304=310,305
+<305=306
+<306=307
+<307=309,308
+<310=311
+<312=313
+<313=315,314
+<316=317
+<317=322,321,318
+<318=320,319
+<332=338,337,333
+<333=334
+<334=336,335
+<338=393,389,376,375,374,373,360,343,339
+<339=340
+<340=342,341
+<343=344
+<344=348,345
+<345=347,346
+<348=358,349
+<349=350
+<350=351
+<351=355,352
+<352=354,353
+<355=357,356
+<358=359
+<360=361
+<361=371,362
+<362=369,365,363
+<363=364
+<365=366
+<366=368,367
+<369=370
+<371=372
+<376=377
+<377=381,378
+<378=380,379
+<381=387,382
+<382=383
+<383=384
+<384=386,385
+<387=388
+<389=390
+<390=392,391
+<393=394
+<394=399,398,395
+<395=397,396
+<409=415,414,410
+<410=411
+<411=413,412
+<415=470,466,453,452,451,450,437,420,416
+<416=417
+<417=419,418
+<420=421
+<421=425,422
+<422=424,423
+<425=435,426
+<426=427
+<427=428
+<428=432,429
+<429=431,430
+<432=434,433
+<435=436
+<437=438
+<438=448,439
+<439=446,442,440
+<440=441
+<442=443
+<443=445,444
+<446=447
+<448=449
+<453=454
+<454=458,455
+<455=457,456
+<458=464,459
+<459=460
+<460=461
+<461=463,462
+<464=465
+<466=467
+<467=469,468
+<470=471
+<471=476,475,472
+<472=474,473
+<486=492,491,487
+<487=488
+<488=490,489
+<492=545,541,528,527,526,525,514,497,493
+<493=494
+<494=496,495
+<497=498
+<498=502,499
+<499=501,500
+<502=512,503
+<503=504
+<504=505
+<505=509,506
+<506=508,507
+<509=511,510
+<512=513
+<514=515
+<515=523,516
+<516=521,517
+<517=518
+<518=520,519
+<521=522
+<523=524
+<528=529
+<529=533,530
+<530=532,531
+<533=539,534
+<534=535
+<535=536
+<536=538,537
+<539=540
+<541=542
+<542=544,543
+<545=546
+<546=551,550,547
+<547=549,548
+<561=567,566,562
+<562=563
+<563=565,564
+<567=620,616,603,602,601,600,589,572,568
+<568=569
+<569=571,570
+<572=573
+<573=577,574
+<574=576,575
+<577=587,578
+<578=579
+<579=580
+<580=584,581
+<581=583,582
+<584=586,585
+<587=588
+<589=590
+<590=598,591
+<591=596,592
+<592=593
+<593=595,594
+<596=597
+<598=599
+<603=604
+<604=608,605
+<605=607,606
+<608=614,609
+<609=610
+<610=611
+<611=613,612
+<614=615
+<616=617
+<617=619,618
+<620=621
+<621=626,625,622
+<622=624,623
+<636=642,641,637
+<637=638
+<638=640,639
+<642=656,649,643
+<643=644
+<644=648,645
+<645=647,646
+<649=650
+<650=654,651
+<651=652
+<652=653
+<654=655
+<656=657
+<657=659,658
+<665=671,670,666
+<666=667
+<667=669,668
+<671=777,770,729,716,702,689,678,672
+<672=673
+<673=677,674
+<674=676,675
+<678=679
+<679=685,680
+<680=683,681
+<681=682
+<683=684
+<685=686
+<686=688,687
+<689=690
+<690=694,691
+<691=693,692
+<694=700,695
+<695=696
+<696=697
+<697=699,698
+<700=701
+<702=703
+<703=715,714,704
+<704=713,705
+<705=711,706
+<706=709,707
+<707=708
+<709=710
+<711=712
+<716=717
+<717=721,718
+<718=720,719
+<721=727,722
+<722=723
+<723=724
+<724=726,725
+<727=728
+<729=766,730
+<730=757,735,731
+<731=732
+<732=734,733
+<735=737,736
+<737=738
+<738=754,739
+<739=751,740
+<740=748,741
+<741=745,742
+<742=744,743
+<745=747,746
+<748=750,749
+<751=753,752
+<754=756,755
+<757=758
+<758=765,764,759
+<759=763,760
+<760=762,761
+<766=767
+<767=769,768
+<770=771
+<771=776,775,772
+<772=774,773
+<777=778
+<778=783,782,779
+<779=781,780

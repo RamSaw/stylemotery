@@ -1,0 +1,600 @@
+>8	FunctionDef	Estimate (const char * solution , const char * guess)
+>9	ParameterList	const char * solution , const char * guess
+>10	Parameter	 
+>11	Identifier	guess
+>12	ParameterType	const char *
+>13	Parameter	 
+>14	Identifier	solution
+>15	ParameterType	const char *
+>16	ReturnType	Result
+>17	CompoundStatement	 
+>18	ReturnStatement	 
+>19	Identifier	res
+>20	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>21	CompoundStatement	 
+>22	IfStatement	if ( guess [ i ] == solution [ i ] )
+>23	ElseStatement	else
+>24	IfStatement	if ( solution_mask & ( 1 << ( guess [ i ] - 'A' ) ) )
+>25	ExpressionStatement	 
+>26	UnaryExpression	++ res . pseudo_hits
+>27	MemberAccess	res . pseudo_hits
+>28	Identifier	pseudo_hits
+>29	Identifier	res
+>30	IncDec	++
+>31	Condition	 
+>32	BitAndExpression	solution_mask & ( 1 << ( guess [ i ] - 'A' ) )
+>33	ShiftExpression	1 << ( guess [ i ] - 'A' )
+>34	AdditiveExpression	guess [ i ] - 'A'
+>35	PrimaryExpression	'A'
+>36	ArrayIndexing	guess [ i ]
+>37	Identifier	i
+>38	Identifier	guess
+>39	PrimaryExpression	1
+>40	Identifier	solution_mask
+>41	ExpressionStatement	 
+>42	UnaryExpression	++ res . hits
+>43	MemberAccess	res . hits
+>44	Identifier	hits
+>45	Identifier	res
+>46	IncDec	++
+>47	Condition	 
+>48	EqualityExpression	guess [ i ] == solution [ i ]
+>49	ArrayIndexing	solution [ i ]
+>50	Identifier	i
+>51	Identifier	solution
+>52	ArrayIndexing	guess [ i ]
+>53	Identifier	i
+>54	Identifier	guess
+>55	UnaryExpression	 
+>56	Identifier	i
+>57	IncDec	++
+>58	Condition	 
+>59	RelationalExpression	i < 4
+>60	PrimaryExpression	4
+>61	Identifier	i
+>62	ForInit	 
+>63	IdentifierDeclStatement	int i = 0 ;
+>64	IdentifierDecl	i = 0
+>65	AssignmentExpr	i = 0
+>66	PrimaryExpression	0
+>67	Identifier	i
+>68	Identifier	i
+>69	IdentifierDeclType	int
+>70	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>71	CompoundStatement	 
+>72	ExpressionStatement	 
+>73	AssignmentExpr	solution_mask |= 1 << ( solution [ i ] - 'A' )
+>74	ShiftExpression	1 << ( solution [ i ] - 'A' )
+>75	AdditiveExpression	solution [ i ] - 'A'
+>76	PrimaryExpression	'A'
+>77	ArrayIndexing	solution [ i ]
+>78	Identifier	i
+>79	Identifier	solution
+>80	PrimaryExpression	1
+>81	Identifier	solution_mask
+>82	UnaryExpression	 
+>83	Identifier	i
+>84	IncDec	++
+>85	Condition	 
+>86	RelationalExpression	i < 4
+>87	PrimaryExpression	4
+>88	Identifier	i
+>89	ForInit	 
+>90	IdentifierDeclStatement	int i = 0 ;
+>91	IdentifierDecl	i = 0
+>92	AssignmentExpr	i = 0
+>93	PrimaryExpression	0
+>94	Identifier	i
+>95	Identifier	i
+>96	IdentifierDeclType	int
+>97	IdentifierDeclStatement	 
+>98	IdentifierDecl	solution_mask = 0
+>99	AssignmentExpr	solution_mask = 0
+>100	PrimaryExpression	0
+>101	Identifier	solution_mask
+>102	Identifier	solution_mask
+>103	IdentifierDeclType	int
+>104	ExpressionStatement	 
+>105	AssignmentExpr	res . pseudo_hits = 0
+>106	PrimaryExpression	0
+>107	MemberAccess	res . pseudo_hits
+>108	Identifier	pseudo_hits
+>109	Identifier	res
+>110	ExpressionStatement	 
+>111	AssignmentExpr	res . hits = 0
+>112	PrimaryExpression	0
+>113	MemberAccess	res . hits
+>114	Identifier	hits
+>115	Identifier	res
+>116	IdentifierDeclStatement	 
+>117	IdentifierDecl	res
+>118	Identifier	res
+>119	IdentifierDeclType	Result
+>133	FunctionDef	Min (int a , int b)
+>134	ParameterList	int a , int b
+>135	Parameter	 
+>136	Identifier	b
+>137	ParameterType	int
+>138	Parameter	 
+>139	Identifier	a
+>140	ParameterType	int
+>141	ReturnType	int
+>142	CompoundStatement	 
+>143	ReturnStatement	 
+>144	ConditionalExpression	a < b ? a 
+>145	Identifier	b
+>146	Identifier	a
+>147	Condition	a < b
+>148	RelationalExpression	a < b
+>149	Identifier	b
+>150	Identifier	a
+>156	FunctionDef	Estimate1 (const char * solution , const char * guess)
+>157	ParameterList	const char * solution , const char * guess
+>158	Parameter	 
+>159	Identifier	guess
+>160	ParameterType	const char *
+>161	Parameter	 
+>162	Identifier	solution
+>163	ParameterType	const char *
+>164	ReturnType	Result
+>165	CompoundStatement	 
+>166	ReturnStatement	 
+>167	Identifier	res
+>168	ExpressionStatement	 
+>169	AssignmentExpr	res . pseudo_hits -= res . hits
+>170	MemberAccess	res . hits
+>171	Identifier	hits
+>172	Identifier	res
+>173	MemberAccess	res . pseudo_hits
+>174	Identifier	pseudo_hits
+>175	Identifier	res
+>176	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>177	CompoundStatement	 
+>178	ExpressionStatement	 
+>179	AssignmentExpr	res . pseudo_hits += Min ( guess_count [ idx ] , solution_count [ idx ] )
+>180	CallExpression	Min ( guess_count [ idx ] , solution_count [ idx ] )
+>181	ArgumentList	guess_count [ idx ]
+>182	Argument	solution_count [ idx ]
+>183	ArrayIndexing	solution_count [ idx ]
+>184	Identifier	idx
+>185	Identifier	solution_count
+>186	Argument	guess_count [ idx ]
+>187	ArrayIndexing	guess_count [ idx ]
+>188	Identifier	idx
+>189	Identifier	guess_count
+>190	Callee	Min
+>191	Identifier	Min
+>192	MemberAccess	res . pseudo_hits
+>193	Identifier	pseudo_hits
+>194	Identifier	res
+>195	IdentifierDeclStatement	 
+>196	IdentifierDecl	idx = ( int ) ( color [ i ] - 'A' )
+>197	AssignmentExpr	idx = ( int ) ( color [ i ] - 'A' )
+>198	CastExpression	( int ) ( color [ i ] - 'A' )
+>199	AdditiveExpression	color [ i ] - 'A'
+>200	PrimaryExpression	'A'
+>201	ArrayIndexing	color [ i ]
+>202	Identifier	i
+>203	Identifier	color
+>204	CastTarget	int
+>205	Identifier	idx
+>206	Identifier	idx
+>207	IdentifierDeclType	int
+>208	UnaryExpression	 
+>209	Identifier	i
+>210	IncDec	++
+>211	Condition	 
+>212	RelationalExpression	i < 4
+>213	PrimaryExpression	4
+>214	Identifier	i
+>215	ForInit	 
+>216	IdentifierDeclStatement	int i = 0 ;
+>217	IdentifierDecl	i = 0
+>218	AssignmentExpr	i = 0
+>219	PrimaryExpression	0
+>220	Identifier	i
+>221	Identifier	i
+>222	IdentifierDeclType	int
+>223	IdentifierDeclStatement	 
+>224	IdentifierDecl	color [ ] = \"RGBY\"
+>225	AssignmentExpr	color [ ] = \"RGBY\"
+>226	PrimaryExpression	\"RGBY\"
+>227	Identifier	color
+>228	Identifier	color
+>229	IdentifierDeclType	char [ ]
+>230	ForStatement	for ( int i = 0 ; i < 4 ; ++ i )
+>231	CompoundStatement	 
+>232	ExpressionStatement	 
+>233	UnaryExpression	++ solution_count [ ( int ) ( solution [ i ] - 'A' ) ]
+>234	ArrayIndexing	solution_count [ ( int ) ( solution [ i ] - 'A' ) ]
+>235	CastExpression	( int ) ( solution [ i ] - 'A' )
+>236	AdditiveExpression	solution [ i ] - 'A'
+>237	PrimaryExpression	'A'
+>238	ArrayIndexing	solution [ i ]
+>239	Identifier	i
+>240	Identifier	solution
+>241	CastTarget	int
+>242	Identifier	solution_count
+>243	IncDec	++
+>244	ExpressionStatement	 
+>245	UnaryExpression	++ guess_count [ ( int ) ( guess [ i ] - 'A' ) ]
+>246	ArrayIndexing	guess_count [ ( int ) ( guess [ i ] - 'A' ) ]
+>247	CastExpression	( int ) ( guess [ i ] - 'A' )
+>248	AdditiveExpression	guess [ i ] - 'A'
+>249	PrimaryExpression	'A'
+>250	ArrayIndexing	guess [ i ]
+>251	Identifier	i
+>252	Identifier	guess
+>253	CastTarget	int
+>254	Identifier	guess_count
+>255	IncDec	++
+>256	IfStatement	if ( guess [ i ] == solution [ i ] )
+>257	ExpressionStatement	 
+>258	UnaryExpression	++ res . hits
+>259	MemberAccess	res . hits
+>260	Identifier	hits
+>261	Identifier	res
+>262	IncDec	++
+>263	Condition	 
+>264	EqualityExpression	guess [ i ] == solution [ i ]
+>265	ArrayIndexing	solution [ i ]
+>266	Identifier	i
+>267	Identifier	solution
+>268	ArrayIndexing	guess [ i ]
+>269	Identifier	i
+>270	Identifier	guess
+>271	UnaryExpression	 
+>272	Identifier	i
+>273	IncDec	++
+>274	Condition	 
+>275	RelationalExpression	i < 4
+>276	PrimaryExpression	4
+>277	Identifier	i
+>278	ForInit	 
+>279	IdentifierDeclStatement	int i = 0 ;
+>280	IdentifierDecl	i = 0
+>281	AssignmentExpr	i = 0
+>282	PrimaryExpression	0
+>283	Identifier	i
+>284	Identifier	i
+>285	IdentifierDeclType	int
+>286	ExpressionStatement	 
+>287	CallExpression	memset ( solution_count , 0 , sizeof ( solution_count ) )
+>288	ArgumentList	solution_count
+>289	Argument	sizeof ( solution_count )
+>290	SizeofExpr	sizeof ( solution_count )
+>291	SizeofOperand	solution_count
+>292	Sizeof	sizeof
+>293	Argument	0
+>294	PrimaryExpression	0
+>295	Argument	solution_count
+>296	Identifier	solution_count
+>297	Callee	memset
+>298	Identifier	memset
+>299	ExpressionStatement	 
+>300	CallExpression	memset ( guess_count , 0 , sizeof ( guess_count ) )
+>301	ArgumentList	guess_count
+>302	Argument	sizeof ( guess_count )
+>303	SizeofExpr	sizeof ( guess_count )
+>304	SizeofOperand	guess_count
+>305	Sizeof	sizeof
+>306	Argument	0
+>307	PrimaryExpression	0
+>308	Argument	guess_count
+>309	Identifier	guess_count
+>310	Callee	memset
+>311	Identifier	memset
+>312	IdentifierDeclStatement	 
+>313	IdentifierDecl	solution_count [ num ]
+>314	Identifier	num
+>315	Identifier	solution_count
+>316	IdentifierDeclType	int [ num ]
+>317	IdentifierDecl	guess_count [ num ]
+>318	Identifier	num
+>319	Identifier	guess_count
+>320	IdentifierDeclType	int [ num ]
+>321	IdentifierDeclStatement	 
+>322	IdentifierDecl	num = 26 + 5
+>323	AssignmentExpr	num = 26 + 5
+>324	AdditiveExpression	26 + 5
+>325	PrimaryExpression	5
+>326	PrimaryExpression	26
+>327	Identifier	num
+>328	Identifier	num
+>329	IdentifierDeclType	int
+>330	ExpressionStatement	 
+>331	AssignmentExpr	res . pseudo_hits = 0
+>332	PrimaryExpression	0
+>333	MemberAccess	res . pseudo_hits
+>334	Identifier	pseudo_hits
+>335	Identifier	res
+>336	ExpressionStatement	 
+>337	AssignmentExpr	res . hits = 0
+>338	PrimaryExpression	0
+>339	MemberAccess	res . hits
+>340	Identifier	hits
+>341	Identifier	res
+>342	IdentifierDeclStatement	 
+>343	IdentifierDecl	res
+>344	Identifier	res
+>345	IdentifierDeclType	Result
+>368	FunctionDef	main ()
+>369	ParameterList	 
+>370	ReturnType	int
+>371	CompoundStatement	 
+>372	ReturnStatement	 
+>373	PrimaryExpression	0
+>374	ExpressionStatement	 
+>375	ShiftExpression	cout << res1 . hits << \" \" << res1 . pseudo_hits << endl
+>376	ShiftExpression	res1 . hits << \" \" << res1 . pseudo_hits << endl
+>377	ShiftExpression	\" \" << res1 . pseudo_hits << endl
+>378	ShiftExpression	res1 . pseudo_hits << endl
+>379	Identifier	endl
+>380	MemberAccess	res1 . pseudo_hits
+>381	Identifier	pseudo_hits
+>382	Identifier	res1
+>383	PrimaryExpression	\" \"
+>384	MemberAccess	res1 . hits
+>385	Identifier	hits
+>386	Identifier	res1
+>387	Identifier	cout
+>388	IdentifierDeclStatement	 
+>389	IdentifierDecl	res1 = Estimate1 ( solution , guess )
+>390	AssignmentExpr	res1 = Estimate1 ( solution , guess )
+>391	CallExpression	Estimate1 ( solution , guess )
+>392	ArgumentList	solution
+>393	Argument	guess
+>394	Identifier	guess
+>395	Argument	solution
+>396	Identifier	solution
+>397	Callee	Estimate1
+>398	Identifier	Estimate1
+>399	Identifier	res1
+>400	Identifier	res1
+>401	IdentifierDeclType	Result
+>402	ExpressionStatement	 
+>403	ShiftExpression	cout << res . hits << \" \" << res . pseudo_hits << endl
+>404	ShiftExpression	res . hits << \" \" << res . pseudo_hits << endl
+>405	ShiftExpression	\" \" << res . pseudo_hits << endl
+>406	ShiftExpression	res . pseudo_hits << endl
+>407	Identifier	endl
+>408	MemberAccess	res . pseudo_hits
+>409	Identifier	pseudo_hits
+>410	Identifier	res
+>411	PrimaryExpression	\" \"
+>412	MemberAccess	res . hits
+>413	Identifier	hits
+>414	Identifier	res
+>415	Identifier	cout
+>416	IdentifierDeclStatement	 
+>417	IdentifierDecl	res = Estimate ( solution , guess )
+>418	AssignmentExpr	res = Estimate ( solution , guess )
+>419	CallExpression	Estimate ( solution , guess )
+>420	ArgumentList	solution
+>421	Argument	guess
+>422	Identifier	guess
+>423	Argument	solution
+>424	Identifier	solution
+>425	Callee	Estimate
+>426	Identifier	Estimate
+>427	Identifier	res
+>428	Identifier	res
+>429	IdentifierDeclType	Result
+>430	IdentifierDeclStatement	 
+>431	IdentifierDecl	guess [ ] = \"YRRR\"
+>432	AssignmentExpr	guess [ ] = \"YRRR\"
+>433	PrimaryExpression	\"YRRR\"
+>434	Identifier	guess
+>435	Identifier	guess
+>436	IdentifierDeclType	char [ ]
+>437	IdentifierDeclStatement	 
+>438	IdentifierDecl	solution [ ] = \"RYGB\"
+>439	AssignmentExpr	solution [ ] = \"RYGB\"
+>440	PrimaryExpression	\"RYGB\"
+>441	Identifier	solution
+>442	Identifier	solution
+>443	IdentifierDeclType	char [ ]
+<8=17,16,9
+<9=13,10
+<10=12,11
+<13=15,14
+<17=116,110,104,97,70,20,18
+<18=19
+<20=62,58,55,21
+<21=22
+<22=47,41,23
+<23=24
+<24=31,25
+<25=26
+<26=30,27
+<27=29,28
+<31=32
+<32=40,33
+<33=39,34
+<34=36,35
+<36=38,37
+<41=42
+<42=46,43
+<43=45,44
+<47=48
+<48=52,49
+<49=51,50
+<52=54,53
+<55=57,56
+<58=59
+<59=61,60
+<62=63
+<63=64
+<64=69,68,65
+<65=67,66
+<70=89,85,82,71
+<71=72
+<72=73
+<73=81,74
+<74=80,75
+<75=77,76
+<77=79,78
+<82=84,83
+<85=86
+<86=88,87
+<89=90
+<90=91
+<91=96,95,92
+<92=94,93
+<97=98
+<98=103,102,99
+<99=101,100
+<104=105
+<105=107,106
+<107=109,108
+<110=111
+<111=113,112
+<113=115,114
+<116=117
+<117=119,118
+<133=142,141,134
+<134=138,135
+<135=137,136
+<138=140,139
+<142=143
+<143=144
+<144=147,146,145
+<147=148
+<148=150,149
+<156=165,164,157
+<157=161,158
+<158=160,159
+<161=163,162
+<165=342,336,330,321,312,299,286,230,223,176,168,166
+<166=167
+<168=169
+<169=173,170
+<170=172,171
+<173=175,174
+<176=215,211,208,177
+<177=195,178
+<178=179
+<179=192,180
+<180=190,181
+<181=186,182
+<182=183
+<183=185,184
+<186=187
+<187=189,188
+<190=191
+<192=194,193
+<195=196
+<196=207,206,197
+<197=205,198
+<198=204,199
+<199=201,200
+<201=203,202
+<208=210,209
+<211=212
+<212=214,213
+<215=216
+<216=217
+<217=222,221,218
+<218=220,219
+<223=224
+<224=229,228,225
+<225=227,226
+<230=278,274,271,231
+<231=256,244,232
+<232=233
+<233=243,234
+<234=242,235
+<235=241,236
+<236=238,237
+<238=240,239
+<244=245
+<245=255,246
+<246=254,247
+<247=253,248
+<248=250,249
+<250=252,251
+<256=263,257
+<257=258
+<258=262,259
+<259=261,260
+<263=264
+<264=268,265
+<265=267,266
+<268=270,269
+<271=273,272
+<274=275
+<275=277,276
+<278=279
+<279=280
+<280=285,284,281
+<281=283,282
+<286=287
+<287=297,288
+<288=295,293,289
+<289=290
+<290=292,291
+<293=294
+<295=296
+<297=298
+<299=300
+<300=310,301
+<301=308,306,302
+<302=303
+<303=305,304
+<306=307
+<308=309
+<310=311
+<312=317,313
+<313=316,315,314
+<317=320,319,318
+<321=322
+<322=329,328,323
+<323=327,324
+<324=326,325
+<330=331
+<331=333,332
+<333=335,334
+<336=337
+<337=339,338
+<339=341,340
+<342=343
+<343=345,344
+<368=371,370,369
+<371=437,430,416,402,388,374,372
+<372=373
+<374=375
+<375=387,376
+<376=384,377
+<377=383,378
+<378=380,379
+<380=382,381
+<384=386,385
+<388=389
+<389=401,400,390
+<390=399,391
+<391=397,392
+<392=395,393
+<393=394
+<395=396
+<397=398
+<402=403
+<403=415,404
+<404=412,405
+<405=411,406
+<406=408,407
+<408=410,409
+<412=414,413
+<416=417
+<417=429,428,418
+<418=427,419
+<419=425,420
+<420=423,421
+<421=422
+<423=424
+<425=426
+<430=431
+<431=436,435,432
+<432=434,433
+<437=438
+<438=443,442,439
+<439=441,440

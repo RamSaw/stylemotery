@@ -1,0 +1,723 @@
+>14	FunctionDef	DoomLibRecv (char * buff , DWORD * numRecv)
+>15	ParameterList	char * buff , DWORD * numRecv
+>16	Parameter	 
+>17	Identifier	numRecv
+>18	ParameterType	DWORD *
+>19	Parameter	 
+>20	Identifier	buff
+>21	ParameterType	char *
+>22	ReturnType	int
+>23	CompoundStatement	 
+>24	ReturnStatement	 
+>25	PrimaryExpression	1
+>26	ExpressionStatement	 
+>27	CallExpression	networkstacks [ player ] . pop ( )
+>28	ArgumentList	 
+>29	Callee	networkstacks [ player ] . pop
+>30	MemberAccess	networkstacks [ player ] . pop
+>31	Identifier	pop
+>32	ArrayIndexing	networkstacks [ player ]
+>33	Identifier	player
+>34	Identifier	networkstacks
+>35	ExpressionStatement	 
+>36	AssignmentExpr	* numRecv = item . size
+>37	MemberAccess	item . size
+>38	Identifier	size
+>39	Identifier	item
+>40	UnaryOp	* numRecv
+>41	Identifier	numRecv
+>42	UnaryOperator	*
+>43	ExpressionStatement	 
+>44	CallExpression	memcpy ( buff , item . buffer , item . size )
+>45	ArgumentList	buff
+>46	Argument	item . size
+>47	MemberAccess	item . size
+>48	Identifier	size
+>49	Identifier	item
+>50	Argument	item . buffer
+>51	MemberAccess	item . buffer
+>52	Identifier	buffer
+>53	Identifier	item
+>54	Argument	buff
+>55	Identifier	buff
+>56	Callee	memcpy
+>57	Identifier	memcpy
+>58	IdentifierDeclStatement	 
+>59	IdentifierDecl	item = networkstacks [ player ] . front ( )
+>60	AssignmentExpr	item = networkstacks [ player ] . front ( )
+>61	CallExpression	networkstacks [ player ] . front ( )
+>62	ArgumentList	 
+>63	Callee	networkstacks [ player ] . front
+>64	MemberAccess	networkstacks [ player ] . front
+>65	Identifier	front
+>66	ArrayIndexing	networkstacks [ player ]
+>67	Identifier	player
+>68	Identifier	networkstacks
+>69	Identifier	item
+>70	Identifier	item
+>71	IdentifierDeclType	networkitem
+>72	IfStatement	if ( networkstacks [ player ] . empty ( ) )
+>73	ReturnStatement	 
+>74	UnaryOp	- 1
+>75	PrimaryExpression	1
+>76	UnaryOperator	-
+>77	Condition	 
+>78	CallExpression	networkstacks [ player ] . empty ( )
+>79	ArgumentList	 
+>80	Callee	networkstacks [ player ] . empty
+>81	MemberAccess	networkstacks [ player ] . empty
+>82	Identifier	empty
+>83	ArrayIndexing	networkstacks [ player ]
+>84	Identifier	player
+>85	Identifier	networkstacks
+>86	ExpressionStatement	 
+>87	PtrMemberAccess	g -> consoleplayer
+>88	Identifier	consoleplayer
+>89	Identifier	g
+>90	Statement	 
+>91	Statement	 
+>92	Statement	 
+>93	Statement	 
+>110	FunctionDef	DoomLibSend (const char * buff , DWORD size , sockaddr_in * target , int toNode)
+>111	ParameterList	const char * buff , DWORD size , sockaddr_in * target , int toNode
+>112	Parameter	 
+>113	Identifier	toNode
+>114	ParameterType	int
+>115	Parameter	 
+>116	Identifier	target
+>117	ParameterType	sockaddr_in *
+>118	Parameter	 
+>119	Identifier	size
+>120	ParameterType	DWORD
+>121	Parameter	 
+>122	Identifier	buff
+>123	ParameterType	const char *
+>124	ReturnType	int
+>125	CompoundStatement	 
+>126	ReturnStatement	 
+>127	PrimaryExpression	1
+>128	ExpressionStatement	 
+>129	CallExpression	networkstacks [ i ] . push ( item )
+>130	ArgumentList	item
+>131	Argument	item
+>132	Identifier	item
+>133	Callee	networkstacks [ i ] . push
+>134	MemberAccess	networkstacks [ i ] . push
+>135	Identifier	push
+>136	ArrayIndexing	networkstacks [ i ]
+>137	Identifier	i
+>138	Identifier	networkstacks
+>139	ExpressionStatement	 
+>140	CallExpression	memcpy ( item . buffer , buff , size )
+>141	ArgumentList	item . buffer
+>142	Argument	size
+>143	Identifier	size
+>144	Argument	buff
+>145	Identifier	buff
+>146	Argument	item . buffer
+>147	MemberAccess	item . buffer
+>148	Identifier	buffer
+>149	Identifier	item
+>150	Callee	memcpy
+>151	Identifier	memcpy
+>152	ExpressionStatement	 
+>153	AssignmentExpr	item . size = size
+>154	Identifier	size
+>155	MemberAccess	item . size
+>156	Identifier	size
+>157	Identifier	item
+>158	ExpressionStatement	 
+>159	AssignmentExpr	item . source = DoomInterface 
+>160	CallExpression	DoomInterface 
+>161	ArgumentList	 
+>162	Callee	DoomInterface 
+>163	Identifier	DoomInterface 
+>164	MemberAccess	item . source
+>165	Identifier	source
+>166	Identifier	item
+>167	IdentifierDeclStatement	 
+>168	IdentifierDecl	item
+>169	Identifier	item
+>170	IdentifierDeclType	networkitem
+>171	ExpressionStatement	 
+>172	AssignmentExpr	i = DoomLib 
+>173	CallExpression	DoomLib 
+>174	ArgumentList	toNode
+>175	Argument	toNode
+>176	Identifier	toNode
+>177	Callee	DoomLib 
+>178	Identifier	DoomLib 
+>179	Identifier	i
+>180	IdentifierDeclStatement	 
+>181	IdentifierDecl	i
+>182	Identifier	i
+>183	IdentifierDeclType	int
+>201	FunctionDef	DoomLibSendRemote ()
+>202	ParameterList	 
+>203	ReturnType	int
+>204	CompoundStatement	 
+>205	ReturnStatement	 
+>206	PrimaryExpression	1
+>207	ExpressionStatement	 
+>208	CallExpression	DoomLib 
+>209	ArgumentList	curPlayer
+>210	Argument	curPlayer
+>211	Identifier	curPlayer
+>212	Callee	DoomLib 
+>213	Identifier	DoomLib 
+>214	ForStatement	for ( int player = 0 ; player < gameLocal -> Interface . GetNumPlayers ( ) ; ++ player )
+>215	CompoundStatement	 
+>216	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>217	CompoundStatement	 
+>218	WhileStatement	while ( ! networkstacks [ i ] . empty ( ) )
+>219	CompoundStatement	 
+>220	ExpressionStatement	 
+>221	CallExpression	networkstacks [ i ] . pop ( )
+>222	ArgumentList	 
+>223	Callee	networkstacks [ i ] . pop
+>224	MemberAccess	networkstacks [ i ] . pop
+>225	Identifier	pop
+>226	ArrayIndexing	networkstacks [ i ]
+>227	Identifier	i
+>228	Identifier	networkstacks
+>229	IfStatement	if ( useTech5Packets )
+>230	ElseStatement	else
+>231	CompoundStatement	 
+>232	ExpressionStatement	 
+>233	Statement	 
+>234	Statement	 
+>235	Statement	 
+>236	Statement	 
+>237	Statement	 
+>238	Statement	 
+>239	Statement	 
+>240	Statement	 
+>241	Statement	 
+>242	Statement	 
+>243	Statement	 
+>244	Statement	 
+>245	Statement	 
+>246	Statement	 
+>247	Statement	 
+>248	Statement	 
+>249	Statement	 
+>250	Statement	 
+>251	Statement	 
+>252	Statement	 
+>253	Statement	 
+>254	Statement	 
+>255	Statement	 
+>256	Statement	 
+>257	Statement	 
+>258	Statement	 
+>259	Statement	 
+>260	Statement	 
+>261	Statement	 
+>262	Statement	 
+>263	Statement	 
+>264	Statement	 
+>265	Statement	 
+>266	Statement	 
+>267	Statement	 
+>268	Statement	 
+>269	Statement	 
+>270	Statement	 
+>271	Statement	 
+>272	Statement	 
+>273	Statement	 
+>274	Statement	 
+>275	Statement	 
+>276	Statement	 
+>277	CompoundStatement	 
+>278	IfStatement	if ( user != NULL )
+>279	CompoundStatement	 
+>280	ExpressionStatement	 
+>281	CallExpression	lobby . SendConnectionLess ( user -> address , idLobby 
+>282	ArgumentList	user -> address
+>283	Argument	item . size
+>284	MemberAccess	item . size
+>285	Identifier	size
+>286	Identifier	item
+>287	Argument	( const byte * ) ( & item . buffer [ 0 ] )
+>288	CastExpression	( const byte * ) ( & item . buffer [ 0 ] )
+>289	UnaryOp	& item . buffer [ 0 ]
+>290	ArrayIndexing	item . buffer [ 0 ]
+>291	PrimaryExpression	0
+>292	MemberAccess	item . buffer
+>293	Identifier	buffer
+>294	Identifier	item
+>295	UnaryOperator	&
+>296	CastTarget	const byte *
+>297	Argument	idLobby 
+>298	Identifier	idLobby 
+>299	Argument	user -> address
+>300	PtrMemberAccess	user -> address
+>301	Identifier	address
+>302	Identifier	user
+>303	Callee	lobby . SendConnectionLess
+>304	MemberAccess	lobby . SendConnectionLess
+>305	Identifier	SendConnectionLess
+>306	Identifier	lobby
+>307	Condition	 
+>308	EqualityExpression	user != NULL
+>309	Identifier	NULL
+>310	Identifier	user
+>311	IdentifierDeclStatement	 
+>312	IdentifierDecl	* user = lobby . GetLobbyUser ( i )
+>313	AssignmentExpr	* user = lobby . GetLobbyUser ( i )
+>314	CallExpression	lobby . GetLobbyUser ( i )
+>315	ArgumentList	i
+>316	Argument	i
+>317	Identifier	i
+>318	Callee	lobby . GetLobbyUser
+>319	MemberAccess	lobby . GetLobbyUser
+>320	Identifier	GetLobbyUser
+>321	Identifier	lobby
+>322	Identifier	user
+>323	Identifier	user
+>324	IdentifierDeclType	lobbyUser_t *
+>325	ExpressionStatement	 
+>326	CallExpression	session -> GetGameLobbyBase ( )
+>327	ArgumentList	 
+>328	Callee	session -> GetGameLobbyBase
+>329	PtrMemberAccess	session -> GetGameLobbyBase
+>330	Identifier	GetGameLobbyBase
+>331	Identifier	session
+>332	Statement	 
+>333	Statement	 
+>334	Statement	 
+>335	Statement	 
+>336	Statement	 
+>337	Statement	 
+>338	Statement	 
+>339	Statement	 
+>340	Statement	 
+>341	Condition	 
+>342	Identifier	useTech5Packets
+>343	IdentifierDeclStatement	 
+>344	IdentifierDecl	c
+>345	Identifier	c
+>346	IdentifierDeclType	int
+>347	IdentifierDeclStatement	 
+>348	IdentifierDecl	item = networkstacks [ i ] . front ( )
+>349	AssignmentExpr	item = networkstacks [ i ] . front ( )
+>350	CallExpression	networkstacks [ i ] . front ( )
+>351	ArgumentList	 
+>352	Callee	networkstacks [ i ] . front
+>353	MemberAccess	networkstacks [ i ] . front
+>354	Identifier	front
+>355	ArrayIndexing	networkstacks [ i ]
+>356	Identifier	i
+>357	Identifier	networkstacks
+>358	Identifier	item
+>359	Identifier	item
+>360	IdentifierDeclType	networkitem
+>361	Condition	 
+>362	UnaryOp	! networkstacks [ i ] . empty ( )
+>363	CallExpression	networkstacks [ i ] . empty ( )
+>364	ArgumentList	 
+>365	Callee	networkstacks [ i ] . empty
+>366	MemberAccess	networkstacks [ i ] . empty
+>367	Identifier	empty
+>368	ArrayIndexing	networkstacks [ i ]
+>369	Identifier	i
+>370	Identifier	networkstacks
+>371	UnaryOperator	!
+>372	CompoundStatement	 
+>373	ContinueStatement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	Statement	 
+>378	Statement	 
+>379	Statement	 
+>380	Statement	 
+>381	Statement	 
+>382	Statement	 
+>383	Statement	 
+>384	Statement	 
+>385	Statement	 
+>386	Statement	 
+>387	Statement	 
+>388	Statement	 
+>389	Statement	 
+>390	Statement	 
+>391	Statement	 
+>392	Statement	 
+>393	Statement	 
+>394	Statement	 
+>395	Statement	 
+>396	Statement	 
+>397	Statement	 
+>398	Statement	 
+>399	Statement	 
+>400	IdentifierDeclStatement	 
+>401	IdentifierDecl	node = DoomLib 
+>402	AssignmentExpr	node = DoomLib 
+>403	CallExpression	DoomLib 
+>404	ArgumentList	i
+>405	Argument	i
+>406	Identifier	i
+>407	Callee	DoomLib 
+>408	Identifier	DoomLib 
+>409	Identifier	node
+>410	Identifier	node
+>411	IdentifierDeclType	int
+>412	IncDecOp	 
+>413	IncDec	++
+>414	Identifier	i
+>415	Condition	 
+>416	RelationalExpression	i < 4
+>417	PrimaryExpression	4
+>418	Identifier	i
+>419	ForInit	 
+>420	IdentifierDeclStatement	int i = 0 ;
+>421	IdentifierDecl	i = 0
+>422	AssignmentExpr	i = 0
+>423	PrimaryExpression	0
+>424	Identifier	i
+>425	Identifier	i
+>426	IdentifierDeclType	int
+>427	ExpressionStatement	 
+>428	CallExpression	DoomLib 
+>429	ArgumentList	player
+>430	Argument	player
+>431	Identifier	player
+>432	Callee	DoomLib 
+>433	Identifier	DoomLib 
+>434	UnaryExpression	 
+>435	Identifier	player
+>436	IncDec	++
+>437	Condition	 
+>438	RelationalExpression	player < gameLocal -> Interface . GetNumPlayers ( )
+>439	CallExpression	gameLocal -> Interface . GetNumPlayers ( )
+>440	ArgumentList	 
+>441	Callee	gameLocal -> Interface . GetNumPlayers
+>442	MemberAccess	gameLocal -> Interface . GetNumPlayers
+>443	Identifier	GetNumPlayers
+>444	PtrMemberAccess	gameLocal -> Interface
+>445	Identifier	Interface
+>446	Identifier	gameLocal
+>447	Identifier	player
+>448	ForInit	 
+>449	IdentifierDeclStatement	int player = 0 ;
+>450	IdentifierDecl	player = 0
+>451	AssignmentExpr	player = 0
+>452	PrimaryExpression	0
+>453	Identifier	player
+>454	Identifier	player
+>455	IdentifierDeclType	int
+>456	IdentifierDeclStatement	 
+>457	IdentifierDecl	curPlayer = DoomLib 
+>458	AssignmentExpr	curPlayer = DoomLib 
+>459	CallExpression	DoomLib 
+>460	ArgumentList	 
+>461	Callee	DoomLib 
+>462	Identifier	DoomLib 
+>463	Identifier	curPlayer
+>464	Identifier	curPlayer
+>465	IdentifierDeclType	int
+>466	IfStatement	if ( gameLocal == NULL )
+>467	CompoundStatement	 
+>468	ReturnStatement	 
+>469	PrimaryExpression	0
+>470	Condition	 
+>471	EqualityExpression	gameLocal == NULL
+>472	Identifier	NULL
+>473	Identifier	gameLocal
+>507	FunctionDef	DL_InitNetworking (DoomInterface * pdi)
+>508	ParameterList	DoomInterface * pdi
+>509	Parameter	 
+>510	Identifier	pdi
+>511	ParameterType	DoomInterface *
+>512	ReturnType	void
+>513	CompoundStatement	 
+>514	ExpressionStatement	 
+>515	CallExpression	pdi -> SetNetworking ( DoomLibRecv , DoomLibSend , DoomLibSendRemote )
+>516	ArgumentList	DoomLibRecv
+>517	Argument	DoomLibSendRemote
+>518	Identifier	DoomLibSendRemote
+>519	Argument	DoomLibSend
+>520	Identifier	DoomLibSend
+>521	Argument	DoomLibRecv
+>522	Identifier	DoomLibRecv
+>523	Callee	pdi -> SetNetworking
+>524	PtrMemberAccess	pdi -> SetNetworking
+>525	Identifier	SetNetworking
+>526	Identifier	pdi
+>527	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>528	CompoundStatement	 
+>529	WhileStatement	while ( ! networkstacks [ i ] . empty ( ) )
+>530	CompoundStatement	 
+>531	ExpressionStatement	 
+>532	CallExpression	networkstacks [ i ] . pop ( )
+>533	ArgumentList	 
+>534	Callee	networkstacks [ i ] . pop
+>535	MemberAccess	networkstacks [ i ] . pop
+>536	Identifier	pop
+>537	ArrayIndexing	networkstacks [ i ]
+>538	Identifier	i
+>539	Identifier	networkstacks
+>540	Condition	 
+>541	UnaryOp	! networkstacks [ i ] . empty ( )
+>542	CallExpression	networkstacks [ i ] . empty ( )
+>543	ArgumentList	 
+>544	Callee	networkstacks [ i ] . empty
+>545	MemberAccess	networkstacks [ i ] . empty
+>546	Identifier	empty
+>547	ArrayIndexing	networkstacks [ i ]
+>548	Identifier	i
+>549	Identifier	networkstacks
+>550	UnaryOperator	!
+>551	IncDecOp	 
+>552	IncDec	++
+>553	Identifier	i
+>554	Condition	 
+>555	RelationalExpression	i < 4
+>556	PrimaryExpression	4
+>557	Identifier	i
+>558	ForInit	 
+>559	IdentifierDeclStatement	int i = 0 ;
+>560	IdentifierDecl	i = 0
+>561	AssignmentExpr	i = 0
+>562	PrimaryExpression	0
+>563	Identifier	i
+>564	Identifier	i
+>565	IdentifierDeclType	int
+>578	FunctionDef	DL_InitNetworking (DoomInterface * pdi)
+>579	ParameterList	DoomInterface * pdi
+>580	Parameter	 
+>581	Identifier	pdi
+>582	ParameterType	DoomInterface *
+>583	ReturnType	void
+>584	CompoundStatement	 
+<14=23,22,15
+<15=19,16
+<16=18,17
+<19=21,20
+<23=93,92,91,90,86,72,58,43,35,26,24
+<24=25
+<26=27
+<27=29,28
+<29=30
+<30=32,31
+<32=34,33
+<35=36
+<36=40,37
+<37=39,38
+<40=42,41
+<43=44
+<44=56,45
+<45=54,50,46
+<46=47
+<47=49,48
+<50=51
+<51=53,52
+<54=55
+<56=57
+<58=59
+<59=71,70,60
+<60=69,61
+<61=63,62
+<63=64
+<64=66,65
+<66=68,67
+<72=77,73
+<73=74
+<74=76,75
+<77=78
+<78=80,79
+<80=81
+<81=83,82
+<83=85,84
+<86=87
+<87=89,88
+<110=125,124,111
+<111=121,118,115,112
+<112=114,113
+<115=117,116
+<118=120,119
+<121=123,122
+<125=180,171,167,158,152,139,128,126
+<126=127
+<128=129
+<129=133,130
+<130=131
+<131=132
+<133=134
+<134=136,135
+<136=138,137
+<139=140
+<140=150,141
+<141=146,144,142
+<142=143
+<144=145
+<146=147
+<147=149,148
+<150=151
+<152=153
+<153=155,154
+<155=157,156
+<158=159
+<159=164,160
+<160=162,161
+<162=163
+<164=166,165
+<167=168
+<168=170,169
+<171=172
+<172=179,173
+<173=177,174
+<174=175
+<175=176
+<177=178
+<180=181
+<181=183,182
+<201=204,203,202
+<204=466,456,214,207,205
+<205=206
+<207=208
+<208=212,209
+<209=210
+<210=211
+<212=213
+<214=448,437,434,215
+<215=427,216
+<216=419,415,412,217
+<217=400,399,398,397,396,395,394,393,392,391,390,389,388,387,386,385,384,383,382,381,380,379,378,377,376,375,374,372,218
+<218=361,219
+<219=347,343,229,220
+<220=221
+<221=223,222
+<223=224
+<224=226,225
+<226=228,227
+<229=341,277,230
+<230=231
+<231=276,275,274,273,272,271,270,269,268,267,266,265,264,263,262,261,260,259,258,257,256,255,254,253,252,251,250,249,248,247,246,245,244,243,242,241,240,239,238,237,236,235,234,233,232
+<277=340,339,338,337,336,335,334,333,332,325,311,278
+<278=307,279
+<279=280
+<280=281
+<281=303,282
+<282=299,297,287,283
+<283=284
+<284=286,285
+<287=288
+<288=296,289
+<289=295,290
+<290=292,291
+<292=294,293
+<297=298
+<299=300
+<300=302,301
+<303=304
+<304=306,305
+<307=308
+<308=310,309
+<311=312
+<312=324,323,313
+<313=322,314
+<314=318,315
+<315=316
+<316=317
+<318=319
+<319=321,320
+<325=326
+<326=328,327
+<328=329
+<329=331,330
+<341=342
+<343=344
+<344=346,345
+<347=348
+<348=360,359,349
+<349=358,350
+<350=352,351
+<352=353
+<353=355,354
+<355=357,356
+<361=362
+<362=371,363
+<363=365,364
+<365=366
+<366=368,367
+<368=370,369
+<372=373
+<400=401
+<401=411,410,402
+<402=409,403
+<403=407,404
+<404=405
+<405=406
+<407=408
+<412=414,413
+<415=416
+<416=418,417
+<419=420
+<420=421
+<421=426,425,422
+<422=424,423
+<427=428
+<428=432,429
+<429=430
+<430=431
+<432=433
+<434=436,435
+<437=438
+<438=447,439
+<439=441,440
+<441=442
+<442=444,443
+<444=446,445
+<448=449
+<449=450
+<450=455,454,451
+<451=453,452
+<456=457
+<457=465,464,458
+<458=463,459
+<459=461,460
+<461=462
+<466=470,467
+<467=468
+<468=469
+<470=471
+<471=473,472
+<507=513,512,508
+<508=509
+<509=511,510
+<513=527,514
+<514=515
+<515=523,516
+<516=521,519,517
+<517=518
+<519=520
+<521=522
+<523=524
+<524=526,525
+<527=558,554,551,528
+<528=529
+<529=540,530
+<530=531
+<531=532
+<532=534,533
+<534=535
+<535=537,536
+<537=539,538
+<540=541
+<541=550,542
+<542=544,543
+<544=545
+<545=547,546
+<547=549,548
+<551=553,552
+<554=555
+<555=557,556
+<558=559
+<559=560
+<560=565,564,561
+<561=563,562
+<578=584,583,579
+<579=580
+<580=582,581

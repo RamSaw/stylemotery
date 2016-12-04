@@ -1,0 +1,2352 @@
+>3	FunctionDef	sqsumNorm (const T & v)
+>4	ParameterList	const T & v
+>5	Parameter	 
+>6	Identifier	v
+>7	ParameterType	const T &
+>8	ReturnType	EIGEN_DONT_INLINE typename T 
+>9	CompoundStatement	 
+>10	ReturnStatement	 
+>11	CallExpression	v . norm ( )
+>12	ArgumentList	 
+>13	Callee	v . norm
+>14	MemberAccess	v . norm
+>15	Identifier	norm
+>16	Identifier	v
+>22	FunctionDef	hypotNorm (const T & v)
+>23	ParameterList	const T & v
+>24	Parameter	 
+>25	Identifier	v
+>26	ParameterType	const T &
+>27	ReturnType	EIGEN_DONT_INLINE typename T 
+>28	CompoundStatement	 
+>29	ReturnStatement	 
+>30	CallExpression	v . hypotNorm ( )
+>31	ArgumentList	 
+>32	Callee	v . hypotNorm
+>33	MemberAccess	v . hypotNorm
+>34	Identifier	hypotNorm
+>35	Identifier	v
+>41	FunctionDef	blueNorm (const T & v)
+>42	ParameterList	const T & v
+>43	Parameter	 
+>44	Identifier	v
+>45	ParameterType	const T &
+>46	ReturnType	EIGEN_DONT_INLINE typename T 
+>47	CompoundStatement	 
+>48	ReturnStatement	 
+>49	CallExpression	v . blueNorm ( )
+>50	ArgumentList	 
+>51	Callee	v . blueNorm
+>52	MemberAccess	v . blueNorm
+>53	Identifier	blueNorm
+>54	Identifier	v
+>60	FunctionDef	lapackNorm (T & v)
+>61	ParameterList	T & v
+>62	Parameter	 
+>63	Identifier	v
+>64	ParameterType	T &
+>65	ReturnType	EIGEN_DONT_INLINE typename T 
+>66	CompoundStatement	 
+>67	ReturnStatement	 
+>68	MultiplicativeExpression	scale * std 
+>69	CallExpression	std 
+>70	ArgumentList	ssq
+>71	Argument	ssq
+>72	Identifier	ssq
+>73	Callee	std 
+>74	Identifier	std 
+>75	Identifier	scale
+>76	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>77	CompoundStatement	 
+>78	IfStatement	if ( scale >= ax )
+>79	ElseStatement	else
+>80	CompoundStatement	 
+>81	ExpressionStatement	 
+>82	AssignmentExpr	scale = ax
+>83	Identifier	ax
+>84	Identifier	scale
+>85	ExpressionStatement	 
+>86	AssignmentExpr	ssq = Scalar ( 1 ) + ssq * numext 
+>87	AdditiveExpression	Scalar ( 1 ) + ssq * numext 
+>88	MultiplicativeExpression	ssq * numext 
+>89	CallExpression	numext 
+>90	ArgumentList	scale / ax
+>91	Argument	scale / ax
+>92	MultiplicativeExpression	scale / ax
+>93	Identifier	ax
+>94	Identifier	scale
+>95	Callee	numext 
+>96	Identifier	numext 
+>97	Identifier	ssq
+>98	CallExpression	Scalar ( 1 )
+>99	ArgumentList	1
+>100	Argument	1
+>101	PrimaryExpression	1
+>102	Callee	Scalar
+>103	Identifier	Scalar
+>104	Identifier	ssq
+>105	CompoundStatement	 
+>106	ExpressionStatement	 
+>107	AssignmentExpr	ssq += numext 
+>108	CallExpression	numext 
+>109	ArgumentList	ax / scale
+>110	Argument	ax / scale
+>111	MultiplicativeExpression	ax / scale
+>112	Identifier	scale
+>113	Identifier	ax
+>114	Callee	numext 
+>115	Identifier	numext 
+>116	Identifier	ssq
+>117	Condition	 
+>118	RelationalExpression	scale >= ax
+>119	Identifier	ax
+>120	Identifier	scale
+>121	IdentifierDeclStatement	 
+>122	IdentifierDecl	ax = std 
+>123	AssignmentExpr	ax = std 
+>124	CallExpression	std 
+>125	ArgumentList	v . coeff ( i )
+>126	Argument	v . coeff ( i )
+>127	CallExpression	v . coeff ( i )
+>128	ArgumentList	i
+>129	Argument	i
+>130	Identifier	i
+>131	Callee	v . coeff
+>132	MemberAccess	v . coeff
+>133	Identifier	coeff
+>134	Identifier	v
+>135	Callee	std 
+>136	Identifier	std 
+>137	Identifier	ax
+>138	Identifier	ax
+>139	IdentifierDeclType	Scalar
+>140	UnaryExpression	 
+>141	Identifier	i
+>142	IncDec	++
+>143	Condition	 
+>144	RelationalExpression	i < n
+>145	Identifier	n
+>146	Identifier	i
+>147	ForInit	 
+>148	IdentifierDeclStatement	int i = 0 ;
+>149	IdentifierDecl	i = 0
+>150	AssignmentExpr	i = 0
+>151	PrimaryExpression	0
+>152	Identifier	i
+>153	Identifier	i
+>154	IdentifierDeclType	int
+>155	IdentifierDeclStatement	 
+>156	IdentifierDecl	ssq = 1
+>157	AssignmentExpr	ssq = 1
+>158	PrimaryExpression	1
+>159	Identifier	ssq
+>160	Identifier	ssq
+>161	IdentifierDeclType	Scalar
+>162	IdentifierDeclStatement	 
+>163	IdentifierDecl	scale = 0
+>164	AssignmentExpr	scale = 0
+>165	PrimaryExpression	0
+>166	Identifier	scale
+>167	Identifier	scale
+>168	IdentifierDeclType	Scalar
+>169	IdentifierDeclStatement	 
+>170	IdentifierDecl	n = v . size ( )
+>171	AssignmentExpr	n = v . size ( )
+>172	CallExpression	v . size ( )
+>173	ArgumentList	 
+>174	Callee	v . size
+>175	MemberAccess	v . size
+>176	Identifier	size
+>177	Identifier	v
+>178	Identifier	n
+>179	Identifier	n
+>180	IdentifierDeclType	int
+>181	IdentifierDeclStatement	 
+>182	IdentifierDecl	Scalar
+>183	Identifier	Scalar
+>184	IdentifierDeclType	typename T 
+>200	FunctionDef	twopassNorm (T & v)
+>201	ParameterList	T & v
+>202	Parameter	 
+>203	Identifier	v
+>204	ParameterType	T &
+>205	ReturnType	EIGEN_DONT_INLINE typename T 
+>206	CompoundStatement	 
+>207	ReturnStatement	 
+>208	MultiplicativeExpression	s * ( v / s ) . norm ( )
+>209	CallExpression	( v / s ) . norm ( )
+>210	ArgumentList	 
+>211	Callee	( v / s ) . norm
+>212	MemberAccess	( v / s ) . norm
+>213	Identifier	norm
+>214	MultiplicativeExpression	v / s
+>215	Identifier	s
+>216	Identifier	v
+>217	Identifier	s
+>218	IdentifierDeclStatement	 
+>219	IdentifierDecl	s = v . array ( ) . abs ( ) . maxCoeff ( )
+>220	AssignmentExpr	s = v . array ( ) . abs ( ) . maxCoeff ( )
+>221	CallExpression	v . array ( ) . abs ( ) . maxCoeff ( )
+>222	ArgumentList	 
+>223	Callee	v . array ( ) . abs ( ) . maxCoeff
+>224	MemberAccess	v . array ( ) . abs ( ) . maxCoeff
+>225	Identifier	maxCoeff
+>226	CallExpression	v . array ( ) . abs ( )
+>227	ArgumentList	 
+>228	Callee	v . array ( ) . abs
+>229	MemberAccess	v . array ( ) . abs
+>230	Identifier	abs
+>231	CallExpression	v . array ( )
+>232	ArgumentList	 
+>233	Callee	v . array
+>234	MemberAccess	v . array
+>235	Identifier	array
+>236	Identifier	v
+>237	Identifier	s
+>238	Identifier	s
+>239	IdentifierDeclType	Scalar
+>240	IdentifierDeclStatement	 
+>241	IdentifierDecl	Scalar
+>242	Identifier	Scalar
+>243	IdentifierDeclType	typename T 
+>254	FunctionDef	bl2passNorm (T & v)
+>255	ParameterList	T & v
+>256	Parameter	 
+>257	Identifier	v
+>258	ParameterType	T &
+>259	ReturnType	EIGEN_DONT_INLINE typename T 
+>260	CompoundStatement	 
+>261	ReturnStatement	 
+>262	CallExpression	v . stableNorm ( )
+>263	ArgumentList	 
+>264	Callee	v . stableNorm
+>265	MemberAccess	v . stableNorm
+>266	Identifier	stableNorm
+>267	Identifier	v
+>273	FunctionDef	divacNorm (T & v)
+>274	ParameterList	T & v
+>275	Parameter	 
+>276	Identifier	v
+>277	ParameterType	T &
+>278	ReturnType	EIGEN_DONT_INLINE typename T 
+>279	CompoundStatement	 
+>280	ReturnStatement	 
+>281	CallExpression	std 
+>282	ArgumentList	v ( 0 )
+>283	Argument	v ( 0 )
+>284	CallExpression	v ( 0 )
+>285	ArgumentList	0
+>286	Argument	0
+>287	PrimaryExpression	0
+>288	Callee	v
+>289	Identifier	v
+>290	Callee	std 
+>291	Identifier	std 
+>292	WhileStatement	while ( n > 0 )
+>293	CompoundStatement	 
+>294	ExpressionStatement	 
+>295	AssignmentExpr	n = n / 2
+>296	MultiplicativeExpression	n / 2
+>297	PrimaryExpression	2
+>298	Identifier	n
+>299	Identifier	n
+>300	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>301	ExpressionStatement	 
+>302	AssignmentExpr	v ( i ) = v ( 2 * i ) + v ( 2 * i + 1 )
+>303	AdditiveExpression	v ( 2 * i ) + v ( 2 * i + 1 )
+>304	CallExpression	v ( 2 * i + 1 )
+>305	ArgumentList	2 * i + 1
+>306	Argument	2 * i + 1
+>307	AdditiveExpression	2 * i + 1
+>308	PrimaryExpression	1
+>309	MultiplicativeExpression	2 * i
+>310	Identifier	i
+>311	PrimaryExpression	2
+>312	Callee	v
+>313	Identifier	v
+>314	CallExpression	v ( 2 * i )
+>315	ArgumentList	2 * i
+>316	Argument	2 * i
+>317	MultiplicativeExpression	2 * i
+>318	Identifier	i
+>319	PrimaryExpression	2
+>320	Callee	v
+>321	Identifier	v
+>322	CallExpression	v ( i )
+>323	ArgumentList	i
+>324	Argument	i
+>325	Identifier	i
+>326	Callee	v
+>327	Identifier	v
+>328	UnaryExpression	 
+>329	Identifier	i
+>330	IncDec	++
+>331	Condition	 
+>332	RelationalExpression	i < n
+>333	Identifier	n
+>334	Identifier	i
+>335	ForInit	 
+>336	IdentifierDeclStatement	int i = 0 ;
+>337	IdentifierDecl	i = 0
+>338	AssignmentExpr	i = 0
+>339	PrimaryExpression	0
+>340	Identifier	i
+>341	Identifier	i
+>342	IdentifierDeclType	int
+>343	Condition	 
+>344	RelationalExpression	n > 0
+>345	PrimaryExpression	0
+>346	Identifier	n
+>347	ExpressionStatement	 
+>348	AssignmentExpr	n = n / 2
+>349	MultiplicativeExpression	n / 2
+>350	PrimaryExpression	2
+>351	Identifier	n
+>352	Identifier	n
+>353	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>354	ExpressionStatement	 
+>355	AssignmentExpr	v ( i ) = v ( 2 * i ) * v ( 2 * i ) + v ( 2 * i + 1 ) * v ( 2 * i + 1 )
+>356	AdditiveExpression	v ( 2 * i ) * v ( 2 * i ) + v ( 2 * i + 1 ) * v ( 2 * i + 1 )
+>357	MultiplicativeExpression	v ( 2 * i + 1 ) * v ( 2 * i + 1 )
+>358	CallExpression	v ( 2 * i + 1 )
+>359	ArgumentList	2 * i + 1
+>360	Argument	2 * i + 1
+>361	AdditiveExpression	2 * i + 1
+>362	PrimaryExpression	1
+>363	MultiplicativeExpression	2 * i
+>364	Identifier	i
+>365	PrimaryExpression	2
+>366	Callee	v
+>367	Identifier	v
+>368	CallExpression	v ( 2 * i + 1 )
+>369	ArgumentList	2 * i + 1
+>370	Argument	2 * i + 1
+>371	AdditiveExpression	2 * i + 1
+>372	PrimaryExpression	1
+>373	MultiplicativeExpression	2 * i
+>374	Identifier	i
+>375	PrimaryExpression	2
+>376	Callee	v
+>377	Identifier	v
+>378	MultiplicativeExpression	v ( 2 * i ) * v ( 2 * i )
+>379	CallExpression	v ( 2 * i )
+>380	ArgumentList	2 * i
+>381	Argument	2 * i
+>382	MultiplicativeExpression	2 * i
+>383	Identifier	i
+>384	PrimaryExpression	2
+>385	Callee	v
+>386	Identifier	v
+>387	CallExpression	v ( 2 * i )
+>388	ArgumentList	2 * i
+>389	Argument	2 * i
+>390	MultiplicativeExpression	2 * i
+>391	Identifier	i
+>392	PrimaryExpression	2
+>393	Callee	v
+>394	Identifier	v
+>395	CallExpression	v ( i )
+>396	ArgumentList	i
+>397	Argument	i
+>398	Identifier	i
+>399	Callee	v
+>400	Identifier	v
+>401	UnaryExpression	 
+>402	Identifier	i
+>403	IncDec	++
+>404	Condition	 
+>405	RelationalExpression	i < n
+>406	Identifier	n
+>407	Identifier	i
+>408	ForInit	 
+>409	IdentifierDeclStatement	int i = 0 ;
+>410	IdentifierDecl	i = 0
+>411	AssignmentExpr	i = 0
+>412	PrimaryExpression	0
+>413	Identifier	i
+>414	Identifier	i
+>415	IdentifierDeclType	int
+>416	IdentifierDeclStatement	 
+>417	IdentifierDecl	n = v . size ( ) / 2
+>418	AssignmentExpr	n = v . size ( ) / 2
+>419	MultiplicativeExpression	v . size ( ) / 2
+>420	PrimaryExpression	2
+>421	CallExpression	v . size ( )
+>422	ArgumentList	 
+>423	Callee	v . size
+>424	MemberAccess	v . size
+>425	Identifier	size
+>426	Identifier	v
+>427	Identifier	n
+>428	Identifier	n
+>429	IdentifierDeclType	int
+>438	FunctionDef	plt (const Packet4f & a , Packet4f & b)
+>439	ParameterList	const Packet4f & a , Packet4f & b
+>440	Parameter	 
+>441	Identifier	b
+>442	ParameterType	Packet4f &
+>443	Parameter	 
+>444	Identifier	a
+>445	ParameterType	const Packet4f &
+>446	ReturnType	Packet4f
+>447	CompoundStatement	 
+>448	ReturnStatement	 
+>449	CallExpression	_mm_cmplt_ps ( a , b )
+>450	ArgumentList	a
+>451	Argument	b
+>452	Identifier	b
+>453	Argument	a
+>454	Identifier	a
+>455	Callee	_mm_cmplt_ps
+>456	Identifier	_mm_cmplt_ps
+>463	FunctionDef	plt (const Packet2d & a , Packet2d & b)
+>464	ParameterList	const Packet2d & a , Packet2d & b
+>465	Parameter	 
+>466	Identifier	b
+>467	ParameterType	Packet2d &
+>468	Parameter	 
+>469	Identifier	a
+>470	ParameterType	const Packet2d &
+>471	ReturnType	Packet2d
+>472	CompoundStatement	 
+>473	ReturnStatement	 
+>474	CallExpression	_mm_cmplt_pd ( a , b )
+>475	ArgumentList	a
+>476	Argument	b
+>477	Identifier	b
+>478	Argument	a
+>479	Identifier	a
+>480	Callee	_mm_cmplt_pd
+>481	Identifier	_mm_cmplt_pd
+>488	FunctionDef	pandnot (const Packet4f & a , Packet4f & b)
+>489	ParameterList	const Packet4f & a , Packet4f & b
+>490	Parameter	 
+>491	Identifier	b
+>492	ParameterType	Packet4f &
+>493	Parameter	 
+>494	Identifier	a
+>495	ParameterType	const Packet4f &
+>496	ReturnType	Packet4f
+>497	CompoundStatement	 
+>498	ReturnStatement	 
+>499	CallExpression	_mm_andnot_ps ( a , b )
+>500	ArgumentList	a
+>501	Argument	b
+>502	Identifier	b
+>503	Argument	a
+>504	Identifier	a
+>505	Callee	_mm_andnot_ps
+>506	Identifier	_mm_andnot_ps
+>513	FunctionDef	pandnot (const Packet2d & a , Packet2d & b)
+>514	ParameterList	const Packet2d & a , Packet2d & b
+>515	Parameter	 
+>516	Identifier	b
+>517	ParameterType	Packet2d &
+>518	Parameter	 
+>519	Identifier	a
+>520	ParameterType	const Packet2d &
+>521	ReturnType	Packet2d
+>522	CompoundStatement	 
+>523	ReturnStatement	 
+>524	CallExpression	_mm_andnot_pd ( a , b )
+>525	ArgumentList	a
+>526	Argument	b
+>527	Identifier	b
+>528	Argument	a
+>529	Identifier	a
+>530	Callee	_mm_andnot_pd
+>531	Identifier	_mm_andnot_pd
+>538	FunctionDef	pblueNorm (const T & v)
+>539	ParameterList	const T & v
+>540	Parameter	 
+>541	Identifier	v
+>542	ParameterType	const T &
+>543	ReturnType	EIGEN_DONT_INLINE typename T 
+>544	CompoundStatement	 
+>545	ReturnStatement	 
+>546	CallExpression	v . blueNorm ( )
+>547	ArgumentList	 
+>548	Callee	v . blueNorm
+>549	MemberAccess	v . blueNorm
+>550	Identifier	blueNorm
+>551	Identifier	v
+>569	FunctionDef	check_accuracy (double basef , double based , int s)
+>570	ParameterList	double basef , double based , int s
+>571	Parameter	 
+>572	Identifier	s
+>573	ParameterType	int
+>574	Parameter	 
+>575	Identifier	based
+>576	ParameterType	double
+>577	Parameter	 
+>578	Identifier	basef
+>579	ParameterType	double
+>580	ReturnType	void
+>581	CompoundStatement	 
+>582	ExpressionStatement	 
+>583	ShiftExpression	std 
+>584	ShiftExpression	\"bl2passNorm\t\" << bl2passNorm ( vf ) << \"\t\" << bl2passNorm ( vd ) << \"\n\"
+>585	ShiftExpression	bl2passNorm ( vf ) << \"\t\" << bl2passNorm ( vd ) << \"\n\"
+>586	ShiftExpression	\"\t\" << bl2passNorm ( vd ) << \"\n\"
+>587	ShiftExpression	bl2passNorm ( vd ) << \"\n\"
+>588	PrimaryExpression	\"\n\"
+>589	CallExpression	bl2passNorm ( vd )
+>590	ArgumentList	vd
+>591	Argument	vd
+>592	Identifier	vd
+>593	Callee	bl2passNorm
+>594	Identifier	bl2passNorm
+>595	PrimaryExpression	\"\t\"
+>596	CallExpression	bl2passNorm ( vf )
+>597	ArgumentList	vf
+>598	Argument	vf
+>599	Identifier	vf
+>600	Callee	bl2passNorm
+>601	Identifier	bl2passNorm
+>602	PrimaryExpression	\"bl2passNorm\t\"
+>603	Identifier	std 
+>604	ExpressionStatement	 
+>605	ShiftExpression	std 
+>606	ShiftExpression	\"twopassNorm\t\" << twopassNorm ( vf ) << \"\t\" << twopassNorm ( vd ) << \"\n\"
+>607	ShiftExpression	twopassNorm ( vf ) << \"\t\" << twopassNorm ( vd ) << \"\n\"
+>608	ShiftExpression	\"\t\" << twopassNorm ( vd ) << \"\n\"
+>609	ShiftExpression	twopassNorm ( vd ) << \"\n\"
+>610	PrimaryExpression	\"\n\"
+>611	CallExpression	twopassNorm ( vd )
+>612	ArgumentList	vd
+>613	Argument	vd
+>614	Identifier	vd
+>615	Callee	twopassNorm
+>616	Identifier	twopassNorm
+>617	PrimaryExpression	\"\t\"
+>618	CallExpression	twopassNorm ( vf )
+>619	ArgumentList	vf
+>620	Argument	vf
+>621	Identifier	vf
+>622	Callee	twopassNorm
+>623	Identifier	twopassNorm
+>624	PrimaryExpression	\"twopassNorm\t\"
+>625	Identifier	std 
+>626	ExpressionStatement	 
+>627	ShiftExpression	std 
+>628	ShiftExpression	\"lapackNorm\t\" << lapackNorm ( vf ) << \"\t\" << lapackNorm ( vd ) << \"\n\"
+>629	ShiftExpression	lapackNorm ( vf ) << \"\t\" << lapackNorm ( vd ) << \"\n\"
+>630	ShiftExpression	\"\t\" << lapackNorm ( vd ) << \"\n\"
+>631	ShiftExpression	lapackNorm ( vd ) << \"\n\"
+>632	PrimaryExpression	\"\n\"
+>633	CallExpression	lapackNorm ( vd )
+>634	ArgumentList	vd
+>635	Argument	vd
+>636	Identifier	vd
+>637	Callee	lapackNorm
+>638	Identifier	lapackNorm
+>639	PrimaryExpression	\"\t\"
+>640	CallExpression	lapackNorm ( vf )
+>641	ArgumentList	vf
+>642	Argument	vf
+>643	Identifier	vf
+>644	Callee	lapackNorm
+>645	Identifier	lapackNorm
+>646	PrimaryExpression	\"lapackNorm\t\"
+>647	Identifier	std 
+>648	ExpressionStatement	 
+>649	ShiftExpression	std 
+>650	ShiftExpression	\"pblueNorm\t\" << pblueNorm ( vf ) << \"\t\" << pblueNorm ( vd ) << \"\n\"
+>651	ShiftExpression	pblueNorm ( vf ) << \"\t\" << pblueNorm ( vd ) << \"\n\"
+>652	ShiftExpression	\"\t\" << pblueNorm ( vd ) << \"\n\"
+>653	ShiftExpression	pblueNorm ( vd ) << \"\n\"
+>654	PrimaryExpression	\"\n\"
+>655	CallExpression	pblueNorm ( vd )
+>656	ArgumentList	vd
+>657	Argument	vd
+>658	Identifier	vd
+>659	Callee	pblueNorm
+>660	Identifier	pblueNorm
+>661	PrimaryExpression	\"\t\"
+>662	CallExpression	pblueNorm ( vf )
+>663	ArgumentList	vf
+>664	Argument	vf
+>665	Identifier	vf
+>666	Callee	pblueNorm
+>667	Identifier	pblueNorm
+>668	PrimaryExpression	\"pblueNorm\t\"
+>669	Identifier	std 
+>670	ExpressionStatement	 
+>671	ShiftExpression	std 
+>672	ShiftExpression	\"blueNorm\t\" << blueNorm ( vf ) << \"\t\" << blueNorm ( vd ) << \"\n\"
+>673	ShiftExpression	blueNorm ( vf ) << \"\t\" << blueNorm ( vd ) << \"\n\"
+>674	ShiftExpression	\"\t\" << blueNorm ( vd ) << \"\n\"
+>675	ShiftExpression	blueNorm ( vd ) << \"\n\"
+>676	PrimaryExpression	\"\n\"
+>677	CallExpression	blueNorm ( vd )
+>678	ArgumentList	vd
+>679	Argument	vd
+>680	Identifier	vd
+>681	Callee	blueNorm
+>682	Identifier	blueNorm
+>683	PrimaryExpression	\"\t\"
+>684	CallExpression	blueNorm ( vf )
+>685	ArgumentList	vf
+>686	Argument	vf
+>687	Identifier	vf
+>688	Callee	blueNorm
+>689	Identifier	blueNorm
+>690	PrimaryExpression	\"blueNorm\t\"
+>691	Identifier	std 
+>692	ExpressionStatement	 
+>693	ShiftExpression	std 
+>694	ShiftExpression	\"hypotNorm\t\" << hypotNorm ( vf ) << \"\t\" << hypotNorm ( vd ) << \"\n\"
+>695	ShiftExpression	hypotNorm ( vf ) << \"\t\" << hypotNorm ( vd ) << \"\n\"
+>696	ShiftExpression	\"\t\" << hypotNorm ( vd ) << \"\n\"
+>697	ShiftExpression	hypotNorm ( vd ) << \"\n\"
+>698	PrimaryExpression	\"\n\"
+>699	CallExpression	hypotNorm ( vd )
+>700	ArgumentList	vd
+>701	Argument	vd
+>702	Identifier	vd
+>703	Callee	hypotNorm
+>704	Identifier	hypotNorm
+>705	PrimaryExpression	\"\t\"
+>706	CallExpression	hypotNorm ( vf )
+>707	ArgumentList	vf
+>708	Argument	vf
+>709	Identifier	vf
+>710	Callee	hypotNorm
+>711	Identifier	hypotNorm
+>712	PrimaryExpression	\"hypotNorm\t\"
+>713	Identifier	std 
+>714	ExpressionStatement	 
+>715	ShiftExpression	std 
+>716	ShiftExpression	\"sqsumNorm\t\" << sqsumNorm ( vf ) << \"\t\" << sqsumNorm ( vd ) << \"\n\"
+>717	ShiftExpression	sqsumNorm ( vf ) << \"\t\" << sqsumNorm ( vd ) << \"\n\"
+>718	ShiftExpression	\"\t\" << sqsumNorm ( vd ) << \"\n\"
+>719	ShiftExpression	sqsumNorm ( vd ) << \"\n\"
+>720	PrimaryExpression	\"\n\"
+>721	CallExpression	sqsumNorm ( vd )
+>722	ArgumentList	vd
+>723	Argument	vd
+>724	Identifier	vd
+>725	Callee	sqsumNorm
+>726	Identifier	sqsumNorm
+>727	PrimaryExpression	\"\t\"
+>728	CallExpression	sqsumNorm ( vf )
+>729	ArgumentList	vf
+>730	Argument	vf
+>731	Identifier	vf
+>732	Callee	sqsumNorm
+>733	Identifier	sqsumNorm
+>734	PrimaryExpression	\"sqsumNorm\t\"
+>735	Identifier	std 
+>736	ExpressionStatement	 
+>737	ShiftExpression	std 
+>738	ShiftExpression	\"reference\t\" << std 
+>739	ShiftExpression	std 
+>740	ShiftExpression	\"\t\" << std 
+>741	ShiftExpression	std 
+>742	PrimaryExpression	\"\n\"
+>743	MultiplicativeExpression	std 
+>744	Identifier	yd
+>745	CallExpression	std 
+>746	ArgumentList	double ( s )
+>747	Argument	double ( s )
+>748	CallExpression	double ( s )
+>749	ArgumentList	s
+>750	Argument	s
+>751	Identifier	s
+>752	Callee	double
+>753	Identifier	double
+>754	Callee	std 
+>755	Identifier	std 
+>756	PrimaryExpression	\"\t\"
+>757	MultiplicativeExpression	std 
+>758	Identifier	yf
+>759	CallExpression	std 
+>760	ArgumentList	double ( s )
+>761	Argument	double ( s )
+>762	CallExpression	double ( s )
+>763	ArgumentList	s
+>764	Argument	s
+>765	Identifier	s
+>766	Callee	double
+>767	Identifier	double
+>768	Callee	std 
+>769	Identifier	std 
+>770	PrimaryExpression	\"reference\t\"
+>771	Identifier	std 
+>772	IdentifierDeclStatement	 
+>773	IdentifierDecl	vd = VectorXd 
+>774	AssignmentExpr	vd = VectorXd 
+>775	MultiplicativeExpression	VectorXd 
+>776	Identifier	yd
+>777	CallExpression	VectorXd 
+>778	ArgumentList	s
+>779	Argument	s
+>780	Identifier	s
+>781	Callee	VectorXd 
+>782	Identifier	VectorXd 
+>783	Identifier	vd
+>784	Identifier	vd
+>785	IdentifierDeclType	VectorXd
+>786	IdentifierDeclStatement	 
+>787	IdentifierDecl	vf = VectorXf 
+>788	AssignmentExpr	vf = VectorXf 
+>789	MultiplicativeExpression	VectorXf 
+>790	Identifier	yf
+>791	CallExpression	VectorXf 
+>792	ArgumentList	s
+>793	Argument	s
+>794	Identifier	s
+>795	Callee	VectorXf 
+>796	Identifier	VectorXf 
+>797	Identifier	vf
+>798	Identifier	vf
+>799	IdentifierDeclType	VectorXf
+>800	IdentifierDeclStatement	 
+>801	IdentifierDecl	* std 
+>802	Identifier	std 
+>803	IdentifierDeclType	based * ( internal 
+>804	Statement	 
+>805	Statement	 
+>806	Statement	 
+>807	IdentifierDeclStatement	 
+>808	IdentifierDecl	* std 
+>809	Identifier	std 
+>810	IdentifierDeclType	basef * ( internal 
+>811	Statement	 
+>812	Statement	 
+>813	Statement	 
+>828	FunctionDef	check_accuracy_var (int ef0 , int ef1 , int ed0 , int ed1 , int s)
+>829	ParameterList	int ef0 , int ef1 , int ed0 , int ed1 , int s
+>830	Parameter	 
+>831	Identifier	s
+>832	ParameterType	int
+>833	Parameter	 
+>834	Identifier	ed1
+>835	ParameterType	int
+>836	Parameter	 
+>837	Identifier	ed0
+>838	ParameterType	int
+>839	Parameter	 
+>840	Identifier	ef1
+>841	ParameterType	int
+>842	Parameter	 
+>843	Identifier	ef0
+>844	ParameterType	int
+>845	ReturnType	void
+>846	CompoundStatement	 
+>847	ExpressionStatement	 
+>848	PrimaryExpression	\"\n\"
+>849	Statement	 
+>850	Statement	 
+>851	Statement	 
+>852	Statement	 
+>853	Statement	 
+>854	Statement	 
+>855	Statement	 
+>856	Statement	 
+>857	Statement	 
+>858	Statement	 
+>859	Statement	 
+>860	Statement	 
+>861	Statement	 
+>862	Statement	 
+>863	Statement	 
+>864	Statement	 
+>865	Statement	 
+>866	Statement	 
+>867	Statement	 
+>868	Statement	 
+>869	Statement	 
+>870	Statement	 
+>871	Statement	 
+>872	Statement	 
+>873	Statement	 
+>874	Statement	 
+>875	Statement	 
+>876	Statement	 
+>877	Statement	 
+>878	Statement	 
+>879	Statement	 
+>880	Statement	 
+>881	Statement	 
+>882	Statement	 
+>883	Statement	 
+>884	Statement	 
+>885	Statement	 
+>886	Statement	 
+>887	Statement	 
+>888	Statement	 
+>889	Statement	 
+>890	Statement	 
+>891	Statement	 
+>892	Statement	 
+>893	Statement	 
+>894	Statement	 
+>895	Statement	 
+>896	Statement	 
+>897	ExpressionStatement	 
+>898	PrimaryExpression	\"\n\"
+>899	Statement	 
+>900	Statement	 
+>901	Statement	 
+>902	Statement	 
+>903	Statement	 
+>904	Statement	 
+>905	Statement	 
+>906	Statement	 
+>907	Statement	 
+>908	Statement	 
+>909	Statement	 
+>910	Statement	 
+>911	Statement	 
+>912	Statement	 
+>913	Statement	 
+>914	Statement	 
+>915	Statement	 
+>916	Statement	 
+>917	Statement	 
+>918	Statement	 
+>919	Statement	 
+>920	Statement	 
+>921	Statement	 
+>922	Statement	 
+>923	Statement	 
+>924	Statement	 
+>925	Statement	 
+>926	Statement	 
+>927	Statement	 
+>928	Statement	 
+>929	Statement	 
+>930	Statement	 
+>931	Statement	 
+>932	Statement	 
+>933	Statement	 
+>934	Statement	 
+>935	Statement	 
+>936	Statement	 
+>937	Statement	 
+>938	Statement	 
+>939	Statement	 
+>940	Statement	 
+>941	Statement	 
+>942	Statement	 
+>943	Statement	 
+>944	Statement	 
+>945	Statement	 
+>946	Statement	 
+>947	ExpressionStatement	 
+>948	PrimaryExpression	\"\n\"
+>949	Statement	 
+>950	Statement	 
+>951	Statement	 
+>952	Statement	 
+>953	Statement	 
+>954	Statement	 
+>955	Statement	 
+>956	Statement	 
+>957	Statement	 
+>958	Statement	 
+>959	Statement	 
+>960	Statement	 
+>961	Statement	 
+>962	Statement	 
+>963	Statement	 
+>964	Statement	 
+>965	Statement	 
+>966	Statement	 
+>967	Statement	 
+>968	Statement	 
+>969	Statement	 
+>970	Statement	 
+>971	Statement	 
+>972	Statement	 
+>973	Statement	 
+>974	Statement	 
+>975	Statement	 
+>976	Statement	 
+>977	Statement	 
+>978	Statement	 
+>979	Statement	 
+>980	Statement	 
+>981	Statement	 
+>982	Statement	 
+>983	Statement	 
+>984	Statement	 
+>985	Statement	 
+>986	Statement	 
+>987	Statement	 
+>988	Statement	 
+>989	Statement	 
+>990	Statement	 
+>991	Statement	 
+>992	Statement	 
+>993	Statement	 
+>994	Statement	 
+>995	Statement	 
+>996	Statement	 
+>997	ExpressionStatement	 
+>998	PrimaryExpression	\"\n\"
+>999	Statement	 
+>1000	Statement	 
+>1001	Statement	 
+>1002	Statement	 
+>1003	Statement	 
+>1004	Statement	 
+>1005	Statement	 
+>1006	Statement	 
+>1007	Statement	 
+>1008	Statement	 
+>1009	Statement	 
+>1010	Statement	 
+>1011	Statement	 
+>1012	Statement	 
+>1013	Statement	 
+>1014	Statement	 
+>1015	Statement	 
+>1016	Statement	 
+>1017	Statement	 
+>1018	Statement	 
+>1019	Statement	 
+>1020	Statement	 
+>1021	Statement	 
+>1022	Statement	 
+>1023	Statement	 
+>1024	Statement	 
+>1025	Statement	 
+>1026	Statement	 
+>1027	Statement	 
+>1028	Statement	 
+>1029	Statement	 
+>1030	Statement	 
+>1031	Statement	 
+>1032	Statement	 
+>1033	Statement	 
+>1034	Statement	 
+>1035	Statement	 
+>1036	Statement	 
+>1037	Statement	 
+>1038	Statement	 
+>1039	Statement	 
+>1040	Statement	 
+>1041	Statement	 
+>1042	Statement	 
+>1043	Statement	 
+>1044	Statement	 
+>1045	Statement	 
+>1046	Statement	 
+>1047	ExpressionStatement	 
+>1048	PrimaryExpression	\"\n\"
+>1049	Statement	 
+>1050	Statement	 
+>1051	Statement	 
+>1052	Statement	 
+>1053	Statement	 
+>1054	Statement	 
+>1055	Statement	 
+>1056	Statement	 
+>1057	Statement	 
+>1058	Statement	 
+>1059	Statement	 
+>1060	Statement	 
+>1061	Statement	 
+>1062	Statement	 
+>1063	Statement	 
+>1064	Statement	 
+>1065	Statement	 
+>1066	Statement	 
+>1067	Statement	 
+>1068	Statement	 
+>1069	Statement	 
+>1070	Statement	 
+>1071	Statement	 
+>1072	Statement	 
+>1073	Statement	 
+>1074	Statement	 
+>1075	Statement	 
+>1076	Statement	 
+>1077	Statement	 
+>1078	Statement	 
+>1079	Statement	 
+>1080	Statement	 
+>1081	Statement	 
+>1082	Statement	 
+>1083	Statement	 
+>1084	Statement	 
+>1085	Statement	 
+>1086	Statement	 
+>1087	Statement	 
+>1088	Statement	 
+>1089	Statement	 
+>1090	Statement	 
+>1091	Statement	 
+>1092	Statement	 
+>1093	Statement	 
+>1094	Statement	 
+>1095	Statement	 
+>1096	Statement	 
+>1097	ExpressionStatement	 
+>1098	PrimaryExpression	\"\n\"
+>1099	Statement	 
+>1100	Statement	 
+>1101	Statement	 
+>1102	Statement	 
+>1103	Statement	 
+>1104	Statement	 
+>1105	Statement	 
+>1106	Statement	 
+>1107	Statement	 
+>1108	Statement	 
+>1109	Statement	 
+>1110	Statement	 
+>1111	Statement	 
+>1112	Statement	 
+>1113	Statement	 
+>1114	Statement	 
+>1115	Statement	 
+>1116	Statement	 
+>1117	Statement	 
+>1118	Statement	 
+>1119	Statement	 
+>1120	Statement	 
+>1121	Statement	 
+>1122	Statement	 
+>1123	Statement	 
+>1124	Statement	 
+>1125	Statement	 
+>1126	Statement	 
+>1127	Statement	 
+>1128	Statement	 
+>1129	Statement	 
+>1130	Statement	 
+>1131	Statement	 
+>1132	Statement	 
+>1133	Statement	 
+>1134	Statement	 
+>1135	Statement	 
+>1136	Statement	 
+>1137	Statement	 
+>1138	Statement	 
+>1139	Statement	 
+>1140	Statement	 
+>1141	Statement	 
+>1142	Statement	 
+>1143	Statement	 
+>1144	Statement	 
+>1145	Statement	 
+>1146	Statement	 
+>1147	ForStatement	for ( int i = 0 ; i < s ; ++ i )
+>1148	CompoundStatement	 
+>1149	ExpressionStatement	 
+>1150	UnaryOp	* std 
+>1151	CallExpression	std 
+>1152	ArgumentList	double ( 10 )
+>1153	Argument	internal 
+>1154	RelationalExpression	internal 
+>1155	RelationalExpression	int > ( ed0 , ed1 )
+>1156	Expression	ed0 , ed1
+>1157	Identifier	ed1
+>1158	Identifier	ed0
+>1159	Identifier	int
+>1160	Identifier	internal 
+>1161	Argument	double ( 10 )
+>1162	CallExpression	double ( 10 )
+>1163	ArgumentList	10
+>1164	Argument	10
+>1165	PrimaryExpression	10
+>1166	Callee	double
+>1167	Identifier	double
+>1168	Callee	std 
+>1169	Identifier	std 
+>1170	UnaryOperator	*
+>1171	Statement	 
+>1172	Statement	 
+>1173	Statement	 
+>1174	Statement	 
+>1175	Statement	 
+>1176	Statement	 
+>1177	Statement	 
+>1178	Statement	 
+>1179	Statement	 
+>1180	Statement	 
+>1181	Statement	 
+>1182	Statement	 
+>1183	Statement	 
+>1184	Statement	 
+>1185	Statement	 
+>1186	Statement	 
+>1187	Statement	 
+>1188	Statement	 
+>1189	ExpressionStatement	 
+>1190	UnaryOp	* std 
+>1191	CallExpression	std 
+>1192	ArgumentList	double ( 10 )
+>1193	Argument	internal 
+>1194	RelationalExpression	internal 
+>1195	RelationalExpression	int > ( ef0 , ef1 )
+>1196	Expression	ef0 , ef1
+>1197	Identifier	ef1
+>1198	Identifier	ef0
+>1199	Identifier	int
+>1200	Identifier	internal 
+>1201	Argument	double ( 10 )
+>1202	CallExpression	double ( 10 )
+>1203	ArgumentList	10
+>1204	Argument	10
+>1205	PrimaryExpression	10
+>1206	Callee	double
+>1207	Identifier	double
+>1208	Callee	std 
+>1209	Identifier	std 
+>1210	UnaryOperator	*
+>1211	Statement	 
+>1212	Statement	 
+>1213	Statement	 
+>1214	Statement	 
+>1215	Statement	 
+>1216	Statement	 
+>1217	Statement	 
+>1218	Statement	 
+>1219	Statement	 
+>1220	Statement	 
+>1221	Statement	 
+>1222	Statement	 
+>1223	Statement	 
+>1224	Statement	 
+>1225	Statement	 
+>1226	Statement	 
+>1227	Statement	 
+>1228	Statement	 
+>1229	UnaryExpression	 
+>1230	Identifier	i
+>1231	IncDec	++
+>1232	Condition	 
+>1233	RelationalExpression	i < s
+>1234	Identifier	s
+>1235	Identifier	i
+>1236	ForInit	 
+>1237	IdentifierDeclStatement	int i = 0 ;
+>1238	IdentifierDecl	i = 0
+>1239	AssignmentExpr	i = 0
+>1240	PrimaryExpression	0
+>1241	Identifier	i
+>1242	Identifier	i
+>1243	IdentifierDeclType	int
+>1244	IdentifierDeclStatement	 
+>1245	IdentifierDecl	vd ( s )
+>1246	Identifier	s
+>1247	Identifier	vd
+>1248	IdentifierDeclType	VectorXd
+>1249	IdentifierDeclStatement	 
+>1250	IdentifierDecl	vf ( s )
+>1251	Identifier	s
+>1252	Identifier	vf
+>1253	IdentifierDeclType	VectorXf
+>1269	FunctionDef	main (int argc , char * * argv)
+>1270	ParameterList	int argc , char * * argv
+>1271	Parameter	 
+>1272	Identifier	argv
+>1273	ParameterType	char * *
+>1274	Parameter	 
+>1275	Identifier	argc
+>1276	ParameterType	int
+>1277	ReturnType	int
+>1278	CompoundStatement	 
+>1279	CompoundStatement	 
+>1280	ExpressionStatement	 
+>1281	CallExpression	BENCH_PERF ( bl2passNorm )
+>1282	ArgumentList	bl2passNorm
+>1283	Argument	bl2passNorm
+>1284	Identifier	bl2passNorm
+>1285	Callee	BENCH_PERF
+>1286	Identifier	BENCH_PERF
+>1287	ExpressionStatement	 
+>1288	CallExpression	BENCH_PERF ( twopassNorm )
+>1289	ArgumentList	twopassNorm
+>1290	Argument	twopassNorm
+>1291	Identifier	twopassNorm
+>1292	Callee	BENCH_PERF
+>1293	Identifier	BENCH_PERF
+>1294	ExpressionStatement	 
+>1295	CallExpression	BENCH_PERF ( hypotNorm )
+>1296	ArgumentList	hypotNorm
+>1297	Argument	hypotNorm
+>1298	Identifier	hypotNorm
+>1299	Callee	BENCH_PERF
+>1300	Identifier	BENCH_PERF
+>1301	ExpressionStatement	 
+>1302	CallExpression	BENCH_PERF ( lapackNorm )
+>1303	ArgumentList	lapackNorm
+>1304	Argument	lapackNorm
+>1305	Identifier	lapackNorm
+>1306	Callee	BENCH_PERF
+>1307	Identifier	BENCH_PERF
+>1308	ExpressionStatement	 
+>1309	CallExpression	BENCH_PERF ( pblueNorm )
+>1310	ArgumentList	pblueNorm
+>1311	Argument	pblueNorm
+>1312	Identifier	pblueNorm
+>1313	Callee	BENCH_PERF
+>1314	Identifier	BENCH_PERF
+>1315	ExpressionStatement	 
+>1316	CallExpression	BENCH_PERF ( blueNorm )
+>1317	ArgumentList	blueNorm
+>1318	Argument	blueNorm
+>1319	Identifier	blueNorm
+>1320	Callee	BENCH_PERF
+>1321	Identifier	BENCH_PERF
+>1322	ExpressionStatement	 
+>1323	CallExpression	BENCH_PERF ( sqsumNorm )
+>1324	ArgumentList	sqsumNorm
+>1325	Argument	sqsumNorm
+>1326	Identifier	sqsumNorm
+>1327	Callee	BENCH_PERF
+>1328	Identifier	BENCH_PERF
+>1329	IdentifierDeclStatement	 
+>1330	IdentifierDecl	vcf = VectorXcf 
+>1331	AssignmentExpr	vcf = VectorXcf 
+>1332	MultiplicativeExpression	VectorXcf 
+>1333	Identifier	y
+>1334	CallExpression	VectorXcf 
+>1335	ArgumentList	512
+>1336	Argument	512
+>1337	PrimaryExpression	512
+>1338	Callee	VectorXcf 
+>1339	Identifier	VectorXcf 
+>1340	Identifier	vcf
+>1341	Identifier	vcf
+>1342	IdentifierDeclType	VectorXcf
+>1343	IdentifierDeclStatement	 
+>1344	IdentifierDecl	vd = VectorXd 
+>1345	AssignmentExpr	vd = VectorXd 
+>1346	MultiplicativeExpression	VectorXd 
+>1347	Identifier	y
+>1348	CallExpression	VectorXd 
+>1349	ArgumentList	512
+>1350	Argument	512
+>1351	PrimaryExpression	512
+>1352	Callee	VectorXd 
+>1353	Identifier	VectorXd 
+>1354	Identifier	vd
+>1355	Identifier	vd
+>1356	IdentifierDeclType	VectorXd
+>1357	IdentifierDeclStatement	 
+>1358	IdentifierDecl	vf = VectorXf 
+>1359	AssignmentExpr	vf = VectorXf 
+>1360	MultiplicativeExpression	VectorXf 
+>1361	Identifier	y
+>1362	CallExpression	VectorXf 
+>1363	ArgumentList	512
+>1364	Argument	512
+>1365	PrimaryExpression	512
+>1366	Callee	VectorXf 
+>1367	Identifier	VectorXf 
+>1368	Identifier	vf
+>1369	Identifier	vf
+>1370	IdentifierDeclType	VectorXf
+>1371	IdentifierDeclStatement	 
+>1372	IdentifierDecl	iters = 100000
+>1373	AssignmentExpr	iters = 100000
+>1374	PrimaryExpression	100000
+>1375	Identifier	iters
+>1376	Identifier	iters
+>1377	IdentifierDeclType	int
+>1378	ExpressionStatement	 
+>1379	ShiftExpression	std 
+>1380	PrimaryExpression	\"\nPerformance (in cache)
+>1381	Identifier	std 
+>1382	CompoundStatement	 
+>1383	ExpressionStatement	 
+>1384	CallExpression	BENCH_PERF ( bl2passNorm )
+>1385	ArgumentList	bl2passNorm
+>1386	Argument	bl2passNorm
+>1387	Identifier	bl2passNorm
+>1388	Callee	BENCH_PERF
+>1389	Identifier	BENCH_PERF
+>1390	ExpressionStatement	 
+>1391	CallExpression	BENCH_PERF ( twopassNorm )
+>1392	ArgumentList	twopassNorm
+>1393	Argument	twopassNorm
+>1394	Identifier	twopassNorm
+>1395	Callee	BENCH_PERF
+>1396	Identifier	BENCH_PERF
+>1397	ExpressionStatement	 
+>1398	CallExpression	BENCH_PERF ( hypotNorm )
+>1399	ArgumentList	hypotNorm
+>1400	Argument	hypotNorm
+>1401	Identifier	hypotNorm
+>1402	Callee	BENCH_PERF
+>1403	Identifier	BENCH_PERF
+>1404	ExpressionStatement	 
+>1405	CallExpression	BENCH_PERF ( lapackNorm )
+>1406	ArgumentList	lapackNorm
+>1407	Argument	lapackNorm
+>1408	Identifier	lapackNorm
+>1409	Callee	BENCH_PERF
+>1410	Identifier	BENCH_PERF
+>1411	ExpressionStatement	 
+>1412	CallExpression	BENCH_PERF ( pblueNorm )
+>1413	ArgumentList	pblueNorm
+>1414	Argument	pblueNorm
+>1415	Identifier	pblueNorm
+>1416	Callee	BENCH_PERF
+>1417	Identifier	BENCH_PERF
+>1418	ExpressionStatement	 
+>1419	CallExpression	BENCH_PERF ( blueNorm )
+>1420	ArgumentList	blueNorm
+>1421	Argument	blueNorm
+>1422	Identifier	blueNorm
+>1423	Callee	BENCH_PERF
+>1424	Identifier	BENCH_PERF
+>1425	ExpressionStatement	 
+>1426	CallExpression	BENCH_PERF ( sqsumNorm )
+>1427	ArgumentList	sqsumNorm
+>1428	Argument	sqsumNorm
+>1429	Identifier	sqsumNorm
+>1430	Callee	BENCH_PERF
+>1431	Identifier	BENCH_PERF
+>1432	IdentifierDeclStatement	 
+>1433	IdentifierDecl	vcf = VectorXcf 
+>1434	AssignmentExpr	vcf = VectorXcf 
+>1435	MultiplicativeExpression	VectorXcf 
+>1436	Identifier	y
+>1437	CallExpression	VectorXcf 
+>1438	ArgumentList	1024 * 1024 * 32
+>1439	Argument	1024 * 1024 * 32
+>1440	MultiplicativeExpression	1024 * 1024 * 32
+>1441	MultiplicativeExpression	1024 * 32
+>1442	PrimaryExpression	32
+>1443	PrimaryExpression	1024
+>1444	PrimaryExpression	1024
+>1445	Callee	VectorXcf 
+>1446	Identifier	VectorXcf 
+>1447	Identifier	vcf
+>1448	Identifier	vcf
+>1449	IdentifierDeclType	VectorXcf
+>1450	IdentifierDeclStatement	 
+>1451	IdentifierDecl	vd = VectorXd 
+>1452	AssignmentExpr	vd = VectorXd 
+>1453	MultiplicativeExpression	VectorXd 
+>1454	Identifier	y
+>1455	CallExpression	VectorXd 
+>1456	ArgumentList	1024 * 1024 * 32
+>1457	Argument	1024 * 1024 * 32
+>1458	MultiplicativeExpression	1024 * 1024 * 32
+>1459	MultiplicativeExpression	1024 * 32
+>1460	PrimaryExpression	32
+>1461	PrimaryExpression	1024
+>1462	PrimaryExpression	1024
+>1463	Callee	VectorXd 
+>1464	Identifier	VectorXd 
+>1465	Identifier	vd
+>1466	Identifier	vd
+>1467	IdentifierDeclType	VectorXd
+>1468	IdentifierDeclStatement	 
+>1469	IdentifierDecl	vf = VectorXf 
+>1470	AssignmentExpr	vf = VectorXf 
+>1471	MultiplicativeExpression	VectorXf 
+>1472	Identifier	y
+>1473	CallExpression	VectorXf 
+>1474	ArgumentList	1024 * 1024 * 32
+>1475	Argument	1024 * 1024 * 32
+>1476	MultiplicativeExpression	1024 * 1024 * 32
+>1477	MultiplicativeExpression	1024 * 32
+>1478	PrimaryExpression	32
+>1479	PrimaryExpression	1024
+>1480	PrimaryExpression	1024
+>1481	Callee	VectorXf 
+>1482	Identifier	VectorXf 
+>1483	Identifier	vf
+>1484	Identifier	vf
+>1485	IdentifierDeclType	VectorXf
+>1486	IdentifierDeclStatement	 
+>1487	IdentifierDecl	iters = 1
+>1488	AssignmentExpr	iters = 1
+>1489	PrimaryExpression	1
+>1490	Identifier	iters
+>1491	Identifier	iters
+>1492	IdentifierDeclType	int
+>1493	ExpressionStatement	 
+>1494	ShiftExpression	std 
+>1495	PrimaryExpression	\"Performance (out of cache)
+>1496	Identifier	std 
+>1497	ExpressionStatement	 
+>1498	CallExpression	std 
+>1499	ArgumentList	4
+>1500	Argument	4
+>1501	PrimaryExpression	4
+>1502	Callee	std 
+>1503	MemberAccess	std 
+>1504	Identifier	precision
+>1505	Identifier	std 
+>1506	ForStatement	for ( int k = 0 ; k < 1 ; ++ k )
+>1507	CompoundStatement	 
+>1508	ExpressionStatement	 
+>1509	ShiftExpression	std 
+>1510	PrimaryExpression	\"\n\"
+>1511	Identifier	std 
+>1512	ExpressionStatement	 
+>1513	CallExpression	check_accuracy_var ( - 27 , 20 , - 302 , - 190 , s )
+>1514	ArgumentList	- 27
+>1515	Argument	s
+>1516	Identifier	s
+>1517	Argument	- 190
+>1518	UnaryOp	- 190
+>1519	PrimaryExpression	190
+>1520	UnaryOperator	-
+>1521	Argument	- 302
+>1522	UnaryOp	- 302
+>1523	PrimaryExpression	302
+>1524	UnaryOperator	-
+>1525	Argument	20
+>1526	PrimaryExpression	20
+>1527	Argument	- 27
+>1528	UnaryOp	- 27
+>1529	PrimaryExpression	27
+>1530	UnaryOperator	-
+>1531	Callee	check_accuracy_var
+>1532	Identifier	check_accuracy_var
+>1533	UnaryExpression	 
+>1534	Identifier	k
+>1535	IncDec	++
+>1536	Condition	 
+>1537	RelationalExpression	k < 1
+>1538	PrimaryExpression	1
+>1539	Identifier	k
+>1540	ForInit	 
+>1541	IdentifierDeclStatement	int k = 0 ;
+>1542	IdentifierDecl	k = 0
+>1543	AssignmentExpr	k = 0
+>1544	PrimaryExpression	0
+>1545	Identifier	k
+>1546	Identifier	k
+>1547	IdentifierDeclType	int
+>1548	ExpressionStatement	 
+>1549	ShiftExpression	std 
+>1550	PrimaryExpression	\"\nVarying (under)
+>1551	Identifier	std 
+>1552	ForStatement	for ( int k = 0 ; k < 1 ; ++ k )
+>1553	CompoundStatement	 
+>1554	ExpressionStatement	 
+>1555	ShiftExpression	std 
+>1556	PrimaryExpression	\"\n\"
+>1557	Identifier	std 
+>1558	ExpressionStatement	 
+>1559	CallExpression	check_accuracy_var ( 20 , 27 , 190 , 302 , s )
+>1560	ArgumentList	20
+>1561	Argument	s
+>1562	Identifier	s
+>1563	Argument	302
+>1564	PrimaryExpression	302
+>1565	Argument	190
+>1566	PrimaryExpression	190
+>1567	Argument	27
+>1568	PrimaryExpression	27
+>1569	Argument	20
+>1570	PrimaryExpression	20
+>1571	Callee	check_accuracy_var
+>1572	Identifier	check_accuracy_var
+>1573	UnaryExpression	 
+>1574	Identifier	k
+>1575	IncDec	++
+>1576	Condition	 
+>1577	RelationalExpression	k < 1
+>1578	PrimaryExpression	1
+>1579	Identifier	k
+>1580	ForInit	 
+>1581	IdentifierDeclStatement	int k = 0 ;
+>1582	IdentifierDecl	k = 0
+>1583	AssignmentExpr	k = 0
+>1584	PrimaryExpression	0
+>1585	Identifier	k
+>1586	Identifier	k
+>1587	IdentifierDeclType	int
+>1588	ExpressionStatement	 
+>1589	ShiftExpression	std 
+>1590	PrimaryExpression	\"\nVarying (over)
+>1591	Identifier	std 
+>1592	ExpressionStatement	 
+>1593	CallExpression	check_accuracy ( basef_over , based_over , s )
+>1594	ArgumentList	basef_over
+>1595	Argument	s
+>1596	Identifier	s
+>1597	Argument	based_over
+>1598	Identifier	based_over
+>1599	Argument	basef_over
+>1600	Identifier	basef_over
+>1601	Callee	check_accuracy
+>1602	Identifier	check_accuracy
+>1603	ExpressionStatement	 
+>1604	ShiftExpression	std 
+>1605	PrimaryExpression	\"\nOverflow
+>1606	Identifier	std 
+>1607	ExpressionStatement	 
+>1608	CallExpression	check_accuracy ( basef_under , based_under , s )
+>1609	ArgumentList	basef_under
+>1610	Argument	s
+>1611	Identifier	s
+>1612	Argument	based_under
+>1613	Identifier	based_under
+>1614	Argument	basef_under
+>1615	Identifier	basef_under
+>1616	Callee	check_accuracy
+>1617	Identifier	check_accuracy
+>1618	ExpressionStatement	 
+>1619	ShiftExpression	std 
+>1620	PrimaryExpression	\"\nUnderflow
+>1621	Identifier	std 
+>1622	ExpressionStatement	 
+>1623	CallExpression	check_accuracy ( basef_ok , based_ok , s )
+>1624	ArgumentList	basef_ok
+>1625	Argument	s
+>1626	Identifier	s
+>1627	Argument	based_ok
+>1628	Identifier	based_ok
+>1629	Argument	basef_ok
+>1630	Identifier	basef_ok
+>1631	Callee	check_accuracy
+>1632	Identifier	check_accuracy
+>1633	ExpressionStatement	 
+>1634	ShiftExpression	std 
+>1635	PrimaryExpression	\"\nNo under/overflow
+>1636	Identifier	std 
+>1637	ExpressionStatement	 
+>1638	CallExpression	std 
+>1639	ArgumentList	20
+>1640	Argument	20
+>1641	PrimaryExpression	20
+>1642	Callee	std 
+>1643	MemberAccess	std 
+>1644	Identifier	precision
+>1645	Identifier	std 
+>1646	IdentifierDeclStatement	 
+>1647	IdentifierDecl	based_over = 1.1345743233455785456788e+302
+>1648	AssignmentExpr	based_over = 1.1345743233455785456788e+302
+>1649	PrimaryExpression	1.1345743233455785456788e+302
+>1650	Identifier	based_over
+>1651	Identifier	based_over
+>1652	IdentifierDeclType	double
+>1653	IdentifierDeclStatement	 
+>1654	IdentifierDecl	basef_over = 1.1345743233455785456788e+27
+>1655	AssignmentExpr	basef_over = 1.1345743233455785456788e+27
+>1656	PrimaryExpression	1.1345743233455785456788e+27
+>1657	Identifier	basef_over
+>1658	Identifier	basef_over
+>1659	IdentifierDeclType	double
+>1660	IdentifierDeclStatement	 
+>1661	IdentifierDecl	based_under = 1.1345743233455785456788e-303
+>1662	AssignmentExpr	based_under = 1.1345743233455785456788e-303
+>1663	PrimaryExpression	1.1345743233455785456788e-303
+>1664	Identifier	based_under
+>1665	Identifier	based_under
+>1666	IdentifierDeclType	double
+>1667	IdentifierDeclStatement	 
+>1668	IdentifierDecl	basef_under = 1.1345743233455785456788e-27
+>1669	AssignmentExpr	basef_under = 1.1345743233455785456788e-27
+>1670	PrimaryExpression	1.1345743233455785456788e-27
+>1671	Identifier	basef_under
+>1672	Identifier	basef_under
+>1673	IdentifierDeclType	double
+>1674	IdentifierDeclStatement	 
+>1675	IdentifierDecl	based_ok = 1.1345743233455785456788e95
+>1676	AssignmentExpr	based_ok = 1.1345743233455785456788e95
+>1677	PrimaryExpression	1.1345743233455785456788e95
+>1678	Identifier	based_ok
+>1679	Identifier	based_ok
+>1680	IdentifierDeclType	double
+>1681	IdentifierDeclStatement	 
+>1682	IdentifierDecl	basef_ok = 1.1345743233455785456788e15
+>1683	AssignmentExpr	basef_ok = 1.1345743233455785456788e15
+>1684	PrimaryExpression	1.1345743233455785456788e15
+>1685	Identifier	basef_ok
+>1686	Identifier	basef_ok
+>1687	IdentifierDeclType	double
+>1688	IdentifierDeclStatement	 
+>1689	IdentifierDecl	s = 10000
+>1690	AssignmentExpr	s = 10000
+>1691	PrimaryExpression	10000
+>1692	Identifier	s
+>1693	Identifier	s
+>1694	IdentifierDeclType	int
+>1695	IdentifierDeclStatement	 
+>1696	IdentifierDecl	v = VectorXf 
+>1697	AssignmentExpr	v = VectorXf 
+>1698	MultiplicativeExpression	VectorXf 
+>1699	Identifier	y
+>1700	CallExpression	VectorXf 
+>1701	ArgumentList	1024
+>1702	Argument	1024
+>1703	PrimaryExpression	1024
+>1704	Callee	VectorXf 
+>1705	Identifier	VectorXf 
+>1706	Identifier	v
+>1707	Identifier	v
+>1708	IdentifierDeclType	VectorXf
+>1709	ExpressionStatement	 
+>1710	Statement	 
+>1711	Statement	 
+>1712	Statement	 
+>1713	Statement	 
+>1714	Statement	 
+>1715	Statement	 
+>1716	Statement	 
+>1717	Statement	 
+>1718	Statement	 
+>1719	Statement	 
+>1720	Statement	 
+>1721	Statement	 
+>1722	Statement	 
+>1723	IdentifierDeclStatement	 
+>1724	IdentifierDecl	iters = 100000
+>1725	AssignmentExpr	iters = 100000
+>1726	PrimaryExpression	100000
+>1727	Identifier	iters
+>1728	Identifier	iters
+>1729	IdentifierDeclType	int
+>1730	IdentifierDeclStatement	 
+>1731	IdentifierDecl	tries = 10
+>1732	AssignmentExpr	tries = 10
+>1733	PrimaryExpression	10
+>1734	Identifier	tries
+>1735	Identifier	tries
+>1736	IdentifierDeclType	int
+<3=9,8,4
+<4=5
+<5=7,6
+<9=10
+<10=11
+<11=13,12
+<13=14
+<14=16,15
+<22=28,27,23
+<23=24
+<24=26,25
+<28=29
+<29=30
+<30=32,31
+<32=33
+<33=35,34
+<41=47,46,42
+<42=43
+<43=45,44
+<47=48
+<48=49
+<49=51,50
+<51=52
+<52=54,53
+<60=66,65,61
+<61=62
+<62=64,63
+<66=181,169,162,155,76,67
+<67=68
+<68=75,69
+<69=73,70
+<70=71
+<71=72
+<73=74
+<76=147,143,140,77
+<77=121,78
+<78=117,105,79
+<79=80
+<80=85,81
+<81=82
+<82=84,83
+<85=86
+<86=104,87
+<87=98,88
+<88=97,89
+<89=95,90
+<90=91
+<91=92
+<92=94,93
+<95=96
+<98=102,99
+<99=100
+<100=101
+<102=103
+<105=106
+<106=107
+<107=116,108
+<108=114,109
+<109=110
+<110=111
+<111=113,112
+<114=115
+<117=118
+<118=120,119
+<121=122
+<122=139,138,123
+<123=137,124
+<124=135,125
+<125=126
+<126=127
+<127=131,128
+<128=129
+<129=130
+<131=132
+<132=134,133
+<135=136
+<140=142,141
+<143=144
+<144=146,145
+<147=148
+<148=149
+<149=154,153,150
+<150=152,151
+<155=156
+<156=161,160,157
+<157=159,158
+<162=163
+<163=168,167,164
+<164=166,165
+<169=170
+<170=180,179,171
+<171=178,172
+<172=174,173
+<174=175
+<175=177,176
+<181=182
+<182=184,183
+<200=206,205,201
+<201=202
+<202=204,203
+<206=240,218,207
+<207=208
+<208=217,209
+<209=211,210
+<211=212
+<212=214,213
+<214=216,215
+<218=219
+<219=239,238,220
+<220=237,221
+<221=223,222
+<223=224
+<224=226,225
+<226=228,227
+<228=229
+<229=231,230
+<231=233,232
+<233=234
+<234=236,235
+<240=241
+<241=243,242
+<254=260,259,255
+<255=256
+<256=258,257
+<260=261
+<261=262
+<262=264,263
+<264=265
+<265=267,266
+<273=279,278,274
+<274=275
+<275=277,276
+<279=416,353,347,292,280
+<280=281
+<281=290,282
+<282=283
+<283=284
+<284=288,285
+<285=286
+<286=287
+<288=289
+<290=291
+<292=343,293
+<293=300,294
+<294=295
+<295=299,296
+<296=298,297
+<300=335,331,328,301
+<301=302
+<302=322,303
+<303=314,304
+<304=312,305
+<305=306
+<306=307
+<307=309,308
+<309=311,310
+<312=313
+<314=320,315
+<315=316
+<316=317
+<317=319,318
+<320=321
+<322=326,323
+<323=324
+<324=325
+<326=327
+<328=330,329
+<331=332
+<332=334,333
+<335=336
+<336=337
+<337=342,341,338
+<338=340,339
+<343=344
+<344=346,345
+<347=348
+<348=352,349
+<349=351,350
+<353=408,404,401,354
+<354=355
+<355=395,356
+<356=378,357
+<357=368,358
+<358=366,359
+<359=360
+<360=361
+<361=363,362
+<363=365,364
+<366=367
+<368=376,369
+<369=370
+<370=371
+<371=373,372
+<373=375,374
+<376=377
+<378=387,379
+<379=385,380
+<380=381
+<381=382
+<382=384,383
+<385=386
+<387=393,388
+<388=389
+<389=390
+<390=392,391
+<393=394
+<395=399,396
+<396=397
+<397=398
+<399=400
+<401=403,402
+<404=405
+<405=407,406
+<408=409
+<409=410
+<410=415,414,411
+<411=413,412
+<416=417
+<417=429,428,418
+<418=427,419
+<419=421,420
+<421=423,422
+<423=424
+<424=426,425
+<438=447,446,439
+<439=443,440
+<440=442,441
+<443=445,444
+<447=448
+<448=449
+<449=455,450
+<450=453,451
+<451=452
+<453=454
+<455=456
+<463=472,471,464
+<464=468,465
+<465=467,466
+<468=470,469
+<472=473
+<473=474
+<474=480,475
+<475=478,476
+<476=477
+<478=479
+<480=481
+<488=497,496,489
+<489=493,490
+<490=492,491
+<493=495,494
+<497=498
+<498=499
+<499=505,500
+<500=503,501
+<501=502
+<503=504
+<505=506
+<513=522,521,514
+<514=518,515
+<515=517,516
+<518=520,519
+<522=523
+<523=524
+<524=530,525
+<525=528,526
+<526=527
+<528=529
+<530=531
+<538=544,543,539
+<539=540
+<540=542,541
+<544=545
+<545=546
+<546=548,547
+<548=549
+<549=551,550
+<569=581,580,570
+<570=577,574,571
+<571=573,572
+<574=576,575
+<577=579,578
+<581=813,812,811,807,806,805,804,800,786,772,736,714,692,670,648,626,604,582
+<582=583
+<583=603,584
+<584=602,585
+<585=596,586
+<586=595,587
+<587=589,588
+<589=593,590
+<590=591
+<591=592
+<593=594
+<596=600,597
+<597=598
+<598=599
+<600=601
+<604=605
+<605=625,606
+<606=624,607
+<607=618,608
+<608=617,609
+<609=611,610
+<611=615,612
+<612=613
+<613=614
+<615=616
+<618=622,619
+<619=620
+<620=621
+<622=623
+<626=627
+<627=647,628
+<628=646,629
+<629=640,630
+<630=639,631
+<631=633,632
+<633=637,634
+<634=635
+<635=636
+<637=638
+<640=644,641
+<641=642
+<642=643
+<644=645
+<648=649
+<649=669,650
+<650=668,651
+<651=662,652
+<652=661,653
+<653=655,654
+<655=659,656
+<656=657
+<657=658
+<659=660
+<662=666,663
+<663=664
+<664=665
+<666=667
+<670=671
+<671=691,672
+<672=690,673
+<673=684,674
+<674=683,675
+<675=677,676
+<677=681,678
+<678=679
+<679=680
+<681=682
+<684=688,685
+<685=686
+<686=687
+<688=689
+<692=693
+<693=713,694
+<694=712,695
+<695=706,696
+<696=705,697
+<697=699,698
+<699=703,700
+<700=701
+<701=702
+<703=704
+<706=710,707
+<707=708
+<708=709
+<710=711
+<714=715
+<715=735,716
+<716=734,717
+<717=728,718
+<718=727,719
+<719=721,720
+<721=725,722
+<722=723
+<723=724
+<725=726
+<728=732,729
+<729=730
+<730=731
+<732=733
+<736=737
+<737=771,738
+<738=770,739
+<739=757,740
+<740=756,741
+<741=743,742
+<743=745,744
+<745=754,746
+<746=747
+<747=748
+<748=752,749
+<749=750
+<750=751
+<752=753
+<754=755
+<757=759,758
+<759=768,760
+<760=761
+<761=762
+<762=766,763
+<763=764
+<764=765
+<766=767
+<768=769
+<772=773
+<773=785,784,774
+<774=783,775
+<775=777,776
+<777=781,778
+<778=779
+<779=780
+<781=782
+<786=787
+<787=799,798,788
+<788=797,789
+<789=791,790
+<791=795,792
+<792=793
+<793=794
+<795=796
+<800=801
+<801=803,802
+<807=808
+<808=810,809
+<828=846,845,829
+<829=842,839,836,833,830
+<830=832,831
+<833=835,834
+<836=838,837
+<839=841,840
+<842=844,843
+<846=1249,1244,1147,1146,1145,1144,1143,1142,1141,1140,1139,1138,1137,1136,1135,1134,1133,1132,1131,1130,1129,1128,1127,1126,1125,1124,1123,1122,1121,1120,1119,1118,1117,1116,1115,1114,1113,1112,1111,1110,1109,1108,1107,1106,1105,1104,1103,1102,1101,1100,1099,1097,1096,1095,1094,1093,1092,1091,1090,1089,1088,1087,1086,1085,1084,1083,1082,1081,1080,1079,1078,1077,1076,1075,1074,1073,1072,1071,1070,1069,1068,1067,1066,1065,1064,1063,1062,1061,1060,1059,1058,1057,1056,1055,1054,1053,1052,1051,1050,1049,1047,1046,1045,1044,1043,1042,1041,1040,1039,1038,1037,1036,1035,1034,1033,1032,1031,1030,1029,1028,1027,1026,1025,1024,1023,1022,1021,1020,1019,1018,1017,1016,1015,1014,1013,1012,1011,1010,1009,1008,1007,1006,1005,1004,1003,1002,1001,1000,999,997,996,995,994,993,992,991,990,989,988,987,986,985,984,983,982,981,980,979,978,977,976,975,974,973,972,971,970,969,968,967,966,965,964,963,962,961,960,959,958,957,956,955,954,953,952,951,950,949,947,946,945,944,943,942,941,940,939,938,937,936,935,934,933,932,931,930,929,928,927,926,925,924,923,922,921,920,919,918,917,916,915,914,913,912,911,910,909,908,907,906,905,904,903,902,901,900,899,847,849,850,851,852,853,854,855,856,857,858,859,860,861,862,863,864,865,866,867,868,869,870,871,872,873,874,875,876,877,878,879,880,881,882,883,884,885,886,887,888,889,890,891,892,893,894,895,896,897
+<847=848
+<897=898
+<947=948
+<997=998
+<1047=1048
+<1097=1098
+<1147=1236,1232,1229,1148
+<1148=1228,1227,1226,1225,1224,1223,1222,1221,1220,1219,1218,1217,1216,1215,1214,1213,1212,1211,1189,1188,1187,1186,1185,1184,1183,1182,1181,1180,1179,1178,1177,1176,1175,1174,1173,1172,1171,1149
+<1149=1150
+<1150=1170,1151
+<1151=1168,1152
+<1152=1161,1153
+<1153=1154
+<1154=1160,1155
+<1155=1159,1156
+<1156=1158,1157
+<1161=1162
+<1162=1166,1163
+<1163=1164
+<1164=1165
+<1166=1167
+<1168=1169
+<1189=1190
+<1190=1210,1191
+<1191=1208,1192
+<1192=1201,1193
+<1193=1194
+<1194=1200,1195
+<1195=1199,1196
+<1196=1198,1197
+<1201=1202
+<1202=1206,1203
+<1203=1204
+<1204=1205
+<1206=1207
+<1208=1209
+<1229=1231,1230
+<1232=1233
+<1233=1235,1234
+<1236=1237
+<1237=1238
+<1238=1243,1242,1239
+<1239=1241,1240
+<1244=1245
+<1245=1248,1247,1246
+<1249=1250
+<1250=1253,1252,1251
+<1269=1278,1277,1270
+<1270=1274,1271
+<1271=1273,1272
+<1274=1276,1275
+<1278=1730,1723,1722,1721,1720,1719,1718,1717,1716,1715,1714,1713,1712,1711,1710,1709,1695,1688,1681,1674,1667,1660,1653,1646,1637,1633,1622,1618,1607,1603,1592,1588,1552,1548,1506,1497,1493,1382,1378,1279
+<1279=1371,1357,1343,1329,1322,1315,1308,1301,1294,1287,1280
+<1280=1281
+<1281=1285,1282
+<1282=1283
+<1283=1284
+<1285=1286
+<1287=1288
+<1288=1292,1289
+<1289=1290
+<1290=1291
+<1292=1293
+<1294=1295
+<1295=1299,1296
+<1296=1297
+<1297=1298
+<1299=1300
+<1301=1302
+<1302=1306,1303
+<1303=1304
+<1304=1305
+<1306=1307
+<1308=1309
+<1309=1313,1310
+<1310=1311
+<1311=1312
+<1313=1314
+<1315=1316
+<1316=1320,1317
+<1317=1318
+<1318=1319
+<1320=1321
+<1322=1323
+<1323=1327,1324
+<1324=1325
+<1325=1326
+<1327=1328
+<1329=1330
+<1330=1342,1341,1331
+<1331=1340,1332
+<1332=1334,1333
+<1334=1338,1335
+<1335=1336
+<1336=1337
+<1338=1339
+<1343=1344
+<1344=1356,1355,1345
+<1345=1354,1346
+<1346=1348,1347
+<1348=1352,1349
+<1349=1350
+<1350=1351
+<1352=1353
+<1357=1358
+<1358=1370,1369,1359
+<1359=1368,1360
+<1360=1362,1361
+<1362=1366,1363
+<1363=1364
+<1364=1365
+<1366=1367
+<1371=1372
+<1372=1377,1376,1373
+<1373=1375,1374
+<1378=1379
+<1379=1381,1380
+<1382=1486,1468,1450,1432,1425,1418,1411,1404,1397,1390,1383
+<1383=1384
+<1384=1388,1385
+<1385=1386
+<1386=1387
+<1388=1389
+<1390=1391
+<1391=1395,1392
+<1392=1393
+<1393=1394
+<1395=1396
+<1397=1398
+<1398=1402,1399
+<1399=1400
+<1400=1401
+<1402=1403
+<1404=1405
+<1405=1409,1406
+<1406=1407
+<1407=1408
+<1409=1410
+<1411=1412
+<1412=1416,1413
+<1413=1414
+<1414=1415
+<1416=1417
+<1418=1419
+<1419=1423,1420
+<1420=1421
+<1421=1422
+<1423=1424
+<1425=1426
+<1426=1430,1427
+<1427=1428
+<1428=1429
+<1430=1431
+<1432=1433
+<1433=1449,1448,1434
+<1434=1447,1435
+<1435=1437,1436
+<1437=1445,1438
+<1438=1439
+<1439=1440
+<1440=1444,1441
+<1441=1443,1442
+<1445=1446
+<1450=1451
+<1451=1467,1466,1452
+<1452=1465,1453
+<1453=1455,1454
+<1455=1463,1456
+<1456=1457
+<1457=1458
+<1458=1462,1459
+<1459=1461,1460
+<1463=1464
+<1468=1469
+<1469=1485,1484,1470
+<1470=1483,1471
+<1471=1473,1472
+<1473=1481,1474
+<1474=1475
+<1475=1476
+<1476=1480,1477
+<1477=1479,1478
+<1481=1482
+<1486=1487
+<1487=1492,1491,1488
+<1488=1490,1489
+<1493=1494
+<1494=1496,1495
+<1497=1498
+<1498=1502,1499
+<1499=1500
+<1500=1501
+<1502=1503
+<1503=1505,1504
+<1506=1540,1536,1533,1507
+<1507=1512,1508
+<1508=1509
+<1509=1511,1510
+<1512=1513
+<1513=1531,1514
+<1514=1527,1525,1521,1517,1515
+<1515=1516
+<1517=1518
+<1518=1520,1519
+<1521=1522
+<1522=1524,1523
+<1525=1526
+<1527=1528
+<1528=1530,1529
+<1531=1532
+<1533=1535,1534
+<1536=1537
+<1537=1539,1538
+<1540=1541
+<1541=1542
+<1542=1547,1546,1543
+<1543=1545,1544
+<1548=1549
+<1549=1551,1550
+<1552=1580,1576,1573,1553
+<1553=1558,1554
+<1554=1555
+<1555=1557,1556
+<1558=1559
+<1559=1571,1560
+<1560=1569,1567,1565,1563,1561
+<1561=1562
+<1563=1564
+<1565=1566
+<1567=1568
+<1569=1570
+<1571=1572
+<1573=1575,1574
+<1576=1577
+<1577=1579,1578
+<1580=1581
+<1581=1582
+<1582=1587,1586,1583
+<1583=1585,1584
+<1588=1589
+<1589=1591,1590
+<1592=1593
+<1593=1601,1594
+<1594=1599,1597,1595
+<1595=1596
+<1597=1598
+<1599=1600
+<1601=1602
+<1603=1604
+<1604=1606,1605
+<1607=1608
+<1608=1616,1609
+<1609=1614,1612,1610
+<1610=1611
+<1612=1613
+<1614=1615
+<1616=1617
+<1618=1619
+<1619=1621,1620
+<1622=1623
+<1623=1631,1624
+<1624=1629,1627,1625
+<1625=1626
+<1627=1628
+<1629=1630
+<1631=1632
+<1633=1634
+<1634=1636,1635
+<1637=1638
+<1638=1642,1639
+<1639=1640
+<1640=1641
+<1642=1643
+<1643=1645,1644
+<1646=1647
+<1647=1652,1651,1648
+<1648=1650,1649
+<1653=1654
+<1654=1659,1658,1655
+<1655=1657,1656
+<1660=1661
+<1661=1666,1665,1662
+<1662=1664,1663
+<1667=1668
+<1668=1673,1672,1669
+<1669=1671,1670
+<1674=1675
+<1675=1680,1679,1676
+<1676=1678,1677
+<1681=1682
+<1682=1687,1686,1683
+<1683=1685,1684
+<1688=1689
+<1689=1694,1693,1690
+<1690=1692,1691
+<1695=1696
+<1696=1708,1707,1697
+<1697=1706,1698
+<1698=1700,1699
+<1700=1704,1701
+<1701=1702
+<1702=1703
+<1704=1705
+<1723=1724
+<1724=1729,1728,1725
+<1725=1727,1726
+<1730=1731
+<1731=1736,1735,1732
+<1732=1734,1733

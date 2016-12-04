@@ -1,0 +1,1524 @@
+>13	FunctionDef	DoomInterface 
+>14	ParameterList	 
+>15	CompoundStatement	 
+>16	ExpressionStatement	 
+>17	AssignmentExpr	lastTicRun = 0
+>18	PrimaryExpression	0
+>19	Identifier	lastTicRun
+>20	ExpressionStatement	 
+>21	AssignmentExpr	bFinished [ 0 ] = bFinished [ 1 ] = bFinished [ 2 ] = bFinished [ 3 ] = false
+>22	AssignmentExpr	bFinished [ 1 ] = bFinished [ 2 ] = bFinished [ 3 ] = false
+>23	AssignmentExpr	bFinished [ 2 ] = bFinished [ 3 ] = false
+>24	AssignmentExpr	bFinished [ 3 ] = false
+>25	Identifier	false
+>26	ArrayIndexing	bFinished [ 3 ]
+>27	PrimaryExpression	3
+>28	Identifier	bFinished
+>29	ArrayIndexing	bFinished [ 2 ]
+>30	PrimaryExpression	2
+>31	Identifier	bFinished
+>32	ArrayIndexing	bFinished [ 1 ]
+>33	PrimaryExpression	1
+>34	Identifier	bFinished
+>35	ArrayIndexing	bFinished [ 0 ]
+>36	PrimaryExpression	0
+>37	Identifier	bFinished
+>38	ExpressionStatement	 
+>39	AssignmentExpr	numplayers = 0
+>40	PrimaryExpression	0
+>41	Identifier	numplayers
+>50	FunctionDef	DoomInterface 
+>51	ParameterList	 
+>52	CompoundStatement	 
+>56	FunctionDef	DoomInterface 
+>57	ParameterList	int playerscount , bool multiplayer
+>58	Parameter	 
+>59	Identifier	multiplayer
+>60	ParameterType	bool
+>61	Parameter	 
+>62	Identifier	playerscount
+>63	ParameterType	int
+>64	ReturnType	void
+>65	CompoundStatement	 
+>66	ForStatement	for ( i = 0 ; i < numplayers ; ++ i )
+>67	CompoundStatement	 
+>68	ExpressionStatement	 
+>69	CallExpression	DoomLib 
+>70	ArgumentList	- 1
+>71	Argument	- 1
+>72	UnaryOp	- 1
+>73	PrimaryExpression	1
+>74	UnaryOperator	-
+>75	Callee	DoomLib 
+>76	Identifier	DoomLib 
+>77	IfStatement	if ( DoomLib 
+>78	CompoundStatement	 
+>79	ExpressionStatement	 
+>80	AssignmentExpr	g -> menuactive = 0
+>81	PrimaryExpression	0
+>82	PtrMemberAccess	g -> menuactive
+>83	Identifier	menuactive
+>84	Identifier	g
+>85	Statement	 
+>86	ExpressionStatement	 
+>87	AssignmentExpr	DoomLib 
+>88	Identifier	false
+>89	Identifier	DoomLib 
+>90	ExpressionStatement	 
+>91	CallExpression	G_DeferedInitNew ( ( skill_t ) DoomLib 
+>92	ArgumentList	( skill_t ) DoomLib 
+>93	Argument	startLevel
+>94	Identifier	startLevel
+>95	Argument	DoomLib 
+>96	AdditiveExpression	DoomLib 
+>97	PrimaryExpression	1
+>98	Identifier	DoomLib 
+>99	Argument	( skill_t ) DoomLib 
+>100	CastExpression	( skill_t ) DoomLib 
+>101	Identifier	DoomLib 
+>102	CastTarget	skill_t
+>103	Callee	G_DeferedInitNew
+>104	Identifier	G_DeferedInitNew
+>105	IdentifierDeclStatement	 
+>106	IdentifierDecl	startLevel = 1
+>107	AssignmentExpr	startLevel = 1
+>108	PrimaryExpression	1
+>109	Identifier	startLevel
+>110	Identifier	startLevel
+>111	IdentifierDeclType	int
+>112	Statement	 
+>113	Condition	 
+>114	Identifier	DoomLib 
+>115	IfStatement	if ( DoomLib 
+>116	CompoundStatement	 
+>117	ExpressionStatement	 
+>118	AssignmentExpr	g -> menuactive = 0
+>119	PrimaryExpression	0
+>120	PtrMemberAccess	g -> menuactive
+>121	Identifier	menuactive
+>122	Identifier	g
+>123	Statement	 
+>124	ExpressionStatement	 
+>125	AssignmentExpr	DoomLib 
+>126	Identifier	false
+>127	Identifier	DoomLib 
+>128	ExpressionStatement	 
+>129	CallExpression	G_LoadGame ( DoomLib 
+>130	ArgumentList	DoomLib 
+>131	Argument	DoomLib 
+>132	Identifier	DoomLib 
+>133	Callee	G_LoadGame
+>134	Identifier	G_LoadGame
+>135	Condition	 
+>136	Identifier	DoomLib 
+>137	IfStatement	if ( globalNetworking )
+>138	ElseStatement	else
+>139	CompoundStatement	 
+>140	ExpressionStatement	 
+>141	CallExpression	DoomLib 
+>142	ArgumentList	localdargc
+>143	Argument	dargv [ i ]
+>144	ArrayIndexing	dargv [ i ]
+>145	Identifier	i
+>146	Identifier	dargv
+>147	Argument	localdargc
+>148	Identifier	localdargc
+>149	Callee	DoomLib 
+>150	Identifier	DoomLib 
+>151	CompoundStatement	 
+>152	ExpressionStatement	 
+>153	CallExpression	DoomLib 
+>154	ArgumentList	mpArgc [ i ]
+>155	Argument	mpArgVPtr [ i ]
+>156	ArrayIndexing	mpArgVPtr [ i ]
+>157	Identifier	i
+>158	Identifier	mpArgVPtr
+>159	Argument	mpArgc [ i ]
+>160	ArrayIndexing	mpArgc [ i ]
+>161	Identifier	i
+>162	Identifier	mpArgc
+>163	Callee	DoomLib 
+>164	Identifier	DoomLib 
+>165	ExpressionStatement	 
+>166	CallExpression	printf ( \"\n\" )
+>167	ArgumentList	\"\n\"
+>168	Argument	\"\n\"
+>169	PrimaryExpression	\"\n\"
+>170	Callee	printf
+>171	Identifier	printf
+>172	ForStatement	for ( int j = 0 ; j < mpArgc [ 0 ] ; ++ j )
+>173	CompoundStatement	 
+>174	ExpressionStatement	 
+>175	CallExpression	printf ( \" %s\" , mpArgVPtr [ 0 ] [ j ] )
+>176	ArgumentList	\" %s\"
+>177	Argument	mpArgVPtr [ 0 ] [ j ]
+>178	ArrayIndexing	mpArgVPtr [ 0 ] [ j ]
+>179	Identifier	j
+>180	ArrayIndexing	mpArgVPtr [ 0 ]
+>181	PrimaryExpression	0
+>182	Identifier	mpArgVPtr
+>183	Argument	\" %s\"
+>184	PrimaryExpression	\" %s\"
+>185	Callee	printf
+>186	Identifier	printf
+>187	UnaryExpression	 
+>188	Identifier	j
+>189	IncDec	++
+>190	Condition	 
+>191	RelationalExpression	j < mpArgc [ 0 ]
+>192	ArrayIndexing	mpArgc [ 0 ]
+>193	PrimaryExpression	0
+>194	Identifier	mpArgc
+>195	Identifier	j
+>196	ForInit	 
+>197	IdentifierDeclStatement	int j = 0 ;
+>198	IdentifierDecl	j = 0
+>199	AssignmentExpr	j = 0
+>200	PrimaryExpression	0
+>201	Identifier	j
+>202	Identifier	j
+>203	IdentifierDeclType	int
+>204	ExpressionStatement	 
+>205	CallExpression	printf ( \"Starting mulitplayer game, argv = \" )
+>206	ArgumentList	\"Starting mulitplayer game, argv = \"
+>207	Argument	\"Starting mulitplayer game, argv = \"
+>208	PrimaryExpression	\"Starting mulitplayer game, argv = \"
+>209	Callee	printf
+>210	Identifier	printf
+>211	Condition	 
+>212	Identifier	globalNetworking
+>213	ExpressionStatement	 
+>214	CallExpression	DoomLib 
+>215	ArgumentList	NULL
+>216	Argument	NULL
+>217	Identifier	NULL
+>218	Callee	DoomLib 
+>219	Identifier	DoomLib 
+>220	ExpressionStatement	 
+>221	AssignmentExpr	bFinished [ i ] = false
+>222	Identifier	false
+>223	ArrayIndexing	bFinished [ i ]
+>224	Identifier	i
+>225	Identifier	bFinished
+>226	ExpressionStatement	 
+>227	CallExpression	DoomLib 
+>228	ArgumentList	i
+>229	Argument	i
+>230	Identifier	i
+>231	Callee	DoomLib 
+>232	Identifier	DoomLib 
+>233	UnaryExpression	 
+>234	Identifier	i
+>235	IncDec	++
+>236	Condition	 
+>237	RelationalExpression	i < numplayers
+>238	Identifier	numplayers
+>239	Identifier	i
+>240	ForInit	 
+>241	AssignmentExpr	i = 0
+>242	PrimaryExpression	0
+>243	Identifier	i
+>244	IfStatement	if ( multiplayer )
+>245	CompoundStatement	 
+>246	ExpressionStatement	 
+>247	AssignmentExpr	numplayers = 1
+>248	PrimaryExpression	1
+>249	Identifier	numplayers
+>250	Condition	 
+>251	Identifier	multiplayer
+>252	IfStatement	if ( ! multiplayer && playerscount > 1 )
+>253	CompoundStatement	 
+>254	ExpressionStatement	 
+>255	AssignmentExpr	localdargc += playerscount
+>256	Identifier	playerscount
+>257	Identifier	localdargc
+>258	ExpressionStatement	 
+>259	AssignmentExpr	localdargc += 2
+>260	PrimaryExpression	2
+>261	Identifier	localdargc
+>262	Condition	 
+>263	AndExpression	! multiplayer && playerscount > 1
+>264	RelationalExpression	playerscount > 1
+>265	PrimaryExpression	1
+>266	Identifier	playerscount
+>267	UnaryOp	! multiplayer
+>268	Identifier	multiplayer
+>269	UnaryOperator	!
+>270	IfStatement	if ( DoomLib 
+>271	CompoundStatement	 
+>272	ExpressionStatement	 
+>273	AssignmentExpr	DoomLib 
+>274	Identifier	Z_Malloc
+>275	Identifier	DoomLib 
+>276	Condition	 
+>277	EqualityExpression	DoomLib 
+>278	Identifier	NULL
+>279	Identifier	DoomLib 
+>280	ExpressionStatement	 
+>281	AssignmentExpr	lastTicRun = 0
+>282	PrimaryExpression	0
+>283	Identifier	lastTicRun
+>284	ExpressionStatement	 
+>285	AssignmentExpr	globalNetworking = multiplayer
+>286	Identifier	multiplayer
+>287	Identifier	globalNetworking
+>288	ExpressionStatement	 
+>289	AssignmentExpr	numplayers = playerscount
+>290	Identifier	playerscount
+>291	Identifier	numplayers
+>292	IdentifierDeclStatement	 
+>293	IdentifierDecl	localdargc = 1
+>294	AssignmentExpr	localdargc = 1
+>295	PrimaryExpression	1
+>296	Identifier	localdargc
+>297	Identifier	localdargc
+>298	IdentifierDeclType	int
+>299	IdentifierDeclStatement	 
+>300	IdentifierDecl	i
+>301	Identifier	i
+>302	IdentifierDeclType	int
+>338	FunctionDef	DoomInterface 
+>339	ParameterList	int iTime , idUserCmdMgr * userCmdMgr
+>340	Parameter	 
+>341	Identifier	userCmdMgr
+>342	ParameterType	idUserCmdMgr *
+>343	Parameter	 
+>344	Identifier	iTime
+>345	ParameterType	int
+>346	ReturnType	bool
+>347	CompoundStatement	 
+>348	ReturnStatement	 
+>349	Identifier	bAllFinished
+>350	IfStatement	if ( ! globalNetworking || ( lastTicRun < iTime ) )
+>351	ElseStatement	else
+>352	CompoundStatement	 
+>353	ExpressionStatement	 
+>354	CallExpression	printf ( \"Skipping this frame becase it's not time to run a tic yet.\n\" )
+>355	ArgumentList	\"Skipping this frame becase it's not time to run a tic yet.\n\"
+>356	Argument	\"Skipping this frame becase it's not time to run a tic yet.\n\"
+>357	PrimaryExpression	\"Skipping this frame becase it's not time to run a tic yet.\n\"
+>358	Callee	printf
+>359	Identifier	printf
+>360	CompoundStatement	 
+>361	ExpressionStatement	 
+>362	AssignmentExpr	lastTicRun = iTime
+>363	Identifier	iTime
+>364	Identifier	lastTicRun
+>365	ExpressionStatement	 
+>366	CallExpression	DoomLib 
+>367	ArgumentList	- 1
+>368	Argument	- 1
+>369	UnaryOp	- 1
+>370	PrimaryExpression	1
+>371	UnaryOperator	-
+>372	Callee	DoomLib 
+>373	Identifier	DoomLib 
+>374	ExpressionStatement	 
+>375	CallExpression	DoomLib 
+>376	ArgumentList	 
+>377	Callee	DoomLib 
+>378	Identifier	DoomLib 
+>379	ExpressionStatement	 
+>380	CallExpression	DoomLib 
+>381	ArgumentList	 
+>382	Callee	DoomLib 
+>383	Identifier	DoomLib 
+>384	ExpressionStatement	 
+>385	CallExpression	DoomLib 
+>386	ArgumentList	0
+>387	Argument	0
+>388	PrimaryExpression	0
+>389	Callee	DoomLib 
+>390	Identifier	DoomLib 
+>391	ForStatement	for ( i = 0 ; i < numplayers ; ++ i )
+>392	CompoundStatement	 
+>393	ExpressionStatement	 
+>394	CallExpression	DoomLib 
+>395	ArgumentList	- 1
+>396	Argument	- 1
+>397	UnaryOp	- 1
+>398	PrimaryExpression	1
+>399	UnaryOperator	-
+>400	Callee	DoomLib 
+>401	Identifier	DoomLib 
+>402	IfStatement	if ( bFinished [ i ] == false )
+>403	ElseStatement	else
+>404	CompoundStatement	 
+>405	CompoundStatement	 
+>406	ExpressionStatement	 
+>407	AssignmentExpr	drawFullScreen = true
+>408	Identifier	true
+>409	Identifier	drawFullScreen
+>410	Statement	 
+>411	Statement	 
+>412	Statement	 
+>413	Statement	 
+>414	Statement	 
+>415	Statement	 
+>416	Statement	 
+>417	Statement	 
+>418	Statement	 
+>419	Statement	 
+>420	Statement	 
+>421	Statement	 
+>422	Statement	 
+>423	Statement	 
+>424	Statement	 
+>425	CompoundStatement	 
+>426	ExpressionStatement	 
+>427	CallExpression	M_Drawer ( )
+>428	ArgumentList	 
+>429	Callee	M_Drawer
+>430	Identifier	M_Drawer
+>431	ExpressionStatement	 
+>432	CallExpression	DoomLib 
+>433	ArgumentList	 
+>434	Callee	DoomLib 
+>435	Identifier	DoomLib 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	CompoundStatement	 
+>444	ExpressionStatement	 
+>445	CallExpression	DoomLib 
+>446	ArgumentList	 
+>447	Callee	DoomLib 
+>448	Identifier	DoomLib 
+>449	IfStatement	if ( ! waitingForWipe )
+>450	CompoundStatement	 
+>451	IfStatement	if ( didRunTic == false )
+>452	CompoundStatement	 
+>453	ExpressionStatement	 
+>454	CallExpression	Sys_Yield ( )
+>455	ArgumentList	 
+>456	Callee	Sys_Yield
+>457	Identifier	Sys_Yield
+>458	Condition	 
+>459	EqualityExpression	didRunTic == false
+>460	Identifier	false
+>461	Identifier	didRunTic
+>462	IdentifierDeclStatement	 
+>463	IdentifierDecl	didRunTic = DoomLib 
+>464	AssignmentExpr	didRunTic = DoomLib 
+>465	CallExpression	DoomLib 
+>466	ArgumentList	userCmdMgr
+>467	Argument	userCmdMgr
+>468	Identifier	userCmdMgr
+>469	Callee	DoomLib 
+>470	Identifier	DoomLib 
+>471	Identifier	didRunTic
+>472	Identifier	didRunTic
+>473	IdentifierDeclType	const bool
+>474	Condition	 
+>475	UnaryOp	! waitingForWipe
+>476	Identifier	waitingForWipe
+>477	UnaryOperator	!
+>478	Statement	 
+>479	Statement	 
+>480	Statement	 
+>481	Statement	 
+>482	Statement	 
+>483	Statement	 
+>484	Statement	 
+>485	CompoundStatement	 
+>486	ExpressionStatement	 
+>487	AssignmentExpr	bFinished [ i ] = DoomLib 
+>488	CallExpression	DoomLib 
+>489	ArgumentList	 
+>490	Callee	DoomLib 
+>491	Identifier	DoomLib 
+>492	ArrayIndexing	bFinished [ i ]
+>493	Identifier	i
+>494	Identifier	bFinished
+>495	ExpressionStatement	 
+>496	AssignmentExpr	bAllFinished = false
+>497	Identifier	false
+>498	Identifier	bAllFinished
+>499	Condition	 
+>500	EqualityExpression	bFinished [ i ] == false
+>501	Identifier	false
+>502	ArrayIndexing	bFinished [ i ]
+>503	Identifier	i
+>504	Identifier	bFinished
+>505	ExpressionStatement	 
+>506	CallExpression	I_SetTime ( iTime )
+>507	ArgumentList	iTime
+>508	Argument	iTime
+>509	Identifier	iTime
+>510	Callee	I_SetTime
+>511	Identifier	I_SetTime
+>512	ExpressionStatement	 
+>513	CallExpression	DoomLib 
+>514	ArgumentList	i
+>515	Argument	i
+>516	Identifier	i
+>517	Callee	DoomLib 
+>518	Identifier	DoomLib 
+>519	UnaryExpression	 
+>520	Identifier	i
+>521	IncDec	++
+>522	Condition	 
+>523	RelationalExpression	i < numplayers
+>524	Identifier	numplayers
+>525	Identifier	i
+>526	ForInit	 
+>527	AssignmentExpr	i = 0
+>528	PrimaryExpression	0
+>529	Identifier	i
+>530	ExpressionStatement	 
+>531	CallExpression	DoomLib 
+>532	ArgumentList	 
+>533	Callee	DoomLib 
+>534	Identifier	DoomLib 
+>535	ExpressionStatement	 
+>536	CallExpression	DoomLib 
+>537	ArgumentList	0
+>538	Argument	0
+>539	PrimaryExpression	0
+>540	Callee	DoomLib 
+>541	Identifier	DoomLib 
+>542	ExpressionStatement	 
+>543	AssignmentExpr	drawFullScreen = false
+>544	Identifier	false
+>545	Identifier	drawFullScreen
+>546	Condition	 
+>547	OrExpression	! globalNetworking || ( lastTicRun < iTime )
+>548	RelationalExpression	lastTicRun < iTime
+>549	Identifier	iTime
+>550	Identifier	lastTicRun
+>551	UnaryOp	! globalNetworking
+>552	Identifier	globalNetworking
+>553	UnaryOperator	!
+>554	IdentifierDeclStatement	 
+>555	IdentifierDecl	bAllFinished = true
+>556	AssignmentExpr	bAllFinished = true
+>557	Identifier	true
+>558	Identifier	true
+>559	Identifier	bAllFinished
+>560	IdentifierDeclType	bool
+>561	IdentifierDeclStatement	 
+>562	IdentifierDecl	i
+>563	Identifier	i
+>564	IdentifierDeclType	int
+>587	FunctionDef	DoomInterface 
+>588	ParameterList	 
+>589	ReturnType	void
+>590	CompoundStatement	 
+>591	ExpressionStatement	 
+>592	AssignmentExpr	lastTicRun = 0
+>593	PrimaryExpression	0
+>594	Identifier	lastTicRun
+>595	ExpressionStatement	 
+>596	AssignmentExpr	numplayers = 0
+>597	PrimaryExpression	0
+>598	Identifier	numplayers
+>599	ExpressionStatement	 
+>600	CallExpression	DoomLib 
+>601	ArgumentList	- 1
+>602	Argument	- 1
+>603	UnaryOp	- 1
+>604	PrimaryExpression	1
+>605	UnaryOperator	-
+>606	Callee	DoomLib 
+>607	Identifier	DoomLib 
+>608	ForStatement	for ( i = 0 ; i < numplayers ; i ++ )
+>609	CompoundStatement	 
+>610	ExpressionStatement	 
+>611	CallExpression	DoomLib 
+>612	ArgumentList	 
+>613	Callee	DoomLib 
+>614	Identifier	DoomLib 
+>615	ExpressionStatement	 
+>616	CallExpression	DoomLib 
+>617	ArgumentList	i
+>618	Argument	i
+>619	Identifier	i
+>620	Callee	DoomLib 
+>621	Identifier	DoomLib 
+>622	IncDecOp	 
+>623	IncDec	++
+>624	Identifier	i
+>625	Condition	 
+>626	RelationalExpression	i < numplayers
+>627	Identifier	numplayers
+>628	Identifier	i
+>629	ForInit	 
+>630	AssignmentExpr	i = 0
+>631	PrimaryExpression	0
+>632	Identifier	i
+>633	ExpressionStatement	 
+>634	CallExpression	I_ShutdownNetwork ( )
+>635	ArgumentList	 
+>636	Callee	I_ShutdownNetwork
+>637	Identifier	I_ShutdownNetwork
+>638	ForStatement	for ( i = 0 ; i < numplayers ; i ++ )
+>639	CompoundStatement	 
+>640	ExpressionStatement	 
+>641	CallExpression	D_QuitNetGame ( )
+>642	ArgumentList	 
+>643	Callee	D_QuitNetGame
+>644	Identifier	D_QuitNetGame
+>645	ExpressionStatement	 
+>646	CallExpression	DoomLib 
+>647	ArgumentList	i
+>648	Argument	i
+>649	Identifier	i
+>650	Callee	DoomLib 
+>651	Identifier	DoomLib 
+>652	IncDecOp	 
+>653	IncDec	++
+>654	Identifier	i
+>655	Condition	 
+>656	RelationalExpression	i < numplayers
+>657	Identifier	numplayers
+>658	Identifier	i
+>659	ForInit	 
+>660	AssignmentExpr	i = 0
+>661	PrimaryExpression	0
+>662	Identifier	i
+>663	IdentifierDeclStatement	 
+>664	IdentifierDecl	i
+>665	Identifier	i
+>666	IdentifierDeclType	int
+>675	FunctionDef	DoomInterface 
+>676	ParameterList	 
+>677	ReturnType	void
+>678	CompoundStatement	 
+>679	ExpressionStatement	 
+>680	CallExpression	I_ShutdownNetwork ( )
+>681	ArgumentList	 
+>682	Callee	I_ShutdownNetwork
+>683	Identifier	I_ShutdownNetwork
+>684	ForStatement	for ( int i = 0 ; i < numplayers ; i ++ )
+>685	CompoundStatement	 
+>686	ExpressionStatement	 
+>687	CallExpression	D_StartTitle ( )
+>688	ArgumentList	 
+>689	Callee	D_StartTitle
+>690	Identifier	D_StartTitle
+>691	ExpressionStatement	 
+>692	AssignmentExpr	lastTicRun = 0
+>693	PrimaryExpression	0
+>694	Identifier	lastTicRun
+>695	ExpressionStatement	 
+>696	AssignmentExpr	g -> netgame = false
+>697	Identifier	false
+>698	PtrMemberAccess	g -> netgame
+>699	Identifier	netgame
+>700	Identifier	g
+>701	Statement	 
+>702	ExpressionStatement	 
+>703	AssignmentExpr	g -> usergame = false
+>704	Identifier	false
+>705	PtrMemberAccess	g -> usergame
+>706	Identifier	usergame
+>707	Identifier	g
+>708	Statement	 
+>709	ExpressionStatement	 
+>710	AssignmentExpr	g -> menuactive = false
+>711	Identifier	false
+>712	PtrMemberAccess	g -> menuactive
+>713	Identifier	menuactive
+>714	Identifier	g
+>715	Statement	 
+>716	ExpressionStatement	 
+>717	AssignmentExpr	globalPauseTime = false
+>718	Identifier	false
+>719	Identifier	globalPauseTime
+>720	ExpressionStatement	 
+>721	CallExpression	G_CheckDemoStatus ( )
+>722	ArgumentList	 
+>723	Callee	G_CheckDemoStatus
+>724	Identifier	G_CheckDemoStatus
+>725	CompoundStatement	 
+>726	ExpressionStatement	 
+>727	CallExpression	D_QuitNetGame ( )
+>728	ArgumentList	 
+>729	Callee	D_QuitNetGame
+>730	Identifier	D_QuitNetGame
+>731	Statement	 
+>732	Statement	 
+>733	Statement	 
+>734	Statement	 
+>735	Statement	 
+>736	Statement	 
+>737	Statement	 
+>738	ExpressionStatement	 
+>739	CallExpression	DoomLib 
+>740	ArgumentList	i
+>741	Argument	i
+>742	Identifier	i
+>743	Callee	DoomLib 
+>744	Identifier	DoomLib 
+>745	IncDecOp	 
+>746	IncDec	++
+>747	Identifier	i
+>748	Condition	 
+>749	RelationalExpression	i < numplayers
+>750	Identifier	numplayers
+>751	Identifier	i
+>752	ForInit	 
+>753	IdentifierDeclStatement	int i = 0 ;
+>754	IdentifierDecl	i = 0
+>755	AssignmentExpr	i = 0
+>756	PrimaryExpression	0
+>757	Identifier	i
+>758	Identifier	i
+>759	IdentifierDeclType	int
+>773	FunctionDef	DoomInterface 
+>774	ParameterList	 
+>775	ReturnType	void
+>776	CompoundStatement	 
+>777	ForStatement	for ( int i = 0 ; i < numplayers ; i ++ )
+>778	CompoundStatement	 
+>779	ExpressionStatement	 
+>780	CallExpression	D_StartTitle ( )
+>781	ArgumentList	 
+>782	Callee	D_StartTitle
+>783	Identifier	D_StartTitle
+>784	ExpressionStatement	 
+>785	AssignmentExpr	lastTicRun = 0
+>786	PrimaryExpression	0
+>787	Identifier	lastTicRun
+>788	ExpressionStatement	 
+>789	AssignmentExpr	g -> netgame = false
+>790	Identifier	false
+>791	PtrMemberAccess	g -> netgame
+>792	Identifier	netgame
+>793	Identifier	g
+>794	Statement	 
+>795	ExpressionStatement	 
+>796	AssignmentExpr	g -> usergame = false
+>797	Identifier	false
+>798	PtrMemberAccess	g -> usergame
+>799	Identifier	usergame
+>800	Identifier	g
+>801	Statement	 
+>802	ExpressionStatement	 
+>803	AssignmentExpr	g -> menuactive = false
+>804	Identifier	false
+>805	PtrMemberAccess	g -> menuactive
+>806	Identifier	menuactive
+>807	Identifier	g
+>808	Statement	 
+>809	ExpressionStatement	 
+>810	AssignmentExpr	globalPauseTime = false
+>811	Identifier	false
+>812	Identifier	globalPauseTime
+>813	ExpressionStatement	 
+>814	CallExpression	G_CheckDemoStatus ( )
+>815	ArgumentList	 
+>816	Callee	G_CheckDemoStatus
+>817	Identifier	G_CheckDemoStatus
+>818	CompoundStatement	 
+>819	ExpressionStatement	 
+>820	CallExpression	D_QuitNetGame ( )
+>821	ArgumentList	 
+>822	Callee	D_QuitNetGame
+>823	Identifier	D_QuitNetGame
+>824	Statement	 
+>825	Statement	 
+>826	Statement	 
+>827	Statement	 
+>828	Statement	 
+>829	Statement	 
+>830	Statement	 
+>831	ExpressionStatement	 
+>832	CallExpression	DoomLib 
+>833	ArgumentList	i
+>834	Argument	i
+>835	Identifier	i
+>836	Callee	DoomLib 
+>837	Identifier	DoomLib 
+>838	IncDecOp	 
+>839	IncDec	++
+>840	Identifier	i
+>841	Condition	 
+>842	RelationalExpression	i < numplayers
+>843	Identifier	numplayers
+>844	Identifier	i
+>845	ForInit	 
+>846	IdentifierDeclStatement	int i = 0 ;
+>847	IdentifierDecl	i = 0
+>848	AssignmentExpr	i = 0
+>849	PrimaryExpression	0
+>850	Identifier	i
+>851	Identifier	i
+>852	IdentifierDeclType	int
+>866	FunctionDef	DoomInterface 
+>867	ParameterList	 
+>868	ReturnType	int
+>869	CompoundStatement	 
+>870	ReturnStatement	 
+>871	CallExpression	DoomLib 
+>872	ArgumentList	 
+>873	Callee	DoomLib 
+>874	Identifier	DoomLib 
+>879	FunctionDef	DoomInterface 
+>880	ParameterList	 
+>881	ReturnType	int
+>882	CompoundStatement	 
+>883	ReturnStatement	 
+>884	Identifier	numplayers
+>889	FunctionDef	DoomInterface 
+>890	ParameterList	DoomLib 
+>891	Parameter	 
+>892	Identifier	sendRemote
+>893	ParameterType	DoomLib 
+>894	Parameter	 
+>895	Identifier	send
+>896	ParameterType	DoomLib 
+>897	Parameter	 
+>898	Identifier	recv
+>899	ParameterType	DoomLib 
+>900	ReturnType	void
+>901	CompoundStatement	 
+>902	ExpressionStatement	 
+>903	CallExpression	DoomLib 
+>904	ArgumentList	recv
+>905	Argument	sendRemote
+>906	Identifier	sendRemote
+>907	Argument	send
+>908	Identifier	send
+>909	Argument	recv
+>910	Identifier	recv
+>911	Callee	DoomLib 
+>912	Identifier	DoomLib 
+>919	FunctionDef	DoomInterface 
+>920	ParameterList	int localPlayerIndex , int playerCount , int localPlayer , std 
+>921	Parameter	 
+>922	Identifier	playerAddresses
+>923	ParameterType	std 
+>924	Parameter	 
+>925	Identifier	localPlayer
+>926	ParameterType	int
+>927	Parameter	 
+>928	Identifier	playerCount
+>929	ParameterType	int
+>930	Parameter	 
+>931	Identifier	localPlayerIndex
+>932	ParameterType	int
+>933	ReturnType	void
+>934	CompoundStatement	 
+>935	ForStatement	for ( int i = 0 ; i < playerCount ; i ++ )
+>936	CompoundStatement	 
+>937	IfStatement	if ( i != localPlayer )
+>938	CompoundStatement	 
+>939	ExpressionStatement	 
+>940	IncDecOp	currentArg ++
+>941	IncDec	++
+>942	Identifier	currentArg
+>943	ExpressionStatement	 
+>944	CallExpression	strcpy ( mpArgV [ localPlayerIndex ] [ currentArg ] , playerAddresses [ i ] . c_str ( ) )
+>945	ArgumentList	mpArgV [ localPlayerIndex ] [ currentArg ]
+>946	Argument	playerAddresses [ i ] . c_str ( )
+>947	CallExpression	playerAddresses [ i ] . c_str ( )
+>948	ArgumentList	 
+>949	Callee	playerAddresses [ i ] . c_str
+>950	MemberAccess	playerAddresses [ i ] . c_str
+>951	Identifier	c_str
+>952	ArrayIndexing	playerAddresses [ i ]
+>953	Identifier	i
+>954	Identifier	playerAddresses
+>955	Argument	mpArgV [ localPlayerIndex ] [ currentArg ]
+>956	ArrayIndexing	mpArgV [ localPlayerIndex ] [ currentArg ]
+>957	Identifier	currentArg
+>958	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>959	Identifier	localPlayerIndex
+>960	Identifier	mpArgV
+>961	Callee	strcpy
+>962	Identifier	strcpy
+>963	Condition	 
+>964	EqualityExpression	i != localPlayer
+>965	Identifier	localPlayer
+>966	Identifier	i
+>967	IncDecOp	 
+>968	IncDec	++
+>969	Identifier	i
+>970	Condition	 
+>971	RelationalExpression	i < playerCount
+>972	Identifier	playerCount
+>973	Identifier	i
+>974	ForInit	 
+>975	IdentifierDeclStatement	int i = 0 ;
+>976	IdentifierDecl	i = 0
+>977	AssignmentExpr	i = 0
+>978	PrimaryExpression	0
+>979	Identifier	i
+>980	Identifier	i
+>981	IdentifierDeclType	int
+>982	IdentifierDeclStatement	 
+>983	IdentifierDecl	currentArg = 6
+>984	AssignmentExpr	currentArg = 6
+>985	PrimaryExpression	6
+>986	Identifier	currentArg
+>987	Identifier	currentArg
+>988	IdentifierDeclType	int
+>989	ExpressionStatement	 
+>990	CallExpression	strcpy ( mpArgV [ localPlayerIndex ] [ 5 ] , playerAddresses [ localPlayer ] . c_str ( ) )
+>991	ArgumentList	mpArgV [ localPlayerIndex ] [ 5 ]
+>992	Argument	playerAddresses [ localPlayer ] . c_str ( )
+>993	CallExpression	playerAddresses [ localPlayer ] . c_str ( )
+>994	ArgumentList	 
+>995	Callee	playerAddresses [ localPlayer ] . c_str
+>996	MemberAccess	playerAddresses [ localPlayer ] . c_str
+>997	Identifier	c_str
+>998	ArrayIndexing	playerAddresses [ localPlayer ]
+>999	Identifier	localPlayer
+>1000	Identifier	playerAddresses
+>1001	Argument	mpArgV [ localPlayerIndex ] [ 5 ]
+>1002	ArrayIndexing	mpArgV [ localPlayerIndex ] [ 5 ]
+>1003	PrimaryExpression	5
+>1004	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1005	Identifier	localPlayerIndex
+>1006	Identifier	mpArgV
+>1007	Callee	strcpy
+>1008	Identifier	strcpy
+>1009	ExpressionStatement	 
+>1010	CallExpression	sprintf ( mpArgV [ localPlayerIndex ] [ 4 ] , \"%d\" , localPlayer )
+>1011	ArgumentList	mpArgV [ localPlayerIndex ] [ 4 ]
+>1012	Argument	localPlayer
+>1013	Identifier	localPlayer
+>1014	Argument	\"%d\"
+>1015	PrimaryExpression	\"%d\"
+>1016	Argument	mpArgV [ localPlayerIndex ] [ 4 ]
+>1017	ArrayIndexing	mpArgV [ localPlayerIndex ] [ 4 ]
+>1018	PrimaryExpression	4
+>1019	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1020	Identifier	localPlayerIndex
+>1021	Identifier	mpArgV
+>1022	Callee	sprintf
+>1023	Identifier	sprintf
+>1024	ExpressionStatement	 
+>1025	CallExpression	strcpy ( mpArgV [ localPlayerIndex ] [ 3 ] , \"-net\" )
+>1026	ArgumentList	mpArgV [ localPlayerIndex ] [ 3 ]
+>1027	Argument	\"-net\"
+>1028	PrimaryExpression	\"-net\"
+>1029	Argument	mpArgV [ localPlayerIndex ] [ 3 ]
+>1030	ArrayIndexing	mpArgV [ localPlayerIndex ] [ 3 ]
+>1031	PrimaryExpression	3
+>1032	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1033	Identifier	localPlayerIndex
+>1034	Identifier	mpArgV
+>1035	Callee	strcpy
+>1036	Identifier	strcpy
+>1037	ExpressionStatement	 
+>1038	CallExpression	strcpy ( mpArgV [ localPlayerIndex ] [ 2 ] , \"1\" )
+>1039	ArgumentList	mpArgV [ localPlayerIndex ] [ 2 ]
+>1040	Argument	\"1\"
+>1041	PrimaryExpression	\"1\"
+>1042	Argument	mpArgV [ localPlayerIndex ] [ 2 ]
+>1043	ArrayIndexing	mpArgV [ localPlayerIndex ] [ 2 ]
+>1044	PrimaryExpression	2
+>1045	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1046	Identifier	localPlayerIndex
+>1047	Identifier	mpArgV
+>1048	Callee	strcpy
+>1049	Identifier	strcpy
+>1050	ExpressionStatement	 
+>1051	CallExpression	strcpy ( mpArgV [ localPlayerIndex ] [ 1 ] , \"-dup\" )
+>1052	ArgumentList	mpArgV [ localPlayerIndex ] [ 1 ]
+>1053	Argument	\"-dup\"
+>1054	PrimaryExpression	\"-dup\"
+>1055	Argument	mpArgV [ localPlayerIndex ] [ 1 ]
+>1056	ArrayIndexing	mpArgV [ localPlayerIndex ] [ 1 ]
+>1057	PrimaryExpression	1
+>1058	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1059	Identifier	localPlayerIndex
+>1060	Identifier	mpArgV
+>1061	Callee	strcpy
+>1062	Identifier	strcpy
+>1063	ExpressionStatement	 
+>1064	CallExpression	strcpy ( mpArgV [ localPlayerIndex ] [ 0 ] , \"doomlauncher\" )
+>1065	ArgumentList	mpArgV [ localPlayerIndex ] [ 0 ]
+>1066	Argument	\"doomlauncher\"
+>1067	PrimaryExpression	\"doomlauncher\"
+>1068	Argument	mpArgV [ localPlayerIndex ] [ 0 ]
+>1069	ArrayIndexing	mpArgV [ localPlayerIndex ] [ 0 ]
+>1070	PrimaryExpression	0
+>1071	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1072	Identifier	localPlayerIndex
+>1073	Identifier	mpArgV
+>1074	Callee	strcpy
+>1075	Identifier	strcpy
+>1076	ExpressionStatement	 
+>1077	AssignmentExpr	mpArgc [ localPlayerIndex ] = playerCount + 5
+>1078	AdditiveExpression	playerCount + 5
+>1079	PrimaryExpression	5
+>1080	Identifier	playerCount
+>1081	ArrayIndexing	mpArgc [ localPlayerIndex ]
+>1082	Identifier	localPlayerIndex
+>1083	Identifier	mpArgc
+>1084	ForStatement	for ( int i = 0 ; i < 10 ; i ++ )
+>1085	CompoundStatement	 
+>1086	ExpressionStatement	 
+>1087	AssignmentExpr	mpArgVPtr [ localPlayerIndex ] [ i ] = mpArgV [ localPlayerIndex ] [ i ]
+>1088	ArrayIndexing	mpArgV [ localPlayerIndex ] [ i ]
+>1089	Identifier	i
+>1090	ArrayIndexing	mpArgV [ localPlayerIndex ]
+>1091	Identifier	localPlayerIndex
+>1092	Identifier	mpArgV
+>1093	ArrayIndexing	mpArgVPtr [ localPlayerIndex ] [ i ]
+>1094	Identifier	i
+>1095	ArrayIndexing	mpArgVPtr [ localPlayerIndex ]
+>1096	Identifier	localPlayerIndex
+>1097	Identifier	mpArgVPtr
+>1098	IncDecOp	 
+>1099	IncDec	++
+>1100	Identifier	i
+>1101	Condition	 
+>1102	RelationalExpression	i < 10
+>1103	PrimaryExpression	10
+>1104	Identifier	i
+>1105	ForInit	 
+>1106	IdentifierDeclStatement	int i = 0 ;
+>1107	IdentifierDecl	i = 0
+>1108	AssignmentExpr	i = 0
+>1109	PrimaryExpression	0
+>1110	Identifier	i
+>1111	Identifier	i
+>1112	IdentifierDeclType	int
+<13=15,14
+<15=38,20,16
+<16=17
+<17=19,18
+<20=21
+<21=35,22
+<22=32,23
+<23=29,24
+<24=26,25
+<26=28,27
+<29=31,30
+<32=34,33
+<35=37,36
+<38=39
+<39=41,40
+<50=52,51
+<56=65,64,57
+<57=61,58
+<58=60,59
+<61=63,62
+<65=299,292,288,284,280,270,252,244,66
+<66=240,236,233,67
+<67=226,220,213,137,115,77,68
+<68=69
+<69=75,70
+<70=71
+<71=72
+<72=74,73
+<75=76
+<77=113,78
+<78=112,105,90,86,85,79
+<79=80
+<80=82,81
+<82=84,83
+<86=87
+<87=89,88
+<90=91
+<91=103,92
+<92=99,95,93
+<93=94
+<95=96
+<96=98,97
+<99=100
+<100=102,101
+<103=104
+<105=106
+<106=111,110,107
+<107=109,108
+<113=114
+<115=135,116
+<116=128,124,123,117
+<117=118
+<118=120,119
+<120=122,121
+<124=125
+<125=127,126
+<128=129
+<129=133,130
+<130=131
+<131=132
+<133=134
+<135=136
+<137=211,151,138
+<138=139
+<139=140
+<140=141
+<141=149,142
+<142=147,143
+<143=144
+<144=146,145
+<147=148
+<149=150
+<151=204,172,165,152
+<152=153
+<153=163,154
+<154=159,155
+<155=156
+<156=158,157
+<159=160
+<160=162,161
+<163=164
+<165=166
+<166=170,167
+<167=168
+<168=169
+<170=171
+<172=196,190,187,173
+<173=174
+<174=175
+<175=185,176
+<176=183,177
+<177=178
+<178=180,179
+<180=182,181
+<183=184
+<185=186
+<187=189,188
+<190=191
+<191=195,192
+<192=194,193
+<196=197
+<197=198
+<198=203,202,199
+<199=201,200
+<204=205
+<205=209,206
+<206=207
+<207=208
+<209=210
+<211=212
+<213=214
+<214=218,215
+<215=216
+<216=217
+<218=219
+<220=221
+<221=223,222
+<223=225,224
+<226=227
+<227=231,228
+<228=229
+<229=230
+<231=232
+<233=235,234
+<236=237
+<237=239,238
+<240=241
+<241=243,242
+<244=250,245
+<245=246
+<246=247
+<247=249,248
+<250=251
+<252=262,253
+<253=258,254
+<254=255
+<255=257,256
+<258=259
+<259=261,260
+<262=263
+<263=267,264
+<264=266,265
+<267=269,268
+<270=276,271
+<271=272
+<272=273
+<273=275,274
+<276=277
+<277=279,278
+<280=281
+<281=283,282
+<284=285
+<285=287,286
+<288=289
+<289=291,290
+<292=293
+<293=298,297,294
+<294=296,295
+<299=300
+<300=302,301
+<338=347,346,339
+<339=343,340
+<340=342,341
+<343=345,344
+<347=561,554,350,348
+<348=349
+<350=546,360,351
+<351=352
+<352=353
+<353=354
+<354=358,355
+<355=356
+<356=357
+<358=359
+<360=542,535,530,391,384,379,374,365,361
+<361=362
+<362=364,363
+<365=366
+<366=372,367
+<367=368
+<368=369
+<369=371,370
+<372=373
+<374=375
+<375=377,376
+<377=378
+<379=380
+<380=382,381
+<382=383
+<384=385
+<385=389,386
+<386=387
+<387=388
+<389=390
+<391=526,522,519,392
+<392=512,505,402,393
+<393=394
+<394=400,395
+<395=396
+<396=397
+<397=399,398
+<400=401
+<402=499,485,403
+<403=404
+<404=484,483,482,481,480,479,478,443,442,441,440,439,438,437,436,425,424,423,422,421,420,419,418,417,416,415,414,413,412,411,410,405
+<405=406
+<406=407
+<407=409,408
+<425=431,426
+<426=427
+<427=429,428
+<429=430
+<431=432
+<432=434,433
+<434=435
+<443=449,444
+<444=445
+<445=447,446
+<447=448
+<449=474,450
+<450=462,451
+<451=458,452
+<452=453
+<453=454
+<454=456,455
+<456=457
+<458=459
+<459=461,460
+<462=463
+<463=473,472,464
+<464=471,465
+<465=469,466
+<466=467
+<467=468
+<469=470
+<474=475
+<475=477,476
+<485=495,486
+<486=487
+<487=492,488
+<488=490,489
+<490=491
+<492=494,493
+<495=496
+<496=498,497
+<499=500
+<500=502,501
+<502=504,503
+<505=506
+<506=510,507
+<507=508
+<508=509
+<510=511
+<512=513
+<513=517,514
+<514=515
+<515=516
+<517=518
+<519=521,520
+<522=523
+<523=525,524
+<526=527
+<527=529,528
+<530=531
+<531=533,532
+<533=534
+<535=536
+<536=540,537
+<537=538
+<538=539
+<540=541
+<542=543
+<543=545,544
+<546=547
+<547=551,548
+<548=550,549
+<551=553,552
+<554=555
+<555=560,559,556
+<556=558,557
+<561=562
+<562=564,563
+<587=590,589,588
+<590=663,638,633,608,599,595,591
+<591=592
+<592=594,593
+<595=596
+<596=598,597
+<599=600
+<600=606,601
+<601=602
+<602=603
+<603=605,604
+<606=607
+<608=629,625,622,609
+<609=615,610
+<610=611
+<611=613,612
+<613=614
+<615=616
+<616=620,617
+<617=618
+<618=619
+<620=621
+<622=624,623
+<625=626
+<626=628,627
+<629=630
+<630=632,631
+<633=634
+<634=636,635
+<636=637
+<638=659,655,652,639
+<639=645,640
+<640=641
+<641=643,642
+<643=644
+<645=646
+<646=650,647
+<647=648
+<648=649
+<650=651
+<652=654,653
+<655=656
+<656=658,657
+<659=660
+<660=662,661
+<663=664
+<664=666,665
+<675=678,677,676
+<678=684,679
+<679=680
+<680=682,681
+<682=683
+<684=752,748,745,685
+<685=738,737,736,735,734,733,732,731,725,720,716,715,709,708,702,701,695,691,686
+<686=687
+<687=689,688
+<689=690
+<691=692
+<692=694,693
+<695=696
+<696=698,697
+<698=700,699
+<702=703
+<703=705,704
+<705=707,706
+<709=710
+<710=712,711
+<712=714,713
+<716=717
+<717=719,718
+<720=721
+<721=723,722
+<723=724
+<725=726
+<726=727
+<727=729,728
+<729=730
+<738=739
+<739=743,740
+<740=741
+<741=742
+<743=744
+<745=747,746
+<748=749
+<749=751,750
+<752=753
+<753=754
+<754=759,758,755
+<755=757,756
+<773=776,775,774
+<776=777
+<777=845,841,838,778
+<778=831,830,829,828,827,826,825,824,818,813,809,808,802,801,795,794,788,784,779
+<779=780
+<780=782,781
+<782=783
+<784=785
+<785=787,786
+<788=789
+<789=791,790
+<791=793,792
+<795=796
+<796=798,797
+<798=800,799
+<802=803
+<803=805,804
+<805=807,806
+<809=810
+<810=812,811
+<813=814
+<814=816,815
+<816=817
+<818=819
+<819=820
+<820=822,821
+<822=823
+<831=832
+<832=836,833
+<833=834
+<834=835
+<836=837
+<838=840,839
+<841=842
+<842=844,843
+<845=846
+<846=847
+<847=852,851,848
+<848=850,849
+<866=869,868,867
+<869=870
+<870=871
+<871=873,872
+<873=874
+<879=882,881,880
+<882=883
+<883=884
+<889=901,900,890
+<890=897,894,891
+<891=893,892
+<894=896,895
+<897=899,898
+<901=902
+<902=903
+<903=911,904
+<904=909,907,905
+<905=906
+<907=908
+<909=910
+<911=912
+<919=934,933,920
+<920=930,927,924,921
+<921=923,922
+<924=926,925
+<927=929,928
+<930=932,931
+<934=1084,1076,1063,1050,1037,1024,1009,989,982,935
+<935=974,970,967,936
+<936=937
+<937=963,938
+<938=943,939
+<939=940
+<940=942,941
+<943=944
+<944=961,945
+<945=955,946
+<946=947
+<947=949,948
+<949=950
+<950=952,951
+<952=954,953
+<955=956
+<956=958,957
+<958=960,959
+<961=962
+<963=964
+<964=966,965
+<967=969,968
+<970=971
+<971=973,972
+<974=975
+<975=976
+<976=981,980,977
+<977=979,978
+<982=983
+<983=988,987,984
+<984=986,985
+<989=990
+<990=1007,991
+<991=1001,992
+<992=993
+<993=995,994
+<995=996
+<996=998,997
+<998=1000,999
+<1001=1002
+<1002=1004,1003
+<1004=1006,1005
+<1007=1008
+<1009=1010
+<1010=1022,1011
+<1011=1016,1014,1012
+<1012=1013
+<1014=1015
+<1016=1017
+<1017=1019,1018
+<1019=1021,1020
+<1022=1023
+<1024=1025
+<1025=1035,1026
+<1026=1029,1027
+<1027=1028
+<1029=1030
+<1030=1032,1031
+<1032=1034,1033
+<1035=1036
+<1037=1038
+<1038=1048,1039
+<1039=1042,1040
+<1040=1041
+<1042=1043
+<1043=1045,1044
+<1045=1047,1046
+<1048=1049
+<1050=1051
+<1051=1061,1052
+<1052=1055,1053
+<1053=1054
+<1055=1056
+<1056=1058,1057
+<1058=1060,1059
+<1061=1062
+<1063=1064
+<1064=1074,1065
+<1065=1068,1066
+<1066=1067
+<1068=1069
+<1069=1071,1070
+<1071=1073,1072
+<1074=1075
+<1076=1077
+<1077=1081,1078
+<1078=1080,1079
+<1081=1083,1082
+<1084=1105,1101,1098,1085
+<1085=1086
+<1086=1087
+<1087=1093,1088
+<1088=1090,1089
+<1090=1092,1091
+<1093=1095,1094
+<1095=1097,1096
+<1098=1100,1099
+<1101=1102
+<1102=1104,1103
+<1105=1106
+<1106=1107
+<1107=1112,1111,1108
+<1108=1110,1109

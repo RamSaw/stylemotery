@@ -1,0 +1,1526 @@
+>3	FunctionDef	CMMapFile 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	CallExpression	MMUnmap ( )
+>8	ArgumentList	 
+>9	Callee	MMUnmap
+>10	Identifier	MMUnmap
+>14	FunctionDef	CMMapFile 
+>15	ParameterList	 
+>16	ReturnType	void
+>17	CompoundStatement	 
+>18	ExpressionStatement	 
+>19	AssignmentExpr	m_Mem = 0
+>20	PrimaryExpression	0
+>21	Identifier	m_Mem
+>22	ExpressionStatement	 
+>23	AssignmentExpr	m_Offset = 0
+>24	PrimaryExpression	0
+>25	Identifier	m_Offset
+>26	ExpressionStatement	 
+>27	AssignmentExpr	m_Size = 0
+>28	PrimaryExpression	0
+>29	Identifier	m_Size
+>30	IfStatement	if ( m_hFileHandle )
+>31	ExpressionStatement	 
+>32	CallExpression	CloseHandle ( m_hFileHandle )
+>33	ArgumentList	m_hFileHandle
+>34	Argument	m_hFileHandle
+>35	Identifier	m_hFileHandle
+>36	Callee	CloseHandle
+>37	Identifier	CloseHandle
+>38	Condition	 
+>39	Identifier	m_hFileHandle
+>40	IfStatement	if ( m_hFileMappingObject )
+>41	ExpressionStatement	 
+>42	CallExpression	CloseHandle ( m_hFileMappingObject )
+>43	ArgumentList	m_hFileMappingObject
+>44	Argument	m_hFileMappingObject
+>45	Identifier	m_hFileMappingObject
+>46	Callee	CloseHandle
+>47	Identifier	CloseHandle
+>48	Condition	 
+>49	Identifier	m_hFileMappingObject
+>50	IfStatement	if ( m_Mem )
+>51	ExpressionStatement	 
+>52	CallExpression	UnmapViewOfFile ( m_Mem )
+>53	ArgumentList	m_Mem
+>54	Argument	m_Mem
+>55	Identifier	m_Mem
+>56	Callee	UnmapViewOfFile
+>57	Identifier	UnmapViewOfFile
+>58	Condition	 
+>59	Identifier	m_Mem
+>60	ExpressionStatement	 
+>61	CallExpression	Trace ( tagSystem , levInfo , ( \"CMMapFile
+>62	ArgumentList	tagSystem
+>63	Argument	\"CMMapFile
+>64	Expression	\"CMMapFile
+>65	Expression	m_Size , m_Mem , m_hFileHandle , m_hFileMappingObject
+>66	Expression	m_Mem , m_hFileHandle , m_hFileMappingObject
+>67	Expression	m_hFileHandle , m_hFileMappingObject
+>68	Identifier	m_hFileMappingObject
+>69	Identifier	m_hFileHandle
+>70	Identifier	m_Mem
+>71	Identifier	m_Size
+>72	PrimaryExpression	\"CMMapFile
+>73	Argument	levInfo
+>74	Identifier	levInfo
+>75	Argument	tagSystem
+>76	Identifier	tagSystem
+>77	Callee	Trace
+>78	Identifier	Trace
+>79	IfStatement	if ( m_hFileHandle > 0 )
+>80	ExpressionStatement	 
+>81	CallExpression	base_close ( m_hFileHandle )
+>82	ArgumentList	m_hFileHandle
+>83	Argument	m_hFileHandle
+>84	Identifier	m_hFileHandle
+>85	Callee	base_close
+>86	Identifier	base_close
+>87	Condition	 
+>88	RelationalExpression	m_hFileHandle > 0
+>89	PrimaryExpression	0
+>90	Identifier	m_hFileHandle
+>91	IfStatement	if ( m_Mem )
+>92	ExpressionStatement	 
+>93	CallExpression	munmap ( ( caddr_t ) m_Mem , m_Size )
+>94	ArgumentList	( caddr_t ) m_Mem
+>95	Argument	m_Size
+>96	Identifier	m_Size
+>97	Argument	( caddr_t ) m_Mem
+>98	CastExpression	( caddr_t ) m_Mem
+>99	Identifier	m_Mem
+>100	CastTarget	caddr_t
+>101	Callee	munmap
+>102	Identifier	munmap
+>103	Condition	 
+>104	Identifier	m_Mem
+>105	ExpressionStatement	 
+>106	CallExpression	Trace ( tagSystem , levInfo , ( \"CMMapFile
+>107	ArgumentList	tagSystem
+>108	Argument	\"CMMapFile
+>109	Expression	\"CMMapFile
+>110	Expression	m_Size , m_Mem , m_hFileHandle
+>111	Expression	m_Mem , m_hFileHandle
+>112	Identifier	m_hFileHandle
+>113	Identifier	m_Mem
+>114	Identifier	m_Size
+>115	PrimaryExpression	\"CMMapFile
+>116	Argument	levInfo
+>117	Identifier	levInfo
+>118	Argument	tagSystem
+>119	Identifier	tagSystem
+>120	Callee	Trace
+>121	Identifier	Trace
+>132	FunctionDef	CMMapFile 
+>133	ParameterList	int MapMode , long Resize
+>134	Parameter	 
+>135	Identifier	Resize
+>136	ParameterType	long
+>137	Parameter	 
+>138	Identifier	MapMode
+>139	ParameterType	int
+>140	ReturnType	bool
+>141	CompoundStatement	 
+>142	ReturnStatement	 
+>143	Identifier	true
+>144	ExpressionStatement	 
+>145	CallExpression	Trace ( tagSystem , levInfo , ( \"CMMapFile
+>146	ArgumentList	tagSystem
+>147	Argument	\"CMMapFile
+>148	Expression	\"CMMapFile
+>149	Expression	m_Filename . GetBuffer ( ) , m_Size
+>150	Identifier	m_Size
+>151	CallExpression	m_Filename . GetBuffer ( )
+>152	ArgumentList	 
+>153	Callee	m_Filename . GetBuffer
+>154	MemberAccess	m_Filename . GetBuffer
+>155	Identifier	GetBuffer
+>156	Identifier	m_Filename
+>157	PrimaryExpression	\"CMMapFile
+>158	Argument	levInfo
+>159	Identifier	levInfo
+>160	Argument	tagSystem
+>161	Identifier	tagSystem
+>162	Callee	Trace
+>163	Identifier	Trace
+>164	IfStatement	if ( ! m_Mem )
+>165	CompoundStatement	 
+>166	ReturnStatement	 
+>167	Identifier	false
+>168	ExpressionStatement	 
+>169	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>170	ArgumentList	tagSystem
+>171	Argument	\"CMMapFile
+>172	Expression	\"CMMapFile
+>173	Identifier	m_Size
+>174	PrimaryExpression	\"CMMapFile
+>175	Argument	levError
+>176	Identifier	levError
+>177	Argument	tagSystem
+>178	Identifier	tagSystem
+>179	Callee	Trace
+>180	Identifier	Trace
+>181	Condition	 
+>182	UnaryOp	! m_Mem
+>183	Identifier	m_Mem
+>184	UnaryOperator	!
+>185	ExpressionStatement	 
+>186	AssignmentExpr	m_Mem = ( void * ) MapViewOfFile ( m_hFileMappingObject , ( MapMode & GENERIC_WRITE ) ? FILE_MAP_WRITE 
+>187	CastExpression	( void * ) MapViewOfFile ( m_hFileMappingObject , ( MapMode & GENERIC_WRITE ) ? FILE_MAP_WRITE 
+>188	CallExpression	MapViewOfFile ( m_hFileMappingObject , ( MapMode & GENERIC_WRITE ) ? FILE_MAP_WRITE 
+>189	ArgumentList	m_hFileMappingObject
+>190	Argument	m_Size
+>191	Identifier	m_Size
+>192	Argument	0
+>193	PrimaryExpression	0
+>194	Argument	0
+>195	PrimaryExpression	0
+>196	Argument	( MapMode & GENERIC_WRITE ) ? FILE_MAP_WRITE 
+>197	ConditionalExpression	( MapMode & GENERIC_WRITE ) ? FILE_MAP_WRITE 
+>198	Identifier	FILE_MAP_READ
+>199	Identifier	FILE_MAP_WRITE
+>200	Condition	MapMode & GENERIC_WRITE
+>201	BitAndExpression	MapMode & GENERIC_WRITE
+>202	Identifier	GENERIC_WRITE
+>203	Identifier	MapMode
+>204	Argument	m_hFileMappingObject
+>205	Identifier	m_hFileMappingObject
+>206	Callee	MapViewOfFile
+>207	Identifier	MapViewOfFile
+>208	CastTarget	void *
+>209	Identifier	m_Mem
+>210	IfStatement	if ( ! m_hFileMappingObject )
+>211	CompoundStatement	 
+>212	ReturnStatement	 
+>213	Identifier	false
+>214	ExpressionStatement	 
+>215	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>216	ArgumentList	tagSystem
+>217	Argument	\"CMMapFile
+>218	Expression	\"CMMapFile
+>219	Identifier	m_Size
+>220	PrimaryExpression	\"CMMapFile
+>221	Argument	levError
+>222	Identifier	levError
+>223	Argument	tagSystem
+>224	Identifier	tagSystem
+>225	Callee	Trace
+>226	Identifier	Trace
+>227	Condition	 
+>228	UnaryOp	! m_hFileMappingObject
+>229	Identifier	m_hFileMappingObject
+>230	UnaryOperator	!
+>231	ExpressionStatement	 
+>232	AssignmentExpr	m_hFileMappingObject = CreateFileMapping ( m_hFileHandle , NULL , ( MapMode & GENERIC_WRITE ) ? PAGE_\
+>233	CallExpression	CreateFileMapping ( m_hFileHandle , NULL , ( MapMode & GENERIC_WRITE ) ? PAGE_READWRITE 
+>234	ArgumentList	m_hFileHandle
+>235	Argument	NULL
+>236	Identifier	NULL
+>237	Argument	m_Size
+>238	Identifier	m_Size
+>239	Argument	0
+>240	PrimaryExpression	0
+>241	Argument	( MapMode & GENERIC_WRITE ) ? PAGE_READWRITE 
+>242	ConditionalExpression	( MapMode & GENERIC_WRITE ) ? PAGE_READWRITE 
+>243	Identifier	PAGE_READONLY
+>244	Identifier	PAGE_READWRITE
+>245	Condition	MapMode & GENERIC_WRITE
+>246	BitAndExpression	MapMode & GENERIC_WRITE
+>247	Identifier	GENERIC_WRITE
+>248	Identifier	MapMode
+>249	Argument	NULL
+>250	Identifier	NULL
+>251	Argument	m_hFileHandle
+>252	Identifier	m_hFileHandle
+>253	Callee	CreateFileMapping
+>254	Identifier	CreateFileMapping
+>255	Identifier	m_hFileMappingObject
+>256	IfStatement	if ( m_Mem == ( void * ) - 1 )
+>257	CompoundStatement	 
+>258	ReturnStatement	 
+>259	Identifier	false
+>260	ExpressionStatement	 
+>261	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>262	ArgumentList	tagSystem
+>263	Argument	\"CMMapFile
+>264	PrimaryExpression	\"CMMapFile
+>265	Argument	levError
+>266	Identifier	levError
+>267	Argument	tagSystem
+>268	Identifier	tagSystem
+>269	Callee	Trace
+>270	Identifier	Trace
+>271	Condition	 
+>272	EqualityExpression	m_Mem == ( void * ) - 1
+>273	CastExpression	( void * ) - 1
+>274	UnaryOp	- 1
+>275	PrimaryExpression	1
+>276	UnaryOperator	-
+>277	CastTarget	void *
+>278	Identifier	m_Mem
+>279	ExpressionStatement	 
+>280	AssignmentExpr	m_Mem = ( char * ) mmap ( 0 , m_Size , ( ( MapMode & O_RDWR ) || ( MapMode & O_WRONLY ) ) ? ( PROT_READ | \
+>281	CastExpression	( char * ) mmap ( 0 , m_Size , ( ( MapMode & O_RDWR ) || ( MapMode & O_WRONLY ) ) ? ( PROT_READ | PROT_WRITE | PROT_\
+>282	CallExpression	mmap ( 0 , m_Size , ( ( MapMode & O_RDWR ) || ( MapMode & O_WRONLY ) ) ? ( PROT_READ | PROT_WRITE | PROT_EXEC ) 
+>283	ArgumentList	0
+>284	Argument	0
+>285	PrimaryExpression	0
+>286	Argument	m_hFileHandle
+>287	Identifier	m_hFileHandle
+>288	Argument	MAP_SHARED
+>289	Identifier	MAP_SHARED
+>290	Argument	( ( MapMode & O_RDWR ) || ( MapMode & O_WRONLY ) ) ? ( PROT_READ | PROT_WRITE | PROT_EXEC ) 
+>291	ConditionalExpression	( ( MapMode & O_RDWR ) || ( MapMode & O_WRONLY ) ) ? ( PROT_READ | PROT_WRITE | PROT_EXEC ) 
+>292	Identifier	PROT_READ
+>293	InclusiveOrExpression	PROT_READ | PROT_WRITE | PROT_EXEC
+>294	InclusiveOrExpression	PROT_WRITE | PROT_EXEC
+>295	Identifier	PROT_EXEC
+>296	Identifier	PROT_WRITE
+>297	Identifier	PROT_READ
+>298	Condition	( MapMode & O_RDWR ) || ( MapMode & O_WRONLY )
+>299	OrExpression	( MapMode & O_RDWR ) || ( MapMode & O_WRONLY )
+>300	BitAndExpression	MapMode & O_WRONLY
+>301	Identifier	O_WRONLY
+>302	Identifier	MapMode
+>303	BitAndExpression	MapMode & O_RDWR
+>304	Identifier	O_RDWR
+>305	Identifier	MapMode
+>306	Argument	m_Size
+>307	Identifier	m_Size
+>308	Argument	0
+>309	PrimaryExpression	0
+>310	Callee	mmap
+>311	Identifier	mmap
+>312	CastTarget	char *
+>313	Identifier	m_Mem
+>314	IfStatement	if ( Resize > 0 )
+>315	CompoundStatement	 
+>316	IfStatement	if ( base_seek ( ( int ) m_hFileHandle , Resize - 1 , SEEK_SET ) != Resize - 1 )
+>317	CompoundStatement	 
+>318	ReturnStatement	 
+>319	Identifier	false
+>320	ExpressionStatement	 
+>321	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>322	ArgumentList	tagSystem
+>323	Argument	\"CMMapFile
+>324	PrimaryExpression	\"CMMapFile
+>325	Argument	levError
+>326	Identifier	levError
+>327	Argument	tagSystem
+>328	Identifier	tagSystem
+>329	Callee	Trace
+>330	Identifier	Trace
+>331	Condition	 
+>332	EqualityExpression	base_seek ( ( int ) m_hFileHandle , Resize - 1 , SEEK_SET ) != Resize - 1
+>333	AdditiveExpression	Resize - 1
+>334	PrimaryExpression	1
+>335	Identifier	Resize
+>336	CallExpression	base_seek ( ( int ) m_hFileHandle , Resize - 1 , SEEK_SET )
+>337	ArgumentList	( int ) m_hFileHandle
+>338	Argument	SEEK_SET
+>339	Identifier	SEEK_SET
+>340	Argument	Resize - 1
+>341	AdditiveExpression	Resize - 1
+>342	PrimaryExpression	1
+>343	Identifier	Resize
+>344	Argument	( int ) m_hFileHandle
+>345	CastExpression	( int ) m_hFileHandle
+>346	Identifier	m_hFileHandle
+>347	CastTarget	int
+>348	Callee	base_seek
+>349	Identifier	base_seek
+>350	IfStatement	if ( base_write ( ( int ) m_hFileHandle , \"\0\" , 1 ) != 1 )
+>351	CompoundStatement	 
+>352	ReturnStatement	 
+>353	Identifier	false
+>354	ExpressionStatement	 
+>355	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>356	ArgumentList	tagSystem
+>357	Argument	\"CMMapFile
+>358	PrimaryExpression	\"CMMapFile
+>359	Argument	levError
+>360	Identifier	levError
+>361	Argument	tagSystem
+>362	Identifier	tagSystem
+>363	Callee	Trace
+>364	Identifier	Trace
+>365	Condition	 
+>366	EqualityExpression	base_write ( ( int ) m_hFileHandle , \"\0\" , 1 ) != 1
+>367	PrimaryExpression	1
+>368	CallExpression	base_write ( ( int ) m_hFileHandle , \"\0\" , 1 )
+>369	ArgumentList	( int ) m_hFileHandle
+>370	Argument	1
+>371	PrimaryExpression	1
+>372	Argument	\"\0\"
+>373	PrimaryExpression	\"\0\"
+>374	Argument	( int ) m_hFileHandle
+>375	CastExpression	( int ) m_hFileHandle
+>376	Identifier	m_hFileHandle
+>377	CastTarget	int
+>378	Callee	base_write
+>379	Identifier	base_write
+>380	IfStatement	if ( base_seek ( ( int ) m_hFileHandle , Resize - 1 , SEEK_SET ) != Resize - 1 )
+>381	CompoundStatement	 
+>382	ReturnStatement	 
+>383	Identifier	false
+>384	ExpressionStatement	 
+>385	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>386	ArgumentList	tagSystem
+>387	Argument	\"CMMapFile
+>388	PrimaryExpression	\"CMMapFile
+>389	Argument	levError
+>390	Identifier	levError
+>391	Argument	tagSystem
+>392	Identifier	tagSystem
+>393	Callee	Trace
+>394	Identifier	Trace
+>395	Condition	 
+>396	EqualityExpression	base_seek ( ( int ) m_hFileHandle , Resize - 1 , SEEK_SET ) != Resize - 1
+>397	AdditiveExpression	Resize - 1
+>398	PrimaryExpression	1
+>399	Identifier	Resize
+>400	CallExpression	base_seek ( ( int ) m_hFileHandle , Resize - 1 , SEEK_SET )
+>401	ArgumentList	( int ) m_hFileHandle
+>402	Argument	SEEK_SET
+>403	Identifier	SEEK_SET
+>404	Argument	Resize - 1
+>405	AdditiveExpression	Resize - 1
+>406	PrimaryExpression	1
+>407	Identifier	Resize
+>408	Argument	( int ) m_hFileHandle
+>409	CastExpression	( int ) m_hFileHandle
+>410	Identifier	m_hFileHandle
+>411	CastTarget	int
+>412	Callee	base_seek
+>413	Identifier	base_seek
+>414	IfStatement	if ( ! SetEndOfFile ( m_hFileHandle ) )
+>415	CompoundStatement	 
+>416	ReturnStatement	 
+>417	Identifier	false
+>418	ExpressionStatement	 
+>419	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>420	ArgumentList	tagSystem
+>421	Argument	\"CMMapFile
+>422	PrimaryExpression	\"CMMapFile
+>423	Argument	levError
+>424	Identifier	levError
+>425	Argument	tagSystem
+>426	Identifier	tagSystem
+>427	Callee	Trace
+>428	Identifier	Trace
+>429	Condition	 
+>430	UnaryOp	! SetEndOfFile ( m_hFileHandle )
+>431	CallExpression	SetEndOfFile ( m_hFileHandle )
+>432	ArgumentList	m_hFileHandle
+>433	Argument	m_hFileHandle
+>434	Identifier	m_hFileHandle
+>435	Callee	SetEndOfFile
+>436	Identifier	SetEndOfFile
+>437	UnaryOperator	!
+>438	IfStatement	if ( SetFilePointer ( m_hFileHandle , Resize , NULL , FILE_BEGIN ) != Resize )
+>439	CompoundStatement	 
+>440	ReturnStatement	 
+>441	Identifier	false
+>442	ExpressionStatement	 
+>443	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>444	ArgumentList	tagSystem
+>445	Argument	\"CMMapFile
+>446	PrimaryExpression	\"CMMapFile
+>447	Argument	levError
+>448	Identifier	levError
+>449	Argument	tagSystem
+>450	Identifier	tagSystem
+>451	Callee	Trace
+>452	Identifier	Trace
+>453	Condition	 
+>454	EqualityExpression	SetFilePointer ( m_hFileHandle , Resize , NULL , FILE_BEGIN ) != Resize
+>455	Identifier	Resize
+>456	CallExpression	SetFilePointer ( m_hFileHandle , Resize , NULL , FILE_BEGIN )
+>457	ArgumentList	m_hFileHandle
+>458	Argument	FILE_BEGIN
+>459	Identifier	FILE_BEGIN
+>460	Argument	NULL
+>461	Identifier	NULL
+>462	Argument	Resize
+>463	Identifier	Resize
+>464	Argument	m_hFileHandle
+>465	Identifier	m_hFileHandle
+>466	Callee	SetFilePointer
+>467	Identifier	SetFilePointer
+>468	Condition	 
+>469	RelationalExpression	Resize > 0
+>470	PrimaryExpression	0
+>471	Identifier	Resize
+>472	IfStatement	if ( ! m_hFileHandle )
+>473	CompoundStatement	 
+>474	ReturnStatement	 
+>475	Identifier	false
+>476	ExpressionStatement	 
+>477	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>478	ArgumentList	tagSystem
+>479	Argument	\"CMMapFile
+>480	PrimaryExpression	\"CMMapFile
+>481	Argument	levError
+>482	Identifier	levError
+>483	Argument	tagSystem
+>484	Identifier	tagSystem
+>485	Callee	Trace
+>486	Identifier	Trace
+>487	Condition	 
+>488	UnaryOp	! m_hFileHandle
+>489	Identifier	m_hFileHandle
+>490	UnaryOperator	!
+>491	ExpressionStatement	 
+>492	AssignmentExpr	m_hFileHandle = CreateFile ( m_Filename . GetBuffer ( ) , MapMode , 0 , NULL , FileMode , FILE_FLAG_RANDOM_\
+>493	CallExpression	CreateFile ( m_Filename . GetBuffer ( ) , MapMode , 0 , NULL , FileMode , FILE_FLAG_RANDOM_ACCESS , 0 )
+>494	ArgumentList	m_Filename . GetBuffer ( )
+>495	Argument	0
+>496	PrimaryExpression	0
+>497	Argument	FILE_FLAG_RANDOM_ACCESS
+>498	Identifier	FILE_FLAG_RANDOM_ACCESS
+>499	Argument	FileMode
+>500	Identifier	FileMode
+>501	Argument	NULL
+>502	Identifier	NULL
+>503	Argument	0
+>504	PrimaryExpression	0
+>505	Argument	MapMode
+>506	Identifier	MapMode
+>507	Argument	m_Filename . GetBuffer ( )
+>508	CallExpression	m_Filename . GetBuffer ( )
+>509	ArgumentList	 
+>510	Callee	m_Filename . GetBuffer
+>511	MemberAccess	m_Filename . GetBuffer
+>512	Identifier	GetBuffer
+>513	Identifier	m_Filename
+>514	Callee	CreateFile
+>515	Identifier	CreateFile
+>516	Identifier	m_hFileHandle
+>517	ExpressionStatement	 
+>518	AssignmentExpr	FileMode = ( Resize >= 0 ) ? CREATE_ALWAYS 
+>519	ConditionalExpression	( Resize >= 0 ) ? CREATE_ALWAYS 
+>520	Identifier	OPEN_EXISTING
+>521	Identifier	CREATE_ALWAYS
+>522	Condition	Resize >= 0
+>523	RelationalExpression	Resize >= 0
+>524	PrimaryExpression	0
+>525	Identifier	Resize
+>526	Identifier	FileMode
+>527	IfStatement	if ( m_hFileHandle == - 1 )
+>528	CompoundStatement	 
+>529	ReturnStatement	 
+>530	Identifier	false
+>531	ExpressionStatement	 
+>532	CallExpression	Trace ( tagSystem , levError , ( \"CMMapFile
+>533	ArgumentList	tagSystem
+>534	Argument	\"CMMapFile
+>535	Expression	\"CMMapFile
+>536	CallExpression	m_Filename . GetBuffer ( )
+>537	ArgumentList	 
+>538	Callee	m_Filename . GetBuffer
+>539	MemberAccess	m_Filename . GetBuffer
+>540	Identifier	GetBuffer
+>541	Identifier	m_Filename
+>542	PrimaryExpression	\"CMMapFile
+>543	Argument	levError
+>544	Identifier	levError
+>545	Argument	tagSystem
+>546	Identifier	tagSystem
+>547	Callee	Trace
+>548	Identifier	Trace
+>549	Condition	 
+>550	EqualityExpression	m_hFileHandle == - 1
+>551	UnaryOp	- 1
+>552	PrimaryExpression	1
+>553	UnaryOperator	-
+>554	Identifier	m_hFileHandle
+>555	ExpressionStatement	 
+>556	AssignmentExpr	m_hFileHandle = base_open ( ( const char * ) m_Filename . GetBuffer ( ) , MapMode | FileMode , S_IWUSR | \
+>557	CallExpression	base_open ( ( const char * ) m_Filename . GetBuffer ( ) , MapMode | FileMode , S_IWUSR | S_IRUSR )
+>558	ArgumentList	( const char * ) m_Filename . GetBuffer ( )
+>559	Argument	S_IWUSR | S_IRUSR
+>560	InclusiveOrExpression	S_IWUSR | S_IRUSR
+>561	Identifier	S_IRUSR
+>562	Identifier	S_IWUSR
+>563	Argument	MapMode | FileMode
+>564	InclusiveOrExpression	MapMode | FileMode
+>565	Identifier	FileMode
+>566	Identifier	MapMode
+>567	Argument	( const char * ) m_Filename . GetBuffer ( )
+>568	CastExpression	( const char * ) m_Filename . GetBuffer ( )
+>569	CallExpression	m_Filename . GetBuffer ( )
+>570	ArgumentList	 
+>571	Callee	m_Filename . GetBuffer
+>572	MemberAccess	m_Filename . GetBuffer
+>573	Identifier	GetBuffer
+>574	Identifier	m_Filename
+>575	CastTarget	const char *
+>576	Callee	base_open
+>577	Identifier	base_open
+>578	Identifier	m_hFileHandle
+>579	IfStatement	if ( Resize >= 0 )
+>580	ExpressionStatement	 
+>581	AssignmentExpr	FileMode |= ( O_CREAT | O_TRUNC )
+>582	InclusiveOrExpression	O_CREAT | O_TRUNC
+>583	Identifier	O_TRUNC
+>584	Identifier	O_CREAT
+>585	Identifier	FileMode
+>586	Condition	 
+>587	RelationalExpression	Resize >= 0
+>588	PrimaryExpression	0
+>589	Identifier	Resize
+>590	ExpressionStatement	 
+>591	AssignmentExpr	m_Offset = 0
+>592	PrimaryExpression	0
+>593	Identifier	m_Offset
+>594	ExpressionStatement	 
+>595	CallExpression	Trace ( tagSystem , levInfo , ( \"CMMapFile
+>596	ArgumentList	tagSystem
+>597	Argument	\"CMMapFile
+>598	Expression	\"CMMapFile
+>599	Identifier	m_Size
+>600	PrimaryExpression	\"CMMapFile
+>601	Argument	levInfo
+>602	Identifier	levInfo
+>603	Argument	tagSystem
+>604	Identifier	tagSystem
+>605	Callee	Trace
+>606	Identifier	Trace
+>607	ExpressionStatement	 
+>608	AssignmentExpr	m_Size = ( Resize == - 1 ) ? CLocalFile 
+>609	ConditionalExpression	( Resize == - 1 ) ? CLocalFile 
+>610	Identifier	Resize
+>611	CallExpression	CLocalFile 
+>612	ArgumentList	m_Filename
+>613	Argument	m_Filename
+>614	Identifier	m_Filename
+>615	Callee	CLocalFile 
+>616	Identifier	CLocalFile 
+>617	Condition	Resize == - 1
+>618	EqualityExpression	Resize == - 1
+>619	UnaryOp	- 1
+>620	PrimaryExpression	1
+>621	UnaryOperator	-
+>622	Identifier	Resize
+>623	Identifier	m_Size
+>624	IfStatement	if ( m_Size )
+>625	ExpressionStatement	 
+>626	CallExpression	MMUnmap ( )
+>627	ArgumentList	 
+>628	Callee	MMUnmap
+>629	Identifier	MMUnmap
+>630	Condition	 
+>631	Identifier	m_Size
+>632	IdentifierDeclStatement	 
+>633	IdentifierDecl	FileMode = 0
+>634	AssignmentExpr	FileMode = 0
+>635	PrimaryExpression	0
+>636	Identifier	FileMode
+>637	Identifier	FileMode
+>638	IdentifierDeclType	int
+>688	FunctionDef	CMMapFile 
+>689	ParameterList	CString * pLine
+>690	Parameter	 
+>691	Identifier	pLine
+>692	ParameterType	CString *
+>693	ReturnType	long
+>694	CompoundStatement	 
+>695	ReturnStatement	 
+>696	CallExpression	pLine -> GetLength ( )
+>697	ArgumentList	 
+>698	Callee	pLine -> GetLength
+>699	PtrMemberAccess	pLine -> GetLength
+>700	Identifier	GetLength
+>701	Identifier	pLine
+>702	DoStatement	do
+>703	Condition	 
+>704	RelationalExpression	m_Offset < m_Size
+>705	Identifier	m_Size
+>706	Identifier	m_Offset
+>707	CompoundStatement	 
+>708	IfStatement	if ( ( ch == 0 ) || ( ch == 10 ) )
+>709	ElseStatement	else
+>710	CompoundStatement	 
+>711	IfStatement	if ( ch != 13 )
+>712	ExpressionStatement	 
+>713	CallExpression	pLine -> Append ( ch )
+>714	ArgumentList	ch
+>715	Argument	ch
+>716	Identifier	ch
+>717	Callee	pLine -> Append
+>718	PtrMemberAccess	pLine -> Append
+>719	Identifier	Append
+>720	Identifier	pLine
+>721	Condition	 
+>722	EqualityExpression	ch != 13
+>723	PrimaryExpression	13
+>724	Identifier	ch
+>725	CompoundStatement	 
+>726	ReturnStatement	 
+>727	CallExpression	pLine -> GetLength ( )
+>728	ArgumentList	 
+>729	Callee	pLine -> GetLength
+>730	PtrMemberAccess	pLine -> GetLength
+>731	Identifier	GetLength
+>732	Identifier	pLine
+>733	Condition	 
+>734	OrExpression	( ch == 0 ) || ( ch == 10 )
+>735	EqualityExpression	ch == 10
+>736	PrimaryExpression	10
+>737	Identifier	ch
+>738	EqualityExpression	ch == 0
+>739	PrimaryExpression	0
+>740	Identifier	ch
+>741	ExpressionStatement	 
+>742	IncDecOp	m_Offset ++
+>743	IncDec	++
+>744	Identifier	m_Offset
+>745	ExpressionStatement	 
+>746	AssignmentExpr	ch = ( ( char * ) m_Mem ) [ m_Offset ]
+>747	ArrayIndexing	( ( char * ) m_Mem ) [ m_Offset ]
+>748	Identifier	m_Offset
+>749	CastExpression	( char * ) m_Mem
+>750	Identifier	m_Mem
+>751	CastTarget	char *
+>752	Identifier	ch
+>753	IdentifierDeclStatement	 
+>754	IdentifierDecl	ch
+>755	Identifier	ch
+>756	IdentifierDeclType	char
+>757	IfStatement	if ( ! m_Mem || ( m_Offset >= m_Size ) )
+>758	ReturnStatement	 
+>759	UnaryOp	- 1
+>760	PrimaryExpression	1
+>761	UnaryOperator	-
+>762	Condition	 
+>763	OrExpression	! m_Mem || ( m_Offset >= m_Size )
+>764	RelationalExpression	m_Offset >= m_Size
+>765	Identifier	m_Size
+>766	Identifier	m_Offset
+>767	UnaryOp	! m_Mem
+>768	Identifier	m_Mem
+>769	UnaryOperator	!
+>770	ExpressionStatement	 
+>771	CallExpression	pLine -> Empty ( )
+>772	ArgumentList	 
+>773	Callee	pLine -> Empty
+>774	PtrMemberAccess	pLine -> Empty
+>775	Identifier	Empty
+>776	Identifier	pLine
+>789	FunctionDef	CMMapFile 
+>790	ParameterList	CString * pLine , unsigned int Bytes
+>791	Parameter	 
+>792	Identifier	Bytes
+>793	ParameterType	unsigned int
+>794	Parameter	 
+>795	Identifier	pLine
+>796	ParameterType	CString *
+>797	ReturnType	long
+>798	CompoundStatement	 
+>799	ReturnStatement	 
+>800	CallExpression	pLine -> GetLength ( )
+>801	ArgumentList	 
+>802	Callee	pLine -> GetLength
+>803	PtrMemberAccess	pLine -> GetLength
+>804	Identifier	GetLength
+>805	Identifier	pLine
+>806	ExpressionStatement	 
+>807	AssignmentExpr	m_Offset += Bytes
+>808	Identifier	Bytes
+>809	Identifier	m_Offset
+>810	ExpressionStatement	 
+>811	CallExpression	pLine -> CopyBuffer ( ( char * ) m_Mem + m_Offset , Bytes )
+>812	ArgumentList	( char * ) m_Mem + m_Offset
+>813	Argument	Bytes
+>814	Identifier	Bytes
+>815	Argument	( char * ) m_Mem + m_Offset
+>816	AdditiveExpression	( char * ) m_Mem + m_Offset
+>817	Identifier	m_Offset
+>818	CastExpression	( char * ) m_Mem
+>819	Identifier	m_Mem
+>820	CastTarget	char *
+>821	Callee	pLine -> CopyBuffer
+>822	PtrMemberAccess	pLine -> CopyBuffer
+>823	Identifier	CopyBuffer
+>824	Identifier	pLine
+>825	ExpressionStatement	 
+>826	CallExpression	pLine -> SetLength ( Bytes )
+>827	ArgumentList	Bytes
+>828	Argument	Bytes
+>829	Identifier	Bytes
+>830	Callee	pLine -> SetLength
+>831	PtrMemberAccess	pLine -> SetLength
+>832	Identifier	SetLength
+>833	Identifier	pLine
+>834	IfStatement	if ( ( long ) ( m_Offset + Bytes ) >= m_Size )
+>835	ExpressionStatement	 
+>836	AssignmentExpr	Bytes = m_Size - m_Offset
+>837	AdditiveExpression	m_Size - m_Offset
+>838	Identifier	m_Offset
+>839	Identifier	m_Size
+>840	Identifier	Bytes
+>841	Condition	 
+>842	RelationalExpression	( long ) ( m_Offset + Bytes ) >= m_Size
+>843	Identifier	m_Size
+>844	CastExpression	( long ) ( m_Offset + Bytes )
+>845	AdditiveExpression	m_Offset + Bytes
+>846	Identifier	Bytes
+>847	Identifier	m_Offset
+>848	CastTarget	long
+>849	IfStatement	if ( ! m_Mem )
+>850	ReturnStatement	 
+>851	UnaryOp	- 1
+>852	PrimaryExpression	1
+>853	UnaryOperator	-
+>854	Condition	 
+>855	UnaryOp	! m_Mem
+>856	Identifier	m_Mem
+>857	UnaryOperator	!
+>858	ExpressionStatement	 
+>859	CallExpression	pLine -> Empty ( )
+>860	ArgumentList	 
+>861	Callee	pLine -> Empty
+>862	PtrMemberAccess	pLine -> Empty
+>863	Identifier	Empty
+>864	Identifier	pLine
+>875	FunctionDef	CMMapFile 
+>876	ParameterList	void * pBuffer , unsigned int Bytes
+>877	Parameter	 
+>878	Identifier	Bytes
+>879	ParameterType	unsigned int
+>880	Parameter	 
+>881	Identifier	pBuffer
+>882	ParameterType	void *
+>883	ReturnType	long
+>884	CompoundStatement	 
+>885	ReturnStatement	 
+>886	Identifier	Bytes
+>887	ExpressionStatement	 
+>888	AssignmentExpr	m_Offset += Bytes
+>889	Identifier	Bytes
+>890	Identifier	m_Offset
+>891	ExpressionStatement	 
+>892	CallExpression	memcpy ( pBuffer , ( char * ) m_Mem + m_Offset , Bytes )
+>893	ArgumentList	pBuffer
+>894	Argument	Bytes
+>895	Identifier	Bytes
+>896	Argument	( char * ) m_Mem + m_Offset
+>897	AdditiveExpression	( char * ) m_Mem + m_Offset
+>898	Identifier	m_Offset
+>899	CastExpression	( char * ) m_Mem
+>900	Identifier	m_Mem
+>901	CastTarget	char *
+>902	Argument	pBuffer
+>903	Identifier	pBuffer
+>904	Callee	memcpy
+>905	Identifier	memcpy
+>906	IfStatement	if ( ( long ) ( m_Offset + Bytes ) >= m_Size )
+>907	ExpressionStatement	 
+>908	AssignmentExpr	Bytes = m_Size - m_Offset
+>909	AdditiveExpression	m_Size - m_Offset
+>910	Identifier	m_Offset
+>911	Identifier	m_Size
+>912	Identifier	Bytes
+>913	Condition	 
+>914	RelationalExpression	( long ) ( m_Offset + Bytes ) >= m_Size
+>915	Identifier	m_Size
+>916	CastExpression	( long ) ( m_Offset + Bytes )
+>917	AdditiveExpression	m_Offset + Bytes
+>918	Identifier	Bytes
+>919	Identifier	m_Offset
+>920	CastTarget	long
+>921	IfStatement	if ( ! m_Mem )
+>922	ReturnStatement	 
+>923	UnaryOp	- 1
+>924	PrimaryExpression	1
+>925	UnaryOperator	-
+>926	Condition	 
+>927	UnaryOp	! m_Mem
+>928	Identifier	m_Mem
+>929	UnaryOperator	!
+>938	FunctionDef	CMMapFile 
+>939	ParameterList	void * pBuffer , unsigned int Bytes
+>940	Parameter	 
+>941	Identifier	Bytes
+>942	ParameterType	unsigned int
+>943	Parameter	 
+>944	Identifier	pBuffer
+>945	ParameterType	void *
+>946	ReturnType	bool
+>947	CompoundStatement	 
+>948	ReturnStatement	 
+>949	Identifier	true
+>950	ExpressionStatement	 
+>951	AssignmentExpr	m_Offset += Bytes
+>952	Identifier	Bytes
+>953	Identifier	m_Offset
+>954	ExpressionStatement	 
+>955	CallExpression	memcpy ( ( char * ) m_Mem + m_Offset , pBuffer , Bytes )
+>956	ArgumentList	( char * ) m_Mem + m_Offset
+>957	Argument	Bytes
+>958	Identifier	Bytes
+>959	Argument	pBuffer
+>960	Identifier	pBuffer
+>961	Argument	( char * ) m_Mem + m_Offset
+>962	AdditiveExpression	( char * ) m_Mem + m_Offset
+>963	Identifier	m_Offset
+>964	CastExpression	( char * ) m_Mem
+>965	Identifier	m_Mem
+>966	CastTarget	char *
+>967	Callee	memcpy
+>968	Identifier	memcpy
+>969	IfStatement	if ( ! m_Mem || ( long ) Bytes + m_Offset > m_Size )
+>970	ReturnStatement	 
+>971	Identifier	false
+>972	Condition	 
+>973	OrExpression	! m_Mem || ( long ) Bytes + m_Offset > m_Size
+>974	RelationalExpression	( long ) Bytes + m_Offset > m_Size
+>975	Identifier	m_Size
+>976	AdditiveExpression	( long ) Bytes + m_Offset
+>977	Identifier	m_Offset
+>978	CastExpression	( long ) Bytes
+>979	Identifier	Bytes
+>980	CastTarget	long
+>981	UnaryOp	! m_Mem
+>982	Identifier	m_Mem
+>983	UnaryOperator	!
+>994	FunctionDef	CMMapFile 
+>995	ParameterList	long Offset , int Whence
+>996	Parameter	 
+>997	Identifier	Whence
+>998	ParameterType	int
+>999	Parameter	 
+>1000	Identifier	Offset
+>1001	ParameterType	long
+>1002	ReturnType	long
+>1003	CompoundStatement	 
+>1004	ReturnStatement	 
+>1005	Identifier	false
+>1006	IfStatement	if ( ( CurrentOffset >= 0 ) && ( CurrentOffset < m_Size ) )
+>1007	CompoundStatement	 
+>1008	ReturnStatement	 
+>1009	Identifier	true
+>1010	ExpressionStatement	 
+>1011	AssignmentExpr	m_Offset = CurrentOffset
+>1012	Identifier	CurrentOffset
+>1013	Identifier	m_Offset
+>1014	Condition	 
+>1015	AndExpression	( CurrentOffset >= 0 ) && ( CurrentOffset < m_Size )
+>1016	RelationalExpression	CurrentOffset < m_Size
+>1017	Identifier	m_Size
+>1018	Identifier	CurrentOffset
+>1019	RelationalExpression	CurrentOffset >= 0
+>1020	PrimaryExpression	0
+>1021	Identifier	CurrentOffset
+>1022	SwitchStatement	switch ( Whence )
+>1023	CompoundStatement	 
+>1024	ReturnStatement	 
+>1025	Identifier	false
+>1026	Label	 
+>1027	Identifier	default
+>1028	BreakStatement	 
+>1029	ExpressionStatement	 
+>1030	AssignmentExpr	CurrentOffset = m_Size + Offset - 1
+>1031	AdditiveExpression	m_Size + Offset - 1
+>1032	AdditiveExpression	Offset - 1
+>1033	PrimaryExpression	1
+>1034	Identifier	Offset
+>1035	Identifier	m_Size
+>1036	Identifier	CurrentOffset
+>1037	Label	 
+>1038	Identifier	SEEK_END
+>1039	BreakStatement	 
+>1040	ExpressionStatement	 
+>1041	AssignmentExpr	CurrentOffset += Offset
+>1042	Identifier	Offset
+>1043	Identifier	CurrentOffset
+>1044	Label	 
+>1045	Identifier	SEEK_CUR
+>1046	BreakStatement	 
+>1047	ExpressionStatement	 
+>1048	AssignmentExpr	CurrentOffset = Offset
+>1049	Identifier	Offset
+>1050	Identifier	CurrentOffset
+>1051	Label	 
+>1052	Identifier	SEEK_SET
+>1053	Condition	 
+>1054	Identifier	Whence
+>1055	IdentifierDeclStatement	 
+>1056	IdentifierDecl	CurrentOffset = m_Offset
+>1057	AssignmentExpr	CurrentOffset = m_Offset
+>1058	Identifier	m_Offset
+>1059	Identifier	m_Offset
+>1060	Identifier	CurrentOffset
+>1061	IdentifierDeclType	long
+>1062	IfStatement	if ( ! m_Mem )
+>1063	ReturnStatement	 
+>1064	Identifier	false
+>1065	Condition	 
+>1066	UnaryOp	! m_Mem
+>1067	Identifier	m_Mem
+>1068	UnaryOperator	!
+<3=5,4
+<5=6
+<6=7
+<7=9,8
+<9=10
+<14=17,16,15
+<17=105,91,79,60,50,40,30,26,22,18
+<18=19
+<19=21,20
+<22=23
+<23=25,24
+<26=27
+<27=29,28
+<30=38,31
+<31=32
+<32=36,33
+<33=34
+<34=35
+<36=37
+<38=39
+<40=48,41
+<41=42
+<42=46,43
+<43=44
+<44=45
+<46=47
+<48=49
+<50=58,51
+<51=52
+<52=56,53
+<53=54
+<54=55
+<56=57
+<58=59
+<60=61
+<61=77,62
+<62=75,73,63
+<63=64
+<64=72,65
+<65=71,66
+<66=70,67
+<67=69,68
+<73=74
+<75=76
+<77=78
+<79=87,80
+<80=81
+<81=85,82
+<82=83
+<83=84
+<85=86
+<87=88
+<88=90,89
+<91=103,92
+<92=93
+<93=101,94
+<94=97,95
+<95=96
+<97=98
+<98=100,99
+<101=102
+<103=104
+<105=106
+<106=120,107
+<107=118,116,108
+<108=109
+<109=115,110
+<110=114,111
+<111=113,112
+<116=117
+<118=119
+<120=121
+<132=141,140,133
+<133=137,134
+<134=136,135
+<137=139,138
+<141=632,624,607,594,590,579,555,527,517,491,472,314,279,256,231,210,185,164,144,142
+<142=143
+<144=145
+<145=162,146
+<146=160,158,147
+<147=148
+<148=157,149
+<149=151,150
+<151=153,152
+<153=154
+<154=156,155
+<158=159
+<160=161
+<162=163
+<164=181,165
+<165=168,166
+<166=167
+<168=169
+<169=179,170
+<170=177,175,171
+<171=172
+<172=174,173
+<175=176
+<177=178
+<179=180
+<181=182
+<182=184,183
+<185=186
+<186=209,187
+<187=208,188
+<188=206,189
+<189=204,196,194,192,190
+<190=191
+<192=193
+<194=195
+<196=197
+<197=200,199,198
+<200=201
+<201=203,202
+<204=205
+<206=207
+<210=227,211
+<211=214,212
+<212=213
+<214=215
+<215=225,216
+<216=223,221,217
+<217=218
+<218=220,219
+<221=222
+<223=224
+<225=226
+<227=228
+<228=230,229
+<231=232
+<232=255,233
+<233=253,234
+<234=251,249,241,239,237,235
+<235=236
+<237=238
+<239=240
+<241=242
+<242=245,244,243
+<245=246
+<246=248,247
+<249=250
+<251=252
+<253=254
+<256=271,257
+<257=260,258
+<258=259
+<260=261
+<261=269,262
+<262=267,265,263
+<263=264
+<265=266
+<267=268
+<269=270
+<271=272
+<272=278,273
+<273=277,274
+<274=276,275
+<279=280
+<280=313,281
+<281=312,282
+<282=310,283
+<283=308,306,290,288,286,284
+<284=285
+<286=287
+<288=289
+<290=291
+<291=298,293,292
+<293=297,294
+<294=296,295
+<298=299
+<299=303,300
+<300=302,301
+<303=305,304
+<306=307
+<308=309
+<310=311
+<314=468,315
+<315=438,414,380,350,316
+<316=331,317
+<317=320,318
+<318=319
+<320=321
+<321=329,322
+<322=327,325,323
+<323=324
+<325=326
+<327=328
+<329=330
+<331=332
+<332=336,333
+<333=335,334
+<336=348,337
+<337=344,340,338
+<338=339
+<340=341
+<341=343,342
+<344=345
+<345=347,346
+<348=349
+<350=365,351
+<351=354,352
+<352=353
+<354=355
+<355=363,356
+<356=361,359,357
+<357=358
+<359=360
+<361=362
+<363=364
+<365=366
+<366=368,367
+<368=378,369
+<369=374,372,370
+<370=371
+<372=373
+<374=375
+<375=377,376
+<378=379
+<380=395,381
+<381=384,382
+<382=383
+<384=385
+<385=393,386
+<386=391,389,387
+<387=388
+<389=390
+<391=392
+<393=394
+<395=396
+<396=400,397
+<397=399,398
+<400=412,401
+<401=408,404,402
+<402=403
+<404=405
+<405=407,406
+<408=409
+<409=411,410
+<412=413
+<414=429,415
+<415=418,416
+<416=417
+<418=419
+<419=427,420
+<420=425,423,421
+<421=422
+<423=424
+<425=426
+<427=428
+<429=430
+<430=437,431
+<431=435,432
+<432=433
+<433=434
+<435=436
+<438=453,439
+<439=442,440
+<440=441
+<442=443
+<443=451,444
+<444=449,447,445
+<445=446
+<447=448
+<449=450
+<451=452
+<453=454
+<454=456,455
+<456=466,457
+<457=464,462,460,458
+<458=459
+<460=461
+<462=463
+<464=465
+<466=467
+<468=469
+<469=471,470
+<472=487,473
+<473=476,474
+<474=475
+<476=477
+<477=485,478
+<478=483,481,479
+<479=480
+<481=482
+<483=484
+<485=486
+<487=488
+<488=490,489
+<491=492
+<492=516,493
+<493=514,494
+<494=507,505,503,501,499,497,495
+<495=496
+<497=498
+<499=500
+<501=502
+<503=504
+<505=506
+<507=508
+<508=510,509
+<510=511
+<511=513,512
+<514=515
+<517=518
+<518=526,519
+<519=522,521,520
+<522=523
+<523=525,524
+<527=549,528
+<528=531,529
+<529=530
+<531=532
+<532=547,533
+<533=545,543,534
+<534=535
+<535=542,536
+<536=538,537
+<538=539
+<539=541,540
+<543=544
+<545=546
+<547=548
+<549=550
+<550=554,551
+<551=553,552
+<555=556
+<556=578,557
+<557=576,558
+<558=567,563,559
+<559=560
+<560=562,561
+<563=564
+<564=566,565
+<567=568
+<568=575,569
+<569=571,570
+<571=572
+<572=574,573
+<576=577
+<579=586,580
+<580=581
+<581=585,582
+<582=584,583
+<586=587
+<587=589,588
+<590=591
+<591=593,592
+<594=595
+<595=605,596
+<596=603,601,597
+<597=598
+<598=600,599
+<601=602
+<603=604
+<605=606
+<607=608
+<608=623,609
+<609=617,611,610
+<611=615,612
+<612=613
+<613=614
+<615=616
+<617=618
+<618=622,619
+<619=621,620
+<624=630,625
+<625=626
+<626=628,627
+<628=629
+<630=631
+<632=633
+<633=638,637,634
+<634=636,635
+<688=694,693,689
+<689=690
+<690=692,691
+<694=770,757,753,702,695
+<695=696
+<696=698,697
+<698=699
+<699=701,700
+<702=707,703
+<703=704
+<704=706,705
+<707=745,741,708
+<708=733,725,709
+<709=710
+<710=711
+<711=721,712
+<712=713
+<713=717,714
+<714=715
+<715=716
+<717=718
+<718=720,719
+<721=722
+<722=724,723
+<725=726
+<726=727
+<727=729,728
+<729=730
+<730=732,731
+<733=734
+<734=738,735
+<735=737,736
+<738=740,739
+<741=742
+<742=744,743
+<745=746
+<746=752,747
+<747=749,748
+<749=751,750
+<753=754
+<754=756,755
+<757=762,758
+<758=759
+<759=761,760
+<762=763
+<763=767,764
+<764=766,765
+<767=769,768
+<770=771
+<771=773,772
+<773=774
+<774=776,775
+<789=798,797,790
+<790=794,791
+<791=793,792
+<794=796,795
+<798=858,849,834,825,810,806,799
+<799=800
+<800=802,801
+<802=803
+<803=805,804
+<806=807
+<807=809,808
+<810=811
+<811=821,812
+<812=815,813
+<813=814
+<815=816
+<816=818,817
+<818=820,819
+<821=822
+<822=824,823
+<825=826
+<826=830,827
+<827=828
+<828=829
+<830=831
+<831=833,832
+<834=841,835
+<835=836
+<836=840,837
+<837=839,838
+<841=842
+<842=844,843
+<844=848,845
+<845=847,846
+<849=854,850
+<850=851
+<851=853,852
+<854=855
+<855=857,856
+<858=859
+<859=861,860
+<861=862
+<862=864,863
+<875=884,883,876
+<876=880,877
+<877=879,878
+<880=882,881
+<884=921,906,891,887,885
+<885=886
+<887=888
+<888=890,889
+<891=892
+<892=904,893
+<893=902,896,894
+<894=895
+<896=897
+<897=899,898
+<899=901,900
+<902=903
+<904=905
+<906=913,907
+<907=908
+<908=912,909
+<909=911,910
+<913=914
+<914=916,915
+<916=920,917
+<917=919,918
+<921=926,922
+<922=923
+<923=925,924
+<926=927
+<927=929,928
+<938=947,946,939
+<939=943,940
+<940=942,941
+<943=945,944
+<947=969,954,950,948
+<948=949
+<950=951
+<951=953,952
+<954=955
+<955=967,956
+<956=961,959,957
+<957=958
+<959=960
+<961=962
+<962=964,963
+<964=966,965
+<967=968
+<969=972,970
+<970=971
+<972=973
+<973=981,974
+<974=976,975
+<976=978,977
+<978=980,979
+<981=983,982
+<994=1003,1002,995
+<995=999,996
+<996=998,997
+<999=1001,1000
+<1003=1062,1055,1022,1006,1004
+<1004=1005
+<1006=1014,1007
+<1007=1010,1008
+<1008=1009
+<1010=1011
+<1011=1013,1012
+<1014=1015
+<1015=1019,1016
+<1016=1018,1017
+<1019=1021,1020
+<1022=1053,1023
+<1023=1051,1047,1046,1044,1040,1039,1037,1029,1028,1026,1024
+<1024=1025
+<1026=1027
+<1029=1030
+<1030=1036,1031
+<1031=1035,1032
+<1032=1034,1033
+<1037=1038
+<1040=1041
+<1041=1043,1042
+<1044=1045
+<1047=1048
+<1048=1050,1049
+<1051=1052
+<1053=1054
+<1055=1056
+<1056=1061,1060,1057
+<1057=1059,1058
+<1062=1065,1063
+<1063=1064
+<1065=1066
+<1066=1068,1067

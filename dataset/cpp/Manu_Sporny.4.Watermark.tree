@@ -1,0 +1,1322 @@
+>3	FunctionDef	Watermark 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	CallExpression	setMode ( Encode )
+>8	ArgumentList	Encode
+>9	Argument	Encode
+>10	Identifier	Encode
+>11	Callee	setMode
+>12	Identifier	setMode
+>13	ExpressionStatement	 
+>14	AssignmentExpr	mWrittenEmbeds = 0
+>15	PrimaryExpression	0
+>16	Identifier	mWrittenEmbeds
+>22	FunctionDef	Watermark 
+>23	ParameterList	 
+>24	CompoundStatement	 
+>25	ExpressionStatement	 
+>26	CallExpression	Watermark 
+>27	ArgumentList	 
+>28	Callee	Watermark 
+>29	Identifier	Watermark 
+>33	FunctionDef	Watermark 
+>34	ParameterList	 
+>35	ReturnType	bool
+>36	CompoundStatement	 
+>37	ReturnStatement	 
+>38	Identifier	false
+>43	FunctionDef	Watermark 
+>44	ParameterList	ByteBuffer * src , ByteBuffer * dst , bool finish
+>45	Parameter	 
+>46	Identifier	finish
+>47	ParameterType	bool
+>48	Parameter	 
+>49	Identifier	dst
+>50	ParameterType	ByteBuffer *
+>51	Parameter	 
+>52	Identifier	src
+>53	ParameterType	ByteBuffer *
+>54	ReturnType	bool
+>55	CompoundStatement	 
+>56	ReturnStatement	 
+>57	Identifier	rval
+>58	SwitchStatement	switch ( mMode )
+>59	CompoundStatement	 
+>60	BreakStatement	 
+>61	IfStatement	if ( inspected > 0 )
+>62	ElseStatement	else
+>63	IfStatement	if ( src -> isFull ( ) )
+>64	ElseStatement	else
+>65	CompoundStatement	 
+>66	ExpressionStatement	 
+>67	AssignmentExpr	rval = false
+>68	Identifier	false
+>69	Identifier	rval
+>70	CompoundStatement	 
+>71	ExpressionStatement	 
+>72	CallExpression	src -> get ( dst , src -> length ( ) , true )
+>73	ArgumentList	dst
+>74	Argument	true
+>75	Identifier	true
+>76	Argument	src -> length ( )
+>77	CallExpression	src -> length ( )
+>78	ArgumentList	 
+>79	Callee	src -> length
+>80	PtrMemberAccess	src -> length
+>81	Identifier	length
+>82	Identifier	src
+>83	Argument	dst
+>84	Identifier	dst
+>85	Callee	src -> get
+>86	PtrMemberAccess	src -> get
+>87	Identifier	get
+>88	Identifier	src
+>89	Condition	 
+>90	CallExpression	src -> isFull ( )
+>91	ArgumentList	 
+>92	Callee	src -> isFull
+>93	PtrMemberAccess	src -> isFull
+>94	Identifier	isFull
+>95	Identifier	src
+>96	CompoundStatement	 
+>97	ExpressionStatement	 
+>98	CallExpression	src -> get ( dst , inspected , true )
+>99	ArgumentList	dst
+>100	Argument	true
+>101	Identifier	true
+>102	Argument	inspected
+>103	Identifier	inspected
+>104	Argument	dst
+>105	Identifier	dst
+>106	Callee	src -> get
+>107	PtrMemberAccess	src -> get
+>108	Identifier	get
+>109	Identifier	src
+>110	Condition	 
+>111	RelationalExpression	inspected > 0
+>112	PrimaryExpression	0
+>113	Identifier	inspected
+>114	IdentifierDeclStatement	 
+>115	IdentifierDecl	inspected = inspect ( src -> data ( ) , src -> length ( ) )
+>116	AssignmentExpr	inspected = inspect ( src -> data ( ) , src -> length ( ) )
+>117	CallExpression	inspect ( src -> data ( ) , src -> length ( ) )
+>118	ArgumentList	src -> data ( )
+>119	Argument	src -> length ( )
+>120	CallExpression	src -> length ( )
+>121	ArgumentList	 
+>122	Callee	src -> length
+>123	PtrMemberAccess	src -> length
+>124	Identifier	length
+>125	Identifier	src
+>126	Argument	src -> data ( )
+>127	CallExpression	src -> data ( )
+>128	ArgumentList	 
+>129	Callee	src -> data
+>130	PtrMemberAccess	src -> data
+>131	Identifier	data
+>132	Identifier	src
+>133	Callee	inspect
+>134	Identifier	inspect
+>135	Identifier	inspected
+>136	Identifier	inspected
+>137	IdentifierDeclType	int
+>138	Label	 
+>139	Identifier	Decode
+>140	BreakStatement	 
+>141	ExpressionStatement	 
+>142	AssignmentExpr	rval = clean ( src , dst , finish )
+>143	CallExpression	clean ( src , dst , finish )
+>144	ArgumentList	src
+>145	Argument	finish
+>146	Identifier	finish
+>147	Argument	dst
+>148	Identifier	dst
+>149	Argument	src
+>150	Identifier	src
+>151	Callee	clean
+>152	Identifier	clean
+>153	Identifier	rval
+>154	Label	 
+>155	Identifier	Clean
+>156	BreakStatement	 
+>157	ExpressionStatement	 
+>158	AssignmentExpr	rval = write ( src , dst , finish )
+>159	CallExpression	write ( src , dst , finish )
+>160	ArgumentList	src
+>161	Argument	finish
+>162	Identifier	finish
+>163	Argument	dst
+>164	Identifier	dst
+>165	Argument	src
+>166	Identifier	src
+>167	Callee	write
+>168	Identifier	write
+>169	Identifier	rval
+>170	Label	 
+>171	Identifier	Encode
+>172	Condition	 
+>173	Identifier	mMode
+>174	IdentifierDeclStatement	 
+>175	IdentifierDecl	rval = true
+>176	AssignmentExpr	rval = true
+>177	Identifier	true
+>178	Identifier	true
+>179	Identifier	rval
+>180	IdentifierDeclType	bool
+>199	FunctionDef	Watermark 
+>200	ParameterList	 
+>201	ReturnType	void
+>202	CompoundStatement	 
+>203	ExpressionStatement	 
+>204	CallExpression	mEmbedDataMap . clear ( )
+>205	ArgumentList	 
+>206	Callee	mEmbedDataMap . clear
+>207	MemberAccess	mEmbedDataMap . clear
+>208	Identifier	clear
+>209	Identifier	mEmbedDataMap
+>210	ForStatement	for ( EmbedDataMap 
+>211	CompoundStatement	 
+>212	ExpressionStatement	 
+>213	PtrMemberAccess	im -> second
+>214	Identifier	second
+>215	Identifier	im
+>216	Statement	 
+>217	ForStatement	for ( EmbedDataList 
+>218	CompoundStatement	 
+>219	ExpressionStatement	 
+>220	CallExpression	free ( il -> hash )
+>221	ArgumentList	il -> hash
+>222	Argument	il -> hash
+>223	PtrMemberAccess	il -> hash
+>224	Identifier	hash
+>225	Identifier	il
+>226	Callee	free
+>227	Identifier	free
+>228	UnaryExpression	 
+>229	Identifier	il
+>230	IncDec	++
+>231	Condition	 
+>232	EqualityExpression	il != im -> second -> end ( )
+>233	CallExpression	im -> second -> end ( )
+>234	ArgumentList	 
+>235	Callee	im -> second -> end
+>236	PtrMemberAccess	im -> second -> end
+>237	Identifier	end
+>238	PtrMemberAccess	im -> second
+>239	Identifier	second
+>240	Identifier	im
+>241	Identifier	il
+>242	ForInit	 
+>243	IdentifierDeclStatement	EmbedDataList 
+>244	IdentifierDecl	il = im -> second -> begin ( )
+>245	AssignmentExpr	il = im -> second -> begin ( )
+>246	CallExpression	im -> second -> begin ( )
+>247	ArgumentList	 
+>248	Callee	im -> second -> begin
+>249	PtrMemberAccess	im -> second -> begin
+>250	Identifier	begin
+>251	PtrMemberAccess	im -> second
+>252	Identifier	second
+>253	Identifier	im
+>254	Identifier	il
+>255	Identifier	il
+>256	IdentifierDeclType	EmbedDataList 
+>257	UnaryExpression	 
+>258	Identifier	im
+>259	IncDec	++
+>260	Condition	 
+>261	EqualityExpression	im != mEmbedDataMap . end ( )
+>262	CallExpression	mEmbedDataMap . end ( )
+>263	ArgumentList	 
+>264	Callee	mEmbedDataMap . end
+>265	MemberAccess	mEmbedDataMap . end
+>266	Identifier	end
+>267	Identifier	mEmbedDataMap
+>268	Identifier	im
+>269	ForInit	 
+>270	IdentifierDeclStatement	EmbedDataMap 
+>271	IdentifierDecl	im = mEmbedDataMap . begin ( )
+>272	AssignmentExpr	im = mEmbedDataMap . begin ( )
+>273	CallExpression	mEmbedDataMap . begin ( )
+>274	ArgumentList	 
+>275	Callee	mEmbedDataMap . begin
+>276	MemberAccess	mEmbedDataMap . begin
+>277	Identifier	begin
+>278	Identifier	mEmbedDataMap
+>279	Identifier	im
+>280	Identifier	im
+>281	IdentifierDeclType	EmbedDataMap 
+>282	ExpressionStatement	 
+>283	CallExpression	mWatermarkData . clear ( )
+>284	ArgumentList	 
+>285	Callee	mWatermarkData . clear
+>286	MemberAccess	mWatermarkData . clear
+>287	Identifier	clear
+>288	Identifier	mWatermarkData
+>306	FunctionDef	Watermark 
+>307	ParameterList	Mode mode
+>308	Parameter	 
+>309	Identifier	mode
+>310	ParameterType	Mode
+>311	ReturnType	void
+>312	CompoundStatement	 
+>313	ExpressionStatement	 
+>314	AssignmentExpr	mMode = mode
+>315	Identifier	mode
+>316	Identifier	mMode
+>322	FunctionDef	Watermark 
+>323	ParameterList	 
+>324	ReturnType	Watermark 
+>325	CompoundStatement	 
+>326	ReturnStatement	 
+>327	Identifier	mMode
+>332	FunctionDef	Watermark 
+>333	ParameterList	 
+>334	ReturnType	bool
+>335	CompoundStatement	 
+>336	ReturnStatement	 
+>337	OrExpression	mWrittenEmbeds > 0 || mEmbedDataMap . size ( ) > 0
+>338	RelationalExpression	mEmbedDataMap . size ( ) > 0
+>339	PrimaryExpression	0
+>340	CallExpression	mEmbedDataMap . size ( )
+>341	ArgumentList	 
+>342	Callee	mEmbedDataMap . size
+>343	MemberAccess	mEmbedDataMap . size
+>344	Identifier	size
+>345	Identifier	mEmbedDataMap
+>346	RelationalExpression	mWrittenEmbeds > 0
+>347	PrimaryExpression	0
+>348	Identifier	mWrittenEmbeds
+>355	FunctionDef	Watermark 
+>356	ParameterList	DynamicObject & data
+>357	Parameter	 
+>358	Identifier	data
+>359	ParameterType	DynamicObject &
+>360	ReturnType	void
+>361	CompoundStatement	 
+>362	ExpressionStatement	 
+>363	AssignmentExpr	mPreprocessData = data
+>364	Identifier	data
+>365	Identifier	mPreprocessData
+>371	FunctionDef	Watermark 
+>372	ParameterList	 
+>373	ReturnType	DynamicObject
+>374	CompoundStatement	 
+>375	ReturnStatement	 
+>376	Identifier	mPreprocessData
+>381	FunctionDef	Watermark 
+>382	ParameterList	Contract & c
+>383	Parameter	 
+>384	Identifier	c
+>385	ParameterType	Contract &
+>386	ReturnType	void
+>387	CompoundStatement	 
+>392	FunctionDef	Watermark 
+>393	ParameterList	uint32_t index , const char * hash
+>394	Parameter	 
+>395	Identifier	hash
+>396	ParameterType	const char *
+>397	Parameter	 
+>398	Identifier	index
+>399	ParameterType	uint32_t
+>400	ReturnType	void
+>401	CompoundStatement	 
+>402	ExpressionStatement	 
+>403	CallExpression	mWatermarkData . put ( hash , 20 , true )
+>404	ArgumentList	hash
+>405	Argument	true
+>406	Identifier	true
+>407	Argument	20
+>408	PrimaryExpression	20
+>409	Argument	hash
+>410	Identifier	hash
+>411	Callee	mWatermarkData . put
+>412	MemberAccess	mWatermarkData . put
+>413	Identifier	put
+>414	Identifier	mWatermarkData
+>415	ExpressionStatement	 
+>416	CallExpression	mWatermarkData . put ( ( char * ) & index , 4 , true )
+>417	ArgumentList	( char * ) & index
+>418	Argument	true
+>419	Identifier	true
+>420	Argument	4
+>421	PrimaryExpression	4
+>422	Argument	( char * ) & index
+>423	CastExpression	( char * ) & index
+>424	UnaryOp	& index
+>425	Identifier	index
+>426	UnaryOperator	&
+>427	CastTarget	char *
+>428	Callee	mWatermarkData . put
+>429	MemberAccess	mWatermarkData . put
+>430	Identifier	put
+>431	Identifier	mWatermarkData
+>432	ExpressionStatement	 
+>433	AssignmentExpr	index = MO_UINT32_TO_BE ( index )
+>434	CallExpression	MO_UINT32_TO_BE ( index )
+>435	ArgumentList	index
+>436	Argument	index
+>437	Identifier	index
+>438	Callee	MO_UINT32_TO_BE
+>439	Identifier	MO_UINT32_TO_BE
+>440	Identifier	index
+>450	FunctionDef	Watermark 
+>451	ParameterList	uint32_t index , char * hash
+>452	Parameter	 
+>453	Identifier	hash
+>454	ParameterType	char *
+>455	Parameter	 
+>456	Identifier	index
+>457	ParameterType	uint32_t
+>458	ReturnType	bool
+>459	CompoundStatement	 
+>460	ReturnStatement	 
+>461	Identifier	rval
+>462	IfStatement	if ( count > 0 )
+>463	CompoundStatement	 
+>464	ForStatement	for ( EmbedDataList 
+>465	CompoundStatement	 
+>466	IfStatement	if ( itr -> count == count )
+>467	CompoundStatement	 
+>468	ExpressionStatement	 
+>469	AssignmentExpr	rval = true
+>470	Identifier	true
+>471	Identifier	rval
+>472	ExpressionStatement	 
+>473	CallExpression	memcpy ( hash , itr -> hash , 20 )
+>474	ArgumentList	hash
+>475	Argument	20
+>476	PrimaryExpression	20
+>477	Argument	itr -> hash
+>478	PtrMemberAccess	itr -> hash
+>479	Identifier	hash
+>480	Identifier	itr
+>481	Argument	hash
+>482	Identifier	hash
+>483	Callee	memcpy
+>484	Identifier	memcpy
+>485	Condition	 
+>486	EqualityExpression	itr -> count == count
+>487	Identifier	count
+>488	PtrMemberAccess	itr -> count
+>489	Identifier	count
+>490	Identifier	itr
+>491	UnaryExpression	 
+>492	Identifier	itr
+>493	IncDec	++
+>494	Condition	 
+>495	AndExpression	! rval && itr != list -> end ( )
+>496	EqualityExpression	itr != list -> end ( )
+>497	CallExpression	list -> end ( )
+>498	ArgumentList	 
+>499	Callee	list -> end
+>500	PtrMemberAccess	list -> end
+>501	Identifier	end
+>502	Identifier	list
+>503	Identifier	itr
+>504	UnaryOp	! rval
+>505	Identifier	rval
+>506	UnaryOperator	!
+>507	ForInit	 
+>508	IdentifierDeclStatement	EmbedDataList 
+>509	IdentifierDecl	itr = list -> begin ( )
+>510	AssignmentExpr	itr = list -> begin ( )
+>511	CallExpression	list -> begin ( )
+>512	ArgumentList	 
+>513	Callee	list -> begin
+>514	PtrMemberAccess	list -> begin
+>515	Identifier	begin
+>516	Identifier	list
+>517	Identifier	itr
+>518	Identifier	itr
+>519	IdentifierDeclType	EmbedDataList 
+>520	IdentifierDeclStatement	 
+>521	IdentifierDecl	* list = i -> second
+>522	AssignmentExpr	* list = i -> second
+>523	PtrMemberAccess	i -> second
+>524	Identifier	second
+>525	Identifier	i
+>526	Identifier	list
+>527	Identifier	list
+>528	IdentifierDeclType	EmbedDataList *
+>529	IdentifierDeclStatement	 
+>530	IdentifierDecl	i = mEmbedDataMap . find ( index )
+>531	AssignmentExpr	i = mEmbedDataMap . find ( index )
+>532	CallExpression	mEmbedDataMap . find ( index )
+>533	ArgumentList	index
+>534	Argument	index
+>535	Identifier	index
+>536	Callee	mEmbedDataMap . find
+>537	MemberAccess	mEmbedDataMap . find
+>538	Identifier	find
+>539	Identifier	mEmbedDataMap
+>540	Identifier	i
+>541	Identifier	i
+>542	IdentifierDeclType	EmbedDataMap 
+>543	Condition	 
+>544	RelationalExpression	count > 0
+>545	PrimaryExpression	0
+>546	Identifier	count
+>547	IdentifierDeclStatement	 
+>548	IdentifierDecl	count = getEmbedCount ( index )
+>549	AssignmentExpr	count = getEmbedCount ( index )
+>550	CallExpression	getEmbedCount ( index )
+>551	ArgumentList	index
+>552	Argument	index
+>553	Identifier	index
+>554	Callee	getEmbedCount
+>555	Identifier	getEmbedCount
+>556	Identifier	count
+>557	Identifier	count
+>558	IdentifierDeclType	int
+>559	IdentifierDeclStatement	 
+>560	IdentifierDecl	rval = false
+>561	AssignmentExpr	rval = false
+>562	Identifier	false
+>563	Identifier	false
+>564	Identifier	rval
+>565	IdentifierDeclType	bool
+>589	FunctionDef	Watermark 
+>590	ParameterList	uint32_t index
+>591	Parameter	 
+>592	Identifier	index
+>593	ParameterType	uint32_t
+>594	ReturnType	int
+>595	CompoundStatement	 
+>596	ReturnStatement	 
+>597	Identifier	rval
+>598	IfStatement	if ( i != mEmbedDataMap . end ( ) )
+>599	CompoundStatement	 
+>600	ForStatement	for ( EmbedDataList 
+>601	CompoundStatement	 
+>602	IfStatement	if ( itr -> count > rval )
+>603	CompoundStatement	 
+>604	ExpressionStatement	 
+>605	AssignmentExpr	rval = itr -> count
+>606	PtrMemberAccess	itr -> count
+>607	Identifier	count
+>608	Identifier	itr
+>609	Identifier	rval
+>610	Condition	 
+>611	RelationalExpression	itr -> count > rval
+>612	Identifier	rval
+>613	PtrMemberAccess	itr -> count
+>614	Identifier	count
+>615	Identifier	itr
+>616	UnaryExpression	 
+>617	Identifier	itr
+>618	IncDec	++
+>619	Condition	 
+>620	EqualityExpression	itr != list -> end ( )
+>621	CallExpression	list -> end ( )
+>622	ArgumentList	 
+>623	Callee	list -> end
+>624	PtrMemberAccess	list -> end
+>625	Identifier	end
+>626	Identifier	list
+>627	Identifier	itr
+>628	ForInit	 
+>629	IdentifierDeclStatement	EmbedDataList 
+>630	IdentifierDecl	itr = list -> begin ( )
+>631	AssignmentExpr	itr = list -> begin ( )
+>632	CallExpression	list -> begin ( )
+>633	ArgumentList	 
+>634	Callee	list -> begin
+>635	PtrMemberAccess	list -> begin
+>636	Identifier	begin
+>637	Identifier	list
+>638	Identifier	itr
+>639	Identifier	itr
+>640	IdentifierDeclType	EmbedDataList 
+>641	IdentifierDeclStatement	 
+>642	IdentifierDecl	* list = i -> second
+>643	AssignmentExpr	* list = i -> second
+>644	PtrMemberAccess	i -> second
+>645	Identifier	second
+>646	Identifier	i
+>647	Identifier	list
+>648	Identifier	list
+>649	IdentifierDeclType	EmbedDataList *
+>650	Condition	 
+>651	EqualityExpression	i != mEmbedDataMap . end ( )
+>652	CallExpression	mEmbedDataMap . end ( )
+>653	ArgumentList	 
+>654	Callee	mEmbedDataMap . end
+>655	MemberAccess	mEmbedDataMap . end
+>656	Identifier	end
+>657	Identifier	mEmbedDataMap
+>658	Identifier	i
+>659	IdentifierDeclStatement	 
+>660	IdentifierDecl	i = mEmbedDataMap . find ( index )
+>661	AssignmentExpr	i = mEmbedDataMap . find ( index )
+>662	CallExpression	mEmbedDataMap . find ( index )
+>663	ArgumentList	index
+>664	Argument	index
+>665	Identifier	index
+>666	Callee	mEmbedDataMap . find
+>667	MemberAccess	mEmbedDataMap . find
+>668	Identifier	find
+>669	Identifier	mEmbedDataMap
+>670	Identifier	i
+>671	Identifier	i
+>672	IdentifierDeclType	EmbedDataMap 
+>673	IdentifierDeclStatement	 
+>674	IdentifierDecl	rval = 0
+>675	AssignmentExpr	rval = 0
+>676	PrimaryExpression	0
+>677	Identifier	rval
+>678	Identifier	rval
+>679	IdentifierDeclType	int
+>698	FunctionDef	Watermark 
+>699	ParameterList	 
+>700	ReturnType	int
+>701	CompoundStatement	 
+>702	ReturnStatement	 
+>703	Identifier	rval
+>704	SwitchStatement	switch ( mMode )
+>705	CompoundStatement	 
+>706	BreakStatement	 
+>707	ExpressionStatement	 
+>708	AssignmentExpr	rval = mEmbedDataMap . size ( )
+>709	CallExpression	mEmbedDataMap . size ( )
+>710	ArgumentList	 
+>711	Callee	mEmbedDataMap . size
+>712	MemberAccess	mEmbedDataMap . size
+>713	Identifier	size
+>714	Identifier	mEmbedDataMap
+>715	Identifier	rval
+>716	Label	 
+>717	Identifier	Decode
+>718	BreakStatement	 
+>719	ExpressionStatement	 
+>720	AssignmentExpr	rval = 0
+>721	PrimaryExpression	0
+>722	Identifier	rval
+>723	Label	 
+>724	Identifier	Clean
+>725	BreakStatement	 
+>726	ExpressionStatement	 
+>727	AssignmentExpr	rval = mWrittenEmbeds
+>728	Identifier	mWrittenEmbeds
+>729	Identifier	rval
+>730	Label	 
+>731	Identifier	Encode
+>732	Condition	 
+>733	Identifier	mMode
+>734	IdentifierDeclStatement	 
+>735	IdentifierDecl	rval = 0
+>736	AssignmentExpr	rval = 0
+>737	PrimaryExpression	0
+>738	Identifier	rval
+>739	Identifier	rval
+>740	IdentifierDeclType	int
+>749	FunctionDef	Watermark 
+>750	ParameterList	unsigned char * data
+>751	Parameter	 
+>752	Identifier	data
+>753	ParameterType	unsigned char *
+>754	ReturnType	void
+>755	CompoundStatement	 
+>756	IfStatement	if ( ! found )
+>757	CompoundStatement	 
+>758	ExpressionStatement	 
+>759	CallExpression	list -> push_back ( edata )
+>760	ArgumentList	edata
+>761	Argument	edata
+>762	Identifier	edata
+>763	Callee	list -> push_back
+>764	PtrMemberAccess	list -> push_back
+>765	Identifier	push_back
+>766	Identifier	list
+>767	ExpressionStatement	 
+>768	AssignmentExpr	edata . count = 0
+>769	PrimaryExpression	0
+>770	MemberAccess	edata . count
+>771	Identifier	count
+>772	Identifier	edata
+>773	ExpressionStatement	 
+>774	CallExpression	memcpy ( edata . hash , hash , 20 )
+>775	ArgumentList	edata . hash
+>776	Argument	20
+>777	PrimaryExpression	20
+>778	Argument	hash
+>779	Identifier	hash
+>780	Argument	edata . hash
+>781	MemberAccess	edata . hash
+>782	Identifier	hash
+>783	Identifier	edata
+>784	Callee	memcpy
+>785	Identifier	memcpy
+>786	ExpressionStatement	 
+>787	AssignmentExpr	edata . hash = ( char * ) malloc ( 20 )
+>788	CastExpression	( char * ) malloc ( 20 )
+>789	CallExpression	malloc ( 20 )
+>790	ArgumentList	20
+>791	Argument	20
+>792	PrimaryExpression	20
+>793	Callee	malloc
+>794	Identifier	malloc
+>795	CastTarget	char *
+>796	MemberAccess	edata . hash
+>797	Identifier	hash
+>798	Identifier	edata
+>799	ExpressionStatement	 
+>800	AssignmentExpr	edata . index = index
+>801	Identifier	index
+>802	MemberAccess	edata . index
+>803	Identifier	index
+>804	Identifier	edata
+>805	IdentifierDeclStatement	 
+>806	IdentifierDecl	edata
+>807	Identifier	edata
+>808	IdentifierDeclType	EmbedData
+>809	Condition	 
+>810	UnaryOp	! found
+>811	Identifier	found
+>812	UnaryOperator	!
+>813	ForStatement	for ( EmbedDataList 
+>814	CompoundStatement	 
+>815	IfStatement	if ( memcmp ( itr -> hash , hash , 20 ) == 0 )
+>816	CompoundStatement	 
+>817	ExpressionStatement	 
+>818	AssignmentExpr	found = true
+>819	Identifier	true
+>820	Identifier	found
+>821	ExpressionStatement	 
+>822	UnaryExpression	++ itr -> count
+>823	PtrMemberAccess	itr -> count
+>824	Identifier	count
+>825	Identifier	itr
+>826	IncDec	++
+>827	Condition	 
+>828	EqualityExpression	memcmp ( itr -> hash , hash , 20 ) == 0
+>829	PrimaryExpression	0
+>830	CallExpression	memcmp ( itr -> hash , hash , 20 )
+>831	ArgumentList	itr -> hash
+>832	Argument	20
+>833	PrimaryExpression	20
+>834	Argument	hash
+>835	Identifier	hash
+>836	Argument	itr -> hash
+>837	PtrMemberAccess	itr -> hash
+>838	Identifier	hash
+>839	Identifier	itr
+>840	Callee	memcmp
+>841	Identifier	memcmp
+>842	UnaryExpression	 
+>843	Identifier	itr
+>844	IncDec	++
+>845	Condition	 
+>846	AndExpression	! found && itr != list -> end ( )
+>847	EqualityExpression	itr != list -> end ( )
+>848	CallExpression	list -> end ( )
+>849	ArgumentList	 
+>850	Callee	list -> end
+>851	PtrMemberAccess	list -> end
+>852	Identifier	end
+>853	Identifier	list
+>854	Identifier	itr
+>855	UnaryOp	! found
+>856	Identifier	found
+>857	UnaryOperator	!
+>858	ForInit	 
+>859	IdentifierDeclStatement	EmbedDataList 
+>860	IdentifierDecl	itr = list -> begin ( )
+>861	AssignmentExpr	itr = list -> begin ( )
+>862	CallExpression	list -> begin ( )
+>863	ArgumentList	 
+>864	Callee	list -> begin
+>865	PtrMemberAccess	list -> begin
+>866	Identifier	begin
+>867	Identifier	list
+>868	Identifier	itr
+>869	Identifier	itr
+>870	IdentifierDeclType	EmbedDataList 
+>871	IdentifierDeclStatement	 
+>872	IdentifierDecl	found = false
+>873	AssignmentExpr	found = false
+>874	Identifier	false
+>875	Identifier	false
+>876	Identifier	found
+>877	IdentifierDeclType	bool
+>878	IfStatement	if ( i != mEmbedDataMap . end ( ) )
+>879	ElseStatement	else
+>880	CompoundStatement	 
+>881	ExpressionStatement	 
+>882	CallExpression	mEmbedDataMap . insert ( make_pair ( index , list ) )
+>883	ArgumentList	make_pair ( index , list )
+>884	Argument	make_pair ( index , list )
+>885	CallExpression	make_pair ( index , list )
+>886	ArgumentList	index
+>887	Argument	list
+>888	Identifier	list
+>889	Argument	index
+>890	Identifier	index
+>891	Callee	make_pair
+>892	Identifier	make_pair
+>893	Callee	mEmbedDataMap . insert
+>894	MemberAccess	mEmbedDataMap . insert
+>895	Identifier	insert
+>896	Identifier	mEmbedDataMap
+>897	ExpressionStatement	 
+>898	Identifier	EmbedDataList
+>899	Statement	 
+>900	Statement	 
+>901	Statement	 
+>902	CompoundStatement	 
+>903	ExpressionStatement	 
+>904	AssignmentExpr	list = i -> second
+>905	PtrMemberAccess	i -> second
+>906	Identifier	second
+>907	Identifier	i
+>908	Identifier	list
+>909	Condition	 
+>910	EqualityExpression	i != mEmbedDataMap . end ( )
+>911	CallExpression	mEmbedDataMap . end ( )
+>912	ArgumentList	 
+>913	Callee	mEmbedDataMap . end
+>914	MemberAccess	mEmbedDataMap . end
+>915	Identifier	end
+>916	Identifier	mEmbedDataMap
+>917	Identifier	i
+>918	IdentifierDeclStatement	 
+>919	IdentifierDecl	i = mEmbedDataMap . find ( index )
+>920	AssignmentExpr	i = mEmbedDataMap . find ( index )
+>921	CallExpression	mEmbedDataMap . find ( index )
+>922	ArgumentList	index
+>923	Argument	index
+>924	Identifier	index
+>925	Callee	mEmbedDataMap . find
+>926	MemberAccess	mEmbedDataMap . find
+>927	Identifier	find
+>928	Identifier	mEmbedDataMap
+>929	Identifier	i
+>930	Identifier	i
+>931	IdentifierDeclType	EmbedDataMap 
+>932	IdentifierDeclStatement	 
+>933	IdentifierDecl	* list
+>934	Identifier	list
+>935	IdentifierDeclType	EmbedDataList *
+>936	ExpressionStatement	 
+>937	CallExpression	memcpy ( & hash , data + 4 , 20 )
+>938	ArgumentList	& hash
+>939	Argument	20
+>940	PrimaryExpression	20
+>941	Argument	data + 4
+>942	AdditiveExpression	data + 4
+>943	PrimaryExpression	4
+>944	Identifier	data
+>945	Argument	& hash
+>946	UnaryOp	& hash
+>947	Identifier	hash
+>948	UnaryOperator	&
+>949	Callee	memcpy
+>950	Identifier	memcpy
+>951	IdentifierDeclStatement	 
+>952	IdentifierDecl	hash [ 20 ]
+>953	PrimaryExpression	20
+>954	Identifier	hash
+>955	IdentifierDeclType	char [ 20 ]
+>956	ExpressionStatement	 
+>957	AssignmentExpr	index = MO_UINT32_FROM_BE ( index )
+>958	CallExpression	MO_UINT32_FROM_BE ( index )
+>959	ArgumentList	index
+>960	Argument	index
+>961	Identifier	index
+>962	Callee	MO_UINT32_FROM_BE
+>963	Identifier	MO_UINT32_FROM_BE
+>964	Identifier	index
+>965	ExpressionStatement	 
+>966	CallExpression	memcpy ( & index , data , 4 )
+>967	ArgumentList	& index
+>968	Argument	4
+>969	PrimaryExpression	4
+>970	Argument	data
+>971	Identifier	data
+>972	Argument	& index
+>973	UnaryOp	& index
+>974	Identifier	index
+>975	UnaryOperator	&
+>976	Callee	memcpy
+>977	Identifier	memcpy
+>978	IdentifierDeclStatement	 
+>979	IdentifierDecl	index
+>980	Identifier	index
+>981	IdentifierDeclType	uint32_t
+<3=5,4
+<5=13,6
+<6=7
+<7=11,8
+<8=9
+<9=10
+<11=12
+<13=14
+<14=16,15
+<22=24,23
+<24=25
+<25=26
+<26=28,27
+<28=29
+<33=36,35,34
+<36=37
+<37=38
+<43=55,54,44
+<44=51,48,45
+<45=47,46
+<48=50,49
+<51=53,52
+<55=174,58,56
+<56=57
+<58=172,59
+<59=170,157,156,154,141,140,138,114,61,60
+<61=110,96,62
+<62=63
+<63=89,70,64
+<64=65
+<65=66
+<66=67
+<67=69,68
+<70=71
+<71=72
+<72=85,73
+<73=83,76,74
+<74=75
+<76=77
+<77=79,78
+<79=80
+<80=82,81
+<83=84
+<85=86
+<86=88,87
+<89=90
+<90=92,91
+<92=93
+<93=95,94
+<96=97
+<97=98
+<98=106,99
+<99=104,102,100
+<100=101
+<102=103
+<104=105
+<106=107
+<107=109,108
+<110=111
+<111=113,112
+<114=115
+<115=137,136,116
+<116=135,117
+<117=133,118
+<118=126,119
+<119=120
+<120=122,121
+<122=123
+<123=125,124
+<126=127
+<127=129,128
+<129=130
+<130=132,131
+<133=134
+<138=139
+<141=142
+<142=153,143
+<143=151,144
+<144=149,147,145
+<145=146
+<147=148
+<149=150
+<151=152
+<154=155
+<157=158
+<158=169,159
+<159=167,160
+<160=165,163,161
+<161=162
+<163=164
+<165=166
+<167=168
+<170=171
+<172=173
+<174=175
+<175=180,179,176
+<176=178,177
+<199=202,201,200
+<202=282,210,203
+<203=204
+<204=206,205
+<206=207
+<207=209,208
+<210=269,260,257,211
+<211=217,216,212
+<212=213
+<213=215,214
+<217=242,231,228,218
+<218=219
+<219=220
+<220=226,221
+<221=222
+<222=223
+<223=225,224
+<226=227
+<228=230,229
+<231=232
+<232=241,233
+<233=235,234
+<235=236
+<236=238,237
+<238=240,239
+<242=243
+<243=244
+<244=256,255,245
+<245=254,246
+<246=248,247
+<248=249
+<249=251,250
+<251=253,252
+<257=259,258
+<260=261
+<261=268,262
+<262=264,263
+<264=265
+<265=267,266
+<269=270
+<270=271
+<271=281,280,272
+<272=279,273
+<273=275,274
+<275=276
+<276=278,277
+<282=283
+<283=285,284
+<285=286
+<286=288,287
+<306=312,311,307
+<307=308
+<308=310,309
+<312=313
+<313=314
+<314=316,315
+<322=325,324,323
+<325=326
+<326=327
+<332=335,334,333
+<335=336
+<336=337
+<337=346,338
+<338=340,339
+<340=342,341
+<342=343
+<343=345,344
+<346=348,347
+<355=361,360,356
+<356=357
+<357=359,358
+<361=362
+<362=363
+<363=365,364
+<371=374,373,372
+<374=375
+<375=376
+<381=387,386,382
+<382=383
+<383=385,384
+<392=401,400,393
+<393=397,394
+<394=396,395
+<397=399,398
+<401=432,415,402
+<402=403
+<403=411,404
+<404=409,407,405
+<405=406
+<407=408
+<409=410
+<411=412
+<412=414,413
+<415=416
+<416=428,417
+<417=422,420,418
+<418=419
+<420=421
+<422=423
+<423=427,424
+<424=426,425
+<428=429
+<429=431,430
+<432=433
+<433=440,434
+<434=438,435
+<435=436
+<436=437
+<438=439
+<450=459,458,451
+<451=455,452
+<452=454,453
+<455=457,456
+<459=559,547,462,460
+<460=461
+<462=543,463
+<463=529,520,464
+<464=507,494,491,465
+<465=466
+<466=485,467
+<467=472,468
+<468=469
+<469=471,470
+<472=473
+<473=483,474
+<474=481,477,475
+<475=476
+<477=478
+<478=480,479
+<481=482
+<483=484
+<485=486
+<486=488,487
+<488=490,489
+<491=493,492
+<494=495
+<495=504,496
+<496=503,497
+<497=499,498
+<499=500
+<500=502,501
+<504=506,505
+<507=508
+<508=509
+<509=519,518,510
+<510=517,511
+<511=513,512
+<513=514
+<514=516,515
+<520=521
+<521=528,527,522
+<522=526,523
+<523=525,524
+<529=530
+<530=542,541,531
+<531=540,532
+<532=536,533
+<533=534
+<534=535
+<536=537
+<537=539,538
+<543=544
+<544=546,545
+<547=548
+<548=558,557,549
+<549=556,550
+<550=554,551
+<551=552
+<552=553
+<554=555
+<559=560
+<560=565,564,561
+<561=563,562
+<589=595,594,590
+<590=591
+<591=593,592
+<595=673,659,598,596
+<596=597
+<598=650,599
+<599=641,600
+<600=628,619,616,601
+<601=602
+<602=610,603
+<603=604
+<604=605
+<605=609,606
+<606=608,607
+<610=611
+<611=613,612
+<613=615,614
+<616=618,617
+<619=620
+<620=627,621
+<621=623,622
+<623=624
+<624=626,625
+<628=629
+<629=630
+<630=640,639,631
+<631=638,632
+<632=634,633
+<634=635
+<635=637,636
+<641=642
+<642=649,648,643
+<643=647,644
+<644=646,645
+<650=651
+<651=658,652
+<652=654,653
+<654=655
+<655=657,656
+<659=660
+<660=672,671,661
+<661=670,662
+<662=666,663
+<663=664
+<664=665
+<666=667
+<667=669,668
+<673=674
+<674=679,678,675
+<675=677,676
+<698=701,700,699
+<701=734,704,702
+<702=703
+<704=732,705
+<705=730,726,725,723,719,718,716,707,706
+<707=708
+<708=715,709
+<709=711,710
+<711=712
+<712=714,713
+<716=717
+<719=720
+<720=722,721
+<723=724
+<726=727
+<727=729,728
+<730=731
+<732=733
+<734=735
+<735=740,739,736
+<736=738,737
+<749=755,754,750
+<750=751
+<751=753,752
+<755=978,965,956,951,936,932,918,878,871,813,756
+<756=809,757
+<757=805,799,786,773,767,758
+<758=759
+<759=763,760
+<760=761
+<761=762
+<763=764
+<764=766,765
+<767=768
+<768=770,769
+<770=772,771
+<773=774
+<774=784,775
+<775=780,778,776
+<776=777
+<778=779
+<780=781
+<781=783,782
+<784=785
+<786=787
+<787=796,788
+<788=795,789
+<789=793,790
+<790=791
+<791=792
+<793=794
+<796=798,797
+<799=800
+<800=802,801
+<802=804,803
+<805=806
+<806=808,807
+<809=810
+<810=812,811
+<813=858,845,842,814
+<814=815
+<815=827,816
+<816=821,817
+<817=818
+<818=820,819
+<821=822
+<822=826,823
+<823=825,824
+<827=828
+<828=830,829
+<830=840,831
+<831=836,834,832
+<832=833
+<834=835
+<836=837
+<837=839,838
+<840=841
+<842=844,843
+<845=846
+<846=855,847
+<847=854,848
+<848=850,849
+<850=851
+<851=853,852
+<855=857,856
+<858=859
+<859=860
+<860=870,869,861
+<861=868,862
+<862=864,863
+<864=865
+<865=867,866
+<871=872
+<872=877,876,873
+<873=875,874
+<878=909,902,879
+<879=880
+<880=901,900,899,897,881
+<881=882
+<882=893,883
+<883=884
+<884=885
+<885=891,886
+<886=889,887
+<887=888
+<889=890
+<891=892
+<893=894
+<894=896,895
+<897=898
+<902=903
+<903=904
+<904=908,905
+<905=907,906
+<909=910
+<910=917,911
+<911=913,912
+<913=914
+<914=916,915
+<918=919
+<919=931,930,920
+<920=929,921
+<921=925,922
+<922=923
+<923=924
+<925=926
+<926=928,927
+<932=933
+<933=935,934
+<936=937
+<937=949,938
+<938=945,941,939
+<939=940
+<941=942
+<942=944,943
+<945=946
+<946=948,947
+<949=950
+<951=952
+<952=955,954,953
+<956=957
+<957=964,958
+<958=962,959
+<959=960
+<960=961
+<962=963
+<965=966
+<966=976,967
+<967=972,970,968
+<968=969
+<970=971
+<972=973
+<973=975,974
+<976=977
+<978=979
+<979=981,980

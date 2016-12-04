@@ -1,0 +1,997 @@
+>3	FunctionDef	BaseApp 
+>4	ParameterList	int img , int key
+>5	Parameter	 
+>6	Identifier	key
+>7	ParameterType	int
+>8	Parameter	 
+>9	Identifier	img
+>10	ParameterType	int
+>11	ReturnType	Keypoint &
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	ArrayIndexing	m_image_data [ img ] . m_keys [ key ]
+>15	Identifier	key
+>16	MemberAccess	m_image_data [ img ] . m_keys
+>17	Identifier	m_keys
+>18	ArrayIndexing	m_image_data [ img ]
+>19	Identifier	img
+>20	Identifier	m_image_data
+>34	FunctionDef	BaseApp 
+>35	ParameterList	int img , int key
+>36	Parameter	 
+>37	Identifier	key
+>38	ParameterType	int
+>39	Parameter	 
+>40	Identifier	img
+>41	ParameterType	int
+>42	ReturnType	KeypointWithDesc &
+>43	CompoundStatement	 
+>44	ReturnStatement	 
+>45	ArrayIndexing	m_image_data [ img ] . m_keys_desc [ key ]
+>46	Identifier	key
+>47	MemberAccess	m_image_data [ img ] . m_keys_desc
+>48	Identifier	m_keys_desc
+>49	ArrayIndexing	m_image_data [ img ]
+>50	Identifier	img
+>51	Identifier	m_image_data
+>65	FunctionDef	BaseApp 
+>66	ParameterList	int img
+>67	Parameter	 
+>68	Identifier	img
+>69	ParameterType	int
+>70	ReturnType	int
+>71	CompoundStatement	 
+>72	ReturnStatement	 
+>73	CastExpression	( int ) m_image_data [ img ] . m_keys . size ( )
+>74	CallExpression	m_image_data [ img ] . m_keys . size ( )
+>75	ArgumentList	 
+>76	Callee	m_image_data [ img ] . m_keys . size
+>77	MemberAccess	m_image_data [ img ] . m_keys . size
+>78	Identifier	size
+>79	MemberAccess	m_image_data [ img ] . m_keys
+>80	Identifier	m_keys
+>81	ArrayIndexing	m_image_data [ img ]
+>82	Identifier	img
+>83	Identifier	m_image_data
+>84	CastTarget	int
+>94	FunctionDef	BaseApp 
+>95	ParameterList	int cam
+>96	Parameter	 
+>97	Identifier	cam
+>98	ParameterType	int
+>99	ReturnType	int
+>100	CompoundStatement	 
+>101	ReturnStatement	 
+>102	UnaryOp	- 1
+>103	PrimaryExpression	1
+>104	UnaryOperator	-
+>105	ExpressionStatement	 
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Statement	 
+>110	Statement	 
+>111	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>112	CompoundStatement	 
+>113	IfStatement	if ( m_image_data [ i ] . m_camera . m_adjusted )
+>114	CompoundStatement	 
+>115	ExpressionStatement	 
+>116	IncDecOp	count ++
+>117	IncDec	++
+>118	Identifier	count
+>119	IfStatement	if ( count == cam )
+>120	ReturnStatement	 
+>121	Identifier	i
+>122	Condition	 
+>123	EqualityExpression	count == cam
+>124	Identifier	cam
+>125	Identifier	count
+>126	Condition	 
+>127	MemberAccess	m_image_data [ i ] . m_camera . m_adjusted
+>128	Identifier	m_adjusted
+>129	MemberAccess	m_image_data [ i ] . m_camera
+>130	Identifier	m_camera
+>131	ArrayIndexing	m_image_data [ i ]
+>132	Identifier	i
+>133	Identifier	m_image_data
+>134	IncDecOp	 
+>135	IncDec	++
+>136	Identifier	i
+>137	Condition	 
+>138	RelationalExpression	i < num_images
+>139	Identifier	num_images
+>140	Identifier	i
+>141	ForInit	 
+>142	IdentifierDeclStatement	int i = 0 ;
+>143	IdentifierDecl	i = 0
+>144	AssignmentExpr	i = 0
+>145	PrimaryExpression	0
+>146	Identifier	i
+>147	Identifier	i
+>148	IdentifierDeclType	int
+>149	IdentifierDeclStatement	 
+>150	IdentifierDecl	count = 0
+>151	AssignmentExpr	count = 0
+>152	PrimaryExpression	0
+>153	Identifier	count
+>154	Identifier	count
+>155	IdentifierDeclType	int
+>156	IdentifierDeclStatement	 
+>157	IdentifierDecl	num_images = GetNumImages ( )
+>158	AssignmentExpr	num_images = GetNumImages ( )
+>159	CallExpression	GetNumImages ( )
+>160	ArgumentList	 
+>161	Callee	GetNumImages
+>162	Identifier	GetNumImages
+>163	Identifier	num_images
+>164	Identifier	num_images
+>165	IdentifierDeclType	int
+>179	FunctionDef	BaseApp 
+>180	ParameterList	 
+>181	ReturnType	int
+>182	CompoundStatement	 
+>183	ReturnStatement	 
+>184	CastExpression	( int ) m_image_data . size ( )
+>185	CallExpression	m_image_data . size ( )
+>186	ArgumentList	 
+>187	Callee	m_image_data . size
+>188	MemberAccess	m_image_data . size
+>189	Identifier	size
+>190	Identifier	m_image_data
+>191	CastTarget	int
+>197	FunctionDef	BaseApp 
+>198	ParameterList	 
+>199	ReturnType	int
+>200	CompoundStatement	 
+>201	ReturnStatement	 
+>202	Identifier	m_num_original_images
+>207	FunctionDef	BaseApp 
+>208	ParameterList	int i1 , int i2
+>209	Parameter	 
+>210	Identifier	i2
+>211	ParameterType	int
+>212	Parameter	 
+>213	Identifier	i1
+>214	ParameterType	int
+>215	ReturnType	int
+>216	CompoundStatement	 
+>217	ReturnStatement	 
+>218	CallExpression	m_matches . GetNumMatches ( idx )
+>219	ArgumentList	idx
+>220	Argument	idx
+>221	Identifier	idx
+>222	Callee	m_matches . GetNumMatches
+>223	MemberAccess	m_matches . GetNumMatches
+>224	Identifier	GetNumMatches
+>225	Identifier	m_matches
+>226	IdentifierDeclStatement	 
+>227	IdentifierDecl	idx = GetMatchIndex ( i_min , i_max )
+>228	AssignmentExpr	idx = GetMatchIndex ( i_min , i_max )
+>229	CallExpression	GetMatchIndex ( i_min , i_max )
+>230	ArgumentList	i_min
+>231	Argument	i_max
+>232	Identifier	i_max
+>233	Argument	i_min
+>234	Identifier	i_min
+>235	Callee	GetMatchIndex
+>236	Identifier	GetMatchIndex
+>237	Identifier	idx
+>238	Identifier	idx
+>239	IdentifierDeclType	MatchIndex
+>240	IdentifierDeclStatement	 
+>241	IdentifierDecl	i_max = MAX ( i1 , i2 )
+>242	AssignmentExpr	i_max = MAX ( i1 , i2 )
+>243	CallExpression	MAX ( i1 , i2 )
+>244	ArgumentList	i1
+>245	Argument	i2
+>246	Identifier	i2
+>247	Argument	i1
+>248	Identifier	i1
+>249	Callee	MAX
+>250	Identifier	MAX
+>251	Identifier	i_max
+>252	Identifier	i_max
+>253	IdentifierDeclType	int
+>254	IdentifierDeclStatement	 
+>255	IdentifierDecl	i_min = MIN ( i1 , i2 )
+>256	AssignmentExpr	i_min = MIN ( i1 , i2 )
+>257	CallExpression	MIN ( i1 , i2 )
+>258	ArgumentList	i1
+>259	Argument	i2
+>260	Identifier	i2
+>261	Argument	i1
+>262	Identifier	i1
+>263	Callee	MIN
+>264	Identifier	MIN
+>265	Identifier	i_min
+>266	Identifier	i_min
+>267	IdentifierDeclType	int
+>281	FunctionDef	GetMatchIndex (int i1 , int i2)
+>282	ParameterList	int i1 , int i2
+>283	Parameter	 
+>284	Identifier	i2
+>285	ParameterType	int
+>286	Parameter	 
+>287	Identifier	i1
+>288	ParameterType	int
+>289	ReturnType	MatchIndex
+>290	CompoundStatement	 
+>291	ReturnStatement	 
+>292	CallExpression	MatchIndex ( ( unsigned long ) i1 , ( unsigned long ) i2 )
+>293	ArgumentList	( unsigned long ) i1
+>294	Argument	( unsigned long ) i2
+>295	CastExpression	( unsigned long ) i2
+>296	Identifier	i2
+>297	CastTarget	unsigned long
+>298	Argument	( unsigned long ) i1
+>299	CastExpression	( unsigned long ) i1
+>300	Identifier	i1
+>301	CastTarget	unsigned long
+>302	Callee	MatchIndex
+>303	Identifier	MatchIndex
+>310	FunctionDef	GetMatchIndexUnordered (int i1 , int i2)
+>311	ParameterList	int i1 , int i2
+>312	Parameter	 
+>313	Identifier	i2
+>314	ParameterType	int
+>315	Parameter	 
+>316	Identifier	i1
+>317	ParameterType	int
+>318	ReturnType	MatchIndex
+>319	CompoundStatement	 
+>320	IfStatement	if ( i1 < i2 )
+>321	ElseStatement	else
+>322	ReturnStatement	 
+>323	CallExpression	MatchIndex ( ( unsigned long ) i2 , ( unsigned long ) i1 )
+>324	ArgumentList	( unsigned long ) i2
+>325	Argument	( unsigned long ) i1
+>326	CastExpression	( unsigned long ) i1
+>327	Identifier	i1
+>328	CastTarget	unsigned long
+>329	Argument	( unsigned long ) i2
+>330	CastExpression	( unsigned long ) i2
+>331	Identifier	i2
+>332	CastTarget	unsigned long
+>333	Callee	MatchIndex
+>334	Identifier	MatchIndex
+>335	ReturnStatement	 
+>336	CallExpression	MatchIndex ( ( unsigned long ) i1 , ( unsigned long ) i2 )
+>337	ArgumentList	( unsigned long ) i1
+>338	Argument	( unsigned long ) i2
+>339	CastExpression	( unsigned long ) i2
+>340	Identifier	i2
+>341	CastTarget	unsigned long
+>342	Argument	( unsigned long ) i1
+>343	CastExpression	( unsigned long ) i1
+>344	Identifier	i1
+>345	CastTarget	unsigned long
+>346	Callee	MatchIndex
+>347	Identifier	MatchIndex
+>348	Condition	 
+>349	RelationalExpression	i1 < i2
+>350	Identifier	i2
+>351	Identifier	i1
+>358	FunctionDef	BaseApp 
+>359	ParameterList	int i1 , int i2
+>360	Parameter	 
+>361	Identifier	i2
+>362	ParameterType	int
+>363	Parameter	 
+>364	Identifier	i1
+>365	ParameterType	int
+>366	ReturnType	void
+>367	CompoundStatement	 
+>368	ExpressionStatement	 
+>369	CallExpression	m_matches . SetMatch ( GetMatchIndex ( i1 , i2 ) )
+>370	ArgumentList	GetMatchIndex ( i1 , i2 )
+>371	Argument	GetMatchIndex ( i1 , i2 )
+>372	CallExpression	GetMatchIndex ( i1 , i2 )
+>373	ArgumentList	i1
+>374	Argument	i2
+>375	Identifier	i2
+>376	Argument	i1
+>377	Identifier	i1
+>378	Callee	GetMatchIndex
+>379	Identifier	GetMatchIndex
+>380	Callee	m_matches . SetMatch
+>381	MemberAccess	m_matches . SetMatch
+>382	Identifier	SetMatch
+>383	Identifier	m_matches
+>391	FunctionDef	BaseApp 
+>392	ParameterList	int i1 , int i2
+>393	Parameter	 
+>394	Identifier	i2
+>395	ParameterType	int
+>396	Parameter	 
+>397	Identifier	i1
+>398	ParameterType	int
+>399	ReturnType	void
+>400	CompoundStatement	 
+>401	ExpressionStatement	 
+>402	CallExpression	m_matches . RemoveMatch ( GetMatchIndex ( i1 , i2 ) )
+>403	ArgumentList	GetMatchIndex ( i1 , i2 )
+>404	Argument	GetMatchIndex ( i1 , i2 )
+>405	CallExpression	GetMatchIndex ( i1 , i2 )
+>406	ArgumentList	i1
+>407	Argument	i2
+>408	Identifier	i2
+>409	Argument	i1
+>410	Identifier	i1
+>411	Callee	GetMatchIndex
+>412	Identifier	GetMatchIndex
+>413	Callee	m_matches . RemoveMatch
+>414	MemberAccess	m_matches . RemoveMatch
+>415	Identifier	RemoveMatch
+>416	Identifier	m_matches
+>424	FunctionDef	BaseApp 
+>425	ParameterList	int i1 , int i2
+>426	Parameter	 
+>427	Identifier	i2
+>428	ParameterType	int
+>429	Parameter	 
+>430	Identifier	i1
+>431	ParameterType	int
+>432	ReturnType	bool
+>433	CompoundStatement	 
+>434	ReturnStatement	 
+>435	CallExpression	m_matches . Contains ( GetMatchIndex ( i1 , i2 ) )
+>436	ArgumentList	GetMatchIndex ( i1 , i2 )
+>437	Argument	GetMatchIndex ( i1 , i2 )
+>438	CallExpression	GetMatchIndex ( i1 , i2 )
+>439	ArgumentList	i1
+>440	Argument	i2
+>441	Identifier	i2
+>442	Argument	i1
+>443	Identifier	i1
+>444	Callee	GetMatchIndex
+>445	Identifier	GetMatchIndex
+>446	Callee	m_matches . Contains
+>447	MemberAccess	m_matches . Contains
+>448	Identifier	Contains
+>449	Identifier	m_matches
+>458	FunctionDef	BaseApp 
+>459	ParameterList	const char * name
+>460	Parameter	 
+>461	Identifier	name
+>462	ParameterType	const char *
+>463	ReturnType	int
+>464	CompoundStatement	 
+>465	ReturnStatement	 
+>466	UnaryOp	- 1
+>467	PrimaryExpression	1
+>468	UnaryOperator	-
+>469	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>470	CompoundStatement	 
+>471	IfStatement	if ( strcmp ( m_image_data [ i ] . m_name , name ) == 0 )
+>472	ReturnStatement	 
+>473	Identifier	i
+>474	Condition	 
+>475	EqualityExpression	strcmp ( m_image_data [ i ] . m_name , name ) == 0
+>476	PrimaryExpression	0
+>477	CallExpression	strcmp ( m_image_data [ i ] . m_name , name )
+>478	ArgumentList	m_image_data [ i ] . m_name
+>479	Argument	name
+>480	Identifier	name
+>481	Argument	m_image_data [ i ] . m_name
+>482	MemberAccess	m_image_data [ i ] . m_name
+>483	Identifier	m_name
+>484	ArrayIndexing	m_image_data [ i ]
+>485	Identifier	i
+>486	Identifier	m_image_data
+>487	Callee	strcmp
+>488	Identifier	strcmp
+>489	IncDecOp	 
+>490	IncDec	++
+>491	Identifier	i
+>492	Condition	 
+>493	RelationalExpression	i < num_images
+>494	Identifier	num_images
+>495	Identifier	i
+>496	ForInit	 
+>497	IdentifierDeclStatement	int i = 0 ;
+>498	IdentifierDecl	i = 0
+>499	AssignmentExpr	i = 0
+>500	PrimaryExpression	0
+>501	Identifier	i
+>502	Identifier	i
+>503	IdentifierDeclType	int
+>504	IdentifierDeclStatement	 
+>505	IdentifierDecl	num_images = GetNumImages ( )
+>506	AssignmentExpr	num_images = GetNumImages ( )
+>507	CallExpression	GetNumImages ( )
+>508	ArgumentList	 
+>509	Callee	GetNumImages
+>510	Identifier	GetNumImages
+>511	Identifier	num_images
+>512	Identifier	num_images
+>513	IdentifierDeclType	int
+>526	FunctionDef	BaseApp 
+>527	ParameterList	 
+>528	ReturnType	void
+>529	CompoundStatement	 
+>530	ExpressionStatement	 
+>531	Identifier	reindex
+>532	Statement	 
+>533	Statement	 
+>534	Statement	 
+>535	ForStatement	for ( int i = 0 ; i < num_points ; i ++ )
+>536	CompoundStatement	 
+>537	ForStatement	for ( int j = 0 ; j < num_views ; j ++ )
+>538	CompoundStatement	 
+>539	IfStatement	if ( ! m_image_data [ v ] . m_camera . m_adjusted || ! m_image_data [ v ] . m_licensed )
+>540	ElseStatement	else
+>541	CompoundStatement	 
+>542	ExpressionStatement	 
+>543	AssignmentExpr	m_point_data [ i ] . m_views [ j ] . first = reindex [ v ]
+>544	ArrayIndexing	reindex [ v ]
+>545	Identifier	v
+>546	Identifier	reindex
+>547	MemberAccess	m_point_data [ i ] . m_views [ j ] . first
+>548	Identifier	first
+>549	ArrayIndexing	m_point_data [ i ] . m_views [ j ]
+>550	Identifier	j
+>551	MemberAccess	m_point_data [ i ] . m_views
+>552	Identifier	m_views
+>553	ArrayIndexing	m_point_data [ i ]
+>554	Identifier	i
+>555	Identifier	m_point_data
+>556	CompoundStatement	 
+>557	ExpressionStatement	 
+>558	IncDecOp	num_views --
+>559	IncDec	--
+>560	Identifier	num_views
+>561	ExpressionStatement	 
+>562	IncDecOp	j --
+>563	IncDec	--
+>564	Identifier	j
+>565	ExpressionStatement	 
+>566	CallExpression	m_point_data [ i ] . m_views . erase ( m_point_data [ i ] . m_views . begin ( ) + j )
+>567	ArgumentList	m_point_data [ i ] . m_views . begin ( ) + j
+>568	Argument	m_point_data [ i ] . m_views . begin ( ) + j
+>569	AdditiveExpression	m_point_data [ i ] . m_views . begin ( ) + j
+>570	Identifier	j
+>571	CallExpression	m_point_data [ i ] . m_views . begin ( )
+>572	ArgumentList	 
+>573	Callee	m_point_data [ i ] . m_views . begin
+>574	MemberAccess	m_point_data [ i ] . m_views . begin
+>575	Identifier	begin
+>576	MemberAccess	m_point_data [ i ] . m_views
+>577	Identifier	m_views
+>578	ArrayIndexing	m_point_data [ i ]
+>579	Identifier	i
+>580	Identifier	m_point_data
+>581	Callee	m_point_data [ i ] . m_views . erase
+>582	MemberAccess	m_point_data [ i ] . m_views . erase
+>583	Identifier	erase
+>584	MemberAccess	m_point_data [ i ] . m_views
+>585	Identifier	m_views
+>586	ArrayIndexing	m_point_data [ i ]
+>587	Identifier	i
+>588	Identifier	m_point_data
+>589	Condition	 
+>590	OrExpression	! m_image_data [ v ] . m_camera . m_adjusted || ! m_image_data [ v ] . m_licensed
+>591	UnaryOp	! m_image_data [ v ] . m_licensed
+>592	MemberAccess	m_image_data [ v ] . m_licensed
+>593	Identifier	m_licensed
+>594	ArrayIndexing	m_image_data [ v ]
+>595	Identifier	v
+>596	Identifier	m_image_data
+>597	UnaryOperator	!
+>598	UnaryOp	! m_image_data [ v ] . m_camera . m_adjusted
+>599	MemberAccess	m_image_data [ v ] . m_camera . m_adjusted
+>600	Identifier	m_adjusted
+>601	MemberAccess	m_image_data [ v ] . m_camera
+>602	Identifier	m_camera
+>603	ArrayIndexing	m_image_data [ v ]
+>604	Identifier	v
+>605	Identifier	m_image_data
+>606	UnaryOperator	!
+>607	IdentifierDeclStatement	 
+>608	IdentifierDecl	v = m_point_data [ i ] . m_views [ j ] . first
+>609	AssignmentExpr	v = m_point_data [ i ] . m_views [ j ] . first
+>610	MemberAccess	m_point_data [ i ] . m_views [ j ] . first
+>611	Identifier	first
+>612	ArrayIndexing	m_point_data [ i ] . m_views [ j ]
+>613	Identifier	j
+>614	MemberAccess	m_point_data [ i ] . m_views
+>615	Identifier	m_views
+>616	ArrayIndexing	m_point_data [ i ]
+>617	Identifier	i
+>618	Identifier	m_point_data
+>619	Identifier	v
+>620	Identifier	v
+>621	IdentifierDeclType	int
+>622	IncDecOp	 
+>623	IncDec	++
+>624	Identifier	j
+>625	Condition	 
+>626	RelationalExpression	j < num_views
+>627	Identifier	num_views
+>628	Identifier	j
+>629	ForInit	 
+>630	IdentifierDeclStatement	int j = 0 ;
+>631	IdentifierDecl	j = 0
+>632	AssignmentExpr	j = 0
+>633	PrimaryExpression	0
+>634	Identifier	j
+>635	Identifier	j
+>636	IdentifierDeclType	int
+>637	ExpressionStatement	 
+>638	CallExpression	m_num_views_orig . push_back ( num_views )
+>639	ArgumentList	num_views
+>640	Argument	num_views
+>641	Identifier	num_views
+>642	Callee	m_num_views_orig . push_back
+>643	MemberAccess	m_num_views_orig . push_back
+>644	Identifier	push_back
+>645	Identifier	m_num_views_orig
+>646	IdentifierDeclStatement	 
+>647	IdentifierDecl	num_views = ( int ) m_point_data [ i ] . m_views . size ( )
+>648	AssignmentExpr	num_views = ( int ) m_point_data [ i ] . m_views . size ( )
+>649	CastExpression	( int ) m_point_data [ i ] . m_views . size ( )
+>650	CallExpression	m_point_data [ i ] . m_views . size ( )
+>651	ArgumentList	 
+>652	Callee	m_point_data [ i ] . m_views . size
+>653	MemberAccess	m_point_data [ i ] . m_views . size
+>654	Identifier	size
+>655	MemberAccess	m_point_data [ i ] . m_views
+>656	Identifier	m_views
+>657	ArrayIndexing	m_point_data [ i ]
+>658	Identifier	i
+>659	Identifier	m_point_data
+>660	CastTarget	int
+>661	Identifier	num_views
+>662	Identifier	num_views
+>663	IdentifierDeclType	int
+>664	IncDecOp	 
+>665	IncDec	++
+>666	Identifier	i
+>667	Condition	 
+>668	RelationalExpression	i < num_points
+>669	Identifier	num_points
+>670	Identifier	i
+>671	ForInit	 
+>672	IdentifierDeclStatement	int i = 0 ;
+>673	IdentifierDecl	i = 0
+>674	AssignmentExpr	i = 0
+>675	PrimaryExpression	0
+>676	Identifier	i
+>677	Identifier	i
+>678	IdentifierDeclType	int
+>679	IdentifierDeclStatement	 
+>680	IdentifierDecl	num_points = m_point_data . size ( )
+>681	AssignmentExpr	num_points = m_point_data . size ( )
+>682	CallExpression	m_point_data . size ( )
+>683	ArgumentList	 
+>684	Callee	m_point_data . size
+>685	MemberAccess	m_point_data . size
+>686	Identifier	size
+>687	Identifier	m_point_data
+>688	Identifier	num_points
+>689	Identifier	num_points
+>690	IdentifierDeclType	int
+>691	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>692	CompoundStatement	 
+>693	IfStatement	if ( m_image_data [ i ] . m_camera . m_adjusted && m_image_data [ i ] . m_licensed )
+>694	CompoundStatement	 
+>695	ExpressionStatement	 
+>696	IncDecOp	adjusted ++
+>697	IncDec	++
+>698	Identifier	adjusted
+>699	ExpressionStatement	 
+>700	AssignmentExpr	reindex [ i ] = adjusted
+>701	Identifier	adjusted
+>702	ArrayIndexing	reindex [ i ]
+>703	Identifier	i
+>704	Identifier	reindex
+>705	Condition	 
+>706	AndExpression	m_image_data [ i ] . m_camera . m_adjusted && m_image_data [ i ] . m_licensed
+>707	MemberAccess	m_image_data [ i ] . m_licensed
+>708	Identifier	m_licensed
+>709	ArrayIndexing	m_image_data [ i ]
+>710	Identifier	i
+>711	Identifier	m_image_data
+>712	MemberAccess	m_image_data [ i ] . m_camera . m_adjusted
+>713	Identifier	m_adjusted
+>714	MemberAccess	m_image_data [ i ] . m_camera
+>715	Identifier	m_camera
+>716	ArrayIndexing	m_image_data [ i ]
+>717	Identifier	i
+>718	Identifier	m_image_data
+>719	IncDecOp	 
+>720	IncDec	++
+>721	Identifier	i
+>722	Condition	 
+>723	RelationalExpression	i < num_images
+>724	Identifier	num_images
+>725	Identifier	i
+>726	ForInit	 
+>727	IdentifierDeclStatement	int i = 0 ;
+>728	IdentifierDecl	i = 0
+>729	AssignmentExpr	i = 0
+>730	PrimaryExpression	0
+>731	Identifier	i
+>732	Identifier	i
+>733	IdentifierDeclType	int
+>734	ExpressionStatement	 
+>735	CallExpression	m_num_views_orig . clear ( )
+>736	ArgumentList	 
+>737	Callee	m_num_views_orig . clear
+>738	MemberAccess	m_num_views_orig . clear
+>739	Identifier	clear
+>740	Identifier	m_num_views_orig
+>741	IdentifierDeclStatement	 
+>742	IdentifierDecl	* reindex = new int [ num_images ]
+>743	AssignmentExpr	* reindex = new int [ num_images ]
+>744	Identifier	num_images
+>745	Identifier	num_images
+>746	Identifier	reindex
+>747	IdentifierDeclType	int *
+>748	IdentifierDeclStatement	 
+>749	IdentifierDecl	adjusted = 0
+>750	AssignmentExpr	adjusted = 0
+>751	PrimaryExpression	0
+>752	Identifier	adjusted
+>753	Identifier	adjusted
+>754	IdentifierDeclType	int
+>755	IdentifierDeclStatement	 
+>756	IdentifierDecl	num_images = GetNumImages ( )
+>757	AssignmentExpr	num_images = GetNumImages ( )
+>758	CallExpression	GetNumImages ( )
+>759	ArgumentList	 
+>760	Callee	GetNumImages
+>761	Identifier	GetNumImages
+>762	Identifier	num_images
+>763	Identifier	num_images
+>764	IdentifierDeclType	int
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=13
+<13=14
+<14=16,15
+<16=18,17
+<18=20,19
+<34=43,42,35
+<35=39,36
+<36=38,37
+<39=41,40
+<43=44
+<44=45
+<45=47,46
+<47=49,48
+<49=51,50
+<65=71,70,66
+<66=67
+<67=69,68
+<71=72
+<72=73
+<73=84,74
+<74=76,75
+<76=77
+<77=79,78
+<79=81,80
+<81=83,82
+<94=100,99,95
+<95=96
+<96=98,97
+<100=156,149,111,110,109,108,107,106,105,101
+<101=102
+<102=104,103
+<111=141,137,134,112
+<112=113
+<113=126,114
+<114=119,115
+<115=116
+<116=118,117
+<119=122,120
+<120=121
+<122=123
+<123=125,124
+<126=127
+<127=129,128
+<129=131,130
+<131=133,132
+<134=136,135
+<137=138
+<138=140,139
+<141=142
+<142=143
+<143=148,147,144
+<144=146,145
+<149=150
+<150=155,154,151
+<151=153,152
+<156=157
+<157=165,164,158
+<158=163,159
+<159=161,160
+<161=162
+<179=182,181,180
+<182=183
+<183=184
+<184=191,185
+<185=187,186
+<187=188
+<188=190,189
+<197=200,199,198
+<200=201
+<201=202
+<207=216,215,208
+<208=212,209
+<209=211,210
+<212=214,213
+<216=254,240,226,217
+<217=218
+<218=222,219
+<219=220
+<220=221
+<222=223
+<223=225,224
+<226=227
+<227=239,238,228
+<228=237,229
+<229=235,230
+<230=233,231
+<231=232
+<233=234
+<235=236
+<240=241
+<241=253,252,242
+<242=251,243
+<243=249,244
+<244=247,245
+<245=246
+<247=248
+<249=250
+<254=255
+<255=267,266,256
+<256=265,257
+<257=263,258
+<258=261,259
+<259=260
+<261=262
+<263=264
+<281=290,289,282
+<282=286,283
+<283=285,284
+<286=288,287
+<290=291
+<291=292
+<292=302,293
+<293=298,294
+<294=295
+<295=297,296
+<298=299
+<299=301,300
+<302=303
+<310=319,318,311
+<311=315,312
+<312=314,313
+<315=317,316
+<319=320
+<320=348,335,321
+<321=322
+<322=323
+<323=333,324
+<324=329,325
+<325=326
+<326=328,327
+<329=330
+<330=332,331
+<333=334
+<335=336
+<336=346,337
+<337=342,338
+<338=339
+<339=341,340
+<342=343
+<343=345,344
+<346=347
+<348=349
+<349=351,350
+<358=367,366,359
+<359=363,360
+<360=362,361
+<363=365,364
+<367=368
+<368=369
+<369=380,370
+<370=371
+<371=372
+<372=378,373
+<373=376,374
+<374=375
+<376=377
+<378=379
+<380=381
+<381=383,382
+<391=400,399,392
+<392=396,393
+<393=395,394
+<396=398,397
+<400=401
+<401=402
+<402=413,403
+<403=404
+<404=405
+<405=411,406
+<406=409,407
+<407=408
+<409=410
+<411=412
+<413=414
+<414=416,415
+<424=433,432,425
+<425=429,426
+<426=428,427
+<429=431,430
+<433=434
+<434=435
+<435=446,436
+<436=437
+<437=438
+<438=444,439
+<439=442,440
+<440=441
+<442=443
+<444=445
+<446=447
+<447=449,448
+<458=464,463,459
+<459=460
+<460=462,461
+<464=504,469,465
+<465=466
+<466=468,467
+<469=496,492,489,470
+<470=471
+<471=474,472
+<472=473
+<474=475
+<475=477,476
+<477=487,478
+<478=481,479
+<479=480
+<481=482
+<482=484,483
+<484=486,485
+<487=488
+<489=491,490
+<492=493
+<493=495,494
+<496=497
+<497=498
+<498=503,502,499
+<499=501,500
+<504=505
+<505=513,512,506
+<506=511,507
+<507=509,508
+<509=510
+<526=529,528,527
+<529=755,748,741,734,691,679,535,534,533,532,530
+<530=531
+<535=671,667,664,536
+<536=646,637,537
+<537=629,625,622,538
+<538=607,539
+<539=589,556,540
+<540=541
+<541=542
+<542=543
+<543=547,544
+<544=546,545
+<547=549,548
+<549=551,550
+<551=553,552
+<553=555,554
+<556=565,561,557
+<557=558
+<558=560,559
+<561=562
+<562=564,563
+<565=566
+<566=581,567
+<567=568
+<568=569
+<569=571,570
+<571=573,572
+<573=574
+<574=576,575
+<576=578,577
+<578=580,579
+<581=582
+<582=584,583
+<584=586,585
+<586=588,587
+<589=590
+<590=598,591
+<591=597,592
+<592=594,593
+<594=596,595
+<598=606,599
+<599=601,600
+<601=603,602
+<603=605,604
+<607=608
+<608=621,620,609
+<609=619,610
+<610=612,611
+<612=614,613
+<614=616,615
+<616=618,617
+<622=624,623
+<625=626
+<626=628,627
+<629=630
+<630=631
+<631=636,635,632
+<632=634,633
+<637=638
+<638=642,639
+<639=640
+<640=641
+<642=643
+<643=645,644
+<646=647
+<647=663,662,648
+<648=661,649
+<649=660,650
+<650=652,651
+<652=653
+<653=655,654
+<655=657,656
+<657=659,658
+<664=666,665
+<667=668
+<668=670,669
+<671=672
+<672=673
+<673=678,677,674
+<674=676,675
+<679=680
+<680=690,689,681
+<681=688,682
+<682=684,683
+<684=685
+<685=687,686
+<691=726,722,719,692
+<692=693
+<693=705,694
+<694=699,695
+<695=696
+<696=698,697
+<699=700
+<700=702,701
+<702=704,703
+<705=706
+<706=712,707
+<707=709,708
+<709=711,710
+<712=714,713
+<714=716,715
+<716=718,717
+<719=721,720
+<722=723
+<723=725,724
+<726=727
+<727=728
+<728=733,732,729
+<729=731,730
+<734=735
+<735=737,736
+<737=738
+<738=740,739
+<741=742
+<742=747,746,743
+<743=745,744
+<748=749
+<749=754,753,750
+<750=752,751
+<755=756
+<756=764,763,757
+<757=762,758
+<758=760,759
+<760=761

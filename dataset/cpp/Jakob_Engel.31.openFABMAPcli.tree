@@ -1,0 +1,6369 @@
+>27	FunctionDef	main (int argc , char * argv [ ])
+>28	ParameterList	int argc , char * argv [ ]
+>29	Parameter	 
+>30	Identifier	argv
+>31	ParameterType	char * [ ]
+>32	Parameter	 
+>33	Identifier	argc
+>34	ParameterType	int
+>35	ReturnType	int
+>36	CompoundStatement	 
+>37	ReturnStatement	 
+>38	Identifier	result
+>39	ExpressionStatement	 
+>40	CallExpression	fs . release ( )
+>41	ArgumentList	 
+>42	Callee	fs . release
+>43	MemberAccess	fs . release
+>44	Identifier	release
+>45	Identifier	fs
+>46	ExpressionStatement	 
+>47	CallExpression	std 
+>48	ArgumentList	 
+>49	Callee	std 
+>50	MemberAccess	std 
+>51	Identifier	ignore
+>52	Identifier	std 
+>53	ExpressionStatement	 
+>54	CallExpression	std 
+>55	ArgumentList	 
+>56	Callee	std 
+>57	MemberAccess	std 
+>58	Identifier	sync
+>59	Identifier	std 
+>60	ExpressionStatement	 
+>61	ShiftExpression	std 
+>62	ShiftExpression	\"openFABMAP done\" << std 
+>63	Identifier	std 
+>64	PrimaryExpression	\"openFABMAP done\"
+>65	Identifier	std 
+>66	IfStatement	if ( function == \"ShowFeatures\" )
+>67	ElseStatement	else
+>68	IfStatement	if ( function == \"GenerateVocabTrainData\" )
+>69	ElseStatement	else
+>70	IfStatement	if ( function == \"TrainVocabulary\" )
+>71	ElseStatement	else
+>72	IfStatement	if ( function == \"GenerateFABMAPTrainData\" )
+>73	ElseStatement	else
+>74	IfStatement	if ( function == \"TrainChowLiuTree\" )
+>75	ElseStatement	else
+>76	IfStatement	if ( function == \"GenerateFABMAPTestData\" )
+>77	ElseStatement	else
+>78	IfStatement	if ( function == \"RunOpenFABMAP\" )
+>79	ElseStatement	else
+>80	CompoundStatement	 
+>81	ExpressionStatement	 
+>82	AssignmentExpr	result = - 1
+>83	UnaryOp	- 1
+>84	PrimaryExpression	1
+>85	UnaryOperator	-
+>86	Identifier	result
+>87	ExpressionStatement	 
+>88	ShiftExpression	std 
+>89	ShiftExpression	\"Incorrect Function Type\" << std 
+>90	Identifier	std 
+>91	PrimaryExpression	\"Incorrect Function Type\"
+>92	Identifier	std 
+>93	CompoundStatement	 
+>94	IfStatement	if ( fabmap )
+>95	CompoundStatement	 
+>96	ExpressionStatement	 
+>97	AssignmentExpr	result = openFABMAP ( fs [ \"FilePaths\" ] [ \"TestImageDesc\" ] , fabmap , fs [ \"FilePaths\" ] [ \"Vocabulary\" ] , \
+>98	CallExpression	openFABMAP ( fs [ \"FilePaths\" ] [ \"TestImageDesc\" ] , fabmap , fs [ \"FilePaths\" ] [ \"Vocabulary\" ] , fs [ \"FilePaths\" ] [ \"\
+>99	ArgumentList	fs [ \"FilePaths\" ] [ \"TestImageDesc\" ]
+>100	Argument	addNewOnly
+>101	Identifier	addNewOnly
+>102	Argument	fs [ \"FilePaths\" ] [ \"FabMapResults\" ]
+>103	ArrayIndexing	fs [ \"FilePaths\" ] [ \"FabMapResults\" ]
+>104	PrimaryExpression	\"FabMapResults\"
+>105	ArrayIndexing	fs [ \"FilePaths\" ]
+>106	PrimaryExpression	\"FilePaths\"
+>107	Identifier	fs
+>108	Argument	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>109	ArrayIndexing	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>110	PrimaryExpression	\"Vocabulary\"
+>111	ArrayIndexing	fs [ \"FilePaths\" ]
+>112	PrimaryExpression	\"FilePaths\"
+>113	Identifier	fs
+>114	Argument	fabmap
+>115	Identifier	fabmap
+>116	Argument	fs [ \"FilePaths\" ] [ \"TestImageDesc\" ]
+>117	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TestImageDesc\" ]
+>118	PrimaryExpression	\"TestImageDesc\"
+>119	ArrayIndexing	fs [ \"FilePaths\" ]
+>120	PrimaryExpression	\"FilePaths\"
+>121	Identifier	fs
+>122	Callee	openFABMAP
+>123	Identifier	openFABMAP
+>124	Identifier	result
+>125	Condition	 
+>126	Identifier	fabmap
+>127	IdentifierDeclStatement	 
+>128	IdentifierDecl	* fabmap = generateFABMAPInstance ( fs )
+>129	AssignmentExpr	* fabmap = generateFABMAPInstance ( fs )
+>130	CallExpression	generateFABMAPInstance ( fs )
+>131	ArgumentList	fs
+>132	Argument	fs
+>133	Identifier	fs
+>134	Callee	generateFABMAPInstance
+>135	Identifier	generateFABMAPInstance
+>136	Identifier	fabmap
+>137	Identifier	fabmap
+>138	IdentifierDeclType	of2 
+>139	IdentifierDeclStatement	 
+>140	IdentifierDecl	addNewOnly = ( placeAddOption == \"NewMaximumOnly\" )
+>141	AssignmentExpr	addNewOnly = ( placeAddOption == \"NewMaximumOnly\" )
+>142	EqualityExpression	placeAddOption == \"NewMaximumOnly\"
+>143	PrimaryExpression	\"NewMaximumOnly\"
+>144	Identifier	placeAddOption
+>145	Identifier	addNewOnly
+>146	Identifier	addNewOnly
+>147	IdentifierDeclType	bool
+>148	IdentifierDeclStatement	 
+>149	IdentifierDecl	placeAddOption = fs [ \"FabMapPlaceAddition\" ]
+>150	AssignmentExpr	placeAddOption = fs [ \"FabMapPlaceAddition\" ]
+>151	ArrayIndexing	fs [ \"FabMapPlaceAddition\" ]
+>152	PrimaryExpression	\"FabMapPlaceAddition\"
+>153	Identifier	fs
+>154	Identifier	placeAddOption
+>155	Identifier	placeAddOption
+>156	IdentifierDeclType	std 
+>157	Condition	 
+>158	EqualityExpression	function == \"RunOpenFABMAP\"
+>159	PrimaryExpression	\"RunOpenFABMAP\"
+>160	Identifier	function
+>161	CompoundStatement	 
+>162	ExpressionStatement	 
+>163	AssignmentExpr	result = generateBOWImageDescs ( fs [ \"FilePaths\" ] [ \"TestPath\" ] , fs [ \"FilePaths\" ] [ \"TestImageDesc\" ] , \
+>164	CallExpression	generateBOWImageDescs ( fs [ \"FilePaths\" ] [ \"TestPath\" ] , fs [ \"FilePaths\" ] [ \"TestImageDesc\" ] , fs [ \"FilePaths\" ] [ \"\
+>165	ArgumentList	fs [ \"FilePaths\" ] [ \"TestPath\" ]
+>166	Argument	fs [ \"BOWOptions\" ] [ \"MinWords\" ]
+>167	ArrayIndexing	fs [ \"BOWOptions\" ] [ \"MinWords\" ]
+>168	PrimaryExpression	\"MinWords\"
+>169	ArrayIndexing	fs [ \"BOWOptions\" ]
+>170	PrimaryExpression	\"BOWOptions\"
+>171	Identifier	fs
+>172	Argument	extractor
+>173	Identifier	extractor
+>174	Argument	detector
+>175	Identifier	detector
+>176	Argument	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>177	ArrayIndexing	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>178	PrimaryExpression	\"Vocabulary\"
+>179	ArrayIndexing	fs [ \"FilePaths\" ]
+>180	PrimaryExpression	\"FilePaths\"
+>181	Identifier	fs
+>182	Argument	fs [ \"FilePaths\" ] [ \"TestImageDesc\" ]
+>183	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TestImageDesc\" ]
+>184	PrimaryExpression	\"TestImageDesc\"
+>185	ArrayIndexing	fs [ \"FilePaths\" ]
+>186	PrimaryExpression	\"FilePaths\"
+>187	Identifier	fs
+>188	Argument	fs [ \"FilePaths\" ] [ \"TestPath\" ]
+>189	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TestPath\" ]
+>190	PrimaryExpression	\"TestPath\"
+>191	ArrayIndexing	fs [ \"FilePaths\" ]
+>192	PrimaryExpression	\"FilePaths\"
+>193	Identifier	fs
+>194	Callee	generateBOWImageDescs
+>195	Identifier	generateBOWImageDescs
+>196	Identifier	result
+>197	Condition	 
+>198	EqualityExpression	function == \"GenerateFABMAPTestData\"
+>199	PrimaryExpression	\"GenerateFABMAPTestData\"
+>200	Identifier	function
+>201	CompoundStatement	 
+>202	ExpressionStatement	 
+>203	AssignmentExpr	result = trainChowLiuTree ( fs [ \"FilePaths\" ] [ \"ChowLiuTree\" ] , fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ] , \
+>204	CallExpression	trainChowLiuTree ( fs [ \"FilePaths\" ] [ \"ChowLiuTree\" ] , fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ] , fs [ \"ChowLiuOptions\" ] [ \"\
+>205	ArgumentList	fs [ \"FilePaths\" ] [ \"ChowLiuTree\" ]
+>206	Argument	fs [ \"ChowLiuOptions\" ] [ \"LowerInfoBound\" ]
+>207	ArrayIndexing	fs [ \"ChowLiuOptions\" ] [ \"LowerInfoBound\" ]
+>208	PrimaryExpression	\"LowerInfoBound\"
+>209	ArrayIndexing	fs [ \"ChowLiuOptions\" ]
+>210	PrimaryExpression	\"ChowLiuOptions\"
+>211	Identifier	fs
+>212	Argument	fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>213	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>214	PrimaryExpression	\"TrainImagDesc\"
+>215	ArrayIndexing	fs [ \"FilePaths\" ]
+>216	PrimaryExpression	\"FilePaths\"
+>217	Identifier	fs
+>218	Argument	fs [ \"FilePaths\" ] [ \"ChowLiuTree\" ]
+>219	ArrayIndexing	fs [ \"FilePaths\" ] [ \"ChowLiuTree\" ]
+>220	PrimaryExpression	\"ChowLiuTree\"
+>221	ArrayIndexing	fs [ \"FilePaths\" ]
+>222	PrimaryExpression	\"FilePaths\"
+>223	Identifier	fs
+>224	Callee	trainChowLiuTree
+>225	Identifier	trainChowLiuTree
+>226	Identifier	result
+>227	Condition	 
+>228	EqualityExpression	function == \"TrainChowLiuTree\"
+>229	PrimaryExpression	\"TrainChowLiuTree\"
+>230	Identifier	function
+>231	CompoundStatement	 
+>232	ExpressionStatement	 
+>233	AssignmentExpr	result = generateBOWImageDescs ( fs [ \"FilePaths\" ] [ \"TrainPath\" ] , fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ] , \
+>234	CallExpression	generateBOWImageDescs ( fs [ \"FilePaths\" ] [ \"TrainPath\" ] , fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ] , fs [ \"FilePaths\" ] [ \"\
+>235	ArgumentList	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>236	Argument	fs [ \"BOWOptions\" ] [ \"MinWords\" ]
+>237	ArrayIndexing	fs [ \"BOWOptions\" ] [ \"MinWords\" ]
+>238	PrimaryExpression	\"MinWords\"
+>239	ArrayIndexing	fs [ \"BOWOptions\" ]
+>240	PrimaryExpression	\"BOWOptions\"
+>241	Identifier	fs
+>242	Argument	extractor
+>243	Identifier	extractor
+>244	Argument	detector
+>245	Identifier	detector
+>246	Argument	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>247	ArrayIndexing	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>248	PrimaryExpression	\"Vocabulary\"
+>249	ArrayIndexing	fs [ \"FilePaths\" ]
+>250	PrimaryExpression	\"FilePaths\"
+>251	Identifier	fs
+>252	Argument	fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>253	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>254	PrimaryExpression	\"TrainImagDesc\"
+>255	ArrayIndexing	fs [ \"FilePaths\" ]
+>256	PrimaryExpression	\"FilePaths\"
+>257	Identifier	fs
+>258	Argument	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>259	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>260	PrimaryExpression	\"TrainPath\"
+>261	ArrayIndexing	fs [ \"FilePaths\" ]
+>262	PrimaryExpression	\"FilePaths\"
+>263	Identifier	fs
+>264	Callee	generateBOWImageDescs
+>265	Identifier	generateBOWImageDescs
+>266	Identifier	result
+>267	Condition	 
+>268	EqualityExpression	function == \"GenerateFABMAPTrainData\"
+>269	PrimaryExpression	\"GenerateFABMAPTrainData\"
+>270	Identifier	function
+>271	CompoundStatement	 
+>272	ExpressionStatement	 
+>273	AssignmentExpr	result = trainVocabulary ( fs [ \"FilePaths\" ] [ \"Vocabulary\" ] , fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ] , \
+>274	CallExpression	trainVocabulary ( fs [ \"FilePaths\" ] [ \"Vocabulary\" ] , fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ] , fs [ \"VocabTrainOptions\" ] [ \"\
+>275	ArgumentList	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>276	Argument	fs [ \"VocabTrainOptions\" ] [ \"ClusterSize\" ]
+>277	ArrayIndexing	fs [ \"VocabTrainOptions\" ] [ \"ClusterSize\" ]
+>278	PrimaryExpression	\"ClusterSize\"
+>279	ArrayIndexing	fs [ \"VocabTrainOptions\" ]
+>280	PrimaryExpression	\"VocabTrainOptions\"
+>281	Identifier	fs
+>282	Argument	fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ]
+>283	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ]
+>284	PrimaryExpression	\"TrainFeatDesc\"
+>285	ArrayIndexing	fs [ \"FilePaths\" ]
+>286	PrimaryExpression	\"FilePaths\"
+>287	Identifier	fs
+>288	Argument	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>289	ArrayIndexing	fs [ \"FilePaths\" ] [ \"Vocabulary\" ]
+>290	PrimaryExpression	\"Vocabulary\"
+>291	ArrayIndexing	fs [ \"FilePaths\" ]
+>292	PrimaryExpression	\"FilePaths\"
+>293	Identifier	fs
+>294	Callee	trainVocabulary
+>295	Identifier	trainVocabulary
+>296	Identifier	result
+>297	Condition	 
+>298	EqualityExpression	function == \"TrainVocabulary\"
+>299	PrimaryExpression	\"TrainVocabulary\"
+>300	Identifier	function
+>301	CompoundStatement	 
+>302	ExpressionStatement	 
+>303	AssignmentExpr	result = generateVocabTrainData ( fs [ \"FilePaths\" ] [ \"TrainPath\" ] , fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ] , \
+>304	CallExpression	generateVocabTrainData ( fs [ \"FilePaths\" ] [ \"TrainPath\" ] , fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ] , detector , \
+>305	ArgumentList	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>306	Argument	extractor
+>307	Identifier	extractor
+>308	Argument	detector
+>309	Identifier	detector
+>310	Argument	fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ]
+>311	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainFeatDesc\" ]
+>312	PrimaryExpression	\"TrainFeatDesc\"
+>313	ArrayIndexing	fs [ \"FilePaths\" ]
+>314	PrimaryExpression	\"FilePaths\"
+>315	Identifier	fs
+>316	Argument	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>317	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>318	PrimaryExpression	\"TrainPath\"
+>319	ArrayIndexing	fs [ \"FilePaths\" ]
+>320	PrimaryExpression	\"FilePaths\"
+>321	Identifier	fs
+>322	Callee	generateVocabTrainData
+>323	Identifier	generateVocabTrainData
+>324	Identifier	result
+>325	Condition	 
+>326	EqualityExpression	function == \"GenerateVocabTrainData\"
+>327	PrimaryExpression	\"GenerateVocabTrainData\"
+>328	Identifier	function
+>329	CompoundStatement	 
+>330	ExpressionStatement	 
+>331	AssignmentExpr	result = showFeatures ( fs [ \"FilePaths\" ] [ \"TrainPath\" ] , detector )
+>332	CallExpression	showFeatures ( fs [ \"FilePaths\" ] [ \"TrainPath\" ] , detector )
+>333	ArgumentList	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>334	Argument	detector
+>335	Identifier	detector
+>336	Argument	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>337	ArrayIndexing	fs [ \"FilePaths\" ] [ \"TrainPath\" ]
+>338	PrimaryExpression	\"TrainPath\"
+>339	ArrayIndexing	fs [ \"FilePaths\" ]
+>340	PrimaryExpression	\"FilePaths\"
+>341	Identifier	fs
+>342	Callee	showFeatures
+>343	Identifier	showFeatures
+>344	Identifier	result
+>345	Condition	 
+>346	EqualityExpression	function == \"ShowFeatures\"
+>347	PrimaryExpression	\"ShowFeatures\"
+>348	Identifier	function
+>349	IdentifierDeclStatement	 
+>350	IdentifierDecl	function = fs [ \"Function\" ]
+>351	AssignmentExpr	function = fs [ \"Function\" ]
+>352	ArrayIndexing	fs [ \"Function\" ]
+>353	PrimaryExpression	\"Function\"
+>354	Identifier	fs
+>355	Identifier	function
+>356	Identifier	function
+>357	IdentifierDeclType	std 
+>358	IdentifierDeclStatement	 
+>359	IdentifierDecl	result = 0
+>360	AssignmentExpr	result = 0
+>361	PrimaryExpression	0
+>362	Identifier	result
+>363	Identifier	result
+>364	IdentifierDeclType	int
+>365	IfStatement	if ( ! extractor )
+>366	CompoundStatement	 
+>367	ReturnStatement	 
+>368	UnaryOp	- 1
+>369	PrimaryExpression	1
+>370	UnaryOperator	-
+>371	ExpressionStatement	 
+>372	ShiftExpression	std 
+>373	ShiftExpression	\"Feature Extractor error\" << std 
+>374	Identifier	std 
+>375	PrimaryExpression	\"Feature Extractor error\"
+>376	Identifier	std 
+>377	Condition	 
+>378	UnaryOp	! extractor
+>379	Identifier	extractor
+>380	UnaryOperator	!
+>381	IdentifierDeclStatement	 
+>382	IdentifierDecl	extractor = generateExtractor ( fs )
+>383	AssignmentExpr	extractor = generateExtractor ( fs )
+>384	CallExpression	generateExtractor ( fs )
+>385	ArgumentList	fs
+>386	Argument	fs
+>387	Identifier	fs
+>388	Callee	generateExtractor
+>389	Identifier	generateExtractor
+>390	Identifier	extractor
+>391	Identifier	extractor
+>392	IdentifierDeclType	cv 
+>393	IfStatement	if ( ! detector )
+>394	CompoundStatement	 
+>395	ReturnStatement	 
+>396	UnaryOp	- 1
+>397	PrimaryExpression	1
+>398	UnaryOperator	-
+>399	ExpressionStatement	 
+>400	ShiftExpression	std 
+>401	ShiftExpression	\"Feature Detector error\" << std 
+>402	Identifier	std 
+>403	PrimaryExpression	\"Feature Detector error\"
+>404	Identifier	std 
+>405	Condition	 
+>406	UnaryOp	! detector
+>407	Identifier	detector
+>408	UnaryOperator	!
+>409	IdentifierDeclStatement	 
+>410	IdentifierDecl	detector = generateDetector ( fs )
+>411	AssignmentExpr	detector = generateDetector ( fs )
+>412	CallExpression	generateDetector ( fs )
+>413	ArgumentList	fs
+>414	Argument	fs
+>415	Identifier	fs
+>416	Callee	generateDetector
+>417	Identifier	generateDetector
+>418	Identifier	detector
+>419	Identifier	detector
+>420	IdentifierDeclType	cv 
+>421	IfStatement	if ( ! fs . isOpened ( ) )
+>422	CompoundStatement	 
+>423	ReturnStatement	 
+>424	UnaryOp	- 1
+>425	PrimaryExpression	1
+>426	UnaryOperator	-
+>427	ExpressionStatement	 
+>428	ShiftExpression	std 
+>429	ShiftExpression	\"Could not open settings file
+>430	ShiftExpression	settfilename << std 
+>431	Identifier	std 
+>432	Identifier	settfilename
+>433	PrimaryExpression	\"Could not open settings file
+>434	Identifier	std 
+>435	Condition	 
+>436	UnaryOp	! fs . isOpened ( )
+>437	CallExpression	fs . isOpened ( )
+>438	ArgumentList	 
+>439	Callee	fs . isOpened
+>440	MemberAccess	fs . isOpened
+>441	Identifier	isOpened
+>442	Identifier	fs
+>443	UnaryOperator	!
+>444	ExpressionStatement	 
+>445	CallExpression	fs . open ( settfilename , cv 
+>446	ArgumentList	settfilename
+>447	Argument	cv 
+>448	Identifier	cv 
+>449	Argument	settfilename
+>450	Identifier	settfilename
+>451	Callee	fs . open
+>452	MemberAccess	fs . open
+>453	Identifier	open
+>454	Identifier	fs
+>455	IdentifierDeclStatement	 
+>456	IdentifierDecl	fs
+>457	Identifier	fs
+>458	IdentifierDeclType	cv 
+>459	IfStatement	if ( argc == 1 )
+>460	ElseStatement	else
+>461	IfStatement	if ( argc == 3 )
+>462	ElseStatement	else
+>463	CompoundStatement	 
+>464	ReturnStatement	 
+>465	CallExpression	help ( )
+>466	ArgumentList	 
+>467	Callee	help
+>468	Identifier	help
+>469	CompoundStatement	 
+>470	IfStatement	if ( std 
+>471	ElseStatement	else
+>472	CompoundStatement	 
+>473	ExpressionStatement	 
+>474	AssignmentExpr	settfilename = std 
+>475	CallExpression	std 
+>476	ArgumentList	argv [ 2 ]
+>477	Argument	argv [ 2 ]
+>478	ArrayIndexing	argv [ 2 ]
+>479	PrimaryExpression	2
+>480	Identifier	argv
+>481	Callee	std 
+>482	Identifier	std 
+>483	Identifier	settfilename
+>484	CompoundStatement	 
+>485	ReturnStatement	 
+>486	CallExpression	help ( )
+>487	ArgumentList	 
+>488	Callee	help
+>489	Identifier	help
+>490	Condition	 
+>491	EqualityExpression	std 
+>492	PrimaryExpression	\"-s\"
+>493	CallExpression	std 
+>494	ArgumentList	argv [ 1 ]
+>495	Argument	argv [ 1 ]
+>496	ArrayIndexing	argv [ 1 ]
+>497	PrimaryExpression	1
+>498	Identifier	argv
+>499	Callee	std 
+>500	Identifier	std 
+>501	Condition	 
+>502	EqualityExpression	argc == 3
+>503	PrimaryExpression	3
+>504	Identifier	argc
+>505	CompoundStatement	 
+>506	ExpressionStatement	 
+>507	AssignmentExpr	settfilename = \"settings.yml\"
+>508	PrimaryExpression	\"settings.yml\"
+>509	Identifier	settfilename
+>510	Condition	 
+>511	EqualityExpression	argc == 1
+>512	PrimaryExpression	1
+>513	Identifier	argc
+>514	IdentifierDeclStatement	 
+>515	IdentifierDecl	settfilename
+>516	Identifier	settfilename
+>517	IdentifierDeclType	std 
+>549	FunctionDef	help ()
+>550	ParameterList	 
+>551	ReturnType	int
+>552	CompoundStatement	 
+>553	ReturnStatement	 
+>554	PrimaryExpression	0
+>555	ExpressionStatement	 
+>556	ShiftExpression	std 
+>557	ShiftExpression	\"Usage
+>558	Identifier	std 
+>559	PrimaryExpression	\"Usage
+>560	Identifier	std 
+>564	FunctionDef	showFeatures (std 
+>565	ParameterList	std 
+>566	Parameter	 
+>567	Identifier	detector
+>568	ParameterType	cv 
+>569	Parameter	 
+>570	Identifier	trainPath
+>571	ParameterType	std 
+>572	ReturnType	int
+>573	CompoundStatement	 
+>574	ReturnStatement	 
+>575	PrimaryExpression	0
+>576	ExpressionStatement	 
+>577	CallExpression	cv 
+>578	ArgumentList	\"Features\"
+>579	Argument	\"Features\"
+>580	PrimaryExpression	\"Features\"
+>581	Callee	cv 
+>582	Identifier	cv 
+>583	ExpressionStatement	 
+>584	ShiftExpression	std 
+>585	Identifier	std 
+>586	Identifier	std 
+>587	WhileStatement	while ( movie . read ( frame ) )
+>588	CompoundStatement	 
+>589	IfStatement	if ( cv 
+>590	CompoundStatement	 
+>591	BreakStatement	 
+>592	Condition	 
+>593	EqualityExpression	cv 
+>594	PrimaryExpression	27
+>595	CallExpression	cv 
+>596	ArgumentList	5
+>597	Argument	5
+>598	PrimaryExpression	5
+>599	Callee	cv 
+>600	Identifier	cv 
+>601	ExpressionStatement	 
+>602	CallExpression	cv 
+>603	ArgumentList	\"Features\"
+>604	Argument	kptsImg
+>605	Identifier	kptsImg
+>606	Argument	\"Features\"
+>607	PrimaryExpression	\"Features\"
+>608	Callee	cv 
+>609	Identifier	cv 
+>610	ExpressionStatement	 
+>611	CallExpression	cv 
+>612	ArgumentList	frame
+>613	Argument	kptsImg
+>614	Identifier	kptsImg
+>615	Argument	kpts
+>616	Identifier	kpts
+>617	Argument	frame
+>618	Identifier	frame
+>619	Callee	cv 
+>620	Identifier	cv 
+>621	ExpressionStatement	 
+>622	CallExpression	fflush ( stdout )
+>623	ArgumentList	stdout
+>624	Argument	stdout
+>625	Identifier	stdout
+>626	Callee	fflush
+>627	Identifier	fflush
+>628	ExpressionStatement	 
+>629	ShiftExpression	std 
+>630	ShiftExpression	kpts . size ( ) << \" keypoints detected...         \r\"
+>631	PrimaryExpression	\" keypoints detected...         \r\"
+>632	CallExpression	kpts . size ( )
+>633	ArgumentList	 
+>634	Callee	kpts . size
+>635	MemberAccess	kpts . size
+>636	Identifier	size
+>637	Identifier	kpts
+>638	Identifier	std 
+>639	ExpressionStatement	 
+>640	CallExpression	detector -> detect ( frame , kpts )
+>641	ArgumentList	frame
+>642	Argument	kpts
+>643	Identifier	kpts
+>644	Argument	frame
+>645	Identifier	frame
+>646	Callee	detector -> detect
+>647	PtrMemberAccess	detector -> detect
+>648	Identifier	detect
+>649	Identifier	detector
+>650	Condition	 
+>651	CallExpression	movie . read ( frame )
+>652	ArgumentList	frame
+>653	Argument	frame
+>654	Identifier	frame
+>655	Callee	movie . read
+>656	MemberAccess	movie . read
+>657	Identifier	read
+>658	Identifier	movie
+>659	IdentifierDeclStatement	 
+>660	IdentifierDecl	kpts
+>661	Identifier	kpts
+>662	IdentifierDeclType	std 
+>663	ExpressionStatement	 
+>664	CallExpression	movie . read ( frame )
+>665	ArgumentList	frame
+>666	Argument	frame
+>667	Identifier	frame
+>668	Callee	movie . read
+>669	MemberAccess	movie . read
+>670	Identifier	read
+>671	Identifier	movie
+>672	IdentifierDeclStatement	 
+>673	IdentifierDecl	kptsImg
+>674	Identifier	kptsImg
+>675	IdentifierDeclType	cv 
+>676	IdentifierDecl	frame
+>677	Identifier	frame
+>678	IdentifierDeclType	cv 
+>679	ExpressionStatement	 
+>680	ShiftExpression	std 
+>681	ShiftExpression	\"Press Esc to Exit\" << std 
+>682	Identifier	std 
+>683	PrimaryExpression	\"Press Esc to Exit\"
+>684	Identifier	std 
+>685	IfStatement	if ( ! movie . isOpened ( ) )
+>686	CompoundStatement	 
+>687	ReturnStatement	 
+>688	UnaryOp	- 1
+>689	PrimaryExpression	1
+>690	UnaryOperator	-
+>691	ExpressionStatement	 
+>692	ShiftExpression	std 
+>693	ShiftExpression	trainPath << \"
+>694	ShiftExpression	\"
+>695	Identifier	std 
+>696	PrimaryExpression	\"
+>697	Identifier	trainPath
+>698	Identifier	std 
+>699	Condition	 
+>700	UnaryOp	! movie . isOpened ( )
+>701	CallExpression	movie . isOpened ( )
+>702	ArgumentList	 
+>703	Callee	movie . isOpened
+>704	MemberAccess	movie . isOpened
+>705	Identifier	isOpened
+>706	Identifier	movie
+>707	UnaryOperator	!
+>708	ExpressionStatement	 
+>709	CallExpression	movie . open ( trainPath )
+>710	ArgumentList	trainPath
+>711	Argument	trainPath
+>712	Identifier	trainPath
+>713	Callee	movie . open
+>714	MemberAccess	movie . open
+>715	Identifier	open
+>716	Identifier	movie
+>717	IdentifierDeclStatement	 
+>718	IdentifierDecl	movie
+>719	Identifier	movie
+>720	IdentifierDeclType	cv 
+>734	FunctionDef	generateVocabTrainData (std 
+>735	ParameterList	std 
+>736	Parameter	 
+>737	Identifier	extractor
+>738	ParameterType	cv 
+>739	Parameter	 
+>740	Identifier	detector
+>741	ParameterType	cv 
+>742	Parameter	 
+>743	Identifier	vocabTrainDataPath
+>744	ParameterType	std 
+>745	Parameter	 
+>746	Identifier	trainPath
+>747	ParameterType	std 
+>748	ReturnType	int
+>749	CompoundStatement	 
+>750	ReturnStatement	 
+>751	PrimaryExpression	0
+>752	ExpressionStatement	 
+>753	CallExpression	fs . release ( )
+>754	ArgumentList	 
+>755	Callee	fs . release
+>756	MemberAccess	fs . release
+>757	Identifier	release
+>758	Identifier	fs
+>759	ExpressionStatement	 
+>760	ShiftExpression	fs << \"VocabTrainData\" << vocabTrainData
+>761	ShiftExpression	\"VocabTrainData\" << vocabTrainData
+>762	Identifier	vocabTrainData
+>763	PrimaryExpression	\"VocabTrainData\"
+>764	Identifier	fs
+>765	ExpressionStatement	 
+>766	CallExpression	fs . open ( vocabTrainDataPath , cv 
+>767	ArgumentList	vocabTrainDataPath
+>768	Argument	cv 
+>769	Identifier	cv 
+>770	Argument	vocabTrainDataPath
+>771	Identifier	vocabTrainDataPath
+>772	Callee	fs . open
+>773	MemberAccess	fs . open
+>774	Identifier	open
+>775	Identifier	fs
+>776	IdentifierDeclStatement	 
+>777	IdentifierDecl	fs
+>778	Identifier	fs
+>779	IdentifierDeclType	cv 
+>780	ExpressionStatement	 
+>781	ShiftExpression	std 
+>782	ShiftExpression	\"Done
+>783	ShiftExpression	vocabTrainData . rows << \" Descriptors\" << std 
+>784	ShiftExpression	\" Descriptors\" << std 
+>785	Identifier	std 
+>786	PrimaryExpression	\" Descriptors\"
+>787	MemberAccess	vocabTrainData . rows
+>788	Identifier	rows
+>789	Identifier	vocabTrainData
+>790	PrimaryExpression	\"Done
+>791	Identifier	std 
+>792	ExpressionStatement	 
+>793	CallExpression	cv 
+>794	ArgumentList	\"Training Data\"
+>795	Argument	\"Training Data\"
+>796	PrimaryExpression	\"Training Data\"
+>797	Callee	cv 
+>798	Identifier	cv 
+>799	WhileStatement	while ( movie . read ( frame ) )
+>800	CompoundStatement	 
+>801	IfStatement	if ( cv 
+>802	CompoundStatement	 
+>803	ReturnStatement	 
+>804	UnaryOp	- 1
+>805	PrimaryExpression	1
+>806	UnaryOperator	-
+>807	ExpressionStatement	 
+>808	ShiftExpression	std 
+>809	Identifier	std 
+>810	Identifier	std 
+>811	ExpressionStatement	 
+>812	CallExpression	cv 
+>813	ArgumentList	\"Training Data\"
+>814	Argument	\"Training Data\"
+>815	PrimaryExpression	\"Training Data\"
+>816	Callee	cv 
+>817	Identifier	cv 
+>818	Condition	 
+>819	EqualityExpression	cv 
+>820	PrimaryExpression	27
+>821	CallExpression	cv 
+>822	ArgumentList	5
+>823	Argument	5
+>824	PrimaryExpression	5
+>825	Callee	cv 
+>826	Identifier	cv 
+>827	ExpressionStatement	 
+>828	CallExpression	fflush ( stdout )
+>829	ArgumentList	stdout
+>830	Argument	stdout
+>831	Identifier	stdout
+>832	Callee	fflush
+>833	Identifier	fflush
+>834	ExpressionStatement	 
+>835	ShiftExpression	std 
+>836	ShiftExpression	100.0 * ( movie . get ( CV_CAP_PROP_POS_FRAMES ) / movie . get ( CV_CAP_PROP_FRAME_COUNT ) ) << \"%. \" << \
+>837	ShiftExpression	\"%. \" << vocabTrainData . rows << \" descriptors         \r\"
+>838	ShiftExpression	vocabTrainData . rows << \" descriptors         \r\"
+>839	PrimaryExpression	\" descriptors         \r\"
+>840	MemberAccess	vocabTrainData . rows
+>841	Identifier	rows
+>842	Identifier	vocabTrainData
+>843	PrimaryExpression	\"%. \"
+>844	MultiplicativeExpression	100.0 * ( movie . get ( CV_CAP_PROP_POS_FRAMES ) / movie . get ( CV_CAP_PROP_FRAME_COUNT ) )
+>845	MultiplicativeExpression	movie . get ( CV_CAP_PROP_POS_FRAMES ) / movie . get ( CV_CAP_PROP_FRAME_COUNT )
+>846	CallExpression	movie . get ( CV_CAP_PROP_FRAME_COUNT )
+>847	ArgumentList	CV_CAP_PROP_FRAME_COUNT
+>848	Argument	CV_CAP_PROP_FRAME_COUNT
+>849	Identifier	CV_CAP_PROP_FRAME_COUNT
+>850	Callee	movie . get
+>851	MemberAccess	movie . get
+>852	Identifier	get
+>853	Identifier	movie
+>854	CallExpression	movie . get ( CV_CAP_PROP_POS_FRAMES )
+>855	ArgumentList	CV_CAP_PROP_POS_FRAMES
+>856	Argument	CV_CAP_PROP_POS_FRAMES
+>857	Identifier	CV_CAP_PROP_POS_FRAMES
+>858	Callee	movie . get
+>859	MemberAccess	movie . get
+>860	Identifier	get
+>861	Identifier	movie
+>862	PrimaryExpression	100.0
+>863	Identifier	std 
+>864	ExpressionStatement	 
+>865	CallExpression	cv 
+>866	ArgumentList	\"Training Data\"
+>867	Argument	feats
+>868	Identifier	feats
+>869	Argument	\"Training Data\"
+>870	PrimaryExpression	\"Training Data\"
+>871	Callee	cv 
+>872	Identifier	cv 
+>873	ExpressionStatement	 
+>874	CallExpression	cv 
+>875	ArgumentList	frame
+>876	Argument	feats
+>877	Identifier	feats
+>878	Argument	kpts
+>879	Identifier	kpts
+>880	Argument	frame
+>881	Identifier	frame
+>882	Callee	cv 
+>883	Identifier	cv 
+>884	ExpressionStatement	 
+>885	CallExpression	vocabTrainData . push_back ( descs )
+>886	ArgumentList	descs
+>887	Argument	descs
+>888	Identifier	descs
+>889	Callee	vocabTrainData . push_back
+>890	MemberAccess	vocabTrainData . push_back
+>891	Identifier	push_back
+>892	Identifier	vocabTrainData
+>893	ExpressionStatement	 
+>894	CallExpression	extractor -> compute ( frame , kpts , descs )
+>895	ArgumentList	frame
+>896	Argument	descs
+>897	Identifier	descs
+>898	Argument	kpts
+>899	Identifier	kpts
+>900	Argument	frame
+>901	Identifier	frame
+>902	Callee	extractor -> compute
+>903	PtrMemberAccess	extractor -> compute
+>904	Identifier	compute
+>905	Identifier	extractor
+>906	ExpressionStatement	 
+>907	CallExpression	detector -> detect ( frame , kpts )
+>908	ArgumentList	frame
+>909	Argument	kpts
+>910	Identifier	kpts
+>911	Argument	frame
+>912	Identifier	frame
+>913	Callee	detector -> detect
+>914	PtrMemberAccess	detector -> detect
+>915	Identifier	detect
+>916	Identifier	detector
+>917	Condition	 
+>918	CallExpression	movie . read ( frame )
+>919	ArgumentList	frame
+>920	Argument	frame
+>921	Identifier	frame
+>922	Callee	movie . read
+>923	MemberAccess	movie . read
+>924	Identifier	read
+>925	Identifier	movie
+>926	ExpressionStatement	 
+>927	CallExpression	std 
+>928	ArgumentList	0
+>929	Argument	0
+>930	PrimaryExpression	0
+>931	Callee	std 
+>932	MemberAccess	std 
+>933	Identifier	precision
+>934	Identifier	std 
+>935	ExpressionStatement	 
+>936	CallExpression	std 
+>937	ArgumentList	std 
+>938	Argument	std 
+>939	Identifier	std 
+>940	Callee	std 
+>941	MemberAccess	std 
+>942	Identifier	setf
+>943	Identifier	std 
+>944	IdentifierDeclStatement	 
+>945	IdentifierDecl	kpts
+>946	Identifier	kpts
+>947	IdentifierDeclType	std 
+>948	IdentifierDeclStatement	 
+>949	IdentifierDecl	feats
+>950	Identifier	feats
+>951	IdentifierDeclType	cv 
+>952	IdentifierDecl	descs
+>953	Identifier	descs
+>954	IdentifierDeclType	cv 
+>955	IdentifierDecl	frame
+>956	Identifier	frame
+>957	IdentifierDeclType	cv 
+>958	IdentifierDeclStatement	 
+>959	IdentifierDecl	vocabTrainData
+>960	Identifier	vocabTrainData
+>961	IdentifierDeclType	cv 
+>962	ExpressionStatement	 
+>963	ShiftExpression	std 
+>964	ShiftExpression	\"Extracting Descriptors\" << std 
+>965	Identifier	std 
+>966	PrimaryExpression	\"Extracting Descriptors\"
+>967	Identifier	std 
+>968	IfStatement	if ( ! movie . isOpened ( ) )
+>969	CompoundStatement	 
+>970	ReturnStatement	 
+>971	UnaryOp	- 1
+>972	PrimaryExpression	1
+>973	UnaryOperator	-
+>974	ExpressionStatement	 
+>975	ShiftExpression	std 
+>976	ShiftExpression	trainPath << \"
+>977	ShiftExpression	\"
+>978	Identifier	std 
+>979	PrimaryExpression	\"
+>980	Identifier	trainPath
+>981	Identifier	std 
+>982	Condition	 
+>983	UnaryOp	! movie . isOpened ( )
+>984	CallExpression	movie . isOpened ( )
+>985	ArgumentList	 
+>986	Callee	movie . isOpened
+>987	MemberAccess	movie . isOpened
+>988	Identifier	isOpened
+>989	Identifier	movie
+>990	UnaryOperator	!
+>991	ExpressionStatement	 
+>992	CallExpression	movie . open ( trainPath )
+>993	ArgumentList	trainPath
+>994	Argument	trainPath
+>995	Identifier	trainPath
+>996	Callee	movie . open
+>997	MemberAccess	movie . open
+>998	Identifier	open
+>999	Identifier	movie
+>1000	IdentifierDeclStatement	 
+>1001	IdentifierDecl	movie
+>1002	Identifier	movie
+>1003	IdentifierDeclType	cv 
+>1004	IfStatement	if ( checker . is_open ( ) )
+>1005	CompoundStatement	 
+>1006	ReturnStatement	 
+>1007	UnaryOp	- 1
+>1008	PrimaryExpression	1
+>1009	UnaryOperator	-
+>1010	ExpressionStatement	 
+>1011	CallExpression	checker . close ( )
+>1012	ArgumentList	 
+>1013	Callee	checker . close
+>1014	MemberAccess	checker . close
+>1015	Identifier	close
+>1016	Identifier	checker
+>1017	ExpressionStatement	 
+>1018	ShiftExpression	std 
+>1019	ShiftExpression	vocabTrainDataPath << \"
+>1020	ShiftExpression	\"
+>1021	Identifier	std 
+>1022	PrimaryExpression	\"
+>1023	Identifier	vocabTrainDataPath
+>1024	Identifier	std 
+>1025	Condition	 
+>1026	CallExpression	checker . is_open ( )
+>1027	ArgumentList	 
+>1028	Callee	checker . is_open
+>1029	MemberAccess	checker . is_open
+>1030	Identifier	is_open
+>1031	Identifier	checker
+>1032	ExpressionStatement	 
+>1033	CallExpression	checker . open ( vocabTrainDataPath . c_str ( ) )
+>1034	ArgumentList	vocabTrainDataPath . c_str ( )
+>1035	Argument	vocabTrainDataPath . c_str ( )
+>1036	CallExpression	vocabTrainDataPath . c_str ( )
+>1037	ArgumentList	 
+>1038	Callee	vocabTrainDataPath . c_str
+>1039	MemberAccess	vocabTrainDataPath . c_str
+>1040	Identifier	c_str
+>1041	Identifier	vocabTrainDataPath
+>1042	Callee	checker . open
+>1043	MemberAccess	checker . open
+>1044	Identifier	open
+>1045	Identifier	checker
+>1046	IdentifierDeclStatement	 
+>1047	IdentifierDecl	checker
+>1048	Identifier	checker
+>1049	IdentifierDeclType	std 
+>1076	FunctionDef	trainVocabulary (std 
+>1077	ParameterList	std 
+>1078	Parameter	 
+>1079	Identifier	clusterRadius
+>1080	ParameterType	double
+>1081	Parameter	 
+>1082	Identifier	vocabTrainDataPath
+>1083	ParameterType	std 
+>1084	Parameter	 
+>1085	Identifier	vocabPath
+>1086	ParameterType	std 
+>1087	ReturnType	int
+>1088	CompoundStatement	 
+>1089	ReturnStatement	 
+>1090	PrimaryExpression	0
+>1091	ExpressionStatement	 
+>1092	CallExpression	fs . release ( )
+>1093	ArgumentList	 
+>1094	Callee	fs . release
+>1095	MemberAccess	fs . release
+>1096	Identifier	release
+>1097	Identifier	fs
+>1098	ExpressionStatement	 
+>1099	ShiftExpression	fs << \"Vocabulary\" << vocab
+>1100	ShiftExpression	\"Vocabulary\" << vocab
+>1101	Identifier	vocab
+>1102	PrimaryExpression	\"Vocabulary\"
+>1103	Identifier	fs
+>1104	ExpressionStatement	 
+>1105	CallExpression	fs . open ( vocabPath , cv 
+>1106	ArgumentList	vocabPath
+>1107	Argument	cv 
+>1108	Identifier	cv 
+>1109	Argument	vocabPath
+>1110	Identifier	vocabPath
+>1111	Callee	fs . open
+>1112	MemberAccess	fs . open
+>1113	Identifier	open
+>1114	Identifier	fs
+>1115	ExpressionStatement	 
+>1116	ShiftExpression	std 
+>1117	ShiftExpression	\"Saving vocabulary\" << std 
+>1118	Identifier	std 
+>1119	PrimaryExpression	\"Saving vocabulary\"
+>1120	Identifier	std 
+>1121	IdentifierDeclStatement	 
+>1122	IdentifierDecl	vocab = trainer . cluster ( )
+>1123	AssignmentExpr	vocab = trainer . cluster ( )
+>1124	CallExpression	trainer . cluster ( )
+>1125	ArgumentList	 
+>1126	Callee	trainer . cluster
+>1127	MemberAccess	trainer . cluster
+>1128	Identifier	cluster
+>1129	Identifier	trainer
+>1130	Identifier	vocab
+>1131	Identifier	vocab
+>1132	IdentifierDeclType	cv 
+>1133	ExpressionStatement	 
+>1134	CallExpression	trainer . add ( vocabTrainData )
+>1135	ArgumentList	vocabTrainData
+>1136	Argument	vocabTrainData
+>1137	Identifier	vocabTrainData
+>1138	Callee	trainer . add
+>1139	MemberAccess	trainer . add
+>1140	Identifier	add
+>1141	Identifier	trainer
+>1142	IdentifierDeclStatement	 
+>1143	IdentifierDecl	trainer ( clusterRadius )
+>1144	Identifier	clusterRadius
+>1145	Identifier	trainer
+>1146	IdentifierDeclType	of2 
+>1147	ExpressionStatement	 
+>1148	ShiftExpression	std 
+>1149	ShiftExpression	\"Performing clustering\" << std 
+>1150	Identifier	std 
+>1151	PrimaryExpression	\"Performing clustering\"
+>1152	Identifier	std 
+>1153	ExpressionStatement	 
+>1154	CallExpression	fs . release ( )
+>1155	ArgumentList	 
+>1156	Callee	fs . release
+>1157	MemberAccess	fs . release
+>1158	Identifier	release
+>1159	Identifier	fs
+>1160	IfStatement	if ( vocabTrainData . empty ( ) )
+>1161	CompoundStatement	 
+>1162	ReturnStatement	 
+>1163	UnaryOp	- 1
+>1164	PrimaryExpression	1
+>1165	UnaryOperator	-
+>1166	ExpressionStatement	 
+>1167	ShiftExpression	std 
+>1168	ShiftExpression	vocabTrainDataPath << \"
+>1169	ShiftExpression	\"
+>1170	Identifier	std 
+>1171	PrimaryExpression	\"
+>1172	Identifier	vocabTrainDataPath
+>1173	Identifier	std 
+>1174	Condition	 
+>1175	CallExpression	vocabTrainData . empty ( )
+>1176	ArgumentList	 
+>1177	Callee	vocabTrainData . empty
+>1178	MemberAccess	vocabTrainData . empty
+>1179	Identifier	empty
+>1180	Identifier	vocabTrainData
+>1181	ExpressionStatement	 
+>1182	ShiftExpression	fs [ \"VocabTrainData\" ] >> vocabTrainData
+>1183	Identifier	vocabTrainData
+>1184	ArrayIndexing	fs [ \"VocabTrainData\" ]
+>1185	PrimaryExpression	\"VocabTrainData\"
+>1186	Identifier	fs
+>1187	IdentifierDeclStatement	 
+>1188	IdentifierDecl	vocabTrainData
+>1189	Identifier	vocabTrainData
+>1190	IdentifierDeclType	cv 
+>1191	ExpressionStatement	 
+>1192	CallExpression	fs . open ( vocabTrainDataPath , cv 
+>1193	ArgumentList	vocabTrainDataPath
+>1194	Argument	cv 
+>1195	Identifier	cv 
+>1196	Argument	vocabTrainDataPath
+>1197	Identifier	vocabTrainDataPath
+>1198	Callee	fs . open
+>1199	MemberAccess	fs . open
+>1200	Identifier	open
+>1201	Identifier	fs
+>1202	IdentifierDeclStatement	 
+>1203	IdentifierDecl	fs
+>1204	Identifier	fs
+>1205	IdentifierDeclType	cv 
+>1206	ExpressionStatement	 
+>1207	ShiftExpression	std 
+>1208	ShiftExpression	\"Loading vocabulary training data\" << std 
+>1209	Identifier	std 
+>1210	PrimaryExpression	\"Loading vocabulary training data\"
+>1211	Identifier	std 
+>1212	IfStatement	if ( checker . is_open ( ) )
+>1213	CompoundStatement	 
+>1214	ReturnStatement	 
+>1215	UnaryOp	- 1
+>1216	PrimaryExpression	1
+>1217	UnaryOperator	-
+>1218	ExpressionStatement	 
+>1219	CallExpression	checker . close ( )
+>1220	ArgumentList	 
+>1221	Callee	checker . close
+>1222	MemberAccess	checker . close
+>1223	Identifier	close
+>1224	Identifier	checker
+>1225	ExpressionStatement	 
+>1226	ShiftExpression	std 
+>1227	ShiftExpression	vocabPath << \"
+>1228	ShiftExpression	\"
+>1229	Identifier	std 
+>1230	PrimaryExpression	\"
+>1231	Identifier	vocabPath
+>1232	Identifier	std 
+>1233	Condition	 
+>1234	CallExpression	checker . is_open ( )
+>1235	ArgumentList	 
+>1236	Callee	checker . is_open
+>1237	MemberAccess	checker . is_open
+>1238	Identifier	is_open
+>1239	Identifier	checker
+>1240	ExpressionStatement	 
+>1241	CallExpression	checker . open ( vocabPath . c_str ( ) )
+>1242	ArgumentList	vocabPath . c_str ( )
+>1243	Argument	vocabPath . c_str ( )
+>1244	CallExpression	vocabPath . c_str ( )
+>1245	ArgumentList	 
+>1246	Callee	vocabPath . c_str
+>1247	MemberAccess	vocabPath . c_str
+>1248	Identifier	c_str
+>1249	Identifier	vocabPath
+>1250	Callee	checker . open
+>1251	MemberAccess	checker . open
+>1252	Identifier	open
+>1253	Identifier	checker
+>1254	IdentifierDeclStatement	 
+>1255	IdentifierDecl	checker
+>1256	Identifier	checker
+>1257	IdentifierDeclType	std 
+>1275	FunctionDef	generateBOWImageDescs (std 
+>1276	ParameterList	std 
+>1277	Parameter	 
+>1278	Identifier	minWords
+>1279	ParameterType	int
+>1280	Parameter	 
+>1281	Identifier	extractor
+>1282	ParameterType	cv 
+>1283	Parameter	 
+>1284	Identifier	detector
+>1285	ParameterType	cv 
+>1286	Parameter	 
+>1287	Identifier	vocabPath
+>1288	ParameterType	std 
+>1289	Parameter	 
+>1290	Identifier	bowImageDescPath
+>1291	ParameterType	std 
+>1292	Parameter	 
+>1293	Identifier	dataPath
+>1294	ParameterType	std 
+>1295	ReturnType	int
+>1296	CompoundStatement	 
+>1297	ReturnStatement	 
+>1298	PrimaryExpression	0
+>1299	ExpressionStatement	 
+>1300	CallExpression	fs . release ( )
+>1301	ArgumentList	 
+>1302	Callee	fs . release
+>1303	MemberAccess	fs . release
+>1304	Identifier	release
+>1305	Identifier	fs
+>1306	ExpressionStatement	 
+>1307	ShiftExpression	fs << \"BOWImageDescs\" << fabmapTrainData
+>1308	ShiftExpression	\"BOWImageDescs\" << fabmapTrainData
+>1309	Identifier	fabmapTrainData
+>1310	PrimaryExpression	\"BOWImageDescs\"
+>1311	Identifier	fs
+>1312	ExpressionStatement	 
+>1313	CallExpression	fs . open ( bowImageDescPath , cv 
+>1314	ArgumentList	bowImageDescPath
+>1315	Argument	cv 
+>1316	Identifier	cv 
+>1317	Argument	bowImageDescPath
+>1318	Identifier	bowImageDescPath
+>1319	Callee	fs . open
+>1320	MemberAccess	fs . open
+>1321	Identifier	open
+>1322	Identifier	fs
+>1323	ExpressionStatement	 
+>1324	CallExpression	movie . release ( )
+>1325	ArgumentList	 
+>1326	Callee	movie . release
+>1327	MemberAccess	movie . release
+>1328	Identifier	release
+>1329	Identifier	movie
+>1330	ExpressionStatement	 
+>1331	ShiftExpression	std 
+>1332	ShiftExpression	\"Done                                       \" << std 
+>1333	Identifier	std 
+>1334	PrimaryExpression	\"Done                                       \"
+>1335	Identifier	std 
+>1336	WhileStatement	while ( movie . read ( frame ) )
+>1337	CompoundStatement	 
+>1338	ExpressionStatement	 
+>1339	CallExpression	fflush ( stdout )
+>1340	ArgumentList	stdout
+>1341	Argument	stdout
+>1342	Identifier	stdout
+>1343	Callee	fflush
+>1344	Identifier	fflush
+>1345	ExpressionStatement	 
+>1346	ShiftExpression	std 
+>1347	ShiftExpression	100.0 * ( movie . get ( CV_CAP_PROP_POS_FRAMES ) / movie . get ( CV_CAP_PROP_FRAME_COUNT ) ) << \"%    \r\"\
+>1348	PrimaryExpression	\"%    \r\"
+>1349	MultiplicativeExpression	100.0 * ( movie . get ( CV_CAP_PROP_POS_FRAMES ) / movie . get ( CV_CAP_PROP_FRAME_COUNT ) )
+>1350	MultiplicativeExpression	movie . get ( CV_CAP_PROP_POS_FRAMES ) / movie . get ( CV_CAP_PROP_FRAME_COUNT )
+>1351	CallExpression	movie . get ( CV_CAP_PROP_FRAME_COUNT )
+>1352	ArgumentList	CV_CAP_PROP_FRAME_COUNT
+>1353	Argument	CV_CAP_PROP_FRAME_COUNT
+>1354	Identifier	CV_CAP_PROP_FRAME_COUNT
+>1355	Callee	movie . get
+>1356	MemberAccess	movie . get
+>1357	Identifier	get
+>1358	Identifier	movie
+>1359	CallExpression	movie . get ( CV_CAP_PROP_POS_FRAMES )
+>1360	ArgumentList	CV_CAP_PROP_POS_FRAMES
+>1361	Argument	CV_CAP_PROP_POS_FRAMES
+>1362	Identifier	CV_CAP_PROP_POS_FRAMES
+>1363	Callee	movie . get
+>1364	MemberAccess	movie . get
+>1365	Identifier	get
+>1366	Identifier	movie
+>1367	PrimaryExpression	100.0
+>1368	Identifier	std 
+>1369	IfStatement	if ( minWords )
+>1370	ElseStatement	else
+>1371	CompoundStatement	 
+>1372	ExpressionStatement	 
+>1373	CallExpression	fabmapTrainData . push_back ( bow )
+>1374	ArgumentList	bow
+>1375	Argument	bow
+>1376	Identifier	bow
+>1377	Callee	fabmapTrainData . push_back
+>1378	MemberAccess	fabmapTrainData . push_back
+>1379	Identifier	push_back
+>1380	Identifier	fabmapTrainData
+>1381	CompoundStatement	 
+>1382	IfStatement	if ( cv 
+>1383	ElseStatement	else
+>1384	CompoundStatement	 
+>1385	ExpressionStatement	 
+>1386	CallExpression	fabmapTrainData . push_back ( bow )
+>1387	ArgumentList	bow
+>1388	Argument	bow
+>1389	Identifier	bow
+>1390	Callee	fabmapTrainData . push_back
+>1391	MemberAccess	fabmapTrainData . push_back
+>1392	Identifier	push_back
+>1393	Identifier	fabmapTrainData
+>1394	ExpressionStatement	 
+>1395	ShiftExpression	maskw << \"1\" << std 
+>1396	ShiftExpression	\"1\" << std 
+>1397	Identifier	std 
+>1398	PrimaryExpression	\"1\"
+>1399	Identifier	maskw
+>1400	CompoundStatement	 
+>1401	ExpressionStatement	 
+>1402	ShiftExpression	maskw << \"0\" << std 
+>1403	ShiftExpression	\"0\" << std 
+>1404	Identifier	std 
+>1405	PrimaryExpression	\"0\"
+>1406	Identifier	maskw
+>1407	Condition	 
+>1408	RelationalExpression	cv 
+>1409	Identifier	minWords
+>1410	CallExpression	cv 
+>1411	ArgumentList	bow
+>1412	Argument	bow
+>1413	Identifier	bow
+>1414	Callee	cv 
+>1415	Identifier	cv 
+>1416	Condition	 
+>1417	Identifier	minWords
+>1418	ExpressionStatement	 
+>1419	CallExpression	bide . compute ( frame , kpts , bow )
+>1420	ArgumentList	frame
+>1421	Argument	bow
+>1422	Identifier	bow
+>1423	Argument	kpts
+>1424	Identifier	kpts
+>1425	Argument	frame
+>1426	Identifier	frame
+>1427	Callee	bide . compute
+>1428	MemberAccess	bide . compute
+>1429	Identifier	compute
+>1430	Identifier	bide
+>1431	ExpressionStatement	 
+>1432	CallExpression	detector -> detect ( frame , kpts )
+>1433	ArgumentList	frame
+>1434	Argument	kpts
+>1435	Identifier	kpts
+>1436	Argument	frame
+>1437	Identifier	frame
+>1438	Callee	detector -> detect
+>1439	PtrMemberAccess	detector -> detect
+>1440	Identifier	detect
+>1441	Identifier	detector
+>1442	Condition	 
+>1443	CallExpression	movie . read ( frame )
+>1444	ArgumentList	frame
+>1445	Argument	frame
+>1446	Identifier	frame
+>1447	Callee	movie . read
+>1448	MemberAccess	movie . read
+>1449	Identifier	read
+>1450	Identifier	movie
+>1451	IdentifierDeclStatement	 
+>1452	IdentifierDecl	kpts
+>1453	Identifier	kpts
+>1454	IdentifierDeclType	std 
+>1455	IdentifierDeclStatement	 
+>1456	IdentifierDecl	bow
+>1457	Identifier	bow
+>1458	IdentifierDeclType	cv 
+>1459	IdentifierDecl	frame
+>1460	Identifier	frame
+>1461	IdentifierDeclType	cv 
+>1462	IfStatement	if ( minWords )
+>1463	CompoundStatement	 
+>1464	ExpressionStatement	 
+>1465	CallExpression	maskw . open ( std 
+>1466	ArgumentList	std 
+>1467	Argument	std 
+>1468	CallExpression	std 
+>1469	ArgumentList	 
+>1470	Callee	std 
+>1471	MemberAccess	std 
+>1472	Identifier	c_str
+>1473	CallExpression	std 
+>1474	ArgumentList	bowImageDescPath + \"mask.txt\"
+>1475	Argument	bowImageDescPath + \"mask.txt\"
+>1476	AdditiveExpression	bowImageDescPath + \"mask.txt\"
+>1477	PrimaryExpression	\"mask.txt\"
+>1478	Identifier	bowImageDescPath
+>1479	Callee	std 
+>1480	Identifier	std 
+>1481	Callee	maskw . open
+>1482	MemberAccess	maskw . open
+>1483	Identifier	open
+>1484	Identifier	maskw
+>1485	Condition	 
+>1486	Identifier	minWords
+>1487	IdentifierDeclStatement	 
+>1488	IdentifierDecl	maskw
+>1489	Identifier	maskw
+>1490	IdentifierDeclType	std 
+>1491	ExpressionStatement	 
+>1492	CallExpression	std 
+>1493	ArgumentList	0
+>1494	Argument	0
+>1495	PrimaryExpression	0
+>1496	Callee	std 
+>1497	MemberAccess	std 
+>1498	Identifier	precision
+>1499	Identifier	std 
+>1500	ExpressionStatement	 
+>1501	CallExpression	std 
+>1502	ArgumentList	std 
+>1503	Argument	std 
+>1504	Identifier	std 
+>1505	Callee	std 
+>1506	MemberAccess	std 
+>1507	Identifier	setf
+>1508	Identifier	std 
+>1509	ExpressionStatement	 
+>1510	ShiftExpression	std 
+>1511	ShiftExpression	\"Extracting Bag-of-words Image Descriptors\" << std 
+>1512	Identifier	std 
+>1513	PrimaryExpression	\"Extracting Bag-of-words Image Descriptors\"
+>1514	Identifier	std 
+>1515	IdentifierDeclStatement	 
+>1516	IdentifierDecl	fabmapTrainData
+>1517	Identifier	fabmapTrainData
+>1518	IdentifierDeclType	cv 
+>1519	IfStatement	if ( ! movie . isOpened ( ) )
+>1520	CompoundStatement	 
+>1521	ReturnStatement	 
+>1522	UnaryOp	- 1
+>1523	PrimaryExpression	1
+>1524	UnaryOperator	-
+>1525	ExpressionStatement	 
+>1526	ShiftExpression	std 
+>1527	ShiftExpression	dataPath << \"
+>1528	ShiftExpression	\"
+>1529	Identifier	std 
+>1530	PrimaryExpression	\"
+>1531	Identifier	dataPath
+>1532	Identifier	std 
+>1533	Condition	 
+>1534	UnaryOp	! movie . isOpened ( )
+>1535	CallExpression	movie . isOpened ( )
+>1536	ArgumentList	 
+>1537	Callee	movie . isOpened
+>1538	MemberAccess	movie . isOpened
+>1539	Identifier	isOpened
+>1540	Identifier	movie
+>1541	UnaryOperator	!
+>1542	ExpressionStatement	 
+>1543	CallExpression	movie . open ( dataPath )
+>1544	ArgumentList	dataPath
+>1545	Argument	dataPath
+>1546	Identifier	dataPath
+>1547	Callee	movie . open
+>1548	MemberAccess	movie . open
+>1549	Identifier	open
+>1550	Identifier	movie
+>1551	IdentifierDeclStatement	 
+>1552	IdentifierDecl	movie
+>1553	Identifier	movie
+>1554	IdentifierDeclType	cv 
+>1555	ExpressionStatement	 
+>1556	CallExpression	bide . setVocabulary ( vocab )
+>1557	ArgumentList	vocab
+>1558	Argument	vocab
+>1559	Identifier	vocab
+>1560	Callee	bide . setVocabulary
+>1561	MemberAccess	bide . setVocabulary
+>1562	Identifier	setVocabulary
+>1563	Identifier	bide
+>1564	IdentifierDeclStatement	 
+>1565	IdentifierDecl	bide ( extractor , matcher )
+>1566	Expression	extractor , matcher
+>1567	Identifier	matcher
+>1568	Identifier	extractor
+>1569	Identifier	bide
+>1570	IdentifierDeclType	cv 
+>1571	IdentifierDeclStatement	 
+>1572	IdentifierDecl	matcher = cv 
+>1573	AssignmentExpr	matcher = cv 
+>1574	CallExpression	cv 
+>1575	ArgumentList	\"FlannBased\"
+>1576	Argument	\"FlannBased\"
+>1577	PrimaryExpression	\"FlannBased\"
+>1578	Callee	cv 
+>1579	Identifier	cv 
+>1580	Identifier	matcher
+>1581	Identifier	matcher
+>1582	IdentifierDeclType	cv 
+>1583	ExpressionStatement	 
+>1584	CallExpression	fs . release ( )
+>1585	ArgumentList	 
+>1586	Callee	fs . release
+>1587	MemberAccess	fs . release
+>1588	Identifier	release
+>1589	Identifier	fs
+>1590	IfStatement	if ( vocab . empty ( ) )
+>1591	CompoundStatement	 
+>1592	ReturnStatement	 
+>1593	UnaryOp	- 1
+>1594	PrimaryExpression	1
+>1595	UnaryOperator	-
+>1596	ExpressionStatement	 
+>1597	ShiftExpression	std 
+>1598	ShiftExpression	vocabPath << \"
+>1599	ShiftExpression	\"
+>1600	Identifier	std 
+>1601	PrimaryExpression	\"
+>1602	Identifier	vocabPath
+>1603	Identifier	std 
+>1604	Condition	 
+>1605	CallExpression	vocab . empty ( )
+>1606	ArgumentList	 
+>1607	Callee	vocab . empty
+>1608	MemberAccess	vocab . empty
+>1609	Identifier	empty
+>1610	Identifier	vocab
+>1611	ExpressionStatement	 
+>1612	ShiftExpression	fs [ \"Vocabulary\" ] >> vocab
+>1613	Identifier	vocab
+>1614	ArrayIndexing	fs [ \"Vocabulary\" ]
+>1615	PrimaryExpression	\"Vocabulary\"
+>1616	Identifier	fs
+>1617	IdentifierDeclStatement	 
+>1618	IdentifierDecl	vocab
+>1619	Identifier	vocab
+>1620	IdentifierDeclType	cv 
+>1621	ExpressionStatement	 
+>1622	CallExpression	fs . open ( vocabPath , cv 
+>1623	ArgumentList	vocabPath
+>1624	Argument	cv 
+>1625	Identifier	cv 
+>1626	Argument	vocabPath
+>1627	Identifier	vocabPath
+>1628	Callee	fs . open
+>1629	MemberAccess	fs . open
+>1630	Identifier	open
+>1631	Identifier	fs
+>1632	ExpressionStatement	 
+>1633	ShiftExpression	std 
+>1634	ShiftExpression	\"Loading Vocabulary\" << std 
+>1635	Identifier	std 
+>1636	PrimaryExpression	\"Loading Vocabulary\"
+>1637	Identifier	std 
+>1638	IfStatement	if ( checker . is_open ( ) )
+>1639	CompoundStatement	 
+>1640	ReturnStatement	 
+>1641	UnaryOp	- 1
+>1642	PrimaryExpression	1
+>1643	UnaryOperator	-
+>1644	ExpressionStatement	 
+>1645	CallExpression	checker . close ( )
+>1646	ArgumentList	 
+>1647	Callee	checker . close
+>1648	MemberAccess	checker . close
+>1649	Identifier	close
+>1650	Identifier	checker
+>1651	ExpressionStatement	 
+>1652	ShiftExpression	\"already present\" << std 
+>1653	Identifier	std 
+>1654	PrimaryExpression	\"already present\"
+>1655	Statement	 
+>1656	Statement	 
+>1657	Statement	 
+>1658	Statement	 
+>1659	Statement	 
+>1660	Statement	 
+>1661	Statement	 
+>1662	Condition	 
+>1663	CallExpression	checker . is_open ( )
+>1664	ArgumentList	 
+>1665	Callee	checker . is_open
+>1666	MemberAccess	checker . is_open
+>1667	Identifier	is_open
+>1668	Identifier	checker
+>1669	ExpressionStatement	 
+>1670	CallExpression	checker . open ( bowImageDescPath . c_str ( ) )
+>1671	ArgumentList	bowImageDescPath . c_str ( )
+>1672	Argument	bowImageDescPath . c_str ( )
+>1673	CallExpression	bowImageDescPath . c_str ( )
+>1674	ArgumentList	 
+>1675	Callee	bowImageDescPath . c_str
+>1676	MemberAccess	bowImageDescPath . c_str
+>1677	Identifier	c_str
+>1678	Identifier	bowImageDescPath
+>1679	Callee	checker . open
+>1680	MemberAccess	checker . open
+>1681	Identifier	open
+>1682	Identifier	checker
+>1683	IdentifierDeclStatement	 
+>1684	IdentifierDecl	checker
+>1685	Identifier	checker
+>1686	IdentifierDeclType	std 
+>1687	IdentifierDeclStatement	 
+>1688	IdentifierDecl	fs
+>1689	Identifier	fs
+>1690	IdentifierDeclType	cv 
+>1727	FunctionDef	trainChowLiuTree (std 
+>1728	ParameterList	std 
+>1729	Parameter	 
+>1730	Identifier	lowerInformationBound
+>1731	ParameterType	double
+>1732	Parameter	 
+>1733	Identifier	fabmapTrainDataPath
+>1734	ParameterType	std 
+>1735	Parameter	 
+>1736	Identifier	chowliutreePath
+>1737	ParameterType	std 
+>1738	ReturnType	int
+>1739	CompoundStatement	 
+>1740	ReturnStatement	 
+>1741	PrimaryExpression	0
+>1742	ExpressionStatement	 
+>1743	CallExpression	fs . release ( )
+>1744	ArgumentList	 
+>1745	Callee	fs . release
+>1746	MemberAccess	fs . release
+>1747	Identifier	release
+>1748	Identifier	fs
+>1749	ExpressionStatement	 
+>1750	ShiftExpression	fs << \"ChowLiuTree\" << clTree
+>1751	ShiftExpression	\"ChowLiuTree\" << clTree
+>1752	Identifier	clTree
+>1753	PrimaryExpression	\"ChowLiuTree\"
+>1754	Identifier	fs
+>1755	ExpressionStatement	 
+>1756	CallExpression	fs . open ( chowliutreePath , cv 
+>1757	ArgumentList	chowliutreePath
+>1758	Argument	cv 
+>1759	Identifier	cv 
+>1760	Argument	chowliutreePath
+>1761	Identifier	chowliutreePath
+>1762	Callee	fs . open
+>1763	MemberAccess	fs . open
+>1764	Identifier	open
+>1765	Identifier	fs
+>1766	ExpressionStatement	 
+>1767	ShiftExpression	std 
+>1768	ShiftExpression	\"Saving Chow-Liu Tree\" << std 
+>1769	Identifier	std 
+>1770	PrimaryExpression	\"Saving Chow-Liu Tree\"
+>1771	Identifier	std 
+>1772	IdentifierDeclStatement	 
+>1773	IdentifierDecl	clTree = tree . make ( lowerInformationBound )
+>1774	AssignmentExpr	clTree = tree . make ( lowerInformationBound )
+>1775	CallExpression	tree . make ( lowerInformationBound )
+>1776	ArgumentList	lowerInformationBound
+>1777	Argument	lowerInformationBound
+>1778	Identifier	lowerInformationBound
+>1779	Callee	tree . make
+>1780	MemberAccess	tree . make
+>1781	Identifier	make
+>1782	Identifier	tree
+>1783	Identifier	clTree
+>1784	Identifier	clTree
+>1785	IdentifierDeclType	cv 
+>1786	ExpressionStatement	 
+>1787	CallExpression	tree . add ( fabmapTrainData )
+>1788	ArgumentList	fabmapTrainData
+>1789	Argument	fabmapTrainData
+>1790	Identifier	fabmapTrainData
+>1791	Callee	tree . add
+>1792	MemberAccess	tree . add
+>1793	Identifier	add
+>1794	Identifier	tree
+>1795	IdentifierDeclStatement	 
+>1796	IdentifierDecl	tree
+>1797	Identifier	tree
+>1798	IdentifierDeclType	of2 
+>1799	ExpressionStatement	 
+>1800	ShiftExpression	std 
+>1801	ShiftExpression	\"Making Chow-Liu Tree\" << std 
+>1802	Identifier	std 
+>1803	PrimaryExpression	\"Making Chow-Liu Tree\"
+>1804	Identifier	std 
+>1805	ExpressionStatement	 
+>1806	CallExpression	fs . release ( )
+>1807	ArgumentList	 
+>1808	Callee	fs . release
+>1809	MemberAccess	fs . release
+>1810	Identifier	release
+>1811	Identifier	fs
+>1812	IfStatement	if ( fabmapTrainData . empty ( ) )
+>1813	CompoundStatement	 
+>1814	ReturnStatement	 
+>1815	UnaryOp	- 1
+>1816	PrimaryExpression	1
+>1817	UnaryOperator	-
+>1818	ExpressionStatement	 
+>1819	ShiftExpression	std 
+>1820	ShiftExpression	fabmapTrainDataPath << \"
+>1821	ShiftExpression	\"
+>1822	Identifier	std 
+>1823	PrimaryExpression	\"
+>1824	Identifier	fabmapTrainDataPath
+>1825	Identifier	std 
+>1826	Condition	 
+>1827	CallExpression	fabmapTrainData . empty ( )
+>1828	ArgumentList	 
+>1829	Callee	fabmapTrainData . empty
+>1830	MemberAccess	fabmapTrainData . empty
+>1831	Identifier	empty
+>1832	Identifier	fabmapTrainData
+>1833	ExpressionStatement	 
+>1834	ShiftExpression	fs [ \"BOWImageDescs\" ] >> fabmapTrainData
+>1835	Identifier	fabmapTrainData
+>1836	ArrayIndexing	fs [ \"BOWImageDescs\" ]
+>1837	PrimaryExpression	\"BOWImageDescs\"
+>1838	Identifier	fs
+>1839	IdentifierDeclStatement	 
+>1840	IdentifierDecl	fabmapTrainData
+>1841	Identifier	fabmapTrainData
+>1842	IdentifierDeclType	cv 
+>1843	ExpressionStatement	 
+>1844	CallExpression	fs . open ( fabmapTrainDataPath , cv 
+>1845	ArgumentList	fabmapTrainDataPath
+>1846	Argument	cv 
+>1847	Identifier	cv 
+>1848	Argument	fabmapTrainDataPath
+>1849	Identifier	fabmapTrainDataPath
+>1850	Callee	fs . open
+>1851	MemberAccess	fs . open
+>1852	Identifier	open
+>1853	Identifier	fs
+>1854	ExpressionStatement	 
+>1855	ShiftExpression	std 
+>1856	ShiftExpression	\"Loading FabMap Training Data\" << std 
+>1857	Identifier	std 
+>1858	PrimaryExpression	\"Loading FabMap Training Data\"
+>1859	Identifier	std 
+>1860	IfStatement	if ( checker . is_open ( ) )
+>1861	CompoundStatement	 
+>1862	ReturnStatement	 
+>1863	UnaryOp	- 1
+>1864	PrimaryExpression	1
+>1865	UnaryOperator	-
+>1866	ExpressionStatement	 
+>1867	CallExpression	checker . close ( )
+>1868	ArgumentList	 
+>1869	Callee	checker . close
+>1870	MemberAccess	checker . close
+>1871	Identifier	close
+>1872	Identifier	checker
+>1873	ExpressionStatement	 
+>1874	ShiftExpression	std 
+>1875	ShiftExpression	chowliutreePath << \"
+>1876	ShiftExpression	\"
+>1877	Identifier	std 
+>1878	PrimaryExpression	\"
+>1879	Identifier	chowliutreePath
+>1880	Identifier	std 
+>1881	Condition	 
+>1882	CallExpression	checker . is_open ( )
+>1883	ArgumentList	 
+>1884	Callee	checker . is_open
+>1885	MemberAccess	checker . is_open
+>1886	Identifier	is_open
+>1887	Identifier	checker
+>1888	ExpressionStatement	 
+>1889	CallExpression	checker . open ( chowliutreePath . c_str ( ) )
+>1890	ArgumentList	chowliutreePath . c_str ( )
+>1891	Argument	chowliutreePath . c_str ( )
+>1892	CallExpression	chowliutreePath . c_str ( )
+>1893	ArgumentList	 
+>1894	Callee	chowliutreePath . c_str
+>1895	MemberAccess	chowliutreePath . c_str
+>1896	Identifier	c_str
+>1897	Identifier	chowliutreePath
+>1898	Callee	checker . open
+>1899	MemberAccess	checker . open
+>1900	Identifier	open
+>1901	Identifier	checker
+>1902	IdentifierDeclStatement	 
+>1903	IdentifierDecl	checker
+>1904	Identifier	checker
+>1905	IdentifierDeclType	std 
+>1906	IdentifierDeclStatement	 
+>1907	IdentifierDecl	fs
+>1908	Identifier	fs
+>1909	IdentifierDeclType	cv 
+>1927	FunctionDef	openFABMAP (std 
+>1928	ParameterList	std 
+>1929	Parameter	 
+>1930	Identifier	addNewOnly
+>1931	ParameterType	bool
+>1932	Parameter	 
+>1933	Identifier	resultsPath
+>1934	ParameterType	std 
+>1935	Parameter	 
+>1936	Identifier	vocabPath
+>1937	ParameterType	std 
+>1938	Parameter	 
+>1939	Identifier	fabmap
+>1940	ParameterType	of2 
+>1941	Parameter	 
+>1942	Identifier	testPath
+>1943	ParameterType	std 
+>1944	ReturnType	int
+>1945	CompoundStatement	 
+>1946	ReturnStatement	 
+>1947	PrimaryExpression	0
+>1948	ExpressionStatement	 
+>1949	CallExpression	writer . close ( )
+>1950	ArgumentList	 
+>1951	Callee	writer . close
+>1952	MemberAccess	writer . close
+>1953	Identifier	close
+>1954	Identifier	writer
+>1955	ForStatement	for ( int i = 0 ; i < confusion_mat . rows ; i ++ )
+>1956	CompoundStatement	 
+>1957	ExpressionStatement	 
+>1958	ShiftExpression	writer << std 
+>1959	Identifier	std 
+>1960	Identifier	writer
+>1961	ForStatement	for ( int j = 0 ; j < confusion_mat . cols ; j ++ )
+>1962	CompoundStatement	 
+>1963	ExpressionStatement	 
+>1964	RelationalExpression	writer << confusion_mat . at < double > ( i , j ) << \" \"
+>1965	RelationalExpression	double > ( i , j ) << \" \"
+>1966	ShiftExpression	( i , j ) << \" \"
+>1967	PrimaryExpression	\" \"
+>1968	Expression	i , j
+>1969	Identifier	j
+>1970	Identifier	i
+>1971	Identifier	double
+>1972	ShiftExpression	writer << confusion_mat . at
+>1973	MemberAccess	confusion_mat . at
+>1974	Identifier	at
+>1975	Identifier	confusion_mat
+>1976	Identifier	writer
+>1977	IncDecOp	 
+>1978	IncDec	++
+>1979	Identifier	j
+>1980	Condition	 
+>1981	RelationalExpression	j < confusion_mat . cols
+>1982	MemberAccess	confusion_mat . cols
+>1983	Identifier	cols
+>1984	Identifier	confusion_mat
+>1985	Identifier	j
+>1986	ForInit	 
+>1987	IdentifierDeclStatement	int j = 0 ;
+>1988	IdentifierDecl	j = 0
+>1989	AssignmentExpr	j = 0
+>1990	PrimaryExpression	0
+>1991	Identifier	j
+>1992	Identifier	j
+>1993	IdentifierDeclType	int
+>1994	IncDecOp	 
+>1995	IncDec	++
+>1996	Identifier	i
+>1997	Condition	 
+>1998	RelationalExpression	i < confusion_mat . rows
+>1999	MemberAccess	confusion_mat . rows
+>2000	Identifier	rows
+>2001	Identifier	confusion_mat
+>2002	Identifier	i
+>2003	ForInit	 
+>2004	IdentifierDeclStatement	int i = 0 ;
+>2005	IdentifierDecl	i = 0
+>2006	AssignmentExpr	i = 0
+>2007	PrimaryExpression	0
+>2008	Identifier	i
+>2009	Identifier	i
+>2010	IdentifierDeclType	int
+>2011	IdentifierDeclStatement	 
+>2012	IdentifierDecl	writer ( resultsPath . c_str ( ) )
+>2013	CallExpression	resultsPath . c_str ( )
+>2014	ArgumentList	 
+>2015	Callee	resultsPath . c_str
+>2016	MemberAccess	resultsPath . c_str
+>2017	Identifier	c_str
+>2018	Identifier	resultsPath
+>2019	Identifier	writer
+>2020	IdentifierDeclType	std 
+>2021	IfStatement	if ( ! addNewOnly )
+>2022	ElseStatement	else
+>2023	CompoundStatement	 
+>2024	ForStatement	for ( int i = 0 ; i < testImageDescs . rows ; i ++ )
+>2025	CompoundStatement	 
+>2026	IfStatement	if ( new_place_max )
+>2027	CompoundStatement	 
+>2028	ExpressionStatement	 
+>2029	CallExpression	fabmap -> add ( testImageDescs . row ( i ) )
+>2030	ArgumentList	testImageDescs . row ( i )
+>2031	Argument	testImageDescs . row ( i )
+>2032	CallExpression	testImageDescs . row ( i )
+>2033	ArgumentList	i
+>2034	Argument	i
+>2035	Identifier	i
+>2036	Callee	testImageDescs . row
+>2037	MemberAccess	testImageDescs . row
+>2038	Identifier	row
+>2039	Identifier	testImageDescs
+>2040	Callee	fabmap -> add
+>2041	PtrMemberAccess	fabmap -> add
+>2042	Identifier	add
+>2043	Identifier	fabmap
+>2044	Condition	 
+>2045	Identifier	new_place_max
+>2046	ForStatement	for ( l = matches . begin ( ) ; l != matches . end ( ) ; l ++ )
+>2047	CompoundStatement	 
+>2048	IfStatement	if ( l -> match > matches . front ( ) . match )
+>2049	CompoundStatement	 
+>2050	ExpressionStatement	 
+>2051	AssignmentExpr	new_place_max = false
+>2052	Identifier	false
+>2053	Identifier	new_place_max
+>2054	Condition	 
+>2055	RelationalExpression	l -> match > matches . front ( ) . match
+>2056	MemberAccess	matches . front ( ) . match
+>2057	Identifier	match
+>2058	CallExpression	matches . front ( )
+>2059	ArgumentList	 
+>2060	Callee	matches . front
+>2061	MemberAccess	matches . front
+>2062	Identifier	front
+>2063	Identifier	matches
+>2064	PtrMemberAccess	l -> match
+>2065	Identifier	match
+>2066	Identifier	l
+>2067	IfStatement	if ( l -> imgIdx < 0 )
+>2068	ElseStatement	else
+>2069	CompoundStatement	 
+>2070	ExpressionStatement	 
+>2071	AssignmentExpr	confusion_mat . at < double > ( i , l -> imgIdx ) = l -> match
+>2072	PtrMemberAccess	l -> match
+>2073	Identifier	match
+>2074	Identifier	l
+>2075	RelationalExpression	confusion_mat . at < double > ( i , l -> imgIdx )
+>2076	RelationalExpression	double > ( i , l -> imgIdx )
+>2077	Expression	i , l -> imgIdx
+>2078	PtrMemberAccess	l -> imgIdx
+>2079	Identifier	imgIdx
+>2080	Identifier	l
+>2081	Identifier	i
+>2082	Identifier	double
+>2083	MemberAccess	confusion_mat . at
+>2084	Identifier	at
+>2085	Identifier	confusion_mat
+>2086	CompoundStatement	 
+>2087	ExpressionStatement	 
+>2088	AssignmentExpr	confusion_mat . at < double > ( i , matches . size ( ) - 1 ) = l -> match
+>2089	PtrMemberAccess	l -> match
+>2090	Identifier	match
+>2091	Identifier	l
+>2092	RelationalExpression	confusion_mat . at < double > ( i , matches . size ( ) - 1 )
+>2093	RelationalExpression	double > ( i , matches . size ( ) - 1 )
+>2094	Expression	i , matches . size ( ) - 1
+>2095	AdditiveExpression	matches . size ( ) - 1
+>2096	PrimaryExpression	1
+>2097	CallExpression	matches . size ( )
+>2098	ArgumentList	 
+>2099	Callee	matches . size
+>2100	MemberAccess	matches . size
+>2101	Identifier	size
+>2102	Identifier	matches
+>2103	Identifier	i
+>2104	Identifier	double
+>2105	MemberAccess	confusion_mat . at
+>2106	Identifier	at
+>2107	Identifier	confusion_mat
+>2108	Condition	 
+>2109	RelationalExpression	l -> imgIdx < 0
+>2110	PrimaryExpression	0
+>2111	PtrMemberAccess	l -> imgIdx
+>2112	Identifier	imgIdx
+>2113	Identifier	l
+>2114	IncDecOp	 
+>2115	IncDec	++
+>2116	Identifier	l
+>2117	Condition	 
+>2118	EqualityExpression	l != matches . end ( )
+>2119	CallExpression	matches . end ( )
+>2120	ArgumentList	 
+>2121	Callee	matches . end
+>2122	MemberAccess	matches . end
+>2123	Identifier	end
+>2124	Identifier	matches
+>2125	Identifier	l
+>2126	ForInit	 
+>2127	AssignmentExpr	l = matches . begin ( )
+>2128	CallExpression	matches . begin ( )
+>2129	ArgumentList	 
+>2130	Callee	matches . begin
+>2131	MemberAccess	matches . begin
+>2132	Identifier	begin
+>2133	Identifier	matches
+>2134	Identifier	l
+>2135	IdentifierDeclStatement	 
+>2136	IdentifierDecl	new_place_max = true
+>2137	AssignmentExpr	new_place_max = true
+>2138	Identifier	true
+>2139	Identifier	true
+>2140	Identifier	new_place_max
+>2141	IdentifierDeclType	bool
+>2142	ExpressionStatement	 
+>2143	CallExpression	fabmap -> compare ( testImageDescs . row ( i ) , matches )
+>2144	ArgumentList	testImageDescs . row ( i )
+>2145	Argument	matches
+>2146	Identifier	matches
+>2147	Argument	testImageDescs . row ( i )
+>2148	CallExpression	testImageDescs . row ( i )
+>2149	ArgumentList	i
+>2150	Argument	i
+>2151	Identifier	i
+>2152	Callee	testImageDescs . row
+>2153	MemberAccess	testImageDescs . row
+>2154	Identifier	row
+>2155	Identifier	testImageDescs
+>2156	Callee	fabmap -> compare
+>2157	PtrMemberAccess	fabmap -> compare
+>2158	Identifier	compare
+>2159	Identifier	fabmap
+>2160	ExpressionStatement	 
+>2161	CallExpression	matches . clear ( )
+>2162	ArgumentList	 
+>2163	Callee	matches . clear
+>2164	MemberAccess	matches . clear
+>2165	Identifier	clear
+>2166	Identifier	matches
+>2167	IncDecOp	 
+>2168	IncDec	++
+>2169	Identifier	i
+>2170	Condition	 
+>2171	RelationalExpression	i < testImageDescs . rows
+>2172	MemberAccess	testImageDescs . rows
+>2173	Identifier	rows
+>2174	Identifier	testImageDescs
+>2175	Identifier	i
+>2176	ForInit	 
+>2177	IdentifierDeclStatement	int i = 0 ;
+>2178	IdentifierDecl	i = 0
+>2179	AssignmentExpr	i = 0
+>2180	PrimaryExpression	0
+>2181	Identifier	i
+>2182	Identifier	i
+>2183	IdentifierDeclType	int
+>2184	CompoundStatement	 
+>2185	ForStatement	for ( l = matches . begin ( ) ; l != matches . end ( ) ; l ++ )
+>2186	CompoundStatement	 
+>2187	IfStatement	if ( l -> imgIdx < 0 )
+>2188	ElseStatement	else
+>2189	CompoundStatement	 
+>2190	ExpressionStatement	 
+>2191	AssignmentExpr	confusion_mat . at < double > ( l -> queryIdx , l -> imgIdx ) = l -> match
+>2192	PtrMemberAccess	l -> match
+>2193	Identifier	match
+>2194	Identifier	l
+>2195	RelationalExpression	confusion_mat . at < double > ( l -> queryIdx , l -> imgIdx )
+>2196	RelationalExpression	double > ( l -> queryIdx , l -> imgIdx )
+>2197	Expression	l -> queryIdx , l -> imgIdx
+>2198	PtrMemberAccess	l -> imgIdx
+>2199	Identifier	imgIdx
+>2200	Identifier	l
+>2201	PtrMemberAccess	l -> queryIdx
+>2202	Identifier	queryIdx
+>2203	Identifier	l
+>2204	Identifier	double
+>2205	MemberAccess	confusion_mat . at
+>2206	Identifier	at
+>2207	Identifier	confusion_mat
+>2208	CompoundStatement	 
+>2209	ExpressionStatement	 
+>2210	AssignmentExpr	confusion_mat . at < double > ( l -> queryIdx , l -> queryIdx ) = l -> match
+>2211	PtrMemberAccess	l -> match
+>2212	Identifier	match
+>2213	Identifier	l
+>2214	RelationalExpression	confusion_mat . at < double > ( l -> queryIdx , l -> queryIdx )
+>2215	RelationalExpression	double > ( l -> queryIdx , l -> queryIdx )
+>2216	Expression	l -> queryIdx , l -> queryIdx
+>2217	PtrMemberAccess	l -> queryIdx
+>2218	Identifier	queryIdx
+>2219	Identifier	l
+>2220	PtrMemberAccess	l -> queryIdx
+>2221	Identifier	queryIdx
+>2222	Identifier	l
+>2223	Identifier	double
+>2224	MemberAccess	confusion_mat . at
+>2225	Identifier	at
+>2226	Identifier	confusion_mat
+>2227	Condition	 
+>2228	RelationalExpression	l -> imgIdx < 0
+>2229	PrimaryExpression	0
+>2230	PtrMemberAccess	l -> imgIdx
+>2231	Identifier	imgIdx
+>2232	Identifier	l
+>2233	IncDecOp	 
+>2234	IncDec	++
+>2235	Identifier	l
+>2236	Condition	 
+>2237	EqualityExpression	l != matches . end ( )
+>2238	CallExpression	matches . end ( )
+>2239	ArgumentList	 
+>2240	Callee	matches . end
+>2241	MemberAccess	matches . end
+>2242	Identifier	end
+>2243	Identifier	matches
+>2244	Identifier	l
+>2245	ForInit	 
+>2246	AssignmentExpr	l = matches . begin ( )
+>2247	CallExpression	matches . begin ( )
+>2248	ArgumentList	 
+>2249	Callee	matches . begin
+>2250	MemberAccess	matches . begin
+>2251	Identifier	begin
+>2252	Identifier	matches
+>2253	Identifier	l
+>2254	ExpressionStatement	 
+>2255	CallExpression	fabmap -> compare ( testImageDescs , matches , true )
+>2256	ArgumentList	testImageDescs
+>2257	Argument	true
+>2258	Identifier	true
+>2259	Argument	matches
+>2260	Identifier	matches
+>2261	Argument	testImageDescs
+>2262	Identifier	testImageDescs
+>2263	Callee	fabmap -> compare
+>2264	PtrMemberAccess	fabmap -> compare
+>2265	Identifier	compare
+>2266	Identifier	fabmap
+>2267	Condition	 
+>2268	UnaryOp	! addNewOnly
+>2269	Identifier	addNewOnly
+>2270	UnaryOperator	!
+>2271	ExpressionStatement	 
+>2272	AssignmentExpr	confusion_mat = 0
+>2273	PrimaryExpression	0
+>2274	Identifier	confusion_mat
+>2275	IdentifierDeclStatement	 
+>2276	IdentifierDecl	confusion_mat ( testImageDescs . rows , testImageDescs . rows , CV_64FC1 )
+>2277	Expression	testImageDescs . rows , testImageDescs . rows , CV_64FC1
+>2278	Expression	testImageDescs . rows , CV_64FC1
+>2279	Identifier	CV_64FC1
+>2280	MemberAccess	testImageDescs . rows
+>2281	Identifier	rows
+>2282	Identifier	testImageDescs
+>2283	MemberAccess	testImageDescs . rows
+>2284	Identifier	rows
+>2285	Identifier	testImageDescs
+>2286	Identifier	confusion_mat
+>2287	IdentifierDeclType	cv 
+>2288	IdentifierDeclStatement	 
+>2289	IdentifierDecl	l
+>2290	Identifier	l
+>2291	IdentifierDeclType	std 
+>2292	IdentifierDeclStatement	 
+>2293	IdentifierDecl	matches
+>2294	Identifier	matches
+>2295	IdentifierDeclType	std 
+>2296	ExpressionStatement	 
+>2297	ShiftExpression	std 
+>2298	ShiftExpression	\"Running openFABMAP\" << std 
+>2299	Identifier	std 
+>2300	PrimaryExpression	\"Running openFABMAP\"
+>2301	Identifier	std 
+>2302	ExpressionStatement	 
+>2303	CallExpression	fs . release ( )
+>2304	ArgumentList	 
+>2305	Callee	fs . release
+>2306	MemberAccess	fs . release
+>2307	Identifier	release
+>2308	Identifier	fs
+>2309	IfStatement	if ( testImageDescs . empty ( ) )
+>2310	CompoundStatement	 
+>2311	ReturnStatement	 
+>2312	UnaryOp	- 1
+>2313	PrimaryExpression	1
+>2314	UnaryOperator	-
+>2315	ExpressionStatement	 
+>2316	ShiftExpression	std 
+>2317	ShiftExpression	testPath << \"
+>2318	ShiftExpression	\"
+>2319	Identifier	std 
+>2320	PrimaryExpression	\"
+>2321	Identifier	testPath
+>2322	Identifier	std 
+>2323	Condition	 
+>2324	CallExpression	testImageDescs . empty ( )
+>2325	ArgumentList	 
+>2326	Callee	testImageDescs . empty
+>2327	MemberAccess	testImageDescs . empty
+>2328	Identifier	empty
+>2329	Identifier	testImageDescs
+>2330	ExpressionStatement	 
+>2331	ShiftExpression	fs [ \"BOWImageDescs\" ] >> testImageDescs
+>2332	Identifier	testImageDescs
+>2333	ArrayIndexing	fs [ \"BOWImageDescs\" ]
+>2334	PrimaryExpression	\"BOWImageDescs\"
+>2335	Identifier	fs
+>2336	IdentifierDeclStatement	 
+>2337	IdentifierDecl	testImageDescs
+>2338	Identifier	testImageDescs
+>2339	IdentifierDeclType	cv 
+>2340	ExpressionStatement	 
+>2341	CallExpression	fs . open ( testPath , cv 
+>2342	ArgumentList	testPath
+>2343	Argument	cv 
+>2344	Identifier	cv 
+>2345	Argument	testPath
+>2346	Identifier	testPath
+>2347	Callee	fs . open
+>2348	MemberAccess	fs . open
+>2349	Identifier	open
+>2350	Identifier	fs
+>2351	ExpressionStatement	 
+>2352	CallExpression	fs . release ( )
+>2353	ArgumentList	 
+>2354	Callee	fs . release
+>2355	MemberAccess	fs . release
+>2356	Identifier	release
+>2357	Identifier	fs
+>2358	IfStatement	if ( vocab . empty ( ) )
+>2359	CompoundStatement	 
+>2360	ReturnStatement	 
+>2361	UnaryOp	- 1
+>2362	PrimaryExpression	1
+>2363	UnaryOperator	-
+>2364	ExpressionStatement	 
+>2365	ShiftExpression	std 
+>2366	ShiftExpression	vocabPath << \"
+>2367	ShiftExpression	\"
+>2368	Identifier	std 
+>2369	PrimaryExpression	\"
+>2370	Identifier	vocabPath
+>2371	Identifier	std 
+>2372	Condition	 
+>2373	CallExpression	vocab . empty ( )
+>2374	ArgumentList	 
+>2375	Callee	vocab . empty
+>2376	MemberAccess	vocab . empty
+>2377	Identifier	empty
+>2378	Identifier	vocab
+>2379	ExpressionStatement	 
+>2380	ShiftExpression	fs [ \"Vocabulary\" ] >> vocab
+>2381	Identifier	vocab
+>2382	ArrayIndexing	fs [ \"Vocabulary\" ]
+>2383	PrimaryExpression	\"Vocabulary\"
+>2384	Identifier	fs
+>2385	IdentifierDeclStatement	 
+>2386	IdentifierDecl	vocab
+>2387	Identifier	vocab
+>2388	IdentifierDeclType	cv 
+>2389	ExpressionStatement	 
+>2390	CallExpression	fs . open ( vocabPath , cv 
+>2391	ArgumentList	vocabPath
+>2392	Argument	cv 
+>2393	Identifier	cv 
+>2394	Argument	vocabPath
+>2395	Identifier	vocabPath
+>2396	Callee	fs . open
+>2397	MemberAccess	fs . open
+>2398	Identifier	open
+>2399	Identifier	fs
+>2400	ExpressionStatement	 
+>2401	ShiftExpression	std 
+>2402	ShiftExpression	\"Loading Vocabulary\" << std 
+>2403	Identifier	std 
+>2404	PrimaryExpression	\"Loading Vocabulary\"
+>2405	Identifier	std 
+>2406	IfStatement	if ( checker . is_open ( ) )
+>2407	CompoundStatement	 
+>2408	ReturnStatement	 
+>2409	UnaryOp	- 1
+>2410	PrimaryExpression	1
+>2411	UnaryOperator	-
+>2412	ExpressionStatement	 
+>2413	CallExpression	checker . close ( )
+>2414	ArgumentList	 
+>2415	Callee	checker . close
+>2416	MemberAccess	checker . close
+>2417	Identifier	close
+>2418	Identifier	checker
+>2419	ExpressionStatement	 
+>2420	ShiftExpression	std 
+>2421	ShiftExpression	resultsPath << \"
+>2422	ShiftExpression	\"
+>2423	Identifier	std 
+>2424	PrimaryExpression	\"
+>2425	Identifier	resultsPath
+>2426	Identifier	std 
+>2427	Condition	 
+>2428	CallExpression	checker . is_open ( )
+>2429	ArgumentList	 
+>2430	Callee	checker . is_open
+>2431	MemberAccess	checker . is_open
+>2432	Identifier	is_open
+>2433	Identifier	checker
+>2434	ExpressionStatement	 
+>2435	CallExpression	checker . open ( resultsPath . c_str ( ) )
+>2436	ArgumentList	resultsPath . c_str ( )
+>2437	Argument	resultsPath . c_str ( )
+>2438	CallExpression	resultsPath . c_str ( )
+>2439	ArgumentList	 
+>2440	Callee	resultsPath . c_str
+>2441	MemberAccess	resultsPath . c_str
+>2442	Identifier	c_str
+>2443	Identifier	resultsPath
+>2444	Callee	checker . open
+>2445	MemberAccess	checker . open
+>2446	Identifier	open
+>2447	Identifier	checker
+>2448	IdentifierDeclStatement	 
+>2449	IdentifierDecl	checker
+>2450	Identifier	checker
+>2451	IdentifierDeclType	std 
+>2452	IdentifierDeclStatement	 
+>2453	IdentifierDecl	fs
+>2454	Identifier	fs
+>2455	IdentifierDeclType	cv 
+>2497	FunctionDef	generateDetector (cv 
+>2498	ParameterList	cv 
+>2499	Parameter	 
+>2500	Identifier	fs
+>2501	ParameterType	cv 
+>2502	ReturnType	cv 
+>2503	CompoundStatement	 
+>2504	ReturnStatement	 
+>2505	Identifier	detector
+>2506	IfStatement	if ( detectorMode == \"ADAPTIVE\" )
+>2507	ElseStatement	else
+>2508	IfStatement	if ( detectorMode == \"STATIC\" )
+>2509	ElseStatement	else
+>2510	CompoundStatement	 
+>2511	ExpressionStatement	 
+>2512	ShiftExpression	\"mode (static/adaptive) in the settings file\" << std 
+>2513	Identifier	std 
+>2514	PrimaryExpression	\"mode (static/adaptive) in the settings file\"
+>2515	Statement	 
+>2516	Statement	 
+>2517	Statement	 
+>2518	Statement	 
+>2519	Statement	 
+>2520	CompoundStatement	 
+>2521	IfStatement	if ( detectorType == \"STAR\" )
+>2522	ElseStatement	else
+>2523	IfStatement	if ( detectorType == \"FAST\" )
+>2524	ElseStatement	else
+>2525	IfStatement	if ( detectorType == \"SURF\" )
+>2526	ElseStatement	else
+>2527	IfStatement	if ( detectorType == \"SIFT\" )
+>2528	ElseStatement	else
+>2529	IfStatement	if ( detectorType == \"MSER\" )
+>2530	ElseStatement	else
+>2531	CompoundStatement	 
+>2532	ExpressionStatement	 
+>2533	ShiftExpression	\"options in the settings file\" << std 
+>2534	Identifier	std 
+>2535	PrimaryExpression	\"options in the settings file\"
+>2536	Statement	 
+>2537	Statement	 
+>2538	Statement	 
+>2539	Statement	 
+>2540	Statement	 
+>2541	CompoundStatement	 
+>2542	ExpressionStatement	 
+>2543	AssignmentExpr	detector = new cv 
+>2544	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"Delta\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinArea\" ] , \
+>2545	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinArea\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxArea\" ] , \
+>2546	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxArea\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxVariation\" ] , \
+>2547	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxVariation\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinDiversity\" ] , \
+>2548	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinDiversity\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxEvolution\" ] , \
+>2549	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxEvolution\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"AreaThreshold\" ] , \
+>2550	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"AreaThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinMargin\" ] , \
+>2551	Expression	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinMargin\" ] , fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"EdgeBlurSize\" ]
+>2552	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"EdgeBlurSize\" ]
+>2553	PrimaryExpression	\"EdgeBlurSize\"
+>2554	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2555	PrimaryExpression	\"MSERDetector\"
+>2556	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2557	PrimaryExpression	\"FeatureOptions\"
+>2558	Identifier	fs
+>2559	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinMargin\" ]
+>2560	PrimaryExpression	\"MinMargin\"
+>2561	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2562	PrimaryExpression	\"MSERDetector\"
+>2563	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2564	PrimaryExpression	\"FeatureOptions\"
+>2565	Identifier	fs
+>2566	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"AreaThreshold\" ]
+>2567	PrimaryExpression	\"AreaThreshold\"
+>2568	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2569	PrimaryExpression	\"MSERDetector\"
+>2570	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2571	PrimaryExpression	\"FeatureOptions\"
+>2572	Identifier	fs
+>2573	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxEvolution\" ]
+>2574	PrimaryExpression	\"MaxEvolution\"
+>2575	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2576	PrimaryExpression	\"MSERDetector\"
+>2577	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2578	PrimaryExpression	\"FeatureOptions\"
+>2579	Identifier	fs
+>2580	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinDiversity\" ]
+>2581	PrimaryExpression	\"MinDiversity\"
+>2582	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2583	PrimaryExpression	\"MSERDetector\"
+>2584	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2585	PrimaryExpression	\"FeatureOptions\"
+>2586	Identifier	fs
+>2587	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxVariation\" ]
+>2588	PrimaryExpression	\"MaxVariation\"
+>2589	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2590	PrimaryExpression	\"MSERDetector\"
+>2591	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2592	PrimaryExpression	\"FeatureOptions\"
+>2593	Identifier	fs
+>2594	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MaxArea\" ]
+>2595	PrimaryExpression	\"MaxArea\"
+>2596	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2597	PrimaryExpression	\"MSERDetector\"
+>2598	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2599	PrimaryExpression	\"FeatureOptions\"
+>2600	Identifier	fs
+>2601	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"MinArea\" ]
+>2602	PrimaryExpression	\"MinArea\"
+>2603	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2604	PrimaryExpression	\"MSERDetector\"
+>2605	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2606	PrimaryExpression	\"FeatureOptions\"
+>2607	Identifier	fs
+>2608	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ] [ \"Delta\" ]
+>2609	PrimaryExpression	\"Delta\"
+>2610	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"MSERDetector\" ]
+>2611	PrimaryExpression	\"MSERDetector\"
+>2612	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2613	PrimaryExpression	\"FeatureOptions\"
+>2614	Identifier	fs
+>2615	Identifier	detector
+>2616	Condition	 
+>2617	EqualityExpression	detectorType == \"MSER\"
+>2618	PrimaryExpression	\"MSER\"
+>2619	Identifier	detectorType
+>2620	CompoundStatement	 
+>2621	ExpressionStatement	 
+>2622	AssignmentExpr	detector = new cv 
+>2623	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumFeatures\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumOctaveLayers\" ] , \
+>2624	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumOctaveLayers\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"\
+>2625	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"ContrastThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"\
+>2626	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"EdgeThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"Sigma\" ]
+>2627	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"Sigma\" ]
+>2628	PrimaryExpression	\"Sigma\"
+>2629	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2630	PrimaryExpression	\"SiftDetector\"
+>2631	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2632	PrimaryExpression	\"FeatureOptions\"
+>2633	Identifier	fs
+>2634	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"EdgeThreshold\" ]
+>2635	PrimaryExpression	\"EdgeThreshold\"
+>2636	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2637	PrimaryExpression	\"SiftDetector\"
+>2638	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2639	PrimaryExpression	\"FeatureOptions\"
+>2640	Identifier	fs
+>2641	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"ContrastThreshold\" ]
+>2642	PrimaryExpression	\"ContrastThreshold\"
+>2643	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2644	PrimaryExpression	\"SiftDetector\"
+>2645	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2646	PrimaryExpression	\"FeatureOptions\"
+>2647	Identifier	fs
+>2648	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumOctaveLayers\" ]
+>2649	PrimaryExpression	\"NumOctaveLayers\"
+>2650	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2651	PrimaryExpression	\"SiftDetector\"
+>2652	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2653	PrimaryExpression	\"FeatureOptions\"
+>2654	Identifier	fs
+>2655	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumFeatures\" ]
+>2656	PrimaryExpression	\"NumFeatures\"
+>2657	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2658	PrimaryExpression	\"SiftDetector\"
+>2659	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2660	PrimaryExpression	\"FeatureOptions\"
+>2661	Identifier	fs
+>2662	Identifier	detector
+>2663	Condition	 
+>2664	EqualityExpression	detectorType == \"SIFT\"
+>2665	PrimaryExpression	\"SIFT\"
+>2666	Identifier	detectorType
+>2667	CompoundStatement	 
+>2668	ExpressionStatement	 
+>2669	AssignmentExpr	detector = new cv 
+>2670	Expression	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"HessianThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"\
+>2671	Expression	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaves\" ] , fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaveLayers\" ] , ( \
+>2672	Expression	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaveLayers\" ] , ( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"\
+>2673	Expression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ] > 0 , ( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"\
+>2674	RelationalExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Upright\" ] > 0
+>2675	PrimaryExpression	0
+>2676	CastExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Upright\" ]
+>2677	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Upright\" ]
+>2678	PrimaryExpression	\"Upright\"
+>2679	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2680	PrimaryExpression	\"SurfDetector\"
+>2681	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2682	PrimaryExpression	\"FeatureOptions\"
+>2683	Identifier	fs
+>2684	CastTarget	int
+>2685	RelationalExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ] > 0
+>2686	PrimaryExpression	0
+>2687	CastExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ]
+>2688	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ]
+>2689	PrimaryExpression	\"Extended\"
+>2690	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2691	PrimaryExpression	\"SurfDetector\"
+>2692	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2693	PrimaryExpression	\"FeatureOptions\"
+>2694	Identifier	fs
+>2695	CastTarget	int
+>2696	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaveLayers\" ]
+>2697	PrimaryExpression	\"NumOctaveLayers\"
+>2698	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2699	PrimaryExpression	\"SurfDetector\"
+>2700	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2701	PrimaryExpression	\"FeatureOptions\"
+>2702	Identifier	fs
+>2703	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaves\" ]
+>2704	PrimaryExpression	\"NumOctaves\"
+>2705	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2706	PrimaryExpression	\"SurfDetector\"
+>2707	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2708	PrimaryExpression	\"FeatureOptions\"
+>2709	Identifier	fs
+>2710	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"HessianThreshold\" ]
+>2711	PrimaryExpression	\"HessianThreshold\"
+>2712	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2713	PrimaryExpression	\"SurfDetector\"
+>2714	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2715	PrimaryExpression	\"FeatureOptions\"
+>2716	Identifier	fs
+>2717	Identifier	detector
+>2718	Condition	 
+>2719	EqualityExpression	detectorType == \"SURF\"
+>2720	PrimaryExpression	\"SURF\"
+>2721	Identifier	detectorType
+>2722	CompoundStatement	 
+>2723	ExpressionStatement	 
+>2724	AssignmentExpr	detector = new cv 
+>2725	Expression	fs [ \"FeatureOptions\" ] [ \"FastDetector\" ] [ \"Threshold\" ] , ( int ) fs [ \"FeatureOptions\" ] [ \"FastDetector\" ] [ \"\
+>2726	RelationalExpression	( int ) fs [ \"FeatureOptions\" ] [ \"FastDetector\" ] [ \"NonMaxSuppression\" ] > 0
+>2727	PrimaryExpression	0
+>2728	CastExpression	( int ) fs [ \"FeatureOptions\" ] [ \"FastDetector\" ] [ \"NonMaxSuppression\" ]
+>2729	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"FastDetector\" ] [ \"NonMaxSuppression\" ]
+>2730	PrimaryExpression	\"NonMaxSuppression\"
+>2731	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"FastDetector\" ]
+>2732	PrimaryExpression	\"FastDetector\"
+>2733	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2734	PrimaryExpression	\"FeatureOptions\"
+>2735	Identifier	fs
+>2736	CastTarget	int
+>2737	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"FastDetector\" ] [ \"Threshold\" ]
+>2738	PrimaryExpression	\"Threshold\"
+>2739	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"FastDetector\" ]
+>2740	PrimaryExpression	\"FastDetector\"
+>2741	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2742	PrimaryExpression	\"FeatureOptions\"
+>2743	Identifier	fs
+>2744	Identifier	detector
+>2745	Condition	 
+>2746	EqualityExpression	detectorType == \"FAST\"
+>2747	PrimaryExpression	\"FAST\"
+>2748	Identifier	detectorType
+>2749	CompoundStatement	 
+>2750	ExpressionStatement	 
+>2751	AssignmentExpr	detector = new cv 
+>2752	Expression	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"MaxSize\" ] , fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"Response\" ] , \
+>2753	Expression	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"Response\" ] , fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"LineThreshold\" ] , \
+>2754	Expression	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"LineThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"LineBinarized\" ] , \
+>2755	Expression	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"LineBinarized\" ] , fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"Suppression\" ]
+>2756	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"Suppression\" ]
+>2757	PrimaryExpression	\"Suppression\"
+>2758	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ]
+>2759	PrimaryExpression	\"StarDetector\"
+>2760	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2761	PrimaryExpression	\"FeatureOptions\"
+>2762	Identifier	fs
+>2763	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"LineBinarized\" ]
+>2764	PrimaryExpression	\"LineBinarized\"
+>2765	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ]
+>2766	PrimaryExpression	\"StarDetector\"
+>2767	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2768	PrimaryExpression	\"FeatureOptions\"
+>2769	Identifier	fs
+>2770	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"LineThreshold\" ]
+>2771	PrimaryExpression	\"LineThreshold\"
+>2772	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ]
+>2773	PrimaryExpression	\"StarDetector\"
+>2774	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2775	PrimaryExpression	\"FeatureOptions\"
+>2776	Identifier	fs
+>2777	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"Response\" ]
+>2778	PrimaryExpression	\"Response\"
+>2779	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ]
+>2780	PrimaryExpression	\"StarDetector\"
+>2781	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2782	PrimaryExpression	\"FeatureOptions\"
+>2783	Identifier	fs
+>2784	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ] [ \"MaxSize\" ]
+>2785	PrimaryExpression	\"MaxSize\"
+>2786	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"StarDetector\" ]
+>2787	PrimaryExpression	\"StarDetector\"
+>2788	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2789	PrimaryExpression	\"FeatureOptions\"
+>2790	Identifier	fs
+>2791	Identifier	detector
+>2792	Condition	 
+>2793	EqualityExpression	detectorType == \"STAR\"
+>2794	PrimaryExpression	\"STAR\"
+>2795	Identifier	detectorType
+>2796	Condition	 
+>2797	EqualityExpression	detectorMode == \"STATIC\"
+>2798	PrimaryExpression	\"STATIC\"
+>2799	Identifier	detectorMode
+>2800	CompoundStatement	 
+>2801	IfStatement	if ( detectorType != \"STAR\" && detectorType != \"SURF\" && detectorType != \"FAST\" )
+>2802	ElseStatement	else
+>2803	CompoundStatement	 
+>2804	ExpressionStatement	 
+>2805	AssignmentExpr	detector = new cv 
+>2806	Expression	cv 
+>2807	Expression	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MinFeatures\" ] , fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MaxFeatures\" ] , \
+>2808	Expression	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MaxFeatures\" ] , fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MaxIters\" ]
+>2809	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MaxIters\" ]
+>2810	PrimaryExpression	\"MaxIters\"
+>2811	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ]
+>2812	PrimaryExpression	\"Adaptive\"
+>2813	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2814	PrimaryExpression	\"FeatureOptions\"
+>2815	Identifier	fs
+>2816	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MaxFeatures\" ]
+>2817	PrimaryExpression	\"MaxFeatures\"
+>2818	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ]
+>2819	PrimaryExpression	\"Adaptive\"
+>2820	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2821	PrimaryExpression	\"FeatureOptions\"
+>2822	Identifier	fs
+>2823	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ] [ \"MinFeatures\" ]
+>2824	PrimaryExpression	\"MinFeatures\"
+>2825	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"Adaptive\" ]
+>2826	PrimaryExpression	\"Adaptive\"
+>2827	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2828	PrimaryExpression	\"FeatureOptions\"
+>2829	Identifier	fs
+>2830	CallExpression	cv 
+>2831	ArgumentList	detectorType
+>2832	Argument	detectorType
+>2833	Identifier	detectorType
+>2834	Callee	cv 
+>2835	Identifier	cv 
+>2836	Identifier	detector
+>2837	CompoundStatement	 
+>2838	ExpressionStatement	 
+>2839	ShiftExpression	\"and FAST\" << std 
+>2840	Identifier	std 
+>2841	PrimaryExpression	\"and FAST\"
+>2842	Statement	 
+>2843	Statement	 
+>2844	Statement	 
+>2845	Statement	 
+>2846	Statement	 
+>2847	Condition	 
+>2848	AndExpression	detectorType != \"STAR\" && detectorType != \"SURF\" && detectorType != \"FAST\"
+>2849	AndExpression	detectorType != \"SURF\" && detectorType != \"FAST\"
+>2850	EqualityExpression	detectorType != \"FAST\"
+>2851	PrimaryExpression	\"FAST\"
+>2852	Identifier	detectorType
+>2853	EqualityExpression	detectorType != \"SURF\"
+>2854	PrimaryExpression	\"SURF\"
+>2855	Identifier	detectorType
+>2856	EqualityExpression	detectorType != \"STAR\"
+>2857	PrimaryExpression	\"STAR\"
+>2858	Identifier	detectorType
+>2859	Condition	 
+>2860	EqualityExpression	detectorMode == \"ADAPTIVE\"
+>2861	PrimaryExpression	\"ADAPTIVE\"
+>2862	Identifier	detectorMode
+>2863	IdentifierDeclStatement	 
+>2864	IdentifierDecl	detector = NULL
+>2865	AssignmentExpr	detector = NULL
+>2866	Identifier	NULL
+>2867	Identifier	NULL
+>2868	Identifier	detector
+>2869	IdentifierDeclType	cv 
+>2870	IdentifierDeclStatement	 
+>2871	IdentifierDecl	detectorType = fs [ \"FeatureOptions\" ] [ \"DetectorType\" ]
+>2872	AssignmentExpr	detectorType = fs [ \"FeatureOptions\" ] [ \"DetectorType\" ]
+>2873	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"DetectorType\" ]
+>2874	PrimaryExpression	\"DetectorType\"
+>2875	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2876	PrimaryExpression	\"FeatureOptions\"
+>2877	Identifier	fs
+>2878	Identifier	detectorType
+>2879	Identifier	detectorType
+>2880	IdentifierDeclType	std 
+>2881	IdentifierDeclStatement	 
+>2882	IdentifierDecl	detectorMode = fs [ \"FeatureOptions\" ] [ \"DetectorMode\" ]
+>2883	AssignmentExpr	detectorMode = fs [ \"FeatureOptions\" ] [ \"DetectorMode\" ]
+>2884	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"DetectorMode\" ]
+>2885	PrimaryExpression	\"DetectorMode\"
+>2886	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2887	PrimaryExpression	\"FeatureOptions\"
+>2888	Identifier	fs
+>2889	Identifier	detectorMode
+>2890	Identifier	detectorMode
+>2891	IdentifierDeclType	std 
+>2904	FunctionDef	generateExtractor (cv 
+>2905	ParameterList	cv 
+>2906	Parameter	 
+>2907	Identifier	fs
+>2908	ParameterType	cv 
+>2909	ReturnType	cv 
+>2910	CompoundStatement	 
+>2911	ReturnStatement	 
+>2912	Identifier	extractor
+>2913	IfStatement	if ( extractorType == \"SIFT\" )
+>2914	ElseStatement	else
+>2915	IfStatement	if ( extractorType == \"SURF\" )
+>2916	ElseStatement	else
+>2917	CompoundStatement	 
+>2918	ExpressionStatement	 
+>2919	ShiftExpression	\"extractor type in settings file\" << std 
+>2920	Identifier	std 
+>2921	PrimaryExpression	\"extractor type in settings file\"
+>2922	Statement	 
+>2923	Statement	 
+>2924	Statement	 
+>2925	Statement	 
+>2926	Statement	 
+>2927	CompoundStatement	 
+>2928	ExpressionStatement	 
+>2929	AssignmentExpr	extractor = new cv 
+>2930	Expression	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"HessianThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"\
+>2931	Expression	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaves\" ] , fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaveLayers\" ] , ( \
+>2932	Expression	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaveLayers\" ] , ( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"\
+>2933	Expression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ] > 0 , ( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"\
+>2934	RelationalExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Upright\" ] > 0
+>2935	PrimaryExpression	0
+>2936	CastExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Upright\" ]
+>2937	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Upright\" ]
+>2938	PrimaryExpression	\"Upright\"
+>2939	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2940	PrimaryExpression	\"SurfDetector\"
+>2941	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2942	PrimaryExpression	\"FeatureOptions\"
+>2943	Identifier	fs
+>2944	CastTarget	int
+>2945	RelationalExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ] > 0
+>2946	PrimaryExpression	0
+>2947	CastExpression	( int ) fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ]
+>2948	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"Extended\" ]
+>2949	PrimaryExpression	\"Extended\"
+>2950	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2951	PrimaryExpression	\"SurfDetector\"
+>2952	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2953	PrimaryExpression	\"FeatureOptions\"
+>2954	Identifier	fs
+>2955	CastTarget	int
+>2956	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaveLayers\" ]
+>2957	PrimaryExpression	\"NumOctaveLayers\"
+>2958	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2959	PrimaryExpression	\"SurfDetector\"
+>2960	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2961	PrimaryExpression	\"FeatureOptions\"
+>2962	Identifier	fs
+>2963	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"NumOctaves\" ]
+>2964	PrimaryExpression	\"NumOctaves\"
+>2965	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2966	PrimaryExpression	\"SurfDetector\"
+>2967	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2968	PrimaryExpression	\"FeatureOptions\"
+>2969	Identifier	fs
+>2970	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ] [ \"HessianThreshold\" ]
+>2971	PrimaryExpression	\"HessianThreshold\"
+>2972	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SurfDetector\" ]
+>2973	PrimaryExpression	\"SurfDetector\"
+>2974	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2975	PrimaryExpression	\"FeatureOptions\"
+>2976	Identifier	fs
+>2977	Identifier	extractor
+>2978	Condition	 
+>2979	EqualityExpression	extractorType == \"SURF\"
+>2980	PrimaryExpression	\"SURF\"
+>2981	Identifier	extractorType
+>2982	CompoundStatement	 
+>2983	ExpressionStatement	 
+>2984	AssignmentExpr	extractor = new cv 
+>2985	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumFeatures\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumOctaveLayers\" ] , \
+>2986	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumOctaveLayers\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"\
+>2987	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"ContrastThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"\
+>2988	Expression	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"EdgeThreshold\" ] , fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"Sigma\" ]
+>2989	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"Sigma\" ]
+>2990	PrimaryExpression	\"Sigma\"
+>2991	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2992	PrimaryExpression	\"SiftDetector\"
+>2993	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>2994	PrimaryExpression	\"FeatureOptions\"
+>2995	Identifier	fs
+>2996	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"EdgeThreshold\" ]
+>2997	PrimaryExpression	\"EdgeThreshold\"
+>2998	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>2999	PrimaryExpression	\"SiftDetector\"
+>3000	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>3001	PrimaryExpression	\"FeatureOptions\"
+>3002	Identifier	fs
+>3003	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"ContrastThreshold\" ]
+>3004	PrimaryExpression	\"ContrastThreshold\"
+>3005	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>3006	PrimaryExpression	\"SiftDetector\"
+>3007	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>3008	PrimaryExpression	\"FeatureOptions\"
+>3009	Identifier	fs
+>3010	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumOctaveLayers\" ]
+>3011	PrimaryExpression	\"NumOctaveLayers\"
+>3012	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>3013	PrimaryExpression	\"SiftDetector\"
+>3014	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>3015	PrimaryExpression	\"FeatureOptions\"
+>3016	Identifier	fs
+>3017	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ] [ \"NumFeatures\" ]
+>3018	PrimaryExpression	\"NumFeatures\"
+>3019	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"SiftDetector\" ]
+>3020	PrimaryExpression	\"SiftDetector\"
+>3021	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>3022	PrimaryExpression	\"FeatureOptions\"
+>3023	Identifier	fs
+>3024	Identifier	extractor
+>3025	Condition	 
+>3026	EqualityExpression	extractorType == \"SIFT\"
+>3027	PrimaryExpression	\"SIFT\"
+>3028	Identifier	extractorType
+>3029	IdentifierDeclStatement	 
+>3030	IdentifierDecl	extractor = NULL
+>3031	AssignmentExpr	extractor = NULL
+>3032	Identifier	NULL
+>3033	Identifier	NULL
+>3034	Identifier	extractor
+>3035	IdentifierDeclType	cv 
+>3036	IdentifierDeclStatement	 
+>3037	IdentifierDecl	extractorType = fs [ \"FeatureOptions\" ] [ \"ExtractorType\" ]
+>3038	AssignmentExpr	extractorType = fs [ \"FeatureOptions\" ] [ \"ExtractorType\" ]
+>3039	ArrayIndexing	fs [ \"FeatureOptions\" ] [ \"ExtractorType\" ]
+>3040	PrimaryExpression	\"ExtractorType\"
+>3041	ArrayIndexing	fs [ \"FeatureOptions\" ]
+>3042	PrimaryExpression	\"FeatureOptions\"
+>3043	Identifier	fs
+>3044	Identifier	extractorType
+>3045	Identifier	extractorType
+>3046	IdentifierDeclType	std 
+>3057	FunctionDef	generateFABMAPInstance (cv 
+>3058	ParameterList	cv 
+>3059	Parameter	 
+>3060	Identifier	settings
+>3061	ParameterType	cv 
+>3062	ReturnType	of2 
+>3063	CompoundStatement	 
+>3064	ReturnStatement	 
+>3065	Identifier	fabmap
+>3066	ExpressionStatement	 
+>3067	CallExpression	fabmap -> addTraining ( fabmapTrainData )
+>3068	ArgumentList	fabmapTrainData
+>3069	Argument	fabmapTrainData
+>3070	Identifier	fabmapTrainData
+>3071	Callee	fabmap -> addTraining
+>3072	PtrMemberAccess	fabmap -> addTraining
+>3073	Identifier	addTraining
+>3074	Identifier	fabmap
+>3075	IfStatement	if ( fabMapVersion == \"FABMAP1\" )
+>3076	ElseStatement	else
+>3077	IfStatement	if ( fabMapVersion == \"FABMAPLUT\" )
+>3078	ElseStatement	else
+>3079	IfStatement	if ( fabMapVersion == \"FABMAPFBO\" )
+>3080	ElseStatement	else
+>3081	IfStatement	if ( fabMapVersion == \"FABMAP2\" )
+>3082	ElseStatement	else
+>3083	CompoundStatement	 
+>3084	ReturnStatement	 
+>3085	Identifier	NULL
+>3086	ExpressionStatement	 
+>3087	ShiftExpression	\" file\" << std 
+>3088	Identifier	std 
+>3089	PrimaryExpression	\" file\"
+>3090	Statement	 
+>3091	Statement	 
+>3092	Statement	 
+>3093	Statement	 
+>3094	Statement	 
+>3095	CompoundStatement	 
+>3096	ExpressionStatement	 
+>3097	AssignmentExpr	fabmap = new of2 
+>3098	Expression	clTree , settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options
+>3099	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options
+>3100	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options
+>3101	Identifier	options
+>3102	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ]
+>3103	PrimaryExpression	\"PzGne\"
+>3104	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3105	PrimaryExpression	\"openFabMapOptions\"
+>3106	Identifier	settings
+>3107	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ]
+>3108	PrimaryExpression	\"PzGe\"
+>3109	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3110	PrimaryExpression	\"openFabMapOptions\"
+>3111	Identifier	settings
+>3112	Identifier	clTree
+>3113	Identifier	fabmap
+>3114	Condition	 
+>3115	EqualityExpression	fabMapVersion == \"FABMAP2\"
+>3116	PrimaryExpression	\"FABMAP2\"
+>3117	Identifier	fabMapVersion
+>3118	CompoundStatement	 
+>3119	ExpressionStatement	 
+>3120	AssignmentExpr	fabmap = new of2 
+>3121	Expression	clTree , settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , \
+>3122	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , settings [ \"\
+>3123	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ] , settings [ \"\
+>3124	Expression	options , settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ] , settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"\
+>3125	Expression	settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ] , settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"RejectionThreshold\" ] , \
+>3126	Expression	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"RejectionThreshold\" ] , settings [ \"openFabMapOptions\" ] [ \"\
+>3127	Expression	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"PsGd\" ] , settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"\
+>3128	Expression	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"BisectionStart\" ] , settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"\
+>3129	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"BisectionIts\" ]
+>3130	PrimaryExpression	\"BisectionIts\"
+>3131	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ]
+>3132	PrimaryExpression	\"FabMapFBO\"
+>3133	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3134	PrimaryExpression	\"openFabMapOptions\"
+>3135	Identifier	settings
+>3136	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"BisectionStart\" ]
+>3137	PrimaryExpression	\"BisectionStart\"
+>3138	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ]
+>3139	PrimaryExpression	\"FabMapFBO\"
+>3140	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3141	PrimaryExpression	\"openFabMapOptions\"
+>3142	Identifier	settings
+>3143	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"PsGd\" ]
+>3144	PrimaryExpression	\"PsGd\"
+>3145	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ]
+>3146	PrimaryExpression	\"FabMapFBO\"
+>3147	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3148	PrimaryExpression	\"openFabMapOptions\"
+>3149	Identifier	settings
+>3150	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ] [ \"RejectionThreshold\" ]
+>3151	PrimaryExpression	\"RejectionThreshold\"
+>3152	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapFBO\" ]
+>3153	PrimaryExpression	\"FabMapFBO\"
+>3154	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3155	PrimaryExpression	\"openFabMapOptions\"
+>3156	Identifier	settings
+>3157	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ]
+>3158	PrimaryExpression	\"NumSamples\"
+>3159	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3160	PrimaryExpression	\"openFabMapOptions\"
+>3161	Identifier	settings
+>3162	Identifier	options
+>3163	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ]
+>3164	PrimaryExpression	\"PzGne\"
+>3165	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3166	PrimaryExpression	\"openFabMapOptions\"
+>3167	Identifier	settings
+>3168	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ]
+>3169	PrimaryExpression	\"PzGe\"
+>3170	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3171	PrimaryExpression	\"openFabMapOptions\"
+>3172	Identifier	settings
+>3173	Identifier	clTree
+>3174	Identifier	fabmap
+>3175	Condition	 
+>3176	EqualityExpression	fabMapVersion == \"FABMAPFBO\"
+>3177	PrimaryExpression	\"FABMAPFBO\"
+>3178	Identifier	fabMapVersion
+>3179	CompoundStatement	 
+>3180	ExpressionStatement	 
+>3181	AssignmentExpr	fabmap = new of2 
+>3182	Expression	clTree , settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , \
+>3183	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , settings [ \"\
+>3184	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ] , settings [ \"\
+>3185	Expression	options , settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ] , settings [ \"openFabMapOptions\" ] [ \"FabMapLUT\" ] [ \"\
+>3186	Expression	settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ] , settings [ \"openFabMapOptions\" ] [ \"FabMapLUT\" ] [ \"Precision\" ]
+>3187	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapLUT\" ] [ \"Precision\" ]
+>3188	PrimaryExpression	\"Precision\"
+>3189	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapLUT\" ]
+>3190	PrimaryExpression	\"FabMapLUT\"
+>3191	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3192	PrimaryExpression	\"openFabMapOptions\"
+>3193	Identifier	settings
+>3194	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ]
+>3195	PrimaryExpression	\"NumSamples\"
+>3196	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3197	PrimaryExpression	\"openFabMapOptions\"
+>3198	Identifier	settings
+>3199	Identifier	options
+>3200	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ]
+>3201	PrimaryExpression	\"PzGne\"
+>3202	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3203	PrimaryExpression	\"openFabMapOptions\"
+>3204	Identifier	settings
+>3205	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ]
+>3206	PrimaryExpression	\"PzGe\"
+>3207	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3208	PrimaryExpression	\"openFabMapOptions\"
+>3209	Identifier	settings
+>3210	Identifier	clTree
+>3211	Identifier	fabmap
+>3212	Condition	 
+>3213	EqualityExpression	fabMapVersion == \"FABMAPLUT\"
+>3214	PrimaryExpression	\"FABMAPLUT\"
+>3215	Identifier	fabMapVersion
+>3216	CompoundStatement	 
+>3217	ExpressionStatement	 
+>3218	AssignmentExpr	fabmap = new of2 
+>3219	Expression	clTree , settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , \
+>3220	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ] , settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , settings [ \"\
+>3221	Expression	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ] , options , settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ]
+>3222	Expression	options , settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ]
+>3223	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"NumSamples\" ]
+>3224	PrimaryExpression	\"NumSamples\"
+>3225	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3226	PrimaryExpression	\"openFabMapOptions\"
+>3227	Identifier	settings
+>3228	Identifier	options
+>3229	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGne\" ]
+>3230	PrimaryExpression	\"PzGne\"
+>3231	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3232	PrimaryExpression	\"openFabMapOptions\"
+>3233	Identifier	settings
+>3234	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"PzGe\" ]
+>3235	PrimaryExpression	\"PzGe\"
+>3236	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3237	PrimaryExpression	\"openFabMapOptions\"
+>3238	Identifier	settings
+>3239	Identifier	clTree
+>3240	Identifier	fabmap
+>3241	Condition	 
+>3242	EqualityExpression	fabMapVersion == \"FABMAP1\"
+>3243	PrimaryExpression	\"FABMAP1\"
+>3244	Identifier	fabMapVersion
+>3245	IdentifierDeclStatement	 
+>3246	IdentifierDecl	fabMapVersion = settings [ \"openFabMapOptions\" ] [ \"FabMapVersion\" ]
+>3247	AssignmentExpr	fabMapVersion = settings [ \"openFabMapOptions\" ] [ \"FabMapVersion\" ]
+>3248	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"FabMapVersion\" ]
+>3249	PrimaryExpression	\"FabMapVersion\"
+>3250	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3251	PrimaryExpression	\"openFabMapOptions\"
+>3252	Identifier	settings
+>3253	Identifier	fabMapVersion
+>3254	Identifier	fabMapVersion
+>3255	IdentifierDeclType	std 
+>3256	IdentifierDeclStatement	 
+>3257	IdentifierDecl	* fabmap
+>3258	Identifier	fabmap
+>3259	IdentifierDeclType	of2 
+>3260	IfStatement	if ( simpleMotionModel )
+>3261	CompoundStatement	 
+>3262	ExpressionStatement	 
+>3263	AssignmentExpr	options |= of2 
+>3264	Identifier	of2 
+>3265	Identifier	options
+>3266	Condition	 
+>3267	Identifier	simpleMotionModel
+>3268	IfStatement	if ( bayesMethod == \"ChowLiu\" )
+>3269	ElseStatement	else
+>3270	CompoundStatement	 
+>3271	ExpressionStatement	 
+>3272	AssignmentExpr	options |= of2 
+>3273	Identifier	of2 
+>3274	Identifier	options
+>3275	CompoundStatement	 
+>3276	ExpressionStatement	 
+>3277	AssignmentExpr	options |= of2 
+>3278	Identifier	of2 
+>3279	Identifier	options
+>3280	Condition	 
+>3281	EqualityExpression	bayesMethod == \"ChowLiu\"
+>3282	PrimaryExpression	\"ChowLiu\"
+>3283	Identifier	bayesMethod
+>3284	IfStatement	if ( newPlaceMethod == \"Sampled\" )
+>3285	ElseStatement	else
+>3286	CompoundStatement	 
+>3287	ExpressionStatement	 
+>3288	AssignmentExpr	options |= of2 
+>3289	Identifier	of2 
+>3290	Identifier	options
+>3291	CompoundStatement	 
+>3292	ExpressionStatement	 
+>3293	AssignmentExpr	options |= of2 
+>3294	Identifier	of2 
+>3295	Identifier	options
+>3296	Condition	 
+>3297	EqualityExpression	newPlaceMethod == \"Sampled\"
+>3298	PrimaryExpression	\"Sampled\"
+>3299	Identifier	newPlaceMethod
+>3300	IdentifierDeclStatement	 
+>3301	IdentifierDecl	options = 0
+>3302	AssignmentExpr	options = 0
+>3303	PrimaryExpression	0
+>3304	Identifier	options
+>3305	Identifier	options
+>3306	IdentifierDeclType	int
+>3307	IdentifierDeclStatement	 
+>3308	IdentifierDecl	simpleMotionModel = settings [ \"openFabMapOptions\" ] [ \"SimpleMotion\" ]
+>3309	AssignmentExpr	simpleMotionModel = settings [ \"openFabMapOptions\" ] [ \"SimpleMotion\" ]
+>3310	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"SimpleMotion\" ]
+>3311	PrimaryExpression	\"SimpleMotion\"
+>3312	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3313	PrimaryExpression	\"openFabMapOptions\"
+>3314	Identifier	settings
+>3315	Identifier	simpleMotionModel
+>3316	Identifier	simpleMotionModel
+>3317	IdentifierDeclType	int
+>3318	IdentifierDeclStatement	 
+>3319	IdentifierDecl	bayesMethod = settings [ \"openFabMapOptions\" ] [ \"BayesMethod\" ]
+>3320	AssignmentExpr	bayesMethod = settings [ \"openFabMapOptions\" ] [ \"BayesMethod\" ]
+>3321	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"BayesMethod\" ]
+>3322	PrimaryExpression	\"BayesMethod\"
+>3323	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3324	PrimaryExpression	\"openFabMapOptions\"
+>3325	Identifier	settings
+>3326	Identifier	bayesMethod
+>3327	Identifier	bayesMethod
+>3328	IdentifierDeclType	std 
+>3329	IdentifierDeclStatement	 
+>3330	IdentifierDecl	newPlaceMethod = settings [ \"openFabMapOptions\" ] [ \"NewPlaceMethod\" ]
+>3331	AssignmentExpr	newPlaceMethod = settings [ \"openFabMapOptions\" ] [ \"NewPlaceMethod\" ]
+>3332	ArrayIndexing	settings [ \"openFabMapOptions\" ] [ \"NewPlaceMethod\" ]
+>3333	PrimaryExpression	\"NewPlaceMethod\"
+>3334	ArrayIndexing	settings [ \"openFabMapOptions\" ]
+>3335	PrimaryExpression	\"openFabMapOptions\"
+>3336	Identifier	settings
+>3337	Identifier	newPlaceMethod
+>3338	Identifier	newPlaceMethod
+>3339	IdentifierDeclType	std 
+>3340	ExpressionStatement	 
+>3341	CallExpression	fs . release ( )
+>3342	ArgumentList	 
+>3343	Callee	fs . release
+>3344	MemberAccess	fs . release
+>3345	Identifier	release
+>3346	Identifier	fs
+>3347	IfStatement	if ( clTree . empty ( ) )
+>3348	CompoundStatement	 
+>3349	ReturnStatement	 
+>3350	Identifier	NULL
+>3351	ExpressionStatement	 
+>3352	ShiftExpression	std 
+>3353	ShiftExpression	chowliutreePath << \"
+>3354	ShiftExpression	\"
+>3355	Identifier	std 
+>3356	PrimaryExpression	\"
+>3357	Identifier	chowliutreePath
+>3358	Identifier	std 
+>3359	Condition	 
+>3360	CallExpression	clTree . empty ( )
+>3361	ArgumentList	 
+>3362	Callee	clTree . empty
+>3363	MemberAccess	clTree . empty
+>3364	Identifier	empty
+>3365	Identifier	clTree
+>3366	ExpressionStatement	 
+>3367	ShiftExpression	fs [ \"ChowLiuTree\" ] >> clTree
+>3368	Identifier	clTree
+>3369	ArrayIndexing	fs [ \"ChowLiuTree\" ]
+>3370	PrimaryExpression	\"ChowLiuTree\"
+>3371	Identifier	fs
+>3372	IdentifierDeclStatement	 
+>3373	IdentifierDecl	clTree
+>3374	Identifier	clTree
+>3375	IdentifierDeclType	cv 
+>3376	ExpressionStatement	 
+>3377	CallExpression	fs . open ( chowliutreePath , cv 
+>3378	ArgumentList	chowliutreePath
+>3379	Argument	cv 
+>3380	Identifier	cv 
+>3381	Argument	chowliutreePath
+>3382	Identifier	chowliutreePath
+>3383	Callee	fs . open
+>3384	MemberAccess	fs . open
+>3385	Identifier	open
+>3386	Identifier	fs
+>3387	ExpressionStatement	 
+>3388	ShiftExpression	std 
+>3389	ShiftExpression	\"Loading Chow-Liu Tree\" << std 
+>3390	Identifier	std 
+>3391	PrimaryExpression	\"Loading Chow-Liu Tree\"
+>3392	Identifier	std 
+>3393	ExpressionStatement	 
+>3394	CallExpression	fs . release ( )
+>3395	ArgumentList	 
+>3396	Callee	fs . release
+>3397	MemberAccess	fs . release
+>3398	Identifier	release
+>3399	Identifier	fs
+>3400	IfStatement	if ( fabmapTrainData . empty ( ) )
+>3401	CompoundStatement	 
+>3402	ReturnStatement	 
+>3403	Identifier	NULL
+>3404	ExpressionStatement	 
+>3405	ShiftExpression	std 
+>3406	ShiftExpression	fabmapTrainDataPath << \"
+>3407	ShiftExpression	\"
+>3408	Identifier	std 
+>3409	PrimaryExpression	\"
+>3410	Identifier	fabmapTrainDataPath
+>3411	Identifier	std 
+>3412	Condition	 
+>3413	CallExpression	fabmapTrainData . empty ( )
+>3414	ArgumentList	 
+>3415	Callee	fabmapTrainData . empty
+>3416	MemberAccess	fabmapTrainData . empty
+>3417	Identifier	empty
+>3418	Identifier	fabmapTrainData
+>3419	ExpressionStatement	 
+>3420	ShiftExpression	fs [ \"BOWImageDescs\" ] >> fabmapTrainData
+>3421	Identifier	fabmapTrainData
+>3422	ArrayIndexing	fs [ \"BOWImageDescs\" ]
+>3423	PrimaryExpression	\"BOWImageDescs\"
+>3424	Identifier	fs
+>3425	IdentifierDeclStatement	 
+>3426	IdentifierDecl	fabmapTrainData
+>3427	Identifier	fabmapTrainData
+>3428	IdentifierDeclType	cv 
+>3429	ExpressionStatement	 
+>3430	CallExpression	fs . open ( fabmapTrainDataPath , cv 
+>3431	ArgumentList	fabmapTrainDataPath
+>3432	Argument	cv 
+>3433	Identifier	cv 
+>3434	Argument	fabmapTrainDataPath
+>3435	Identifier	fabmapTrainDataPath
+>3436	Callee	fs . open
+>3437	MemberAccess	fs . open
+>3438	Identifier	open
+>3439	Identifier	fs
+>3440	ExpressionStatement	 
+>3441	ShiftExpression	std 
+>3442	ShiftExpression	\"Loading FabMap Training Data\" << std 
+>3443	Identifier	std 
+>3444	PrimaryExpression	\"Loading FabMap Training Data\"
+>3445	Identifier	std 
+>3446	IdentifierDeclStatement	 
+>3447	IdentifierDecl	chowliutreePath = settings [ \"FilePaths\" ] [ \"ChowLiuTree\" ]
+>3448	AssignmentExpr	chowliutreePath = settings [ \"FilePaths\" ] [ \"ChowLiuTree\" ]
+>3449	ArrayIndexing	settings [ \"FilePaths\" ] [ \"ChowLiuTree\" ]
+>3450	PrimaryExpression	\"ChowLiuTree\"
+>3451	ArrayIndexing	settings [ \"FilePaths\" ]
+>3452	PrimaryExpression	\"FilePaths\"
+>3453	Identifier	settings
+>3454	Identifier	chowliutreePath
+>3455	Identifier	chowliutreePath
+>3456	IdentifierDeclType	std 
+>3457	IdentifierDeclStatement	 
+>3458	IdentifierDecl	fabmapTrainDataPath = settings [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>3459	AssignmentExpr	fabmapTrainDataPath = settings [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>3460	ArrayIndexing	settings [ \"FilePaths\" ] [ \"TrainImagDesc\" ]
+>3461	PrimaryExpression	\"TrainImagDesc\"
+>3462	ArrayIndexing	settings [ \"FilePaths\" ]
+>3463	PrimaryExpression	\"FilePaths\"
+>3464	Identifier	settings
+>3465	Identifier	fabmapTrainDataPath
+>3466	Identifier	fabmapTrainDataPath
+>3467	IdentifierDeclType	std 
+>3468	IdentifierDeclStatement	 
+>3469	IdentifierDecl	fs
+>3470	Identifier	fs
+>3471	IdentifierDeclType	cv 
+>3499	FunctionDef	drawRichKeypoints (const cv 
+>3500	ParameterList	const cv 
+>3501	Parameter	 
+>3502	Identifier	dst
+>3503	ParameterType	cv 
+>3504	Parameter	 
+>3505	Identifier	kpts
+>3506	ParameterType	std 
+>3507	Parameter	 
+>3508	Identifier	src
+>3509	ParameterType	const cv 
+>3510	ReturnType	void
+>3511	CompoundStatement	 
+>3512	ForStatement	for ( int iii = kpts_sorted . size ( ) - 1 ; iii >= 0 ; iii -- )
+>3513	CompoundStatement	 
+>3514	IfStatement	if ( radius > 0 )
+>3515	CompoundStatement	 
+>3516	ExpressionStatement	 
+>3517	CallExpression	circle ( dst , center , radius , colour , thickness , CV_AA , 4 )
+>3518	ArgumentList	dst
+>3519	Argument	4
+>3520	PrimaryExpression	4
+>3521	Argument	CV_AA
+>3522	Identifier	CV_AA
+>3523	Argument	thickness
+>3524	Identifier	thickness
+>3525	Argument	colour
+>3526	Identifier	colour
+>3527	Argument	radius
+>3528	Identifier	radius
+>3529	Argument	center
+>3530	Identifier	center
+>3531	Argument	dst
+>3532	Identifier	dst
+>3533	Callee	circle
+>3534	Identifier	circle
+>3535	Condition	 
+>3536	RelationalExpression	radius > 0
+>3537	PrimaryExpression	0
+>3538	Identifier	radius
+>3539	ExpressionStatement	 
+>3540	AssignmentExpr	radius = ( int ) ( 16.0 * ( ( double ) ( kpts_sorted . at ( iii ) . size ) / 2.0 ) )
+>3541	CastExpression	( int ) ( 16.0 * ( ( double ) ( kpts_sorted . at ( iii ) . size ) / 2.0 ) )
+>3542	MultiplicativeExpression	16.0 * ( ( double ) ( kpts_sorted . at ( iii ) . size ) / 2.0 )
+>3543	MultiplicativeExpression	( double ) ( kpts_sorted . at ( iii ) . size ) / 2.0
+>3544	PrimaryExpression	2.0
+>3545	CastExpression	( double ) ( kpts_sorted . at ( iii ) . size )
+>3546	MemberAccess	kpts_sorted . at ( iii ) . size
+>3547	Identifier	size
+>3548	CallExpression	kpts_sorted . at ( iii )
+>3549	ArgumentList	iii
+>3550	Argument	iii
+>3551	Identifier	iii
+>3552	Callee	kpts_sorted . at
+>3553	MemberAccess	kpts_sorted . at
+>3554	Identifier	at
+>3555	Identifier	kpts_sorted
+>3556	CastTarget	double
+>3557	PrimaryExpression	16.0
+>3558	CastTarget	int
+>3559	Identifier	radius
+>3560	ExpressionStatement	 
+>3561	AssignmentExpr	center . y *= 16
+>3562	PrimaryExpression	16
+>3563	MemberAccess	center . y
+>3564	Identifier	y
+>3565	Identifier	center
+>3566	ExpressionStatement	 
+>3567	AssignmentExpr	center . x *= 16
+>3568	PrimaryExpression	16
+>3569	MemberAccess	center . x
+>3570	Identifier	x
+>3571	Identifier	center
+>3572	ExpressionStatement	 
+>3573	AssignmentExpr	center = kpts_sorted . at ( iii ) . pt
+>3574	MemberAccess	kpts_sorted . at ( iii ) . pt
+>3575	Identifier	pt
+>3576	CallExpression	kpts_sorted . at ( iii )
+>3577	ArgumentList	iii
+>3578	Argument	iii
+>3579	Identifier	iii
+>3580	Callee	kpts_sorted . at
+>3581	MemberAccess	kpts_sorted . at
+>3582	Identifier	at
+>3583	Identifier	kpts_sorted
+>3584	Identifier	center
+>3585	IfStatement	if ( minResponse != maxResponse )
+>3586	CompoundStatement	 
+>3587	ExpressionStatement	 
+>3588	AssignmentExpr	colour = CV_RGB ( red , green , blue )
+>3589	CallExpression	CV_RGB ( red , green , blue )
+>3590	ArgumentList	red
+>3591	Argument	blue
+>3592	Identifier	blue
+>3593	Argument	green
+>3594	Identifier	green
+>3595	Argument	red
+>3596	Identifier	red
+>3597	Callee	CV_RGB
+>3598	Identifier	CV_RGB
+>3599	Identifier	colour
+>3600	ExpressionStatement	 
+>3601	AssignmentExpr	green = int ( 255.0 - 255.0 * normalizedScore )
+>3602	CallExpression	int ( 255.0 - 255.0 * normalizedScore )
+>3603	ArgumentList	255.0 - 255.0 * normalizedScore
+>3604	Argument	255.0 - 255.0 * normalizedScore
+>3605	AdditiveExpression	255.0 - 255.0 * normalizedScore
+>3606	MultiplicativeExpression	255.0 * normalizedScore
+>3607	Identifier	normalizedScore
+>3608	PrimaryExpression	255.0
+>3609	PrimaryExpression	255.0
+>3610	Callee	int
+>3611	Identifier	int
+>3612	Identifier	green
+>3613	ExpressionStatement	 
+>3614	AssignmentExpr	red = int ( 255.0 * normalizedScore )
+>3615	CallExpression	int ( 255.0 * normalizedScore )
+>3616	ArgumentList	255.0 * normalizedScore
+>3617	Argument	255.0 * normalizedScore
+>3618	MultiplicativeExpression	255.0 * normalizedScore
+>3619	Identifier	normalizedScore
+>3620	PrimaryExpression	255.0
+>3621	Callee	int
+>3622	Identifier	int
+>3623	Identifier	red
+>3624	ExpressionStatement	 
+>3625	AssignmentExpr	normalizedScore = pow ( ( kpts_sorted . at ( iii ) . response - minResponse ) / ( maxResponse - minResponse ) , \
+>3626	CallExpression	pow ( ( kpts_sorted . at ( iii ) . response - minResponse ) / ( maxResponse - minResponse ) , 0.25 )
+>3627	ArgumentList	( kpts_sorted . at ( iii ) . response - minResponse ) / ( maxResponse - minResponse )
+>3628	Argument	0.25
+>3629	PrimaryExpression	0.25
+>3630	Argument	( kpts_sorted . at ( iii ) . response - minResponse ) / ( maxResponse - minResponse )
+>3631	MultiplicativeExpression	( kpts_sorted . at ( iii ) . response - minResponse ) / ( maxResponse - minResponse )
+>3632	AdditiveExpression	maxResponse - minResponse
+>3633	Identifier	minResponse
+>3634	Identifier	maxResponse
+>3635	AdditiveExpression	kpts_sorted . at ( iii ) . response - minResponse
+>3636	Identifier	minResponse
+>3637	MemberAccess	kpts_sorted . at ( iii ) . response
+>3638	Identifier	response
+>3639	CallExpression	kpts_sorted . at ( iii )
+>3640	ArgumentList	iii
+>3641	Argument	iii
+>3642	Identifier	iii
+>3643	Callee	kpts_sorted . at
+>3644	MemberAccess	kpts_sorted . at
+>3645	Identifier	at
+>3646	Identifier	kpts_sorted
+>3647	Callee	pow
+>3648	Identifier	pow
+>3649	Identifier	normalizedScore
+>3650	Condition	 
+>3651	EqualityExpression	minResponse != maxResponse
+>3652	Identifier	maxResponse
+>3653	Identifier	minResponse
+>3654	IncDecOp	 
+>3655	IncDec	--
+>3656	Identifier	iii
+>3657	Condition	 
+>3658	RelationalExpression	iii >= 0
+>3659	PrimaryExpression	0
+>3660	Identifier	iii
+>3661	ForInit	 
+>3662	IdentifierDeclStatement	int iii = kpts_sorted . size ( ) - 1 ;
+>3663	IdentifierDecl	iii = kpts_sorted . size ( ) - 1
+>3664	AssignmentExpr	iii = kpts_sorted . size ( ) - 1
+>3665	AdditiveExpression	kpts_sorted . size ( ) - 1
+>3666	PrimaryExpression	1
+>3667	CallExpression	kpts_sorted . size ( )
+>3668	ArgumentList	 
+>3669	Callee	kpts_sorted . size
+>3670	MemberAccess	kpts_sorted . size
+>3671	Identifier	size
+>3672	Identifier	kpts_sorted
+>3673	Identifier	iii
+>3674	Identifier	iii
+>3675	IdentifierDeclType	int
+>3676	IfStatement	if ( minResponse == maxResponse )
+>3677	CompoundStatement	 
+>3678	ExpressionStatement	 
+>3679	AssignmentExpr	colour = CV_RGB ( 255 , 0 , 0 )
+>3680	CallExpression	CV_RGB ( 255 , 0 , 0 )
+>3681	ArgumentList	255
+>3682	Argument	0
+>3683	PrimaryExpression	0
+>3684	Argument	0
+>3685	PrimaryExpression	0
+>3686	Argument	255
+>3687	PrimaryExpression	255
+>3688	Callee	CV_RGB
+>3689	Identifier	CV_RGB
+>3690	Identifier	colour
+>3691	Condition	 
+>3692	EqualityExpression	minResponse == maxResponse
+>3693	Identifier	maxResponse
+>3694	Identifier	minResponse
+>3695	IdentifierDeclStatement	 
+>3696	IdentifierDecl	normalizedScore
+>3697	Identifier	normalizedScore
+>3698	IdentifierDeclType	double
+>3699	IdentifierDeclStatement	 
+>3700	IdentifierDecl	radius
+>3701	Identifier	radius
+>3702	IdentifierDeclType	int
+>3703	IdentifierDeclStatement	 
+>3704	IdentifierDecl	green = 0
+>3705	AssignmentExpr	green = 0
+>3706	PrimaryExpression	0
+>3707	Identifier	green
+>3708	Identifier	green
+>3709	IdentifierDeclType	int
+>3710	IdentifierDecl	blue = 0
+>3711	AssignmentExpr	blue = 0
+>3712	PrimaryExpression	0
+>3713	Identifier	blue
+>3714	Identifier	blue
+>3715	IdentifierDeclType	int
+>3716	IdentifierDecl	red = 0
+>3717	AssignmentExpr	red = 0
+>3718	PrimaryExpression	0
+>3719	Identifier	red
+>3720	Identifier	red
+>3721	IdentifierDeclType	int
+>3722	IdentifierDeclStatement	 
+>3723	IdentifierDecl	colour
+>3724	Identifier	colour
+>3725	IdentifierDeclType	cv 
+>3726	IdentifierDeclStatement	 
+>3727	IdentifierDecl	center
+>3728	Identifier	center
+>3729	IdentifierDeclType	cv 
+>3730	IdentifierDeclStatement	 
+>3731	IdentifierDecl	thickness = 1
+>3732	AssignmentExpr	thickness = 1
+>3733	PrimaryExpression	1
+>3734	Identifier	thickness
+>3735	Identifier	thickness
+>3736	IdentifierDeclType	int
+>3737	WhileStatement	while ( kpts_cpy . size ( ) > 0 )
+>3738	CompoundStatement	 
+>3739	ExpressionStatement	 
+>3740	CallExpression	kpts_cpy . erase ( kpts_cpy . begin ( ) + idx )
+>3741	ArgumentList	kpts_cpy . begin ( ) + idx
+>3742	Argument	kpts_cpy . begin ( ) + idx
+>3743	AdditiveExpression	kpts_cpy . begin ( ) + idx
+>3744	Identifier	idx
+>3745	CallExpression	kpts_cpy . begin ( )
+>3746	ArgumentList	 
+>3747	Callee	kpts_cpy . begin
+>3748	MemberAccess	kpts_cpy . begin
+>3749	Identifier	begin
+>3750	Identifier	kpts_cpy
+>3751	Callee	kpts_cpy . erase
+>3752	MemberAccess	kpts_cpy . erase
+>3753	Identifier	erase
+>3754	Identifier	kpts_cpy
+>3755	ExpressionStatement	 
+>3756	CallExpression	kpts_sorted . push_back ( kpts_cpy . at ( idx ) )
+>3757	ArgumentList	kpts_cpy . at ( idx )
+>3758	Argument	kpts_cpy . at ( idx )
+>3759	CallExpression	kpts_cpy . at ( idx )
+>3760	ArgumentList	idx
+>3761	Argument	idx
+>3762	Identifier	idx
+>3763	Callee	kpts_cpy . at
+>3764	MemberAccess	kpts_cpy . at
+>3765	Identifier	at
+>3766	Identifier	kpts_cpy
+>3767	Callee	kpts_sorted . push_back
+>3768	MemberAccess	kpts_sorted . push_back
+>3769	Identifier	push_back
+>3770	Identifier	kpts_sorted
+>3771	ForStatement	for ( unsigned int iii = 0 ; iii < kpts_cpy . size ( ) ; iii ++ )
+>3772	CompoundStatement	 
+>3773	IfStatement	if ( kpts_cpy . at ( iii ) . response < minResponse )
+>3774	CompoundStatement	 
+>3775	ExpressionStatement	 
+>3776	AssignmentExpr	minResponse = kpts_cpy . at ( iii ) . response
+>3777	MemberAccess	kpts_cpy . at ( iii ) . response
+>3778	Identifier	response
+>3779	CallExpression	kpts_cpy . at ( iii )
+>3780	ArgumentList	iii
+>3781	Argument	iii
+>3782	Identifier	iii
+>3783	Callee	kpts_cpy . at
+>3784	MemberAccess	kpts_cpy . at
+>3785	Identifier	at
+>3786	Identifier	kpts_cpy
+>3787	Identifier	minResponse
+>3788	Condition	 
+>3789	RelationalExpression	kpts_cpy . at ( iii ) . response < minResponse
+>3790	Identifier	minResponse
+>3791	MemberAccess	kpts_cpy . at ( iii ) . response
+>3792	Identifier	response
+>3793	CallExpression	kpts_cpy . at ( iii )
+>3794	ArgumentList	iii
+>3795	Argument	iii
+>3796	Identifier	iii
+>3797	Callee	kpts_cpy . at
+>3798	MemberAccess	kpts_cpy . at
+>3799	Identifier	at
+>3800	Identifier	kpts_cpy
+>3801	IfStatement	if ( kpts_cpy . at ( iii ) . response > maxResponse )
+>3802	CompoundStatement	 
+>3803	ExpressionStatement	 
+>3804	AssignmentExpr	maxResponse = kpts_cpy . at ( iii ) . response
+>3805	MemberAccess	kpts_cpy . at ( iii ) . response
+>3806	Identifier	response
+>3807	CallExpression	kpts_cpy . at ( iii )
+>3808	ArgumentList	iii
+>3809	Argument	iii
+>3810	Identifier	iii
+>3811	Callee	kpts_cpy . at
+>3812	MemberAccess	kpts_cpy . at
+>3813	Identifier	at
+>3814	Identifier	kpts_cpy
+>3815	Identifier	maxResponse
+>3816	Condition	 
+>3817	RelationalExpression	kpts_cpy . at ( iii ) . response > maxResponse
+>3818	Identifier	maxResponse
+>3819	MemberAccess	kpts_cpy . at ( iii ) . response
+>3820	Identifier	response
+>3821	CallExpression	kpts_cpy . at ( iii )
+>3822	ArgumentList	iii
+>3823	Argument	iii
+>3824	Identifier	iii
+>3825	Callee	kpts_cpy . at
+>3826	MemberAccess	kpts_cpy . at
+>3827	Identifier	at
+>3828	Identifier	kpts_cpy
+>3829	IfStatement	if ( kpts_cpy . at ( iii ) . response > maxR )
+>3830	CompoundStatement	 
+>3831	ExpressionStatement	 
+>3832	AssignmentExpr	idx = iii
+>3833	Identifier	iii
+>3834	Identifier	idx
+>3835	ExpressionStatement	 
+>3836	AssignmentExpr	maxR = kpts_cpy . at ( iii ) . response
+>3837	MemberAccess	kpts_cpy . at ( iii ) . response
+>3838	Identifier	response
+>3839	CallExpression	kpts_cpy . at ( iii )
+>3840	ArgumentList	iii
+>3841	Argument	iii
+>3842	Identifier	iii
+>3843	Callee	kpts_cpy . at
+>3844	MemberAccess	kpts_cpy . at
+>3845	Identifier	at
+>3846	Identifier	kpts_cpy
+>3847	Identifier	maxR
+>3848	Condition	 
+>3849	RelationalExpression	kpts_cpy . at ( iii ) . response > maxR
+>3850	Identifier	maxR
+>3851	MemberAccess	kpts_cpy . at ( iii ) . response
+>3852	Identifier	response
+>3853	CallExpression	kpts_cpy . at ( iii )
+>3854	ArgumentList	iii
+>3855	Argument	iii
+>3856	Identifier	iii
+>3857	Callee	kpts_cpy . at
+>3858	MemberAccess	kpts_cpy . at
+>3859	Identifier	at
+>3860	Identifier	kpts_cpy
+>3861	IncDecOp	 
+>3862	IncDec	++
+>3863	Identifier	iii
+>3864	Condition	 
+>3865	RelationalExpression	iii < kpts_cpy . size ( )
+>3866	CallExpression	kpts_cpy . size ( )
+>3867	ArgumentList	 
+>3868	Callee	kpts_cpy . size
+>3869	MemberAccess	kpts_cpy . size
+>3870	Identifier	size
+>3871	Identifier	kpts_cpy
+>3872	Identifier	iii
+>3873	ForInit	 
+>3874	IdentifierDeclStatement	unsigned int iii = 0 ;
+>3875	IdentifierDecl	iii = 0
+>3876	AssignmentExpr	iii = 0
+>3877	PrimaryExpression	0
+>3878	Identifier	iii
+>3879	Identifier	iii
+>3880	IdentifierDeclType	unsigned int
+>3881	IdentifierDeclStatement	 
+>3882	IdentifierDecl	idx = 0
+>3883	AssignmentExpr	idx = 0
+>3884	PrimaryExpression	0
+>3885	Identifier	idx
+>3886	Identifier	idx
+>3887	IdentifierDeclType	unsigned int
+>3888	IdentifierDeclStatement	 
+>3889	IdentifierDecl	maxR = 0.0
+>3890	AssignmentExpr	maxR = 0.0
+>3891	PrimaryExpression	0.0
+>3892	Identifier	maxR
+>3893	Identifier	maxR
+>3894	IdentifierDeclType	double
+>3895	Condition	 
+>3896	RelationalExpression	kpts_cpy . size ( ) > 0
+>3897	PrimaryExpression	0
+>3898	CallExpression	kpts_cpy . size ( )
+>3899	ArgumentList	 
+>3900	Callee	kpts_cpy . size
+>3901	MemberAccess	kpts_cpy . size
+>3902	Identifier	size
+>3903	Identifier	kpts_cpy
+>3904	IdentifierDeclStatement	 
+>3905	IdentifierDecl	minResponse = kpts_cpy . at ( 0 ) . response
+>3906	AssignmentExpr	minResponse = kpts_cpy . at ( 0 ) . response
+>3907	MemberAccess	kpts_cpy . at ( 0 ) . response
+>3908	Identifier	response
+>3909	CallExpression	kpts_cpy . at ( 0 )
+>3910	ArgumentList	0
+>3911	Argument	0
+>3912	PrimaryExpression	0
+>3913	Callee	kpts_cpy . at
+>3914	MemberAccess	kpts_cpy . at
+>3915	Identifier	at
+>3916	Identifier	kpts_cpy
+>3917	Identifier	minResponse
+>3918	Identifier	minResponse
+>3919	IdentifierDeclType	double
+>3920	IdentifierDeclStatement	 
+>3921	IdentifierDecl	maxResponse = kpts_cpy . at ( 0 ) . response
+>3922	AssignmentExpr	maxResponse = kpts_cpy . at ( 0 ) . response
+>3923	MemberAccess	kpts_cpy . at ( 0 ) . response
+>3924	Identifier	response
+>3925	CallExpression	kpts_cpy . at ( 0 )
+>3926	ArgumentList	0
+>3927	Argument	0
+>3928	PrimaryExpression	0
+>3929	Callee	kpts_cpy . at
+>3930	MemberAccess	kpts_cpy . at
+>3931	Identifier	at
+>3932	Identifier	kpts_cpy
+>3933	Identifier	maxResponse
+>3934	Identifier	maxResponse
+>3935	IdentifierDeclType	double
+>3936	ExpressionStatement	 
+>3937	CallExpression	kpts_cpy . insert ( kpts_cpy . end ( ) , kpts . begin ( ) , kpts . end ( ) )
+>3938	ArgumentList	kpts_cpy . end ( )
+>3939	Argument	kpts . end ( )
+>3940	CallExpression	kpts . end ( )
+>3941	ArgumentList	 
+>3942	Callee	kpts . end
+>3943	MemberAccess	kpts . end
+>3944	Identifier	end
+>3945	Identifier	kpts
+>3946	Argument	kpts . begin ( )
+>3947	CallExpression	kpts . begin ( )
+>3948	ArgumentList	 
+>3949	Callee	kpts . begin
+>3950	MemberAccess	kpts . begin
+>3951	Identifier	begin
+>3952	Identifier	kpts
+>3953	Argument	kpts_cpy . end ( )
+>3954	CallExpression	kpts_cpy . end ( )
+>3955	ArgumentList	 
+>3956	Callee	kpts_cpy . end
+>3957	MemberAccess	kpts_cpy . end
+>3958	Identifier	end
+>3959	Identifier	kpts_cpy
+>3960	Callee	kpts_cpy . insert
+>3961	MemberAccess	kpts_cpy . insert
+>3962	Identifier	insert
+>3963	Identifier	kpts_cpy
+>3964	IdentifierDeclStatement	 
+>3965	IdentifierDecl	kpts_sorted
+>3966	Identifier	kpts_sorted
+>3967	IdentifierDeclType	std 
+>3968	IdentifierDecl	kpts_cpy
+>3969	Identifier	kpts_cpy
+>3970	IdentifierDeclType	std 
+>3971	IfStatement	if ( kpts . size ( ) == 0 )
+>3972	CompoundStatement	 
+>3973	ReturnStatement	 
+>3974	Condition	 
+>3975	EqualityExpression	kpts . size ( ) == 0
+>3976	PrimaryExpression	0
+>3977	CallExpression	kpts . size ( )
+>3978	ArgumentList	 
+>3979	Callee	kpts . size
+>3980	MemberAccess	kpts . size
+>3981	Identifier	size
+>3982	Identifier	kpts
+>3983	ExpressionStatement	 
+>3984	CallExpression	cvtColor ( grayFrame , dst , CV_GRAY2RGB )
+>3985	ArgumentList	grayFrame
+>3986	Argument	CV_GRAY2RGB
+>3987	Identifier	CV_GRAY2RGB
+>3988	Argument	dst
+>3989	Identifier	dst
+>3990	Argument	grayFrame
+>3991	Identifier	grayFrame
+>3992	Callee	cvtColor
+>3993	Identifier	cvtColor
+>3994	ExpressionStatement	 
+>3995	CallExpression	cvtColor ( src , grayFrame , CV_RGB2GRAY )
+>3996	ArgumentList	src
+>3997	Argument	CV_RGB2GRAY
+>3998	Identifier	CV_RGB2GRAY
+>3999	Argument	grayFrame
+>4000	Identifier	grayFrame
+>4001	Argument	src
+>4002	Identifier	src
+>4003	Callee	cvtColor
+>4004	Identifier	cvtColor
+>4005	IdentifierDeclStatement	 
+>4006	IdentifierDecl	grayFrame
+>4007	Identifier	grayFrame
+>4008	IdentifierDeclType	cv 
+>4053	FunctionDef	filterKeypoints (std 
+>4054	ParameterList	std 
+>4055	Parameter	 
+>4056	Identifier	maxFeatures
+>4057	ParameterType	int
+>4058	Parameter	 
+>4059	Identifier	maxSize
+>4060	ParameterType	int
+>4061	Parameter	 
+>4062	Identifier	kpts
+>4063	ParameterType	std 
+>4064	ReturnType	void
+>4065	CompoundStatement	 
+>4066	IfStatement	if ( ( maxFeatures != 0 ) && ( ( int ) kpts . size ( ) > maxFeatures ) )
+>4067	CompoundStatement	 
+>4068	ExpressionStatement	 
+>4069	CallExpression	kpts . erase ( kpts . begin ( ) + maxFeatures , kpts . end ( ) )
+>4070	ArgumentList	kpts . begin ( ) + maxFeatures
+>4071	Argument	kpts . end ( )
+>4072	CallExpression	kpts . end ( )
+>4073	ArgumentList	 
+>4074	Callee	kpts . end
+>4075	MemberAccess	kpts . end
+>4076	Identifier	end
+>4077	Identifier	kpts
+>4078	Argument	kpts . begin ( ) + maxFeatures
+>4079	AdditiveExpression	kpts . begin ( ) + maxFeatures
+>4080	Identifier	maxFeatures
+>4081	CallExpression	kpts . begin ( )
+>4082	ArgumentList	 
+>4083	Callee	kpts . begin
+>4084	MemberAccess	kpts . begin
+>4085	Identifier	begin
+>4086	Identifier	kpts
+>4087	Callee	kpts . erase
+>4088	MemberAccess	kpts . erase
+>4089	Identifier	erase
+>4090	Identifier	kpts
+>4091	Condition	 
+>4092	AndExpression	( maxFeatures != 0 ) && ( ( int ) kpts . size ( ) > maxFeatures )
+>4093	RelationalExpression	( int ) kpts . size ( ) > maxFeatures
+>4094	Identifier	maxFeatures
+>4095	CastExpression	( int ) kpts . size ( )
+>4096	CallExpression	kpts . size ( )
+>4097	ArgumentList	 
+>4098	Callee	kpts . size
+>4099	MemberAccess	kpts . size
+>4100	Identifier	size
+>4101	Identifier	kpts
+>4102	CastTarget	int
+>4103	EqualityExpression	maxFeatures != 0
+>4104	PrimaryExpression	0
+>4105	Identifier	maxFeatures
+>4106	ForStatement	for ( unsigned int iii = 0 ; iii < kpts . size ( ) ; iii ++ )
+>4107	CompoundStatement	 
+>4108	IfStatement	if ( kpts . at ( iii ) . size > float ( maxSize ) )
+>4109	CompoundStatement	 
+>4110	ExpressionStatement	 
+>4111	IncDecOp	iii --
+>4112	IncDec	--
+>4113	Identifier	iii
+>4114	ExpressionStatement	 
+>4115	CallExpression	kpts . erase ( kpts . begin ( ) + iii )
+>4116	ArgumentList	kpts . begin ( ) + iii
+>4117	Argument	kpts . begin ( ) + iii
+>4118	AdditiveExpression	kpts . begin ( ) + iii
+>4119	Identifier	iii
+>4120	CallExpression	kpts . begin ( )
+>4121	ArgumentList	 
+>4122	Callee	kpts . begin
+>4123	MemberAccess	kpts . begin
+>4124	Identifier	begin
+>4125	Identifier	kpts
+>4126	Callee	kpts . erase
+>4127	MemberAccess	kpts . erase
+>4128	Identifier	erase
+>4129	Identifier	kpts
+>4130	Condition	 
+>4131	RelationalExpression	kpts . at ( iii ) . size > float ( maxSize )
+>4132	CallExpression	float ( maxSize )
+>4133	ArgumentList	maxSize
+>4134	Argument	maxSize
+>4135	Identifier	maxSize
+>4136	Callee	float
+>4137	Identifier	float
+>4138	MemberAccess	kpts . at ( iii ) . size
+>4139	Identifier	size
+>4140	CallExpression	kpts . at ( iii )
+>4141	ArgumentList	iii
+>4142	Argument	iii
+>4143	Identifier	iii
+>4144	Callee	kpts . at
+>4145	MemberAccess	kpts . at
+>4146	Identifier	at
+>4147	Identifier	kpts
+>4148	IncDecOp	 
+>4149	IncDec	++
+>4150	Identifier	iii
+>4151	Condition	 
+>4152	RelationalExpression	iii < kpts . size ( )
+>4153	CallExpression	kpts . size ( )
+>4154	ArgumentList	 
+>4155	Callee	kpts . size
+>4156	MemberAccess	kpts . size
+>4157	Identifier	size
+>4158	Identifier	kpts
+>4159	Identifier	iii
+>4160	ForInit	 
+>4161	IdentifierDeclStatement	unsigned int iii = 0 ;
+>4162	IdentifierDecl	iii = 0
+>4163	AssignmentExpr	iii = 0
+>4164	PrimaryExpression	0
+>4165	Identifier	iii
+>4166	Identifier	iii
+>4167	IdentifierDeclType	unsigned int
+>4168	ExpressionStatement	 
+>4169	CallExpression	sortKeypoints ( kpts )
+>4170	ArgumentList	kpts
+>4171	Argument	kpts
+>4172	Identifier	kpts
+>4173	Callee	sortKeypoints
+>4174	Identifier	sortKeypoints
+>4175	IfStatement	if ( maxSize == 0 )
+>4176	CompoundStatement	 
+>4177	ReturnStatement	 
+>4178	Condition	 
+>4179	EqualityExpression	maxSize == 0
+>4180	PrimaryExpression	0
+>4181	Identifier	maxSize
+>4195	FunctionDef	sortKeypoints (std 
+>4196	ParameterList	std 
+>4197	Parameter	 
+>4198	Identifier	keypoints
+>4199	ParameterType	std 
+>4200	ReturnType	void
+>4201	CompoundStatement	 
+>4202	ExpressionStatement	 
+>4203	CallExpression	keypoints . swap ( sortedKeypoints )
+>4204	ArgumentList	sortedKeypoints
+>4205	Argument	sortedKeypoints
+>4206	Identifier	sortedKeypoints
+>4207	Callee	keypoints . swap
+>4208	MemberAccess	keypoints . swap
+>4209	Identifier	swap
+>4210	Identifier	keypoints
+>4211	ForStatement	for ( unsigned int i = 1 ; i < keypoints . size ( ) ; i ++ )
+>4212	CompoundStatement	 
+>4213	IfStatement	if ( ! hasBeenAdded )
+>4214	CompoundStatement	 
+>4215	ExpressionStatement	 
+>4216	CallExpression	sortedKeypoints . push_back ( keypoints . at ( i ) )
+>4217	ArgumentList	keypoints . at ( i )
+>4218	Argument	keypoints . at ( i )
+>4219	CallExpression	keypoints . at ( i )
+>4220	ArgumentList	i
+>4221	Argument	i
+>4222	Identifier	i
+>4223	Callee	keypoints . at
+>4224	MemberAccess	keypoints . at
+>4225	Identifier	at
+>4226	Identifier	keypoints
+>4227	Callee	sortedKeypoints . push_back
+>4228	MemberAccess	sortedKeypoints . push_back
+>4229	Identifier	push_back
+>4230	Identifier	sortedKeypoints
+>4231	Condition	 
+>4232	UnaryOp	! hasBeenAdded
+>4233	Identifier	hasBeenAdded
+>4234	UnaryOperator	!
+>4235	WhileStatement	while ( ( j < sortedKeypoints . size ( ) ) && ( ! hasBeenAdded ) )
+>4236	CompoundStatement	 
+>4237	ExpressionStatement	 
+>4238	IncDecOp	j ++
+>4239	IncDec	++
+>4240	Identifier	j
+>4241	IfStatement	if ( abs ( keypoints . at ( i ) . response ) > abs ( sortedKeypoints . at ( j ) . response ) )
+>4242	CompoundStatement	 
+>4243	ExpressionStatement	 
+>4244	AssignmentExpr	hasBeenAdded = true
+>4245	Identifier	true
+>4246	Identifier	hasBeenAdded
+>4247	ExpressionStatement	 
+>4248	CallExpression	sortedKeypoints . insert ( sortedKeypoints . begin ( ) + j , keypoints . at ( i ) )
+>4249	ArgumentList	sortedKeypoints . begin ( ) + j
+>4250	Argument	keypoints . at ( i )
+>4251	CallExpression	keypoints . at ( i )
+>4252	ArgumentList	i
+>4253	Argument	i
+>4254	Identifier	i
+>4255	Callee	keypoints . at
+>4256	MemberAccess	keypoints . at
+>4257	Identifier	at
+>4258	Identifier	keypoints
+>4259	Argument	sortedKeypoints . begin ( ) + j
+>4260	AdditiveExpression	sortedKeypoints . begin ( ) + j
+>4261	Identifier	j
+>4262	CallExpression	sortedKeypoints . begin ( )
+>4263	ArgumentList	 
+>4264	Callee	sortedKeypoints . begin
+>4265	MemberAccess	sortedKeypoints . begin
+>4266	Identifier	begin
+>4267	Identifier	sortedKeypoints
+>4268	Callee	sortedKeypoints . insert
+>4269	MemberAccess	sortedKeypoints . insert
+>4270	Identifier	insert
+>4271	Identifier	sortedKeypoints
+>4272	Condition	 
+>4273	RelationalExpression	abs ( keypoints . at ( i ) . response ) > abs ( sortedKeypoints . at ( j ) . response )
+>4274	CallExpression	abs ( sortedKeypoints . at ( j ) . response )
+>4275	ArgumentList	sortedKeypoints . at ( j ) . response
+>4276	Argument	sortedKeypoints . at ( j ) . response
+>4277	MemberAccess	sortedKeypoints . at ( j ) . response
+>4278	Identifier	response
+>4279	CallExpression	sortedKeypoints . at ( j )
+>4280	ArgumentList	j
+>4281	Argument	j
+>4282	Identifier	j
+>4283	Callee	sortedKeypoints . at
+>4284	MemberAccess	sortedKeypoints . at
+>4285	Identifier	at
+>4286	Identifier	sortedKeypoints
+>4287	Callee	abs
+>4288	Identifier	abs
+>4289	CallExpression	abs ( keypoints . at ( i ) . response )
+>4290	ArgumentList	keypoints . at ( i ) . response
+>4291	Argument	keypoints . at ( i ) . response
+>4292	MemberAccess	keypoints . at ( i ) . response
+>4293	Identifier	response
+>4294	CallExpression	keypoints . at ( i )
+>4295	ArgumentList	i
+>4296	Argument	i
+>4297	Identifier	i
+>4298	Callee	keypoints . at
+>4299	MemberAccess	keypoints . at
+>4300	Identifier	at
+>4301	Identifier	keypoints
+>4302	Callee	abs
+>4303	Identifier	abs
+>4304	Condition	 
+>4305	AndExpression	( j < sortedKeypoints . size ( ) ) && ( ! hasBeenAdded )
+>4306	UnaryOp	! hasBeenAdded
+>4307	Identifier	hasBeenAdded
+>4308	UnaryOperator	!
+>4309	RelationalExpression	j < sortedKeypoints . size ( )
+>4310	CallExpression	sortedKeypoints . size ( )
+>4311	ArgumentList	 
+>4312	Callee	sortedKeypoints . size
+>4313	MemberAccess	sortedKeypoints . size
+>4314	Identifier	size
+>4315	Identifier	sortedKeypoints
+>4316	Identifier	j
+>4317	IdentifierDeclStatement	 
+>4318	IdentifierDecl	hasBeenAdded = false
+>4319	AssignmentExpr	hasBeenAdded = false
+>4320	Identifier	false
+>4321	Identifier	false
+>4322	Identifier	hasBeenAdded
+>4323	IdentifierDeclType	bool
+>4324	IdentifierDeclStatement	 
+>4325	IdentifierDecl	j = 0
+>4326	AssignmentExpr	j = 0
+>4327	PrimaryExpression	0
+>4328	Identifier	j
+>4329	Identifier	j
+>4330	IdentifierDeclType	unsigned int
+>4331	IncDecOp	 
+>4332	IncDec	++
+>4333	Identifier	i
+>4334	Condition	 
+>4335	RelationalExpression	i < keypoints . size ( )
+>4336	CallExpression	keypoints . size ( )
+>4337	ArgumentList	 
+>4338	Callee	keypoints . size
+>4339	MemberAccess	keypoints . size
+>4340	Identifier	size
+>4341	Identifier	keypoints
+>4342	Identifier	i
+>4343	ForInit	 
+>4344	IdentifierDeclStatement	unsigned int i = 1 ;
+>4345	IdentifierDecl	i = 1
+>4346	AssignmentExpr	i = 1
+>4347	PrimaryExpression	1
+>4348	Identifier	i
+>4349	Identifier	i
+>4350	IdentifierDeclType	unsigned int
+>4351	ExpressionStatement	 
+>4352	CallExpression	sortedKeypoints . push_back ( keypoints . at ( 0 ) )
+>4353	ArgumentList	keypoints . at ( 0 )
+>4354	Argument	keypoints . at ( 0 )
+>4355	CallExpression	keypoints . at ( 0 )
+>4356	ArgumentList	0
+>4357	Argument	0
+>4358	PrimaryExpression	0
+>4359	Callee	keypoints . at
+>4360	MemberAccess	keypoints . at
+>4361	Identifier	at
+>4362	Identifier	keypoints
+>4363	Callee	sortedKeypoints . push_back
+>4364	MemberAccess	sortedKeypoints . push_back
+>4365	Identifier	push_back
+>4366	Identifier	sortedKeypoints
+>4367	IdentifierDeclStatement	 
+>4368	IdentifierDecl	sortedKeypoints
+>4369	Identifier	sortedKeypoints
+>4370	IdentifierDeclType	std 
+>4371	IfStatement	if ( keypoints . size ( ) <= 1 )
+>4372	CompoundStatement	 
+>4373	ReturnStatement	 
+>4374	Condition	 
+>4375	RelationalExpression	keypoints . size ( ) <= 1
+>4376	PrimaryExpression	1
+>4377	CallExpression	keypoints . size ( )
+>4378	ArgumentList	 
+>4379	Callee	keypoints . size
+>4380	MemberAccess	keypoints . size
+>4381	Identifier	size
+>4382	Identifier	keypoints
+<27=36,35,28
+<28=32,29
+<29=31,30
+<32=34,33
+<36=514,459,455,444,421,409,393,381,365,358,349,66,60,53,46,39,37
+<37=38
+<39=40
+<40=42,41
+<42=43
+<43=45,44
+<46=47
+<47=49,48
+<49=50
+<50=52,51
+<53=54
+<54=56,55
+<56=57
+<57=59,58
+<60=61
+<61=65,62
+<62=64,63
+<66=345,329,67
+<67=68
+<68=325,301,69
+<69=70
+<70=297,271,71
+<71=72
+<72=267,231,73
+<73=74
+<74=227,201,75
+<75=76
+<76=197,161,77
+<77=78
+<78=157,93,79
+<79=80
+<80=87,81
+<81=82
+<82=86,83
+<83=85,84
+<87=88
+<88=92,89
+<89=91,90
+<93=148,139,127,94
+<94=125,95
+<95=96
+<96=97
+<97=124,98
+<98=122,99
+<99=116,114,108,102,100
+<100=101
+<102=103
+<103=105,104
+<105=107,106
+<108=109
+<109=111,110
+<111=113,112
+<114=115
+<116=117
+<117=119,118
+<119=121,120
+<122=123
+<125=126
+<127=128
+<128=138,137,129
+<129=136,130
+<130=134,131
+<131=132
+<132=133
+<134=135
+<139=140
+<140=147,146,141
+<141=145,142
+<142=144,143
+<148=149
+<149=156,155,150
+<150=154,151
+<151=153,152
+<157=158
+<158=160,159
+<161=162
+<162=163
+<163=196,164
+<164=194,165
+<165=188,182,176,174,172,166
+<166=167
+<167=169,168
+<169=171,170
+<172=173
+<174=175
+<176=177
+<177=179,178
+<179=181,180
+<182=183
+<183=185,184
+<185=187,186
+<188=189
+<189=191,190
+<191=193,192
+<194=195
+<197=198
+<198=200,199
+<201=202
+<202=203
+<203=226,204
+<204=224,205
+<205=218,212,206
+<206=207
+<207=209,208
+<209=211,210
+<212=213
+<213=215,214
+<215=217,216
+<218=219
+<219=221,220
+<221=223,222
+<224=225
+<227=228
+<228=230,229
+<231=232
+<232=233
+<233=266,234
+<234=264,235
+<235=258,252,246,244,242,236
+<236=237
+<237=239,238
+<239=241,240
+<242=243
+<244=245
+<246=247
+<247=249,248
+<249=251,250
+<252=253
+<253=255,254
+<255=257,256
+<258=259
+<259=261,260
+<261=263,262
+<264=265
+<267=268
+<268=270,269
+<271=272
+<272=273
+<273=296,274
+<274=294,275
+<275=288,282,276
+<276=277
+<277=279,278
+<279=281,280
+<282=283
+<283=285,284
+<285=287,286
+<288=289
+<289=291,290
+<291=293,292
+<294=295
+<297=298
+<298=300,299
+<301=302
+<302=303
+<303=324,304
+<304=322,305
+<305=316,310,308,306
+<306=307
+<308=309
+<310=311
+<311=313,312
+<313=315,314
+<316=317
+<317=319,318
+<319=321,320
+<322=323
+<325=326
+<326=328,327
+<329=330
+<330=331
+<331=344,332
+<332=342,333
+<333=336,334
+<334=335
+<336=337
+<337=339,338
+<339=341,340
+<342=343
+<345=346
+<346=348,347
+<349=350
+<350=357,356,351
+<351=355,352
+<352=354,353
+<358=359
+<359=364,363,360
+<360=362,361
+<365=377,366
+<366=371,367
+<367=368
+<368=370,369
+<371=372
+<372=376,373
+<373=375,374
+<377=378
+<378=380,379
+<381=382
+<382=392,391,383
+<383=390,384
+<384=388,385
+<385=386
+<386=387
+<388=389
+<393=405,394
+<394=399,395
+<395=396
+<396=398,397
+<399=400
+<400=404,401
+<401=403,402
+<405=406
+<406=408,407
+<409=410
+<410=420,419,411
+<411=418,412
+<412=416,413
+<413=414
+<414=415
+<416=417
+<421=435,422
+<422=427,423
+<423=424
+<424=426,425
+<427=428
+<428=434,429
+<429=433,430
+<430=432,431
+<435=436
+<436=443,437
+<437=439,438
+<439=440
+<440=442,441
+<444=445
+<445=451,446
+<446=449,447
+<447=448
+<449=450
+<451=452
+<452=454,453
+<455=456
+<456=458,457
+<459=510,505,460
+<460=461
+<461=501,469,462
+<462=463
+<463=464
+<464=465
+<465=467,466
+<467=468
+<469=470
+<470=490,484,471
+<471=472
+<472=473
+<473=474
+<474=483,475
+<475=481,476
+<476=477
+<477=478
+<478=480,479
+<481=482
+<484=485
+<485=486
+<486=488,487
+<488=489
+<490=491
+<491=493,492
+<493=499,494
+<494=495
+<495=496
+<496=498,497
+<499=500
+<501=502
+<502=504,503
+<505=506
+<506=507
+<507=509,508
+<510=511
+<511=513,512
+<514=515
+<515=517,516
+<549=552,551,550
+<552=555,553
+<553=554
+<555=556
+<556=560,557
+<557=559,558
+<564=573,572,565
+<565=569,566
+<566=568,567
+<569=571,570
+<573=717,708,685,679,672,663,659,587,583,576,574
+<574=575
+<576=577
+<577=581,578
+<578=579
+<579=580
+<581=582
+<583=584
+<584=586,585
+<587=650,588
+<588=639,628,621,610,601,589
+<589=592,590
+<590=591
+<592=593
+<593=595,594
+<595=599,596
+<596=597
+<597=598
+<599=600
+<601=602
+<602=608,603
+<603=606,604
+<604=605
+<606=607
+<608=609
+<610=611
+<611=619,612
+<612=617,615,613
+<613=614
+<615=616
+<617=618
+<619=620
+<621=622
+<622=626,623
+<623=624
+<624=625
+<626=627
+<628=629
+<629=638,630
+<630=632,631
+<632=634,633
+<634=635
+<635=637,636
+<639=640
+<640=646,641
+<641=644,642
+<642=643
+<644=645
+<646=647
+<647=649,648
+<650=651
+<651=655,652
+<652=653
+<653=654
+<655=656
+<656=658,657
+<659=660
+<660=662,661
+<663=664
+<664=668,665
+<665=666
+<666=667
+<668=669
+<669=671,670
+<672=676,673
+<673=675,674
+<676=678,677
+<679=680
+<680=684,681
+<681=683,682
+<685=699,686
+<686=691,687
+<687=688
+<688=690,689
+<691=692
+<692=698,693
+<693=697,694
+<694=696,695
+<699=700
+<700=707,701
+<701=703,702
+<703=704
+<704=706,705
+<708=709
+<709=713,710
+<710=711
+<711=712
+<713=714
+<714=716,715
+<717=718
+<718=720,719
+<734=749,748,735
+<735=745,742,739,736
+<736=738,737
+<739=741,740
+<742=744,743
+<745=747,746
+<749=1046,1032,1004,1000,991,968,962,958,948,944,935,926,799,792,780,776,765,759,752,750
+<750=751
+<752=753
+<753=755,754
+<755=756
+<756=758,757
+<759=760
+<760=764,761
+<761=763,762
+<765=766
+<766=772,767
+<767=770,768
+<768=769
+<770=771
+<772=773
+<773=775,774
+<776=777
+<777=779,778
+<780=781
+<781=791,782
+<782=790,783
+<783=787,784
+<784=786,785
+<787=789,788
+<792=793
+<793=797,794
+<794=795
+<795=796
+<797=798
+<799=917,800
+<800=906,893,884,873,864,834,827,801
+<801=818,802
+<802=811,807,803
+<803=804
+<804=806,805
+<807=808
+<808=810,809
+<811=812
+<812=816,813
+<813=814
+<814=815
+<816=817
+<818=819
+<819=821,820
+<821=825,822
+<822=823
+<823=824
+<825=826
+<827=828
+<828=832,829
+<829=830
+<830=831
+<832=833
+<834=835
+<835=863,836
+<836=844,837
+<837=843,838
+<838=840,839
+<840=842,841
+<844=862,845
+<845=854,846
+<846=850,847
+<847=848
+<848=849
+<850=851
+<851=853,852
+<854=858,855
+<855=856
+<856=857
+<858=859
+<859=861,860
+<864=865
+<865=871,866
+<866=869,867
+<867=868
+<869=870
+<871=872
+<873=874
+<874=882,875
+<875=880,878,876
+<876=877
+<878=879
+<880=881
+<882=883
+<884=885
+<885=889,886
+<886=887
+<887=888
+<889=890
+<890=892,891
+<893=894
+<894=902,895
+<895=900,898,896
+<896=897
+<898=899
+<900=901
+<902=903
+<903=905,904
+<906=907
+<907=913,908
+<908=911,909
+<909=910
+<911=912
+<913=914
+<914=916,915
+<917=918
+<918=922,919
+<919=920
+<920=921
+<922=923
+<923=925,924
+<926=927
+<927=931,928
+<928=929
+<929=930
+<931=932
+<932=934,933
+<935=936
+<936=940,937
+<937=938
+<938=939
+<940=941
+<941=943,942
+<944=945
+<945=947,946
+<948=955,952,949
+<949=951,950
+<952=954,953
+<955=957,956
+<958=959
+<959=961,960
+<962=963
+<963=967,964
+<964=966,965
+<968=982,969
+<969=974,970
+<970=971
+<971=973,972
+<974=975
+<975=981,976
+<976=980,977
+<977=979,978
+<982=983
+<983=990,984
+<984=986,985
+<986=987
+<987=989,988
+<991=992
+<992=996,993
+<993=994
+<994=995
+<996=997
+<997=999,998
+<1000=1001
+<1001=1003,1002
+<1004=1025,1005
+<1005=1017,1010,1006
+<1006=1007
+<1007=1009,1008
+<1010=1011
+<1011=1013,1012
+<1013=1014
+<1014=1016,1015
+<1017=1018
+<1018=1024,1019
+<1019=1023,1020
+<1020=1022,1021
+<1025=1026
+<1026=1028,1027
+<1028=1029
+<1029=1031,1030
+<1032=1033
+<1033=1042,1034
+<1034=1035
+<1035=1036
+<1036=1038,1037
+<1038=1039
+<1039=1041,1040
+<1042=1043
+<1043=1045,1044
+<1046=1047
+<1047=1049,1048
+<1076=1088,1087,1077
+<1077=1084,1081,1078
+<1078=1080,1079
+<1081=1083,1082
+<1084=1086,1085
+<1088=1254,1240,1212,1206,1202,1191,1187,1181,1160,1153,1147,1142,1133,1121,1115,1104,1098,1091,1089
+<1089=1090
+<1091=1092
+<1092=1094,1093
+<1094=1095
+<1095=1097,1096
+<1098=1099
+<1099=1103,1100
+<1100=1102,1101
+<1104=1105
+<1105=1111,1106
+<1106=1109,1107
+<1107=1108
+<1109=1110
+<1111=1112
+<1112=1114,1113
+<1115=1116
+<1116=1120,1117
+<1117=1119,1118
+<1121=1122
+<1122=1132,1131,1123
+<1123=1130,1124
+<1124=1126,1125
+<1126=1127
+<1127=1129,1128
+<1133=1134
+<1134=1138,1135
+<1135=1136
+<1136=1137
+<1138=1139
+<1139=1141,1140
+<1142=1143
+<1143=1146,1145,1144
+<1147=1148
+<1148=1152,1149
+<1149=1151,1150
+<1153=1154
+<1154=1156,1155
+<1156=1157
+<1157=1159,1158
+<1160=1174,1161
+<1161=1166,1162
+<1162=1163
+<1163=1165,1164
+<1166=1167
+<1167=1173,1168
+<1168=1172,1169
+<1169=1171,1170
+<1174=1175
+<1175=1177,1176
+<1177=1178
+<1178=1180,1179
+<1181=1182
+<1182=1184,1183
+<1184=1186,1185
+<1187=1188
+<1188=1190,1189
+<1191=1192
+<1192=1198,1193
+<1193=1196,1194
+<1194=1195
+<1196=1197
+<1198=1199
+<1199=1201,1200
+<1202=1203
+<1203=1205,1204
+<1206=1207
+<1207=1211,1208
+<1208=1210,1209
+<1212=1233,1213
+<1213=1225,1218,1214
+<1214=1215
+<1215=1217,1216
+<1218=1219
+<1219=1221,1220
+<1221=1222
+<1222=1224,1223
+<1225=1226
+<1226=1232,1227
+<1227=1231,1228
+<1228=1230,1229
+<1233=1234
+<1234=1236,1235
+<1236=1237
+<1237=1239,1238
+<1240=1241
+<1241=1250,1242
+<1242=1243
+<1243=1244
+<1244=1246,1245
+<1246=1247
+<1247=1249,1248
+<1250=1251
+<1251=1253,1252
+<1254=1255
+<1255=1257,1256
+<1275=1296,1295,1276
+<1276=1292,1289,1286,1283,1280,1277
+<1277=1279,1278
+<1280=1282,1281
+<1283=1285,1284
+<1286=1288,1287
+<1289=1291,1290
+<1292=1294,1293
+<1296=1687,1683,1669,1638,1632,1621,1617,1611,1590,1583,1571,1564,1555,1551,1542,1519,1515,1509,1500,1491,1487,1462,1455,1451,1336,1330,1323,1312,1306,1299,1297
+<1297=1298
+<1299=1300
+<1300=1302,1301
+<1302=1303
+<1303=1305,1304
+<1306=1307
+<1307=1311,1308
+<1308=1310,1309
+<1312=1313
+<1313=1319,1314
+<1314=1317,1315
+<1315=1316
+<1317=1318
+<1319=1320
+<1320=1322,1321
+<1323=1324
+<1324=1326,1325
+<1326=1327
+<1327=1329,1328
+<1330=1331
+<1331=1335,1332
+<1332=1334,1333
+<1336=1442,1337
+<1337=1431,1418,1369,1345,1338
+<1338=1339
+<1339=1343,1340
+<1340=1341
+<1341=1342
+<1343=1344
+<1345=1346
+<1346=1368,1347
+<1347=1349,1348
+<1349=1367,1350
+<1350=1359,1351
+<1351=1355,1352
+<1352=1353
+<1353=1354
+<1355=1356
+<1356=1358,1357
+<1359=1363,1360
+<1360=1361
+<1361=1362
+<1363=1364
+<1364=1366,1365
+<1369=1416,1381,1370
+<1370=1371
+<1371=1372
+<1372=1373
+<1373=1377,1374
+<1374=1375
+<1375=1376
+<1377=1378
+<1378=1380,1379
+<1381=1382
+<1382=1407,1400,1383
+<1383=1384
+<1384=1394,1385
+<1385=1386
+<1386=1390,1387
+<1387=1388
+<1388=1389
+<1390=1391
+<1391=1393,1392
+<1394=1395
+<1395=1399,1396
+<1396=1398,1397
+<1400=1401
+<1401=1402
+<1402=1406,1403
+<1403=1405,1404
+<1407=1408
+<1408=1410,1409
+<1410=1414,1411
+<1411=1412
+<1412=1413
+<1414=1415
+<1416=1417
+<1418=1419
+<1419=1427,1420
+<1420=1425,1423,1421
+<1421=1422
+<1423=1424
+<1425=1426
+<1427=1428
+<1428=1430,1429
+<1431=1432
+<1432=1438,1433
+<1433=1436,1434
+<1434=1435
+<1436=1437
+<1438=1439
+<1439=1441,1440
+<1442=1443
+<1443=1447,1444
+<1444=1445
+<1445=1446
+<1447=1448
+<1448=1450,1449
+<1451=1452
+<1452=1454,1453
+<1455=1459,1456
+<1456=1458,1457
+<1459=1461,1460
+<1462=1485,1463
+<1463=1464
+<1464=1465
+<1465=1481,1466
+<1466=1467
+<1467=1468
+<1468=1470,1469
+<1470=1471
+<1471=1473,1472
+<1473=1479,1474
+<1474=1475
+<1475=1476
+<1476=1478,1477
+<1479=1480
+<1481=1482
+<1482=1484,1483
+<1485=1486
+<1487=1488
+<1488=1490,1489
+<1491=1492
+<1492=1496,1493
+<1493=1494
+<1494=1495
+<1496=1497
+<1497=1499,1498
+<1500=1501
+<1501=1505,1502
+<1502=1503
+<1503=1504
+<1505=1506
+<1506=1508,1507
+<1509=1510
+<1510=1514,1511
+<1511=1513,1512
+<1515=1516
+<1516=1518,1517
+<1519=1533,1520
+<1520=1525,1521
+<1521=1522
+<1522=1524,1523
+<1525=1526
+<1526=1532,1527
+<1527=1531,1528
+<1528=1530,1529
+<1533=1534
+<1534=1541,1535
+<1535=1537,1536
+<1537=1538
+<1538=1540,1539
+<1542=1543
+<1543=1547,1544
+<1544=1545
+<1545=1546
+<1547=1548
+<1548=1550,1549
+<1551=1552
+<1552=1554,1553
+<1555=1556
+<1556=1560,1557
+<1557=1558
+<1558=1559
+<1560=1561
+<1561=1563,1562
+<1564=1565
+<1565=1570,1569,1566
+<1566=1568,1567
+<1571=1572
+<1572=1582,1581,1573
+<1573=1580,1574
+<1574=1578,1575
+<1575=1576
+<1576=1577
+<1578=1579
+<1583=1584
+<1584=1586,1585
+<1586=1587
+<1587=1589,1588
+<1590=1604,1591
+<1591=1596,1592
+<1592=1593
+<1593=1595,1594
+<1596=1597
+<1597=1603,1598
+<1598=1602,1599
+<1599=1601,1600
+<1604=1605
+<1605=1607,1606
+<1607=1608
+<1608=1610,1609
+<1611=1612
+<1612=1614,1613
+<1614=1616,1615
+<1617=1618
+<1618=1620,1619
+<1621=1622
+<1622=1628,1623
+<1623=1626,1624
+<1624=1625
+<1626=1627
+<1628=1629
+<1629=1631,1630
+<1632=1633
+<1633=1637,1634
+<1634=1636,1635
+<1638=1662,1639
+<1639=1661,1660,1659,1658,1657,1656,1655,1651,1644,1640
+<1640=1641
+<1641=1643,1642
+<1644=1645
+<1645=1647,1646
+<1647=1648
+<1648=1650,1649
+<1651=1652
+<1652=1654,1653
+<1662=1663
+<1663=1665,1664
+<1665=1666
+<1666=1668,1667
+<1669=1670
+<1670=1679,1671
+<1671=1672
+<1672=1673
+<1673=1675,1674
+<1675=1676
+<1676=1678,1677
+<1679=1680
+<1680=1682,1681
+<1683=1684
+<1684=1686,1685
+<1687=1688
+<1688=1690,1689
+<1727=1739,1738,1728
+<1728=1735,1732,1729
+<1729=1731,1730
+<1732=1734,1733
+<1735=1737,1736
+<1739=1906,1902,1888,1860,1854,1843,1839,1833,1812,1805,1799,1795,1786,1772,1766,1755,1749,1742,1740
+<1740=1741
+<1742=1743
+<1743=1745,1744
+<1745=1746
+<1746=1748,1747
+<1749=1750
+<1750=1754,1751
+<1751=1753,1752
+<1755=1756
+<1756=1762,1757
+<1757=1760,1758
+<1758=1759
+<1760=1761
+<1762=1763
+<1763=1765,1764
+<1766=1767
+<1767=1771,1768
+<1768=1770,1769
+<1772=1773
+<1773=1785,1784,1774
+<1774=1783,1775
+<1775=1779,1776
+<1776=1777
+<1777=1778
+<1779=1780
+<1780=1782,1781
+<1786=1787
+<1787=1791,1788
+<1788=1789
+<1789=1790
+<1791=1792
+<1792=1794,1793
+<1795=1796
+<1796=1798,1797
+<1799=1800
+<1800=1804,1801
+<1801=1803,1802
+<1805=1806
+<1806=1808,1807
+<1808=1809
+<1809=1811,1810
+<1812=1826,1813
+<1813=1818,1814
+<1814=1815
+<1815=1817,1816
+<1818=1819
+<1819=1825,1820
+<1820=1824,1821
+<1821=1823,1822
+<1826=1827
+<1827=1829,1828
+<1829=1830
+<1830=1832,1831
+<1833=1834
+<1834=1836,1835
+<1836=1838,1837
+<1839=1840
+<1840=1842,1841
+<1843=1844
+<1844=1850,1845
+<1845=1848,1846
+<1846=1847
+<1848=1849
+<1850=1851
+<1851=1853,1852
+<1854=1855
+<1855=1859,1856
+<1856=1858,1857
+<1860=1881,1861
+<1861=1873,1866,1862
+<1862=1863
+<1863=1865,1864
+<1866=1867
+<1867=1869,1868
+<1869=1870
+<1870=1872,1871
+<1873=1874
+<1874=1880,1875
+<1875=1879,1876
+<1876=1878,1877
+<1881=1882
+<1882=1884,1883
+<1884=1885
+<1885=1887,1886
+<1888=1889
+<1889=1898,1890
+<1890=1891
+<1891=1892
+<1892=1894,1893
+<1894=1895
+<1895=1897,1896
+<1898=1899
+<1899=1901,1900
+<1902=1903
+<1903=1905,1904
+<1906=1907
+<1907=1909,1908
+<1927=1945,1944,1928
+<1928=1941,1938,1935,1932,1929
+<1929=1931,1930
+<1932=1934,1933
+<1935=1937,1936
+<1938=1940,1939
+<1941=1943,1942
+<1945=2452,2448,2434,2406,2400,2389,2385,2379,2358,2351,2340,2336,2330,2309,2302,2296,2292,2288,2275,2271,2021,2011,1955,1948,1946
+<1946=1947
+<1948=1949
+<1949=1951,1950
+<1951=1952
+<1952=1954,1953
+<1955=2003,1997,1994,1956
+<1956=1961,1957
+<1957=1958
+<1958=1960,1959
+<1961=1986,1980,1977,1962
+<1962=1963
+<1963=1964
+<1964=1972,1965
+<1965=1971,1966
+<1966=1968,1967
+<1968=1970,1969
+<1972=1976,1973
+<1973=1975,1974
+<1977=1979,1978
+<1980=1981
+<1981=1985,1982
+<1982=1984,1983
+<1986=1987
+<1987=1988
+<1988=1993,1992,1989
+<1989=1991,1990
+<1994=1996,1995
+<1997=1998
+<1998=2002,1999
+<1999=2001,2000
+<2003=2004
+<2004=2005
+<2005=2010,2009,2006
+<2006=2008,2007
+<2011=2012
+<2012=2020,2019,2013
+<2013=2015,2014
+<2015=2016
+<2016=2018,2017
+<2021=2267,2184,2022
+<2022=2023
+<2023=2024
+<2024=2176,2170,2167,2025
+<2025=2160,2142,2135,2046,2026
+<2026=2044,2027
+<2027=2028
+<2028=2029
+<2029=2040,2030
+<2030=2031
+<2031=2032
+<2032=2036,2033
+<2033=2034
+<2034=2035
+<2036=2037
+<2037=2039,2038
+<2040=2041
+<2041=2043,2042
+<2044=2045
+<2046=2126,2117,2114,2047
+<2047=2067,2048
+<2048=2054,2049
+<2049=2050
+<2050=2051
+<2051=2053,2052
+<2054=2055
+<2055=2064,2056
+<2056=2058,2057
+<2058=2060,2059
+<2060=2061
+<2061=2063,2062
+<2064=2066,2065
+<2067=2108,2086,2068
+<2068=2069
+<2069=2070
+<2070=2071
+<2071=2075,2072
+<2072=2074,2073
+<2075=2083,2076
+<2076=2082,2077
+<2077=2081,2078
+<2078=2080,2079
+<2083=2085,2084
+<2086=2087
+<2087=2088
+<2088=2092,2089
+<2089=2091,2090
+<2092=2105,2093
+<2093=2104,2094
+<2094=2103,2095
+<2095=2097,2096
+<2097=2099,2098
+<2099=2100
+<2100=2102,2101
+<2105=2107,2106
+<2108=2109
+<2109=2111,2110
+<2111=2113,2112
+<2114=2116,2115
+<2117=2118
+<2118=2125,2119
+<2119=2121,2120
+<2121=2122
+<2122=2124,2123
+<2126=2127
+<2127=2134,2128
+<2128=2130,2129
+<2130=2131
+<2131=2133,2132
+<2135=2136
+<2136=2141,2140,2137
+<2137=2139,2138
+<2142=2143
+<2143=2156,2144
+<2144=2147,2145
+<2145=2146
+<2147=2148
+<2148=2152,2149
+<2149=2150
+<2150=2151
+<2152=2153
+<2153=2155,2154
+<2156=2157
+<2157=2159,2158
+<2160=2161
+<2161=2163,2162
+<2163=2164
+<2164=2166,2165
+<2167=2169,2168
+<2170=2171
+<2171=2175,2172
+<2172=2174,2173
+<2176=2177
+<2177=2178
+<2178=2183,2182,2179
+<2179=2181,2180
+<2184=2254,2185
+<2185=2245,2236,2233,2186
+<2186=2187
+<2187=2227,2208,2188
+<2188=2189
+<2189=2190
+<2190=2191
+<2191=2195,2192
+<2192=2194,2193
+<2195=2205,2196
+<2196=2204,2197
+<2197=2201,2198
+<2198=2200,2199
+<2201=2203,2202
+<2205=2207,2206
+<2208=2209
+<2209=2210
+<2210=2214,2211
+<2211=2213,2212
+<2214=2224,2215
+<2215=2223,2216
+<2216=2220,2217
+<2217=2219,2218
+<2220=2222,2221
+<2224=2226,2225
+<2227=2228
+<2228=2230,2229
+<2230=2232,2231
+<2233=2235,2234
+<2236=2237
+<2237=2244,2238
+<2238=2240,2239
+<2240=2241
+<2241=2243,2242
+<2245=2246
+<2246=2253,2247
+<2247=2249,2248
+<2249=2250
+<2250=2252,2251
+<2254=2255
+<2255=2263,2256
+<2256=2261,2259,2257
+<2257=2258
+<2259=2260
+<2261=2262
+<2263=2264
+<2264=2266,2265
+<2267=2268
+<2268=2270,2269
+<2271=2272
+<2272=2274,2273
+<2275=2276
+<2276=2287,2286,2277
+<2277=2283,2278
+<2278=2280,2279
+<2280=2282,2281
+<2283=2285,2284
+<2288=2289
+<2289=2291,2290
+<2292=2293
+<2293=2295,2294
+<2296=2297
+<2297=2301,2298
+<2298=2300,2299
+<2302=2303
+<2303=2305,2304
+<2305=2306
+<2306=2308,2307
+<2309=2323,2310
+<2310=2315,2311
+<2311=2312
+<2312=2314,2313
+<2315=2316
+<2316=2322,2317
+<2317=2321,2318
+<2318=2320,2319
+<2323=2324
+<2324=2326,2325
+<2326=2327
+<2327=2329,2328
+<2330=2331
+<2331=2333,2332
+<2333=2335,2334
+<2336=2337
+<2337=2339,2338
+<2340=2341
+<2341=2347,2342
+<2342=2345,2343
+<2343=2344
+<2345=2346
+<2347=2348
+<2348=2350,2349
+<2351=2352
+<2352=2354,2353
+<2354=2355
+<2355=2357,2356
+<2358=2372,2359
+<2359=2364,2360
+<2360=2361
+<2361=2363,2362
+<2364=2365
+<2365=2371,2366
+<2366=2370,2367
+<2367=2369,2368
+<2372=2373
+<2373=2375,2374
+<2375=2376
+<2376=2378,2377
+<2379=2380
+<2380=2382,2381
+<2382=2384,2383
+<2385=2386
+<2386=2388,2387
+<2389=2390
+<2390=2396,2391
+<2391=2394,2392
+<2392=2393
+<2394=2395
+<2396=2397
+<2397=2399,2398
+<2400=2401
+<2401=2405,2402
+<2402=2404,2403
+<2406=2427,2407
+<2407=2419,2412,2408
+<2408=2409
+<2409=2411,2410
+<2412=2413
+<2413=2415,2414
+<2415=2416
+<2416=2418,2417
+<2419=2420
+<2420=2426,2421
+<2421=2425,2422
+<2422=2424,2423
+<2427=2428
+<2428=2430,2429
+<2430=2431
+<2431=2433,2432
+<2434=2435
+<2435=2444,2436
+<2436=2437
+<2437=2438
+<2438=2440,2439
+<2440=2441
+<2441=2443,2442
+<2444=2445
+<2445=2447,2446
+<2448=2449
+<2449=2451,2450
+<2452=2453
+<2453=2455,2454
+<2497=2503,2502,2498
+<2498=2499
+<2499=2501,2500
+<2503=2881,2870,2863,2506,2504
+<2504=2505
+<2506=2859,2800,2507
+<2507=2508
+<2508=2796,2520,2509
+<2509=2510
+<2510=2519,2518,2517,2516,2515,2511
+<2511=2512
+<2512=2514,2513
+<2520=2521
+<2521=2792,2749,2522
+<2522=2523
+<2523=2745,2722,2524
+<2524=2525
+<2525=2718,2667,2526
+<2526=2527
+<2527=2663,2620,2528
+<2528=2529
+<2529=2616,2541,2530
+<2530=2531
+<2531=2540,2539,2538,2537,2536,2532
+<2532=2533
+<2533=2535,2534
+<2541=2542
+<2542=2543
+<2543=2615,2544
+<2544=2608,2545
+<2545=2601,2546
+<2546=2594,2547
+<2547=2587,2548
+<2548=2580,2549
+<2549=2573,2550
+<2550=2566,2551
+<2551=2559,2552
+<2552=2554,2553
+<2554=2556,2555
+<2556=2558,2557
+<2559=2561,2560
+<2561=2563,2562
+<2563=2565,2564
+<2566=2568,2567
+<2568=2570,2569
+<2570=2572,2571
+<2573=2575,2574
+<2575=2577,2576
+<2577=2579,2578
+<2580=2582,2581
+<2582=2584,2583
+<2584=2586,2585
+<2587=2589,2588
+<2589=2591,2590
+<2591=2593,2592
+<2594=2596,2595
+<2596=2598,2597
+<2598=2600,2599
+<2601=2603,2602
+<2603=2605,2604
+<2605=2607,2606
+<2608=2610,2609
+<2610=2612,2611
+<2612=2614,2613
+<2616=2617
+<2617=2619,2618
+<2620=2621
+<2621=2622
+<2622=2662,2623
+<2623=2655,2624
+<2624=2648,2625
+<2625=2641,2626
+<2626=2634,2627
+<2627=2629,2628
+<2629=2631,2630
+<2631=2633,2632
+<2634=2636,2635
+<2636=2638,2637
+<2638=2640,2639
+<2641=2643,2642
+<2643=2645,2644
+<2645=2647,2646
+<2648=2650,2649
+<2650=2652,2651
+<2652=2654,2653
+<2655=2657,2656
+<2657=2659,2658
+<2659=2661,2660
+<2663=2664
+<2664=2666,2665
+<2667=2668
+<2668=2669
+<2669=2717,2670
+<2670=2710,2671
+<2671=2703,2672
+<2672=2696,2673
+<2673=2685,2674
+<2674=2676,2675
+<2676=2684,2677
+<2677=2679,2678
+<2679=2681,2680
+<2681=2683,2682
+<2685=2687,2686
+<2687=2695,2688
+<2688=2690,2689
+<2690=2692,2691
+<2692=2694,2693
+<2696=2698,2697
+<2698=2700,2699
+<2700=2702,2701
+<2703=2705,2704
+<2705=2707,2706
+<2707=2709,2708
+<2710=2712,2711
+<2712=2714,2713
+<2714=2716,2715
+<2718=2719
+<2719=2721,2720
+<2722=2723
+<2723=2724
+<2724=2744,2725
+<2725=2737,2726
+<2726=2728,2727
+<2728=2736,2729
+<2729=2731,2730
+<2731=2733,2732
+<2733=2735,2734
+<2737=2739,2738
+<2739=2741,2740
+<2741=2743,2742
+<2745=2746
+<2746=2748,2747
+<2749=2750
+<2750=2751
+<2751=2791,2752
+<2752=2784,2753
+<2753=2777,2754
+<2754=2770,2755
+<2755=2763,2756
+<2756=2758,2757
+<2758=2760,2759
+<2760=2762,2761
+<2763=2765,2764
+<2765=2767,2766
+<2767=2769,2768
+<2770=2772,2771
+<2772=2774,2773
+<2774=2776,2775
+<2777=2779,2778
+<2779=2781,2780
+<2781=2783,2782
+<2784=2786,2785
+<2786=2788,2787
+<2788=2790,2789
+<2792=2793
+<2793=2795,2794
+<2796=2797
+<2797=2799,2798
+<2800=2801
+<2801=2847,2837,2802
+<2802=2803
+<2803=2804
+<2804=2805
+<2805=2836,2806
+<2806=2830,2807
+<2807=2823,2808
+<2808=2816,2809
+<2809=2811,2810
+<2811=2813,2812
+<2813=2815,2814
+<2816=2818,2817
+<2818=2820,2819
+<2820=2822,2821
+<2823=2825,2824
+<2825=2827,2826
+<2827=2829,2828
+<2830=2834,2831
+<2831=2832
+<2832=2833
+<2834=2835
+<2837=2846,2845,2844,2843,2842,2838
+<2838=2839
+<2839=2841,2840
+<2847=2848
+<2848=2856,2849
+<2849=2853,2850
+<2850=2852,2851
+<2853=2855,2854
+<2856=2858,2857
+<2859=2860
+<2860=2862,2861
+<2863=2864
+<2864=2869,2868,2865
+<2865=2867,2866
+<2870=2871
+<2871=2880,2879,2872
+<2872=2878,2873
+<2873=2875,2874
+<2875=2877,2876
+<2881=2882
+<2882=2891,2890,2883
+<2883=2889,2884
+<2884=2886,2885
+<2886=2888,2887
+<2904=2910,2909,2905
+<2905=2906
+<2906=2908,2907
+<2910=3036,3029,2913,2911
+<2911=2912
+<2913=3025,2982,2914
+<2914=2915
+<2915=2978,2927,2916
+<2916=2917
+<2917=2926,2925,2924,2923,2922,2918
+<2918=2919
+<2919=2921,2920
+<2927=2928
+<2928=2929
+<2929=2977,2930
+<2930=2970,2931
+<2931=2963,2932
+<2932=2956,2933
+<2933=2945,2934
+<2934=2936,2935
+<2936=2944,2937
+<2937=2939,2938
+<2939=2941,2940
+<2941=2943,2942
+<2945=2947,2946
+<2947=2955,2948
+<2948=2950,2949
+<2950=2952,2951
+<2952=2954,2953
+<2956=2958,2957
+<2958=2960,2959
+<2960=2962,2961
+<2963=2965,2964
+<2965=2967,2966
+<2967=2969,2968
+<2970=2972,2971
+<2972=2974,2973
+<2974=2976,2975
+<2978=2979
+<2979=2981,2980
+<2982=2983
+<2983=2984
+<2984=3024,2985
+<2985=3017,2986
+<2986=3010,2987
+<2987=3003,2988
+<2988=2996,2989
+<2989=2991,2990
+<2991=2993,2992
+<2993=2995,2994
+<2996=2998,2997
+<2998=3000,2999
+<3000=3002,3001
+<3003=3005,3004
+<3005=3007,3006
+<3007=3009,3008
+<3010=3012,3011
+<3012=3014,3013
+<3014=3016,3015
+<3017=3019,3018
+<3019=3021,3020
+<3021=3023,3022
+<3025=3026
+<3026=3028,3027
+<3029=3030
+<3030=3035,3034,3031
+<3031=3033,3032
+<3036=3037
+<3037=3046,3045,3038
+<3038=3044,3039
+<3039=3041,3040
+<3041=3043,3042
+<3057=3063,3062,3058
+<3058=3059
+<3059=3061,3060
+<3063=3468,3457,3446,3440,3429,3425,3419,3400,3393,3387,3376,3372,3366,3347,3340,3329,3318,3307,3300,3284,3268,3260,3256,3245,3075,3066,3064
+<3064=3065
+<3066=3067
+<3067=3071,3068
+<3068=3069
+<3069=3070
+<3071=3072
+<3072=3074,3073
+<3075=3241,3216,3076
+<3076=3077
+<3077=3212,3179,3078
+<3078=3079
+<3079=3175,3118,3080
+<3080=3081
+<3081=3114,3095,3082
+<3082=3083
+<3083=3094,3093,3092,3091,3090,3086,3084
+<3084=3085
+<3086=3087
+<3087=3089,3088
+<3095=3096
+<3096=3097
+<3097=3113,3098
+<3098=3112,3099
+<3099=3107,3100
+<3100=3102,3101
+<3102=3104,3103
+<3104=3106,3105
+<3107=3109,3108
+<3109=3111,3110
+<3114=3115
+<3115=3117,3116
+<3118=3119
+<3119=3120
+<3120=3174,3121
+<3121=3173,3122
+<3122=3168,3123
+<3123=3163,3124
+<3124=3162,3125
+<3125=3157,3126
+<3126=3150,3127
+<3127=3143,3128
+<3128=3136,3129
+<3129=3131,3130
+<3131=3133,3132
+<3133=3135,3134
+<3136=3138,3137
+<3138=3140,3139
+<3140=3142,3141
+<3143=3145,3144
+<3145=3147,3146
+<3147=3149,3148
+<3150=3152,3151
+<3152=3154,3153
+<3154=3156,3155
+<3157=3159,3158
+<3159=3161,3160
+<3163=3165,3164
+<3165=3167,3166
+<3168=3170,3169
+<3170=3172,3171
+<3175=3176
+<3176=3178,3177
+<3179=3180
+<3180=3181
+<3181=3211,3182
+<3182=3210,3183
+<3183=3205,3184
+<3184=3200,3185
+<3185=3199,3186
+<3186=3194,3187
+<3187=3189,3188
+<3189=3191,3190
+<3191=3193,3192
+<3194=3196,3195
+<3196=3198,3197
+<3200=3202,3201
+<3202=3204,3203
+<3205=3207,3206
+<3207=3209,3208
+<3212=3213
+<3213=3215,3214
+<3216=3217
+<3217=3218
+<3218=3240,3219
+<3219=3239,3220
+<3220=3234,3221
+<3221=3229,3222
+<3222=3228,3223
+<3223=3225,3224
+<3225=3227,3226
+<3229=3231,3230
+<3231=3233,3232
+<3234=3236,3235
+<3236=3238,3237
+<3241=3242
+<3242=3244,3243
+<3245=3246
+<3246=3255,3254,3247
+<3247=3253,3248
+<3248=3250,3249
+<3250=3252,3251
+<3256=3257
+<3257=3259,3258
+<3260=3266,3261
+<3261=3262
+<3262=3263
+<3263=3265,3264
+<3266=3267
+<3268=3280,3275,3269
+<3269=3270
+<3270=3271
+<3271=3272
+<3272=3274,3273
+<3275=3276
+<3276=3277
+<3277=3279,3278
+<3280=3281
+<3281=3283,3282
+<3284=3296,3291,3285
+<3285=3286
+<3286=3287
+<3287=3288
+<3288=3290,3289
+<3291=3292
+<3292=3293
+<3293=3295,3294
+<3296=3297
+<3297=3299,3298
+<3300=3301
+<3301=3306,3305,3302
+<3302=3304,3303
+<3307=3308
+<3308=3317,3316,3309
+<3309=3315,3310
+<3310=3312,3311
+<3312=3314,3313
+<3318=3319
+<3319=3328,3327,3320
+<3320=3326,3321
+<3321=3323,3322
+<3323=3325,3324
+<3329=3330
+<3330=3339,3338,3331
+<3331=3337,3332
+<3332=3334,3333
+<3334=3336,3335
+<3340=3341
+<3341=3343,3342
+<3343=3344
+<3344=3346,3345
+<3347=3359,3348
+<3348=3351,3349
+<3349=3350
+<3351=3352
+<3352=3358,3353
+<3353=3357,3354
+<3354=3356,3355
+<3359=3360
+<3360=3362,3361
+<3362=3363
+<3363=3365,3364
+<3366=3367
+<3367=3369,3368
+<3369=3371,3370
+<3372=3373
+<3373=3375,3374
+<3376=3377
+<3377=3383,3378
+<3378=3381,3379
+<3379=3380
+<3381=3382
+<3383=3384
+<3384=3386,3385
+<3387=3388
+<3388=3392,3389
+<3389=3391,3390
+<3393=3394
+<3394=3396,3395
+<3396=3397
+<3397=3399,3398
+<3400=3412,3401
+<3401=3404,3402
+<3402=3403
+<3404=3405
+<3405=3411,3406
+<3406=3410,3407
+<3407=3409,3408
+<3412=3413
+<3413=3415,3414
+<3415=3416
+<3416=3418,3417
+<3419=3420
+<3420=3422,3421
+<3422=3424,3423
+<3425=3426
+<3426=3428,3427
+<3429=3430
+<3430=3436,3431
+<3431=3434,3432
+<3432=3433
+<3434=3435
+<3436=3437
+<3437=3439,3438
+<3440=3441
+<3441=3445,3442
+<3442=3444,3443
+<3446=3447
+<3447=3456,3455,3448
+<3448=3454,3449
+<3449=3451,3450
+<3451=3453,3452
+<3457=3458
+<3458=3467,3466,3459
+<3459=3465,3460
+<3460=3462,3461
+<3462=3464,3463
+<3468=3469
+<3469=3471,3470
+<3499=3511,3510,3500
+<3500=3507,3504,3501
+<3501=3503,3502
+<3504=3506,3505
+<3507=3509,3508
+<3511=4005,3994,3983,3971,3964,3936,3920,3904,3737,3730,3726,3722,3703,3699,3695,3676,3512
+<3512=3661,3657,3654,3513
+<3513=3585,3572,3566,3560,3539,3514
+<3514=3535,3515
+<3515=3516
+<3516=3517
+<3517=3533,3518
+<3518=3531,3529,3527,3525,3523,3521,3519
+<3519=3520
+<3521=3522
+<3523=3524
+<3525=3526
+<3527=3528
+<3529=3530
+<3531=3532
+<3533=3534
+<3535=3536
+<3536=3538,3537
+<3539=3540
+<3540=3559,3541
+<3541=3558,3542
+<3542=3557,3543
+<3543=3545,3544
+<3545=3556,3546
+<3546=3548,3547
+<3548=3552,3549
+<3549=3550
+<3550=3551
+<3552=3553
+<3553=3555,3554
+<3560=3561
+<3561=3563,3562
+<3563=3565,3564
+<3566=3567
+<3567=3569,3568
+<3569=3571,3570
+<3572=3573
+<3573=3584,3574
+<3574=3576,3575
+<3576=3580,3577
+<3577=3578
+<3578=3579
+<3580=3581
+<3581=3583,3582
+<3585=3650,3586
+<3586=3624,3613,3600,3587
+<3587=3588
+<3588=3599,3589
+<3589=3597,3590
+<3590=3595,3593,3591
+<3591=3592
+<3593=3594
+<3595=3596
+<3597=3598
+<3600=3601
+<3601=3612,3602
+<3602=3610,3603
+<3603=3604
+<3604=3605
+<3605=3609,3606
+<3606=3608,3607
+<3610=3611
+<3613=3614
+<3614=3623,3615
+<3615=3621,3616
+<3616=3617
+<3617=3618
+<3618=3620,3619
+<3621=3622
+<3624=3625
+<3625=3649,3626
+<3626=3647,3627
+<3627=3630,3628
+<3628=3629
+<3630=3631
+<3631=3635,3632
+<3632=3634,3633
+<3635=3637,3636
+<3637=3639,3638
+<3639=3643,3640
+<3640=3641
+<3641=3642
+<3643=3644
+<3644=3646,3645
+<3647=3648
+<3650=3651
+<3651=3653,3652
+<3654=3656,3655
+<3657=3658
+<3658=3660,3659
+<3661=3662
+<3662=3663
+<3663=3675,3674,3664
+<3664=3673,3665
+<3665=3667,3666
+<3667=3669,3668
+<3669=3670
+<3670=3672,3671
+<3676=3691,3677
+<3677=3678
+<3678=3679
+<3679=3690,3680
+<3680=3688,3681
+<3681=3686,3684,3682
+<3682=3683
+<3684=3685
+<3686=3687
+<3688=3689
+<3691=3692
+<3692=3694,3693
+<3695=3696
+<3696=3698,3697
+<3699=3700
+<3700=3702,3701
+<3703=3716,3710,3704
+<3704=3709,3708,3705
+<3705=3707,3706
+<3710=3715,3714,3711
+<3711=3713,3712
+<3716=3721,3720,3717
+<3717=3719,3718
+<3722=3723
+<3723=3725,3724
+<3726=3727
+<3727=3729,3728
+<3730=3731
+<3731=3736,3735,3732
+<3732=3734,3733
+<3737=3895,3738
+<3738=3888,3881,3771,3755,3739
+<3739=3740
+<3740=3751,3741
+<3741=3742
+<3742=3743
+<3743=3745,3744
+<3745=3747,3746
+<3747=3748
+<3748=3750,3749
+<3751=3752
+<3752=3754,3753
+<3755=3756
+<3756=3767,3757
+<3757=3758
+<3758=3759
+<3759=3763,3760
+<3760=3761
+<3761=3762
+<3763=3764
+<3764=3766,3765
+<3767=3768
+<3768=3770,3769
+<3771=3873,3864,3861,3772
+<3772=3829,3801,3773
+<3773=3788,3774
+<3774=3775
+<3775=3776
+<3776=3787,3777
+<3777=3779,3778
+<3779=3783,3780
+<3780=3781
+<3781=3782
+<3783=3784
+<3784=3786,3785
+<3788=3789
+<3789=3791,3790
+<3791=3793,3792
+<3793=3797,3794
+<3794=3795
+<3795=3796
+<3797=3798
+<3798=3800,3799
+<3801=3816,3802
+<3802=3803
+<3803=3804
+<3804=3815,3805
+<3805=3807,3806
+<3807=3811,3808
+<3808=3809
+<3809=3810
+<3811=3812
+<3812=3814,3813
+<3816=3817
+<3817=3819,3818
+<3819=3821,3820
+<3821=3825,3822
+<3822=3823
+<3823=3824
+<3825=3826
+<3826=3828,3827
+<3829=3848,3830
+<3830=3835,3831
+<3831=3832
+<3832=3834,3833
+<3835=3836
+<3836=3847,3837
+<3837=3839,3838
+<3839=3843,3840
+<3840=3841
+<3841=3842
+<3843=3844
+<3844=3846,3845
+<3848=3849
+<3849=3851,3850
+<3851=3853,3852
+<3853=3857,3854
+<3854=3855
+<3855=3856
+<3857=3858
+<3858=3860,3859
+<3861=3863,3862
+<3864=3865
+<3865=3872,3866
+<3866=3868,3867
+<3868=3869
+<3869=3871,3870
+<3873=3874
+<3874=3875
+<3875=3880,3879,3876
+<3876=3878,3877
+<3881=3882
+<3882=3887,3886,3883
+<3883=3885,3884
+<3888=3889
+<3889=3894,3893,3890
+<3890=3892,3891
+<3895=3896
+<3896=3898,3897
+<3898=3900,3899
+<3900=3901
+<3901=3903,3902
+<3904=3905
+<3905=3919,3918,3906
+<3906=3917,3907
+<3907=3909,3908
+<3909=3913,3910
+<3910=3911
+<3911=3912
+<3913=3914
+<3914=3916,3915
+<3920=3921
+<3921=3935,3934,3922
+<3922=3933,3923
+<3923=3925,3924
+<3925=3929,3926
+<3926=3927
+<3927=3928
+<3929=3930
+<3930=3932,3931
+<3936=3937
+<3937=3960,3938
+<3938=3953,3946,3939
+<3939=3940
+<3940=3942,3941
+<3942=3943
+<3943=3945,3944
+<3946=3947
+<3947=3949,3948
+<3949=3950
+<3950=3952,3951
+<3953=3954
+<3954=3956,3955
+<3956=3957
+<3957=3959,3958
+<3960=3961
+<3961=3963,3962
+<3964=3968,3965
+<3965=3967,3966
+<3968=3970,3969
+<3971=3974,3972
+<3972=3973
+<3974=3975
+<3975=3977,3976
+<3977=3979,3978
+<3979=3980
+<3980=3982,3981
+<3983=3984
+<3984=3992,3985
+<3985=3990,3988,3986
+<3986=3987
+<3988=3989
+<3990=3991
+<3992=3993
+<3994=3995
+<3995=4003,3996
+<3996=4001,3999,3997
+<3997=3998
+<3999=4000
+<4001=4002
+<4003=4004
+<4005=4006
+<4006=4008,4007
+<4053=4065,4064,4054
+<4054=4061,4058,4055
+<4055=4057,4056
+<4058=4060,4059
+<4061=4063,4062
+<4065=4175,4168,4106,4066
+<4066=4091,4067
+<4067=4068
+<4068=4069
+<4069=4087,4070
+<4070=4078,4071
+<4071=4072
+<4072=4074,4073
+<4074=4075
+<4075=4077,4076
+<4078=4079
+<4079=4081,4080
+<4081=4083,4082
+<4083=4084
+<4084=4086,4085
+<4087=4088
+<4088=4090,4089
+<4091=4092
+<4092=4103,4093
+<4093=4095,4094
+<4095=4102,4096
+<4096=4098,4097
+<4098=4099
+<4099=4101,4100
+<4103=4105,4104
+<4106=4160,4151,4148,4107
+<4107=4108
+<4108=4130,4109
+<4109=4114,4110
+<4110=4111
+<4111=4113,4112
+<4114=4115
+<4115=4126,4116
+<4116=4117
+<4117=4118
+<4118=4120,4119
+<4120=4122,4121
+<4122=4123
+<4123=4125,4124
+<4126=4127
+<4127=4129,4128
+<4130=4131
+<4131=4138,4132
+<4132=4136,4133
+<4133=4134
+<4134=4135
+<4136=4137
+<4138=4140,4139
+<4140=4144,4141
+<4141=4142
+<4142=4143
+<4144=4145
+<4145=4147,4146
+<4148=4150,4149
+<4151=4152
+<4152=4159,4153
+<4153=4155,4154
+<4155=4156
+<4156=4158,4157
+<4160=4161
+<4161=4162
+<4162=4167,4166,4163
+<4163=4165,4164
+<4168=4169
+<4169=4173,4170
+<4170=4171
+<4171=4172
+<4173=4174
+<4175=4178,4176
+<4176=4177
+<4178=4179
+<4179=4181,4180
+<4195=4201,4200,4196
+<4196=4197
+<4197=4199,4198
+<4201=4371,4367,4351,4211,4202
+<4202=4203
+<4203=4207,4204
+<4204=4205
+<4205=4206
+<4207=4208
+<4208=4210,4209
+<4211=4343,4334,4331,4212
+<4212=4324,4317,4235,4213
+<4213=4231,4214
+<4214=4215
+<4215=4216
+<4216=4227,4217
+<4217=4218
+<4218=4219
+<4219=4223,4220
+<4220=4221
+<4221=4222
+<4223=4224
+<4224=4226,4225
+<4227=4228
+<4228=4230,4229
+<4231=4232
+<4232=4234,4233
+<4235=4304,4236
+<4236=4241,4237
+<4237=4238
+<4238=4240,4239
+<4241=4272,4242
+<4242=4247,4243
+<4243=4244
+<4244=4246,4245
+<4247=4248
+<4248=4268,4249
+<4249=4259,4250
+<4250=4251
+<4251=4255,4252
+<4252=4253
+<4253=4254
+<4255=4256
+<4256=4258,4257
+<4259=4260
+<4260=4262,4261
+<4262=4264,4263
+<4264=4265
+<4265=4267,4266
+<4268=4269
+<4269=4271,4270
+<4272=4273
+<4273=4289,4274
+<4274=4287,4275
+<4275=4276
+<4276=4277
+<4277=4279,4278
+<4279=4283,4280
+<4280=4281
+<4281=4282
+<4283=4284
+<4284=4286,4285
+<4287=4288
+<4289=4302,4290
+<4290=4291
+<4291=4292
+<4292=4294,4293
+<4294=4298,4295
+<4295=4296
+<4296=4297
+<4298=4299
+<4299=4301,4300
+<4302=4303
+<4304=4305
+<4305=4309,4306
+<4306=4308,4307
+<4309=4316,4310
+<4310=4312,4311
+<4312=4313
+<4313=4315,4314
+<4317=4318
+<4318=4323,4322,4319
+<4319=4321,4320
+<4324=4325
+<4325=4330,4329,4326
+<4326=4328,4327
+<4331=4333,4332
+<4334=4335
+<4335=4342,4336
+<4336=4338,4337
+<4338=4339
+<4339=4341,4340
+<4343=4344
+<4344=4345
+<4345=4350,4349,4346
+<4346=4348,4347
+<4351=4352
+<4352=4363,4353
+<4353=4354
+<4354=4355
+<4355=4359,4356
+<4356=4357
+<4357=4358
+<4359=4360
+<4360=4362,4361
+<4363=4364
+<4364=4366,4365
+<4367=4368
+<4368=4370,4369
+<4371=4374,4372
+<4372=4373
+<4374=4375
+<4375=4377,4376
+<4377=4379,4378
+<4379=4380
+<4380=4382,4381

@@ -1,0 +1,1201 @@
+>3	FunctionDef	operator == (const StringStorageElement & other)
+>4	ParameterList	const StringStorageElement & other
+>5	Parameter	 
+>6	Identifier	other
+>7	ParameterType	const StringStorageElement &
+>8	CompoundStatement	 
+>9	ReturnStatement	 
+>10	OrExpression	( hash == other . hash ) || ( value == other . value )
+>11	EqualityExpression	value == other . value
+>12	MemberAccess	other . value
+>13	Identifier	value
+>14	Identifier	other
+>15	Identifier	value
+>16	EqualityExpression	hash == other . hash
+>17	MemberAccess	other . hash
+>18	Identifier	hash
+>19	Identifier	other
+>20	Identifier	hash
+>29	FunctionDef	operator ( ) (const StringStorageElement & sse)
+>30	ParameterList	const StringStorageElement & sse
+>31	Parameter	 
+>32	Identifier	sse
+>33	ParameterType	const StringStorageElement &
+>34	ReturnType	std 
+>35	CompoundStatement	 
+>36	ReturnStatement	 
+>37	MemberAccess	sse . hash
+>38	Identifier	hash
+>39	Identifier	sse
+>45	FunctionDef	operator ( ) (const string & str , const StringStorageElement & sse)
+>46	ParameterList	const string & str , const StringStorageElement & sse
+>47	Parameter	 
+>48	Identifier	sse
+>49	ParameterType	const StringStorageElement &
+>50	Parameter	 
+>51	Identifier	str
+>52	ParameterType	const string &
+>53	ReturnType	bool
+>54	CompoundStatement	 
+>55	ReturnStatement	 
+>56	EqualityExpression	sse . value == str
+>57	Identifier	str
+>58	MemberAccess	sse . value
+>59	Identifier	value
+>60	Identifier	sse
+>67	FunctionDef	CachedString 
+>68	ParameterList	const StringStorageElement & other
+>69	Parameter	 
+>70	Identifier	other
+>71	ParameterType	const StringStorageElement &
+>72	CompoundStatement	 
+>78	FunctionDef	Inst ()
+>79	ParameterList	 
+>80	ReturnType	static StringStorage &
+>81	CompoundStatement	 
+>82	ReturnStatement	 
+>83	Identifier	inst
+>84	IdentifierDeclStatement	 
+>85	IdentifierDecl	inst
+>86	Identifier	inst
+>87	IdentifierDeclType	StringStorage
+>88	Statement	 
+>93	FunctionDef	shutdown ()
+>94	ParameterList	 
+>95	ReturnType	void
+>96	CompoundStatement	 
+>97	ExpressionStatement	 
+>98	CallExpression	storage . clear ( )
+>99	ArgumentList	 
+>100	Callee	storage . clear
+>101	MemberAccess	storage . clear
+>102	Identifier	clear
+>103	Identifier	storage
+>104	ExpressionStatement	 
+>105	AssignmentExpr	emptyString = nullptr
+>106	Identifier	nullptr
+>107	Identifier	emptyString
+>114	FunctionDef	getEmptyString ()
+>115	ParameterList	 
+>116	ReturnType	const StringStorageElement *
+>117	CompoundStatement	 
+>118	ReturnStatement	 
+>119	Identifier	emptyString
+>124	FunctionDef	resolveString (const string & str)
+>125	ParameterList	const string & str
+>126	Parameter	 
+>127	Identifier	str
+>128	ParameterType	const string &
+>129	ReturnType	const StringStorageElement *
+>130	CompoundStatement	 
+>131	ReturnStatement	 
+>132	UnaryOp	& ( * it )
+>133	UnaryOp	* it
+>134	Identifier	it
+>135	UnaryOperator	*
+>136	UnaryOperator	&
+>137	IfStatement	if ( it == storage . end ( ) )
+>138	CompoundStatement	 
+>139	ExpressionStatement	 
+>140	AssignmentExpr	it = storage . insert ( StringStorageElement ( str ) ) . first
+>141	MemberAccess	storage . insert ( StringStorageElement ( str ) ) . first
+>142	Identifier	first
+>143	CallExpression	storage . insert ( StringStorageElement ( str ) )
+>144	ArgumentList	StringStorageElement ( str )
+>145	Argument	StringStorageElement ( str )
+>146	CallExpression	StringStorageElement ( str )
+>147	ArgumentList	str
+>148	Argument	str
+>149	Identifier	str
+>150	Callee	StringStorageElement
+>151	Identifier	StringStorageElement
+>152	Callee	storage . insert
+>153	MemberAccess	storage . insert
+>154	Identifier	insert
+>155	Identifier	storage
+>156	Identifier	it
+>157	IdentifierDeclStatement	 
+>158	IdentifierDecl	unique ( guard )
+>159	Identifier	guard
+>160	Identifier	unique
+>161	IdentifierDeclType	boost 
+>162	Condition	 
+>163	EqualityExpression	it == storage . end ( )
+>164	CallExpression	storage . end ( )
+>165	ArgumentList	 
+>166	Callee	storage . end
+>167	MemberAccess	storage . end
+>168	Identifier	end
+>169	Identifier	storage
+>170	Identifier	it
+>171	ExpressionStatement	 
+>172	AssignmentExpr	it = storage . find ( str , stringStorageElementHasher , stringComperator )
+>173	CallExpression	storage . find ( str , stringStorageElementHasher , stringComperator )
+>174	ArgumentList	str
+>175	Argument	stringComperator
+>176	Identifier	stringComperator
+>177	Argument	stringStorageElementHasher
+>178	Identifier	stringStorageElementHasher
+>179	Argument	str
+>180	Identifier	str
+>181	Callee	storage . find
+>182	MemberAccess	storage . find
+>183	Identifier	find
+>184	Identifier	storage
+>185	Identifier	it
+>186	Statement	 
+>187	IdentifierDeclStatement	 
+>188	IdentifierDecl	guard ( accessMutex )
+>189	Identifier	accessMutex
+>190	Identifier	guard
+>191	IdentifierDeclType	boost 
+>208	FunctionDef	StringStorage ()
+>209	ParameterList	 
+>210	CompoundStatement	 
+>211	ExpressionStatement	 
+>212	AssignmentExpr	emptyString = resolveString ( \"\" )
+>213	CallExpression	resolveString ( \"\" )
+>214	ArgumentList	\"\"
+>215	Argument	\"\"
+>216	PrimaryExpression	\"\"
+>217	Callee	resolveString
+>218	Identifier	resolveString
+>219	Identifier	emptyString
+>235	FunctionDef	CachedString 
+>236	ParameterList	 
+>237	CompoundStatement	 
+>238	ExpressionStatement	 
+>239	CallExpression	clear ( )
+>240	ArgumentList	 
+>241	Callee	clear
+>242	Identifier	clear
+>246	FunctionDef	CachedString 
+>247	ParameterList	const char * str
+>248	Parameter	 
+>249	Identifier	str
+>250	ParameterType	const char *
+>251	CompoundStatement	 
+>252	ExpressionStatement	 
+>253	AssignmentExpr	internalString = StringStorage 
+>254	CallExpression	StringStorage 
+>255	ArgumentList	str
+>256	Argument	str
+>257	Identifier	str
+>258	Callee	StringStorage 
+>259	MemberAccess	StringStorage 
+>260	Identifier	resolveString
+>261	CallExpression	StringStorage 
+>262	ArgumentList	 
+>263	Callee	StringStorage 
+>264	Identifier	StringStorage 
+>265	Identifier	internalString
+>273	FunctionDef	CachedString 
+>274	ParameterList	const string & str
+>275	Parameter	 
+>276	Identifier	str
+>277	ParameterType	const string &
+>278	CompoundStatement	 
+>279	ExpressionStatement	 
+>280	CallExpression	assign ( str )
+>281	ArgumentList	str
+>282	Argument	str
+>283	Identifier	str
+>284	Callee	assign
+>285	Identifier	assign
+>290	FunctionDef	CachedString 
+>291	ParameterList	const CachedString & other
+>292	Parameter	 
+>293	Identifier	other
+>294	ParameterType	const CachedString &
+>295	CompoundStatement	 
+>296	ExpressionStatement	 
+>297	CallExpression	assign ( other )
+>298	ArgumentList	other
+>299	Argument	other
+>300	Identifier	other
+>301	Callee	assign
+>302	Identifier	assign
+>307	FunctionDef	CachedString 
+>308	ParameterList	 
+>309	CompoundStatement	 
+>313	FunctionDef	CachedString 
+>314	ParameterList	const string & other
+>315	Parameter	 
+>316	Identifier	other
+>317	ParameterType	const string &
+>318	ReturnType	bool
+>319	CompoundStatement	 
+>320	ReturnStatement	 
+>321	EqualityExpression	str ( ) == other
+>322	Identifier	other
+>323	CallExpression	str ( )
+>324	ArgumentList	 
+>325	Callee	str
+>326	Identifier	str
+>332	FunctionDef	CachedString 
+>333	ParameterList	const CachedString & other
+>334	Parameter	 
+>335	Identifier	other
+>336	ParameterType	const CachedString &
+>337	ReturnType	bool
+>338	CompoundStatement	 
+>339	ReturnStatement	 
+>340	EqualityExpression	this -> internalString == other . internalString
+>341	MemberAccess	other . internalString
+>342	Identifier	internalString
+>343	Identifier	other
+>344	PtrMemberAccess	this -> internalString
+>345	Identifier	internalString
+>346	Identifier	this
+>355	FunctionDef	operator = (const string & str)
+>356	ParameterList	const string & str
+>357	Parameter	 
+>358	Identifier	str
+>359	ParameterType	const string &
+>360	CompoundStatement	 
+>361	ReturnStatement	 
+>362	UnaryOp	* this
+>363	Identifier	this
+>364	UnaryOperator	*
+>365	ExpressionStatement	 
+>366	CallExpression	assign ( str )
+>367	ArgumentList	str
+>368	Argument	str
+>369	Identifier	str
+>370	Callee	assign
+>371	Identifier	assign
+>378	FunctionDef	operator = (const CachedString & other)
+>379	ParameterList	const CachedString & other
+>380	Parameter	 
+>381	Identifier	other
+>382	ParameterType	const CachedString &
+>383	CompoundStatement	 
+>384	ReturnStatement	 
+>385	UnaryOp	* this
+>386	Identifier	this
+>387	UnaryOperator	*
+>388	ExpressionStatement	 
+>389	CallExpression	assign ( other )
+>390	ArgumentList	other
+>391	Argument	other
+>392	Identifier	other
+>393	Callee	assign
+>394	Identifier	assign
+>401	FunctionDef	CachedString 
+>402	ParameterList	const string & str
+>403	Parameter	 
+>404	Identifier	str
+>405	ParameterType	const string &
+>406	ReturnType	void
+>407	CompoundStatement	 
+>408	ExpressionStatement	 
+>409	AssignmentExpr	internalString = StringStorage 
+>410	CallExpression	StringStorage 
+>411	ArgumentList	str
+>412	Argument	str
+>413	Identifier	str
+>414	Callee	StringStorage 
+>415	MemberAccess	StringStorage 
+>416	Identifier	resolveString
+>417	CallExpression	StringStorage 
+>418	ArgumentList	 
+>419	Callee	StringStorage 
+>420	Identifier	StringStorage 
+>421	Identifier	internalString
+>429	FunctionDef	CachedString 
+>430	ParameterList	const CachedString & other
+>431	Parameter	 
+>432	Identifier	other
+>433	ParameterType	const CachedString &
+>434	ReturnType	void
+>435	CompoundStatement	 
+>436	ExpressionStatement	 
+>437	AssignmentExpr	this -> internalString = other . internalString
+>438	MemberAccess	other . internalString
+>439	Identifier	internalString
+>440	Identifier	other
+>441	PtrMemberAccess	this -> internalString
+>442	Identifier	internalString
+>443	Identifier	this
+>452	FunctionDef	CachedString 
+>453	ParameterList	 
+>454	ReturnType	void
+>455	CompoundStatement	 
+>456	ExpressionStatement	 
+>457	AssignmentExpr	internalString = StringStorage 
+>458	CallExpression	StringStorage 
+>459	ArgumentList	 
+>460	Callee	StringStorage 
+>461	MemberAccess	StringStorage 
+>462	Identifier	getEmptyString
+>463	CallExpression	StringStorage 
+>464	ArgumentList	 
+>465	Callee	StringStorage 
+>466	Identifier	StringStorage 
+>467	Identifier	internalString
+>474	FunctionDef	CachedString 
+>475	ParameterList	 
+>476	ReturnType	const char *
+>477	CompoundStatement	 
+>478	ReturnStatement	 
+>479	CallExpression	internalString -> value . c_str ( )
+>480	ArgumentList	 
+>481	Callee	internalString -> value . c_str
+>482	MemberAccess	internalString -> value . c_str
+>483	Identifier	c_str
+>484	PtrMemberAccess	internalString -> value
+>485	Identifier	value
+>486	Identifier	internalString
+>487	ExpressionStatement	 
+>488	CallExpression	assert ( internalString )
+>489	ArgumentList	internalString
+>490	Argument	internalString
+>491	Identifier	internalString
+>492	Callee	assert
+>493	Identifier	assert
+>501	FunctionDef	CachedString 
+>502	ParameterList	 
+>503	ReturnType	const string &
+>504	CompoundStatement	 
+>505	ReturnStatement	 
+>506	PtrMemberAccess	internalString -> value
+>507	Identifier	value
+>508	Identifier	internalString
+>509	ExpressionStatement	 
+>510	CallExpression	assert ( internalString )
+>511	ArgumentList	internalString
+>512	Argument	internalString
+>513	Identifier	internalString
+>514	Callee	assert
+>515	Identifier	assert
+>522	FunctionDef	CachedString 
+>523	ParameterList	 
+>524	ReturnType	std 
+>525	CompoundStatement	 
+>526	ReturnStatement	 
+>527	PtrMemberAccess	internalString -> hash
+>528	Identifier	hash
+>529	Identifier	internalString
+>530	ExpressionStatement	 
+>531	CallExpression	assert ( internalString )
+>532	ArgumentList	internalString
+>533	Argument	internalString
+>534	Identifier	internalString
+>535	Callee	assert
+>536	Identifier	assert
+>543	FunctionDef	CachedString 
+>544	ParameterList	 
+>545	ReturnType	void
+>546	CompoundStatement	 
+>547	ExpressionStatement	 
+>548	CallExpression	CachedString 
+>549	ArgumentList	 
+>550	Callee	CachedString 
+>551	MemberAccess	CachedString 
+>552	Identifier	shutdown
+>553	CallExpression	CachedString 
+>554	ArgumentList	 
+>555	Callee	CachedString 
+>556	Identifier	CachedString 
+>561	FunctionDef	MaybeCachedString 
+>562	ParameterList	 
+>563	CompoundStatement	 
+>564	ExpressionStatement	 
+>565	CallExpression	clear ( )
+>566	ArgumentList	 
+>567	Callee	clear
+>568	Identifier	clear
+>572	FunctionDef	MaybeCachedString 
+>573	ParameterList	const string & str
+>574	Parameter	 
+>575	Identifier	str
+>576	ParameterType	const string &
+>577	CompoundStatement	 
+>578	ExpressionStatement	 
+>579	CallExpression	assign ( str )
+>580	ArgumentList	str
+>581	Argument	str
+>582	Identifier	str
+>583	Callee	assign
+>584	Identifier	assign
+>589	FunctionDef	MaybeCachedString 
+>590	ParameterList	const CachedString & other
+>591	Parameter	 
+>592	Identifier	other
+>593	ParameterType	const CachedString &
+>594	CompoundStatement	 
+>595	ExpressionStatement	 
+>596	CallExpression	assign ( other )
+>597	ArgumentList	other
+>598	Argument	other
+>599	Identifier	other
+>600	Callee	assign
+>601	Identifier	assign
+>606	FunctionDef	MaybeCachedString 
+>607	ParameterList	const MaybeCachedString & other
+>608	Parameter	 
+>609	Identifier	other
+>610	ParameterType	const MaybeCachedString &
+>611	CompoundStatement	 
+>612	ExpressionStatement	 
+>613	CallExpression	assign ( other )
+>614	ArgumentList	other
+>615	Argument	other
+>616	Identifier	other
+>617	Callee	assign
+>618	Identifier	assign
+>623	FunctionDef	MaybeCachedString 
+>624	ParameterList	 
+>625	CompoundStatement	 
+>626	ExpressionStatement	 
+>627	CallExpression	reset ( )
+>628	ArgumentList	 
+>629	Callee	reset
+>630	Identifier	reset
+>634	FunctionDef	operator = (const string & str)
+>635	ParameterList	const string & str
+>636	Parameter	 
+>637	Identifier	str
+>638	ParameterType	const string &
+>639	CompoundStatement	 
+>640	ReturnStatement	 
+>641	UnaryOp	* this
+>642	Identifier	this
+>643	UnaryOperator	*
+>644	ExpressionStatement	 
+>645	CallExpression	assign ( str )
+>646	ArgumentList	str
+>647	Argument	str
+>648	Identifier	str
+>649	Callee	assign
+>650	Identifier	assign
+>657	FunctionDef	operator = (const CachedString & other)
+>658	ParameterList	const CachedString & other
+>659	Parameter	 
+>660	Identifier	other
+>661	ParameterType	const CachedString &
+>662	CompoundStatement	 
+>663	ReturnStatement	 
+>664	UnaryOp	* this
+>665	Identifier	this
+>666	UnaryOperator	*
+>667	ExpressionStatement	 
+>668	CallExpression	assign ( other )
+>669	ArgumentList	other
+>670	Argument	other
+>671	Identifier	other
+>672	Callee	assign
+>673	Identifier	assign
+>680	FunctionDef	operator = (const MaybeCachedString & other)
+>681	ParameterList	const MaybeCachedString & other
+>682	Parameter	 
+>683	Identifier	other
+>684	ParameterType	const MaybeCachedString &
+>685	CompoundStatement	 
+>686	ReturnStatement	 
+>687	UnaryOp	* this
+>688	Identifier	this
+>689	UnaryOperator	*
+>690	ExpressionStatement	 
+>691	CallExpression	assign ( other )
+>692	ArgumentList	other
+>693	Argument	other
+>694	Identifier	other
+>695	Callee	assign
+>696	Identifier	assign
+>703	FunctionDef	MaybeCachedString 
+>704	ParameterList	const string & str
+>705	Parameter	 
+>706	Identifier	str
+>707	ParameterType	const string &
+>708	ReturnType	void
+>709	CompoundStatement	 
+>710	ExpressionStatement	 
+>711	AssignmentExpr	internalString = new StringStorageElement ( str )
+>712	Identifier	str
+>713	Identifier	internalString
+>714	ExpressionStatement	 
+>715	AssignmentExpr	cached = false
+>716	Identifier	false
+>717	Identifier	cached
+>718	ExpressionStatement	 
+>719	CallExpression	reset ( )
+>720	ArgumentList	 
+>721	Callee	reset
+>722	Identifier	reset
+>730	FunctionDef	MaybeCachedString 
+>731	ParameterList	const MaybeCachedString & other
+>732	Parameter	 
+>733	Identifier	other
+>734	ParameterType	const MaybeCachedString &
+>735	ReturnType	void
+>736	CompoundStatement	 
+>737	IfStatement	if ( cached )
+>738	ElseStatement	else
+>739	CompoundStatement	 
+>740	ExpressionStatement	 
+>741	AssignmentExpr	internalString = new StringStorageElement ( * other . internalString )
+>742	UnaryOp	* other . internalString
+>743	MemberAccess	other . internalString
+>744	Identifier	internalString
+>745	Identifier	other
+>746	UnaryOperator	*
+>747	Identifier	internalString
+>748	CompoundStatement	 
+>749	ExpressionStatement	 
+>750	AssignmentExpr	internalString = other . internalString
+>751	MemberAccess	other . internalString
+>752	Identifier	internalString
+>753	Identifier	other
+>754	Identifier	internalString
+>755	Condition	 
+>756	Identifier	cached
+>757	ExpressionStatement	 
+>758	AssignmentExpr	cached = other . cached
+>759	MemberAccess	other . cached
+>760	Identifier	cached
+>761	Identifier	other
+>762	Identifier	cached
+>763	ExpressionStatement	 
+>764	CallExpression	reset ( )
+>765	ArgumentList	 
+>766	Callee	reset
+>767	Identifier	reset
+>778	FunctionDef	MaybeCachedString 
+>779	ParameterList	const CachedString & other
+>780	Parameter	 
+>781	Identifier	other
+>782	ParameterType	const CachedString &
+>783	ReturnType	void
+>784	CompoundStatement	 
+>785	ExpressionStatement	 
+>786	AssignmentExpr	internalString = other . internalString
+>787	MemberAccess	other . internalString
+>788	Identifier	internalString
+>789	Identifier	other
+>790	Identifier	internalString
+>791	ExpressionStatement	 
+>792	AssignmentExpr	cached = true
+>793	Identifier	true
+>794	Identifier	cached
+>803	FunctionDef	MaybeCachedString 
+>804	ParameterList	const string & other
+>805	Parameter	 
+>806	Identifier	other
+>807	ParameterType	const string &
+>808	ReturnType	bool
+>809	CompoundStatement	 
+>810	ReturnStatement	 
+>811	EqualityExpression	str ( ) == other
+>812	Identifier	other
+>813	CallExpression	str ( )
+>814	ArgumentList	 
+>815	Callee	str
+>816	Identifier	str
+>822	FunctionDef	MaybeCachedString 
+>823	ParameterList	const CachedString & other
+>824	Parameter	 
+>825	Identifier	other
+>826	ParameterType	const CachedString &
+>827	ReturnType	bool
+>828	CompoundStatement	 
+>829	IfStatement	if ( cached )
+>830	ElseStatement	else
+>831	CompoundStatement	 
+>832	ReturnStatement	 
+>833	CallExpression	equals ( other . str ( ) )
+>834	ArgumentList	other . str ( )
+>835	Argument	other . str ( )
+>836	CallExpression	other . str ( )
+>837	ArgumentList	 
+>838	Callee	other . str
+>839	MemberAccess	other . str
+>840	Identifier	str
+>841	Identifier	other
+>842	Callee	equals
+>843	Identifier	equals
+>844	CompoundStatement	 
+>845	ReturnStatement	 
+>846	EqualityExpression	internalString == other . internalString
+>847	MemberAccess	other . internalString
+>848	Identifier	internalString
+>849	Identifier	other
+>850	Identifier	internalString
+>851	Condition	 
+>852	Identifier	cached
+>862	FunctionDef	MaybeCachedString 
+>863	ParameterList	const MaybeCachedString & other
+>864	Parameter	 
+>865	Identifier	other
+>866	ParameterType	const MaybeCachedString &
+>867	ReturnType	bool
+>868	CompoundStatement	 
+>869	IfStatement	if ( cached && other . cached )
+>870	ElseStatement	else
+>871	CompoundStatement	 
+>872	ReturnStatement	 
+>873	CallExpression	equals ( other . str ( ) )
+>874	ArgumentList	other . str ( )
+>875	Argument	other . str ( )
+>876	CallExpression	other . str ( )
+>877	ArgumentList	 
+>878	Callee	other . str
+>879	MemberAccess	other . str
+>880	Identifier	str
+>881	Identifier	other
+>882	Callee	equals
+>883	Identifier	equals
+>884	CompoundStatement	 
+>885	ReturnStatement	 
+>886	EqualityExpression	internalString == other . internalString
+>887	MemberAccess	other . internalString
+>888	Identifier	internalString
+>889	Identifier	other
+>890	Identifier	internalString
+>891	Condition	 
+>892	AndExpression	cached && other . cached
+>893	MemberAccess	other . cached
+>894	Identifier	cached
+>895	Identifier	other
+>896	Identifier	cached
+>907	FunctionDef	MaybeCachedString 
+>908	ParameterList	 
+>909	ReturnType	const char *
+>910	CompoundStatement	 
+>911	ReturnStatement	 
+>912	CallExpression	internalString -> value . c_str ( )
+>913	ArgumentList	 
+>914	Callee	internalString -> value . c_str
+>915	MemberAccess	internalString -> value . c_str
+>916	Identifier	c_str
+>917	PtrMemberAccess	internalString -> value
+>918	Identifier	value
+>919	Identifier	internalString
+>920	ExpressionStatement	 
+>921	CallExpression	assert ( internalString )
+>922	ArgumentList	internalString
+>923	Argument	internalString
+>924	Identifier	internalString
+>925	Callee	assert
+>926	Identifier	assert
+>934	FunctionDef	MaybeCachedString 
+>935	ParameterList	 
+>936	ReturnType	const string &
+>937	CompoundStatement	 
+>938	ReturnStatement	 
+>939	PtrMemberAccess	internalString -> value
+>940	Identifier	value
+>941	Identifier	internalString
+>942	ExpressionStatement	 
+>943	CallExpression	assert ( internalString )
+>944	ArgumentList	internalString
+>945	Argument	internalString
+>946	Identifier	internalString
+>947	Callee	assert
+>948	Identifier	assert
+>955	FunctionDef	MaybeCachedString 
+>956	ParameterList	 
+>957	ReturnType	std 
+>958	CompoundStatement	 
+>959	ReturnStatement	 
+>960	PtrMemberAccess	internalString -> hash
+>961	Identifier	hash
+>962	Identifier	internalString
+>963	ExpressionStatement	 
+>964	CallExpression	assert ( internalString )
+>965	ArgumentList	internalString
+>966	Argument	internalString
+>967	Identifier	internalString
+>968	Callee	assert
+>969	Identifier	assert
+>976	FunctionDef	MaybeCachedString 
+>977	ParameterList	 
+>978	ReturnType	void
+>979	CompoundStatement	 
+>980	ExpressionStatement	 
+>981	AssignmentExpr	internalString = StringStorage 
+>982	CallExpression	StringStorage 
+>983	ArgumentList	 
+>984	Callee	StringStorage 
+>985	MemberAccess	StringStorage 
+>986	Identifier	getEmptyString
+>987	CallExpression	StringStorage 
+>988	ArgumentList	 
+>989	Callee	StringStorage 
+>990	Identifier	StringStorage 
+>991	Identifier	internalString
+>992	ExpressionStatement	 
+>993	AssignmentExpr	cached = true
+>994	Identifier	true
+>995	Identifier	cached
+>996	ExpressionStatement	 
+>997	CallExpression	reset ( )
+>998	ArgumentList	 
+>999	Callee	reset
+>1000	Identifier	reset
+>1009	FunctionDef	MaybeCachedString 
+>1010	ParameterList	 
+>1011	ReturnType	void
+>1012	CompoundStatement	 
+>1013	ExpressionStatement	 
+>1014	Identifier	internalString
+>1015	IfStatement	if ( ! cached )
+>1016	Statement	 
+>1017	Condition	 
+>1018	UnaryOp	! cached
+>1019	Identifier	cached
+>1020	UnaryOperator	!
+>1025	FunctionDef	MaybeCachedString 
+>1026	ParameterList	 
+>1027	ReturnType	bool
+>1028	CompoundStatement	 
+>1029	ReturnStatement	 
+>1030	Identifier	cached
+<3=8,4
+<4=5
+<5=7,6
+<8=9
+<9=10
+<10=16,11
+<11=15,12
+<12=14,13
+<16=20,17
+<17=19,18
+<29=35,34,30
+<30=31
+<31=33,32
+<35=36
+<36=37
+<37=39,38
+<45=54,53,46
+<46=50,47
+<47=49,48
+<50=52,51
+<54=55
+<55=56
+<56=58,57
+<58=60,59
+<67=72,68
+<68=69
+<69=71,70
+<78=81,80,79
+<81=88,84,82
+<82=83
+<84=85
+<85=87,86
+<93=96,95,94
+<96=104,97
+<97=98
+<98=100,99
+<100=101
+<101=103,102
+<104=105
+<105=107,106
+<114=117,116,115
+<117=118
+<118=119
+<124=130,129,125
+<125=126
+<126=128,127
+<130=187,186,171,137,131
+<131=132
+<132=136,133
+<133=135,134
+<137=162,138
+<138=157,139
+<139=140
+<140=156,141
+<141=143,142
+<143=152,144
+<144=145
+<145=146
+<146=150,147
+<147=148
+<148=149
+<150=151
+<152=153
+<153=155,154
+<157=158
+<158=161,160,159
+<162=163
+<163=170,164
+<164=166,165
+<166=167
+<167=169,168
+<171=172
+<172=185,173
+<173=181,174
+<174=179,177,175
+<175=176
+<177=178
+<179=180
+<181=182
+<182=184,183
+<187=188
+<188=191,190,189
+<208=210,209
+<210=211
+<211=212
+<212=219,213
+<213=217,214
+<214=215
+<215=216
+<217=218
+<235=237,236
+<237=238
+<238=239
+<239=241,240
+<241=242
+<246=251,247
+<247=248
+<248=250,249
+<251=252
+<252=253
+<253=265,254
+<254=258,255
+<255=256
+<256=257
+<258=259
+<259=261,260
+<261=263,262
+<263=264
+<273=278,274
+<274=275
+<275=277,276
+<278=279
+<279=280
+<280=284,281
+<281=282
+<282=283
+<284=285
+<290=295,291
+<291=292
+<292=294,293
+<295=296
+<296=297
+<297=301,298
+<298=299
+<299=300
+<301=302
+<307=309,308
+<313=319,318,314
+<314=315
+<315=317,316
+<319=320
+<320=321
+<321=323,322
+<323=325,324
+<325=326
+<332=338,337,333
+<333=334
+<334=336,335
+<338=339
+<339=340
+<340=344,341
+<341=343,342
+<344=346,345
+<355=360,356
+<356=357
+<357=359,358
+<360=365,361
+<361=362
+<362=364,363
+<365=366
+<366=370,367
+<367=368
+<368=369
+<370=371
+<378=383,379
+<379=380
+<380=382,381
+<383=388,384
+<384=385
+<385=387,386
+<388=389
+<389=393,390
+<390=391
+<391=392
+<393=394
+<401=407,406,402
+<402=403
+<403=405,404
+<407=408
+<408=409
+<409=421,410
+<410=414,411
+<411=412
+<412=413
+<414=415
+<415=417,416
+<417=419,418
+<419=420
+<429=435,434,430
+<430=431
+<431=433,432
+<435=436
+<436=437
+<437=441,438
+<438=440,439
+<441=443,442
+<452=455,454,453
+<455=456
+<456=457
+<457=467,458
+<458=460,459
+<460=461
+<461=463,462
+<463=465,464
+<465=466
+<474=477,476,475
+<477=487,478
+<478=479
+<479=481,480
+<481=482
+<482=484,483
+<484=486,485
+<487=488
+<488=492,489
+<489=490
+<490=491
+<492=493
+<501=504,503,502
+<504=509,505
+<505=506
+<506=508,507
+<509=510
+<510=514,511
+<511=512
+<512=513
+<514=515
+<522=525,524,523
+<525=530,526
+<526=527
+<527=529,528
+<530=531
+<531=535,532
+<532=533
+<533=534
+<535=536
+<543=546,545,544
+<546=547
+<547=548
+<548=550,549
+<550=551
+<551=553,552
+<553=555,554
+<555=556
+<561=563,562
+<563=564
+<564=565
+<565=567,566
+<567=568
+<572=577,573
+<573=574
+<574=576,575
+<577=578
+<578=579
+<579=583,580
+<580=581
+<581=582
+<583=584
+<589=594,590
+<590=591
+<591=593,592
+<594=595
+<595=596
+<596=600,597
+<597=598
+<598=599
+<600=601
+<606=611,607
+<607=608
+<608=610,609
+<611=612
+<612=613
+<613=617,614
+<614=615
+<615=616
+<617=618
+<623=625,624
+<625=626
+<626=627
+<627=629,628
+<629=630
+<634=639,635
+<635=636
+<636=638,637
+<639=644,640
+<640=641
+<641=643,642
+<644=645
+<645=649,646
+<646=647
+<647=648
+<649=650
+<657=662,658
+<658=659
+<659=661,660
+<662=667,663
+<663=664
+<664=666,665
+<667=668
+<668=672,669
+<669=670
+<670=671
+<672=673
+<680=685,681
+<681=682
+<682=684,683
+<685=690,686
+<686=687
+<687=689,688
+<690=691
+<691=695,692
+<692=693
+<693=694
+<695=696
+<703=709,708,704
+<704=705
+<705=707,706
+<709=718,714,710
+<710=711
+<711=713,712
+<714=715
+<715=717,716
+<718=719
+<719=721,720
+<721=722
+<730=736,735,731
+<731=732
+<732=734,733
+<736=763,757,737
+<737=755,748,738
+<738=739
+<739=740
+<740=741
+<741=747,742
+<742=746,743
+<743=745,744
+<748=749
+<749=750
+<750=754,751
+<751=753,752
+<755=756
+<757=758
+<758=762,759
+<759=761,760
+<763=764
+<764=766,765
+<766=767
+<778=784,783,779
+<779=780
+<780=782,781
+<784=791,785
+<785=786
+<786=790,787
+<787=789,788
+<791=792
+<792=794,793
+<803=809,808,804
+<804=805
+<805=807,806
+<809=810
+<810=811
+<811=813,812
+<813=815,814
+<815=816
+<822=828,827,823
+<823=824
+<824=826,825
+<828=829
+<829=851,844,830
+<830=831
+<831=832
+<832=833
+<833=842,834
+<834=835
+<835=836
+<836=838,837
+<838=839
+<839=841,840
+<842=843
+<844=845
+<845=846
+<846=850,847
+<847=849,848
+<851=852
+<862=868,867,863
+<863=864
+<864=866,865
+<868=869
+<869=891,884,870
+<870=871
+<871=872
+<872=873
+<873=882,874
+<874=875
+<875=876
+<876=878,877
+<878=879
+<879=881,880
+<882=883
+<884=885
+<885=886
+<886=890,887
+<887=889,888
+<891=892
+<892=896,893
+<893=895,894
+<907=910,909,908
+<910=920,911
+<911=912
+<912=914,913
+<914=915
+<915=917,916
+<917=919,918
+<920=921
+<921=925,922
+<922=923
+<923=924
+<925=926
+<934=937,936,935
+<937=942,938
+<938=939
+<939=941,940
+<942=943
+<943=947,944
+<944=945
+<945=946
+<947=948
+<955=958,957,956
+<958=963,959
+<959=960
+<960=962,961
+<963=964
+<964=968,965
+<965=966
+<966=967
+<968=969
+<976=979,978,977
+<979=996,992,980
+<980=981
+<981=991,982
+<982=984,983
+<984=985
+<985=987,986
+<987=989,988
+<989=990
+<992=993
+<993=995,994
+<996=997
+<997=999,998
+<999=1000
+<1009=1012,1011,1010
+<1012=1015,1013
+<1013=1014
+<1015=1017,1016
+<1017=1018
+<1018=1020,1019
+<1025=1028,1027,1026
+<1028=1029
+<1029=1030

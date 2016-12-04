@@ -1,0 +1,1017 @@
+>3	FunctionDef	NyARSingleDetectMarker 
+>4	ParameterList	const NyARParam & i_param , NyARCode * i_code , double i_marker_width
+>5	Parameter	 
+>6	Identifier	i_marker_width
+>7	ParameterType	double
+>8	Parameter	 
+>9	Identifier	i_code
+>10	ParameterType	NyARCode *
+>11	Parameter	 
+>12	Identifier	i_param
+>13	ParameterType	const NyARParam &
+>14	CompoundStatement	 
+>15	ReturnStatement	 
+>16	ExpressionStatement	 
+>17	AssignmentExpr	this -> _tobin_filter = new NyARRasterFilter_ARToolkitThreshold ( 100 )
+>18	PrimaryExpression	100
+>19	PtrMemberAccess	this -> _tobin_filter
+>20	Identifier	_tobin_filter
+>21	Identifier	this
+>22	ExpressionStatement	 
+>23	AssignmentExpr	this -> _is_continue = false
+>24	Identifier	false
+>25	PtrMemberAccess	this -> _is_continue
+>26	Identifier	_is_continue
+>27	Identifier	this
+>28	ExpressionStatement	 
+>29	AssignmentExpr	this -> _square_list = new NyARSquareStack ( AR_SQUARE_MAX )
+>30	Identifier	AR_SQUARE_MAX
+>31	PtrMemberAccess	this -> _square_list
+>32	Identifier	_square_list
+>33	Identifier	this
+>34	ExpressionStatement	 
+>35	AssignmentExpr	this -> _bin_raster = new NyARBinRaster ( scr_size -> w , scr_size -> h )
+>36	Expression	scr_size -> w , scr_size -> h
+>37	PtrMemberAccess	scr_size -> h
+>38	Identifier	h
+>39	Identifier	scr_size
+>40	PtrMemberAccess	scr_size -> w
+>41	Identifier	w
+>42	Identifier	scr_size
+>43	PtrMemberAccess	this -> _bin_raster
+>44	Identifier	_bin_raster
+>45	Identifier	this
+>46	ExpressionStatement	 
+>47	AssignmentExpr	this -> _match_patt = new NyARMatchPatt_Color_WITHOUT_PCA ( )
+>48	UnaryExpression	new NyARMatchPatt_Color_WITHOUT_PCA ( )
+>49	PtrMemberAccess	this -> _match_patt
+>50	Identifier	_match_patt
+>51	Identifier	this
+>52	ExpressionStatement	 
+>53	AssignmentExpr	this -> _patt = new NyARColorPatt_O3 ( i_code -> getWidth ( ) , i_code -> getHeight ( ) )
+>54	Expression	i_code -> getWidth ( ) , i_code -> getHeight ( )
+>55	CallExpression	i_code -> getHeight ( )
+>56	ArgumentList	 
+>57	Callee	i_code -> getHeight
+>58	PtrMemberAccess	i_code -> getHeight
+>59	Identifier	getHeight
+>60	Identifier	i_code
+>61	CallExpression	i_code -> getWidth ( )
+>62	ArgumentList	 
+>63	Callee	i_code -> getWidth
+>64	PtrMemberAccess	i_code -> getWidth
+>65	Identifier	getWidth
+>66	Identifier	i_code
+>67	PtrMemberAccess	this -> _patt
+>68	Identifier	_patt
+>69	Identifier	this
+>70	ExpressionStatement	 
+>71	AssignmentExpr	this -> _marker_width = i_marker_width
+>72	Identifier	i_marker_width
+>73	PtrMemberAccess	this -> _marker_width
+>74	Identifier	_marker_width
+>75	Identifier	this
+>76	ExpressionStatement	 
+>77	AssignmentExpr	this -> _transmat = new NyARTransMat ( & i_param )
+>78	UnaryOp	& i_param
+>79	Identifier	i_param
+>80	UnaryOperator	&
+>81	PtrMemberAccess	this -> _transmat
+>82	Identifier	_transmat
+>83	Identifier	this
+>84	ExpressionStatement	 
+>85	AssignmentExpr	this -> _square_detect = new NyARSquareDetector ( * i_param . getDistortionFactor ( ) , * scr_size )
+>86	Expression	* i_param . getDistortionFactor ( ) , * scr_size
+>87	UnaryOp	* scr_size
+>88	Identifier	scr_size
+>89	UnaryOperator	*
+>90	UnaryOp	* i_param . getDistortionFactor ( )
+>91	CallExpression	i_param . getDistortionFactor ( )
+>92	ArgumentList	 
+>93	Callee	i_param . getDistortionFactor
+>94	MemberAccess	i_param . getDistortionFactor
+>95	Identifier	getDistortionFactor
+>96	Identifier	i_param
+>97	UnaryOperator	*
+>98	PtrMemberAccess	this -> _square_detect
+>99	Identifier	_square_detect
+>100	Identifier	this
+>101	ExpressionStatement	 
+>102	AssignmentExpr	this -> _code = i_code
+>103	Identifier	i_code
+>104	PtrMemberAccess	this -> _code
+>105	Identifier	_code
+>106	Identifier	this
+>107	IdentifierDeclStatement	 
+>108	IdentifierDecl	* scr_size = i_param . getScreenSize ( )
+>109	AssignmentExpr	* scr_size = i_param . getScreenSize ( )
+>110	CallExpression	i_param . getScreenSize ( )
+>111	ArgumentList	 
+>112	Callee	i_param . getScreenSize
+>113	MemberAccess	i_param . getScreenSize
+>114	Identifier	getScreenSize
+>115	Identifier	i_param
+>116	Identifier	scr_size
+>117	Identifier	scr_size
+>118	IdentifierDeclType	const TNyARIntSize *
+>152	FunctionDef	NyARSingleDetectMarker 
+>153	ParameterList	 
+>154	CompoundStatement	 
+>155	ReturnStatement	 
+>156	ExpressionStatement	 
+>157	CallExpression	NyAR_SAFE_DELETE ( this -> _tobin_filter )
+>158	ArgumentList	this -> _tobin_filter
+>159	Argument	this -> _tobin_filter
+>160	PtrMemberAccess	this -> _tobin_filter
+>161	Identifier	_tobin_filter
+>162	Identifier	this
+>163	Callee	NyAR_SAFE_DELETE
+>164	Identifier	NyAR_SAFE_DELETE
+>165	ExpressionStatement	 
+>166	CallExpression	NyAR_SAFE_DELETE ( this -> _code )
+>167	ArgumentList	this -> _code
+>168	Argument	this -> _code
+>169	PtrMemberAccess	this -> _code
+>170	Identifier	_code
+>171	Identifier	this
+>172	Callee	NyAR_SAFE_DELETE
+>173	Identifier	NyAR_SAFE_DELETE
+>174	ExpressionStatement	 
+>175	CallExpression	NyAR_SAFE_DELETE ( this -> _square_list )
+>176	ArgumentList	this -> _square_list
+>177	Argument	this -> _square_list
+>178	PtrMemberAccess	this -> _square_list
+>179	Identifier	_square_list
+>180	Identifier	this
+>181	Callee	NyAR_SAFE_DELETE
+>182	Identifier	NyAR_SAFE_DELETE
+>183	ExpressionStatement	 
+>184	CallExpression	NyAR_SAFE_DELETE ( this -> _bin_raster )
+>185	ArgumentList	this -> _bin_raster
+>186	Argument	this -> _bin_raster
+>187	PtrMemberAccess	this -> _bin_raster
+>188	Identifier	_bin_raster
+>189	Identifier	this
+>190	Callee	NyAR_SAFE_DELETE
+>191	Identifier	NyAR_SAFE_DELETE
+>192	ExpressionStatement	 
+>193	CallExpression	NyAR_SAFE_DELETE ( this -> _match_patt )
+>194	ArgumentList	this -> _match_patt
+>195	Argument	this -> _match_patt
+>196	PtrMemberAccess	this -> _match_patt
+>197	Identifier	_match_patt
+>198	Identifier	this
+>199	Callee	NyAR_SAFE_DELETE
+>200	Identifier	NyAR_SAFE_DELETE
+>201	ExpressionStatement	 
+>202	CallExpression	NyAR_SAFE_DELETE ( this -> _patt )
+>203	ArgumentList	this -> _patt
+>204	Argument	this -> _patt
+>205	PtrMemberAccess	this -> _patt
+>206	Identifier	_patt
+>207	Identifier	this
+>208	Callee	NyAR_SAFE_DELETE
+>209	Identifier	NyAR_SAFE_DELETE
+>210	ExpressionStatement	 
+>211	CallExpression	NyAR_SAFE_DELETE ( this -> _transmat )
+>212	ArgumentList	this -> _transmat
+>213	Argument	this -> _transmat
+>214	PtrMemberAccess	this -> _transmat
+>215	Identifier	_transmat
+>216	Identifier	this
+>217	Callee	NyAR_SAFE_DELETE
+>218	Identifier	NyAR_SAFE_DELETE
+>219	ExpressionStatement	 
+>220	CallExpression	NyAR_SAFE_DELETE ( this -> _square_detect )
+>221	ArgumentList	this -> _square_detect
+>222	Argument	this -> _square_detect
+>223	PtrMemberAccess	this -> _square_detect
+>224	Identifier	_square_detect
+>225	Identifier	this
+>226	Callee	NyAR_SAFE_DELETE
+>227	Identifier	NyAR_SAFE_DELETE
+>241	FunctionDef	NyARSingleDetectMarker 
+>242	ParameterList	const INyARRgbRaster & i_raster , int i_threshold
+>243	Parameter	 
+>244	Identifier	i_threshold
+>245	ParameterType	int
+>246	Parameter	 
+>247	Identifier	i_raster
+>248	ParameterType	const INyARRgbRaster &
+>249	ReturnType	bool
+>250	CompoundStatement	 
+>251	ReturnStatement	 
+>252	Identifier	true
+>253	ExpressionStatement	 
+>254	AssignmentExpr	this -> _detected_confidence = confidence
+>255	Identifier	confidence
+>256	PtrMemberAccess	this -> _detected_confidence
+>257	Identifier	_detected_confidence
+>258	Identifier	this
+>259	ExpressionStatement	 
+>260	AssignmentExpr	this -> _detected_direction = direction
+>261	Identifier	direction
+>262	PtrMemberAccess	this -> _detected_direction
+>263	Identifier	_detected_direction
+>264	Identifier	this
+>265	ExpressionStatement	 
+>266	AssignmentExpr	this -> _detected_square = l_square_list . getItem ( square_index )
+>267	CallExpression	l_square_list . getItem ( square_index )
+>268	ArgumentList	square_index
+>269	Argument	square_index
+>270	Identifier	square_index
+>271	Callee	l_square_list . getItem
+>272	MemberAccess	l_square_list . getItem
+>273	Identifier	getItem
+>274	Identifier	l_square_list
+>275	PtrMemberAccess	this -> _detected_square
+>276	Identifier	_detected_square
+>277	Identifier	this
+>278	ForStatement	for ( int i = 1 ; i < number_of_square ; i ++ )
+>279	CompoundStatement	 
+>280	ExpressionStatement	 
+>281	AssignmentExpr	confidence = c2
+>282	Identifier	c2
+>283	Identifier	confidence
+>284	ExpressionStatement	 
+>285	AssignmentExpr	direction = this -> _match_patt -> getDirection ( )
+>286	CallExpression	this -> _match_patt -> getDirection ( )
+>287	ArgumentList	 
+>288	Callee	this -> _match_patt -> getDirection
+>289	PtrMemberAccess	this -> _match_patt -> getDirection
+>290	Identifier	getDirection
+>291	PtrMemberAccess	this -> _match_patt
+>292	Identifier	_match_patt
+>293	Identifier	this
+>294	Identifier	direction
+>295	ExpressionStatement	 
+>296	AssignmentExpr	square_index = i
+>297	Identifier	i
+>298	Identifier	square_index
+>299	IfStatement	if ( confidence > c2 )
+>300	CompoundStatement	 
+>301	ContinueStatement	 
+>302	Condition	 
+>303	RelationalExpression	confidence > c2
+>304	Identifier	c2
+>305	Identifier	confidence
+>306	IdentifierDeclStatement	 
+>307	IdentifierDecl	c2 = this -> _match_patt -> getConfidence ( )
+>308	AssignmentExpr	c2 = this -> _match_patt -> getConfidence ( )
+>309	CallExpression	this -> _match_patt -> getConfidence ( )
+>310	ArgumentList	 
+>311	Callee	this -> _match_patt -> getConfidence
+>312	PtrMemberAccess	this -> _match_patt -> getConfidence
+>313	Identifier	getConfidence
+>314	PtrMemberAccess	this -> _match_patt
+>315	Identifier	_match_patt
+>316	Identifier	this
+>317	Identifier	c2
+>318	Identifier	c2
+>319	IdentifierDeclType	double
+>320	ExpressionStatement	 
+>321	CallExpression	this -> _match_patt -> evaluate ( * this -> _code )
+>322	ArgumentList	* this -> _code
+>323	Argument	* this -> _code
+>324	UnaryOp	* this -> _code
+>325	PtrMemberAccess	this -> _code
+>326	Identifier	_code
+>327	Identifier	this
+>328	UnaryOperator	*
+>329	Callee	this -> _match_patt -> evaluate
+>330	PtrMemberAccess	this -> _match_patt -> evaluate
+>331	Identifier	evaluate
+>332	PtrMemberAccess	this -> _match_patt
+>333	Identifier	_match_patt
+>334	Identifier	this
+>335	ExpressionStatement	 
+>336	CallExpression	this -> _match_patt -> setPatt ( * this -> _patt )
+>337	ArgumentList	* this -> _patt
+>338	Argument	* this -> _patt
+>339	UnaryOp	* this -> _patt
+>340	PtrMemberAccess	this -> _patt
+>341	Identifier	_patt
+>342	Identifier	this
+>343	UnaryOperator	*
+>344	Callee	this -> _match_patt -> setPatt
+>345	PtrMemberAccess	this -> _match_patt -> setPatt
+>346	Identifier	setPatt
+>347	PtrMemberAccess	this -> _match_patt
+>348	Identifier	_match_patt
+>349	Identifier	this
+>350	ExpressionStatement	 
+>351	CallExpression	this -> _patt -> pickFromRaster ( i_raster , * l_square_list . getItem ( i ) )
+>352	ArgumentList	i_raster
+>353	Argument	* l_square_list . getItem ( i )
+>354	UnaryOp	* l_square_list . getItem ( i )
+>355	CallExpression	l_square_list . getItem ( i )
+>356	ArgumentList	i
+>357	Argument	i
+>358	Identifier	i
+>359	Callee	l_square_list . getItem
+>360	MemberAccess	l_square_list . getItem
+>361	Identifier	getItem
+>362	Identifier	l_square_list
+>363	UnaryOperator	*
+>364	Argument	i_raster
+>365	Identifier	i_raster
+>366	Callee	this -> _patt -> pickFromRaster
+>367	PtrMemberAccess	this -> _patt -> pickFromRaster
+>368	Identifier	pickFromRaster
+>369	PtrMemberAccess	this -> _patt
+>370	Identifier	_patt
+>371	Identifier	this
+>372	IncDecOp	 
+>373	IncDec	++
+>374	Identifier	i
+>375	Condition	 
+>376	RelationalExpression	i < number_of_square
+>377	Identifier	number_of_square
+>378	Identifier	i
+>379	ForInit	 
+>380	IdentifierDeclStatement	int i = 1 ;
+>381	IdentifierDecl	i = 1
+>382	AssignmentExpr	i = 1
+>383	PrimaryExpression	1
+>384	Identifier	i
+>385	Identifier	i
+>386	IdentifierDeclType	int
+>387	IdentifierDeclStatement	 
+>388	IdentifierDecl	confidence = this -> _match_patt -> getConfidence ( )
+>389	AssignmentExpr	confidence = this -> _match_patt -> getConfidence ( )
+>390	CallExpression	this -> _match_patt -> getConfidence ( )
+>391	ArgumentList	 
+>392	Callee	this -> _match_patt -> getConfidence
+>393	PtrMemberAccess	this -> _match_patt -> getConfidence
+>394	Identifier	getConfidence
+>395	PtrMemberAccess	this -> _match_patt
+>396	Identifier	_match_patt
+>397	Identifier	this
+>398	Identifier	confidence
+>399	Identifier	confidence
+>400	IdentifierDeclType	double
+>401	IdentifierDeclStatement	 
+>402	IdentifierDecl	direction = this -> _match_patt -> getDirection ( )
+>403	AssignmentExpr	direction = this -> _match_patt -> getDirection ( )
+>404	CallExpression	this -> _match_patt -> getDirection ( )
+>405	ArgumentList	 
+>406	Callee	this -> _match_patt -> getDirection
+>407	PtrMemberAccess	this -> _match_patt -> getDirection
+>408	Identifier	getDirection
+>409	PtrMemberAccess	this -> _match_patt
+>410	Identifier	_match_patt
+>411	Identifier	this
+>412	Identifier	direction
+>413	Identifier	direction
+>414	IdentifierDeclType	int
+>415	IdentifierDeclStatement	 
+>416	IdentifierDecl	square_index = 0
+>417	AssignmentExpr	square_index = 0
+>418	PrimaryExpression	0
+>419	Identifier	square_index
+>420	Identifier	square_index
+>421	IdentifierDeclType	int
+>422	ExpressionStatement	 
+>423	CallExpression	this -> _match_patt -> evaluate ( * this -> _code )
+>424	ArgumentList	* this -> _code
+>425	Argument	* this -> _code
+>426	UnaryOp	* this -> _code
+>427	PtrMemberAccess	this -> _code
+>428	Identifier	_code
+>429	Identifier	this
+>430	UnaryOperator	*
+>431	Callee	this -> _match_patt -> evaluate
+>432	PtrMemberAccess	this -> _match_patt -> evaluate
+>433	Identifier	evaluate
+>434	PtrMemberAccess	this -> _match_patt
+>435	Identifier	_match_patt
+>436	Identifier	this
+>437	IfStatement	if ( ! this -> _match_patt -> setPatt ( * this -> _patt ) )
+>438	CompoundStatement	 
+>439	ExpressionStatement	 
+>440	CallExpression	NyARException ( )
+>441	ArgumentList	 
+>442	Callee	NyARException
+>443	Identifier	NyARException
+>444	Statement	 
+>445	Condition	 
+>446	UnaryOp	! this -> _match_patt -> setPatt ( * this -> _patt )
+>447	CallExpression	this -> _match_patt -> setPatt ( * this -> _patt )
+>448	ArgumentList	* this -> _patt
+>449	Argument	* this -> _patt
+>450	UnaryOp	* this -> _patt
+>451	PtrMemberAccess	this -> _patt
+>452	Identifier	_patt
+>453	Identifier	this
+>454	UnaryOperator	*
+>455	Callee	this -> _match_patt -> setPatt
+>456	PtrMemberAccess	this -> _match_patt -> setPatt
+>457	Identifier	setPatt
+>458	PtrMemberAccess	this -> _match_patt
+>459	Identifier	_match_patt
+>460	Identifier	this
+>461	UnaryOperator	!
+>462	IfStatement	if ( ! this -> _patt -> pickFromRaster ( i_raster , * l_square_list . getItem ( 0 ) ) )
+>463	CompoundStatement	 
+>464	ReturnStatement	 
+>465	Identifier	false
+>466	Condition	 
+>467	UnaryOp	! this -> _patt -> pickFromRaster ( i_raster , * l_square_list . getItem ( 0 ) )
+>468	CallExpression	this -> _patt -> pickFromRaster ( i_raster , * l_square_list . getItem ( 0 ) )
+>469	ArgumentList	i_raster
+>470	Argument	* l_square_list . getItem ( 0 )
+>471	UnaryOp	* l_square_list . getItem ( 0 )
+>472	CallExpression	l_square_list . getItem ( 0 )
+>473	ArgumentList	0
+>474	Argument	0
+>475	PrimaryExpression	0
+>476	Callee	l_square_list . getItem
+>477	MemberAccess	l_square_list . getItem
+>478	Identifier	getItem
+>479	Identifier	l_square_list
+>480	UnaryOperator	*
+>481	Argument	i_raster
+>482	Identifier	i_raster
+>483	Callee	this -> _patt -> pickFromRaster
+>484	PtrMemberAccess	this -> _patt -> pickFromRaster
+>485	Identifier	pickFromRaster
+>486	PtrMemberAccess	this -> _patt
+>487	Identifier	_patt
+>488	Identifier	this
+>489	UnaryOperator	!
+>490	IfStatement	if ( number_of_square < 1 )
+>491	CompoundStatement	 
+>492	ReturnStatement	 
+>493	Identifier	false
+>494	Condition	 
+>495	RelationalExpression	number_of_square < 1
+>496	PrimaryExpression	1
+>497	Identifier	number_of_square
+>498	IdentifierDeclStatement	 
+>499	IdentifierDecl	number_of_square = l_square_list . getLength ( )
+>500	AssignmentExpr	number_of_square = l_square_list . getLength ( )
+>501	CallExpression	l_square_list . getLength ( )
+>502	ArgumentList	 
+>503	Callee	l_square_list . getLength
+>504	MemberAccess	l_square_list . getLength
+>505	Identifier	getLength
+>506	Identifier	l_square_list
+>507	Identifier	number_of_square
+>508	Identifier	number_of_square
+>509	IdentifierDeclType	int
+>510	ExpressionStatement	 
+>511	CallExpression	this -> _square_detect -> detectMarker ( * this -> _bin_raster , l_square_list )
+>512	ArgumentList	* this -> _bin_raster
+>513	Argument	l_square_list
+>514	Identifier	l_square_list
+>515	Argument	* this -> _bin_raster
+>516	UnaryOp	* this -> _bin_raster
+>517	PtrMemberAccess	this -> _bin_raster
+>518	Identifier	_bin_raster
+>519	Identifier	this
+>520	UnaryOperator	*
+>521	Callee	this -> _square_detect -> detectMarker
+>522	PtrMemberAccess	this -> _square_detect -> detectMarker
+>523	Identifier	detectMarker
+>524	PtrMemberAccess	this -> _square_detect
+>525	Identifier	_square_detect
+>526	Identifier	this
+>527	IdentifierDeclStatement	 
+>528	IdentifierDecl	& l_square_list = * this -> _square_list
+>529	AssignmentExpr	& l_square_list = * this -> _square_list
+>530	UnaryOp	* this -> _square_list
+>531	PtrMemberAccess	this -> _square_list
+>532	Identifier	_square_list
+>533	Identifier	this
+>534	UnaryOperator	*
+>535	Identifier	l_square_list
+>536	Identifier	l_square_list
+>537	IdentifierDeclType	NyARSquareStack &
+>538	ExpressionStatement	 
+>539	AssignmentExpr	this -> _detected_square = NULL
+>540	Identifier	NULL
+>541	PtrMemberAccess	this -> _detected_square
+>542	Identifier	_detected_square
+>543	Identifier	this
+>544	ExpressionStatement	 
+>545	CallExpression	this -> _tobin_filter -> doFilter ( i_raster , * this -> _bin_raster )
+>546	ArgumentList	i_raster
+>547	Argument	* this -> _bin_raster
+>548	UnaryOp	* this -> _bin_raster
+>549	PtrMemberAccess	this -> _bin_raster
+>550	Identifier	_bin_raster
+>551	Identifier	this
+>552	UnaryOperator	*
+>553	Argument	i_raster
+>554	Identifier	i_raster
+>555	Callee	this -> _tobin_filter -> doFilter
+>556	PtrMemberAccess	this -> _tobin_filter -> doFilter
+>557	Identifier	doFilter
+>558	PtrMemberAccess	this -> _tobin_filter
+>559	Identifier	_tobin_filter
+>560	Identifier	this
+>561	ExpressionStatement	 
+>562	CallExpression	this -> _tobin_filter -> setThreshold ( i_threshold )
+>563	ArgumentList	i_threshold
+>564	Argument	i_threshold
+>565	Identifier	i_threshold
+>566	Callee	this -> _tobin_filter -> setThreshold
+>567	PtrMemberAccess	this -> _tobin_filter -> setThreshold
+>568	Identifier	setThreshold
+>569	PtrMemberAccess	this -> _tobin_filter
+>570	Identifier	_tobin_filter
+>571	Identifier	this
+>572	IfStatement	if ( ! TNyARIntSize 
+>573	CompoundStatement	 
+>574	ExpressionStatement	 
+>575	CallExpression	NyARException ( )
+>576	ArgumentList	 
+>577	Callee	NyARException
+>578	Identifier	NyARException
+>579	Statement	 
+>580	Condition	 
+>581	UnaryOp	! TNyARIntSize 
+>582	CallExpression	TNyARIntSize 
+>583	ArgumentList	this -> _bin_raster -> getSize ( )
+>584	Argument	i_raster . getSize ( )
+>585	CallExpression	i_raster . getSize ( )
+>586	ArgumentList	 
+>587	Callee	i_raster . getSize
+>588	MemberAccess	i_raster . getSize
+>589	Identifier	getSize
+>590	Identifier	i_raster
+>591	Argument	this -> _bin_raster -> getSize ( )
+>592	CallExpression	this -> _bin_raster -> getSize ( )
+>593	ArgumentList	 
+>594	Callee	this -> _bin_raster -> getSize
+>595	PtrMemberAccess	this -> _bin_raster -> getSize
+>596	Identifier	getSize
+>597	PtrMemberAccess	this -> _bin_raster
+>598	Identifier	_bin_raster
+>599	Identifier	this
+>600	Callee	TNyARIntSize 
+>601	Identifier	TNyARIntSize 
+>602	UnaryOperator	!
+>649	FunctionDef	NyARSingleDetectMarker 
+>650	ParameterList	NyARTransMatResult & o_result
+>651	Parameter	 
+>652	Identifier	o_result
+>653	ParameterType	NyARTransMatResult &
+>654	ReturnType	void
+>655	CompoundStatement	 
+>656	ReturnStatement	 
+>657	IfStatement	if ( this -> _is_continue )
+>658	ElseStatement	else
+>659	CompoundStatement	 
+>660	ExpressionStatement	 
+>661	CallExpression	this -> _transmat -> transMat ( * this -> _detected_square , this -> _detected_direction , this -> _marker_width , \
+>662	ArgumentList	* this -> _detected_square
+>663	Argument	o_result
+>664	Identifier	o_result
+>665	Argument	this -> _marker_width
+>666	PtrMemberAccess	this -> _marker_width
+>667	Identifier	_marker_width
+>668	Identifier	this
+>669	Argument	this -> _detected_direction
+>670	PtrMemberAccess	this -> _detected_direction
+>671	Identifier	_detected_direction
+>672	Identifier	this
+>673	Argument	* this -> _detected_square
+>674	UnaryOp	* this -> _detected_square
+>675	PtrMemberAccess	this -> _detected_square
+>676	Identifier	_detected_square
+>677	Identifier	this
+>678	UnaryOperator	*
+>679	Callee	this -> _transmat -> transMat
+>680	PtrMemberAccess	this -> _transmat -> transMat
+>681	Identifier	transMat
+>682	PtrMemberAccess	this -> _transmat
+>683	Identifier	_transmat
+>684	Identifier	this
+>685	CompoundStatement	 
+>686	ExpressionStatement	 
+>687	CallExpression	this -> _transmat -> transMatContinue ( * this -> _detected_square , this -> _detected_direction , this -> _marker_\
+>688	ArgumentList	* this -> _detected_square
+>689	Argument	o_result
+>690	Identifier	o_result
+>691	Argument	this -> _marker_width
+>692	PtrMemberAccess	this -> _marker_width
+>693	Identifier	_marker_width
+>694	Identifier	this
+>695	Argument	this -> _detected_direction
+>696	PtrMemberAccess	this -> _detected_direction
+>697	Identifier	_detected_direction
+>698	Identifier	this
+>699	Argument	* this -> _detected_square
+>700	UnaryOp	* this -> _detected_square
+>701	PtrMemberAccess	this -> _detected_square
+>702	Identifier	_detected_square
+>703	Identifier	this
+>704	UnaryOperator	*
+>705	Callee	this -> _transmat -> transMatContinue
+>706	PtrMemberAccess	this -> _transmat -> transMatContinue
+>707	Identifier	transMatContinue
+>708	PtrMemberAccess	this -> _transmat
+>709	Identifier	_transmat
+>710	Identifier	this
+>711	Condition	 
+>712	PtrMemberAccess	this -> _is_continue
+>713	Identifier	_is_continue
+>714	Identifier	this
+>728	FunctionDef	NyARSingleDetectMarker 
+>729	ParameterList	 
+>730	ReturnType	double
+>731	CompoundStatement	 
+>732	ReturnStatement	 
+>733	PtrMemberAccess	this -> _detected_confidence
+>734	Identifier	_detected_confidence
+>735	Identifier	this
+>742	FunctionDef	NyARSingleDetectMarker 
+>743	ParameterList	 
+>744	ReturnType	int
+>745	CompoundStatement	 
+>746	ReturnStatement	 
+>747	PtrMemberAccess	this -> _detected_direction
+>748	Identifier	_detected_direction
+>749	Identifier	this
+>756	FunctionDef	NyARSingleDetectMarker 
+>757	ParameterList	bool i_is_continue
+>758	Parameter	 
+>759	Identifier	i_is_continue
+>760	ParameterType	bool
+>761	ReturnType	void
+>762	CompoundStatement	 
+>763	ExpressionStatement	 
+>764	AssignmentExpr	this -> _is_continue = i_is_continue
+>765	Identifier	i_is_continue
+>766	PtrMemberAccess	this -> _is_continue
+>767	Identifier	_is_continue
+>768	Identifier	this
+<3=14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=107,101,84,76,70,52,46,34,28,22,16,15
+<16=17
+<17=19,18
+<19=21,20
+<22=23
+<23=25,24
+<25=27,26
+<28=29
+<29=31,30
+<31=33,32
+<34=35
+<35=43,36
+<36=40,37
+<37=39,38
+<40=42,41
+<43=45,44
+<46=47
+<47=49,48
+<49=51,50
+<52=53
+<53=67,54
+<54=61,55
+<55=57,56
+<57=58
+<58=60,59
+<61=63,62
+<63=64
+<64=66,65
+<67=69,68
+<70=71
+<71=73,72
+<73=75,74
+<76=77
+<77=81,78
+<78=80,79
+<81=83,82
+<84=85
+<85=98,86
+<86=90,87
+<87=89,88
+<90=97,91
+<91=93,92
+<93=94
+<94=96,95
+<98=100,99
+<101=102
+<102=104,103
+<104=106,105
+<107=108
+<108=118,117,109
+<109=116,110
+<110=112,111
+<112=113
+<113=115,114
+<152=154,153
+<154=219,210,201,192,183,174,165,156,155
+<156=157
+<157=163,158
+<158=159
+<159=160
+<160=162,161
+<163=164
+<165=166
+<166=172,167
+<167=168
+<168=169
+<169=171,170
+<172=173
+<174=175
+<175=181,176
+<176=177
+<177=178
+<178=180,179
+<181=182
+<183=184
+<184=190,185
+<185=186
+<186=187
+<187=189,188
+<190=191
+<192=193
+<193=199,194
+<194=195
+<195=196
+<196=198,197
+<199=200
+<201=202
+<202=208,203
+<203=204
+<204=205
+<205=207,206
+<208=209
+<210=211
+<211=217,212
+<212=213
+<213=214
+<214=216,215
+<217=218
+<219=220
+<220=226,221
+<221=222
+<222=223
+<223=225,224
+<226=227
+<241=250,249,242
+<242=246,243
+<243=245,244
+<246=248,247
+<250=572,561,544,538,527,510,498,490,462,437,422,415,401,387,278,265,259,253,251
+<251=252
+<253=254
+<254=256,255
+<256=258,257
+<259=260
+<260=262,261
+<262=264,263
+<265=266
+<266=275,267
+<267=271,268
+<268=269
+<269=270
+<271=272
+<272=274,273
+<275=277,276
+<278=379,375,372,279
+<279=350,335,320,306,299,295,284,280
+<280=281
+<281=283,282
+<284=285
+<285=294,286
+<286=288,287
+<288=289
+<289=291,290
+<291=293,292
+<295=296
+<296=298,297
+<299=302,300
+<300=301
+<302=303
+<303=305,304
+<306=307
+<307=319,318,308
+<308=317,309
+<309=311,310
+<311=312
+<312=314,313
+<314=316,315
+<320=321
+<321=329,322
+<322=323
+<323=324
+<324=328,325
+<325=327,326
+<329=330
+<330=332,331
+<332=334,333
+<335=336
+<336=344,337
+<337=338
+<338=339
+<339=343,340
+<340=342,341
+<344=345
+<345=347,346
+<347=349,348
+<350=351
+<351=366,352
+<352=364,353
+<353=354
+<354=363,355
+<355=359,356
+<356=357
+<357=358
+<359=360
+<360=362,361
+<364=365
+<366=367
+<367=369,368
+<369=371,370
+<372=374,373
+<375=376
+<376=378,377
+<379=380
+<380=381
+<381=386,385,382
+<382=384,383
+<387=388
+<388=400,399,389
+<389=398,390
+<390=392,391
+<392=393
+<393=395,394
+<395=397,396
+<401=402
+<402=414,413,403
+<403=412,404
+<404=406,405
+<406=407
+<407=409,408
+<409=411,410
+<415=416
+<416=421,420,417
+<417=419,418
+<422=423
+<423=431,424
+<424=425
+<425=426
+<426=430,427
+<427=429,428
+<431=432
+<432=434,433
+<434=436,435
+<437=445,438
+<438=444,439
+<439=440
+<440=442,441
+<442=443
+<445=446
+<446=461,447
+<447=455,448
+<448=449
+<449=450
+<450=454,451
+<451=453,452
+<455=456
+<456=458,457
+<458=460,459
+<462=466,463
+<463=464
+<464=465
+<466=467
+<467=489,468
+<468=483,469
+<469=481,470
+<470=471
+<471=480,472
+<472=476,473
+<473=474
+<474=475
+<476=477
+<477=479,478
+<481=482
+<483=484
+<484=486,485
+<486=488,487
+<490=494,491
+<491=492
+<492=493
+<494=495
+<495=497,496
+<498=499
+<499=509,508,500
+<500=507,501
+<501=503,502
+<503=504
+<504=506,505
+<510=511
+<511=521,512
+<512=515,513
+<513=514
+<515=516
+<516=520,517
+<517=519,518
+<521=522
+<522=524,523
+<524=526,525
+<527=528
+<528=537,536,529
+<529=535,530
+<530=534,531
+<531=533,532
+<538=539
+<539=541,540
+<541=543,542
+<544=545
+<545=555,546
+<546=553,547
+<547=548
+<548=552,549
+<549=551,550
+<553=554
+<555=556
+<556=558,557
+<558=560,559
+<561=562
+<562=566,563
+<563=564
+<564=565
+<566=567
+<567=569,568
+<569=571,570
+<572=580,573
+<573=579,574
+<574=575
+<575=577,576
+<577=578
+<580=581
+<581=602,582
+<582=600,583
+<583=591,584
+<584=585
+<585=587,586
+<587=588
+<588=590,589
+<591=592
+<592=594,593
+<594=595
+<595=597,596
+<597=599,598
+<600=601
+<649=655,654,650
+<650=651
+<651=653,652
+<655=657,656
+<657=711,685,658
+<658=659
+<659=660
+<660=661
+<661=679,662
+<662=673,669,665,663
+<663=664
+<665=666
+<666=668,667
+<669=670
+<670=672,671
+<673=674
+<674=678,675
+<675=677,676
+<679=680
+<680=682,681
+<682=684,683
+<685=686
+<686=687
+<687=705,688
+<688=699,695,691,689
+<689=690
+<691=692
+<692=694,693
+<695=696
+<696=698,697
+<699=700
+<700=704,701
+<701=703,702
+<705=706
+<706=708,707
+<708=710,709
+<711=712
+<712=714,713
+<728=731,730,729
+<731=732
+<732=733
+<733=735,734
+<742=745,744,743
+<745=746
+<746=747
+<747=749,748
+<756=762,761,757
+<757=758
+<758=760,759
+<762=763
+<763=764
+<764=766,765
+<766=768,767

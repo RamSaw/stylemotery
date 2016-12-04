@@ -1,0 +1,4176 @@
+>3	FunctionDef	BundlerApp 
+>4	ParameterList	 
+>5	ReturnType	void
+>6	CompoundStatement	 
+>7	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>8	CompoundStatement	 
+>9	IfStatement	if ( m_image_data [ i ] . m_camera . m_adjusted )
+>10	ElseStatement	else
+>11	ExpressionStatement	 
+>12	AssignmentExpr	image_mask [ i ] = false
+>13	Identifier	false
+>14	ArrayIndexing	image_mask [ i ]
+>15	Identifier	i
+>16	Identifier	image_mask
+>17	ExpressionStatement	 
+>18	AssignmentExpr	image_mask [ i ] = true
+>19	Identifier	true
+>20	ArrayIndexing	image_mask [ i ]
+>21	Identifier	i
+>22	Identifier	image_mask
+>23	Condition	 
+>24	MemberAccess	m_image_data [ i ] . m_camera . m_adjusted
+>25	Identifier	m_adjusted
+>26	MemberAccess	m_image_data [ i ] . m_camera
+>27	Identifier	m_camera
+>28	ArrayIndexing	m_image_data [ i ]
+>29	Identifier	i
+>30	Identifier	m_image_data
+>31	IncDecOp	 
+>32	IncDec	++
+>33	Identifier	i
+>34	Condition	 
+>35	RelationalExpression	i < num_images
+>36	Identifier	num_images
+>37	Identifier	i
+>38	ForInit	 
+>39	IdentifierDeclStatement	int i = 0 ;
+>40	IdentifierDecl	i = 0
+>41	AssignmentExpr	i = 0
+>42	PrimaryExpression	0
+>43	Identifier	i
+>44	Identifier	i
+>45	IdentifierDeclType	int
+>46	IdentifierDeclStatement	 
+>47	IdentifierDecl	* image_mask = new bool [ num_images ]
+>48	AssignmentExpr	* image_mask = new bool [ num_images ]
+>49	Identifier	num_images
+>50	Identifier	num_images
+>51	Identifier	image_mask
+>52	IdentifierDeclType	bool *
+>53	ExpressionStatement	 
+>54	CallExpression	SetMatchesFromPoints ( )
+>55	ArgumentList	 
+>56	Callee	SetMatchesFromPoints
+>57	Identifier	SetMatchesFromPoints
+>58	ExpressionStatement	 
+>59	Identifier	added_order_inv
+>60	Statement	 
+>61	Statement	 
+>62	Statement	 
+>63	ExpressionStatement	 
+>64	Identifier	added_order
+>65	Statement	 
+>66	Statement	 
+>67	Statement	 
+>68	ForStatement	for ( int i = 0 ; i < curr_num_pts ; i ++ )
+>69	CompoundStatement	 
+>70	ExpressionStatement	 
+>71	CallExpression	m_point_data . push_back ( pdata )
+>72	ArgumentList	pdata
+>73	Argument	pdata
+>74	Identifier	pdata
+>75	Callee	m_point_data . push_back
+>76	MemberAccess	m_point_data . push_back
+>77	Identifier	push_back
+>78	Identifier	m_point_data
+>79	ForStatement	for ( int j = 0 ; j < ( int ) pt_views [ i ] . size ( ) ; j ++ )
+>80	CompoundStatement	 
+>81	ExpressionStatement	 
+>82	CallExpression	pdata . m_views . push_back ( ImageKey ( vnew , pt_views [ i ] [ j ] . second ) )
+>83	ArgumentList	ImageKey ( vnew , pt_views [ i ] [ j ] . second )
+>84	Argument	ImageKey ( vnew , pt_views [ i ] [ j ] . second )
+>85	CallExpression	ImageKey ( vnew , pt_views [ i ] [ j ] . second )
+>86	ArgumentList	vnew
+>87	Argument	pt_views [ i ] [ j ] . second
+>88	MemberAccess	pt_views [ i ] [ j ] . second
+>89	Identifier	second
+>90	ArrayIndexing	pt_views [ i ] [ j ]
+>91	Identifier	j
+>92	ArrayIndexing	pt_views [ i ]
+>93	Identifier	i
+>94	Identifier	pt_views
+>95	Argument	vnew
+>96	Identifier	vnew
+>97	Callee	ImageKey
+>98	Identifier	ImageKey
+>99	Callee	pdata . m_views . push_back
+>100	MemberAccess	pdata . m_views . push_back
+>101	Identifier	push_back
+>102	MemberAccess	pdata . m_views
+>103	Identifier	m_views
+>104	Identifier	pdata
+>105	IdentifierDeclStatement	 
+>106	IdentifierDecl	vnew = added_order [ v ]
+>107	AssignmentExpr	vnew = added_order [ v ]
+>108	ArrayIndexing	added_order [ v ]
+>109	Identifier	v
+>110	Identifier	added_order
+>111	Identifier	vnew
+>112	Identifier	vnew
+>113	IdentifierDeclType	int
+>114	IdentifierDeclStatement	 
+>115	IdentifierDecl	v = pt_views [ i ] [ j ] . first
+>116	AssignmentExpr	v = pt_views [ i ] [ j ] . first
+>117	MemberAccess	pt_views [ i ] [ j ] . first
+>118	Identifier	first
+>119	ArrayIndexing	pt_views [ i ] [ j ]
+>120	Identifier	j
+>121	ArrayIndexing	pt_views [ i ]
+>122	Identifier	i
+>123	Identifier	pt_views
+>124	Identifier	v
+>125	Identifier	v
+>126	IdentifierDeclType	int
+>127	IncDecOp	 
+>128	IncDec	++
+>129	Identifier	j
+>130	Condition	 
+>131	RelationalExpression	j < ( int ) pt_views [ i ] . size ( )
+>132	CastExpression	( int ) pt_views [ i ] . size ( )
+>133	CallExpression	pt_views [ i ] . size ( )
+>134	ArgumentList	 
+>135	Callee	pt_views [ i ] . size
+>136	MemberAccess	pt_views [ i ] . size
+>137	Identifier	size
+>138	ArrayIndexing	pt_views [ i ]
+>139	Identifier	i
+>140	Identifier	pt_views
+>141	CastTarget	int
+>142	Identifier	j
+>143	ForInit	 
+>144	IdentifierDeclStatement	int j = 0 ;
+>145	IdentifierDecl	j = 0
+>146	AssignmentExpr	j = 0
+>147	PrimaryExpression	0
+>148	Identifier	j
+>149	Identifier	j
+>150	IdentifierDeclType	int
+>151	ExpressionStatement	 
+>152	AssignmentExpr	pdata . m_color [ 2 ] = ( float ) Vz ( colors [ i ] )
+>153	CastExpression	( float ) Vz ( colors [ i ] )
+>154	CallExpression	Vz ( colors [ i ] )
+>155	ArgumentList	colors [ i ]
+>156	Argument	colors [ i ]
+>157	ArrayIndexing	colors [ i ]
+>158	Identifier	i
+>159	Identifier	colors
+>160	Callee	Vz
+>161	Identifier	Vz
+>162	CastTarget	float
+>163	ArrayIndexing	pdata . m_color [ 2 ]
+>164	PrimaryExpression	2
+>165	MemberAccess	pdata . m_color
+>166	Identifier	m_color
+>167	Identifier	pdata
+>168	ExpressionStatement	 
+>169	AssignmentExpr	pdata . m_color [ 1 ] = ( float ) Vy ( colors [ i ] )
+>170	CastExpression	( float ) Vy ( colors [ i ] )
+>171	CallExpression	Vy ( colors [ i ] )
+>172	ArgumentList	colors [ i ]
+>173	Argument	colors [ i ]
+>174	ArrayIndexing	colors [ i ]
+>175	Identifier	i
+>176	Identifier	colors
+>177	Callee	Vy
+>178	Identifier	Vy
+>179	CastTarget	float
+>180	ArrayIndexing	pdata . m_color [ 1 ]
+>181	PrimaryExpression	1
+>182	MemberAccess	pdata . m_color
+>183	Identifier	m_color
+>184	Identifier	pdata
+>185	ExpressionStatement	 
+>186	AssignmentExpr	pdata . m_color [ 0 ] = ( float ) Vx ( colors [ i ] )
+>187	CastExpression	( float ) Vx ( colors [ i ] )
+>188	CallExpression	Vx ( colors [ i ] )
+>189	ArgumentList	colors [ i ]
+>190	Argument	colors [ i ]
+>191	ArrayIndexing	colors [ i ]
+>192	Identifier	i
+>193	Identifier	colors
+>194	Callee	Vx
+>195	Identifier	Vx
+>196	CastTarget	float
+>197	ArrayIndexing	pdata . m_color [ 0 ]
+>198	PrimaryExpression	0
+>199	MemberAccess	pdata . m_color
+>200	Identifier	m_color
+>201	Identifier	pdata
+>202	ExpressionStatement	 
+>203	AssignmentExpr	pdata . m_pos [ 2 ] = Vz ( points [ i ] )
+>204	CallExpression	Vz ( points [ i ] )
+>205	ArgumentList	points [ i ]
+>206	Argument	points [ i ]
+>207	ArrayIndexing	points [ i ]
+>208	Identifier	i
+>209	Identifier	points
+>210	Callee	Vz
+>211	Identifier	Vz
+>212	ArrayIndexing	pdata . m_pos [ 2 ]
+>213	PrimaryExpression	2
+>214	MemberAccess	pdata . m_pos
+>215	Identifier	m_pos
+>216	Identifier	pdata
+>217	ExpressionStatement	 
+>218	AssignmentExpr	pdata . m_pos [ 1 ] = Vy ( points [ i ] )
+>219	CallExpression	Vy ( points [ i ] )
+>220	ArgumentList	points [ i ]
+>221	Argument	points [ i ]
+>222	ArrayIndexing	points [ i ]
+>223	Identifier	i
+>224	Identifier	points
+>225	Callee	Vy
+>226	Identifier	Vy
+>227	ArrayIndexing	pdata . m_pos [ 1 ]
+>228	PrimaryExpression	1
+>229	MemberAccess	pdata . m_pos
+>230	Identifier	m_pos
+>231	Identifier	pdata
+>232	ExpressionStatement	 
+>233	AssignmentExpr	pdata . m_pos [ 0 ] = Vx ( points [ i ] )
+>234	CallExpression	Vx ( points [ i ] )
+>235	ArgumentList	points [ i ]
+>236	Argument	points [ i ]
+>237	ArrayIndexing	points [ i ]
+>238	Identifier	i
+>239	Identifier	points
+>240	Callee	Vx
+>241	Identifier	Vx
+>242	ArrayIndexing	pdata . m_pos [ 0 ]
+>243	PrimaryExpression	0
+>244	MemberAccess	pdata . m_pos
+>245	Identifier	m_pos
+>246	Identifier	pdata
+>247	IdentifierDeclStatement	 
+>248	IdentifierDecl	pdata
+>249	Identifier	pdata
+>250	IdentifierDeclType	PointData
+>251	IfStatement	if ( ( int ) pt_views [ i ] . size ( ) == 0 )
+>252	ContinueStatement	 
+>253	Condition	 
+>254	EqualityExpression	( int ) pt_views [ i ] . size ( ) == 0
+>255	PrimaryExpression	0
+>256	CastExpression	( int ) pt_views [ i ] . size ( )
+>257	CallExpression	pt_views [ i ] . size ( )
+>258	ArgumentList	 
+>259	Callee	pt_views [ i ] . size
+>260	MemberAccess	pt_views [ i ] . size
+>261	Identifier	size
+>262	ArrayIndexing	pt_views [ i ]
+>263	Identifier	i
+>264	Identifier	pt_views
+>265	CastTarget	int
+>266	IncDecOp	 
+>267	IncDec	++
+>268	Identifier	i
+>269	Condition	 
+>270	RelationalExpression	i < curr_num_pts
+>271	Identifier	curr_num_pts
+>272	Identifier	i
+>273	ForInit	 
+>274	IdentifierDeclStatement	int i = 0 ;
+>275	IdentifierDecl	i = 0
+>276	AssignmentExpr	i = 0
+>277	PrimaryExpression	0
+>278	Identifier	i
+>279	Identifier	i
+>280	IdentifierDeclType	int
+>281	ForStatement	for ( int i = 0 ; i < curr_num_cameras ; i ++ )
+>282	CompoundStatement	 
+>283	ExpressionStatement	 
+>284	CallExpression	m_image_data [ img ] . m_camera . Finalize ( )
+>285	ArgumentList	 
+>286	Callee	m_image_data [ img ] . m_camera . Finalize
+>287	MemberAccess	m_image_data [ img ] . m_camera . Finalize
+>288	Identifier	Finalize
+>289	MemberAccess	m_image_data [ img ] . m_camera
+>290	Identifier	m_camera
+>291	ArrayIndexing	m_image_data [ img ]
+>292	Identifier	img
+>293	Identifier	m_image_data
+>294	ExpressionStatement	 
+>295	AssignmentExpr	m_image_data [ img ] . m_camera . m_focal = cameras [ i ] . f
+>296	MemberAccess	cameras [ i ] . f
+>297	Identifier	f
+>298	ArrayIndexing	cameras [ i ]
+>299	Identifier	i
+>300	Identifier	cameras
+>301	MemberAccess	m_image_data [ img ] . m_camera . m_focal
+>302	Identifier	m_focal
+>303	MemberAccess	m_image_data [ img ] . m_camera
+>304	Identifier	m_camera
+>305	ArrayIndexing	m_image_data [ img ]
+>306	Identifier	img
+>307	Identifier	m_image_data
+>308	ExpressionStatement	 
+>309	CallExpression	matrix_scale ( 3 , 1 , m_image_data [ img ] . m_camera . m_t , - 1.0 , m_image_data [ img ] . m_camera . m_t )
+>310	ArgumentList	3
+>311	Argument	m_image_data [ img ] . m_camera . m_t
+>312	MemberAccess	m_image_data [ img ] . m_camera . m_t
+>313	Identifier	m_t
+>314	MemberAccess	m_image_data [ img ] . m_camera
+>315	Identifier	m_camera
+>316	ArrayIndexing	m_image_data [ img ]
+>317	Identifier	img
+>318	Identifier	m_image_data
+>319	Argument	- 1.0
+>320	UnaryOp	- 1.0
+>321	PrimaryExpression	1.0
+>322	UnaryOperator	-
+>323	Argument	m_image_data [ img ] . m_camera . m_t
+>324	MemberAccess	m_image_data [ img ] . m_camera . m_t
+>325	Identifier	m_t
+>326	MemberAccess	m_image_data [ img ] . m_camera
+>327	Identifier	m_camera
+>328	ArrayIndexing	m_image_data [ img ]
+>329	Identifier	img
+>330	Identifier	m_image_data
+>331	Argument	1
+>332	PrimaryExpression	1
+>333	Argument	3
+>334	PrimaryExpression	3
+>335	Callee	matrix_scale
+>336	Identifier	matrix_scale
+>337	ExpressionStatement	 
+>338	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , cameras [ i ] . R , cameras [ i ] . t , m_image_data [ img ] . m_camera . m_t )
+>339	ArgumentList	3
+>340	Argument	m_image_data [ img ] . m_camera . m_t
+>341	MemberAccess	m_image_data [ img ] . m_camera . m_t
+>342	Identifier	m_t
+>343	MemberAccess	m_image_data [ img ] . m_camera
+>344	Identifier	m_camera
+>345	ArrayIndexing	m_image_data [ img ]
+>346	Identifier	img
+>347	Identifier	m_image_data
+>348	Argument	cameras [ i ] . t
+>349	MemberAccess	cameras [ i ] . t
+>350	Identifier	t
+>351	ArrayIndexing	cameras [ i ]
+>352	Identifier	i
+>353	Identifier	cameras
+>354	Argument	cameras [ i ] . R
+>355	MemberAccess	cameras [ i ] . R
+>356	Identifier	R
+>357	ArrayIndexing	cameras [ i ]
+>358	Identifier	i
+>359	Identifier	cameras
+>360	Argument	1
+>361	PrimaryExpression	1
+>362	Argument	3
+>363	PrimaryExpression	3
+>364	Argument	3
+>365	PrimaryExpression	3
+>366	Argument	3
+>367	PrimaryExpression	3
+>368	Callee	matrix_product
+>369	Identifier	matrix_product
+>370	ExpressionStatement	 
+>371	CallExpression	memcpy ( m_image_data [ img ] . m_camera . m_R , cameras [ i ] . R , 9 * sizeof ( double ) )
+>372	ArgumentList	m_image_data [ img ] . m_camera . m_R
+>373	Argument	9 * sizeof ( double )
+>374	MultiplicativeExpression	9 * sizeof ( double )
+>375	SizeofExpr	sizeof ( double )
+>376	SizeofOperand	double
+>377	Sizeof	sizeof
+>378	PrimaryExpression	9
+>379	Argument	cameras [ i ] . R
+>380	MemberAccess	cameras [ i ] . R
+>381	Identifier	R
+>382	ArrayIndexing	cameras [ i ]
+>383	Identifier	i
+>384	Identifier	cameras
+>385	Argument	m_image_data [ img ] . m_camera . m_R
+>386	MemberAccess	m_image_data [ img ] . m_camera . m_R
+>387	Identifier	m_R
+>388	MemberAccess	m_image_data [ img ] . m_camera
+>389	Identifier	m_camera
+>390	ArrayIndexing	m_image_data [ img ]
+>391	Identifier	img
+>392	Identifier	m_image_data
+>393	Callee	memcpy
+>394	Identifier	memcpy
+>395	ExpressionStatement	 
+>396	AssignmentExpr	m_image_data [ img ] . m_camera . m_adjusted = true
+>397	Identifier	true
+>398	MemberAccess	m_image_data [ img ] . m_camera . m_adjusted
+>399	Identifier	m_adjusted
+>400	MemberAccess	m_image_data [ img ] . m_camera
+>401	Identifier	m_camera
+>402	ArrayIndexing	m_image_data [ img ]
+>403	Identifier	img
+>404	Identifier	m_image_data
+>405	IdentifierDeclStatement	 
+>406	IdentifierDecl	img = added_order [ i ]
+>407	AssignmentExpr	img = added_order [ i ]
+>408	ArrayIndexing	added_order [ i ]
+>409	Identifier	i
+>410	Identifier	added_order
+>411	Identifier	img
+>412	Identifier	img
+>413	IdentifierDeclType	int
+>414	IncDecOp	 
+>415	IncDec	++
+>416	Identifier	i
+>417	Condition	 
+>418	RelationalExpression	i < curr_num_cameras
+>419	Identifier	curr_num_cameras
+>420	Identifier	i
+>421	ForInit	 
+>422	IdentifierDeclStatement	int i = 0 ;
+>423	IdentifierDecl	i = 0
+>424	AssignmentExpr	i = 0
+>425	PrimaryExpression	0
+>426	Identifier	i
+>427	Identifier	i
+>428	IdentifierDeclType	int
+>429	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>430	CompoundStatement	 
+>431	ExpressionStatement	 
+>432	AssignmentExpr	m_image_data [ i ] . m_camera . m_adjusted = false
+>433	Identifier	false
+>434	MemberAccess	m_image_data [ i ] . m_camera . m_adjusted
+>435	Identifier	m_adjusted
+>436	MemberAccess	m_image_data [ i ] . m_camera
+>437	Identifier	m_camera
+>438	ArrayIndexing	m_image_data [ i ]
+>439	Identifier	i
+>440	Identifier	m_image_data
+>441	IncDecOp	 
+>442	IncDec	++
+>443	Identifier	i
+>444	Condition	 
+>445	RelationalExpression	i < num_images
+>446	Identifier	num_images
+>447	Identifier	i
+>448	ForInit	 
+>449	IdentifierDeclStatement	int i = 0 ;
+>450	IdentifierDecl	i = 0
+>451	AssignmentExpr	i = 0
+>452	PrimaryExpression	0
+>453	Identifier	i
+>454	Identifier	i
+>455	IdentifierDeclType	int
+>456	IfStatement	if ( m_bundle_output_file != NULL )
+>457	CompoundStatement	 
+>458	ExpressionStatement	 
+>459	CallExpression	DumpOutputFile ( m_output_directory , m_bundle_output_file , num_images , curr_num_cameras , curr_num_pts , added_\
+>460	ArgumentList	m_output_directory
+>461	Argument	pt_views
+>462	Identifier	pt_views
+>463	Argument	colors
+>464	Identifier	colors
+>465	Argument	points
+>466	Identifier	points
+>467	Argument	cameras
+>468	Identifier	cameras
+>469	Argument	added_order
+>470	Identifier	added_order
+>471	Argument	curr_num_pts
+>472	Identifier	curr_num_pts
+>473	Argument	curr_num_cameras
+>474	Identifier	curr_num_cameras
+>475	Argument	num_images
+>476	Identifier	num_images
+>477	Argument	m_bundle_output_file
+>478	Identifier	m_bundle_output_file
+>479	Argument	m_output_directory
+>480	Identifier	m_output_directory
+>481	Callee	DumpOutputFile
+>482	Identifier	DumpOutputFile
+>483	Condition	 
+>484	EqualityExpression	m_bundle_output_file != NULL
+>485	Identifier	NULL
+>486	Identifier	m_bundle_output_file
+>487	IfStatement	if ( m_estimate_ignored )
+>488	CompoundStatement	 
+>489	ExpressionStatement	 
+>490	CallExpression	EstimateIgnoredCameras ( curr_num_cameras , cameras , added_order , curr_num_pts , points , colors , pt_views )
+>491	ArgumentList	curr_num_cameras
+>492	Argument	pt_views
+>493	Identifier	pt_views
+>494	Argument	colors
+>495	Identifier	colors
+>496	Argument	points
+>497	Identifier	points
+>498	Argument	curr_num_pts
+>499	Identifier	curr_num_pts
+>500	Argument	added_order
+>501	Identifier	added_order
+>502	Argument	cameras
+>503	Identifier	cameras
+>504	Argument	curr_num_cameras
+>505	Identifier	curr_num_cameras
+>506	Callee	EstimateIgnoredCameras
+>507	Identifier	EstimateIgnoredCameras
+>508	Condition	 
+>509	Identifier	m_estimate_ignored
+>510	ExpressionStatement	 
+>511	CallExpression	printf ( \"[BundleAdjust] Bundle adjustment took %0.3fs\n\" , ( end - start ) / ( ( double ) CLOCKS_PER_SEC ) )
+>512	ArgumentList	\"[BundleAdjust] Bundle adjustment took %0.3fs\n\"
+>513	Argument	( end - start ) / ( ( double ) CLOCKS_PER_SEC )
+>514	MultiplicativeExpression	( end - start ) / ( ( double ) CLOCKS_PER_SEC )
+>515	CastExpression	( double ) CLOCKS_PER_SEC
+>516	Identifier	CLOCKS_PER_SEC
+>517	CastTarget	double
+>518	AdditiveExpression	end - start
+>519	Identifier	start
+>520	Identifier	end
+>521	Argument	\"[BundleAdjust] Bundle adjustment took %0.3fs\n\"
+>522	PrimaryExpression	\"[BundleAdjust] Bundle adjustment took %0.3fs\n\"
+>523	Callee	printf
+>524	Identifier	printf
+>525	IdentifierDeclStatement	 
+>526	IdentifierDecl	end = clock ( )
+>527	AssignmentExpr	end = clock ( )
+>528	CallExpression	clock ( )
+>529	ArgumentList	 
+>530	Callee	clock
+>531	Identifier	clock
+>532	Identifier	end
+>533	Identifier	end
+>534	IdentifierDeclType	clock_t
+>535	WhileStatement	while ( curr_num_cameras < num_images )
+>536	CompoundStatement	 
+>537	ExpressionStatement	 
+>538	IncDecOp	round ++
+>539	IncDec	++
+>540	Identifier	round
+>541	IfStatement	if ( m_bundle_output_base != NULL )
+>542	CompoundStatement	 
+>543	ExpressionStatement	 
+>544	CallExpression	DumpOutputFile ( m_output_directory , buf , num_images , curr_num_cameras , curr_num_pts , added_order , cameras , \
+>545	ArgumentList	m_output_directory
+>546	Argument	pt_views
+>547	Identifier	pt_views
+>548	Argument	colors
+>549	Identifier	colors
+>550	Argument	points
+>551	Identifier	points
+>552	Argument	cameras
+>553	Identifier	cameras
+>554	Argument	added_order
+>555	Identifier	added_order
+>556	Argument	curr_num_pts
+>557	Identifier	curr_num_pts
+>558	Argument	curr_num_cameras
+>559	Identifier	curr_num_cameras
+>560	Argument	num_images
+>561	Identifier	num_images
+>562	Argument	buf
+>563	Identifier	buf
+>564	Argument	m_output_directory
+>565	Identifier	m_output_directory
+>566	Callee	DumpOutputFile
+>567	Identifier	DumpOutputFile
+>568	ExpressionStatement	 
+>569	CallExpression	sprintf ( buf , \"%s%03d.out\" , m_bundle_output_base , curr_num_cameras )
+>570	ArgumentList	buf
+>571	Argument	curr_num_cameras
+>572	Identifier	curr_num_cameras
+>573	Argument	m_bundle_output_base
+>574	Identifier	m_bundle_output_base
+>575	Argument	\"%s%03d.out\"
+>576	PrimaryExpression	\"%s%03d.out\"
+>577	Argument	buf
+>578	Identifier	buf
+>579	Callee	sprintf
+>580	Identifier	sprintf
+>581	Condition	 
+>582	EqualityExpression	m_bundle_output_base != NULL
+>583	Identifier	NULL
+>584	Identifier	m_bundle_output_base
+>585	ExpressionStatement	 
+>586	CallExpression	DumpPointsToPly ( m_output_directory , buf , curr_num_pts , curr_num_cameras , points , colors , cameras )
+>587	ArgumentList	m_output_directory
+>588	Argument	cameras
+>589	Identifier	cameras
+>590	Argument	colors
+>591	Identifier	colors
+>592	Argument	points
+>593	Identifier	points
+>594	Argument	curr_num_cameras
+>595	Identifier	curr_num_cameras
+>596	Argument	curr_num_pts
+>597	Identifier	curr_num_pts
+>598	Argument	buf
+>599	Identifier	buf
+>600	Argument	m_output_directory
+>601	Identifier	m_output_directory
+>602	Callee	DumpPointsToPly
+>603	Identifier	DumpPointsToPly
+>604	ExpressionStatement	 
+>605	CallExpression	sprintf ( buf , \"points%03d.ply\" , curr_num_cameras )
+>606	ArgumentList	buf
+>607	Argument	curr_num_cameras
+>608	Identifier	curr_num_cameras
+>609	Argument	\"points%03d.ply\"
+>610	PrimaryExpression	\"points%03d.ply\"
+>611	Argument	buf
+>612	Identifier	buf
+>613	Callee	sprintf
+>614	Identifier	sprintf
+>615	IdentifierDeclStatement	 
+>616	IdentifierDecl	buf [ 256 ]
+>617	PrimaryExpression	256
+>618	Identifier	buf
+>619	IdentifierDeclType	char [ 256 ]
+>620	ForStatement	for ( int i = 0 ; i < curr_num_cameras ; i ++ )
+>621	CompoundStatement	 
+>622	ExpressionStatement	 
+>623	CallExpression	printf ( \"         %0.3f %0.3f %0.3f\n\" , cameras [ i ] . t [ 0 ] , cameras [ i ] . t [ 1 ] , cameras [ i ] . t [ \
+>624	ArgumentList	\"         %0.3f %0.3f %0.3f\n\"
+>625	Argument	cameras [ i ] . t [ 2 ]
+>626	ArrayIndexing	cameras [ i ] . t [ 2 ]
+>627	PrimaryExpression	2
+>628	MemberAccess	cameras [ i ] . t
+>629	Identifier	t
+>630	ArrayIndexing	cameras [ i ]
+>631	Identifier	i
+>632	Identifier	cameras
+>633	Argument	cameras [ i ] . t [ 1 ]
+>634	ArrayIndexing	cameras [ i ] . t [ 1 ]
+>635	PrimaryExpression	1
+>636	MemberAccess	cameras [ i ] . t
+>637	Identifier	t
+>638	ArrayIndexing	cameras [ i ]
+>639	Identifier	i
+>640	Identifier	cameras
+>641	Argument	cameras [ i ] . t [ 0 ]
+>642	ArrayIndexing	cameras [ i ] . t [ 0 ]
+>643	PrimaryExpression	0
+>644	MemberAccess	cameras [ i ] . t
+>645	Identifier	t
+>646	ArrayIndexing	cameras [ i ]
+>647	Identifier	i
+>648	Identifier	cameras
+>649	Argument	\"         %0.3f %0.3f %0.3f\n\"
+>650	PrimaryExpression	\"         %0.3f %0.3f %0.3f\n\"
+>651	Callee	printf
+>652	Identifier	printf
+>653	ExpressionStatement	 
+>654	Statement	 
+>655	Statement	 
+>656	Statement	 
+>657	Statement	 
+>658	Statement	 
+>659	Statement	 
+>660	Statement	 
+>661	Statement	 
+>662	Statement	 
+>663	Statement	 
+>664	Statement	 
+>665	Statement	 
+>666	Statement	 
+>667	Statement	 
+>668	Statement	 
+>669	Statement	 
+>670	Statement	 
+>671	Statement	 
+>672	Statement	 
+>673	Statement	 
+>674	Statement	 
+>675	Statement	 
+>676	Statement	 
+>677	Statement	 
+>678	Statement	 
+>679	Statement	 
+>680	Statement	 
+>681	Statement	 
+>682	Statement	 
+>683	Statement	 
+>684	Statement	 
+>685	Statement	 
+>686	Statement	 
+>687	Statement	 
+>688	Statement	 
+>689	Statement	 
+>690	Statement	 
+>691	Statement	 
+>692	Statement	 
+>693	Statement	 
+>694	Statement	 
+>695	Statement	 
+>696	Statement	 
+>697	Statement	 
+>698	Statement	 
+>699	Statement	 
+>700	Statement	 
+>701	Statement	 
+>702	Statement	 
+>703	Statement	 
+>704	Statement	 
+>705	Statement	 
+>706	Statement	 
+>707	Statement	 
+>708	Statement	 
+>709	Statement	 
+>710	Statement	 
+>711	Statement	 
+>712	Statement	 
+>713	Statement	 
+>714	Statement	 
+>715	Statement	 
+>716	Statement	 
+>717	Statement	 
+>718	Statement	 
+>719	Statement	 
+>720	Statement	 
+>721	Statement	 
+>722	Statement	 
+>723	Statement	 
+>724	Statement	 
+>725	Statement	 
+>726	Statement	 
+>727	Statement	 
+>728	Statement	 
+>729	Statement	 
+>730	Statement	 
+>731	Statement	 
+>732	Statement	 
+>733	Statement	 
+>734	Statement	 
+>735	Statement	 
+>736	Statement	 
+>737	Statement	 
+>738	Statement	 
+>739	Statement	 
+>740	Statement	 
+>741	Statement	 
+>742	Statement	 
+>743	Statement	 
+>744	Statement	 
+>745	Statement	 
+>746	Statement	 
+>747	Statement	 
+>748	Statement	 
+>749	Statement	 
+>750	Statement	 
+>751	Statement	 
+>752	IncDecOp	 
+>753	IncDec	++
+>754	Identifier	i
+>755	Condition	 
+>756	RelationalExpression	i < curr_num_cameras
+>757	Identifier	curr_num_cameras
+>758	Identifier	i
+>759	ForInit	 
+>760	IdentifierDeclStatement	int i = 0 ;
+>761	IdentifierDecl	i = 0
+>762	AssignmentExpr	i = 0
+>763	PrimaryExpression	0
+>764	Identifier	i
+>765	Identifier	i
+>766	IdentifierDeclType	int
+>767	ExpressionStatement	 
+>768	CallExpression	printf ( \"  extrinsics
+>769	ArgumentList	\"  extrinsics
+>770	Argument	\"  extrinsics
+>771	PrimaryExpression	\"  extrinsics
+>772	Callee	printf
+>773	Identifier	printf
+>774	IfStatement	if ( ! m_skip_full_bundle )
+>775	CompoundStatement	 
+>776	ExpressionStatement	 
+>777	CallExpression	fflush ( stdout )
+>778	ArgumentList	stdout
+>779	Argument	stdout
+>780	Identifier	stdout
+>781	Callee	fflush
+>782	Identifier	fflush
+>783	ForStatement	for ( int i = 0 ; i < curr_num_cameras ; i ++ )
+>784	CompoundStatement	 
+>785	IfStatement	if ( m_image_data [ added_order [ i ] ] . m_has_init_focal )
+>786	ElseStatement	else
+>787	CompoundStatement	 
+>788	ExpressionStatement	 
+>789	CallExpression	printf ( \"   [%03d] %0.3f %s %d; %0.3e %0.3e\n\" , i , cameras [ i ] . f , m_image_data [ added_order [ i ] ] . m_\
+>790	ArgumentList	\"   [%03d] %0.3f %s %d; %0.3e %0.3e\n\"
+>791	Argument	cameras [ i ] . k [ 1 ]
+>792	ArrayIndexing	cameras [ i ] . k [ 1 ]
+>793	PrimaryExpression	1
+>794	MemberAccess	cameras [ i ] . k
+>795	Identifier	k
+>796	ArrayIndexing	cameras [ i ]
+>797	Identifier	i
+>798	Identifier	cameras
+>799	Argument	cameras [ i ] . k [ 0 ]
+>800	ArrayIndexing	cameras [ i ] . k [ 0 ]
+>801	PrimaryExpression	0
+>802	MemberAccess	cameras [ i ] . k
+>803	Identifier	k
+>804	ArrayIndexing	cameras [ i ]
+>805	Identifier	i
+>806	Identifier	cameras
+>807	Argument	added_order [ i ]
+>808	ArrayIndexing	added_order [ i ]
+>809	Identifier	i
+>810	Identifier	added_order
+>811	Argument	m_image_data [ added_order [ i ] ] . m_name
+>812	MemberAccess	m_image_data [ added_order [ i ] ] . m_name
+>813	Identifier	m_name
+>814	ArrayIndexing	m_image_data [ added_order [ i ] ]
+>815	ArrayIndexing	added_order [ i ]
+>816	Identifier	i
+>817	Identifier	added_order
+>818	Identifier	m_image_data
+>819	Argument	cameras [ i ] . f
+>820	MemberAccess	cameras [ i ] . f
+>821	Identifier	f
+>822	ArrayIndexing	cameras [ i ]
+>823	Identifier	i
+>824	Identifier	cameras
+>825	Argument	i
+>826	Identifier	i
+>827	Argument	\"   [%03d] %0.3f %s %d; %0.3e %0.3e\n\"
+>828	PrimaryExpression	\"   [%03d] %0.3f %s %d; %0.3e %0.3e\n\"
+>829	Callee	printf
+>830	Identifier	printf
+>831	CompoundStatement	 
+>832	ExpressionStatement	 
+>833	CallExpression	printf ( \"   [%03d] %0.3f (%0.3f) %s %d; %0.3e %0.3e\n\" , i , cameras [ i ] . f , m_image_data [ added_order [ i ] ] \
+>834	ArgumentList	\"   [%03d] %0.3f (%0.3f) %s %d; %0.3e %0.3e\n\"
+>835	Argument	cameras [ i ] . k [ 1 ]
+>836	ArrayIndexing	cameras [ i ] . k [ 1 ]
+>837	PrimaryExpression	1
+>838	MemberAccess	cameras [ i ] . k
+>839	Identifier	k
+>840	ArrayIndexing	cameras [ i ]
+>841	Identifier	i
+>842	Identifier	cameras
+>843	Argument	cameras [ i ] . k [ 0 ]
+>844	ArrayIndexing	cameras [ i ] . k [ 0 ]
+>845	PrimaryExpression	0
+>846	MemberAccess	cameras [ i ] . k
+>847	Identifier	k
+>848	ArrayIndexing	cameras [ i ]
+>849	Identifier	i
+>850	Identifier	cameras
+>851	Argument	added_order [ i ]
+>852	ArrayIndexing	added_order [ i ]
+>853	Identifier	i
+>854	Identifier	added_order
+>855	Argument	m_image_data [ added_order [ i ] ] . m_name
+>856	MemberAccess	m_image_data [ added_order [ i ] ] . m_name
+>857	Identifier	m_name
+>858	ArrayIndexing	m_image_data [ added_order [ i ] ]
+>859	ArrayIndexing	added_order [ i ]
+>860	Identifier	i
+>861	Identifier	added_order
+>862	Identifier	m_image_data
+>863	Argument	m_image_data [ added_order [ i ] ] . m_init_focal
+>864	MemberAccess	m_image_data [ added_order [ i ] ] . m_init_focal
+>865	Identifier	m_init_focal
+>866	ArrayIndexing	m_image_data [ added_order [ i ] ]
+>867	ArrayIndexing	added_order [ i ]
+>868	Identifier	i
+>869	Identifier	added_order
+>870	Identifier	m_image_data
+>871	Argument	cameras [ i ] . f
+>872	MemberAccess	cameras [ i ] . f
+>873	Identifier	f
+>874	ArrayIndexing	cameras [ i ]
+>875	Identifier	i
+>876	Identifier	cameras
+>877	Argument	i
+>878	Identifier	i
+>879	Argument	\"   [%03d] %0.3f (%0.3f) %s %d; %0.3e %0.3e\n\"
+>880	PrimaryExpression	\"   [%03d] %0.3f (%0.3f) %s %d; %0.3e %0.3e\n\"
+>881	Callee	printf
+>882	Identifier	printf
+>883	Condition	 
+>884	MemberAccess	m_image_data [ added_order [ i ] ] . m_has_init_focal
+>885	Identifier	m_has_init_focal
+>886	ArrayIndexing	m_image_data [ added_order [ i ] ]
+>887	ArrayIndexing	added_order [ i ]
+>888	Identifier	i
+>889	Identifier	added_order
+>890	Identifier	m_image_data
+>891	IncDecOp	 
+>892	IncDec	++
+>893	Identifier	i
+>894	Condition	 
+>895	RelationalExpression	i < curr_num_cameras
+>896	Identifier	curr_num_cameras
+>897	Identifier	i
+>898	ForInit	 
+>899	IdentifierDeclStatement	int i = 0 ;
+>900	IdentifierDecl	i = 0
+>901	AssignmentExpr	i = 0
+>902	PrimaryExpression	0
+>903	Identifier	i
+>904	Identifier	i
+>905	IdentifierDeclType	int
+>906	ExpressionStatement	 
+>907	CallExpression	printf ( \"  focal lengths
+>908	ArgumentList	\"  focal lengths
+>909	Argument	\"  focal lengths
+>910	PrimaryExpression	\"  focal lengths
+>911	Callee	printf
+>912	Identifier	printf
+>913	ExpressionStatement	 
+>914	CallExpression	RemoveBadPointsAndCameras ( curr_num_pts , curr_num_cameras + 1 , added_order , cameras , points , colors , pt_views )
+>915	ArgumentList	curr_num_pts
+>916	Argument	pt_views
+>917	Identifier	pt_views
+>918	Argument	colors
+>919	Identifier	colors
+>920	Argument	points
+>921	Identifier	points
+>922	Argument	cameras
+>923	Identifier	cameras
+>924	Argument	added_order
+>925	Identifier	added_order
+>926	Argument	curr_num_cameras + 1
+>927	AdditiveExpression	curr_num_cameras + 1
+>928	PrimaryExpression	1
+>929	Identifier	curr_num_cameras
+>930	Argument	curr_num_pts
+>931	Identifier	curr_num_pts
+>932	Callee	RemoveBadPointsAndCameras
+>933	Identifier	RemoveBadPointsAndCameras
+>934	ExpressionStatement	 
+>935	CallExpression	RunSFM ( curr_num_pts , curr_num_cameras , 0 , false , cameras , points , added_order , colors , pt_views )
+>936	ArgumentList	curr_num_pts
+>937	Argument	pt_views
+>938	Identifier	pt_views
+>939	Argument	colors
+>940	Identifier	colors
+>941	Argument	added_order
+>942	Identifier	added_order
+>943	Argument	points
+>944	Identifier	points
+>945	Argument	cameras
+>946	Identifier	cameras
+>947	Argument	false
+>948	Identifier	false
+>949	Argument	0
+>950	PrimaryExpression	0
+>951	Argument	curr_num_cameras
+>952	Identifier	curr_num_cameras
+>953	Argument	curr_num_pts
+>954	Identifier	curr_num_pts
+>955	Callee	RunSFM
+>956	Identifier	RunSFM
+>957	Condition	 
+>958	UnaryOp	! m_skip_full_bundle
+>959	Identifier	m_skip_full_bundle
+>960	UnaryOperator	!
+>961	ExpressionStatement	 
+>962	CallExpression	fflush ( stdout )
+>963	ArgumentList	stdout
+>964	Argument	stdout
+>965	Identifier	stdout
+>966	Callee	fflush
+>967	Identifier	fflush
+>968	ExpressionStatement	 
+>969	CallExpression	printf ( \"[BundleAdjust] Number of points = %d\n\" , pt_count )
+>970	ArgumentList	\"[BundleAdjust] Number of points = %d\n\"
+>971	Argument	pt_count
+>972	Identifier	pt_count
+>973	Argument	\"[BundleAdjust] Number of points = %d\n\"
+>974	PrimaryExpression	\"[BundleAdjust] Number of points = %d\n\"
+>975	Callee	printf
+>976	Identifier	printf
+>977	ExpressionStatement	 
+>978	AssignmentExpr	curr_num_pts = pt_count
+>979	Identifier	pt_count
+>980	Identifier	curr_num_pts
+>981	IfStatement	if ( ! m_skip_add_points )
+>982	CompoundStatement	 
+>983	ExpressionStatement	 
+>984	AssignmentExpr	pt_count = BundleAdjustAddAllNewPoints ( pt_count , curr_num_cameras , added_order , cameras , points , \
+>985	CallExpression	BundleAdjustAddAllNewPoints ( pt_count , curr_num_cameras , added_order , cameras , points , colors , dist0 , pt_\
+>986	ArgumentList	pt_count
+>987	Argument	pt_views
+>988	Identifier	pt_views
+>989	Argument	dist0
+>990	Identifier	dist0
+>991	Argument	colors
+>992	Identifier	colors
+>993	Argument	points
+>994	Identifier	points
+>995	Argument	cameras
+>996	Identifier	cameras
+>997	Argument	added_order
+>998	Identifier	added_order
+>999	Argument	curr_num_cameras
+>1000	Identifier	curr_num_cameras
+>1001	Argument	pt_count
+>1002	Identifier	pt_count
+>1003	Callee	BundleAdjustAddAllNewPoints
+>1004	Identifier	BundleAdjustAddAllNewPoints
+>1005	Identifier	pt_count
+>1006	Condition	 
+>1007	UnaryOp	! m_skip_add_points
+>1008	Identifier	m_skip_add_points
+>1009	UnaryOperator	!
+>1010	ExpressionStatement	 
+>1011	AssignmentExpr	curr_num_cameras += image_count
+>1012	Identifier	image_count
+>1013	Identifier	curr_num_cameras
+>1014	ForStatement	for ( int i = 0 ; i < num_added_images ; i ++ )
+>1015	CompoundStatement	 
+>1016	ExpressionStatement	 
+>1017	AssignmentExpr	pt_count = BundleAdjustAddNewPoints ( curr_num_cameras + i , pt_count , curr_num_cameras + i , added_\
+>1018	CallExpression	BundleAdjustAddNewPoints ( curr_num_cameras + i , pt_count , curr_num_cameras + i , added_order , cameras , points , \
+>1019	ArgumentList	curr_num_cameras + i
+>1020	Argument	pt_views
+>1021	Identifier	pt_views
+>1022	Argument	dist0
+>1023	Identifier	dist0
+>1024	Argument	colors
+>1025	Identifier	colors
+>1026	Argument	points
+>1027	Identifier	points
+>1028	Argument	cameras
+>1029	Identifier	cameras
+>1030	Argument	added_order
+>1031	Identifier	added_order
+>1032	Argument	curr_num_cameras + i
+>1033	AdditiveExpression	curr_num_cameras + i
+>1034	Identifier	i
+>1035	Identifier	curr_num_cameras
+>1036	Argument	pt_count
+>1037	Identifier	pt_count
+>1038	Argument	curr_num_cameras + i
+>1039	AdditiveExpression	curr_num_cameras + i
+>1040	Identifier	i
+>1041	Identifier	curr_num_cameras
+>1042	Callee	BundleAdjustAddNewPoints
+>1043	Identifier	BundleAdjustAddNewPoints
+>1044	Identifier	pt_count
+>1045	IncDecOp	 
+>1046	IncDec	++
+>1047	Identifier	i
+>1048	Condition	 
+>1049	RelationalExpression	i < num_added_images
+>1050	Identifier	num_added_images
+>1051	Identifier	i
+>1052	ForInit	 
+>1053	IdentifierDeclStatement	int i = 0 ;
+>1054	IdentifierDecl	i = 0
+>1055	AssignmentExpr	i = 0
+>1056	PrimaryExpression	0
+>1057	Identifier	i
+>1058	Identifier	i
+>1059	IdentifierDeclType	int
+>1060	ExpressionStatement	 
+>1061	AssignmentExpr	pt_count = curr_num_pts
+>1062	Identifier	curr_num_pts
+>1063	Identifier	pt_count
+>1064	ExpressionStatement	 
+>1065	CallExpression	printf ( \"[BundleAdjust] Adding new matches\n\" )
+>1066	ArgumentList	\"[BundleAdjust] Adding new matches\n\"
+>1067	Argument	\"[BundleAdjust] Adding new matches\n\"
+>1068	PrimaryExpression	\"[BundleAdjust] Adding new matches\n\"
+>1069	Callee	printf
+>1070	Identifier	printf
+>1071	IdentifierDeclStatement	 
+>1072	IdentifierDecl	dist0 = GetCameraDistance ( cameras + good_pair_1 , cameras + good_pair_2 , m_explicit_camera_centers )
+>1073	AssignmentExpr	dist0 = GetCameraDistance ( cameras + good_pair_1 , cameras + good_pair_2 , m_explicit_camera_centers )
+>1074	CallExpression	GetCameraDistance ( cameras + good_pair_1 , cameras + good_pair_2 , m_explicit_camera_centers )
+>1075	ArgumentList	cameras + good_pair_1
+>1076	Argument	m_explicit_camera_centers
+>1077	Identifier	m_explicit_camera_centers
+>1078	Argument	cameras + good_pair_2
+>1079	AdditiveExpression	cameras + good_pair_2
+>1080	Identifier	good_pair_2
+>1081	Identifier	cameras
+>1082	Argument	cameras + good_pair_1
+>1083	AdditiveExpression	cameras + good_pair_1
+>1084	Identifier	good_pair_1
+>1085	Identifier	cameras
+>1086	Callee	GetCameraDistance
+>1087	Identifier	GetCameraDistance
+>1088	Identifier	dist0
+>1089	Identifier	dist0
+>1090	IdentifierDeclType	double
+>1091	ForStatement	for ( int i = 0 ; i < num_added_images ; i ++ )
+>1092	CompoundStatement	 
+>1093	IfStatement	if ( success )
+>1094	ElseStatement	else
+>1095	CompoundStatement	 
+>1096	ExpressionStatement	 
+>1097	AssignmentExpr	m_image_data [ next_idx ] . m_ignore_in_bundle = true
+>1098	Identifier	true
+>1099	MemberAccess	m_image_data [ next_idx ] . m_ignore_in_bundle
+>1100	Identifier	m_ignore_in_bundle
+>1101	ArrayIndexing	m_image_data [ next_idx ]
+>1102	Identifier	next_idx
+>1103	Identifier	m_image_data
+>1104	ExpressionStatement	 
+>1105	CallExpression	printf ( \"[BundleAdjust] Couldn't initialize image %d\n\" , next_idx )
+>1106	ArgumentList	\"[BundleAdjust] Couldn't initialize image %d\n\"
+>1107	Argument	next_idx
+>1108	Identifier	next_idx
+>1109	Argument	\"[BundleAdjust] Couldn't initialize image %d\n\"
+>1110	PrimaryExpression	\"[BundleAdjust] Couldn't initialize image %d\n\"
+>1111	Callee	printf
+>1112	Identifier	printf
+>1113	CompoundStatement	 
+>1114	ExpressionStatement	 
+>1115	IncDecOp	image_count ++
+>1116	IncDec	++
+>1117	Identifier	image_count
+>1118	ExpressionStatement	 
+>1119	AssignmentExpr	cameras [ curr_num_cameras + image_count ] = camera_new
+>1120	Identifier	camera_new
+>1121	ArrayIndexing	cameras [ curr_num_cameras + image_count ]
+>1122	AdditiveExpression	curr_num_cameras + image_count
+>1123	Identifier	image_count
+>1124	Identifier	curr_num_cameras
+>1125	Identifier	cameras
+>1126	Condition	 
+>1127	Identifier	success
+>1128	IdentifierDeclStatement	 
+>1129	IdentifierDecl	camera_new = BundleInitializeImage ( m_image_data [ next_idx ] , next_idx , curr_num_cameras + image_count , curr_\
+>1130	AssignmentExpr	camera_new = BundleInitializeImage ( m_image_data [ next_idx ] , next_idx , curr_num_cameras + image_\
+>1131	CallExpression	BundleInitializeImage ( m_image_data [ next_idx ] , next_idx , curr_num_cameras + image_count , curr_num_cameras , \
+>1132	ArgumentList	m_image_data [ next_idx ]
+>1133	Argument	& success
+>1134	UnaryOp	& success
+>1135	Identifier	success
+>1136	UnaryOperator	&
+>1137	Argument	pt_views
+>1138	Identifier	pt_views
+>1139	Argument	cameras
+>1140	Identifier	cameras
+>1141	Argument	NULL
+>1142	Identifier	NULL
+>1143	Argument	points
+>1144	Identifier	points
+>1145	Argument	added_order
+>1146	Identifier	added_order
+>1147	Argument	curr_num_pts
+>1148	Identifier	curr_num_pts
+>1149	Argument	curr_num_cameras
+>1150	Identifier	curr_num_cameras
+>1151	Argument	curr_num_cameras + image_count
+>1152	AdditiveExpression	curr_num_cameras + image_count
+>1153	Identifier	image_count
+>1154	Identifier	curr_num_cameras
+>1155	Argument	next_idx
+>1156	Identifier	next_idx
+>1157	Argument	m_image_data [ next_idx ]
+>1158	ArrayIndexing	m_image_data [ next_idx ]
+>1159	Identifier	next_idx
+>1160	Identifier	m_image_data
+>1161	Callee	BundleInitializeImage
+>1162	Identifier	BundleInitializeImage
+>1163	Identifier	camera_new
+>1164	Identifier	camera_new
+>1165	IdentifierDeclType	camera_params_t
+>1166	IdentifierDeclStatement	 
+>1167	IdentifierDecl	success = false
+>1168	AssignmentExpr	success = false
+>1169	Identifier	false
+>1170	Identifier	false
+>1171	Identifier	success
+>1172	IdentifierDeclType	bool
+>1173	ExpressionStatement	 
+>1174	Statement	 
+>1175	Statement	 
+>1176	Statement	 
+>1177	Statement	 
+>1178	Statement	 
+>1179	Statement	 
+>1180	Label	 
+>1181	Statement	 
+>1182	Statement	 
+>1183	Statement	 
+>1184	Statement	 
+>1185	Statement	 
+>1186	Statement	 
+>1187	Statement	 
+>1188	Statement	 
+>1189	Statement	 
+>1190	Statement	 
+>1191	Statement	 
+>1192	Statement	 
+>1193	Statement	 
+>1194	Statement	 
+>1195	Statement	 
+>1196	Statement	 
+>1197	ExpressionStatement	 
+>1198	AssignmentExpr	added_order [ curr_num_cameras + image_count ] = next_idx
+>1199	Identifier	next_idx
+>1200	ArrayIndexing	added_order [ curr_num_cameras + image_count ]
+>1201	AdditiveExpression	curr_num_cameras + image_count
+>1202	Identifier	image_count
+>1203	Identifier	curr_num_cameras
+>1204	Identifier	added_order
+>1205	IdentifierDeclStatement	 
+>1206	IdentifierDecl	parent_idx = image_set [ i ] . second
+>1207	AssignmentExpr	parent_idx = image_set [ i ] . second
+>1208	MemberAccess	image_set [ i ] . second
+>1209	Identifier	second
+>1210	ArrayIndexing	image_set [ i ]
+>1211	Identifier	i
+>1212	Identifier	image_set
+>1213	Identifier	parent_idx
+>1214	Identifier	parent_idx
+>1215	IdentifierDeclType	int
+>1216	IdentifierDeclStatement	 
+>1217	IdentifierDecl	next_idx = image_set [ i ] . first
+>1218	AssignmentExpr	next_idx = image_set [ i ] . first
+>1219	MemberAccess	image_set [ i ] . first
+>1220	Identifier	first
+>1221	ArrayIndexing	image_set [ i ]
+>1222	Identifier	i
+>1223	Identifier	image_set
+>1224	Identifier	next_idx
+>1225	Identifier	next_idx
+>1226	IdentifierDeclType	int
+>1227	IncDecOp	 
+>1228	IncDec	++
+>1229	Identifier	i
+>1230	Condition	 
+>1231	RelationalExpression	i < num_added_images
+>1232	Identifier	num_added_images
+>1233	Identifier	i
+>1234	ForInit	 
+>1235	IdentifierDeclStatement	int i = 0 ;
+>1236	IdentifierDecl	i = 0
+>1237	AssignmentExpr	i = 0
+>1238	PrimaryExpression	0
+>1239	Identifier	i
+>1240	Identifier	i
+>1241	IdentifierDeclType	int
+>1242	IdentifierDeclStatement	 
+>1243	IdentifierDecl	image_count = 0
+>1244	AssignmentExpr	image_count = 0
+>1245	PrimaryExpression	0
+>1246	Identifier	image_count
+>1247	Identifier	image_count
+>1248	IdentifierDeclType	int
+>1249	ForStatement	for ( int i = 0 ; i < num_added_images ; i ++ )
+>1250	ExpressionStatement	 
+>1251	CallExpression	printf ( \"[BundleAdjustFast] Adjusting camera %d\n\" , image_set [ i ] . first )
+>1252	ArgumentList	\"[BundleAdjustFast] Adjusting camera %d\n\"
+>1253	Argument	image_set [ i ] . first
+>1254	MemberAccess	image_set [ i ] . first
+>1255	Identifier	first
+>1256	ArrayIndexing	image_set [ i ]
+>1257	Identifier	i
+>1258	Identifier	image_set
+>1259	Argument	\"[BundleAdjustFast] Adjusting camera %d\n\"
+>1260	PrimaryExpression	\"[BundleAdjustFast] Adjusting camera %d\n\"
+>1261	Callee	printf
+>1262	Identifier	printf
+>1263	IncDecOp	 
+>1264	IncDec	++
+>1265	Identifier	i
+>1266	Condition	 
+>1267	RelationalExpression	i < num_added_images
+>1268	Identifier	num_added_images
+>1269	Identifier	i
+>1270	ForInit	 
+>1271	IdentifierDeclStatement	int i = 0 ;
+>1272	IdentifierDecl	i = 0
+>1273	AssignmentExpr	i = 0
+>1274	PrimaryExpression	0
+>1275	Identifier	i
+>1276	Identifier	i
+>1277	IdentifierDeclType	int
+>1278	ExpressionStatement	 
+>1279	CallExpression	printf ( \"[BundleAdjustFast] Registering %d images\n\" , num_added_images )
+>1280	ArgumentList	\"[BundleAdjustFast] Registering %d images\n\"
+>1281	Argument	num_added_images
+>1282	Identifier	num_added_images
+>1283	Argument	\"[BundleAdjustFast] Registering %d images\n\"
+>1284	PrimaryExpression	\"[BundleAdjustFast] Registering %d images\n\"
+>1285	Callee	printf
+>1286	Identifier	printf
+>1287	IdentifierDeclStatement	 
+>1288	IdentifierDecl	num_added_images = ( int ) image_set . size ( )
+>1289	AssignmentExpr	num_added_images = ( int ) image_set . size ( )
+>1290	CastExpression	( int ) image_set . size ( )
+>1291	CallExpression	image_set . size ( )
+>1292	ArgumentList	 
+>1293	Callee	image_set . size
+>1294	MemberAccess	image_set . size
+>1295	Identifier	size
+>1296	Identifier	image_set
+>1297	CastTarget	int
+>1298	Identifier	num_added_images
+>1299	Identifier	num_added_images
+>1300	IdentifierDeclType	int
+>1301	IfStatement	if ( false && max_matches < 48 )
+>1302	ElseStatement	else
+>1303	CompoundStatement	 
+>1304	ExpressionStatement	 
+>1305	AssignmentExpr	image_set = FindCamerasWithNMatches ( nMatches , curr_num_cameras , curr_num_pts , added_order , pt_views )
+>1306	CallExpression	FindCamerasWithNMatches ( nMatches , curr_num_cameras , curr_num_pts , added_order , pt_views )
+>1307	ArgumentList	nMatches
+>1308	Argument	pt_views
+>1309	Identifier	pt_views
+>1310	Argument	added_order
+>1311	Identifier	added_order
+>1312	Argument	curr_num_pts
+>1313	Identifier	curr_num_pts
+>1314	Argument	curr_num_cameras
+>1315	Identifier	curr_num_cameras
+>1316	Argument	nMatches
+>1317	Identifier	nMatches
+>1318	Callee	FindCamerasWithNMatches
+>1319	Identifier	FindCamerasWithNMatches
+>1320	Identifier	image_set
+>1321	IfStatement	if ( m_num_matches_add_camera > 0 )
+>1322	CompoundStatement	 
+>1323	ExpressionStatement	 
+>1324	AssignmentExpr	nMatches = std 
+>1325	CallExpression	std 
+>1326	ArgumentList	nMatches
+>1327	Argument	m_num_matches_add_camera
+>1328	Identifier	m_num_matches_add_camera
+>1329	Argument	nMatches
+>1330	Identifier	nMatches
+>1331	Callee	std 
+>1332	Identifier	std 
+>1333	Identifier	nMatches
+>1334	Condition	 
+>1335	RelationalExpression	m_num_matches_add_camera > 0
+>1336	PrimaryExpression	0
+>1337	Identifier	m_num_matches_add_camera
+>1338	IdentifierDeclStatement	 
+>1339	IdentifierDecl	nMatches = iround ( 0.75 * max_matches )
+>1340	AssignmentExpr	nMatches = iround ( 0.75 * max_matches )
+>1341	CallExpression	iround ( 0.75 * max_matches )
+>1342	ArgumentList	0.75 * max_matches
+>1343	Argument	0.75 * max_matches
+>1344	MultiplicativeExpression	0.75 * max_matches
+>1345	Identifier	max_matches
+>1346	PrimaryExpression	0.75
+>1347	Callee	iround
+>1348	Identifier	iround
+>1349	Identifier	nMatches
+>1350	Identifier	nMatches
+>1351	IdentifierDeclType	int
+>1352	CompoundStatement	 
+>1353	ExpressionStatement	 
+>1354	CallExpression	image_set . push_back ( ImagePair ( max_cam , parent_idx ) )
+>1355	ArgumentList	ImagePair ( max_cam , parent_idx )
+>1356	Argument	ImagePair ( max_cam , parent_idx )
+>1357	CallExpression	ImagePair ( max_cam , parent_idx )
+>1358	ArgumentList	max_cam
+>1359	Argument	parent_idx
+>1360	Identifier	parent_idx
+>1361	Argument	max_cam
+>1362	Identifier	max_cam
+>1363	Callee	ImagePair
+>1364	Identifier	ImagePair
+>1365	Callee	image_set . push_back
+>1366	MemberAccess	image_set . push_back
+>1367	Identifier	push_back
+>1368	Identifier	image_set
+>1369	Condition	 
+>1370	AndExpression	false && max_matches < 48
+>1371	RelationalExpression	max_matches < 48
+>1372	PrimaryExpression	48
+>1373	Identifier	max_matches
+>1374	Identifier	false
+>1375	IdentifierDeclStatement	 
+>1376	IdentifierDecl	image_set
+>1377	Identifier	image_set
+>1378	IdentifierDeclType	std 
+>1379	IfStatement	if ( max_matches < m_min_max_matches )
+>1380	BreakStatement	 
+>1381	Condition	 
+>1382	RelationalExpression	max_matches < m_min_max_matches
+>1383	Identifier	m_min_max_matches
+>1384	Identifier	max_matches
+>1385	ExpressionStatement	 
+>1386	CallExpression	printf ( \"[BundleAdjust] max_matches = %d\n\" , max_matches )
+>1387	ArgumentList	\"[BundleAdjust] max_matches = %d\n\"
+>1388	Argument	max_matches
+>1389	Identifier	max_matches
+>1390	Argument	\"[BundleAdjust] max_matches = %d\n\"
+>1391	PrimaryExpression	\"[BundleAdjust] max_matches = %d\n\"
+>1392	Callee	printf
+>1393	Identifier	printf
+>1394	IdentifierDeclStatement	 
+>1395	IdentifierDecl	max_cam = FindCameraWithMostMatches ( curr_num_cameras , curr_num_pts , added_order , parent_idx , max_matches , \
+>1396	AssignmentExpr	max_cam = FindCameraWithMostMatches ( curr_num_cameras , curr_num_pts , added_order , parent_idx , max_\
+>1397	CallExpression	FindCameraWithMostMatches ( curr_num_cameras , curr_num_pts , added_order , parent_idx , max_matches , pt_views )
+>1398	ArgumentList	curr_num_cameras
+>1399	Argument	pt_views
+>1400	Identifier	pt_views
+>1401	Argument	max_matches
+>1402	Identifier	max_matches
+>1403	Argument	parent_idx
+>1404	Identifier	parent_idx
+>1405	Argument	added_order
+>1406	Identifier	added_order
+>1407	Argument	curr_num_pts
+>1408	Identifier	curr_num_pts
+>1409	Argument	curr_num_cameras
+>1410	Identifier	curr_num_cameras
+>1411	Callee	FindCameraWithMostMatches
+>1412	Identifier	FindCameraWithMostMatches
+>1413	Identifier	max_cam
+>1414	Identifier	max_cam
+>1415	IdentifierDeclType	int
+>1416	IdentifierDeclStatement	 
+>1417	IdentifierDecl	parent_idx
+>1418	Identifier	parent_idx
+>1419	IdentifierDeclType	int
+>1420	Condition	 
+>1421	RelationalExpression	curr_num_cameras < num_images
+>1422	Identifier	num_images
+>1423	Identifier	curr_num_cameras
+>1424	IdentifierDeclStatement	 
+>1425	IdentifierDecl	round = 0
+>1426	AssignmentExpr	round = 0
+>1427	PrimaryExpression	0
+>1428	Identifier	round
+>1429	Identifier	round
+>1430	IdentifierDeclType	int
+>1431	IfStatement	if ( num_init_cams == 0 )
+>1432	ElseStatement	else
+>1433	CompoundStatement	 
+>1434	ExpressionStatement	 
+>1435	AssignmentExpr	pt_count = curr_num_pts = ( int ) m_point_data . size ( )
+>1436	AssignmentExpr	curr_num_pts = ( int ) m_point_data . size ( )
+>1437	CastExpression	( int ) m_point_data . size ( )
+>1438	CallExpression	m_point_data . size ( )
+>1439	ArgumentList	 
+>1440	Callee	m_point_data . size
+>1441	MemberAccess	m_point_data . size
+>1442	Identifier	size
+>1443	Identifier	m_point_data
+>1444	CastTarget	int
+>1445	Identifier	curr_num_pts
+>1446	Identifier	pt_count
+>1447	ExpressionStatement	 
+>1448	AssignmentExpr	curr_num_cameras = num_init_cams
+>1449	Identifier	num_init_cams
+>1450	Identifier	curr_num_cameras
+>1451	IfStatement	if ( good_pair_1 == - 1 || good_pair_2 == - 1 )
+>1452	CompoundStatement	 
+>1453	ExpressionStatement	 
+>1454	CallExpression	exit ( 0 )
+>1455	ArgumentList	0
+>1456	Argument	0
+>1457	PrimaryExpression	0
+>1458	Callee	exit
+>1459	Identifier	exit
+>1460	ExpressionStatement	 
+>1461	CallExpression	printf ( \"[BundleAdjust] Please specify another pair!\n\" )
+>1462	ArgumentList	\"[BundleAdjust] Please specify another pair!\n\"
+>1463	Argument	\"[BundleAdjust] Please specify another pair!\n\"
+>1464	PrimaryExpression	\"[BundleAdjust] Please specify another pair!\n\"
+>1465	Callee	printf
+>1466	Identifier	printf
+>1467	ExpressionStatement	 
+>1468	Statement	 
+>1469	Statement	 
+>1470	Statement	 
+>1471	Statement	 
+>1472	Statement	 
+>1473	Condition	 
+>1474	OrExpression	good_pair_1 == - 1 || good_pair_2 == - 1
+>1475	EqualityExpression	good_pair_2 == - 1
+>1476	UnaryOp	- 1
+>1477	PrimaryExpression	1
+>1478	UnaryOperator	-
+>1479	Identifier	good_pair_2
+>1480	EqualityExpression	good_pair_1 == - 1
+>1481	UnaryOp	- 1
+>1482	PrimaryExpression	1
+>1483	UnaryOperator	-
+>1484	Identifier	good_pair_1
+>1485	ExpressionStatement	 
+>1486	AssignmentExpr	good_pair_2 = added_order_inv [ m_initial_pair [ 1 ] ]
+>1487	ArrayIndexing	added_order_inv [ m_initial_pair [ 1 ] ]
+>1488	ArrayIndexing	m_initial_pair [ 1 ]
+>1489	PrimaryExpression	1
+>1490	Identifier	m_initial_pair
+>1491	Identifier	added_order_inv
+>1492	Identifier	good_pair_2
+>1493	ExpressionStatement	 
+>1494	AssignmentExpr	good_pair_1 = added_order_inv [ m_initial_pair [ 0 ] ]
+>1495	ArrayIndexing	added_order_inv [ m_initial_pair [ 0 ] ]
+>1496	ArrayIndexing	m_initial_pair [ 0 ]
+>1497	PrimaryExpression	0
+>1498	Identifier	m_initial_pair
+>1499	Identifier	added_order_inv
+>1500	Identifier	good_pair_1
+>1501	IfStatement	if ( m_initial_pair [ 0 ] == - 1 || m_initial_pair [ 1 ] == - 1 )
+>1502	CompoundStatement	 
+>1503	ExpressionStatement	 
+>1504	CallExpression	exit ( 1 )
+>1505	ArgumentList	1
+>1506	Argument	1
+>1507	PrimaryExpression	1
+>1508	Callee	exit
+>1509	Identifier	exit
+>1510	ExpressionStatement	 
+>1511	Statement	 
+>1512	Statement	 
+>1513	Statement	 
+>1514	Statement	 
+>1515	Statement	 
+>1516	Statement	 
+>1517	ExpressionStatement	 
+>1518	Statement	 
+>1519	Statement	 
+>1520	Statement	 
+>1521	Statement	 
+>1522	Statement	 
+>1523	Condition	 
+>1524	OrExpression	m_initial_pair [ 0 ] == - 1 || m_initial_pair [ 1 ] == - 1
+>1525	EqualityExpression	m_initial_pair [ 1 ] == - 1
+>1526	UnaryOp	- 1
+>1527	PrimaryExpression	1
+>1528	UnaryOperator	-
+>1529	ArrayIndexing	m_initial_pair [ 1 ]
+>1530	PrimaryExpression	1
+>1531	Identifier	m_initial_pair
+>1532	EqualityExpression	m_initial_pair [ 0 ] == - 1
+>1533	UnaryOp	- 1
+>1534	PrimaryExpression	1
+>1535	UnaryOperator	-
+>1536	ArrayIndexing	m_initial_pair [ 0 ]
+>1537	PrimaryExpression	0
+>1538	Identifier	m_initial_pair
+>1539	CompoundStatement	 
+>1540	ExpressionStatement	 
+>1541	AssignmentExpr	curr_num_cameras = 2
+>1542	PrimaryExpression	2
+>1543	Identifier	curr_num_cameras
+>1544	IfStatement	if ( m_bundle_output_base != NULL )
+>1545	CompoundStatement	 
+>1546	IfStatement	if ( m_estimate_distortion )
+>1547	CompoundStatement	 
+>1548	ExpressionStatement	 
+>1549	CallExpression	DumpOutputFile ( m_output_directory , buf , num_images , 2 , curr_num_pts , added_order , cameras , points , colors , \
+>1550	ArgumentList	m_output_directory
+>1551	Argument	true
+>1552	Identifier	true
+>1553	Argument	pt_views
+>1554	Identifier	pt_views
+>1555	Argument	colors
+>1556	Identifier	colors
+>1557	Argument	points
+>1558	Identifier	points
+>1559	Argument	cameras
+>1560	Identifier	cameras
+>1561	Argument	added_order
+>1562	Identifier	added_order
+>1563	Argument	curr_num_pts
+>1564	Identifier	curr_num_pts
+>1565	Argument	2
+>1566	PrimaryExpression	2
+>1567	Argument	num_images
+>1568	Identifier	num_images
+>1569	Argument	buf
+>1570	Identifier	buf
+>1571	Argument	m_output_directory
+>1572	Identifier	m_output_directory
+>1573	Callee	DumpOutputFile
+>1574	Identifier	DumpOutputFile
+>1575	ExpressionStatement	 
+>1576	CallExpression	sprintf ( buf , \"%s%03d.rd.out\" , m_bundle_output_base , 1 )
+>1577	ArgumentList	buf
+>1578	Argument	1
+>1579	PrimaryExpression	1
+>1580	Argument	m_bundle_output_base
+>1581	Identifier	m_bundle_output_base
+>1582	Argument	\"%s%03d.rd.out\"
+>1583	PrimaryExpression	\"%s%03d.rd.out\"
+>1584	Argument	buf
+>1585	Identifier	buf
+>1586	Callee	sprintf
+>1587	Identifier	sprintf
+>1588	Condition	 
+>1589	Identifier	m_estimate_distortion
+>1590	ExpressionStatement	 
+>1591	CallExpression	DumpOutputFile ( m_output_directory , buf , num_images , 2 , curr_num_pts , added_order , cameras , points , colors , \
+>1592	ArgumentList	m_output_directory
+>1593	Argument	pt_views
+>1594	Identifier	pt_views
+>1595	Argument	colors
+>1596	Identifier	colors
+>1597	Argument	points
+>1598	Identifier	points
+>1599	Argument	cameras
+>1600	Identifier	cameras
+>1601	Argument	added_order
+>1602	Identifier	added_order
+>1603	Argument	curr_num_pts
+>1604	Identifier	curr_num_pts
+>1605	Argument	2
+>1606	PrimaryExpression	2
+>1607	Argument	num_images
+>1608	Identifier	num_images
+>1609	Argument	buf
+>1610	Identifier	buf
+>1611	Argument	m_output_directory
+>1612	Identifier	m_output_directory
+>1613	Callee	DumpOutputFile
+>1614	Identifier	DumpOutputFile
+>1615	ExpressionStatement	 
+>1616	CallExpression	sprintf ( buf , \"%s%03d.out\" , m_bundle_output_base , 1 )
+>1617	ArgumentList	buf
+>1618	Argument	1
+>1619	PrimaryExpression	1
+>1620	Argument	m_bundle_output_base
+>1621	Identifier	m_bundle_output_base
+>1622	Argument	\"%s%03d.out\"
+>1623	PrimaryExpression	\"%s%03d.out\"
+>1624	Argument	buf
+>1625	Identifier	buf
+>1626	Callee	sprintf
+>1627	Identifier	sprintf
+>1628	IdentifierDeclStatement	 
+>1629	IdentifierDecl	buf [ 256 ]
+>1630	PrimaryExpression	256
+>1631	Identifier	buf
+>1632	IdentifierDeclType	char [ 256 ]
+>1633	Condition	 
+>1634	EqualityExpression	m_bundle_output_base != NULL
+>1635	Identifier	NULL
+>1636	Identifier	m_bundle_output_base
+>1637	ExpressionStatement	 
+>1638	CallExpression	DumpPointsToPly ( m_output_directory , \"points001.ply\" , curr_num_pts , 2 , points , colors , cameras )
+>1639	ArgumentList	m_output_directory
+>1640	Argument	cameras
+>1641	Identifier	cameras
+>1642	Argument	colors
+>1643	Identifier	colors
+>1644	Argument	points
+>1645	Identifier	points
+>1646	Argument	2
+>1647	PrimaryExpression	2
+>1648	Argument	curr_num_pts
+>1649	Identifier	curr_num_pts
+>1650	Argument	\"points001.ply\"
+>1651	PrimaryExpression	\"points001.ply\"
+>1652	Argument	m_output_directory
+>1653	Identifier	m_output_directory
+>1654	Callee	DumpPointsToPly
+>1655	Identifier	DumpPointsToPly
+>1656	IfStatement	if ( m_fix_necker )
+>1657	CompoundStatement	 
+>1658	ExpressionStatement	 
+>1659	Identifier	points_old
+>1660	Statement	 
+>1661	Statement	 
+>1662	Statement	 
+>1663	IfStatement	if ( error0 < error1 )
+>1664	CompoundStatement	 
+>1665	ExpressionStatement	 
+>1666	CallExpression	memcpy ( cameras , cameras_old , sizeof ( camera_params_t ) * 2 )
+>1667	ArgumentList	cameras
+>1668	Argument	sizeof ( camera_params_t ) * 2
+>1669	MultiplicativeExpression	sizeof ( camera_params_t ) * 2
+>1670	PrimaryExpression	2
+>1671	SizeofExpr	sizeof ( camera_params_t )
+>1672	SizeofOperand	camera_params_t
+>1673	Sizeof	sizeof
+>1674	Argument	cameras_old
+>1675	Identifier	cameras_old
+>1676	Argument	cameras
+>1677	Identifier	cameras
+>1678	Callee	memcpy
+>1679	Identifier	memcpy
+>1680	ExpressionStatement	 
+>1681	CallExpression	memcpy ( points , points_old , sizeof ( v3_t ) * curr_num_pts )
+>1682	ArgumentList	points
+>1683	Argument	sizeof ( v3_t ) * curr_num_pts
+>1684	MultiplicativeExpression	sizeof ( v3_t ) * curr_num_pts
+>1685	Identifier	curr_num_pts
+>1686	SizeofExpr	sizeof ( v3_t )
+>1687	SizeofOperand	v3_t
+>1688	Sizeof	sizeof
+>1689	Argument	points_old
+>1690	Identifier	points_old
+>1691	Argument	points
+>1692	Identifier	points
+>1693	Callee	memcpy
+>1694	Identifier	memcpy
+>1695	ExpressionStatement	 
+>1696	CallExpression	printf ( \"Restoring pre-Necker configuration\n\" )
+>1697	ArgumentList	\"Restoring pre-Necker configuration\n\"
+>1698	Argument	\"Restoring pre-Necker configuration\n\"
+>1699	PrimaryExpression	\"Restoring pre-Necker configuration\n\"
+>1700	Callee	printf
+>1701	Identifier	printf
+>1702	Condition	 
+>1703	RelationalExpression	error0 < error1
+>1704	Identifier	error1
+>1705	Identifier	error0
+>1706	ExpressionStatement	 
+>1707	AssignmentExpr	error1 = RunSFM ( curr_num_pts , 2 , 0 , false , cameras , points , added_order , colors , pt_views )
+>1708	CallExpression	RunSFM ( curr_num_pts , 2 , 0 , false , cameras , points , added_order , colors , pt_views )
+>1709	ArgumentList	curr_num_pts
+>1710	Argument	pt_views
+>1711	Identifier	pt_views
+>1712	Argument	colors
+>1713	Identifier	colors
+>1714	Argument	added_order
+>1715	Identifier	added_order
+>1716	Argument	points
+>1717	Identifier	points
+>1718	Argument	cameras
+>1719	Identifier	cameras
+>1720	Argument	false
+>1721	Identifier	false
+>1722	Argument	0
+>1723	PrimaryExpression	0
+>1724	Argument	2
+>1725	PrimaryExpression	2
+>1726	Argument	curr_num_pts
+>1727	Identifier	curr_num_pts
+>1728	Callee	RunSFM
+>1729	Identifier	RunSFM
+>1730	Identifier	error1
+>1731	IdentifierDeclStatement	 
+>1732	IdentifierDecl	error1
+>1733	Identifier	error1
+>1734	IdentifierDeclType	double
+>1735	ForStatement	for ( int i = 0 ; i < curr_num_pts ; i ++ )
+>1736	CompoundStatement	 
+>1737	ExpressionStatement	 
+>1738	AssignmentExpr	points [ i ] = triangulate ( p , q , cameras [ 0 ] . R , t1 , cameras [ 1 ] . R , t2 , & proj_error )
+>1739	CallExpression	triangulate ( p , q , cameras [ 0 ] . R , t1 , cameras [ 1 ] . R , t2 , & proj_error )
+>1740	ArgumentList	p
+>1741	Argument	& proj_error
+>1742	UnaryOp	& proj_error
+>1743	Identifier	proj_error
+>1744	UnaryOperator	&
+>1745	Argument	t2
+>1746	Identifier	t2
+>1747	Argument	cameras [ 1 ] . R
+>1748	MemberAccess	cameras [ 1 ] . R
+>1749	Identifier	R
+>1750	ArrayIndexing	cameras [ 1 ]
+>1751	PrimaryExpression	1
+>1752	Identifier	cameras
+>1753	Argument	t1
+>1754	Identifier	t1
+>1755	Argument	cameras [ 0 ] . R
+>1756	MemberAccess	cameras [ 0 ] . R
+>1757	Identifier	R
+>1758	ArrayIndexing	cameras [ 0 ]
+>1759	PrimaryExpression	0
+>1760	Identifier	cameras
+>1761	Argument	q
+>1762	Identifier	q
+>1763	Argument	p
+>1764	Identifier	p
+>1765	Callee	triangulate
+>1766	Identifier	triangulate
+>1767	ArrayIndexing	points [ i ]
+>1768	Identifier	i
+>1769	Identifier	points
+>1770	ExpressionStatement	 
+>1771	CallExpression	matrix_scale ( 3 , 1 , t2 , - 1.0 , t2 )
+>1772	ArgumentList	3
+>1773	Argument	t2
+>1774	Identifier	t2
+>1775	Argument	- 1.0
+>1776	UnaryOp	- 1.0
+>1777	PrimaryExpression	1.0
+>1778	UnaryOperator	-
+>1779	Argument	t2
+>1780	Identifier	t2
+>1781	Argument	1
+>1782	PrimaryExpression	1
+>1783	Argument	3
+>1784	PrimaryExpression	3
+>1785	Callee	matrix_scale
+>1786	Identifier	matrix_scale
+>1787	ExpressionStatement	 
+>1788	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , cameras [ 1 ] . R , cameras [ 1 ] . t , t2 )
+>1789	ArgumentList	3
+>1790	Argument	t2
+>1791	Identifier	t2
+>1792	Argument	cameras [ 1 ] . t
+>1793	MemberAccess	cameras [ 1 ] . t
+>1794	Identifier	t
+>1795	ArrayIndexing	cameras [ 1 ]
+>1796	PrimaryExpression	1
+>1797	Identifier	cameras
+>1798	Argument	cameras [ 1 ] . R
+>1799	MemberAccess	cameras [ 1 ] . R
+>1800	Identifier	R
+>1801	ArrayIndexing	cameras [ 1 ]
+>1802	PrimaryExpression	1
+>1803	Identifier	cameras
+>1804	Argument	1
+>1805	PrimaryExpression	1
+>1806	Argument	3
+>1807	PrimaryExpression	3
+>1808	Argument	3
+>1809	PrimaryExpression	3
+>1810	Argument	3
+>1811	PrimaryExpression	3
+>1812	Callee	matrix_product
+>1813	Identifier	matrix_product
+>1814	ExpressionStatement	 
+>1815	CallExpression	matrix_scale ( 3 , 1 , t1 , - 1.0 , t1 )
+>1816	ArgumentList	3
+>1817	Argument	t1
+>1818	Identifier	t1
+>1819	Argument	- 1.0
+>1820	UnaryOp	- 1.0
+>1821	PrimaryExpression	1.0
+>1822	UnaryOperator	-
+>1823	Argument	t1
+>1824	Identifier	t1
+>1825	Argument	1
+>1826	PrimaryExpression	1
+>1827	Argument	3
+>1828	PrimaryExpression	3
+>1829	Callee	matrix_scale
+>1830	Identifier	matrix_scale
+>1831	ExpressionStatement	 
+>1832	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , cameras [ 0 ] . R , cameras [ 0 ] . t , t1 )
+>1833	ArgumentList	3
+>1834	Argument	t1
+>1835	Identifier	t1
+>1836	Argument	cameras [ 0 ] . t
+>1837	MemberAccess	cameras [ 0 ] . t
+>1838	Identifier	t
+>1839	ArrayIndexing	cameras [ 0 ]
+>1840	PrimaryExpression	0
+>1841	Identifier	cameras
+>1842	Argument	cameras [ 0 ] . R
+>1843	MemberAccess	cameras [ 0 ] . R
+>1844	Identifier	R
+>1845	ArrayIndexing	cameras [ 0 ]
+>1846	PrimaryExpression	0
+>1847	Identifier	cameras
+>1848	Argument	1
+>1849	PrimaryExpression	1
+>1850	Argument	3
+>1851	PrimaryExpression	3
+>1852	Argument	3
+>1853	PrimaryExpression	3
+>1854	Argument	3
+>1855	PrimaryExpression	3
+>1856	Callee	matrix_product
+>1857	Identifier	matrix_product
+>1858	IdentifierDeclStatement	 
+>1859	IdentifierDecl	t2 [ 3 ]
+>1860	PrimaryExpression	3
+>1861	Identifier	t2
+>1862	IdentifierDeclType	double [ 3 ]
+>1863	IdentifierDeclStatement	 
+>1864	IdentifierDecl	t1 [ 3 ]
+>1865	PrimaryExpression	3
+>1866	Identifier	t1
+>1867	IdentifierDeclType	double [ 3 ]
+>1868	IdentifierDeclStatement	 
+>1869	IdentifierDecl	proj_error
+>1870	Identifier	proj_error
+>1871	IdentifierDeclType	double
+>1872	IdentifierDeclStatement	 
+>1873	IdentifierDecl	q = v2_new ( proj2_norm [ 0 ] / proj2_norm [ 2 ] , proj2_norm [ 1 ] / proj2_norm [ 2 ] )
+>1874	AssignmentExpr	q = v2_new ( proj2_norm [ 0 ] / proj2_norm [ 2 ] , proj2_norm [ 1 ] / proj2_norm [ 2 ] )
+>1875	CallExpression	v2_new ( proj2_norm [ 0 ] / proj2_norm [ 2 ] , proj2_norm [ 1 ] / proj2_norm [ 2 ] )
+>1876	ArgumentList	proj2_norm [ 0 ] / proj2_norm [ 2 ]
+>1877	Argument	proj2_norm [ 1 ] / proj2_norm [ 2 ]
+>1878	MultiplicativeExpression	proj2_norm [ 1 ] / proj2_norm [ 2 ]
+>1879	ArrayIndexing	proj2_norm [ 2 ]
+>1880	PrimaryExpression	2
+>1881	Identifier	proj2_norm
+>1882	ArrayIndexing	proj2_norm [ 1 ]
+>1883	PrimaryExpression	1
+>1884	Identifier	proj2_norm
+>1885	Argument	proj2_norm [ 0 ] / proj2_norm [ 2 ]
+>1886	MultiplicativeExpression	proj2_norm [ 0 ] / proj2_norm [ 2 ]
+>1887	ArrayIndexing	proj2_norm [ 2 ]
+>1888	PrimaryExpression	2
+>1889	Identifier	proj2_norm
+>1890	ArrayIndexing	proj2_norm [ 0 ]
+>1891	PrimaryExpression	0
+>1892	Identifier	proj2_norm
+>1893	Callee	v2_new
+>1894	Identifier	v2_new
+>1895	Identifier	q
+>1896	Identifier	q
+>1897	IdentifierDeclType	v2_t
+>1898	IdentifierDeclStatement	 
+>1899	IdentifierDecl	p = v2_new ( proj1_norm [ 0 ] / proj1_norm [ 2 ] , proj1_norm [ 1 ] / proj1_norm [ 2 ] )
+>1900	AssignmentExpr	p = v2_new ( proj1_norm [ 0 ] / proj1_norm [ 2 ] , proj1_norm [ 1 ] / proj1_norm [ 2 ] )
+>1901	CallExpression	v2_new ( proj1_norm [ 0 ] / proj1_norm [ 2 ] , proj1_norm [ 1 ] / proj1_norm [ 2 ] )
+>1902	ArgumentList	proj1_norm [ 0 ] / proj1_norm [ 2 ]
+>1903	Argument	proj1_norm [ 1 ] / proj1_norm [ 2 ]
+>1904	MultiplicativeExpression	proj1_norm [ 1 ] / proj1_norm [ 2 ]
+>1905	ArrayIndexing	proj1_norm [ 2 ]
+>1906	PrimaryExpression	2
+>1907	Identifier	proj1_norm
+>1908	ArrayIndexing	proj1_norm [ 1 ]
+>1909	PrimaryExpression	1
+>1910	Identifier	proj1_norm
+>1911	Argument	proj1_norm [ 0 ] / proj1_norm [ 2 ]
+>1912	MultiplicativeExpression	proj1_norm [ 0 ] / proj1_norm [ 2 ]
+>1913	ArrayIndexing	proj1_norm [ 2 ]
+>1914	PrimaryExpression	2
+>1915	Identifier	proj1_norm
+>1916	ArrayIndexing	proj1_norm [ 0 ]
+>1917	PrimaryExpression	0
+>1918	Identifier	proj1_norm
+>1919	Callee	v2_new
+>1920	Identifier	v2_new
+>1921	Identifier	p
+>1922	Identifier	p
+>1923	IdentifierDeclType	v2_t
+>1924	ExpressionStatement	 
+>1925	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , K2inv , proj2 , proj2_norm )
+>1926	ArgumentList	3
+>1927	Argument	proj2_norm
+>1928	Identifier	proj2_norm
+>1929	Argument	proj2
+>1930	Identifier	proj2
+>1931	Argument	K2inv
+>1932	Identifier	K2inv
+>1933	Argument	1
+>1934	PrimaryExpression	1
+>1935	Argument	3
+>1936	PrimaryExpression	3
+>1937	Argument	3
+>1938	PrimaryExpression	3
+>1939	Argument	3
+>1940	PrimaryExpression	3
+>1941	Callee	matrix_product
+>1942	Identifier	matrix_product
+>1943	ExpressionStatement	 
+>1944	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , K1inv , proj1 , proj1_norm )
+>1945	ArgumentList	3
+>1946	Argument	proj1_norm
+>1947	Identifier	proj1_norm
+>1948	Argument	proj1
+>1949	Identifier	proj1
+>1950	Argument	K1inv
+>1951	Identifier	K1inv
+>1952	Argument	1
+>1953	PrimaryExpression	1
+>1954	Argument	3
+>1955	PrimaryExpression	3
+>1956	Argument	3
+>1957	PrimaryExpression	3
+>1958	Argument	3
+>1959	PrimaryExpression	3
+>1960	Callee	matrix_product
+>1961	Identifier	matrix_product
+>1962	IdentifierDeclStatement	 
+>1963	IdentifierDecl	proj2_norm [ 3 ]
+>1964	PrimaryExpression	3
+>1965	Identifier	proj2_norm
+>1966	IdentifierDeclType	double [ 3 ]
+>1967	IdentifierDecl	proj1_norm [ 3 ]
+>1968	PrimaryExpression	3
+>1969	Identifier	proj1_norm
+>1970	IdentifierDeclType	double [ 3 ]
+>1971	IdentifierDeclStatement	 
+>1972	IdentifierDecl	proj2 [ 3 ] = { GetKey ( added_order [ 1 ] , k2 ) . m_x , GetKey ( added_order [ 1 ] , k2 ) . m_y , - 1.0 }
+>1973	AssignmentExpr	proj2 [ 3 ] = { GetKey ( added_order [ 1 ] , k2 ) . m_x , GetKey ( added_order [ 1 ] , k2 ) . m_y , - \
+>1974	InitializerList	GetKey ( added_order [ 1 ] , k2 ) . m_x
+>1975	UnaryOp	- 1.0
+>1976	PrimaryExpression	1.0
+>1977	UnaryOperator	-
+>1978	MemberAccess	GetKey ( added_order [ 1 ] , k2 ) . m_y
+>1979	Identifier	m_y
+>1980	CallExpression	GetKey ( added_order [ 1 ] , k2 )
+>1981	ArgumentList	added_order [ 1 ]
+>1982	Argument	k2
+>1983	Identifier	k2
+>1984	Argument	added_order [ 1 ]
+>1985	ArrayIndexing	added_order [ 1 ]
+>1986	PrimaryExpression	1
+>1987	Identifier	added_order
+>1988	Callee	GetKey
+>1989	Identifier	GetKey
+>1990	MemberAccess	GetKey ( added_order [ 1 ] , k2 ) . m_x
+>1991	Identifier	m_x
+>1992	CallExpression	GetKey ( added_order [ 1 ] , k2 )
+>1993	ArgumentList	added_order [ 1 ]
+>1994	Argument	k2
+>1995	Identifier	k2
+>1996	Argument	added_order [ 1 ]
+>1997	ArrayIndexing	added_order [ 1 ]
+>1998	PrimaryExpression	1
+>1999	Identifier	added_order
+>2000	Callee	GetKey
+>2001	Identifier	GetKey
+>2002	Identifier	proj2
+>2003	PrimaryExpression	3
+>2004	Identifier	proj2
+>2005	IdentifierDeclType	double [ 3 ]
+>2006	IdentifierDeclStatement	 
+>2007	IdentifierDecl	proj1 [ 3 ] = { GetKey ( added_order [ 0 ] , k1 ) . m_x , GetKey ( added_order [ 0 ] , k1 ) . m_y , - 1.0 }
+>2008	AssignmentExpr	proj1 [ 3 ] = { GetKey ( added_order [ 0 ] , k1 ) . m_x , GetKey ( added_order [ 0 ] , k1 ) . m_y , - \
+>2009	InitializerList	GetKey ( added_order [ 0 ] , k1 ) . m_x
+>2010	UnaryOp	- 1.0
+>2011	PrimaryExpression	1.0
+>2012	UnaryOperator	-
+>2013	MemberAccess	GetKey ( added_order [ 0 ] , k1 ) . m_y
+>2014	Identifier	m_y
+>2015	CallExpression	GetKey ( added_order [ 0 ] , k1 )
+>2016	ArgumentList	added_order [ 0 ]
+>2017	Argument	k1
+>2018	Identifier	k1
+>2019	Argument	added_order [ 0 ]
+>2020	ArrayIndexing	added_order [ 0 ]
+>2021	PrimaryExpression	0
+>2022	Identifier	added_order
+>2023	Callee	GetKey
+>2024	Identifier	GetKey
+>2025	MemberAccess	GetKey ( added_order [ 0 ] , k1 ) . m_x
+>2026	Identifier	m_x
+>2027	CallExpression	GetKey ( added_order [ 0 ] , k1 )
+>2028	ArgumentList	added_order [ 0 ]
+>2029	Argument	k1
+>2030	Identifier	k1
+>2031	Argument	added_order [ 0 ]
+>2032	ArrayIndexing	added_order [ 0 ]
+>2033	PrimaryExpression	0
+>2034	Identifier	added_order
+>2035	Callee	GetKey
+>2036	Identifier	GetKey
+>2037	Identifier	proj1
+>2038	PrimaryExpression	3
+>2039	Identifier	proj1
+>2040	IdentifierDeclType	double [ 3 ]
+>2041	IdentifierDeclStatement	 
+>2042	IdentifierDecl	k2 = pt_views [ i ] [ 1 ] . second
+>2043	AssignmentExpr	k2 = pt_views [ i ] [ 1 ] . second
+>2044	MemberAccess	pt_views [ i ] [ 1 ] . second
+>2045	Identifier	second
+>2046	ArrayIndexing	pt_views [ i ] [ 1 ]
+>2047	PrimaryExpression	1
+>2048	ArrayIndexing	pt_views [ i ]
+>2049	Identifier	i
+>2050	Identifier	pt_views
+>2051	Identifier	k2
+>2052	Identifier	k2
+>2053	IdentifierDeclType	int
+>2054	IdentifierDeclStatement	 
+>2055	IdentifierDecl	k1 = pt_views [ i ] [ 0 ] . second
+>2056	AssignmentExpr	k1 = pt_views [ i ] [ 0 ] . second
+>2057	MemberAccess	pt_views [ i ] [ 0 ] . second
+>2058	Identifier	second
+>2059	ArrayIndexing	pt_views [ i ] [ 0 ]
+>2060	PrimaryExpression	0
+>2061	ArrayIndexing	pt_views [ i ]
+>2062	Identifier	i
+>2063	Identifier	pt_views
+>2064	Identifier	k1
+>2065	Identifier	k1
+>2066	IdentifierDeclType	int
+>2067	IncDecOp	 
+>2068	IncDec	++
+>2069	Identifier	i
+>2070	Condition	 
+>2071	RelationalExpression	i < curr_num_pts
+>2072	Identifier	curr_num_pts
+>2073	Identifier	i
+>2074	ForInit	 
+>2075	IdentifierDeclStatement	int i = 0 ;
+>2076	IdentifierDecl	i = 0
+>2077	AssignmentExpr	i = 0
+>2078	PrimaryExpression	0
+>2079	Identifier	i
+>2080	Identifier	i
+>2081	IdentifierDeclType	int
+>2082	IdentifierDeclStatement	 
+>2083	IdentifierDecl	K2inv [ 9 ] = { 1.0 / cameras [ 1 ] . f , 0.0 , 0.0 , 0.0 , 1.0 / cameras [ 1 ] . f , 0.0 , 0.0 , 0.0 , 1.0 }
+>2084	AssignmentExpr	K2inv [ 9 ] = { 1.0 / cameras [ 1 ] . f , 0.0 , 0.0 , 0.0 , 1.0 / cameras [ 1 ] . f , 0.0 , 0.0 , 0.0 , \
+>2085	InitializerList	1.0 / cameras [ 1 ] . f
+>2086	PrimaryExpression	1.0
+>2087	PrimaryExpression	0.0
+>2088	PrimaryExpression	0.0
+>2089	PrimaryExpression	0.0
+>2090	MultiplicativeExpression	1.0 / cameras [ 1 ] . f
+>2091	MemberAccess	cameras [ 1 ] . f
+>2092	Identifier	f
+>2093	ArrayIndexing	cameras [ 1 ]
+>2094	PrimaryExpression	1
+>2095	Identifier	cameras
+>2096	PrimaryExpression	1.0
+>2097	PrimaryExpression	0.0
+>2098	PrimaryExpression	0.0
+>2099	PrimaryExpression	0.0
+>2100	MultiplicativeExpression	1.0 / cameras [ 1 ] . f
+>2101	MemberAccess	cameras [ 1 ] . f
+>2102	Identifier	f
+>2103	ArrayIndexing	cameras [ 1 ]
+>2104	PrimaryExpression	1
+>2105	Identifier	cameras
+>2106	PrimaryExpression	1.0
+>2107	Identifier	K2inv
+>2108	PrimaryExpression	9
+>2109	Identifier	K2inv
+>2110	IdentifierDeclType	double [ 9 ]
+>2111	IdentifierDeclStatement	 
+>2112	IdentifierDecl	K1inv [ 9 ] = { 1.0 / cameras [ 0 ] . f , 0.0 , 0.0 , 0.0 , 1.0 / cameras [ 0 ] . f , 0.0 , 0.0 , 0.0 , 1.0 }
+>2113	AssignmentExpr	K1inv [ 9 ] = { 1.0 / cameras [ 0 ] . f , 0.0 , 0.0 , 0.0 , 1.0 / cameras [ 0 ] . f , 0.0 , 0.0 , 0.0 , \
+>2114	InitializerList	1.0 / cameras [ 0 ] . f
+>2115	PrimaryExpression	1.0
+>2116	PrimaryExpression	0.0
+>2117	PrimaryExpression	0.0
+>2118	PrimaryExpression	0.0
+>2119	MultiplicativeExpression	1.0 / cameras [ 0 ] . f
+>2120	MemberAccess	cameras [ 0 ] . f
+>2121	Identifier	f
+>2122	ArrayIndexing	cameras [ 0 ]
+>2123	PrimaryExpression	0
+>2124	Identifier	cameras
+>2125	PrimaryExpression	1.0
+>2126	PrimaryExpression	0.0
+>2127	PrimaryExpression	0.0
+>2128	PrimaryExpression	0.0
+>2129	MultiplicativeExpression	1.0 / cameras [ 0 ] . f
+>2130	MemberAccess	cameras [ 0 ] . f
+>2131	Identifier	f
+>2132	ArrayIndexing	cameras [ 0 ]
+>2133	PrimaryExpression	0
+>2134	Identifier	cameras
+>2135	PrimaryExpression	1.0
+>2136	Identifier	K1inv
+>2137	PrimaryExpression	9
+>2138	Identifier	K1inv
+>2139	IdentifierDeclType	double [ 9 ]
+>2140	ExpressionStatement	 
+>2141	AssignmentExpr	cameras [ 1 ] . k [ 0 ] = cameras [ 1 ] . k [ 1 ] = 0.0
+>2142	AssignmentExpr	cameras [ 1 ] . k [ 1 ] = 0.0
+>2143	PrimaryExpression	0.0
+>2144	ArrayIndexing	cameras [ 1 ] . k [ 1 ]
+>2145	PrimaryExpression	1
+>2146	MemberAccess	cameras [ 1 ] . k
+>2147	Identifier	k
+>2148	ArrayIndexing	cameras [ 1 ]
+>2149	PrimaryExpression	1
+>2150	Identifier	cameras
+>2151	ArrayIndexing	cameras [ 1 ] . k [ 0 ]
+>2152	PrimaryExpression	0
+>2153	MemberAccess	cameras [ 1 ] . k
+>2154	Identifier	k
+>2155	ArrayIndexing	cameras [ 1 ]
+>2156	PrimaryExpression	1
+>2157	Identifier	cameras
+>2158	ExpressionStatement	 
+>2159	AssignmentExpr	cameras [ 1 ] . f = init_focal_length_1
+>2160	Identifier	init_focal_length_1
+>2161	MemberAccess	cameras [ 1 ] . f
+>2162	Identifier	f
+>2163	ArrayIndexing	cameras [ 1 ]
+>2164	PrimaryExpression	1
+>2165	Identifier	cameras
+>2166	ExpressionStatement	 
+>2167	CallExpression	memcpy ( cameras [ 1 ] . t , tmp . t , sizeof ( double ) * 3 )
+>2168	ArgumentList	cameras [ 1 ] . t
+>2169	Argument	sizeof ( double ) * 3
+>2170	MultiplicativeExpression	sizeof ( double ) * 3
+>2171	PrimaryExpression	3
+>2172	SizeofExpr	sizeof ( double )
+>2173	SizeofOperand	double
+>2174	Sizeof	sizeof
+>2175	Argument	tmp . t
+>2176	MemberAccess	tmp . t
+>2177	Identifier	t
+>2178	Identifier	tmp
+>2179	Argument	cameras [ 1 ] . t
+>2180	MemberAccess	cameras [ 1 ] . t
+>2181	Identifier	t
+>2182	ArrayIndexing	cameras [ 1 ]
+>2183	PrimaryExpression	1
+>2184	Identifier	cameras
+>2185	Callee	memcpy
+>2186	Identifier	memcpy
+>2187	ExpressionStatement	 
+>2188	CallExpression	memcpy ( cameras [ 1 ] . R , tmp . R , sizeof ( double ) * 9 )
+>2189	ArgumentList	cameras [ 1 ] . R
+>2190	Argument	sizeof ( double ) * 9
+>2191	MultiplicativeExpression	sizeof ( double ) * 9
+>2192	PrimaryExpression	9
+>2193	SizeofExpr	sizeof ( double )
+>2194	SizeofOperand	double
+>2195	Sizeof	sizeof
+>2196	Argument	tmp . R
+>2197	MemberAccess	tmp . R
+>2198	Identifier	R
+>2199	Identifier	tmp
+>2200	Argument	cameras [ 1 ] . R
+>2201	MemberAccess	cameras [ 1 ] . R
+>2202	Identifier	R
+>2203	ArrayIndexing	cameras [ 1 ]
+>2204	PrimaryExpression	1
+>2205	Identifier	cameras
+>2206	Callee	memcpy
+>2207	Identifier	memcpy
+>2208	ExpressionStatement	 
+>2209	AssignmentExpr	cameras [ 0 ] . k [ 0 ] = cameras [ 0 ] . k [ 1 ] = 0.0
+>2210	AssignmentExpr	cameras [ 0 ] . k [ 1 ] = 0.0
+>2211	PrimaryExpression	0.0
+>2212	ArrayIndexing	cameras [ 0 ] . k [ 1 ]
+>2213	PrimaryExpression	1
+>2214	MemberAccess	cameras [ 0 ] . k
+>2215	Identifier	k
+>2216	ArrayIndexing	cameras [ 0 ]
+>2217	PrimaryExpression	0
+>2218	Identifier	cameras
+>2219	ArrayIndexing	cameras [ 0 ] . k [ 0 ]
+>2220	PrimaryExpression	0
+>2221	MemberAccess	cameras [ 0 ] . k
+>2222	Identifier	k
+>2223	ArrayIndexing	cameras [ 0 ]
+>2224	PrimaryExpression	0
+>2225	Identifier	cameras
+>2226	ExpressionStatement	 
+>2227	AssignmentExpr	cameras [ 0 ] . f = init_focal_length_0
+>2228	Identifier	init_focal_length_0
+>2229	MemberAccess	cameras [ 0 ] . f
+>2230	Identifier	f
+>2231	ArrayIndexing	cameras [ 0 ]
+>2232	PrimaryExpression	0
+>2233	Identifier	cameras
+>2234	ExpressionStatement	 
+>2235	CallExpression	memcpy ( cameras [ 0 ] . t , cameras [ 1 ] . t , sizeof ( double ) * 3 )
+>2236	ArgumentList	cameras [ 0 ] . t
+>2237	Argument	sizeof ( double ) * 3
+>2238	MultiplicativeExpression	sizeof ( double ) * 3
+>2239	PrimaryExpression	3
+>2240	SizeofExpr	sizeof ( double )
+>2241	SizeofOperand	double
+>2242	Sizeof	sizeof
+>2243	Argument	cameras [ 1 ] . t
+>2244	MemberAccess	cameras [ 1 ] . t
+>2245	Identifier	t
+>2246	ArrayIndexing	cameras [ 1 ]
+>2247	PrimaryExpression	1
+>2248	Identifier	cameras
+>2249	Argument	cameras [ 0 ] . t
+>2250	MemberAccess	cameras [ 0 ] . t
+>2251	Identifier	t
+>2252	ArrayIndexing	cameras [ 0 ]
+>2253	PrimaryExpression	0
+>2254	Identifier	cameras
+>2255	Callee	memcpy
+>2256	Identifier	memcpy
+>2257	ExpressionStatement	 
+>2258	CallExpression	memcpy ( cameras [ 0 ] . R , cameras [ 1 ] . R , sizeof ( double ) * 9 )
+>2259	ArgumentList	cameras [ 0 ] . R
+>2260	Argument	sizeof ( double ) * 9
+>2261	MultiplicativeExpression	sizeof ( double ) * 9
+>2262	PrimaryExpression	9
+>2263	SizeofExpr	sizeof ( double )
+>2264	SizeofOperand	double
+>2265	Sizeof	sizeof
+>2266	Argument	cameras [ 1 ] . R
+>2267	MemberAccess	cameras [ 1 ] . R
+>2268	Identifier	R
+>2269	ArrayIndexing	cameras [ 1 ]
+>2270	PrimaryExpression	1
+>2271	Identifier	cameras
+>2272	Argument	cameras [ 0 ] . R
+>2273	MemberAccess	cameras [ 0 ] . R
+>2274	Identifier	R
+>2275	ArrayIndexing	cameras [ 0 ]
+>2276	PrimaryExpression	0
+>2277	Identifier	cameras
+>2278	Callee	memcpy
+>2279	Identifier	memcpy
+>2280	IdentifierDeclStatement	 
+>2281	IdentifierDecl	tmp = cameras [ 0 ]
+>2282	AssignmentExpr	tmp = cameras [ 0 ]
+>2283	ArrayIndexing	cameras [ 0 ]
+>2284	PrimaryExpression	0
+>2285	Identifier	cameras
+>2286	Identifier	tmp
+>2287	Identifier	tmp
+>2288	IdentifierDeclType	camera_params_t
+>2289	ExpressionStatement	 
+>2290	CallExpression	memcpy ( cameras_old , cameras , sizeof ( camera_params_t ) * 2 )
+>2291	ArgumentList	cameras_old
+>2292	Argument	sizeof ( camera_params_t ) * 2
+>2293	MultiplicativeExpression	sizeof ( camera_params_t ) * 2
+>2294	PrimaryExpression	2
+>2295	SizeofExpr	sizeof ( camera_params_t )
+>2296	SizeofOperand	camera_params_t
+>2297	Sizeof	sizeof
+>2298	Argument	cameras
+>2299	Identifier	cameras
+>2300	Argument	cameras_old
+>2301	Identifier	cameras_old
+>2302	Callee	memcpy
+>2303	Identifier	memcpy
+>2304	ExpressionStatement	 
+>2305	CallExpression	memcpy ( points_old , points , sizeof ( v3_t ) * curr_num_pts )
+>2306	ArgumentList	points_old
+>2307	Argument	sizeof ( v3_t ) * curr_num_pts
+>2308	MultiplicativeExpression	sizeof ( v3_t ) * curr_num_pts
+>2309	Identifier	curr_num_pts
+>2310	SizeofExpr	sizeof ( v3_t )
+>2311	SizeofOperand	v3_t
+>2312	Sizeof	sizeof
+>2313	Argument	points
+>2314	Identifier	points
+>2315	Argument	points_old
+>2316	Identifier	points_old
+>2317	Callee	memcpy
+>2318	Identifier	memcpy
+>2319	ExpressionStatement	 
+>2320	AssignmentExpr	points_old = new v3_t [ curr_num_pts ]
+>2321	Identifier	curr_num_pts
+>2322	Identifier	points_old
+>2323	IdentifierDeclStatement	 
+>2324	IdentifierDecl	* points_old
+>2325	Identifier	points_old
+>2326	IdentifierDeclType	v3_t *
+>2327	IdentifierDeclStatement	 
+>2328	IdentifierDecl	cameras_old [ 2 ]
+>2329	PrimaryExpression	2
+>2330	Identifier	cameras_old
+>2331	IdentifierDeclType	camera_params_t [ 2 ]
+>2332	Condition	 
+>2333	Identifier	m_fix_necker
+>2334	ExpressionStatement	 
+>2335	CallExpression	printf ( \"  focal lengths
+>2336	ArgumentList	\"  focal lengths
+>2337	Argument	cameras [ 1 ] . f
+>2338	MemberAccess	cameras [ 1 ] . f
+>2339	Identifier	f
+>2340	ArrayIndexing	cameras [ 1 ]
+>2341	PrimaryExpression	1
+>2342	Identifier	cameras
+>2343	Argument	cameras [ 0 ] . f
+>2344	MemberAccess	cameras [ 0 ] . f
+>2345	Identifier	f
+>2346	ArrayIndexing	cameras [ 0 ]
+>2347	PrimaryExpression	0
+>2348	Identifier	cameras
+>2349	Argument	\"  focal lengths
+>2350	PrimaryExpression	\"  focal lengths
+>2351	Callee	printf
+>2352	Identifier	printf
+>2353	ExpressionStatement	 
+>2354	AssignmentExpr	error0 = RunSFM ( curr_num_pts , 2 , 0 , false , cameras , points , added_order , colors , pt_views )
+>2355	CallExpression	RunSFM ( curr_num_pts , 2 , 0 , false , cameras , points , added_order , colors , pt_views )
+>2356	ArgumentList	curr_num_pts
+>2357	Argument	pt_views
+>2358	Identifier	pt_views
+>2359	Argument	colors
+>2360	Identifier	colors
+>2361	Argument	added_order
+>2362	Identifier	added_order
+>2363	Argument	points
+>2364	Identifier	points
+>2365	Argument	cameras
+>2366	Identifier	cameras
+>2367	Argument	false
+>2368	Identifier	false
+>2369	Argument	0
+>2370	PrimaryExpression	0
+>2371	Argument	2
+>2372	PrimaryExpression	2
+>2373	Argument	curr_num_pts
+>2374	Identifier	curr_num_pts
+>2375	Callee	RunSFM
+>2376	Identifier	RunSFM
+>2377	Identifier	error0
+>2378	IdentifierDeclStatement	 
+>2379	IdentifierDecl	error0
+>2380	Identifier	error0
+>2381	IdentifierDeclType	double
+>2382	ExpressionStatement	 
+>2383	CallExpression	DumpOutputFile ( m_output_directory , \"bundle.init.out\" , num_images , 2 , curr_num_pts , added_order , cameras , \
+>2384	ArgumentList	m_output_directory
+>2385	Argument	pt_views
+>2386	Identifier	pt_views
+>2387	Argument	colors
+>2388	Identifier	colors
+>2389	Argument	points
+>2390	Identifier	points
+>2391	Argument	cameras
+>2392	Identifier	cameras
+>2393	Argument	added_order
+>2394	Identifier	added_order
+>2395	Argument	curr_num_pts
+>2396	Identifier	curr_num_pts
+>2397	Argument	2
+>2398	PrimaryExpression	2
+>2399	Argument	num_images
+>2400	Identifier	num_images
+>2401	Argument	\"bundle.init.out\"
+>2402	PrimaryExpression	\"bundle.init.out\"
+>2403	Argument	m_output_directory
+>2404	Identifier	m_output_directory
+>2405	Callee	DumpOutputFile
+>2406	Identifier	DumpOutputFile
+>2407	ExpressionStatement	 
+>2408	AssignmentExpr	pt_count = curr_num_pts = SetupInitialCameraPair ( i_best , j_best , init_focal_length_0 , init_focal_\
+>2409	AssignmentExpr	curr_num_pts = SetupInitialCameraPair ( i_best , j_best , init_focal_length_0 , init_focal_length_1 , \
+>2410	CallExpression	SetupInitialCameraPair ( i_best , j_best , init_focal_length_0 , init_focal_length_1 , cameras , points , colors , \
+>2411	ArgumentList	i_best
+>2412	Argument	pt_views
+>2413	Identifier	pt_views
+>2414	Argument	colors
+>2415	Identifier	colors
+>2416	Argument	points
+>2417	Identifier	points
+>2418	Argument	cameras
+>2419	Identifier	cameras
+>2420	Argument	init_focal_length_1
+>2421	Identifier	init_focal_length_1
+>2422	Argument	init_focal_length_0
+>2423	Identifier	init_focal_length_0
+>2424	Argument	j_best
+>2425	Identifier	j_best
+>2426	Argument	i_best
+>2427	Identifier	i_best
+>2428	Callee	SetupInitialCameraPair
+>2429	Identifier	SetupInitialCameraPair
+>2430	Identifier	curr_num_pts
+>2431	Identifier	pt_count
+>2432	IdentifierDeclStatement	 
+>2433	IdentifierDecl	init_focal_length_1 = 0.0
+>2434	AssignmentExpr	init_focal_length_1 = 0.0
+>2435	PrimaryExpression	0.0
+>2436	Identifier	init_focal_length_1
+>2437	Identifier	init_focal_length_1
+>2438	IdentifierDeclType	double
+>2439	IdentifierDecl	init_focal_length_0 = 0.0
+>2440	AssignmentExpr	init_focal_length_0 = 0.0
+>2441	PrimaryExpression	0.0
+>2442	Identifier	init_focal_length_0
+>2443	Identifier	init_focal_length_0
+>2444	IdentifierDeclType	double
+>2445	ExpressionStatement	 
+>2446	Statement	 
+>2447	Statement	 
+>2448	Statement	 
+>2449	Statement	 
+>2450	Statement	 
+>2451	Statement	 
+>2452	Statement	 
+>2453	Statement	 
+>2454	Statement	 
+>2455	Statement	 
+>2456	Statement	 
+>2457	ExpressionStatement	 
+>2458	AssignmentExpr	added_order [ 1 ] = j_best
+>2459	Identifier	j_best
+>2460	ArrayIndexing	added_order [ 1 ]
+>2461	PrimaryExpression	1
+>2462	Identifier	added_order
+>2463	ExpressionStatement	 
+>2464	AssignmentExpr	added_order [ 0 ] = i_best
+>2465	Identifier	i_best
+>2466	ArrayIndexing	added_order [ 0 ]
+>2467	PrimaryExpression	0
+>2468	Identifier	added_order
+>2469	ExpressionStatement	 
+>2470	CallExpression	BundlePickInitialPair ( i_best , j_best , true )
+>2471	ArgumentList	i_best
+>2472	Argument	true
+>2473	Identifier	true
+>2474	Argument	j_best
+>2475	Identifier	j_best
+>2476	Argument	i_best
+>2477	Identifier	i_best
+>2478	Callee	BundlePickInitialPair
+>2479	Identifier	BundlePickInitialPair
+>2480	Condition	 
+>2481	EqualityExpression	num_init_cams == 0
+>2482	PrimaryExpression	0
+>2483	Identifier	num_init_cams
+>2484	IdentifierDeclStatement	 
+>2485	IdentifierDecl	pt_count
+>2486	Identifier	pt_count
+>2487	IdentifierDeclType	int
+>2488	IdentifierDeclStatement	 
+>2489	IdentifierDecl	curr_num_pts
+>2490	Identifier	curr_num_pts
+>2491	IdentifierDeclType	int
+>2492	IdentifierDecl	curr_num_cameras
+>2493	Identifier	curr_num_cameras
+>2494	IdentifierDeclType	int
+>2495	IdentifierDeclStatement	 
+>2496	IdentifierDecl	max_score = 0.0
+>2497	AssignmentExpr	max_score = 0.0
+>2498	PrimaryExpression	0.0
+>2499	Identifier	max_score
+>2500	Identifier	max_score
+>2501	IdentifierDeclType	double
+>2502	IdentifierDeclStatement	 
+>2503	IdentifierDecl	max_matches = 0
+>2504	AssignmentExpr	max_matches = 0
+>2505	PrimaryExpression	0
+>2506	Identifier	max_matches
+>2507	Identifier	max_matches
+>2508	IdentifierDeclType	int
+>2509	IdentifierDecl	j_best = - 1
+>2510	AssignmentExpr	j_best = - 1
+>2511	UnaryOp	- 1
+>2512	PrimaryExpression	1
+>2513	UnaryOperator	-
+>2514	Identifier	j_best
+>2515	Identifier	j_best
+>2516	IdentifierDeclType	int
+>2517	IdentifierDecl	i_best = - 1
+>2518	AssignmentExpr	i_best = - 1
+>2519	UnaryOp	- 1
+>2520	PrimaryExpression	1
+>2521	UnaryOperator	-
+>2522	Identifier	i_best
+>2523	Identifier	i_best
+>2524	IdentifierDeclType	int
+>2525	ExpressionStatement	 
+>2526	CallExpression	InitializeBundleAdjust ( num_init_cams , added_order , added_order_inv , cameras , points , colors , pt_views , \
+>2527	ArgumentList	num_init_cams
+>2528	Argument	m_use_constraints
+>2529	Identifier	m_use_constraints
+>2530	Argument	pt_views
+>2531	Identifier	pt_views
+>2532	Argument	colors
+>2533	Identifier	colors
+>2534	Argument	points
+>2535	Identifier	points
+>2536	Argument	cameras
+>2537	Identifier	cameras
+>2538	Argument	added_order_inv
+>2539	Identifier	added_order_inv
+>2540	Argument	added_order
+>2541	Identifier	added_order
+>2542	Argument	num_init_cams
+>2543	Identifier	num_init_cams
+>2544	Callee	InitializeBundleAdjust
+>2545	Identifier	InitializeBundleAdjust
+>2546	IdentifierDeclStatement	 
+>2547	IdentifierDecl	num_init_cams = 0
+>2548	AssignmentExpr	num_init_cams = 0
+>2549	PrimaryExpression	0
+>2550	Identifier	num_init_cams
+>2551	Identifier	num_init_cams
+>2552	IdentifierDeclType	int
+>2553	IfStatement	if ( use_constraints )
+>2554	CompoundStatement	 
+>2555	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>2556	CompoundStatement	 
+>2557	ExpressionStatement	 
+>2558	CallExpression	memcpy ( cameras [ i ] . constraints , constraints , 7 * sizeof ( double ) )
+>2559	ArgumentList	cameras [ i ] . constraints
+>2560	Argument	7 * sizeof ( double )
+>2561	MultiplicativeExpression	7 * sizeof ( double )
+>2562	SizeofExpr	sizeof ( double )
+>2563	SizeofOperand	double
+>2564	Sizeof	sizeof
+>2565	PrimaryExpression	7
+>2566	Argument	constraints
+>2567	Identifier	constraints
+>2568	Argument	cameras [ i ] . constraints
+>2569	MemberAccess	cameras [ i ] . constraints
+>2570	Identifier	constraints
+>2571	ArrayIndexing	cameras [ i ]
+>2572	Identifier	i
+>2573	Identifier	cameras
+>2574	Callee	memcpy
+>2575	Identifier	memcpy
+>2576	ExpressionStatement	 
+>2577	CallExpression	memcpy ( cameras [ i ] . constrained , constrained , 7 )
+>2578	ArgumentList	cameras [ i ] . constrained
+>2579	Argument	7
+>2580	PrimaryExpression	7
+>2581	Argument	constrained
+>2582	Identifier	constrained
+>2583	Argument	cameras [ i ] . constrained
+>2584	MemberAccess	cameras [ i ] . constrained
+>2585	Identifier	constrained
+>2586	ArrayIndexing	cameras [ i ]
+>2587	Identifier	i
+>2588	Identifier	cameras
+>2589	Callee	memcpy
+>2590	Identifier	memcpy
+>2591	IncDecOp	 
+>2592	IncDec	++
+>2593	Identifier	i
+>2594	Condition	 
+>2595	RelationalExpression	i < num_images
+>2596	Identifier	num_images
+>2597	Identifier	i
+>2598	ForInit	 
+>2599	IdentifierDeclStatement	int i = 0 ;
+>2600	IdentifierDecl	i = 0
+>2601	AssignmentExpr	i = 0
+>2602	PrimaryExpression	0
+>2603	Identifier	i
+>2604	Identifier	i
+>2605	IdentifierDeclType	int
+>2606	IdentifierDeclStatement	 
+>2607	IdentifierDecl	constraints [ 7 ] = { 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 }
+>2608	AssignmentExpr	constraints [ 7 ] = { 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 }
+>2609	InitializerList	0.0
+>2610	PrimaryExpression	0.0
+>2611	PrimaryExpression	0.0
+>2612	PrimaryExpression	0.0
+>2613	PrimaryExpression	0.0
+>2614	PrimaryExpression	0.0
+>2615	PrimaryExpression	0.0
+>2616	PrimaryExpression	0.0
+>2617	Identifier	constraints
+>2618	PrimaryExpression	7
+>2619	Identifier	constraints
+>2620	IdentifierDeclType	double [ 7 ]
+>2621	IdentifierDeclStatement	 
+>2622	IdentifierDecl	constrained [ 7 ] = { 0 , 1 , 1 , 0 , 0 , 0 , 0 }
+>2623	AssignmentExpr	constrained [ 7 ] = { 0 , 1 , 1 , 0 , 0 , 0 , 0 }
+>2624	InitializerList	0
+>2625	PrimaryExpression	0
+>2626	PrimaryExpression	0
+>2627	PrimaryExpression	0
+>2628	PrimaryExpression	0
+>2629	PrimaryExpression	1
+>2630	PrimaryExpression	1
+>2631	PrimaryExpression	0
+>2632	Identifier	constrained
+>2633	PrimaryExpression	7
+>2634	Identifier	constrained
+>2635	IdentifierDeclType	char [ 7 ]
+>2636	Condition	 
+>2637	Identifier	use_constraints
+>2638	IdentifierDeclStatement	 
+>2639	IdentifierDecl	pt_views
+>2640	Identifier	pt_views
+>2641	IdentifierDeclType	std 
+>2642	IdentifierDeclStatement	 
+>2643	IdentifierDecl	* colors = new v3_t [ max_pts ]
+>2644	AssignmentExpr	* colors = new v3_t [ max_pts ]
+>2645	Identifier	max_pts
+>2646	Identifier	max_pts
+>2647	Identifier	colors
+>2648	IdentifierDeclType	v3_t *
+>2649	IdentifierDeclStatement	 
+>2650	IdentifierDecl	* points = new v3_t [ max_pts ]
+>2651	AssignmentExpr	* points = new v3_t [ max_pts ]
+>2652	Identifier	max_pts
+>2653	Identifier	max_pts
+>2654	Identifier	points
+>2655	IdentifierDeclType	v3_t *
+>2656	IdentifierDeclStatement	 
+>2657	IdentifierDecl	max_pts = ( int ) m_track_data . size ( )
+>2658	AssignmentExpr	max_pts = ( int ) m_track_data . size ( )
+>2659	CastExpression	( int ) m_track_data . size ( )
+>2660	CallExpression	m_track_data . size ( )
+>2661	ArgumentList	 
+>2662	Callee	m_track_data . size
+>2663	MemberAccess	m_track_data . size
+>2664	Identifier	size
+>2665	Identifier	m_track_data
+>2666	CastTarget	int
+>2667	Identifier	max_pts
+>2668	Identifier	max_pts
+>2669	IdentifierDeclType	int
+>2670	IdentifierDeclStatement	 
+>2671	IdentifierDecl	* cameras = new camera_params_t [ num_images ]
+>2672	AssignmentExpr	* cameras = new camera_params_t [ num_images ]
+>2673	Identifier	num_images
+>2674	Identifier	num_images
+>2675	Identifier	cameras
+>2676	IdentifierDeclType	camera_params_t *
+>2677	IdentifierDeclStatement	 
+>2678	IdentifierDecl	* added_order_inv = new int [ num_images ]
+>2679	AssignmentExpr	* added_order_inv = new int [ num_images ]
+>2680	Identifier	num_images
+>2681	Identifier	num_images
+>2682	Identifier	added_order_inv
+>2683	IdentifierDeclType	int *
+>2684	IdentifierDeclStatement	 
+>2685	IdentifierDecl	* added_order = new int [ num_images ]
+>2686	AssignmentExpr	* added_order = new int [ num_images ]
+>2687	Identifier	num_images
+>2688	Identifier	num_images
+>2689	Identifier	added_order
+>2690	IdentifierDeclType	int *
+>2691	IdentifierDeclStatement	 
+>2692	IdentifierDecl	num_images = GetNumImages ( )
+>2693	AssignmentExpr	num_images = GetNumImages ( )
+>2694	CallExpression	GetNumImages ( )
+>2695	ArgumentList	 
+>2696	Callee	GetNumImages
+>2697	Identifier	GetNumImages
+>2698	Identifier	num_images
+>2699	Identifier	num_images
+>2700	IdentifierDeclType	int
+>2701	ForStatement	for ( int i = 0 ; i < ( int ) m_track_data . size ( ) ; i ++ )
+>2702	CompoundStatement	 
+>2703	ExpressionStatement	 
+>2704	AssignmentExpr	m_track_data [ i ] . m_extra = - 1
+>2705	UnaryOp	- 1
+>2706	PrimaryExpression	1
+>2707	UnaryOperator	-
+>2708	MemberAccess	m_track_data [ i ] . m_extra
+>2709	Identifier	m_extra
+>2710	ArrayIndexing	m_track_data [ i ]
+>2711	Identifier	i
+>2712	Identifier	m_track_data
+>2713	IncDecOp	 
+>2714	IncDec	++
+>2715	Identifier	i
+>2716	Condition	 
+>2717	RelationalExpression	i < ( int ) m_track_data . size ( )
+>2718	CastExpression	( int ) m_track_data . size ( )
+>2719	CallExpression	m_track_data . size ( )
+>2720	ArgumentList	 
+>2721	Callee	m_track_data . size
+>2722	MemberAccess	m_track_data . size
+>2723	Identifier	size
+>2724	Identifier	m_track_data
+>2725	CastTarget	int
+>2726	Identifier	i
+>2727	ForInit	 
+>2728	IdentifierDeclStatement	int i = 0 ;
+>2729	IdentifierDecl	i = 0
+>2730	AssignmentExpr	i = 0
+>2731	PrimaryExpression	0
+>2732	Identifier	i
+>2733	Identifier	i
+>2734	IdentifierDeclType	int
+>2735	ExpressionStatement	 
+>2736	CallExpression	ReadKeyColors ( )
+>2737	ArgumentList	 
+>2738	Callee	ReadKeyColors
+>2739	Identifier	ReadKeyColors
+>2740	ExpressionStatement	 
+>2741	CallExpression	printf ( \"[BundleAdjust] Reading key colors...\n\" )
+>2742	ArgumentList	\"[BundleAdjust] Reading key colors...\n\"
+>2743	Argument	\"[BundleAdjust] Reading key colors...\n\"
+>2744	PrimaryExpression	\"[BundleAdjust] Reading key colors...\n\"
+>2745	Callee	printf
+>2746	Identifier	printf
+>2747	ExpressionStatement	 
+>2748	CallExpression	ComputeGeometricConstraints ( )
+>2749	ArgumentList	 
+>2750	Callee	ComputeGeometricConstraints
+>2751	Identifier	ComputeGeometricConstraints
+>2752	IdentifierDeclStatement	 
+>2753	IdentifierDecl	start = clock ( )
+>2754	AssignmentExpr	start = clock ( )
+>2755	CallExpression	clock ( )
+>2756	ArgumentList	 
+>2757	Callee	clock
+>2758	Identifier	clock
+>2759	Identifier	start
+>2760	Identifier	start
+>2761	IdentifierDeclType	clock_t
+<3=6,5,4
+<6=2752,2747,2740,2735,2701,2691,2684,2677,2670,2656,2649,2642,2638,2553,2546,2525,2502,2495,2488,2484,1431,1424,535,525,510,487,456,429,281,68,67,66,65,63,62,61,60,58,53,46,7
+<7=38,34,31,8
+<8=9
+<9=23,17,10
+<10=11
+<11=12
+<12=14,13
+<14=16,15
+<17=18
+<18=20,19
+<20=22,21
+<23=24
+<24=26,25
+<26=28,27
+<28=30,29
+<31=33,32
+<34=35
+<35=37,36
+<38=39
+<39=40
+<40=45,44,41
+<41=43,42
+<46=47
+<47=52,51,48
+<48=50,49
+<53=54
+<54=56,55
+<56=57
+<58=59
+<63=64
+<68=273,269,266,69
+<69=251,247,232,217,202,185,168,151,79,70
+<70=71
+<71=75,72
+<72=73
+<73=74
+<75=76
+<76=78,77
+<79=143,130,127,80
+<80=114,105,81
+<81=82
+<82=99,83
+<83=84
+<84=85
+<85=97,86
+<86=95,87
+<87=88
+<88=90,89
+<90=92,91
+<92=94,93
+<95=96
+<97=98
+<99=100
+<100=102,101
+<102=104,103
+<105=106
+<106=113,112,107
+<107=111,108
+<108=110,109
+<114=115
+<115=126,125,116
+<116=124,117
+<117=119,118
+<119=121,120
+<121=123,122
+<127=129,128
+<130=131
+<131=142,132
+<132=141,133
+<133=135,134
+<135=136
+<136=138,137
+<138=140,139
+<143=144
+<144=145
+<145=150,149,146
+<146=148,147
+<151=152
+<152=163,153
+<153=162,154
+<154=160,155
+<155=156
+<156=157
+<157=159,158
+<160=161
+<163=165,164
+<165=167,166
+<168=169
+<169=180,170
+<170=179,171
+<171=177,172
+<172=173
+<173=174
+<174=176,175
+<177=178
+<180=182,181
+<182=184,183
+<185=186
+<186=197,187
+<187=196,188
+<188=194,189
+<189=190
+<190=191
+<191=193,192
+<194=195
+<197=199,198
+<199=201,200
+<202=203
+<203=212,204
+<204=210,205
+<205=206
+<206=207
+<207=209,208
+<210=211
+<212=214,213
+<214=216,215
+<217=218
+<218=227,219
+<219=225,220
+<220=221
+<221=222
+<222=224,223
+<225=226
+<227=229,228
+<229=231,230
+<232=233
+<233=242,234
+<234=240,235
+<235=236
+<236=237
+<237=239,238
+<240=241
+<242=244,243
+<244=246,245
+<247=248
+<248=250,249
+<251=253,252
+<253=254
+<254=256,255
+<256=265,257
+<257=259,258
+<259=260
+<260=262,261
+<262=264,263
+<266=268,267
+<269=270
+<270=272,271
+<273=274
+<274=275
+<275=280,279,276
+<276=278,277
+<281=421,417,414,282
+<282=405,395,370,337,308,294,283
+<283=284
+<284=286,285
+<286=287
+<287=289,288
+<289=291,290
+<291=293,292
+<294=295
+<295=301,296
+<296=298,297
+<298=300,299
+<301=303,302
+<303=305,304
+<305=307,306
+<308=309
+<309=335,310
+<310=333,331,323,319,311
+<311=312
+<312=314,313
+<314=316,315
+<316=318,317
+<319=320
+<320=322,321
+<323=324
+<324=326,325
+<326=328,327
+<328=330,329
+<331=332
+<333=334
+<335=336
+<337=338
+<338=368,339
+<339=366,364,362,360,354,348,340
+<340=341
+<341=343,342
+<343=345,344
+<345=347,346
+<348=349
+<349=351,350
+<351=353,352
+<354=355
+<355=357,356
+<357=359,358
+<360=361
+<362=363
+<364=365
+<366=367
+<368=369
+<370=371
+<371=393,372
+<372=385,379,373
+<373=374
+<374=378,375
+<375=377,376
+<379=380
+<380=382,381
+<382=384,383
+<385=386
+<386=388,387
+<388=390,389
+<390=392,391
+<393=394
+<395=396
+<396=398,397
+<398=400,399
+<400=402,401
+<402=404,403
+<405=406
+<406=413,412,407
+<407=411,408
+<408=410,409
+<414=416,415
+<417=418
+<418=420,419
+<421=422
+<422=423
+<423=428,427,424
+<424=426,425
+<429=448,444,441,430
+<430=431
+<431=432
+<432=434,433
+<434=436,435
+<436=438,437
+<438=440,439
+<441=443,442
+<444=445
+<445=447,446
+<448=449
+<449=450
+<450=455,454,451
+<451=453,452
+<456=483,457
+<457=458
+<458=459
+<459=481,460
+<460=479,477,475,473,471,469,467,465,463,461
+<461=462
+<463=464
+<465=466
+<467=468
+<469=470
+<471=472
+<473=474
+<475=476
+<477=478
+<479=480
+<481=482
+<483=484
+<484=486,485
+<487=508,488
+<488=489
+<489=490
+<490=506,491
+<491=504,502,500,498,496,494,492
+<492=493
+<494=495
+<496=497
+<498=499
+<500=501
+<502=503
+<504=505
+<506=507
+<508=509
+<510=511
+<511=523,512
+<512=521,513
+<513=514
+<514=518,515
+<515=517,516
+<518=520,519
+<521=522
+<523=524
+<525=526
+<526=534,533,527
+<527=532,528
+<528=530,529
+<530=531
+<535=1420,536
+<536=1416,1394,1385,1379,1375,1301,1287,1278,1249,1242,1091,1071,1064,1060,1014,1010,981,977,968,961,774,767,620,615,604,585,541,537
+<537=538
+<538=540,539
+<541=581,542
+<542=568,543
+<543=544
+<544=566,545
+<545=564,562,560,558,556,554,552,550,548,546
+<546=547
+<548=549
+<550=551
+<552=553
+<554=555
+<556=557
+<558=559
+<560=561
+<562=563
+<564=565
+<566=567
+<568=569
+<569=579,570
+<570=577,575,573,571
+<571=572
+<573=574
+<575=576
+<577=578
+<579=580
+<581=582
+<582=584,583
+<585=586
+<586=602,587
+<587=600,598,596,594,592,590,588
+<588=589
+<590=591
+<592=593
+<594=595
+<596=597
+<598=599
+<600=601
+<602=603
+<604=605
+<605=613,606
+<606=611,609,607
+<607=608
+<609=610
+<611=612
+<613=614
+<615=616
+<616=619,618,617
+<620=759,755,752,621
+<621=751,750,749,748,747,746,745,744,743,742,741,740,739,738,737,736,735,734,733,732,731,730,729,728,727,726,725,724,723,722,721,720,719,718,717,716,715,714,713,712,711,710,709,708,707,706,705,704,703,702,622,653,654,655,656,657,658,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,675,676,677,678,679,680,681,682,683,684,685,686,687,688,689,690,691,692,693,694,695,696,697,698,699,700,701
+<622=623
+<623=651,624
+<624=649,641,633,625
+<625=626
+<626=628,627
+<628=630,629
+<630=632,631
+<633=634
+<634=636,635
+<636=638,637
+<638=640,639
+<641=642
+<642=644,643
+<644=646,645
+<646=648,647
+<649=650
+<651=652
+<752=754,753
+<755=756
+<756=758,757
+<759=760
+<760=761
+<761=766,765,762
+<762=764,763
+<767=768
+<768=772,769
+<769=770
+<770=771
+<772=773
+<774=957,775
+<775=934,913,906,783,776
+<776=777
+<777=781,778
+<778=779
+<779=780
+<781=782
+<783=898,894,891,784
+<784=785
+<785=883,831,786
+<786=787
+<787=788
+<788=789
+<789=829,790
+<790=827,825,819,811,807,799,791
+<791=792
+<792=794,793
+<794=796,795
+<796=798,797
+<799=800
+<800=802,801
+<802=804,803
+<804=806,805
+<807=808
+<808=810,809
+<811=812
+<812=814,813
+<814=818,815
+<815=817,816
+<819=820
+<820=822,821
+<822=824,823
+<825=826
+<827=828
+<829=830
+<831=832
+<832=833
+<833=881,834
+<834=879,877,871,863,855,851,843,835
+<835=836
+<836=838,837
+<838=840,839
+<840=842,841
+<843=844
+<844=846,845
+<846=848,847
+<848=850,849
+<851=852
+<852=854,853
+<855=856
+<856=858,857
+<858=862,859
+<859=861,860
+<863=864
+<864=866,865
+<866=870,867
+<867=869,868
+<871=872
+<872=874,873
+<874=876,875
+<877=878
+<879=880
+<881=882
+<883=884
+<884=886,885
+<886=890,887
+<887=889,888
+<891=893,892
+<894=895
+<895=897,896
+<898=899
+<899=900
+<900=905,904,901
+<901=903,902
+<906=907
+<907=911,908
+<908=909
+<909=910
+<911=912
+<913=914
+<914=932,915
+<915=930,926,924,922,920,918,916
+<916=917
+<918=919
+<920=921
+<922=923
+<924=925
+<926=927
+<927=929,928
+<930=931
+<932=933
+<934=935
+<935=955,936
+<936=953,951,949,947,945,943,941,939,937
+<937=938
+<939=940
+<941=942
+<943=944
+<945=946
+<947=948
+<949=950
+<951=952
+<953=954
+<955=956
+<957=958
+<958=960,959
+<961=962
+<962=966,963
+<963=964
+<964=965
+<966=967
+<968=969
+<969=975,970
+<970=973,971
+<971=972
+<973=974
+<975=976
+<977=978
+<978=980,979
+<981=1006,982
+<982=983
+<983=984
+<984=1005,985
+<985=1003,986
+<986=1001,999,997,995,993,991,989,987
+<987=988
+<989=990
+<991=992
+<993=994
+<995=996
+<997=998
+<999=1000
+<1001=1002
+<1003=1004
+<1006=1007
+<1007=1009,1008
+<1010=1011
+<1011=1013,1012
+<1014=1052,1048,1045,1015
+<1015=1016
+<1016=1017
+<1017=1044,1018
+<1018=1042,1019
+<1019=1038,1036,1032,1030,1028,1026,1024,1022,1020
+<1020=1021
+<1022=1023
+<1024=1025
+<1026=1027
+<1028=1029
+<1030=1031
+<1032=1033
+<1033=1035,1034
+<1036=1037
+<1038=1039
+<1039=1041,1040
+<1042=1043
+<1045=1047,1046
+<1048=1049
+<1049=1051,1050
+<1052=1053
+<1053=1054
+<1054=1059,1058,1055
+<1055=1057,1056
+<1060=1061
+<1061=1063,1062
+<1064=1065
+<1065=1069,1066
+<1066=1067
+<1067=1068
+<1069=1070
+<1071=1072
+<1072=1090,1089,1073
+<1073=1088,1074
+<1074=1086,1075
+<1075=1082,1078,1076
+<1076=1077
+<1078=1079
+<1079=1081,1080
+<1082=1083
+<1083=1085,1084
+<1086=1087
+<1091=1234,1230,1227,1092
+<1092=1216,1205,1197,1196,1195,1194,1193,1192,1191,1190,1189,1188,1187,1186,1185,1184,1183,1182,1181,1180,1179,1178,1177,1176,1175,1174,1173,1166,1128,1093
+<1093=1126,1113,1094
+<1094=1095
+<1095=1104,1096
+<1096=1097
+<1097=1099,1098
+<1099=1101,1100
+<1101=1103,1102
+<1104=1105
+<1105=1111,1106
+<1106=1109,1107
+<1107=1108
+<1109=1110
+<1111=1112
+<1113=1118,1114
+<1114=1115
+<1115=1117,1116
+<1118=1119
+<1119=1121,1120
+<1121=1125,1122
+<1122=1124,1123
+<1126=1127
+<1128=1129
+<1129=1165,1164,1130
+<1130=1163,1131
+<1131=1161,1132
+<1132=1157,1155,1151,1149,1147,1145,1143,1141,1139,1137,1133
+<1133=1134
+<1134=1136,1135
+<1137=1138
+<1139=1140
+<1141=1142
+<1143=1144
+<1145=1146
+<1147=1148
+<1149=1150
+<1151=1152
+<1152=1154,1153
+<1155=1156
+<1157=1158
+<1158=1160,1159
+<1161=1162
+<1166=1167
+<1167=1172,1171,1168
+<1168=1170,1169
+<1197=1198
+<1198=1200,1199
+<1200=1204,1201
+<1201=1203,1202
+<1205=1206
+<1206=1215,1214,1207
+<1207=1213,1208
+<1208=1210,1209
+<1210=1212,1211
+<1216=1217
+<1217=1226,1225,1218
+<1218=1224,1219
+<1219=1221,1220
+<1221=1223,1222
+<1227=1229,1228
+<1230=1231
+<1231=1233,1232
+<1234=1235
+<1235=1236
+<1236=1241,1240,1237
+<1237=1239,1238
+<1242=1243
+<1243=1248,1247,1244
+<1244=1246,1245
+<1249=1270,1266,1263,1250
+<1250=1251
+<1251=1261,1252
+<1252=1259,1253
+<1253=1254
+<1254=1256,1255
+<1256=1258,1257
+<1259=1260
+<1261=1262
+<1263=1265,1264
+<1266=1267
+<1267=1269,1268
+<1270=1271
+<1271=1272
+<1272=1277,1276,1273
+<1273=1275,1274
+<1278=1279
+<1279=1285,1280
+<1280=1283,1281
+<1281=1282
+<1283=1284
+<1285=1286
+<1287=1288
+<1288=1300,1299,1289
+<1289=1298,1290
+<1290=1297,1291
+<1291=1293,1292
+<1293=1294
+<1294=1296,1295
+<1301=1369,1352,1302
+<1302=1303
+<1303=1338,1321,1304
+<1304=1305
+<1305=1320,1306
+<1306=1318,1307
+<1307=1316,1314,1312,1310,1308
+<1308=1309
+<1310=1311
+<1312=1313
+<1314=1315
+<1316=1317
+<1318=1319
+<1321=1334,1322
+<1322=1323
+<1323=1324
+<1324=1333,1325
+<1325=1331,1326
+<1326=1329,1327
+<1327=1328
+<1329=1330
+<1331=1332
+<1334=1335
+<1335=1337,1336
+<1338=1339
+<1339=1351,1350,1340
+<1340=1349,1341
+<1341=1347,1342
+<1342=1343
+<1343=1344
+<1344=1346,1345
+<1347=1348
+<1352=1353
+<1353=1354
+<1354=1365,1355
+<1355=1356
+<1356=1357
+<1357=1363,1358
+<1358=1361,1359
+<1359=1360
+<1361=1362
+<1363=1364
+<1365=1366
+<1366=1368,1367
+<1369=1370
+<1370=1374,1371
+<1371=1373,1372
+<1375=1376
+<1376=1378,1377
+<1379=1381,1380
+<1381=1382
+<1382=1384,1383
+<1385=1386
+<1386=1392,1387
+<1387=1390,1388
+<1388=1389
+<1390=1391
+<1392=1393
+<1394=1395
+<1395=1415,1414,1396
+<1396=1413,1397
+<1397=1411,1398
+<1398=1409,1407,1405,1403,1401,1399
+<1399=1400
+<1401=1402
+<1403=1404
+<1405=1406
+<1407=1408
+<1409=1410
+<1411=1412
+<1416=1417
+<1417=1419,1418
+<1420=1421
+<1421=1423,1422
+<1424=1425
+<1425=1430,1429,1426
+<1426=1428,1427
+<1431=2480,1539,1432
+<1432=1433
+<1433=1501,1493,1485,1451,1447,1434
+<1434=1435
+<1435=1446,1436
+<1436=1445,1437
+<1437=1444,1438
+<1438=1440,1439
+<1440=1441
+<1441=1443,1442
+<1447=1448
+<1448=1450,1449
+<1451=1473,1452
+<1452=1472,1471,1470,1469,1468,1467,1460,1453
+<1453=1454
+<1454=1458,1455
+<1455=1456
+<1456=1457
+<1458=1459
+<1460=1461
+<1461=1465,1462
+<1462=1463
+<1463=1464
+<1465=1466
+<1473=1474
+<1474=1480,1475
+<1475=1479,1476
+<1476=1478,1477
+<1480=1484,1481
+<1481=1483,1482
+<1485=1486
+<1486=1492,1487
+<1487=1491,1488
+<1488=1490,1489
+<1493=1494
+<1494=1500,1495
+<1495=1499,1496
+<1496=1498,1497
+<1501=1523,1502
+<1502=1522,1521,1520,1519,1518,1517,1516,1515,1514,1513,1512,1511,1510,1503
+<1503=1504
+<1504=1508,1505
+<1505=1506
+<1506=1507
+<1508=1509
+<1523=1524
+<1524=1532,1525
+<1525=1529,1526
+<1526=1528,1527
+<1529=1531,1530
+<1532=1536,1533
+<1533=1535,1534
+<1536=1538,1537
+<1539=2469,2463,2457,2456,2455,2454,2453,2452,2451,2450,2449,2448,2447,2446,2445,2432,2407,2382,2378,2353,2334,1656,1637,1544,1540
+<1540=1541
+<1541=1543,1542
+<1544=1633,1545
+<1545=1628,1615,1590,1546
+<1546=1588,1547
+<1547=1575,1548
+<1548=1549
+<1549=1573,1550
+<1550=1571,1569,1567,1565,1563,1561,1559,1557,1555,1553,1551
+<1551=1552
+<1553=1554
+<1555=1556
+<1557=1558
+<1559=1560
+<1561=1562
+<1563=1564
+<1565=1566
+<1567=1568
+<1569=1570
+<1571=1572
+<1573=1574
+<1575=1576
+<1576=1586,1577
+<1577=1584,1582,1580,1578
+<1578=1579
+<1580=1581
+<1582=1583
+<1584=1585
+<1586=1587
+<1588=1589
+<1590=1591
+<1591=1613,1592
+<1592=1611,1609,1607,1605,1603,1601,1599,1597,1595,1593
+<1593=1594
+<1595=1596
+<1597=1598
+<1599=1600
+<1601=1602
+<1603=1604
+<1605=1606
+<1607=1608
+<1609=1610
+<1611=1612
+<1613=1614
+<1615=1616
+<1616=1626,1617
+<1617=1624,1622,1620,1618
+<1618=1619
+<1620=1621
+<1622=1623
+<1624=1625
+<1626=1627
+<1628=1629
+<1629=1632,1631,1630
+<1633=1634
+<1634=1636,1635
+<1637=1638
+<1638=1654,1639
+<1639=1652,1650,1648,1646,1644,1642,1640
+<1640=1641
+<1642=1643
+<1644=1645
+<1646=1647
+<1648=1649
+<1650=1651
+<1652=1653
+<1654=1655
+<1656=2332,1657
+<1657=2327,2323,2319,2304,2289,2280,2257,2234,2226,2208,2187,2166,2158,2140,2111,2082,1735,1731,1706,1663,1662,1661,1660,1658
+<1658=1659
+<1663=1702,1664
+<1664=1695,1680,1665
+<1665=1666
+<1666=1678,1667
+<1667=1676,1674,1668
+<1668=1669
+<1669=1671,1670
+<1671=1673,1672
+<1674=1675
+<1676=1677
+<1678=1679
+<1680=1681
+<1681=1693,1682
+<1682=1691,1689,1683
+<1683=1684
+<1684=1686,1685
+<1686=1688,1687
+<1689=1690
+<1691=1692
+<1693=1694
+<1695=1696
+<1696=1700,1697
+<1697=1698
+<1698=1699
+<1700=1701
+<1702=1703
+<1703=1705,1704
+<1706=1707
+<1707=1730,1708
+<1708=1728,1709
+<1709=1726,1724,1722,1720,1718,1716,1714,1712,1710
+<1710=1711
+<1712=1713
+<1714=1715
+<1716=1717
+<1718=1719
+<1720=1721
+<1722=1723
+<1724=1725
+<1726=1727
+<1728=1729
+<1731=1732
+<1732=1734,1733
+<1735=2074,2070,2067,1736
+<1736=2054,2041,2006,1971,1962,1943,1924,1898,1872,1868,1863,1858,1831,1814,1787,1770,1737
+<1737=1738
+<1738=1767,1739
+<1739=1765,1740
+<1740=1763,1761,1755,1753,1747,1745,1741
+<1741=1742
+<1742=1744,1743
+<1745=1746
+<1747=1748
+<1748=1750,1749
+<1750=1752,1751
+<1753=1754
+<1755=1756
+<1756=1758,1757
+<1758=1760,1759
+<1761=1762
+<1763=1764
+<1765=1766
+<1767=1769,1768
+<1770=1771
+<1771=1785,1772
+<1772=1783,1781,1779,1775,1773
+<1773=1774
+<1775=1776
+<1776=1778,1777
+<1779=1780
+<1781=1782
+<1783=1784
+<1785=1786
+<1787=1788
+<1788=1812,1789
+<1789=1810,1808,1806,1804,1798,1792,1790
+<1790=1791
+<1792=1793
+<1793=1795,1794
+<1795=1797,1796
+<1798=1799
+<1799=1801,1800
+<1801=1803,1802
+<1804=1805
+<1806=1807
+<1808=1809
+<1810=1811
+<1812=1813
+<1814=1815
+<1815=1829,1816
+<1816=1827,1825,1823,1819,1817
+<1817=1818
+<1819=1820
+<1820=1822,1821
+<1823=1824
+<1825=1826
+<1827=1828
+<1829=1830
+<1831=1832
+<1832=1856,1833
+<1833=1854,1852,1850,1848,1842,1836,1834
+<1834=1835
+<1836=1837
+<1837=1839,1838
+<1839=1841,1840
+<1842=1843
+<1843=1845,1844
+<1845=1847,1846
+<1848=1849
+<1850=1851
+<1852=1853
+<1854=1855
+<1856=1857
+<1858=1859
+<1859=1862,1861,1860
+<1863=1864
+<1864=1867,1866,1865
+<1868=1869
+<1869=1871,1870
+<1872=1873
+<1873=1897,1896,1874
+<1874=1895,1875
+<1875=1893,1876
+<1876=1885,1877
+<1877=1878
+<1878=1882,1879
+<1879=1881,1880
+<1882=1884,1883
+<1885=1886
+<1886=1890,1887
+<1887=1889,1888
+<1890=1892,1891
+<1893=1894
+<1898=1899
+<1899=1923,1922,1900
+<1900=1921,1901
+<1901=1919,1902
+<1902=1911,1903
+<1903=1904
+<1904=1908,1905
+<1905=1907,1906
+<1908=1910,1909
+<1911=1912
+<1912=1916,1913
+<1913=1915,1914
+<1916=1918,1917
+<1919=1920
+<1924=1925
+<1925=1941,1926
+<1926=1939,1937,1935,1933,1931,1929,1927
+<1927=1928
+<1929=1930
+<1931=1932
+<1933=1934
+<1935=1936
+<1937=1938
+<1939=1940
+<1941=1942
+<1943=1944
+<1944=1960,1945
+<1945=1958,1956,1954,1952,1950,1948,1946
+<1946=1947
+<1948=1949
+<1950=1951
+<1952=1953
+<1954=1955
+<1956=1957
+<1958=1959
+<1960=1961
+<1962=1967,1963
+<1963=1966,1965,1964
+<1967=1970,1969,1968
+<1971=1972
+<1972=2005,2004,2003,1973
+<1973=2002,1974
+<1974=1990,1978,1975
+<1975=1977,1976
+<1978=1980,1979
+<1980=1988,1981
+<1981=1984,1982
+<1982=1983
+<1984=1985
+<1985=1987,1986
+<1988=1989
+<1990=1992,1991
+<1992=2000,1993
+<1993=1996,1994
+<1994=1995
+<1996=1997
+<1997=1999,1998
+<2000=2001
+<2006=2007
+<2007=2040,2039,2038,2008
+<2008=2037,2009
+<2009=2025,2013,2010
+<2010=2012,2011
+<2013=2015,2014
+<2015=2023,2016
+<2016=2019,2017
+<2017=2018
+<2019=2020
+<2020=2022,2021
+<2023=2024
+<2025=2027,2026
+<2027=2035,2028
+<2028=2031,2029
+<2029=2030
+<2031=2032
+<2032=2034,2033
+<2035=2036
+<2041=2042
+<2042=2053,2052,2043
+<2043=2051,2044
+<2044=2046,2045
+<2046=2048,2047
+<2048=2050,2049
+<2054=2055
+<2055=2066,2065,2056
+<2056=2064,2057
+<2057=2059,2058
+<2059=2061,2060
+<2061=2063,2062
+<2067=2069,2068
+<2070=2071
+<2071=2073,2072
+<2074=2075
+<2075=2076
+<2076=2081,2080,2077
+<2077=2079,2078
+<2082=2083
+<2083=2110,2109,2108,2084
+<2084=2107,2085
+<2085=2100,2099,2098,2097,2090,2089,2088,2087,2086
+<2090=2096,2091
+<2091=2093,2092
+<2093=2095,2094
+<2100=2106,2101
+<2101=2103,2102
+<2103=2105,2104
+<2111=2112
+<2112=2139,2138,2137,2113
+<2113=2136,2114
+<2114=2129,2128,2127,2126,2119,2118,2117,2116,2115
+<2119=2125,2120
+<2120=2122,2121
+<2122=2124,2123
+<2129=2135,2130
+<2130=2132,2131
+<2132=2134,2133
+<2140=2141
+<2141=2151,2142
+<2142=2144,2143
+<2144=2146,2145
+<2146=2148,2147
+<2148=2150,2149
+<2151=2153,2152
+<2153=2155,2154
+<2155=2157,2156
+<2158=2159
+<2159=2161,2160
+<2161=2163,2162
+<2163=2165,2164
+<2166=2167
+<2167=2185,2168
+<2168=2179,2175,2169
+<2169=2170
+<2170=2172,2171
+<2172=2174,2173
+<2175=2176
+<2176=2178,2177
+<2179=2180
+<2180=2182,2181
+<2182=2184,2183
+<2185=2186
+<2187=2188
+<2188=2206,2189
+<2189=2200,2196,2190
+<2190=2191
+<2191=2193,2192
+<2193=2195,2194
+<2196=2197
+<2197=2199,2198
+<2200=2201
+<2201=2203,2202
+<2203=2205,2204
+<2206=2207
+<2208=2209
+<2209=2219,2210
+<2210=2212,2211
+<2212=2214,2213
+<2214=2216,2215
+<2216=2218,2217
+<2219=2221,2220
+<2221=2223,2222
+<2223=2225,2224
+<2226=2227
+<2227=2229,2228
+<2229=2231,2230
+<2231=2233,2232
+<2234=2235
+<2235=2255,2236
+<2236=2249,2243,2237
+<2237=2238
+<2238=2240,2239
+<2240=2242,2241
+<2243=2244
+<2244=2246,2245
+<2246=2248,2247
+<2249=2250
+<2250=2252,2251
+<2252=2254,2253
+<2255=2256
+<2257=2258
+<2258=2278,2259
+<2259=2272,2266,2260
+<2260=2261
+<2261=2263,2262
+<2263=2265,2264
+<2266=2267
+<2267=2269,2268
+<2269=2271,2270
+<2272=2273
+<2273=2275,2274
+<2275=2277,2276
+<2278=2279
+<2280=2281
+<2281=2288,2287,2282
+<2282=2286,2283
+<2283=2285,2284
+<2289=2290
+<2290=2302,2291
+<2291=2300,2298,2292
+<2292=2293
+<2293=2295,2294
+<2295=2297,2296
+<2298=2299
+<2300=2301
+<2302=2303
+<2304=2305
+<2305=2317,2306
+<2306=2315,2313,2307
+<2307=2308
+<2308=2310,2309
+<2310=2312,2311
+<2313=2314
+<2315=2316
+<2317=2318
+<2319=2320
+<2320=2322,2321
+<2323=2324
+<2324=2326,2325
+<2327=2328
+<2328=2331,2330,2329
+<2332=2333
+<2334=2335
+<2335=2351,2336
+<2336=2349,2343,2337
+<2337=2338
+<2338=2340,2339
+<2340=2342,2341
+<2343=2344
+<2344=2346,2345
+<2346=2348,2347
+<2349=2350
+<2351=2352
+<2353=2354
+<2354=2377,2355
+<2355=2375,2356
+<2356=2373,2371,2369,2367,2365,2363,2361,2359,2357
+<2357=2358
+<2359=2360
+<2361=2362
+<2363=2364
+<2365=2366
+<2367=2368
+<2369=2370
+<2371=2372
+<2373=2374
+<2375=2376
+<2378=2379
+<2379=2381,2380
+<2382=2383
+<2383=2405,2384
+<2384=2403,2401,2399,2397,2395,2393,2391,2389,2387,2385
+<2385=2386
+<2387=2388
+<2389=2390
+<2391=2392
+<2393=2394
+<2395=2396
+<2397=2398
+<2399=2400
+<2401=2402
+<2403=2404
+<2405=2406
+<2407=2408
+<2408=2431,2409
+<2409=2430,2410
+<2410=2428,2411
+<2411=2426,2424,2422,2420,2418,2416,2414,2412
+<2412=2413
+<2414=2415
+<2416=2417
+<2418=2419
+<2420=2421
+<2422=2423
+<2424=2425
+<2426=2427
+<2428=2429
+<2432=2439,2433
+<2433=2438,2437,2434
+<2434=2436,2435
+<2439=2444,2443,2440
+<2440=2442,2441
+<2457=2458
+<2458=2460,2459
+<2460=2462,2461
+<2463=2464
+<2464=2466,2465
+<2466=2468,2467
+<2469=2470
+<2470=2478,2471
+<2471=2476,2474,2472
+<2472=2473
+<2474=2475
+<2476=2477
+<2478=2479
+<2480=2481
+<2481=2483,2482
+<2484=2485
+<2485=2487,2486
+<2488=2492,2489
+<2489=2491,2490
+<2492=2494,2493
+<2495=2496
+<2496=2501,2500,2497
+<2497=2499,2498
+<2502=2517,2509,2503
+<2503=2508,2507,2504
+<2504=2506,2505
+<2509=2516,2515,2510
+<2510=2514,2511
+<2511=2513,2512
+<2517=2524,2523,2518
+<2518=2522,2519
+<2519=2521,2520
+<2525=2526
+<2526=2544,2527
+<2527=2542,2540,2538,2536,2534,2532,2530,2528
+<2528=2529
+<2530=2531
+<2532=2533
+<2534=2535
+<2536=2537
+<2538=2539
+<2540=2541
+<2542=2543
+<2544=2545
+<2546=2547
+<2547=2552,2551,2548
+<2548=2550,2549
+<2553=2636,2554
+<2554=2621,2606,2555
+<2555=2598,2594,2591,2556
+<2556=2576,2557
+<2557=2558
+<2558=2574,2559
+<2559=2568,2566,2560
+<2560=2561
+<2561=2565,2562
+<2562=2564,2563
+<2566=2567
+<2568=2569
+<2569=2571,2570
+<2571=2573,2572
+<2574=2575
+<2576=2577
+<2577=2589,2578
+<2578=2583,2581,2579
+<2579=2580
+<2581=2582
+<2583=2584
+<2584=2586,2585
+<2586=2588,2587
+<2589=2590
+<2591=2593,2592
+<2594=2595
+<2595=2597,2596
+<2598=2599
+<2599=2600
+<2600=2605,2604,2601
+<2601=2603,2602
+<2606=2607
+<2607=2620,2619,2618,2608
+<2608=2617,2609
+<2609=2616,2615,2614,2613,2612,2611,2610
+<2621=2622
+<2622=2635,2634,2633,2623
+<2623=2632,2624
+<2624=2631,2630,2629,2628,2627,2626,2625
+<2636=2637
+<2638=2639
+<2639=2641,2640
+<2642=2643
+<2643=2648,2647,2644
+<2644=2646,2645
+<2649=2650
+<2650=2655,2654,2651
+<2651=2653,2652
+<2656=2657
+<2657=2669,2668,2658
+<2658=2667,2659
+<2659=2666,2660
+<2660=2662,2661
+<2662=2663
+<2663=2665,2664
+<2670=2671
+<2671=2676,2675,2672
+<2672=2674,2673
+<2677=2678
+<2678=2683,2682,2679
+<2679=2681,2680
+<2684=2685
+<2685=2690,2689,2686
+<2686=2688,2687
+<2691=2692
+<2692=2700,2699,2693
+<2693=2698,2694
+<2694=2696,2695
+<2696=2697
+<2701=2727,2716,2713,2702
+<2702=2703
+<2703=2704
+<2704=2708,2705
+<2705=2707,2706
+<2708=2710,2709
+<2710=2712,2711
+<2713=2715,2714
+<2716=2717
+<2717=2726,2718
+<2718=2725,2719
+<2719=2721,2720
+<2721=2722
+<2722=2724,2723
+<2727=2728
+<2728=2729
+<2729=2734,2733,2730
+<2730=2732,2731
+<2735=2736
+<2736=2738,2737
+<2738=2739
+<2740=2741
+<2741=2745,2742
+<2742=2743
+<2743=2744
+<2745=2746
+<2747=2748
+<2748=2750,2749
+<2750=2751
+<2752=2753
+<2753=2761,2760,2754
+<2754=2759,2755
+<2755=2757,2756
+<2757=2758

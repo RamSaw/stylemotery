@@ -1,0 +1,350 @@
+>3	FunctionDef	CFileSystem 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	CallExpression	m_Root . ForceDirectory ( )
+>8	ArgumentList	 
+>9	Callee	m_Root . ForceDirectory
+>10	MemberAccess	m_Root . ForceDirectory
+>11	Identifier	ForceDirectory
+>12	Identifier	m_Root
+>13	ExpressionStatement	 
+>14	AssignmentExpr	m_Root = m_Root . GetCurrentDirectory ( ) + \"Data\\\"
+>15	AdditiveExpression	m_Root . GetCurrentDirectory ( ) + \"Data\\\"
+>16	PrimaryExpression	\"Data\\\"
+>17	CallExpression	m_Root . GetCurrentDirectory ( )
+>18	ArgumentList	 
+>19	Callee	m_Root . GetCurrentDirectory
+>20	MemberAccess	m_Root . GetCurrentDirectory
+>21	Identifier	GetCurrentDirectory
+>22	Identifier	m_Root
+>23	Identifier	m_Root
+>29	FunctionDef	CFileSystem 
+>30	ParameterList	const CString & Root
+>31	Parameter	 
+>32	Identifier	Root
+>33	ParameterType	const CString &
+>34	CompoundStatement	 
+>35	ExpressionStatement	 
+>36	CallExpression	m_Root . ForceDirectory ( )
+>37	ArgumentList	 
+>38	Callee	m_Root . ForceDirectory
+>39	MemberAccess	m_Root . ForceDirectory
+>40	Identifier	ForceDirectory
+>41	Identifier	m_Root
+>42	ExpressionStatement	 
+>43	AssignmentExpr	m_Root = Root
+>44	Identifier	Root
+>45	Identifier	m_Root
+>51	FunctionDef	CFileSystem 
+>52	ParameterList	 
+>53	CompoundStatement	 
+>57	FunctionDef	CFileSystem 
+>58	ParameterList	const CString & Directory
+>59	Parameter	 
+>60	Identifier	Directory
+>61	ParameterType	const CString &
+>62	ReturnType	bool
+>63	CompoundStatement	 
+>64	ReturnStatement	 
+>65	CallExpression	Path . ForceDirectory ( )
+>66	ArgumentList	 
+>67	Callee	Path . ForceDirectory
+>68	MemberAccess	Path . ForceDirectory
+>69	Identifier	ForceDirectory
+>70	Identifier	Path
+>71	IdentifierDeclStatement	 
+>72	IdentifierDecl	Path ( m_Root . GetPath ( ) + Directory )
+>73	AdditiveExpression	m_Root . GetPath ( ) + Directory
+>74	Identifier	Directory
+>75	CallExpression	m_Root . GetPath ( )
+>76	ArgumentList	 
+>77	Callee	m_Root . GetPath
+>78	MemberAccess	m_Root . GetPath
+>79	Identifier	GetPath
+>80	Identifier	m_Root
+>81	Identifier	Path
+>82	IdentifierDeclType	CLocalPath
+>90	FunctionDef	CFileSystem 
+>91	ParameterList	const CString & FileName , CString * pResult
+>92	Parameter	 
+>93	Identifier	pResult
+>94	ParameterType	CString *
+>95	Parameter	 
+>96	Identifier	FileName
+>97	ParameterType	const CString &
+>98	ReturnType	int
+>99	CompoundStatement	 
+>100	ReturnStatement	 
+>101	CallExpression	LocalFile . Read ( pResult )
+>102	ArgumentList	pResult
+>103	Argument	pResult
+>104	Identifier	pResult
+>105	Callee	LocalFile . Read
+>106	MemberAccess	LocalFile . Read
+>107	Identifier	Read
+>108	Identifier	LocalFile
+>109	ExpressionStatement	 
+>110	CallExpression	LocalFile . Open ( O_RDONLY | O_CREAT )
+>111	ArgumentList	O_RDONLY | O_CREAT
+>112	Argument	O_RDONLY | O_CREAT
+>113	InclusiveOrExpression	O_RDONLY | O_CREAT
+>114	Identifier	O_CREAT
+>115	Identifier	O_RDONLY
+>116	Callee	LocalFile . Open
+>117	MemberAccess	LocalFile . Open
+>118	Identifier	Open
+>119	Identifier	LocalFile
+>120	ExpressionStatement	 
+>121	CallExpression	LocalFile . ForceDirectory ( )
+>122	ArgumentList	 
+>123	Callee	LocalFile . ForceDirectory
+>124	MemberAccess	LocalFile . ForceDirectory
+>125	Identifier	ForceDirectory
+>126	Identifier	LocalFile
+>127	IdentifierDeclStatement	 
+>128	IdentifierDecl	LocalFile ( m_Root . GetFullPath ( ) + FileName )
+>129	AdditiveExpression	m_Root . GetFullPath ( ) + FileName
+>130	Identifier	FileName
+>131	CallExpression	m_Root . GetFullPath ( )
+>132	ArgumentList	 
+>133	Callee	m_Root . GetFullPath
+>134	MemberAccess	m_Root . GetFullPath
+>135	Identifier	GetFullPath
+>136	Identifier	m_Root
+>137	Identifier	LocalFile
+>138	IdentifierDeclType	CLocalFile
+>149	FunctionDef	CFileSystem 
+>150	ParameterList	const CString & FileName , CString & String
+>151	Parameter	 
+>152	Identifier	String
+>153	ParameterType	CString &
+>154	Parameter	 
+>155	Identifier	FileName
+>156	ParameterType	const CString &
+>157	ReturnType	bool
+>158	CompoundStatement	 
+>159	IfStatement	if ( LocalFile . Open ( O_RDONLY ) )
+>160	ElseStatement	else
+>161	ReturnStatement	 
+>162	Identifier	false
+>163	CompoundStatement	 
+>164	ReturnStatement	 
+>165	Identifier	true
+>166	ExpressionStatement	 
+>167	CallExpression	LocalFile . Read ( & String )
+>168	ArgumentList	& String
+>169	Argument	& String
+>170	UnaryOp	& String
+>171	Identifier	String
+>172	UnaryOperator	&
+>173	Callee	LocalFile . Read
+>174	MemberAccess	LocalFile . Read
+>175	Identifier	Read
+>176	Identifier	LocalFile
+>177	Condition	 
+>178	CallExpression	LocalFile . Open ( O_RDONLY )
+>179	ArgumentList	O_RDONLY
+>180	Argument	O_RDONLY
+>181	Identifier	O_RDONLY
+>182	Callee	LocalFile . Open
+>183	MemberAccess	LocalFile . Open
+>184	Identifier	Open
+>185	Identifier	LocalFile
+>186	ExpressionStatement	 
+>187	CallExpression	LocalFile . ForceDirectory ( )
+>188	ArgumentList	 
+>189	Callee	LocalFile . ForceDirectory
+>190	MemberAccess	LocalFile . ForceDirectory
+>191	Identifier	ForceDirectory
+>192	Identifier	LocalFile
+>193	IdentifierDeclStatement	 
+>194	IdentifierDecl	LocalFile ( m_Root . GetFullPath ( ) + FileName )
+>195	AdditiveExpression	m_Root . GetFullPath ( ) + FileName
+>196	Identifier	FileName
+>197	CallExpression	m_Root . GetFullPath ( )
+>198	ArgumentList	 
+>199	Callee	m_Root . GetFullPath
+>200	MemberAccess	m_Root . GetFullPath
+>201	Identifier	GetFullPath
+>202	Identifier	m_Root
+>203	Identifier	LocalFile
+>204	IdentifierDeclType	CLocalFile
+>217	FunctionDef	CFileSystem 
+>218	ParameterList	const CString & FileName , const CString & String
+>219	Parameter	 
+>220	Identifier	String
+>221	ParameterType	const CString &
+>222	Parameter	 
+>223	Identifier	FileName
+>224	ParameterType	const CString &
+>225	ReturnType	void
+>226	CompoundStatement	 
+>227	ExpressionStatement	 
+>228	CallExpression	LocalFile . Write ( String )
+>229	ArgumentList	String
+>230	Argument	String
+>231	Identifier	String
+>232	Callee	LocalFile . Write
+>233	MemberAccess	LocalFile . Write
+>234	Identifier	Write
+>235	Identifier	LocalFile
+>236	ExpressionStatement	 
+>237	CallExpression	LocalFile . Open ( O_RDWR | O_TRUNC | O_CREAT )
+>238	ArgumentList	O_RDWR | O_TRUNC | O_CREAT
+>239	Argument	O_RDWR | O_TRUNC | O_CREAT
+>240	InclusiveOrExpression	O_RDWR | O_TRUNC | O_CREAT
+>241	InclusiveOrExpression	O_TRUNC | O_CREAT
+>242	Identifier	O_CREAT
+>243	Identifier	O_TRUNC
+>244	Identifier	O_RDWR
+>245	Callee	LocalFile . Open
+>246	MemberAccess	LocalFile . Open
+>247	Identifier	Open
+>248	Identifier	LocalFile
+>249	ExpressionStatement	 
+>250	CallExpression	LocalFile . ForceDirectory ( )
+>251	ArgumentList	 
+>252	Callee	LocalFile . ForceDirectory
+>253	MemberAccess	LocalFile . ForceDirectory
+>254	Identifier	ForceDirectory
+>255	Identifier	LocalFile
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	LocalFile ( m_Root . GetFullPath ( ) + FileName )
+>258	AdditiveExpression	m_Root . GetFullPath ( ) + FileName
+>259	Identifier	FileName
+>260	CallExpression	m_Root . GetFullPath ( )
+>261	ArgumentList	 
+>262	Callee	m_Root . GetFullPath
+>263	MemberAccess	m_Root . GetFullPath
+>264	Identifier	GetFullPath
+>265	Identifier	m_Root
+>266	Identifier	LocalFile
+>267	IdentifierDeclType	CLocalFile
+<3=5,4
+<5=13,6
+<6=7
+<7=9,8
+<9=10
+<10=12,11
+<13=14
+<14=23,15
+<15=17,16
+<17=19,18
+<19=20
+<20=22,21
+<29=34,30
+<30=31
+<31=33,32
+<34=42,35
+<35=36
+<36=38,37
+<38=39
+<39=41,40
+<42=43
+<43=45,44
+<51=53,52
+<57=63,62,58
+<58=59
+<59=61,60
+<63=71,64
+<64=65
+<65=67,66
+<67=68
+<68=70,69
+<71=72
+<72=82,81,73
+<73=75,74
+<75=77,76
+<77=78
+<78=80,79
+<90=99,98,91
+<91=95,92
+<92=94,93
+<95=97,96
+<99=127,120,109,100
+<100=101
+<101=105,102
+<102=103
+<103=104
+<105=106
+<106=108,107
+<109=110
+<110=116,111
+<111=112
+<112=113
+<113=115,114
+<116=117
+<117=119,118
+<120=121
+<121=123,122
+<123=124
+<124=126,125
+<127=128
+<128=138,137,129
+<129=131,130
+<131=133,132
+<133=134
+<134=136,135
+<149=158,157,150
+<150=154,151
+<151=153,152
+<154=156,155
+<158=193,186,159
+<159=177,163,160
+<160=161
+<161=162
+<163=166,164
+<164=165
+<166=167
+<167=173,168
+<168=169
+<169=170
+<170=172,171
+<173=174
+<174=176,175
+<177=178
+<178=182,179
+<179=180
+<180=181
+<182=183
+<183=185,184
+<186=187
+<187=189,188
+<189=190
+<190=192,191
+<193=194
+<194=204,203,195
+<195=197,196
+<197=199,198
+<199=200
+<200=202,201
+<217=226,225,218
+<218=222,219
+<219=221,220
+<222=224,223
+<226=256,249,236,227
+<227=228
+<228=232,229
+<229=230
+<230=231
+<232=233
+<233=235,234
+<236=237
+<237=245,238
+<238=239
+<239=240
+<240=244,241
+<241=243,242
+<245=246
+<246=248,247
+<249=250
+<250=252,251
+<252=253
+<253=255,254
+<256=257
+<257=267,266,258
+<258=260,259
+<260=262,261
+<262=263
+<263=265,264

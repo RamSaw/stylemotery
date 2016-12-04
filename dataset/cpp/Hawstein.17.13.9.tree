@@ -1,0 +1,332 @@
+>4	FunctionDef	SmartPointer (T * ptr)
+>5	ParameterList	T * ptr
+>6	Parameter	 
+>7	Identifier	ptr
+>8	ParameterType	T *
+>9	CompoundStatement	 
+>10	ExpressionStatement	 
+>11	AssignmentExpr	* ref_count = 1
+>12	PrimaryExpression	1
+>13	UnaryOp	* ref_count
+>14	Identifier	ref_count
+>15	UnaryOperator	*
+>16	ExpressionStatement	 
+>17	AssignmentExpr	ref_count = ( unsigned * ) malloc ( sizeof ( unsigned ) )
+>18	CastExpression	( unsigned * ) malloc ( sizeof ( unsigned ) )
+>19	CallExpression	malloc ( sizeof ( unsigned ) )
+>20	ArgumentList	sizeof ( unsigned )
+>21	Argument	sizeof ( unsigned )
+>22	SizeofExpr	sizeof ( unsigned )
+>23	SizeofOperand	unsigned
+>24	Sizeof	sizeof
+>25	Callee	malloc
+>26	Identifier	malloc
+>27	CastTarget	unsigned *
+>28	Identifier	ref_count
+>29	ExpressionStatement	 
+>30	AssignmentExpr	ref = ptr
+>31	Identifier	ptr
+>32	Identifier	ref
+>41	FunctionDef	SmartPointer (SmartPointer < T > & sptr)
+>42	ParameterList	SmartPointer < T > & sptr
+>43	Parameter	 
+>44	Identifier	sptr
+>45	ParameterType	SmartPointer < T > &
+>46	CompoundStatement	 
+>47	ExpressionStatement	 
+>48	UnaryExpression	++ * ref_count
+>49	UnaryOp	* ref_count
+>50	Identifier	ref_count
+>51	UnaryOperator	*
+>52	IncDec	++
+>53	ExpressionStatement	 
+>54	AssignmentExpr	ref_count = sptr . ref_count
+>55	MemberAccess	sptr . ref_count
+>56	Identifier	ref_count
+>57	Identifier	sptr
+>58	Identifier	ref_count
+>59	ExpressionStatement	 
+>60	AssignmentExpr	ref = sptr . ref
+>61	MemberAccess	sptr . ref
+>62	Identifier	ref
+>63	Identifier	sptr
+>64	Identifier	ref
+>73	FunctionDef	operator = (SmartPointer < T > & sptr)
+>74	ParameterList	SmartPointer < T > & sptr
+>75	Parameter	 
+>76	Identifier	sptr
+>77	ParameterType	SmartPointer < T > &
+>78	ReturnType	SmartPointer < T > &
+>79	CompoundStatement	 
+>80	ReturnStatement	 
+>81	UnaryOp	* this
+>82	Identifier	this
+>83	UnaryOperator	*
+>84	IfStatement	if ( this != & sptr )
+>85	CompoundStatement	 
+>86	ExpressionStatement	 
+>87	UnaryExpression	++ * ref_count
+>88	UnaryOp	* ref_count
+>89	Identifier	ref_count
+>90	UnaryOperator	*
+>91	IncDec	++
+>92	ExpressionStatement	 
+>93	AssignmentExpr	ref_count = sptr . ref_count
+>94	MemberAccess	sptr . ref_count
+>95	Identifier	ref_count
+>96	Identifier	sptr
+>97	Identifier	ref_count
+>98	ExpressionStatement	 
+>99	AssignmentExpr	ref = sptr . ref
+>100	MemberAccess	sptr . ref
+>101	Identifier	ref
+>102	Identifier	sptr
+>103	Identifier	ref
+>104	IfStatement	if ( -- * ref_count == 0 )
+>105	CompoundStatement	 
+>106	ExpressionStatement	 
+>107	ShiftExpression	cout << \"operator= clear\" << endl
+>108	ShiftExpression	\"operator= clear\" << endl
+>109	Identifier	endl
+>110	PrimaryExpression	\"operator= clear\"
+>111	Identifier	cout
+>112	ExpressionStatement	 
+>113	CallExpression	clear ( )
+>114	ArgumentList	 
+>115	Callee	clear
+>116	Identifier	clear
+>117	Condition	 
+>118	EqualityExpression	-- * ref_count == 0
+>119	PrimaryExpression	0
+>120	UnaryExpression	-- * ref_count
+>121	UnaryOp	* ref_count
+>122	Identifier	ref_count
+>123	UnaryOperator	*
+>124	IncDec	--
+>125	Condition	 
+>126	EqualityExpression	this != & sptr
+>127	UnaryOp	& sptr
+>128	Identifier	sptr
+>129	UnaryOperator	&
+>130	Identifier	this
+>143	FunctionDef	~SmartPointer ()
+>144	ParameterList	 
+>145	CompoundStatement	 
+>146	IfStatement	if ( -- * ref_count == 0 )
+>147	CompoundStatement	 
+>148	ExpressionStatement	 
+>149	ShiftExpression	cout << \"destructor clear\" << endl
+>150	ShiftExpression	\"destructor clear\" << endl
+>151	Identifier	endl
+>152	PrimaryExpression	\"destructor clear\"
+>153	Identifier	cout
+>154	ExpressionStatement	 
+>155	CallExpression	clear ( )
+>156	ArgumentList	 
+>157	Callee	clear
+>158	Identifier	clear
+>159	Condition	 
+>160	EqualityExpression	-- * ref_count == 0
+>161	PrimaryExpression	0
+>162	UnaryExpression	-- * ref_count
+>163	UnaryOp	* ref_count
+>164	Identifier	ref_count
+>165	UnaryOperator	*
+>166	IncDec	--
+>172	FunctionDef	getValue ()
+>173	ParameterList	 
+>174	ReturnType	T
+>175	CompoundStatement	 
+>176	ReturnStatement	 
+>177	UnaryOp	* ref
+>178	Identifier	ref
+>179	UnaryOperator	*
+>185	FunctionDef	clear ()
+>186	ParameterList	 
+>187	ReturnType	void
+>188	CompoundStatement	 
+>189	ExpressionStatement	 
+>190	AssignmentExpr	ref_count = NULL
+>191	Identifier	NULL
+>192	Identifier	ref_count
+>193	ExpressionStatement	 
+>194	AssignmentExpr	ref = NULL
+>195	Identifier	NULL
+>196	Identifier	ref
+>197	ExpressionStatement	 
+>198	CallExpression	free ( ref_count )
+>199	ArgumentList	ref_count
+>200	Argument	ref_count
+>201	Identifier	ref_count
+>202	Callee	free
+>203	Identifier	free
+>204	ExpressionStatement	 
+>205	Identifier	ref
+>206	Statement	 
+>217	FunctionDef	main ()
+>218	ParameterList	 
+>219	ReturnType	int
+>220	CompoundStatement	 
+>221	ReturnStatement	 
+>222	PrimaryExpression	0
+>223	ExpressionStatement	 
+>224	AssignmentExpr	sp2 = spa
+>225	Identifier	spa
+>226	Identifier	sp2
+>227	IdentifierDeclStatement	 
+>228	IdentifierDecl	spa = sp1
+>229	AssignmentExpr	spa = sp1
+>230	Identifier	sp1
+>231	Identifier	sp1
+>232	Identifier	spa
+>233	IdentifierDeclType	SmartPointer < int >
+>234	IdentifierDeclStatement	 
+>235	IdentifierDecl	sp2 ( ip2 )
+>236	Identifier	ip2
+>237	Identifier	sp2
+>238	IdentifierDeclType	SmartPointer < int >
+>239	IdentifierDecl	sp1 ( ip1 )
+>240	Identifier	ip1
+>241	Identifier	sp1
+>242	IdentifierDeclType	SmartPointer < int >
+>243	ExpressionStatement	 
+>244	AssignmentExpr	* ip2 = 22222
+>245	PrimaryExpression	22222
+>246	UnaryOp	* ip2
+>247	Identifier	ip2
+>248	UnaryOperator	*
+>249	IdentifierDeclStatement	 
+>250	IdentifierDecl	* ip2 = new int ( )
+>251	AssignmentExpr	* ip2 = new int ( )
+>252	UnaryExpression	new int ( )
+>253	Identifier	ip2
+>254	Identifier	ip2
+>255	IdentifierDeclType	int *
+>256	ExpressionStatement	 
+>257	AssignmentExpr	* ip1 = 11111
+>258	PrimaryExpression	11111
+>259	UnaryOp	* ip1
+>260	Identifier	ip1
+>261	UnaryOperator	*
+>262	IdentifierDeclStatement	 
+>263	IdentifierDecl	* ip1 = new int ( )
+>264	AssignmentExpr	* ip1 = new int ( )
+>265	UnaryExpression	new int ( )
+>266	Identifier	ip1
+>267	Identifier	ip1
+>268	IdentifierDeclType	int *
+<4=9,5
+<5=6
+<6=8,7
+<9=29,16,10
+<10=11
+<11=13,12
+<13=15,14
+<16=17
+<17=28,18
+<18=27,19
+<19=25,20
+<20=21
+<21=22
+<22=24,23
+<25=26
+<29=30
+<30=32,31
+<41=46,42
+<42=43
+<43=45,44
+<46=59,53,47
+<47=48
+<48=52,49
+<49=51,50
+<53=54
+<54=58,55
+<55=57,56
+<59=60
+<60=64,61
+<61=63,62
+<73=79,78,74
+<74=75
+<75=77,76
+<79=84,80
+<80=81
+<81=83,82
+<84=125,85
+<85=104,98,92,86
+<86=87
+<87=91,88
+<88=90,89
+<92=93
+<93=97,94
+<94=96,95
+<98=99
+<99=103,100
+<100=102,101
+<104=117,105
+<105=112,106
+<106=107
+<107=111,108
+<108=110,109
+<112=113
+<113=115,114
+<115=116
+<117=118
+<118=120,119
+<120=124,121
+<121=123,122
+<125=126
+<126=130,127
+<127=129,128
+<143=145,144
+<145=146
+<146=159,147
+<147=154,148
+<148=149
+<149=153,150
+<150=152,151
+<154=155
+<155=157,156
+<157=158
+<159=160
+<160=162,161
+<162=166,163
+<163=165,164
+<172=175,174,173
+<175=176
+<176=177
+<177=179,178
+<185=188,187,186
+<188=206,204,197,193,189
+<189=190
+<190=192,191
+<193=194
+<194=196,195
+<197=198
+<198=202,199
+<199=200
+<200=201
+<202=203
+<204=205
+<217=220,219,218
+<220=262,256,249,243,234,227,223,221
+<221=222
+<223=224
+<224=226,225
+<227=228
+<228=233,232,229
+<229=231,230
+<234=239,235
+<235=238,237,236
+<239=242,241,240
+<243=244
+<244=246,245
+<246=248,247
+<249=250
+<250=255,254,251
+<251=253,252
+<256=257
+<257=259,258
+<259=261,260
+<262=263
+<263=268,267,264
+<264=266,265

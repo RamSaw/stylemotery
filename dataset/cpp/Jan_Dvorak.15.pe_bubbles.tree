@@ -1,0 +1,364 @@
+>5	FunctionDef	PE_Bubbles 
+>6	ParameterList	vec2 const & pos
+>7	Parameter	 
+>8	Identifier	pos
+>9	ParameterType	vec2 const &
+>10	CompoundStatement	 
+>15	FunctionDef	PE_Bubbles 
+>16	ParameterList	Particle & p , float delta_t , float p_time
+>17	Parameter	 
+>18	Identifier	p_time
+>19	ParameterType	float
+>20	Parameter	 
+>21	Identifier	delta_t
+>22	ParameterType	float
+>23	Parameter	 
+>24	Identifier	p
+>25	ParameterType	Particle &
+>26	ReturnType	void
+>27	CompoundStatement	 
+>28	IfStatement	if ( p . cur_pos [ 1 ] < sea_y )
+>29	ExpressionStatement	 
+>30	AssignmentExpr	p . alive = false
+>31	Identifier	false
+>32	MemberAccess	p . alive
+>33	Identifier	alive
+>34	Identifier	p
+>35	Condition	 
+>36	RelationalExpression	p . cur_pos [ 1 ] < sea_y
+>37	Identifier	sea_y
+>38	ArrayIndexing	p . cur_pos [ 1 ]
+>39	PrimaryExpression	1
+>40	MemberAccess	p . cur_pos
+>41	Identifier	cur_pos
+>42	Identifier	p
+>43	IdentifierDeclStatement	 
+>44	IdentifierDecl	sea_y = Sea 
+>45	AssignmentExpr	sea_y = Sea 
+>46	AdditiveExpression	Sea 
+>47	PrimaryExpression	0.263
+>48	CallExpression	Sea 
+>49	ArgumentList	p . cur_pos [ 0 ]
+>50	Argument	p . cur_pos [ 0 ]
+>51	ArrayIndexing	p . cur_pos [ 0 ]
+>52	PrimaryExpression	0
+>53	MemberAccess	p . cur_pos
+>54	Identifier	cur_pos
+>55	Identifier	p
+>56	Callee	Sea 
+>57	Identifier	Sea 
+>58	Identifier	sea_y
+>59	Identifier	sea_y
+>60	IdentifierDeclType	float
+>61	IfStatement	if ( p . cur_color [ 3 ] <= 0.0 )
+>62	ExpressionStatement	 
+>63	AssignmentExpr	p . alive = false
+>64	Identifier	false
+>65	MemberAccess	p . alive
+>66	Identifier	alive
+>67	Identifier	p
+>68	Condition	 
+>69	RelationalExpression	p . cur_color [ 3 ] <= 0.0
+>70	PrimaryExpression	0.0
+>71	ArrayIndexing	p . cur_color [ 3 ]
+>72	PrimaryExpression	3
+>73	MemberAccess	p . cur_color
+>74	Identifier	cur_color
+>75	Identifier	p
+>76	IfStatement	if ( p . cur_color [ 3 ] > 0.0 )
+>77	ExpressionStatement	 
+>78	AssignmentExpr	p . cur_color [ 3 ] -= 0.5 * delta_t
+>79	MultiplicativeExpression	0.5 * delta_t
+>80	Identifier	delta_t
+>81	PrimaryExpression	0.5
+>82	ArrayIndexing	p . cur_color [ 3 ]
+>83	PrimaryExpression	3
+>84	MemberAccess	p . cur_color
+>85	Identifier	cur_color
+>86	Identifier	p
+>87	Condition	 
+>88	RelationalExpression	p . cur_color [ 3 ] > 0.0
+>89	PrimaryExpression	0.0
+>90	ArrayIndexing	p . cur_color [ 3 ]
+>91	PrimaryExpression	3
+>92	MemberAccess	p . cur_color
+>93	Identifier	cur_color
+>94	Identifier	p
+>95	ExpressionStatement	 
+>96	AssignmentExpr	p . cur_speed [ 1 ] = - p_time * 0.1
+>97	MultiplicativeExpression	- p_time * 0.1
+>98	PrimaryExpression	0.1
+>99	UnaryOp	- p_time
+>100	Identifier	p_time
+>101	UnaryOperator	-
+>102	ArrayIndexing	p . cur_speed [ 1 ]
+>103	PrimaryExpression	1
+>104	MemberAccess	p . cur_speed
+>105	Identifier	cur_speed
+>106	Identifier	p
+>107	ExpressionStatement	 
+>108	AssignmentExpr	p . cur_size += 0.005 * delta_t
+>109	MultiplicativeExpression	0.005 * delta_t
+>110	Identifier	delta_t
+>111	PrimaryExpression	0.005
+>112	MemberAccess	p . cur_size
+>113	Identifier	cur_size
+>114	Identifier	p
+>115	ExpressionStatement	 
+>116	AssignmentExpr	p . cur_pos [ 0 ] += sin ( p_time * 10 + p . user_data [ 0 ] * 10 ) * 0.06 * delta_t
+>117	MultiplicativeExpression	sin ( p_time * 10 + p . user_data [ 0 ] * 10 ) * 0.06 * delta_t
+>118	MultiplicativeExpression	0.06 * delta_t
+>119	Identifier	delta_t
+>120	PrimaryExpression	0.06
+>121	CallExpression	sin ( p_time * 10 + p . user_data [ 0 ] * 10 )
+>122	ArgumentList	p_time * 10 + p . user_data [ 0 ] * 10
+>123	Argument	p_time * 10 + p . user_data [ 0 ] * 10
+>124	AdditiveExpression	p_time * 10 + p . user_data [ 0 ] * 10
+>125	MultiplicativeExpression	p . user_data [ 0 ] * 10
+>126	PrimaryExpression	10
+>127	ArrayIndexing	p . user_data [ 0 ]
+>128	PrimaryExpression	0
+>129	MemberAccess	p . user_data
+>130	Identifier	user_data
+>131	Identifier	p
+>132	MultiplicativeExpression	p_time * 10
+>133	PrimaryExpression	10
+>134	Identifier	p_time
+>135	Callee	sin
+>136	Identifier	sin
+>137	ArrayIndexing	p . cur_pos [ 0 ]
+>138	PrimaryExpression	0
+>139	MemberAccess	p . cur_pos
+>140	Identifier	cur_pos
+>141	Identifier	p
+>142	ExpressionStatement	 
+>143	AssignmentExpr	p . cur_pos += ( p . cur_speed + ( RAND_0_1 - 0.5 ) * 0.1 ) * delta_t
+>144	MultiplicativeExpression	( p . cur_speed + ( RAND_0_1 - 0.5 ) * 0.1 ) * delta_t
+>145	Identifier	delta_t
+>146	AdditiveExpression	p . cur_speed + ( RAND_0_1 - 0.5 ) * 0.1
+>147	MultiplicativeExpression	( RAND_0_1 - 0.5 ) * 0.1
+>148	PrimaryExpression	0.1
+>149	AdditiveExpression	RAND_0_1 - 0.5
+>150	PrimaryExpression	0.5
+>151	Identifier	RAND_0_1
+>152	MemberAccess	p . cur_speed
+>153	Identifier	cur_speed
+>154	Identifier	p
+>155	MemberAccess	p . cur_pos
+>156	Identifier	cur_pos
+>157	Identifier	p
+>180	FunctionDef	PE_Bubbles 
+>181	ParameterList	Particle & p
+>182	Parameter	 
+>183	Identifier	p
+>184	ParameterType	Particle &
+>185	ReturnType	void
+>186	CompoundStatement	 
+>187	ExpressionStatement	 
+>188	AssignmentExpr	p . user_data = vec4 ( RAND_0_1 , 0 , 0 , 0 )
+>189	CallExpression	vec4 ( RAND_0_1 , 0 , 0 , 0 )
+>190	ArgumentList	RAND_0_1
+>191	Argument	0
+>192	PrimaryExpression	0
+>193	Argument	0
+>194	PrimaryExpression	0
+>195	Argument	0
+>196	PrimaryExpression	0
+>197	Argument	RAND_0_1
+>198	Identifier	RAND_0_1
+>199	Callee	vec4
+>200	Identifier	vec4
+>201	MemberAccess	p . user_data
+>202	Identifier	user_data
+>203	Identifier	p
+>204	ExpressionStatement	 
+>205	AssignmentExpr	p . cur_color = vec4 ( 1.0 , 1.0 , 1.0 , 1.0 )
+>206	CallExpression	vec4 ( 1.0 , 1.0 , 1.0 , 1.0 )
+>207	ArgumentList	1.0
+>208	Argument	1.0
+>209	PrimaryExpression	1.0
+>210	Argument	1.0
+>211	PrimaryExpression	1.0
+>212	Argument	1.0
+>213	PrimaryExpression	1.0
+>214	Argument	1.0
+>215	PrimaryExpression	1.0
+>216	Callee	vec4
+>217	Identifier	vec4
+>218	MemberAccess	p . cur_color
+>219	Identifier	cur_color
+>220	Identifier	p
+>221	ExpressionStatement	 
+>222	AssignmentExpr	p . cur_size = 0.003
+>223	PrimaryExpression	0.003
+>224	MemberAccess	p . cur_size
+>225	Identifier	cur_size
+>226	Identifier	p
+>227	ExpressionStatement	 
+>228	AssignmentExpr	p . cur_speed = vec2 ( ( - 0.01 + RAND_0_1 * 0.02 ) , - 0.1 )
+>229	CallExpression	vec2 ( ( - 0.01 + RAND_0_1 * 0.02 ) , - 0.1 )
+>230	ArgumentList	- 0.01 + RAND_0_1 * 0.02
+>231	Argument	- 0.1
+>232	UnaryOp	- 0.1
+>233	PrimaryExpression	0.1
+>234	UnaryOperator	-
+>235	Argument	- 0.01 + RAND_0_1 * 0.02
+>236	AdditiveExpression	- 0.01 + RAND_0_1 * 0.02
+>237	MultiplicativeExpression	RAND_0_1 * 0.02
+>238	PrimaryExpression	0.02
+>239	Identifier	RAND_0_1
+>240	UnaryOp	- 0.01
+>241	PrimaryExpression	0.01
+>242	UnaryOperator	-
+>243	Callee	vec2
+>244	Identifier	vec2
+>245	MemberAccess	p . cur_speed
+>246	Identifier	cur_speed
+>247	Identifier	p
+>248	ExpressionStatement	 
+>249	AssignmentExpr	p . cur_pos = m_pos + vec2 ( RAND_0_1 * 0.01f , RAND_0_1 * 0.01f )
+>250	AdditiveExpression	m_pos + vec2 ( RAND_0_1 * 0.01f , RAND_0_1 * 0.01f )
+>251	CallExpression	vec2 ( RAND_0_1 * 0.01f , RAND_0_1 * 0.01f )
+>252	ArgumentList	RAND_0_1 * 0.01f
+>253	Argument	RAND_0_1 * 0.01f
+>254	MultiplicativeExpression	RAND_0_1 * 0.01f
+>255	PrimaryExpression	0.01f
+>256	Identifier	RAND_0_1
+>257	Argument	RAND_0_1 * 0.01f
+>258	MultiplicativeExpression	RAND_0_1 * 0.01f
+>259	PrimaryExpression	0.01f
+>260	Identifier	RAND_0_1
+>261	Callee	vec2
+>262	Identifier	vec2
+>263	Identifier	m_pos
+>264	MemberAccess	p . cur_pos
+>265	Identifier	cur_pos
+>266	Identifier	p
+<5=10,6
+<6=7
+<7=9,8
+<15=27,26,16
+<16=23,20,17
+<17=19,18
+<20=22,21
+<23=25,24
+<27=142,115,107,95,76,61,43,28
+<28=35,29
+<29=30
+<30=32,31
+<32=34,33
+<35=36
+<36=38,37
+<38=40,39
+<40=42,41
+<43=44
+<44=60,59,45
+<45=58,46
+<46=48,47
+<48=56,49
+<49=50
+<50=51
+<51=53,52
+<53=55,54
+<56=57
+<61=68,62
+<62=63
+<63=65,64
+<65=67,66
+<68=69
+<69=71,70
+<71=73,72
+<73=75,74
+<76=87,77
+<77=78
+<78=82,79
+<79=81,80
+<82=84,83
+<84=86,85
+<87=88
+<88=90,89
+<90=92,91
+<92=94,93
+<95=96
+<96=102,97
+<97=99,98
+<99=101,100
+<102=104,103
+<104=106,105
+<107=108
+<108=112,109
+<109=111,110
+<112=114,113
+<115=116
+<116=137,117
+<117=121,118
+<118=120,119
+<121=135,122
+<122=123
+<123=124
+<124=132,125
+<125=127,126
+<127=129,128
+<129=131,130
+<132=134,133
+<135=136
+<137=139,138
+<139=141,140
+<142=143
+<143=155,144
+<144=146,145
+<146=152,147
+<147=149,148
+<149=151,150
+<152=154,153
+<155=157,156
+<180=186,185,181
+<181=182
+<182=184,183
+<186=248,227,221,204,187
+<187=188
+<188=201,189
+<189=199,190
+<190=197,195,193,191
+<191=192
+<193=194
+<195=196
+<197=198
+<199=200
+<201=203,202
+<204=205
+<205=218,206
+<206=216,207
+<207=214,212,210,208
+<208=209
+<210=211
+<212=213
+<214=215
+<216=217
+<218=220,219
+<221=222
+<222=224,223
+<224=226,225
+<227=228
+<228=245,229
+<229=243,230
+<230=235,231
+<231=232
+<232=234,233
+<235=236
+<236=240,237
+<237=239,238
+<240=242,241
+<243=244
+<245=247,246
+<248=249
+<249=264,250
+<250=263,251
+<251=261,252
+<252=257,253
+<253=254
+<254=256,255
+<257=258
+<258=260,259
+<261=262
+<264=266,265

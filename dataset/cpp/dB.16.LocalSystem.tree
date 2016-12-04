@@ -1,0 +1,1598 @@
+>3	FunctionDef	CLocalSystem 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	CLocalSystem 
+>10	ParameterList	 
+>11	CompoundStatement	 
+>15	FunctionDef	CLocalSystem 
+>16	ParameterList	const CString & Variable
+>17	Parameter	 
+>18	Identifier	Variable
+>19	ParameterType	const CString &
+>20	ReturnType	CString
+>21	CompoundStatement	 
+>22	ReturnStatement	 
+>23	Identifier	Result
+>24	IfStatement	if ( Variable . GetLength ( ) )
+>25	CompoundStatement	 
+>26	IfStatement	if ( pEnv )
+>27	ExpressionStatement	 
+>28	AssignmentExpr	Result = pEnv
+>29	Identifier	pEnv
+>30	Identifier	Result
+>31	Condition	 
+>32	Identifier	pEnv
+>33	IdentifierDeclStatement	 
+>34	IdentifierDecl	* pEnv = getenv ( Variable . GetBuffer ( ) )
+>35	AssignmentExpr	* pEnv = getenv ( Variable . GetBuffer ( ) )
+>36	CallExpression	getenv ( Variable . GetBuffer ( ) )
+>37	ArgumentList	Variable . GetBuffer ( )
+>38	Argument	Variable . GetBuffer ( )
+>39	CallExpression	Variable . GetBuffer ( )
+>40	ArgumentList	 
+>41	Callee	Variable . GetBuffer
+>42	MemberAccess	Variable . GetBuffer
+>43	Identifier	GetBuffer
+>44	Identifier	Variable
+>45	Callee	getenv
+>46	Identifier	getenv
+>47	Identifier	pEnv
+>48	Identifier	pEnv
+>49	IdentifierDeclType	char *
+>50	Condition	 
+>51	CallExpression	Variable . GetLength ( )
+>52	ArgumentList	 
+>53	Callee	Variable . GetLength
+>54	MemberAccess	Variable . GetLength
+>55	Identifier	GetLength
+>56	Identifier	Variable
+>57	IdentifierDeclStatement	 
+>58	IdentifierDecl	Result
+>59	Identifier	Result
+>60	IdentifierDeclType	CString
+>70	FunctionDef	CLocalSystem 
+>71	ParameterList	int argc , char * * argv
+>72	Parameter	 
+>73	Identifier	argv
+>74	ParameterType	char * *
+>75	Parameter	 
+>76	Identifier	argc
+>77	ParameterType	int
+>78	ReturnType	int
+>79	CompoundStatement	 
+>80	ReturnStatement	 
+>81	CallExpression	m_CmdLineArguments . GetSize ( )
+>82	ArgumentList	 
+>83	Callee	m_CmdLineArguments . GetSize
+>84	MemberAccess	m_CmdLineArguments . GetSize
+>85	Identifier	GetSize
+>86	Identifier	m_CmdLineArguments
+>87	CompoundStatement	 
+>88	IfStatement	if ( argPtr [ 0 ] == '-' )
+>89	ElseStatement	else
+>90	CompoundStatement	 
+>91	IfStatement	if ( CurArg . GetLength ( ) )
+>92	ExpressionStatement	 
+>93	AssignmentExpr	m_CmdLineArguments += argv [ i ]
+>94	ArrayIndexing	argv [ i ]
+>95	Identifier	i
+>96	Identifier	argv
+>97	Identifier	m_CmdLineArguments
+>98	Condition	 
+>99	CallExpression	CurArg . GetLength ( )
+>100	ArgumentList	 
+>101	Callee	CurArg . GetLength
+>102	MemberAccess	CurArg . GetLength
+>103	Identifier	GetLength
+>104	Identifier	CurArg
+>105	ExpressionStatement	 
+>106	AssignmentExpr	CurArg = argPtr
+>107	Identifier	argPtr
+>108	Identifier	CurArg
+>109	CompoundStatement	 
+>110	IfStatement	if ( CurArg . GetLength ( ) )
+>111	ExpressionStatement	 
+>112	AssignmentExpr	m_CmdLineOptions += CurArg
+>113	Identifier	CurArg
+>114	Identifier	m_CmdLineOptions
+>115	Condition	 
+>116	CallExpression	CurArg . GetLength ( )
+>117	ArgumentList	 
+>118	Callee	CurArg . GetLength
+>119	MemberAccess	CurArg . GetLength
+>120	Identifier	GetLength
+>121	Identifier	CurArg
+>122	ExpressionStatement	 
+>123	AssignmentExpr	CurArg = argPtr
+>124	Identifier	argPtr
+>125	Identifier	CurArg
+>126	WhileStatement	while ( argPtr [ 0 ] == '-' )
+>127	ExpressionStatement	 
+>128	IncDecOp	argPtr ++
+>129	IncDec	++
+>130	Identifier	argPtr
+>131	Condition	 
+>132	EqualityExpression	argPtr [ 0 ] == '-'
+>133	PrimaryExpression	'-'
+>134	ArrayIndexing	argPtr [ 0 ]
+>135	PrimaryExpression	0
+>136	Identifier	argPtr
+>137	ExpressionStatement	 
+>138	IncDecOp	argPtr ++
+>139	IncDec	++
+>140	Identifier	argPtr
+>141	Condition	 
+>142	EqualityExpression	argPtr [ 0 ] == '-'
+>143	PrimaryExpression	'-'
+>144	ArrayIndexing	argPtr [ 0 ]
+>145	PrimaryExpression	0
+>146	Identifier	argPtr
+>147	ExpressionStatement	 
+>148	AssignmentExpr	argPtr = argv [ i ]
+>149	ArrayIndexing	argv [ i ]
+>150	Identifier	i
+>151	Identifier	argv
+>152	Identifier	argPtr
+>153	Statement	 
+>154	Statement	 
+>155	Statement	 
+>156	ExpressionStatement	 
+>157	RelationalExpression	i < argc
+>158	Identifier	argc
+>159	Identifier	i
+>160	IdentifierDeclStatement	 
+>161	IdentifierDecl	i = 1
+>162	AssignmentExpr	i = 1
+>163	PrimaryExpression	1
+>164	Identifier	i
+>165	Identifier	i
+>166	IdentifierDeclType	int
+>167	Statement	 
+>168	Statement	 
+>169	Statement	 
+>170	IdentifierDeclStatement	 
+>171	IdentifierDecl	* argPtr
+>172	Identifier	argPtr
+>173	IdentifierDeclType	char *
+>174	IdentifierDeclStatement	 
+>175	IdentifierDecl	CurArg
+>176	Identifier	CurArg
+>177	IdentifierDeclType	CString
+>178	IfStatement	if ( ! argv || ! argc )
+>179	ReturnStatement	 
+>180	PrimaryExpression	0
+>181	Condition	 
+>182	OrExpression	! argv || ! argc
+>183	UnaryOp	! argc
+>184	Identifier	argc
+>185	UnaryOperator	!
+>186	UnaryOp	! argv
+>187	Identifier	argv
+>188	UnaryOperator	!
+>189	ExpressionStatement	 
+>190	CallExpression	m_CmdLineArguments . RemoveAll ( )
+>191	ArgumentList	 
+>192	Callee	m_CmdLineArguments . RemoveAll
+>193	MemberAccess	m_CmdLineArguments . RemoveAll
+>194	Identifier	RemoveAll
+>195	Identifier	m_CmdLineArguments
+>196	ExpressionStatement	 
+>197	CallExpression	m_CmdLineOptions . RemoveAll ( )
+>198	ArgumentList	 
+>199	Callee	m_CmdLineOptions . RemoveAll
+>200	MemberAccess	m_CmdLineOptions . RemoveAll
+>201	Identifier	RemoveAll
+>202	Identifier	m_CmdLineOptions
+>218	FunctionDef	CLocalSystem 
+>219	ParameterList	HKEY hkRoot , const CString & Path , HKEY * hkResult
+>220	Parameter	 
+>221	Identifier	hkResult
+>222	ParameterType	HKEY *
+>223	Parameter	 
+>224	Identifier	Path
+>225	ParameterType	const CString &
+>226	Parameter	 
+>227	Identifier	hkRoot
+>228	ParameterType	HKEY
+>229	ReturnType	bool
+>230	CompoundStatement	 
+>231	ReturnStatement	 
+>232	Identifier	true
+>233	IfStatement	if ( ! hkResult )
+>234	ExpressionStatement	 
+>235	CallExpression	RegCloseKey ( NewKey )
+>236	ArgumentList	NewKey
+>237	Argument	NewKey
+>238	Identifier	NewKey
+>239	Callee	RegCloseKey
+>240	Identifier	RegCloseKey
+>241	Condition	 
+>242	UnaryOp	! hkResult
+>243	Identifier	hkResult
+>244	UnaryOperator	!
+>245	CompoundStatement	 
+>246	ExpressionStatement	 
+>247	AssignmentExpr	Key = * pNewKey
+>248	UnaryOp	* pNewKey
+>249	Identifier	pNewKey
+>250	UnaryOperator	*
+>251	Identifier	Key
+>252	ExpressionStatement	 
+>253	CallExpression	RegCloseKey ( Key )
+>254	ArgumentList	Key
+>255	Argument	Key
+>256	Identifier	Key
+>257	Callee	RegCloseKey
+>258	Identifier	RegCloseKey
+>259	IfStatement	if ( RegOpenKeyA ( Key , PathVector [ i ] . GetBuffer ( ) , pNewKey ) != ERROR_SUCCESS )
+>260	IfStatement	if ( RegCreateKeyA ( Key , PathVector [ i ] . GetBuffer ( ) , pNewKey ) != ERROR_SUCCESS )
+>261	ReturnStatement	 
+>262	Identifier	false
+>263	Condition	 
+>264	EqualityExpression	RegCreateKeyA ( Key , PathVector [ i ] . GetBuffer ( ) , pNewKey ) != ERROR_SUCCESS
+>265	Identifier	ERROR_SUCCESS
+>266	CallExpression	RegCreateKeyA ( Key , PathVector [ i ] . GetBuffer ( ) , pNewKey )
+>267	ArgumentList	Key
+>268	Argument	pNewKey
+>269	Identifier	pNewKey
+>270	Argument	PathVector [ i ] . GetBuffer ( )
+>271	CallExpression	PathVector [ i ] . GetBuffer ( )
+>272	ArgumentList	 
+>273	Callee	PathVector [ i ] . GetBuffer
+>274	MemberAccess	PathVector [ i ] . GetBuffer
+>275	Identifier	GetBuffer
+>276	ArrayIndexing	PathVector [ i ]
+>277	Identifier	i
+>278	Identifier	PathVector
+>279	Argument	Key
+>280	Identifier	Key
+>281	Callee	RegCreateKeyA
+>282	Identifier	RegCreateKeyA
+>283	Condition	 
+>284	EqualityExpression	RegOpenKeyA ( Key , PathVector [ i ] . GetBuffer ( ) , pNewKey ) != ERROR_SUCCESS
+>285	Identifier	ERROR_SUCCESS
+>286	CallExpression	RegOpenKeyA ( Key , PathVector [ i ] . GetBuffer ( ) , pNewKey )
+>287	ArgumentList	Key
+>288	Argument	pNewKey
+>289	Identifier	pNewKey
+>290	Argument	PathVector [ i ] . GetBuffer ( )
+>291	CallExpression	PathVector [ i ] . GetBuffer ( )
+>292	ArgumentList	 
+>293	Callee	PathVector [ i ] . GetBuffer
+>294	MemberAccess	PathVector [ i ] . GetBuffer
+>295	Identifier	GetBuffer
+>296	ArrayIndexing	PathVector [ i ]
+>297	Identifier	i
+>298	Identifier	PathVector
+>299	Argument	Key
+>300	Identifier	Key
+>301	Callee	RegOpenKeyA
+>302	Identifier	RegOpenKeyA
+>303	Statement	 
+>304	Statement	 
+>305	Statement	 
+>306	ExpressionStatement	 
+>307	RelationalExpression	i < ( int ) PathVector . GetSize ( )
+>308	CastExpression	( int ) PathVector . GetSize ( )
+>309	CallExpression	PathVector . GetSize ( )
+>310	ArgumentList	 
+>311	Callee	PathVector . GetSize
+>312	MemberAccess	PathVector . GetSize
+>313	Identifier	GetSize
+>314	Identifier	PathVector
+>315	CastTarget	int
+>316	Identifier	i
+>317	IdentifierDeclStatement	 
+>318	IdentifierDecl	i = 0
+>319	AssignmentExpr	i = 0
+>320	PrimaryExpression	0
+>321	Identifier	i
+>322	Identifier	i
+>323	IdentifierDeclType	int
+>324	Statement	 
+>325	Statement	 
+>326	Statement	 
+>327	ExpressionStatement	 
+>328	CallExpression	CString 
+>329	ArgumentList	Path
+>330	Argument	& PathVector
+>331	UnaryOp	& PathVector
+>332	Identifier	PathVector
+>333	UnaryOperator	&
+>334	Argument	'\\'
+>335	PrimaryExpression	'\\'
+>336	Argument	Path
+>337	Identifier	Path
+>338	Callee	CString 
+>339	Identifier	CString 
+>340	IdentifierDeclStatement	 
+>341	IdentifierDecl	PathVector
+>342	Identifier	PathVector
+>343	IdentifierDeclType	CVector < CString >
+>344	IfStatement	if ( ! pNewKey )
+>345	ExpressionStatement	 
+>346	AssignmentExpr	pNewKey = & NewKey
+>347	UnaryOp	& NewKey
+>348	Identifier	NewKey
+>349	UnaryOperator	&
+>350	Identifier	pNewKey
+>351	Condition	 
+>352	UnaryOp	! pNewKey
+>353	Identifier	pNewKey
+>354	UnaryOperator	!
+>355	IdentifierDeclStatement	 
+>356	IdentifierDecl	* pNewKey = hkResult
+>357	AssignmentExpr	* pNewKey = hkResult
+>358	Identifier	hkResult
+>359	Identifier	hkResult
+>360	Identifier	pNewKey
+>361	IdentifierDeclType	HKEY *
+>362	IdentifierDeclStatement	 
+>363	IdentifierDecl	NewKey
+>364	Identifier	NewKey
+>365	IdentifierDeclType	HKEY
+>366	IdentifierDeclStatement	 
+>367	IdentifierDecl	Key = hkRoot
+>368	AssignmentExpr	Key = hkRoot
+>369	Identifier	hkRoot
+>370	Identifier	hkRoot
+>371	Identifier	Key
+>372	IdentifierDeclType	HKEY
+>395	FunctionDef	CLocalSystem 
+>396	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name , const DWORD dwType , CONST BYTE * lbData , const DWORD \
+>397	Parameter	 
+>398	Identifier	cbData
+>399	ParameterType	const DWORD
+>400	Parameter	 
+>401	Identifier	lbData
+>402	ParameterType	CONST BYTE *
+>403	Parameter	 
+>404	Identifier	dwType
+>405	ParameterType	const DWORD
+>406	Parameter	 
+>407	Identifier	Name
+>408	ParameterType	const CString &
+>409	Parameter	 
+>410	Identifier	Path
+>411	ParameterType	const CString &
+>412	Parameter	 
+>413	Identifier	hkRoot
+>414	ParameterType	HKEY
+>415	ReturnType	bool
+>416	CompoundStatement	 
+>417	ReturnStatement	 
+>418	Identifier	bResult
+>419	ExpressionStatement	 
+>420	CallExpression	RegCloseKey ( hk )
+>421	ArgumentList	hk
+>422	Argument	hk
+>423	Identifier	hk
+>424	Callee	RegCloseKey
+>425	Identifier	RegCloseKey
+>426	IfStatement	if ( RegSetValueExA ( hk , Name . GetBuffer ( ) , 0 , dwType , lbData , cbData ) != ERROR_SUCCESS )
+>427	ExpressionStatement	 
+>428	AssignmentExpr	bResult = false
+>429	Identifier	false
+>430	Identifier	bResult
+>431	Condition	 
+>432	EqualityExpression	RegSetValueExA ( hk , Name . GetBuffer ( ) , 0 , dwType , lbData , cbData ) != ERROR_SUCCESS
+>433	Identifier	ERROR_SUCCESS
+>434	CallExpression	RegSetValueExA ( hk , Name . GetBuffer ( ) , 0 , dwType , lbData , cbData )
+>435	ArgumentList	hk
+>436	Argument	cbData
+>437	Identifier	cbData
+>438	Argument	lbData
+>439	Identifier	lbData
+>440	Argument	dwType
+>441	Identifier	dwType
+>442	Argument	0
+>443	PrimaryExpression	0
+>444	Argument	Name . GetBuffer ( )
+>445	CallExpression	Name . GetBuffer ( )
+>446	ArgumentList	 
+>447	Callee	Name . GetBuffer
+>448	MemberAccess	Name . GetBuffer
+>449	Identifier	GetBuffer
+>450	Identifier	Name
+>451	Argument	hk
+>452	Identifier	hk
+>453	Callee	RegSetValueExA
+>454	Identifier	RegSetValueExA
+>455	IdentifierDeclStatement	 
+>456	IdentifierDecl	bResult = true
+>457	AssignmentExpr	bResult = true
+>458	Identifier	true
+>459	Identifier	true
+>460	Identifier	bResult
+>461	IdentifierDeclType	bool
+>462	IfStatement	if ( ( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) != ERROR_SUCCESS ) || ( hk == 0 ) )
+>463	CompoundStatement	 
+>464	IfStatement	if ( ! RegCreateSubTree ( hkRoot , Path . GetBuffer ( ) , & hk ) || ( hk == 0 ) )
+>465	ReturnStatement	 
+>466	Identifier	false
+>467	Condition	 
+>468	OrExpression	! RegCreateSubTree ( hkRoot , Path . GetBuffer ( ) , & hk ) || ( hk == 0 )
+>469	EqualityExpression	hk == 0
+>470	PrimaryExpression	0
+>471	Identifier	hk
+>472	UnaryOp	! RegCreateSubTree ( hkRoot , Path . GetBuffer ( ) , & hk )
+>473	CallExpression	RegCreateSubTree ( hkRoot , Path . GetBuffer ( ) , & hk )
+>474	ArgumentList	hkRoot
+>475	Argument	& hk
+>476	UnaryOp	& hk
+>477	Identifier	hk
+>478	UnaryOperator	&
+>479	Argument	Path . GetBuffer ( )
+>480	CallExpression	Path . GetBuffer ( )
+>481	ArgumentList	 
+>482	Callee	Path . GetBuffer
+>483	MemberAccess	Path . GetBuffer
+>484	Identifier	GetBuffer
+>485	Identifier	Path
+>486	Argument	hkRoot
+>487	Identifier	hkRoot
+>488	Callee	RegCreateSubTree
+>489	Identifier	RegCreateSubTree
+>490	UnaryOperator	!
+>491	Condition	 
+>492	OrExpression	( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) != ERROR_SUCCESS ) || ( hk == 0 )
+>493	EqualityExpression	hk == 0
+>494	PrimaryExpression	0
+>495	Identifier	hk
+>496	EqualityExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) != ERROR_SUCCESS
+>497	Identifier	ERROR_SUCCESS
+>498	CallExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk )
+>499	ArgumentList	hkRoot
+>500	Argument	& hk
+>501	UnaryOp	& hk
+>502	Identifier	hk
+>503	UnaryOperator	&
+>504	Argument	Path . GetBuffer ( )
+>505	CallExpression	Path . GetBuffer ( )
+>506	ArgumentList	 
+>507	Callee	Path . GetBuffer
+>508	MemberAccess	Path . GetBuffer
+>509	Identifier	GetBuffer
+>510	Identifier	Path
+>511	Argument	hkRoot
+>512	Identifier	hkRoot
+>513	Callee	RegOpenKeyA
+>514	Identifier	RegOpenKeyA
+>515	IdentifierDeclStatement	 
+>516	IdentifierDecl	hk = 0
+>517	AssignmentExpr	hk = 0
+>518	PrimaryExpression	0
+>519	Identifier	hk
+>520	Identifier	hk
+>521	IdentifierDeclType	HKEY
+>542	FunctionDef	CLocalSystem 
+>543	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name
+>544	Parameter	 
+>545	Identifier	Name
+>546	ParameterType	const CString &
+>547	Parameter	 
+>548	Identifier	Path
+>549	ParameterType	const CString &
+>550	Parameter	 
+>551	Identifier	hkRoot
+>552	ParameterType	HKEY
+>553	ReturnType	bool
+>554	CompoundStatement	 
+>555	ReturnStatement	 
+>556	Identifier	bResult
+>557	ExpressionStatement	 
+>558	CallExpression	RegCloseKey ( hk )
+>559	ArgumentList	hk
+>560	Argument	hk
+>561	Identifier	hk
+>562	Callee	RegCloseKey
+>563	Identifier	RegCloseKey
+>564	IfStatement	if ( ( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS ) && ( hk != 0 ) )
+>565	IfStatement	if ( RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , NULL , NULL , NULL ) == ERROR_SUCCESS )
+>566	ExpressionStatement	 
+>567	AssignmentExpr	bResult = true
+>568	Identifier	true
+>569	Identifier	bResult
+>570	Condition	 
+>571	EqualityExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , NULL , NULL , NULL ) == ERROR_SUCCESS
+>572	Identifier	ERROR_SUCCESS
+>573	CallExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , NULL , NULL , NULL )
+>574	ArgumentList	hk
+>575	Argument	NULL
+>576	Identifier	NULL
+>577	Argument	NULL
+>578	Identifier	NULL
+>579	Argument	NULL
+>580	Identifier	NULL
+>581	Argument	0
+>582	PrimaryExpression	0
+>583	Argument	Name . GetBuffer ( )
+>584	CallExpression	Name . GetBuffer ( )
+>585	ArgumentList	 
+>586	Callee	Name . GetBuffer
+>587	MemberAccess	Name . GetBuffer
+>588	Identifier	GetBuffer
+>589	Identifier	Name
+>590	Argument	hk
+>591	Identifier	hk
+>592	Callee	RegQueryValueExA
+>593	Identifier	RegQueryValueExA
+>594	Condition	 
+>595	AndExpression	( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS ) && ( hk != 0 )
+>596	EqualityExpression	hk != 0
+>597	PrimaryExpression	0
+>598	Identifier	hk
+>599	EqualityExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS
+>600	Identifier	ERROR_SUCCESS
+>601	CallExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk )
+>602	ArgumentList	hkRoot
+>603	Argument	& hk
+>604	UnaryOp	& hk
+>605	Identifier	hk
+>606	UnaryOperator	&
+>607	Argument	Path . GetBuffer ( )
+>608	CallExpression	Path . GetBuffer ( )
+>609	ArgumentList	 
+>610	Callee	Path . GetBuffer
+>611	MemberAccess	Path . GetBuffer
+>612	Identifier	GetBuffer
+>613	Identifier	Path
+>614	Argument	hkRoot
+>615	Identifier	hkRoot
+>616	Callee	RegOpenKeyA
+>617	Identifier	RegOpenKeyA
+>618	IdentifierDeclStatement	 
+>619	IdentifierDecl	bResult = false
+>620	AssignmentExpr	bResult = false
+>621	Identifier	false
+>622	Identifier	false
+>623	Identifier	bResult
+>624	IdentifierDeclType	bool
+>625	IdentifierDeclStatement	 
+>626	IdentifierDecl	hk = 0
+>627	AssignmentExpr	hk = 0
+>628	PrimaryExpression	0
+>629	Identifier	hk
+>630	Identifier	hk
+>631	IdentifierDeclType	HKEY
+>649	FunctionDef	CLocalSystem 
+>650	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name , LPDWORD lpType , LPBYTE lpData , LPDWORD lpcbData
+>651	Parameter	 
+>652	Identifier	lpcbData
+>653	ParameterType	LPDWORD
+>654	Parameter	 
+>655	Identifier	lpData
+>656	ParameterType	LPBYTE
+>657	Parameter	 
+>658	Identifier	lpType
+>659	ParameterType	LPDWORD
+>660	Parameter	 
+>661	Identifier	Name
+>662	ParameterType	const CString &
+>663	Parameter	 
+>664	Identifier	Path
+>665	ParameterType	const CString &
+>666	Parameter	 
+>667	Identifier	hkRoot
+>668	ParameterType	HKEY
+>669	ReturnType	bool
+>670	CompoundStatement	 
+>671	ReturnStatement	 
+>672	Identifier	bResult
+>673	IfStatement	if ( hk )
+>674	ExpressionStatement	 
+>675	CallExpression	RegCloseKey ( hk )
+>676	ArgumentList	hk
+>677	Argument	hk
+>678	Identifier	hk
+>679	Callee	RegCloseKey
+>680	Identifier	RegCloseKey
+>681	Condition	 
+>682	Identifier	hk
+>683	IfStatement	if ( ( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS ) && ( hk != 0 ) )
+>684	IfStatement	if ( RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , lpType , lpData , lpcbData ) == ERROR_SUCCESS )
+>685	ExpressionStatement	 
+>686	AssignmentExpr	bResult = true
+>687	Identifier	true
+>688	Identifier	bResult
+>689	Condition	 
+>690	EqualityExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , lpType , lpData , lpcbData ) == ERROR_SUCCESS
+>691	Identifier	ERROR_SUCCESS
+>692	CallExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , lpType , lpData , lpcbData )
+>693	ArgumentList	hk
+>694	Argument	lpcbData
+>695	Identifier	lpcbData
+>696	Argument	lpData
+>697	Identifier	lpData
+>698	Argument	lpType
+>699	Identifier	lpType
+>700	Argument	0
+>701	PrimaryExpression	0
+>702	Argument	Name . GetBuffer ( )
+>703	CallExpression	Name . GetBuffer ( )
+>704	ArgumentList	 
+>705	Callee	Name . GetBuffer
+>706	MemberAccess	Name . GetBuffer
+>707	Identifier	GetBuffer
+>708	Identifier	Name
+>709	Argument	hk
+>710	Identifier	hk
+>711	Callee	RegQueryValueExA
+>712	Identifier	RegQueryValueExA
+>713	Condition	 
+>714	AndExpression	( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS ) && ( hk != 0 )
+>715	EqualityExpression	hk != 0
+>716	PrimaryExpression	0
+>717	Identifier	hk
+>718	EqualityExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS
+>719	Identifier	ERROR_SUCCESS
+>720	CallExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk )
+>721	ArgumentList	hkRoot
+>722	Argument	& hk
+>723	UnaryOp	& hk
+>724	Identifier	hk
+>725	UnaryOperator	&
+>726	Argument	Path . GetBuffer ( )
+>727	CallExpression	Path . GetBuffer ( )
+>728	ArgumentList	 
+>729	Callee	Path . GetBuffer
+>730	MemberAccess	Path . GetBuffer
+>731	Identifier	GetBuffer
+>732	Identifier	Path
+>733	Argument	hkRoot
+>734	Identifier	hkRoot
+>735	Callee	RegOpenKeyA
+>736	Identifier	RegOpenKeyA
+>737	IdentifierDeclStatement	 
+>738	IdentifierDecl	bResult = false
+>739	AssignmentExpr	bResult = false
+>740	Identifier	false
+>741	Identifier	false
+>742	Identifier	bResult
+>743	IdentifierDeclType	bool
+>744	IdentifierDeclStatement	 
+>745	IdentifierDecl	hk = 0
+>746	AssignmentExpr	hk = 0
+>747	PrimaryExpression	0
+>748	Identifier	hk
+>749	Identifier	hk
+>750	IdentifierDeclType	HKEY
+>751	IfStatement	if ( lpData )
+>752	ExpressionStatement	 
+>753	CallExpression	ZeroMemory ( lpData , * lpcbData )
+>754	ArgumentList	lpData
+>755	Argument	* lpcbData
+>756	UnaryOp	* lpcbData
+>757	Identifier	lpcbData
+>758	UnaryOperator	*
+>759	Argument	lpData
+>760	Identifier	lpData
+>761	Callee	ZeroMemory
+>762	Identifier	ZeroMemory
+>763	Condition	 
+>764	Identifier	lpData
+>785	FunctionDef	CLocalSystem 
+>786	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name
+>787	Parameter	 
+>788	Identifier	Name
+>789	ParameterType	const CString &
+>790	Parameter	 
+>791	Identifier	Path
+>792	ParameterType	const CString &
+>793	Parameter	 
+>794	Identifier	hkRoot
+>795	ParameterType	HKEY
+>796	ReturnType	CString
+>797	CompoundStatement	 
+>798	ReturnStatement	 
+>799	Identifier	Result
+>800	IfStatement	if ( hk )
+>801	ExpressionStatement	 
+>802	CallExpression	RegCloseKey ( hk )
+>803	ArgumentList	hk
+>804	Argument	hk
+>805	Identifier	hk
+>806	Callee	RegCloseKey
+>807	Identifier	RegCloseKey
+>808	Condition	 
+>809	Identifier	hk
+>810	IfStatement	if ( RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS )
+>811	CompoundStatement	 
+>812	IfStatement	if ( RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , 0 , NULL , & dwSize ) == ERROR_SUCCESS )
+>813	CompoundStatement	 
+>814	IfStatement	if ( dwSize > 0 )
+>815	CompoundStatement	 
+>816	ExpressionStatement	 
+>817	AssignmentExpr	bResult = true
+>818	Identifier	true
+>819	Identifier	bResult
+>820	ExpressionStatement	 
+>821	CallExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , 0 , ( LPBYTE ) Result . GetBuffer ( ) , & dwSize )
+>822	ArgumentList	hk
+>823	Argument	& dwSize
+>824	UnaryOp	& dwSize
+>825	Identifier	dwSize
+>826	UnaryOperator	&
+>827	Argument	( LPBYTE ) Result . GetBuffer ( )
+>828	CastExpression	( LPBYTE ) Result . GetBuffer ( )
+>829	CallExpression	Result . GetBuffer ( )
+>830	ArgumentList	 
+>831	Callee	Result . GetBuffer
+>832	MemberAccess	Result . GetBuffer
+>833	Identifier	GetBuffer
+>834	Identifier	Result
+>835	CastTarget	LPBYTE
+>836	Argument	0
+>837	PrimaryExpression	0
+>838	Argument	0
+>839	PrimaryExpression	0
+>840	Argument	Name . GetBuffer ( )
+>841	CallExpression	Name . GetBuffer ( )
+>842	ArgumentList	 
+>843	Callee	Name . GetBuffer
+>844	MemberAccess	Name . GetBuffer
+>845	Identifier	GetBuffer
+>846	Identifier	Name
+>847	Argument	hk
+>848	Identifier	hk
+>849	Callee	RegQueryValueExA
+>850	Identifier	RegQueryValueExA
+>851	ExpressionStatement	 
+>852	CallExpression	Result . SetLength ( dwSize - 1 )
+>853	ArgumentList	dwSize - 1
+>854	Argument	dwSize - 1
+>855	AdditiveExpression	dwSize - 1
+>856	PrimaryExpression	1
+>857	Identifier	dwSize
+>858	Callee	Result . SetLength
+>859	MemberAccess	Result . SetLength
+>860	Identifier	SetLength
+>861	Identifier	Result
+>862	Condition	 
+>863	RelationalExpression	dwSize > 0
+>864	PrimaryExpression	0
+>865	Identifier	dwSize
+>866	Condition	 
+>867	EqualityExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , 0 , NULL , & dwSize ) == ERROR_SUCCESS
+>868	Identifier	ERROR_SUCCESS
+>869	CallExpression	RegQueryValueExA ( hk , Name . GetBuffer ( ) , 0 , 0 , NULL , & dwSize )
+>870	ArgumentList	hk
+>871	Argument	& dwSize
+>872	UnaryOp	& dwSize
+>873	Identifier	dwSize
+>874	UnaryOperator	&
+>875	Argument	NULL
+>876	Identifier	NULL
+>877	Argument	0
+>878	PrimaryExpression	0
+>879	Argument	0
+>880	PrimaryExpression	0
+>881	Argument	Name . GetBuffer ( )
+>882	CallExpression	Name . GetBuffer ( )
+>883	ArgumentList	 
+>884	Callee	Name . GetBuffer
+>885	MemberAccess	Name . GetBuffer
+>886	Identifier	GetBuffer
+>887	Identifier	Name
+>888	Argument	hk
+>889	Identifier	hk
+>890	Callee	RegQueryValueExA
+>891	Identifier	RegQueryValueExA
+>892	Condition	 
+>893	EqualityExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk ) == ERROR_SUCCESS
+>894	Identifier	ERROR_SUCCESS
+>895	CallExpression	RegOpenKeyA ( hkRoot , Path . GetBuffer ( ) , & hk )
+>896	ArgumentList	hkRoot
+>897	Argument	& hk
+>898	UnaryOp	& hk
+>899	Identifier	hk
+>900	UnaryOperator	&
+>901	Argument	Path . GetBuffer ( )
+>902	CallExpression	Path . GetBuffer ( )
+>903	ArgumentList	 
+>904	Callee	Path . GetBuffer
+>905	MemberAccess	Path . GetBuffer
+>906	Identifier	GetBuffer
+>907	Identifier	Path
+>908	Argument	hkRoot
+>909	Identifier	hkRoot
+>910	Callee	RegOpenKeyA
+>911	Identifier	RegOpenKeyA
+>912	IdentifierDeclStatement	 
+>913	IdentifierDecl	Result
+>914	Identifier	Result
+>915	IdentifierDeclType	CString
+>916	IdentifierDeclStatement	 
+>917	IdentifierDecl	bResult = false
+>918	AssignmentExpr	bResult = false
+>919	Identifier	false
+>920	Identifier	false
+>921	Identifier	bResult
+>922	IdentifierDeclType	bool
+>923	IdentifierDeclStatement	 
+>924	IdentifierDecl	hk = 0
+>925	AssignmentExpr	hk = 0
+>926	PrimaryExpression	0
+>927	Identifier	hk
+>928	Identifier	hk
+>929	IdentifierDeclType	HKEY
+>930	IdentifierDeclStatement	 
+>931	IdentifierDecl	dwSize = 0
+>932	AssignmentExpr	dwSize = 0
+>933	PrimaryExpression	0
+>934	Identifier	dwSize
+>935	Identifier	dwSize
+>936	IdentifierDeclType	ULONG
+>958	FunctionDef	CLocalSystem 
+>959	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name
+>960	Parameter	 
+>961	Identifier	Name
+>962	ParameterType	const CString &
+>963	Parameter	 
+>964	Identifier	Path
+>965	ParameterType	const CString &
+>966	Parameter	 
+>967	Identifier	hkRoot
+>968	ParameterType	HKEY
+>969	ReturnType	long
+>970	CompoundStatement	 
+>971	ReturnStatement	 
+>972	Identifier	lVal
+>973	IfStatement	if ( ! RegGetValueEx ( hkRoot , Path , Name , & dwType , ( LPBYTE ) & lVal , & cbData ) )
+>974	ExpressionStatement	 
+>975	AssignmentExpr	lVal = 0
+>976	PrimaryExpression	0
+>977	Identifier	lVal
+>978	Condition	 
+>979	UnaryOp	! RegGetValueEx ( hkRoot , Path , Name , & dwType , ( LPBYTE ) & lVal , & cbData )
+>980	CallExpression	RegGetValueEx ( hkRoot , Path , Name , & dwType , ( LPBYTE ) & lVal , & cbData )
+>981	ArgumentList	hkRoot
+>982	Argument	& cbData
+>983	UnaryOp	& cbData
+>984	Identifier	cbData
+>985	UnaryOperator	&
+>986	Argument	( LPBYTE ) & lVal
+>987	CastExpression	( LPBYTE ) & lVal
+>988	UnaryOp	& lVal
+>989	Identifier	lVal
+>990	UnaryOperator	&
+>991	CastTarget	LPBYTE
+>992	Argument	& dwType
+>993	UnaryOp	& dwType
+>994	Identifier	dwType
+>995	UnaryOperator	&
+>996	Argument	Name
+>997	Identifier	Name
+>998	Argument	Path
+>999	Identifier	Path
+>1000	Argument	hkRoot
+>1001	Identifier	hkRoot
+>1002	Callee	RegGetValueEx
+>1003	Identifier	RegGetValueEx
+>1004	UnaryOperator	!
+>1005	IdentifierDeclStatement	 
+>1006	IdentifierDecl	cbData = sizeof ( long )
+>1007	AssignmentExpr	cbData = sizeof ( long )
+>1008	SizeofExpr	sizeof ( long )
+>1009	SizeofOperand	long
+>1010	Sizeof	sizeof
+>1011	Identifier	cbData
+>1012	Identifier	cbData
+>1013	IdentifierDeclType	DWORD
+>1014	IdentifierDeclStatement	 
+>1015	IdentifierDecl	dwType = REG_DWORD
+>1016	AssignmentExpr	dwType = REG_DWORD
+>1017	Identifier	REG_DWORD
+>1018	Identifier	REG_DWORD
+>1019	Identifier	dwType
+>1020	IdentifierDeclType	DWORD
+>1021	IdentifierDeclStatement	 
+>1022	IdentifierDecl	lVal = 0
+>1023	AssignmentExpr	lVal = 0
+>1024	PrimaryExpression	0
+>1025	Identifier	lVal
+>1026	Identifier	lVal
+>1027	IdentifierDeclType	long
+>1042	FunctionDef	CLocalSystem 
+>1043	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name , const CString & Value
+>1044	Parameter	 
+>1045	Identifier	Value
+>1046	ParameterType	const CString &
+>1047	Parameter	 
+>1048	Identifier	Name
+>1049	ParameterType	const CString &
+>1050	Parameter	 
+>1051	Identifier	Path
+>1052	ParameterType	const CString &
+>1053	Parameter	 
+>1054	Identifier	hkRoot
+>1055	ParameterType	HKEY
+>1056	ReturnType	bool
+>1057	CompoundStatement	 
+>1058	ReturnStatement	 
+>1059	CallExpression	RegSetKeyValue ( hkRoot , Path , Name , REG_SZ , ( BYTE * ) Value . GetBuffer ( ) , Value . GetLength ( ) * sizeof ( \
+>1060	ArgumentList	hkRoot
+>1061	Argument	Value . GetLength ( ) * sizeof ( char ) + 1
+>1062	AdditiveExpression	Value . GetLength ( ) * sizeof ( char ) + 1
+>1063	PrimaryExpression	1
+>1064	MultiplicativeExpression	Value . GetLength ( ) * sizeof ( char )
+>1065	SizeofExpr	sizeof ( char )
+>1066	SizeofOperand	char
+>1067	Sizeof	sizeof
+>1068	CallExpression	Value . GetLength ( )
+>1069	ArgumentList	 
+>1070	Callee	Value . GetLength
+>1071	MemberAccess	Value . GetLength
+>1072	Identifier	GetLength
+>1073	Identifier	Value
+>1074	Argument	( BYTE * ) Value . GetBuffer ( )
+>1075	CastExpression	( BYTE * ) Value . GetBuffer ( )
+>1076	CallExpression	Value . GetBuffer ( )
+>1077	ArgumentList	 
+>1078	Callee	Value . GetBuffer
+>1079	MemberAccess	Value . GetBuffer
+>1080	Identifier	GetBuffer
+>1081	Identifier	Value
+>1082	CastTarget	BYTE *
+>1083	Argument	REG_SZ
+>1084	Identifier	REG_SZ
+>1085	Argument	Name
+>1086	Identifier	Name
+>1087	Argument	Path
+>1088	Identifier	Path
+>1089	Argument	hkRoot
+>1090	Identifier	hkRoot
+>1091	Callee	RegSetKeyValue
+>1092	Identifier	RegSetKeyValue
+>1104	FunctionDef	CLocalSystem 
+>1105	ParameterList	HKEY hkRoot , const CString & Path , const CString & Name , const long Value
+>1106	Parameter	 
+>1107	Identifier	Value
+>1108	ParameterType	const long
+>1109	Parameter	 
+>1110	Identifier	Name
+>1111	ParameterType	const CString &
+>1112	Parameter	 
+>1113	Identifier	Path
+>1114	ParameterType	const CString &
+>1115	Parameter	 
+>1116	Identifier	hkRoot
+>1117	ParameterType	HKEY
+>1118	ReturnType	bool
+>1119	CompoundStatement	 
+>1120	ReturnStatement	 
+>1121	CallExpression	RegSetKeyValue ( hkRoot , Path , Name , REG_DWORD , ( BYTE * ) & Value , sizeof ( long ) )
+>1122	ArgumentList	hkRoot
+>1123	Argument	sizeof ( long )
+>1124	SizeofExpr	sizeof ( long )
+>1125	SizeofOperand	long
+>1126	Sizeof	sizeof
+>1127	Argument	( BYTE * ) & Value
+>1128	CastExpression	( BYTE * ) & Value
+>1129	UnaryOp	& Value
+>1130	Identifier	Value
+>1131	UnaryOperator	&
+>1132	CastTarget	BYTE *
+>1133	Argument	REG_DWORD
+>1134	Identifier	REG_DWORD
+>1135	Argument	Name
+>1136	Identifier	Name
+>1137	Argument	Path
+>1138	Identifier	Path
+>1139	Argument	hkRoot
+>1140	Identifier	hkRoot
+>1141	Callee	RegSetKeyValue
+>1142	Identifier	RegSetKeyValue
+>1153	FunctionDef	CLocalSystem 
+>1154	ParameterList	char * pszMessage , bool bDesktopOnly
+>1155	Parameter	 
+>1156	Identifier	bDesktopOnly
+>1157	ParameterType	bool
+>1158	Parameter	 
+>1159	Identifier	pszMessage
+>1160	ParameterType	char *
+>1161	ReturnType	void
+>1162	CompoundStatement	 
+>1163	IfStatement	if ( ! bDesktopOnly || ProcessStartupInfo . dwFlags & STARTF_USESHOWWINDOW )
+>1164	CompoundStatement	 
+>1165	ExpressionStatement	 
+>1166	CallExpression	_getch ( )
+>1167	ArgumentList	 
+>1168	Callee	_getch
+>1169	Identifier	_getch
+>1170	IfStatement	if ( pszMessage )
+>1171	ExpressionStatement	 
+>1172	ShiftExpression	cout << pszMessage << endl
+>1173	ShiftExpression	pszMessage << endl
+>1174	Identifier	endl
+>1175	Identifier	pszMessage
+>1176	Identifier	cout
+>1177	Condition	 
+>1178	Identifier	pszMessage
+>1179	Condition	 
+>1180	OrExpression	! bDesktopOnly || ProcessStartupInfo . dwFlags & STARTF_USESHOWWINDOW
+>1181	BitAndExpression	ProcessStartupInfo . dwFlags & STARTF_USESHOWWINDOW
+>1182	Identifier	STARTF_USESHOWWINDOW
+>1183	MemberAccess	ProcessStartupInfo . dwFlags
+>1184	Identifier	dwFlags
+>1185	Identifier	ProcessStartupInfo
+>1186	UnaryOp	! bDesktopOnly
+>1187	Identifier	bDesktopOnly
+>1188	UnaryOperator	!
+>1189	ExpressionStatement	 
+>1190	CallExpression	GetStartupInfo ( & ProcessStartupInfo )
+>1191	ArgumentList	& ProcessStartupInfo
+>1192	Argument	& ProcessStartupInfo
+>1193	UnaryOp	& ProcessStartupInfo
+>1194	Identifier	ProcessStartupInfo
+>1195	UnaryOperator	&
+>1196	Callee	GetStartupInfo
+>1197	Identifier	GetStartupInfo
+>1198	IdentifierDeclStatement	 
+>1199	IdentifierDecl	ProcessStartupInfo
+>1200	Identifier	ProcessStartupInfo
+>1201	IdentifierDeclType	STARTUPINFO
+<3=5,4
+<9=11,10
+<15=21,20,16
+<16=17
+<17=19,18
+<21=57,24,22
+<22=23
+<24=50,25
+<25=33,26
+<26=31,27
+<27=28
+<28=30,29
+<31=32
+<33=34
+<34=49,48,35
+<35=47,36
+<36=45,37
+<37=38
+<38=39
+<39=41,40
+<41=42
+<42=44,43
+<45=46
+<50=51
+<51=53,52
+<53=54
+<54=56,55
+<57=58
+<58=60,59
+<70=79,78,71
+<71=75,72
+<72=74,73
+<75=77,76
+<79=196,189,178,174,170,169,168,167,160,156,155,154,153,87,80
+<80=81
+<81=83,82
+<83=84
+<84=86,85
+<87=147,88
+<88=141,109,89
+<89=90
+<90=105,91
+<91=98,92
+<92=93
+<93=97,94
+<94=96,95
+<98=99
+<99=101,100
+<101=102
+<102=104,103
+<105=106
+<106=108,107
+<109=137,126,122,110
+<110=115,111
+<111=112
+<112=114,113
+<115=116
+<116=118,117
+<118=119
+<119=121,120
+<122=123
+<123=125,124
+<126=131,127
+<127=128
+<128=130,129
+<131=132
+<132=134,133
+<134=136,135
+<137=138
+<138=140,139
+<141=142
+<142=144,143
+<144=146,145
+<147=148
+<148=152,149
+<149=151,150
+<156=157
+<157=159,158
+<160=161
+<161=166,165,162
+<162=164,163
+<170=171
+<171=173,172
+<174=175
+<175=177,176
+<178=181,179
+<179=180
+<181=182
+<182=186,183
+<183=185,184
+<186=188,187
+<189=190
+<190=192,191
+<192=193
+<193=195,194
+<196=197
+<197=199,198
+<199=200
+<200=202,201
+<218=230,229,219
+<219=226,223,220
+<220=222,221
+<223=225,224
+<226=228,227
+<230=366,362,355,344,340,327,326,325,324,317,306,305,304,303,245,233,231
+<231=232
+<233=241,234
+<234=235
+<235=239,236
+<236=237
+<237=238
+<239=240
+<241=242
+<242=244,243
+<245=259,252,246
+<246=247
+<247=251,248
+<248=250,249
+<252=253
+<253=257,254
+<254=255
+<255=256
+<257=258
+<259=283,260
+<260=263,261
+<261=262
+<263=264
+<264=266,265
+<266=281,267
+<267=279,270,268
+<268=269
+<270=271
+<271=273,272
+<273=274
+<274=276,275
+<276=278,277
+<279=280
+<281=282
+<283=284
+<284=286,285
+<286=301,287
+<287=299,290,288
+<288=289
+<290=291
+<291=293,292
+<293=294
+<294=296,295
+<296=298,297
+<299=300
+<301=302
+<306=307
+<307=316,308
+<308=315,309
+<309=311,310
+<311=312
+<312=314,313
+<317=318
+<318=323,322,319
+<319=321,320
+<327=328
+<328=338,329
+<329=336,334,330
+<330=331
+<331=333,332
+<334=335
+<336=337
+<338=339
+<340=341
+<341=343,342
+<344=351,345
+<345=346
+<346=350,347
+<347=349,348
+<351=352
+<352=354,353
+<355=356
+<356=361,360,357
+<357=359,358
+<362=363
+<363=365,364
+<366=367
+<367=372,371,368
+<368=370,369
+<395=416,415,396
+<396=412,409,406,403,400,397
+<397=399,398
+<400=402,401
+<403=405,404
+<406=408,407
+<409=411,410
+<412=414,413
+<416=515,462,455,426,419,417
+<417=418
+<419=420
+<420=424,421
+<421=422
+<422=423
+<424=425
+<426=431,427
+<427=428
+<428=430,429
+<431=432
+<432=434,433
+<434=453,435
+<435=451,444,442,440,438,436
+<436=437
+<438=439
+<440=441
+<442=443
+<444=445
+<445=447,446
+<447=448
+<448=450,449
+<451=452
+<453=454
+<455=456
+<456=461,460,457
+<457=459,458
+<462=491,463
+<463=464
+<464=467,465
+<465=466
+<467=468
+<468=472,469
+<469=471,470
+<472=490,473
+<473=488,474
+<474=486,479,475
+<475=476
+<476=478,477
+<479=480
+<480=482,481
+<482=483
+<483=485,484
+<486=487
+<488=489
+<491=492
+<492=496,493
+<493=495,494
+<496=498,497
+<498=513,499
+<499=511,504,500
+<500=501
+<501=503,502
+<504=505
+<505=507,506
+<507=508
+<508=510,509
+<511=512
+<513=514
+<515=516
+<516=521,520,517
+<517=519,518
+<542=554,553,543
+<543=550,547,544
+<544=546,545
+<547=549,548
+<550=552,551
+<554=625,618,564,557,555
+<555=556
+<557=558
+<558=562,559
+<559=560
+<560=561
+<562=563
+<564=594,565
+<565=570,566
+<566=567
+<567=569,568
+<570=571
+<571=573,572
+<573=592,574
+<574=590,583,581,579,577,575
+<575=576
+<577=578
+<579=580
+<581=582
+<583=584
+<584=586,585
+<586=587
+<587=589,588
+<590=591
+<592=593
+<594=595
+<595=599,596
+<596=598,597
+<599=601,600
+<601=616,602
+<602=614,607,603
+<603=604
+<604=606,605
+<607=608
+<608=610,609
+<610=611
+<611=613,612
+<614=615
+<616=617
+<618=619
+<619=624,623,620
+<620=622,621
+<625=626
+<626=631,630,627
+<627=629,628
+<649=670,669,650
+<650=666,663,660,657,654,651
+<651=653,652
+<654=656,655
+<657=659,658
+<660=662,661
+<663=665,664
+<666=668,667
+<670=751,744,737,683,673,671
+<671=672
+<673=681,674
+<674=675
+<675=679,676
+<676=677
+<677=678
+<679=680
+<681=682
+<683=713,684
+<684=689,685
+<685=686
+<686=688,687
+<689=690
+<690=692,691
+<692=711,693
+<693=709,702,700,698,696,694
+<694=695
+<696=697
+<698=699
+<700=701
+<702=703
+<703=705,704
+<705=706
+<706=708,707
+<709=710
+<711=712
+<713=714
+<714=718,715
+<715=717,716
+<718=720,719
+<720=735,721
+<721=733,726,722
+<722=723
+<723=725,724
+<726=727
+<727=729,728
+<729=730
+<730=732,731
+<733=734
+<735=736
+<737=738
+<738=743,742,739
+<739=741,740
+<744=745
+<745=750,749,746
+<746=748,747
+<751=763,752
+<752=753
+<753=761,754
+<754=759,755
+<755=756
+<756=758,757
+<759=760
+<761=762
+<763=764
+<785=797,796,786
+<786=793,790,787
+<787=789,788
+<790=792,791
+<793=795,794
+<797=930,923,916,912,810,800,798
+<798=799
+<800=808,801
+<801=802
+<802=806,803
+<803=804
+<804=805
+<806=807
+<808=809
+<810=892,811
+<811=812
+<812=866,813
+<813=814
+<814=862,815
+<815=851,820,816
+<816=817
+<817=819,818
+<820=821
+<821=849,822
+<822=847,840,838,836,827,823
+<823=824
+<824=826,825
+<827=828
+<828=835,829
+<829=831,830
+<831=832
+<832=834,833
+<836=837
+<838=839
+<840=841
+<841=843,842
+<843=844
+<844=846,845
+<847=848
+<849=850
+<851=852
+<852=858,853
+<853=854
+<854=855
+<855=857,856
+<858=859
+<859=861,860
+<862=863
+<863=865,864
+<866=867
+<867=869,868
+<869=890,870
+<870=888,881,879,877,875,871
+<871=872
+<872=874,873
+<875=876
+<877=878
+<879=880
+<881=882
+<882=884,883
+<884=885
+<885=887,886
+<888=889
+<890=891
+<892=893
+<893=895,894
+<895=910,896
+<896=908,901,897
+<897=898
+<898=900,899
+<901=902
+<902=904,903
+<904=905
+<905=907,906
+<908=909
+<910=911
+<912=913
+<913=915,914
+<916=917
+<917=922,921,918
+<918=920,919
+<923=924
+<924=929,928,925
+<925=927,926
+<930=931
+<931=936,935,932
+<932=934,933
+<958=970,969,959
+<959=966,963,960
+<960=962,961
+<963=965,964
+<966=968,967
+<970=1021,1014,1005,973,971
+<971=972
+<973=978,974
+<974=975
+<975=977,976
+<978=979
+<979=1004,980
+<980=1002,981
+<981=1000,998,996,992,986,982
+<982=983
+<983=985,984
+<986=987
+<987=991,988
+<988=990,989
+<992=993
+<993=995,994
+<996=997
+<998=999
+<1000=1001
+<1002=1003
+<1005=1006
+<1006=1013,1012,1007
+<1007=1011,1008
+<1008=1010,1009
+<1014=1015
+<1015=1020,1019,1016
+<1016=1018,1017
+<1021=1022
+<1022=1027,1026,1023
+<1023=1025,1024
+<1042=1057,1056,1043
+<1043=1053,1050,1047,1044
+<1044=1046,1045
+<1047=1049,1048
+<1050=1052,1051
+<1053=1055,1054
+<1057=1058
+<1058=1059
+<1059=1091,1060
+<1060=1089,1087,1085,1083,1074,1061
+<1061=1062
+<1062=1064,1063
+<1064=1068,1065
+<1065=1067,1066
+<1068=1070,1069
+<1070=1071
+<1071=1073,1072
+<1074=1075
+<1075=1082,1076
+<1076=1078,1077
+<1078=1079
+<1079=1081,1080
+<1083=1084
+<1085=1086
+<1087=1088
+<1089=1090
+<1091=1092
+<1104=1119,1118,1105
+<1105=1115,1112,1109,1106
+<1106=1108,1107
+<1109=1111,1110
+<1112=1114,1113
+<1115=1117,1116
+<1119=1120
+<1120=1121
+<1121=1141,1122
+<1122=1139,1137,1135,1133,1127,1123
+<1123=1124
+<1124=1126,1125
+<1127=1128
+<1128=1132,1129
+<1129=1131,1130
+<1133=1134
+<1135=1136
+<1137=1138
+<1139=1140
+<1141=1142
+<1153=1162,1161,1154
+<1154=1158,1155
+<1155=1157,1156
+<1158=1160,1159
+<1162=1198,1189,1163
+<1163=1179,1164
+<1164=1170,1165
+<1165=1166
+<1166=1168,1167
+<1168=1169
+<1170=1177,1171
+<1171=1172
+<1172=1176,1173
+<1173=1175,1174
+<1177=1178
+<1179=1180
+<1180=1186,1181
+<1181=1183,1182
+<1183=1185,1184
+<1186=1188,1187
+<1189=1190
+<1190=1196,1191
+<1191=1192
+<1192=1193
+<1193=1195,1194
+<1196=1197
+<1198=1199
+<1199=1201,1200

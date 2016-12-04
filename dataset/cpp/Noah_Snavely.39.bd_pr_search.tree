@@ -1,0 +1,229 @@
+>3	FunctionDef	ANNbd_shrink 
+>4	ParameterList	ANNdist box_dist
+>5	Parameter	 
+>6	Identifier	box_dist
+>7	ParameterType	ANNdist
+>8	ReturnType	void
+>9	CompoundStatement	 
+>10	Statement	 
+>11	Statement	 
+>12	Statement	 
+>13	Statement	 
+>14	Statement	 
+>15	Statement	 
+>16	Statement	 
+>17	Statement	 
+>18	Statement	 
+>19	Statement	 
+>20	IfStatement	if ( inner_dist <= box_dist )
+>21	ElseStatement	else
+>22	CompoundStatement	 
+>23	ExpressionStatement	 
+>24	CallExpression	child [ ANN_OUT ] -> ann_pri_search ( box_dist )
+>25	ArgumentList	box_dist
+>26	Argument	box_dist
+>27	Identifier	box_dist
+>28	Callee	child [ ANN_OUT ] -> ann_pri_search
+>29	PtrMemberAccess	child [ ANN_OUT ] -> ann_pri_search
+>30	Identifier	ann_pri_search
+>31	ArrayIndexing	child [ ANN_OUT ]
+>32	Identifier	ANN_OUT
+>33	Identifier	child
+>34	IfStatement	if ( child [ ANN_IN ] != KD_TRIVIAL )
+>35	ExpressionStatement	 
+>36	CallExpression	ANNprBoxPQ -> insert ( inner_dist , child [ ANN_IN ] )
+>37	ArgumentList	inner_dist
+>38	Argument	child [ ANN_IN ]
+>39	ArrayIndexing	child [ ANN_IN ]
+>40	Identifier	ANN_IN
+>41	Identifier	child
+>42	Argument	inner_dist
+>43	Identifier	inner_dist
+>44	Callee	ANNprBoxPQ -> insert
+>45	PtrMemberAccess	ANNprBoxPQ -> insert
+>46	Identifier	insert
+>47	Identifier	ANNprBoxPQ
+>48	Condition	 
+>49	EqualityExpression	child [ ANN_IN ] != KD_TRIVIAL
+>50	Identifier	KD_TRIVIAL
+>51	ArrayIndexing	child [ ANN_IN ]
+>52	Identifier	ANN_IN
+>53	Identifier	child
+>54	CompoundStatement	 
+>55	ExpressionStatement	 
+>56	CallExpression	child [ ANN_IN ] -> ann_pri_search ( inner_dist )
+>57	ArgumentList	inner_dist
+>58	Argument	inner_dist
+>59	Identifier	inner_dist
+>60	Callee	child [ ANN_IN ] -> ann_pri_search
+>61	PtrMemberAccess	child [ ANN_IN ] -> ann_pri_search
+>62	Identifier	ann_pri_search
+>63	ArrayIndexing	child [ ANN_IN ]
+>64	Identifier	ANN_IN
+>65	Identifier	child
+>66	IfStatement	if ( child [ ANN_OUT ] != KD_TRIVIAL )
+>67	ExpressionStatement	 
+>68	CallExpression	ANNprBoxPQ -> insert ( box_dist , child [ ANN_OUT ] )
+>69	ArgumentList	box_dist
+>70	Argument	child [ ANN_OUT ]
+>71	ArrayIndexing	child [ ANN_OUT ]
+>72	Identifier	ANN_OUT
+>73	Identifier	child
+>74	Argument	box_dist
+>75	Identifier	box_dist
+>76	Callee	ANNprBoxPQ -> insert
+>77	PtrMemberAccess	ANNprBoxPQ -> insert
+>78	Identifier	insert
+>79	Identifier	ANNprBoxPQ
+>80	Condition	 
+>81	EqualityExpression	child [ ANN_OUT ] != KD_TRIVIAL
+>82	Identifier	KD_TRIVIAL
+>83	ArrayIndexing	child [ ANN_OUT ]
+>84	Identifier	ANN_OUT
+>85	Identifier	child
+>86	Condition	 
+>87	RelationalExpression	inner_dist <= box_dist
+>88	Identifier	box_dist
+>89	Identifier	inner_dist
+>90	ForStatement	for ( int i = 0 ; i < n_bnds ; i ++ )
+>91	CompoundStatement	 
+>92	IfStatement	if ( bnds [ i ] . out ( ANNprQ ) )
+>93	CompoundStatement	 
+>94	ExpressionStatement	 
+>95	AssignmentExpr	inner_dist = ( ANNdist ) ANN_SUM ( inner_dist , bnds [ i ] . dist ( ANNprQ ) )
+>96	CastExpression	( ANNdist ) ANN_SUM ( inner_dist , bnds [ i ] . dist ( ANNprQ ) )
+>97	CallExpression	ANN_SUM ( inner_dist , bnds [ i ] . dist ( ANNprQ ) )
+>98	ArgumentList	inner_dist
+>99	Argument	bnds [ i ] . dist ( ANNprQ )
+>100	CallExpression	bnds [ i ] . dist ( ANNprQ )
+>101	ArgumentList	ANNprQ
+>102	Argument	ANNprQ
+>103	Identifier	ANNprQ
+>104	Callee	bnds [ i ] . dist
+>105	MemberAccess	bnds [ i ] . dist
+>106	Identifier	dist
+>107	ArrayIndexing	bnds [ i ]
+>108	Identifier	i
+>109	Identifier	bnds
+>110	Argument	inner_dist
+>111	Identifier	inner_dist
+>112	Callee	ANN_SUM
+>113	Identifier	ANN_SUM
+>114	CastTarget	ANNdist
+>115	Identifier	inner_dist
+>116	Condition	 
+>117	CallExpression	bnds [ i ] . out ( ANNprQ )
+>118	ArgumentList	ANNprQ
+>119	Argument	ANNprQ
+>120	Identifier	ANNprQ
+>121	Callee	bnds [ i ] . out
+>122	MemberAccess	bnds [ i ] . out
+>123	Identifier	out
+>124	ArrayIndexing	bnds [ i ]
+>125	Identifier	i
+>126	Identifier	bnds
+>127	IncDecOp	 
+>128	IncDec	++
+>129	Identifier	i
+>130	Condition	 
+>131	RelationalExpression	i < n_bnds
+>132	Identifier	n_bnds
+>133	Identifier	i
+>134	ForInit	 
+>135	IdentifierDeclStatement	int i = 0 ;
+>136	IdentifierDecl	i = 0
+>137	AssignmentExpr	i = 0
+>138	PrimaryExpression	0
+>139	Identifier	i
+>140	Identifier	i
+>141	IdentifierDeclType	int
+>142	IdentifierDeclStatement	 
+>143	IdentifierDecl	inner_dist = 0
+>144	AssignmentExpr	inner_dist = 0
+>145	PrimaryExpression	0
+>146	Identifier	inner_dist
+>147	Identifier	inner_dist
+>148	IdentifierDeclType	ANNdist
+<3=9,8,4
+<4=5
+<5=7,6
+<9=142,90,20,19,18,17,16,15,14,13,12,11,10
+<20=86,54,21
+<21=22
+<22=34,23
+<23=24
+<24=28,25
+<25=26
+<26=27
+<28=29
+<29=31,30
+<31=33,32
+<34=48,35
+<35=36
+<36=44,37
+<37=42,38
+<38=39
+<39=41,40
+<42=43
+<44=45
+<45=47,46
+<48=49
+<49=51,50
+<51=53,52
+<54=66,55
+<55=56
+<56=60,57
+<57=58
+<58=59
+<60=61
+<61=63,62
+<63=65,64
+<66=80,67
+<67=68
+<68=76,69
+<69=74,70
+<70=71
+<71=73,72
+<74=75
+<76=77
+<77=79,78
+<80=81
+<81=83,82
+<83=85,84
+<86=87
+<87=89,88
+<90=134,130,127,91
+<91=92
+<92=116,93
+<93=94
+<94=95
+<95=115,96
+<96=114,97
+<97=112,98
+<98=110,99
+<99=100
+<100=104,101
+<101=102
+<102=103
+<104=105
+<105=107,106
+<107=109,108
+<110=111
+<112=113
+<116=117
+<117=121,118
+<118=119
+<119=120
+<121=122
+<122=124,123
+<124=126,125
+<127=129,128
+<130=131
+<131=133,132
+<134=135
+<135=136
+<136=141,140,137
+<137=139,138
+<142=143
+<143=148,147,144
+<144=146,145

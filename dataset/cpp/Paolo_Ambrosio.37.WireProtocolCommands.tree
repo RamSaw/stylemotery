@@ -1,0 +1,323 @@
+>3	FunctionDef	ScenarioCommand 
+>4	ParameterList	const CukeEngine 
+>5	Parameter	 
+>6	Identifier	tags
+>7	ParameterType	const CukeEngine 
+>8	CompoundStatement	 
+>13	FunctionDef	BeginScenarioCommand 
+>14	ParameterList	const CukeEngine 
+>15	Parameter	 
+>16	Identifier	tags
+>17	ParameterType	const CukeEngine 
+>18	CompoundStatement	 
+>23	FunctionDef	BeginScenarioCommand 
+>24	ParameterList	CukeEngine * engine
+>25	Parameter	 
+>26	Identifier	engine
+>27	ParameterType	CukeEngine *
+>28	ReturnType	WireResponse *
+>29	CompoundStatement	 
+>30	ExpressionStatement	 
+>31	Identifier	SuccessResponse
+>32	Statement	 
+>33	Statement	 
+>34	ExpressionStatement	 
+>35	CallExpression	engine -> beginScenario ( * tags )
+>36	ArgumentList	* tags
+>37	Argument	* tags
+>38	UnaryOp	* tags
+>39	Identifier	tags
+>40	UnaryOperator	*
+>41	Callee	engine -> beginScenario
+>42	PtrMemberAccess	engine -> beginScenario
+>43	Identifier	beginScenario
+>44	Identifier	engine
+>51	FunctionDef	EndScenarioCommand 
+>52	ParameterList	const CukeEngine 
+>53	Parameter	 
+>54	Identifier	tags
+>55	ParameterType	const CukeEngine 
+>56	CompoundStatement	 
+>61	FunctionDef	EndScenarioCommand 
+>62	ParameterList	CukeEngine * engine
+>63	Parameter	 
+>64	Identifier	engine
+>65	ParameterType	CukeEngine *
+>66	ReturnType	WireResponse *
+>67	CompoundStatement	 
+>68	ExpressionStatement	 
+>69	Identifier	SuccessResponse
+>70	Statement	 
+>71	Statement	 
+>72	ExpressionStatement	 
+>73	CallExpression	engine -> endScenario ( * tags )
+>74	ArgumentList	* tags
+>75	Argument	* tags
+>76	UnaryOp	* tags
+>77	Identifier	tags
+>78	UnaryOperator	*
+>79	Callee	engine -> endScenario
+>80	PtrMemberAccess	engine -> endScenario
+>81	Identifier	endScenario
+>82	Identifier	engine
+>89	FunctionDef	StepMatchesCommand 
+>90	ParameterList	const std 
+>91	Parameter	 
+>92	Identifier	stepName
+>93	ParameterType	const std 
+>94	CompoundStatement	 
+>99	FunctionDef	StepMatchesCommand 
+>100	ParameterList	CukeEngine * engine
+>101	Parameter	 
+>102	Identifier	engine
+>103	ParameterType	CukeEngine *
+>104	ReturnType	WireResponse *
+>105	CompoundStatement	 
+>106	ReturnStatement	 
+>107	Identifier	matchingSteps
+>108	IdentifierDeclStatement	 
+>109	IdentifierDecl	matchingSteps = engine -> stepMatches ( stepName )
+>110	AssignmentExpr	matchingSteps = engine -> stepMatches ( stepName )
+>111	CallExpression	engine -> stepMatches ( stepName )
+>112	ArgumentList	stepName
+>113	Argument	stepName
+>114	Identifier	stepName
+>115	Callee	engine -> stepMatches
+>116	PtrMemberAccess	engine -> stepMatches
+>117	Identifier	stepMatches
+>118	Identifier	engine
+>119	Identifier	matchingSteps
+>120	Identifier	matchingSteps
+>121	IdentifierDeclType	std 
+>130	FunctionDef	InvokeCommand 
+>131	ParameterList	const std 
+>132	Parameter	 
+>133	Identifier	tableArg
+>134	ParameterType	const CukeEngine 
+>135	Parameter	 
+>136	Identifier	args
+>137	ParameterType	const CukeEngine 
+>138	Parameter	 
+>139	Identifier	stepId
+>140	ParameterType	const std 
+>141	CompoundStatement	 
+>148	FunctionDef	InvokeCommand 
+>149	ParameterList	CukeEngine * engine
+>150	Parameter	 
+>151	Identifier	engine
+>152	ParameterType	CukeEngine *
+>153	ReturnType	WireResponse *
+>154	CompoundStatement	 
+>155	CompoundStatement	 
+>156	ExpressionStatement	 
+>157	Identifier	FailureResponse
+>158	Statement	 
+>159	Statement	 
+>160	Statement	 
+>161	Statement	 
+>162	Statement	 
+>163	Statement	 
+>164	Statement	 
+>165	Statement	 
+>166	BlockStarter	 
+>167	CompoundStatement	 
+>168	ReturnStatement	return new PendingResponse ( e . getMessage ( ) ) ;
+>169	CallExpression	e . getMessage ( )
+>170	ArgumentList	 
+>171	Callee	e . getMessage
+>172	MemberAccess	e . getMessage
+>173	Identifier	getMessage
+>174	Identifier	e
+>175	BlockStarter	 
+>176	CompoundStatement	 
+>177	ReturnStatement	return new FailureResponse ( e . getMessage ( ) , e . getExceptionType ( ) ) ;
+>178	Expression	e . getMessage ( ) , e . getExceptionType ( )
+>179	CallExpression	e . getExceptionType ( )
+>180	ArgumentList	 
+>181	Callee	e . getExceptionType
+>182	MemberAccess	e . getExceptionType
+>183	Identifier	getExceptionType
+>184	Identifier	e
+>185	CallExpression	e . getMessage ( )
+>186	ArgumentList	 
+>187	Callee	e . getMessage
+>188	MemberAccess	e . getMessage
+>189	Identifier	getMessage
+>190	Identifier	e
+>191	BlockStarter	 
+>192	CompoundStatement	 
+>193	ExpressionStatement	SuccessResponse
+>194	Identifier	SuccessResponse
+>195	Statement	new
+>196	Statement	return
+>197	ExpressionStatement	engine -> invokeStep ( stepId , * args , * tableArg )
+>198	CallExpression	engine -> invokeStep ( stepId , * args , * tableArg )
+>199	ArgumentList	stepId
+>200	Argument	* tableArg
+>201	UnaryOp	* tableArg
+>202	Identifier	tableArg
+>203	UnaryOperator	*
+>204	Argument	* args
+>205	UnaryOp	* args
+>206	Identifier	args
+>207	UnaryOperator	*
+>208	Argument	stepId
+>209	Identifier	stepId
+>210	Callee	engine -> invokeStep
+>211	PtrMemberAccess	engine -> invokeStep
+>212	Identifier	invokeStep
+>213	Identifier	engine
+>226	FunctionDef	SnippetTextCommand 
+>227	ParameterList	const std 
+>228	Parameter	 
+>229	Identifier	multilineArgClass
+>230	ParameterType	const std 
+>231	Parameter	 
+>232	Identifier	name
+>233	ParameterType	const std 
+>234	Parameter	 
+>235	Identifier	keyword
+>236	ParameterType	const std 
+>237	CompoundStatement	 
+>244	FunctionDef	SnippetTextCommand 
+>245	ParameterList	CukeEngine * engine
+>246	Parameter	 
+>247	Identifier	engine
+>248	ParameterType	CukeEngine *
+>249	ReturnType	WireResponse *
+>250	CompoundStatement	 
+>251	ReturnStatement	 
+>252	CallExpression	engine -> snippetText ( keyword , name , multilineArgClass )
+>253	ArgumentList	keyword
+>254	Argument	multilineArgClass
+>255	Identifier	multilineArgClass
+>256	Argument	name
+>257	Identifier	name
+>258	Argument	keyword
+>259	Identifier	keyword
+>260	Callee	engine -> snippetText
+>261	PtrMemberAccess	engine -> snippetText
+>262	Identifier	snippetText
+>263	Identifier	engine
+>273	FunctionDef	FailingCommand 
+>274	ParameterList	CukeEngine * engine
+>275	Parameter	 
+>276	Identifier	engine
+>277	ParameterType	CukeEngine *
+>278	ReturnType	WireResponse *
+>279	CompoundStatement	 
+>280	ExpressionStatement	 
+>281	Identifier	FailureResponse
+>282	Statement	 
+>283	Statement	 
+<3=8,4
+<4=5
+<5=7,6
+<13=18,14
+<14=15
+<15=17,16
+<23=29,28,24
+<24=25
+<25=27,26
+<29=34,33,32,30
+<30=31
+<34=35
+<35=41,36
+<36=37
+<37=38
+<38=40,39
+<41=42
+<42=44,43
+<51=56,52
+<52=53
+<53=55,54
+<61=67,66,62
+<62=63
+<63=65,64
+<67=72,71,70,68
+<68=69
+<72=73
+<73=79,74
+<74=75
+<75=76
+<76=78,77
+<79=80
+<80=82,81
+<89=94,90
+<90=91
+<91=93,92
+<99=105,104,100
+<100=101
+<101=103,102
+<105=108,106
+<106=107
+<108=109
+<109=121,120,110
+<110=119,111
+<111=115,112
+<112=113
+<113=114
+<115=116
+<116=118,117
+<130=141,131
+<131=138,135,132
+<132=134,133
+<135=137,136
+<138=140,139
+<148=154,153,149
+<149=150
+<150=152,151
+<154=191,175,166,165,164,163,162,161,160,155
+<155=159,158,156
+<156=157
+<166=167
+<167=168
+<168=169
+<169=171,170
+<171=172
+<172=174,173
+<175=176
+<176=177
+<177=178
+<178=185,179
+<179=181,180
+<181=182
+<182=184,183
+<185=187,186
+<187=188
+<188=190,189
+<191=192
+<192=197,196,195,193
+<193=194
+<197=198
+<198=210,199
+<199=208,204,200
+<200=201
+<201=203,202
+<204=205
+<205=207,206
+<208=209
+<210=211
+<211=213,212
+<226=237,227
+<227=234,231,228
+<228=230,229
+<231=233,232
+<234=236,235
+<244=250,249,245
+<245=246
+<246=248,247
+<250=251
+<251=252
+<252=260,253
+<253=258,256,254
+<254=255
+<256=257
+<258=259
+<260=261
+<261=263,262
+<273=279,278,274
+<274=275
+<275=277,276
+<279=283,282,280
+<280=281

@@ -1,0 +1,308 @@
+>4	FunctionDef	FakeStepInfo (std 
+>5	ParameterList	std 
+>6	Parameter	 
+>7	Identifier	result
+>8	ParameterType	const InvokeResult &
+>9	Parameter	 
+>10	Identifier	markersPtr
+>11	ParameterType	std 
+>12	CompoundStatement	 
+>18	FunctionDef	invokeStep (const InvokeArgs * pArgs)
+>19	ParameterList	const InvokeArgs * pArgs
+>20	Parameter	 
+>21	Identifier	pArgs
+>22	ParameterType	const InvokeArgs *
+>23	ReturnType	InvokeResult
+>24	CompoundStatement	 
+>25	ReturnStatement	 
+>26	Identifier	result
+>27	ExpressionStatement	 
+>28	ShiftExpression	( * markersPtr ) << \"S\"
+>29	PrimaryExpression	\"S\"
+>30	UnaryOp	* markersPtr
+>31	Identifier	markersPtr
+>32	UnaryOperator	*
+>33	ExpressionStatement	 
+>34	AssignmentExpr	latestArgsPtr = pArgs
+>35	Identifier	pArgs
+>36	Identifier	latestArgsPtr
+>44	FunctionDef	getLatestArgsPassed ()
+>45	ParameterList	 
+>46	ReturnType	const InvokeArgs *
+>47	CompoundStatement	 
+>48	ReturnStatement	 
+>49	Identifier	latestArgsPtr
+>61	FunctionDef	MarkingAroundStepHook (std 
+>62	ParameterList	std 
+>63	Parameter	 
+>64	Identifier	markersPtr
+>65	ParameterType	std 
+>66	Parameter	 
+>67	Identifier	id
+>68	ParameterType	std 
+>69	CompoundStatement	 
+>75	FunctionDef	MarkingAroundStepHook ()
+>76	ParameterList	 
+>77	CompoundStatement	 
+>81	FunctionDef	body ()
+>82	ParameterList	 
+>83	ReturnType	void
+>84	CompoundStatement	 
+>85	IfStatement	if ( markersPtr )
+>86	CompoundStatement	 
+>87	ExpressionStatement	 
+>88	ShiftExpression	( * markersPtr ) << \"A\" << id
+>89	ShiftExpression	\"A\" << id
+>90	Identifier	id
+>91	PrimaryExpression	\"A\"
+>92	UnaryOp	* markersPtr
+>93	Identifier	markersPtr
+>94	UnaryOperator	*
+>95	Condition	 
+>96	Identifier	markersPtr
+>97	ExpressionStatement	 
+>98	CallExpression	doCall ( )
+>99	ArgumentList	 
+>100	Callee	doCall
+>101	Identifier	doCall
+>102	IfStatement	if ( markersPtr )
+>103	CompoundStatement	 
+>104	ExpressionStatement	 
+>105	ShiftExpression	( * markersPtr ) << \"B\" << id
+>106	ShiftExpression	\"B\" << id
+>107	Identifier	id
+>108	PrimaryExpression	\"B\"
+>109	UnaryOp	* markersPtr
+>110	Identifier	markersPtr
+>111	UnaryOperator	*
+>112	Condition	 
+>113	Identifier	markersPtr
+>118	FunctionDef	doCall ()
+>119	ParameterList	 
+>120	ReturnType	virtual void
+>121	CompoundStatement	 
+>122	ExpressionStatement	 
+>123	CallExpression	step -> call ( )
+>124	ArgumentList	 
+>125	Callee	step -> call
+>126	PtrMemberAccess	step -> call
+>127	Identifier	call
+>128	Identifier	step
+>138	FunctionDef	BlockingAroundStepHook (std 
+>139	ParameterList	std 
+>140	Parameter	 
+>141	Identifier	markersPtr
+>142	ParameterType	std 
+>143	Parameter	 
+>144	Identifier	id
+>145	ParameterType	std 
+>146	CompoundStatement	 
+>152	FunctionDef	doCall ()
+>153	ParameterList	 
+>154	ReturnType	virtual void
+>155	CompoundStatement	 
+>165	FunctionDef	execStep (const InvokeResult & result)
+>166	ParameterList	const InvokeResult & result
+>167	Parameter	 
+>168	Identifier	result
+>169	ParameterType	const InvokeResult &
+>170	ReturnType	InvokeResult
+>171	CompoundStatement	 
+>172	ReturnStatement	 
+>173	CallExpression	scc . exec ( )
+>174	ArgumentList	 
+>175	Callee	scc . exec
+>176	MemberAccess	scc . exec
+>177	Identifier	exec
+>178	Identifier	scc
+>179	IdentifierDeclStatement	 
+>180	IdentifierDecl	scc ( 0 , & step , & NO_INVOKE_ARGS , aroundHooks )
+>181	Expression	0 , & step , & NO_INVOKE_ARGS , aroundHooks
+>182	Expression	& step , & NO_INVOKE_ARGS , aroundHooks
+>183	Expression	& NO_INVOKE_ARGS , aroundHooks
+>184	Identifier	aroundHooks
+>185	UnaryOp	& NO_INVOKE_ARGS
+>186	Identifier	NO_INVOKE_ARGS
+>187	UnaryOperator	&
+>188	UnaryOp	& step
+>189	Identifier	step
+>190	UnaryOperator	&
+>191	PrimaryExpression	0
+>192	Identifier	scc
+>193	IdentifierDeclType	StepCallChain
+>194	IdentifierDeclStatement	 
+>195	IdentifierDecl	step ( & markers , result )
+>196	Expression	& markers , result
+>197	Identifier	result
+>198	UnaryOp	& markers
+>199	Identifier	markers
+>200	UnaryOperator	&
+>201	Identifier	step
+>202	IdentifierDeclType	FakeStepInfo
+>210	FunctionDef	execStepAndCheckSuccess ()
+>211	ParameterList	 
+>212	ReturnType	void
+>213	CompoundStatement	 
+>214	ExpressionStatement	 
+>215	CallExpression	EXPECT_FALSE ( result . isSuccess ( ) )
+>216	ArgumentList	result . isSuccess ( )
+>217	Argument	result . isSuccess ( )
+>218	CallExpression	result . isSuccess ( )
+>219	ArgumentList	 
+>220	Callee	result . isSuccess
+>221	MemberAccess	result . isSuccess
+>222	Identifier	isSuccess
+>223	Identifier	result
+>224	Callee	EXPECT_FALSE
+>225	Identifier	EXPECT_FALSE
+>226	ExpressionStatement	 
+>227	AssignmentExpr	result = execStep ( InvokeResult 
+>228	CallExpression	execStep ( InvokeResult 
+>229	ArgumentList	InvokeResult 
+>230	Argument	InvokeResult 
+>231	CallExpression	InvokeResult 
+>232	ArgumentList	\"Failed\"
+>233	Argument	\"Failed\"
+>234	PrimaryExpression	\"Failed\"
+>235	Callee	InvokeResult 
+>236	Identifier	InvokeResult 
+>237	Callee	execStep
+>238	Identifier	execStep
+>239	Identifier	result
+>240	ExpressionStatement	 
+>241	CallExpression	EXPECT_TRUE ( result . isSuccess ( ) )
+>242	ArgumentList	result . isSuccess ( )
+>243	Argument	result . isSuccess ( )
+>244	CallExpression	result . isSuccess ( )
+>245	ArgumentList	 
+>246	Callee	result . isSuccess
+>247	MemberAccess	result . isSuccess
+>248	Identifier	isSuccess
+>249	Identifier	result
+>250	Callee	EXPECT_TRUE
+>251	Identifier	EXPECT_TRUE
+>252	ExpressionStatement	 
+>253	AssignmentExpr	result = execStep ( InvokeResult 
+>254	CallExpression	execStep ( InvokeResult 
+>255	ArgumentList	InvokeResult 
+>256	Argument	InvokeResult 
+>257	CallExpression	InvokeResult 
+>258	ArgumentList	 
+>259	Callee	InvokeResult 
+>260	Identifier	InvokeResult 
+>261	Callee	execStep
+>262	Identifier	execStep
+>263	Identifier	result
+>264	IdentifierDeclStatement	 
+>265	IdentifierDecl	result
+>266	Identifier	result
+>267	IdentifierDeclType	InvokeResult
+<4=12,5
+<5=9,6
+<6=8,7
+<9=11,10
+<18=24,23,19
+<19=20
+<20=22,21
+<24=33,27,25
+<25=26
+<27=28
+<28=30,29
+<30=32,31
+<33=34
+<34=36,35
+<44=47,46,45
+<47=48
+<48=49
+<61=69,62
+<62=66,63
+<63=65,64
+<66=68,67
+<75=77,76
+<81=84,83,82
+<84=102,97,85
+<85=95,86
+<86=87
+<87=88
+<88=92,89
+<89=91,90
+<92=94,93
+<95=96
+<97=98
+<98=100,99
+<100=101
+<102=112,103
+<103=104
+<104=105
+<105=109,106
+<106=108,107
+<109=111,110
+<112=113
+<118=121,120,119
+<121=122
+<122=123
+<123=125,124
+<125=126
+<126=128,127
+<138=146,139
+<139=143,140
+<140=142,141
+<143=145,144
+<152=155,154,153
+<165=171,170,166
+<166=167
+<167=169,168
+<171=194,179,172
+<172=173
+<173=175,174
+<175=176
+<176=178,177
+<179=180
+<180=193,192,181
+<181=191,182
+<182=188,183
+<183=185,184
+<185=187,186
+<188=190,189
+<194=195
+<195=202,201,196
+<196=198,197
+<198=200,199
+<210=213,212,211
+<213=264,252,240,226,214
+<214=215
+<215=224,216
+<216=217
+<217=218
+<218=220,219
+<220=221
+<221=223,222
+<224=225
+<226=227
+<227=239,228
+<228=237,229
+<229=230
+<230=231
+<231=235,232
+<232=233
+<233=234
+<235=236
+<237=238
+<240=241
+<241=250,242
+<242=243
+<243=244
+<244=246,245
+<246=247
+<247=249,248
+<250=251
+<252=253
+<253=263,254
+<254=261,255
+<255=256
+<256=257
+<257=259,258
+<259=260
+<261=262
+<264=265
+<265=267,266

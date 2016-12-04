@@ -1,0 +1,1169 @@
+>5	FunctionDef	benchLLT (const MatrixType & m)
+>6	ParameterList	const MatrixType & m
+>7	Parameter	 
+>8	Identifier	m
+>9	ParameterType	const MatrixType &
+>10	ReturnType	void
+>11	CompoundStatement	 
+>12	IfStatement	if ( acc == 123 )
+>13	ExpressionStatement	 
+>14	ShiftExpression	std 
+>15	Identifier	acc
+>16	Identifier	std 
+>17	Condition	 
+>18	EqualityExpression	acc == 123
+>19	PrimaryExpression	123
+>20	Identifier	acc
+>21	ExpressionStatement	 
+>22	ShiftExpression	std 
+>23	PrimaryExpression	\"\n\"
+>24	Identifier	std 
+>25	IfStatement	if ( MatrixType 
+>26	CompoundStatement	 
+>27	ExpressionStatement	 
+>28	CallExpression	gsl_matrix_free ( gslCovMat )
+>29	ArgumentList	gslCovMat
+>30	Argument	gslCovMat
+>31	Identifier	gslCovMat
+>32	Callee	gsl_matrix_free
+>33	Identifier	gsl_matrix_free
+>34	ExpressionStatement	 
+>35	ShiftExpression	std 
+>36	ShiftExpression	\" | \t\" << timerSqrt . value ( ) * REPEAT / repeats << \"s\"
+>37	ShiftExpression	timerSqrt . value ( ) * REPEAT / repeats << \"s\"
+>38	PrimaryExpression	\"s\"
+>39	MultiplicativeExpression	timerSqrt . value ( ) * REPEAT / repeats
+>40	MultiplicativeExpression	REPEAT / repeats
+>41	Identifier	repeats
+>42	Identifier	REPEAT
+>43	CallExpression	timerSqrt . value ( )
+>44	ArgumentList	 
+>45	Callee	timerSqrt . value
+>46	MemberAccess	timerSqrt . value
+>47	Identifier	value
+>48	Identifier	timerSqrt
+>49	PrimaryExpression	\" | \t\"
+>50	Identifier	std 
+>51	ForStatement	for ( int t = 0 ; t < TRIES ; ++ t )
+>52	CompoundStatement	 
+>53	ExpressionStatement	 
+>54	CallExpression	timerSqrt . stop ( )
+>55	ArgumentList	 
+>56	Callee	timerSqrt . stop
+>57	MemberAccess	timerSqrt . stop
+>58	Identifier	stop
+>59	Identifier	timerSqrt
+>60	ForStatement	for ( int k = 0 ; k < repeats ; ++ k )
+>61	CompoundStatement	 
+>62	ExpressionStatement	 
+>63	AssignmentExpr	acc += gsl_matrix_get ( gslCopy , r , c )
+>64	CallExpression	gsl_matrix_get ( gslCopy , r , c )
+>65	ArgumentList	gslCopy
+>66	Argument	c
+>67	Identifier	c
+>68	Argument	r
+>69	Identifier	r
+>70	Argument	gslCopy
+>71	Identifier	gslCopy
+>72	Callee	gsl_matrix_get
+>73	Identifier	gsl_matrix_get
+>74	Identifier	acc
+>75	ExpressionStatement	 
+>76	CallExpression	gsl_linalg_cholesky_decomp ( gslCopy )
+>77	ArgumentList	gslCopy
+>78	Argument	gslCopy
+>79	Identifier	gslCopy
+>80	Callee	gsl_linalg_cholesky_decomp
+>81	Identifier	gsl_linalg_cholesky_decomp
+>82	ExpressionStatement	 
+>83	CallExpression	gsl_matrix_memcpy ( gslCopy , gslCovMat )
+>84	ArgumentList	gslCopy
+>85	Argument	gslCovMat
+>86	Identifier	gslCovMat
+>87	Argument	gslCopy
+>88	Identifier	gslCopy
+>89	Callee	gsl_matrix_memcpy
+>90	Identifier	gsl_matrix_memcpy
+>91	UnaryExpression	 
+>92	Identifier	k
+>93	IncDec	++
+>94	Condition	 
+>95	RelationalExpression	k < repeats
+>96	Identifier	repeats
+>97	Identifier	k
+>98	ForInit	 
+>99	IdentifierDeclStatement	int k = 0 ;
+>100	IdentifierDecl	k = 0
+>101	AssignmentExpr	k = 0
+>102	PrimaryExpression	0
+>103	Identifier	k
+>104	Identifier	k
+>105	IdentifierDeclType	int
+>106	ExpressionStatement	 
+>107	CallExpression	timerSqrt . start ( )
+>108	ArgumentList	 
+>109	Callee	timerSqrt . start
+>110	MemberAccess	timerSqrt . start
+>111	Identifier	start
+>112	Identifier	timerSqrt
+>113	UnaryExpression	 
+>114	Identifier	t
+>115	IncDec	++
+>116	Condition	 
+>117	RelationalExpression	t < TRIES
+>118	Identifier	TRIES
+>119	Identifier	t
+>120	ForInit	 
+>121	IdentifierDeclStatement	int t = 0 ;
+>122	IdentifierDecl	t = 0
+>123	AssignmentExpr	t = 0
+>124	PrimaryExpression	0
+>125	Identifier	t
+>126	Identifier	t
+>127	IdentifierDeclType	int
+>128	ExpressionStatement	 
+>129	CallExpression	eiToGsl ( covMat , & gslCovMat )
+>130	ArgumentList	covMat
+>131	Argument	& gslCovMat
+>132	UnaryOp	& gslCovMat
+>133	Identifier	gslCovMat
+>134	UnaryOperator	&
+>135	Argument	covMat
+>136	Identifier	covMat
+>137	Callee	eiToGsl
+>138	Identifier	eiToGsl
+>139	IdentifierDeclStatement	 
+>140	IdentifierDecl	* gslCopy = gsl_matrix_alloc ( covMat . rows ( ) , covMat . cols ( ) )
+>141	AssignmentExpr	* gslCopy = gsl_matrix_alloc ( covMat . rows ( ) , covMat . cols ( ) )
+>142	CallExpression	gsl_matrix_alloc ( covMat . rows ( ) , covMat . cols ( ) )
+>143	ArgumentList	covMat . rows ( )
+>144	Argument	covMat . cols ( )
+>145	CallExpression	covMat . cols ( )
+>146	ArgumentList	 
+>147	Callee	covMat . cols
+>148	MemberAccess	covMat . cols
+>149	Identifier	cols
+>150	Identifier	covMat
+>151	Argument	covMat . rows ( )
+>152	CallExpression	covMat . rows ( )
+>153	ArgumentList	 
+>154	Callee	covMat . rows
+>155	MemberAccess	covMat . rows
+>156	Identifier	rows
+>157	Identifier	covMat
+>158	Callee	gsl_matrix_alloc
+>159	Identifier	gsl_matrix_alloc
+>160	Identifier	gslCopy
+>161	Identifier	gslCopy
+>162	IdentifierDeclType	gsl_matrix *
+>163	IdentifierDeclStatement	 
+>164	IdentifierDecl	* gslCovMat = gsl_matrix_alloc ( covMat . rows ( ) , covMat . cols ( ) )
+>165	AssignmentExpr	* gslCovMat = gsl_matrix_alloc ( covMat . rows ( ) , covMat . cols ( ) )
+>166	CallExpression	gsl_matrix_alloc ( covMat . rows ( ) , covMat . cols ( ) )
+>167	ArgumentList	covMat . rows ( )
+>168	Argument	covMat . cols ( )
+>169	CallExpression	covMat . cols ( )
+>170	ArgumentList	 
+>171	Callee	covMat . cols
+>172	MemberAccess	covMat . cols
+>173	Identifier	cols
+>174	Identifier	covMat
+>175	Argument	covMat . rows ( )
+>176	CallExpression	covMat . rows ( )
+>177	ArgumentList	 
+>178	Callee	covMat . rows
+>179	MemberAccess	covMat . rows
+>180	Identifier	rows
+>181	Identifier	covMat
+>182	Callee	gsl_matrix_alloc
+>183	Identifier	gsl_matrix_alloc
+>184	Identifier	gslCovMat
+>185	Identifier	gslCovMat
+>186	IdentifierDeclType	gsl_matrix *
+>187	ExpressionStatement	 
+>188	CallExpression	timerSqrt . reset ( )
+>189	ArgumentList	 
+>190	Callee	timerSqrt . reset
+>191	MemberAccess	timerSqrt . reset
+>192	Identifier	reset
+>193	Identifier	timerSqrt
+>194	Condition	 
+>195	EqualityExpression	MatrixType 
+>196	Identifier	Dynamic
+>197	Identifier	MatrixType 
+>198	ExpressionStatement	 
+>199	ShiftExpression	std 
+>200	ShiftExpression	covMat . rows ( ) << \" \t\" << ( timerNoSqrt . value ( ) * REPEAT ) / repeats << \"s \" << \"(\" << 1e-6 * \
+>201	ShiftExpression	\" \t\" << ( timerNoSqrt . value ( ) * REPEAT ) / repeats << \"s \" << \"(\" << 1e-6 * cost * repeats / timerNoSqrt \
+>202	ShiftExpression	( timerNoSqrt . value ( ) * REPEAT ) / repeats << \"s \" << \"(\" << 1e-6 * cost * repeats / timerNoSqrt \
+>203	ShiftExpression	\"s \" << \"(\" << 1e-6 * cost * repeats / timerNoSqrt . value ( ) << \" MFLOPS)\t\" << ( timerSqrt . value ( ) * \
+>204	ShiftExpression	\"(\" << 1e-6 * cost * repeats / timerNoSqrt . value ( ) << \" MFLOPS)\t\" << ( timerSqrt . value ( ) * \
+>205	ShiftExpression	1e-6 * cost * repeats / timerNoSqrt . value ( ) << \" MFLOPS)\t\" << ( timerSqrt . value ( ) * REPEAT ) / \
+>206	ShiftExpression	\" MFLOPS)\t\" << ( timerSqrt . value ( ) * REPEAT ) / repeats << \"s \" << \"(\" << 1e-6 * cost * repeats / \
+>207	ShiftExpression	( timerSqrt . value ( ) * REPEAT ) / repeats << \"s \" << \"(\" << 1e-6 * cost * repeats / timerSqrt . value ( ) << \" \
+>208	ShiftExpression	\"s \" << \"(\" << 1e-6 * cost * repeats / timerSqrt . value ( ) << \" MFLOPS)\n\"
+>209	ShiftExpression	\"(\" << 1e-6 * cost * repeats / timerSqrt . value ( ) << \" MFLOPS)\n\"
+>210	ShiftExpression	1e-6 * cost * repeats / timerSqrt . value ( ) << \" MFLOPS)\n\"
+>211	PrimaryExpression	\" MFLOPS)\n\"
+>212	MultiplicativeExpression	1e-6 * cost * repeats / timerSqrt . value ( )
+>213	MultiplicativeExpression	cost * repeats / timerSqrt . value ( )
+>214	MultiplicativeExpression	repeats / timerSqrt . value ( )
+>215	CallExpression	timerSqrt . value ( )
+>216	ArgumentList	 
+>217	Callee	timerSqrt . value
+>218	MemberAccess	timerSqrt . value
+>219	Identifier	value
+>220	Identifier	timerSqrt
+>221	Identifier	repeats
+>222	Identifier	cost
+>223	PrimaryExpression	1e-6
+>224	PrimaryExpression	\"(\"
+>225	PrimaryExpression	\"s \"
+>226	MultiplicativeExpression	( timerSqrt . value ( ) * REPEAT ) / repeats
+>227	Identifier	repeats
+>228	MultiplicativeExpression	timerSqrt . value ( ) * REPEAT
+>229	Identifier	REPEAT
+>230	CallExpression	timerSqrt . value ( )
+>231	ArgumentList	 
+>232	Callee	timerSqrt . value
+>233	MemberAccess	timerSqrt . value
+>234	Identifier	value
+>235	Identifier	timerSqrt
+>236	PrimaryExpression	\" MFLOPS)\t\"
+>237	MultiplicativeExpression	1e-6 * cost * repeats / timerNoSqrt . value ( )
+>238	MultiplicativeExpression	cost * repeats / timerNoSqrt . value ( )
+>239	MultiplicativeExpression	repeats / timerNoSqrt . value ( )
+>240	CallExpression	timerNoSqrt . value ( )
+>241	ArgumentList	 
+>242	Callee	timerNoSqrt . value
+>243	MemberAccess	timerNoSqrt . value
+>244	Identifier	value
+>245	Identifier	timerNoSqrt
+>246	Identifier	repeats
+>247	Identifier	cost
+>248	PrimaryExpression	1e-6
+>249	PrimaryExpression	\"(\"
+>250	PrimaryExpression	\"s \"
+>251	MultiplicativeExpression	( timerNoSqrt . value ( ) * REPEAT ) / repeats
+>252	Identifier	repeats
+>253	MultiplicativeExpression	timerNoSqrt . value ( ) * REPEAT
+>254	Identifier	REPEAT
+>255	CallExpression	timerNoSqrt . value ( )
+>256	ArgumentList	 
+>257	Callee	timerNoSqrt . value
+>258	MemberAccess	timerNoSqrt . value
+>259	Identifier	value
+>260	Identifier	timerNoSqrt
+>261	PrimaryExpression	\" \t\"
+>262	CallExpression	covMat . rows ( )
+>263	ArgumentList	 
+>264	Callee	covMat . rows
+>265	MemberAccess	covMat . rows
+>266	Identifier	rows
+>267	Identifier	covMat
+>268	Identifier	std 
+>269	IfStatement	if ( MatrixType 
+>270	ElseStatement	else
+>271	ExpressionStatement	 
+>272	ShiftExpression	std 
+>273	PrimaryExpression	\"fixed \"
+>274	Identifier	std 
+>275	ExpressionStatement	 
+>276	ShiftExpression	std 
+>277	PrimaryExpression	\"dyn   \"
+>278	Identifier	std 
+>279	Condition	 
+>280	EqualityExpression	MatrixType 
+>281	Identifier	Dynamic
+>282	Identifier	MatrixType 
+>283	ForStatement	for ( int t = 0 ; t < TRIES ; ++ t )
+>284	CompoundStatement	 
+>285	ExpressionStatement	 
+>286	CallExpression	timerSqrt . stop ( )
+>287	ArgumentList	 
+>288	Callee	timerSqrt . stop
+>289	MemberAccess	timerSqrt . stop
+>290	Identifier	stop
+>291	Identifier	timerSqrt
+>292	ForStatement	for ( int k = 0 ; k < repeats ; ++ k )
+>293	CompoundStatement	 
+>294	ExpressionStatement	 
+>295	AssignmentExpr	acc += chol . matrixL ( ) . coeff ( r , c )
+>296	CallExpression	chol . matrixL ( ) . coeff ( r , c )
+>297	ArgumentList	r
+>298	Argument	c
+>299	Identifier	c
+>300	Argument	r
+>301	Identifier	r
+>302	Callee	chol . matrixL ( ) . coeff
+>303	MemberAccess	chol . matrixL ( ) . coeff
+>304	Identifier	coeff
+>305	CallExpression	chol . matrixL ( )
+>306	ArgumentList	 
+>307	Callee	chol . matrixL
+>308	MemberAccess	chol . matrixL
+>309	Identifier	matrixL
+>310	Identifier	chol
+>311	Identifier	acc
+>312	IdentifierDeclStatement	 
+>313	IdentifierDecl	chol ( covMat )
+>314	Identifier	covMat
+>315	Identifier	chol
+>316	IdentifierDeclType	LLT < SquareMatrixType >
+>317	UnaryExpression	 
+>318	Identifier	k
+>319	IncDec	++
+>320	Condition	 
+>321	RelationalExpression	k < repeats
+>322	Identifier	repeats
+>323	Identifier	k
+>324	ForInit	 
+>325	IdentifierDeclStatement	int k = 0 ;
+>326	IdentifierDecl	k = 0
+>327	AssignmentExpr	k = 0
+>328	PrimaryExpression	0
+>329	Identifier	k
+>330	Identifier	k
+>331	IdentifierDeclType	int
+>332	ExpressionStatement	 
+>333	CallExpression	timerSqrt . start ( )
+>334	ArgumentList	 
+>335	Callee	timerSqrt . start
+>336	MemberAccess	timerSqrt . start
+>337	Identifier	start
+>338	Identifier	timerSqrt
+>339	UnaryExpression	 
+>340	Identifier	t
+>341	IncDec	++
+>342	Condition	 
+>343	RelationalExpression	t < TRIES
+>344	Identifier	TRIES
+>345	Identifier	t
+>346	ForInit	 
+>347	IdentifierDeclStatement	int t = 0 ;
+>348	IdentifierDecl	t = 0
+>349	AssignmentExpr	t = 0
+>350	PrimaryExpression	0
+>351	Identifier	t
+>352	Identifier	t
+>353	IdentifierDeclType	int
+>354	ForStatement	for ( int t = 0 ; t < TRIES ; ++ t )
+>355	CompoundStatement	 
+>356	ExpressionStatement	 
+>357	CallExpression	timerNoSqrt . stop ( )
+>358	ArgumentList	 
+>359	Callee	timerNoSqrt . stop
+>360	MemberAccess	timerNoSqrt . stop
+>361	Identifier	stop
+>362	Identifier	timerNoSqrt
+>363	ForStatement	for ( int k = 0 ; k < repeats ; ++ k )
+>364	CompoundStatement	 
+>365	ExpressionStatement	 
+>366	AssignmentExpr	acc += cholnosqrt . matrixL ( ) . coeff ( r , c )
+>367	CallExpression	cholnosqrt . matrixL ( ) . coeff ( r , c )
+>368	ArgumentList	r
+>369	Argument	c
+>370	Identifier	c
+>371	Argument	r
+>372	Identifier	r
+>373	Callee	cholnosqrt . matrixL ( ) . coeff
+>374	MemberAccess	cholnosqrt . matrixL ( ) . coeff
+>375	Identifier	coeff
+>376	CallExpression	cholnosqrt . matrixL ( )
+>377	ArgumentList	 
+>378	Callee	cholnosqrt . matrixL
+>379	MemberAccess	cholnosqrt . matrixL
+>380	Identifier	matrixL
+>381	Identifier	cholnosqrt
+>382	Identifier	acc
+>383	IdentifierDeclStatement	 
+>384	IdentifierDecl	cholnosqrt ( covMat )
+>385	Identifier	covMat
+>386	Identifier	cholnosqrt
+>387	IdentifierDeclType	LDLT < SquareMatrixType >
+>388	UnaryExpression	 
+>389	Identifier	k
+>390	IncDec	++
+>391	Condition	 
+>392	RelationalExpression	k < repeats
+>393	Identifier	repeats
+>394	Identifier	k
+>395	ForInit	 
+>396	IdentifierDeclStatement	int k = 0 ;
+>397	IdentifierDecl	k = 0
+>398	AssignmentExpr	k = 0
+>399	PrimaryExpression	0
+>400	Identifier	k
+>401	Identifier	k
+>402	IdentifierDeclType	int
+>403	ExpressionStatement	 
+>404	CallExpression	timerNoSqrt . start ( )
+>405	ArgumentList	 
+>406	Callee	timerNoSqrt . start
+>407	MemberAccess	timerNoSqrt . start
+>408	Identifier	start
+>409	Identifier	timerNoSqrt
+>410	UnaryExpression	 
+>411	Identifier	t
+>412	IncDec	++
+>413	Condition	 
+>414	RelationalExpression	t < TRIES
+>415	Identifier	TRIES
+>416	Identifier	t
+>417	ForInit	 
+>418	IdentifierDeclStatement	int t = 0 ;
+>419	IdentifierDecl	t = 0
+>420	AssignmentExpr	t = 0
+>421	PrimaryExpression	0
+>422	Identifier	t
+>423	Identifier	t
+>424	IdentifierDeclType	int
+>425	IdentifierDeclStatement	 
+>426	IdentifierDecl	c = internal 
+>427	AssignmentExpr	c = internal 
+>428	RelationalExpression	internal 
+>429	RelationalExpression	int > ( 0 , covMat . cols ( ) - 1 )
+>430	Expression	0 , covMat . cols ( ) - 1
+>431	AdditiveExpression	covMat . cols ( ) - 1
+>432	PrimaryExpression	1
+>433	CallExpression	covMat . cols ( )
+>434	ArgumentList	 
+>435	Callee	covMat . cols
+>436	MemberAccess	covMat . cols
+>437	Identifier	cols
+>438	Identifier	covMat
+>439	PrimaryExpression	0
+>440	Identifier	int
+>441	Identifier	internal 
+>442	Identifier	c
+>443	Identifier	c
+>444	IdentifierDeclType	int
+>445	IdentifierDeclStatement	 
+>446	IdentifierDecl	r = internal 
+>447	AssignmentExpr	r = internal 
+>448	RelationalExpression	internal 
+>449	RelationalExpression	int > ( 0 , covMat . rows ( ) - 1 )
+>450	Expression	0 , covMat . rows ( ) - 1
+>451	AdditiveExpression	covMat . rows ( ) - 1
+>452	PrimaryExpression	1
+>453	CallExpression	covMat . rows ( )
+>454	ArgumentList	 
+>455	Callee	covMat . rows
+>456	MemberAccess	covMat . rows
+>457	Identifier	rows
+>458	Identifier	covMat
+>459	PrimaryExpression	0
+>460	Identifier	int
+>461	Identifier	internal 
+>462	Identifier	r
+>463	Identifier	r
+>464	IdentifierDeclType	int
+>465	IdentifierDeclStatement	 
+>466	IdentifierDecl	acc = 0
+>467	AssignmentExpr	acc = 0
+>468	PrimaryExpression	0
+>469	Identifier	acc
+>470	Identifier	acc
+>471	IdentifierDeclType	Scalar
+>472	IdentifierDeclStatement	 
+>473	IdentifierDecl	timerSqrt
+>474	Identifier	timerSqrt
+>475	IdentifierDeclType	BenchTimer
+>476	IdentifierDecl	timerNoSqrt
+>477	Identifier	timerNoSqrt
+>478	IdentifierDeclType	BenchTimer
+>479	IdentifierDeclStatement	 
+>480	IdentifierDecl	covMat = a * a . adjoint ( )
+>481	AssignmentExpr	covMat = a * a . adjoint ( )
+>482	MultiplicativeExpression	a * a . adjoint ( )
+>483	CallExpression	a . adjoint ( )
+>484	ArgumentList	 
+>485	Callee	a . adjoint
+>486	MemberAccess	a . adjoint
+>487	Identifier	adjoint
+>488	Identifier	a
+>489	Identifier	a
+>490	Identifier	covMat
+>491	Identifier	covMat
+>492	IdentifierDeclType	SquareMatrixType
+>493	IdentifierDeclStatement	 
+>494	IdentifierDecl	a = MatrixType 
+>495	AssignmentExpr	a = MatrixType 
+>496	CallExpression	MatrixType 
+>497	ArgumentList	rows
+>498	Argument	cols
+>499	Identifier	cols
+>500	Argument	rows
+>501	Identifier	rows
+>502	Callee	MatrixType 
+>503	Identifier	MatrixType 
+>504	Identifier	a
+>505	Identifier	a
+>506	IdentifierDeclType	MatrixType
+>507	IdentifierDeclStatement	 
+>508	IdentifierDecl	SquareMatrixType
+>509	Identifier	SquareMatrixType
+>510	IdentifierDeclType	Matrix < Scalar , MatrixType 
+>511	IdentifierDeclStatement	 
+>512	IdentifierDecl	Scalar
+>513	Identifier	Scalar
+>514	IdentifierDeclType	typename MatrixType 
+>515	IdentifierDeclStatement	 
+>516	IdentifierDecl	repeats = ( REPEAT * 1000 ) / ( rows * rows )
+>517	AssignmentExpr	repeats = ( REPEAT * 1000 ) / ( rows * rows )
+>518	MultiplicativeExpression	( REPEAT * 1000 ) / ( rows * rows )
+>519	MultiplicativeExpression	rows * rows
+>520	Identifier	rows
+>521	Identifier	rows
+>522	MultiplicativeExpression	REPEAT * 1000
+>523	PrimaryExpression	1000
+>524	Identifier	REPEAT
+>525	Identifier	repeats
+>526	Identifier	repeats
+>527	IdentifierDeclType	int
+>528	ForStatement	for ( int j = 0 ; j < rows ; ++ j )
+>529	CompoundStatement	 
+>530	ExpressionStatement	 
+>531	AssignmentExpr	cost += 2 * ( r * j + r + j )
+>532	MultiplicativeExpression	2 * ( r * j + r + j )
+>533	AdditiveExpression	r * j + r + j
+>534	AdditiveExpression	r + j
+>535	Identifier	j
+>536	Identifier	r
+>537	MultiplicativeExpression	r * j
+>538	Identifier	j
+>539	Identifier	r
+>540	PrimaryExpression	2
+>541	Identifier	cost
+>542	IdentifierDeclStatement	 
+>543	IdentifierDecl	r = std 
+>544	AssignmentExpr	r = std 
+>545	CallExpression	std 
+>546	ArgumentList	rows - j - 1
+>547	Argument	0
+>548	PrimaryExpression	0
+>549	Argument	rows - j - 1
+>550	AdditiveExpression	rows - j - 1
+>551	AdditiveExpression	j - 1
+>552	PrimaryExpression	1
+>553	Identifier	j
+>554	Identifier	rows
+>555	Callee	std 
+>556	Identifier	std 
+>557	Identifier	r
+>558	Identifier	r
+>559	IdentifierDeclType	int
+>560	UnaryExpression	 
+>561	Identifier	j
+>562	IncDec	++
+>563	Condition	 
+>564	RelationalExpression	j < rows
+>565	Identifier	rows
+>566	Identifier	j
+>567	ForInit	 
+>568	IdentifierDeclStatement	int j = 0 ;
+>569	IdentifierDecl	j = 0
+>570	AssignmentExpr	j = 0
+>571	PrimaryExpression	0
+>572	Identifier	j
+>573	Identifier	j
+>574	IdentifierDeclType	int
+>575	IdentifierDeclStatement	 
+>576	IdentifierDecl	cost = 0
+>577	AssignmentExpr	cost = 0
+>578	PrimaryExpression	0
+>579	Identifier	cost
+>580	Identifier	cost
+>581	IdentifierDeclType	int
+>582	IdentifierDeclStatement	 
+>583	IdentifierDecl	cols = m . cols ( )
+>584	AssignmentExpr	cols = m . cols ( )
+>585	CallExpression	m . cols ( )
+>586	ArgumentList	 
+>587	Callee	m . cols
+>588	MemberAccess	m . cols
+>589	Identifier	cols
+>590	Identifier	m
+>591	Identifier	cols
+>592	Identifier	cols
+>593	IdentifierDeclType	int
+>594	IdentifierDeclStatement	 
+>595	IdentifierDecl	rows = m . rows ( )
+>596	AssignmentExpr	rows = m . rows ( )
+>597	CallExpression	m . rows ( )
+>598	ArgumentList	 
+>599	Callee	m . rows
+>600	MemberAccess	m . rows
+>601	Identifier	rows
+>602	Identifier	m
+>603	Identifier	rows
+>604	Identifier	rows
+>605	IdentifierDeclType	int
+>650	FunctionDef	main (int argc , char * argv [ ])
+>651	ParameterList	int argc , char * argv [ ]
+>652	Parameter	 
+>653	Identifier	argv
+>654	ParameterType	char * [ ]
+>655	Parameter	 
+>656	Identifier	argc
+>657	ParameterType	int
+>658	ReturnType	int
+>659	CompoundStatement	 
+>660	ReturnStatement	 
+>661	PrimaryExpression	0
+>662	ExpressionStatement	 
+>663	Statement	 
+>664	Statement	 
+>665	Statement	 
+>666	Statement	 
+>667	Statement	 
+>668	Statement	 
+>669	Statement	 
+>670	Statement	 
+>671	Statement	 
+>672	Statement	 
+>673	Statement	 
+>674	Statement	 
+>675	Statement	 
+>676	ExpressionStatement	 
+>677	Statement	 
+>678	Statement	 
+>679	Statement	 
+>680	Statement	 
+>681	Statement	 
+>682	Statement	 
+>683	Statement	 
+>684	Statement	 
+>685	Statement	 
+>686	Statement	 
+>687	Statement	 
+>688	Statement	 
+>689	Statement	 
+>690	ExpressionStatement	 
+>691	Statement	 
+>692	Statement	 
+>693	Statement	 
+>694	Statement	 
+>695	Statement	 
+>696	Statement	 
+>697	Statement	 
+>698	Statement	 
+>699	Statement	 
+>700	Statement	 
+>701	Statement	 
+>702	Statement	 
+>703	Statement	 
+>704	ExpressionStatement	 
+>705	Statement	 
+>706	Statement	 
+>707	Statement	 
+>708	Statement	 
+>709	Statement	 
+>710	Statement	 
+>711	Statement	 
+>712	Statement	 
+>713	Statement	 
+>714	Statement	 
+>715	Statement	 
+>716	Statement	 
+>717	Statement	 
+>718	ExpressionStatement	 
+>719	Statement	 
+>720	Statement	 
+>721	Statement	 
+>722	Statement	 
+>723	Statement	 
+>724	Statement	 
+>725	Statement	 
+>726	Statement	 
+>727	Statement	 
+>728	Statement	 
+>729	Statement	 
+>730	Statement	 
+>731	Statement	 
+>732	ExpressionStatement	 
+>733	Statement	 
+>734	Statement	 
+>735	Statement	 
+>736	Statement	 
+>737	Statement	 
+>738	Statement	 
+>739	Statement	 
+>740	Statement	 
+>741	Statement	 
+>742	Statement	 
+>743	Statement	 
+>744	Statement	 
+>745	Statement	 
+>746	ExpressionStatement	 
+>747	Statement	 
+>748	Statement	 
+>749	Statement	 
+>750	Statement	 
+>751	Statement	 
+>752	Statement	 
+>753	Statement	 
+>754	Statement	 
+>755	Statement	 
+>756	Statement	 
+>757	Statement	 
+>758	Statement	 
+>759	Statement	 
+>760	ExpressionStatement	 
+>761	Statement	 
+>762	Statement	 
+>763	Statement	 
+>764	Statement	 
+>765	Statement	 
+>766	Statement	 
+>767	Statement	 
+>768	Statement	 
+>769	Statement	 
+>770	Statement	 
+>771	Statement	 
+>772	Statement	 
+>773	Statement	 
+>774	ExpressionStatement	 
+>775	Statement	 
+>776	Statement	 
+>777	Statement	 
+>778	Statement	 
+>779	Statement	 
+>780	Statement	 
+>781	Statement	 
+>782	Statement	 
+>783	Statement	 
+>784	Statement	 
+>785	Statement	 
+>786	Statement	 
+>787	Statement	 
+>788	ForStatement	for ( uint i = 0 ; dynsizes [ i ] > 0 ; ++ i )
+>789	ExpressionStatement	 
+>790	CallExpression	benchLLT ( Matrix < Scalar , Dynamic , Dynamic > ( dynsizes [ i ] , dynsizes [ i ] ) )
+>791	ArgumentList	Matrix < Scalar
+>792	Argument	Dynamic > ( dynsizes [ i ] , dynsizes [ i ] )
+>793	RelationalExpression	Dynamic > ( dynsizes [ i ] , dynsizes [ i ] )
+>794	Expression	dynsizes [ i ] , dynsizes [ i ]
+>795	ArrayIndexing	dynsizes [ i ]
+>796	Identifier	i
+>797	Identifier	dynsizes
+>798	ArrayIndexing	dynsizes [ i ]
+>799	Identifier	i
+>800	Identifier	dynsizes
+>801	Identifier	Dynamic
+>802	Argument	Dynamic
+>803	Identifier	Dynamic
+>804	Argument	Matrix < Scalar
+>805	RelationalExpression	Matrix < Scalar
+>806	Identifier	Scalar
+>807	Identifier	Matrix
+>808	Callee	benchLLT
+>809	Identifier	benchLLT
+>810	UnaryExpression	 
+>811	Identifier	i
+>812	IncDec	++
+>813	Condition	 
+>814	RelationalExpression	dynsizes [ i ] > 0
+>815	PrimaryExpression	0
+>816	ArrayIndexing	dynsizes [ i ]
+>817	Identifier	i
+>818	Identifier	dynsizes
+>819	ForInit	 
+>820	IdentifierDeclStatement	uint i = 0 ;
+>821	IdentifierDecl	i = 0
+>822	AssignmentExpr	i = 0
+>823	PrimaryExpression	0
+>824	Identifier	i
+>825	Identifier	i
+>826	IdentifierDeclType	uint
+>827	ExpressionStatement	 
+>828	ShiftExpression	std 
+>829	PrimaryExpression	\"\n\"
+>830	Identifier	std 
+>831	ExpressionStatement	 
+>832	ShiftExpression	std 
+>833	PrimaryExpression	\"size            no sqrt                           standard\"
+>834	Identifier	std 
+>835	IdentifierDeclStatement	 
+>836	IdentifierDecl	dynsizes [ ] = { 4 , 6 , 8 , 16 , 24 , 32 , 49 , 64 , 128 , 256 , 512 , 900 , 0 }
+>837	AssignmentExpr	dynsizes [ ] = { 4 , 6 , 8 , 16 , 24 , 32 , 49 , 64 , 128 , 256 , 512 , 900 , 0 }
+>838	InitializerList	4
+>839	PrimaryExpression	0
+>840	PrimaryExpression	900
+>841	PrimaryExpression	512
+>842	PrimaryExpression	256
+>843	PrimaryExpression	128
+>844	PrimaryExpression	64
+>845	PrimaryExpression	49
+>846	PrimaryExpression	32
+>847	PrimaryExpression	24
+>848	PrimaryExpression	16
+>849	PrimaryExpression	8
+>850	PrimaryExpression	6
+>851	PrimaryExpression	4
+>852	Identifier	dynsizes
+>853	Identifier	dynsizes
+>854	IdentifierDeclType	const int [ ]
+<5=11,10,6
+<6=7
+<7=9,8
+<11=594,582,575,528,515,511,507,493,479,472,465,445,425,354,283,269,198,25,21,12
+<12=17,13
+<13=14
+<14=16,15
+<17=18
+<18=20,19
+<21=22
+<22=24,23
+<25=194,26
+<26=187,163,139,128,51,34,27
+<27=28
+<28=32,29
+<29=30
+<30=31
+<32=33
+<34=35
+<35=50,36
+<36=49,37
+<37=39,38
+<39=43,40
+<40=42,41
+<43=45,44
+<45=46
+<46=48,47
+<51=120,116,113,52
+<52=106,60,53
+<53=54
+<54=56,55
+<56=57
+<57=59,58
+<60=98,94,91,61
+<61=82,75,62
+<62=63
+<63=74,64
+<64=72,65
+<65=70,68,66
+<66=67
+<68=69
+<70=71
+<72=73
+<75=76
+<76=80,77
+<77=78
+<78=79
+<80=81
+<82=83
+<83=89,84
+<84=87,85
+<85=86
+<87=88
+<89=90
+<91=93,92
+<94=95
+<95=97,96
+<98=99
+<99=100
+<100=105,104,101
+<101=103,102
+<106=107
+<107=109,108
+<109=110
+<110=112,111
+<113=115,114
+<116=117
+<117=119,118
+<120=121
+<121=122
+<122=127,126,123
+<123=125,124
+<128=129
+<129=137,130
+<130=135,131
+<131=132
+<132=134,133
+<135=136
+<137=138
+<139=140
+<140=162,161,141
+<141=160,142
+<142=158,143
+<143=151,144
+<144=145
+<145=147,146
+<147=148
+<148=150,149
+<151=152
+<152=154,153
+<154=155
+<155=157,156
+<158=159
+<163=164
+<164=186,185,165
+<165=184,166
+<166=182,167
+<167=175,168
+<168=169
+<169=171,170
+<171=172
+<172=174,173
+<175=176
+<176=178,177
+<178=179
+<179=181,180
+<182=183
+<187=188
+<188=190,189
+<190=191
+<191=193,192
+<194=195
+<195=197,196
+<198=199
+<199=268,200
+<200=262,201
+<201=261,202
+<202=251,203
+<203=250,204
+<204=249,205
+<205=237,206
+<206=236,207
+<207=226,208
+<208=225,209
+<209=224,210
+<210=212,211
+<212=223,213
+<213=222,214
+<214=221,215
+<215=217,216
+<217=218
+<218=220,219
+<226=228,227
+<228=230,229
+<230=232,231
+<232=233
+<233=235,234
+<237=248,238
+<238=247,239
+<239=246,240
+<240=242,241
+<242=243
+<243=245,244
+<251=253,252
+<253=255,254
+<255=257,256
+<257=258
+<258=260,259
+<262=264,263
+<264=265
+<265=267,266
+<269=279,275,270
+<270=271
+<271=272
+<272=274,273
+<275=276
+<276=278,277
+<279=280
+<280=282,281
+<283=346,342,339,284
+<284=332,292,285
+<285=286
+<286=288,287
+<288=289
+<289=291,290
+<292=324,320,317,293
+<293=312,294
+<294=295
+<295=311,296
+<296=302,297
+<297=300,298
+<298=299
+<300=301
+<302=303
+<303=305,304
+<305=307,306
+<307=308
+<308=310,309
+<312=313
+<313=316,315,314
+<317=319,318
+<320=321
+<321=323,322
+<324=325
+<325=326
+<326=331,330,327
+<327=329,328
+<332=333
+<333=335,334
+<335=336
+<336=338,337
+<339=341,340
+<342=343
+<343=345,344
+<346=347
+<347=348
+<348=353,352,349
+<349=351,350
+<354=417,413,410,355
+<355=403,363,356
+<356=357
+<357=359,358
+<359=360
+<360=362,361
+<363=395,391,388,364
+<364=383,365
+<365=366
+<366=382,367
+<367=373,368
+<368=371,369
+<369=370
+<371=372
+<373=374
+<374=376,375
+<376=378,377
+<378=379
+<379=381,380
+<383=384
+<384=387,386,385
+<388=390,389
+<391=392
+<392=394,393
+<395=396
+<396=397
+<397=402,401,398
+<398=400,399
+<403=404
+<404=406,405
+<406=407
+<407=409,408
+<410=412,411
+<413=414
+<414=416,415
+<417=418
+<418=419
+<419=424,423,420
+<420=422,421
+<425=426
+<426=444,443,427
+<427=442,428
+<428=441,429
+<429=440,430
+<430=439,431
+<431=433,432
+<433=435,434
+<435=436
+<436=438,437
+<445=446
+<446=464,463,447
+<447=462,448
+<448=461,449
+<449=460,450
+<450=459,451
+<451=453,452
+<453=455,454
+<455=456
+<456=458,457
+<465=466
+<466=471,470,467
+<467=469,468
+<472=476,473
+<473=475,474
+<476=478,477
+<479=480
+<480=492,491,481
+<481=490,482
+<482=489,483
+<483=485,484
+<485=486
+<486=488,487
+<493=494
+<494=506,505,495
+<495=504,496
+<496=502,497
+<497=500,498
+<498=499
+<500=501
+<502=503
+<507=508
+<508=510,509
+<511=512
+<512=514,513
+<515=516
+<516=527,526,517
+<517=525,518
+<518=522,519
+<519=521,520
+<522=524,523
+<528=567,563,560,529
+<529=542,530
+<530=531
+<531=541,532
+<532=540,533
+<533=537,534
+<534=536,535
+<537=539,538
+<542=543
+<543=559,558,544
+<544=557,545
+<545=555,546
+<546=549,547
+<547=548
+<549=550
+<550=554,551
+<551=553,552
+<555=556
+<560=562,561
+<563=564
+<564=566,565
+<567=568
+<568=569
+<569=574,573,570
+<570=572,571
+<575=576
+<576=581,580,577
+<577=579,578
+<582=583
+<583=593,592,584
+<584=591,585
+<585=587,586
+<587=588
+<588=590,589
+<594=595
+<595=605,604,596
+<596=603,597
+<597=599,598
+<599=600
+<600=602,601
+<650=659,658,651
+<651=655,652
+<652=654,653
+<655=657,656
+<659=835,831,827,788,787,786,785,784,783,782,781,780,779,778,777,776,775,774,773,772,771,770,769,768,767,766,765,764,763,762,761,760,759,758,757,756,755,754,753,752,751,750,749,748,747,746,745,744,743,742,741,740,739,738,737,736,735,734,733,732,731,730,729,728,727,726,725,724,723,722,721,720,719,718,717,716,715,714,713,712,711,660,662,663,664,665,666,667,668,669,670,671,672,673,674,675,676,677,678,679,680,681,682,683,684,685,686,687,688,689,690,691,692,693,694,695,696,697,698,699,700,701,702,703,704,705,706,707,708,709,710
+<660=661
+<788=819,813,810,789
+<789=790
+<790=808,791
+<791=804,802,792
+<792=793
+<793=801,794
+<794=798,795
+<795=797,796
+<798=800,799
+<802=803
+<804=805
+<805=807,806
+<808=809
+<810=812,811
+<813=814
+<814=816,815
+<816=818,817
+<819=820
+<820=821
+<821=826,825,822
+<822=824,823
+<827=828
+<828=830,829
+<831=832
+<832=834,833
+<835=836
+<836=854,853,837
+<837=852,838
+<838=851,850,849,848,847,846,845,844,843,842,841,840,839

@@ -1,0 +1,436 @@
+>3	FunctionDef	Torpedo 
+>4	ParameterList	vec2 start_pos , vec2 vector , float velocity
+>5	Parameter	 
+>6	Identifier	velocity
+>7	ParameterType	float
+>8	Parameter	 
+>9	Identifier	vector
+>10	ParameterType	vec2
+>11	Parameter	 
+>12	Identifier	start_pos
+>13	ParameterType	vec2
+>14	CompoundStatement	 
+>15	ExpressionStatement	 
+>16	AssignmentExpr	m_model = & g_resources . mesh_torpedo
+>17	UnaryOp	& g_resources . mesh_torpedo
+>18	MemberAccess	g_resources . mesh_torpedo
+>19	Identifier	mesh_torpedo
+>20	Identifier	g_resources
+>21	UnaryOperator	&
+>22	Identifier	m_model
+>23	ExpressionStatement	 
+>24	AssignmentExpr	m_angle = acos ( dot ( m_vector , normalized ( vec2 ( - 1 , 0.0 ) ) ) )
+>25	CallExpression	acos ( dot ( m_vector , normalized ( vec2 ( - 1 , 0.0 ) ) ) )
+>26	ArgumentList	dot ( m_vector , normalized ( vec2 ( - 1 , 0.0 ) ) )
+>27	Argument	dot ( m_vector , normalized ( vec2 ( - 1 , 0.0 ) ) )
+>28	CallExpression	dot ( m_vector , normalized ( vec2 ( - 1 , 0.0 ) ) )
+>29	ArgumentList	m_vector
+>30	Argument	normalized ( vec2 ( - 1 , 0.0 ) )
+>31	CallExpression	normalized ( vec2 ( - 1 , 0.0 ) )
+>32	ArgumentList	vec2 ( - 1 , 0.0 )
+>33	Argument	vec2 ( - 1 , 0.0 )
+>34	CallExpression	vec2 ( - 1 , 0.0 )
+>35	ArgumentList	- 1
+>36	Argument	0.0
+>37	PrimaryExpression	0.0
+>38	Argument	- 1
+>39	UnaryOp	- 1
+>40	PrimaryExpression	1
+>41	UnaryOperator	-
+>42	Callee	vec2
+>43	Identifier	vec2
+>44	Callee	normalized
+>45	Identifier	normalized
+>46	Argument	m_vector
+>47	Identifier	m_vector
+>48	Callee	dot
+>49	Identifier	dot
+>50	Callee	acos
+>51	Identifier	acos
+>52	Identifier	m_angle
+>69	FunctionDef	Torpedo 
+>70	ParameterList	float t
+>71	Parameter	 
+>72	Identifier	t
+>73	ParameterType	float
+>74	ReturnType	void
+>75	CompoundStatement	 
+>76	IfStatement	if ( m_alive )
+>77	ExpressionStatement	 
+>78	AssignmentExpr	m_pos = m_start_pos + m_vector * ( tdiff * m_velocity )
+>79	AdditiveExpression	m_start_pos + m_vector * ( tdiff * m_velocity )
+>80	MultiplicativeExpression	m_vector * ( tdiff * m_velocity )
+>81	MultiplicativeExpression	tdiff * m_velocity
+>82	Identifier	m_velocity
+>83	Identifier	tdiff
+>84	Identifier	m_vector
+>85	Identifier	m_start_pos
+>86	Identifier	m_pos
+>87	Condition	 
+>88	Identifier	m_alive
+>89	IdentifierDeclStatement	 
+>90	IdentifierDecl	tdiff = t - m_start_time
+>91	AssignmentExpr	tdiff = t - m_start_time
+>92	AdditiveExpression	t - m_start_time
+>93	Identifier	m_start_time
+>94	Identifier	t
+>95	Identifier	tdiff
+>96	Identifier	tdiff
+>97	IdentifierDeclType	float
+>109	FunctionDef	Torpedo 
+>110	ParameterList	 
+>111	ReturnType	void
+>112	CompoundStatement	 
+>113	ExpressionStatement	 
+>114	CallExpression	glPopMatrix ( )
+>115	ArgumentList	 
+>116	Callee	glPopMatrix
+>117	Identifier	glPopMatrix
+>118	ExpressionStatement	 
+>119	CallExpression	glDisable ( GL_BLEND )
+>120	ArgumentList	GL_BLEND
+>121	Argument	GL_BLEND
+>122	Identifier	GL_BLEND
+>123	Callee	glDisable
+>124	Identifier	glDisable
+>125	IfStatement	if ( m_alive )
+>126	ExpressionStatement	 
+>127	CallExpression	( * m_model ) -> draw ( )
+>128	ArgumentList	 
+>129	Callee	( * m_model ) -> draw
+>130	PtrMemberAccess	( * m_model ) -> draw
+>131	Identifier	draw
+>132	UnaryOp	* m_model
+>133	Identifier	m_model
+>134	UnaryOperator	*
+>135	Condition	 
+>136	Identifier	m_alive
+>137	ExpressionStatement	 
+>138	AssignmentExpr	m_obb = OBB ( ( * m_model ) -> m_aabb )
+>139	CallExpression	OBB ( ( * m_model ) -> m_aabb )
+>140	ArgumentList	( * m_model ) -> m_aabb
+>141	Argument	( * m_model ) -> m_aabb
+>142	PtrMemberAccess	( * m_model ) -> m_aabb
+>143	Identifier	m_aabb
+>144	UnaryOp	* m_model
+>145	Identifier	m_model
+>146	UnaryOperator	*
+>147	Callee	OBB
+>148	Identifier	OBB
+>149	Identifier	m_obb
+>150	ExpressionStatement	 
+>151	CallExpression	glRotatef ( m_angle * 180.0 / M_PI , 0 , 0 , 1 )
+>152	ArgumentList	m_angle * 180.0 / M_PI
+>153	Argument	1
+>154	PrimaryExpression	1
+>155	Argument	0
+>156	PrimaryExpression	0
+>157	Argument	0
+>158	PrimaryExpression	0
+>159	Argument	m_angle * 180.0 / M_PI
+>160	MultiplicativeExpression	m_angle * 180.0 / M_PI
+>161	MultiplicativeExpression	180.0 / M_PI
+>162	Identifier	M_PI
+>163	PrimaryExpression	180.0
+>164	Identifier	m_angle
+>165	Callee	glRotatef
+>166	Identifier	glRotatef
+>167	ExpressionStatement	 
+>168	CallExpression	glScalef ( m_scale , m_scale , 1.0 )
+>169	ArgumentList	m_scale
+>170	Argument	1.0
+>171	PrimaryExpression	1.0
+>172	Argument	m_scale
+>173	Identifier	m_scale
+>174	Argument	m_scale
+>175	Identifier	m_scale
+>176	Callee	glScalef
+>177	Identifier	glScalef
+>178	ExpressionStatement	 
+>179	CallExpression	glTranslatef ( m_pos [ 0 ] , m_pos [ 1 ] , 0.0 )
+>180	ArgumentList	m_pos [ 0 ]
+>181	Argument	0.0
+>182	PrimaryExpression	0.0
+>183	Argument	m_pos [ 1 ]
+>184	ArrayIndexing	m_pos [ 1 ]
+>185	PrimaryExpression	1
+>186	Identifier	m_pos
+>187	Argument	m_pos [ 0 ]
+>188	ArrayIndexing	m_pos [ 0 ]
+>189	PrimaryExpression	0
+>190	Identifier	m_pos
+>191	Callee	glTranslatef
+>192	Identifier	glTranslatef
+>193	ExpressionStatement	 
+>194	CallExpression	glColor4f ( 0.0 , 0 , 0 , 1.0 )
+>195	ArgumentList	0.0
+>196	Argument	1.0
+>197	PrimaryExpression	1.0
+>198	Argument	0
+>199	PrimaryExpression	0
+>200	Argument	0
+>201	PrimaryExpression	0
+>202	Argument	0.0
+>203	PrimaryExpression	0.0
+>204	Callee	glColor4f
+>205	Identifier	glColor4f
+>206	ExpressionStatement	 
+>207	CallExpression	glEnable ( GL_BLEND )
+>208	ArgumentList	GL_BLEND
+>209	Argument	GL_BLEND
+>210	Identifier	GL_BLEND
+>211	Callee	glEnable
+>212	Identifier	glEnable
+>213	ExpressionStatement	 
+>214	CallExpression	glBlendFunc ( GL_ZERO , GL_ONE_MINUS_SRC_ALPHA )
+>215	ArgumentList	GL_ZERO
+>216	Argument	GL_ONE_MINUS_SRC_ALPHA
+>217	Identifier	GL_ONE_MINUS_SRC_ALPHA
+>218	Argument	GL_ZERO
+>219	Identifier	GL_ZERO
+>220	Callee	glBlendFunc
+>221	Identifier	glBlendFunc
+>222	IfStatement	if ( m_alive )
+>223	CompoundStatement	 
+>224	ExpressionStatement	 
+>225	CallExpression	draw_aa_line ( Line ( m_pos , m_start_pos ) , 2.0 , vec4 ( 0.0 , 0.0 , 0.0 , 1.0 ) )
+>226	ArgumentList	Line ( m_pos , m_start_pos )
+>227	Argument	vec4 ( 0.0 , 0.0 , 0.0 , 1.0 )
+>228	CallExpression	vec4 ( 0.0 , 0.0 , 0.0 , 1.0 )
+>229	ArgumentList	0.0
+>230	Argument	1.0
+>231	PrimaryExpression	1.0
+>232	Argument	0.0
+>233	PrimaryExpression	0.0
+>234	Argument	0.0
+>235	PrimaryExpression	0.0
+>236	Argument	0.0
+>237	PrimaryExpression	0.0
+>238	Callee	vec4
+>239	Identifier	vec4
+>240	Argument	2.0
+>241	PrimaryExpression	2.0
+>242	Argument	Line ( m_pos , m_start_pos )
+>243	CallExpression	Line ( m_pos , m_start_pos )
+>244	ArgumentList	m_pos
+>245	Argument	m_start_pos
+>246	Identifier	m_start_pos
+>247	Argument	m_pos
+>248	Identifier	m_pos
+>249	Callee	Line
+>250	Identifier	Line
+>251	Callee	draw_aa_line
+>252	Identifier	draw_aa_line
+>253	Condition	 
+>254	Identifier	m_alive
+>255	ExpressionStatement	 
+>256	CallExpression	glPushMatrix ( )
+>257	ArgumentList	 
+>258	Callee	glPushMatrix
+>259	Identifier	glPushMatrix
+>281	FunctionDef	Torpedo 
+>282	ParameterList	 
+>283	ReturnType	bool
+>284	CompoundStatement	 
+>285	ReturnStatement	 
+>286	Identifier	m_alive
+>291	FunctionDef	Torpedo 
+>292	ParameterList	 
+>293	ReturnType	void
+>294	CompoundStatement	 
+>295	IfStatement	if ( g_current_game )
+>296	ExpressionStatement	 
+>297	CallExpression	g_current_game -> add_effect ( new FX_Torpedo_Explosion ( m_pos , m_vector ) , 0 )
+>298	ArgumentList	m_pos , m_vector
+>299	Argument	0
+>300	PrimaryExpression	0
+>301	Argument	m_pos , m_vector
+>302	Expression	m_pos , m_vector
+>303	Identifier	m_vector
+>304	Identifier	m_pos
+>305	Callee	g_current_game -> add_effect
+>306	PtrMemberAccess	g_current_game -> add_effect
+>307	Identifier	add_effect
+>308	Identifier	g_current_game
+>309	Condition	 
+>310	Identifier	g_current_game
+>311	ExpressionStatement	 
+>312	AssignmentExpr	m_alive = false
+>313	Identifier	false
+>314	Identifier	m_alive
+>323	FunctionDef	Torpedo 
+>324	ParameterList	 
+>325	ReturnType	vec2
+>326	CompoundStatement	 
+>327	ReturnStatement	 
+>328	AdditiveExpression	m_pos + ( m_vector * ( 0.08 / 2.0 ) )
+>329	MultiplicativeExpression	m_vector * ( 0.08 / 2.0 )
+>330	MultiplicativeExpression	0.08 / 2.0
+>331	PrimaryExpression	2.0
+>332	PrimaryExpression	0.08
+>333	Identifier	m_vector
+>334	Identifier	m_pos
+<3=14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=23,15
+<15=16
+<16=22,17
+<17=21,18
+<18=20,19
+<23=24
+<24=52,25
+<25=50,26
+<26=27
+<27=28
+<28=48,29
+<29=46,30
+<30=31
+<31=44,32
+<32=33
+<33=34
+<34=42,35
+<35=38,36
+<36=37
+<38=39
+<39=41,40
+<42=43
+<44=45
+<46=47
+<48=49
+<50=51
+<69=75,74,70
+<70=71
+<71=73,72
+<75=89,76
+<76=87,77
+<77=78
+<78=86,79
+<79=85,80
+<80=84,81
+<81=83,82
+<87=88
+<89=90
+<90=97,96,91
+<91=95,92
+<92=94,93
+<109=112,111,110
+<112=255,222,213,206,193,178,167,150,137,125,118,113
+<113=114
+<114=116,115
+<116=117
+<118=119
+<119=123,120
+<120=121
+<121=122
+<123=124
+<125=135,126
+<126=127
+<127=129,128
+<129=130
+<130=132,131
+<132=134,133
+<135=136
+<137=138
+<138=149,139
+<139=147,140
+<140=141
+<141=142
+<142=144,143
+<144=146,145
+<147=148
+<150=151
+<151=165,152
+<152=159,157,155,153
+<153=154
+<155=156
+<157=158
+<159=160
+<160=164,161
+<161=163,162
+<165=166
+<167=168
+<168=176,169
+<169=174,172,170
+<170=171
+<172=173
+<174=175
+<176=177
+<178=179
+<179=191,180
+<180=187,183,181
+<181=182
+<183=184
+<184=186,185
+<187=188
+<188=190,189
+<191=192
+<193=194
+<194=204,195
+<195=202,200,198,196
+<196=197
+<198=199
+<200=201
+<202=203
+<204=205
+<206=207
+<207=211,208
+<208=209
+<209=210
+<211=212
+<213=214
+<214=220,215
+<215=218,216
+<216=217
+<218=219
+<220=221
+<222=253,223
+<223=224
+<224=225
+<225=251,226
+<226=242,240,227
+<227=228
+<228=238,229
+<229=236,234,232,230
+<230=231
+<232=233
+<234=235
+<236=237
+<238=239
+<240=241
+<242=243
+<243=249,244
+<244=247,245
+<245=246
+<247=248
+<249=250
+<251=252
+<253=254
+<255=256
+<256=258,257
+<258=259
+<281=284,283,282
+<284=285
+<285=286
+<291=294,293,292
+<294=311,295
+<295=309,296
+<296=297
+<297=305,298
+<298=301,299
+<299=300
+<301=302
+<302=304,303
+<305=306
+<306=308,307
+<309=310
+<311=312
+<312=314,313
+<323=326,325,324
+<326=327
+<327=328
+<328=334,329
+<329=333,330
+<330=332,331

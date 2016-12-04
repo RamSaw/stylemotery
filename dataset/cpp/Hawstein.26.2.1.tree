@@ -1,0 +1,558 @@
+>12	FunctionDef	init (int a [ ] , int n)
+>13	ParameterList	int a [ ] , int n
+>14	Parameter	 
+>15	Identifier	n
+>16	ParameterType	int
+>17	Parameter	 
+>18	Identifier	a
+>19	ParameterType	int [ ]
+>20	ReturnType	node *
+>21	CompoundStatement	 
+>22	ReturnStatement	 
+>23	Identifier	head
+>24	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>25	CompoundStatement	 
+>26	ExpressionStatement	 
+>27	AssignmentExpr	p = nd
+>28	Identifier	nd
+>29	Identifier	p
+>30	ExpressionStatement	 
+>31	AssignmentExpr	p -> next = nd
+>32	Identifier	nd
+>33	PtrMemberAccess	p -> next
+>34	Identifier	next
+>35	Identifier	p
+>36	IfStatement	if ( i == 0 )
+>37	CompoundStatement	 
+>38	ContinueStatement	 
+>39	ExpressionStatement	 
+>40	AssignmentExpr	head = p = nd
+>41	AssignmentExpr	p = nd
+>42	Identifier	nd
+>43	Identifier	p
+>44	Identifier	head
+>45	Condition	 
+>46	EqualityExpression	i == 0
+>47	PrimaryExpression	0
+>48	Identifier	i
+>49	ExpressionStatement	 
+>50	AssignmentExpr	nd -> data = a [ i ]
+>51	ArrayIndexing	a [ i ]
+>52	Identifier	i
+>53	Identifier	a
+>54	PtrMemberAccess	nd -> data
+>55	Identifier	data
+>56	Identifier	nd
+>57	IdentifierDeclStatement	 
+>58	IdentifierDecl	* nd = new node ( )
+>59	AssignmentExpr	* nd = new node ( )
+>60	UnaryExpression	new node ( )
+>61	Identifier	nd
+>62	Identifier	nd
+>63	IdentifierDeclType	node *
+>64	UnaryExpression	 
+>65	Identifier	i
+>66	IncDec	++
+>67	Condition	 
+>68	RelationalExpression	i < n
+>69	Identifier	n
+>70	Identifier	i
+>71	ForInit	 
+>72	IdentifierDeclStatement	int i = 0 ;
+>73	IdentifierDecl	i = 0
+>74	AssignmentExpr	i = 0
+>75	PrimaryExpression	0
+>76	Identifier	i
+>77	Identifier	i
+>78	IdentifierDeclType	int
+>79	IdentifierDeclStatement	 
+>80	IdentifierDecl	* p
+>81	Identifier	p
+>82	IdentifierDeclType	node *
+>83	IdentifierDecl	* head
+>84	Identifier	head
+>85	IdentifierDeclType	node *
+>101	FunctionDef	removedulicate (node * head)
+>102	ParameterList	node * head
+>103	Parameter	 
+>104	Identifier	head
+>105	ParameterType	node *
+>106	ReturnType	void
+>107	CompoundStatement	 
+>108	WhileStatement	while ( q )
+>109	CompoundStatement	 
+>110	IfStatement	if ( hash [ q -> data ] )
+>111	ElseStatement	else
+>112	CompoundStatement	 
+>113	ExpressionStatement	 
+>114	AssignmentExpr	q = q -> next
+>115	PtrMemberAccess	q -> next
+>116	Identifier	next
+>117	Identifier	q
+>118	Identifier	q
+>119	ExpressionStatement	 
+>120	AssignmentExpr	p = q
+>121	Identifier	q
+>122	Identifier	p
+>123	ExpressionStatement	 
+>124	AssignmentExpr	hash [ q -> data ] = true
+>125	Identifier	true
+>126	ArrayIndexing	hash [ q -> data ]
+>127	PtrMemberAccess	q -> data
+>128	Identifier	data
+>129	Identifier	q
+>130	Identifier	hash
+>131	CompoundStatement	 
+>132	ExpressionStatement	 
+>133	Identifier	t
+>134	Statement	 
+>135	ExpressionStatement	 
+>136	AssignmentExpr	q = p -> next
+>137	PtrMemberAccess	p -> next
+>138	Identifier	next
+>139	Identifier	p
+>140	Identifier	q
+>141	ExpressionStatement	 
+>142	AssignmentExpr	p -> next = q -> next
+>143	PtrMemberAccess	q -> next
+>144	Identifier	next
+>145	Identifier	q
+>146	PtrMemberAccess	p -> next
+>147	Identifier	next
+>148	Identifier	p
+>149	IdentifierDeclStatement	 
+>150	IdentifierDecl	* t = q
+>151	AssignmentExpr	* t = q
+>152	Identifier	q
+>153	Identifier	q
+>154	Identifier	t
+>155	IdentifierDeclType	node *
+>156	Condition	 
+>157	ArrayIndexing	hash [ q -> data ]
+>158	PtrMemberAccess	q -> data
+>159	Identifier	data
+>160	Identifier	q
+>161	Identifier	hash
+>162	Condition	 
+>163	Identifier	q
+>164	ExpressionStatement	 
+>165	AssignmentExpr	hash [ head -> data ] = true
+>166	Identifier	true
+>167	ArrayIndexing	hash [ head -> data ]
+>168	PtrMemberAccess	head -> data
+>169	Identifier	data
+>170	Identifier	head
+>171	Identifier	hash
+>172	IdentifierDeclStatement	 
+>173	IdentifierDecl	* q = head -> next
+>174	AssignmentExpr	* q = head -> next
+>175	PtrMemberAccess	head -> next
+>176	Identifier	next
+>177	Identifier	head
+>178	Identifier	q
+>179	Identifier	q
+>180	IdentifierDeclType	node *
+>181	IdentifierDecl	* p = head
+>182	AssignmentExpr	* p = head
+>183	Identifier	head
+>184	Identifier	head
+>185	Identifier	p
+>186	IdentifierDeclType	node *
+>187	IfStatement	if ( head == NULL )
+>188	ReturnStatement	 
+>189	Condition	 
+>190	EqualityExpression	head == NULL
+>191	Identifier	NULL
+>192	Identifier	head
+>216	FunctionDef	removedulicate1 (node * head)
+>217	ParameterList	node * head
+>218	Parameter	 
+>219	Identifier	head
+>220	ParameterType	node *
+>221	ReturnType	void
+>222	CompoundStatement	 
+>223	WhileStatement	while ( c )
+>224	CompoundStatement	 
+>225	ExpressionStatement	 
+>226	AssignmentExpr	c = c -> next
+>227	PtrMemberAccess	c -> next
+>228	Identifier	next
+>229	Identifier	c
+>230	Identifier	c
+>231	WhileStatement	while ( q )
+>232	CompoundStatement	 
+>233	IfStatement	if ( q -> data == d )
+>234	ElseStatement	else
+>235	CompoundStatement	 
+>236	ExpressionStatement	 
+>237	AssignmentExpr	q = q -> next
+>238	PtrMemberAccess	q -> next
+>239	Identifier	next
+>240	Identifier	q
+>241	Identifier	q
+>242	ExpressionStatement	 
+>243	AssignmentExpr	p = q
+>244	Identifier	q
+>245	Identifier	p
+>246	CompoundStatement	 
+>247	ExpressionStatement	 
+>248	Identifier	t
+>249	Statement	 
+>250	ExpressionStatement	 
+>251	AssignmentExpr	q = p -> next
+>252	PtrMemberAccess	p -> next
+>253	Identifier	next
+>254	Identifier	p
+>255	Identifier	q
+>256	ExpressionStatement	 
+>257	AssignmentExpr	p -> next = q -> next
+>258	PtrMemberAccess	q -> next
+>259	Identifier	next
+>260	Identifier	q
+>261	PtrMemberAccess	p -> next
+>262	Identifier	next
+>263	Identifier	p
+>264	IdentifierDeclStatement	 
+>265	IdentifierDecl	* t = q
+>266	AssignmentExpr	* t = q
+>267	Identifier	q
+>268	Identifier	q
+>269	Identifier	t
+>270	IdentifierDeclType	node *
+>271	Condition	 
+>272	EqualityExpression	q -> data == d
+>273	Identifier	d
+>274	PtrMemberAccess	q -> data
+>275	Identifier	data
+>276	Identifier	q
+>277	Condition	 
+>278	Identifier	q
+>279	IdentifierDeclStatement	 
+>280	IdentifierDecl	d = c -> data
+>281	AssignmentExpr	d = c -> data
+>282	PtrMemberAccess	c -> data
+>283	Identifier	data
+>284	Identifier	c
+>285	Identifier	d
+>286	Identifier	d
+>287	IdentifierDeclType	int
+>288	ExpressionStatement	 
+>289	AssignmentExpr	q = c -> next
+>290	PtrMemberAccess	c -> next
+>291	Identifier	next
+>292	Identifier	c
+>293	Identifier	q
+>294	ExpressionStatement	 
+>295	AssignmentExpr	p = c
+>296	Identifier	c
+>297	Identifier	p
+>298	Condition	 
+>299	Identifier	c
+>300	IdentifierDeclStatement	 
+>301	IdentifierDecl	* c = head
+>302	AssignmentExpr	* c = head
+>303	Identifier	head
+>304	Identifier	head
+>305	Identifier	c
+>306	IdentifierDeclType	node *
+>307	IdentifierDecl	* q
+>308	Identifier	q
+>309	IdentifierDeclType	node *
+>310	IdentifierDecl	* p
+>311	Identifier	p
+>312	IdentifierDeclType	node *
+>313	IfStatement	if ( head == NULL )
+>314	ReturnStatement	 
+>315	Condition	 
+>316	EqualityExpression	head == NULL
+>317	Identifier	NULL
+>318	Identifier	head
+>337	FunctionDef	print (node * head)
+>338	ParameterList	node * head
+>339	Parameter	 
+>340	Identifier	head
+>341	ParameterType	node *
+>342	ReturnType	void
+>343	CompoundStatement	 
+>344	ExpressionStatement	 
+>345	ShiftExpression	cout << endl
+>346	Identifier	endl
+>347	Identifier	cout
+>348	WhileStatement	while ( head )
+>349	CompoundStatement	 
+>350	ExpressionStatement	 
+>351	AssignmentExpr	head = head -> next
+>352	PtrMemberAccess	head -> next
+>353	Identifier	next
+>354	Identifier	head
+>355	Identifier	head
+>356	ExpressionStatement	 
+>357	ShiftExpression	cout << head -> data << \" \"
+>358	ShiftExpression	head -> data << \" \"
+>359	PrimaryExpression	\" \"
+>360	PtrMemberAccess	head -> data
+>361	Identifier	data
+>362	Identifier	head
+>363	Identifier	cout
+>364	Condition	 
+>365	Identifier	head
+>372	FunctionDef	main ()
+>373	ParameterList	 
+>374	ReturnType	int
+>375	CompoundStatement	 
+>376	ReturnStatement	 
+>377	PrimaryExpression	0
+>378	ExpressionStatement	 
+>379	CallExpression	print ( head )
+>380	ArgumentList	head
+>381	Argument	head
+>382	Identifier	head
+>383	Callee	print
+>384	Identifier	print
+>385	ExpressionStatement	 
+>386	CallExpression	removedulicate1 ( head )
+>387	ArgumentList	head
+>388	Argument	head
+>389	Identifier	head
+>390	Callee	removedulicate1
+>391	Identifier	removedulicate1
+>392	IdentifierDeclStatement	 
+>393	IdentifierDecl	* head = init ( a , n )
+>394	AssignmentExpr	* head = init ( a , n )
+>395	CallExpression	init ( a , n )
+>396	ArgumentList	a
+>397	Argument	n
+>398	Identifier	n
+>399	Argument	a
+>400	Identifier	a
+>401	Callee	init
+>402	Identifier	init
+>403	Identifier	head
+>404	Identifier	head
+>405	IdentifierDeclType	node *
+>406	ExpressionStatement	 
+>407	CallExpression	memset ( hash , false , sizeof ( hash ) )
+>408	ArgumentList	hash
+>409	Argument	sizeof ( hash )
+>410	SizeofExpr	sizeof ( hash )
+>411	SizeofOperand	hash
+>412	Sizeof	sizeof
+>413	Argument	false
+>414	Identifier	false
+>415	Argument	hash
+>416	Identifier	hash
+>417	Callee	memset
+>418	Identifier	memset
+>419	IdentifierDeclStatement	 
+>420	IdentifierDecl	a [ ] = { 3 , 2 , 1 , 3 , 5 , 6 , 2 , 6 , 3 , 1 }
+>421	AssignmentExpr	a [ ] = { 3 , 2 , 1 , 3 , 5 , 6 , 2 , 6 , 3 , 1 }
+>422	InitializerList	3
+>423	PrimaryExpression	1
+>424	PrimaryExpression	3
+>425	PrimaryExpression	6
+>426	PrimaryExpression	2
+>427	PrimaryExpression	6
+>428	PrimaryExpression	5
+>429	PrimaryExpression	3
+>430	PrimaryExpression	1
+>431	PrimaryExpression	2
+>432	PrimaryExpression	3
+>433	Identifier	a
+>434	Identifier	a
+>435	IdentifierDeclType	int [ ]
+>436	IdentifierDeclStatement	 
+>437	IdentifierDecl	n = 10
+>438	AssignmentExpr	n = 10
+>439	PrimaryExpression	10
+>440	Identifier	n
+>441	Identifier	n
+>442	IdentifierDeclType	int
+<12=21,20,13
+<13=17,14
+<14=16,15
+<17=19,18
+<21=79,24,22
+<22=23
+<24=71,67,64,25
+<25=57,49,36,30,26
+<26=27
+<27=29,28
+<30=31
+<31=33,32
+<33=35,34
+<36=45,37
+<37=39,38
+<39=40
+<40=44,41
+<41=43,42
+<45=46
+<46=48,47
+<49=50
+<50=54,51
+<51=53,52
+<54=56,55
+<57=58
+<58=63,62,59
+<59=61,60
+<64=66,65
+<67=68
+<68=70,69
+<71=72
+<72=73
+<73=78,77,74
+<74=76,75
+<79=83,80
+<80=82,81
+<83=85,84
+<101=107,106,102
+<102=103
+<103=105,104
+<107=187,172,164,108
+<108=162,109
+<109=110
+<110=156,131,111
+<111=112
+<112=123,119,113
+<113=114
+<114=118,115
+<115=117,116
+<119=120
+<120=122,121
+<123=124
+<124=126,125
+<126=130,127
+<127=129,128
+<131=149,141,135,134,132
+<132=133
+<135=136
+<136=140,137
+<137=139,138
+<141=142
+<142=146,143
+<143=145,144
+<146=148,147
+<149=150
+<150=155,154,151
+<151=153,152
+<156=157
+<157=161,158
+<158=160,159
+<162=163
+<164=165
+<165=167,166
+<167=171,168
+<168=170,169
+<172=181,173
+<173=180,179,174
+<174=178,175
+<175=177,176
+<181=186,185,182
+<182=184,183
+<187=189,188
+<189=190
+<190=192,191
+<216=222,221,217
+<217=218
+<218=220,219
+<222=313,300,223
+<223=298,224
+<224=294,288,279,231,225
+<225=226
+<226=230,227
+<227=229,228
+<231=277,232
+<232=233
+<233=271,246,234
+<234=235
+<235=242,236
+<236=237
+<237=241,238
+<238=240,239
+<242=243
+<243=245,244
+<246=264,256,250,249,247
+<247=248
+<250=251
+<251=255,252
+<252=254,253
+<256=257
+<257=261,258
+<258=260,259
+<261=263,262
+<264=265
+<265=270,269,266
+<266=268,267
+<271=272
+<272=274,273
+<274=276,275
+<277=278
+<279=280
+<280=287,286,281
+<281=285,282
+<282=284,283
+<288=289
+<289=293,290
+<290=292,291
+<294=295
+<295=297,296
+<298=299
+<300=310,307,301
+<301=306,305,302
+<302=304,303
+<307=309,308
+<310=312,311
+<313=315,314
+<315=316
+<316=318,317
+<337=343,342,338
+<338=339
+<339=341,340
+<343=348,344
+<344=345
+<345=347,346
+<348=364,349
+<349=356,350
+<350=351
+<351=355,352
+<352=354,353
+<356=357
+<357=363,358
+<358=360,359
+<360=362,361
+<364=365
+<372=375,374,373
+<375=436,419,406,392,385,378,376
+<376=377
+<378=379
+<379=383,380
+<380=381
+<381=382
+<383=384
+<385=386
+<386=390,387
+<387=388
+<388=389
+<390=391
+<392=393
+<393=405,404,394
+<394=403,395
+<395=401,396
+<396=399,397
+<397=398
+<399=400
+<401=402
+<406=407
+<407=417,408
+<408=415,413,409
+<409=410
+<410=412,411
+<413=414
+<415=416
+<417=418
+<419=420
+<420=435,434,421
+<421=433,422
+<422=432,431,430,429,428,427,426,425,424,423
+<436=437
+<437=442,441,438
+<438=440,439

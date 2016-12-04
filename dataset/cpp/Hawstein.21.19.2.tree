@@ -1,0 +1,608 @@
+>4	FunctionDef	CheckRowColumn (int board [ ] , int n , Check check)
+>5	ParameterList	int board [ ] , int n , Check check
+>6	Parameter	 
+>7	Identifier	check
+>8	ParameterType	Check
+>9	Parameter	 
+>10	Identifier	n
+>11	ParameterType	int
+>12	Parameter	 
+>13	Identifier	board
+>14	ParameterType	int [ ]
+>15	ReturnType	int
+>16	CompoundStatement	 
+>17	ReturnStatement	 
+>18	PrimaryExpression	0
+>19	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>20	CompoundStatement	 
+>21	IfStatement	if ( found )
+>22	ReturnStatement	 
+>23	Identifier	type
+>24	Condition	 
+>25	Identifier	found
+>26	ForStatement	for ( int j = 0 ; j < n ; ++ j )
+>27	CompoundStatement	 
+>28	IfStatement	if ( j == 0 )
+>29	ElseStatement	else
+>30	IfStatement	if ( board [ k ] != type )
+>31	CompoundStatement	 
+>32	BreakStatement	 
+>33	ExpressionStatement	 
+>34	AssignmentExpr	found = false
+>35	Identifier	false
+>36	Identifier	found
+>37	Condition	 
+>38	EqualityExpression	board [ k ] != type
+>39	Identifier	type
+>40	ArrayIndexing	board [ k ]
+>41	Identifier	k
+>42	Identifier	board
+>43	CompoundStatement	 
+>44	ExpressionStatement	 
+>45	AssignmentExpr	type = board [ k ]
+>46	ArrayIndexing	board [ k ]
+>47	Identifier	k
+>48	Identifier	board
+>49	Identifier	type
+>50	Condition	 
+>51	EqualityExpression	j == 0
+>52	PrimaryExpression	0
+>53	Identifier	j
+>54	IfStatement	if ( check == ROW )
+>55	ElseStatement	else
+>56	ExpressionStatement	 
+>57	AssignmentExpr	k = i + j * n
+>58	AdditiveExpression	i + j * n
+>59	MultiplicativeExpression	j * n
+>60	Identifier	n
+>61	Identifier	j
+>62	Identifier	i
+>63	Identifier	k
+>64	ExpressionStatement	 
+>65	AssignmentExpr	k = i * n + j
+>66	AdditiveExpression	i * n + j
+>67	Identifier	j
+>68	MultiplicativeExpression	i * n
+>69	Identifier	n
+>70	Identifier	i
+>71	Identifier	k
+>72	Condition	 
+>73	EqualityExpression	check == ROW
+>74	Identifier	ROW
+>75	Identifier	check
+>76	IdentifierDeclStatement	 
+>77	IdentifierDecl	k = 0
+>78	AssignmentExpr	k = 0
+>79	PrimaryExpression	0
+>80	Identifier	k
+>81	Identifier	k
+>82	IdentifierDeclType	int
+>83	UnaryExpression	 
+>84	Identifier	j
+>85	IncDec	++
+>86	Condition	 
+>87	RelationalExpression	j < n
+>88	Identifier	n
+>89	Identifier	j
+>90	ForInit	 
+>91	IdentifierDeclStatement	int j = 0 ;
+>92	IdentifierDecl	j = 0
+>93	AssignmentExpr	j = 0
+>94	PrimaryExpression	0
+>95	Identifier	j
+>96	Identifier	j
+>97	IdentifierDeclType	int
+>98	IdentifierDeclStatement	 
+>99	IdentifierDecl	found = true
+>100	AssignmentExpr	found = true
+>101	Identifier	true
+>102	Identifier	true
+>103	Identifier	found
+>104	IdentifierDeclType	bool
+>105	UnaryExpression	 
+>106	Identifier	i
+>107	IncDec	++
+>108	Condition	 
+>109	RelationalExpression	i < n
+>110	Identifier	n
+>111	Identifier	i
+>112	ForInit	 
+>113	IdentifierDeclStatement	int i = 0 ;
+>114	IdentifierDecl	i = 0
+>115	AssignmentExpr	i = 0
+>116	PrimaryExpression	0
+>117	Identifier	i
+>118	Identifier	i
+>119	IdentifierDeclType	int
+>120	IdentifierDeclStatement	 
+>121	IdentifierDecl	type = 0
+>122	AssignmentExpr	type = 0
+>123	PrimaryExpression	0
+>124	Identifier	type
+>125	Identifier	type
+>126	IdentifierDeclType	int
+>143	FunctionDef	CheckDiagonal (int board [ ] , int n , Check check)
+>144	ParameterList	int board [ ] , int n , Check check
+>145	Parameter	 
+>146	Identifier	check
+>147	ParameterType	Check
+>148	Parameter	 
+>149	Identifier	n
+>150	ParameterType	int
+>151	Parameter	 
+>152	Identifier	board
+>153	ParameterType	int [ ]
+>154	ReturnType	int
+>155	CompoundStatement	 
+>156	ReturnStatement	 
+>157	PrimaryExpression	0
+>158	IfStatement	if ( found )
+>159	ReturnStatement	 
+>160	Identifier	type
+>161	Condition	 
+>162	Identifier	found
+>163	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>164	CompoundStatement	 
+>165	IfStatement	if ( i == 0 )
+>166	ElseStatement	else
+>167	IfStatement	if ( board [ k ] != type )
+>168	CompoundStatement	 
+>169	BreakStatement	 
+>170	ExpressionStatement	 
+>171	AssignmentExpr	found = false
+>172	Identifier	false
+>173	Identifier	found
+>174	Condition	 
+>175	EqualityExpression	board [ k ] != type
+>176	Identifier	type
+>177	ArrayIndexing	board [ k ]
+>178	Identifier	k
+>179	Identifier	board
+>180	CompoundStatement	 
+>181	ExpressionStatement	 
+>182	AssignmentExpr	type = board [ k ]
+>183	ArrayIndexing	board [ k ]
+>184	Identifier	k
+>185	Identifier	board
+>186	Identifier	type
+>187	Condition	 
+>188	EqualityExpression	i == 0
+>189	PrimaryExpression	0
+>190	Identifier	i
+>191	IfStatement	if ( check == DIAGONAL )
+>192	ElseStatement	else
+>193	ExpressionStatement	 
+>194	AssignmentExpr	k = i + ( n - 1 - i ) * n
+>195	AdditiveExpression	i + ( n - 1 - i ) * n
+>196	MultiplicativeExpression	( n - 1 - i ) * n
+>197	Identifier	n
+>198	AdditiveExpression	n - 1 - i
+>199	AdditiveExpression	1 - i
+>200	Identifier	i
+>201	PrimaryExpression	1
+>202	Identifier	n
+>203	Identifier	i
+>204	Identifier	k
+>205	ExpressionStatement	 
+>206	AssignmentExpr	k = i + i * n
+>207	AdditiveExpression	i + i * n
+>208	MultiplicativeExpression	i * n
+>209	Identifier	n
+>210	Identifier	i
+>211	Identifier	i
+>212	Identifier	k
+>213	Condition	 
+>214	EqualityExpression	check == DIAGONAL
+>215	Identifier	DIAGONAL
+>216	Identifier	check
+>217	IdentifierDeclStatement	 
+>218	IdentifierDecl	k = 0
+>219	AssignmentExpr	k = 0
+>220	PrimaryExpression	0
+>221	Identifier	k
+>222	Identifier	k
+>223	IdentifierDeclType	int
+>224	UnaryExpression	 
+>225	Identifier	i
+>226	IncDec	++
+>227	Condition	 
+>228	RelationalExpression	i < n
+>229	Identifier	n
+>230	Identifier	i
+>231	ForInit	 
+>232	IdentifierDeclStatement	int i = 0 ;
+>233	IdentifierDecl	i = 0
+>234	AssignmentExpr	i = 0
+>235	PrimaryExpression	0
+>236	Identifier	i
+>237	Identifier	i
+>238	IdentifierDeclType	int
+>239	IdentifierDeclStatement	 
+>240	IdentifierDecl	found = true
+>241	AssignmentExpr	found = true
+>242	Identifier	true
+>243	Identifier	true
+>244	Identifier	found
+>245	IdentifierDeclType	bool
+>246	IdentifierDeclStatement	 
+>247	IdentifierDecl	type = 0
+>248	AssignmentExpr	type = 0
+>249	PrimaryExpression	0
+>250	Identifier	type
+>251	Identifier	type
+>252	IdentifierDeclType	int
+>268	FunctionDef	HasWon (int board [ ] , int n)
+>269	ParameterList	int board [ ] , int n
+>270	Parameter	 
+>271	Identifier	n
+>272	ParameterType	int
+>273	Parameter	 
+>274	Identifier	board
+>275	ParameterType	int [ ]
+>276	ReturnType	int
+>277	CompoundStatement	 
+>278	ReturnStatement	 
+>279	PrimaryExpression	0
+>280	IfStatement	if ( type != 0 )
+>281	ReturnStatement	 
+>282	Identifier	type
+>283	Condition	 
+>284	EqualityExpression	type != 0
+>285	PrimaryExpression	0
+>286	Identifier	type
+>287	ExpressionStatement	 
+>288	AssignmentExpr	type = CheckDiagonal ( board , n , REDIAGONAL )
+>289	CallExpression	CheckDiagonal ( board , n , REDIAGONAL )
+>290	ArgumentList	board
+>291	Argument	REDIAGONAL
+>292	Identifier	REDIAGONAL
+>293	Argument	n
+>294	Identifier	n
+>295	Argument	board
+>296	Identifier	board
+>297	Callee	CheckDiagonal
+>298	Identifier	CheckDiagonal
+>299	Identifier	type
+>300	IfStatement	if ( type != 0 )
+>301	ReturnStatement	 
+>302	Identifier	type
+>303	Condition	 
+>304	EqualityExpression	type != 0
+>305	PrimaryExpression	0
+>306	Identifier	type
+>307	ExpressionStatement	 
+>308	AssignmentExpr	type = CheckDiagonal ( board , n , DIAGONAL )
+>309	CallExpression	CheckDiagonal ( board , n , DIAGONAL )
+>310	ArgumentList	board
+>311	Argument	DIAGONAL
+>312	Identifier	DIAGONAL
+>313	Argument	n
+>314	Identifier	n
+>315	Argument	board
+>316	Identifier	board
+>317	Callee	CheckDiagonal
+>318	Identifier	CheckDiagonal
+>319	Identifier	type
+>320	IfStatement	if ( type != 0 )
+>321	ReturnStatement	 
+>322	Identifier	type
+>323	Condition	 
+>324	EqualityExpression	type != 0
+>325	PrimaryExpression	0
+>326	Identifier	type
+>327	ExpressionStatement	 
+>328	AssignmentExpr	type = CheckRowColumn ( board , n , COLUMN )
+>329	CallExpression	CheckRowColumn ( board , n , COLUMN )
+>330	ArgumentList	board
+>331	Argument	COLUMN
+>332	Identifier	COLUMN
+>333	Argument	n
+>334	Identifier	n
+>335	Argument	board
+>336	Identifier	board
+>337	Callee	CheckRowColumn
+>338	Identifier	CheckRowColumn
+>339	Identifier	type
+>340	IfStatement	if ( type != 0 )
+>341	ReturnStatement	 
+>342	Identifier	type
+>343	Condition	 
+>344	EqualityExpression	type != 0
+>345	PrimaryExpression	0
+>346	Identifier	type
+>347	ExpressionStatement	 
+>348	AssignmentExpr	type = CheckRowColumn ( board , n , ROW )
+>349	CallExpression	CheckRowColumn ( board , n , ROW )
+>350	ArgumentList	board
+>351	Argument	ROW
+>352	Identifier	ROW
+>353	Argument	n
+>354	Identifier	n
+>355	Argument	board
+>356	Identifier	board
+>357	Callee	CheckRowColumn
+>358	Identifier	CheckRowColumn
+>359	Identifier	type
+>360	IdentifierDeclStatement	 
+>361	IdentifierDecl	type = 0
+>362	AssignmentExpr	type = 0
+>363	PrimaryExpression	0
+>364	Identifier	type
+>365	Identifier	type
+>366	IdentifierDeclType	int
+>379	FunctionDef	main ()
+>380	ParameterList	 
+>381	ReturnType	int
+>382	CompoundStatement	 
+>383	ReturnStatement	 
+>384	PrimaryExpression	0
+>385	IfStatement	if ( type != 0 )
+>386	ElseStatement	else
+>387	ExpressionStatement	 
+>388	ShiftExpression	cout << \"nobody won!\" << endl
+>389	ShiftExpression	\"nobody won!\" << endl
+>390	Identifier	endl
+>391	PrimaryExpression	\"nobody won!\"
+>392	Identifier	cout
+>393	ExpressionStatement	 
+>394	ShiftExpression	cout << type << \" won!\" << endl
+>395	ShiftExpression	type << \" won!\" << endl
+>396	ShiftExpression	\" won!\" << endl
+>397	Identifier	endl
+>398	PrimaryExpression	\" won!\"
+>399	Identifier	type
+>400	Identifier	cout
+>401	Condition	 
+>402	EqualityExpression	type != 0
+>403	PrimaryExpression	0
+>404	Identifier	type
+>405	IdentifierDeclStatement	 
+>406	IdentifierDecl	type = HasWon ( board , n )
+>407	AssignmentExpr	type = HasWon ( board , n )
+>408	CallExpression	HasWon ( board , n )
+>409	ArgumentList	board
+>410	Argument	n
+>411	Identifier	n
+>412	Argument	board
+>413	Identifier	board
+>414	Callee	HasWon
+>415	Identifier	HasWon
+>416	Identifier	type
+>417	Identifier	type
+>418	IdentifierDeclType	int
+>419	ExpressionStatement	 
+>420	CompoundStatement	 
+>421	Statement	 
+>422	Statement	 
+>423	Statement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	Statement	 
+>430	Statement	 
+>431	Statement	 
+>432	Statement	 
+>433	Statement	 
+>434	Statement	 
+>435	Statement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	Statement	 
+>444	IdentifierDeclStatement	 
+>445	IdentifierDecl	n = 3
+>446	AssignmentExpr	n = 3
+>447	PrimaryExpression	3
+>448	Identifier	n
+>449	Identifier	n
+>450	IdentifierDeclType	int
+<4=16,15,5
+<5=12,9,6
+<6=8,7
+<9=11,10
+<12=14,13
+<16=120,19,17
+<17=18
+<19=112,108,105,20
+<20=98,26,21
+<21=24,22
+<22=23
+<24=25
+<26=90,86,83,27
+<27=76,54,28
+<28=50,43,29
+<29=30
+<30=37,31
+<31=33,32
+<33=34
+<34=36,35
+<37=38
+<38=40,39
+<40=42,41
+<43=44
+<44=45
+<45=49,46
+<46=48,47
+<50=51
+<51=53,52
+<54=72,64,55
+<55=56
+<56=57
+<57=63,58
+<58=62,59
+<59=61,60
+<64=65
+<65=71,66
+<66=68,67
+<68=70,69
+<72=73
+<73=75,74
+<76=77
+<77=82,81,78
+<78=80,79
+<83=85,84
+<86=87
+<87=89,88
+<90=91
+<91=92
+<92=97,96,93
+<93=95,94
+<98=99
+<99=104,103,100
+<100=102,101
+<105=107,106
+<108=109
+<109=111,110
+<112=113
+<113=114
+<114=119,118,115
+<115=117,116
+<120=121
+<121=126,125,122
+<122=124,123
+<143=155,154,144
+<144=151,148,145
+<145=147,146
+<148=150,149
+<151=153,152
+<155=246,239,163,158,156
+<156=157
+<158=161,159
+<159=160
+<161=162
+<163=231,227,224,164
+<164=217,191,165
+<165=187,180,166
+<166=167
+<167=174,168
+<168=170,169
+<170=171
+<171=173,172
+<174=175
+<175=177,176
+<177=179,178
+<180=181
+<181=182
+<182=186,183
+<183=185,184
+<187=188
+<188=190,189
+<191=213,205,192
+<192=193
+<193=194
+<194=204,195
+<195=203,196
+<196=198,197
+<198=202,199
+<199=201,200
+<205=206
+<206=212,207
+<207=211,208
+<208=210,209
+<213=214
+<214=216,215
+<217=218
+<218=223,222,219
+<219=221,220
+<224=226,225
+<227=228
+<228=230,229
+<231=232
+<232=233
+<233=238,237,234
+<234=236,235
+<239=240
+<240=245,244,241
+<241=243,242
+<246=247
+<247=252,251,248
+<248=250,249
+<268=277,276,269
+<269=273,270
+<270=272,271
+<273=275,274
+<277=360,347,340,327,320,307,300,287,280,278
+<278=279
+<280=283,281
+<281=282
+<283=284
+<284=286,285
+<287=288
+<288=299,289
+<289=297,290
+<290=295,293,291
+<291=292
+<293=294
+<295=296
+<297=298
+<300=303,301
+<301=302
+<303=304
+<304=306,305
+<307=308
+<308=319,309
+<309=317,310
+<310=315,313,311
+<311=312
+<313=314
+<315=316
+<317=318
+<320=323,321
+<321=322
+<323=324
+<324=326,325
+<327=328
+<328=339,329
+<329=337,330
+<330=335,333,331
+<331=332
+<333=334
+<335=336
+<337=338
+<340=343,341
+<341=342
+<343=344
+<344=346,345
+<347=348
+<348=359,349
+<349=357,350
+<350=355,353,351
+<351=352
+<353=354
+<355=356
+<357=358
+<360=361
+<361=366,365,362
+<362=364,363
+<379=382,381,380
+<382=444,443,442,441,440,439,420,419,405,385,383
+<383=384
+<385=401,393,386
+<386=387
+<387=388
+<388=392,389
+<389=391,390
+<393=394
+<394=400,395
+<395=399,396
+<396=398,397
+<401=402
+<402=404,403
+<405=406
+<406=418,417,407
+<407=416,408
+<408=414,409
+<409=412,410
+<410=411
+<412=413
+<414=415
+<420=438,437,436,435,434,433,432,431,430,429,428,427,426,425,424,423,422,421
+<444=445
+<445=450,449,446
+<446=448,447

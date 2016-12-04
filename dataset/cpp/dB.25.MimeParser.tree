@@ -1,0 +1,982 @@
+>3	FunctionDef	CMimeParser 
+>4	ParameterList	 
+>5	ReturnType	include < String / GStrings . hpp >
+>6	CompoundStatement	 
+>10	FunctionDef	CMimeParser 
+>11	ParameterList	 
+>12	CompoundStatement	 
+>16	FunctionDef	CMimeParser 
+>17	ParameterList	CString RawData , const CString & Boundary , CVectorTable < CStringTable > & Fields
+>18	Parameter	 
+>19	Identifier	Fields
+>20	ParameterType	CVectorTable < CStringTable > &
+>21	Parameter	 
+>22	Identifier	Boundary
+>23	ParameterType	const CString &
+>24	Parameter	 
+>25	Identifier	RawData
+>26	ParameterType	CString
+>27	ReturnType	bool
+>28	CompoundStatement	 
+>29	ReturnStatement	 
+>30	Identifier	true
+>31	WhileStatement	while ( OneLine . GetLength ( ) )
+>32	CompoundStatement	 
+>33	IfStatement	if ( OneLine == PrefixedBoundary )
+>34	ElseStatement	else
+>35	ReturnStatement	 
+>36	Identifier	false
+>37	CompoundStatement	 
+>38	ExpressionStatement	 
+>39	CallExpression	RawData . ExtractLine ( & OneLine )
+>40	ArgumentList	& OneLine
+>41	Argument	& OneLine
+>42	UnaryOp	& OneLine
+>43	Identifier	OneLine
+>44	UnaryOperator	&
+>45	Callee	RawData . ExtractLine
+>46	MemberAccess	RawData . ExtractLine
+>47	Identifier	ExtractLine
+>48	Identifier	RawData
+>49	ExpressionStatement	 
+>50	CallExpression	RawData . Delete ( 0 , NextBoundaryPosition )
+>51	ArgumentList	0
+>52	Argument	NextBoundaryPosition
+>53	Identifier	NextBoundaryPosition
+>54	Argument	0
+>55	PrimaryExpression	0
+>56	Callee	RawData . Delete
+>57	MemberAccess	RawData . Delete
+>58	Identifier	Delete
+>59	Identifier	RawData
+>60	ExpressionStatement	 
+>61	CallExpression	Fields . Add ( Table . GetValue ( g_strName ) , Table )
+>62	ArgumentList	Table . GetValue ( g_strName )
+>63	Argument	Table
+>64	Identifier	Table
+>65	Argument	Table . GetValue ( g_strName )
+>66	CallExpression	Table . GetValue ( g_strName )
+>67	ArgumentList	g_strName
+>68	Argument	g_strName
+>69	Identifier	g_strName
+>70	Callee	Table . GetValue
+>71	MemberAccess	Table . GetValue
+>72	Identifier	GetValue
+>73	Identifier	Table
+>74	Callee	Fields . Add
+>75	MemberAccess	Fields . Add
+>76	Identifier	Add
+>77	Identifier	Fields
+>78	ExpressionStatement	 
+>79	CallExpression	Table . Add ( g_strValue , CString ( RawData . GetBuffer ( ) , NextBoundaryPosition - 2 ) )
+>80	ArgumentList	g_strValue
+>81	Argument	CString ( RawData . GetBuffer ( ) , NextBoundaryPosition - 2 )
+>82	CallExpression	CString ( RawData . GetBuffer ( ) , NextBoundaryPosition - 2 )
+>83	ArgumentList	RawData . GetBuffer ( )
+>84	Argument	NextBoundaryPosition - 2
+>85	AdditiveExpression	NextBoundaryPosition - 2
+>86	PrimaryExpression	2
+>87	Identifier	NextBoundaryPosition
+>88	Argument	RawData . GetBuffer ( )
+>89	CallExpression	RawData . GetBuffer ( )
+>90	ArgumentList	 
+>91	Callee	RawData . GetBuffer
+>92	MemberAccess	RawData . GetBuffer
+>93	Identifier	GetBuffer
+>94	Identifier	RawData
+>95	Callee	CString
+>96	Identifier	CString
+>97	Argument	g_strValue
+>98	Identifier	g_strValue
+>99	Callee	Table . Add
+>100	MemberAccess	Table . Add
+>101	Identifier	Add
+>102	Identifier	Table
+>103	IfStatement	if ( NextBoundaryPosition == - 1 )
+>104	ExpressionStatement	 
+>105	AssignmentExpr	NextBoundaryPosition = RawData . GetLength ( )
+>106	CallExpression	RawData . GetLength ( )
+>107	ArgumentList	 
+>108	Callee	RawData . GetLength
+>109	MemberAccess	RawData . GetLength
+>110	Identifier	GetLength
+>111	Identifier	RawData
+>112	Identifier	NextBoundaryPosition
+>113	Condition	 
+>114	EqualityExpression	NextBoundaryPosition == - 1
+>115	UnaryOp	- 1
+>116	PrimaryExpression	1
+>117	UnaryOperator	-
+>118	Identifier	NextBoundaryPosition
+>119	IdentifierDeclStatement	 
+>120	IdentifierDecl	NextBoundaryPosition = RawData . Pos ( PrefixedBoundary )
+>121	AssignmentExpr	NextBoundaryPosition = RawData . Pos ( PrefixedBoundary )
+>122	CallExpression	RawData . Pos ( PrefixedBoundary )
+>123	ArgumentList	PrefixedBoundary
+>124	Argument	PrefixedBoundary
+>125	Identifier	PrefixedBoundary
+>126	Callee	RawData . Pos
+>127	MemberAccess	RawData . Pos
+>128	Identifier	Pos
+>129	Identifier	RawData
+>130	Identifier	NextBoundaryPosition
+>131	Identifier	NextBoundaryPosition
+>132	IdentifierDeclType	int
+>133	WhileStatement	while ( OneLine . GetLength ( ) )
+>134	CompoundStatement	 
+>135	ExpressionStatement	 
+>136	CallExpression	RawData . ExtractLine ( & OneLine )
+>137	ArgumentList	& OneLine
+>138	Argument	& OneLine
+>139	UnaryOp	& OneLine
+>140	Identifier	OneLine
+>141	UnaryOperator	&
+>142	Callee	RawData . ExtractLine
+>143	MemberAccess	RawData . ExtractLine
+>144	Identifier	ExtractLine
+>145	Identifier	RawData
+>146	IfStatement	if ( ParseLine ( OneLine , Name , Value , Table ) )
+>147	ElseStatement	else
+>148	ReturnStatement	 
+>149	Identifier	false
+>150	CompoundStatement	 
+>151	Condition	 
+>152	CallExpression	ParseLine ( OneLine , Name , Value , Table )
+>153	ArgumentList	OneLine
+>154	Argument	Table
+>155	Identifier	Table
+>156	Argument	Value
+>157	Identifier	Value
+>158	Argument	Name
+>159	Identifier	Name
+>160	Argument	OneLine
+>161	Identifier	OneLine
+>162	Callee	ParseLine
+>163	Identifier	ParseLine
+>164	Condition	 
+>165	CallExpression	OneLine . GetLength ( )
+>166	ArgumentList	 
+>167	Callee	OneLine . GetLength
+>168	MemberAccess	OneLine . GetLength
+>169	Identifier	GetLength
+>170	Identifier	OneLine
+>171	ExpressionStatement	 
+>172	CallExpression	RawData . ExtractLine ( & OneLine )
+>173	ArgumentList	& OneLine
+>174	Argument	& OneLine
+>175	UnaryOp	& OneLine
+>176	Identifier	OneLine
+>177	UnaryOperator	&
+>178	Callee	RawData . ExtractLine
+>179	MemberAccess	RawData . ExtractLine
+>180	Identifier	ExtractLine
+>181	Identifier	RawData
+>182	IdentifierDeclStatement	 
+>183	IdentifierDecl	Value
+>184	Identifier	Value
+>185	IdentifierDeclType	CString
+>186	IdentifierDecl	Name
+>187	Identifier	Name
+>188	IdentifierDeclType	CString
+>189	IdentifierDeclStatement	 
+>190	IdentifierDecl	Table
+>191	Identifier	Table
+>192	IdentifierDeclType	CStringTable
+>193	Condition	 
+>194	EqualityExpression	OneLine == PrefixedBoundary
+>195	Identifier	PrefixedBoundary
+>196	Identifier	OneLine
+>197	ExpressionStatement	 
+>198	CallExpression	PrefixedBoundary . Append ( Boundary )
+>199	ArgumentList	Boundary
+>200	Argument	Boundary
+>201	Identifier	Boundary
+>202	Callee	PrefixedBoundary . Append
+>203	MemberAccess	PrefixedBoundary . Append
+>204	Identifier	Append
+>205	Identifier	PrefixedBoundary
+>206	ExpressionStatement	 
+>207	AssignmentExpr	PrefixedBoundary = g_strDashDash
+>208	Identifier	g_strDashDash
+>209	Identifier	PrefixedBoundary
+>210	Condition	 
+>211	CallExpression	OneLine . GetLength ( )
+>212	ArgumentList	 
+>213	Callee	OneLine . GetLength
+>214	MemberAccess	OneLine . GetLength
+>215	Identifier	GetLength
+>216	Identifier	OneLine
+>217	IdentifierDeclStatement	 
+>218	IdentifierDecl	PrefixedBoundary
+>219	Identifier	PrefixedBoundary
+>220	IdentifierDeclType	CString
+>221	ExpressionStatement	 
+>222	CallExpression	RawData . ExtractLine ( & OneLine )
+>223	ArgumentList	& OneLine
+>224	Argument	& OneLine
+>225	UnaryOp	& OneLine
+>226	Identifier	OneLine
+>227	UnaryOperator	&
+>228	Callee	RawData . ExtractLine
+>229	MemberAccess	RawData . ExtractLine
+>230	Identifier	ExtractLine
+>231	Identifier	RawData
+>232	IdentifierDeclStatement	 
+>233	IdentifierDecl	OneLine
+>234	Identifier	OneLine
+>235	IdentifierDeclType	CString
+>261	FunctionDef	CMimeParser 
+>262	ParameterList	const CString & CommandLine , CString & Name , CString & Value , CStringTable & Result
+>263	Parameter	 
+>264	Identifier	Result
+>265	ParameterType	CStringTable &
+>266	Parameter	 
+>267	Identifier	Value
+>268	ParameterType	CString &
+>269	Parameter	 
+>270	Identifier	Name
+>271	ParameterType	CString &
+>272	Parameter	 
+>273	Identifier	CommandLine
+>274	ParameterType	const CString &
+>275	ReturnType	bool
+>276	CompoundStatement	 
+>277	IfStatement	if ( sPos > 0 )
+>278	ElseStatement	else
+>279	ReturnStatement	 
+>280	Identifier	false
+>281	CompoundStatement	 
+>282	ReturnStatement	 
+>283	Identifier	true
+>284	IfStatement	if ( PrevPos != ( int ) Value . GetLength ( ) )
+>285	CompoundStatement	 
+>286	ExpressionStatement	 
+>287	CallExpression	Result . Add ( ParameterName , ParameterValue )
+>288	ArgumentList	ParameterName
+>289	Argument	ParameterValue
+>290	Identifier	ParameterValue
+>291	Argument	ParameterName
+>292	Identifier	ParameterName
+>293	Callee	Result . Add
+>294	MemberAccess	Result . Add
+>295	Identifier	Add
+>296	Identifier	Result
+>297	ExpressionStatement	 
+>298	CallExpression	ParameterValue . Dequote ( )
+>299	ArgumentList	 
+>300	Callee	ParameterValue . Dequote
+>301	MemberAccess	ParameterValue . Dequote
+>302	Identifier	Dequote
+>303	Identifier	ParameterValue
+>304	ExpressionStatement	 
+>305	CallExpression	ParameterName . Dequote ( )
+>306	ArgumentList	 
+>307	Callee	ParameterName . Dequote
+>308	MemberAccess	ParameterName . Dequote
+>309	Identifier	Dequote
+>310	Identifier	ParameterName
+>311	ExpressionStatement	 
+>312	CallExpression	ParameterValue . Trim ( )
+>313	ArgumentList	 
+>314	Callee	ParameterValue . Trim
+>315	MemberAccess	ParameterValue . Trim
+>316	Identifier	Trim
+>317	Identifier	ParameterValue
+>318	ExpressionStatement	 
+>319	CallExpression	Value . Mid ( PrevPos , Value . GetLength ( ) , & ParameterValue )
+>320	ArgumentList	PrevPos
+>321	Argument	& ParameterValue
+>322	UnaryOp	& ParameterValue
+>323	Identifier	ParameterValue
+>324	UnaryOperator	&
+>325	Argument	Value . GetLength ( )
+>326	CallExpression	Value . GetLength ( )
+>327	ArgumentList	 
+>328	Callee	Value . GetLength
+>329	MemberAccess	Value . GetLength
+>330	Identifier	GetLength
+>331	Identifier	Value
+>332	Argument	PrevPos
+>333	Identifier	PrevPos
+>334	Callee	Value . Mid
+>335	MemberAccess	Value . Mid
+>336	Identifier	Mid
+>337	Identifier	Value
+>338	Condition	 
+>339	EqualityExpression	PrevPos != ( int ) Value . GetLength ( )
+>340	CastExpression	( int ) Value . GetLength ( )
+>341	CallExpression	Value . GetLength ( )
+>342	ArgumentList	 
+>343	Callee	Value . GetLength
+>344	MemberAccess	Value . GetLength
+>345	Identifier	GetLength
+>346	Identifier	Value
+>347	CastTarget	int
+>348	Identifier	PrevPos
+>349	WhileStatement	while ( CurPos < ( int ) Value . GetLength ( ) )
+>350	CompoundStatement	 
+>351	ExpressionStatement	 
+>352	IncDecOp	CurPos ++
+>353	IncDec	++
+>354	Identifier	CurPos
+>355	ExpressionStatement	 
+>356	SwitchStatement	switch ( Value [ CurPos ] )
+>357	CompoundStatement	 
+>358	BreakStatement	 
+>359	Label	 
+>360	Identifier	default
+>361	BreakStatement	 
+>362	IfStatement	if ( ! Comment )
+>363	CompoundStatement	 
+>364	ExpressionStatement	 
+>365	CallExpression	Result . Add ( ParameterName , ParameterValue )
+>366	ArgumentList	ParameterName
+>367	Argument	ParameterValue
+>368	Identifier	ParameterValue
+>369	Argument	ParameterName
+>370	Identifier	ParameterName
+>371	Callee	Result . Add
+>372	MemberAccess	Result . Add
+>373	Identifier	Add
+>374	Identifier	Result
+>375	ExpressionStatement	 
+>376	CallExpression	ParameterValue . Dequote ( )
+>377	ArgumentList	 
+>378	Callee	ParameterValue . Dequote
+>379	MemberAccess	ParameterValue . Dequote
+>380	Identifier	Dequote
+>381	Identifier	ParameterValue
+>382	ExpressionStatement	 
+>383	CallExpression	ParameterName . Dequote ( )
+>384	ArgumentList	 
+>385	Callee	ParameterName . Dequote
+>386	MemberAccess	ParameterName . Dequote
+>387	Identifier	Dequote
+>388	Identifier	ParameterName
+>389	ExpressionStatement	 
+>390	AssignmentExpr	PrevPos = CurPos + 1
+>391	AdditiveExpression	CurPos + 1
+>392	PrimaryExpression	1
+>393	Identifier	CurPos
+>394	Identifier	PrevPos
+>395	ExpressionStatement	 
+>396	CallExpression	ParameterValue . Trim ( )
+>397	ArgumentList	 
+>398	Callee	ParameterValue . Trim
+>399	MemberAccess	ParameterValue . Trim
+>400	Identifier	Trim
+>401	Identifier	ParameterValue
+>402	ExpressionStatement	 
+>403	CallExpression	Value . Mid ( PrevPos , CurPos - PrevPos , & ParameterValue )
+>404	ArgumentList	PrevPos
+>405	Argument	& ParameterValue
+>406	UnaryOp	& ParameterValue
+>407	Identifier	ParameterValue
+>408	UnaryOperator	&
+>409	Argument	CurPos - PrevPos
+>410	AdditiveExpression	CurPos - PrevPos
+>411	Identifier	PrevPos
+>412	Identifier	CurPos
+>413	Argument	PrevPos
+>414	Identifier	PrevPos
+>415	Callee	Value . Mid
+>416	MemberAccess	Value . Mid
+>417	Identifier	Mid
+>418	Identifier	Value
+>419	Condition	 
+>420	UnaryOp	! Comment
+>421	Identifier	Comment
+>422	UnaryOperator	!
+>423	Label	 
+>424	BreakStatement	 
+>425	IfStatement	if ( ! Comment )
+>426	CompoundStatement	 
+>427	ExpressionStatement	 
+>428	AssignmentExpr	PrevPos = CurPos + 1
+>429	AdditiveExpression	CurPos + 1
+>430	PrimaryExpression	1
+>431	Identifier	CurPos
+>432	Identifier	PrevPos
+>433	ExpressionStatement	 
+>434	CallExpression	ParameterName . Trim ( )
+>435	ArgumentList	 
+>436	Callee	ParameterName . Trim
+>437	MemberAccess	ParameterName . Trim
+>438	Identifier	Trim
+>439	Identifier	ParameterName
+>440	ExpressionStatement	 
+>441	CallExpression	Value . Mid ( PrevPos , CurPos - PrevPos , & ParameterName )
+>442	ArgumentList	PrevPos
+>443	Argument	& ParameterName
+>444	UnaryOp	& ParameterName
+>445	Identifier	ParameterName
+>446	UnaryOperator	&
+>447	Argument	CurPos - PrevPos
+>448	AdditiveExpression	CurPos - PrevPos
+>449	Identifier	PrevPos
+>450	Identifier	CurPos
+>451	Argument	PrevPos
+>452	Identifier	PrevPos
+>453	Callee	Value . Mid
+>454	MemberAccess	Value . Mid
+>455	Identifier	Mid
+>456	Identifier	Value
+>457	Condition	 
+>458	UnaryOp	! Comment
+>459	Identifier	Comment
+>460	UnaryOperator	!
+>461	IfStatement	if ( ( CurPos + 1 ) < ( int ) Value . GetLength ( ) )
+>462	CompoundStatement	 
+>463	IfStatement	if ( Value [ CurPos + 1 ] == '=' )
+>464	CompoundStatement	 
+>465	BreakStatement	 
+>466	ExpressionStatement	 
+>467	IncDecOp	CurPos ++
+>468	IncDec	++
+>469	Identifier	CurPos
+>470	Condition	 
+>471	EqualityExpression	Value [ CurPos + 1 ] == '='
+>472	PrimaryExpression	'='
+>473	ArrayIndexing	Value [ CurPos + 1 ]
+>474	AdditiveExpression	CurPos + 1
+>475	PrimaryExpression	1
+>476	Identifier	CurPos
+>477	Identifier	Value
+>478	Condition	 
+>479	RelationalExpression	( CurPos + 1 ) < ( int ) Value . GetLength ( )
+>480	CastExpression	( int ) Value . GetLength ( )
+>481	CallExpression	Value . GetLength ( )
+>482	ArgumentList	 
+>483	Callee	Value . GetLength
+>484	MemberAccess	Value . GetLength
+>485	Identifier	GetLength
+>486	Identifier	Value
+>487	CastTarget	int
+>488	AdditiveExpression	CurPos + 1
+>489	PrimaryExpression	1
+>490	Identifier	CurPos
+>491	Label	 
+>492	BreakStatement	 
+>493	ExpressionStatement	 
+>494	AssignmentExpr	Comment = false
+>495	Identifier	false
+>496	Identifier	Comment
+>497	Label	 
+>498	BreakStatement	 
+>499	IfStatement	if ( ! Comment )
+>500	ExpressionStatement	 
+>501	AssignmentExpr	Comment = true
+>502	Identifier	true
+>503	Identifier	Comment
+>504	Condition	 
+>505	UnaryOp	! Comment
+>506	Identifier	Comment
+>507	UnaryOperator	!
+>508	Label	 
+>509	Condition	 
+>510	ArrayIndexing	Value [ CurPos ]
+>511	Identifier	CurPos
+>512	Identifier	Value
+>513	Condition	 
+>514	RelationalExpression	CurPos < ( int ) Value . GetLength ( )
+>515	CastExpression	( int ) Value . GetLength ( )
+>516	CallExpression	Value . GetLength ( )
+>517	ArgumentList	 
+>518	Callee	Value . GetLength
+>519	MemberAccess	Value . GetLength
+>520	Identifier	GetLength
+>521	Identifier	Value
+>522	CastTarget	int
+>523	Identifier	CurPos
+>524	IdentifierDeclStatement	 
+>525	IdentifierDecl	Comment = false
+>526	AssignmentExpr	Comment = false
+>527	Identifier	false
+>528	Identifier	false
+>529	Identifier	Comment
+>530	IdentifierDeclType	bool
+>531	IdentifierDeclStatement	 
+>532	IdentifierDecl	ParameterValue
+>533	Identifier	ParameterValue
+>534	IdentifierDeclType	CString
+>535	IdentifierDeclStatement	 
+>536	IdentifierDecl	ParameterName = Name
+>537	AssignmentExpr	ParameterName = Name
+>538	Identifier	Name
+>539	Identifier	Name
+>540	Identifier	ParameterName
+>541	IdentifierDeclType	CString
+>542	IdentifierDeclStatement	 
+>543	IdentifierDecl	PrevPos = 0
+>544	AssignmentExpr	PrevPos = 0
+>545	PrimaryExpression	0
+>546	Identifier	PrevPos
+>547	Identifier	PrevPos
+>548	IdentifierDeclType	int
+>549	IdentifierDeclStatement	 
+>550	IdentifierDecl	CurPos = 0
+>551	AssignmentExpr	CurPos = 0
+>552	PrimaryExpression	0
+>553	Identifier	CurPos
+>554	Identifier	CurPos
+>555	IdentifierDeclType	int
+>556	IfStatement	if ( Name . Same ( \"Authorization\" ) || Name . Same ( \"Location\" ) )
+>557	CompoundStatement	 
+>558	ReturnStatement	 
+>559	Identifier	true
+>560	ExpressionStatement	 
+>561	CallExpression	Result . Add ( Name , Value )
+>562	ArgumentList	Name
+>563	Argument	Value
+>564	Identifier	Value
+>565	Argument	Name
+>566	Identifier	Name
+>567	Callee	Result . Add
+>568	MemberAccess	Result . Add
+>569	Identifier	Add
+>570	Identifier	Result
+>571	Condition	 
+>572	OrExpression	Name . Same ( \"Authorization\" ) || Name . Same ( \"Location\" )
+>573	CallExpression	Name . Same ( \"Location\" )
+>574	ArgumentList	\"Location\"
+>575	Argument	\"Location\"
+>576	PrimaryExpression	\"Location\"
+>577	Callee	Name . Same
+>578	MemberAccess	Name . Same
+>579	Identifier	Same
+>580	Identifier	Name
+>581	CallExpression	Name . Same ( \"Authorization\" )
+>582	ArgumentList	\"Authorization\"
+>583	Argument	\"Authorization\"
+>584	PrimaryExpression	\"Authorization\"
+>585	Callee	Name . Same
+>586	MemberAccess	Name . Same
+>587	Identifier	Same
+>588	Identifier	Name
+>589	ExpressionStatement	 
+>590	CallExpression	Value . Trim ( )
+>591	ArgumentList	 
+>592	Callee	Value . Trim
+>593	MemberAccess	Value . Trim
+>594	Identifier	Trim
+>595	Identifier	Value
+>596	ExpressionStatement	 
+>597	CallExpression	CommandLine . Mid ( sPos + 1 , CommandLine . GetLength ( ) , & Value )
+>598	ArgumentList	sPos + 1
+>599	Argument	& Value
+>600	UnaryOp	& Value
+>601	Identifier	Value
+>602	UnaryOperator	&
+>603	Argument	CommandLine . GetLength ( )
+>604	CallExpression	CommandLine . GetLength ( )
+>605	ArgumentList	 
+>606	Callee	CommandLine . GetLength
+>607	MemberAccess	CommandLine . GetLength
+>608	Identifier	GetLength
+>609	Identifier	CommandLine
+>610	Argument	sPos + 1
+>611	AdditiveExpression	sPos + 1
+>612	PrimaryExpression	1
+>613	Identifier	sPos
+>614	Callee	CommandLine . Mid
+>615	MemberAccess	CommandLine . Mid
+>616	Identifier	Mid
+>617	Identifier	CommandLine
+>618	ExpressionStatement	 
+>619	CallExpression	Name . Trim ( )
+>620	ArgumentList	 
+>621	Callee	Name . Trim
+>622	MemberAccess	Name . Trim
+>623	Identifier	Trim
+>624	Identifier	Name
+>625	ExpressionStatement	 
+>626	CallExpression	CommandLine . Mid ( 0 , sPos , & Name )
+>627	ArgumentList	0
+>628	Argument	& Name
+>629	UnaryOp	& Name
+>630	Identifier	Name
+>631	UnaryOperator	&
+>632	Argument	sPos
+>633	Identifier	sPos
+>634	Argument	0
+>635	PrimaryExpression	0
+>636	Callee	CommandLine . Mid
+>637	MemberAccess	CommandLine . Mid
+>638	Identifier	Mid
+>639	Identifier	CommandLine
+>640	Condition	 
+>641	RelationalExpression	sPos > 0
+>642	PrimaryExpression	0
+>643	Identifier	sPos
+>644	IdentifierDeclStatement	 
+>645	IdentifierDecl	sPos = CommandLine . Pos ( '
+>646	AssignmentExpr	sPos = CommandLine . Pos ( '
+>647	CallExpression	CommandLine . Pos ( '
+>648	ArgumentList	'
+>649	Argument	'
+>650	PrimaryExpression	'
+>651	Callee	CommandLine . Pos
+>652	MemberAccess	CommandLine . Pos
+>653	Identifier	Pos
+>654	Identifier	CommandLine
+>655	Identifier	sPos
+>656	Identifier	sPos
+>657	IdentifierDeclType	int
+<3=6,5,4
+<10=12,11
+<16=28,27,17
+<17=24,21,18
+<18=20,19
+<21=23,22
+<24=26,25
+<28=232,221,217,31,29
+<29=30
+<31=210,32
+<32=206,197,33
+<33=193,37,34
+<34=35
+<35=36
+<37=189,182,171,133,119,103,78,60,49,38
+<38=39
+<39=45,40
+<40=41
+<41=42
+<42=44,43
+<45=46
+<46=48,47
+<49=50
+<50=56,51
+<51=54,52
+<52=53
+<54=55
+<56=57
+<57=59,58
+<60=61
+<61=74,62
+<62=65,63
+<63=64
+<65=66
+<66=70,67
+<67=68
+<68=69
+<70=71
+<71=73,72
+<74=75
+<75=77,76
+<78=79
+<79=99,80
+<80=97,81
+<81=82
+<82=95,83
+<83=88,84
+<84=85
+<85=87,86
+<88=89
+<89=91,90
+<91=92
+<92=94,93
+<95=96
+<97=98
+<99=100
+<100=102,101
+<103=113,104
+<104=105
+<105=112,106
+<106=108,107
+<108=109
+<109=111,110
+<113=114
+<114=118,115
+<115=117,116
+<119=120
+<120=132,131,121
+<121=130,122
+<122=126,123
+<123=124
+<124=125
+<126=127
+<127=129,128
+<133=164,134
+<134=146,135
+<135=136
+<136=142,137
+<137=138
+<138=139
+<139=141,140
+<142=143
+<143=145,144
+<146=151,150,147
+<147=148
+<148=149
+<151=152
+<152=162,153
+<153=160,158,156,154
+<154=155
+<156=157
+<158=159
+<160=161
+<162=163
+<164=165
+<165=167,166
+<167=168
+<168=170,169
+<171=172
+<172=178,173
+<173=174
+<174=175
+<175=177,176
+<178=179
+<179=181,180
+<182=186,183
+<183=185,184
+<186=188,187
+<189=190
+<190=192,191
+<193=194
+<194=196,195
+<197=198
+<198=202,199
+<199=200
+<200=201
+<202=203
+<203=205,204
+<206=207
+<207=209,208
+<210=211
+<211=213,212
+<213=214
+<214=216,215
+<217=218
+<218=220,219
+<221=222
+<222=228,223
+<223=224
+<224=225
+<225=227,226
+<228=229
+<229=231,230
+<232=233
+<233=235,234
+<261=276,275,262
+<262=272,269,266,263
+<263=265,264
+<266=268,267
+<269=271,270
+<272=274,273
+<276=644,277
+<277=640,281,278
+<278=279
+<279=280
+<281=625,618,596,589,556,549,542,535,531,524,349,284,282
+<282=283
+<284=338,285
+<285=318,311,304,297,286
+<286=287
+<287=293,288
+<288=291,289
+<289=290
+<291=292
+<293=294
+<294=296,295
+<297=298
+<298=300,299
+<300=301
+<301=303,302
+<304=305
+<305=307,306
+<307=308
+<308=310,309
+<311=312
+<312=314,313
+<314=315
+<315=317,316
+<318=319
+<319=334,320
+<320=332,325,321
+<321=322
+<322=324,323
+<325=326
+<326=328,327
+<328=329
+<329=331,330
+<332=333
+<334=335
+<335=337,336
+<338=339
+<339=348,340
+<340=347,341
+<341=343,342
+<343=344
+<344=346,345
+<349=513,350
+<350=356,355,351
+<351=352
+<352=354,353
+<356=509,357
+<357=508,499,498,497,493,492,491,461,425,424,423,362,361,359,358
+<359=360
+<362=419,363
+<363=402,395,389,382,375,364
+<364=365
+<365=371,366
+<366=369,367
+<367=368
+<369=370
+<371=372
+<372=374,373
+<375=376
+<376=378,377
+<378=379
+<379=381,380
+<382=383
+<383=385,384
+<385=386
+<386=388,387
+<389=390
+<390=394,391
+<391=393,392
+<395=396
+<396=398,397
+<398=399
+<399=401,400
+<402=403
+<403=415,404
+<404=413,409,405
+<405=406
+<406=408,407
+<409=410
+<410=412,411
+<413=414
+<415=416
+<416=418,417
+<419=420
+<420=422,421
+<425=457,426
+<426=440,433,427
+<427=428
+<428=432,429
+<429=431,430
+<433=434
+<434=436,435
+<436=437
+<437=439,438
+<440=441
+<441=453,442
+<442=451,447,443
+<443=444
+<444=446,445
+<447=448
+<448=450,449
+<451=452
+<453=454
+<454=456,455
+<457=458
+<458=460,459
+<461=478,462
+<462=463
+<463=470,464
+<464=466,465
+<466=467
+<467=469,468
+<470=471
+<471=473,472
+<473=477,474
+<474=476,475
+<478=479
+<479=488,480
+<480=487,481
+<481=483,482
+<483=484
+<484=486,485
+<488=490,489
+<493=494
+<494=496,495
+<499=504,500
+<500=501
+<501=503,502
+<504=505
+<505=507,506
+<509=510
+<510=512,511
+<513=514
+<514=523,515
+<515=522,516
+<516=518,517
+<518=519
+<519=521,520
+<524=525
+<525=530,529,526
+<526=528,527
+<531=532
+<532=534,533
+<535=536
+<536=541,540,537
+<537=539,538
+<542=543
+<543=548,547,544
+<544=546,545
+<549=550
+<550=555,554,551
+<551=553,552
+<556=571,557
+<557=560,558
+<558=559
+<560=561
+<561=567,562
+<562=565,563
+<563=564
+<565=566
+<567=568
+<568=570,569
+<571=572
+<572=581,573
+<573=577,574
+<574=575
+<575=576
+<577=578
+<578=580,579
+<581=585,582
+<582=583
+<583=584
+<585=586
+<586=588,587
+<589=590
+<590=592,591
+<592=593
+<593=595,594
+<596=597
+<597=614,598
+<598=610,603,599
+<599=600
+<600=602,601
+<603=604
+<604=606,605
+<606=607
+<607=609,608
+<610=611
+<611=613,612
+<614=615
+<615=617,616
+<618=619
+<619=621,620
+<621=622
+<622=624,623
+<625=626
+<626=636,627
+<627=634,632,628
+<628=629
+<629=631,630
+<632=633
+<634=635
+<636=637
+<637=639,638
+<640=641
+<641=643,642
+<644=645
+<645=657,656,646
+<646=655,647
+<647=651,648
+<648=649
+<649=650
+<651=652
+<652=654,653

@@ -1,0 +1,1483 @@
+>3	FunctionDef	AABB 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	AABB 
+>10	ParameterList	float _x1 , float _x2 , float _y1 , float _y2
+>11	Parameter	 
+>12	Identifier	_y2
+>13	ParameterType	float
+>14	Parameter	 
+>15	Identifier	_y1
+>16	ParameterType	float
+>17	Parameter	 
+>18	Identifier	_x2
+>19	ParameterType	float
+>20	Parameter	 
+>21	Identifier	_x1
+>22	ParameterType	float
+>23	CompoundStatement	 
+>31	FunctionDef	AABB 
+>32	ParameterList	vec2_ary_t const & verts
+>33	Parameter	 
+>34	Identifier	verts
+>35	ParameterType	vec2_ary_t const &
+>36	CompoundStatement	 
+>37	ForStatement	for ( int i = 0 , size = verts . size ( ) ; i < size ; ++ i )
+>38	CompoundStatement	 
+>39	IfStatement	if ( p [ 1 ] > y2 )
+>40	ExpressionStatement	 
+>41	AssignmentExpr	y2 = p [ 1 ]
+>42	ArrayIndexing	p [ 1 ]
+>43	PrimaryExpression	1
+>44	Identifier	p
+>45	Identifier	y2
+>46	Condition	 
+>47	RelationalExpression	p [ 1 ] > y2
+>48	Identifier	y2
+>49	ArrayIndexing	p [ 1 ]
+>50	PrimaryExpression	1
+>51	Identifier	p
+>52	IfStatement	if ( p [ 1 ] < y1 )
+>53	ExpressionStatement	 
+>54	AssignmentExpr	y1 = p [ 1 ]
+>55	ArrayIndexing	p [ 1 ]
+>56	PrimaryExpression	1
+>57	Identifier	p
+>58	Identifier	y1
+>59	Condition	 
+>60	RelationalExpression	p [ 1 ] < y1
+>61	Identifier	y1
+>62	ArrayIndexing	p [ 1 ]
+>63	PrimaryExpression	1
+>64	Identifier	p
+>65	IfStatement	if ( p [ 0 ] > x2 )
+>66	ExpressionStatement	 
+>67	AssignmentExpr	x2 = p [ 0 ]
+>68	ArrayIndexing	p [ 0 ]
+>69	PrimaryExpression	0
+>70	Identifier	p
+>71	Identifier	x2
+>72	Condition	 
+>73	RelationalExpression	p [ 0 ] > x2
+>74	Identifier	x2
+>75	ArrayIndexing	p [ 0 ]
+>76	PrimaryExpression	0
+>77	Identifier	p
+>78	IfStatement	if ( p [ 0 ] < x1 )
+>79	ExpressionStatement	 
+>80	AssignmentExpr	x1 = p [ 0 ]
+>81	ArrayIndexing	p [ 0 ]
+>82	PrimaryExpression	0
+>83	Identifier	p
+>84	Identifier	x1
+>85	Condition	 
+>86	RelationalExpression	p [ 0 ] < x1
+>87	Identifier	x1
+>88	ArrayIndexing	p [ 0 ]
+>89	PrimaryExpression	0
+>90	Identifier	p
+>91	IdentifierDeclStatement	 
+>92	IdentifierDecl	& p = verts [ i ]
+>93	AssignmentExpr	& p = verts [ i ]
+>94	ArrayIndexing	verts [ i ]
+>95	Identifier	i
+>96	Identifier	verts
+>97	Identifier	p
+>98	Identifier	p
+>99	IdentifierDeclType	vec2 const &
+>100	UnaryExpression	 
+>101	Identifier	i
+>102	IncDec	++
+>103	Condition	 
+>104	RelationalExpression	i < size
+>105	Identifier	size
+>106	Identifier	i
+>107	ForInit	 
+>108	IdentifierDeclStatement	int i = 0 , size = verts . size ( ) ;
+>109	IdentifierDecl	size = verts . size ( )
+>110	AssignmentExpr	size = verts . size ( )
+>111	CallExpression	verts . size ( )
+>112	ArgumentList	 
+>113	Callee	verts . size
+>114	MemberAccess	verts . size
+>115	Identifier	size
+>116	Identifier	verts
+>117	Identifier	size
+>118	Identifier	size
+>119	IdentifierDeclType	int
+>120	IdentifierDecl	i = 0
+>121	AssignmentExpr	i = 0
+>122	PrimaryExpression	0
+>123	Identifier	i
+>124	Identifier	i
+>125	IdentifierDeclType	int
+>126	ExpressionStatement	 
+>127	AssignmentExpr	y2 = verts [ 0 ] [ 1 ]
+>128	ArrayIndexing	verts [ 0 ] [ 1 ]
+>129	PrimaryExpression	1
+>130	ArrayIndexing	verts [ 0 ]
+>131	PrimaryExpression	0
+>132	Identifier	verts
+>133	Identifier	y2
+>134	ExpressionStatement	 
+>135	AssignmentExpr	y1 = verts [ 0 ] [ 1 ]
+>136	ArrayIndexing	verts [ 0 ] [ 1 ]
+>137	PrimaryExpression	1
+>138	ArrayIndexing	verts [ 0 ]
+>139	PrimaryExpression	0
+>140	Identifier	verts
+>141	Identifier	y1
+>142	ExpressionStatement	 
+>143	AssignmentExpr	x2 = verts [ 0 ] [ 0 ]
+>144	ArrayIndexing	verts [ 0 ] [ 0 ]
+>145	PrimaryExpression	0
+>146	ArrayIndexing	verts [ 0 ]
+>147	PrimaryExpression	0
+>148	Identifier	verts
+>149	Identifier	x2
+>150	ExpressionStatement	 
+>151	AssignmentExpr	x1 = verts [ 0 ] [ 0 ]
+>152	ArrayIndexing	verts [ 0 ] [ 0 ]
+>153	PrimaryExpression	0
+>154	ArrayIndexing	verts [ 0 ]
+>155	PrimaryExpression	0
+>156	Identifier	verts
+>157	Identifier	x1
+>174	FunctionDef	AABB 
+>175	ParameterList	 
+>176	ReturnType	void
+>177	CompoundStatement	 
+>178	ExpressionStatement	 
+>179	CallExpression	glPopMatrix ( )
+>180	ArgumentList	 
+>181	Callee	glPopMatrix
+>182	Identifier	glPopMatrix
+>183	ExpressionStatement	 
+>184	CallExpression	glPopAttrib ( )
+>185	ArgumentList	 
+>186	Callee	glPopAttrib
+>187	Identifier	glPopAttrib
+>188	ExpressionStatement	 
+>189	CallExpression	glEnd ( )
+>190	ArgumentList	 
+>191	Callee	glEnd
+>192	Identifier	glEnd
+>193	ExpressionStatement	 
+>194	CallExpression	glVertex2f ( x1 , y2 )
+>195	ArgumentList	x1
+>196	Argument	y2
+>197	Identifier	y2
+>198	Argument	x1
+>199	Identifier	x1
+>200	Callee	glVertex2f
+>201	Identifier	glVertex2f
+>202	ExpressionStatement	 
+>203	CallExpression	glVertex2f ( x2 , y2 )
+>204	ArgumentList	x2
+>205	Argument	y2
+>206	Identifier	y2
+>207	Argument	x2
+>208	Identifier	x2
+>209	Callee	glVertex2f
+>210	Identifier	glVertex2f
+>211	ExpressionStatement	 
+>212	CallExpression	glVertex2f ( x2 , y1 )
+>213	ArgumentList	x2
+>214	Argument	y1
+>215	Identifier	y1
+>216	Argument	x2
+>217	Identifier	x2
+>218	Callee	glVertex2f
+>219	Identifier	glVertex2f
+>220	ExpressionStatement	 
+>221	CallExpression	glVertex2f ( x1 , y1 )
+>222	ArgumentList	x1
+>223	Argument	y1
+>224	Identifier	y1
+>225	Argument	x1
+>226	Identifier	x1
+>227	Callee	glVertex2f
+>228	Identifier	glVertex2f
+>229	ExpressionStatement	 
+>230	CallExpression	glBegin ( GL_LINE_LOOP )
+>231	ArgumentList	GL_LINE_LOOP
+>232	Argument	GL_LINE_LOOP
+>233	Identifier	GL_LINE_LOOP
+>234	Callee	glBegin
+>235	Identifier	glBegin
+>236	ExpressionStatement	 
+>237	CallExpression	glColor3f ( 0 , 1 , 0 )
+>238	ArgumentList	0
+>239	Argument	0
+>240	PrimaryExpression	0
+>241	Argument	1
+>242	PrimaryExpression	1
+>243	Argument	0
+>244	PrimaryExpression	0
+>245	Callee	glColor3f
+>246	Identifier	glColor3f
+>247	ExpressionStatement	 
+>248	CallExpression	glDisable ( GL_TEXTURE_2D )
+>249	ArgumentList	GL_TEXTURE_2D
+>250	Argument	GL_TEXTURE_2D
+>251	Identifier	GL_TEXTURE_2D
+>252	Callee	glDisable
+>253	Identifier	glDisable
+>254	ExpressionStatement	 
+>255	CallExpression	glLoadIdentity ( )
+>256	ArgumentList	 
+>257	Callee	glLoadIdentity
+>258	Identifier	glLoadIdentity
+>259	ExpressionStatement	 
+>260	CallExpression	glPushMatrix ( )
+>261	ArgumentList	 
+>262	Callee	glPushMatrix
+>263	Identifier	glPushMatrix
+>264	ExpressionStatement	 
+>265	CallExpression	glPushAttrib ( GL_ALL_ATTRIB_BITS )
+>266	ArgumentList	GL_ALL_ATTRIB_BITS
+>267	Argument	GL_ALL_ATTRIB_BITS
+>268	Identifier	GL_ALL_ATTRIB_BITS
+>269	Callee	glPushAttrib
+>270	Identifier	glPushAttrib
+>281	FunctionDef	AABB 
+>282	ParameterList	const vec2 p
+>283	Parameter	 
+>284	Identifier	p
+>285	ParameterType	const vec2
+>286	ReturnType	bool
+>287	CompoundStatement	 
+>288	ReturnStatement	 
+>289	AndExpression	p [ 0 ] > x1 && p [ 0 ] < x2 && p [ 1 ] > y1 && p [ 1 ] < y2
+>290	AndExpression	p [ 0 ] < x2 && p [ 1 ] > y1 && p [ 1 ] < y2
+>291	AndExpression	p [ 1 ] > y1 && p [ 1 ] < y2
+>292	RelationalExpression	p [ 1 ] < y2
+>293	Identifier	y2
+>294	ArrayIndexing	p [ 1 ]
+>295	PrimaryExpression	1
+>296	Identifier	p
+>297	RelationalExpression	p [ 1 ] > y1
+>298	Identifier	y1
+>299	ArrayIndexing	p [ 1 ]
+>300	PrimaryExpression	1
+>301	Identifier	p
+>302	RelationalExpression	p [ 0 ] < x2
+>303	Identifier	x2
+>304	ArrayIndexing	p [ 0 ]
+>305	PrimaryExpression	0
+>306	Identifier	p
+>307	RelationalExpression	p [ 0 ] > x1
+>308	Identifier	x1
+>309	ArrayIndexing	p [ 0 ]
+>310	PrimaryExpression	0
+>311	Identifier	p
+>321	FunctionDef	OBB 
+>322	ParameterList	const OBB & other
+>323	Parameter	 
+>324	Identifier	other
+>325	ParameterType	const OBB &
+>326	ReturnType	bool
+>327	CompoundStatement	 
+>328	ReturnStatement	 
+>329	Identifier	true
+>330	ForStatement	for ( int a = 0 ; a < 2 ; ++ a )
+>331	CompoundStatement	 
+>332	IfStatement	if ( ( tMin > 1 + origin [ a ] ) || ( tMax < origin [ a ] ) )
+>333	CompoundStatement	 
+>334	ReturnStatement	 
+>335	Identifier	false
+>336	Condition	 
+>337	OrExpression	( tMin > 1 + origin [ a ] ) || ( tMax < origin [ a ] )
+>338	RelationalExpression	tMax < origin [ a ]
+>339	ArrayIndexing	origin [ a ]
+>340	Identifier	a
+>341	Identifier	origin
+>342	Identifier	tMax
+>343	RelationalExpression	tMin > 1 + origin [ a ]
+>344	AdditiveExpression	1 + origin [ a ]
+>345	ArrayIndexing	origin [ a ]
+>346	Identifier	a
+>347	Identifier	origin
+>348	PrimaryExpression	1
+>349	Identifier	tMin
+>350	ForStatement	for ( int c = 1 ; c < 4 ; ++ c )
+>351	CompoundStatement	 
+>352	IfStatement	if ( t < tMin )
+>353	ElseStatement	else
+>354	IfStatement	if ( t > tMax )
+>355	CompoundStatement	 
+>356	ExpressionStatement	 
+>357	AssignmentExpr	tMax = t
+>358	Identifier	t
+>359	Identifier	tMax
+>360	Condition	 
+>361	RelationalExpression	t > tMax
+>362	Identifier	tMax
+>363	Identifier	t
+>364	CompoundStatement	 
+>365	ExpressionStatement	 
+>366	AssignmentExpr	tMin = t
+>367	Identifier	t
+>368	Identifier	tMin
+>369	Condition	 
+>370	RelationalExpression	t < tMin
+>371	Identifier	tMin
+>372	Identifier	t
+>373	ExpressionStatement	 
+>374	AssignmentExpr	t = dot ( other . corner [ c ] , axis [ a ] )
+>375	CallExpression	dot ( other . corner [ c ] , axis [ a ] )
+>376	ArgumentList	other . corner [ c ]
+>377	Argument	axis [ a ]
+>378	ArrayIndexing	axis [ a ]
+>379	Identifier	a
+>380	Identifier	axis
+>381	Argument	other . corner [ c ]
+>382	ArrayIndexing	other . corner [ c ]
+>383	Identifier	c
+>384	MemberAccess	other . corner
+>385	Identifier	corner
+>386	Identifier	other
+>387	Callee	dot
+>388	Identifier	dot
+>389	Identifier	t
+>390	UnaryExpression	 
+>391	Identifier	c
+>392	IncDec	++
+>393	Condition	 
+>394	RelationalExpression	c < 4
+>395	PrimaryExpression	4
+>396	Identifier	c
+>397	ForInit	 
+>398	IdentifierDeclStatement	int c = 1 ;
+>399	IdentifierDecl	c = 1
+>400	AssignmentExpr	c = 1
+>401	PrimaryExpression	1
+>402	Identifier	c
+>403	Identifier	c
+>404	IdentifierDeclType	int
+>405	IdentifierDeclStatement	 
+>406	IdentifierDecl	tMax = t
+>407	AssignmentExpr	tMax = t
+>408	Identifier	t
+>409	Identifier	t
+>410	Identifier	tMax
+>411	IdentifierDeclType	double
+>412	IdentifierDeclStatement	 
+>413	IdentifierDecl	tMin = t
+>414	AssignmentExpr	tMin = t
+>415	Identifier	t
+>416	Identifier	t
+>417	Identifier	tMin
+>418	IdentifierDeclType	double
+>419	IdentifierDeclStatement	 
+>420	IdentifierDecl	t = dot ( other . corner [ 0 ] , axis [ a ] )
+>421	AssignmentExpr	t = dot ( other . corner [ 0 ] , axis [ a ] )
+>422	CallExpression	dot ( other . corner [ 0 ] , axis [ a ] )
+>423	ArgumentList	other . corner [ 0 ]
+>424	Argument	axis [ a ]
+>425	ArrayIndexing	axis [ a ]
+>426	Identifier	a
+>427	Identifier	axis
+>428	Argument	other . corner [ 0 ]
+>429	ArrayIndexing	other . corner [ 0 ]
+>430	PrimaryExpression	0
+>431	MemberAccess	other . corner
+>432	Identifier	corner
+>433	Identifier	other
+>434	Callee	dot
+>435	Identifier	dot
+>436	Identifier	t
+>437	Identifier	t
+>438	IdentifierDeclType	double
+>439	UnaryExpression	 
+>440	Identifier	a
+>441	IncDec	++
+>442	Condition	 
+>443	RelationalExpression	a < 2
+>444	PrimaryExpression	2
+>445	Identifier	a
+>446	ForInit	 
+>447	IdentifierDeclStatement	int a = 0 ;
+>448	IdentifierDecl	a = 0
+>449	AssignmentExpr	a = 0
+>450	PrimaryExpression	0
+>451	Identifier	a
+>452	Identifier	a
+>453	IdentifierDeclType	int
+>475	FunctionDef	OBB 
+>476	ParameterList	 
+>477	ReturnType	void
+>478	CompoundStatement	 
+>479	ForStatement	for ( int a = 0 ; a < 2 ; ++ a )
+>480	CompoundStatement	 
+>481	ExpressionStatement	 
+>482	AssignmentExpr	origin [ a ] = dot ( corner [ 0 ] , axis [ a ] )
+>483	CallExpression	dot ( corner [ 0 ] , axis [ a ] )
+>484	ArgumentList	corner [ 0 ]
+>485	Argument	axis [ a ]
+>486	ArrayIndexing	axis [ a ]
+>487	Identifier	a
+>488	Identifier	axis
+>489	Argument	corner [ 0 ]
+>490	ArrayIndexing	corner [ 0 ]
+>491	PrimaryExpression	0
+>492	Identifier	corner
+>493	Callee	dot
+>494	Identifier	dot
+>495	ArrayIndexing	origin [ a ]
+>496	Identifier	a
+>497	Identifier	origin
+>498	ExpressionStatement	 
+>499	AssignmentExpr	axis [ a ] /= length2 ( axis [ a ] )
+>500	CallExpression	length2 ( axis [ a ] )
+>501	ArgumentList	axis [ a ]
+>502	Argument	axis [ a ]
+>503	ArrayIndexing	axis [ a ]
+>504	Identifier	a
+>505	Identifier	axis
+>506	Callee	length2
+>507	Identifier	length2
+>508	ArrayIndexing	axis [ a ]
+>509	Identifier	a
+>510	Identifier	axis
+>511	UnaryExpression	 
+>512	Identifier	a
+>513	IncDec	++
+>514	Condition	 
+>515	RelationalExpression	a < 2
+>516	PrimaryExpression	2
+>517	Identifier	a
+>518	ForInit	 
+>519	IdentifierDeclStatement	int a = 0 ;
+>520	IdentifierDecl	a = 0
+>521	AssignmentExpr	a = 0
+>522	PrimaryExpression	0
+>523	Identifier	a
+>524	Identifier	a
+>525	IdentifierDeclType	int
+>526	ExpressionStatement	 
+>527	AssignmentExpr	axis [ 1 ] = corner [ 3 ] - corner [ 0 ]
+>528	AdditiveExpression	corner [ 3 ] - corner [ 0 ]
+>529	ArrayIndexing	corner [ 0 ]
+>530	PrimaryExpression	0
+>531	Identifier	corner
+>532	ArrayIndexing	corner [ 3 ]
+>533	PrimaryExpression	3
+>534	Identifier	corner
+>535	ArrayIndexing	axis [ 1 ]
+>536	PrimaryExpression	1
+>537	Identifier	axis
+>538	ExpressionStatement	 
+>539	AssignmentExpr	axis [ 0 ] = corner [ 1 ] - corner [ 0 ]
+>540	AdditiveExpression	corner [ 1 ] - corner [ 0 ]
+>541	ArrayIndexing	corner [ 0 ]
+>542	PrimaryExpression	0
+>543	Identifier	corner
+>544	ArrayIndexing	corner [ 1 ]
+>545	PrimaryExpression	1
+>546	Identifier	corner
+>547	ArrayIndexing	axis [ 0 ]
+>548	PrimaryExpression	0
+>549	Identifier	axis
+>563	FunctionDef	OBB 
+>564	ParameterList	const AABB & aabb
+>565	Parameter	 
+>566	Identifier	aabb
+>567	ParameterType	const AABB &
+>568	CompoundStatement	 
+>569	ExpressionStatement	 
+>570	CallExpression	computeAxes ( )
+>571	ArgumentList	 
+>572	Callee	computeAxes
+>573	Identifier	computeAxes
+>574	ForStatement	for ( int c = 0 ; c < 4 ; ++ c )
+>575	ExpressionStatement	 
+>576	AssignmentExpr	corner [ c ] = vec2 ( transformPoint ( mt , vec3 ( corner [ c ] ) ) )
+>577	CallExpression	vec2 ( transformPoint ( mt , vec3 ( corner [ c ] ) ) )
+>578	ArgumentList	transformPoint ( mt , vec3 ( corner [ c ] ) )
+>579	Argument	transformPoint ( mt , vec3 ( corner [ c ] ) )
+>580	CallExpression	transformPoint ( mt , vec3 ( corner [ c ] ) )
+>581	ArgumentList	mt
+>582	Argument	vec3 ( corner [ c ] )
+>583	CallExpression	vec3 ( corner [ c ] )
+>584	ArgumentList	corner [ c ]
+>585	Argument	corner [ c ]
+>586	ArrayIndexing	corner [ c ]
+>587	Identifier	c
+>588	Identifier	corner
+>589	Callee	vec3
+>590	Identifier	vec3
+>591	Argument	mt
+>592	Identifier	mt
+>593	Callee	transformPoint
+>594	Identifier	transformPoint
+>595	Callee	vec2
+>596	Identifier	vec2
+>597	ArrayIndexing	corner [ c ]
+>598	Identifier	c
+>599	Identifier	corner
+>600	UnaryExpression	 
+>601	Identifier	c
+>602	IncDec	++
+>603	Condition	 
+>604	RelationalExpression	c < 4
+>605	PrimaryExpression	4
+>606	Identifier	c
+>607	ForInit	 
+>608	IdentifierDeclStatement	int c = 0 ;
+>609	IdentifierDecl	c = 0
+>610	AssignmentExpr	c = 0
+>611	PrimaryExpression	0
+>612	Identifier	c
+>613	Identifier	c
+>614	IdentifierDeclType	int
+>615	IdentifierDeclStatement	 
+>616	IdentifierDecl	mt = glGetCurrentMatrix ( GL_MODELVIEW_MATRIX )
+>617	AssignmentExpr	mt = glGetCurrentMatrix ( GL_MODELVIEW_MATRIX )
+>618	CallExpression	glGetCurrentMatrix ( GL_MODELVIEW_MATRIX )
+>619	ArgumentList	GL_MODELVIEW_MATRIX
+>620	Argument	GL_MODELVIEW_MATRIX
+>621	Identifier	GL_MODELVIEW_MATRIX
+>622	Callee	glGetCurrentMatrix
+>623	Identifier	glGetCurrentMatrix
+>624	Identifier	mt
+>625	Identifier	mt
+>626	IdentifierDeclType	mat4
+>627	ExpressionStatement	 
+>628	AssignmentExpr	corner [ 3 ] = vec2 ( aabb . x1 , aabb . y2 )
+>629	CallExpression	vec2 ( aabb . x1 , aabb . y2 )
+>630	ArgumentList	aabb . x1
+>631	Argument	aabb . y2
+>632	MemberAccess	aabb . y2
+>633	Identifier	y2
+>634	Identifier	aabb
+>635	Argument	aabb . x1
+>636	MemberAccess	aabb . x1
+>637	Identifier	x1
+>638	Identifier	aabb
+>639	Callee	vec2
+>640	Identifier	vec2
+>641	ArrayIndexing	corner [ 3 ]
+>642	PrimaryExpression	3
+>643	Identifier	corner
+>644	ExpressionStatement	 
+>645	AssignmentExpr	corner [ 2 ] = vec2 ( aabb . x2 , aabb . y2 )
+>646	CallExpression	vec2 ( aabb . x2 , aabb . y2 )
+>647	ArgumentList	aabb . x2
+>648	Argument	aabb . y2
+>649	MemberAccess	aabb . y2
+>650	Identifier	y2
+>651	Identifier	aabb
+>652	Argument	aabb . x2
+>653	MemberAccess	aabb . x2
+>654	Identifier	x2
+>655	Identifier	aabb
+>656	Callee	vec2
+>657	Identifier	vec2
+>658	ArrayIndexing	corner [ 2 ]
+>659	PrimaryExpression	2
+>660	Identifier	corner
+>661	ExpressionStatement	 
+>662	AssignmentExpr	corner [ 1 ] = vec2 ( aabb . x2 , aabb . y1 )
+>663	CallExpression	vec2 ( aabb . x2 , aabb . y1 )
+>664	ArgumentList	aabb . x2
+>665	Argument	aabb . y1
+>666	MemberAccess	aabb . y1
+>667	Identifier	y1
+>668	Identifier	aabb
+>669	Argument	aabb . x2
+>670	MemberAccess	aabb . x2
+>671	Identifier	x2
+>672	Identifier	aabb
+>673	Callee	vec2
+>674	Identifier	vec2
+>675	ArrayIndexing	corner [ 1 ]
+>676	PrimaryExpression	1
+>677	Identifier	corner
+>678	ExpressionStatement	 
+>679	AssignmentExpr	corner [ 0 ] = vec2 ( aabb . x1 , aabb . y1 )
+>680	CallExpression	vec2 ( aabb . x1 , aabb . y1 )
+>681	ArgumentList	aabb . x1
+>682	Argument	aabb . y1
+>683	MemberAccess	aabb . y1
+>684	Identifier	y1
+>685	Identifier	aabb
+>686	Argument	aabb . x1
+>687	MemberAccess	aabb . x1
+>688	Identifier	x1
+>689	Identifier	aabb
+>690	Callee	vec2
+>691	Identifier	vec2
+>692	ArrayIndexing	corner [ 0 ]
+>693	PrimaryExpression	0
+>694	Identifier	corner
+>713	FunctionDef	OBB 
+>714	ParameterList	const OBB & other
+>715	Parameter	 
+>716	Identifier	other
+>717	ParameterType	const OBB &
+>718	ReturnType	bool
+>719	CompoundStatement	 
+>720	ReturnStatement	 
+>721	AndExpression	overlaps1Way ( other ) && other . overlaps1Way ( * this )
+>722	CallExpression	other . overlaps1Way ( * this )
+>723	ArgumentList	* this
+>724	Argument	* this
+>725	UnaryOp	* this
+>726	Identifier	this
+>727	UnaryOperator	*
+>728	Callee	other . overlaps1Way
+>729	MemberAccess	other . overlaps1Way
+>730	Identifier	overlaps1Way
+>731	Identifier	other
+>732	CallExpression	overlaps1Way ( other )
+>733	ArgumentList	other
+>734	Argument	other
+>735	Identifier	other
+>736	Callee	overlaps1Way
+>737	Identifier	overlaps1Way
+>746	FunctionDef	OBB 
+>747	ParameterList	const Circle & other
+>748	Parameter	 
+>749	Identifier	other
+>750	ParameterType	const Circle &
+>751	ReturnType	bool
+>752	CompoundStatement	 
+>753	ReturnStatement	 
+>754	Identifier	false
+>755	IfStatement	if ( CircleLineIntersect ( other , Line ( corner [ 3 ] , corner [ 0 ] ) ) )
+>756	ReturnStatement	 
+>757	Identifier	true
+>758	Condition	 
+>759	CallExpression	CircleLineIntersect ( other , Line ( corner [ 3 ] , corner [ 0 ] ) )
+>760	ArgumentList	other
+>761	Argument	Line ( corner [ 3 ] , corner [ 0 ] )
+>762	CallExpression	Line ( corner [ 3 ] , corner [ 0 ] )
+>763	ArgumentList	corner [ 3 ]
+>764	Argument	corner [ 0 ]
+>765	ArrayIndexing	corner [ 0 ]
+>766	PrimaryExpression	0
+>767	Identifier	corner
+>768	Argument	corner [ 3 ]
+>769	ArrayIndexing	corner [ 3 ]
+>770	PrimaryExpression	3
+>771	Identifier	corner
+>772	Callee	Line
+>773	Identifier	Line
+>774	Argument	other
+>775	Identifier	other
+>776	Callee	CircleLineIntersect
+>777	Identifier	CircleLineIntersect
+>778	IfStatement	if ( CircleLineIntersect ( other , Line ( corner [ 2 ] , corner [ 3 ] ) ) )
+>779	ReturnStatement	 
+>780	Identifier	true
+>781	Condition	 
+>782	CallExpression	CircleLineIntersect ( other , Line ( corner [ 2 ] , corner [ 3 ] ) )
+>783	ArgumentList	other
+>784	Argument	Line ( corner [ 2 ] , corner [ 3 ] )
+>785	CallExpression	Line ( corner [ 2 ] , corner [ 3 ] )
+>786	ArgumentList	corner [ 2 ]
+>787	Argument	corner [ 3 ]
+>788	ArrayIndexing	corner [ 3 ]
+>789	PrimaryExpression	3
+>790	Identifier	corner
+>791	Argument	corner [ 2 ]
+>792	ArrayIndexing	corner [ 2 ]
+>793	PrimaryExpression	2
+>794	Identifier	corner
+>795	Callee	Line
+>796	Identifier	Line
+>797	Argument	other
+>798	Identifier	other
+>799	Callee	CircleLineIntersect
+>800	Identifier	CircleLineIntersect
+>801	IfStatement	if ( CircleLineIntersect ( other , Line ( corner [ 1 ] , corner [ 2 ] ) ) )
+>802	ReturnStatement	 
+>803	Identifier	true
+>804	Condition	 
+>805	CallExpression	CircleLineIntersect ( other , Line ( corner [ 1 ] , corner [ 2 ] ) )
+>806	ArgumentList	other
+>807	Argument	Line ( corner [ 1 ] , corner [ 2 ] )
+>808	CallExpression	Line ( corner [ 1 ] , corner [ 2 ] )
+>809	ArgumentList	corner [ 1 ]
+>810	Argument	corner [ 2 ]
+>811	ArrayIndexing	corner [ 2 ]
+>812	PrimaryExpression	2
+>813	Identifier	corner
+>814	Argument	corner [ 1 ]
+>815	ArrayIndexing	corner [ 1 ]
+>816	PrimaryExpression	1
+>817	Identifier	corner
+>818	Callee	Line
+>819	Identifier	Line
+>820	Argument	other
+>821	Identifier	other
+>822	Callee	CircleLineIntersect
+>823	Identifier	CircleLineIntersect
+>824	IfStatement	if ( CircleLineIntersect ( other , Line ( corner [ 0 ] , corner [ 1 ] ) ) )
+>825	ReturnStatement	 
+>826	Identifier	true
+>827	Condition	 
+>828	CallExpression	CircleLineIntersect ( other , Line ( corner [ 0 ] , corner [ 1 ] ) )
+>829	ArgumentList	other
+>830	Argument	Line ( corner [ 0 ] , corner [ 1 ] )
+>831	CallExpression	Line ( corner [ 0 ] , corner [ 1 ] )
+>832	ArgumentList	corner [ 0 ]
+>833	Argument	corner [ 1 ]
+>834	ArrayIndexing	corner [ 1 ]
+>835	PrimaryExpression	1
+>836	Identifier	corner
+>837	Argument	corner [ 0 ]
+>838	ArrayIndexing	corner [ 0 ]
+>839	PrimaryExpression	0
+>840	Identifier	corner
+>841	Callee	Line
+>842	Identifier	Line
+>843	Argument	other
+>844	Identifier	other
+>845	Callee	CircleLineIntersect
+>846	Identifier	CircleLineIntersect
+>857	FunctionDef	OBB 
+>858	ParameterList	bool highlight
+>859	Parameter	 
+>860	Identifier	highlight
+>861	ParameterType	bool
+>862	ReturnType	void
+>863	CompoundStatement	 
+>864	ExpressionStatement	 
+>865	CallExpression	glPopMatrix ( )
+>866	ArgumentList	 
+>867	Callee	glPopMatrix
+>868	Identifier	glPopMatrix
+>869	ExpressionStatement	 
+>870	CallExpression	glEnd ( )
+>871	ArgumentList	 
+>872	Callee	glEnd
+>873	Identifier	glEnd
+>874	ForStatement	for ( int c = 0 ; c < 4 ; ++ c )
+>875	ExpressionStatement	 
+>876	CallExpression	glVertex ( corner [ c ] )
+>877	ArgumentList	corner [ c ]
+>878	Argument	corner [ c ]
+>879	ArrayIndexing	corner [ c ]
+>880	Identifier	c
+>881	Identifier	corner
+>882	Callee	glVertex
+>883	Identifier	glVertex
+>884	UnaryExpression	 
+>885	Identifier	c
+>886	IncDec	++
+>887	Condition	 
+>888	RelationalExpression	c < 4
+>889	PrimaryExpression	4
+>890	Identifier	c
+>891	ForInit	 
+>892	IdentifierDeclStatement	int c = 0 ;
+>893	IdentifierDecl	c = 0
+>894	AssignmentExpr	c = 0
+>895	PrimaryExpression	0
+>896	Identifier	c
+>897	Identifier	c
+>898	IdentifierDeclType	int
+>899	ExpressionStatement	 
+>900	CallExpression	glBegin ( GL_LINE_LOOP )
+>901	ArgumentList	GL_LINE_LOOP
+>902	Argument	GL_LINE_LOOP
+>903	Identifier	GL_LINE_LOOP
+>904	Callee	glBegin
+>905	Identifier	glBegin
+>906	IfStatement	if ( highlight )
+>907	ElseStatement	else
+>908	ExpressionStatement	 
+>909	CallExpression	glColor3f ( 0 , 1 , 0 )
+>910	ArgumentList	0
+>911	Argument	0
+>912	PrimaryExpression	0
+>913	Argument	1
+>914	PrimaryExpression	1
+>915	Argument	0
+>916	PrimaryExpression	0
+>917	Callee	glColor3f
+>918	Identifier	glColor3f
+>919	ExpressionStatement	 
+>920	CallExpression	glColor3f ( 1 , 0 , 0 )
+>921	ArgumentList	1
+>922	Argument	0
+>923	PrimaryExpression	0
+>924	Argument	0
+>925	PrimaryExpression	0
+>926	Argument	1
+>927	PrimaryExpression	1
+>928	Callee	glColor3f
+>929	Identifier	glColor3f
+>930	Condition	 
+>931	Identifier	highlight
+>932	ExpressionStatement	 
+>933	CallExpression	glDisable ( GL_TEXTURE_2D )
+>934	ArgumentList	GL_TEXTURE_2D
+>935	Argument	GL_TEXTURE_2D
+>936	Identifier	GL_TEXTURE_2D
+>937	Callee	glDisable
+>938	Identifier	glDisable
+>939	ExpressionStatement	 
+>940	CallExpression	glLoadIdentity ( )
+>941	ArgumentList	 
+>942	Callee	glLoadIdentity
+>943	Identifier	glLoadIdentity
+>944	ExpressionStatement	 
+>945	CallExpression	glPushMatrix ( )
+>946	ArgumentList	 
+>947	Callee	glPushMatrix
+>948	Identifier	glPushMatrix
+>949	ExpressionStatement	 
+>950	CallExpression	glMatrixMode ( GL_MODELVIEW )
+>951	ArgumentList	GL_MODELVIEW
+>952	Argument	GL_MODELVIEW
+>953	Identifier	GL_MODELVIEW
+>954	Callee	glMatrixMode
+>955	Identifier	glMatrixMode
+>967	FunctionDef	CircleLineIntersect (const Circle & circle , const Line & line)
+>968	ParameterList	const Circle & circle , const Line & line
+>969	Parameter	 
+>970	Identifier	line
+>971	ParameterType	const Line &
+>972	Parameter	 
+>973	Identifier	circle
+>974	ParameterType	const Circle &
+>975	ReturnType	bool
+>976	CompoundStatement	 
+>977	ReturnStatement	 
+>978	RelationalExpression	dot ( h , h ) <= ( circle . r * circle . r )
+>979	MultiplicativeExpression	circle . r * circle . r
+>980	MemberAccess	circle . r
+>981	Identifier	r
+>982	Identifier	circle
+>983	MemberAccess	circle . r
+>984	Identifier	r
+>985	Identifier	circle
+>986	CallExpression	dot ( h , h )
+>987	ArgumentList	h
+>988	Argument	h
+>989	Identifier	h
+>990	Argument	h
+>991	Identifier	h
+>992	Callee	dot
+>993	Identifier	dot
+>994	IdentifierDeclStatement	 
+>995	IdentifierDecl	h = line . p1 + t * ab - circle . pos
+>996	AssignmentExpr	h = line . p1 + t * ab - circle . pos
+>997	AdditiveExpression	line . p1 + t * ab - circle . pos
+>998	AdditiveExpression	t * ab - circle . pos
+>999	MemberAccess	circle . pos
+>1000	Identifier	pos
+>1001	Identifier	circle
+>1002	MultiplicativeExpression	t * ab
+>1003	Identifier	ab
+>1004	Identifier	t
+>1005	MemberAccess	line . p1
+>1006	Identifier	p1
+>1007	Identifier	line
+>1008	Identifier	h
+>1009	Identifier	h
+>1010	IdentifierDeclType	vec2
+>1011	ExpressionStatement	 
+>1012	AssignmentExpr	t = clamp_0_1 ( t )
+>1013	CallExpression	clamp_0_1 ( t )
+>1014	ArgumentList	t
+>1015	Argument	t
+>1016	Identifier	t
+>1017	Callee	clamp_0_1
+>1018	Identifier	clamp_0_1
+>1019	Identifier	t
+>1020	IdentifierDeclStatement	 
+>1021	IdentifierDecl	t = dot ( ac , ab ) / dot ( ab , ab )
+>1022	AssignmentExpr	t = dot ( ac , ab ) / dot ( ab , ab )
+>1023	MultiplicativeExpression	dot ( ac , ab ) / dot ( ab , ab )
+>1024	CallExpression	dot ( ab , ab )
+>1025	ArgumentList	ab
+>1026	Argument	ab
+>1027	Identifier	ab
+>1028	Argument	ab
+>1029	Identifier	ab
+>1030	Callee	dot
+>1031	Identifier	dot
+>1032	CallExpression	dot ( ac , ab )
+>1033	ArgumentList	ac
+>1034	Argument	ab
+>1035	Identifier	ab
+>1036	Argument	ac
+>1037	Identifier	ac
+>1038	Callee	dot
+>1039	Identifier	dot
+>1040	Identifier	t
+>1041	Identifier	t
+>1042	IdentifierDeclType	float
+>1043	IdentifierDeclStatement	 
+>1044	IdentifierDecl	ab = line . p2 - line . p1
+>1045	AssignmentExpr	ab = line . p2 - line . p1
+>1046	AdditiveExpression	line . p2 - line . p1
+>1047	MemberAccess	line . p1
+>1048	Identifier	p1
+>1049	Identifier	line
+>1050	MemberAccess	line . p2
+>1051	Identifier	p2
+>1052	Identifier	line
+>1053	Identifier	ab
+>1054	Identifier	ab
+>1055	IdentifierDeclType	vec2
+>1056	IdentifierDeclStatement	 
+>1057	IdentifierDecl	ac = circle . pos - line . p1
+>1058	AssignmentExpr	ac = circle . pos - line . p1
+>1059	AdditiveExpression	circle . pos - line . p1
+>1060	MemberAccess	line . p1
+>1061	Identifier	p1
+>1062	Identifier	line
+>1063	MemberAccess	circle . pos
+>1064	Identifier	pos
+>1065	Identifier	circle
+>1066	Identifier	ac
+>1067	Identifier	ac
+>1068	IdentifierDeclType	vec2
+<3=5,4
+<9=23,10
+<10=20,17,14,11
+<11=13,12
+<14=16,15
+<17=19,18
+<20=22,21
+<31=36,32
+<32=33
+<33=35,34
+<36=150,142,134,126,37
+<37=107,103,100,38
+<38=91,78,65,52,39
+<39=46,40
+<40=41
+<41=45,42
+<42=44,43
+<46=47
+<47=49,48
+<49=51,50
+<52=59,53
+<53=54
+<54=58,55
+<55=57,56
+<59=60
+<60=62,61
+<62=64,63
+<65=72,66
+<66=67
+<67=71,68
+<68=70,69
+<72=73
+<73=75,74
+<75=77,76
+<78=85,79
+<79=80
+<80=84,81
+<81=83,82
+<85=86
+<86=88,87
+<88=90,89
+<91=92
+<92=99,98,93
+<93=97,94
+<94=96,95
+<100=102,101
+<103=104
+<104=106,105
+<107=108
+<108=120,109
+<109=119,118,110
+<110=117,111
+<111=113,112
+<113=114
+<114=116,115
+<120=125,124,121
+<121=123,122
+<126=127
+<127=133,128
+<128=130,129
+<130=132,131
+<134=135
+<135=141,136
+<136=138,137
+<138=140,139
+<142=143
+<143=149,144
+<144=146,145
+<146=148,147
+<150=151
+<151=157,152
+<152=154,153
+<154=156,155
+<174=177,176,175
+<177=264,259,254,247,236,229,220,211,202,193,188,183,178
+<178=179
+<179=181,180
+<181=182
+<183=184
+<184=186,185
+<186=187
+<188=189
+<189=191,190
+<191=192
+<193=194
+<194=200,195
+<195=198,196
+<196=197
+<198=199
+<200=201
+<202=203
+<203=209,204
+<204=207,205
+<205=206
+<207=208
+<209=210
+<211=212
+<212=218,213
+<213=216,214
+<214=215
+<216=217
+<218=219
+<220=221
+<221=227,222
+<222=225,223
+<223=224
+<225=226
+<227=228
+<229=230
+<230=234,231
+<231=232
+<232=233
+<234=235
+<236=237
+<237=245,238
+<238=243,241,239
+<239=240
+<241=242
+<243=244
+<245=246
+<247=248
+<248=252,249
+<249=250
+<250=251
+<252=253
+<254=255
+<255=257,256
+<257=258
+<259=260
+<260=262,261
+<262=263
+<264=265
+<265=269,266
+<266=267
+<267=268
+<269=270
+<281=287,286,282
+<282=283
+<283=285,284
+<287=288
+<288=289
+<289=307,290
+<290=302,291
+<291=297,292
+<292=294,293
+<294=296,295
+<297=299,298
+<299=301,300
+<302=304,303
+<304=306,305
+<307=309,308
+<309=311,310
+<321=327,326,322
+<322=323
+<323=325,324
+<327=330,328
+<328=329
+<330=446,442,439,331
+<331=419,412,405,350,332
+<332=336,333
+<333=334
+<334=335
+<336=337
+<337=343,338
+<338=342,339
+<339=341,340
+<343=349,344
+<344=348,345
+<345=347,346
+<350=397,393,390,351
+<351=373,352
+<352=369,364,353
+<353=354
+<354=360,355
+<355=356
+<356=357
+<357=359,358
+<360=361
+<361=363,362
+<364=365
+<365=366
+<366=368,367
+<369=370
+<370=372,371
+<373=374
+<374=389,375
+<375=387,376
+<376=381,377
+<377=378
+<378=380,379
+<381=382
+<382=384,383
+<384=386,385
+<387=388
+<390=392,391
+<393=394
+<394=396,395
+<397=398
+<398=399
+<399=404,403,400
+<400=402,401
+<405=406
+<406=411,410,407
+<407=409,408
+<412=413
+<413=418,417,414
+<414=416,415
+<419=420
+<420=438,437,421
+<421=436,422
+<422=434,423
+<423=428,424
+<424=425
+<425=427,426
+<428=429
+<429=431,430
+<431=433,432
+<434=435
+<439=441,440
+<442=443
+<443=445,444
+<446=447
+<447=448
+<448=453,452,449
+<449=451,450
+<475=478,477,476
+<478=538,526,479
+<479=518,514,511,480
+<480=498,481
+<481=482
+<482=495,483
+<483=493,484
+<484=489,485
+<485=486
+<486=488,487
+<489=490
+<490=492,491
+<493=494
+<495=497,496
+<498=499
+<499=508,500
+<500=506,501
+<501=502
+<502=503
+<503=505,504
+<506=507
+<508=510,509
+<511=513,512
+<514=515
+<515=517,516
+<518=519
+<519=520
+<520=525,524,521
+<521=523,522
+<526=527
+<527=535,528
+<528=532,529
+<529=531,530
+<532=534,533
+<535=537,536
+<538=539
+<539=547,540
+<540=544,541
+<541=543,542
+<544=546,545
+<547=549,548
+<563=568,564
+<564=565
+<565=567,566
+<568=678,661,644,627,615,574,569
+<569=570
+<570=572,571
+<572=573
+<574=607,603,600,575
+<575=576
+<576=597,577
+<577=595,578
+<578=579
+<579=580
+<580=593,581
+<581=591,582
+<582=583
+<583=589,584
+<584=585
+<585=586
+<586=588,587
+<589=590
+<591=592
+<593=594
+<595=596
+<597=599,598
+<600=602,601
+<603=604
+<604=606,605
+<607=608
+<608=609
+<609=614,613,610
+<610=612,611
+<615=616
+<616=626,625,617
+<617=624,618
+<618=622,619
+<619=620
+<620=621
+<622=623
+<627=628
+<628=641,629
+<629=639,630
+<630=635,631
+<631=632
+<632=634,633
+<635=636
+<636=638,637
+<639=640
+<641=643,642
+<644=645
+<645=658,646
+<646=656,647
+<647=652,648
+<648=649
+<649=651,650
+<652=653
+<653=655,654
+<656=657
+<658=660,659
+<661=662
+<662=675,663
+<663=673,664
+<664=669,665
+<665=666
+<666=668,667
+<669=670
+<670=672,671
+<673=674
+<675=677,676
+<678=679
+<679=692,680
+<680=690,681
+<681=686,682
+<682=683
+<683=685,684
+<686=687
+<687=689,688
+<690=691
+<692=694,693
+<713=719,718,714
+<714=715
+<715=717,716
+<719=720
+<720=721
+<721=732,722
+<722=728,723
+<723=724
+<724=725
+<725=727,726
+<728=729
+<729=731,730
+<732=736,733
+<733=734
+<734=735
+<736=737
+<746=752,751,747
+<747=748
+<748=750,749
+<752=824,801,778,755,753
+<753=754
+<755=758,756
+<756=757
+<758=759
+<759=776,760
+<760=774,761
+<761=762
+<762=772,763
+<763=768,764
+<764=765
+<765=767,766
+<768=769
+<769=771,770
+<772=773
+<774=775
+<776=777
+<778=781,779
+<779=780
+<781=782
+<782=799,783
+<783=797,784
+<784=785
+<785=795,786
+<786=791,787
+<787=788
+<788=790,789
+<791=792
+<792=794,793
+<795=796
+<797=798
+<799=800
+<801=804,802
+<802=803
+<804=805
+<805=822,806
+<806=820,807
+<807=808
+<808=818,809
+<809=814,810
+<810=811
+<811=813,812
+<814=815
+<815=817,816
+<818=819
+<820=821
+<822=823
+<824=827,825
+<825=826
+<827=828
+<828=845,829
+<829=843,830
+<830=831
+<831=841,832
+<832=837,833
+<833=834
+<834=836,835
+<837=838
+<838=840,839
+<841=842
+<843=844
+<845=846
+<857=863,862,858
+<858=859
+<859=861,860
+<863=949,944,939,932,906,899,874,869,864
+<864=865
+<865=867,866
+<867=868
+<869=870
+<870=872,871
+<872=873
+<874=891,887,884,875
+<875=876
+<876=882,877
+<877=878
+<878=879
+<879=881,880
+<882=883
+<884=886,885
+<887=888
+<888=890,889
+<891=892
+<892=893
+<893=898,897,894
+<894=896,895
+<899=900
+<900=904,901
+<901=902
+<902=903
+<904=905
+<906=930,919,907
+<907=908
+<908=909
+<909=917,910
+<910=915,913,911
+<911=912
+<913=914
+<915=916
+<917=918
+<919=920
+<920=928,921
+<921=926,924,922
+<922=923
+<924=925
+<926=927
+<928=929
+<930=931
+<932=933
+<933=937,934
+<934=935
+<935=936
+<937=938
+<939=940
+<940=942,941
+<942=943
+<944=945
+<945=947,946
+<947=948
+<949=950
+<950=954,951
+<951=952
+<952=953
+<954=955
+<967=976,975,968
+<968=972,969
+<969=971,970
+<972=974,973
+<976=1056,1043,1020,1011,994,977
+<977=978
+<978=986,979
+<979=983,980
+<980=982,981
+<983=985,984
+<986=992,987
+<987=990,988
+<988=989
+<990=991
+<992=993
+<994=995
+<995=1010,1009,996
+<996=1008,997
+<997=1005,998
+<998=1002,999
+<999=1001,1000
+<1002=1004,1003
+<1005=1007,1006
+<1011=1012
+<1012=1019,1013
+<1013=1017,1014
+<1014=1015
+<1015=1016
+<1017=1018
+<1020=1021
+<1021=1042,1041,1022
+<1022=1040,1023
+<1023=1032,1024
+<1024=1030,1025
+<1025=1028,1026
+<1026=1027
+<1028=1029
+<1030=1031
+<1032=1038,1033
+<1033=1036,1034
+<1034=1035
+<1036=1037
+<1038=1039
+<1043=1044
+<1044=1055,1054,1045
+<1045=1053,1046
+<1046=1050,1047
+<1047=1049,1048
+<1050=1052,1051
+<1056=1057
+<1057=1068,1067,1058
+<1058=1066,1059
+<1059=1063,1060
+<1060=1062,1061
+<1063=1065,1064

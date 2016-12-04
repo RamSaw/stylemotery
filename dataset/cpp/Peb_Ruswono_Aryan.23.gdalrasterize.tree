@@ -1,0 +1,3853 @@
+>3	FunctionDef	gvBurnScanline (void * pCBData , int nY , int nXStart , int nXEnd , double dfVariant)
+>4	ParameterList	void * pCBData , int nY , int nXStart , int nXEnd , double dfVariant
+>5	Parameter	 
+>6	Identifier	dfVariant
+>7	ParameterType	double
+>8	Parameter	 
+>9	Identifier	nXEnd
+>10	ParameterType	int
+>11	Parameter	 
+>12	Identifier	nXStart
+>13	ParameterType	int
+>14	Parameter	 
+>15	Identifier	nY
+>16	ParameterType	int
+>17	Parameter	 
+>18	Identifier	pCBData
+>19	ParameterType	void *
+>20	ReturnType	void
+>21	CompoundStatement	 
+>22	IfStatement	if ( psInfo -> eType == GDT_Byte )
+>23	ElseStatement	else
+>24	IfStatement	if ( psInfo -> eType == GDT_Float64 )
+>25	ElseStatement	else
+>26	ExpressionStatement	 
+>27	CallExpression	CPLAssert ( 0 )
+>28	ArgumentList	0
+>29	Argument	0
+>30	PrimaryExpression	0
+>31	Callee	CPLAssert
+>32	Identifier	CPLAssert
+>33	CompoundStatement	 
+>34	ForStatement	for ( iBand = 0 ; iBand < psInfo -> nBands ; iBand ++ )
+>35	CompoundStatement	 
+>36	WhileStatement	while ( nPixels -- > 0 )
+>37	ExpressionStatement	 
+>38	AssignmentExpr	* ( padfInsert ++ ) = dfBurnValue
+>39	Identifier	dfBurnValue
+>40	UnaryOp	* ( padfInsert ++ )
+>41	IncDecOp	padfInsert ++
+>42	IncDec	++
+>43	Identifier	padfInsert
+>44	UnaryOperator	*
+>45	Condition	 
+>46	RelationalExpression	nPixels -- > 0
+>47	PrimaryExpression	0
+>48	IncDecOp	nPixels --
+>49	IncDec	--
+>50	Identifier	nPixels
+>51	ExpressionStatement	 
+>52	AssignmentExpr	padfInsert = ( ( double * ) psInfo -> pabyChunkBuf ) + iBand * psInfo -> nXSize * psInfo -> nYSize + \
+>53	AdditiveExpression	( ( double * ) psInfo -> pabyChunkBuf ) + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> \
+>54	AdditiveExpression	iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nXStart
+>55	AdditiveExpression	nY * psInfo -> nXSize + nXStart
+>56	Identifier	nXStart
+>57	MultiplicativeExpression	nY * psInfo -> nXSize
+>58	PtrMemberAccess	psInfo -> nXSize
+>59	Identifier	nXSize
+>60	Identifier	psInfo
+>61	Identifier	nY
+>62	MultiplicativeExpression	iBand * psInfo -> nXSize * psInfo -> nYSize
+>63	MultiplicativeExpression	psInfo -> nXSize * psInfo -> nYSize
+>64	PtrMemberAccess	psInfo -> nYSize
+>65	Identifier	nYSize
+>66	Identifier	psInfo
+>67	PtrMemberAccess	psInfo -> nXSize
+>68	Identifier	nXSize
+>69	Identifier	psInfo
+>70	Identifier	iBand
+>71	CastExpression	( double * ) psInfo -> pabyChunkBuf
+>72	PtrMemberAccess	psInfo -> pabyChunkBuf
+>73	Identifier	pabyChunkBuf
+>74	Identifier	psInfo
+>75	CastTarget	double *
+>76	Identifier	padfInsert
+>77	IdentifierDeclStatement	 
+>78	IdentifierDecl	dfBurnValue = ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>79	AssignmentExpr	dfBurnValue = ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? \
+>80	AdditiveExpression	psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>81	ConditionalExpression	( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>82	Identifier	dfVariant
+>83	PrimaryExpression	0
+>84	Condition	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>85	EqualityExpression	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>86	Identifier	GBV_UserBurnValue
+>87	PtrMemberAccess	psInfo -> eBurnValueSource
+>88	Identifier	eBurnValueSource
+>89	Identifier	psInfo
+>90	ArrayIndexing	psInfo -> padfBurnValue [ iBand ]
+>91	Identifier	iBand
+>92	PtrMemberAccess	psInfo -> padfBurnValue
+>93	Identifier	padfBurnValue
+>94	Identifier	psInfo
+>95	Identifier	dfBurnValue
+>96	Identifier	dfBurnValue
+>97	IdentifierDeclType	double
+>98	IdentifierDeclStatement	 
+>99	IdentifierDecl	* padfInsert
+>100	Identifier	padfInsert
+>101	IdentifierDeclType	double *
+>102	IdentifierDeclStatement	 
+>103	IdentifierDecl	nPixels = nXEnd - nXStart + 1
+>104	AssignmentExpr	nPixels = nXEnd - nXStart + 1
+>105	AdditiveExpression	nXEnd - nXStart + 1
+>106	AdditiveExpression	nXStart + 1
+>107	PrimaryExpression	1
+>108	Identifier	nXStart
+>109	Identifier	nXEnd
+>110	Identifier	nPixels
+>111	Identifier	nPixels
+>112	IdentifierDeclType	int
+>113	IncDecOp	 
+>114	IncDec	++
+>115	Identifier	iBand
+>116	Condition	 
+>117	RelationalExpression	iBand < psInfo -> nBands
+>118	PtrMemberAccess	psInfo -> nBands
+>119	Identifier	nBands
+>120	Identifier	psInfo
+>121	Identifier	iBand
+>122	ForInit	 
+>123	AssignmentExpr	iBand = 0
+>124	PrimaryExpression	0
+>125	Identifier	iBand
+>126	Condition	 
+>127	EqualityExpression	psInfo -> eType == GDT_Float64
+>128	Identifier	GDT_Float64
+>129	PtrMemberAccess	psInfo -> eType
+>130	Identifier	eType
+>131	Identifier	psInfo
+>132	CompoundStatement	 
+>133	ForStatement	for ( iBand = 0 ; iBand < psInfo -> nBands ; iBand ++ )
+>134	CompoundStatement	 
+>135	ExpressionStatement	 
+>136	CallExpression	memset ( pabyInsert , nBurnValue , nXEnd - nXStart + 1 )
+>137	ArgumentList	pabyInsert
+>138	Argument	nXEnd - nXStart + 1
+>139	AdditiveExpression	nXEnd - nXStart + 1
+>140	AdditiveExpression	nXStart + 1
+>141	PrimaryExpression	1
+>142	Identifier	nXStart
+>143	Identifier	nXEnd
+>144	Argument	nBurnValue
+>145	Identifier	nBurnValue
+>146	Argument	pabyInsert
+>147	Identifier	pabyInsert
+>148	Callee	memset
+>149	Identifier	memset
+>150	ExpressionStatement	 
+>151	AssignmentExpr	pabyInsert = psInfo -> pabyChunkBuf + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + \
+>152	AdditiveExpression	psInfo -> pabyChunkBuf + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nXStart
+>153	AdditiveExpression	iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nXStart
+>154	AdditiveExpression	nY * psInfo -> nXSize + nXStart
+>155	Identifier	nXStart
+>156	MultiplicativeExpression	nY * psInfo -> nXSize
+>157	PtrMemberAccess	psInfo -> nXSize
+>158	Identifier	nXSize
+>159	Identifier	psInfo
+>160	Identifier	nY
+>161	MultiplicativeExpression	iBand * psInfo -> nXSize * psInfo -> nYSize
+>162	MultiplicativeExpression	psInfo -> nXSize * psInfo -> nYSize
+>163	PtrMemberAccess	psInfo -> nYSize
+>164	Identifier	nYSize
+>165	Identifier	psInfo
+>166	PtrMemberAccess	psInfo -> nXSize
+>167	Identifier	nXSize
+>168	Identifier	psInfo
+>169	Identifier	iBand
+>170	PtrMemberAccess	psInfo -> pabyChunkBuf
+>171	Identifier	pabyChunkBuf
+>172	Identifier	psInfo
+>173	Identifier	pabyInsert
+>174	IdentifierDeclStatement	 
+>175	IdentifierDecl	nBurnValue = ( unsigned char ) ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? \
+>176	AssignmentExpr	nBurnValue = ( unsigned char ) ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == \
+>177	CastExpression	( unsigned char ) ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? \
+>178	AdditiveExpression	psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>179	ConditionalExpression	( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>180	Identifier	dfVariant
+>181	PrimaryExpression	0
+>182	Condition	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>183	EqualityExpression	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>184	Identifier	GBV_UserBurnValue
+>185	PtrMemberAccess	psInfo -> eBurnValueSource
+>186	Identifier	eBurnValueSource
+>187	Identifier	psInfo
+>188	ArrayIndexing	psInfo -> padfBurnValue [ iBand ]
+>189	Identifier	iBand
+>190	PtrMemberAccess	psInfo -> padfBurnValue
+>191	Identifier	padfBurnValue
+>192	Identifier	psInfo
+>193	CastTarget	unsigned char
+>194	Identifier	nBurnValue
+>195	Identifier	nBurnValue
+>196	IdentifierDeclType	unsigned char
+>197	IdentifierDeclStatement	 
+>198	IdentifierDecl	* pabyInsert
+>199	Identifier	pabyInsert
+>200	IdentifierDeclType	unsigned char *
+>201	IncDecOp	 
+>202	IncDec	++
+>203	Identifier	iBand
+>204	Condition	 
+>205	RelationalExpression	iBand < psInfo -> nBands
+>206	PtrMemberAccess	psInfo -> nBands
+>207	Identifier	nBands
+>208	Identifier	psInfo
+>209	Identifier	iBand
+>210	ForInit	 
+>211	AssignmentExpr	iBand = 0
+>212	PrimaryExpression	0
+>213	Identifier	iBand
+>214	Condition	 
+>215	EqualityExpression	psInfo -> eType == GDT_Byte
+>216	Identifier	GDT_Byte
+>217	PtrMemberAccess	psInfo -> eType
+>218	Identifier	eType
+>219	Identifier	psInfo
+>220	IfStatement	if ( nXEnd >= psInfo -> nXSize )
+>221	ExpressionStatement	 
+>222	AssignmentExpr	nXEnd = psInfo -> nXSize - 1
+>223	AdditiveExpression	psInfo -> nXSize - 1
+>224	PrimaryExpression	1
+>225	PtrMemberAccess	psInfo -> nXSize
+>226	Identifier	nXSize
+>227	Identifier	psInfo
+>228	Identifier	nXEnd
+>229	Condition	 
+>230	RelationalExpression	nXEnd >= psInfo -> nXSize
+>231	PtrMemberAccess	psInfo -> nXSize
+>232	Identifier	nXSize
+>233	Identifier	psInfo
+>234	Identifier	nXEnd
+>235	IfStatement	if ( nXStart < 0 )
+>236	ExpressionStatement	 
+>237	AssignmentExpr	nXStart = 0
+>238	PrimaryExpression	0
+>239	Identifier	nXStart
+>240	Condition	 
+>241	RelationalExpression	nXStart < 0
+>242	PrimaryExpression	0
+>243	Identifier	nXStart
+>244	ExpressionStatement	 
+>245	CallExpression	CPLAssert ( nXEnd >= 0 )
+>246	ArgumentList	nXEnd >= 0
+>247	Argument	nXEnd >= 0
+>248	RelationalExpression	nXEnd >= 0
+>249	PrimaryExpression	0
+>250	Identifier	nXEnd
+>251	Callee	CPLAssert
+>252	Identifier	CPLAssert
+>253	ExpressionStatement	 
+>254	CallExpression	CPLAssert ( nXStart < psInfo -> nXSize )
+>255	ArgumentList	nXStart < psInfo -> nXSize
+>256	Argument	nXStart < psInfo -> nXSize
+>257	RelationalExpression	nXStart < psInfo -> nXSize
+>258	PtrMemberAccess	psInfo -> nXSize
+>259	Identifier	nXSize
+>260	Identifier	psInfo
+>261	Identifier	nXStart
+>262	Callee	CPLAssert
+>263	Identifier	CPLAssert
+>264	ExpressionStatement	 
+>265	CallExpression	CPLAssert ( nXStart <= nXEnd )
+>266	ArgumentList	nXStart <= nXEnd
+>267	Argument	nXStart <= nXEnd
+>268	RelationalExpression	nXStart <= nXEnd
+>269	Identifier	nXEnd
+>270	Identifier	nXStart
+>271	Callee	CPLAssert
+>272	Identifier	CPLAssert
+>273	ExpressionStatement	 
+>274	CallExpression	CPLAssert ( nY >= 0 && nY < psInfo -> nYSize )
+>275	ArgumentList	nY >= 0 && nY < psInfo -> nYSize
+>276	Argument	nY >= 0 && nY < psInfo -> nYSize
+>277	AndExpression	nY >= 0 && nY < psInfo -> nYSize
+>278	RelationalExpression	nY < psInfo -> nYSize
+>279	PtrMemberAccess	psInfo -> nYSize
+>280	Identifier	nYSize
+>281	Identifier	psInfo
+>282	Identifier	nY
+>283	RelationalExpression	nY >= 0
+>284	PrimaryExpression	0
+>285	Identifier	nY
+>286	Callee	CPLAssert
+>287	Identifier	CPLAssert
+>288	IfStatement	if ( nXStart > nXEnd )
+>289	ReturnStatement	 
+>290	Condition	 
+>291	RelationalExpression	nXStart > nXEnd
+>292	Identifier	nXEnd
+>293	Identifier	nXStart
+>294	IdentifierDeclStatement	 
+>295	IdentifierDecl	iBand
+>296	Identifier	iBand
+>297	IdentifierDeclType	int
+>298	IdentifierDeclStatement	 
+>299	IdentifierDecl	* psInfo = ( GDALRasterizeInfo * ) pCBData
+>300	AssignmentExpr	* psInfo = ( GDALRasterizeInfo * ) pCBData
+>301	CastExpression	( GDALRasterizeInfo * ) pCBData
+>302	Identifier	pCBData
+>303	CastTarget	GDALRasterizeInfo *
+>304	Identifier	psInfo
+>305	Identifier	psInfo
+>306	IdentifierDeclType	GDALRasterizeInfo *
+>338	FunctionDef	gvBurnPoint (void * pCBData , int nY , int nX , double dfVariant)
+>339	ParameterList	void * pCBData , int nY , int nX , double dfVariant
+>340	Parameter	 
+>341	Identifier	dfVariant
+>342	ParameterType	double
+>343	Parameter	 
+>344	Identifier	nX
+>345	ParameterType	int
+>346	Parameter	 
+>347	Identifier	nY
+>348	ParameterType	int
+>349	Parameter	 
+>350	Identifier	pCBData
+>351	ParameterType	void *
+>352	ReturnType	void
+>353	CompoundStatement	 
+>354	IfStatement	if ( psInfo -> eType == GDT_Byte )
+>355	ElseStatement	else
+>356	IfStatement	if ( psInfo -> eType == GDT_Float64 )
+>357	ElseStatement	else
+>358	ExpressionStatement	 
+>359	CallExpression	CPLAssert ( 0 )
+>360	ArgumentList	0
+>361	Argument	0
+>362	PrimaryExpression	0
+>363	Callee	CPLAssert
+>364	Identifier	CPLAssert
+>365	CompoundStatement	 
+>366	ForStatement	for ( iBand = 0 ; iBand < psInfo -> nBands ; iBand ++ )
+>367	CompoundStatement	 
+>368	ExpressionStatement	 
+>369	AssignmentExpr	* pdfInsert = ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? \
+>370	AdditiveExpression	psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>371	ConditionalExpression	( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>372	Identifier	dfVariant
+>373	PrimaryExpression	0
+>374	Condition	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>375	EqualityExpression	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>376	Identifier	GBV_UserBurnValue
+>377	PtrMemberAccess	psInfo -> eBurnValueSource
+>378	Identifier	eBurnValueSource
+>379	Identifier	psInfo
+>380	ArrayIndexing	psInfo -> padfBurnValue [ iBand ]
+>381	Identifier	iBand
+>382	PtrMemberAccess	psInfo -> padfBurnValue
+>383	Identifier	padfBurnValue
+>384	Identifier	psInfo
+>385	UnaryOp	* pdfInsert
+>386	Identifier	pdfInsert
+>387	UnaryOperator	*
+>388	IdentifierDeclStatement	 
+>389	IdentifierDecl	* pdfInsert = ( ( double * ) psInfo -> pabyChunkBuf ) + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo \
+>390	AssignmentExpr	* pdfInsert = ( ( double * ) psInfo -> pabyChunkBuf ) + iBand * psInfo -> nXSize * psInfo -> nYSize + \
+>391	AdditiveExpression	( ( double * ) psInfo -> pabyChunkBuf ) + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> \
+>392	AdditiveExpression	iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nX
+>393	AdditiveExpression	nY * psInfo -> nXSize + nX
+>394	Identifier	nX
+>395	MultiplicativeExpression	nY * psInfo -> nXSize
+>396	PtrMemberAccess	psInfo -> nXSize
+>397	Identifier	nXSize
+>398	Identifier	psInfo
+>399	Identifier	nY
+>400	MultiplicativeExpression	iBand * psInfo -> nXSize * psInfo -> nYSize
+>401	MultiplicativeExpression	psInfo -> nXSize * psInfo -> nYSize
+>402	PtrMemberAccess	psInfo -> nYSize
+>403	Identifier	nYSize
+>404	Identifier	psInfo
+>405	PtrMemberAccess	psInfo -> nXSize
+>406	Identifier	nXSize
+>407	Identifier	psInfo
+>408	Identifier	iBand
+>409	CastExpression	( double * ) psInfo -> pabyChunkBuf
+>410	PtrMemberAccess	psInfo -> pabyChunkBuf
+>411	Identifier	pabyChunkBuf
+>412	Identifier	psInfo
+>413	CastTarget	double *
+>414	Identifier	pdfInsert
+>415	Identifier	pdfInsert
+>416	IdentifierDeclType	double *
+>417	IncDecOp	 
+>418	IncDec	++
+>419	Identifier	iBand
+>420	Condition	 
+>421	RelationalExpression	iBand < psInfo -> nBands
+>422	PtrMemberAccess	psInfo -> nBands
+>423	Identifier	nBands
+>424	Identifier	psInfo
+>425	Identifier	iBand
+>426	ForInit	 
+>427	AssignmentExpr	iBand = 0
+>428	PrimaryExpression	0
+>429	Identifier	iBand
+>430	Condition	 
+>431	EqualityExpression	psInfo -> eType == GDT_Float64
+>432	Identifier	GDT_Float64
+>433	PtrMemberAccess	psInfo -> eType
+>434	Identifier	eType
+>435	Identifier	psInfo
+>436	CompoundStatement	 
+>437	ForStatement	for ( iBand = 0 ; iBand < psInfo -> nBands ; iBand ++ )
+>438	CompoundStatement	 
+>439	ExpressionStatement	 
+>440	AssignmentExpr	* pbyInsert = ( unsigned char ) ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == \
+>441	CastExpression	( unsigned char ) ( psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? \
+>442	AdditiveExpression	psInfo -> padfBurnValue [ iBand ] + ( ( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>443	ConditionalExpression	( psInfo -> eBurnValueSource == GBV_UserBurnValue ) ? 0 
+>444	Identifier	dfVariant
+>445	PrimaryExpression	0
+>446	Condition	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>447	EqualityExpression	psInfo -> eBurnValueSource == GBV_UserBurnValue
+>448	Identifier	GBV_UserBurnValue
+>449	PtrMemberAccess	psInfo -> eBurnValueSource
+>450	Identifier	eBurnValueSource
+>451	Identifier	psInfo
+>452	ArrayIndexing	psInfo -> padfBurnValue [ iBand ]
+>453	Identifier	iBand
+>454	PtrMemberAccess	psInfo -> padfBurnValue
+>455	Identifier	padfBurnValue
+>456	Identifier	psInfo
+>457	CastTarget	unsigned char
+>458	UnaryOp	* pbyInsert
+>459	Identifier	pbyInsert
+>460	UnaryOperator	*
+>461	IdentifierDeclStatement	 
+>462	IdentifierDecl	* pbyInsert = psInfo -> pabyChunkBuf + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nX
+>463	AssignmentExpr	* pbyInsert = psInfo -> pabyChunkBuf + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + \
+>464	AdditiveExpression	psInfo -> pabyChunkBuf + iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nX
+>465	AdditiveExpression	iBand * psInfo -> nXSize * psInfo -> nYSize + nY * psInfo -> nXSize + nX
+>466	AdditiveExpression	nY * psInfo -> nXSize + nX
+>467	Identifier	nX
+>468	MultiplicativeExpression	nY * psInfo -> nXSize
+>469	PtrMemberAccess	psInfo -> nXSize
+>470	Identifier	nXSize
+>471	Identifier	psInfo
+>472	Identifier	nY
+>473	MultiplicativeExpression	iBand * psInfo -> nXSize * psInfo -> nYSize
+>474	MultiplicativeExpression	psInfo -> nXSize * psInfo -> nYSize
+>475	PtrMemberAccess	psInfo -> nYSize
+>476	Identifier	nYSize
+>477	Identifier	psInfo
+>478	PtrMemberAccess	psInfo -> nXSize
+>479	Identifier	nXSize
+>480	Identifier	psInfo
+>481	Identifier	iBand
+>482	PtrMemberAccess	psInfo -> pabyChunkBuf
+>483	Identifier	pabyChunkBuf
+>484	Identifier	psInfo
+>485	Identifier	pbyInsert
+>486	Identifier	pbyInsert
+>487	IdentifierDeclType	unsigned char *
+>488	IncDecOp	 
+>489	IncDec	++
+>490	Identifier	iBand
+>491	Condition	 
+>492	RelationalExpression	iBand < psInfo -> nBands
+>493	PtrMemberAccess	psInfo -> nBands
+>494	Identifier	nBands
+>495	Identifier	psInfo
+>496	Identifier	iBand
+>497	ForInit	 
+>498	AssignmentExpr	iBand = 0
+>499	PrimaryExpression	0
+>500	Identifier	iBand
+>501	Condition	 
+>502	EqualityExpression	psInfo -> eType == GDT_Byte
+>503	Identifier	GDT_Byte
+>504	PtrMemberAccess	psInfo -> eType
+>505	Identifier	eType
+>506	Identifier	psInfo
+>507	ExpressionStatement	 
+>508	CallExpression	CPLAssert ( nX >= 0 && nX < psInfo -> nXSize )
+>509	ArgumentList	nX >= 0 && nX < psInfo -> nXSize
+>510	Argument	nX >= 0 && nX < psInfo -> nXSize
+>511	AndExpression	nX >= 0 && nX < psInfo -> nXSize
+>512	RelationalExpression	nX < psInfo -> nXSize
+>513	PtrMemberAccess	psInfo -> nXSize
+>514	Identifier	nXSize
+>515	Identifier	psInfo
+>516	Identifier	nX
+>517	RelationalExpression	nX >= 0
+>518	PrimaryExpression	0
+>519	Identifier	nX
+>520	Callee	CPLAssert
+>521	Identifier	CPLAssert
+>522	ExpressionStatement	 
+>523	CallExpression	CPLAssert ( nY >= 0 && nY < psInfo -> nYSize )
+>524	ArgumentList	nY >= 0 && nY < psInfo -> nYSize
+>525	Argument	nY >= 0 && nY < psInfo -> nYSize
+>526	AndExpression	nY >= 0 && nY < psInfo -> nYSize
+>527	RelationalExpression	nY < psInfo -> nYSize
+>528	PtrMemberAccess	psInfo -> nYSize
+>529	Identifier	nYSize
+>530	Identifier	psInfo
+>531	Identifier	nY
+>532	RelationalExpression	nY >= 0
+>533	PrimaryExpression	0
+>534	Identifier	nY
+>535	Callee	CPLAssert
+>536	Identifier	CPLAssert
+>537	IdentifierDeclStatement	 
+>538	IdentifierDecl	iBand
+>539	Identifier	iBand
+>540	IdentifierDeclType	int
+>541	IdentifierDeclStatement	 
+>542	IdentifierDecl	* psInfo = ( GDALRasterizeInfo * ) pCBData
+>543	AssignmentExpr	* psInfo = ( GDALRasterizeInfo * ) pCBData
+>544	CastExpression	( GDALRasterizeInfo * ) pCBData
+>545	Identifier	pCBData
+>546	CastTarget	GDALRasterizeInfo *
+>547	Identifier	psInfo
+>548	Identifier	psInfo
+>549	IdentifierDeclType	GDALRasterizeInfo *
+>577	FunctionDef	GDALCollectRingsFromGeometry (OGRGeometry * poShape , std 
+>578	ParameterList	OGRGeometry * poShape , std 
+>579	Parameter	 
+>580	Identifier	eBurnValueSrc
+>581	ParameterType	GDALBurnValueSrc
+>582	Parameter	 
+>583	Identifier	aPartSize
+>584	ParameterType	std 
+>585	Parameter	 
+>586	Identifier	aPointVariant
+>587	ParameterType	std 
+>588	Parameter	 
+>589	Identifier	aPointY
+>590	ParameterType	std 
+>591	Parameter	 
+>592	Identifier	aPointX
+>593	ParameterType	std 
+>594	Parameter	 
+>595	Identifier	poShape
+>596	ParameterType	OGRGeometry *
+>597	ReturnType	static void
+>598	CompoundStatement	 
+>599	IfStatement	if ( eFlatType == wkbPoint )
+>600	ElseStatement	else
+>601	IfStatement	if ( eFlatType == wkbLineString )
+>602	ElseStatement	else
+>603	IfStatement	if ( EQUAL ( poShape -> getGeometryName ( ) , \"LINEARRING\" ) )
+>604	ElseStatement	else
+>605	IfStatement	if ( eFlatType == wkbPolygon )
+>606	ElseStatement	else
+>607	IfStatement	if ( eFlatType == wkbMultiPoint || eFlatType == wkbMultiLineString || eFlatType == wkbMultiPolygon || eFlatType == \
+>608	ElseStatement	else
+>609	CompoundStatement	 
+>610	ExpressionStatement	 
+>611	CallExpression	CPLDebug ( \"GDAL\" , \"Rasterizer ignoring non-polygonal geometry.\" )
+>612	ArgumentList	\"GDAL\"
+>613	Argument	\"Rasterizer ignoring non-polygonal geometry.\"
+>614	PrimaryExpression	\"Rasterizer ignoring non-polygonal geometry.\"
+>615	Argument	\"GDAL\"
+>616	PrimaryExpression	\"GDAL\"
+>617	Callee	CPLDebug
+>618	Identifier	CPLDebug
+>619	CompoundStatement	 
+>620	ForStatement	for ( i = 0 ; i < poGC -> getNumGeometries ( ) ; i ++ )
+>621	ExpressionStatement	 
+>622	CallExpression	GDALCollectRingsFromGeometry ( poGC -> getGeometryRef ( i ) , aPointX , aPointY , aPointVariant , aPartSize , eBurnValueSrc )
+>623	ArgumentList	poGC -> getGeometryRef ( i )
+>624	Argument	eBurnValueSrc
+>625	Identifier	eBurnValueSrc
+>626	Argument	aPartSize
+>627	Identifier	aPartSize
+>628	Argument	aPointVariant
+>629	Identifier	aPointVariant
+>630	Argument	aPointY
+>631	Identifier	aPointY
+>632	Argument	aPointX
+>633	Identifier	aPointX
+>634	Argument	poGC -> getGeometryRef ( i )
+>635	CallExpression	poGC -> getGeometryRef ( i )
+>636	ArgumentList	i
+>637	Argument	i
+>638	Identifier	i
+>639	Callee	poGC -> getGeometryRef
+>640	PtrMemberAccess	poGC -> getGeometryRef
+>641	Identifier	getGeometryRef
+>642	Identifier	poGC
+>643	Callee	GDALCollectRingsFromGeometry
+>644	Identifier	GDALCollectRingsFromGeometry
+>645	IncDecOp	 
+>646	IncDec	++
+>647	Identifier	i
+>648	Condition	 
+>649	RelationalExpression	i < poGC -> getNumGeometries ( )
+>650	CallExpression	poGC -> getNumGeometries ( )
+>651	ArgumentList	 
+>652	Callee	poGC -> getNumGeometries
+>653	PtrMemberAccess	poGC -> getNumGeometries
+>654	Identifier	getNumGeometries
+>655	Identifier	poGC
+>656	Identifier	i
+>657	ForInit	 
+>658	AssignmentExpr	i = 0
+>659	PrimaryExpression	0
+>660	Identifier	i
+>661	IdentifierDeclStatement	 
+>662	IdentifierDecl	* poGC = ( OGRGeometryCollection * ) poShape
+>663	AssignmentExpr	* poGC = ( OGRGeometryCollection * ) poShape
+>664	CastExpression	( OGRGeometryCollection * ) poShape
+>665	Identifier	poShape
+>666	CastTarget	OGRGeometryCollection *
+>667	Identifier	poGC
+>668	Identifier	poGC
+>669	IdentifierDeclType	OGRGeometryCollection *
+>670	Condition	 
+>671	OrExpression	eFlatType == wkbMultiPoint || eFlatType == wkbMultiLineString || eFlatType == wkbMultiPolygon || eFlatType == \
+>672	OrExpression	eFlatType == wkbMultiLineString || eFlatType == wkbMultiPolygon || eFlatType == wkbGeometryCollection
+>673	OrExpression	eFlatType == wkbMultiPolygon || eFlatType == wkbGeometryCollection
+>674	EqualityExpression	eFlatType == wkbGeometryCollection
+>675	Identifier	wkbGeometryCollection
+>676	Identifier	eFlatType
+>677	EqualityExpression	eFlatType == wkbMultiPolygon
+>678	Identifier	wkbMultiPolygon
+>679	Identifier	eFlatType
+>680	EqualityExpression	eFlatType == wkbMultiLineString
+>681	Identifier	wkbMultiLineString
+>682	Identifier	eFlatType
+>683	EqualityExpression	eFlatType == wkbMultiPoint
+>684	Identifier	wkbMultiPoint
+>685	Identifier	eFlatType
+>686	CompoundStatement	 
+>687	ForStatement	for ( i = 0 ; i < poPolygon -> getNumInteriorRings ( ) ; i ++ )
+>688	ExpressionStatement	 
+>689	CallExpression	GDALCollectRingsFromGeometry ( poPolygon -> getInteriorRing ( i ) , aPointX , aPointY , aPointVariant , aPartSize , \
+>690	ArgumentList	poPolygon -> getInteriorRing ( i )
+>691	Argument	eBurnValueSrc
+>692	Identifier	eBurnValueSrc
+>693	Argument	aPartSize
+>694	Identifier	aPartSize
+>695	Argument	aPointVariant
+>696	Identifier	aPointVariant
+>697	Argument	aPointY
+>698	Identifier	aPointY
+>699	Argument	aPointX
+>700	Identifier	aPointX
+>701	Argument	poPolygon -> getInteriorRing ( i )
+>702	CallExpression	poPolygon -> getInteriorRing ( i )
+>703	ArgumentList	i
+>704	Argument	i
+>705	Identifier	i
+>706	Callee	poPolygon -> getInteriorRing
+>707	PtrMemberAccess	poPolygon -> getInteriorRing
+>708	Identifier	getInteriorRing
+>709	Identifier	poPolygon
+>710	Callee	GDALCollectRingsFromGeometry
+>711	Identifier	GDALCollectRingsFromGeometry
+>712	IncDecOp	 
+>713	IncDec	++
+>714	Identifier	i
+>715	Condition	 
+>716	RelationalExpression	i < poPolygon -> getNumInteriorRings ( )
+>717	CallExpression	poPolygon -> getNumInteriorRings ( )
+>718	ArgumentList	 
+>719	Callee	poPolygon -> getNumInteriorRings
+>720	PtrMemberAccess	poPolygon -> getNumInteriorRings
+>721	Identifier	getNumInteriorRings
+>722	Identifier	poPolygon
+>723	Identifier	i
+>724	ForInit	 
+>725	AssignmentExpr	i = 0
+>726	PrimaryExpression	0
+>727	Identifier	i
+>728	ExpressionStatement	 
+>729	CallExpression	GDALCollectRingsFromGeometry ( poPolygon -> getExteriorRing ( ) , aPointX , aPointY , aPointVariant , aPartSize , \
+>730	ArgumentList	poPolygon -> getExteriorRing ( )
+>731	Argument	eBurnValueSrc
+>732	Identifier	eBurnValueSrc
+>733	Argument	aPartSize
+>734	Identifier	aPartSize
+>735	Argument	aPointVariant
+>736	Identifier	aPointVariant
+>737	Argument	aPointY
+>738	Identifier	aPointY
+>739	Argument	aPointX
+>740	Identifier	aPointX
+>741	Argument	poPolygon -> getExteriorRing ( )
+>742	CallExpression	poPolygon -> getExteriorRing ( )
+>743	ArgumentList	 
+>744	Callee	poPolygon -> getExteriorRing
+>745	PtrMemberAccess	poPolygon -> getExteriorRing
+>746	Identifier	getExteriorRing
+>747	Identifier	poPolygon
+>748	Callee	GDALCollectRingsFromGeometry
+>749	Identifier	GDALCollectRingsFromGeometry
+>750	IdentifierDeclStatement	 
+>751	IdentifierDecl	* poPolygon = ( OGRPolygon * ) poShape
+>752	AssignmentExpr	* poPolygon = ( OGRPolygon * ) poShape
+>753	CastExpression	( OGRPolygon * ) poShape
+>754	Identifier	poShape
+>755	CastTarget	OGRPolygon *
+>756	Identifier	poPolygon
+>757	Identifier	poPolygon
+>758	IdentifierDeclType	OGRPolygon *
+>759	Condition	 
+>760	EqualityExpression	eFlatType == wkbPolygon
+>761	Identifier	wkbPolygon
+>762	Identifier	eFlatType
+>763	CompoundStatement	 
+>764	ExpressionStatement	 
+>765	CallExpression	aPartSize . push_back ( nCount )
+>766	ArgumentList	nCount
+>767	Argument	nCount
+>768	Identifier	nCount
+>769	Callee	aPartSize . push_back
+>770	MemberAccess	aPartSize . push_back
+>771	Identifier	push_back
+>772	Identifier	aPartSize
+>773	IfStatement	if ( eBurnValueSrc != GBV_UserBurnValue )
+>774	CompoundStatement	 
+>775	ExpressionStatement	 
+>776	CallExpression	aPointVariant . push_back ( poRing -> getZ ( i ) )
+>777	ArgumentList	poRing -> getZ ( i )
+>778	Argument	poRing -> getZ ( i )
+>779	CallExpression	poRing -> getZ ( i )
+>780	ArgumentList	i
+>781	Argument	i
+>782	Identifier	i
+>783	Callee	poRing -> getZ
+>784	PtrMemberAccess	poRing -> getZ
+>785	Identifier	getZ
+>786	Identifier	poRing
+>787	Callee	aPointVariant . push_back
+>788	MemberAccess	aPointVariant . push_back
+>789	Identifier	push_back
+>790	Identifier	aPointVariant
+>791	Condition	 
+>792	EqualityExpression	eBurnValueSrc != GBV_UserBurnValue
+>793	Identifier	GBV_UserBurnValue
+>794	Identifier	eBurnValueSrc
+>795	ForStatement	for ( i = nCount - 1 ; i >= 0 ; i -- )
+>796	CompoundStatement	 
+>797	ExpressionStatement	 
+>798	CallExpression	aPointY . push_back ( poRing -> getY ( i ) )
+>799	ArgumentList	poRing -> getY ( i )
+>800	Argument	poRing -> getY ( i )
+>801	CallExpression	poRing -> getY ( i )
+>802	ArgumentList	i
+>803	Argument	i
+>804	Identifier	i
+>805	Callee	poRing -> getY
+>806	PtrMemberAccess	poRing -> getY
+>807	Identifier	getY
+>808	Identifier	poRing
+>809	Callee	aPointY . push_back
+>810	MemberAccess	aPointY . push_back
+>811	Identifier	push_back
+>812	Identifier	aPointY
+>813	ExpressionStatement	 
+>814	CallExpression	aPointX . push_back ( poRing -> getX ( i ) )
+>815	ArgumentList	poRing -> getX ( i )
+>816	Argument	poRing -> getX ( i )
+>817	CallExpression	poRing -> getX ( i )
+>818	ArgumentList	i
+>819	Argument	i
+>820	Identifier	i
+>821	Callee	poRing -> getX
+>822	PtrMemberAccess	poRing -> getX
+>823	Identifier	getX
+>824	Identifier	poRing
+>825	Callee	aPointX . push_back
+>826	MemberAccess	aPointX . push_back
+>827	Identifier	push_back
+>828	Identifier	aPointX
+>829	IncDecOp	 
+>830	IncDec	--
+>831	Identifier	i
+>832	Condition	 
+>833	RelationalExpression	i >= 0
+>834	PrimaryExpression	0
+>835	Identifier	i
+>836	ForInit	 
+>837	AssignmentExpr	i = nCount - 1
+>838	AdditiveExpression	nCount - 1
+>839	PrimaryExpression	1
+>840	Identifier	nCount
+>841	Identifier	i
+>842	IfStatement	if ( eBurnValueSrc != GBV_UserBurnValue )
+>843	ExpressionStatement	 
+>844	CallExpression	aPointVariant . reserve ( nNewCount )
+>845	ArgumentList	nNewCount
+>846	Argument	nNewCount
+>847	Identifier	nNewCount
+>848	Callee	aPointVariant . reserve
+>849	MemberAccess	aPointVariant . reserve
+>850	Identifier	reserve
+>851	Identifier	aPointVariant
+>852	Condition	 
+>853	EqualityExpression	eBurnValueSrc != GBV_UserBurnValue
+>854	Identifier	GBV_UserBurnValue
+>855	Identifier	eBurnValueSrc
+>856	ExpressionStatement	 
+>857	CallExpression	aPointY . reserve ( nNewCount )
+>858	ArgumentList	nNewCount
+>859	Argument	nNewCount
+>860	Identifier	nNewCount
+>861	Callee	aPointY . reserve
+>862	MemberAccess	aPointY . reserve
+>863	Identifier	reserve
+>864	Identifier	aPointY
+>865	ExpressionStatement	 
+>866	CallExpression	aPointX . reserve ( nNewCount )
+>867	ArgumentList	nNewCount
+>868	Argument	nNewCount
+>869	Identifier	nNewCount
+>870	Callee	aPointX . reserve
+>871	MemberAccess	aPointX . reserve
+>872	Identifier	reserve
+>873	Identifier	aPointX
+>874	IdentifierDeclStatement	 
+>875	IdentifierDecl	nNewCount = aPointX . size ( ) + nCount
+>876	AssignmentExpr	nNewCount = aPointX . size ( ) + nCount
+>877	AdditiveExpression	aPointX . size ( ) + nCount
+>878	Identifier	nCount
+>879	CallExpression	aPointX . size ( )
+>880	ArgumentList	 
+>881	Callee	aPointX . size
+>882	MemberAccess	aPointX . size
+>883	Identifier	size
+>884	Identifier	aPointX
+>885	Identifier	nNewCount
+>886	Identifier	nNewCount
+>887	IdentifierDeclType	int
+>888	IdentifierDeclStatement	 
+>889	IdentifierDecl	nCount = poRing -> getNumPoints ( )
+>890	AssignmentExpr	nCount = poRing -> getNumPoints ( )
+>891	CallExpression	poRing -> getNumPoints ( )
+>892	ArgumentList	 
+>893	Callee	poRing -> getNumPoints
+>894	PtrMemberAccess	poRing -> getNumPoints
+>895	Identifier	getNumPoints
+>896	Identifier	poRing
+>897	Identifier	nCount
+>898	Identifier	nCount
+>899	IdentifierDeclType	int
+>900	IdentifierDeclStatement	 
+>901	IdentifierDecl	* poRing = ( OGRLinearRing * ) poShape
+>902	AssignmentExpr	* poRing = ( OGRLinearRing * ) poShape
+>903	CastExpression	( OGRLinearRing * ) poShape
+>904	Identifier	poShape
+>905	CastTarget	OGRLinearRing *
+>906	Identifier	poRing
+>907	Identifier	poRing
+>908	IdentifierDeclType	OGRLinearRing *
+>909	Condition	 
+>910	CallExpression	EQUAL ( poShape -> getGeometryName ( ) , \"LINEARRING\" )
+>911	ArgumentList	poShape -> getGeometryName ( )
+>912	Argument	\"LINEARRING\"
+>913	PrimaryExpression	\"LINEARRING\"
+>914	Argument	poShape -> getGeometryName ( )
+>915	CallExpression	poShape -> getGeometryName ( )
+>916	ArgumentList	 
+>917	Callee	poShape -> getGeometryName
+>918	PtrMemberAccess	poShape -> getGeometryName
+>919	Identifier	getGeometryName
+>920	Identifier	poShape
+>921	Callee	EQUAL
+>922	Identifier	EQUAL
+>923	CompoundStatement	 
+>924	ExpressionStatement	 
+>925	CallExpression	aPartSize . push_back ( nCount )
+>926	ArgumentList	nCount
+>927	Argument	nCount
+>928	Identifier	nCount
+>929	Callee	aPartSize . push_back
+>930	MemberAccess	aPartSize . push_back
+>931	Identifier	push_back
+>932	Identifier	aPartSize
+>933	ForStatement	for ( i = nCount - 1 ; i >= 0 ; i -- )
+>934	CompoundStatement	 
+>935	IfStatement	if ( eBurnValueSrc != GBV_UserBurnValue )
+>936	CompoundStatement	 
+>937	ExpressionStatement	 
+>938	CallExpression	aPointVariant . push_back ( poLine -> getZ ( i ) )
+>939	ArgumentList	poLine -> getZ ( i )
+>940	Argument	poLine -> getZ ( i )
+>941	CallExpression	poLine -> getZ ( i )
+>942	ArgumentList	i
+>943	Argument	i
+>944	Identifier	i
+>945	Callee	poLine -> getZ
+>946	PtrMemberAccess	poLine -> getZ
+>947	Identifier	getZ
+>948	Identifier	poLine
+>949	Callee	aPointVariant . push_back
+>950	MemberAccess	aPointVariant . push_back
+>951	Identifier	push_back
+>952	Identifier	aPointVariant
+>953	Condition	 
+>954	EqualityExpression	eBurnValueSrc != GBV_UserBurnValue
+>955	Identifier	GBV_UserBurnValue
+>956	Identifier	eBurnValueSrc
+>957	ExpressionStatement	 
+>958	CallExpression	aPointY . push_back ( poLine -> getY ( i ) )
+>959	ArgumentList	poLine -> getY ( i )
+>960	Argument	poLine -> getY ( i )
+>961	CallExpression	poLine -> getY ( i )
+>962	ArgumentList	i
+>963	Argument	i
+>964	Identifier	i
+>965	Callee	poLine -> getY
+>966	PtrMemberAccess	poLine -> getY
+>967	Identifier	getY
+>968	Identifier	poLine
+>969	Callee	aPointY . push_back
+>970	MemberAccess	aPointY . push_back
+>971	Identifier	push_back
+>972	Identifier	aPointY
+>973	ExpressionStatement	 
+>974	CallExpression	aPointX . push_back ( poLine -> getX ( i ) )
+>975	ArgumentList	poLine -> getX ( i )
+>976	Argument	poLine -> getX ( i )
+>977	CallExpression	poLine -> getX ( i )
+>978	ArgumentList	i
+>979	Argument	i
+>980	Identifier	i
+>981	Callee	poLine -> getX
+>982	PtrMemberAccess	poLine -> getX
+>983	Identifier	getX
+>984	Identifier	poLine
+>985	Callee	aPointX . push_back
+>986	MemberAccess	aPointX . push_back
+>987	Identifier	push_back
+>988	Identifier	aPointX
+>989	IncDecOp	 
+>990	IncDec	--
+>991	Identifier	i
+>992	Condition	 
+>993	RelationalExpression	i >= 0
+>994	PrimaryExpression	0
+>995	Identifier	i
+>996	ForInit	 
+>997	AssignmentExpr	i = nCount - 1
+>998	AdditiveExpression	nCount - 1
+>999	PrimaryExpression	1
+>1000	Identifier	nCount
+>1001	Identifier	i
+>1002	IfStatement	if ( eBurnValueSrc != GBV_UserBurnValue )
+>1003	ExpressionStatement	 
+>1004	CallExpression	aPointVariant . reserve ( nNewCount )
+>1005	ArgumentList	nNewCount
+>1006	Argument	nNewCount
+>1007	Identifier	nNewCount
+>1008	Callee	aPointVariant . reserve
+>1009	MemberAccess	aPointVariant . reserve
+>1010	Identifier	reserve
+>1011	Identifier	aPointVariant
+>1012	Condition	 
+>1013	EqualityExpression	eBurnValueSrc != GBV_UserBurnValue
+>1014	Identifier	GBV_UserBurnValue
+>1015	Identifier	eBurnValueSrc
+>1016	ExpressionStatement	 
+>1017	CallExpression	aPointY . reserve ( nNewCount )
+>1018	ArgumentList	nNewCount
+>1019	Argument	nNewCount
+>1020	Identifier	nNewCount
+>1021	Callee	aPointY . reserve
+>1022	MemberAccess	aPointY . reserve
+>1023	Identifier	reserve
+>1024	Identifier	aPointY
+>1025	ExpressionStatement	 
+>1026	CallExpression	aPointX . reserve ( nNewCount )
+>1027	ArgumentList	nNewCount
+>1028	Argument	nNewCount
+>1029	Identifier	nNewCount
+>1030	Callee	aPointX . reserve
+>1031	MemberAccess	aPointX . reserve
+>1032	Identifier	reserve
+>1033	Identifier	aPointX
+>1034	IdentifierDeclStatement	 
+>1035	IdentifierDecl	nNewCount = aPointX . size ( ) + nCount
+>1036	AssignmentExpr	nNewCount = aPointX . size ( ) + nCount
+>1037	AdditiveExpression	aPointX . size ( ) + nCount
+>1038	Identifier	nCount
+>1039	CallExpression	aPointX . size ( )
+>1040	ArgumentList	 
+>1041	Callee	aPointX . size
+>1042	MemberAccess	aPointX . size
+>1043	Identifier	size
+>1044	Identifier	aPointX
+>1045	Identifier	nNewCount
+>1046	Identifier	nNewCount
+>1047	IdentifierDeclType	int
+>1048	IdentifierDeclStatement	 
+>1049	IdentifierDecl	nCount = poLine -> getNumPoints ( )
+>1050	AssignmentExpr	nCount = poLine -> getNumPoints ( )
+>1051	CallExpression	poLine -> getNumPoints ( )
+>1052	ArgumentList	 
+>1053	Callee	poLine -> getNumPoints
+>1054	PtrMemberAccess	poLine -> getNumPoints
+>1055	Identifier	getNumPoints
+>1056	Identifier	poLine
+>1057	Identifier	nCount
+>1058	Identifier	nCount
+>1059	IdentifierDeclType	int
+>1060	IdentifierDeclStatement	 
+>1061	IdentifierDecl	* poLine = ( OGRLineString * ) poShape
+>1062	AssignmentExpr	* poLine = ( OGRLineString * ) poShape
+>1063	CastExpression	( OGRLineString * ) poShape
+>1064	Identifier	poShape
+>1065	CastTarget	OGRLineString *
+>1066	Identifier	poLine
+>1067	Identifier	poLine
+>1068	IdentifierDeclType	OGRLineString *
+>1069	Condition	 
+>1070	EqualityExpression	eFlatType == wkbLineString
+>1071	Identifier	wkbLineString
+>1072	Identifier	eFlatType
+>1073	CompoundStatement	 
+>1074	IfStatement	if ( eBurnValueSrc != GBV_UserBurnValue )
+>1075	CompoundStatement	 
+>1076	ExpressionStatement	 
+>1077	CallExpression	aPointVariant . push_back ( poPoint -> getZ ( ) )
+>1078	ArgumentList	poPoint -> getZ ( )
+>1079	Argument	poPoint -> getZ ( )
+>1080	CallExpression	poPoint -> getZ ( )
+>1081	ArgumentList	 
+>1082	Callee	poPoint -> getZ
+>1083	PtrMemberAccess	poPoint -> getZ
+>1084	Identifier	getZ
+>1085	Identifier	poPoint
+>1086	Callee	aPointVariant . push_back
+>1087	MemberAccess	aPointVariant . push_back
+>1088	Identifier	push_back
+>1089	Identifier	aPointVariant
+>1090	ExpressionStatement	 
+>1091	CallExpression	aPointVariant . reserve ( nNewCount )
+>1092	ArgumentList	nNewCount
+>1093	Argument	nNewCount
+>1094	Identifier	nNewCount
+>1095	Callee	aPointVariant . reserve
+>1096	MemberAccess	aPointVariant . reserve
+>1097	Identifier	reserve
+>1098	Identifier	aPointVariant
+>1099	Condition	 
+>1100	EqualityExpression	eBurnValueSrc != GBV_UserBurnValue
+>1101	Identifier	GBV_UserBurnValue
+>1102	Identifier	eBurnValueSrc
+>1103	ExpressionStatement	 
+>1104	CallExpression	aPartSize . push_back ( 1 )
+>1105	ArgumentList	1
+>1106	Argument	1
+>1107	PrimaryExpression	1
+>1108	Callee	aPartSize . push_back
+>1109	MemberAccess	aPartSize . push_back
+>1110	Identifier	push_back
+>1111	Identifier	aPartSize
+>1112	ExpressionStatement	 
+>1113	CallExpression	aPointY . push_back ( poPoint -> getY ( ) )
+>1114	ArgumentList	poPoint -> getY ( )
+>1115	Argument	poPoint -> getY ( )
+>1116	CallExpression	poPoint -> getY ( )
+>1117	ArgumentList	 
+>1118	Callee	poPoint -> getY
+>1119	PtrMemberAccess	poPoint -> getY
+>1120	Identifier	getY
+>1121	Identifier	poPoint
+>1122	Callee	aPointY . push_back
+>1123	MemberAccess	aPointY . push_back
+>1124	Identifier	push_back
+>1125	Identifier	aPointY
+>1126	ExpressionStatement	 
+>1127	CallExpression	aPointX . push_back ( poPoint -> getX ( ) )
+>1128	ArgumentList	poPoint -> getX ( )
+>1129	Argument	poPoint -> getX ( )
+>1130	CallExpression	poPoint -> getX ( )
+>1131	ArgumentList	 
+>1132	Callee	poPoint -> getX
+>1133	PtrMemberAccess	poPoint -> getX
+>1134	Identifier	getX
+>1135	Identifier	poPoint
+>1136	Callee	aPointX . push_back
+>1137	MemberAccess	aPointX . push_back
+>1138	Identifier	push_back
+>1139	Identifier	aPointX
+>1140	ExpressionStatement	 
+>1141	CallExpression	aPointY . reserve ( nNewCount )
+>1142	ArgumentList	nNewCount
+>1143	Argument	nNewCount
+>1144	Identifier	nNewCount
+>1145	Callee	aPointY . reserve
+>1146	MemberAccess	aPointY . reserve
+>1147	Identifier	reserve
+>1148	Identifier	aPointY
+>1149	ExpressionStatement	 
+>1150	CallExpression	aPointX . reserve ( nNewCount )
+>1151	ArgumentList	nNewCount
+>1152	Argument	nNewCount
+>1153	Identifier	nNewCount
+>1154	Callee	aPointX . reserve
+>1155	MemberAccess	aPointX . reserve
+>1156	Identifier	reserve
+>1157	Identifier	aPointX
+>1158	IdentifierDeclStatement	 
+>1159	IdentifierDecl	nNewCount = aPointX . size ( ) + 1
+>1160	AssignmentExpr	nNewCount = aPointX . size ( ) + 1
+>1161	AdditiveExpression	aPointX . size ( ) + 1
+>1162	PrimaryExpression	1
+>1163	CallExpression	aPointX . size ( )
+>1164	ArgumentList	 
+>1165	Callee	aPointX . size
+>1166	MemberAccess	aPointX . size
+>1167	Identifier	size
+>1168	Identifier	aPointX
+>1169	Identifier	nNewCount
+>1170	Identifier	nNewCount
+>1171	IdentifierDeclType	int
+>1172	IdentifierDeclStatement	 
+>1173	IdentifierDecl	* poPoint = ( OGRPoint * ) poShape
+>1174	AssignmentExpr	* poPoint = ( OGRPoint * ) poShape
+>1175	CastExpression	( OGRPoint * ) poShape
+>1176	Identifier	poShape
+>1177	CastTarget	OGRPoint *
+>1178	Identifier	poPoint
+>1179	Identifier	poPoint
+>1180	IdentifierDeclType	OGRPoint *
+>1181	Condition	 
+>1182	EqualityExpression	eFlatType == wkbPoint
+>1183	Identifier	wkbPoint
+>1184	Identifier	eFlatType
+>1185	IdentifierDeclStatement	 
+>1186	IdentifierDecl	i
+>1187	Identifier	i
+>1188	IdentifierDeclType	int
+>1189	IdentifierDeclStatement	 
+>1190	IdentifierDecl	eFlatType = wkbFlatten ( poShape -> getGeometryType ( ) )
+>1191	AssignmentExpr	eFlatType = wkbFlatten ( poShape -> getGeometryType ( ) )
+>1192	CallExpression	wkbFlatten ( poShape -> getGeometryType ( ) )
+>1193	ArgumentList	poShape -> getGeometryType ( )
+>1194	Argument	poShape -> getGeometryType ( )
+>1195	CallExpression	poShape -> getGeometryType ( )
+>1196	ArgumentList	 
+>1197	Callee	poShape -> getGeometryType
+>1198	PtrMemberAccess	poShape -> getGeometryType
+>1199	Identifier	getGeometryType
+>1200	Identifier	poShape
+>1201	Callee	wkbFlatten
+>1202	Identifier	wkbFlatten
+>1203	Identifier	eFlatType
+>1204	Identifier	eFlatType
+>1205	IdentifierDeclType	OGRwkbGeometryType
+>1206	IfStatement	if ( poShape == NULL )
+>1207	ReturnStatement	 
+>1208	Condition	 
+>1209	EqualityExpression	poShape == NULL
+>1210	Identifier	NULL
+>1211	Identifier	poShape
+>1266	FunctionDef	gv_rasterize_one_shape (unsigned char * pabyChunkBuf , int nYOff , int nXSize , int nYSize , int nBands , GDALDataType \
+>1267	ParameterList	unsigned char * pabyChunkBuf , int nYOff , int nXSize , int nYSize , int nBands , GDALDataType eType , int bAllTouched , \
+>1268	Parameter	 
+>1269	Identifier	pTransformArg
+>1270	ParameterType	void *
+>1271	Parameter	 
+>1272	Identifier	pfnTransformer
+>1273	ParameterType	GDALTransformerFunc
+>1274	Parameter	 
+>1275	Identifier	eBurnValueSrc
+>1276	ParameterType	GDALBurnValueSrc
+>1277	Parameter	 
+>1278	Identifier	padfBurnValue
+>1279	ParameterType	double *
+>1280	Parameter	 
+>1281	Identifier	poShape
+>1282	ParameterType	OGRGeometry *
+>1283	Parameter	 
+>1284	Identifier	bAllTouched
+>1285	ParameterType	int
+>1286	Parameter	 
+>1287	Identifier	eType
+>1288	ParameterType	GDALDataType
+>1289	Parameter	 
+>1290	Identifier	nBands
+>1291	ParameterType	int
+>1292	Parameter	 
+>1293	Identifier	nYSize
+>1294	ParameterType	int
+>1295	Parameter	 
+>1296	Identifier	nXSize
+>1297	ParameterType	int
+>1298	Parameter	 
+>1299	Identifier	nYOff
+>1300	ParameterType	int
+>1301	Parameter	 
+>1302	Identifier	pabyChunkBuf
+>1303	ParameterType	unsigned char *
+>1304	ReturnType	static void
+>1305	CompoundStatement	 
+>1306	SwitchStatement	switch ( wkbFlatten ( poShape -> getGeometryType ( ) ) )
+>1307	CompoundStatement	 
+>1308	BreakStatement	 
+>1309	CompoundStatement	 
+>1310	IfStatement	if ( bAllTouched )
+>1311	CompoundStatement	 
+>1312	IfStatement	if ( eBurnValueSrc == GBV_UserBurnValue )
+>1313	ElseStatement	else
+>1314	CompoundStatement	 
+>1315	ExpressionStatement	 
+>1316	CallExpression	GDALdllImageLineAllTouched ( sInfo . nXSize , nYSize , aPartSize . size ( ) , & ( aPartSize [ 0 ] ) , & ( aPointX [ \
+>1317	ArgumentList	sInfo . nXSize
+>1318	Argument	& sInfo
+>1319	UnaryOp	& sInfo
+>1320	Identifier	sInfo
+>1321	UnaryOperator	&
+>1322	Argument	gvBurnPoint
+>1323	Identifier	gvBurnPoint
+>1324	Argument	& ( aPointVariant [ 0 ] )
+>1325	UnaryOp	& ( aPointVariant [ 0 ] )
+>1326	ArrayIndexing	aPointVariant [ 0 ]
+>1327	PrimaryExpression	0
+>1328	Identifier	aPointVariant
+>1329	UnaryOperator	&
+>1330	Argument	& ( aPointY [ 0 ] )
+>1331	UnaryOp	& ( aPointY [ 0 ] )
+>1332	ArrayIndexing	aPointY [ 0 ]
+>1333	PrimaryExpression	0
+>1334	Identifier	aPointY
+>1335	UnaryOperator	&
+>1336	Argument	& ( aPointX [ 0 ] )
+>1337	UnaryOp	& ( aPointX [ 0 ] )
+>1338	ArrayIndexing	aPointX [ 0 ]
+>1339	PrimaryExpression	0
+>1340	Identifier	aPointX
+>1341	UnaryOperator	&
+>1342	Argument	& ( aPartSize [ 0 ] )
+>1343	UnaryOp	& ( aPartSize [ 0 ] )
+>1344	ArrayIndexing	aPartSize [ 0 ]
+>1345	PrimaryExpression	0
+>1346	Identifier	aPartSize
+>1347	UnaryOperator	&
+>1348	Argument	aPartSize . size ( )
+>1349	CallExpression	aPartSize . size ( )
+>1350	ArgumentList	 
+>1351	Callee	aPartSize . size
+>1352	MemberAccess	aPartSize . size
+>1353	Identifier	size
+>1354	Identifier	aPartSize
+>1355	Argument	nYSize
+>1356	Identifier	nYSize
+>1357	Argument	sInfo . nXSize
+>1358	MemberAccess	sInfo . nXSize
+>1359	Identifier	nXSize
+>1360	Identifier	sInfo
+>1361	Callee	GDALdllImageLineAllTouched
+>1362	Identifier	GDALdllImageLineAllTouched
+>1363	ForStatement	for ( i = 0 , n = 0 ; i < aPartSize . size ( ) ; i ++ )
+>1364	CompoundStatement	 
+>1365	ForStatement	for ( j = 0 ; j < aPartSize [ i ] ; j ++ )
+>1366	ExpressionStatement	 
+>1367	AssignmentExpr	aPointVariant [ n ++ ] = aPointVariant [ 0 ]
+>1368	ArrayIndexing	aPointVariant [ 0 ]
+>1369	PrimaryExpression	0
+>1370	Identifier	aPointVariant
+>1371	ArrayIndexing	aPointVariant [ n ++ ]
+>1372	IncDecOp	n ++
+>1373	IncDec	++
+>1374	Identifier	n
+>1375	Identifier	aPointVariant
+>1376	IncDecOp	 
+>1377	IncDec	++
+>1378	Identifier	j
+>1379	Condition	 
+>1380	RelationalExpression	j < aPartSize [ i ]
+>1381	ArrayIndexing	aPartSize [ i ]
+>1382	Identifier	i
+>1383	Identifier	aPartSize
+>1384	Identifier	j
+>1385	ForInit	 
+>1386	AssignmentExpr	j = 0
+>1387	PrimaryExpression	0
+>1388	Identifier	j
+>1389	IdentifierDeclStatement	 
+>1390	IdentifierDecl	j
+>1391	Identifier	j
+>1392	IdentifierDeclType	int
+>1393	IncDecOp	 
+>1394	IncDec	++
+>1395	Identifier	i
+>1396	Condition	 
+>1397	RelationalExpression	i < aPartSize . size ( )
+>1398	CallExpression	aPartSize . size ( )
+>1399	ArgumentList	 
+>1400	Callee	aPartSize . size
+>1401	MemberAccess	aPartSize . size
+>1402	Identifier	size
+>1403	Identifier	aPartSize
+>1404	Identifier	i
+>1405	ForInit	 
+>1406	Expression	i = 0 , n = 0
+>1407	AssignmentExpr	n = 0
+>1408	PrimaryExpression	0
+>1409	Identifier	n
+>1410	AssignmentExpr	i = 0
+>1411	PrimaryExpression	0
+>1412	Identifier	i
+>1413	IdentifierDeclStatement	 
+>1414	IdentifierDecl	n
+>1415	Identifier	n
+>1416	IdentifierDeclType	unsigned int
+>1417	CompoundStatement	 
+>1418	ExpressionStatement	 
+>1419	CallExpression	GDALdllImageLineAllTouched ( sInfo . nXSize , nYSize , aPartSize . size ( ) , & ( aPartSize [ 0 ] ) , & ( aPointX [ \
+>1420	ArgumentList	sInfo . nXSize
+>1421	Argument	& sInfo
+>1422	UnaryOp	& sInfo
+>1423	Identifier	sInfo
+>1424	UnaryOperator	&
+>1425	Argument	gvBurnPoint
+>1426	Identifier	gvBurnPoint
+>1427	Argument	NULL
+>1428	Identifier	NULL
+>1429	Argument	& ( aPointY [ 0 ] )
+>1430	UnaryOp	& ( aPointY [ 0 ] )
+>1431	ArrayIndexing	aPointY [ 0 ]
+>1432	PrimaryExpression	0
+>1433	Identifier	aPointY
+>1434	UnaryOperator	&
+>1435	Argument	& ( aPointX [ 0 ] )
+>1436	UnaryOp	& ( aPointX [ 0 ] )
+>1437	ArrayIndexing	aPointX [ 0 ]
+>1438	PrimaryExpression	0
+>1439	Identifier	aPointX
+>1440	UnaryOperator	&
+>1441	Argument	& ( aPartSize [ 0 ] )
+>1442	UnaryOp	& ( aPartSize [ 0 ] )
+>1443	ArrayIndexing	aPartSize [ 0 ]
+>1444	PrimaryExpression	0
+>1445	Identifier	aPartSize
+>1446	UnaryOperator	&
+>1447	Argument	aPartSize . size ( )
+>1448	CallExpression	aPartSize . size ( )
+>1449	ArgumentList	 
+>1450	Callee	aPartSize . size
+>1451	MemberAccess	aPartSize . size
+>1452	Identifier	size
+>1453	Identifier	aPartSize
+>1454	Argument	nYSize
+>1455	Identifier	nYSize
+>1456	Argument	sInfo . nXSize
+>1457	MemberAccess	sInfo . nXSize
+>1458	Identifier	nXSize
+>1459	Identifier	sInfo
+>1460	Callee	GDALdllImageLineAllTouched
+>1461	Identifier	GDALdllImageLineAllTouched
+>1462	Condition	 
+>1463	EqualityExpression	eBurnValueSrc == GBV_UserBurnValue
+>1464	Identifier	GBV_UserBurnValue
+>1465	Identifier	eBurnValueSrc
+>1466	Condition	 
+>1467	Identifier	bAllTouched
+>1468	ExpressionStatement	 
+>1469	CallExpression	GDALdllImageFilledPolygon ( sInfo . nXSize , nYSize , aPartSize . size ( ) , & ( aPartSize [ 0 ] ) , & ( aPointX [ \
+>1470	ArgumentList	sInfo . nXSize
+>1471	Argument	& sInfo
+>1472	UnaryOp	& sInfo
+>1473	Identifier	sInfo
+>1474	UnaryOperator	&
+>1475	Argument	gvBurnScanline
+>1476	Identifier	gvBurnScanline
+>1477	Argument	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1478	ConditionalExpression	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1479	UnaryOp	& ( aPointVariant [ 0 ] )
+>1480	ArrayIndexing	aPointVariant [ 0 ]
+>1481	PrimaryExpression	0
+>1482	Identifier	aPointVariant
+>1483	UnaryOperator	&
+>1484	Identifier	NULL
+>1485	Condition	eBurnValueSrc == GBV_UserBurnValue
+>1486	EqualityExpression	eBurnValueSrc == GBV_UserBurnValue
+>1487	Identifier	GBV_UserBurnValue
+>1488	Identifier	eBurnValueSrc
+>1489	Argument	& ( aPointY [ 0 ] )
+>1490	UnaryOp	& ( aPointY [ 0 ] )
+>1491	ArrayIndexing	aPointY [ 0 ]
+>1492	PrimaryExpression	0
+>1493	Identifier	aPointY
+>1494	UnaryOperator	&
+>1495	Argument	& ( aPointX [ 0 ] )
+>1496	UnaryOp	& ( aPointX [ 0 ] )
+>1497	ArrayIndexing	aPointX [ 0 ]
+>1498	PrimaryExpression	0
+>1499	Identifier	aPointX
+>1500	UnaryOperator	&
+>1501	Argument	& ( aPartSize [ 0 ] )
+>1502	UnaryOp	& ( aPartSize [ 0 ] )
+>1503	ArrayIndexing	aPartSize [ 0 ]
+>1504	PrimaryExpression	0
+>1505	Identifier	aPartSize
+>1506	UnaryOperator	&
+>1507	Argument	aPartSize . size ( )
+>1508	CallExpression	aPartSize . size ( )
+>1509	ArgumentList	 
+>1510	Callee	aPartSize . size
+>1511	MemberAccess	aPartSize . size
+>1512	Identifier	size
+>1513	Identifier	aPartSize
+>1514	Argument	nYSize
+>1515	Identifier	nYSize
+>1516	Argument	sInfo . nXSize
+>1517	MemberAccess	sInfo . nXSize
+>1518	Identifier	nXSize
+>1519	Identifier	sInfo
+>1520	Callee	GDALdllImageFilledPolygon
+>1521	Identifier	GDALdllImageFilledPolygon
+>1522	Label	 
+>1523	Identifier	default
+>1524	BreakStatement	 
+>1525	CompoundStatement	 
+>1526	IfStatement	if ( bAllTouched )
+>1527	ElseStatement	else
+>1528	ExpressionStatement	 
+>1529	CallExpression	GDALdllImageLine ( sInfo . nXSize , nYSize , aPartSize . size ( ) , & ( aPartSize [ 0 ] ) , & ( aPointX [ 0 ] ) , & ( \
+>1530	ArgumentList	sInfo . nXSize
+>1531	Argument	& sInfo
+>1532	UnaryOp	& sInfo
+>1533	Identifier	sInfo
+>1534	UnaryOperator	&
+>1535	Argument	gvBurnPoint
+>1536	Identifier	gvBurnPoint
+>1537	Argument	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1538	ConditionalExpression	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1539	UnaryOp	& ( aPointVariant [ 0 ] )
+>1540	ArrayIndexing	aPointVariant [ 0 ]
+>1541	PrimaryExpression	0
+>1542	Identifier	aPointVariant
+>1543	UnaryOperator	&
+>1544	Identifier	NULL
+>1545	Condition	eBurnValueSrc == GBV_UserBurnValue
+>1546	EqualityExpression	eBurnValueSrc == GBV_UserBurnValue
+>1547	Identifier	GBV_UserBurnValue
+>1548	Identifier	eBurnValueSrc
+>1549	Argument	& ( aPointY [ 0 ] )
+>1550	UnaryOp	& ( aPointY [ 0 ] )
+>1551	ArrayIndexing	aPointY [ 0 ]
+>1552	PrimaryExpression	0
+>1553	Identifier	aPointY
+>1554	UnaryOperator	&
+>1555	Argument	& ( aPointX [ 0 ] )
+>1556	UnaryOp	& ( aPointX [ 0 ] )
+>1557	ArrayIndexing	aPointX [ 0 ]
+>1558	PrimaryExpression	0
+>1559	Identifier	aPointX
+>1560	UnaryOperator	&
+>1561	Argument	& ( aPartSize [ 0 ] )
+>1562	UnaryOp	& ( aPartSize [ 0 ] )
+>1563	ArrayIndexing	aPartSize [ 0 ]
+>1564	PrimaryExpression	0
+>1565	Identifier	aPartSize
+>1566	UnaryOperator	&
+>1567	Argument	aPartSize . size ( )
+>1568	CallExpression	aPartSize . size ( )
+>1569	ArgumentList	 
+>1570	Callee	aPartSize . size
+>1571	MemberAccess	aPartSize . size
+>1572	Identifier	size
+>1573	Identifier	aPartSize
+>1574	Argument	nYSize
+>1575	Identifier	nYSize
+>1576	Argument	sInfo . nXSize
+>1577	MemberAccess	sInfo . nXSize
+>1578	Identifier	nXSize
+>1579	Identifier	sInfo
+>1580	Callee	GDALdllImageLine
+>1581	Identifier	GDALdllImageLine
+>1582	ExpressionStatement	 
+>1583	CallExpression	GDALdllImageLineAllTouched ( sInfo . nXSize , nYSize , aPartSize . size ( ) , & ( aPartSize [ 0 ] ) , & ( aPointX [ \
+>1584	ArgumentList	sInfo . nXSize
+>1585	Argument	& sInfo
+>1586	UnaryOp	& sInfo
+>1587	Identifier	sInfo
+>1588	UnaryOperator	&
+>1589	Argument	gvBurnPoint
+>1590	Identifier	gvBurnPoint
+>1591	Argument	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1592	ConditionalExpression	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1593	UnaryOp	& ( aPointVariant [ 0 ] )
+>1594	ArrayIndexing	aPointVariant [ 0 ]
+>1595	PrimaryExpression	0
+>1596	Identifier	aPointVariant
+>1597	UnaryOperator	&
+>1598	Identifier	NULL
+>1599	Condition	eBurnValueSrc == GBV_UserBurnValue
+>1600	EqualityExpression	eBurnValueSrc == GBV_UserBurnValue
+>1601	Identifier	GBV_UserBurnValue
+>1602	Identifier	eBurnValueSrc
+>1603	Argument	& ( aPointY [ 0 ] )
+>1604	UnaryOp	& ( aPointY [ 0 ] )
+>1605	ArrayIndexing	aPointY [ 0 ]
+>1606	PrimaryExpression	0
+>1607	Identifier	aPointY
+>1608	UnaryOperator	&
+>1609	Argument	& ( aPointX [ 0 ] )
+>1610	UnaryOp	& ( aPointX [ 0 ] )
+>1611	ArrayIndexing	aPointX [ 0 ]
+>1612	PrimaryExpression	0
+>1613	Identifier	aPointX
+>1614	UnaryOperator	&
+>1615	Argument	& ( aPartSize [ 0 ] )
+>1616	UnaryOp	& ( aPartSize [ 0 ] )
+>1617	ArrayIndexing	aPartSize [ 0 ]
+>1618	PrimaryExpression	0
+>1619	Identifier	aPartSize
+>1620	UnaryOperator	&
+>1621	Argument	aPartSize . size ( )
+>1622	CallExpression	aPartSize . size ( )
+>1623	ArgumentList	 
+>1624	Callee	aPartSize . size
+>1625	MemberAccess	aPartSize . size
+>1626	Identifier	size
+>1627	Identifier	aPartSize
+>1628	Argument	nYSize
+>1629	Identifier	nYSize
+>1630	Argument	sInfo . nXSize
+>1631	MemberAccess	sInfo . nXSize
+>1632	Identifier	nXSize
+>1633	Identifier	sInfo
+>1634	Callee	GDALdllImageLineAllTouched
+>1635	Identifier	GDALdllImageLineAllTouched
+>1636	Condition	 
+>1637	Identifier	bAllTouched
+>1638	Label	 
+>1639	Identifier	wkbMultiLineString
+>1640	Label	 
+>1641	Identifier	wkbLineString
+>1642	BreakStatement	 
+>1643	ExpressionStatement	 
+>1644	CallExpression	GDALdllImagePoint ( sInfo . nXSize , nYSize , aPartSize . size ( ) , & ( aPartSize [ 0 ] ) , & ( aPointX [ 0 ] ) , & ( \
+>1645	ArgumentList	sInfo . nXSize
+>1646	Argument	& sInfo
+>1647	UnaryOp	& sInfo
+>1648	Identifier	sInfo
+>1649	UnaryOperator	&
+>1650	Argument	gvBurnPoint
+>1651	Identifier	gvBurnPoint
+>1652	Argument	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1653	ConditionalExpression	( eBurnValueSrc == GBV_UserBurnValue ) ? NULL 
+>1654	UnaryOp	& ( aPointVariant [ 0 ] )
+>1655	ArrayIndexing	aPointVariant [ 0 ]
+>1656	PrimaryExpression	0
+>1657	Identifier	aPointVariant
+>1658	UnaryOperator	&
+>1659	Identifier	NULL
+>1660	Condition	eBurnValueSrc == GBV_UserBurnValue
+>1661	EqualityExpression	eBurnValueSrc == GBV_UserBurnValue
+>1662	Identifier	GBV_UserBurnValue
+>1663	Identifier	eBurnValueSrc
+>1664	Argument	& ( aPointY [ 0 ] )
+>1665	UnaryOp	& ( aPointY [ 0 ] )
+>1666	ArrayIndexing	aPointY [ 0 ]
+>1667	PrimaryExpression	0
+>1668	Identifier	aPointY
+>1669	UnaryOperator	&
+>1670	Argument	& ( aPointX [ 0 ] )
+>1671	UnaryOp	& ( aPointX [ 0 ] )
+>1672	ArrayIndexing	aPointX [ 0 ]
+>1673	PrimaryExpression	0
+>1674	Identifier	aPointX
+>1675	UnaryOperator	&
+>1676	Argument	& ( aPartSize [ 0 ] )
+>1677	UnaryOp	& ( aPartSize [ 0 ] )
+>1678	ArrayIndexing	aPartSize [ 0 ]
+>1679	PrimaryExpression	0
+>1680	Identifier	aPartSize
+>1681	UnaryOperator	&
+>1682	Argument	aPartSize . size ( )
+>1683	CallExpression	aPartSize . size ( )
+>1684	ArgumentList	 
+>1685	Callee	aPartSize . size
+>1686	MemberAccess	aPartSize . size
+>1687	Identifier	size
+>1688	Identifier	aPartSize
+>1689	Argument	nYSize
+>1690	Identifier	nYSize
+>1691	Argument	sInfo . nXSize
+>1692	MemberAccess	sInfo . nXSize
+>1693	Identifier	nXSize
+>1694	Identifier	sInfo
+>1695	Callee	GDALdllImagePoint
+>1696	Identifier	GDALdllImagePoint
+>1697	Label	 
+>1698	Identifier	wkbMultiPoint
+>1699	Label	 
+>1700	Identifier	wkbPoint
+>1701	Condition	 
+>1702	CallExpression	wkbFlatten ( poShape -> getGeometryType ( ) )
+>1703	ArgumentList	poShape -> getGeometryType ( )
+>1704	Argument	poShape -> getGeometryType ( )
+>1705	CallExpression	poShape -> getGeometryType ( )
+>1706	ArgumentList	 
+>1707	Callee	poShape -> getGeometryType
+>1708	PtrMemberAccess	poShape -> getGeometryType
+>1709	Identifier	getGeometryType
+>1710	Identifier	poShape
+>1711	Callee	wkbFlatten
+>1712	Identifier	wkbFlatten
+>1713	ForStatement	for ( i = 0 ; i < aPointY . size ( ) ; i ++ )
+>1714	ExpressionStatement	 
+>1715	AssignmentExpr	aPointY [ i ] -= nYOff
+>1716	Identifier	nYOff
+>1717	ArrayIndexing	aPointY [ i ]
+>1718	Identifier	i
+>1719	Identifier	aPointY
+>1720	IncDecOp	 
+>1721	IncDec	++
+>1722	Identifier	i
+>1723	Condition	 
+>1724	RelationalExpression	i < aPointY . size ( )
+>1725	CallExpression	aPointY . size ( )
+>1726	ArgumentList	 
+>1727	Callee	aPointY . size
+>1728	MemberAccess	aPointY . size
+>1729	Identifier	size
+>1730	Identifier	aPointY
+>1731	Identifier	i
+>1732	ForInit	 
+>1733	AssignmentExpr	i = 0
+>1734	PrimaryExpression	0
+>1735	Identifier	i
+>1736	IdentifierDeclStatement	 
+>1737	IdentifierDecl	i
+>1738	Identifier	i
+>1739	IdentifierDeclType	unsigned int
+>1740	IfStatement	if ( pfnTransformer != NULL )
+>1741	CompoundStatement	 
+>1742	ExpressionStatement	 
+>1743	CallExpression	CPLFree ( panSuccess )
+>1744	ArgumentList	panSuccess
+>1745	Argument	panSuccess
+>1746	Identifier	panSuccess
+>1747	Callee	CPLFree
+>1748	Identifier	CPLFree
+>1749	ExpressionStatement	 
+>1750	CallExpression	pfnTransformer ( pTransformArg , FALSE , aPointX . size ( ) , & ( aPointX [ 0 ] ) , & ( aPointY [ 0 ] ) , NULL , \
+>1751	ArgumentList	pTransformArg
+>1752	Argument	panSuccess
+>1753	Identifier	panSuccess
+>1754	Argument	NULL
+>1755	Identifier	NULL
+>1756	Argument	& ( aPointY [ 0 ] )
+>1757	UnaryOp	& ( aPointY [ 0 ] )
+>1758	ArrayIndexing	aPointY [ 0 ]
+>1759	PrimaryExpression	0
+>1760	Identifier	aPointY
+>1761	UnaryOperator	&
+>1762	Argument	& ( aPointX [ 0 ] )
+>1763	UnaryOp	& ( aPointX [ 0 ] )
+>1764	ArrayIndexing	aPointX [ 0 ]
+>1765	PrimaryExpression	0
+>1766	Identifier	aPointX
+>1767	UnaryOperator	&
+>1768	Argument	aPointX . size ( )
+>1769	CallExpression	aPointX . size ( )
+>1770	ArgumentList	 
+>1771	Callee	aPointX . size
+>1772	MemberAccess	aPointX . size
+>1773	Identifier	size
+>1774	Identifier	aPointX
+>1775	Argument	FALSE
+>1776	Identifier	FALSE
+>1777	Argument	pTransformArg
+>1778	Identifier	pTransformArg
+>1779	Callee	pfnTransformer
+>1780	Identifier	pfnTransformer
+>1781	IdentifierDeclStatement	 
+>1782	IdentifierDecl	* panSuccess = ( int * ) CPLCalloc ( sizeof ( int ) , aPointX . size ( ) )
+>1783	AssignmentExpr	* panSuccess = ( int * ) CPLCalloc ( sizeof ( int ) , aPointX . size ( ) )
+>1784	CastExpression	( int * ) CPLCalloc ( sizeof ( int ) , aPointX . size ( ) )
+>1785	CallExpression	CPLCalloc ( sizeof ( int ) , aPointX . size ( ) )
+>1786	ArgumentList	sizeof ( int )
+>1787	Argument	aPointX . size ( )
+>1788	CallExpression	aPointX . size ( )
+>1789	ArgumentList	 
+>1790	Callee	aPointX . size
+>1791	MemberAccess	aPointX . size
+>1792	Identifier	size
+>1793	Identifier	aPointX
+>1794	Argument	sizeof ( int )
+>1795	SizeofExpr	sizeof ( int )
+>1796	SizeofOperand	int
+>1797	Sizeof	sizeof
+>1798	Callee	CPLCalloc
+>1799	Identifier	CPLCalloc
+>1800	CastTarget	int *
+>1801	Identifier	panSuccess
+>1802	Identifier	panSuccess
+>1803	IdentifierDeclType	int *
+>1804	Condition	 
+>1805	EqualityExpression	pfnTransformer != NULL
+>1806	Identifier	NULL
+>1807	Identifier	pfnTransformer
+>1808	ExpressionStatement	 
+>1809	CallExpression	GDALCollectRingsFromGeometry ( poShape , aPointX , aPointY , aPointVariant , aPartSize , eBurnValueSrc )
+>1810	ArgumentList	poShape
+>1811	Argument	eBurnValueSrc
+>1812	Identifier	eBurnValueSrc
+>1813	Argument	aPartSize
+>1814	Identifier	aPartSize
+>1815	Argument	aPointVariant
+>1816	Identifier	aPointVariant
+>1817	Argument	aPointY
+>1818	Identifier	aPointY
+>1819	Argument	aPointX
+>1820	Identifier	aPointX
+>1821	Argument	poShape
+>1822	Identifier	poShape
+>1823	Callee	GDALCollectRingsFromGeometry
+>1824	Identifier	GDALCollectRingsFromGeometry
+>1825	IdentifierDeclStatement	 
+>1826	IdentifierDecl	aPartSize
+>1827	Identifier	aPartSize
+>1828	IdentifierDeclType	std 
+>1829	IdentifierDeclStatement	 
+>1830	IdentifierDecl	aPointVariant
+>1831	Identifier	aPointVariant
+>1832	IdentifierDeclType	std 
+>1833	IdentifierDeclStatement	 
+>1834	IdentifierDecl	aPointY
+>1835	Identifier	aPointY
+>1836	IdentifierDeclType	std 
+>1837	IdentifierDeclStatement	 
+>1838	IdentifierDecl	aPointX
+>1839	Identifier	aPointX
+>1840	IdentifierDeclType	std 
+>1841	ExpressionStatement	 
+>1842	AssignmentExpr	sInfo . eBurnValueSource = eBurnValueSrc
+>1843	Identifier	eBurnValueSrc
+>1844	MemberAccess	sInfo . eBurnValueSource
+>1845	Identifier	eBurnValueSource
+>1846	Identifier	sInfo
+>1847	ExpressionStatement	 
+>1848	AssignmentExpr	sInfo . padfBurnValue = padfBurnValue
+>1849	Identifier	padfBurnValue
+>1850	MemberAccess	sInfo . padfBurnValue
+>1851	Identifier	padfBurnValue
+>1852	Identifier	sInfo
+>1853	ExpressionStatement	 
+>1854	AssignmentExpr	sInfo . eType = eType
+>1855	Identifier	eType
+>1856	MemberAccess	sInfo . eType
+>1857	Identifier	eType
+>1858	Identifier	sInfo
+>1859	ExpressionStatement	 
+>1860	AssignmentExpr	sInfo . pabyChunkBuf = pabyChunkBuf
+>1861	Identifier	pabyChunkBuf
+>1862	MemberAccess	sInfo . pabyChunkBuf
+>1863	Identifier	pabyChunkBuf
+>1864	Identifier	sInfo
+>1865	ExpressionStatement	 
+>1866	AssignmentExpr	sInfo . nBands = nBands
+>1867	Identifier	nBands
+>1868	MemberAccess	sInfo . nBands
+>1869	Identifier	nBands
+>1870	Identifier	sInfo
+>1871	ExpressionStatement	 
+>1872	AssignmentExpr	sInfo . nYSize = nYSize
+>1873	Identifier	nYSize
+>1874	MemberAccess	sInfo . nYSize
+>1875	Identifier	nYSize
+>1876	Identifier	sInfo
+>1877	ExpressionStatement	 
+>1878	AssignmentExpr	sInfo . nXSize = nXSize
+>1879	Identifier	nXSize
+>1880	MemberAccess	sInfo . nXSize
+>1881	Identifier	nXSize
+>1882	Identifier	sInfo
+>1883	IfStatement	if ( poShape == NULL )
+>1884	ReturnStatement	 
+>1885	Condition	 
+>1886	EqualityExpression	poShape == NULL
+>1887	Identifier	NULL
+>1888	Identifier	poShape
+>1889	IdentifierDeclStatement	 
+>1890	IdentifierDecl	sInfo
+>1891	Identifier	sInfo
+>1892	IdentifierDeclType	GDALRasterizeInfo
+>1946	FunctionDef	GDALRasterizeGeometries (GDALDatasetH hDS , int nBandCount , int * panBandList , int nGeomCount , OGRGeometryH * \
+>1947	ParameterList	GDALDatasetH hDS , int nBandCount , int * panBandList , int nGeomCount , OGRGeometryH * pahGeometries , GDALTransformerFunc \
+>1948	Parameter	 
+>1949	Identifier	pProgressArg
+>1950	ParameterType	void *
+>1951	Parameter	 
+>1952	Identifier	pfnProgress
+>1953	ParameterType	GDALProgressFunc
+>1954	Parameter	 
+>1955	Identifier	papszOptions
+>1956	ParameterType	char * *
+>1957	Parameter	 
+>1958	Identifier	padfGeomBurnValue
+>1959	ParameterType	double *
+>1960	Parameter	 
+>1961	Identifier	pTransformArg
+>1962	ParameterType	void *
+>1963	Parameter	 
+>1964	Identifier	pfnTransformer
+>1965	ParameterType	GDALTransformerFunc
+>1966	Parameter	 
+>1967	Identifier	pahGeometries
+>1968	ParameterType	OGRGeometryH *
+>1969	Parameter	 
+>1970	Identifier	nGeomCount
+>1971	ParameterType	int
+>1972	Parameter	 
+>1973	Identifier	panBandList
+>1974	ParameterType	int *
+>1975	Parameter	 
+>1976	Identifier	nBandCount
+>1977	ParameterType	int
+>1978	Parameter	 
+>1979	Identifier	hDS
+>1980	ParameterType	GDALDatasetH
+>1981	ReturnType	CPLErr
+>1982	CompoundStatement	 
+>1983	ReturnStatement	 
+>1984	Identifier	eErr
+>1985	IfStatement	if ( bNeedToFreeTransformer )
+>1986	ExpressionStatement	 
+>1987	CallExpression	GDALDestroyTransformer ( pTransformArg )
+>1988	ArgumentList	pTransformArg
+>1989	Argument	pTransformArg
+>1990	Identifier	pTransformArg
+>1991	Callee	GDALDestroyTransformer
+>1992	Identifier	GDALDestroyTransformer
+>1993	Condition	 
+>1994	Identifier	bNeedToFreeTransformer
+>1995	ExpressionStatement	 
+>1996	CallExpression	VSIFree ( pabyChunkBuf )
+>1997	ArgumentList	pabyChunkBuf
+>1998	Argument	pabyChunkBuf
+>1999	Identifier	pabyChunkBuf
+>2000	Callee	VSIFree
+>2001	Identifier	VSIFree
+>2002	ForStatement	for ( iY = 0 ; iY < poDS -> GetRasterYSize ( ) && eErr == CE_None ; iY += nYChunkSize )
+>2003	CompoundStatement	 
+>2004	IfStatement	if ( ! pfnProgress ( ( iY + nThisYChunkSize ) / ( ( double ) poDS -> GetRasterYSize ( ) ) , \"\" , pProgressArg ) )
+>2005	CompoundStatement	 
+>2006	ExpressionStatement	 
+>2007	AssignmentExpr	eErr = CE_Failure
+>2008	Identifier	CE_Failure
+>2009	Identifier	eErr
+>2010	ExpressionStatement	 
+>2011	CallExpression	CPLError ( CE_Failure , CPLE_UserInterrupt , \"User terminated\" )
+>2012	ArgumentList	CE_Failure
+>2013	Argument	\"User terminated\"
+>2014	PrimaryExpression	\"User terminated\"
+>2015	Argument	CPLE_UserInterrupt
+>2016	Identifier	CPLE_UserInterrupt
+>2017	Argument	CE_Failure
+>2018	Identifier	CE_Failure
+>2019	Callee	CPLError
+>2020	Identifier	CPLError
+>2021	Condition	 
+>2022	UnaryOp	! pfnProgress ( ( iY + nThisYChunkSize ) / ( ( double ) poDS -> GetRasterYSize ( ) ) , \"\" , pProgressArg )
+>2023	CallExpression	pfnProgress ( ( iY + nThisYChunkSize ) / ( ( double ) poDS -> GetRasterYSize ( ) ) , \"\" , pProgressArg )
+>2024	ArgumentList	( iY + nThisYChunkSize ) / ( ( double ) poDS -> GetRasterYSize ( ) )
+>2025	Argument	pProgressArg
+>2026	Identifier	pProgressArg
+>2027	Argument	\"\"
+>2028	PrimaryExpression	\"\"
+>2029	Argument	( iY + nThisYChunkSize ) / ( ( double ) poDS -> GetRasterYSize ( ) )
+>2030	MultiplicativeExpression	( iY + nThisYChunkSize ) / ( ( double ) poDS -> GetRasterYSize ( ) )
+>2031	CastExpression	( double ) poDS -> GetRasterYSize ( )
+>2032	CallExpression	poDS -> GetRasterYSize ( )
+>2033	ArgumentList	 
+>2034	Callee	poDS -> GetRasterYSize
+>2035	PtrMemberAccess	poDS -> GetRasterYSize
+>2036	Identifier	GetRasterYSize
+>2037	Identifier	poDS
+>2038	CastTarget	double
+>2039	AdditiveExpression	iY + nThisYChunkSize
+>2040	Identifier	nThisYChunkSize
+>2041	Identifier	iY
+>2042	Callee	pfnProgress
+>2043	Identifier	pfnProgress
+>2044	UnaryOperator	!
+>2045	ExpressionStatement	 
+>2046	AssignmentExpr	eErr = poDS -> RasterIO ( GF_Write , 0 , iY , poDS -> GetRasterXSize ( ) , nThisYChunkSize , pabyChunkBuf , \
+>2047	CallExpression	poDS -> RasterIO ( GF_Write , 0 , iY , poDS -> GetRasterXSize ( ) , nThisYChunkSize , pabyChunkBuf , poDS -> GetRasterXSize ( ) , \
+>2048	ArgumentList	GF_Write
+>2049	Argument	0
+>2050	PrimaryExpression	0
+>2051	Argument	0
+>2052	PrimaryExpression	0
+>2053	Argument	0
+>2054	PrimaryExpression	0
+>2055	Argument	panBandList
+>2056	Identifier	panBandList
+>2057	Argument	nBandCount
+>2058	Identifier	nBandCount
+>2059	Argument	eType
+>2060	Identifier	eType
+>2061	Argument	nThisYChunkSize
+>2062	Identifier	nThisYChunkSize
+>2063	Argument	poDS -> GetRasterXSize ( )
+>2064	CallExpression	poDS -> GetRasterXSize ( )
+>2065	ArgumentList	 
+>2066	Callee	poDS -> GetRasterXSize
+>2067	PtrMemberAccess	poDS -> GetRasterXSize
+>2068	Identifier	GetRasterXSize
+>2069	Identifier	poDS
+>2070	Argument	pabyChunkBuf
+>2071	Identifier	pabyChunkBuf
+>2072	Argument	nThisYChunkSize
+>2073	Identifier	nThisYChunkSize
+>2074	Argument	poDS -> GetRasterXSize ( )
+>2075	CallExpression	poDS -> GetRasterXSize ( )
+>2076	ArgumentList	 
+>2077	Callee	poDS -> GetRasterXSize
+>2078	PtrMemberAccess	poDS -> GetRasterXSize
+>2079	Identifier	GetRasterXSize
+>2080	Identifier	poDS
+>2081	Argument	iY
+>2082	Identifier	iY
+>2083	Argument	0
+>2084	PrimaryExpression	0
+>2085	Argument	GF_Write
+>2086	Identifier	GF_Write
+>2087	Callee	poDS -> RasterIO
+>2088	PtrMemberAccess	poDS -> RasterIO
+>2089	Identifier	RasterIO
+>2090	Identifier	poDS
+>2091	Identifier	eErr
+>2092	ForStatement	for ( iShape = 0 ; iShape < nGeomCount ; iShape ++ )
+>2093	CompoundStatement	 
+>2094	ExpressionStatement	 
+>2095	CallExpression	gv_rasterize_one_shape ( pabyChunkBuf , iY , poDS -> GetRasterXSize ( ) , nThisYChunkSize , nBandCount , eType , \
+>2096	ArgumentList	pabyChunkBuf
+>2097	Argument	pTransformArg
+>2098	Identifier	pTransformArg
+>2099	Argument	pfnTransformer
+>2100	Identifier	pfnTransformer
+>2101	Argument	eBurnValueSource
+>2102	Identifier	eBurnValueSource
+>2103	Argument	padfGeomBurnValue + iShape * nBandCount
+>2104	AdditiveExpression	padfGeomBurnValue + iShape * nBandCount
+>2105	MultiplicativeExpression	iShape * nBandCount
+>2106	Identifier	nBandCount
+>2107	Identifier	iShape
+>2108	Identifier	padfGeomBurnValue
+>2109	Argument	( OGRGeometry * ) pahGeometries [ iShape ]
+>2110	CastExpression	( OGRGeometry * ) pahGeometries [ iShape ]
+>2111	ArrayIndexing	pahGeometries [ iShape ]
+>2112	Identifier	iShape
+>2113	Identifier	pahGeometries
+>2114	CastTarget	OGRGeometry *
+>2115	Argument	bAllTouched
+>2116	Identifier	bAllTouched
+>2117	Argument	eType
+>2118	Identifier	eType
+>2119	Argument	nBandCount
+>2120	Identifier	nBandCount
+>2121	Argument	nThisYChunkSize
+>2122	Identifier	nThisYChunkSize
+>2123	Argument	poDS -> GetRasterXSize ( )
+>2124	CallExpression	poDS -> GetRasterXSize ( )
+>2125	ArgumentList	 
+>2126	Callee	poDS -> GetRasterXSize
+>2127	PtrMemberAccess	poDS -> GetRasterXSize
+>2128	Identifier	GetRasterXSize
+>2129	Identifier	poDS
+>2130	Argument	iY
+>2131	Identifier	iY
+>2132	Argument	pabyChunkBuf
+>2133	Identifier	pabyChunkBuf
+>2134	Callee	gv_rasterize_one_shape
+>2135	Identifier	gv_rasterize_one_shape
+>2136	IncDecOp	 
+>2137	IncDec	++
+>2138	Identifier	iShape
+>2139	Condition	 
+>2140	RelationalExpression	iShape < nGeomCount
+>2141	Identifier	nGeomCount
+>2142	Identifier	iShape
+>2143	ForInit	 
+>2144	AssignmentExpr	iShape = 0
+>2145	PrimaryExpression	0
+>2146	Identifier	iShape
+>2147	IfStatement	if ( eErr != CE_None )
+>2148	BreakStatement	 
+>2149	Condition	 
+>2150	EqualityExpression	eErr != CE_None
+>2151	Identifier	CE_None
+>2152	Identifier	eErr
+>2153	ExpressionStatement	 
+>2154	AssignmentExpr	eErr = poDS -> RasterIO ( GF_Read , 0 , iY , poDS -> GetRasterXSize ( ) , nThisYChunkSize , pabyChunkBuf , \
+>2155	CallExpression	poDS -> RasterIO ( GF_Read , 0 , iY , poDS -> GetRasterXSize ( ) , nThisYChunkSize , pabyChunkBuf , poDS -> GetRasterXSize ( ) , \
+>2156	ArgumentList	GF_Read
+>2157	Argument	0
+>2158	PrimaryExpression	0
+>2159	Argument	0
+>2160	PrimaryExpression	0
+>2161	Argument	0
+>2162	PrimaryExpression	0
+>2163	Argument	panBandList
+>2164	Identifier	panBandList
+>2165	Argument	nBandCount
+>2166	Identifier	nBandCount
+>2167	Argument	eType
+>2168	Identifier	eType
+>2169	Argument	nThisYChunkSize
+>2170	Identifier	nThisYChunkSize
+>2171	Argument	poDS -> GetRasterXSize ( )
+>2172	CallExpression	poDS -> GetRasterXSize ( )
+>2173	ArgumentList	 
+>2174	Callee	poDS -> GetRasterXSize
+>2175	PtrMemberAccess	poDS -> GetRasterXSize
+>2176	Identifier	GetRasterXSize
+>2177	Identifier	poDS
+>2178	Argument	pabyChunkBuf
+>2179	Identifier	pabyChunkBuf
+>2180	Argument	nThisYChunkSize
+>2181	Identifier	nThisYChunkSize
+>2182	Argument	poDS -> GetRasterXSize ( )
+>2183	CallExpression	poDS -> GetRasterXSize ( )
+>2184	ArgumentList	 
+>2185	Callee	poDS -> GetRasterXSize
+>2186	PtrMemberAccess	poDS -> GetRasterXSize
+>2187	Identifier	GetRasterXSize
+>2188	Identifier	poDS
+>2189	Argument	iY
+>2190	Identifier	iY
+>2191	Argument	0
+>2192	PrimaryExpression	0
+>2193	Argument	GF_Read
+>2194	Identifier	GF_Read
+>2195	Callee	poDS -> RasterIO
+>2196	PtrMemberAccess	poDS -> RasterIO
+>2197	Identifier	RasterIO
+>2198	Identifier	poDS
+>2199	Identifier	eErr
+>2200	IfStatement	if ( nThisYChunkSize + iY > poDS -> GetRasterYSize ( ) )
+>2201	ExpressionStatement	 
+>2202	AssignmentExpr	nThisYChunkSize = poDS -> GetRasterYSize ( ) - iY
+>2203	AdditiveExpression	poDS -> GetRasterYSize ( ) - iY
+>2204	Identifier	iY
+>2205	CallExpression	poDS -> GetRasterYSize ( )
+>2206	ArgumentList	 
+>2207	Callee	poDS -> GetRasterYSize
+>2208	PtrMemberAccess	poDS -> GetRasterYSize
+>2209	Identifier	GetRasterYSize
+>2210	Identifier	poDS
+>2211	Identifier	nThisYChunkSize
+>2212	Condition	 
+>2213	RelationalExpression	nThisYChunkSize + iY > poDS -> GetRasterYSize ( )
+>2214	CallExpression	poDS -> GetRasterYSize ( )
+>2215	ArgumentList	 
+>2216	Callee	poDS -> GetRasterYSize
+>2217	PtrMemberAccess	poDS -> GetRasterYSize
+>2218	Identifier	GetRasterYSize
+>2219	Identifier	poDS
+>2220	AdditiveExpression	nThisYChunkSize + iY
+>2221	Identifier	iY
+>2222	Identifier	nThisYChunkSize
+>2223	ExpressionStatement	 
+>2224	AssignmentExpr	nThisYChunkSize = nYChunkSize
+>2225	Identifier	nYChunkSize
+>2226	Identifier	nThisYChunkSize
+>2227	IdentifierDeclStatement	 
+>2228	IdentifierDecl	iShape
+>2229	Identifier	iShape
+>2230	IdentifierDeclType	int
+>2231	IdentifierDeclStatement	 
+>2232	IdentifierDecl	nThisYChunkSize
+>2233	Identifier	nThisYChunkSize
+>2234	IdentifierDeclType	int
+>2235	AssignmentExpr	 
+>2236	Identifier	nYChunkSize
+>2237	Identifier	iY
+>2238	Condition	 
+>2239	AndExpression	iY < poDS -> GetRasterYSize ( ) && eErr == CE_None
+>2240	EqualityExpression	eErr == CE_None
+>2241	Identifier	CE_None
+>2242	Identifier	eErr
+>2243	RelationalExpression	iY < poDS -> GetRasterYSize ( )
+>2244	CallExpression	poDS -> GetRasterYSize ( )
+>2245	ArgumentList	 
+>2246	Callee	poDS -> GetRasterYSize
+>2247	PtrMemberAccess	poDS -> GetRasterYSize
+>2248	Identifier	GetRasterYSize
+>2249	Identifier	poDS
+>2250	Identifier	iY
+>2251	ForInit	 
+>2252	AssignmentExpr	iY = 0
+>2253	PrimaryExpression	0
+>2254	Identifier	iY
+>2255	ExpressionStatement	 
+>2256	CallExpression	pfnProgress ( 0.0 , NULL , pProgressArg )
+>2257	ArgumentList	0.0
+>2258	Argument	pProgressArg
+>2259	Identifier	pProgressArg
+>2260	Argument	NULL
+>2261	Identifier	NULL
+>2262	Argument	0.0
+>2263	PrimaryExpression	0.0
+>2264	Callee	pfnProgress
+>2265	Identifier	pfnProgress
+>2266	IdentifierDeclStatement	 
+>2267	IdentifierDecl	eErr = CE_None
+>2268	AssignmentExpr	eErr = CE_None
+>2269	Identifier	CE_None
+>2270	Identifier	CE_None
+>2271	Identifier	eErr
+>2272	IdentifierDeclType	CPLErr
+>2273	IfStatement	if ( pabyChunkBuf == NULL )
+>2274	CompoundStatement	 
+>2275	ReturnStatement	 
+>2276	Identifier	CE_Failure
+>2277	ExpressionStatement	 
+>2278	CallExpression	CPLError ( CE_Failure , CPLE_OutOfMemory , \"Unable to allocate rasterization buffer.\" )
+>2279	ArgumentList	CE_Failure
+>2280	Argument	\"Unable to allocate rasterization buffer.\"
+>2281	PrimaryExpression	\"Unable to allocate rasterization buffer.\"
+>2282	Argument	CPLE_OutOfMemory
+>2283	Identifier	CPLE_OutOfMemory
+>2284	Argument	CE_Failure
+>2285	Identifier	CE_Failure
+>2286	Callee	CPLError
+>2287	Identifier	CPLError
+>2288	Condition	 
+>2289	EqualityExpression	pabyChunkBuf == NULL
+>2290	Identifier	NULL
+>2291	Identifier	pabyChunkBuf
+>2292	ExpressionStatement	 
+>2293	AssignmentExpr	pabyChunkBuf = ( unsigned char * ) VSIMalloc ( nYChunkSize * nScanlineBytes )
+>2294	CastExpression	( unsigned char * ) VSIMalloc ( nYChunkSize * nScanlineBytes )
+>2295	CallExpression	VSIMalloc ( nYChunkSize * nScanlineBytes )
+>2296	ArgumentList	nYChunkSize * nScanlineBytes
+>2297	Argument	nYChunkSize * nScanlineBytes
+>2298	MultiplicativeExpression	nYChunkSize * nScanlineBytes
+>2299	Identifier	nScanlineBytes
+>2300	Identifier	nYChunkSize
+>2301	Callee	VSIMalloc
+>2302	Identifier	VSIMalloc
+>2303	CastTarget	unsigned char *
+>2304	Identifier	pabyChunkBuf
+>2305	IfStatement	if ( nYChunkSize > poDS -> GetRasterYSize ( ) )
+>2306	ExpressionStatement	 
+>2307	AssignmentExpr	nYChunkSize = poDS -> GetRasterYSize ( )
+>2308	CallExpression	poDS -> GetRasterYSize ( )
+>2309	ArgumentList	 
+>2310	Callee	poDS -> GetRasterYSize
+>2311	PtrMemberAccess	poDS -> GetRasterYSize
+>2312	Identifier	GetRasterYSize
+>2313	Identifier	poDS
+>2314	Identifier	nYChunkSize
+>2315	Condition	 
+>2316	RelationalExpression	nYChunkSize > poDS -> GetRasterYSize ( )
+>2317	CallExpression	poDS -> GetRasterYSize ( )
+>2318	ArgumentList	 
+>2319	Callee	poDS -> GetRasterYSize
+>2320	PtrMemberAccess	poDS -> GetRasterYSize
+>2321	Identifier	GetRasterYSize
+>2322	Identifier	poDS
+>2323	Identifier	nYChunkSize
+>2324	ExpressionStatement	 
+>2325	AssignmentExpr	nYChunkSize = 10000000 / nScanlineBytes
+>2326	MultiplicativeExpression	10000000 / nScanlineBytes
+>2327	Identifier	nScanlineBytes
+>2328	PrimaryExpression	10000000
+>2329	Identifier	nYChunkSize
+>2330	ExpressionStatement	 
+>2331	AssignmentExpr	nScanlineBytes = nBandCount * poDS -> GetRasterXSize ( ) * ( GDALGetDataTypeSize ( eType ) / 8 )
+>2332	MultiplicativeExpression	nBandCount * poDS -> GetRasterXSize ( ) * ( GDALGetDataTypeSize ( eType ) / 8 )
+>2333	MultiplicativeExpression	poDS -> GetRasterXSize ( ) * ( GDALGetDataTypeSize ( eType ) / 8 )
+>2334	MultiplicativeExpression	GDALGetDataTypeSize ( eType ) / 8
+>2335	PrimaryExpression	8
+>2336	CallExpression	GDALGetDataTypeSize ( eType )
+>2337	ArgumentList	eType
+>2338	Argument	eType
+>2339	Identifier	eType
+>2340	Callee	GDALGetDataTypeSize
+>2341	Identifier	GDALGetDataTypeSize
+>2342	CallExpression	poDS -> GetRasterXSize ( )
+>2343	ArgumentList	 
+>2344	Callee	poDS -> GetRasterXSize
+>2345	PtrMemberAccess	poDS -> GetRasterXSize
+>2346	Identifier	GetRasterXSize
+>2347	Identifier	poDS
+>2348	Identifier	nBandCount
+>2349	Identifier	nScanlineBytes
+>2350	IfStatement	if ( poBand -> GetRasterDataType ( ) == GDT_Byte )
+>2351	ElseStatement	else
+>2352	ExpressionStatement	 
+>2353	AssignmentExpr	eType = GDT_Float64
+>2354	Identifier	GDT_Float64
+>2355	Identifier	eType
+>2356	ExpressionStatement	 
+>2357	AssignmentExpr	eType = GDT_Byte
+>2358	Identifier	GDT_Byte
+>2359	Identifier	eType
+>2360	Condition	 
+>2361	EqualityExpression	poBand -> GetRasterDataType ( ) == GDT_Byte
+>2362	Identifier	GDT_Byte
+>2363	CallExpression	poBand -> GetRasterDataType ( )
+>2364	ArgumentList	 
+>2365	Callee	poBand -> GetRasterDataType
+>2366	PtrMemberAccess	poBand -> GetRasterDataType
+>2367	Identifier	GetRasterDataType
+>2368	Identifier	poBand
+>2369	IfStatement	if ( pfnTransformer == NULL )
+>2370	CompoundStatement	 
+>2371	ExpressionStatement	 
+>2372	AssignmentExpr	pfnTransformer = GDALGenImgProjTransform
+>2373	Identifier	GDALGenImgProjTransform
+>2374	Identifier	pfnTransformer
+>2375	ExpressionStatement	 
+>2376	AssignmentExpr	pTransformArg = GDALCreateGenImgProjTransformer ( NULL , NULL , hDS , NULL , FALSE , 0.0 , 0 )
+>2377	CallExpression	GDALCreateGenImgProjTransformer ( NULL , NULL , hDS , NULL , FALSE , 0.0 , 0 )
+>2378	ArgumentList	NULL
+>2379	Argument	0
+>2380	PrimaryExpression	0
+>2381	Argument	0.0
+>2382	PrimaryExpression	0.0
+>2383	Argument	FALSE
+>2384	Identifier	FALSE
+>2385	Argument	NULL
+>2386	Identifier	NULL
+>2387	Argument	hDS
+>2388	Identifier	hDS
+>2389	Argument	NULL
+>2390	Identifier	NULL
+>2391	Argument	NULL
+>2392	Identifier	NULL
+>2393	Callee	GDALCreateGenImgProjTransformer
+>2394	Identifier	GDALCreateGenImgProjTransformer
+>2395	Identifier	pTransformArg
+>2396	ExpressionStatement	 
+>2397	AssignmentExpr	bNeedToFreeTransformer = TRUE
+>2398	Identifier	TRUE
+>2399	Identifier	bNeedToFreeTransformer
+>2400	Condition	 
+>2401	EqualityExpression	pfnTransformer == NULL
+>2402	Identifier	NULL
+>2403	Identifier	pfnTransformer
+>2404	IdentifierDeclStatement	 
+>2405	IdentifierDecl	bNeedToFreeTransformer = FALSE
+>2406	AssignmentExpr	bNeedToFreeTransformer = FALSE
+>2407	Identifier	FALSE
+>2408	Identifier	FALSE
+>2409	Identifier	bNeedToFreeTransformer
+>2410	IdentifierDeclType	int
+>2411	IfStatement	if ( pszOpt )
+>2412	CompoundStatement	 
+>2413	IfStatement	if ( EQUAL ( pszOpt , \"Z\" ) )
+>2414	ExpressionStatement	 
+>2415	AssignmentExpr	eBurnValueSource = GBV_Z
+>2416	Identifier	GBV_Z
+>2417	Identifier	eBurnValueSource
+>2418	Condition	 
+>2419	CallExpression	EQUAL ( pszOpt , \"Z\" )
+>2420	ArgumentList	pszOpt
+>2421	Argument	\"Z\"
+>2422	PrimaryExpression	\"Z\"
+>2423	Argument	pszOpt
+>2424	Identifier	pszOpt
+>2425	Callee	EQUAL
+>2426	Identifier	EQUAL
+>2427	Condition	 
+>2428	Identifier	pszOpt
+>2429	IdentifierDeclStatement	 
+>2430	IdentifierDecl	eBurnValueSource = GBV_UserBurnValue
+>2431	AssignmentExpr	eBurnValueSource = GBV_UserBurnValue
+>2432	Identifier	GBV_UserBurnValue
+>2433	Identifier	GBV_UserBurnValue
+>2434	Identifier	eBurnValueSource
+>2435	IdentifierDeclType	GDALBurnValueSrc
+>2436	IdentifierDeclStatement	 
+>2437	IdentifierDecl	* pszOpt = CSLFetchNameValue ( papszOptions , \"BURN_VALUE_FROM\" )
+>2438	AssignmentExpr	* pszOpt = CSLFetchNameValue ( papszOptions , \"BURN_VALUE_FROM\" )
+>2439	CallExpression	CSLFetchNameValue ( papszOptions , \"BURN_VALUE_FROM\" )
+>2440	ArgumentList	papszOptions
+>2441	Argument	\"BURN_VALUE_FROM\"
+>2442	PrimaryExpression	\"BURN_VALUE_FROM\"
+>2443	Argument	papszOptions
+>2444	Identifier	papszOptions
+>2445	Callee	CSLFetchNameValue
+>2446	Identifier	CSLFetchNameValue
+>2447	Identifier	pszOpt
+>2448	Identifier	pszOpt
+>2449	IdentifierDeclType	const char *
+>2450	IdentifierDeclStatement	 
+>2451	IdentifierDecl	bAllTouched = CSLFetchBoolean ( papszOptions , \"ALL_TOUCHED\" , FALSE )
+>2452	AssignmentExpr	bAllTouched = CSLFetchBoolean ( papszOptions , \"ALL_TOUCHED\" , FALSE )
+>2453	CallExpression	CSLFetchBoolean ( papszOptions , \"ALL_TOUCHED\" , FALSE )
+>2454	ArgumentList	papszOptions
+>2455	Argument	FALSE
+>2456	Identifier	FALSE
+>2457	Argument	\"ALL_TOUCHED\"
+>2458	PrimaryExpression	\"ALL_TOUCHED\"
+>2459	Argument	papszOptions
+>2460	Identifier	papszOptions
+>2461	Callee	CSLFetchBoolean
+>2462	Identifier	CSLFetchBoolean
+>2463	Identifier	bAllTouched
+>2464	Identifier	bAllTouched
+>2465	IdentifierDeclType	int
+>2466	IfStatement	if ( poBand == NULL )
+>2467	ReturnStatement	 
+>2468	Identifier	CE_Failure
+>2469	Condition	 
+>2470	EqualityExpression	poBand == NULL
+>2471	Identifier	NULL
+>2472	Identifier	poBand
+>2473	IdentifierDeclStatement	 
+>2474	IdentifierDecl	* poBand = poDS -> GetRasterBand ( panBandList [ 0 ] )
+>2475	AssignmentExpr	* poBand = poDS -> GetRasterBand ( panBandList [ 0 ] )
+>2476	CallExpression	poDS -> GetRasterBand ( panBandList [ 0 ] )
+>2477	ArgumentList	panBandList [ 0 ]
+>2478	Argument	panBandList [ 0 ]
+>2479	ArrayIndexing	panBandList [ 0 ]
+>2480	PrimaryExpression	0
+>2481	Identifier	panBandList
+>2482	Callee	poDS -> GetRasterBand
+>2483	PtrMemberAccess	poDS -> GetRasterBand
+>2484	Identifier	GetRasterBand
+>2485	Identifier	poDS
+>2486	Identifier	poBand
+>2487	Identifier	poBand
+>2488	IdentifierDeclType	GDALRasterBand *
+>2489	IfStatement	if ( nBandCount == 0 || nGeomCount == 0 )
+>2490	ReturnStatement	 
+>2491	Identifier	CE_None
+>2492	Condition	 
+>2493	OrExpression	nBandCount == 0 || nGeomCount == 0
+>2494	EqualityExpression	nGeomCount == 0
+>2495	PrimaryExpression	0
+>2496	Identifier	nGeomCount
+>2497	EqualityExpression	nBandCount == 0
+>2498	PrimaryExpression	0
+>2499	Identifier	nBandCount
+>2500	IfStatement	if ( pfnProgress == NULL )
+>2501	ExpressionStatement	 
+>2502	AssignmentExpr	pfnProgress = GDALDummyProgress
+>2503	Identifier	GDALDummyProgress
+>2504	Identifier	pfnProgress
+>2505	Condition	 
+>2506	EqualityExpression	pfnProgress == NULL
+>2507	Identifier	NULL
+>2508	Identifier	pfnProgress
+>2509	IdentifierDeclStatement	 
+>2510	IdentifierDecl	* poDS = ( GDALDataset * ) hDS
+>2511	AssignmentExpr	* poDS = ( GDALDataset * ) hDS
+>2512	CastExpression	( GDALDataset * ) hDS
+>2513	Identifier	hDS
+>2514	CastTarget	GDALDataset *
+>2515	Identifier	poDS
+>2516	Identifier	poDS
+>2517	IdentifierDeclType	GDALDataset *
+>2518	IdentifierDeclStatement	 
+>2519	IdentifierDecl	iY
+>2520	Identifier	iY
+>2521	IdentifierDeclType	int
+>2522	IdentifierDeclStatement	 
+>2523	IdentifierDecl	* pabyChunkBuf
+>2524	Identifier	pabyChunkBuf
+>2525	IdentifierDeclType	unsigned char *
+>2526	IdentifierDeclStatement	 
+>2527	IdentifierDecl	nScanlineBytes
+>2528	Identifier	nScanlineBytes
+>2529	IdentifierDeclType	int
+>2530	IdentifierDecl	nYChunkSize
+>2531	Identifier	nYChunkSize
+>2532	IdentifierDeclType	int
+>2533	IdentifierDeclStatement	 
+>2534	IdentifierDecl	eType
+>2535	Identifier	eType
+>2536	IdentifierDeclType	GDALDataType
+>2596	FunctionDef	GDALRasterizeLayers (GDALDatasetH hDS , int nBandCount , int * panBandList , int nLayerCount , OGRLayerH * pahLayers , \
+>2597	ParameterList	GDALDatasetH hDS , int nBandCount , int * panBandList , int nLayerCount , OGRLayerH * pahLayers , GDALTransformerFunc \
+>2598	Parameter	 
+>2599	Identifier	pProgressArg
+>2600	ParameterType	void *
+>2601	Parameter	 
+>2602	Identifier	pfnProgress
+>2603	ParameterType	GDALProgressFunc
+>2604	Parameter	 
+>2605	Identifier	papszOptions
+>2606	ParameterType	char * *
+>2607	Parameter	 
+>2608	Identifier	padfLayerBurnValues
+>2609	ParameterType	double *
+>2610	Parameter	 
+>2611	Identifier	pTransformArg
+>2612	ParameterType	void *
+>2613	Parameter	 
+>2614	Identifier	pfnTransformer
+>2615	ParameterType	GDALTransformerFunc
+>2616	Parameter	 
+>2617	Identifier	pahLayers
+>2618	ParameterType	OGRLayerH *
+>2619	Parameter	 
+>2620	Identifier	nLayerCount
+>2621	ParameterType	int
+>2622	Parameter	 
+>2623	Identifier	panBandList
+>2624	ParameterType	int *
+>2625	Parameter	 
+>2626	Identifier	nBandCount
+>2627	ParameterType	int
+>2628	Parameter	 
+>2629	Identifier	hDS
+>2630	ParameterType	GDALDatasetH
+>2631	ReturnType	CPLErr
+>2632	CompoundStatement	 
+>2633	ReturnStatement	 
+>2634	Identifier	CE_Failure
+>2635	ExpressionStatement	 
+>2636	CallExpression	CPLError ( CE_Failure , CPLE_NotSupported , \"GDALRasterizeLayers() unimplemented in a non OGR build\" )
+>2637	ArgumentList	CE_Failure
+>2638	Argument	\"GDALRasterizeLayers() unimplemented in a non OGR build\"
+>2639	PrimaryExpression	\"GDALRasterizeLayers() unimplemented in a non OGR build\"
+>2640	Argument	CPLE_NotSupported
+>2641	Identifier	CPLE_NotSupported
+>2642	Argument	CE_Failure
+>2643	Identifier	CE_Failure
+>2644	Callee	CPLError
+>2645	Identifier	CPLError
+>2662	FunctionDef	GDALRasterizeLayersBuf (void * pData , int nBufXSize , int nBufYSize , GDALDataType eBufType , int nPixelSpace , \
+>2663	ParameterList	void * pData , int nBufXSize , int nBufYSize , GDALDataType eBufType , int nPixelSpace , int nLineSpace , int nLayerCount , \
+>2664	Parameter	 
+>2665	Identifier	pProgressArg
+>2666	ParameterType	void *
+>2667	Parameter	 
+>2668	Identifier	pfnProgress
+>2669	ParameterType	GDALProgressFunc
+>2670	Parameter	 
+>2671	Identifier	papszOptions
+>2672	ParameterType	char * *
+>2673	Parameter	 
+>2674	Identifier	dfBurnValue
+>2675	ParameterType	double
+>2676	Parameter	 
+>2677	Identifier	pTransformArg
+>2678	ParameterType	void *
+>2679	Parameter	 
+>2680	Identifier	pfnTransformer
+>2681	ParameterType	GDALTransformerFunc
+>2682	Parameter	 
+>2683	Identifier	padfDstGeoTransform
+>2684	ParameterType	double *
+>2685	Parameter	 
+>2686	Identifier	pszDstProjection
+>2687	ParameterType	const char *
+>2688	Parameter	 
+>2689	Identifier	pahLayers
+>2690	ParameterType	OGRLayerH *
+>2691	Parameter	 
+>2692	Identifier	nLayerCount
+>2693	ParameterType	int
+>2694	Parameter	 
+>2695	Identifier	nLineSpace
+>2696	ParameterType	int
+>2697	Parameter	 
+>2698	Identifier	nPixelSpace
+>2699	ParameterType	int
+>2700	Parameter	 
+>2701	Identifier	eBufType
+>2702	ParameterType	GDALDataType
+>2703	Parameter	 
+>2704	Identifier	nBufYSize
+>2705	ParameterType	int
+>2706	Parameter	 
+>2707	Identifier	nBufXSize
+>2708	ParameterType	int
+>2709	Parameter	 
+>2710	Identifier	pData
+>2711	ParameterType	void *
+>2712	ReturnType	CPLErr
+>2713	CompoundStatement	 
+>2714	ReturnStatement	 
+>2715	Identifier	CE_Failure
+>2716	ExpressionStatement	 
+>2717	CallExpression	CPLError ( CE_Failure , CPLE_NotSupported , \"GDALRasterizeLayersBuf() unimplemented in a non OGR build\" )
+>2718	ArgumentList	CE_Failure
+>2719	Argument	\"GDALRasterizeLayersBuf() unimplemented in a non OGR build\"
+>2720	PrimaryExpression	\"GDALRasterizeLayersBuf() unimplemented in a non OGR build\"
+>2721	Argument	CPLE_NotSupported
+>2722	Identifier	CPLE_NotSupported
+>2723	Argument	CE_Failure
+>2724	Identifier	CE_Failure
+>2725	Callee	CPLError
+>2726	Identifier	CPLError
+<3=21,20,4
+<4=17,14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=19,18
+<21=298,294,288,273,264,253,244,235,220,22
+<22=214,132,23
+<23=24
+<24=126,33,25
+<25=26
+<26=27
+<27=31,28
+<28=29
+<29=30
+<31=32
+<33=34
+<34=122,116,113,35
+<35=102,98,77,51,36
+<36=45,37
+<37=38
+<38=40,39
+<40=44,41
+<41=43,42
+<45=46
+<46=48,47
+<48=50,49
+<51=52
+<52=76,53
+<53=71,54
+<54=62,55
+<55=57,56
+<57=61,58
+<58=60,59
+<62=70,63
+<63=67,64
+<64=66,65
+<67=69,68
+<71=75,72
+<72=74,73
+<77=78
+<78=97,96,79
+<79=95,80
+<80=90,81
+<81=84,83,82
+<84=85
+<85=87,86
+<87=89,88
+<90=92,91
+<92=94,93
+<98=99
+<99=101,100
+<102=103
+<103=112,111,104
+<104=110,105
+<105=109,106
+<106=108,107
+<113=115,114
+<116=117
+<117=121,118
+<118=120,119
+<122=123
+<123=125,124
+<126=127
+<127=129,128
+<129=131,130
+<132=133
+<133=210,204,201,134
+<134=197,174,150,135
+<135=136
+<136=148,137
+<137=146,144,138
+<138=139
+<139=143,140
+<140=142,141
+<144=145
+<146=147
+<148=149
+<150=151
+<151=173,152
+<152=170,153
+<153=161,154
+<154=156,155
+<156=160,157
+<157=159,158
+<161=169,162
+<162=166,163
+<163=165,164
+<166=168,167
+<170=172,171
+<174=175
+<175=196,195,176
+<176=194,177
+<177=193,178
+<178=188,179
+<179=182,181,180
+<182=183
+<183=185,184
+<185=187,186
+<188=190,189
+<190=192,191
+<197=198
+<198=200,199
+<201=203,202
+<204=205
+<205=209,206
+<206=208,207
+<210=211
+<211=213,212
+<214=215
+<215=217,216
+<217=219,218
+<220=229,221
+<221=222
+<222=228,223
+<223=225,224
+<225=227,226
+<229=230
+<230=234,231
+<231=233,232
+<235=240,236
+<236=237
+<237=239,238
+<240=241
+<241=243,242
+<244=245
+<245=251,246
+<246=247
+<247=248
+<248=250,249
+<251=252
+<253=254
+<254=262,255
+<255=256
+<256=257
+<257=261,258
+<258=260,259
+<262=263
+<264=265
+<265=271,266
+<266=267
+<267=268
+<268=270,269
+<271=272
+<273=274
+<274=286,275
+<275=276
+<276=277
+<277=283,278
+<278=282,279
+<279=281,280
+<283=285,284
+<286=287
+<288=290,289
+<290=291
+<291=293,292
+<294=295
+<295=297,296
+<298=299
+<299=306,305,300
+<300=304,301
+<301=303,302
+<338=353,352,339
+<339=349,346,343,340
+<340=342,341
+<343=345,344
+<346=348,347
+<349=351,350
+<353=541,537,522,507,354
+<354=501,436,355
+<355=356
+<356=430,365,357
+<357=358
+<358=359
+<359=363,360
+<360=361
+<361=362
+<363=364
+<365=366
+<366=426,420,417,367
+<367=388,368
+<368=369
+<369=385,370
+<370=380,371
+<371=374,373,372
+<374=375
+<375=377,376
+<377=379,378
+<380=382,381
+<382=384,383
+<385=387,386
+<388=389
+<389=416,415,390
+<390=414,391
+<391=409,392
+<392=400,393
+<393=395,394
+<395=399,396
+<396=398,397
+<400=408,401
+<401=405,402
+<402=404,403
+<405=407,406
+<409=413,410
+<410=412,411
+<417=419,418
+<420=421
+<421=425,422
+<422=424,423
+<426=427
+<427=429,428
+<430=431
+<431=433,432
+<433=435,434
+<436=437
+<437=497,491,488,438
+<438=461,439
+<439=440
+<440=458,441
+<441=457,442
+<442=452,443
+<443=446,445,444
+<446=447
+<447=449,448
+<449=451,450
+<452=454,453
+<454=456,455
+<458=460,459
+<461=462
+<462=487,486,463
+<463=485,464
+<464=482,465
+<465=473,466
+<466=468,467
+<468=472,469
+<469=471,470
+<473=481,474
+<474=478,475
+<475=477,476
+<478=480,479
+<482=484,483
+<488=490,489
+<491=492
+<492=496,493
+<493=495,494
+<497=498
+<498=500,499
+<501=502
+<502=504,503
+<504=506,505
+<507=508
+<508=520,509
+<509=510
+<510=511
+<511=517,512
+<512=516,513
+<513=515,514
+<517=519,518
+<520=521
+<522=523
+<523=535,524
+<524=525
+<525=526
+<526=532,527
+<527=531,528
+<528=530,529
+<532=534,533
+<535=536
+<537=538
+<538=540,539
+<541=542
+<542=549,548,543
+<543=547,544
+<544=546,545
+<577=598,597,578
+<578=594,591,588,585,582,579
+<579=581,580
+<582=584,583
+<585=587,586
+<588=590,589
+<591=593,592
+<594=596,595
+<598=1206,1189,1185,599
+<599=1181,1073,600
+<600=601
+<601=1069,923,602
+<602=603
+<603=909,763,604
+<604=605
+<605=759,686,606
+<606=607
+<607=670,619,608
+<608=609
+<609=610
+<610=611
+<611=617,612
+<612=615,613
+<613=614
+<615=616
+<617=618
+<619=661,620
+<620=657,648,645,621
+<621=622
+<622=643,623
+<623=634,632,630,628,626,624
+<624=625
+<626=627
+<628=629
+<630=631
+<632=633
+<634=635
+<635=639,636
+<636=637
+<637=638
+<639=640
+<640=642,641
+<643=644
+<645=647,646
+<648=649
+<649=656,650
+<650=652,651
+<652=653
+<653=655,654
+<657=658
+<658=660,659
+<661=662
+<662=669,668,663
+<663=667,664
+<664=666,665
+<670=671
+<671=683,672
+<672=680,673
+<673=677,674
+<674=676,675
+<677=679,678
+<680=682,681
+<683=685,684
+<686=750,728,687
+<687=724,715,712,688
+<688=689
+<689=710,690
+<690=701,699,697,695,693,691
+<691=692
+<693=694
+<695=696
+<697=698
+<699=700
+<701=702
+<702=706,703
+<703=704
+<704=705
+<706=707
+<707=709,708
+<710=711
+<712=714,713
+<715=716
+<716=723,717
+<717=719,718
+<719=720
+<720=722,721
+<724=725
+<725=727,726
+<728=729
+<729=748,730
+<730=741,739,737,735,733,731
+<731=732
+<733=734
+<735=736
+<737=738
+<739=740
+<741=742
+<742=744,743
+<744=745
+<745=747,746
+<748=749
+<750=751
+<751=758,757,752
+<752=756,753
+<753=755,754
+<759=760
+<760=762,761
+<763=900,888,874,865,856,842,795,773,764
+<764=765
+<765=769,766
+<766=767
+<767=768
+<769=770
+<770=772,771
+<773=791,774
+<774=775
+<775=776
+<776=787,777
+<777=778
+<778=779
+<779=783,780
+<780=781
+<781=782
+<783=784
+<784=786,785
+<787=788
+<788=790,789
+<791=792
+<792=794,793
+<795=836,832,829,796
+<796=813,797
+<797=798
+<798=809,799
+<799=800
+<800=801
+<801=805,802
+<802=803
+<803=804
+<805=806
+<806=808,807
+<809=810
+<810=812,811
+<813=814
+<814=825,815
+<815=816
+<816=817
+<817=821,818
+<818=819
+<819=820
+<821=822
+<822=824,823
+<825=826
+<826=828,827
+<829=831,830
+<832=833
+<833=835,834
+<836=837
+<837=841,838
+<838=840,839
+<842=852,843
+<843=844
+<844=848,845
+<845=846
+<846=847
+<848=849
+<849=851,850
+<852=853
+<853=855,854
+<856=857
+<857=861,858
+<858=859
+<859=860
+<861=862
+<862=864,863
+<865=866
+<866=870,867
+<867=868
+<868=869
+<870=871
+<871=873,872
+<874=875
+<875=887,886,876
+<876=885,877
+<877=879,878
+<879=881,880
+<881=882
+<882=884,883
+<888=889
+<889=899,898,890
+<890=897,891
+<891=893,892
+<893=894
+<894=896,895
+<900=901
+<901=908,907,902
+<902=906,903
+<903=905,904
+<909=910
+<910=921,911
+<911=914,912
+<912=913
+<914=915
+<915=917,916
+<917=918
+<918=920,919
+<921=922
+<923=1060,1048,1034,1025,1016,1002,933,924
+<924=925
+<925=929,926
+<926=927
+<927=928
+<929=930
+<930=932,931
+<933=996,992,989,934
+<934=973,957,935
+<935=953,936
+<936=937
+<937=938
+<938=949,939
+<939=940
+<940=941
+<941=945,942
+<942=943
+<943=944
+<945=946
+<946=948,947
+<949=950
+<950=952,951
+<953=954
+<954=956,955
+<957=958
+<958=969,959
+<959=960
+<960=961
+<961=965,962
+<962=963
+<963=964
+<965=966
+<966=968,967
+<969=970
+<970=972,971
+<973=974
+<974=985,975
+<975=976
+<976=977
+<977=981,978
+<978=979
+<979=980
+<981=982
+<982=984,983
+<985=986
+<986=988,987
+<989=991,990
+<992=993
+<993=995,994
+<996=997
+<997=1001,998
+<998=1000,999
+<1002=1012,1003
+<1003=1004
+<1004=1008,1005
+<1005=1006
+<1006=1007
+<1008=1009
+<1009=1011,1010
+<1012=1013
+<1013=1015,1014
+<1016=1017
+<1017=1021,1018
+<1018=1019
+<1019=1020
+<1021=1022
+<1022=1024,1023
+<1025=1026
+<1026=1030,1027
+<1027=1028
+<1028=1029
+<1030=1031
+<1031=1033,1032
+<1034=1035
+<1035=1047,1046,1036
+<1036=1045,1037
+<1037=1039,1038
+<1039=1041,1040
+<1041=1042
+<1042=1044,1043
+<1048=1049
+<1049=1059,1058,1050
+<1050=1057,1051
+<1051=1053,1052
+<1053=1054
+<1054=1056,1055
+<1060=1061
+<1061=1068,1067,1062
+<1062=1066,1063
+<1063=1065,1064
+<1069=1070
+<1070=1072,1071
+<1073=1172,1158,1149,1140,1126,1112,1103,1074
+<1074=1099,1075
+<1075=1090,1076
+<1076=1077
+<1077=1086,1078
+<1078=1079
+<1079=1080
+<1080=1082,1081
+<1082=1083
+<1083=1085,1084
+<1086=1087
+<1087=1089,1088
+<1090=1091
+<1091=1095,1092
+<1092=1093
+<1093=1094
+<1095=1096
+<1096=1098,1097
+<1099=1100
+<1100=1102,1101
+<1103=1104
+<1104=1108,1105
+<1105=1106
+<1106=1107
+<1108=1109
+<1109=1111,1110
+<1112=1113
+<1113=1122,1114
+<1114=1115
+<1115=1116
+<1116=1118,1117
+<1118=1119
+<1119=1121,1120
+<1122=1123
+<1123=1125,1124
+<1126=1127
+<1127=1136,1128
+<1128=1129
+<1129=1130
+<1130=1132,1131
+<1132=1133
+<1133=1135,1134
+<1136=1137
+<1137=1139,1138
+<1140=1141
+<1141=1145,1142
+<1142=1143
+<1143=1144
+<1145=1146
+<1146=1148,1147
+<1149=1150
+<1150=1154,1151
+<1151=1152
+<1152=1153
+<1154=1155
+<1155=1157,1156
+<1158=1159
+<1159=1171,1170,1160
+<1160=1169,1161
+<1161=1163,1162
+<1163=1165,1164
+<1165=1166
+<1166=1168,1167
+<1172=1173
+<1173=1180,1179,1174
+<1174=1178,1175
+<1175=1177,1176
+<1181=1182
+<1182=1184,1183
+<1185=1186
+<1186=1188,1187
+<1189=1190
+<1190=1205,1204,1191
+<1191=1203,1192
+<1192=1201,1193
+<1193=1194
+<1194=1195
+<1195=1197,1196
+<1197=1198
+<1198=1200,1199
+<1201=1202
+<1206=1208,1207
+<1208=1209
+<1209=1211,1210
+<1266=1305,1304,1267
+<1267=1301,1298,1295,1292,1289,1286,1283,1280,1277,1274,1271,1268
+<1268=1270,1269
+<1271=1273,1272
+<1274=1276,1275
+<1277=1279,1278
+<1280=1282,1281
+<1283=1285,1284
+<1286=1288,1287
+<1289=1291,1290
+<1292=1294,1293
+<1295=1297,1296
+<1298=1300,1299
+<1301=1303,1302
+<1305=1889,1883,1877,1871,1865,1859,1853,1847,1841,1837,1833,1829,1825,1808,1740,1736,1713,1306
+<1306=1701,1307
+<1307=1699,1697,1643,1642,1640,1638,1525,1524,1522,1309,1308
+<1309=1468,1310
+<1310=1466,1311
+<1311=1312
+<1312=1462,1417,1313
+<1313=1314
+<1314=1413,1363,1315
+<1315=1316
+<1316=1361,1317
+<1317=1357,1355,1348,1342,1336,1330,1324,1322,1318
+<1318=1319
+<1319=1321,1320
+<1322=1323
+<1324=1325
+<1325=1329,1326
+<1326=1328,1327
+<1330=1331
+<1331=1335,1332
+<1332=1334,1333
+<1336=1337
+<1337=1341,1338
+<1338=1340,1339
+<1342=1343
+<1343=1347,1344
+<1344=1346,1345
+<1348=1349
+<1349=1351,1350
+<1351=1352
+<1352=1354,1353
+<1355=1356
+<1357=1358
+<1358=1360,1359
+<1361=1362
+<1363=1405,1396,1393,1364
+<1364=1389,1365
+<1365=1385,1379,1376,1366
+<1366=1367
+<1367=1371,1368
+<1368=1370,1369
+<1371=1375,1372
+<1372=1374,1373
+<1376=1378,1377
+<1379=1380
+<1380=1384,1381
+<1381=1383,1382
+<1385=1386
+<1386=1388,1387
+<1389=1390
+<1390=1392,1391
+<1393=1395,1394
+<1396=1397
+<1397=1404,1398
+<1398=1400,1399
+<1400=1401
+<1401=1403,1402
+<1405=1406
+<1406=1410,1407
+<1407=1409,1408
+<1410=1412,1411
+<1413=1414
+<1414=1416,1415
+<1417=1418
+<1418=1419
+<1419=1460,1420
+<1420=1456,1454,1447,1441,1435,1429,1427,1425,1421
+<1421=1422
+<1422=1424,1423
+<1425=1426
+<1427=1428
+<1429=1430
+<1430=1434,1431
+<1431=1433,1432
+<1435=1436
+<1436=1440,1437
+<1437=1439,1438
+<1441=1442
+<1442=1446,1443
+<1443=1445,1444
+<1447=1448
+<1448=1450,1449
+<1450=1451
+<1451=1453,1452
+<1454=1455
+<1456=1457
+<1457=1459,1458
+<1460=1461
+<1462=1463
+<1463=1465,1464
+<1466=1467
+<1468=1469
+<1469=1520,1470
+<1470=1516,1514,1507,1501,1495,1489,1477,1475,1471
+<1471=1472
+<1472=1474,1473
+<1475=1476
+<1477=1478
+<1478=1485,1484,1479
+<1479=1483,1480
+<1480=1482,1481
+<1485=1486
+<1486=1488,1487
+<1489=1490
+<1490=1494,1491
+<1491=1493,1492
+<1495=1496
+<1496=1500,1497
+<1497=1499,1498
+<1501=1502
+<1502=1506,1503
+<1503=1505,1504
+<1507=1508
+<1508=1510,1509
+<1510=1511
+<1511=1513,1512
+<1514=1515
+<1516=1517
+<1517=1519,1518
+<1520=1521
+<1522=1523
+<1525=1526
+<1526=1636,1582,1527
+<1527=1528
+<1528=1529
+<1529=1580,1530
+<1530=1576,1574,1567,1561,1555,1549,1537,1535,1531
+<1531=1532
+<1532=1534,1533
+<1535=1536
+<1537=1538
+<1538=1545,1544,1539
+<1539=1543,1540
+<1540=1542,1541
+<1545=1546
+<1546=1548,1547
+<1549=1550
+<1550=1554,1551
+<1551=1553,1552
+<1555=1556
+<1556=1560,1557
+<1557=1559,1558
+<1561=1562
+<1562=1566,1563
+<1563=1565,1564
+<1567=1568
+<1568=1570,1569
+<1570=1571
+<1571=1573,1572
+<1574=1575
+<1576=1577
+<1577=1579,1578
+<1580=1581
+<1582=1583
+<1583=1634,1584
+<1584=1630,1628,1621,1615,1609,1603,1591,1589,1585
+<1585=1586
+<1586=1588,1587
+<1589=1590
+<1591=1592
+<1592=1599,1598,1593
+<1593=1597,1594
+<1594=1596,1595
+<1599=1600
+<1600=1602,1601
+<1603=1604
+<1604=1608,1605
+<1605=1607,1606
+<1609=1610
+<1610=1614,1611
+<1611=1613,1612
+<1615=1616
+<1616=1620,1617
+<1617=1619,1618
+<1621=1622
+<1622=1624,1623
+<1624=1625
+<1625=1627,1626
+<1628=1629
+<1630=1631
+<1631=1633,1632
+<1634=1635
+<1636=1637
+<1638=1639
+<1640=1641
+<1643=1644
+<1644=1695,1645
+<1645=1691,1689,1682,1676,1670,1664,1652,1650,1646
+<1646=1647
+<1647=1649,1648
+<1650=1651
+<1652=1653
+<1653=1660,1659,1654
+<1654=1658,1655
+<1655=1657,1656
+<1660=1661
+<1661=1663,1662
+<1664=1665
+<1665=1669,1666
+<1666=1668,1667
+<1670=1671
+<1671=1675,1672
+<1672=1674,1673
+<1676=1677
+<1677=1681,1678
+<1678=1680,1679
+<1682=1683
+<1683=1685,1684
+<1685=1686
+<1686=1688,1687
+<1689=1690
+<1691=1692
+<1692=1694,1693
+<1695=1696
+<1697=1698
+<1699=1700
+<1701=1702
+<1702=1711,1703
+<1703=1704
+<1704=1705
+<1705=1707,1706
+<1707=1708
+<1708=1710,1709
+<1711=1712
+<1713=1732,1723,1720,1714
+<1714=1715
+<1715=1717,1716
+<1717=1719,1718
+<1720=1722,1721
+<1723=1724
+<1724=1731,1725
+<1725=1727,1726
+<1727=1728
+<1728=1730,1729
+<1732=1733
+<1733=1735,1734
+<1736=1737
+<1737=1739,1738
+<1740=1804,1741
+<1741=1781,1749,1742
+<1742=1743
+<1743=1747,1744
+<1744=1745
+<1745=1746
+<1747=1748
+<1749=1750
+<1750=1779,1751
+<1751=1777,1775,1768,1762,1756,1754,1752
+<1752=1753
+<1754=1755
+<1756=1757
+<1757=1761,1758
+<1758=1760,1759
+<1762=1763
+<1763=1767,1764
+<1764=1766,1765
+<1768=1769
+<1769=1771,1770
+<1771=1772
+<1772=1774,1773
+<1775=1776
+<1777=1778
+<1779=1780
+<1781=1782
+<1782=1803,1802,1783
+<1783=1801,1784
+<1784=1800,1785
+<1785=1798,1786
+<1786=1794,1787
+<1787=1788
+<1788=1790,1789
+<1790=1791
+<1791=1793,1792
+<1794=1795
+<1795=1797,1796
+<1798=1799
+<1804=1805
+<1805=1807,1806
+<1808=1809
+<1809=1823,1810
+<1810=1821,1819,1817,1815,1813,1811
+<1811=1812
+<1813=1814
+<1815=1816
+<1817=1818
+<1819=1820
+<1821=1822
+<1823=1824
+<1825=1826
+<1826=1828,1827
+<1829=1830
+<1830=1832,1831
+<1833=1834
+<1834=1836,1835
+<1837=1838
+<1838=1840,1839
+<1841=1842
+<1842=1844,1843
+<1844=1846,1845
+<1847=1848
+<1848=1850,1849
+<1850=1852,1851
+<1853=1854
+<1854=1856,1855
+<1856=1858,1857
+<1859=1860
+<1860=1862,1861
+<1862=1864,1863
+<1865=1866
+<1866=1868,1867
+<1868=1870,1869
+<1871=1872
+<1872=1874,1873
+<1874=1876,1875
+<1877=1878
+<1878=1880,1879
+<1880=1882,1881
+<1883=1885,1884
+<1885=1886
+<1886=1888,1887
+<1889=1890
+<1890=1892,1891
+<1946=1982,1981,1947
+<1947=1978,1975,1972,1969,1966,1963,1960,1957,1954,1951,1948
+<1948=1950,1949
+<1951=1953,1952
+<1954=1956,1955
+<1957=1959,1958
+<1960=1962,1961
+<1963=1965,1964
+<1966=1968,1967
+<1969=1971,1970
+<1972=1974,1973
+<1975=1977,1976
+<1978=1980,1979
+<1982=2533,2526,2522,2518,2509,2500,2489,2473,2466,2450,2436,2429,2411,2404,2369,2350,2330,2324,2305,2292,2273,2266,2255,2002,1995,1985,1983
+<1983=1984
+<1985=1993,1986
+<1986=1987
+<1987=1991,1988
+<1988=1989
+<1989=1990
+<1991=1992
+<1993=1994
+<1995=1996
+<1996=2000,1997
+<1997=1998
+<1998=1999
+<2000=2001
+<2002=2251,2238,2235,2003
+<2003=2231,2227,2223,2200,2153,2147,2092,2045,2004
+<2004=2021,2005
+<2005=2010,2006
+<2006=2007
+<2007=2009,2008
+<2010=2011
+<2011=2019,2012
+<2012=2017,2015,2013
+<2013=2014
+<2015=2016
+<2017=2018
+<2019=2020
+<2021=2022
+<2022=2044,2023
+<2023=2042,2024
+<2024=2029,2027,2025
+<2025=2026
+<2027=2028
+<2029=2030
+<2030=2039,2031
+<2031=2038,2032
+<2032=2034,2033
+<2034=2035
+<2035=2037,2036
+<2039=2041,2040
+<2042=2043
+<2045=2046
+<2046=2091,2047
+<2047=2087,2048
+<2048=2085,2083,2081,2074,2072,2070,2063,2061,2059,2057,2055,2053,2051,2049
+<2049=2050
+<2051=2052
+<2053=2054
+<2055=2056
+<2057=2058
+<2059=2060
+<2061=2062
+<2063=2064
+<2064=2066,2065
+<2066=2067
+<2067=2069,2068
+<2070=2071
+<2072=2073
+<2074=2075
+<2075=2077,2076
+<2077=2078
+<2078=2080,2079
+<2081=2082
+<2083=2084
+<2085=2086
+<2087=2088
+<2088=2090,2089
+<2092=2143,2139,2136,2093
+<2093=2094
+<2094=2095
+<2095=2134,2096
+<2096=2132,2130,2123,2121,2119,2117,2115,2109,2103,2101,2099,2097
+<2097=2098
+<2099=2100
+<2101=2102
+<2103=2104
+<2104=2108,2105
+<2105=2107,2106
+<2109=2110
+<2110=2114,2111
+<2111=2113,2112
+<2115=2116
+<2117=2118
+<2119=2120
+<2121=2122
+<2123=2124
+<2124=2126,2125
+<2126=2127
+<2127=2129,2128
+<2130=2131
+<2132=2133
+<2134=2135
+<2136=2138,2137
+<2139=2140
+<2140=2142,2141
+<2143=2144
+<2144=2146,2145
+<2147=2149,2148
+<2149=2150
+<2150=2152,2151
+<2153=2154
+<2154=2199,2155
+<2155=2195,2156
+<2156=2193,2191,2189,2182,2180,2178,2171,2169,2167,2165,2163,2161,2159,2157
+<2157=2158
+<2159=2160
+<2161=2162
+<2163=2164
+<2165=2166
+<2167=2168
+<2169=2170
+<2171=2172
+<2172=2174,2173
+<2174=2175
+<2175=2177,2176
+<2178=2179
+<2180=2181
+<2182=2183
+<2183=2185,2184
+<2185=2186
+<2186=2188,2187
+<2189=2190
+<2191=2192
+<2193=2194
+<2195=2196
+<2196=2198,2197
+<2200=2212,2201
+<2201=2202
+<2202=2211,2203
+<2203=2205,2204
+<2205=2207,2206
+<2207=2208
+<2208=2210,2209
+<2212=2213
+<2213=2220,2214
+<2214=2216,2215
+<2216=2217
+<2217=2219,2218
+<2220=2222,2221
+<2223=2224
+<2224=2226,2225
+<2227=2228
+<2228=2230,2229
+<2231=2232
+<2232=2234,2233
+<2235=2237,2236
+<2238=2239
+<2239=2243,2240
+<2240=2242,2241
+<2243=2250,2244
+<2244=2246,2245
+<2246=2247
+<2247=2249,2248
+<2251=2252
+<2252=2254,2253
+<2255=2256
+<2256=2264,2257
+<2257=2262,2260,2258
+<2258=2259
+<2260=2261
+<2262=2263
+<2264=2265
+<2266=2267
+<2267=2272,2271,2268
+<2268=2270,2269
+<2273=2288,2274
+<2274=2277,2275
+<2275=2276
+<2277=2278
+<2278=2286,2279
+<2279=2284,2282,2280
+<2280=2281
+<2282=2283
+<2284=2285
+<2286=2287
+<2288=2289
+<2289=2291,2290
+<2292=2293
+<2293=2304,2294
+<2294=2303,2295
+<2295=2301,2296
+<2296=2297
+<2297=2298
+<2298=2300,2299
+<2301=2302
+<2305=2315,2306
+<2306=2307
+<2307=2314,2308
+<2308=2310,2309
+<2310=2311
+<2311=2313,2312
+<2315=2316
+<2316=2323,2317
+<2317=2319,2318
+<2319=2320
+<2320=2322,2321
+<2324=2325
+<2325=2329,2326
+<2326=2328,2327
+<2330=2331
+<2331=2349,2332
+<2332=2348,2333
+<2333=2342,2334
+<2334=2336,2335
+<2336=2340,2337
+<2337=2338
+<2338=2339
+<2340=2341
+<2342=2344,2343
+<2344=2345
+<2345=2347,2346
+<2350=2360,2356,2351
+<2351=2352
+<2352=2353
+<2353=2355,2354
+<2356=2357
+<2357=2359,2358
+<2360=2361
+<2361=2363,2362
+<2363=2365,2364
+<2365=2366
+<2366=2368,2367
+<2369=2400,2370
+<2370=2396,2375,2371
+<2371=2372
+<2372=2374,2373
+<2375=2376
+<2376=2395,2377
+<2377=2393,2378
+<2378=2391,2389,2387,2385,2383,2381,2379
+<2379=2380
+<2381=2382
+<2383=2384
+<2385=2386
+<2387=2388
+<2389=2390
+<2391=2392
+<2393=2394
+<2396=2397
+<2397=2399,2398
+<2400=2401
+<2401=2403,2402
+<2404=2405
+<2405=2410,2409,2406
+<2406=2408,2407
+<2411=2427,2412
+<2412=2413
+<2413=2418,2414
+<2414=2415
+<2415=2417,2416
+<2418=2419
+<2419=2425,2420
+<2420=2423,2421
+<2421=2422
+<2423=2424
+<2425=2426
+<2427=2428
+<2429=2430
+<2430=2435,2434,2431
+<2431=2433,2432
+<2436=2437
+<2437=2449,2448,2438
+<2438=2447,2439
+<2439=2445,2440
+<2440=2443,2441
+<2441=2442
+<2443=2444
+<2445=2446
+<2450=2451
+<2451=2465,2464,2452
+<2452=2463,2453
+<2453=2461,2454
+<2454=2459,2457,2455
+<2455=2456
+<2457=2458
+<2459=2460
+<2461=2462
+<2466=2469,2467
+<2467=2468
+<2469=2470
+<2470=2472,2471
+<2473=2474
+<2474=2488,2487,2475
+<2475=2486,2476
+<2476=2482,2477
+<2477=2478
+<2478=2479
+<2479=2481,2480
+<2482=2483
+<2483=2485,2484
+<2489=2492,2490
+<2490=2491
+<2492=2493
+<2493=2497,2494
+<2494=2496,2495
+<2497=2499,2498
+<2500=2505,2501
+<2501=2502
+<2502=2504,2503
+<2505=2506
+<2506=2508,2507
+<2509=2510
+<2510=2517,2516,2511
+<2511=2515,2512
+<2512=2514,2513
+<2518=2519
+<2519=2521,2520
+<2522=2523
+<2523=2525,2524
+<2526=2530,2527
+<2527=2529,2528
+<2530=2532,2531
+<2533=2534
+<2534=2536,2535
+<2596=2632,2631,2597
+<2597=2628,2625,2622,2619,2616,2613,2610,2607,2604,2601,2598
+<2598=2600,2599
+<2601=2603,2602
+<2604=2606,2605
+<2607=2609,2608
+<2610=2612,2611
+<2613=2615,2614
+<2616=2618,2617
+<2619=2621,2620
+<2622=2624,2623
+<2625=2627,2626
+<2628=2630,2629
+<2632=2635,2633
+<2633=2634
+<2635=2636
+<2636=2644,2637
+<2637=2642,2640,2638
+<2638=2639
+<2640=2641
+<2642=2643
+<2644=2645
+<2662=2713,2712,2663
+<2663=2709,2706,2703,2700,2697,2694,2691,2688,2685,2682,2679,2676,2673,2670,2667,2664
+<2664=2666,2665
+<2667=2669,2668
+<2670=2672,2671
+<2673=2675,2674
+<2676=2678,2677
+<2679=2681,2680
+<2682=2684,2683
+<2685=2687,2686
+<2688=2690,2689
+<2691=2693,2692
+<2694=2696,2695
+<2697=2699,2698
+<2700=2702,2701
+<2703=2705,2704
+<2706=2708,2707
+<2709=2711,2710
+<2713=2716,2714
+<2714=2715
+<2716=2717
+<2717=2725,2718
+<2718=2723,2721,2719
+<2719=2720
+<2721=2722
+<2723=2724
+<2725=2726

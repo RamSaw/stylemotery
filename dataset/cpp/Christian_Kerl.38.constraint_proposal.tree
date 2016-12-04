@@ -1,0 +1,642 @@
+>3	FunctionDef	ConstraintProposal 
+>4	ParameterList	const KeyframePtr & reference , const KeyframePtr & current
+>5	Parameter	 
+>6	Identifier	current
+>7	ParameterType	const KeyframePtr &
+>8	Parameter	 
+>9	Identifier	reference
+>10	ParameterType	const KeyframePtr &
+>11	ReturnType	boost 
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	Identifier	p
+>15	ExpressionStatement	 
+>16	CallExpression	p -> InitialTransformation . setIdentity ( )
+>17	ArgumentList	 
+>18	Callee	p -> InitialTransformation . setIdentity
+>19	MemberAccess	p -> InitialTransformation . setIdentity
+>20	Identifier	setIdentity
+>21	PtrMemberAccess	p -> InitialTransformation
+>22	Identifier	InitialTransformation
+>23	Identifier	p
+>24	ExpressionStatement	 
+>25	AssignmentExpr	p -> Current = current
+>26	Identifier	current
+>27	PtrMemberAccess	p -> Current
+>28	Identifier	Current
+>29	Identifier	p
+>30	ExpressionStatement	 
+>31	AssignmentExpr	p -> Reference = reference
+>32	Identifier	reference
+>33	PtrMemberAccess	p -> Reference
+>34	Identifier	Reference
+>35	Identifier	p
+>36	IdentifierDeclStatement	 
+>37	IdentifierDecl	p ( new ConstraintProposal ( ) )
+>38	UnaryExpression	new ConstraintProposal ( )
+>39	Identifier	p
+>40	IdentifierDeclType	boost 
+>51	FunctionDef	ConstraintProposal 
+>52	ParameterList	const KeyframePtr & reference , const KeyframePtr & current
+>53	Parameter	 
+>54	Identifier	current
+>55	ParameterType	const KeyframePtr &
+>56	Parameter	 
+>57	Identifier	reference
+>58	ParameterType	const KeyframePtr &
+>59	ReturnType	boost 
+>60	CompoundStatement	 
+>61	ReturnStatement	 
+>62	Identifier	p
+>63	ExpressionStatement	 
+>64	AssignmentExpr	p -> InitialTransformation = current -> pose ( ) . inverse ( ) * reference -> pose ( )
+>65	MultiplicativeExpression	current -> pose ( ) . inverse ( ) * reference -> pose ( )
+>66	CallExpression	reference -> pose ( )
+>67	ArgumentList	 
+>68	Callee	reference -> pose
+>69	PtrMemberAccess	reference -> pose
+>70	Identifier	pose
+>71	Identifier	reference
+>72	CallExpression	current -> pose ( ) . inverse ( )
+>73	ArgumentList	 
+>74	Callee	current -> pose ( ) . inverse
+>75	MemberAccess	current -> pose ( ) . inverse
+>76	Identifier	inverse
+>77	CallExpression	current -> pose ( )
+>78	ArgumentList	 
+>79	Callee	current -> pose
+>80	PtrMemberAccess	current -> pose
+>81	Identifier	pose
+>82	Identifier	current
+>83	PtrMemberAccess	p -> InitialTransformation
+>84	Identifier	InitialTransformation
+>85	Identifier	p
+>86	ExpressionStatement	 
+>87	AssignmentExpr	p -> Current = current
+>88	Identifier	current
+>89	PtrMemberAccess	p -> Current
+>90	Identifier	Current
+>91	Identifier	p
+>92	ExpressionStatement	 
+>93	AssignmentExpr	p -> Reference = reference
+>94	Identifier	reference
+>95	PtrMemberAccess	p -> Reference
+>96	Identifier	Reference
+>97	Identifier	p
+>98	IdentifierDeclStatement	 
+>99	IdentifierDecl	p ( new ConstraintProposal ( ) )
+>100	UnaryExpression	new ConstraintProposal ( )
+>101	Identifier	p
+>102	IdentifierDeclType	boost 
+>118	FunctionDef	ConstraintProposal 
+>119	ParameterList	 
+>120	CompoundStatement	 
+>124	FunctionDef	ConstraintProposal 
+>125	ParameterList	 
+>126	ReturnType	double
+>127	CompoundStatement	 
+>128	ReturnStatement	 
+>129	Identifier	s
+>130	ForStatement	for ( VoteVector 
+>131	CompoundStatement	 
+>132	ExpressionStatement	 
+>133	AssignmentExpr	s += it -> Score
+>134	PtrMemberAccess	it -> Score
+>135	Identifier	Score
+>136	Identifier	it
+>137	Identifier	s
+>138	UnaryExpression	 
+>139	Identifier	it
+>140	IncDec	++
+>141	Condition	 
+>142	EqualityExpression	it != Votes . end ( )
+>143	CallExpression	Votes . end ( )
+>144	ArgumentList	 
+>145	Callee	Votes . end
+>146	MemberAccess	Votes . end
+>147	Identifier	end
+>148	Identifier	Votes
+>149	Identifier	it
+>150	ForInit	 
+>151	IdentifierDeclStatement	VoteVector 
+>152	IdentifierDecl	it = Votes . begin ( )
+>153	AssignmentExpr	it = Votes . begin ( )
+>154	CallExpression	Votes . begin ( )
+>155	ArgumentList	 
+>156	Callee	Votes . begin
+>157	MemberAccess	Votes . begin
+>158	Identifier	begin
+>159	Identifier	Votes
+>160	Identifier	it
+>161	Identifier	it
+>162	IdentifierDeclType	VoteVector 
+>163	IdentifierDeclStatement	 
+>164	IdentifierDecl	s = 0.0
+>165	AssignmentExpr	s = 0.0
+>166	PrimaryExpression	0.0
+>167	Identifier	s
+>168	Identifier	s
+>169	IdentifierDeclType	double
+>180	FunctionDef	ConstraintProposal 
+>181	ParameterList	 
+>182	ReturnType	bool
+>183	CompoundStatement	 
+>184	ReturnStatement	 
+>185	Identifier	true
+>186	ForStatement	for ( VoteVector 
+>187	IfStatement	if ( it -> Decision == Vote 
+>188	ReturnStatement	 
+>189	Identifier	false
+>190	Condition	 
+>191	EqualityExpression	it -> Decision == Vote 
+>192	Identifier	Vote 
+>193	PtrMemberAccess	it -> Decision
+>194	Identifier	Decision
+>195	Identifier	it
+>196	UnaryExpression	 
+>197	Identifier	it
+>198	IncDec	++
+>199	Condition	 
+>200	EqualityExpression	it != Votes . end ( )
+>201	CallExpression	Votes . end ( )
+>202	ArgumentList	 
+>203	Callee	Votes . end
+>204	MemberAccess	Votes . end
+>205	Identifier	end
+>206	Identifier	Votes
+>207	Identifier	it
+>208	ForInit	 
+>209	IdentifierDeclStatement	VoteVector 
+>210	IdentifierDecl	it = Votes . begin ( )
+>211	AssignmentExpr	it = Votes . begin ( )
+>212	CallExpression	Votes . begin ( )
+>213	ArgumentList	 
+>214	Callee	Votes . begin
+>215	MemberAccess	Votes . begin
+>216	Identifier	begin
+>217	Identifier	Votes
+>218	Identifier	it
+>219	Identifier	it
+>220	IdentifierDeclType	VoteVector 
+>233	FunctionDef	ConstraintProposal 
+>234	ParameterList	 
+>235	ReturnType	bool
+>236	CompoundStatement	 
+>237	ReturnStatement	 
+>238	Identifier	false
+>239	ForStatement	for ( VoteVector 
+>240	IfStatement	if ( it -> Decision == Vote 
+>241	ReturnStatement	 
+>242	Identifier	true
+>243	Condition	 
+>244	EqualityExpression	it -> Decision == Vote 
+>245	Identifier	Vote 
+>246	PtrMemberAccess	it -> Decision
+>247	Identifier	Decision
+>248	Identifier	it
+>249	UnaryExpression	 
+>250	Identifier	it
+>251	IncDec	++
+>252	Condition	 
+>253	EqualityExpression	it != Votes . end ( )
+>254	CallExpression	Votes . end ( )
+>255	ArgumentList	 
+>256	Callee	Votes . end
+>257	MemberAccess	Votes . end
+>258	Identifier	end
+>259	Identifier	Votes
+>260	Identifier	it
+>261	ForInit	 
+>262	IdentifierDeclStatement	VoteVector 
+>263	IdentifierDecl	it = Votes . begin ( )
+>264	AssignmentExpr	it = Votes . begin ( )
+>265	CallExpression	Votes . begin ( )
+>266	ArgumentList	 
+>267	Callee	Votes . begin
+>268	MemberAccess	Votes . begin
+>269	Identifier	begin
+>270	Identifier	Votes
+>271	Identifier	it
+>272	Identifier	it
+>273	IdentifierDeclType	VoteVector 
+>286	FunctionDef	ConstraintProposal 
+>287	ParameterList	 
+>288	ReturnType	void
+>289	CompoundStatement	 
+>290	ExpressionStatement	 
+>291	CallExpression	Votes . clear ( )
+>292	ArgumentList	 
+>293	Callee	Votes . clear
+>294	MemberAccess	Votes . clear
+>295	Identifier	clear
+>296	Identifier	Votes
+>301	FunctionDef	ConstraintProposal 
+>302	ParameterList	 
+>303	ReturnType	boost 
+>304	CompoundStatement	 
+>305	ReturnStatement	 
+>306	Identifier	inv
+>307	ExpressionStatement	 
+>308	AssignmentExpr	inv -> InitialTransformation = InitialTransformation . inverse ( )
+>309	CallExpression	InitialTransformation . inverse ( )
+>310	ArgumentList	 
+>311	Callee	InitialTransformation . inverse
+>312	MemberAccess	InitialTransformation . inverse
+>313	Identifier	inverse
+>314	Identifier	InitialTransformation
+>315	PtrMemberAccess	inv -> InitialTransformation
+>316	Identifier	InitialTransformation
+>317	Identifier	inv
+>318	ExpressionStatement	 
+>319	AssignmentExpr	inv -> Current = Reference
+>320	Identifier	Reference
+>321	PtrMemberAccess	inv -> Current
+>322	Identifier	Current
+>323	Identifier	inv
+>324	ExpressionStatement	 
+>325	AssignmentExpr	inv -> Reference = Current
+>326	Identifier	Current
+>327	PtrMemberAccess	inv -> Reference
+>328	Identifier	Reference
+>329	Identifier	inv
+>330	IdentifierDeclStatement	 
+>331	IdentifierDecl	inv ( new ConstraintProposal ( ) )
+>332	UnaryExpression	new ConstraintProposal ( )
+>333	Identifier	inv
+>334	IdentifierDeclType	boost 
+>347	FunctionDef	ConstraintProposal 
+>348	ParameterList	const ConstraintProposal & other
+>349	Parameter	 
+>350	Identifier	other
+>351	ParameterType	const ConstraintProposal &
+>352	ReturnType	bool
+>353	CompoundStatement	 
+>354	ReturnStatement	 
+>355	OrExpression	( Reference -> id ( ) == other . Reference -> id ( ) && Current -> id ( ) == other . Current -> id ( ) ) || ( \
+>356	AndExpression	Reference -> id ( ) == other . Current -> id ( ) && Current -> id ( ) == other . Reference -> id ( )
+>357	EqualityExpression	Current -> id ( ) == other . Reference -> id ( )
+>358	CallExpression	other . Reference -> id ( )
+>359	ArgumentList	 
+>360	Callee	other . Reference -> id
+>361	PtrMemberAccess	other . Reference -> id
+>362	Identifier	id
+>363	MemberAccess	other . Reference
+>364	Identifier	Reference
+>365	Identifier	other
+>366	CallExpression	Current -> id ( )
+>367	ArgumentList	 
+>368	Callee	Current -> id
+>369	PtrMemberAccess	Current -> id
+>370	Identifier	id
+>371	Identifier	Current
+>372	EqualityExpression	Reference -> id ( ) == other . Current -> id ( )
+>373	CallExpression	other . Current -> id ( )
+>374	ArgumentList	 
+>375	Callee	other . Current -> id
+>376	PtrMemberAccess	other . Current -> id
+>377	Identifier	id
+>378	MemberAccess	other . Current
+>379	Identifier	Current
+>380	Identifier	other
+>381	CallExpression	Reference -> id ( )
+>382	ArgumentList	 
+>383	Callee	Reference -> id
+>384	PtrMemberAccess	Reference -> id
+>385	Identifier	id
+>386	Identifier	Reference
+>387	AndExpression	Reference -> id ( ) == other . Reference -> id ( ) && Current -> id ( ) == other . Current -> id ( )
+>388	EqualityExpression	Current -> id ( ) == other . Current -> id ( )
+>389	CallExpression	other . Current -> id ( )
+>390	ArgumentList	 
+>391	Callee	other . Current -> id
+>392	PtrMemberAccess	other . Current -> id
+>393	Identifier	id
+>394	MemberAccess	other . Current
+>395	Identifier	Current
+>396	Identifier	other
+>397	CallExpression	Current -> id ( )
+>398	ArgumentList	 
+>399	Callee	Current -> id
+>400	PtrMemberAccess	Current -> id
+>401	Identifier	id
+>402	Identifier	Current
+>403	EqualityExpression	Reference -> id ( ) == other . Reference -> id ( )
+>404	CallExpression	other . Reference -> id ( )
+>405	ArgumentList	 
+>406	Callee	other . Reference -> id
+>407	PtrMemberAccess	other . Reference -> id
+>408	Identifier	id
+>409	MemberAccess	other . Reference
+>410	Identifier	Reference
+>411	Identifier	other
+>412	CallExpression	Reference -> id ( )
+>413	ArgumentList	 
+>414	Callee	Reference -> id
+>415	PtrMemberAccess	Reference -> id
+>416	Identifier	id
+>417	Identifier	Reference
+>435	FunctionDef	ConstraintProposal 
+>436	ParameterList	std 
+>437	Parameter	 
+>438	Identifier	indent
+>439	ParameterType	const std 
+>440	Parameter	 
+>441	Identifier	out
+>442	ParameterType	std 
+>443	ReturnType	void
+>444	CompoundStatement	 
+>445	ForStatement	for ( ConstraintProposal 
+>446	ExpressionStatement	 
+>447	ShiftExpression	out << indent << \"  \" << it -> Reason << std 
+>448	ShiftExpression	indent << \"  \" << it -> Reason << std 
+>449	ShiftExpression	\"  \" << it -> Reason << std 
+>450	ShiftExpression	it -> Reason << std 
+>451	Identifier	std 
+>452	PtrMemberAccess	it -> Reason
+>453	Identifier	Reason
+>454	Identifier	it
+>455	PrimaryExpression	\"  \"
+>456	Identifier	indent
+>457	Identifier	out
+>458	UnaryExpression	 
+>459	Identifier	it
+>460	IncDec	++
+>461	Condition	 
+>462	EqualityExpression	it != Votes . end ( )
+>463	CallExpression	Votes . end ( )
+>464	ArgumentList	 
+>465	Callee	Votes . end
+>466	MemberAccess	Votes . end
+>467	Identifier	end
+>468	Identifier	Votes
+>469	Identifier	it
+>470	ForInit	 
+>471	IdentifierDeclStatement	ConstraintProposal 
+>472	IdentifierDecl	it = Votes . begin ( )
+>473	AssignmentExpr	it = Votes . begin ( )
+>474	CallExpression	Votes . begin ( )
+>475	ArgumentList	 
+>476	Callee	Votes . begin
+>477	MemberAccess	Votes . begin
+>478	Identifier	begin
+>479	Identifier	Votes
+>480	Identifier	it
+>481	Identifier	it
+>482	IdentifierDeclType	ConstraintProposal 
+>483	ExpressionStatement	 
+>484	ShiftExpression	out << indent << \"Proposal \" << Reference -> id ( ) << \"->\" << Current -> id ( ) << \" \" << ( Accept ( ) ? \"\
+>485	ShiftExpression	indent << \"Proposal \" << Reference -> id ( ) << \"->\" << Current -> id ( ) << \" \" << ( Accept ( ) ? \"\
+>486	ShiftExpression	\"Proposal \" << Reference -> id ( ) << \"->\" << Current -> id ( ) << \" \" << ( Accept ( ) ? \"accept\" 
+>487	ShiftExpression	Reference -> id ( ) << \"->\" << Current -> id ( ) << \" \" << ( Accept ( ) ? \"accept\" 
+>488	ShiftExpression	\"->\" << Current -> id ( ) << \" \" << ( Accept ( ) ? \"accept\" 
+>489	ShiftExpression	Current -> id ( ) << \" \" << ( Accept ( ) ? \"accept\" 
+>490	ShiftExpression	\" \" << ( Accept ( ) ? \"accept\" 
+>491	ShiftExpression	( Accept ( ) ? \"accept\" 
+>492	Identifier	std 
+>493	ConditionalExpression	Accept ( ) ? \"accept\" 
+>494	PrimaryExpression	\"reject\"
+>495	PrimaryExpression	\"accept\"
+>496	Condition	Accept ( )
+>497	CallExpression	Accept ( )
+>498	ArgumentList	 
+>499	Callee	Accept
+>500	Identifier	Accept
+>501	PrimaryExpression	\" \"
+>502	CallExpression	Current -> id ( )
+>503	ArgumentList	 
+>504	Callee	Current -> id
+>505	PtrMemberAccess	Current -> id
+>506	Identifier	id
+>507	Identifier	Current
+>508	PrimaryExpression	\"->\"
+>509	CallExpression	Reference -> id ( )
+>510	ArgumentList	 
+>511	Callee	Reference -> id
+>512	PtrMemberAccess	Reference -> id
+>513	Identifier	id
+>514	Identifier	Reference
+>515	PrimaryExpression	\"Proposal \"
+>516	Identifier	indent
+>517	Identifier	out
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=36,30,24,15,13
+<13=14
+<15=16
+<16=18,17
+<18=19
+<19=21,20
+<21=23,22
+<24=25
+<25=27,26
+<27=29,28
+<30=31
+<31=33,32
+<33=35,34
+<36=37
+<37=40,39,38
+<51=60,59,52
+<52=56,53
+<53=55,54
+<56=58,57
+<60=98,92,86,63,61
+<61=62
+<63=64
+<64=83,65
+<65=72,66
+<66=68,67
+<68=69
+<69=71,70
+<72=74,73
+<74=75
+<75=77,76
+<77=79,78
+<79=80
+<80=82,81
+<83=85,84
+<86=87
+<87=89,88
+<89=91,90
+<92=93
+<93=95,94
+<95=97,96
+<98=99
+<99=102,101,100
+<118=120,119
+<124=127,126,125
+<127=163,130,128
+<128=129
+<130=150,141,138,131
+<131=132
+<132=133
+<133=137,134
+<134=136,135
+<138=140,139
+<141=142
+<142=149,143
+<143=145,144
+<145=146
+<146=148,147
+<150=151
+<151=152
+<152=162,161,153
+<153=160,154
+<154=156,155
+<156=157
+<157=159,158
+<163=164
+<164=169,168,165
+<165=167,166
+<180=183,182,181
+<183=186,184
+<184=185
+<186=208,199,196,187
+<187=190,188
+<188=189
+<190=191
+<191=193,192
+<193=195,194
+<196=198,197
+<199=200
+<200=207,201
+<201=203,202
+<203=204
+<204=206,205
+<208=209
+<209=210
+<210=220,219,211
+<211=218,212
+<212=214,213
+<214=215
+<215=217,216
+<233=236,235,234
+<236=239,237
+<237=238
+<239=261,252,249,240
+<240=243,241
+<241=242
+<243=244
+<244=246,245
+<246=248,247
+<249=251,250
+<252=253
+<253=260,254
+<254=256,255
+<256=257
+<257=259,258
+<261=262
+<262=263
+<263=273,272,264
+<264=271,265
+<265=267,266
+<267=268
+<268=270,269
+<286=289,288,287
+<289=290
+<290=291
+<291=293,292
+<293=294
+<294=296,295
+<301=304,303,302
+<304=330,324,318,307,305
+<305=306
+<307=308
+<308=315,309
+<309=311,310
+<311=312
+<312=314,313
+<315=317,316
+<318=319
+<319=321,320
+<321=323,322
+<324=325
+<325=327,326
+<327=329,328
+<330=331
+<331=334,333,332
+<347=353,352,348
+<348=349
+<349=351,350
+<353=354
+<354=355
+<355=387,356
+<356=372,357
+<357=366,358
+<358=360,359
+<360=361
+<361=363,362
+<363=365,364
+<366=368,367
+<368=369
+<369=371,370
+<372=381,373
+<373=375,374
+<375=376
+<376=378,377
+<378=380,379
+<381=383,382
+<383=384
+<384=386,385
+<387=403,388
+<388=397,389
+<389=391,390
+<391=392
+<392=394,393
+<394=396,395
+<397=399,398
+<399=400
+<400=402,401
+<403=412,404
+<404=406,405
+<406=407
+<407=409,408
+<409=411,410
+<412=414,413
+<414=415
+<415=417,416
+<435=444,443,436
+<436=440,437
+<437=439,438
+<440=442,441
+<444=483,445
+<445=470,461,458,446
+<446=447
+<447=457,448
+<448=456,449
+<449=455,450
+<450=452,451
+<452=454,453
+<458=460,459
+<461=462
+<462=469,463
+<463=465,464
+<465=466
+<466=468,467
+<470=471
+<471=472
+<472=482,481,473
+<473=480,474
+<474=476,475
+<476=477
+<477=479,478
+<483=484
+<484=517,485
+<485=516,486
+<486=515,487
+<487=509,488
+<488=508,489
+<489=502,490
+<490=501,491
+<491=493,492
+<493=496,495,494
+<496=497
+<497=499,498
+<499=500
+<502=504,503
+<504=505
+<505=507,506
+<509=511,510
+<511=512
+<512=514,513

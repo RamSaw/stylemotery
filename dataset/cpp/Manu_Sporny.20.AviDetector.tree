@@ -1,0 +1,3750 @@
+>5	FunctionDef	AviDetector 
+>6	ParameterList	 
+>7	CompoundStatement	 
+>11	FunctionDef	AviDetector 
+>12	ParameterList	 
+>13	CompoundStatement	 
+>14	ExpressionStatement	 
+>15	CallExpression	resetComponents ( )
+>16	ArgumentList	 
+>17	Callee	resetComponents
+>18	Identifier	resetComponents
+>22	FunctionDef	AviDetector 
+>23	ParameterList	 
+>24	ReturnType	void
+>25	CompoundStatement	 
+>26	ExpressionStatement	 
+>27	AssignmentExpr	mFormatDetailsNeedUpdate = false
+>28	Identifier	false
+>29	Identifier	mFormatDetailsNeedUpdate
+>30	ExpressionStatement	 
+>31	AssignmentExpr	mFormatDetails [ \"contentType\" ] = \"application/octet-stream\"
+>32	PrimaryExpression	\"application/octet-stream\"
+>33	ArrayIndexing	mFormatDetails [ \"contentType\" ]
+>34	PrimaryExpression	\"contentType\"
+>35	Identifier	mFormatDetails
+>36	ExpressionStatement	 
+>37	AssignmentExpr	mFormatDetails [ \"inspectorType\" ] = DataFormatInspector 
+>38	Identifier	DataFormatInspector 
+>39	ArrayIndexing	mFormatDetails [ \"inspectorType\" ]
+>40	PrimaryExpression	\"inspectorType\"
+>41	Identifier	mFormatDetails
+>42	ExpressionStatement	 
+>43	AssignmentExpr	mFormatDetails [ \"inspectorName\" ] = \"bitmunk.data.AviDetector\"
+>44	PrimaryExpression	\"bitmunk.data.AviDetector\"
+>45	ArrayIndexing	mFormatDetails [ \"inspectorName\" ]
+>46	PrimaryExpression	\"inspectorName\"
+>47	Identifier	mFormatDetails
+>48	ExpressionStatement	 
+>49	CallExpression	mFormatDetails -> clear ( )
+>50	ArgumentList	 
+>51	Callee	mFormatDetails -> clear
+>52	PtrMemberAccess	mFormatDetails -> clear
+>53	Identifier	clear
+>54	Identifier	mFormatDetails
+>55	ExpressionStatement	 
+>56	CallExpression	mMedia . setNull ( )
+>57	ArgumentList	 
+>58	Callee	mMedia . setNull
+>59	MemberAccess	mMedia . setNull
+>60	Identifier	setNull
+>61	Identifier	mMedia
+>62	ExpressionStatement	 
+>63	AssignmentExpr	mIndexChunk = false
+>64	Identifier	false
+>65	Identifier	mIndexChunk
+>66	ExpressionStatement	 
+>67	AssignmentExpr	mMovieList = false
+>68	Identifier	false
+>69	Identifier	mMovieList
+>70	ExpressionStatement	 
+>71	AssignmentExpr	mInfoList = false
+>72	Identifier	false
+>73	Identifier	mInfoList
+>74	ExpressionStatement	 
+>75	AssignmentExpr	mOdmlHeader = false
+>76	Identifier	false
+>77	Identifier	mOdmlHeader
+>78	IfStatement	if ( mOdmlHeader != NULL )
+>79	CompoundStatement	 
+>80	ExpressionStatement	 
+>81	AssignmentExpr	mOdmlHeader = NULL
+>82	Identifier	NULL
+>83	Identifier	mOdmlHeader
+>84	ExpressionStatement	 
+>85	Identifier	mOdmlHeader
+>86	Statement	 
+>87	Condition	 
+>88	EqualityExpression	mOdmlHeader != NULL
+>89	Identifier	NULL
+>90	Identifier	mOdmlHeader
+>91	IfStatement	if ( mStreamHeaderList != NULL )
+>92	CompoundStatement	 
+>93	ExpressionStatement	 
+>94	AssignmentExpr	mStreamHeaderList = NULL
+>95	Identifier	NULL
+>96	Identifier	mStreamHeaderList
+>97	ExpressionStatement	 
+>98	Identifier	mStreamHeaderList
+>99	Statement	 
+>100	Condition	 
+>101	EqualityExpression	mStreamHeaderList != NULL
+>102	Identifier	NULL
+>103	Identifier	mStreamHeaderList
+>104	IfStatement	if ( mHeaderList != NULL )
+>105	CompoundStatement	 
+>106	ExpressionStatement	 
+>107	AssignmentExpr	mHeaderList = NULL
+>108	Identifier	NULL
+>109	Identifier	mHeaderList
+>110	ExpressionStatement	 
+>111	Identifier	mHeaderList
+>112	Statement	 
+>113	Condition	 
+>114	EqualityExpression	mHeaderList != NULL
+>115	Identifier	NULL
+>116	Identifier	mHeaderList
+>133	FunctionDef	AviDetector 
+>134	ParameterList	RiffChunkHeader & rch , const char * b , int length
+>135	Parameter	 
+>136	Identifier	length
+>137	ParameterType	int
+>138	Parameter	 
+>139	Identifier	b
+>140	ParameterType	const char *
+>141	Parameter	 
+>142	Identifier	rch
+>143	ParameterType	RiffChunkHeader &
+>144	ReturnType	int
+>145	CompoundStatement	 
+>146	ReturnStatement	 
+>147	Identifier	rval
+>148	IfStatement	if ( MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"idx1\" ) )
+>149	ElseStatement	else
+>150	IfStatement	if ( mMedia . isNull ( ) && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"JUNK\" ) )
+>151	ElseStatement	else
+>152	IfStatement	if ( mStreamHeaderList != NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"strh\" ) )
+>153	ElseStatement	else
+>154	IfStatement	if ( mStreamHeaderList != NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"strf\" ) )
+>155	ElseStatement	else
+>156	IfStatement	if ( mOdmlList && mOdmlHeader == NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"dmlh\" ) )
+>157	ElseStatement	else
+>158	CompoundStatement	 
+>159	ExpressionStatement	 
+>160	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>161	ArgumentList	rch . getPaddedSize ( )
+>162	Argument	rch . getPaddedSize ( )
+>163	CallExpression	rch . getPaddedSize ( )
+>164	ArgumentList	 
+>165	Callee	rch . getPaddedSize
+>166	MemberAccess	rch . getPaddedSize
+>167	Identifier	getPaddedSize
+>168	Identifier	rch
+>169	Callee	setSkipBytes
+>170	Identifier	setSkipBytes
+>171	CompoundStatement	 
+>172	IfStatement	if ( length >= dmlhSize )
+>173	ElseStatement	else
+>174	CompoundStatement	 
+>175	ExpressionStatement	 
+>176	AssignmentExpr	rval = 0
+>177	PrimaryExpression	0
+>178	Identifier	rval
+>179	CompoundStatement	 
+>180	ExpressionStatement	 
+>181	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>182	ArgumentList	rch . getPaddedSize ( )
+>183	Argument	rch . getPaddedSize ( )
+>184	CallExpression	rch . getPaddedSize ( )
+>185	ArgumentList	 
+>186	Callee	rch . getPaddedSize
+>187	MemberAccess	rch . getPaddedSize
+>188	Identifier	getPaddedSize
+>189	Identifier	rch
+>190	Callee	setSkipBytes
+>191	Identifier	setSkipBytes
+>192	ExpressionStatement	 
+>193	CallExpression	mOdmlHeader -> convertFromBytes ( b , length )
+>194	ArgumentList	b
+>195	Argument	length
+>196	Identifier	length
+>197	Argument	b
+>198	Identifier	b
+>199	Callee	mOdmlHeader -> convertFromBytes
+>200	PtrMemberAccess	mOdmlHeader -> convertFromBytes
+>201	Identifier	convertFromBytes
+>202	Identifier	mOdmlHeader
+>203	ExpressionStatement	 
+>204	AssignmentExpr	mOdmlHeader = new OdmlHeader ( )
+>205	UnaryExpression	new OdmlHeader ( )
+>206	Identifier	mOdmlHeader
+>207	ExpressionStatement	 
+>208	Statement	 
+>209	Statement	 
+>210	Statement	 
+>211	Statement	 
+>212	Statement	 
+>213	Statement	 
+>214	Statement	 
+>215	Statement	 
+>216	Statement	 
+>217	Statement	 
+>218	Statement	 
+>219	Statement	 
+>220	Statement	 
+>221	Condition	 
+>222	RelationalExpression	length >= dmlhSize
+>223	Identifier	dmlhSize
+>224	Identifier	length
+>225	IdentifierDeclStatement	 
+>226	IdentifierDecl	dmlhSize = RiffChunkHeader 
+>227	AssignmentExpr	dmlhSize = RiffChunkHeader 
+>228	AdditiveExpression	RiffChunkHeader 
+>229	PrimaryExpression	4
+>230	Identifier	RiffChunkHeader 
+>231	Identifier	dmlhSize
+>232	Identifier	dmlhSize
+>233	IdentifierDeclType	int
+>234	Condition	 
+>235	AndExpression	mOdmlList && mOdmlHeader == NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"dmlh\" )
+>236	AndExpression	mOdmlHeader == NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"dmlh\" )
+>237	CallExpression	MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"dmlh\" )
+>238	ArgumentList	rch . getIdentifier ( )
+>239	Argument	\"dmlh\"
+>240	PrimaryExpression	\"dmlh\"
+>241	Argument	rch . getIdentifier ( )
+>242	CallExpression	rch . getIdentifier ( )
+>243	ArgumentList	 
+>244	Callee	rch . getIdentifier
+>245	MemberAccess	rch . getIdentifier
+>246	Identifier	getIdentifier
+>247	Identifier	rch
+>248	Callee	MO_FOURCC_CMP_STR
+>249	Identifier	MO_FOURCC_CMP_STR
+>250	EqualityExpression	mOdmlHeader == NULL
+>251	Identifier	NULL
+>252	Identifier	mOdmlHeader
+>253	Identifier	mOdmlList
+>254	CompoundStatement	 
+>255	IfStatement	if ( length >= chunk )
+>256	ElseStatement	else
+>257	CompoundStatement	 
+>258	ExpressionStatement	 
+>259	AssignmentExpr	rval = 0
+>260	PrimaryExpression	0
+>261	Identifier	rval
+>262	CompoundStatement	 
+>263	ExpressionStatement	 
+>264	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>265	ArgumentList	rch . getPaddedSize ( )
+>266	Argument	rch . getPaddedSize ( )
+>267	CallExpression	rch . getPaddedSize ( )
+>268	ArgumentList	 
+>269	Callee	rch . getPaddedSize
+>270	MemberAccess	rch . getPaddedSize
+>271	Identifier	getPaddedSize
+>272	Identifier	rch
+>273	Callee	setSkipBytes
+>274	Identifier	setSkipBytes
+>275	ExpressionStatement	 
+>276	AssignmentExpr	mStreamHeaderList = NULL
+>277	Identifier	NULL
+>278	Identifier	mStreamHeaderList
+>279	ExpressionStatement	 
+>280	CallExpression	mHeaderList -> getStreamHeaderLists ( ) . push_back ( mStreamHeaderList )
+>281	ArgumentList	mStreamHeaderList
+>282	Argument	mStreamHeaderList
+>283	Identifier	mStreamHeaderList
+>284	Callee	mHeaderList -> getStreamHeaderLists ( ) . push_back
+>285	MemberAccess	mHeaderList -> getStreamHeaderLists ( ) . push_back
+>286	Identifier	push_back
+>287	CallExpression	mHeaderList -> getStreamHeaderLists ( )
+>288	ArgumentList	 
+>289	Callee	mHeaderList -> getStreamHeaderLists
+>290	PtrMemberAccess	mHeaderList -> getStreamHeaderLists
+>291	Identifier	getStreamHeaderLists
+>292	Identifier	mHeaderList
+>293	ExpressionStatement	 
+>294	CallExpression	mStreamHeaderList -> setStreamFormat ( f )
+>295	ArgumentList	f
+>296	Argument	f
+>297	Identifier	f
+>298	Callee	mStreamHeaderList -> setStreamFormat
+>299	PtrMemberAccess	mStreamHeaderList -> setStreamFormat
+>300	Identifier	setStreamFormat
+>301	Identifier	mStreamHeaderList
+>302	ExpressionStatement	 
+>303	CallExpression	f -> convertFromBytes ( b , length )
+>304	ArgumentList	b
+>305	Argument	length
+>306	Identifier	length
+>307	Argument	b
+>308	Identifier	b
+>309	Callee	f -> convertFromBytes
+>310	PtrMemberAccess	f -> convertFromBytes
+>311	Identifier	convertFromBytes
+>312	Identifier	f
+>313	IdentifierDeclStatement	 
+>314	IdentifierDecl	* f = new AviStreamFormat ( )
+>315	AssignmentExpr	* f = new AviStreamFormat ( )
+>316	UnaryExpression	new AviStreamFormat ( )
+>317	Identifier	f
+>318	Identifier	f
+>319	IdentifierDeclType	AviStreamFormat *
+>320	ExpressionStatement	 
+>321	Statement	 
+>322	Statement	 
+>323	Statement	 
+>324	Statement	 
+>325	Statement	 
+>326	Statement	 
+>327	Statement	 
+>328	Statement	 
+>329	Statement	 
+>330	Statement	 
+>331	Statement	 
+>332	Statement	 
+>333	Statement	 
+>334	Condition	 
+>335	RelationalExpression	length >= chunk
+>336	Identifier	chunk
+>337	Identifier	length
+>338	IdentifierDeclStatement	 
+>339	IdentifierDecl	chunk = RiffChunkHeader 
+>340	AssignmentExpr	chunk = RiffChunkHeader 
+>341	AdditiveExpression	RiffChunkHeader 
+>342	CallExpression	rch . getPaddedSize ( )
+>343	ArgumentList	 
+>344	Callee	rch . getPaddedSize
+>345	MemberAccess	rch . getPaddedSize
+>346	Identifier	getPaddedSize
+>347	Identifier	rch
+>348	Identifier	RiffChunkHeader 
+>349	Identifier	chunk
+>350	Identifier	chunk
+>351	IdentifierDeclType	int
+>352	Condition	 
+>353	AndExpression	mStreamHeaderList != NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"strf\" )
+>354	CallExpression	MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"strf\" )
+>355	ArgumentList	rch . getIdentifier ( )
+>356	Argument	\"strf\"
+>357	PrimaryExpression	\"strf\"
+>358	Argument	rch . getIdentifier ( )
+>359	CallExpression	rch . getIdentifier ( )
+>360	ArgumentList	 
+>361	Callee	rch . getIdentifier
+>362	MemberAccess	rch . getIdentifier
+>363	Identifier	getIdentifier
+>364	Identifier	rch
+>365	Callee	MO_FOURCC_CMP_STR
+>366	Identifier	MO_FOURCC_CMP_STR
+>367	EqualityExpression	mStreamHeaderList != NULL
+>368	Identifier	NULL
+>369	Identifier	mStreamHeaderList
+>370	CompoundStatement	 
+>371	IfStatement	if ( length >= chunk )
+>372	ElseStatement	else
+>373	CompoundStatement	 
+>374	ExpressionStatement	 
+>375	AssignmentExpr	rval = 0
+>376	PrimaryExpression	0
+>377	Identifier	rval
+>378	CompoundStatement	 
+>379	ExpressionStatement	 
+>380	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>381	ArgumentList	rch . getPaddedSize ( )
+>382	Argument	rch . getPaddedSize ( )
+>383	CallExpression	rch . getPaddedSize ( )
+>384	ArgumentList	 
+>385	Callee	rch . getPaddedSize
+>386	MemberAccess	rch . getPaddedSize
+>387	Identifier	getPaddedSize
+>388	Identifier	rch
+>389	Callee	setSkipBytes
+>390	Identifier	setSkipBytes
+>391	ExpressionStatement	 
+>392	CallExpression	mStreamHeaderList -> setStreamHeader ( h )
+>393	ArgumentList	h
+>394	Argument	h
+>395	Identifier	h
+>396	Callee	mStreamHeaderList -> setStreamHeader
+>397	PtrMemberAccess	mStreamHeaderList -> setStreamHeader
+>398	Identifier	setStreamHeader
+>399	Identifier	mStreamHeaderList
+>400	ExpressionStatement	 
+>401	CallExpression	h -> convertFromBytes ( b , length )
+>402	ArgumentList	b
+>403	Argument	length
+>404	Identifier	length
+>405	Argument	b
+>406	Identifier	b
+>407	Callee	h -> convertFromBytes
+>408	PtrMemberAccess	h -> convertFromBytes
+>409	Identifier	convertFromBytes
+>410	Identifier	h
+>411	IdentifierDeclStatement	 
+>412	IdentifierDecl	* h = new AviStreamHeader ( )
+>413	AssignmentExpr	* h = new AviStreamHeader ( )
+>414	UnaryExpression	new AviStreamHeader ( )
+>415	Identifier	h
+>416	Identifier	h
+>417	IdentifierDeclType	AviStreamHeader *
+>418	ExpressionStatement	 
+>419	Statement	 
+>420	Statement	 
+>421	Statement	 
+>422	Statement	 
+>423	Statement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	Statement	 
+>430	Statement	 
+>431	Statement	 
+>432	Condition	 
+>433	RelationalExpression	length >= chunk
+>434	Identifier	chunk
+>435	Identifier	length
+>436	IdentifierDeclStatement	 
+>437	IdentifierDecl	chunk = RiffChunkHeader 
+>438	AssignmentExpr	chunk = RiffChunkHeader 
+>439	AdditiveExpression	RiffChunkHeader 
+>440	CallExpression	rch . getPaddedSize ( )
+>441	ArgumentList	 
+>442	Callee	rch . getPaddedSize
+>443	MemberAccess	rch . getPaddedSize
+>444	Identifier	getPaddedSize
+>445	Identifier	rch
+>446	Identifier	RiffChunkHeader 
+>447	Identifier	chunk
+>448	Identifier	chunk
+>449	IdentifierDeclType	int
+>450	Condition	 
+>451	AndExpression	mStreamHeaderList != NULL && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"strh\" )
+>452	CallExpression	MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"strh\" )
+>453	ArgumentList	rch . getIdentifier ( )
+>454	Argument	\"strh\"
+>455	PrimaryExpression	\"strh\"
+>456	Argument	rch . getIdentifier ( )
+>457	CallExpression	rch . getIdentifier ( )
+>458	ArgumentList	 
+>459	Callee	rch . getIdentifier
+>460	MemberAccess	rch . getIdentifier
+>461	Identifier	getIdentifier
+>462	Identifier	rch
+>463	Callee	MO_FOURCC_CMP_STR
+>464	Identifier	MO_FOURCC_CMP_STR
+>465	EqualityExpression	mStreamHeaderList != NULL
+>466	Identifier	NULL
+>467	Identifier	mStreamHeaderList
+>468	CompoundStatement	 
+>469	IfStatement	if ( length >= RiffChunkHeader 
+>470	CompoundStatement	 
+>471	IfStatement	if ( MO_FOURCC_CMP_STR ( tag , \"bmcr\" ) )
+>472	ElseStatement	else
+>473	CompoundStatement	 
+>474	ExpressionStatement	 
+>475	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>476	ArgumentList	rch . getPaddedSize ( )
+>477	Argument	rch . getPaddedSize ( )
+>478	CallExpression	rch . getPaddedSize ( )
+>479	ArgumentList	 
+>480	Callee	rch . getPaddedSize
+>481	MemberAccess	rch . getPaddedSize
+>482	Identifier	getPaddedSize
+>483	Identifier	rch
+>484	Callee	setSkipBytes
+>485	Identifier	setSkipBytes
+>486	CompoundStatement	 
+>487	IfStatement	if ( ! m . isNull ( ) && BM_MEDIA_ID_VALID ( BM_MEDIA_ID ( m [ \"id\" ] ) ) )
+>488	ElseStatement	else
+>489	CompoundStatement	 
+>490	ExpressionStatement	 
+>491	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>492	ArgumentList	rch . getPaddedSize ( )
+>493	Argument	rch . getPaddedSize ( )
+>494	CallExpression	rch . getPaddedSize ( )
+>495	ArgumentList	 
+>496	Callee	rch . getPaddedSize
+>497	MemberAccess	rch . getPaddedSize
+>498	Identifier	getPaddedSize
+>499	Identifier	rch
+>500	Callee	setSkipBytes
+>501	Identifier	setSkipBytes
+>502	ExpressionStatement	 
+>503	AssignmentExpr	rval = RiffChunkHeader 
+>504	Identifier	RiffChunkHeader 
+>505	Identifier	rval
+>506	CompoundStatement	 
+>507	ExpressionStatement	 
+>508	Statement	 
+>509	Statement	 
+>510	Statement	 
+>511	Statement	 
+>512	Statement	 
+>513	Statement	 
+>514	Statement	 
+>515	ExpressionStatement	 
+>516	AssignmentExpr	mMedia = m
+>517	Identifier	m
+>518	Identifier	mMedia
+>519	Condition	 
+>520	AndExpression	! m . isNull ( ) && BM_MEDIA_ID_VALID ( BM_MEDIA_ID ( m [ \"id\" ] ) )
+>521	CallExpression	BM_MEDIA_ID_VALID ( BM_MEDIA_ID ( m [ \"id\" ] ) )
+>522	ArgumentList	BM_MEDIA_ID ( m [ \"id\" ] )
+>523	Argument	BM_MEDIA_ID ( m [ \"id\" ] )
+>524	CallExpression	BM_MEDIA_ID ( m [ \"id\" ] )
+>525	ArgumentList	m [ \"id\" ]
+>526	Argument	m [ \"id\" ]
+>527	ArrayIndexing	m [ \"id\" ]
+>528	PrimaryExpression	\"id\"
+>529	Identifier	m
+>530	Callee	BM_MEDIA_ID
+>531	Identifier	BM_MEDIA_ID
+>532	Callee	BM_MEDIA_ID_VALID
+>533	Identifier	BM_MEDIA_ID_VALID
+>534	UnaryOp	! m . isNull ( )
+>535	CallExpression	m . isNull ( )
+>536	ArgumentList	 
+>537	Callee	m . isNull
+>538	MemberAccess	m . isNull
+>539	Identifier	isNull
+>540	Identifier	m
+>541	UnaryOperator	!
+>542	ExpressionStatement	 
+>543	AssignmentExpr	rval = parseJunkChunk ( m , rch , b , length )
+>544	CallExpression	parseJunkChunk ( m , rch , b , length )
+>545	ArgumentList	m
+>546	Argument	length
+>547	Identifier	length
+>548	Argument	b
+>549	Identifier	b
+>550	Argument	rch
+>551	Identifier	rch
+>552	Argument	m
+>553	Identifier	m
+>554	Callee	parseJunkChunk
+>555	Identifier	parseJunkChunk
+>556	Identifier	rval
+>557	IdentifierDeclStatement	 
+>558	IdentifierDecl	m
+>559	Identifier	m
+>560	IdentifierDeclType	Media
+>561	Condition	 
+>562	CallExpression	MO_FOURCC_CMP_STR ( tag , \"bmcr\" )
+>563	ArgumentList	tag
+>564	Argument	\"bmcr\"
+>565	PrimaryExpression	\"bmcr\"
+>566	Argument	tag
+>567	Identifier	tag
+>568	Callee	MO_FOURCC_CMP_STR
+>569	Identifier	MO_FOURCC_CMP_STR
+>570	IdentifierDeclStatement	 
+>571	IdentifierDecl	tag = MO_FOURCC_FROM_STR ( b + RiffChunkHeader 
+>572	AssignmentExpr	tag = MO_FOURCC_FROM_STR ( b + RiffChunkHeader 
+>573	CallExpression	MO_FOURCC_FROM_STR ( b + RiffChunkHeader 
+>574	ArgumentList	b + RiffChunkHeader 
+>575	Argument	b + RiffChunkHeader 
+>576	AdditiveExpression	b + RiffChunkHeader 
+>577	Identifier	RiffChunkHeader 
+>578	Identifier	b
+>579	Callee	MO_FOURCC_FROM_STR
+>580	Identifier	MO_FOURCC_FROM_STR
+>581	Identifier	tag
+>582	Identifier	tag
+>583	IdentifierDeclType	fourcc_t
+>584	Condition	 
+>585	RelationalExpression	length >= RiffChunkHeader 
+>586	AdditiveExpression	RiffChunkHeader 
+>587	PrimaryExpression	4
+>588	Identifier	RiffChunkHeader 
+>589	Identifier	length
+>590	ExpressionStatement	 
+>591	Statement	 
+>592	Statement	 
+>593	Statement	 
+>594	Statement	 
+>595	Statement	 
+>596	Statement	 
+>597	Statement	 
+>598	Statement	 
+>599	Statement	 
+>600	Statement	 
+>601	Statement	 
+>602	Statement	 
+>603	Statement	 
+>604	Condition	 
+>605	AndExpression	mMedia . isNull ( ) && MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"JUNK\" )
+>606	CallExpression	MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"JUNK\" )
+>607	ArgumentList	rch . getIdentifier ( )
+>608	Argument	\"JUNK\"
+>609	PrimaryExpression	\"JUNK\"
+>610	Argument	rch . getIdentifier ( )
+>611	CallExpression	rch . getIdentifier ( )
+>612	ArgumentList	 
+>613	Callee	rch . getIdentifier
+>614	MemberAccess	rch . getIdentifier
+>615	Identifier	getIdentifier
+>616	Identifier	rch
+>617	Callee	MO_FOURCC_CMP_STR
+>618	Identifier	MO_FOURCC_CMP_STR
+>619	CallExpression	mMedia . isNull ( )
+>620	ArgumentList	 
+>621	Callee	mMedia . isNull
+>622	MemberAccess	mMedia . isNull
+>623	Identifier	isNull
+>624	Identifier	mMedia
+>625	CompoundStatement	 
+>626	ExpressionStatement	 
+>627	CallExpression	setSkipBytes ( rch . getPaddedSize ( ) )
+>628	ArgumentList	rch . getPaddedSize ( )
+>629	Argument	rch . getPaddedSize ( )
+>630	CallExpression	rch . getPaddedSize ( )
+>631	ArgumentList	 
+>632	Callee	rch . getPaddedSize
+>633	MemberAccess	rch . getPaddedSize
+>634	Identifier	getPaddedSize
+>635	Identifier	rch
+>636	Callee	setSkipBytes
+>637	Identifier	setSkipBytes
+>638	ExpressionStatement	 
+>639	Statement	 
+>640	Statement	 
+>641	Statement	 
+>642	Statement	 
+>643	Statement	 
+>644	Statement	 
+>645	Statement	 
+>646	Statement	 
+>647	Statement	 
+>648	Statement	 
+>649	Statement	 
+>650	Statement	 
+>651	Statement	 
+>652	ExpressionStatement	 
+>653	AssignmentExpr	mIndexChunk = true
+>654	Identifier	true
+>655	Identifier	mIndexChunk
+>656	Condition	 
+>657	CallExpression	MO_FOURCC_CMP_STR ( rch . getIdentifier ( ) , \"idx1\" )
+>658	ArgumentList	rch . getIdentifier ( )
+>659	Argument	\"idx1\"
+>660	PrimaryExpression	\"idx1\"
+>661	Argument	rch . getIdentifier ( )
+>662	CallExpression	rch . getIdentifier ( )
+>663	ArgumentList	 
+>664	Callee	rch . getIdentifier
+>665	MemberAccess	rch . getIdentifier
+>666	Identifier	getIdentifier
+>667	Identifier	rch
+>668	Callee	MO_FOURCC_CMP_STR
+>669	Identifier	MO_FOURCC_CMP_STR
+>670	IdentifierDeclStatement	 
+>671	IdentifierDecl	rval = RiffChunkHeader 
+>672	AssignmentExpr	rval = RiffChunkHeader 
+>673	Identifier	RiffChunkHeader 
+>674	Identifier	RiffChunkHeader 
+>675	Identifier	rval
+>676	IdentifierDeclType	int
+>711	FunctionDef	AviDetector 
+>712	ParameterList	RiffListHeader & rlh , const char * b , int length
+>713	Parameter	 
+>714	Identifier	length
+>715	ParameterType	int
+>716	Parameter	 
+>717	Identifier	b
+>718	ParameterType	const char *
+>719	Parameter	 
+>720	Identifier	rlh
+>721	ParameterType	RiffListHeader &
+>722	ReturnType	int
+>723	CompoundStatement	 
+>724	ReturnStatement	 
+>725	Identifier	rval
+>726	IfStatement	if ( mHeaderList == NULL && MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"hdrl\" ) )
+>727	ElseStatement	else
+>728	IfStatement	if ( MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"strl\" ) )
+>729	ElseStatement	else
+>730	IfStatement	if ( MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"odml\" ) )
+>731	ElseStatement	else
+>732	IfStatement	if ( MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"INFO\" ) )
+>733	ElseStatement	else
+>734	IfStatement	if ( ! mMovieList && MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"movi\" ) )
+>735	ElseStatement	else
+>736	CompoundStatement	 
+>737	ExpressionStatement	 
+>738	CallExpression	setSkipBytes ( rlh . getListSize ( ) )
+>739	ArgumentList	rlh . getListSize ( )
+>740	Argument	rlh . getListSize ( )
+>741	CallExpression	rlh . getListSize ( )
+>742	ArgumentList	 
+>743	Callee	rlh . getListSize
+>744	MemberAccess	rlh . getListSize
+>745	Identifier	getListSize
+>746	Identifier	rlh
+>747	Callee	setSkipBytes
+>748	Identifier	setSkipBytes
+>749	CompoundStatement	 
+>750	ExpressionStatement	 
+>751	CallExpression	setSkipBytes ( rlh . getListSize ( ) )
+>752	ArgumentList	rlh . getListSize ( )
+>753	Argument	rlh . getListSize ( )
+>754	CallExpression	rlh . getListSize ( )
+>755	ArgumentList	 
+>756	Callee	rlh . getListSize
+>757	MemberAccess	rlh . getListSize
+>758	Identifier	getListSize
+>759	Identifier	rlh
+>760	Callee	setSkipBytes
+>761	Identifier	setSkipBytes
+>762	IfStatement	if ( mStreamHeaderList != NULL )
+>763	CompoundStatement	 
+>764	ExpressionStatement	 
+>765	AssignmentExpr	mStreamHeaderList = NULL
+>766	Identifier	NULL
+>767	Identifier	mStreamHeaderList
+>768	ExpressionStatement	 
+>769	CallExpression	mHeaderList -> getStreamHeaderLists ( ) . push_back ( mStreamHeaderList )
+>770	ArgumentList	mStreamHeaderList
+>771	Argument	mStreamHeaderList
+>772	Identifier	mStreamHeaderList
+>773	Callee	mHeaderList -> getStreamHeaderLists ( ) . push_back
+>774	MemberAccess	mHeaderList -> getStreamHeaderLists ( ) . push_back
+>775	Identifier	push_back
+>776	CallExpression	mHeaderList -> getStreamHeaderLists ( )
+>777	ArgumentList	 
+>778	Callee	mHeaderList -> getStreamHeaderLists
+>779	PtrMemberAccess	mHeaderList -> getStreamHeaderLists
+>780	Identifier	getStreamHeaderLists
+>781	Identifier	mHeaderList
+>782	Condition	 
+>783	EqualityExpression	mStreamHeaderList != NULL
+>784	Identifier	NULL
+>785	Identifier	mStreamHeaderList
+>786	ExpressionStatement	 
+>787	Statement	 
+>788	Statement	 
+>789	Statement	 
+>790	Statement	 
+>791	Statement	 
+>792	Statement	 
+>793	Statement	 
+>794	Statement	 
+>795	Statement	 
+>796	Statement	 
+>797	Statement	 
+>798	Statement	 
+>799	Statement	 
+>800	ExpressionStatement	 
+>801	AssignmentExpr	mMovieList = true
+>802	Identifier	true
+>803	Identifier	mMovieList
+>804	ExpressionStatement	 
+>805	AssignmentExpr	mFormatDetailsNeedUpdate = true
+>806	Identifier	true
+>807	Identifier	mFormatDetailsNeedUpdate
+>808	ExpressionStatement	 
+>809	CallExpression	setFormatRecognized ( true )
+>810	ArgumentList	true
+>811	Argument	true
+>812	Identifier	true
+>813	Callee	setFormatRecognized
+>814	Identifier	setFormatRecognized
+>815	ExpressionStatement	 
+>816	AssignmentExpr	mFormatDetails [ \"contentType\" ] = \"video/x-msvideo\"
+>817	PrimaryExpression	\"video/x-msvideo\"
+>818	ArrayIndexing	mFormatDetails [ \"contentType\" ]
+>819	PrimaryExpression	\"contentType\"
+>820	Identifier	mFormatDetails
+>821	ExpressionStatement	 
+>822	AssignmentExpr	mFormatDetails [ \"inspectorType\" ] = DataFormatInspector 
+>823	Identifier	DataFormatInspector 
+>824	ArrayIndexing	mFormatDetails [ \"inspectorType\" ]
+>825	PrimaryExpression	\"inspectorType\"
+>826	Identifier	mFormatDetails
+>827	Condition	 
+>828	AndExpression	! mMovieList && MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"movi\" )
+>829	CallExpression	MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"movi\" )
+>830	ArgumentList	rlh . getIdentifier ( )
+>831	Argument	\"movi\"
+>832	PrimaryExpression	\"movi\"
+>833	Argument	rlh . getIdentifier ( )
+>834	CallExpression	rlh . getIdentifier ( )
+>835	ArgumentList	 
+>836	Callee	rlh . getIdentifier
+>837	MemberAccess	rlh . getIdentifier
+>838	Identifier	getIdentifier
+>839	Identifier	rlh
+>840	Callee	MO_FOURCC_CMP_STR
+>841	Identifier	MO_FOURCC_CMP_STR
+>842	UnaryOp	! mMovieList
+>843	Identifier	mMovieList
+>844	UnaryOperator	!
+>845	CompoundStatement	 
+>846	ExpressionStatement	 
+>847	CallExpression	setSkipBytes ( rlh . getListSize ( ) )
+>848	ArgumentList	rlh . getListSize ( )
+>849	Argument	rlh . getListSize ( )
+>850	CallExpression	rlh . getListSize ( )
+>851	ArgumentList	 
+>852	Callee	rlh . getListSize
+>853	MemberAccess	rlh . getListSize
+>854	Identifier	getListSize
+>855	Identifier	rlh
+>856	Callee	setSkipBytes
+>857	Identifier	setSkipBytes
+>858	ExpressionStatement	 
+>859	Statement	 
+>860	Statement	 
+>861	Statement	 
+>862	Statement	 
+>863	Statement	 
+>864	Statement	 
+>865	Statement	 
+>866	Statement	 
+>867	Statement	 
+>868	Statement	 
+>869	Statement	 
+>870	Statement	 
+>871	Statement	 
+>872	ExpressionStatement	 
+>873	AssignmentExpr	mInfoList = true
+>874	Identifier	true
+>875	Identifier	mInfoList
+>876	Condition	 
+>877	CallExpression	MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"INFO\" )
+>878	ArgumentList	rlh . getIdentifier ( )
+>879	Argument	\"INFO\"
+>880	PrimaryExpression	\"INFO\"
+>881	Argument	rlh . getIdentifier ( )
+>882	CallExpression	rlh . getIdentifier ( )
+>883	ArgumentList	 
+>884	Callee	rlh . getIdentifier
+>885	MemberAccess	rlh . getIdentifier
+>886	Identifier	getIdentifier
+>887	Identifier	rlh
+>888	Callee	MO_FOURCC_CMP_STR
+>889	Identifier	MO_FOURCC_CMP_STR
+>890	CompoundStatement	 
+>891	ExpressionStatement	 
+>892	Statement	 
+>893	Statement	 
+>894	Statement	 
+>895	Statement	 
+>896	Statement	 
+>897	Statement	 
+>898	Statement	 
+>899	Statement	 
+>900	Statement	 
+>901	Statement	 
+>902	Statement	 
+>903	Statement	 
+>904	Statement	 
+>905	ExpressionStatement	 
+>906	AssignmentExpr	mOdmlList = true
+>907	Identifier	true
+>908	Identifier	mOdmlList
+>909	Condition	 
+>910	CallExpression	MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"odml\" )
+>911	ArgumentList	rlh . getIdentifier ( )
+>912	Argument	\"odml\"
+>913	PrimaryExpression	\"odml\"
+>914	Argument	rlh . getIdentifier ( )
+>915	CallExpression	rlh . getIdentifier ( )
+>916	ArgumentList	 
+>917	Callee	rlh . getIdentifier
+>918	MemberAccess	rlh . getIdentifier
+>919	Identifier	getIdentifier
+>920	Identifier	rlh
+>921	Callee	MO_FOURCC_CMP_STR
+>922	Identifier	MO_FOURCC_CMP_STR
+>923	CompoundStatement	 
+>924	ExpressionStatement	 
+>925	AssignmentExpr	mStreamHeaderList = new AviStreamHeaderList ( )
+>926	UnaryExpression	new AviStreamHeaderList ( )
+>927	Identifier	mStreamHeaderList
+>928	IfStatement	if ( mStreamHeaderList != NULL )
+>929	CompoundStatement	 
+>930	ExpressionStatement	 
+>931	CallExpression	mHeaderList -> getStreamHeaderLists ( ) . push_back ( mStreamHeaderList )
+>932	ArgumentList	mStreamHeaderList
+>933	Argument	mStreamHeaderList
+>934	Identifier	mStreamHeaderList
+>935	Callee	mHeaderList -> getStreamHeaderLists ( ) . push_back
+>936	MemberAccess	mHeaderList -> getStreamHeaderLists ( ) . push_back
+>937	Identifier	push_back
+>938	CallExpression	mHeaderList -> getStreamHeaderLists ( )
+>939	ArgumentList	 
+>940	Callee	mHeaderList -> getStreamHeaderLists
+>941	PtrMemberAccess	mHeaderList -> getStreamHeaderLists
+>942	Identifier	getStreamHeaderLists
+>943	Identifier	mHeaderList
+>944	Condition	 
+>945	EqualityExpression	mStreamHeaderList != NULL
+>946	Identifier	NULL
+>947	Identifier	mStreamHeaderList
+>948	ExpressionStatement	 
+>949	Statement	 
+>950	Statement	 
+>951	Statement	 
+>952	Statement	 
+>953	Statement	 
+>954	Statement	 
+>955	Statement	 
+>956	Statement	 
+>957	Statement	 
+>958	Statement	 
+>959	Statement	 
+>960	Statement	 
+>961	Statement	 
+>962	Condition	 
+>963	CallExpression	MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"strl\" )
+>964	ArgumentList	rlh . getIdentifier ( )
+>965	Argument	\"strl\"
+>966	PrimaryExpression	\"strl\"
+>967	Argument	rlh . getIdentifier ( )
+>968	CallExpression	rlh . getIdentifier ( )
+>969	ArgumentList	 
+>970	Callee	rlh . getIdentifier
+>971	MemberAccess	rlh . getIdentifier
+>972	Identifier	getIdentifier
+>973	Identifier	rlh
+>974	Callee	MO_FOURCC_CMP_STR
+>975	Identifier	MO_FOURCC_CMP_STR
+>976	CompoundStatement	 
+>977	IfStatement	if ( length >= avihSize )
+>978	ElseStatement	else
+>979	CompoundStatement	 
+>980	ExpressionStatement	 
+>981	AssignmentExpr	rval = 0
+>982	PrimaryExpression	0
+>983	Identifier	rval
+>984	CompoundStatement	 
+>985	ExpressionStatement	 
+>986	CallExpression	setSkipBytes ( avihSize - rval )
+>987	ArgumentList	avihSize - rval
+>988	Argument	avihSize - rval
+>989	AdditiveExpression	avihSize - rval
+>990	Identifier	rval
+>991	Identifier	avihSize
+>992	Callee	setSkipBytes
+>993	Identifier	setSkipBytes
+>994	ExpressionStatement	 
+>995	CallExpression	mHeaderList -> convertFromBytes ( b , avihSize )
+>996	ArgumentList	b
+>997	Argument	avihSize
+>998	Identifier	avihSize
+>999	Argument	b
+>1000	Identifier	b
+>1001	Callee	mHeaderList -> convertFromBytes
+>1002	PtrMemberAccess	mHeaderList -> convertFromBytes
+>1003	Identifier	convertFromBytes
+>1004	Identifier	mHeaderList
+>1005	ExpressionStatement	 
+>1006	AssignmentExpr	mHeaderList = new AviHeaderList ( )
+>1007	UnaryExpression	new AviHeaderList ( )
+>1008	Identifier	mHeaderList
+>1009	ExpressionStatement	 
+>1010	Statement	 
+>1011	Statement	 
+>1012	Statement	 
+>1013	Statement	 
+>1014	Statement	 
+>1015	Statement	 
+>1016	Statement	 
+>1017	Statement	 
+>1018	Statement	 
+>1019	Statement	 
+>1020	Statement	 
+>1021	Statement	 
+>1022	Statement	 
+>1023	Condition	 
+>1024	RelationalExpression	length >= avihSize
+>1025	Identifier	avihSize
+>1026	Identifier	length
+>1027	IdentifierDeclStatement	 
+>1028	IdentifierDecl	avihSize = RiffListHeader 
+>1029	AssignmentExpr	avihSize = RiffListHeader 
+>1030	AdditiveExpression	RiffListHeader 
+>1031	AdditiveExpression	RiffChunkHeader 
+>1032	Identifier	AviHeader 
+>1033	Identifier	RiffChunkHeader 
+>1034	Identifier	RiffListHeader 
+>1035	Identifier	avihSize
+>1036	Identifier	avihSize
+>1037	IdentifierDeclType	int
+>1038	Condition	 
+>1039	AndExpression	mHeaderList == NULL && MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"hdrl\" )
+>1040	CallExpression	MO_FOURCC_CMP_STR ( rlh . getIdentifier ( ) , \"hdrl\" )
+>1041	ArgumentList	rlh . getIdentifier ( )
+>1042	Argument	\"hdrl\"
+>1043	PrimaryExpression	\"hdrl\"
+>1044	Argument	rlh . getIdentifier ( )
+>1045	CallExpression	rlh . getIdentifier ( )
+>1046	ArgumentList	 
+>1047	Callee	rlh . getIdentifier
+>1048	MemberAccess	rlh . getIdentifier
+>1049	Identifier	getIdentifier
+>1050	Identifier	rlh
+>1051	Callee	MO_FOURCC_CMP_STR
+>1052	Identifier	MO_FOURCC_CMP_STR
+>1053	EqualityExpression	mHeaderList == NULL
+>1054	Identifier	NULL
+>1055	Identifier	mHeaderList
+>1056	IdentifierDeclStatement	 
+>1057	IdentifierDecl	rval = RiffListHeader 
+>1058	AssignmentExpr	rval = RiffListHeader 
+>1059	Identifier	RiffListHeader 
+>1060	Identifier	RiffListHeader 
+>1061	Identifier	rval
+>1062	IdentifierDeclType	int
+>1090	FunctionDef	AviDetector 
+>1091	ParameterList	RiffFormHeader & rfh , const char * b , int length
+>1092	Parameter	 
+>1093	Identifier	length
+>1094	ParameterType	int
+>1095	Parameter	 
+>1096	Identifier	b
+>1097	ParameterType	const char *
+>1098	Parameter	 
+>1099	Identifier	rfh
+>1100	ParameterType	RiffFormHeader &
+>1101	ReturnType	int
+>1102	CompoundStatement	 
+>1103	ReturnStatement	 
+>1104	Identifier	RiffFormHeader 
+>1105	IfStatement	if ( ! mFormHeader && MO_FOURCC_CMP_STR ( rfh . getIdentifier ( ) , \"AVI \" ) )
+>1106	ElseStatement	else
+>1107	CompoundStatement	 
+>1108	ExpressionStatement	 
+>1109	CallExpression	setSkipBytes ( rfh . getFileSize ( ) )
+>1110	ArgumentList	rfh . getFileSize ( )
+>1111	Argument	rfh . getFileSize ( )
+>1112	CallExpression	rfh . getFileSize ( )
+>1113	ArgumentList	 
+>1114	Callee	rfh . getFileSize
+>1115	MemberAccess	rfh . getFileSize
+>1116	Identifier	getFileSize
+>1117	Identifier	rfh
+>1118	Callee	setSkipBytes
+>1119	Identifier	setSkipBytes
+>1120	CompoundStatement	 
+>1121	ExpressionStatement	 
+>1122	Statement	 
+>1123	Statement	 
+>1124	Statement	 
+>1125	Statement	 
+>1126	Statement	 
+>1127	Statement	 
+>1128	Statement	 
+>1129	Statement	 
+>1130	Statement	 
+>1131	Statement	 
+>1132	Statement	 
+>1133	Statement	 
+>1134	Statement	 
+>1135	ExpressionStatement	 
+>1136	AssignmentExpr	mFormHeader = true
+>1137	Identifier	true
+>1138	Identifier	mFormHeader
+>1139	Condition	 
+>1140	AndExpression	! mFormHeader && MO_FOURCC_CMP_STR ( rfh . getIdentifier ( ) , \"AVI \" )
+>1141	CallExpression	MO_FOURCC_CMP_STR ( rfh . getIdentifier ( ) , \"AVI \" )
+>1142	ArgumentList	rfh . getIdentifier ( )
+>1143	Argument	\"AVI \"
+>1144	PrimaryExpression	\"AVI \"
+>1145	Argument	rfh . getIdentifier ( )
+>1146	CallExpression	rfh . getIdentifier ( )
+>1147	ArgumentList	 
+>1148	Callee	rfh . getIdentifier
+>1149	MemberAccess	rfh . getIdentifier
+>1150	Identifier	getIdentifier
+>1151	Identifier	rfh
+>1152	Callee	MO_FOURCC_CMP_STR
+>1153	Identifier	MO_FOURCC_CMP_STR
+>1154	UnaryOp	! mFormHeader
+>1155	Identifier	mFormHeader
+>1156	UnaryOperator	!
+>1169	FunctionDef	AviDetector 
+>1170	ParameterList	Media & m , RiffChunkHeader & rch , const char * b , int length
+>1171	Parameter	 
+>1172	Identifier	length
+>1173	ParameterType	int
+>1174	Parameter	 
+>1175	Identifier	b
+>1176	ParameterType	const char *
+>1177	Parameter	 
+>1178	Identifier	rch
+>1179	ParameterType	RiffChunkHeader &
+>1180	Parameter	 
+>1181	Identifier	m
+>1182	ParameterType	Media &
+>1183	ReturnType	int
+>1184	CompoundStatement	 
+>1185	ReturnStatement	 
+>1186	Identifier	rval
+>1187	IfStatement	if ( rch . getPaddedSize ( ) <= ( unsigned int ) length )
+>1188	ElseStatement	else
+>1189	CompoundStatement	 
+>1190	CompoundStatement	 
+>1191	IfStatement	if ( Exception 
+>1192	CompoundStatement	 
+>1193	ExpressionStatement	 
+>1194	CallExpression	MO_CAT_ERROR ( BM_DATA_CAT , \"parseJunkChunk of %d bytes of JSON\" , size )
+>1195	ArgumentList	BM_DATA_CAT
+>1196	Argument	size
+>1197	Identifier	size
+>1198	Argument	\"parseJunkChunk of %d bytes of JSON\"
+>1199	PrimaryExpression	\"parseJunkChunk of %d bytes of JSON\"
+>1200	Argument	BM_DATA_CAT
+>1201	Identifier	BM_DATA_CAT
+>1202	Callee	MO_CAT_ERROR
+>1203	Identifier	MO_CAT_ERROR
+>1204	Condition	 
+>1205	CallExpression	Exception 
+>1206	ArgumentList	 
+>1207	Callee	Exception 
+>1208	Identifier	Exception 
+>1209	ExpressionStatement	 
+>1210	AssignmentExpr	m = c [ \"media\" ]
+>1211	ArrayIndexing	c [ \"media\" ]
+>1212	PrimaryExpression	\"media\"
+>1213	Identifier	c
+>1214	Identifier	m
+>1215	ExpressionStatement	 
+>1216	CallExpression	mos . close ( )
+>1217	ArgumentList	 
+>1218	Callee	mos . close
+>1219	MemberAccess	mos . close
+>1220	Identifier	close
+>1221	Identifier	mos
+>1222	ExpressionStatement	 
+>1223	CallExpression	mos . write ( b + start , size )
+>1224	ArgumentList	b + start
+>1225	Argument	size
+>1226	Identifier	size
+>1227	Argument	b + start
+>1228	AdditiveExpression	b + start
+>1229	Identifier	start
+>1230	Identifier	b
+>1231	Callee	mos . write
+>1232	MemberAccess	mos . write
+>1233	Identifier	write
+>1234	Identifier	mos
+>1235	IdentifierDeclStatement	 
+>1236	IdentifierDecl	mos ( & doos , false , & inf , false )
+>1237	Expression	& doos , false , & inf , false
+>1238	Expression	false , & inf , false
+>1239	Expression	& inf , false
+>1240	Identifier	false
+>1241	UnaryOp	& inf
+>1242	Identifier	inf
+>1243	UnaryOperator	&
+>1244	Identifier	false
+>1245	UnaryOp	& doos
+>1246	Identifier	doos
+>1247	UnaryOperator	&
+>1248	Identifier	mos
+>1249	IdentifierDeclType	MutatorOutputStream
+>1250	ExpressionStatement	 
+>1251	CallExpression	inf . startInflating ( false )
+>1252	ArgumentList	false
+>1253	Argument	false
+>1254	Identifier	false
+>1255	Callee	inf . startInflating
+>1256	MemberAccess	inf . startInflating
+>1257	Identifier	startInflating
+>1258	Identifier	inf
+>1259	IdentifierDeclStatement	 
+>1260	IdentifierDecl	inf
+>1261	Identifier	inf
+>1262	IdentifierDeclType	Deflater
+>1263	IdentifierDeclStatement	 
+>1264	IdentifierDecl	doos ( c , & reader , false )
+>1265	Expression	c , & reader , false
+>1266	Expression	& reader , false
+>1267	Identifier	false
+>1268	UnaryOp	& reader
+>1269	Identifier	reader
+>1270	UnaryOperator	&
+>1271	Identifier	c
+>1272	Identifier	doos
+>1273	IdentifierDeclType	DynamicObjectOutputStream
+>1274	IdentifierDeclStatement	 
+>1275	IdentifierDecl	reader
+>1276	Identifier	reader
+>1277	IdentifierDeclType	JsonReader
+>1278	IdentifierDeclStatement	 
+>1279	IdentifierDecl	c
+>1280	Identifier	c
+>1281	IdentifierDeclType	Contract
+>1282	IfStatement	if ( size > 0 && b [ size - 1 ] == 0x00 )
+>1283	CompoundStatement	 
+>1284	ExpressionStatement	 
+>1285	UnaryExpression	-- size
+>1286	Identifier	size
+>1287	IncDec	--
+>1288	Condition	 
+>1289	AndExpression	size > 0 && b [ size - 1 ] == 0x00
+>1290	EqualityExpression	b [ size - 1 ] == 0x00
+>1291	PrimaryExpression	0x00
+>1292	ArrayIndexing	b [ size - 1 ]
+>1293	AdditiveExpression	size - 1
+>1294	PrimaryExpression	1
+>1295	Identifier	size
+>1296	Identifier	b
+>1297	RelationalExpression	size > 0
+>1298	PrimaryExpression	0
+>1299	Identifier	size
+>1300	IdentifierDeclStatement	 
+>1301	IdentifierDecl	size = ( int ) rch . getChunkSize ( )
+>1302	AssignmentExpr	size = ( int ) rch . getChunkSize ( )
+>1303	CastExpression	( int ) rch . getChunkSize ( )
+>1304	CallExpression	rch . getChunkSize ( )
+>1305	ArgumentList	 
+>1306	Callee	rch . getChunkSize
+>1307	MemberAccess	rch . getChunkSize
+>1308	Identifier	getChunkSize
+>1309	Identifier	rch
+>1310	CastTarget	int
+>1311	Identifier	size
+>1312	Identifier	size
+>1313	IdentifierDeclType	int
+>1314	IdentifierDeclStatement	 
+>1315	IdentifierDecl	start = RiffChunkHeader 
+>1316	AssignmentExpr	start = RiffChunkHeader 
+>1317	AdditiveExpression	RiffChunkHeader 
+>1318	PrimaryExpression	4
+>1319	Identifier	RiffChunkHeader 
+>1320	Identifier	start
+>1321	Identifier	start
+>1322	IdentifierDeclType	int
+>1323	ExpressionStatement	 
+>1324	AssignmentExpr	rval = RiffChunkHeader 
+>1325	AdditiveExpression	RiffChunkHeader 
+>1326	CastExpression	( int ) rch . getPaddedSize ( )
+>1327	CallExpression	rch . getPaddedSize ( )
+>1328	ArgumentList	 
+>1329	Callee	rch . getPaddedSize
+>1330	MemberAccess	rch . getPaddedSize
+>1331	Identifier	getPaddedSize
+>1332	Identifier	rch
+>1333	CastTarget	int
+>1334	Identifier	RiffChunkHeader 
+>1335	Identifier	rval
+>1336	ExpressionStatement	 
+>1337	CallExpression	MO_CAT_DEBUG ( BM_DATA_CAT , \"parseJunkChunk found %d bytes\" , length )
+>1338	ArgumentList	BM_DATA_CAT
+>1339	Argument	length
+>1340	Identifier	length
+>1341	Argument	\"parseJunkChunk found %d bytes\"
+>1342	PrimaryExpression	\"parseJunkChunk found %d bytes\"
+>1343	Argument	BM_DATA_CAT
+>1344	Identifier	BM_DATA_CAT
+>1345	Callee	MO_CAT_DEBUG
+>1346	Identifier	MO_CAT_DEBUG
+>1347	Condition	 
+>1348	RelationalExpression	rch . getPaddedSize ( ) <= ( unsigned int ) length
+>1349	CastExpression	( unsigned int ) length
+>1350	Identifier	length
+>1351	CastTarget	unsigned int
+>1352	CallExpression	rch . getPaddedSize ( )
+>1353	ArgumentList	 
+>1354	Callee	rch . getPaddedSize
+>1355	MemberAccess	rch . getPaddedSize
+>1356	Identifier	getPaddedSize
+>1357	Identifier	rch
+>1358	IdentifierDeclStatement	 
+>1359	IdentifierDecl	rval = 0
+>1360	AssignmentExpr	rval = 0
+>1361	PrimaryExpression	0
+>1362	Identifier	rval
+>1363	Identifier	rval
+>1364	IdentifierDeclType	int
+>1389	FunctionDef	AviDetector 
+>1390	ParameterList	const char * b , int length
+>1391	Parameter	 
+>1392	Identifier	length
+>1393	ParameterType	int
+>1394	Parameter	 
+>1395	Identifier	b
+>1396	ParameterType	const char *
+>1397	ReturnType	int
+>1398	CompoundStatement	 
+>1399	ReturnStatement	 
+>1400	Identifier	rval
+>1401	IfStatement	if ( ! mFormHeader && length >= RiffFormHeader 
+>1402	CompoundStatement	 
+>1403	ExpressionStatement	 
+>1404	CallExpression	setSkipBytes ( 0 )
+>1405	ArgumentList	0
+>1406	Argument	0
+>1407	PrimaryExpression	0
+>1408	Callee	setSkipBytes
+>1409	Identifier	setSkipBytes
+>1410	ExpressionStatement	 
+>1411	AssignmentExpr	rval = length
+>1412	Identifier	length
+>1413	Identifier	rval
+>1414	ExpressionStatement	 
+>1415	CallExpression	setFormatRecognized ( false )
+>1416	ArgumentList	false
+>1417	Argument	false
+>1418	Identifier	false
+>1419	Callee	setFormatRecognized
+>1420	Identifier	setFormatRecognized
+>1421	Condition	 
+>1422	AndExpression	! mFormHeader && length >= RiffFormHeader 
+>1423	RelationalExpression	length >= RiffFormHeader 
+>1424	Identifier	RiffFormHeader 
+>1425	Identifier	length
+>1426	UnaryOp	! mFormHeader
+>1427	Identifier	mFormHeader
+>1428	UnaryOperator	!
+>1429	IfStatement	if ( headerOffset > 0 )
+>1430	ElseStatement	else
+>1431	IfStatement	if ( rch . getIdentifier ( ) == RiffFormHeader 
+>1432	ElseStatement	else
+>1433	IfStatement	if ( rch . getIdentifier ( ) == RiffListHeader 
+>1434	ElseStatement	else
+>1435	CompoundStatement	 
+>1436	ExpressionStatement	 
+>1437	AssignmentExpr	rval = foundRiffChunkHeader ( rch , b , length )
+>1438	CallExpression	foundRiffChunkHeader ( rch , b , length )
+>1439	ArgumentList	rch
+>1440	Argument	length
+>1441	Identifier	length
+>1442	Argument	b
+>1443	Identifier	b
+>1444	Argument	rch
+>1445	Identifier	rch
+>1446	Callee	foundRiffChunkHeader
+>1447	Identifier	foundRiffChunkHeader
+>1448	Identifier	rval
+>1449	CompoundStatement	 
+>1450	IfStatement	if ( length >= RiffListHeader 
+>1451	CompoundStatement	 
+>1452	ExpressionStatement	 
+>1453	AssignmentExpr	rval = foundRiffListHeader ( rlh , b , length )
+>1454	CallExpression	foundRiffListHeader ( rlh , b , length )
+>1455	ArgumentList	rlh
+>1456	Argument	length
+>1457	Identifier	length
+>1458	Argument	b
+>1459	Identifier	b
+>1460	Argument	rlh
+>1461	Identifier	rlh
+>1462	Callee	foundRiffListHeader
+>1463	Identifier	foundRiffListHeader
+>1464	Identifier	rval
+>1465	ExpressionStatement	 
+>1466	CallExpression	rlh . convertFromBytes ( b , length )
+>1467	ArgumentList	b
+>1468	Argument	length
+>1469	Identifier	length
+>1470	Argument	b
+>1471	Identifier	b
+>1472	Callee	rlh . convertFromBytes
+>1473	MemberAccess	rlh . convertFromBytes
+>1474	Identifier	convertFromBytes
+>1475	Identifier	rlh
+>1476	IdentifierDeclStatement	 
+>1477	IdentifierDecl	rlh
+>1478	Identifier	rlh
+>1479	IdentifierDeclType	RiffListHeader
+>1480	Condition	 
+>1481	RelationalExpression	length >= RiffListHeader 
+>1482	Identifier	RiffListHeader 
+>1483	Identifier	length
+>1484	Condition	 
+>1485	EqualityExpression	rch . getIdentifier ( ) == RiffListHeader 
+>1486	Identifier	RiffListHeader 
+>1487	CallExpression	rch . getIdentifier ( )
+>1488	ArgumentList	 
+>1489	Callee	rch . getIdentifier
+>1490	MemberAccess	rch . getIdentifier
+>1491	Identifier	getIdentifier
+>1492	Identifier	rch
+>1493	CompoundStatement	 
+>1494	IfStatement	if ( length >= RiffFormHeader 
+>1495	CompoundStatement	 
+>1496	ExpressionStatement	 
+>1497	AssignmentExpr	rval = foundRiffFormHeader ( rfh , b , length )
+>1498	CallExpression	foundRiffFormHeader ( rfh , b , length )
+>1499	ArgumentList	rfh
+>1500	Argument	length
+>1501	Identifier	length
+>1502	Argument	b
+>1503	Identifier	b
+>1504	Argument	rfh
+>1505	Identifier	rfh
+>1506	Callee	foundRiffFormHeader
+>1507	Identifier	foundRiffFormHeader
+>1508	Identifier	rval
+>1509	ExpressionStatement	 
+>1510	CallExpression	rfh . convertFromBytes ( b , length )
+>1511	ArgumentList	b
+>1512	Argument	length
+>1513	Identifier	length
+>1514	Argument	b
+>1515	Identifier	b
+>1516	Callee	rfh . convertFromBytes
+>1517	MemberAccess	rfh . convertFromBytes
+>1518	Identifier	convertFromBytes
+>1519	Identifier	rfh
+>1520	IdentifierDeclStatement	 
+>1521	IdentifierDecl	rfh
+>1522	Identifier	rfh
+>1523	IdentifierDeclType	RiffFormHeader
+>1524	Condition	 
+>1525	RelationalExpression	length >= RiffFormHeader 
+>1526	Identifier	RiffFormHeader 
+>1527	Identifier	length
+>1528	Condition	 
+>1529	EqualityExpression	rch . getIdentifier ( ) == RiffFormHeader 
+>1530	Identifier	RiffFormHeader 
+>1531	CallExpression	rch . getIdentifier ( )
+>1532	ArgumentList	 
+>1533	Callee	rch . getIdentifier
+>1534	MemberAccess	rch . getIdentifier
+>1535	Identifier	getIdentifier
+>1536	Identifier	rch
+>1537	CompoundStatement	 
+>1538	ExpressionStatement	 
+>1539	AssignmentExpr	rval = headerOffset
+>1540	Identifier	headerOffset
+>1541	Identifier	rval
+>1542	Condition	 
+>1543	RelationalExpression	headerOffset > 0
+>1544	PrimaryExpression	0
+>1545	Identifier	headerOffset
+>1546	IdentifierDeclStatement	 
+>1547	IdentifierDecl	headerOffset = findRiffChunkHeader ( rch , b , length )
+>1548	AssignmentExpr	headerOffset = findRiffChunkHeader ( rch , b , length )
+>1549	CallExpression	findRiffChunkHeader ( rch , b , length )
+>1550	ArgumentList	rch
+>1551	Argument	length
+>1552	Identifier	length
+>1553	Argument	b
+>1554	Identifier	b
+>1555	Argument	rch
+>1556	Identifier	rch
+>1557	Callee	findRiffChunkHeader
+>1558	Identifier	findRiffChunkHeader
+>1559	Identifier	headerOffset
+>1560	Identifier	headerOffset
+>1561	IdentifierDeclType	int
+>1562	IdentifierDeclStatement	 
+>1563	IdentifierDecl	rch
+>1564	Identifier	rch
+>1565	IdentifierDeclType	RiffChunkHeader
+>1566	IdentifierDeclStatement	 
+>1567	IdentifierDecl	rval = 0
+>1568	AssignmentExpr	rval = 0
+>1569	PrimaryExpression	0
+>1570	Identifier	rval
+>1571	Identifier	rval
+>1572	IdentifierDeclType	int
+>1594	FunctionDef	AviDetector 
+>1595	ParameterList	 
+>1596	ReturnType	DynamicObject
+>1597	CompoundStatement	 
+>1598	ReturnStatement	 
+>1599	CallExpression	mFormatDetails . clone ( )
+>1600	ArgumentList	 
+>1601	Callee	mFormatDetails . clone
+>1602	MemberAccess	mFormatDetails . clone
+>1603	Identifier	clone
+>1604	Identifier	mFormatDetails
+>1605	IfStatement	if ( mFormatDetailsNeedUpdate )
+>1606	CompoundStatement	 
+>1607	IfStatement	if ( header != NULL )
+>1608	CompoundStatement	 
+>1609	ExpressionStatement	 
+>1610	AssignmentExpr	mFormatDetailsNeedUpdate = false
+>1611	Identifier	false
+>1612	Identifier	mFormatDetailsNeedUpdate
+>1613	IfStatement	if ( ! mMedia . isNull ( ) )
+>1614	ElseStatement	else
+>1615	CompoundStatement	 
+>1616	ExpressionStatement	 
+>1617	CallExpression	mFormatDetails -> removeMember ( \"media\" )
+>1618	ArgumentList	\"media\"
+>1619	Argument	\"media\"
+>1620	PrimaryExpression	\"media\"
+>1621	Callee	mFormatDetails -> removeMember
+>1622	PtrMemberAccess	mFormatDetails -> removeMember
+>1623	Identifier	removeMember
+>1624	Identifier	mFormatDetails
+>1625	CompoundStatement	 
+>1626	ExpressionStatement	 
+>1627	AssignmentExpr	mFormatDetails [ \"media\" ] = mMedia . clone ( )
+>1628	CallExpression	mMedia . clone ( )
+>1629	ArgumentList	 
+>1630	Callee	mMedia . clone
+>1631	MemberAccess	mMedia . clone
+>1632	Identifier	clone
+>1633	Identifier	mMedia
+>1634	ArrayIndexing	mFormatDetails [ \"media\" ]
+>1635	PrimaryExpression	\"media\"
+>1636	Identifier	mFormatDetails
+>1637	Condition	 
+>1638	UnaryOp	! mMedia . isNull ( )
+>1639	CallExpression	mMedia . isNull ( )
+>1640	ArgumentList	 
+>1641	Callee	mMedia . isNull
+>1642	MemberAccess	mMedia . isNull
+>1643	Identifier	isNull
+>1644	Identifier	mMedia
+>1645	UnaryOperator	!
+>1646	ForStatement	for ( StreamHeaderLists 
+>1647	CompoundStatement	 
+>1648	ExpressionStatement	 
+>1649	CallExpression	mFormatDetails [ \"streams\" ] -> append ( stream )
+>1650	ArgumentList	stream
+>1651	Argument	stream
+>1652	Identifier	stream
+>1653	Callee	mFormatDetails [ \"streams\" ] -> append
+>1654	PtrMemberAccess	mFormatDetails [ \"streams\" ] -> append
+>1655	Identifier	append
+>1656	ArrayIndexing	mFormatDetails [ \"streams\" ]
+>1657	PrimaryExpression	\"streams\"
+>1658	Identifier	mFormatDetails
+>1659	IfStatement	if ( vids || auds )
+>1660	CompoundStatement	 
+>1661	IfStatement	if ( asf != NULL )
+>1662	CompoundStatement	 
+>1663	IfStatement	if ( vids )
+>1664	ElseStatement	else
+>1665	IfStatement	if ( auds )
+>1666	CompoundStatement	 
+>1667	IfStatement	if ( firstAuds )
+>1668	CompoundStatement	 
+>1669	ExpressionStatement	 
+>1670	AssignmentExpr	firstAuds = false
+>1671	Identifier	false
+>1672	Identifier	firstAuds
+>1673	SwitchStatement	switch ( formatTag )
+>1674	CompoundStatement	 
+>1675	ExpressionStatement	 
+>1676	AssignmentExpr	mFormatDetails [ \"audioCodec\" ] = \"unknown\"
+>1677	PrimaryExpression	\"unknown\"
+>1678	ArrayIndexing	mFormatDetails [ \"audioCodec\" ]
+>1679	PrimaryExpression	\"audioCodec\"
+>1680	Identifier	mFormatDetails
+>1681	Label	 
+>1682	Identifier	default
+>1683	BreakStatement	 
+>1684	ExpressionStatement	 
+>1685	AssignmentExpr	mFormatDetails [ \"audioCodec\" ] = \"AC3\"
+>1686	PrimaryExpression	\"AC3\"
+>1687	ArrayIndexing	mFormatDetails [ \"audioCodec\" ]
+>1688	PrimaryExpression	\"audioCodec\"
+>1689	Identifier	mFormatDetails
+>1690	Label	 
+>1691	BreakStatement	 
+>1692	ExpressionStatement	 
+>1693	AssignmentExpr	mFormatDetails [ \"audioCodec\" ] = \"MP3\"
+>1694	PrimaryExpression	\"MP3\"
+>1695	ArrayIndexing	mFormatDetails [ \"audioCodec\" ]
+>1696	PrimaryExpression	\"audioCodec\"
+>1697	Identifier	mFormatDetails
+>1698	Label	 
+>1699	BreakStatement	 
+>1700	ExpressionStatement	 
+>1701	AssignmentExpr	mFormatDetails [ \"audioCodec\" ] = \"MPEG\"
+>1702	PrimaryExpression	\"MPEG\"
+>1703	ArrayIndexing	mFormatDetails [ \"audioCodec\" ]
+>1704	PrimaryExpression	\"audioCodec\"
+>1705	Identifier	mFormatDetails
+>1706	Label	 
+>1707	BreakStatement	 
+>1708	ExpressionStatement	 
+>1709	AssignmentExpr	mFormatDetails [ \"audioCodec\" ] = \"AC2\"
+>1710	PrimaryExpression	\"AC2\"
+>1711	ArrayIndexing	mFormatDetails [ \"audioCodec\" ]
+>1712	PrimaryExpression	\"audioCodec\"
+>1713	Identifier	mFormatDetails
+>1714	Label	 
+>1715	Condition	 
+>1716	Identifier	formatTag
+>1717	IdentifierDeclStatement	 
+>1718	IdentifierDecl	formatTag = asf -> getAudioFormatTag ( )
+>1719	AssignmentExpr	formatTag = asf -> getAudioFormatTag ( )
+>1720	CallExpression	asf -> getAudioFormatTag ( )
+>1721	ArgumentList	 
+>1722	Callee	asf -> getAudioFormatTag
+>1723	PtrMemberAccess	asf -> getAudioFormatTag
+>1724	Identifier	getAudioFormatTag
+>1725	Identifier	asf
+>1726	Identifier	formatTag
+>1727	Identifier	formatTag
+>1728	IdentifierDeclType	uint16_t
+>1729	Condition	 
+>1730	Identifier	firstAuds
+>1731	ExpressionStatement	 
+>1732	AssignmentExpr	stream [ \"extraSize\" ] = asf -> getExtraAudioInfoSize ( )
+>1733	CallExpression	asf -> getExtraAudioInfoSize ( )
+>1734	ArgumentList	 
+>1735	Callee	asf -> getExtraAudioInfoSize
+>1736	PtrMemberAccess	asf -> getExtraAudioInfoSize
+>1737	Identifier	getExtraAudioInfoSize
+>1738	Identifier	asf
+>1739	ArrayIndexing	stream [ \"extraSize\" ]
+>1740	PrimaryExpression	\"extraSize\"
+>1741	Identifier	stream
+>1742	ExpressionStatement	 
+>1743	AssignmentExpr	stream [ \"bitsPerSample\" ] = asf -> getAudioBitsPerSample ( )
+>1744	CallExpression	asf -> getAudioBitsPerSample ( )
+>1745	ArgumentList	 
+>1746	Callee	asf -> getAudioBitsPerSample
+>1747	PtrMemberAccess	asf -> getAudioBitsPerSample
+>1748	Identifier	getAudioBitsPerSample
+>1749	Identifier	asf
+>1750	ArrayIndexing	stream [ \"bitsPerSample\" ]
+>1751	PrimaryExpression	\"bitsPerSample\"
+>1752	Identifier	stream
+>1753	ExpressionStatement	 
+>1754	AssignmentExpr	stream [ \"blockAlignment\" ] = asf -> getBlockAligmentUnit ( )
+>1755	CallExpression	asf -> getBlockAligmentUnit ( )
+>1756	ArgumentList	 
+>1757	Callee	asf -> getBlockAligmentUnit
+>1758	PtrMemberAccess	asf -> getBlockAligmentUnit
+>1759	Identifier	getBlockAligmentUnit
+>1760	Identifier	asf
+>1761	ArrayIndexing	stream [ \"blockAlignment\" ]
+>1762	PrimaryExpression	\"blockAlignment\"
+>1763	Identifier	stream
+>1764	ExpressionStatement	 
+>1765	AssignmentExpr	stream [ \"avgBytesPerSecond\" ] = asf -> getAudioAvgBytesPerSecond ( )
+>1766	CallExpression	asf -> getAudioAvgBytesPerSecond ( )
+>1767	ArgumentList	 
+>1768	Callee	asf -> getAudioAvgBytesPerSecond
+>1769	PtrMemberAccess	asf -> getAudioAvgBytesPerSecond
+>1770	Identifier	getAudioAvgBytesPerSecond
+>1771	Identifier	asf
+>1772	ArrayIndexing	stream [ \"avgBytesPerSecond\" ]
+>1773	PrimaryExpression	\"avgBytesPerSecond\"
+>1774	Identifier	stream
+>1775	ExpressionStatement	 
+>1776	AssignmentExpr	stream [ \"samplesPerSecond\" ] = asf -> getAudioSamplesPerSecond ( )
+>1777	CallExpression	asf -> getAudioSamplesPerSecond ( )
+>1778	ArgumentList	 
+>1779	Callee	asf -> getAudioSamplesPerSecond
+>1780	PtrMemberAccess	asf -> getAudioSamplesPerSecond
+>1781	Identifier	getAudioSamplesPerSecond
+>1782	Identifier	asf
+>1783	ArrayIndexing	stream [ \"samplesPerSecond\" ]
+>1784	PrimaryExpression	\"samplesPerSecond\"
+>1785	Identifier	stream
+>1786	ExpressionStatement	 
+>1787	AssignmentExpr	stream [ \"channels\" ] = asf -> getAudioChannels ( )
+>1788	CallExpression	asf -> getAudioChannels ( )
+>1789	ArgumentList	 
+>1790	Callee	asf -> getAudioChannels
+>1791	PtrMemberAccess	asf -> getAudioChannels
+>1792	Identifier	getAudioChannels
+>1793	Identifier	asf
+>1794	ArrayIndexing	stream [ \"channels\" ]
+>1795	PrimaryExpression	\"channels\"
+>1796	Identifier	stream
+>1797	ExpressionStatement	 
+>1798	AssignmentExpr	stream [ \"formatTag\" ] = asf -> getAudioFormatTag ( )
+>1799	CallExpression	asf -> getAudioFormatTag ( )
+>1800	ArgumentList	 
+>1801	Callee	asf -> getAudioFormatTag
+>1802	PtrMemberAccess	asf -> getAudioFormatTag
+>1803	Identifier	getAudioFormatTag
+>1804	Identifier	asf
+>1805	ArrayIndexing	stream [ \"formatTag\" ]
+>1806	PrimaryExpression	\"formatTag\"
+>1807	Identifier	stream
+>1808	Condition	 
+>1809	Identifier	auds
+>1810	CompoundStatement	 
+>1811	IfStatement	if ( firstVids )
+>1812	CompoundStatement	 
+>1813	ExpressionStatement	 
+>1814	AssignmentExpr	firstVids = false
+>1815	Identifier	false
+>1816	Identifier	firstVids
+>1817	ExpressionStatement	 
+>1818	AssignmentExpr	mFormatDetails [ \"videoCodec\" ] = stream [ \"handler\" ]
+>1819	ArrayIndexing	stream [ \"handler\" ]
+>1820	PrimaryExpression	\"handler\"
+>1821	Identifier	stream
+>1822	ArrayIndexing	mFormatDetails [ \"videoCodec\" ]
+>1823	PrimaryExpression	\"videoCodec\"
+>1824	Identifier	mFormatDetails
+>1825	Condition	 
+>1826	Identifier	firstVids
+>1827	ExpressionStatement	 
+>1828	AssignmentExpr	stream [ \"colorIndiciesRequired\" ] = asf -> getColorInidicesRequired ( )
+>1829	CallExpression	asf -> getColorInidicesRequired ( )
+>1830	ArgumentList	 
+>1831	Callee	asf -> getColorInidicesRequired
+>1832	PtrMemberAccess	asf -> getColorInidicesRequired
+>1833	Identifier	getColorInidicesRequired
+>1834	Identifier	asf
+>1835	ArrayIndexing	stream [ \"colorIndiciesRequired\" ]
+>1836	PrimaryExpression	\"colorIndiciesRequired\"
+>1837	Identifier	stream
+>1838	ExpressionStatement	 
+>1839	AssignmentExpr	stream [ \"colorIndicies\" ] = asf -> getColorInidices ( )
+>1840	CallExpression	asf -> getColorInidices ( )
+>1841	ArgumentList	 
+>1842	Callee	asf -> getColorInidices
+>1843	PtrMemberAccess	asf -> getColorInidices
+>1844	Identifier	getColorInidices
+>1845	Identifier	asf
+>1846	ArrayIndexing	stream [ \"colorIndicies\" ]
+>1847	PrimaryExpression	\"colorIndicies\"
+>1848	Identifier	stream
+>1849	ExpressionStatement	 
+>1850	AssignmentExpr	stream [ \"verticalResolution\" ] = asf -> getVerticalResolution ( )
+>1851	CallExpression	asf -> getVerticalResolution ( )
+>1852	ArgumentList	 
+>1853	Callee	asf -> getVerticalResolution
+>1854	PtrMemberAccess	asf -> getVerticalResolution
+>1855	Identifier	getVerticalResolution
+>1856	Identifier	asf
+>1857	ArrayIndexing	stream [ \"verticalResolution\" ]
+>1858	PrimaryExpression	\"verticalResolution\"
+>1859	Identifier	stream
+>1860	ExpressionStatement	 
+>1861	AssignmentExpr	stream [ \"horizontalResolution\" ] = asf -> getHorizontalResolution ( )
+>1862	CallExpression	asf -> getHorizontalResolution ( )
+>1863	ArgumentList	 
+>1864	Callee	asf -> getHorizontalResolution
+>1865	PtrMemberAccess	asf -> getHorizontalResolution
+>1866	Identifier	getHorizontalResolution
+>1867	Identifier	asf
+>1868	ArrayIndexing	stream [ \"horizontalResolution\" ]
+>1869	PrimaryExpression	\"horizontalResolution\"
+>1870	Identifier	stream
+>1871	ExpressionStatement	 
+>1872	AssignmentExpr	stream [ \"imageSize\" ] = asf -> getImageSize ( )
+>1873	CallExpression	asf -> getImageSize ( )
+>1874	ArgumentList	 
+>1875	Callee	asf -> getImageSize
+>1876	PtrMemberAccess	asf -> getImageSize
+>1877	Identifier	getImageSize
+>1878	Identifier	asf
+>1879	ArrayIndexing	stream [ \"imageSize\" ]
+>1880	PrimaryExpression	\"imageSize\"
+>1881	Identifier	stream
+>1882	ExpressionStatement	 
+>1883	AssignmentExpr	stream [ \"compression\" ] = asf -> getCompression ( )
+>1884	CallExpression	asf -> getCompression ( )
+>1885	ArgumentList	 
+>1886	Callee	asf -> getCompression
+>1887	PtrMemberAccess	asf -> getCompression
+>1888	Identifier	getCompression
+>1889	Identifier	asf
+>1890	ArrayIndexing	stream [ \"compression\" ]
+>1891	PrimaryExpression	\"compression\"
+>1892	Identifier	stream
+>1893	ExpressionStatement	 
+>1894	AssignmentExpr	stream [ \"bitCount\" ] = asf -> getBitCount ( )
+>1895	CallExpression	asf -> getBitCount ( )
+>1896	ArgumentList	 
+>1897	Callee	asf -> getBitCount
+>1898	PtrMemberAccess	asf -> getBitCount
+>1899	Identifier	getBitCount
+>1900	Identifier	asf
+>1901	ArrayIndexing	stream [ \"bitCount\" ]
+>1902	PrimaryExpression	\"bitCount\"
+>1903	Identifier	stream
+>1904	ExpressionStatement	 
+>1905	AssignmentExpr	stream [ \"bitmapHeight\" ] = asf -> getBitmapHeight ( )
+>1906	CallExpression	asf -> getBitmapHeight ( )
+>1907	ArgumentList	 
+>1908	Callee	asf -> getBitmapHeight
+>1909	PtrMemberAccess	asf -> getBitmapHeight
+>1910	Identifier	getBitmapHeight
+>1911	Identifier	asf
+>1912	ArrayIndexing	stream [ \"bitmapHeight\" ]
+>1913	PrimaryExpression	\"bitmapHeight\"
+>1914	Identifier	stream
+>1915	ExpressionStatement	 
+>1916	AssignmentExpr	stream [ \"bitmapWidth\" ] = asf -> getBitmapWidth ( )
+>1917	CallExpression	asf -> getBitmapWidth ( )
+>1918	ArgumentList	 
+>1919	Callee	asf -> getBitmapWidth
+>1920	PtrMemberAccess	asf -> getBitmapWidth
+>1921	Identifier	getBitmapWidth
+>1922	Identifier	asf
+>1923	ArrayIndexing	stream [ \"bitmapWidth\" ]
+>1924	PrimaryExpression	\"bitmapWidth\"
+>1925	Identifier	stream
+>1926	ExpressionStatement	 
+>1927	AssignmentExpr	stream [ \"bitmapInfoSize\" ] = asf -> getBitmapInfoSize ( )
+>1928	CallExpression	asf -> getBitmapInfoSize ( )
+>1929	ArgumentList	 
+>1930	Callee	asf -> getBitmapInfoSize
+>1931	PtrMemberAccess	asf -> getBitmapInfoSize
+>1932	Identifier	getBitmapInfoSize
+>1933	Identifier	asf
+>1934	ArrayIndexing	stream [ \"bitmapInfoSize\" ]
+>1935	PrimaryExpression	\"bitmapInfoSize\"
+>1936	Identifier	stream
+>1937	Condition	 
+>1938	Identifier	vids
+>1939	Condition	 
+>1940	EqualityExpression	asf != NULL
+>1941	Identifier	NULL
+>1942	Identifier	asf
+>1943	IdentifierDeclStatement	 
+>1944	IdentifierDecl	* asf = hl -> getStreamFormat ( )
+>1945	AssignmentExpr	* asf = hl -> getStreamFormat ( )
+>1946	CallExpression	hl -> getStreamFormat ( )
+>1947	ArgumentList	 
+>1948	Callee	hl -> getStreamFormat
+>1949	PtrMemberAccess	hl -> getStreamFormat
+>1950	Identifier	getStreamFormat
+>1951	Identifier	hl
+>1952	Identifier	asf
+>1953	Identifier	asf
+>1954	IdentifierDeclType	AviStreamFormat *
+>1955	Condition	 
+>1956	OrExpression	vids || auds
+>1957	Identifier	auds
+>1958	Identifier	vids
+>1959	IfStatement	if ( ash != NULL )
+>1960	CompoundStatement	 
+>1961	ExpressionStatement	 
+>1962	AssignmentExpr	auds = MO_FOURCC_CMP_STR ( ash -> getType ( ) , \"auds\" )
+>1963	CallExpression	MO_FOURCC_CMP_STR ( ash -> getType ( ) , \"auds\" )
+>1964	ArgumentList	ash -> getType ( )
+>1965	Argument	\"auds\"
+>1966	PrimaryExpression	\"auds\"
+>1967	Argument	ash -> getType ( )
+>1968	CallExpression	ash -> getType ( )
+>1969	ArgumentList	 
+>1970	Callee	ash -> getType
+>1971	PtrMemberAccess	ash -> getType
+>1972	Identifier	getType
+>1973	Identifier	ash
+>1974	Callee	MO_FOURCC_CMP_STR
+>1975	Identifier	MO_FOURCC_CMP_STR
+>1976	Identifier	auds
+>1977	ExpressionStatement	 
+>1978	AssignmentExpr	vids = MO_FOURCC_CMP_STR ( ash -> getType ( ) , \"vids\" )
+>1979	CallExpression	MO_FOURCC_CMP_STR ( ash -> getType ( ) , \"vids\" )
+>1980	ArgumentList	ash -> getType ( )
+>1981	Argument	\"vids\"
+>1982	PrimaryExpression	\"vids\"
+>1983	Argument	ash -> getType ( )
+>1984	CallExpression	ash -> getType ( )
+>1985	ArgumentList	 
+>1986	Callee	ash -> getType
+>1987	PtrMemberAccess	ash -> getType
+>1988	Identifier	getType
+>1989	Identifier	ash
+>1990	Callee	MO_FOURCC_CMP_STR
+>1991	Identifier	MO_FOURCC_CMP_STR
+>1992	Identifier	vids
+>1993	ExpressionStatement	 
+>1994	AssignmentExpr	stream [ \"sampleSize\" ] = ash -> getSampleSize ( )
+>1995	CallExpression	ash -> getSampleSize ( )
+>1996	ArgumentList	 
+>1997	Callee	ash -> getSampleSize
+>1998	PtrMemberAccess	ash -> getSampleSize
+>1999	Identifier	getSampleSize
+>2000	Identifier	ash
+>2001	ArrayIndexing	stream [ \"sampleSize\" ]
+>2002	PrimaryExpression	\"sampleSize\"
+>2003	Identifier	stream
+>2004	ExpressionStatement	 
+>2005	AssignmentExpr	stream [ \"quality\" ] = ash -> getQuality ( )
+>2006	CallExpression	ash -> getQuality ( )
+>2007	ArgumentList	 
+>2008	Callee	ash -> getQuality
+>2009	PtrMemberAccess	ash -> getQuality
+>2010	Identifier	getQuality
+>2011	Identifier	ash
+>2012	ArrayIndexing	stream [ \"quality\" ]
+>2013	PrimaryExpression	\"quality\"
+>2014	Identifier	stream
+>2015	ExpressionStatement	 
+>2016	AssignmentExpr	stream [ \"suggestedBufferSize\" ] = ash -> getSuggestedBufferSize ( )
+>2017	CallExpression	ash -> getSuggestedBufferSize ( )
+>2018	ArgumentList	 
+>2019	Callee	ash -> getSuggestedBufferSize
+>2020	PtrMemberAccess	ash -> getSuggestedBufferSize
+>2021	Identifier	getSuggestedBufferSize
+>2022	Identifier	ash
+>2023	ArrayIndexing	stream [ \"suggestedBufferSize\" ]
+>2024	PrimaryExpression	\"suggestedBufferSize\"
+>2025	Identifier	stream
+>2026	ExpressionStatement	 
+>2027	AssignmentExpr	stream [ \"length\" ] = ash -> getLength ( )
+>2028	CallExpression	ash -> getLength ( )
+>2029	ArgumentList	 
+>2030	Callee	ash -> getLength
+>2031	PtrMemberAccess	ash -> getLength
+>2032	Identifier	getLength
+>2033	Identifier	ash
+>2034	ArrayIndexing	stream [ \"length\" ]
+>2035	PrimaryExpression	\"length\"
+>2036	Identifier	stream
+>2037	ExpressionStatement	 
+>2038	AssignmentExpr	stream [ \"startTime\" ] = ash -> getStartTime ( )
+>2039	CallExpression	ash -> getStartTime ( )
+>2040	ArgumentList	 
+>2041	Callee	ash -> getStartTime
+>2042	PtrMemberAccess	ash -> getStartTime
+>2043	Identifier	getStartTime
+>2044	Identifier	ash
+>2045	ArrayIndexing	stream [ \"startTime\" ]
+>2046	PrimaryExpression	\"startTime\"
+>2047	Identifier	stream
+>2048	ExpressionStatement	 
+>2049	AssignmentExpr	stream [ \"rate\" ] = ash -> getRate ( )
+>2050	CallExpression	ash -> getRate ( )
+>2051	ArgumentList	 
+>2052	Callee	ash -> getRate
+>2053	PtrMemberAccess	ash -> getRate
+>2054	Identifier	getRate
+>2055	Identifier	ash
+>2056	ArrayIndexing	stream [ \"rate\" ]
+>2057	PrimaryExpression	\"rate\"
+>2058	Identifier	stream
+>2059	ExpressionStatement	 
+>2060	AssignmentExpr	stream [ \"timeScale\" ] = ash -> getTimeScale ( )
+>2061	CallExpression	ash -> getTimeScale ( )
+>2062	ArgumentList	 
+>2063	Callee	ash -> getTimeScale
+>2064	PtrMemberAccess	ash -> getTimeScale
+>2065	Identifier	getTimeScale
+>2066	Identifier	ash
+>2067	ArrayIndexing	stream [ \"timeScale\" ]
+>2068	PrimaryExpression	\"timeScale\"
+>2069	Identifier	stream
+>2070	ExpressionStatement	 
+>2071	AssignmentExpr	stream [ \"initialFrames\" ] = ash -> getInitialFrames ( )
+>2072	CallExpression	ash -> getInitialFrames ( )
+>2073	ArgumentList	 
+>2074	Callee	ash -> getInitialFrames
+>2075	PtrMemberAccess	ash -> getInitialFrames
+>2076	Identifier	getInitialFrames
+>2077	Identifier	ash
+>2078	ArrayIndexing	stream [ \"initialFrames\" ]
+>2079	PrimaryExpression	\"initialFrames\"
+>2080	Identifier	stream
+>2081	ExpressionStatement	 
+>2082	AssignmentExpr	stream [ \"handler\" ] = tmp
+>2083	Identifier	tmp
+>2084	ArrayIndexing	stream [ \"handler\" ]
+>2085	PrimaryExpression	\"handler\"
+>2086	Identifier	stream
+>2087	ExpressionStatement	 
+>2088	AssignmentExpr	tmp [ 4 ] = 0
+>2089	PrimaryExpression	0
+>2090	ArrayIndexing	tmp [ 4 ]
+>2091	PrimaryExpression	4
+>2092	Identifier	tmp
+>2093	ExpressionStatement	 
+>2094	CallExpression	MO_FOURCC_TO_STR ( ash -> getHandler ( ) , tmp )
+>2095	ArgumentList	ash -> getHandler ( )
+>2096	Argument	tmp
+>2097	Identifier	tmp
+>2098	Argument	ash -> getHandler ( )
+>2099	CallExpression	ash -> getHandler ( )
+>2100	ArgumentList	 
+>2101	Callee	ash -> getHandler
+>2102	PtrMemberAccess	ash -> getHandler
+>2103	Identifier	getHandler
+>2104	Identifier	ash
+>2105	Callee	MO_FOURCC_TO_STR
+>2106	Identifier	MO_FOURCC_TO_STR
+>2107	ExpressionStatement	 
+>2108	AssignmentExpr	stream [ \"type\" ] = tmp
+>2109	Identifier	tmp
+>2110	ArrayIndexing	stream [ \"type\" ]
+>2111	PrimaryExpression	\"type\"
+>2112	Identifier	stream
+>2113	ExpressionStatement	 
+>2114	AssignmentExpr	tmp [ 4 ] = 0
+>2115	PrimaryExpression	0
+>2116	ArrayIndexing	tmp [ 4 ]
+>2117	PrimaryExpression	4
+>2118	Identifier	tmp
+>2119	ExpressionStatement	 
+>2120	CallExpression	MO_FOURCC_TO_STR ( ash -> getType ( ) , tmp )
+>2121	ArgumentList	ash -> getType ( )
+>2122	Argument	tmp
+>2123	Identifier	tmp
+>2124	Argument	ash -> getType ( )
+>2125	CallExpression	ash -> getType ( )
+>2126	ArgumentList	 
+>2127	Callee	ash -> getType
+>2128	PtrMemberAccess	ash -> getType
+>2129	Identifier	getType
+>2130	Identifier	ash
+>2131	Callee	MO_FOURCC_TO_STR
+>2132	Identifier	MO_FOURCC_TO_STR
+>2133	Condition	 
+>2134	EqualityExpression	ash != NULL
+>2135	Identifier	NULL
+>2136	Identifier	ash
+>2137	IdentifierDeclStatement	 
+>2138	IdentifierDecl	* ash = hl -> getStreamHeader ( )
+>2139	AssignmentExpr	* ash = hl -> getStreamHeader ( )
+>2140	CallExpression	hl -> getStreamHeader ( )
+>2141	ArgumentList	 
+>2142	Callee	hl -> getStreamHeader
+>2143	PtrMemberAccess	hl -> getStreamHeader
+>2144	Identifier	getStreamHeader
+>2145	Identifier	hl
+>2146	Identifier	ash
+>2147	Identifier	ash
+>2148	IdentifierDeclType	AviStreamHeader *
+>2149	IdentifierDeclStatement	 
+>2150	IdentifierDecl	* hl = * i
+>2151	AssignmentExpr	* hl = * i
+>2152	UnaryOp	* i
+>2153	Identifier	i
+>2154	UnaryOperator	*
+>2155	Identifier	hl
+>2156	Identifier	hl
+>2157	IdentifierDeclType	AviStreamHeaderList *
+>2158	ExpressionStatement	 
+>2159	CallExpression	stream -> setType ( Map )
+>2160	ArgumentList	Map
+>2161	Argument	Map
+>2162	Identifier	Map
+>2163	Callee	stream -> setType
+>2164	PtrMemberAccess	stream -> setType
+>2165	Identifier	setType
+>2166	Identifier	stream
+>2167	IdentifierDeclStatement	 
+>2168	IdentifierDecl	stream
+>2169	Identifier	stream
+>2170	IdentifierDeclType	DynamicObject
+>2171	UnaryExpression	 
+>2172	Identifier	i
+>2173	IncDec	++
+>2174	Condition	 
+>2175	EqualityExpression	i != shl . end ( )
+>2176	CallExpression	shl . end ( )
+>2177	ArgumentList	 
+>2178	Callee	shl . end
+>2179	MemberAccess	shl . end
+>2180	Identifier	end
+>2181	Identifier	shl
+>2182	Identifier	i
+>2183	ForInit	 
+>2184	IdentifierDeclStatement	StreamHeaderLists 
+>2185	IdentifierDecl	i = shl . begin ( )
+>2186	AssignmentExpr	i = shl . begin ( )
+>2187	CallExpression	shl . begin ( )
+>2188	ArgumentList	 
+>2189	Callee	shl . begin
+>2190	MemberAccess	shl . begin
+>2191	Identifier	begin
+>2192	Identifier	shl
+>2193	Identifier	i
+>2194	Identifier	i
+>2195	IdentifierDeclType	StreamHeaderLists 
+>2196	IdentifierDeclStatement	 
+>2197	IdentifierDecl	& shl = mHeaderList -> getStreamHeaderLists ( )
+>2198	AssignmentExpr	& shl = mHeaderList -> getStreamHeaderLists ( )
+>2199	CallExpression	mHeaderList -> getStreamHeaderLists ( )
+>2200	ArgumentList	 
+>2201	Callee	mHeaderList -> getStreamHeaderLists
+>2202	PtrMemberAccess	mHeaderList -> getStreamHeaderLists
+>2203	Identifier	getStreamHeaderLists
+>2204	Identifier	mHeaderList
+>2205	Identifier	shl
+>2206	Identifier	shl
+>2207	IdentifierDeclType	StreamHeaderLists &
+>2208	IdentifierDeclStatement	 
+>2209	IdentifierDecl	auds = false
+>2210	AssignmentExpr	auds = false
+>2211	Identifier	false
+>2212	Identifier	false
+>2213	Identifier	auds
+>2214	IdentifierDeclType	bool
+>2215	IdentifierDeclStatement	 
+>2216	IdentifierDecl	vids = false
+>2217	AssignmentExpr	vids = false
+>2218	Identifier	false
+>2219	Identifier	false
+>2220	Identifier	vids
+>2221	IdentifierDeclType	bool
+>2222	IdentifierDeclStatement	 
+>2223	IdentifierDecl	firstAuds = true
+>2224	AssignmentExpr	firstAuds = true
+>2225	Identifier	true
+>2226	Identifier	true
+>2227	Identifier	firstAuds
+>2228	IdentifierDeclType	bool
+>2229	IdentifierDeclStatement	 
+>2230	IdentifierDecl	firstVids = true
+>2231	AssignmentExpr	firstVids = true
+>2232	Identifier	true
+>2233	Identifier	true
+>2234	Identifier	firstVids
+>2235	IdentifierDeclType	bool
+>2236	ExpressionStatement	 
+>2237	CallExpression	mFormatDetails [ \"streams\" ] -> setType ( Array )
+>2238	ArgumentList	Array
+>2239	Argument	Array
+>2240	Identifier	Array
+>2241	Callee	mFormatDetails [ \"streams\" ] -> setType
+>2242	PtrMemberAccess	mFormatDetails [ \"streams\" ] -> setType
+>2243	Identifier	setType
+>2244	ArrayIndexing	mFormatDetails [ \"streams\" ]
+>2245	PrimaryExpression	\"streams\"
+>2246	Identifier	mFormatDetails
+>2247	ExpressionStatement	 
+>2248	AssignmentExpr	mFormatDetails [ \"videoTime\" ] = tmp
+>2249	Identifier	tmp
+>2250	ArrayIndexing	mFormatDetails [ \"videoTime\" ]
+>2251	PrimaryExpression	\"videoTime\"
+>2252	Identifier	mFormatDetails
+>2253	ExpressionStatement	 
+>2254	CallExpression	snprintf ( tmp , 100 , \"%.2f\" , videoTime )
+>2255	ArgumentList	tmp
+>2256	Argument	videoTime
+>2257	Identifier	videoTime
+>2258	Argument	\"%.2f\"
+>2259	PrimaryExpression	\"%.2f\"
+>2260	Argument	100
+>2261	PrimaryExpression	100
+>2262	Argument	tmp
+>2263	Identifier	tmp
+>2264	Callee	snprintf
+>2265	Identifier	snprintf
+>2266	IdentifierDeclStatement	 
+>2267	IdentifierDecl	tmp [ 100 ]
+>2268	PrimaryExpression	100
+>2269	Identifier	tmp
+>2270	IdentifierDeclType	char [ 100 ]
+>2271	ExpressionStatement	 
+>2272	AssignmentExpr	mFormatDetails [ \"videoLength\" ] = header -> getVideoLength ( )
+>2273	CallExpression	header -> getVideoLength ( )
+>2274	ArgumentList	 
+>2275	Callee	header -> getVideoLength
+>2276	PtrMemberAccess	header -> getVideoLength
+>2277	Identifier	getVideoLength
+>2278	Identifier	header
+>2279	ArrayIndexing	mFormatDetails [ \"videoLength\" ]
+>2280	PrimaryExpression	\"videoLength\"
+>2281	Identifier	mFormatDetails
+>2282	ExpressionStatement	 
+>2283	AssignmentExpr	mFormatDetails [ \"totalFrames\" ] = totalFrames
+>2284	Identifier	totalFrames
+>2285	ArrayIndexing	mFormatDetails [ \"totalFrames\" ]
+>2286	PrimaryExpression	\"totalFrames\"
+>2287	Identifier	mFormatDetails
+>2288	IfStatement	if ( totalFrames != 0 )
+>2289	CompoundStatement	 
+>2290	ExpressionStatement	 
+>2291	AssignmentExpr	videoTime *= totalFrames
+>2292	Identifier	totalFrames
+>2293	Identifier	videoTime
+>2294	ExpressionStatement	 
+>2295	AssignmentExpr	videoTime = header -> getMicrosecondsPerFrame ( ) / 1000000.0
+>2296	MultiplicativeExpression	header -> getMicrosecondsPerFrame ( ) / 1000000.0
+>2297	PrimaryExpression	1000000.0
+>2298	CallExpression	header -> getMicrosecondsPerFrame ( )
+>2299	ArgumentList	 
+>2300	Callee	header -> getMicrosecondsPerFrame
+>2301	PtrMemberAccess	header -> getMicrosecondsPerFrame
+>2302	Identifier	getMicrosecondsPerFrame
+>2303	Identifier	header
+>2304	Identifier	videoTime
+>2305	Condition	 
+>2306	EqualityExpression	totalFrames != 0
+>2307	PrimaryExpression	0
+>2308	Identifier	totalFrames
+>2309	IdentifierDeclStatement	 
+>2310	IdentifierDecl	videoTime = 0.0
+>2311	AssignmentExpr	videoTime = 0.0
+>2312	PrimaryExpression	0.0
+>2313	Identifier	videoTime
+>2314	Identifier	videoTime
+>2315	IdentifierDeclType	double
+>2316	IdentifierDeclStatement	 
+>2317	IdentifierDecl	totalFrames = ( mOdmlHeader != NULL ) ? mOdmlHeader -> getTotalFrames ( ) 
+>2318	AssignmentExpr	totalFrames = ( mOdmlHeader != NULL ) ? mOdmlHeader -> getTotalFrames ( ) 
+>2319	ConditionalExpression	( mOdmlHeader != NULL ) ? mOdmlHeader -> getTotalFrames ( ) 
+>2320	CallExpression	header -> getTotalFrames ( )
+>2321	ArgumentList	 
+>2322	Callee	header -> getTotalFrames
+>2323	PtrMemberAccess	header -> getTotalFrames
+>2324	Identifier	getTotalFrames
+>2325	Identifier	header
+>2326	CallExpression	mOdmlHeader -> getTotalFrames ( )
+>2327	ArgumentList	 
+>2328	Callee	mOdmlHeader -> getTotalFrames
+>2329	PtrMemberAccess	mOdmlHeader -> getTotalFrames
+>2330	Identifier	getTotalFrames
+>2331	Identifier	mOdmlHeader
+>2332	Condition	mOdmlHeader != NULL
+>2333	EqualityExpression	mOdmlHeader != NULL
+>2334	Identifier	NULL
+>2335	Identifier	mOdmlHeader
+>2336	Identifier	totalFrames
+>2337	Identifier	totalFrames
+>2338	IdentifierDeclType	uint32_t
+>2339	ExpressionStatement	 
+>2340	AssignmentExpr	mFormatDetails [ \"microsecondsPerFrame\" ] = header -> getMicrosecondsPerFrame ( )
+>2341	CallExpression	header -> getMicrosecondsPerFrame ( )
+>2342	ArgumentList	 
+>2343	Callee	header -> getMicrosecondsPerFrame
+>2344	PtrMemberAccess	header -> getMicrosecondsPerFrame
+>2345	Identifier	getMicrosecondsPerFrame
+>2346	Identifier	header
+>2347	ArrayIndexing	mFormatDetails [ \"microsecondsPerFrame\" ]
+>2348	PrimaryExpression	\"microsecondsPerFrame\"
+>2349	Identifier	mFormatDetails
+>2350	ExpressionStatement	 
+>2351	AssignmentExpr	mFormatDetails [ \"initialFrames\" ] = header -> getInitialFrames ( )
+>2352	CallExpression	header -> getInitialFrames ( )
+>2353	ArgumentList	 
+>2354	Callee	header -> getInitialFrames
+>2355	PtrMemberAccess	header -> getInitialFrames
+>2356	Identifier	getInitialFrames
+>2357	Identifier	header
+>2358	ArrayIndexing	mFormatDetails [ \"initialFrames\" ]
+>2359	PrimaryExpression	\"initialFrames\"
+>2360	Identifier	mFormatDetails
+>2361	ExpressionStatement	 
+>2362	AssignmentExpr	mFormatDetails [ \"frameRate\" ] = header -> getFrameRate ( )
+>2363	CallExpression	header -> getFrameRate ( )
+>2364	ArgumentList	 
+>2365	Callee	header -> getFrameRate
+>2366	PtrMemberAccess	header -> getFrameRate
+>2367	Identifier	getFrameRate
+>2368	Identifier	header
+>2369	ArrayIndexing	mFormatDetails [ \"frameRate\" ]
+>2370	PrimaryExpression	\"frameRate\"
+>2371	Identifier	mFormatDetails
+>2372	ExpressionStatement	 
+>2373	AssignmentExpr	mFormatDetails [ \"dataRate\" ] = header -> getDataRate ( )
+>2374	CallExpression	header -> getDataRate ( )
+>2375	ArgumentList	 
+>2376	Callee	header -> getDataRate
+>2377	PtrMemberAccess	header -> getDataRate
+>2378	Identifier	getDataRate
+>2379	Identifier	header
+>2380	ArrayIndexing	mFormatDetails [ \"dataRate\" ]
+>2381	PrimaryExpression	\"dataRate\"
+>2382	Identifier	mFormatDetails
+>2383	ExpressionStatement	 
+>2384	AssignmentExpr	mFormatDetails [ \"suggestedBufferSize\" ] = header -> getSuggestedBufferSize ( )
+>2385	CallExpression	header -> getSuggestedBufferSize ( )
+>2386	ArgumentList	 
+>2387	Callee	header -> getSuggestedBufferSize
+>2388	PtrMemberAccess	header -> getSuggestedBufferSize
+>2389	Identifier	getSuggestedBufferSize
+>2390	Identifier	header
+>2391	ArrayIndexing	mFormatDetails [ \"suggestedBufferSize\" ]
+>2392	PrimaryExpression	\"suggestedBufferSize\"
+>2393	Identifier	mFormatDetails
+>2394	ExpressionStatement	 
+>2395	AssignmentExpr	mFormatDetails [ \"timeScale\" ] = header -> getTimeScale ( )
+>2396	CallExpression	header -> getTimeScale ( )
+>2397	ArgumentList	 
+>2398	Callee	header -> getTimeScale
+>2399	PtrMemberAccess	header -> getTimeScale
+>2400	Identifier	getTimeScale
+>2401	Identifier	header
+>2402	ArrayIndexing	mFormatDetails [ \"timeScale\" ]
+>2403	PrimaryExpression	\"timeScale\"
+>2404	Identifier	mFormatDetails
+>2405	ExpressionStatement	 
+>2406	AssignmentExpr	mFormatDetails [ \"copyrighted\" ] = header -> isAviCopyrighted ( )
+>2407	CallExpression	header -> isAviCopyrighted ( )
+>2408	ArgumentList	 
+>2409	Callee	header -> isAviCopyrighted
+>2410	PtrMemberAccess	header -> isAviCopyrighted
+>2411	Identifier	isAviCopyrighted
+>2412	Identifier	header
+>2413	ArrayIndexing	mFormatDetails [ \"copyrighted\" ]
+>2414	PrimaryExpression	\"copyrighted\"
+>2415	Identifier	mFormatDetails
+>2416	ExpressionStatement	 
+>2417	AssignmentExpr	mFormatDetails [ \"realTime\" ] = header -> isAviWasCaptureFile ( )
+>2418	CallExpression	header -> isAviWasCaptureFile ( )
+>2419	ArgumentList	 
+>2420	Callee	header -> isAviWasCaptureFile
+>2421	PtrMemberAccess	header -> isAviWasCaptureFile
+>2422	Identifier	isAviWasCaptureFile
+>2423	Identifier	header
+>2424	ArrayIndexing	mFormatDetails [ \"realTime\" ]
+>2425	PrimaryExpression	\"realTime\"
+>2426	Identifier	mFormatDetails
+>2427	ExpressionStatement	 
+>2428	AssignmentExpr	mFormatDetails [ \"interleaved\" ] = header -> isAviIsInterleaved ( )
+>2429	CallExpression	header -> isAviIsInterleaved ( )
+>2430	ArgumentList	 
+>2431	Callee	header -> isAviIsInterleaved
+>2432	PtrMemberAccess	header -> isAviIsInterleaved
+>2433	Identifier	isAviIsInterleaved
+>2434	Identifier	header
+>2435	ArrayIndexing	mFormatDetails [ \"interleaved\" ]
+>2436	PrimaryExpression	\"interleaved\"
+>2437	Identifier	mFormatDetails
+>2438	ExpressionStatement	 
+>2439	AssignmentExpr	mFormatDetails [ \"mustUseIndex\" ] = header -> isAviMustUseIndex ( )
+>2440	CallExpression	header -> isAviMustUseIndex ( )
+>2441	ArgumentList	 
+>2442	Callee	header -> isAviMustUseIndex
+>2443	PtrMemberAccess	header -> isAviMustUseIndex
+>2444	Identifier	isAviMustUseIndex
+>2445	Identifier	header
+>2446	ArrayIndexing	mFormatDetails [ \"mustUseIndex\" ]
+>2447	PrimaryExpression	\"mustUseIndex\"
+>2448	Identifier	mFormatDetails
+>2449	ExpressionStatement	 
+>2450	AssignmentExpr	mFormatDetails [ \"hasIndex\" ] = header -> isAviHasIndex ( )
+>2451	CallExpression	header -> isAviHasIndex ( )
+>2452	ArgumentList	 
+>2453	Callee	header -> isAviHasIndex
+>2454	PtrMemberAccess	header -> isAviHasIndex
+>2455	Identifier	isAviHasIndex
+>2456	Identifier	header
+>2457	ArrayIndexing	mFormatDetails [ \"hasIndex\" ]
+>2458	PrimaryExpression	\"hasIndex\"
+>2459	Identifier	mFormatDetails
+>2460	ExpressionStatement	 
+>2461	AssignmentExpr	mFormatDetails [ \"streamCount\" ] = header -> getStreamCount ( )
+>2462	CallExpression	header -> getStreamCount ( )
+>2463	ArgumentList	 
+>2464	Callee	header -> getStreamCount
+>2465	PtrMemberAccess	header -> getStreamCount
+>2466	Identifier	getStreamCount
+>2467	Identifier	header
+>2468	ArrayIndexing	mFormatDetails [ \"streamCount\" ]
+>2469	PrimaryExpression	\"streamCount\"
+>2470	Identifier	mFormatDetails
+>2471	ExpressionStatement	 
+>2472	AssignmentExpr	mFormatDetails [ \"resolutionHeight\" ] = header -> getHeight ( )
+>2473	CallExpression	header -> getHeight ( )
+>2474	ArgumentList	 
+>2475	Callee	header -> getHeight
+>2476	PtrMemberAccess	header -> getHeight
+>2477	Identifier	getHeight
+>2478	Identifier	header
+>2479	ArrayIndexing	mFormatDetails [ \"resolutionHeight\" ]
+>2480	PrimaryExpression	\"resolutionHeight\"
+>2481	Identifier	mFormatDetails
+>2482	ExpressionStatement	 
+>2483	AssignmentExpr	mFormatDetails [ \"resolutionWidth\" ] = header -> getWidth ( )
+>2484	CallExpression	header -> getWidth ( )
+>2485	ArgumentList	 
+>2486	Callee	header -> getWidth
+>2487	PtrMemberAccess	header -> getWidth
+>2488	Identifier	getWidth
+>2489	Identifier	header
+>2490	ArrayIndexing	mFormatDetails [ \"resolutionWidth\" ]
+>2491	PrimaryExpression	\"resolutionWidth\"
+>2492	Identifier	mFormatDetails
+>2493	Condition	 
+>2494	EqualityExpression	header != NULL
+>2495	Identifier	NULL
+>2496	Identifier	header
+>2497	IdentifierDeclStatement	 
+>2498	IdentifierDecl	* header = getAviHeader ( )
+>2499	AssignmentExpr	* header = getAviHeader ( )
+>2500	CallExpression	getAviHeader ( )
+>2501	ArgumentList	 
+>2502	Callee	getAviHeader
+>2503	Identifier	getAviHeader
+>2504	Identifier	header
+>2505	Identifier	header
+>2506	IdentifierDeclType	AviHeader *
+>2507	IfStatement	if ( ! isFormatRecognized ( ) )
+>2508	ElseStatement	else
+>2509	CompoundStatement	 
+>2510	ExpressionStatement	 
+>2511	AssignmentExpr	mFormatDetails [ \"contentType\" ] = \"video/x-msvideo\"
+>2512	PrimaryExpression	\"video/x-msvideo\"
+>2513	ArrayIndexing	mFormatDetails [ \"contentType\" ]
+>2514	PrimaryExpression	\"contentType\"
+>2515	Identifier	mFormatDetails
+>2516	ExpressionStatement	 
+>2517	AssignmentExpr	mFormatDetails [ \"inspectorType\" ] = DataFormatInspector 
+>2518	Identifier	DataFormatInspector 
+>2519	ArrayIndexing	mFormatDetails [ \"inspectorType\" ]
+>2520	PrimaryExpression	\"inspectorType\"
+>2521	Identifier	mFormatDetails
+>2522	CompoundStatement	 
+>2523	ExpressionStatement	 
+>2524	AssignmentExpr	mFormatDetails [ \"contentType\" ] = \"application/octet-stream\"
+>2525	PrimaryExpression	\"application/octet-stream\"
+>2526	ArrayIndexing	mFormatDetails [ \"contentType\" ]
+>2527	PrimaryExpression	\"contentType\"
+>2528	Identifier	mFormatDetails
+>2529	ExpressionStatement	 
+>2530	AssignmentExpr	mFormatDetails [ \"inspectorType\" ] = DataFormatInspector 
+>2531	Identifier	DataFormatInspector 
+>2532	ArrayIndexing	mFormatDetails [ \"inspectorType\" ]
+>2533	PrimaryExpression	\"inspectorType\"
+>2534	Identifier	mFormatDetails
+>2535	Condition	 
+>2536	UnaryOp	! isFormatRecognized ( )
+>2537	CallExpression	isFormatRecognized ( )
+>2538	ArgumentList	 
+>2539	Callee	isFormatRecognized
+>2540	Identifier	isFormatRecognized
+>2541	UnaryOperator	!
+>2542	ExpressionStatement	 
+>2543	AssignmentExpr	mFormatDetails [ \"inspectorName\" ] = \"bitmunk.data.AviDetector\"
+>2544	PrimaryExpression	\"bitmunk.data.AviDetector\"
+>2545	ArrayIndexing	mFormatDetails [ \"inspectorName\" ]
+>2546	PrimaryExpression	\"inspectorName\"
+>2547	Identifier	mFormatDetails
+>2548	Condition	 
+>2549	Identifier	mFormatDetailsNeedUpdate
+>2645	FunctionDef	AviDetector 
+>2646	ParameterList	 
+>2647	ReturnType	AviHeader *
+>2648	CompoundStatement	 
+>2649	ReturnStatement	 
+>2650	Identifier	rval
+>2651	IfStatement	if ( mHeaderList != NULL )
+>2652	CompoundStatement	 
+>2653	ExpressionStatement	 
+>2654	AssignmentExpr	rval = & mHeaderList -> getMainHeader ( )
+>2655	UnaryOp	& mHeaderList -> getMainHeader ( )
+>2656	CallExpression	mHeaderList -> getMainHeader ( )
+>2657	ArgumentList	 
+>2658	Callee	mHeaderList -> getMainHeader
+>2659	PtrMemberAccess	mHeaderList -> getMainHeader
+>2660	Identifier	getMainHeader
+>2661	Identifier	mHeaderList
+>2662	UnaryOperator	&
+>2663	Identifier	rval
+>2664	Condition	 
+>2665	EqualityExpression	mHeaderList != NULL
+>2666	Identifier	NULL
+>2667	Identifier	mHeaderList
+>2668	IdentifierDeclStatement	 
+>2669	IdentifierDecl	* rval = NULL
+>2670	AssignmentExpr	* rval = NULL
+>2671	Identifier	NULL
+>2672	Identifier	NULL
+>2673	Identifier	rval
+>2674	IdentifierDeclType	AviHeader *
+<5=7,6
+<11=13,12
+<13=14
+<14=15
+<15=17,16
+<17=18
+<22=25,24,23
+<25=104,91,78,74,70,66,62,55,48,42,36,30,26
+<26=27
+<27=29,28
+<30=31
+<31=33,32
+<33=35,34
+<36=37
+<37=39,38
+<39=41,40
+<42=43
+<43=45,44
+<45=47,46
+<48=49
+<49=51,50
+<51=52
+<52=54,53
+<55=56
+<56=58,57
+<58=59
+<59=61,60
+<62=63
+<63=65,64
+<66=67
+<67=69,68
+<70=71
+<71=73,72
+<74=75
+<75=77,76
+<78=87,79
+<79=86,84,80
+<80=81
+<81=83,82
+<84=85
+<87=88
+<88=90,89
+<91=100,92
+<92=99,97,93
+<93=94
+<94=96,95
+<97=98
+<100=101
+<101=103,102
+<104=113,105
+<105=112,110,106
+<106=107
+<107=109,108
+<110=111
+<113=114
+<114=116,115
+<133=145,144,134
+<134=141,138,135
+<135=137,136
+<138=140,139
+<141=143,142
+<145=670,148,146
+<146=147
+<148=656,625,149
+<149=150
+<150=604,468,151
+<151=152
+<152=450,370,153
+<153=154
+<154=352,254,155
+<155=156
+<156=234,171,157
+<157=158
+<158=159
+<159=160
+<160=169,161
+<161=162
+<162=163
+<163=165,164
+<165=166
+<166=168,167
+<169=170
+<171=225,172
+<172=221,179,173
+<173=174
+<174=175
+<175=176
+<176=178,177
+<179=220,219,218,217,216,215,214,213,212,211,210,209,208,207,203,192,180
+<180=181
+<181=190,182
+<182=183
+<183=184
+<184=186,185
+<186=187
+<187=189,188
+<190=191
+<192=193
+<193=199,194
+<194=197,195
+<195=196
+<197=198
+<199=200
+<200=202,201
+<203=204
+<204=206,205
+<221=222
+<222=224,223
+<225=226
+<226=233,232,227
+<227=231,228
+<228=230,229
+<234=235
+<235=253,236
+<236=250,237
+<237=248,238
+<238=241,239
+<239=240
+<241=242
+<242=244,243
+<244=245
+<245=247,246
+<248=249
+<250=252,251
+<254=338,255
+<255=334,262,256
+<256=257
+<257=258
+<258=259
+<259=261,260
+<262=333,332,331,330,329,328,327,326,325,324,323,322,321,320,313,302,293,279,275,263
+<263=264
+<264=273,265
+<265=266
+<266=267
+<267=269,268
+<269=270
+<270=272,271
+<273=274
+<275=276
+<276=278,277
+<279=280
+<280=284,281
+<281=282
+<282=283
+<284=285
+<285=287,286
+<287=289,288
+<289=290
+<290=292,291
+<293=294
+<294=298,295
+<295=296
+<296=297
+<298=299
+<299=301,300
+<302=303
+<303=309,304
+<304=307,305
+<305=306
+<307=308
+<309=310
+<310=312,311
+<313=314
+<314=319,318,315
+<315=317,316
+<334=335
+<335=337,336
+<338=339
+<339=351,350,340
+<340=349,341
+<341=348,342
+<342=344,343
+<344=345
+<345=347,346
+<352=353
+<353=367,354
+<354=365,355
+<355=358,356
+<356=357
+<358=359
+<359=361,360
+<361=362
+<362=364,363
+<365=366
+<367=369,368
+<370=436,371
+<371=432,378,372
+<372=373
+<373=374
+<374=375
+<375=377,376
+<378=431,430,429,428,427,426,425,424,423,422,421,420,419,418,411,400,391,379
+<379=380
+<380=389,381
+<381=382
+<382=383
+<383=385,384
+<385=386
+<386=388,387
+<389=390
+<391=392
+<392=396,393
+<393=394
+<394=395
+<396=397
+<397=399,398
+<400=401
+<401=407,402
+<402=405,403
+<403=404
+<405=406
+<407=408
+<408=410,409
+<411=412
+<412=417,416,413
+<413=415,414
+<432=433
+<433=435,434
+<436=437
+<437=449,448,438
+<438=447,439
+<439=446,440
+<440=442,441
+<442=443
+<443=445,444
+<450=451
+<451=465,452
+<452=463,453
+<453=456,454
+<454=455
+<456=457
+<457=459,458
+<459=460
+<460=462,461
+<463=464
+<465=467,466
+<468=603,602,601,600,599,598,597,596,595,594,593,592,591,590,469
+<469=584,470
+<470=570,471
+<471=561,486,472
+<472=473
+<473=474
+<474=475
+<475=484,476
+<476=477
+<477=478
+<478=480,479
+<480=481
+<481=483,482
+<484=485
+<486=557,542,487
+<487=519,506,488
+<488=489
+<489=502,490
+<490=491
+<491=500,492
+<492=493
+<493=494
+<494=496,495
+<496=497
+<497=499,498
+<500=501
+<502=503
+<503=505,504
+<506=515,514,513,512,511,510,509,508,507
+<515=516
+<516=518,517
+<519=520
+<520=534,521
+<521=532,522
+<522=523
+<523=524
+<524=530,525
+<525=526
+<526=527
+<527=529,528
+<530=531
+<532=533
+<534=541,535
+<535=537,536
+<537=538
+<538=540,539
+<542=543
+<543=556,544
+<544=554,545
+<545=552,550,548,546
+<546=547
+<548=549
+<550=551
+<552=553
+<554=555
+<557=558
+<558=560,559
+<561=562
+<562=568,563
+<563=566,564
+<564=565
+<566=567
+<568=569
+<570=571
+<571=583,582,572
+<572=581,573
+<573=579,574
+<574=575
+<575=576
+<576=578,577
+<579=580
+<584=585
+<585=589,586
+<586=588,587
+<604=605
+<605=619,606
+<606=617,607
+<607=610,608
+<608=609
+<610=611
+<611=613,612
+<613=614
+<614=616,615
+<617=618
+<619=621,620
+<621=622
+<622=624,623
+<625=652,651,650,649,648,647,646,645,644,643,642,641,640,639,638,626
+<626=627
+<627=636,628
+<628=629
+<629=630
+<630=632,631
+<632=633
+<633=635,634
+<636=637
+<652=653
+<653=655,654
+<656=657
+<657=668,658
+<658=661,659
+<659=660
+<661=662
+<662=664,663
+<664=665
+<665=667,666
+<668=669
+<670=671
+<671=676,675,672
+<672=674,673
+<711=723,722,712
+<712=719,716,713
+<713=715,714
+<716=718,717
+<719=721,720
+<723=1056,726,724
+<724=725
+<726=1038,976,727
+<727=728
+<728=962,923,729
+<729=730
+<730=909,890,731
+<731=732
+<732=876,845,733
+<733=734
+<734=827,749,735
+<735=736
+<736=737
+<737=738
+<738=747,739
+<739=740
+<740=741
+<741=743,742
+<743=744
+<744=746,745
+<747=748
+<749=821,815,808,804,800,799,798,797,796,795,794,793,792,791,790,789,788,787,786,762,750
+<750=751
+<751=760,752
+<752=753
+<753=754
+<754=756,755
+<756=757
+<757=759,758
+<760=761
+<762=782,763
+<763=768,764
+<764=765
+<765=767,766
+<768=769
+<769=773,770
+<770=771
+<771=772
+<773=774
+<774=776,775
+<776=778,777
+<778=779
+<779=781,780
+<782=783
+<783=785,784
+<800=801
+<801=803,802
+<804=805
+<805=807,806
+<808=809
+<809=813,810
+<810=811
+<811=812
+<813=814
+<815=816
+<816=818,817
+<818=820,819
+<821=822
+<822=824,823
+<824=826,825
+<827=828
+<828=842,829
+<829=840,830
+<830=833,831
+<831=832
+<833=834
+<834=836,835
+<836=837
+<837=839,838
+<840=841
+<842=844,843
+<845=872,871,870,869,868,867,866,865,864,863,862,861,860,859,858,846
+<846=847
+<847=856,848
+<848=849
+<849=850
+<850=852,851
+<852=853
+<853=855,854
+<856=857
+<872=873
+<873=875,874
+<876=877
+<877=888,878
+<878=881,879
+<879=880
+<881=882
+<882=884,883
+<884=885
+<885=887,886
+<888=889
+<890=905,904,903,902,901,900,899,898,897,896,895,894,893,892,891
+<905=906
+<906=908,907
+<909=910
+<910=921,911
+<911=914,912
+<912=913
+<914=915
+<915=917,916
+<917=918
+<918=920,919
+<921=922
+<923=961,960,959,958,957,956,955,954,953,952,951,950,949,948,928,924
+<924=925
+<925=927,926
+<928=944,929
+<929=930
+<930=931
+<931=935,932
+<932=933
+<933=934
+<935=936
+<936=938,937
+<938=940,939
+<940=941
+<941=943,942
+<944=945
+<945=947,946
+<962=963
+<963=974,964
+<964=967,965
+<965=966
+<967=968
+<968=970,969
+<970=971
+<971=973,972
+<974=975
+<976=1027,977
+<977=1023,984,978
+<978=979
+<979=980
+<980=981
+<981=983,982
+<984=1022,1021,1020,1019,1018,1017,1016,1015,1014,1013,1012,1011,1010,1009,1005,994,985
+<985=986
+<986=992,987
+<987=988
+<988=989
+<989=991,990
+<992=993
+<994=995
+<995=1001,996
+<996=999,997
+<997=998
+<999=1000
+<1001=1002
+<1002=1004,1003
+<1005=1006
+<1006=1008,1007
+<1023=1024
+<1024=1026,1025
+<1027=1028
+<1028=1037,1036,1029
+<1029=1035,1030
+<1030=1034,1031
+<1031=1033,1032
+<1038=1039
+<1039=1053,1040
+<1040=1051,1041
+<1041=1044,1042
+<1042=1043
+<1044=1045
+<1045=1047,1046
+<1047=1048
+<1048=1050,1049
+<1051=1052
+<1053=1055,1054
+<1056=1057
+<1057=1062,1061,1058
+<1058=1060,1059
+<1090=1102,1101,1091
+<1091=1098,1095,1092
+<1092=1094,1093
+<1095=1097,1096
+<1098=1100,1099
+<1102=1105,1103
+<1103=1104
+<1105=1139,1120,1106
+<1106=1107
+<1107=1108
+<1108=1109
+<1109=1118,1110
+<1110=1111
+<1111=1112
+<1112=1114,1113
+<1114=1115
+<1115=1117,1116
+<1118=1119
+<1120=1135,1134,1133,1132,1131,1130,1129,1128,1127,1126,1125,1124,1123,1122,1121
+<1135=1136
+<1136=1138,1137
+<1139=1140
+<1140=1154,1141
+<1141=1152,1142
+<1142=1145,1143
+<1143=1144
+<1145=1146
+<1146=1148,1147
+<1148=1149
+<1149=1151,1150
+<1152=1153
+<1154=1156,1155
+<1169=1184,1183,1170
+<1170=1180,1177,1174,1171
+<1171=1173,1172
+<1174=1176,1175
+<1177=1179,1178
+<1180=1182,1181
+<1184=1358,1187,1185
+<1185=1186
+<1187=1347,1190,1188
+<1188=1189
+<1190=1336,1323,1314,1300,1282,1278,1274,1263,1259,1250,1235,1222,1215,1209,1191
+<1191=1204,1192
+<1192=1193
+<1193=1194
+<1194=1202,1195
+<1195=1200,1198,1196
+<1196=1197
+<1198=1199
+<1200=1201
+<1202=1203
+<1204=1205
+<1205=1207,1206
+<1207=1208
+<1209=1210
+<1210=1214,1211
+<1211=1213,1212
+<1215=1216
+<1216=1218,1217
+<1218=1219
+<1219=1221,1220
+<1222=1223
+<1223=1231,1224
+<1224=1227,1225
+<1225=1226
+<1227=1228
+<1228=1230,1229
+<1231=1232
+<1232=1234,1233
+<1235=1236
+<1236=1249,1248,1237
+<1237=1245,1238
+<1238=1244,1239
+<1239=1241,1240
+<1241=1243,1242
+<1245=1247,1246
+<1250=1251
+<1251=1255,1252
+<1252=1253
+<1253=1254
+<1255=1256
+<1256=1258,1257
+<1259=1260
+<1260=1262,1261
+<1263=1264
+<1264=1273,1272,1265
+<1265=1271,1266
+<1266=1268,1267
+<1268=1270,1269
+<1274=1275
+<1275=1277,1276
+<1278=1279
+<1279=1281,1280
+<1282=1288,1283
+<1283=1284
+<1284=1285
+<1285=1287,1286
+<1288=1289
+<1289=1297,1290
+<1290=1292,1291
+<1292=1296,1293
+<1293=1295,1294
+<1297=1299,1298
+<1300=1301
+<1301=1313,1312,1302
+<1302=1311,1303
+<1303=1310,1304
+<1304=1306,1305
+<1306=1307
+<1307=1309,1308
+<1314=1315
+<1315=1322,1321,1316
+<1316=1320,1317
+<1317=1319,1318
+<1323=1324
+<1324=1335,1325
+<1325=1334,1326
+<1326=1333,1327
+<1327=1329,1328
+<1329=1330
+<1330=1332,1331
+<1336=1337
+<1337=1345,1338
+<1338=1343,1341,1339
+<1339=1340
+<1341=1342
+<1343=1344
+<1345=1346
+<1347=1348
+<1348=1352,1349
+<1349=1351,1350
+<1352=1354,1353
+<1354=1355
+<1355=1357,1356
+<1358=1359
+<1359=1364,1363,1360
+<1360=1362,1361
+<1389=1398,1397,1390
+<1390=1394,1391
+<1391=1393,1392
+<1394=1396,1395
+<1398=1566,1562,1546,1429,1401,1399
+<1399=1400
+<1401=1421,1402
+<1402=1414,1410,1403
+<1403=1404
+<1404=1408,1405
+<1405=1406
+<1406=1407
+<1408=1409
+<1410=1411
+<1411=1413,1412
+<1414=1415
+<1415=1419,1416
+<1416=1417
+<1417=1418
+<1419=1420
+<1421=1422
+<1422=1426,1423
+<1423=1425,1424
+<1426=1428,1427
+<1429=1542,1537,1430
+<1430=1431
+<1431=1528,1493,1432
+<1432=1433
+<1433=1484,1449,1434
+<1434=1435
+<1435=1436
+<1436=1437
+<1437=1448,1438
+<1438=1446,1439
+<1439=1444,1442,1440
+<1440=1441
+<1442=1443
+<1444=1445
+<1446=1447
+<1449=1450
+<1450=1480,1451
+<1451=1476,1465,1452
+<1452=1453
+<1453=1464,1454
+<1454=1462,1455
+<1455=1460,1458,1456
+<1456=1457
+<1458=1459
+<1460=1461
+<1462=1463
+<1465=1466
+<1466=1472,1467
+<1467=1470,1468
+<1468=1469
+<1470=1471
+<1472=1473
+<1473=1475,1474
+<1476=1477
+<1477=1479,1478
+<1480=1481
+<1481=1483,1482
+<1484=1485
+<1485=1487,1486
+<1487=1489,1488
+<1489=1490
+<1490=1492,1491
+<1493=1494
+<1494=1524,1495
+<1495=1520,1509,1496
+<1496=1497
+<1497=1508,1498
+<1498=1506,1499
+<1499=1504,1502,1500
+<1500=1501
+<1502=1503
+<1504=1505
+<1506=1507
+<1509=1510
+<1510=1516,1511
+<1511=1514,1512
+<1512=1513
+<1514=1515
+<1516=1517
+<1517=1519,1518
+<1520=1521
+<1521=1523,1522
+<1524=1525
+<1525=1527,1526
+<1528=1529
+<1529=1531,1530
+<1531=1533,1532
+<1533=1534
+<1534=1536,1535
+<1537=1538
+<1538=1539
+<1539=1541,1540
+<1542=1543
+<1543=1545,1544
+<1546=1547
+<1547=1561,1560,1548
+<1548=1559,1549
+<1549=1557,1550
+<1550=1555,1553,1551
+<1551=1552
+<1553=1554
+<1555=1556
+<1557=1558
+<1562=1563
+<1563=1565,1564
+<1566=1567
+<1567=1572,1571,1568
+<1568=1570,1569
+<1594=1597,1596,1595
+<1597=1605,1598
+<1598=1599
+<1599=1601,1600
+<1601=1602
+<1602=1604,1603
+<1605=2548,1606
+<1606=2542,2507,2497,1607
+<1607=2493,1608
+<1608=2482,2471,2460,2449,2438,2427,2416,2405,2394,2383,2372,2361,2350,2339,2316,2309,2288,2282,2271,2266,2253,2247,2236,2229,2222,2215,2208,2196,1646,1613,1609
+<1609=1610
+<1610=1612,1611
+<1613=1637,1625,1614
+<1614=1615
+<1615=1616
+<1616=1617
+<1617=1621,1618
+<1618=1619
+<1619=1620
+<1621=1622
+<1622=1624,1623
+<1625=1626
+<1626=1627
+<1627=1634,1628
+<1628=1630,1629
+<1630=1631
+<1631=1633,1632
+<1634=1636,1635
+<1637=1638
+<1638=1645,1639
+<1639=1641,1640
+<1641=1642
+<1642=1644,1643
+<1646=2183,2174,2171,1647
+<1647=2167,2158,2149,2137,1959,1659,1648
+<1648=1649
+<1649=1653,1650
+<1650=1651
+<1651=1652
+<1653=1654
+<1654=1656,1655
+<1656=1658,1657
+<1659=1955,1660
+<1660=1943,1661
+<1661=1939,1662
+<1662=1663
+<1663=1937,1810,1664
+<1664=1665
+<1665=1808,1666
+<1666=1797,1786,1775,1764,1753,1742,1731,1667
+<1667=1729,1668
+<1668=1717,1673,1669
+<1669=1670
+<1670=1672,1671
+<1673=1715,1674
+<1674=1714,1708,1707,1706,1700,1699,1698,1692,1691,1690,1684,1683,1681,1675
+<1675=1676
+<1676=1678,1677
+<1678=1680,1679
+<1681=1682
+<1684=1685
+<1685=1687,1686
+<1687=1689,1688
+<1692=1693
+<1693=1695,1694
+<1695=1697,1696
+<1700=1701
+<1701=1703,1702
+<1703=1705,1704
+<1708=1709
+<1709=1711,1710
+<1711=1713,1712
+<1715=1716
+<1717=1718
+<1718=1728,1727,1719
+<1719=1726,1720
+<1720=1722,1721
+<1722=1723
+<1723=1725,1724
+<1729=1730
+<1731=1732
+<1732=1739,1733
+<1733=1735,1734
+<1735=1736
+<1736=1738,1737
+<1739=1741,1740
+<1742=1743
+<1743=1750,1744
+<1744=1746,1745
+<1746=1747
+<1747=1749,1748
+<1750=1752,1751
+<1753=1754
+<1754=1761,1755
+<1755=1757,1756
+<1757=1758
+<1758=1760,1759
+<1761=1763,1762
+<1764=1765
+<1765=1772,1766
+<1766=1768,1767
+<1768=1769
+<1769=1771,1770
+<1772=1774,1773
+<1775=1776
+<1776=1783,1777
+<1777=1779,1778
+<1779=1780
+<1780=1782,1781
+<1783=1785,1784
+<1786=1787
+<1787=1794,1788
+<1788=1790,1789
+<1790=1791
+<1791=1793,1792
+<1794=1796,1795
+<1797=1798
+<1798=1805,1799
+<1799=1801,1800
+<1801=1802
+<1802=1804,1803
+<1805=1807,1806
+<1808=1809
+<1810=1926,1915,1904,1893,1882,1871,1860,1849,1838,1827,1811
+<1811=1825,1812
+<1812=1817,1813
+<1813=1814
+<1814=1816,1815
+<1817=1818
+<1818=1822,1819
+<1819=1821,1820
+<1822=1824,1823
+<1825=1826
+<1827=1828
+<1828=1835,1829
+<1829=1831,1830
+<1831=1832
+<1832=1834,1833
+<1835=1837,1836
+<1838=1839
+<1839=1846,1840
+<1840=1842,1841
+<1842=1843
+<1843=1845,1844
+<1846=1848,1847
+<1849=1850
+<1850=1857,1851
+<1851=1853,1852
+<1853=1854
+<1854=1856,1855
+<1857=1859,1858
+<1860=1861
+<1861=1868,1862
+<1862=1864,1863
+<1864=1865
+<1865=1867,1866
+<1868=1870,1869
+<1871=1872
+<1872=1879,1873
+<1873=1875,1874
+<1875=1876
+<1876=1878,1877
+<1879=1881,1880
+<1882=1883
+<1883=1890,1884
+<1884=1886,1885
+<1886=1887
+<1887=1889,1888
+<1890=1892,1891
+<1893=1894
+<1894=1901,1895
+<1895=1897,1896
+<1897=1898
+<1898=1900,1899
+<1901=1903,1902
+<1904=1905
+<1905=1912,1906
+<1906=1908,1907
+<1908=1909
+<1909=1911,1910
+<1912=1914,1913
+<1915=1916
+<1916=1923,1917
+<1917=1919,1918
+<1919=1920
+<1920=1922,1921
+<1923=1925,1924
+<1926=1927
+<1927=1934,1928
+<1928=1930,1929
+<1930=1931
+<1931=1933,1932
+<1934=1936,1935
+<1937=1938
+<1939=1940
+<1940=1942,1941
+<1943=1944
+<1944=1954,1953,1945
+<1945=1952,1946
+<1946=1948,1947
+<1948=1949
+<1949=1951,1950
+<1955=1956
+<1956=1958,1957
+<1959=2133,1960
+<1960=2119,2113,2107,2093,2087,2081,2070,2059,2048,2037,2026,2015,2004,1993,1977,1961
+<1961=1962
+<1962=1976,1963
+<1963=1974,1964
+<1964=1967,1965
+<1965=1966
+<1967=1968
+<1968=1970,1969
+<1970=1971
+<1971=1973,1972
+<1974=1975
+<1977=1978
+<1978=1992,1979
+<1979=1990,1980
+<1980=1983,1981
+<1981=1982
+<1983=1984
+<1984=1986,1985
+<1986=1987
+<1987=1989,1988
+<1990=1991
+<1993=1994
+<1994=2001,1995
+<1995=1997,1996
+<1997=1998
+<1998=2000,1999
+<2001=2003,2002
+<2004=2005
+<2005=2012,2006
+<2006=2008,2007
+<2008=2009
+<2009=2011,2010
+<2012=2014,2013
+<2015=2016
+<2016=2023,2017
+<2017=2019,2018
+<2019=2020
+<2020=2022,2021
+<2023=2025,2024
+<2026=2027
+<2027=2034,2028
+<2028=2030,2029
+<2030=2031
+<2031=2033,2032
+<2034=2036,2035
+<2037=2038
+<2038=2045,2039
+<2039=2041,2040
+<2041=2042
+<2042=2044,2043
+<2045=2047,2046
+<2048=2049
+<2049=2056,2050
+<2050=2052,2051
+<2052=2053
+<2053=2055,2054
+<2056=2058,2057
+<2059=2060
+<2060=2067,2061
+<2061=2063,2062
+<2063=2064
+<2064=2066,2065
+<2067=2069,2068
+<2070=2071
+<2071=2078,2072
+<2072=2074,2073
+<2074=2075
+<2075=2077,2076
+<2078=2080,2079
+<2081=2082
+<2082=2084,2083
+<2084=2086,2085
+<2087=2088
+<2088=2090,2089
+<2090=2092,2091
+<2093=2094
+<2094=2105,2095
+<2095=2098,2096
+<2096=2097
+<2098=2099
+<2099=2101,2100
+<2101=2102
+<2102=2104,2103
+<2105=2106
+<2107=2108
+<2108=2110,2109
+<2110=2112,2111
+<2113=2114
+<2114=2116,2115
+<2116=2118,2117
+<2119=2120
+<2120=2131,2121
+<2121=2124,2122
+<2122=2123
+<2124=2125
+<2125=2127,2126
+<2127=2128
+<2128=2130,2129
+<2131=2132
+<2133=2134
+<2134=2136,2135
+<2137=2138
+<2138=2148,2147,2139
+<2139=2146,2140
+<2140=2142,2141
+<2142=2143
+<2143=2145,2144
+<2149=2150
+<2150=2157,2156,2151
+<2151=2155,2152
+<2152=2154,2153
+<2158=2159
+<2159=2163,2160
+<2160=2161
+<2161=2162
+<2163=2164
+<2164=2166,2165
+<2167=2168
+<2168=2170,2169
+<2171=2173,2172
+<2174=2175
+<2175=2182,2176
+<2176=2178,2177
+<2178=2179
+<2179=2181,2180
+<2183=2184
+<2184=2185
+<2185=2195,2194,2186
+<2186=2193,2187
+<2187=2189,2188
+<2189=2190
+<2190=2192,2191
+<2196=2197
+<2197=2207,2206,2198
+<2198=2205,2199
+<2199=2201,2200
+<2201=2202
+<2202=2204,2203
+<2208=2209
+<2209=2214,2213,2210
+<2210=2212,2211
+<2215=2216
+<2216=2221,2220,2217
+<2217=2219,2218
+<2222=2223
+<2223=2228,2227,2224
+<2224=2226,2225
+<2229=2230
+<2230=2235,2234,2231
+<2231=2233,2232
+<2236=2237
+<2237=2241,2238
+<2238=2239
+<2239=2240
+<2241=2242
+<2242=2244,2243
+<2244=2246,2245
+<2247=2248
+<2248=2250,2249
+<2250=2252,2251
+<2253=2254
+<2254=2264,2255
+<2255=2262,2260,2258,2256
+<2256=2257
+<2258=2259
+<2260=2261
+<2262=2263
+<2264=2265
+<2266=2267
+<2267=2270,2269,2268
+<2271=2272
+<2272=2279,2273
+<2273=2275,2274
+<2275=2276
+<2276=2278,2277
+<2279=2281,2280
+<2282=2283
+<2283=2285,2284
+<2285=2287,2286
+<2288=2305,2289
+<2289=2294,2290
+<2290=2291
+<2291=2293,2292
+<2294=2295
+<2295=2304,2296
+<2296=2298,2297
+<2298=2300,2299
+<2300=2301
+<2301=2303,2302
+<2305=2306
+<2306=2308,2307
+<2309=2310
+<2310=2315,2314,2311
+<2311=2313,2312
+<2316=2317
+<2317=2338,2337,2318
+<2318=2336,2319
+<2319=2332,2326,2320
+<2320=2322,2321
+<2322=2323
+<2323=2325,2324
+<2326=2328,2327
+<2328=2329
+<2329=2331,2330
+<2332=2333
+<2333=2335,2334
+<2339=2340
+<2340=2347,2341
+<2341=2343,2342
+<2343=2344
+<2344=2346,2345
+<2347=2349,2348
+<2350=2351
+<2351=2358,2352
+<2352=2354,2353
+<2354=2355
+<2355=2357,2356
+<2358=2360,2359
+<2361=2362
+<2362=2369,2363
+<2363=2365,2364
+<2365=2366
+<2366=2368,2367
+<2369=2371,2370
+<2372=2373
+<2373=2380,2374
+<2374=2376,2375
+<2376=2377
+<2377=2379,2378
+<2380=2382,2381
+<2383=2384
+<2384=2391,2385
+<2385=2387,2386
+<2387=2388
+<2388=2390,2389
+<2391=2393,2392
+<2394=2395
+<2395=2402,2396
+<2396=2398,2397
+<2398=2399
+<2399=2401,2400
+<2402=2404,2403
+<2405=2406
+<2406=2413,2407
+<2407=2409,2408
+<2409=2410
+<2410=2412,2411
+<2413=2415,2414
+<2416=2417
+<2417=2424,2418
+<2418=2420,2419
+<2420=2421
+<2421=2423,2422
+<2424=2426,2425
+<2427=2428
+<2428=2435,2429
+<2429=2431,2430
+<2431=2432
+<2432=2434,2433
+<2435=2437,2436
+<2438=2439
+<2439=2446,2440
+<2440=2442,2441
+<2442=2443
+<2443=2445,2444
+<2446=2448,2447
+<2449=2450
+<2450=2457,2451
+<2451=2453,2452
+<2453=2454
+<2454=2456,2455
+<2457=2459,2458
+<2460=2461
+<2461=2468,2462
+<2462=2464,2463
+<2464=2465
+<2465=2467,2466
+<2468=2470,2469
+<2471=2472
+<2472=2479,2473
+<2473=2475,2474
+<2475=2476
+<2476=2478,2477
+<2479=2481,2480
+<2482=2483
+<2483=2490,2484
+<2484=2486,2485
+<2486=2487
+<2487=2489,2488
+<2490=2492,2491
+<2493=2494
+<2494=2496,2495
+<2497=2498
+<2498=2506,2505,2499
+<2499=2504,2500
+<2500=2502,2501
+<2502=2503
+<2507=2535,2522,2508
+<2508=2509
+<2509=2516,2510
+<2510=2511
+<2511=2513,2512
+<2513=2515,2514
+<2516=2517
+<2517=2519,2518
+<2519=2521,2520
+<2522=2529,2523
+<2523=2524
+<2524=2526,2525
+<2526=2528,2527
+<2529=2530
+<2530=2532,2531
+<2532=2534,2533
+<2535=2536
+<2536=2541,2537
+<2537=2539,2538
+<2539=2540
+<2542=2543
+<2543=2545,2544
+<2545=2547,2546
+<2548=2549
+<2645=2648,2647,2646
+<2648=2668,2651,2649
+<2649=2650
+<2651=2664,2652
+<2652=2653
+<2653=2654
+<2654=2663,2655
+<2655=2662,2656
+<2656=2658,2657
+<2658=2659
+<2659=2661,2660
+<2664=2665
+<2665=2667,2666
+<2668=2669
+<2669=2674,2673,2670
+<2670=2672,2671

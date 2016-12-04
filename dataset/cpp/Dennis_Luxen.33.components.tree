@@ -1,0 +1,1725 @@
+>4	FunctionDef	TarjanEdgeData ()
+>5	ParameterList	 
+>6	CompoundStatement	 
+>10	FunctionDef	TarjanEdgeData (unsigned distance , unsigned name_id)
+>11	ParameterList	unsigned distance , unsigned name_id
+>12	Parameter	 
+>13	Identifier	name_id
+>14	ParameterType	unsigned
+>15	Parameter	 
+>16	Identifier	distance
+>17	ParameterType	unsigned
+>18	CompoundStatement	 
+>28	FunctionDef	DeleteFileIfExists (const std 
+>29	ParameterList	const std 
+>30	Parameter	 
+>31	Identifier	file_name
+>32	ParameterType	const std 
+>33	ReturnType	void
+>34	CompoundStatement	 
+>35	IfStatement	if ( boost 
+>36	CompoundStatement	 
+>37	ExpressionStatement	 
+>38	CallExpression	boost 
+>39	ArgumentList	file_name
+>40	Argument	file_name
+>41	Identifier	file_name
+>42	Callee	boost 
+>43	Identifier	boost 
+>44	Condition	 
+>45	CallExpression	boost 
+>46	ArgumentList	file_name
+>47	Argument	file_name
+>48	Identifier	file_name
+>49	Callee	boost 
+>50	Identifier	boost 
+>56	FunctionDef	LoadRestrictions (const char * path , std 
+>57	ParameterList	const char * path , std 
+>58	Parameter	 
+>59	Identifier	restriction_list
+>60	ParameterType	std 
+>61	Parameter	 
+>62	Identifier	path
+>63	ParameterType	const char *
+>64	ReturnType	void
+>65	CompoundStatement	 
+>66	ExpressionStatement	 
+>67	CallExpression	loadRestrictionsFromFile ( input_stream , restriction_list )
+>68	ArgumentList	input_stream
+>69	Argument	restriction_list
+>70	Identifier	restriction_list
+>71	Argument	input_stream
+>72	Identifier	input_stream
+>73	Callee	loadRestrictionsFromFile
+>74	Identifier	loadRestrictionsFromFile
+>75	IfStatement	if ( ! input_stream . is_open ( ) )
+>76	CompoundStatement	 
+>77	ExpressionStatement	 
+>78	CallExpression	osrm 
+>79	ArgumentList	\"Cannot open restriction file\"
+>80	Argument	\"Cannot open restriction file\"
+>81	PrimaryExpression	\"Cannot open restriction file\"
+>82	Callee	osrm 
+>83	Identifier	osrm 
+>84	Statement	 
+>85	Condition	 
+>86	UnaryOp	! input_stream . is_open ( )
+>87	CallExpression	input_stream . is_open ( )
+>88	ArgumentList	 
+>89	Callee	input_stream . is_open
+>90	MemberAccess	input_stream . is_open
+>91	Identifier	is_open
+>92	Identifier	input_stream
+>93	UnaryOperator	!
+>94	IdentifierDeclStatement	 
+>95	IdentifierDecl	input_stream ( path , std 
+>96	Expression	path , std 
+>97	Identifier	std 
+>98	Identifier	path
+>99	Identifier	input_stream
+>100	IdentifierDeclType	std 
+>108	FunctionDef	LoadGraph (const char * path , std 
+>109	ParameterList	const char * path , std 
+>110	Parameter	 
+>111	Identifier	graph_edge_list
+>112	ParameterType	std 
+>113	Parameter	 
+>114	Identifier	barrier_node_list
+>115	ParameterType	std 
+>116	Parameter	 
+>117	Identifier	coordinate_list
+>118	ParameterType	std 
+>119	Parameter	 
+>120	Identifier	path
+>121	ParameterType	const char *
+>122	ReturnType	std 
+>123	CompoundStatement	 
+>124	ReturnStatement	 
+>125	Identifier	number_of_nodes
+>126	CompoundStatement	 
+>127	IfStatement	if ( input_edge . backward )
+>128	CompoundStatement	 
+>129	ExpressionStatement	 
+>130	CallExpression	graph_edge_list . emplace_back ( input_edge . target , input_edge . source , ( std 
+>131	ArgumentList	input_edge . target
+>132	Argument	input_edge . name_id
+>133	MemberAccess	input_edge . name_id
+>134	Identifier	name_id
+>135	Identifier	input_edge
+>136	Argument	( std 
+>137	CastExpression	( std 
+>138	Expression	input_edge . weight , 1
+>139	PrimaryExpression	1
+>140	MemberAccess	input_edge . weight
+>141	Identifier	weight
+>142	Identifier	input_edge
+>143	CastTarget	std 
+>144	Argument	input_edge . source
+>145	MemberAccess	input_edge . source
+>146	Identifier	source
+>147	Identifier	input_edge
+>148	Argument	input_edge . target
+>149	MemberAccess	input_edge . target
+>150	Identifier	target
+>151	Identifier	input_edge
+>152	Callee	graph_edge_list . emplace_back
+>153	MemberAccess	graph_edge_list . emplace_back
+>154	Identifier	emplace_back
+>155	Identifier	graph_edge_list
+>156	Condition	 
+>157	MemberAccess	input_edge . backward
+>158	Identifier	backward
+>159	Identifier	input_edge
+>160	IfStatement	if ( input_edge . forward )
+>161	CompoundStatement	 
+>162	ExpressionStatement	 
+>163	CallExpression	graph_edge_list . emplace_back ( input_edge . source , input_edge . target , ( std 
+>164	ArgumentList	input_edge . source
+>165	Argument	input_edge . name_id
+>166	MemberAccess	input_edge . name_id
+>167	Identifier	name_id
+>168	Identifier	input_edge
+>169	Argument	( std 
+>170	CastExpression	( std 
+>171	Expression	input_edge . weight , 1
+>172	PrimaryExpression	1
+>173	MemberAccess	input_edge . weight
+>174	Identifier	weight
+>175	Identifier	input_edge
+>176	CastTarget	std 
+>177	Argument	input_edge . target
+>178	MemberAccess	input_edge . target
+>179	Identifier	target
+>180	Identifier	input_edge
+>181	Argument	input_edge . source
+>182	MemberAccess	input_edge . source
+>183	Identifier	source
+>184	Identifier	input_edge
+>185	Callee	graph_edge_list . emplace_back
+>186	MemberAccess	graph_edge_list . emplace_back
+>187	Identifier	emplace_back
+>188	Identifier	graph_edge_list
+>189	Condition	 
+>190	MemberAccess	input_edge . forward
+>191	Identifier	forward
+>192	Identifier	input_edge
+>193	IfStatement	if ( input_edge . source == input_edge . target )
+>194	CompoundStatement	 
+>195	ContinueStatement	 
+>196	Condition	 
+>197	EqualityExpression	input_edge . source == input_edge . target
+>198	MemberAccess	input_edge . target
+>199	Identifier	target
+>200	Identifier	input_edge
+>201	MemberAccess	input_edge . source
+>202	Identifier	source
+>203	Identifier	input_edge
+>204	Statement	 
+>205	Statement	 
+>206	Label	 
+>207	Identifier	input_edge
+>208	Statement	 
+>209	Statement	 
+>210	Statement	 
+>211	Statement	 
+>212	Statement	 
+>213	ExpressionStatement	 
+>214	CallExpression	traffic_light_node_list . shrink_to_fit ( )
+>215	ArgumentList	 
+>216	Callee	traffic_light_node_list . shrink_to_fit
+>217	MemberAccess	traffic_light_node_list . shrink_to_fit
+>218	Identifier	shrink_to_fit
+>219	Identifier	traffic_light_node_list
+>220	ExpressionStatement	 
+>221	CallExpression	traffic_light_node_list . clear ( )
+>222	ArgumentList	 
+>223	Callee	traffic_light_node_list . clear
+>224	MemberAccess	traffic_light_node_list . clear
+>225	Identifier	clear
+>226	Identifier	traffic_light_node_list
+>227	ExpressionStatement	 
+>228	CallExpression	loadEdgesFromFile ( input_stream , edge_list )
+>229	ArgumentList	input_stream
+>230	Argument	edge_list
+>231	Identifier	edge_list
+>232	Argument	input_stream
+>233	Identifier	input_stream
+>234	Callee	loadEdgesFromFile
+>235	Identifier	loadEdgesFromFile
+>236	ExpressionStatement	 
+>237	AssignmentExpr	number_of_nodes = loadNodesFromFile ( input_stream , barrier_node_list , traffic_light_node_list , coordinate_\
+>238	CallExpression	loadNodesFromFile ( input_stream , barrier_node_list , traffic_light_node_list , coordinate_list )
+>239	ArgumentList	input_stream
+>240	Argument	coordinate_list
+>241	Identifier	coordinate_list
+>242	Argument	traffic_light_node_list
+>243	Identifier	traffic_light_node_list
+>244	Argument	barrier_node_list
+>245	Identifier	barrier_node_list
+>246	Argument	input_stream
+>247	Identifier	input_stream
+>248	Callee	loadNodesFromFile
+>249	Identifier	loadNodesFromFile
+>250	Identifier	number_of_nodes
+>251	Statement	 
+>252	IdentifierDeclStatement	 
+>253	IdentifierDecl	traffic_light_node_list
+>254	Identifier	traffic_light_node_list
+>255	IdentifierDeclType	std 
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	edge_list
+>258	Identifier	edge_list
+>259	IdentifierDeclType	std 
+>260	IfStatement	if ( ! input_stream . is_open ( ) )
+>261	CompoundStatement	 
+>262	ExpressionStatement	 
+>263	CallExpression	osrm 
+>264	ArgumentList	\"Cannot open osrm file\"
+>265	Argument	\"Cannot open osrm file\"
+>266	PrimaryExpression	\"Cannot open osrm file\"
+>267	Callee	osrm 
+>268	Identifier	osrm 
+>269	Statement	 
+>270	Condition	 
+>271	UnaryOp	! input_stream . is_open ( )
+>272	CallExpression	input_stream . is_open ( )
+>273	ArgumentList	 
+>274	Callee	input_stream . is_open
+>275	MemberAccess	input_stream . is_open
+>276	Identifier	is_open
+>277	Identifier	input_stream
+>278	UnaryOperator	!
+>279	IdentifierDeclStatement	 
+>280	IdentifierDecl	input_stream ( path , std 
+>281	Expression	path , std 
+>282	InclusiveOrExpression	std 
+>283	Identifier	std 
+>284	Identifier	std 
+>285	Identifier	path
+>286	Identifier	input_stream
+>287	IdentifierDeclType	std 
+>309	FunctionDef	main (int argc , char * argv [ ])
+>310	ParameterList	int argc , char * argv [ ]
+>311	Parameter	 
+>312	Identifier	argv
+>313	ParameterType	char * [ ]
+>314	Parameter	 
+>315	Identifier	argc
+>316	ParameterType	int
+>317	ReturnType	int
+>318	CompoundStatement	 
+>319	ReturnStatement	 
+>320	PrimaryExpression	0
+>321	BlockStarter	 
+>322	CompoundStatement	 
+>323	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << \"[exception] \" << e . what ( )
+>324	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"[exception] \" << e . what ( )
+>325	ShiftExpression	\"[exception] \" << e . what ( )
+>326	CallExpression	e . what ( )
+>327	ArgumentList	 
+>328	Callee	e . what
+>329	MemberAccess	e . what
+>330	Identifier	what
+>331	Identifier	e
+>332	PrimaryExpression	\"[exception] \"
+>333	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>334	ArgumentList	logWARNING
+>335	Argument	logWARNING
+>336	Identifier	logWARNING
+>337	Callee	SimpleLogger ( ) . Write
+>338	MemberAccess	SimpleLogger ( ) . Write
+>339	Identifier	Write
+>340	CallExpression	SimpleLogger ( )
+>341	ArgumentList	 
+>342	Callee	SimpleLogger
+>343	Identifier	SimpleLogger
+>344	Identifier	e
+>345	BlockStarter	 
+>346	CompoundStatement	 
+>347	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"finished component analysis\"
+>348	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"finished component analysis\"
+>349	PrimaryExpression	\"finished component analysis\"
+>350	CallExpression	SimpleLogger ( ) . Write ( )
+>351	ArgumentList	 
+>352	Callee	SimpleLogger ( ) . Write
+>353	MemberAccess	SimpleLogger ( ) . Write
+>354	Identifier	Write
+>355	CallExpression	SimpleLogger ( )
+>356	ArgumentList	 
+>357	Callee	SimpleLogger
+>358	Identifier	SimpleLogger
+>359	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"total network distance
+>360	RelationalExpression	SimpleLogger ( ) . Write ( ) << \"total network distance
+>361	RelationalExpression	uint64_t > ( total_network_length / 100 / 1000. ) << \" km\"
+>362	ShiftExpression	( total_network_length / 100 / 1000. ) << \" km\"
+>363	PrimaryExpression	\" km\"
+>364	MultiplicativeExpression	total_network_length / 100 / 1000.
+>365	MultiplicativeExpression	100 / 1000.
+>366	PrimaryExpression	1000.
+>367	PrimaryExpression	100
+>368	Identifier	total_network_length
+>369	Identifier	uint64_t
+>370	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"total network distance
+>371	ShiftExpression	\"total network distance
+>372	Identifier	static_cast
+>373	PrimaryExpression	\"total network distance
+>374	CallExpression	SimpleLogger ( ) . Write ( )
+>375	ArgumentList	 
+>376	Callee	SimpleLogger ( ) . Write
+>377	MemberAccess	SimpleLogger ( ) . Write
+>378	Identifier	Write
+>379	CallExpression	SimpleLogger ( )
+>380	ArgumentList	 
+>381	Callee	SimpleLogger
+>382	Identifier	SimpleLogger
+>383	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"generating output took
+>384	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"generating output took
+>385	ShiftExpression	\"generating output took
+>386	ShiftExpression	TIMER_MSEC ( SCC_OUTPUT ) / 1000. << \"s\"
+>387	PrimaryExpression	\"s\"
+>388	MultiplicativeExpression	TIMER_MSEC ( SCC_OUTPUT ) / 1000.
+>389	PrimaryExpression	1000.
+>390	CallExpression	TIMER_MSEC ( SCC_OUTPUT )
+>391	ArgumentList	SCC_OUTPUT
+>392	Argument	SCC_OUTPUT
+>393	Identifier	SCC_OUTPUT
+>394	Callee	TIMER_MSEC
+>395	Identifier	TIMER_MSEC
+>396	PrimaryExpression	\"generating output took
+>397	CallExpression	SimpleLogger ( ) . Write ( )
+>398	ArgumentList	 
+>399	Callee	SimpleLogger ( ) . Write
+>400	MemberAccess	SimpleLogger ( ) . Write
+>401	Identifier	Write
+>402	CallExpression	SimpleLogger ( )
+>403	ArgumentList	 
+>404	Callee	SimpleLogger
+>405	Identifier	SimpleLogger
+>406	ExpressionStatement	TIMER_STOP ( SCC_OUTPUT )
+>407	CallExpression	TIMER_STOP ( SCC_OUTPUT )
+>408	ArgumentList	SCC_OUTPUT
+>409	Argument	SCC_OUTPUT
+>410	Identifier	SCC_OUTPUT
+>411	Callee	TIMER_STOP
+>412	Identifier	TIMER_STOP
+>413	ExpressionStatement	OGRDataSource 
+>414	CallExpression	OGRDataSource 
+>415	ArgumentList	poDS
+>416	Argument	poDS
+>417	Identifier	poDS
+>418	Callee	OGRDataSource 
+>419	Identifier	OGRDataSource 
+>420	ExpressionStatement	OGRSpatialReference 
+>421	CallExpression	OGRSpatialReference 
+>422	ArgumentList	poSRS
+>423	Argument	poSRS
+>424	Identifier	poSRS
+>425	Callee	OGRSpatialReference 
+>426	Identifier	OGRSpatialReference 
+>427	CompoundStatement	 
+>428	CompoundStatement	 
+>429	IfStatement	if ( source < target || SPECIAL_EDGEID == graph -> FindEdge ( target , source ) )
+>430	CompoundStatement	 
+>431	IfStatement	if ( size_of_containing_component < 1000 )
+>432	CompoundStatement	 
+>433	ExpressionStatement	OGRFeature 
+>434	CallExpression	OGRFeature 
+>435	ArgumentList	poFeature
+>436	Argument	poFeature
+>437	Identifier	poFeature
+>438	Callee	OGRFeature 
+>439	Identifier	OGRFeature 
+>440	IfStatement	if ( OGRERR_NONE != poLayer -> CreateFeature ( poFeature ) )
+>441	CompoundStatement	 
+>442	ExpressionStatement	osrm 
+>443	CallExpression	osrm 
+>444	ArgumentList	\"Failed to create feature in shapefile.\"
+>445	Argument	\"Failed to create feature in shapefile.\"
+>446	PrimaryExpression	\"Failed to create feature in shapefile.\"
+>447	Callee	osrm 
+>448	Identifier	osrm 
+>449	Statement	throw
+>450	Condition	OGRERR_NONE != poLayer -> CreateFeature ( poFeature )
+>451	EqualityExpression	OGRERR_NONE != poLayer -> CreateFeature ( poFeature )
+>452	CallExpression	poLayer -> CreateFeature ( poFeature )
+>453	ArgumentList	poFeature
+>454	Argument	poFeature
+>455	Identifier	poFeature
+>456	Callee	poLayer -> CreateFeature
+>457	PtrMemberAccess	poLayer -> CreateFeature
+>458	Identifier	CreateFeature
+>459	Identifier	poLayer
+>460	Identifier	OGRERR_NONE
+>461	ExpressionStatement	poFeature -> SetGeometry ( & lineString )
+>462	CallExpression	poFeature -> SetGeometry ( & lineString )
+>463	ArgumentList	& lineString
+>464	Argument	& lineString
+>465	UnaryOp	& lineString
+>466	Identifier	lineString
+>467	UnaryOperator	&
+>468	Callee	poFeature -> SetGeometry
+>469	PtrMemberAccess	poFeature -> SetGeometry
+>470	Identifier	SetGeometry
+>471	Identifier	poFeature
+>472	IdentifierDeclStatement	OGRFeature * poFeature = OGRFeature 
+>473	IdentifierDecl	* poFeature = OGRFeature 
+>474	AssignmentExpr	* poFeature = OGRFeature 
+>475	CallExpression	OGRFeature 
+>476	ArgumentList	poLayer -> GetLayerDefn ( )
+>477	Argument	poLayer -> GetLayerDefn ( )
+>478	CallExpression	poLayer -> GetLayerDefn ( )
+>479	ArgumentList	 
+>480	Callee	poLayer -> GetLayerDefn
+>481	PtrMemberAccess	poLayer -> GetLayerDefn
+>482	Identifier	GetLayerDefn
+>483	Identifier	poLayer
+>484	Callee	OGRFeature 
+>485	Identifier	OGRFeature 
+>486	Identifier	poFeature
+>487	Identifier	poFeature
+>488	IdentifierDeclType	OGRFeature *
+>489	ExpressionStatement	lineString . addPoint ( coordinate_list [ target ] . lon / COORDINATE_PRECISION , coordinate_list [ target ] . lat / \
+>490	CallExpression	lineString . addPoint ( coordinate_list [ target ] . lon / COORDINATE_PRECISION , coordinate_list [ target ] . lat / \
+>491	ArgumentList	coordinate_list [ target ] . lon / COORDINATE_PRECISION
+>492	Argument	coordinate_list [ target ] . lat / COORDINATE_PRECISION
+>493	MultiplicativeExpression	coordinate_list [ target ] . lat / COORDINATE_PRECISION
+>494	Identifier	COORDINATE_PRECISION
+>495	MemberAccess	coordinate_list [ target ] . lat
+>496	Identifier	lat
+>497	ArrayIndexing	coordinate_list [ target ]
+>498	Identifier	target
+>499	Identifier	coordinate_list
+>500	Argument	coordinate_list [ target ] . lon / COORDINATE_PRECISION
+>501	MultiplicativeExpression	coordinate_list [ target ] . lon / COORDINATE_PRECISION
+>502	Identifier	COORDINATE_PRECISION
+>503	MemberAccess	coordinate_list [ target ] . lon
+>504	Identifier	lon
+>505	ArrayIndexing	coordinate_list [ target ]
+>506	Identifier	target
+>507	Identifier	coordinate_list
+>508	Callee	lineString . addPoint
+>509	MemberAccess	lineString . addPoint
+>510	Identifier	addPoint
+>511	Identifier	lineString
+>512	ExpressionStatement	lineString . addPoint ( coordinate_list [ source ] . lon / COORDINATE_PRECISION , coordinate_list [ source ] . lat / \
+>513	CallExpression	lineString . addPoint ( coordinate_list [ source ] . lon / COORDINATE_PRECISION , coordinate_list [ source ] . lat / \
+>514	ArgumentList	coordinate_list [ source ] . lon / COORDINATE_PRECISION
+>515	Argument	coordinate_list [ source ] . lat / COORDINATE_PRECISION
+>516	MultiplicativeExpression	coordinate_list [ source ] . lat / COORDINATE_PRECISION
+>517	Identifier	COORDINATE_PRECISION
+>518	MemberAccess	coordinate_list [ source ] . lat
+>519	Identifier	lat
+>520	ArrayIndexing	coordinate_list [ source ]
+>521	Identifier	source
+>522	Identifier	coordinate_list
+>523	Argument	coordinate_list [ source ] . lon / COORDINATE_PRECISION
+>524	MultiplicativeExpression	coordinate_list [ source ] . lon / COORDINATE_PRECISION
+>525	Identifier	COORDINATE_PRECISION
+>526	MemberAccess	coordinate_list [ source ] . lon
+>527	Identifier	lon
+>528	ArrayIndexing	coordinate_list [ source ]
+>529	Identifier	source
+>530	Identifier	coordinate_list
+>531	Callee	lineString . addPoint
+>532	MemberAccess	lineString . addPoint
+>533	Identifier	addPoint
+>534	Identifier	lineString
+>535	IdentifierDeclStatement	OGRLineString lineString ;
+>536	IdentifierDecl	lineString
+>537	Identifier	lineString
+>538	IdentifierDeclType	OGRLineString
+>539	Condition	size_of_containing_component < 1000
+>540	RelationalExpression	size_of_containing_component < 1000
+>541	PrimaryExpression	1000
+>542	Identifier	size_of_containing_component
+>543	IdentifierDeclStatement	unsigned size_of_containing_component = std 
+>544	IdentifierDecl	size_of_containing_component = std 
+>545	AssignmentExpr	size_of_containing_component = std 
+>546	CallExpression	std 
+>547	ArgumentList	tarjan -> get_component_size ( source )
+>548	Argument	tarjan -> get_component_size ( target )
+>549	CallExpression	tarjan -> get_component_size ( target )
+>550	ArgumentList	target
+>551	Argument	target
+>552	Identifier	target
+>553	Callee	tarjan -> get_component_size
+>554	PtrMemberAccess	tarjan -> get_component_size
+>555	Identifier	get_component_size
+>556	Identifier	tarjan
+>557	Argument	tarjan -> get_component_size ( source )
+>558	CallExpression	tarjan -> get_component_size ( source )
+>559	ArgumentList	source
+>560	Argument	source
+>561	Identifier	source
+>562	Callee	tarjan -> get_component_size
+>563	PtrMemberAccess	tarjan -> get_component_size
+>564	Identifier	get_component_size
+>565	Identifier	tarjan
+>566	Callee	std 
+>567	Identifier	std 
+>568	Identifier	size_of_containing_component
+>569	Identifier	size_of_containing_component
+>570	IdentifierDeclType	unsigned
+>571	Statement	const
+>572	ExpressionStatement	BOOST_ASSERT ( target != SPECIAL_NODEID )
+>573	CallExpression	BOOST_ASSERT ( target != SPECIAL_NODEID )
+>574	ArgumentList	target != SPECIAL_NODEID
+>575	Argument	target != SPECIAL_NODEID
+>576	EqualityExpression	target != SPECIAL_NODEID
+>577	Identifier	SPECIAL_NODEID
+>578	Identifier	target
+>579	Callee	BOOST_ASSERT
+>580	Identifier	BOOST_ASSERT
+>581	ExpressionStatement	BOOST_ASSERT ( source != SPECIAL_NODEID )
+>582	CallExpression	BOOST_ASSERT ( source != SPECIAL_NODEID )
+>583	ArgumentList	source != SPECIAL_NODEID
+>584	Argument	source != SPECIAL_NODEID
+>585	EqualityExpression	source != SPECIAL_NODEID
+>586	Identifier	SPECIAL_NODEID
+>587	Identifier	source
+>588	Callee	BOOST_ASSERT
+>589	Identifier	BOOST_ASSERT
+>590	ExpressionStatement	BOOST_ASSERT ( current_edge != SPECIAL_EDGEID )
+>591	CallExpression	BOOST_ASSERT ( current_edge != SPECIAL_EDGEID )
+>592	ArgumentList	current_edge != SPECIAL_EDGEID
+>593	Argument	current_edge != SPECIAL_EDGEID
+>594	EqualityExpression	current_edge != SPECIAL_EDGEID
+>595	Identifier	SPECIAL_EDGEID
+>596	Identifier	current_edge
+>597	Callee	BOOST_ASSERT
+>598	Identifier	BOOST_ASSERT
+>599	ExpressionStatement	total_network_length += 100 * coordinate_calculation 
+>600	AssignmentExpr	total_network_length += 100 * coordinate_calculation 
+>601	MultiplicativeExpression	100 * coordinate_calculation 
+>602	CallExpression	coordinate_calculation 
+>603	ArgumentList	coordinate_list [ source ] . lat
+>604	Argument	coordinate_list [ target ] . lon
+>605	MemberAccess	coordinate_list [ target ] . lon
+>606	Identifier	lon
+>607	ArrayIndexing	coordinate_list [ target ]
+>608	Identifier	target
+>609	Identifier	coordinate_list
+>610	Argument	coordinate_list [ target ] . lat
+>611	MemberAccess	coordinate_list [ target ] . lat
+>612	Identifier	lat
+>613	ArrayIndexing	coordinate_list [ target ]
+>614	Identifier	target
+>615	Identifier	coordinate_list
+>616	Argument	coordinate_list [ source ] . lon
+>617	MemberAccess	coordinate_list [ source ] . lon
+>618	Identifier	lon
+>619	ArrayIndexing	coordinate_list [ source ]
+>620	Identifier	source
+>621	Identifier	coordinate_list
+>622	Argument	coordinate_list [ source ] . lat
+>623	MemberAccess	coordinate_list [ source ] . lat
+>624	Identifier	lat
+>625	ArrayIndexing	coordinate_list [ source ]
+>626	Identifier	source
+>627	Identifier	coordinate_list
+>628	Callee	coordinate_calculation 
+>629	Identifier	coordinate_calculation 
+>630	PrimaryExpression	100
+>631	Identifier	total_network_length
+>632	Condition	source < target || SPECIAL_EDGEID == graph -> FindEdge ( target , source )
+>633	OrExpression	source < target || SPECIAL_EDGEID == graph -> FindEdge ( target , source )
+>634	EqualityExpression	SPECIAL_EDGEID == graph -> FindEdge ( target , source )
+>635	CallExpression	graph -> FindEdge ( target , source )
+>636	ArgumentList	target
+>637	Argument	source
+>638	Identifier	source
+>639	Argument	target
+>640	Identifier	target
+>641	Callee	graph -> FindEdge
+>642	PtrMemberAccess	graph -> FindEdge
+>643	Identifier	FindEdge
+>644	Identifier	graph
+>645	Identifier	SPECIAL_EDGEID
+>646	RelationalExpression	source < target
+>647	Identifier	target
+>648	Identifier	source
+>649	IdentifierDeclStatement	const TarjanGraph 
+>650	IdentifierDecl	target = graph -> GetTarget ( current_edge )
+>651	AssignmentExpr	target = graph -> GetTarget ( current_edge )
+>652	CallExpression	graph -> GetTarget ( current_edge )
+>653	ArgumentList	current_edge
+>654	Argument	current_edge
+>655	Identifier	current_edge
+>656	Callee	graph -> GetTarget
+>657	PtrMemberAccess	graph -> GetTarget
+>658	Identifier	GetTarget
+>659	Identifier	graph
+>660	Identifier	target
+>661	Identifier	target
+>662	IdentifierDeclType	const TarjanGraph 
+>663	Statement	)
+>664	Statement	)
+>665	Statement	source
+>666	Statement	(
+>667	Statement	GetAdjacentEdgeRange
+>668	Statement	->
+>669	Statement	graph
+>670	Label	current_edge 
+>671	Identifier	current_edge
+>672	Statement	auto
+>673	Statement	const
+>674	Statement	(
+>675	Statement	for
+>676	ExpressionStatement	percentage . printIncrement ( )
+>677	CallExpression	percentage . printIncrement ( )
+>678	ArgumentList	 
+>679	Callee	percentage . printIncrement
+>680	MemberAccess	percentage . printIncrement
+>681	Identifier	printIncrement
+>682	Identifier	percentage
+>683	Statement	)
+>684	Statement	)
+>685	Statement	)
+>686	Statement	(
+>687	Statement	GetNumberOfNodes
+>688	Statement	->
+>689	Statement	graph
+>690	Statement	,
+>691	Statement	0u
+>692	Statement	(
+>693	Statement	irange
+>694	Statement	 
+>695	Statement	osrm
+>696	Label	source 
+>697	Identifier	source
+>698	Statement	NodeID
+>699	Statement	const
+>700	Statement	(
+>701	Statement	for
+>702	ExpressionStatement	TIMER_START ( SCC_OUTPUT )
+>703	CallExpression	TIMER_START ( SCC_OUTPUT )
+>704	ArgumentList	SCC_OUTPUT
+>705	Argument	SCC_OUTPUT
+>706	Identifier	SCC_OUTPUT
+>707	Callee	TIMER_START
+>708	Identifier	TIMER_START
+>709	ExpressionStatement	percentage . reinit ( graph -> GetNumberOfNodes ( ) )
+>710	CallExpression	percentage . reinit ( graph -> GetNumberOfNodes ( ) )
+>711	ArgumentList	graph -> GetNumberOfNodes ( )
+>712	Argument	graph -> GetNumberOfNodes ( )
+>713	CallExpression	graph -> GetNumberOfNodes ( )
+>714	ArgumentList	 
+>715	Callee	graph -> GetNumberOfNodes
+>716	PtrMemberAccess	graph -> GetNumberOfNodes
+>717	Identifier	GetNumberOfNodes
+>718	Identifier	graph
+>719	Callee	percentage . reinit
+>720	MemberAccess	percentage . reinit
+>721	Identifier	reinit
+>722	Identifier	percentage
+>723	IdentifierDeclStatement	uint64_t total_network_length = 0 ;
+>724	IdentifierDecl	total_network_length = 0
+>725	AssignmentExpr	total_network_length = 0
+>726	PrimaryExpression	0
+>727	Identifier	total_network_length
+>728	Identifier	total_network_length
+>729	IdentifierDeclType	uint64_t
+>730	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"shapefile setup took \" << TIMER_MSEC ( SCC_RUN_SETUP ) / 1000. << \"s\"
+>731	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"shapefile setup took \" << TIMER_MSEC ( SCC_RUN_SETUP ) / 1000. << \"\
+>732	ShiftExpression	\"shapefile setup took \" << TIMER_MSEC ( SCC_RUN_SETUP ) / 1000. << \"s\"
+>733	ShiftExpression	TIMER_MSEC ( SCC_RUN_SETUP ) / 1000. << \"s\"
+>734	PrimaryExpression	\"s\"
+>735	MultiplicativeExpression	TIMER_MSEC ( SCC_RUN_SETUP ) / 1000.
+>736	PrimaryExpression	1000.
+>737	CallExpression	TIMER_MSEC ( SCC_RUN_SETUP )
+>738	ArgumentList	SCC_RUN_SETUP
+>739	Argument	SCC_RUN_SETUP
+>740	Identifier	SCC_RUN_SETUP
+>741	Callee	TIMER_MSEC
+>742	Identifier	TIMER_MSEC
+>743	PrimaryExpression	\"shapefile setup took \"
+>744	CallExpression	SimpleLogger ( ) . Write ( )
+>745	ArgumentList	 
+>746	Callee	SimpleLogger ( ) . Write
+>747	MemberAccess	SimpleLogger ( ) . Write
+>748	Identifier	Write
+>749	CallExpression	SimpleLogger ( )
+>750	ArgumentList	 
+>751	Callee	SimpleLogger
+>752	Identifier	SimpleLogger
+>753	ExpressionStatement	TIMER_STOP ( SCC_RUN_SETUP )
+>754	CallExpression	TIMER_STOP ( SCC_RUN_SETUP )
+>755	ArgumentList	SCC_RUN_SETUP
+>756	Argument	SCC_RUN_SETUP
+>757	Identifier	SCC_RUN_SETUP
+>758	Callee	TIMER_STOP
+>759	Identifier	TIMER_STOP
+>760	IfStatement	if ( nullptr == poLayer )
+>761	CompoundStatement	 
+>762	ExpressionStatement	osrm 
+>763	CallExpression	osrm 
+>764	ArgumentList	\"Layer creation failed.\"
+>765	Argument	\"Layer creation failed.\"
+>766	PrimaryExpression	\"Layer creation failed.\"
+>767	Callee	osrm 
+>768	Identifier	osrm 
+>769	Statement	throw
+>770	Condition	nullptr == poLayer
+>771	EqualityExpression	nullptr == poLayer
+>772	Identifier	poLayer
+>773	Identifier	nullptr
+>774	IdentifierDeclStatement	OGRLayer * poLayer = poDS -> CreateLayer ( \"component\" , poSRS , wkbLineString , nullptr ) ;
+>775	IdentifierDecl	* poLayer = poDS -> CreateLayer ( \"component\" , poSRS , wkbLineString , nullptr )
+>776	AssignmentExpr	* poLayer = poDS -> CreateLayer ( \"component\" , poSRS , wkbLineString , nullptr )
+>777	CallExpression	poDS -> CreateLayer ( \"component\" , poSRS , wkbLineString , nullptr )
+>778	ArgumentList	\"component\"
+>779	Argument	nullptr
+>780	Identifier	nullptr
+>781	Argument	wkbLineString
+>782	Identifier	wkbLineString
+>783	Argument	poSRS
+>784	Identifier	poSRS
+>785	Argument	\"component\"
+>786	PrimaryExpression	\"component\"
+>787	Callee	poDS -> CreateLayer
+>788	PtrMemberAccess	poDS -> CreateLayer
+>789	Identifier	CreateLayer
+>790	Identifier	poDS
+>791	Identifier	poLayer
+>792	Identifier	poLayer
+>793	IdentifierDeclType	OGRLayer *
+>794	ExpressionStatement	poSRS -> importFromEPSG ( 4326 )
+>795	CallExpression	poSRS -> importFromEPSG ( 4326 )
+>796	ArgumentList	4326
+>797	Argument	4326
+>798	PrimaryExpression	4326
+>799	Callee	poSRS -> importFromEPSG
+>800	PtrMemberAccess	poSRS -> importFromEPSG
+>801	Identifier	importFromEPSG
+>802	Identifier	poSRS
+>803	IdentifierDeclStatement	OGRSpatialReference * poSRS = new OGRSpatialReference ( ) ;
+>804	IdentifierDecl	* poSRS = new OGRSpatialReference ( )
+>805	AssignmentExpr	* poSRS = new OGRSpatialReference ( )
+>806	UnaryExpression	new OGRSpatialReference ( )
+>807	Identifier	poSRS
+>808	Identifier	poSRS
+>809	IdentifierDeclType	OGRSpatialReference *
+>810	IfStatement	if ( nullptr == poDS )
+>811	CompoundStatement	 
+>812	ExpressionStatement	osrm 
+>813	CallExpression	osrm 
+>814	ArgumentList	\"Creation of output file failed\"
+>815	Argument	\"Creation of output file failed\"
+>816	PrimaryExpression	\"Creation of output file failed\"
+>817	Callee	osrm 
+>818	Identifier	osrm 
+>819	Statement	throw
+>820	Condition	nullptr == poDS
+>821	EqualityExpression	nullptr == poDS
+>822	Identifier	poDS
+>823	Identifier	nullptr
+>824	IdentifierDeclStatement	OGRDataSource * poDS = poDriver -> CreateDataSource ( \"component.shp\" , nullptr ) ;
+>825	IdentifierDecl	* poDS = poDriver -> CreateDataSource ( \"component.shp\" , nullptr )
+>826	AssignmentExpr	* poDS = poDriver -> CreateDataSource ( \"component.shp\" , nullptr )
+>827	CallExpression	poDriver -> CreateDataSource ( \"component.shp\" , nullptr )
+>828	ArgumentList	\"component.shp\"
+>829	Argument	nullptr
+>830	Identifier	nullptr
+>831	Argument	\"component.shp\"
+>832	PrimaryExpression	\"component.shp\"
+>833	Callee	poDriver -> CreateDataSource
+>834	PtrMemberAccess	poDriver -> CreateDataSource
+>835	Identifier	CreateDataSource
+>836	Identifier	poDriver
+>837	Identifier	poDS
+>838	Identifier	poDS
+>839	IdentifierDeclType	OGRDataSource *
+>840	IfStatement	if ( nullptr == poDriver )
+>841	CompoundStatement	 
+>842	ExpressionStatement	osrm 
+>843	CallExpression	osrm 
+>844	ArgumentList	\"ESRI Shapefile driver not available\"
+>845	Argument	\"ESRI Shapefile driver not available\"
+>846	PrimaryExpression	\"ESRI Shapefile driver not available\"
+>847	Callee	osrm 
+>848	Identifier	osrm 
+>849	Statement	throw
+>850	Condition	nullptr == poDriver
+>851	EqualityExpression	nullptr == poDriver
+>852	Identifier	poDriver
+>853	Identifier	nullptr
+>854	IdentifierDeclStatement	OGRSFDriver * poDriver = OGRSFDriverRegistrar 
+>855	IdentifierDecl	* poDriver = OGRSFDriverRegistrar 
+>856	AssignmentExpr	* poDriver = OGRSFDriverRegistrar 
+>857	CallExpression	OGRSFDriverRegistrar 
+>858	ArgumentList	pszDriverName
+>859	Argument	pszDriverName
+>860	Identifier	pszDriverName
+>861	Callee	OGRSFDriverRegistrar 
+>862	PtrMemberAccess	OGRSFDriverRegistrar 
+>863	Identifier	GetDriverByName
+>864	CallExpression	OGRSFDriverRegistrar 
+>865	ArgumentList	 
+>866	Callee	OGRSFDriverRegistrar 
+>867	Identifier	OGRSFDriverRegistrar 
+>868	Identifier	poDriver
+>869	Identifier	poDriver
+>870	IdentifierDeclType	OGRSFDriver *
+>871	IdentifierDeclStatement	const char * pszDriverName = \"ESRI Shapefile\" ;
+>872	IdentifierDecl	* pszDriverName = \"ESRI Shapefile\"
+>873	AssignmentExpr	* pszDriverName = \"ESRI Shapefile\"
+>874	PrimaryExpression	\"ESRI Shapefile\"
+>875	Identifier	pszDriverName
+>876	Identifier	pszDriverName
+>877	IdentifierDeclType	const char *
+>878	ExpressionStatement	OGRRegisterAll ( )
+>879	CallExpression	OGRRegisterAll ( )
+>880	ArgumentList	 
+>881	Callee	OGRRegisterAll
+>882	Identifier	OGRRegisterAll
+>883	IdentifierDeclStatement	Percent percentage ( graph -> GetNumberOfNodes ( ) ) ;
+>884	IdentifierDecl	percentage ( graph -> GetNumberOfNodes ( ) )
+>885	CallExpression	graph -> GetNumberOfNodes ( )
+>886	ArgumentList	 
+>887	Callee	graph -> GetNumberOfNodes
+>888	PtrMemberAccess	graph -> GetNumberOfNodes
+>889	Identifier	GetNumberOfNodes
+>890	Identifier	graph
+>891	Identifier	percentage
+>892	IdentifierDeclType	Percent
+>893	ExpressionStatement	DeleteFileIfExists ( \"component.shp\" )
+>894	CallExpression	DeleteFileIfExists ( \"component.shp\" )
+>895	ArgumentList	\"component.shp\"
+>896	Argument	\"component.shp\"
+>897	PrimaryExpression	\"component.shp\"
+>898	Callee	DeleteFileIfExists
+>899	Identifier	DeleteFileIfExists
+>900	ExpressionStatement	DeleteFileIfExists ( \"component.shx\" )
+>901	CallExpression	DeleteFileIfExists ( \"component.shx\" )
+>902	ArgumentList	\"component.shx\"
+>903	Argument	\"component.shx\"
+>904	PrimaryExpression	\"component.shx\"
+>905	Callee	DeleteFileIfExists
+>906	Identifier	DeleteFileIfExists
+>907	ExpressionStatement	DeleteFileIfExists ( \"component.dbf\" )
+>908	CallExpression	DeleteFileIfExists ( \"component.dbf\" )
+>909	ArgumentList	\"component.dbf\"
+>910	Argument	\"component.dbf\"
+>911	PrimaryExpression	\"component.dbf\"
+>912	Callee	DeleteFileIfExists
+>913	Identifier	DeleteFileIfExists
+>914	ExpressionStatement	TIMER_START ( SCC_RUN_SETUP )
+>915	CallExpression	TIMER_START ( SCC_RUN_SETUP )
+>916	ArgumentList	SCC_RUN_SETUP
+>917	Argument	SCC_RUN_SETUP
+>918	Identifier	SCC_RUN_SETUP
+>919	Callee	TIMER_START
+>920	Identifier	TIMER_START
+>921	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"identified \" << tarjan -> get_size_one_count ( ) << \" size 1 SCCs\"
+>922		SimpleLogger ( ) . Write ( ) << \"identified \" << tarjan -> get_size_one_count ( ) << \" size 1 SCCs\"type
+>923	ShiftExpression	\"identified \" << tarjan -> get_size_one_count ( ) << \" size 1 SCCs\"
+>924	ShiftExpression	tarjan -> get_size_one_count ( ) << \" size 1 SCCs\"
+>925	PrimaryExpression	\" size 1 SCCs\"
+>926	CallExpression	tarjan -> get_size_one_count ( )
+>927	ArgumentList	 
+>928	Callee	tarjan -> get_size_one_count
+>929	PtrMemberAccess	tarjan -> get_size_one_count
+>930	Identifier	get_size_one_count
+>931	Identifier	tarjan
+>932	PrimaryExpression	\"identified \"
+>933	CallExpression	SimpleLogger ( ) . Write ( )
+>934	ArgumentList	 
+>935	Callee	SimpleLogger ( ) . Write
+>936	MemberAccess	SimpleLogger ( ) . Write
+>937	Identifier	Write
+>938	CallExpression	SimpleLogger ( )
+>939	ArgumentList	 
+>940	Callee	SimpleLogger
+>941	Identifier	SimpleLogger
+>942		SimpleLogger ( ) . Write ( ) << \"identified
+>943	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"identified
+>944	ShiftExpression	\"identified
+>945	ShiftExpression	tarjan -> get_number_of_components ( ) << \" many components\"
+>946	PrimaryExpression	\" many components\"
+>947	CallExpression	tarjan -> get_number_of_components ( )
+>948	ArgumentList	 
+>949	Callee	tarjan -> get_number_of_components
+>950	PtrMemberAccess	tarjan -> get_number_of_components
+>951	Identifier	get_number_of_components
+>952	Identifier	tarjan
+>953	PrimaryExpression	\"identified
+>954	CallExpression	SimpleLogger ( ) . Write ( )
+>955	ArgumentList	 
+>956	Callee	SimpleLogger ( ) . Write
+>957	MemberAccess	SimpleLogger ( ) . Write
+>958	Identifier	Write
+>959	CallExpression	SimpleLogger ( )
+>960	ArgumentList	 
+>961	Callee	SimpleLogger
+>962	Identifier	SimpleLogger
+>963	ExpressionStatement	tarjan -> run ( )
+>964	CallExpression	tarjan -> run ( )
+>965	ArgumentList	 
+>966	Callee	tarjan -> run
+>967	PtrMemberAccess	tarjan -> run
+>968	Identifier	run
+>969	Identifier	tarjan
+>970	ExpressionStatement	tarjan = osrm 
+>971	AssignmentExpr	tarjan = osrm 
+>972	RelationalExpression	osrm 
+>973	RelationalExpression	TarjanSCC < TarjanGraph >> ( graph , restriction_map , barrier_node_list )
+>974	ShiftExpression	TarjanGraph >> ( graph , restriction_map , barrier_node_list )
+>975	Expression	graph , restriction_map , barrier_node_list
+>976	Expression	restriction_map , barrier_node_list
+>977	Identifier	barrier_node_list
+>978	Identifier	restriction_map
+>979	Identifier	graph
+>980	Identifier	TarjanGraph
+>981	Identifier	TarjanSCC
+>982	Identifier	osrm 
+>983	Identifier	tarjan
+>984	Statement	auto
+>985	IdentifierDeclStatement	RestrictionMap restriction_map ( restriction_list ) ;
+>986	IdentifierDecl	restriction_map ( restriction_list )
+>987	Identifier	restriction_list
+>988	Identifier	restriction_map
+>989	IdentifierDeclType	RestrictionMap
+>990	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Starting SCC graph traversal\"
+>991	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Starting SCC graph traversal\"
+>992	PrimaryExpression	\"Starting SCC graph traversal\"
+>993	CallExpression	SimpleLogger ( ) . Write ( )
+>994	ArgumentList	 
+>995	Callee	SimpleLogger ( ) . Write
+>996	MemberAccess	SimpleLogger ( ) . Write
+>997	Identifier	Write
+>998	CallExpression	SimpleLogger ( )
+>999	ArgumentList	 
+>1000	Callee	SimpleLogger
+>1001	Identifier	SimpleLogger
+>1002	ExpressionStatement	graph_edge_list . shrink_to_fit ( )
+>1003	CallExpression	graph_edge_list . shrink_to_fit ( )
+>1004	ArgumentList	 
+>1005	Callee	graph_edge_list . shrink_to_fit
+>1006	MemberAccess	graph_edge_list . shrink_to_fit
+>1007	Identifier	shrink_to_fit
+>1008	Identifier	graph_edge_list
+>1009	ExpressionStatement	graph_edge_list . clear ( )
+>1010	CallExpression	graph_edge_list . clear ( )
+>1011	ArgumentList	 
+>1012	Callee	graph_edge_list . clear
+>1013	MemberAccess	graph_edge_list . clear
+>1014	Identifier	clear
+>1015	Identifier	graph_edge_list
+>1016	ExpressionStatement	graph = std 
+>1017	AssignmentExpr	graph = std 
+>1018	RelationalExpression	std 
+>1019	RelationalExpression	TarjanGraph > ( number_of_nodes , graph_edge_list )
+>1020	Expression	number_of_nodes , graph_edge_list
+>1021	Identifier	graph_edge_list
+>1022	Identifier	number_of_nodes
+>1023	Identifier	TarjanGraph
+>1024	Identifier	std 
+>1025	Identifier	graph
+>1026	Statement	auto
+>1027	Statement	const
+>1028	ExpressionStatement	tbb 
+>1029	CallExpression	tbb 
+>1030	ArgumentList	graph_edge_list . begin ( )
+>1031	Argument	graph_edge_list . end ( )
+>1032	CallExpression	graph_edge_list . end ( )
+>1033	ArgumentList	 
+>1034	Callee	graph_edge_list . end
+>1035	MemberAccess	graph_edge_list . end
+>1036	Identifier	end
+>1037	Identifier	graph_edge_list
+>1038	Argument	graph_edge_list . begin ( )
+>1039	CallExpression	graph_edge_list . begin ( )
+>1040	ArgumentList	 
+>1041	Callee	graph_edge_list . begin
+>1042	MemberAccess	graph_edge_list . begin
+>1043	Identifier	begin
+>1044	Identifier	graph_edge_list
+>1045	Callee	tbb 
+>1046	Identifier	tbb 
+>1047	ExpressionStatement	LoadRestrictions ( argv [ 2 ] , restriction_list )
+>1048	CallExpression	LoadRestrictions ( argv [ 2 ] , restriction_list )
+>1049	ArgumentList	argv [ 2 ]
+>1050	Argument	restriction_list
+>1051	Identifier	restriction_list
+>1052	Argument	argv [ 2 ]
+>1053	ArrayIndexing	argv [ 2 ]
+>1054	PrimaryExpression	2
+>1055	Identifier	argv
+>1056	Callee	LoadRestrictions
+>1057	Identifier	LoadRestrictions
+>1058	ExpressionStatement	number_of_nodes = LoadGraph ( argv [ 1 ] , coordinate_list , barrier_node_list , graph_edge_list )
+>1059	AssignmentExpr	number_of_nodes = LoadGraph ( argv [ 1 ] , coordinate_list , barrier_node_list , graph_edge_list )
+>1060	CallExpression	LoadGraph ( argv [ 1 ] , coordinate_list , barrier_node_list , graph_edge_list )
+>1061	ArgumentList	argv [ 1 ]
+>1062	Argument	graph_edge_list
+>1063	Identifier	graph_edge_list
+>1064	Argument	barrier_node_list
+>1065	Identifier	barrier_node_list
+>1066	Argument	coordinate_list
+>1067	Identifier	coordinate_list
+>1068	Argument	argv [ 1 ]
+>1069	ArrayIndexing	argv [ 1 ]
+>1070	PrimaryExpression	1
+>1071	Identifier	argv
+>1072	Callee	LoadGraph
+>1073	Identifier	LoadGraph
+>1074	Identifier	number_of_nodes
+>1075	Statement	auto
+>1076	IdentifierDeclStatement	std 
+>1077	IdentifierDecl	graph_edge_list
+>1078	Identifier	graph_edge_list
+>1079	IdentifierDeclType	std 
+>1080	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Using restrictions from file
+>1081	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Using restrictions from file
+>1082	ShiftExpression	\"Using restrictions from file
+>1083	ArrayIndexing	argv [ 2 ]
+>1084	PrimaryExpression	2
+>1085	Identifier	argv
+>1086	PrimaryExpression	\"Using restrictions from file
+>1087	CallExpression	SimpleLogger ( ) . Write ( )
+>1088	ArgumentList	 
+>1089	Callee	SimpleLogger ( ) . Write
+>1090	MemberAccess	SimpleLogger ( ) . Write
+>1091	Identifier	Write
+>1092	CallExpression	SimpleLogger ( )
+>1093	ArgumentList	 
+>1094	Callee	SimpleLogger
+>1095	Identifier	SimpleLogger
+>1096	IfStatement	if ( argc < 3 )
+>1097	CompoundStatement	 
+>1098	ReturnStatement	return - 1 ;
+>1099	UnaryOp	- 1
+>1100	PrimaryExpression	1
+>1101	UnaryOperator	-
+>1102	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << \"usage
+>1103	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"usage
+>1104	ShiftExpression	\"usage
+>1105	ShiftExpression	argv [ 0 ] << \" <osrm> <osrm.restrictions>\"
+>1106	PrimaryExpression	\" <osrm> <osrm.restrictions>\"
+>1107	ArrayIndexing	argv [ 0 ]
+>1108	PrimaryExpression	0
+>1109	Identifier	argv
+>1110	PrimaryExpression	\"usage
+>1111	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>1112	ArgumentList	logWARNING
+>1113	Argument	logWARNING
+>1114	Identifier	logWARNING
+>1115	Callee	SimpleLogger ( ) . Write
+>1116	MemberAccess	SimpleLogger ( ) . Write
+>1117	Identifier	Write
+>1118	CallExpression	SimpleLogger ( )
+>1119	ArgumentList	 
+>1120	Callee	SimpleLogger
+>1121	Identifier	SimpleLogger
+>1122	Condition	argc < 3
+>1123	RelationalExpression	argc < 3
+>1124	PrimaryExpression	3
+>1125	Identifier	argc
+>1126	ExpressionStatement	 
+>1127	CallExpression	LogPolicy 
+>1128	ArgumentList	 
+>1129	Callee	LogPolicy 
+>1130	MemberAccess	LogPolicy 
+>1131	Identifier	Unmute
+>1132	CallExpression	LogPolicy 
+>1133	ArgumentList	 
+>1134	Callee	LogPolicy 
+>1135	Identifier	LogPolicy 
+>1136	IdentifierDeclStatement	 
+>1137	IdentifierDecl	barrier_node_list
+>1138	Identifier	barrier_node_list
+>1139	IdentifierDeclType	std 
+>1140	IdentifierDeclStatement	 
+>1141	IdentifierDecl	restriction_list
+>1142	Identifier	restriction_list
+>1143	IdentifierDeclType	std 
+>1144	IdentifierDeclStatement	 
+>1145	IdentifierDecl	coordinate_list
+>1146	Identifier	coordinate_list
+>1147	IdentifierDeclType	std 
+<4=6,5
+<10=18,11
+<11=15,12
+<12=14,13
+<15=17,16
+<28=34,33,29
+<29=30
+<30=32,31
+<34=35
+<35=44,36
+<36=37
+<37=38
+<38=42,39
+<39=40
+<40=41
+<42=43
+<44=45
+<45=49,46
+<46=47
+<47=48
+<49=50
+<56=65,64,57
+<57=61,58
+<58=60,59
+<61=63,62
+<65=94,75,66
+<66=67
+<67=73,68
+<68=71,69
+<69=70
+<71=72
+<73=74
+<75=85,76
+<76=84,77
+<77=78
+<78=82,79
+<79=80
+<80=81
+<82=83
+<85=86
+<86=93,87
+<87=89,88
+<89=90
+<90=92,91
+<94=95
+<95=100,99,96
+<96=98,97
+<108=123,122,109
+<109=119,116,113,110
+<110=112,111
+<113=115,114
+<116=118,117
+<119=121,120
+<123=279,260,256,252,251,236,227,220,213,212,211,210,209,208,206,205,204,126,124
+<124=125
+<126=193,160,127
+<127=156,128
+<128=129
+<129=130
+<130=152,131
+<131=148,144,136,132
+<132=133
+<133=135,134
+<136=137
+<137=143,138
+<138=140,139
+<140=142,141
+<144=145
+<145=147,146
+<148=149
+<149=151,150
+<152=153
+<153=155,154
+<156=157
+<157=159,158
+<160=189,161
+<161=162
+<162=163
+<163=185,164
+<164=181,177,169,165
+<165=166
+<166=168,167
+<169=170
+<170=176,171
+<171=173,172
+<173=175,174
+<177=178
+<178=180,179
+<181=182
+<182=184,183
+<185=186
+<186=188,187
+<189=190
+<190=192,191
+<193=196,194
+<194=195
+<196=197
+<197=201,198
+<198=200,199
+<201=203,202
+<206=207
+<213=214
+<214=216,215
+<216=217
+<217=219,218
+<220=221
+<221=223,222
+<223=224
+<224=226,225
+<227=228
+<228=234,229
+<229=232,230
+<230=231
+<232=233
+<234=235
+<236=237
+<237=250,238
+<238=248,239
+<239=246,244,242,240
+<240=241
+<242=243
+<244=245
+<246=247
+<248=249
+<252=253
+<253=255,254
+<256=257
+<257=259,258
+<260=270,261
+<261=269,262
+<262=263
+<263=267,264
+<264=265
+<265=266
+<267=268
+<270=271
+<271=278,272
+<272=274,273
+<274=275
+<275=277,276
+<279=280
+<280=287,286,281
+<281=285,282
+<282=284,283
+<309=318,317,310
+<310=314,311
+<311=313,312
+<314=316,315
+<318=1144,1140,1136,1126,345,321,319
+<319=320
+<321=344,322
+<322=323
+<323=324
+<324=333,325
+<325=332,326
+<326=328,327
+<328=329
+<329=331,330
+<333=337,334
+<334=335
+<335=336
+<337=338
+<338=340,339
+<340=342,341
+<342=343
+<345=346
+<346=1096,1080,1076,1075,1058,1047,1028,1027,1026,1016,1009,1002,990,985,347,359,383,406,413,420,427,683,684,685,686,687,688,689,690,691,692,693,694,695,696,698,699,700,701,702,709,723,730,753,760,774,794,803,810,824,840,854,871,878,883,893,900,907,914,921,942,963,970,984
+<347=348
+<348=350,349
+<350=352,351
+<352=353
+<353=355,354
+<355=357,356
+<357=358
+<359=360
+<360=370,361
+<361=369,362
+<362=364,363
+<364=368,365
+<365=367,366
+<370=374,371
+<371=373,372
+<374=376,375
+<376=377
+<377=379,378
+<379=381,380
+<381=382
+<383=384
+<384=397,385
+<385=396,386
+<386=388,387
+<388=390,389
+<390=394,391
+<391=392
+<392=393
+<394=395
+<397=399,398
+<399=400
+<400=402,401
+<402=404,403
+<404=405
+<406=407
+<407=411,408
+<408=409
+<409=410
+<411=412
+<413=414
+<414=418,415
+<415=416
+<416=417
+<418=419
+<420=421
+<421=425,422
+<422=423
+<423=424
+<425=426
+<427=676,675,674,673,672,670,669,668,667,666,665,664,663,428
+<428=649,429
+<429=632,430
+<430=599,590,581,572,571,543,431
+<431=539,432
+<432=535,512,489,472,461,440,433
+<433=434
+<434=438,435
+<435=436
+<436=437
+<438=439
+<440=450,441
+<441=449,442
+<442=443
+<443=447,444
+<444=445
+<445=446
+<447=448
+<450=451
+<451=460,452
+<452=456,453
+<453=454
+<454=455
+<456=457
+<457=459,458
+<461=462
+<462=468,463
+<463=464
+<464=465
+<465=467,466
+<468=469
+<469=471,470
+<472=473
+<473=488,487,474
+<474=486,475
+<475=484,476
+<476=477
+<477=478
+<478=480,479
+<480=481
+<481=483,482
+<484=485
+<489=490
+<490=508,491
+<491=500,492
+<492=493
+<493=495,494
+<495=497,496
+<497=499,498
+<500=501
+<501=503,502
+<503=505,504
+<505=507,506
+<508=509
+<509=511,510
+<512=513
+<513=531,514
+<514=523,515
+<515=516
+<516=518,517
+<518=520,519
+<520=522,521
+<523=524
+<524=526,525
+<526=528,527
+<528=530,529
+<531=532
+<532=534,533
+<535=536
+<536=538,537
+<539=540
+<540=542,541
+<543=544
+<544=570,569,545
+<545=568,546
+<546=566,547
+<547=557,548
+<548=549
+<549=553,550
+<550=551
+<551=552
+<553=554
+<554=556,555
+<557=558
+<558=562,559
+<559=560
+<560=561
+<562=563
+<563=565,564
+<566=567
+<572=573
+<573=579,574
+<574=575
+<575=576
+<576=578,577
+<579=580
+<581=582
+<582=588,583
+<583=584
+<584=585
+<585=587,586
+<588=589
+<590=591
+<591=597,592
+<592=593
+<593=594
+<594=596,595
+<597=598
+<599=600
+<600=631,601
+<601=630,602
+<602=628,603
+<603=622,616,610,604
+<604=605
+<605=607,606
+<607=609,608
+<610=611
+<611=613,612
+<613=615,614
+<616=617
+<617=619,618
+<619=621,620
+<622=623
+<623=625,624
+<625=627,626
+<628=629
+<632=633
+<633=646,634
+<634=645,635
+<635=641,636
+<636=639,637
+<637=638
+<639=640
+<641=642
+<642=644,643
+<646=648,647
+<649=650
+<650=662,661,651
+<651=660,652
+<652=656,653
+<653=654
+<654=655
+<656=657
+<657=659,658
+<670=671
+<676=677
+<677=679,678
+<679=680
+<680=682,681
+<696=697
+<702=703
+<703=707,704
+<704=705
+<705=706
+<707=708
+<709=710
+<710=719,711
+<711=712
+<712=713
+<713=715,714
+<715=716
+<716=718,717
+<719=720
+<720=722,721
+<723=724
+<724=729,728,725
+<725=727,726
+<730=731
+<731=744,732
+<732=743,733
+<733=735,734
+<735=737,736
+<737=741,738
+<738=739
+<739=740
+<741=742
+<744=746,745
+<746=747
+<747=749,748
+<749=751,750
+<751=752
+<753=754
+<754=758,755
+<755=756
+<756=757
+<758=759
+<760=770,761
+<761=769,762
+<762=763
+<763=767,764
+<764=765
+<765=766
+<767=768
+<770=771
+<771=773,772
+<774=775
+<775=793,792,776
+<776=791,777
+<777=787,778
+<778=785,783,781,779
+<779=780
+<781=782
+<783=784
+<785=786
+<787=788
+<788=790,789
+<794=795
+<795=799,796
+<796=797
+<797=798
+<799=800
+<800=802,801
+<803=804
+<804=809,808,805
+<805=807,806
+<810=820,811
+<811=819,812
+<812=813
+<813=817,814
+<814=815
+<815=816
+<817=818
+<820=821
+<821=823,822
+<824=825
+<825=839,838,826
+<826=837,827
+<827=833,828
+<828=831,829
+<829=830
+<831=832
+<833=834
+<834=836,835
+<840=850,841
+<841=849,842
+<842=843
+<843=847,844
+<844=845
+<845=846
+<847=848
+<850=851
+<851=853,852
+<854=855
+<855=870,869,856
+<856=868,857
+<857=861,858
+<858=859
+<859=860
+<861=862
+<862=864,863
+<864=866,865
+<866=867
+<871=872
+<872=877,876,873
+<873=875,874
+<878=879
+<879=881,880
+<881=882
+<883=884
+<884=892,891,885
+<885=887,886
+<887=888
+<888=890,889
+<893=894
+<894=898,895
+<895=896
+<896=897
+<898=899
+<900=901
+<901=905,902
+<902=903
+<903=904
+<905=906
+<907=908
+<908=912,909
+<909=910
+<910=911
+<912=913
+<914=915
+<915=919,916
+<916=917
+<917=918
+<919=920
+<921=922
+<922=933,923
+<923=932,924
+<924=926,925
+<926=928,927
+<928=929
+<929=931,930
+<933=935,934
+<935=936
+<936=938,937
+<938=940,939
+<940=941
+<942=943
+<943=954,944
+<944=953,945
+<945=947,946
+<947=949,948
+<949=950
+<950=952,951
+<954=956,955
+<956=957
+<957=959,958
+<959=961,960
+<961=962
+<963=964
+<964=966,965
+<966=967
+<967=969,968
+<970=971
+<971=983,972
+<972=982,973
+<973=981,974
+<974=980,975
+<975=979,976
+<976=978,977
+<985=986
+<986=989,988,987
+<990=991
+<991=993,992
+<993=995,994
+<995=996
+<996=998,997
+<998=1000,999
+<1000=1001
+<1002=1003
+<1003=1005,1004
+<1005=1006
+<1006=1008,1007
+<1009=1010
+<1010=1012,1011
+<1012=1013
+<1013=1015,1014
+<1016=1017
+<1017=1025,1018
+<1018=1024,1019
+<1019=1023,1020
+<1020=1022,1021
+<1028=1029
+<1029=1045,1030
+<1030=1038,1031
+<1031=1032
+<1032=1034,1033
+<1034=1035
+<1035=1037,1036
+<1038=1039
+<1039=1041,1040
+<1041=1042
+<1042=1044,1043
+<1045=1046
+<1047=1048
+<1048=1056,1049
+<1049=1052,1050
+<1050=1051
+<1052=1053
+<1053=1055,1054
+<1056=1057
+<1058=1059
+<1059=1074,1060
+<1060=1072,1061
+<1061=1068,1066,1064,1062
+<1062=1063
+<1064=1065
+<1066=1067
+<1068=1069
+<1069=1071,1070
+<1072=1073
+<1076=1077
+<1077=1079,1078
+<1080=1081
+<1081=1087,1082
+<1082=1086,1083
+<1083=1085,1084
+<1087=1089,1088
+<1089=1090
+<1090=1092,1091
+<1092=1094,1093
+<1094=1095
+<1096=1122,1097
+<1097=1102,1098
+<1098=1099
+<1099=1101,1100
+<1102=1103
+<1103=1111,1104
+<1104=1110,1105
+<1105=1107,1106
+<1107=1109,1108
+<1111=1115,1112
+<1112=1113
+<1113=1114
+<1115=1116
+<1116=1118,1117
+<1118=1120,1119
+<1120=1121
+<1122=1123
+<1123=1125,1124
+<1126=1127
+<1127=1129,1128
+<1129=1130
+<1130=1132,1131
+<1132=1134,1133
+<1134=1135
+<1136=1137
+<1137=1139,1138
+<1140=1141
+<1141=1143,1142
+<1144=1145
+<1145=1147,1146

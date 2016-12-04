@@ -1,0 +1,1034 @@
+>3	FunctionDef	callFunction (mxArray * plhs [ ] , const mxArray * prhs [ ])
+>4	ParameterList	mxArray * plhs [ ] , const mxArray * prhs [ ]
+>5	Parameter	 
+>6	Identifier	prhs
+>7	ParameterType	const mxArray * [ ]
+>8	Parameter	 
+>9	Identifier	plhs
+>10	ParameterType	mxArray * [ ]
+>11	ReturnType	inline void
+>12	CompoundStatement	 
+>13	ExpressionStatement	 
+>14	CallExpression	convertSpMatrix ( plhs [ 0 ] , alpha . m ( ) , alpha . n ( ) , alpha . n ( ) , alpha . nzmax ( ) , alpha . v ( ) , \
+>15	ArgumentList	plhs [ 0 ]
+>16	Argument	alpha . pB ( )
+>17	CallExpression	alpha . pB ( )
+>18	ArgumentList	 
+>19	Callee	alpha . pB
+>20	MemberAccess	alpha . pB
+>21	Identifier	pB
+>22	Identifier	alpha
+>23	Argument	alpha . r ( )
+>24	CallExpression	alpha . r ( )
+>25	ArgumentList	 
+>26	Callee	alpha . r
+>27	MemberAccess	alpha . r
+>28	Identifier	r
+>29	Identifier	alpha
+>30	Argument	alpha . v ( )
+>31	CallExpression	alpha . v ( )
+>32	ArgumentList	 
+>33	Callee	alpha . v
+>34	MemberAccess	alpha . v
+>35	Identifier	v
+>36	Identifier	alpha
+>37	Argument	alpha . nzmax ( )
+>38	CallExpression	alpha . nzmax ( )
+>39	ArgumentList	 
+>40	Callee	alpha . nzmax
+>41	MemberAccess	alpha . nzmax
+>42	Identifier	nzmax
+>43	Identifier	alpha
+>44	Argument	alpha . n ( )
+>45	CallExpression	alpha . n ( )
+>46	ArgumentList	 
+>47	Callee	alpha . n
+>48	MemberAccess	alpha . n
+>49	Identifier	n
+>50	Identifier	alpha
+>51	Argument	alpha . n ( )
+>52	CallExpression	alpha . n ( )
+>53	ArgumentList	 
+>54	Callee	alpha . n
+>55	MemberAccess	alpha . n
+>56	Identifier	n
+>57	Identifier	alpha
+>58	Argument	alpha . m ( )
+>59	CallExpression	alpha . m ( )
+>60	ArgumentList	 
+>61	Callee	alpha . m
+>62	MemberAccess	alpha . m
+>63	Identifier	m
+>64	Identifier	alpha
+>65	Argument	plhs [ 0 ]
+>66	ArrayIndexing	plhs [ 0 ]
+>67	PrimaryExpression	0
+>68	Identifier	plhs
+>69	Callee	convertSpMatrix
+>70	Identifier	convertSpMatrix
+>71	ExpressionStatement	 
+>72	RelationalExpression	lasso_mask < T > ( X , D , alpha , mask , L , lambda , lambda2 , mode , pos , numThreads )
+>73	RelationalExpression	T > ( X , D , alpha , mask , L , lambda , lambda2 , mode , pos , numThreads )
+>74	Expression	X , D , alpha , mask , L , lambda , lambda2 , mode , pos , numThreads
+>75	Expression	D , alpha , mask , L , lambda , lambda2 , mode , pos , numThreads
+>76	Expression	alpha , mask , L , lambda , lambda2 , mode , pos , numThreads
+>77	Expression	mask , L , lambda , lambda2 , mode , pos , numThreads
+>78	Expression	L , lambda , lambda2 , mode , pos , numThreads
+>79	Expression	lambda , lambda2 , mode , pos , numThreads
+>80	Expression	lambda2 , mode , pos , numThreads
+>81	Expression	mode , pos , numThreads
+>82	Expression	pos , numThreads
+>83	Identifier	numThreads
+>84	Identifier	pos
+>85	Identifier	mode
+>86	Identifier	lambda2
+>87	Identifier	lambda
+>88	Identifier	L
+>89	Identifier	mask
+>90	Identifier	alpha
+>91	Identifier	D
+>92	Identifier	X
+>93	Identifier	T
+>94	Identifier	lasso_mask
+>95	IdentifierDeclStatement	 
+>96	IdentifierDecl	alpha
+>97	Identifier	alpha
+>98	IdentifierDeclType	SpMatrix < T >
+>99	IdentifierDeclStatement	 
+>100	IdentifierDecl	mask ( prmask , n , M )
+>101	Expression	prmask , n , M
+>102	Expression	n , M
+>103	Identifier	M
+>104	Identifier	n
+>105	Identifier	prmask
+>106	Identifier	mask
+>107	IdentifierDeclType	Matrix < bool >
+>108	IdentifierDeclStatement	 
+>109	IdentifierDecl	D ( prD , n , K )
+>110	Expression	prD , n , K
+>111	Expression	n , K
+>112	Identifier	K
+>113	Identifier	n
+>114	Identifier	prD
+>115	Identifier	D
+>116	IdentifierDeclType	Matrix < T >
+>117	IdentifierDeclStatement	 
+>118	IdentifierDecl	X ( prX , n , M )
+>119	Expression	prX , n , M
+>120	Expression	n , M
+>121	Identifier	M
+>122	Identifier	n
+>123	Identifier	prX
+>124	Identifier	X
+>125	IdentifierDeclType	Matrix < T >
+>126	IfStatement	if ( L > K )
+>127	CompoundStatement	 
+>128	ExpressionStatement	 
+>129	AssignmentExpr	L = K
+>130	Identifier	K
+>131	Identifier	L
+>132	IfStatement	if ( verbose )
+>133	ExpressionStatement	 
+>134	CallExpression	printf ( \"L is changed to %ld\n\" , K )
+>135	ArgumentList	\"L is changed to %ld\n\"
+>136	Argument	K
+>137	Identifier	K
+>138	Argument	\"L is changed to %ld\n\"
+>139	PrimaryExpression	\"L is changed to %ld\n\"
+>140	Callee	printf
+>141	Identifier	printf
+>142	Condition	 
+>143	Identifier	verbose
+>144	Condition	 
+>145	RelationalExpression	L > K
+>146	Identifier	K
+>147	Identifier	L
+>148	IfStatement	if ( L > n && ! ( mode == PENALTY && isZero ( lambda ) && ! pos && lambda2 > 0 ) )
+>149	CompoundStatement	 
+>150	ExpressionStatement	 
+>151	AssignmentExpr	L = n
+>152	Identifier	n
+>153	Identifier	L
+>154	IfStatement	if ( verbose )
+>155	ExpressionStatement	 
+>156	CallExpression	printf ( \"L is changed to %ld\n\" , n )
+>157	ArgumentList	\"L is changed to %ld\n\"
+>158	Argument	n
+>159	Identifier	n
+>160	Argument	\"L is changed to %ld\n\"
+>161	PrimaryExpression	\"L is changed to %ld\n\"
+>162	Callee	printf
+>163	Identifier	printf
+>164	Condition	 
+>165	Identifier	verbose
+>166	Condition	 
+>167	AndExpression	L > n && ! ( mode == PENALTY && isZero ( lambda ) && ! pos && lambda2 > 0 )
+>168	UnaryOp	! ( mode == PENALTY && isZero ( lambda ) && ! pos && lambda2 > 0 )
+>169	AndExpression	mode == PENALTY && isZero ( lambda ) && ! pos && lambda2 > 0
+>170	AndExpression	isZero ( lambda ) && ! pos && lambda2 > 0
+>171	AndExpression	! pos && lambda2 > 0
+>172	RelationalExpression	lambda2 > 0
+>173	PrimaryExpression	0
+>174	Identifier	lambda2
+>175	UnaryOp	! pos
+>176	Identifier	pos
+>177	UnaryOperator	!
+>178	CallExpression	isZero ( lambda )
+>179	ArgumentList	lambda
+>180	Argument	lambda
+>181	Identifier	lambda
+>182	Callee	isZero
+>183	Identifier	isZero
+>184	EqualityExpression	mode == PENALTY
+>185	Identifier	PENALTY
+>186	Identifier	mode
+>187	UnaryOperator	!
+>188	RelationalExpression	L > n
+>189	Identifier	n
+>190	Identifier	L
+>191	ExpressionStatement	 
+>192	Expression	prhs [ 3 ] , \"mode\" , PENALTY
+>193	Expression	\"mode\" , PENALTY
+>194	Identifier	PENALTY
+>195	PrimaryExpression	\"mode\"
+>196	ArrayIndexing	prhs [ 3 ]
+>197	PrimaryExpression	3
+>198	Identifier	prhs
+>199	Statement	 
+>200	Statement	 
+>201	Statement	 
+>202	Statement	 
+>203	Statement	 
+>204	Statement	 
+>205	Statement	 
+>206	Statement	 
+>207	Statement	 
+>208	Statement	 
+>209	IdentifierDeclStatement	 
+>210	IdentifierDecl	verbose = getScalarStructDef < bool > ( prhs [ 3 ] , \"verbose\" , true )
+>211	AssignmentExpr	verbose = getScalarStructDef < bool > ( prhs [ 3 ] , \"verbose\" , true )
+>212	RelationalExpression	getScalarStructDef < bool > ( prhs [ 3 ] , \"verbose\" , true )
+>213	RelationalExpression	bool > ( prhs [ 3 ] , \"verbose\" , true )
+>214	Expression	prhs [ 3 ] , \"verbose\" , true
+>215	Expression	\"verbose\" , true
+>216	Identifier	true
+>217	PrimaryExpression	\"verbose\"
+>218	ArrayIndexing	prhs [ 3 ]
+>219	PrimaryExpression	3
+>220	Identifier	prhs
+>221	Identifier	bool
+>222	Identifier	getScalarStructDef
+>223	Identifier	verbose
+>224	Identifier	verbose
+>225	IdentifierDeclType	bool
+>226	IdentifierDeclStatement	 
+>227	IdentifierDecl	pos = getScalarStructDef < bool > ( prhs [ 3 ] , \"pos\" , false )
+>228	AssignmentExpr	pos = getScalarStructDef < bool > ( prhs [ 3 ] , \"pos\" , false )
+>229	RelationalExpression	getScalarStructDef < bool > ( prhs [ 3 ] , \"pos\" , false )
+>230	RelationalExpression	bool > ( prhs [ 3 ] , \"pos\" , false )
+>231	Expression	prhs [ 3 ] , \"pos\" , false
+>232	Expression	\"pos\" , false
+>233	Identifier	false
+>234	PrimaryExpression	\"pos\"
+>235	ArrayIndexing	prhs [ 3 ]
+>236	PrimaryExpression	3
+>237	Identifier	prhs
+>238	Identifier	bool
+>239	Identifier	getScalarStructDef
+>240	Identifier	pos
+>241	Identifier	pos
+>242	IdentifierDeclType	bool
+>243	ExpressionStatement	 
+>244	Expression	prhs [ 3 ] , \"numThreads\" , - 1
+>245	Expression	\"numThreads\" , - 1
+>246	UnaryOp	- 1
+>247	PrimaryExpression	1
+>248	UnaryOperator	-
+>249	PrimaryExpression	\"numThreads\"
+>250	ArrayIndexing	prhs [ 3 ]
+>251	PrimaryExpression	3
+>252	Identifier	prhs
+>253	Statement	 
+>254	Statement	 
+>255	Statement	 
+>256	Statement	 
+>257	Statement	 
+>258	Statement	 
+>259	Statement	 
+>260	ExpressionStatement	 
+>261	Expression	prhs [ 3 ] , \"L\" , K
+>262	Expression	\"L\" , K
+>263	Identifier	K
+>264	PrimaryExpression	\"L\"
+>265	ArrayIndexing	prhs [ 3 ]
+>266	PrimaryExpression	3
+>267	Identifier	prhs
+>268	Statement	 
+>269	Statement	 
+>270	Statement	 
+>271	Statement	 
+>272	Statement	 
+>273	Statement	 
+>274	Statement	 
+>275	IdentifierDeclStatement	 
+>276	IdentifierDecl	lambda2 = getScalarStructDef < T > ( prhs [ 3 ] , \"lambda2\" , 0 )
+>277	AssignmentExpr	lambda2 = getScalarStructDef < T > ( prhs [ 3 ] , \"lambda2\" , 0 )
+>278	RelationalExpression	getScalarStructDef < T > ( prhs [ 3 ] , \"lambda2\" , 0 )
+>279	RelationalExpression	T > ( prhs [ 3 ] , \"lambda2\" , 0 )
+>280	Expression	prhs [ 3 ] , \"lambda2\" , 0
+>281	Expression	\"lambda2\" , 0
+>282	PrimaryExpression	0
+>283	PrimaryExpression	\"lambda2\"
+>284	ArrayIndexing	prhs [ 3 ]
+>285	PrimaryExpression	3
+>286	Identifier	prhs
+>287	Identifier	T
+>288	Identifier	getScalarStructDef
+>289	Identifier	lambda2
+>290	Identifier	lambda2
+>291	IdentifierDeclType	T
+>292	IdentifierDeclStatement	 
+>293	IdentifierDecl	lambda = getScalarStruct < T > ( prhs [ 3 ] , \"lambda\" )
+>294	AssignmentExpr	lambda = getScalarStruct < T > ( prhs [ 3 ] , \"lambda\" )
+>295	RelationalExpression	getScalarStruct < T > ( prhs [ 3 ] , \"lambda\" )
+>296	RelationalExpression	T > ( prhs [ 3 ] , \"lambda\" )
+>297	Expression	prhs [ 3 ] , \"lambda\"
+>298	PrimaryExpression	\"lambda\"
+>299	ArrayIndexing	prhs [ 3 ]
+>300	PrimaryExpression	3
+>301	Identifier	prhs
+>302	Identifier	T
+>303	Identifier	getScalarStruct
+>304	Identifier	lambda
+>305	Identifier	lambda
+>306	IdentifierDeclType	T
+>307	IfStatement	if ( nM != n || mM != M )
+>308	ExpressionStatement	 
+>309	CallExpression	mexErrMsgTxt ( \"argument sizes are not consistent\" )
+>310	ArgumentList	\"argument sizes are not consistent\"
+>311	Argument	\"argument sizes are not consistent\"
+>312	PrimaryExpression	\"argument sizes are not consistent\"
+>313	Callee	mexErrMsgTxt
+>314	Identifier	mexErrMsgTxt
+>315	Condition	 
+>316	OrExpression	nM != n || mM != M
+>317	EqualityExpression	mM != M
+>318	Identifier	M
+>319	Identifier	mM
+>320	EqualityExpression	nM != n
+>321	Identifier	n
+>322	Identifier	nM
+>323	ExpressionStatement	 
+>324	ArrayIndexing	dimsM [ 1 ]
+>325	PrimaryExpression	1
+>326	Identifier	dimsM
+>327	Statement	 
+>328	Statement	 
+>329	Statement	 
+>330	Statement	 
+>331	Statement	 
+>332	Statement	 
+>333	Statement	 
+>334	ExpressionStatement	 
+>335	ArrayIndexing	dimsM [ 0 ]
+>336	PrimaryExpression	0
+>337	Identifier	dimsM
+>338	Statement	 
+>339	Statement	 
+>340	Statement	 
+>341	Statement	 
+>342	Statement	 
+>343	Statement	 
+>344	Statement	 
+>345	IdentifierDeclStatement	 
+>346	IdentifierDecl	* dimsM = mxGetDimensions ( prhs [ 2 ] )
+>347	AssignmentExpr	* dimsM = mxGetDimensions ( prhs [ 2 ] )
+>348	CallExpression	mxGetDimensions ( prhs [ 2 ] )
+>349	ArgumentList	prhs [ 2 ]
+>350	Argument	prhs [ 2 ]
+>351	ArrayIndexing	prhs [ 2 ]
+>352	PrimaryExpression	2
+>353	Identifier	prhs
+>354	Callee	mxGetDimensions
+>355	Identifier	mxGetDimensions
+>356	Identifier	dimsM
+>357	Identifier	dimsM
+>358	IdentifierDeclType	const mwSize *
+>359	ExpressionStatement	 
+>360	CallExpression	mxGetPr ( prhs [ 2 ] )
+>361	ArgumentList	prhs [ 2 ]
+>362	Argument	prhs [ 2 ]
+>363	ArrayIndexing	prhs [ 2 ]
+>364	PrimaryExpression	2
+>365	Identifier	prhs
+>366	Callee	mxGetPr
+>367	Identifier	mxGetPr
+>368	Statement	 
+>369	Statement	 
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	IfStatement	if ( n != nD )
+>378	ExpressionStatement	 
+>379	CallExpression	mexErrMsgTxt ( \"argument sizes are not consistent\" )
+>380	ArgumentList	\"argument sizes are not consistent\"
+>381	Argument	\"argument sizes are not consistent\"
+>382	PrimaryExpression	\"argument sizes are not consistent\"
+>383	Callee	mexErrMsgTxt
+>384	Identifier	mexErrMsgTxt
+>385	Condition	 
+>386	EqualityExpression	n != nD
+>387	Identifier	nD
+>388	Identifier	n
+>389	ExpressionStatement	 
+>390	ArrayIndexing	dimsD [ 1 ]
+>391	PrimaryExpression	1
+>392	Identifier	dimsD
+>393	Statement	 
+>394	Statement	 
+>395	Statement	 
+>396	Statement	 
+>397	Statement	 
+>398	Statement	 
+>399	Statement	 
+>400	ExpressionStatement	 
+>401	ArrayIndexing	dimsD [ 0 ]
+>402	PrimaryExpression	0
+>403	Identifier	dimsD
+>404	Statement	 
+>405	Statement	 
+>406	Statement	 
+>407	Statement	 
+>408	Statement	 
+>409	Statement	 
+>410	Statement	 
+>411	IdentifierDeclStatement	 
+>412	IdentifierDecl	* dimsD = mxGetDimensions ( prhs [ 1 ] )
+>413	AssignmentExpr	* dimsD = mxGetDimensions ( prhs [ 1 ] )
+>414	CallExpression	mxGetDimensions ( prhs [ 1 ] )
+>415	ArgumentList	prhs [ 1 ]
+>416	Argument	prhs [ 1 ]
+>417	ArrayIndexing	prhs [ 1 ]
+>418	PrimaryExpression	1
+>419	Identifier	prhs
+>420	Callee	mxGetDimensions
+>421	Identifier	mxGetDimensions
+>422	Identifier	dimsD
+>423	Identifier	dimsD
+>424	IdentifierDeclType	const mwSize *
+>425	ExpressionStatement	 
+>426	CallExpression	mxGetPr ( prhs [ 1 ] )
+>427	ArgumentList	prhs [ 1 ]
+>428	Argument	prhs [ 1 ]
+>429	ArrayIndexing	prhs [ 1 ]
+>430	PrimaryExpression	1
+>431	Identifier	prhs
+>432	Callee	mxGetPr
+>433	Identifier	mxGetPr
+>434	Statement	 
+>435	Statement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	ExpressionStatement	 
+>444	ArrayIndexing	dimsX [ 1 ]
+>445	PrimaryExpression	1
+>446	Identifier	dimsX
+>447	Statement	 
+>448	Statement	 
+>449	Statement	 
+>450	Statement	 
+>451	Statement	 
+>452	Statement	 
+>453	Statement	 
+>454	ExpressionStatement	 
+>455	ArrayIndexing	dimsX [ 0 ]
+>456	PrimaryExpression	0
+>457	Identifier	dimsX
+>458	Statement	 
+>459	Statement	 
+>460	Statement	 
+>461	Statement	 
+>462	Statement	 
+>463	Statement	 
+>464	Statement	 
+>465	IdentifierDeclStatement	 
+>466	IdentifierDecl	* dimsX = mxGetDimensions ( prhs [ 0 ] )
+>467	AssignmentExpr	* dimsX = mxGetDimensions ( prhs [ 0 ] )
+>468	CallExpression	mxGetDimensions ( prhs [ 0 ] )
+>469	ArgumentList	prhs [ 0 ]
+>470	Argument	prhs [ 0 ]
+>471	ArrayIndexing	prhs [ 0 ]
+>472	PrimaryExpression	0
+>473	Identifier	prhs
+>474	Callee	mxGetDimensions
+>475	Identifier	mxGetDimensions
+>476	Identifier	dimsX
+>477	Identifier	dimsX
+>478	IdentifierDeclType	const mwSize *
+>479	ExpressionStatement	 
+>480	CallExpression	mxGetPr ( prhs [ 0 ] )
+>481	ArgumentList	prhs [ 0 ]
+>482	Argument	prhs [ 0 ]
+>483	ArrayIndexing	prhs [ 0 ]
+>484	PrimaryExpression	0
+>485	Identifier	prhs
+>486	Callee	mxGetPr
+>487	Identifier	mxGetPr
+>488	Statement	 
+>489	Statement	 
+>490	Statement	 
+>491	Statement	 
+>492	Statement	 
+>493	Statement	 
+>494	Statement	 
+>495	Statement	 
+>496	Statement	 
+>497	IfStatement	if ( ! mxIsStruct ( prhs [ 3 ] ) )
+>498	ExpressionStatement	 
+>499	CallExpression	mexErrMsgTxt ( \"argument 4 should be struct\" )
+>500	ArgumentList	\"argument 4 should be struct\"
+>501	Argument	\"argument 4 should be struct\"
+>502	PrimaryExpression	\"argument 4 should be struct\"
+>503	Callee	mexErrMsgTxt
+>504	Identifier	mexErrMsgTxt
+>505	Condition	 
+>506	UnaryOp	! mxIsStruct ( prhs [ 3 ] )
+>507	CallExpression	mxIsStruct ( prhs [ 3 ] )
+>508	ArgumentList	prhs [ 3 ]
+>509	Argument	prhs [ 3 ]
+>510	ArrayIndexing	prhs [ 3 ]
+>511	PrimaryExpression	3
+>512	Identifier	prhs
+>513	Callee	mxIsStruct
+>514	Identifier	mxIsStruct
+>515	UnaryOperator	!
+>516	IfStatement	if ( mxIsSparse ( prhs [ 2 ] ) )
+>517	ExpressionStatement	 
+>518	CallExpression	mexErrMsgTxt ( \"argument 3 should be full\" )
+>519	ArgumentList	\"argument 3 should be full\"
+>520	Argument	\"argument 3 should be full\"
+>521	PrimaryExpression	\"argument 3 should be full\"
+>522	Callee	mexErrMsgTxt
+>523	Identifier	mexErrMsgTxt
+>524	Condition	 
+>525	CallExpression	mxIsSparse ( prhs [ 2 ] )
+>526	ArgumentList	prhs [ 2 ]
+>527	Argument	prhs [ 2 ]
+>528	ArrayIndexing	prhs [ 2 ]
+>529	PrimaryExpression	2
+>530	Identifier	prhs
+>531	Callee	mxIsSparse
+>532	Identifier	mxIsSparse
+>533	IfStatement	if ( ! mexCheckType < bool > ( prhs [ 2 ] ) )
+>534	ExpressionStatement	 
+>535	CallExpression	mexErrMsgTxt ( \"type of argument 3 should be boolean\" )
+>536	ArgumentList	\"type of argument 3 should be boolean\"
+>537	Argument	\"type of argument 3 should be boolean\"
+>538	PrimaryExpression	\"type of argument 3 should be boolean\"
+>539	Callee	mexErrMsgTxt
+>540	Identifier	mexErrMsgTxt
+>541	Condition	 
+>542	RelationalExpression	! mexCheckType < bool > ( prhs [ 2 ] )
+>543	RelationalExpression	bool > ( prhs [ 2 ] )
+>544	ArrayIndexing	prhs [ 2 ]
+>545	PrimaryExpression	2
+>546	Identifier	prhs
+>547	Identifier	bool
+>548	UnaryOp	! mexCheckType
+>549	Identifier	mexCheckType
+>550	UnaryOperator	!
+>551	IfStatement	if ( mxIsSparse ( prhs [ 1 ] ) )
+>552	ExpressionStatement	 
+>553	CallExpression	mexErrMsgTxt ( \"argument 2 should be full\" )
+>554	ArgumentList	\"argument 2 should be full\"
+>555	Argument	\"argument 2 should be full\"
+>556	PrimaryExpression	\"argument 2 should be full\"
+>557	Callee	mexErrMsgTxt
+>558	Identifier	mexErrMsgTxt
+>559	Condition	 
+>560	CallExpression	mxIsSparse ( prhs [ 1 ] )
+>561	ArgumentList	prhs [ 1 ]
+>562	Argument	prhs [ 1 ]
+>563	ArrayIndexing	prhs [ 1 ]
+>564	PrimaryExpression	1
+>565	Identifier	prhs
+>566	Callee	mxIsSparse
+>567	Identifier	mxIsSparse
+>568	IfStatement	if ( ! mexCheckType < T > ( prhs [ 1 ] ) )
+>569	ExpressionStatement	 
+>570	CallExpression	mexErrMsgTxt ( \"type of argument 2 is not consistent\" )
+>571	ArgumentList	\"type of argument 2 is not consistent\"
+>572	Argument	\"type of argument 2 is not consistent\"
+>573	PrimaryExpression	\"type of argument 2 is not consistent\"
+>574	Callee	mexErrMsgTxt
+>575	Identifier	mexErrMsgTxt
+>576	Condition	 
+>577	RelationalExpression	! mexCheckType < T > ( prhs [ 1 ] )
+>578	RelationalExpression	T > ( prhs [ 1 ] )
+>579	ArrayIndexing	prhs [ 1 ]
+>580	PrimaryExpression	1
+>581	Identifier	prhs
+>582	Identifier	T
+>583	UnaryOp	! mexCheckType
+>584	Identifier	mexCheckType
+>585	UnaryOperator	!
+>586	IfStatement	if ( mxIsSparse ( prhs [ 0 ] ) )
+>587	ExpressionStatement	 
+>588	CallExpression	mexErrMsgTxt ( \"argument 1 should be full\" )
+>589	ArgumentList	\"argument 1 should be full\"
+>590	Argument	\"argument 1 should be full\"
+>591	PrimaryExpression	\"argument 1 should be full\"
+>592	Callee	mexErrMsgTxt
+>593	Identifier	mexErrMsgTxt
+>594	Condition	 
+>595	CallExpression	mxIsSparse ( prhs [ 0 ] )
+>596	ArgumentList	prhs [ 0 ]
+>597	Argument	prhs [ 0 ]
+>598	ArrayIndexing	prhs [ 0 ]
+>599	PrimaryExpression	0
+>600	Identifier	prhs
+>601	Callee	mxIsSparse
+>602	Identifier	mxIsSparse
+>603	IfStatement	if ( ! mexCheckType < T > ( prhs [ 0 ] ) )
+>604	ExpressionStatement	 
+>605	CallExpression	mexErrMsgTxt ( \"type of argument 1 is not consistent\" )
+>606	ArgumentList	\"type of argument 1 is not consistent\"
+>607	Argument	\"type of argument 1 is not consistent\"
+>608	PrimaryExpression	\"type of argument 1 is not consistent\"
+>609	Callee	mexErrMsgTxt
+>610	Identifier	mexErrMsgTxt
+>611	Condition	 
+>612	RelationalExpression	! mexCheckType < T > ( prhs [ 0 ] )
+>613	RelationalExpression	T > ( prhs [ 0 ] )
+>614	ArrayIndexing	prhs [ 0 ]
+>615	PrimaryExpression	0
+>616	Identifier	prhs
+>617	Identifier	T
+>618	UnaryOp	! mexCheckType
+>619	Identifier	mexCheckType
+>620	UnaryOperator	!
+>665	FunctionDef	mexFunction (int nlhs , mxArray * plhs [ ] , int nrhs , const mxArray * prhs [ ])
+>666	ParameterList	int nlhs , mxArray * plhs [ ] , int nrhs , const mxArray * prhs [ ]
+>667	Parameter	 
+>668	Identifier	prhs
+>669	ParameterType	const mxArray * [ ]
+>670	Parameter	 
+>671	Identifier	nrhs
+>672	ParameterType	int
+>673	Parameter	 
+>674	Identifier	plhs
+>675	ParameterType	mxArray * [ ]
+>676	Parameter	 
+>677	Identifier	nlhs
+>678	ParameterType	int
+>679	ReturnType	void
+>680	CompoundStatement	 
+>681	IfStatement	if ( mxGetClassID ( prhs [ 0 ] ) == mxDOUBLE_CLASS )
+>682	ElseStatement	else
+>683	CompoundStatement	 
+>684	ExpressionStatement	 
+>685	RelationalExpression	callFunction < float > ( plhs , prhs )
+>686	RelationalExpression	float > ( plhs , prhs )
+>687	Expression	plhs , prhs
+>688	Identifier	prhs
+>689	Identifier	plhs
+>690	Identifier	float
+>691	Identifier	callFunction
+>692	CompoundStatement	 
+>693	ExpressionStatement	 
+>694	RelationalExpression	callFunction < double > ( plhs , prhs )
+>695	RelationalExpression	double > ( plhs , prhs )
+>696	Expression	plhs , prhs
+>697	Identifier	prhs
+>698	Identifier	plhs
+>699	Identifier	double
+>700	Identifier	callFunction
+>701	Condition	 
+>702	EqualityExpression	mxGetClassID ( prhs [ 0 ] ) == mxDOUBLE_CLASS
+>703	Identifier	mxDOUBLE_CLASS
+>704	CallExpression	mxGetClassID ( prhs [ 0 ] )
+>705	ArgumentList	prhs [ 0 ]
+>706	Argument	prhs [ 0 ]
+>707	ArrayIndexing	prhs [ 0 ]
+>708	PrimaryExpression	0
+>709	Identifier	prhs
+>710	Callee	mxGetClassID
+>711	Identifier	mxGetClassID
+>712	IfStatement	if ( nlhs != 1 )
+>713	ExpressionStatement	 
+>714	CallExpression	mexErrMsgTxt ( \"Bad number of output arguments\" )
+>715	ArgumentList	\"Bad number of output arguments\"
+>716	Argument	\"Bad number of output arguments\"
+>717	PrimaryExpression	\"Bad number of output arguments\"
+>718	Callee	mexErrMsgTxt
+>719	Identifier	mexErrMsgTxt
+>720	Condition	 
+>721	EqualityExpression	nlhs != 1
+>722	PrimaryExpression	1
+>723	Identifier	nlhs
+>724	IfStatement	if ( nrhs != 4 )
+>725	ExpressionStatement	 
+>726	CallExpression	mexErrMsgTxt ( \"Bad number of inputs arguments\" )
+>727	ArgumentList	\"Bad number of inputs arguments\"
+>728	Argument	\"Bad number of inputs arguments\"
+>729	PrimaryExpression	\"Bad number of inputs arguments\"
+>730	Callee	mexErrMsgTxt
+>731	Identifier	mexErrMsgTxt
+>732	Condition	 
+>733	EqualityExpression	nrhs != 4
+>734	PrimaryExpression	4
+>735	Identifier	nrhs
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=603,586,568,551,533,516,497,496,495,494,493,492,491,490,489,488,479,465,464,463,462,461,460,459,458,454,453,452,451,450,449,448,447,443,442,441,440,439,438,437,436,435,434,425,411,410,409,408,407,406,405,404,400,399,398,397,396,395,394,393,389,377,376,375,374,373,372,371,370,369,368,359,345,344,343,342,341,340,339,13,71,95,99,108,117,126,148,191,199,200,201,202,203,204,205,206,207,208,209,226,243,253,254,255,256,257,258,259,260,268,269,270,271,272,273,274,275,292,307,323,327,328,329,330,331,332,333,334,338
+<13=14
+<14=69,15
+<15=65,58,51,44,37,30,23,16
+<16=17
+<17=19,18
+<19=20
+<20=22,21
+<23=24
+<24=26,25
+<26=27
+<27=29,28
+<30=31
+<31=33,32
+<33=34
+<34=36,35
+<37=38
+<38=40,39
+<40=41
+<41=43,42
+<44=45
+<45=47,46
+<47=48
+<48=50,49
+<51=52
+<52=54,53
+<54=55
+<55=57,56
+<58=59
+<59=61,60
+<61=62
+<62=64,63
+<65=66
+<66=68,67
+<69=70
+<71=72
+<72=94,73
+<73=93,74
+<74=92,75
+<75=91,76
+<76=90,77
+<77=89,78
+<78=88,79
+<79=87,80
+<80=86,81
+<81=85,82
+<82=84,83
+<95=96
+<96=98,97
+<99=100
+<100=107,106,101
+<101=105,102
+<102=104,103
+<108=109
+<109=116,115,110
+<110=114,111
+<111=113,112
+<117=118
+<118=125,124,119
+<119=123,120
+<120=122,121
+<126=144,127
+<127=132,128
+<128=129
+<129=131,130
+<132=142,133
+<133=134
+<134=140,135
+<135=138,136
+<136=137
+<138=139
+<140=141
+<142=143
+<144=145
+<145=147,146
+<148=166,149
+<149=154,150
+<150=151
+<151=153,152
+<154=164,155
+<155=156
+<156=162,157
+<157=160,158
+<158=159
+<160=161
+<162=163
+<164=165
+<166=167
+<167=188,168
+<168=187,169
+<169=184,170
+<170=178,171
+<171=175,172
+<172=174,173
+<175=177,176
+<178=182,179
+<179=180
+<180=181
+<182=183
+<184=186,185
+<188=190,189
+<191=192
+<192=196,193
+<193=195,194
+<196=198,197
+<209=210
+<210=225,224,211
+<211=223,212
+<212=222,213
+<213=221,214
+<214=218,215
+<215=217,216
+<218=220,219
+<226=227
+<227=242,241,228
+<228=240,229
+<229=239,230
+<230=238,231
+<231=235,232
+<232=234,233
+<235=237,236
+<243=244
+<244=250,245
+<245=249,246
+<246=248,247
+<250=252,251
+<260=261
+<261=265,262
+<262=264,263
+<265=267,266
+<275=276
+<276=291,290,277
+<277=289,278
+<278=288,279
+<279=287,280
+<280=284,281
+<281=283,282
+<284=286,285
+<292=293
+<293=306,305,294
+<294=304,295
+<295=303,296
+<296=302,297
+<297=299,298
+<299=301,300
+<307=315,308
+<308=309
+<309=313,310
+<310=311
+<311=312
+<313=314
+<315=316
+<316=320,317
+<317=319,318
+<320=322,321
+<323=324
+<324=326,325
+<334=335
+<335=337,336
+<345=346
+<346=358,357,347
+<347=356,348
+<348=354,349
+<349=350
+<350=351
+<351=353,352
+<354=355
+<359=360
+<360=366,361
+<361=362
+<362=363
+<363=365,364
+<366=367
+<377=385,378
+<378=379
+<379=383,380
+<380=381
+<381=382
+<383=384
+<385=386
+<386=388,387
+<389=390
+<390=392,391
+<400=401
+<401=403,402
+<411=412
+<412=424,423,413
+<413=422,414
+<414=420,415
+<415=416
+<416=417
+<417=419,418
+<420=421
+<425=426
+<426=432,427
+<427=428
+<428=429
+<429=431,430
+<432=433
+<443=444
+<444=446,445
+<454=455
+<455=457,456
+<465=466
+<466=478,477,467
+<467=476,468
+<468=474,469
+<469=470
+<470=471
+<471=473,472
+<474=475
+<479=480
+<480=486,481
+<481=482
+<482=483
+<483=485,484
+<486=487
+<497=505,498
+<498=499
+<499=503,500
+<500=501
+<501=502
+<503=504
+<505=506
+<506=515,507
+<507=513,508
+<508=509
+<509=510
+<510=512,511
+<513=514
+<516=524,517
+<517=518
+<518=522,519
+<519=520
+<520=521
+<522=523
+<524=525
+<525=531,526
+<526=527
+<527=528
+<528=530,529
+<531=532
+<533=541,534
+<534=535
+<535=539,536
+<536=537
+<537=538
+<539=540
+<541=542
+<542=548,543
+<543=547,544
+<544=546,545
+<548=550,549
+<551=559,552
+<552=553
+<553=557,554
+<554=555
+<555=556
+<557=558
+<559=560
+<560=566,561
+<561=562
+<562=563
+<563=565,564
+<566=567
+<568=576,569
+<569=570
+<570=574,571
+<571=572
+<572=573
+<574=575
+<576=577
+<577=583,578
+<578=582,579
+<579=581,580
+<583=585,584
+<586=594,587
+<587=588
+<588=592,589
+<589=590
+<590=591
+<592=593
+<594=595
+<595=601,596
+<596=597
+<597=598
+<598=600,599
+<601=602
+<603=611,604
+<604=605
+<605=609,606
+<606=607
+<607=608
+<609=610
+<611=612
+<612=618,613
+<613=617,614
+<614=616,615
+<618=620,619
+<665=680,679,666
+<666=676,673,670,667
+<667=669,668
+<670=672,671
+<673=675,674
+<676=678,677
+<680=724,712,681
+<681=701,692,682
+<682=683
+<683=684
+<684=685
+<685=691,686
+<686=690,687
+<687=689,688
+<692=693
+<693=694
+<694=700,695
+<695=699,696
+<696=698,697
+<701=702
+<702=704,703
+<704=710,705
+<705=706
+<706=707
+<707=709,708
+<710=711
+<712=720,713
+<713=714
+<714=718,715
+<715=716
+<716=717
+<718=719
+<720=721
+<721=723,722
+<724=732,725
+<725=726
+<726=730,727
+<727=728
+<728=729
+<730=731
+<732=733
+<733=735,734

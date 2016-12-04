@@ -1,0 +1,307 @@
+>3	FunctionDef	RiffDetector 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	RiffDetector 
+>10	ParameterList	 
+>11	CompoundStatement	 
+>15	FunctionDef	RiffDetector 
+>16	ParameterList	RiffChunkHeader & rch , const char * b , int length
+>17	Parameter	 
+>18	Identifier	length
+>19	ParameterType	int
+>20	Parameter	 
+>21	Identifier	b
+>22	ParameterType	const char *
+>23	Parameter	 
+>24	Identifier	rch
+>25	ParameterType	RiffChunkHeader &
+>26	ReturnType	int
+>27	CompoundStatement	 
+>28	ReturnStatement	 
+>29	Identifier	headerOffset
+>30	WhileStatement	while ( headerOffset == - 1 && currentOffset <= limit )
+>31	CompoundStatement	 
+>32	IfStatement	if ( rch . convertFromBytes ( b + currentOffset , size ) )
+>33	ElseStatement	else
+>34	CompoundStatement	 
+>35	ExpressionStatement	 
+>36	UnaryExpression	++ currentOffset
+>37	Identifier	currentOffset
+>38	IncDec	++
+>39	CompoundStatement	 
+>40	ExpressionStatement	 
+>41	AssignmentExpr	headerOffset = currentOffset
+>42	Identifier	currentOffset
+>43	Identifier	headerOffset
+>44	Condition	 
+>45	CallExpression	rch . convertFromBytes ( b + currentOffset , size )
+>46	ArgumentList	b + currentOffset
+>47	Argument	size
+>48	Identifier	size
+>49	Argument	b + currentOffset
+>50	AdditiveExpression	b + currentOffset
+>51	Identifier	currentOffset
+>52	Identifier	b
+>53	Callee	rch . convertFromBytes
+>54	MemberAccess	rch . convertFromBytes
+>55	Identifier	convertFromBytes
+>56	Identifier	rch
+>57	IdentifierDeclStatement	 
+>58	IdentifierDecl	size = length - currentOffset
+>59	AssignmentExpr	size = length - currentOffset
+>60	AdditiveExpression	length - currentOffset
+>61	Identifier	currentOffset
+>62	Identifier	length
+>63	Identifier	size
+>64	Identifier	size
+>65	IdentifierDeclType	int
+>66	Condition	 
+>67	AndExpression	headerOffset == - 1 && currentOffset <= limit
+>68	RelationalExpression	currentOffset <= limit
+>69	Identifier	limit
+>70	Identifier	currentOffset
+>71	EqualityExpression	headerOffset == - 1
+>72	UnaryOp	- 1
+>73	PrimaryExpression	1
+>74	UnaryOperator	-
+>75	Identifier	headerOffset
+>76	IdentifierDeclStatement	 
+>77	IdentifierDecl	limit = length - RiffChunkHeader 
+>78	AssignmentExpr	limit = length - RiffChunkHeader 
+>79	AdditiveExpression	length - RiffChunkHeader 
+>80	Identifier	RiffChunkHeader 
+>81	Identifier	length
+>82	Identifier	limit
+>83	Identifier	limit
+>84	IdentifierDeclType	int
+>85	IdentifierDeclStatement	 
+>86	IdentifierDecl	currentOffset = 0
+>87	AssignmentExpr	currentOffset = 0
+>88	PrimaryExpression	0
+>89	Identifier	currentOffset
+>90	Identifier	currentOffset
+>91	IdentifierDeclType	int
+>92	IdentifierDeclStatement	 
+>93	IdentifierDecl	headerOffset = - 1
+>94	AssignmentExpr	headerOffset = - 1
+>95	UnaryOp	- 1
+>96	PrimaryExpression	1
+>97	UnaryOperator	-
+>98	Identifier	headerOffset
+>99	Identifier	headerOffset
+>100	IdentifierDeclType	int
+>113	FunctionDef	RiffDetector 
+>114	ParameterList	RiffListHeader & rlh , const char * b , int length
+>115	Parameter	 
+>116	Identifier	length
+>117	ParameterType	int
+>118	Parameter	 
+>119	Identifier	b
+>120	ParameterType	const char *
+>121	Parameter	 
+>122	Identifier	rlh
+>123	ParameterType	RiffListHeader &
+>124	ReturnType	int
+>125	CompoundStatement	 
+>126	ReturnStatement	 
+>127	Identifier	headerOffset
+>128	WhileStatement	while ( headerOffset == - 1 && currentOffset <= limit )
+>129	CompoundStatement	 
+>130	IfStatement	if ( rlh . convertFromBytes ( b + currentOffset , size ) )
+>131	ElseStatement	else
+>132	CompoundStatement	 
+>133	ExpressionStatement	 
+>134	UnaryExpression	++ currentOffset
+>135	Identifier	currentOffset
+>136	IncDec	++
+>137	CompoundStatement	 
+>138	ExpressionStatement	 
+>139	AssignmentExpr	headerOffset = currentOffset
+>140	Identifier	currentOffset
+>141	Identifier	headerOffset
+>142	Condition	 
+>143	CallExpression	rlh . convertFromBytes ( b + currentOffset , size )
+>144	ArgumentList	b + currentOffset
+>145	Argument	size
+>146	Identifier	size
+>147	Argument	b + currentOffset
+>148	AdditiveExpression	b + currentOffset
+>149	Identifier	currentOffset
+>150	Identifier	b
+>151	Callee	rlh . convertFromBytes
+>152	MemberAccess	rlh . convertFromBytes
+>153	Identifier	convertFromBytes
+>154	Identifier	rlh
+>155	IdentifierDeclStatement	 
+>156	IdentifierDecl	size = length - currentOffset
+>157	AssignmentExpr	size = length - currentOffset
+>158	AdditiveExpression	length - currentOffset
+>159	Identifier	currentOffset
+>160	Identifier	length
+>161	Identifier	size
+>162	Identifier	size
+>163	IdentifierDeclType	int
+>164	Condition	 
+>165	AndExpression	headerOffset == - 1 && currentOffset <= limit
+>166	RelationalExpression	currentOffset <= limit
+>167	Identifier	limit
+>168	Identifier	currentOffset
+>169	EqualityExpression	headerOffset == - 1
+>170	UnaryOp	- 1
+>171	PrimaryExpression	1
+>172	UnaryOperator	-
+>173	Identifier	headerOffset
+>174	IdentifierDeclStatement	 
+>175	IdentifierDecl	limit = length - RiffListHeader 
+>176	AssignmentExpr	limit = length - RiffListHeader 
+>177	AdditiveExpression	length - RiffListHeader 
+>178	Identifier	RiffListHeader 
+>179	Identifier	length
+>180	Identifier	limit
+>181	Identifier	limit
+>182	IdentifierDeclType	int
+>183	IdentifierDeclStatement	 
+>184	IdentifierDecl	currentOffset = 0
+>185	AssignmentExpr	currentOffset = 0
+>186	PrimaryExpression	0
+>187	Identifier	currentOffset
+>188	Identifier	currentOffset
+>189	IdentifierDeclType	int
+>190	IdentifierDeclStatement	 
+>191	IdentifierDecl	headerOffset = - 1
+>192	AssignmentExpr	headerOffset = - 1
+>193	UnaryOp	- 1
+>194	PrimaryExpression	1
+>195	UnaryOperator	-
+>196	Identifier	headerOffset
+>197	Identifier	headerOffset
+>198	IdentifierDeclType	int
+>211	FunctionDef	RiffDetector 
+>212	ParameterList	RiffFormHeader & rfh , const char * b , int length
+>213	Parameter	 
+>214	Identifier	length
+>215	ParameterType	int
+>216	Parameter	 
+>217	Identifier	b
+>218	ParameterType	const char *
+>219	Parameter	 
+>220	Identifier	rfh
+>221	ParameterType	RiffFormHeader &
+>222	ReturnType	int
+>223	CompoundStatement	 
+>224	ReturnStatement	 
+>225	CallExpression	findRiffListHeader ( rfh , b , length )
+>226	ArgumentList	rfh
+>227	Argument	length
+>228	Identifier	length
+>229	Argument	b
+>230	Identifier	b
+>231	Argument	rfh
+>232	Identifier	rfh
+>233	Callee	findRiffListHeader
+>234	Identifier	findRiffListHeader
+<3=5,4
+<9=11,10
+<15=27,26,16
+<16=23,20,17
+<17=19,18
+<20=22,21
+<23=25,24
+<27=92,85,76,30,28
+<28=29
+<30=66,31
+<31=57,32
+<32=44,39,33
+<33=34
+<34=35
+<35=36
+<36=38,37
+<39=40
+<40=41
+<41=43,42
+<44=45
+<45=53,46
+<46=49,47
+<47=48
+<49=50
+<50=52,51
+<53=54
+<54=56,55
+<57=58
+<58=65,64,59
+<59=63,60
+<60=62,61
+<66=67
+<67=71,68
+<68=70,69
+<71=75,72
+<72=74,73
+<76=77
+<77=84,83,78
+<78=82,79
+<79=81,80
+<85=86
+<86=91,90,87
+<87=89,88
+<92=93
+<93=100,99,94
+<94=98,95
+<95=97,96
+<113=125,124,114
+<114=121,118,115
+<115=117,116
+<118=120,119
+<121=123,122
+<125=190,183,174,128,126
+<126=127
+<128=164,129
+<129=155,130
+<130=142,137,131
+<131=132
+<132=133
+<133=134
+<134=136,135
+<137=138
+<138=139
+<139=141,140
+<142=143
+<143=151,144
+<144=147,145
+<145=146
+<147=148
+<148=150,149
+<151=152
+<152=154,153
+<155=156
+<156=163,162,157
+<157=161,158
+<158=160,159
+<164=165
+<165=169,166
+<166=168,167
+<169=173,170
+<170=172,171
+<174=175
+<175=182,181,176
+<176=180,177
+<177=179,178
+<183=184
+<184=189,188,185
+<185=187,186
+<190=191
+<191=198,197,192
+<192=196,193
+<193=195,194
+<211=223,222,212
+<212=219,216,213
+<213=215,214
+<216=218,217
+<219=221,220
+<223=224
+<224=225
+<225=233,226
+<226=231,229,227
+<227=228
+<229=230
+<231=232
+<233=234

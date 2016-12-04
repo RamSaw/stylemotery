@@ -1,0 +1,3171 @@
+>3	FunctionDef	FastCLAClassifier 
+>4	ParameterList	const vector < UInt > & steps , Real64 alpha , Real64 actValueAlpha , UInt verbosity
+>5	Parameter	 
+>6	Identifier	verbosity
+>7	ParameterType	UInt
+>8	Parameter	 
+>9	Identifier	actValueAlpha
+>10	ParameterType	Real64
+>11	Parameter	 
+>12	Identifier	alpha
+>13	ParameterType	Real64
+>14	Parameter	 
+>15	Identifier	steps
+>16	ParameterType	const vector < UInt > &
+>17	CompoundStatement	 
+>18	ExpressionStatement	 
+>19	CallExpression	actualValuesSet_ . push_back ( false )
+>20	ArgumentList	false
+>21	Argument	false
+>22	Identifier	false
+>23	Callee	actualValuesSet_ . push_back
+>24	MemberAccess	actualValuesSet_ . push_back
+>25	Identifier	push_back
+>26	Identifier	actualValuesSet_
+>27	ExpressionStatement	 
+>28	CallExpression	actualValues_ . push_back ( 0.0 )
+>29	ArgumentList	0.0
+>30	Argument	0.0
+>31	PrimaryExpression	0.0
+>32	Callee	actualValues_ . push_back
+>33	MemberAccess	actualValues_ . push_back
+>34	Identifier	push_back
+>35	Identifier	actualValues_
+>36	ForStatement	for ( UInt i = 0 ; i < steps_ . size ( ) ; ++ i )
+>37	CompoundStatement	 
+>38	IfStatement	if ( current > maxSteps_ )
+>39	CompoundStatement	 
+>40	ExpressionStatement	 
+>41	AssignmentExpr	maxSteps_ = current
+>42	Identifier	current
+>43	Identifier	maxSteps_
+>44	Condition	 
+>45	RelationalExpression	current > maxSteps_
+>46	Identifier	maxSteps_
+>47	Identifier	current
+>48	IdentifierDeclStatement	 
+>49	IdentifierDecl	current = steps_ . at ( i ) + 1
+>50	AssignmentExpr	current = steps_ . at ( i ) + 1
+>51	AdditiveExpression	steps_ . at ( i ) + 1
+>52	PrimaryExpression	1
+>53	CallExpression	steps_ . at ( i )
+>54	ArgumentList	i
+>55	Argument	i
+>56	Identifier	i
+>57	Callee	steps_ . at
+>58	MemberAccess	steps_ . at
+>59	Identifier	at
+>60	Identifier	steps_
+>61	Identifier	current
+>62	Identifier	current
+>63	IdentifierDeclType	UInt
+>64	UnaryExpression	 
+>65	Identifier	i
+>66	IncDec	++
+>67	Condition	 
+>68	RelationalExpression	i < steps_ . size ( )
+>69	CallExpression	steps_ . size ( )
+>70	ArgumentList	 
+>71	Callee	steps_ . size
+>72	MemberAccess	steps_ . size
+>73	Identifier	size
+>74	Identifier	steps_
+>75	Identifier	i
+>76	ForInit	 
+>77	IdentifierDeclStatement	UInt i = 0 ;
+>78	IdentifierDecl	i = 0
+>79	AssignmentExpr	i = 0
+>80	PrimaryExpression	0
+>81	Identifier	i
+>82	Identifier	i
+>83	IdentifierDeclType	UInt
+>84	ExpressionStatement	 
+>85	AssignmentExpr	maxSteps_ = 0
+>86	PrimaryExpression	0
+>87	Identifier	maxSteps_
+>88	ExpressionStatement	 
+>89	AssignmentExpr	recordNumMinusLearnIterationSet_ = false
+>90	Identifier	false
+>91	Identifier	recordNumMinusLearnIterationSet_
+>92	ForStatement	for ( vector < UInt > 
+>93	CompoundStatement	 
+>94	ExpressionStatement	 
+>95	CallExpression	steps_ . push_back ( * it )
+>96	ArgumentList	* it
+>97	Argument	* it
+>98	UnaryOp	* it
+>99	Identifier	it
+>100	UnaryOperator	*
+>101	Callee	steps_ . push_back
+>102	MemberAccess	steps_ . push_back
+>103	Identifier	push_back
+>104	Identifier	steps_
+>105	UnaryExpression	 
+>106	Identifier	it
+>107	IncDec	++
+>108	Condition	 
+>109	EqualityExpression	it != steps . end ( )
+>110	CallExpression	steps . end ( )
+>111	ArgumentList	 
+>112	Callee	steps . end
+>113	MemberAccess	steps . end
+>114	Identifier	end
+>115	Identifier	steps
+>116	Identifier	it
+>117	ForInit	 
+>118	IdentifierDeclStatement	vector < UInt > 
+>119	IdentifierDecl	it = steps . begin ( )
+>120	AssignmentExpr	it = steps . begin ( )
+>121	CallExpression	steps . begin ( )
+>122	ArgumentList	 
+>123	Callee	steps . begin
+>124	MemberAccess	steps . begin
+>125	Identifier	begin
+>126	Identifier	steps
+>127	Identifier	it
+>128	Identifier	it
+>129	IdentifierDeclType	vector < UInt > 
+>151	FunctionDef	FastCLAClassifier 
+>152	ParameterList	 
+>153	CompoundStatement	 
+>154	ForStatement	for ( map < UInt , map < UInt , BitHistory * > * > 
+>155	CompoundStatement	 
+>156	ExpressionStatement	 
+>157	PtrMemberAccess	it -> second
+>158	Identifier	second
+>159	Identifier	it
+>160	Statement	 
+>161	ForStatement	for ( map < UInt , BitHistory * > 
+>162	CompoundStatement	 
+>163	ExpressionStatement	 
+>164	PtrMemberAccess	it2 -> second
+>165	Identifier	second
+>166	Identifier	it2
+>167	Statement	 
+>168	UnaryExpression	 
+>169	Identifier	it2
+>170	IncDec	++
+>171	Condition	 
+>172	EqualityExpression	it2 != it -> second -> end ( )
+>173	CallExpression	it -> second -> end ( )
+>174	ArgumentList	 
+>175	Callee	it -> second -> end
+>176	PtrMemberAccess	it -> second -> end
+>177	Identifier	end
+>178	PtrMemberAccess	it -> second
+>179	Identifier	second
+>180	Identifier	it
+>181	Identifier	it2
+>182	ForInit	 
+>183	IdentifierDeclStatement	map < UInt , BitHistory * > 
+>184	IdentifierDecl	it2 = it -> second -> begin ( )
+>185	AssignmentExpr	it2 = it -> second -> begin ( )
+>186	CallExpression	it -> second -> begin ( )
+>187	ArgumentList	 
+>188	Callee	it -> second -> begin
+>189	PtrMemberAccess	it -> second -> begin
+>190	Identifier	begin
+>191	PtrMemberAccess	it -> second
+>192	Identifier	second
+>193	Identifier	it
+>194	Identifier	it2
+>195	Identifier	it2
+>196	IdentifierDeclType	map < UInt , BitHistory * > 
+>197	UnaryExpression	 
+>198	Identifier	it
+>199	IncDec	++
+>200	Condition	 
+>201	EqualityExpression	it != activeBitHistory_ . end ( )
+>202	CallExpression	activeBitHistory_ . end ( )
+>203	ArgumentList	 
+>204	Callee	activeBitHistory_ . end
+>205	MemberAccess	activeBitHistory_ . end
+>206	Identifier	end
+>207	Identifier	activeBitHistory_
+>208	Identifier	it
+>209	ForInit	 
+>210	IdentifierDeclStatement	map < UInt , map < UInt , BitHistory * > * > 
+>211	IdentifierDecl	it = activeBitHistory_ . begin ( )
+>212	AssignmentExpr	it = activeBitHistory_ . begin ( )
+>213	CallExpression	activeBitHistory_ . begin ( )
+>214	ArgumentList	 
+>215	Callee	activeBitHistory_ . begin
+>216	MemberAccess	activeBitHistory_ . begin
+>217	Identifier	begin
+>218	Identifier	activeBitHistory_
+>219	Identifier	it
+>220	Identifier	it
+>221	IdentifierDeclType	map < UInt , map < UInt , BitHistory * > * > 
+>222	ForStatement	for ( deque < vector < UInt > * > 
+>223	CompoundStatement	 
+>224	ExpressionStatement	 
+>225	UnaryOp	* it
+>226	Identifier	it
+>227	UnaryOperator	*
+>228	Statement	 
+>229	UnaryExpression	 
+>230	Identifier	it
+>231	IncDec	++
+>232	Condition	 
+>233	EqualityExpression	it != patternNZHistory_ . end ( )
+>234	CallExpression	patternNZHistory_ . end ( )
+>235	ArgumentList	 
+>236	Callee	patternNZHistory_ . end
+>237	MemberAccess	patternNZHistory_ . end
+>238	Identifier	end
+>239	Identifier	patternNZHistory_
+>240	Identifier	it
+>241	ForInit	 
+>242	IdentifierDeclStatement	deque < vector < UInt > * > 
+>243	IdentifierDecl	it = patternNZHistory_ . begin ( )
+>244	AssignmentExpr	it = patternNZHistory_ . begin ( )
+>245	CallExpression	patternNZHistory_ . begin ( )
+>246	ArgumentList	 
+>247	Callee	patternNZHistory_ . begin
+>248	MemberAccess	patternNZHistory_ . begin
+>249	Identifier	begin
+>250	Identifier	patternNZHistory_
+>251	Identifier	it
+>252	Identifier	it
+>253	IdentifierDeclType	deque < vector < UInt > * > 
+>271	FunctionDef	FastCLAClassifier 
+>272	ParameterList	UInt recordNum , const vector < UInt > & patternNZ , UInt bucketIdx , Real64 actValue , bool category , bool learn , \
+>273	Parameter	 
+>274	Identifier	result
+>275	ParameterType	ClassifierResult *
+>276	Parameter	 
+>277	Identifier	infer
+>278	ParameterType	bool
+>279	Parameter	 
+>280	Identifier	learn
+>281	ParameterType	bool
+>282	Parameter	 
+>283	Identifier	category
+>284	ParameterType	bool
+>285	Parameter	 
+>286	Identifier	actValue
+>287	ParameterType	Real64
+>288	Parameter	 
+>289	Identifier	bucketIdx
+>290	ParameterType	UInt
+>291	Parameter	 
+>292	Identifier	patternNZ
+>293	ParameterType	const vector < UInt > &
+>294	Parameter	 
+>295	Identifier	recordNum
+>296	ParameterType	UInt
+>297	ReturnType	void
+>298	CompoundStatement	 
+>299	IfStatement	if ( learn )
+>300	CompoundStatement	 
+>301	ForStatement	for ( UInt i = 0 ; i < steps_ . size ( ) ; ++ i )
+>302	CompoundStatement	 
+>303	ForStatement	for ( UInt j = 0 ; j < learnPatternNZ -> size ( ) ; ++ j )
+>304	CompoundStatement	 
+>305	ExpressionStatement	 
+>306	CallExpression	( * activeBitHistory_ [ step ] ) [ bit ] -> store ( learnIteration_ , bucketIdx )
+>307	ArgumentList	learnIteration_
+>308	Argument	bucketIdx
+>309	Identifier	bucketIdx
+>310	Argument	learnIteration_
+>311	Identifier	learnIteration_
+>312	Callee	( * activeBitHistory_ [ step ] ) [ bit ] -> store
+>313	PtrMemberAccess	( * activeBitHistory_ [ step ] ) [ bit ] -> store
+>314	Identifier	store
+>315	ArrayIndexing	( * activeBitHistory_ [ step ] ) [ bit ]
+>316	Identifier	bit
+>317	UnaryOp	* activeBitHistory_ [ step ]
+>318	ArrayIndexing	activeBitHistory_ [ step ]
+>319	Identifier	step
+>320	Identifier	activeBitHistory_
+>321	UnaryOperator	*
+>322	IfStatement	if ( it == activeBitHistory_ [ step ] -> end ( ) )
+>323	CompoundStatement	 
+>324	ExpressionStatement	 
+>325	AssignmentExpr	( * activeBitHistory_ [ step ] ) [ bit ] = new BitHistory ( bit , step , alpha_ , verbosity_ )
+>326	Expression	bit , step , alpha_ , verbosity_
+>327	Expression	step , alpha_ , verbosity_
+>328	Expression	alpha_ , verbosity_
+>329	Identifier	verbosity_
+>330	Identifier	alpha_
+>331	Identifier	step
+>332	Identifier	bit
+>333	ArrayIndexing	( * activeBitHistory_ [ step ] ) [ bit ]
+>334	Identifier	bit
+>335	UnaryOp	* activeBitHistory_ [ step ]
+>336	ArrayIndexing	activeBitHistory_ [ step ]
+>337	Identifier	step
+>338	Identifier	activeBitHistory_
+>339	UnaryOperator	*
+>340	Condition	 
+>341	EqualityExpression	it == activeBitHistory_ [ step ] -> end ( )
+>342	CallExpression	activeBitHistory_ [ step ] -> end ( )
+>343	ArgumentList	 
+>344	Callee	activeBitHistory_ [ step ] -> end
+>345	PtrMemberAccess	activeBitHistory_ [ step ] -> end
+>346	Identifier	end
+>347	ArrayIndexing	activeBitHistory_ [ step ]
+>348	Identifier	step
+>349	Identifier	activeBitHistory_
+>350	Identifier	it
+>351	IdentifierDeclStatement	 
+>352	IdentifierDecl	it = activeBitHistory_ [ step ] -> find ( bit )
+>353	AssignmentExpr	it = activeBitHistory_ [ step ] -> find ( bit )
+>354	CallExpression	activeBitHistory_ [ step ] -> find ( bit )
+>355	ArgumentList	bit
+>356	Argument	bit
+>357	Identifier	bit
+>358	Callee	activeBitHistory_ [ step ] -> find
+>359	PtrMemberAccess	activeBitHistory_ [ step ] -> find
+>360	Identifier	find
+>361	ArrayIndexing	activeBitHistory_ [ step ]
+>362	Identifier	step
+>363	Identifier	activeBitHistory_
+>364	Identifier	it
+>365	Identifier	it
+>366	IdentifierDeclType	map < UInt , BitHistory * > 
+>367	IfStatement	if ( activeBitHistory_ . find ( step ) == activeBitHistory_ . end ( ) )
+>368	CompoundStatement	 
+>369	ExpressionStatement	 
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	Statement	 
+>378	Statement	 
+>379	Statement	 
+>380	Statement	 
+>381	Statement	 
+>382	Statement	 
+>383	Statement	 
+>384	Statement	 
+>385	Statement	 
+>386	Statement	 
+>387	Statement	 
+>388	Statement	 
+>389	Statement	 
+>390	Statement	 
+>391	Statement	 
+>392	Statement	 
+>393	Statement	 
+>394	Statement	 
+>395	Statement	 
+>396	Statement	 
+>397	Statement	 
+>398	Statement	 
+>399	Statement	 
+>400	Statement	 
+>401	Statement	 
+>402	Condition	 
+>403	EqualityExpression	activeBitHistory_ . find ( step ) == activeBitHistory_ . end ( )
+>404	CallExpression	activeBitHistory_ . end ( )
+>405	ArgumentList	 
+>406	Callee	activeBitHistory_ . end
+>407	MemberAccess	activeBitHistory_ . end
+>408	Identifier	end
+>409	Identifier	activeBitHistory_
+>410	CallExpression	activeBitHistory_ . find ( step )
+>411	ArgumentList	step
+>412	Argument	step
+>413	Identifier	step
+>414	Callee	activeBitHistory_ . find
+>415	MemberAccess	activeBitHistory_ . find
+>416	Identifier	find
+>417	Identifier	activeBitHistory_
+>418	IdentifierDeclStatement	 
+>419	IdentifierDecl	bit = learnPatternNZ -> at ( j )
+>420	AssignmentExpr	bit = learnPatternNZ -> at ( j )
+>421	CallExpression	learnPatternNZ -> at ( j )
+>422	ArgumentList	j
+>423	Argument	j
+>424	Identifier	j
+>425	Callee	learnPatternNZ -> at
+>426	PtrMemberAccess	learnPatternNZ -> at
+>427	Identifier	at
+>428	Identifier	learnPatternNZ
+>429	Identifier	bit
+>430	Identifier	bit
+>431	IdentifierDeclType	UInt
+>432	UnaryExpression	 
+>433	Identifier	j
+>434	IncDec	++
+>435	Condition	 
+>436	RelationalExpression	j < learnPatternNZ -> size ( )
+>437	CallExpression	learnPatternNZ -> size ( )
+>438	ArgumentList	 
+>439	Callee	learnPatternNZ -> size
+>440	PtrMemberAccess	learnPatternNZ -> size
+>441	Identifier	size
+>442	Identifier	learnPatternNZ
+>443	Identifier	j
+>444	ForInit	 
+>445	IdentifierDeclStatement	UInt j = 0 ;
+>446	IdentifierDecl	j = 0
+>447	AssignmentExpr	j = 0
+>448	PrimaryExpression	0
+>449	Identifier	j
+>450	Identifier	j
+>451	IdentifierDeclType	UInt
+>452	IdentifierDeclStatement	 
+>453	IdentifierDecl	* learnPatternNZ = * patternIteration
+>454	AssignmentExpr	* learnPatternNZ = * patternIteration
+>455	UnaryOp	* patternIteration
+>456	Identifier	patternIteration
+>457	UnaryOperator	*
+>458	Identifier	learnPatternNZ
+>459	Identifier	learnPatternNZ
+>460	IdentifierDeclType	const vector < UInt > *
+>461	IfStatement	if ( ! found )
+>462	CompoundStatement	 
+>463	ContinueStatement	 
+>464	Condition	 
+>465	UnaryOp	! found
+>466	Identifier	found
+>467	UnaryOperator	!
+>468	ForStatement	for ( deque < UInt > 
+>469	CompoundStatement	 
+>470	IfStatement	if ( * learnIteration == ( learnIteration_ - step ) )
+>471	CompoundStatement	 
+>472	BreakStatement	 
+>473	ExpressionStatement	 
+>474	AssignmentExpr	found = true
+>475	Identifier	true
+>476	Identifier	found
+>477	Condition	 
+>478	EqualityExpression	* learnIteration == ( learnIteration_ - step )
+>479	AdditiveExpression	learnIteration_ - step
+>480	Identifier	step
+>481	Identifier	learnIteration_
+>482	UnaryOp	* learnIteration
+>483	Identifier	learnIteration
+>484	UnaryOperator	*
+>485	Expression	 
+>486	UnaryExpression	++ patternIteration
+>487	Identifier	patternIteration
+>488	IncDec	++
+>489	UnaryExpression	++ learnIteration
+>490	Identifier	learnIteration
+>491	IncDec	++
+>492	Condition	 
+>493	EqualityExpression	learnIteration != iterationNumHistory_ . end ( )
+>494	CallExpression	iterationNumHistory_ . end ( )
+>495	ArgumentList	 
+>496	Callee	iterationNumHistory_ . end
+>497	MemberAccess	iterationNumHistory_ . end
+>498	Identifier	end
+>499	Identifier	iterationNumHistory_
+>500	Identifier	learnIteration
+>501	ForInit	 
+>502	IdentifierDeclStatement	deque < UInt > 
+>503	IdentifierDecl	learnIteration = iterationNumHistory_ . begin ( )
+>504	AssignmentExpr	learnIteration = iterationNumHistory_ . begin ( )
+>505	CallExpression	iterationNumHistory_ . begin ( )
+>506	ArgumentList	 
+>507	Callee	iterationNumHistory_ . begin
+>508	MemberAccess	iterationNumHistory_ . begin
+>509	Identifier	begin
+>510	Identifier	iterationNumHistory_
+>511	Identifier	learnIteration
+>512	Identifier	learnIteration
+>513	IdentifierDeclType	deque < UInt > 
+>514	IdentifierDeclStatement	 
+>515	IdentifierDecl	patternIteration = patternNZHistory_ . begin ( )
+>516	AssignmentExpr	patternIteration = patternNZHistory_ . begin ( )
+>517	CallExpression	patternNZHistory_ . begin ( )
+>518	ArgumentList	 
+>519	Callee	patternNZHistory_ . begin
+>520	MemberAccess	patternNZHistory_ . begin
+>521	Identifier	begin
+>522	Identifier	patternNZHistory_
+>523	Identifier	patternIteration
+>524	Identifier	patternIteration
+>525	IdentifierDeclType	deque < vector < UInt > * > 
+>526	IdentifierDeclStatement	 
+>527	IdentifierDecl	found = false
+>528	AssignmentExpr	found = false
+>529	Identifier	false
+>530	Identifier	false
+>531	Identifier	found
+>532	IdentifierDeclType	bool
+>533	IdentifierDeclStatement	 
+>534	IdentifierDecl	step = steps_ [ i ]
+>535	AssignmentExpr	step = steps_ [ i ]
+>536	ArrayIndexing	steps_ [ i ]
+>537	Identifier	i
+>538	Identifier	steps_
+>539	Identifier	step
+>540	Identifier	step
+>541	IdentifierDeclType	UInt
+>542	UnaryExpression	 
+>543	Identifier	i
+>544	IncDec	++
+>545	Condition	 
+>546	RelationalExpression	i < steps_ . size ( )
+>547	CallExpression	steps_ . size ( )
+>548	ArgumentList	 
+>549	Callee	steps_ . size
+>550	MemberAccess	steps_ . size
+>551	Identifier	size
+>552	Identifier	steps_
+>553	Identifier	i
+>554	ForInit	 
+>555	IdentifierDeclStatement	UInt i = 0 ;
+>556	IdentifierDecl	i = 0
+>557	AssignmentExpr	i = 0
+>558	PrimaryExpression	0
+>559	Identifier	i
+>560	Identifier	i
+>561	IdentifierDeclType	UInt
+>562	IfStatement	if ( ! actualValuesSet_ [ bucketIdx ] || category )
+>563	ElseStatement	else
+>564	CompoundStatement	 
+>565	ExpressionStatement	 
+>566	AssignmentExpr	actualValues_ [ bucketIdx ] = ( ( 1.0 - actValueAlpha_ ) * actualValues_ [ bucketIdx ] ) + ( actValueAlpha_ * \
+>567	AdditiveExpression	( ( 1.0 - actValueAlpha_ ) * actualValues_ [ bucketIdx ] ) + ( actValueAlpha_ * actValue )
+>568	MultiplicativeExpression	actValueAlpha_ * actValue
+>569	Identifier	actValue
+>570	Identifier	actValueAlpha_
+>571	MultiplicativeExpression	( 1.0 - actValueAlpha_ ) * actualValues_ [ bucketIdx ]
+>572	ArrayIndexing	actualValues_ [ bucketIdx ]
+>573	Identifier	bucketIdx
+>574	Identifier	actualValues_
+>575	AdditiveExpression	1.0 - actValueAlpha_
+>576	Identifier	actValueAlpha_
+>577	PrimaryExpression	1.0
+>578	ArrayIndexing	actualValues_ [ bucketIdx ]
+>579	Identifier	bucketIdx
+>580	Identifier	actualValues_
+>581	CompoundStatement	 
+>582	ExpressionStatement	 
+>583	AssignmentExpr	actualValuesSet_ [ bucketIdx ] = true
+>584	Identifier	true
+>585	ArrayIndexing	actualValuesSet_ [ bucketIdx ]
+>586	Identifier	bucketIdx
+>587	Identifier	actualValuesSet_
+>588	ExpressionStatement	 
+>589	AssignmentExpr	actualValues_ [ bucketIdx ] = actValue
+>590	Identifier	actValue
+>591	ArrayIndexing	actualValues_ [ bucketIdx ]
+>592	Identifier	bucketIdx
+>593	Identifier	actualValues_
+>594	Condition	 
+>595	OrExpression	! actualValuesSet_ [ bucketIdx ] || category
+>596	Identifier	category
+>597	UnaryOp	! actualValuesSet_ [ bucketIdx ]
+>598	ArrayIndexing	actualValuesSet_ [ bucketIdx ]
+>599	Identifier	bucketIdx
+>600	Identifier	actualValuesSet_
+>601	UnaryOperator	!
+>602	WhileStatement	while ( actualValues_ . size ( ) <= maxBucketIdx_ )
+>603	CompoundStatement	 
+>604	ExpressionStatement	 
+>605	CallExpression	actualValuesSet_ . push_back ( false )
+>606	ArgumentList	false
+>607	Argument	false
+>608	Identifier	false
+>609	Callee	actualValuesSet_ . push_back
+>610	MemberAccess	actualValuesSet_ . push_back
+>611	Identifier	push_back
+>612	Identifier	actualValuesSet_
+>613	ExpressionStatement	 
+>614	CallExpression	actualValues_ . push_back ( 0.0 )
+>615	ArgumentList	0.0
+>616	Argument	0.0
+>617	PrimaryExpression	0.0
+>618	Callee	actualValues_ . push_back
+>619	MemberAccess	actualValues_ . push_back
+>620	Identifier	push_back
+>621	Identifier	actualValues_
+>622	Condition	 
+>623	RelationalExpression	actualValues_ . size ( ) <= maxBucketIdx_
+>624	Identifier	maxBucketIdx_
+>625	CallExpression	actualValues_ . size ( )
+>626	ArgumentList	 
+>627	Callee	actualValues_ . size
+>628	MemberAccess	actualValues_ . size
+>629	Identifier	size
+>630	Identifier	actualValues_
+>631	IfStatement	if ( bucketIdx > maxBucketIdx_ )
+>632	CompoundStatement	 
+>633	ExpressionStatement	 
+>634	AssignmentExpr	maxBucketIdx_ = bucketIdx
+>635	Identifier	bucketIdx
+>636	Identifier	maxBucketIdx_
+>637	Condition	 
+>638	RelationalExpression	bucketIdx > maxBucketIdx_
+>639	Identifier	maxBucketIdx_
+>640	Identifier	bucketIdx
+>641	Condition	 
+>642	Identifier	learn
+>643	IfStatement	if ( infer )
+>644	CompoundStatement	 
+>645	ForStatement	for ( vector < UInt > 
+>646	CompoundStatement	 
+>647	ForStatement	for ( UInt i = 0 ; i < likelihoods -> size ( ) ; ++ i )
+>648	CompoundStatement	 
+>649	IfStatement	if ( total > 0.0 )
+>650	ElseStatement	else
+>651	CompoundStatement	 
+>652	ExpressionStatement	 
+>653	AssignmentExpr	( * likelihoods ) [ i ] = 1.0 / likelihoods -> size ( )
+>654	MultiplicativeExpression	1.0 / likelihoods -> size ( )
+>655	CallExpression	likelihoods -> size ( )
+>656	ArgumentList	 
+>657	Callee	likelihoods -> size
+>658	PtrMemberAccess	likelihoods -> size
+>659	Identifier	size
+>660	Identifier	likelihoods
+>661	PrimaryExpression	1.0
+>662	ArrayIndexing	( * likelihoods ) [ i ]
+>663	Identifier	i
+>664	UnaryOp	* likelihoods
+>665	Identifier	likelihoods
+>666	UnaryOperator	*
+>667	CompoundStatement	 
+>668	ExpressionStatement	 
+>669	AssignmentExpr	( * likelihoods ) [ i ] = ( * likelihoods ) [ i ] / total
+>670	MultiplicativeExpression	( * likelihoods ) [ i ] / total
+>671	Identifier	total
+>672	ArrayIndexing	( * likelihoods ) [ i ]
+>673	Identifier	i
+>674	UnaryOp	* likelihoods
+>675	Identifier	likelihoods
+>676	UnaryOperator	*
+>677	ArrayIndexing	( * likelihoods ) [ i ]
+>678	Identifier	i
+>679	UnaryOp	* likelihoods
+>680	Identifier	likelihoods
+>681	UnaryOperator	*
+>682	Condition	 
+>683	RelationalExpression	total > 0.0
+>684	PrimaryExpression	0.0
+>685	Identifier	total
+>686	UnaryExpression	 
+>687	Identifier	i
+>688	IncDec	++
+>689	Condition	 
+>690	RelationalExpression	i < likelihoods -> size ( )
+>691	CallExpression	likelihoods -> size ( )
+>692	ArgumentList	 
+>693	Callee	likelihoods -> size
+>694	PtrMemberAccess	likelihoods -> size
+>695	Identifier	size
+>696	Identifier	likelihoods
+>697	Identifier	i
+>698	ForInit	 
+>699	IdentifierDeclStatement	UInt i = 0 ;
+>700	IdentifierDecl	i = 0
+>701	AssignmentExpr	i = 0
+>702	PrimaryExpression	0
+>703	Identifier	i
+>704	Identifier	i
+>705	IdentifierDeclType	UInt
+>706	ForStatement	for ( UInt i = 0 ; i < likelihoods -> size ( ) ; ++ i )
+>707	CompoundStatement	 
+>708	ExpressionStatement	 
+>709	AssignmentExpr	total += ( * likelihoods ) [ i ]
+>710	ArrayIndexing	( * likelihoods ) [ i ]
+>711	Identifier	i
+>712	UnaryOp	* likelihoods
+>713	Identifier	likelihoods
+>714	UnaryOperator	*
+>715	Identifier	total
+>716	UnaryExpression	 
+>717	Identifier	i
+>718	IncDec	++
+>719	Condition	 
+>720	RelationalExpression	i < likelihoods -> size ( )
+>721	CallExpression	likelihoods -> size ( )
+>722	ArgumentList	 
+>723	Callee	likelihoods -> size
+>724	PtrMemberAccess	likelihoods -> size
+>725	Identifier	size
+>726	Identifier	likelihoods
+>727	Identifier	i
+>728	ForInit	 
+>729	IdentifierDeclStatement	UInt i = 0 ;
+>730	IdentifierDecl	i = 0
+>731	AssignmentExpr	i = 0
+>732	PrimaryExpression	0
+>733	Identifier	i
+>734	Identifier	i
+>735	IdentifierDeclType	UInt
+>736	IdentifierDeclStatement	 
+>737	IdentifierDecl	total = 0.0
+>738	AssignmentExpr	total = 0.0
+>739	PrimaryExpression	0.0
+>740	Identifier	total
+>741	Identifier	total
+>742	IdentifierDeclType	Real64
+>743	ForStatement	for ( vector < UInt > 
+>744	CompoundStatement	 
+>745	IfStatement	if ( activeBitHistory_ [ * step ] -> find ( * bit ) != activeBitHistory_ [ * step ] -> end ( ) )
+>746	CompoundStatement	 
+>747	ForStatement	for ( UInt i = 0 ; i < bitVotes . size ( ) ; ++ i )
+>748	CompoundStatement	 
+>749	ExpressionStatement	 
+>750	AssignmentExpr	( * likelihoods ) [ i ] += bitVotes [ i ]
+>751	ArrayIndexing	bitVotes [ i ]
+>752	Identifier	i
+>753	Identifier	bitVotes
+>754	ArrayIndexing	( * likelihoods ) [ i ]
+>755	Identifier	i
+>756	UnaryOp	* likelihoods
+>757	Identifier	likelihoods
+>758	UnaryOperator	*
+>759	UnaryExpression	 
+>760	Identifier	i
+>761	IncDec	++
+>762	Condition	 
+>763	RelationalExpression	i < bitVotes . size ( )
+>764	CallExpression	bitVotes . size ( )
+>765	ArgumentList	 
+>766	Callee	bitVotes . size
+>767	MemberAccess	bitVotes . size
+>768	Identifier	size
+>769	Identifier	bitVotes
+>770	Identifier	i
+>771	ForInit	 
+>772	IdentifierDeclStatement	UInt i = 0 ;
+>773	IdentifierDecl	i = 0
+>774	AssignmentExpr	i = 0
+>775	PrimaryExpression	0
+>776	Identifier	i
+>777	Identifier	i
+>778	IdentifierDeclType	UInt
+>779	ExpressionStatement	 
+>780	CallExpression	history -> infer ( learnIteration_ , & bitVotes )
+>781	ArgumentList	learnIteration_
+>782	Argument	& bitVotes
+>783	UnaryOp	& bitVotes
+>784	Identifier	bitVotes
+>785	UnaryOperator	&
+>786	Argument	learnIteration_
+>787	Identifier	learnIteration_
+>788	Callee	history -> infer
+>789	PtrMemberAccess	history -> infer
+>790	Identifier	infer
+>791	Identifier	history
+>792	ForStatement	for ( UInt i = 0 ; i < bitVotes . size ( ) ; ++ i )
+>793	CompoundStatement	 
+>794	ExpressionStatement	 
+>795	AssignmentExpr	bitVotes [ i ] = 0.0
+>796	PrimaryExpression	0.0
+>797	ArrayIndexing	bitVotes [ i ]
+>798	Identifier	i
+>799	Identifier	bitVotes
+>800	UnaryExpression	 
+>801	Identifier	i
+>802	IncDec	++
+>803	Condition	 
+>804	RelationalExpression	i < bitVotes . size ( )
+>805	CallExpression	bitVotes . size ( )
+>806	ArgumentList	 
+>807	Callee	bitVotes . size
+>808	MemberAccess	bitVotes . size
+>809	Identifier	size
+>810	Identifier	bitVotes
+>811	Identifier	i
+>812	ForInit	 
+>813	IdentifierDeclStatement	UInt i = 0 ;
+>814	IdentifierDecl	i = 0
+>815	AssignmentExpr	i = 0
+>816	PrimaryExpression	0
+>817	Identifier	i
+>818	Identifier	i
+>819	IdentifierDeclType	UInt
+>820	IdentifierDeclStatement	 
+>821	IdentifierDecl	* history = activeBitHistory_ [ * step ] -> find ( * bit ) -> second
+>822	AssignmentExpr	* history = activeBitHistory_ [ * step ] -> find ( * bit ) -> second
+>823	PtrMemberAccess	activeBitHistory_ [ * step ] -> find ( * bit ) -> second
+>824	Identifier	second
+>825	CallExpression	activeBitHistory_ [ * step ] -> find ( * bit )
+>826	ArgumentList	* bit
+>827	Argument	* bit
+>828	UnaryOp	* bit
+>829	Identifier	bit
+>830	UnaryOperator	*
+>831	Callee	activeBitHistory_ [ * step ] -> find
+>832	PtrMemberAccess	activeBitHistory_ [ * step ] -> find
+>833	Identifier	find
+>834	ArrayIndexing	activeBitHistory_ [ * step ]
+>835	UnaryOp	* step
+>836	Identifier	step
+>837	UnaryOperator	*
+>838	Identifier	activeBitHistory_
+>839	Identifier	history
+>840	Identifier	history
+>841	IdentifierDeclType	BitHistory *
+>842	Condition	 
+>843	EqualityExpression	activeBitHistory_ [ * step ] -> find ( * bit ) != activeBitHistory_ [ * step ] -> end ( )
+>844	CallExpression	activeBitHistory_ [ * step ] -> end ( )
+>845	ArgumentList	 
+>846	Callee	activeBitHistory_ [ * step ] -> end
+>847	PtrMemberAccess	activeBitHistory_ [ * step ] -> end
+>848	Identifier	end
+>849	ArrayIndexing	activeBitHistory_ [ * step ]
+>850	UnaryOp	* step
+>851	Identifier	step
+>852	UnaryOperator	*
+>853	Identifier	activeBitHistory_
+>854	CallExpression	activeBitHistory_ [ * step ] -> find ( * bit )
+>855	ArgumentList	* bit
+>856	Argument	* bit
+>857	UnaryOp	* bit
+>858	Identifier	bit
+>859	UnaryOperator	*
+>860	Callee	activeBitHistory_ [ * step ] -> find
+>861	PtrMemberAccess	activeBitHistory_ [ * step ] -> find
+>862	Identifier	find
+>863	ArrayIndexing	activeBitHistory_ [ * step ]
+>864	UnaryOp	* step
+>865	Identifier	step
+>866	UnaryOperator	*
+>867	Identifier	activeBitHistory_
+>868	UnaryExpression	 
+>869	Identifier	bit
+>870	IncDec	++
+>871	Condition	 
+>872	EqualityExpression	bit != patternNZ . end ( )
+>873	CallExpression	patternNZ . end ( )
+>874	ArgumentList	 
+>875	Callee	patternNZ . end
+>876	MemberAccess	patternNZ . end
+>877	Identifier	end
+>878	Identifier	patternNZ
+>879	Identifier	bit
+>880	ForInit	 
+>881	IdentifierDeclStatement	vector < UInt > 
+>882	IdentifierDecl	bit = patternNZ . begin ( )
+>883	AssignmentExpr	bit = patternNZ . begin ( )
+>884	CallExpression	patternNZ . begin ( )
+>885	ArgumentList	 
+>886	Callee	patternNZ . begin
+>887	MemberAccess	patternNZ . begin
+>888	Identifier	begin
+>889	Identifier	patternNZ
+>890	Identifier	bit
+>891	Identifier	bit
+>892	IdentifierDeclType	vector < UInt > 
+>893	IdentifierDeclStatement	 
+>894	IdentifierDecl	bitVotes ( maxBucketIdx_ + 1 , 0.0 )
+>895	Expression	maxBucketIdx_ + 1 , 0.0
+>896	PrimaryExpression	0.0
+>897	AdditiveExpression	maxBucketIdx_ + 1
+>898	PrimaryExpression	1
+>899	Identifier	maxBucketIdx_
+>900	Identifier	bitVotes
+>901	IdentifierDeclType	vector < Real64 >
+>902	IdentifierDeclStatement	 
+>903	IdentifierDecl	* likelihoods = result -> createVector ( * step , maxBucketIdx_ + 1 , 0.0 )
+>904	AssignmentExpr	* likelihoods = result -> createVector ( * step , maxBucketIdx_ + 1 , 0.0 )
+>905	CallExpression	result -> createVector ( * step , maxBucketIdx_ + 1 , 0.0 )
+>906	ArgumentList	* step
+>907	Argument	0.0
+>908	PrimaryExpression	0.0
+>909	Argument	maxBucketIdx_ + 1
+>910	AdditiveExpression	maxBucketIdx_ + 1
+>911	PrimaryExpression	1
+>912	Identifier	maxBucketIdx_
+>913	Argument	* step
+>914	UnaryOp	* step
+>915	Identifier	step
+>916	UnaryOperator	*
+>917	Callee	result -> createVector
+>918	PtrMemberAccess	result -> createVector
+>919	Identifier	createVector
+>920	Identifier	result
+>921	Identifier	likelihoods
+>922	Identifier	likelihoods
+>923	IdentifierDeclType	vector < Real64 > *
+>924	IfStatement	if ( activeBitHistory_ . find ( * step ) == activeBitHistory_ . end ( ) )
+>925	CompoundStatement	 
+>926	ContinueStatement	 
+>927	ExpressionStatement	 
+>928	CallExpression	result -> createVector ( * step , actualValues_ . size ( ) , 1.0 / actualValues_ . size ( ) )
+>929	ArgumentList	* step
+>930	Argument	1.0 / actualValues_ . size ( )
+>931	MultiplicativeExpression	1.0 / actualValues_ . size ( )
+>932	CallExpression	actualValues_ . size ( )
+>933	ArgumentList	 
+>934	Callee	actualValues_ . size
+>935	MemberAccess	actualValues_ . size
+>936	Identifier	size
+>937	Identifier	actualValues_
+>938	PrimaryExpression	1.0
+>939	Argument	actualValues_ . size ( )
+>940	CallExpression	actualValues_ . size ( )
+>941	ArgumentList	 
+>942	Callee	actualValues_ . size
+>943	MemberAccess	actualValues_ . size
+>944	Identifier	size
+>945	Identifier	actualValues_
+>946	Argument	* step
+>947	UnaryOp	* step
+>948	Identifier	step
+>949	UnaryOperator	*
+>950	Callee	result -> createVector
+>951	PtrMemberAccess	result -> createVector
+>952	Identifier	createVector
+>953	Identifier	result
+>954	Condition	 
+>955	EqualityExpression	activeBitHistory_ . find ( * step ) == activeBitHistory_ . end ( )
+>956	CallExpression	activeBitHistory_ . end ( )
+>957	ArgumentList	 
+>958	Callee	activeBitHistory_ . end
+>959	MemberAccess	activeBitHistory_ . end
+>960	Identifier	end
+>961	Identifier	activeBitHistory_
+>962	CallExpression	activeBitHistory_ . find ( * step )
+>963	ArgumentList	* step
+>964	Argument	* step
+>965	UnaryOp	* step
+>966	Identifier	step
+>967	UnaryOperator	*
+>968	Callee	activeBitHistory_ . find
+>969	MemberAccess	activeBitHistory_ . find
+>970	Identifier	find
+>971	Identifier	activeBitHistory_
+>972	UnaryExpression	 
+>973	Identifier	step
+>974	IncDec	++
+>975	Condition	 
+>976	EqualityExpression	step != steps_ . end ( )
+>977	CallExpression	steps_ . end ( )
+>978	ArgumentList	 
+>979	Callee	steps_ . end
+>980	MemberAccess	steps_ . end
+>981	Identifier	end
+>982	Identifier	steps_
+>983	Identifier	step
+>984	ForInit	 
+>985	IdentifierDeclStatement	vector < UInt > 
+>986	IdentifierDecl	step = steps_ . begin ( )
+>987	AssignmentExpr	step = steps_ . begin ( )
+>988	CallExpression	steps_ . begin ( )
+>989	ArgumentList	 
+>990	Callee	steps_ . begin
+>991	MemberAccess	steps_ . begin
+>992	Identifier	begin
+>993	Identifier	steps_
+>994	Identifier	step
+>995	Identifier	step
+>996	IdentifierDeclType	vector < UInt > 
+>997	ForStatement	for ( UInt i = 0 ; i < actualValues_ . size ( ) ; ++ i )
+>998	CompoundStatement	 
+>999	IfStatement	if ( actualValuesSet_ [ i ] )
+>1000	ElseStatement	else
+>1001	CompoundStatement	 
+>1002	ExpressionStatement	 
+>1003	AssignmentExpr	( * actValueVector ) [ i ] = actValue
+>1004	Identifier	actValue
+>1005	ArrayIndexing	( * actValueVector ) [ i ]
+>1006	Identifier	i
+>1007	UnaryOp	* actValueVector
+>1008	Identifier	actValueVector
+>1009	UnaryOperator	*
+>1010	CompoundStatement	 
+>1011	ExpressionStatement	 
+>1012	AssignmentExpr	( * actValueVector ) [ i ] = actualValues_ [ i ]
+>1013	ArrayIndexing	actualValues_ [ i ]
+>1014	Identifier	i
+>1015	Identifier	actualValues_
+>1016	ArrayIndexing	( * actValueVector ) [ i ]
+>1017	Identifier	i
+>1018	UnaryOp	* actValueVector
+>1019	Identifier	actValueVector
+>1020	UnaryOperator	*
+>1021	Condition	 
+>1022	ArrayIndexing	actualValuesSet_ [ i ]
+>1023	Identifier	i
+>1024	Identifier	actualValuesSet_
+>1025	UnaryExpression	 
+>1026	Identifier	i
+>1027	IncDec	++
+>1028	Condition	 
+>1029	RelationalExpression	i < actualValues_ . size ( )
+>1030	CallExpression	actualValues_ . size ( )
+>1031	ArgumentList	 
+>1032	Callee	actualValues_ . size
+>1033	MemberAccess	actualValues_ . size
+>1034	Identifier	size
+>1035	Identifier	actualValues_
+>1036	Identifier	i
+>1037	ForInit	 
+>1038	IdentifierDeclStatement	UInt i = 0 ;
+>1039	IdentifierDecl	i = 0
+>1040	AssignmentExpr	i = 0
+>1041	PrimaryExpression	0
+>1042	Identifier	i
+>1043	Identifier	i
+>1044	IdentifierDeclType	UInt
+>1045	IdentifierDeclStatement	 
+>1046	IdentifierDecl	* actValueVector = result -> createVector ( 0 , actualValues_ . size ( ) , 0.0 )
+>1047	AssignmentExpr	* actValueVector = result -> createVector ( 0 , actualValues_ . size ( ) , 0.0 )
+>1048	CallExpression	result -> createVector ( 0 , actualValues_ . size ( ) , 0.0 )
+>1049	ArgumentList	0
+>1050	Argument	0.0
+>1051	PrimaryExpression	0.0
+>1052	Argument	actualValues_ . size ( )
+>1053	CallExpression	actualValues_ . size ( )
+>1054	ArgumentList	 
+>1055	Callee	actualValues_ . size
+>1056	MemberAccess	actualValues_ . size
+>1057	Identifier	size
+>1058	Identifier	actualValues_
+>1059	Argument	0
+>1060	PrimaryExpression	0
+>1061	Callee	result -> createVector
+>1062	PtrMemberAccess	result -> createVector
+>1063	Identifier	createVector
+>1064	Identifier	result
+>1065	Identifier	actValueVector
+>1066	Identifier	actValueVector
+>1067	IdentifierDeclType	vector < Real64 > *
+>1068	Condition	 
+>1069	Identifier	infer
+>1070	IfStatement	if ( patternNZHistory_ . size ( ) > maxSteps_ )
+>1071	CompoundStatement	 
+>1072	ExpressionStatement	 
+>1073	CallExpression	iterationNumHistory_ . pop_back ( )
+>1074	ArgumentList	 
+>1075	Callee	iterationNumHistory_ . pop_back
+>1076	MemberAccess	iterationNumHistory_ . pop_back
+>1077	Identifier	pop_back
+>1078	Identifier	iterationNumHistory_
+>1079	ExpressionStatement	 
+>1080	CallExpression	patternNZHistory_ . pop_back ( )
+>1081	ArgumentList	 
+>1082	Callee	patternNZHistory_ . pop_back
+>1083	MemberAccess	patternNZHistory_ . pop_back
+>1084	Identifier	pop_back
+>1085	Identifier	patternNZHistory_
+>1086	ExpressionStatement	 
+>1087	CallExpression	patternNZHistory_ . back ( )
+>1088	ArgumentList	 
+>1089	Callee	patternNZHistory_ . back
+>1090	MemberAccess	patternNZHistory_ . back
+>1091	Identifier	back
+>1092	Identifier	patternNZHistory_
+>1093	Statement	 
+>1094	Condition	 
+>1095	RelationalExpression	patternNZHistory_ . size ( ) > maxSteps_
+>1096	Identifier	maxSteps_
+>1097	CallExpression	patternNZHistory_ . size ( )
+>1098	ArgumentList	 
+>1099	Callee	patternNZHistory_ . size
+>1100	MemberAccess	patternNZHistory_ . size
+>1101	Identifier	size
+>1102	Identifier	patternNZHistory_
+>1103	ExpressionStatement	 
+>1104	CallExpression	iterationNumHistory_ . push_front ( learnIteration_ )
+>1105	ArgumentList	learnIteration_
+>1106	Argument	learnIteration_
+>1107	Identifier	learnIteration_
+>1108	Callee	iterationNumHistory_ . push_front
+>1109	MemberAccess	iterationNumHistory_ . push_front
+>1110	Identifier	push_front
+>1111	Identifier	iterationNumHistory_
+>1112	ExpressionStatement	 
+>1113	CallExpression	patternNZHistory_ . push_front ( newPatternNZ )
+>1114	ArgumentList	newPatternNZ
+>1115	Argument	newPatternNZ
+>1116	Identifier	newPatternNZ
+>1117	Callee	patternNZHistory_ . push_front
+>1118	MemberAccess	patternNZHistory_ . push_front
+>1119	Identifier	push_front
+>1120	Identifier	patternNZHistory_
+>1121	ForStatement	for ( UInt i = 0 ; i < patternNZ . size ( ) ; ++ i )
+>1122	CompoundStatement	 
+>1123	ExpressionStatement	 
+>1124	CallExpression	newPatternNZ -> push_back ( patternNZ [ i ] )
+>1125	ArgumentList	patternNZ [ i ]
+>1126	Argument	patternNZ [ i ]
+>1127	ArrayIndexing	patternNZ [ i ]
+>1128	Identifier	i
+>1129	Identifier	patternNZ
+>1130	Callee	newPatternNZ -> push_back
+>1131	PtrMemberAccess	newPatternNZ -> push_back
+>1132	Identifier	push_back
+>1133	Identifier	newPatternNZ
+>1134	UnaryExpression	 
+>1135	Identifier	i
+>1136	IncDec	++
+>1137	Condition	 
+>1138	RelationalExpression	i < patternNZ . size ( )
+>1139	CallExpression	patternNZ . size ( )
+>1140	ArgumentList	 
+>1141	Callee	patternNZ . size
+>1142	MemberAccess	patternNZ . size
+>1143	Identifier	size
+>1144	Identifier	patternNZ
+>1145	Identifier	i
+>1146	ForInit	 
+>1147	IdentifierDeclStatement	UInt i = 0 ;
+>1148	IdentifierDecl	i = 0
+>1149	AssignmentExpr	i = 0
+>1150	PrimaryExpression	0
+>1151	Identifier	i
+>1152	Identifier	i
+>1153	IdentifierDeclType	UInt
+>1154	IdentifierDeclStatement	 
+>1155	IdentifierDecl	* newPatternNZ = new vector < UInt > ( )
+>1156	AssignmentExpr	* newPatternNZ = new vector < UInt > ( )
+>1157	UnaryExpression	new vector < UInt > ( )
+>1158	Identifier	newPatternNZ
+>1159	Identifier	newPatternNZ
+>1160	IdentifierDeclType	vector < UInt > *
+>1161	ExpressionStatement	 
+>1162	AssignmentExpr	learnIteration_ = recordNum - recordNumMinusLearnIteration_
+>1163	AdditiveExpression	recordNum - recordNumMinusLearnIteration_
+>1164	Identifier	recordNumMinusLearnIteration_
+>1165	Identifier	recordNum
+>1166	Identifier	learnIteration_
+>1167	IfStatement	if ( ! recordNumMinusLearnIterationSet_ )
+>1168	CompoundStatement	 
+>1169	ExpressionStatement	 
+>1170	AssignmentExpr	recordNumMinusLearnIterationSet_ = true
+>1171	Identifier	true
+>1172	Identifier	recordNumMinusLearnIterationSet_
+>1173	ExpressionStatement	 
+>1174	AssignmentExpr	recordNumMinusLearnIteration_ = recordNum - learnIteration_
+>1175	AdditiveExpression	recordNum - learnIteration_
+>1176	Identifier	learnIteration_
+>1177	Identifier	recordNum
+>1178	Identifier	recordNumMinusLearnIteration_
+>1179	Condition	 
+>1180	UnaryOp	! recordNumMinusLearnIterationSet_
+>1181	Identifier	recordNumMinusLearnIterationSet_
+>1182	UnaryOperator	!
+>1275	FunctionDef	FastCLAClassifier 
+>1276	ParameterList	 
+>1277	ReturnType	UInt
+>1278	CompoundStatement	 
+>1279	ReturnStatement	 
+>1280	CallExpression	s . str ( ) . size ( )
+>1281	ArgumentList	 
+>1282	Callee	s . str ( ) . size
+>1283	MemberAccess	s . str ( ) . size
+>1284	Identifier	size
+>1285	CallExpression	s . str ( )
+>1286	ArgumentList	 
+>1287	Callee	s . str
+>1288	MemberAccess	s . str
+>1289	Identifier	str
+>1290	Identifier	s
+>1291	ExpressionStatement	 
+>1292	CallExpression	this -> save ( s )
+>1293	ArgumentList	s
+>1294	Argument	s
+>1295	Identifier	s
+>1296	Callee	this -> save
+>1297	PtrMemberAccess	this -> save
+>1298	Identifier	save
+>1299	Identifier	this
+>1300	ExpressionStatement	 
+>1301	Statement	 
+>1302	Statement	 
+>1303	Statement	 
+>1304	Statement	 
+>1305	Statement	 
+>1306	Statement	 
+>1307	Statement	 
+>1308	Statement	 
+>1309	Statement	 
+>1310	Statement	 
+>1311	Statement	 
+>1312	Statement	 
+>1313	Statement	 
+>1314	ExpressionStatement	 
+>1315	CallExpression	s . flags ( ios 
+>1316	ArgumentList	ios 
+>1317	Argument	ios 
+>1318	Identifier	ios 
+>1319	Callee	s . flags
+>1320	MemberAccess	s . flags
+>1321	Identifier	flags
+>1322	Identifier	s
+>1323	IdentifierDeclStatement	 
+>1324	IdentifierDecl	s
+>1325	Identifier	s
+>1326	IdentifierDeclType	stringstream
+>1335	FunctionDef	FastCLAClassifier 
+>1336	ParameterList	ostream & outStream
+>1337	Parameter	 
+>1338	Identifier	outStream
+>1339	ParameterType	ostream &
+>1340	ReturnType	void
+>1341	CompoundStatement	 
+>1342	ExpressionStatement	 
+>1343	ShiftExpression	outStream << \"~FastCLAClassifier\" << endl
+>1344	ShiftExpression	\"~FastCLAClassifier\" << endl
+>1345	Identifier	endl
+>1346	PrimaryExpression	\"~FastCLAClassifier\"
+>1347	Identifier	outStream
+>1348	ExpressionStatement	 
+>1349	ShiftExpression	outStream << endl
+>1350	Identifier	endl
+>1351	Identifier	outStream
+>1352	ForStatement	for ( UInt i = 0 ; i < actualValues_ . size ( ) ; ++ i )
+>1353	CompoundStatement	 
+>1354	ExpressionStatement	 
+>1355	ShiftExpression	outStream << actualValuesSet_ [ i ] << \" \"
+>1356	ShiftExpression	actualValuesSet_ [ i ] << \" \"
+>1357	PrimaryExpression	\" \"
+>1358	ArrayIndexing	actualValuesSet_ [ i ]
+>1359	Identifier	i
+>1360	Identifier	actualValuesSet_
+>1361	Identifier	outStream
+>1362	ExpressionStatement	 
+>1363	ShiftExpression	outStream << actualValues_ [ i ] << \" \"
+>1364	ShiftExpression	actualValues_ [ i ] << \" \"
+>1365	PrimaryExpression	\" \"
+>1366	ArrayIndexing	actualValues_ [ i ]
+>1367	Identifier	i
+>1368	Identifier	actualValues_
+>1369	Identifier	outStream
+>1370	UnaryExpression	 
+>1371	Identifier	i
+>1372	IncDec	++
+>1373	Condition	 
+>1374	RelationalExpression	i < actualValues_ . size ( )
+>1375	CallExpression	actualValues_ . size ( )
+>1376	ArgumentList	 
+>1377	Callee	actualValues_ . size
+>1378	MemberAccess	actualValues_ . size
+>1379	Identifier	size
+>1380	Identifier	actualValues_
+>1381	Identifier	i
+>1382	ForInit	 
+>1383	IdentifierDeclStatement	UInt i = 0 ;
+>1384	IdentifierDecl	i = 0
+>1385	AssignmentExpr	i = 0
+>1386	PrimaryExpression	0
+>1387	Identifier	i
+>1388	Identifier	i
+>1389	IdentifierDeclType	UInt
+>1390	ExpressionStatement	 
+>1391	ShiftExpression	outStream << actualValues_ . size ( ) << \" \"
+>1392	ShiftExpression	actualValues_ . size ( ) << \" \"
+>1393	PrimaryExpression	\" \"
+>1394	CallExpression	actualValues_ . size ( )
+>1395	ArgumentList	 
+>1396	Callee	actualValues_ . size
+>1397	MemberAccess	actualValues_ . size
+>1398	Identifier	size
+>1399	Identifier	actualValues_
+>1400	Identifier	outStream
+>1401	ForStatement	for ( map < UInt , map < UInt , BitHistory * > * > 
+>1402	CompoundStatement	 
+>1403	ForStatement	for ( map < UInt , BitHistory * > 
+>1404	CompoundStatement	 
+>1405	ExpressionStatement	 
+>1406	CallExpression	it2 -> second -> save ( outStream )
+>1407	ArgumentList	outStream
+>1408	Argument	outStream
+>1409	Identifier	outStream
+>1410	Callee	it2 -> second -> save
+>1411	PtrMemberAccess	it2 -> second -> save
+>1412	Identifier	save
+>1413	PtrMemberAccess	it2 -> second
+>1414	Identifier	second
+>1415	Identifier	it2
+>1416	ExpressionStatement	 
+>1417	ShiftExpression	outStream << it2 -> first << \" \"
+>1418	ShiftExpression	it2 -> first << \" \"
+>1419	PrimaryExpression	\" \"
+>1420	PtrMemberAccess	it2 -> first
+>1421	Identifier	first
+>1422	Identifier	it2
+>1423	Identifier	outStream
+>1424	UnaryExpression	 
+>1425	Identifier	it2
+>1426	IncDec	++
+>1427	Condition	 
+>1428	EqualityExpression	it2 != it1 -> second -> end ( )
+>1429	CallExpression	it1 -> second -> end ( )
+>1430	ArgumentList	 
+>1431	Callee	it1 -> second -> end
+>1432	PtrMemberAccess	it1 -> second -> end
+>1433	Identifier	end
+>1434	PtrMemberAccess	it1 -> second
+>1435	Identifier	second
+>1436	Identifier	it1
+>1437	Identifier	it2
+>1438	ForInit	 
+>1439	IdentifierDeclStatement	map < UInt , BitHistory * > 
+>1440	IdentifierDecl	it2 = it1 -> second -> begin ( )
+>1441	AssignmentExpr	it2 = it1 -> second -> begin ( )
+>1442	CallExpression	it1 -> second -> begin ( )
+>1443	ArgumentList	 
+>1444	Callee	it1 -> second -> begin
+>1445	PtrMemberAccess	it1 -> second -> begin
+>1446	Identifier	begin
+>1447	PtrMemberAccess	it1 -> second
+>1448	Identifier	second
+>1449	Identifier	it1
+>1450	Identifier	it2
+>1451	Identifier	it2
+>1452	IdentifierDeclType	map < UInt , BitHistory * > 
+>1453	ExpressionStatement	 
+>1454	ShiftExpression	outStream << it1 -> second -> size ( ) << \" \"
+>1455	ShiftExpression	it1 -> second -> size ( ) << \" \"
+>1456	PrimaryExpression	\" \"
+>1457	CallExpression	it1 -> second -> size ( )
+>1458	ArgumentList	 
+>1459	Callee	it1 -> second -> size
+>1460	PtrMemberAccess	it1 -> second -> size
+>1461	Identifier	size
+>1462	PtrMemberAccess	it1 -> second
+>1463	Identifier	second
+>1464	Identifier	it1
+>1465	Identifier	outStream
+>1466	ExpressionStatement	 
+>1467	ShiftExpression	outStream << it1 -> first << \" \"
+>1468	ShiftExpression	it1 -> first << \" \"
+>1469	PrimaryExpression	\" \"
+>1470	PtrMemberAccess	it1 -> first
+>1471	Identifier	first
+>1472	Identifier	it1
+>1473	Identifier	outStream
+>1474	UnaryExpression	 
+>1475	Identifier	it1
+>1476	IncDec	++
+>1477	Condition	 
+>1478	EqualityExpression	it1 != activeBitHistory_ . end ( )
+>1479	CallExpression	activeBitHistory_ . end ( )
+>1480	ArgumentList	 
+>1481	Callee	activeBitHistory_ . end
+>1482	MemberAccess	activeBitHistory_ . end
+>1483	Identifier	end
+>1484	Identifier	activeBitHistory_
+>1485	Identifier	it1
+>1486	ForInit	 
+>1487	IdentifierDeclStatement	map < UInt , map < UInt , BitHistory * > * > 
+>1488	IdentifierDecl	it1 = activeBitHistory_ . begin ( )
+>1489	AssignmentExpr	it1 = activeBitHistory_ . begin ( )
+>1490	CallExpression	activeBitHistory_ . begin ( )
+>1491	ArgumentList	 
+>1492	Callee	activeBitHistory_ . begin
+>1493	MemberAccess	activeBitHistory_ . begin
+>1494	Identifier	begin
+>1495	Identifier	activeBitHistory_
+>1496	Identifier	it1
+>1497	Identifier	it1
+>1498	IdentifierDeclType	map < UInt , map < UInt , BitHistory * > * > 
+>1499	ExpressionStatement	 
+>1500	ShiftExpression	outStream << activeBitHistory_ . size ( ) << \" \"
+>1501	ShiftExpression	activeBitHistory_ . size ( ) << \" \"
+>1502	PrimaryExpression	\" \"
+>1503	CallExpression	activeBitHistory_ . size ( )
+>1504	ArgumentList	 
+>1505	Callee	activeBitHistory_ . size
+>1506	MemberAccess	activeBitHistory_ . size
+>1507	Identifier	size
+>1508	Identifier	activeBitHistory_
+>1509	Identifier	outStream
+>1510	ExpressionStatement	 
+>1511	ShiftExpression	outStream << endl
+>1512	Identifier	endl
+>1513	Identifier	outStream
+>1514	ForStatement	for ( UInt i = 0 ; i < patternNZHistory_ . size ( ) ; ++ i )
+>1515	CompoundStatement	 
+>1516	ForStatement	for ( UInt j = 0 ; j < pattern -> size ( ) ; ++ j )
+>1517	CompoundStatement	 
+>1518	ExpressionStatement	 
+>1519	ShiftExpression	outStream << ( * pattern ) [ j ] << \" \"
+>1520	ShiftExpression	( * pattern ) [ j ] << \" \"
+>1521	PrimaryExpression	\" \"
+>1522	ArrayIndexing	( * pattern ) [ j ]
+>1523	Identifier	j
+>1524	UnaryOp	* pattern
+>1525	Identifier	pattern
+>1526	UnaryOperator	*
+>1527	Identifier	outStream
+>1528	UnaryExpression	 
+>1529	Identifier	j
+>1530	IncDec	++
+>1531	Condition	 
+>1532	RelationalExpression	j < pattern -> size ( )
+>1533	CallExpression	pattern -> size ( )
+>1534	ArgumentList	 
+>1535	Callee	pattern -> size
+>1536	PtrMemberAccess	pattern -> size
+>1537	Identifier	size
+>1538	Identifier	pattern
+>1539	Identifier	j
+>1540	ForInit	 
+>1541	IdentifierDeclStatement	UInt j = 0 ;
+>1542	IdentifierDecl	j = 0
+>1543	AssignmentExpr	j = 0
+>1544	PrimaryExpression	0
+>1545	Identifier	j
+>1546	Identifier	j
+>1547	IdentifierDeclType	UInt
+>1548	ExpressionStatement	 
+>1549	ShiftExpression	outStream << pattern -> size ( ) << \" \"
+>1550	ShiftExpression	pattern -> size ( ) << \" \"
+>1551	PrimaryExpression	\" \"
+>1552	CallExpression	pattern -> size ( )
+>1553	ArgumentList	 
+>1554	Callee	pattern -> size
+>1555	PtrMemberAccess	pattern -> size
+>1556	Identifier	size
+>1557	Identifier	pattern
+>1558	Identifier	outStream
+>1559	ExpressionStatement	 
+>1560	AssignmentExpr	pattern = patternNZHistory_ [ i ]
+>1561	ArrayIndexing	patternNZHistory_ [ i ]
+>1562	Identifier	i
+>1563	Identifier	patternNZHistory_
+>1564	Identifier	pattern
+>1565	UnaryExpression	 
+>1566	Identifier	i
+>1567	IncDec	++
+>1568	Condition	 
+>1569	RelationalExpression	i < patternNZHistory_ . size ( )
+>1570	CallExpression	patternNZHistory_ . size ( )
+>1571	ArgumentList	 
+>1572	Callee	patternNZHistory_ . size
+>1573	MemberAccess	patternNZHistory_ . size
+>1574	Identifier	size
+>1575	Identifier	patternNZHistory_
+>1576	Identifier	i
+>1577	ForInit	 
+>1578	IdentifierDeclStatement	UInt i = 0 ;
+>1579	IdentifierDecl	i = 0
+>1580	AssignmentExpr	i = 0
+>1581	PrimaryExpression	0
+>1582	Identifier	i
+>1583	Identifier	i
+>1584	IdentifierDeclType	UInt
+>1585	ExpressionStatement	 
+>1586	ShiftExpression	outStream << patternNZHistory_ . size ( ) << \" \"
+>1587	ShiftExpression	patternNZHistory_ . size ( ) << \" \"
+>1588	PrimaryExpression	\" \"
+>1589	CallExpression	patternNZHistory_ . size ( )
+>1590	ArgumentList	 
+>1591	Callee	patternNZHistory_ . size
+>1592	MemberAccess	patternNZHistory_ . size
+>1593	Identifier	size
+>1594	Identifier	patternNZHistory_
+>1595	Identifier	outStream
+>1596	IdentifierDeclStatement	 
+>1597	IdentifierDecl	* pattern
+>1598	Identifier	pattern
+>1599	IdentifierDeclType	vector < UInt > *
+>1600	ExpressionStatement	 
+>1601	ShiftExpression	outStream << endl
+>1602	Identifier	endl
+>1603	Identifier	outStream
+>1604	ForStatement	for ( UInt i = 0 ; i < steps_ . size ( ) ; ++ i )
+>1605	CompoundStatement	 
+>1606	ExpressionStatement	 
+>1607	ShiftExpression	outStream << steps_ [ i ] << \" \"
+>1608	ShiftExpression	steps_ [ i ] << \" \"
+>1609	PrimaryExpression	\" \"
+>1610	ArrayIndexing	steps_ [ i ]
+>1611	Identifier	i
+>1612	Identifier	steps_
+>1613	Identifier	outStream
+>1614	UnaryExpression	 
+>1615	Identifier	i
+>1616	IncDec	++
+>1617	Condition	 
+>1618	RelationalExpression	i < steps_ . size ( )
+>1619	CallExpression	steps_ . size ( )
+>1620	ArgumentList	 
+>1621	Callee	steps_ . size
+>1622	MemberAccess	steps_ . size
+>1623	Identifier	size
+>1624	Identifier	steps_
+>1625	Identifier	i
+>1626	ForInit	 
+>1627	IdentifierDeclStatement	UInt i = 0 ;
+>1628	IdentifierDecl	i = 0
+>1629	AssignmentExpr	i = 0
+>1630	PrimaryExpression	0
+>1631	Identifier	i
+>1632	Identifier	i
+>1633	IdentifierDeclType	UInt
+>1634	ExpressionStatement	 
+>1635	ShiftExpression	outStream << steps_ . size ( ) << \" \"
+>1636	ShiftExpression	steps_ . size ( ) << \" \"
+>1637	PrimaryExpression	\" \"
+>1638	CallExpression	steps_ . size ( )
+>1639	ArgumentList	 
+>1640	Callee	steps_ . size
+>1641	MemberAccess	steps_ . size
+>1642	Identifier	size
+>1643	Identifier	steps_
+>1644	Identifier	outStream
+>1645	ExpressionStatement	 
+>1646	ShiftExpression	outStream << endl
+>1647	Identifier	endl
+>1648	Identifier	outStream
+>1649	ForStatement	for ( deque < UInt > 
+>1650	CompoundStatement	 
+>1651	ExpressionStatement	 
+>1652	ShiftExpression	outStream << * learnIteration << \" \"
+>1653	ShiftExpression	* learnIteration << \" \"
+>1654	PrimaryExpression	\" \"
+>1655	UnaryOp	* learnIteration
+>1656	Identifier	learnIteration
+>1657	UnaryOperator	*
+>1658	Identifier	outStream
+>1659	UnaryExpression	 
+>1660	Identifier	learnIteration
+>1661	IncDec	++
+>1662	Condition	 
+>1663	EqualityExpression	learnIteration != iterationNumHistory_ . end ( )
+>1664	CallExpression	iterationNumHistory_ . end ( )
+>1665	ArgumentList	 
+>1666	Callee	iterationNumHistory_ . end
+>1667	MemberAccess	iterationNumHistory_ . end
+>1668	Identifier	end
+>1669	Identifier	iterationNumHistory_
+>1670	Identifier	learnIteration
+>1671	ForInit	 
+>1672	IdentifierDeclStatement	deque < UInt > 
+>1673	IdentifierDecl	learnIteration = iterationNumHistory_ . begin ( )
+>1674	AssignmentExpr	learnIteration = iterationNumHistory_ . begin ( )
+>1675	CallExpression	iterationNumHistory_ . begin ( )
+>1676	ArgumentList	 
+>1677	Callee	iterationNumHistory_ . begin
+>1678	MemberAccess	iterationNumHistory_ . begin
+>1679	Identifier	begin
+>1680	Identifier	iterationNumHistory_
+>1681	Identifier	learnIteration
+>1682	Identifier	learnIteration
+>1683	IdentifierDeclType	deque < UInt > 
+>1684	ExpressionStatement	 
+>1685	ShiftExpression	outStream << iterationNumHistory_ . size ( ) << \" \"
+>1686	ShiftExpression	iterationNumHistory_ . size ( ) << \" \"
+>1687	PrimaryExpression	\" \"
+>1688	CallExpression	iterationNumHistory_ . size ( )
+>1689	ArgumentList	 
+>1690	Callee	iterationNumHistory_ . size
+>1691	MemberAccess	iterationNumHistory_ . size
+>1692	Identifier	size
+>1693	Identifier	iterationNumHistory_
+>1694	Identifier	outStream
+>1695	ExpressionStatement	 
+>1696	ShiftExpression	outStream << recordNumMinusLearnIteration_ << \" \" << recordNumMinusLearnIterationSet_ << \" \"
+>1697	ShiftExpression	recordNumMinusLearnIteration_ << \" \" << recordNumMinusLearnIterationSet_ << \" \"
+>1698	ShiftExpression	\" \" << recordNumMinusLearnIterationSet_ << \" \"
+>1699	ShiftExpression	recordNumMinusLearnIterationSet_ << \" \"
+>1700	PrimaryExpression	\" \"
+>1701	Identifier	recordNumMinusLearnIterationSet_
+>1702	PrimaryExpression	\" \"
+>1703	Identifier	recordNumMinusLearnIteration_
+>1704	Identifier	outStream
+>1705	ExpressionStatement	 
+>1706	ShiftExpression	outStream << version ( ) << \" \" << alpha_ << \" \" << actValueAlpha_ << \" \" << learnIteration_ << \" \" << \
+>1707	ShiftExpression	version ( ) << \" \" << alpha_ << \" \" << actValueAlpha_ << \" \" << learnIteration_ << \" \" << maxSteps_ << \" \" << \
+>1708	ShiftExpression	\" \" << alpha_ << \" \" << actValueAlpha_ << \" \" << learnIteration_ << \" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << \
+>1709	ShiftExpression	alpha_ << \" \" << actValueAlpha_ << \" \" << learnIteration_ << \" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << \
+>1710	ShiftExpression	\" \" << actValueAlpha_ << \" \" << learnIteration_ << \" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << \
+>1711	ShiftExpression	actValueAlpha_ << \" \" << learnIteration_ << \" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << verbosity_ << \" \" << \
+>1712	ShiftExpression	\" \" << learnIteration_ << \" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << verbosity_ << \" \" << endl
+>1713	ShiftExpression	learnIteration_ << \" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << verbosity_ << \" \" << endl
+>1714	ShiftExpression	\" \" << maxSteps_ << \" \" << maxBucketIdx_ << \" \" << verbosity_ << \" \" << endl
+>1715	ShiftExpression	maxSteps_ << \" \" << maxBucketIdx_ << \" \" << verbosity_ << \" \" << endl
+>1716	ShiftExpression	\" \" << maxBucketIdx_ << \" \" << verbosity_ << \" \" << endl
+>1717	ShiftExpression	maxBucketIdx_ << \" \" << verbosity_ << \" \" << endl
+>1718	ShiftExpression	\" \" << verbosity_ << \" \" << endl
+>1719	ShiftExpression	verbosity_ << \" \" << endl
+>1720	ShiftExpression	\" \" << endl
+>1721	Identifier	endl
+>1722	PrimaryExpression	\" \"
+>1723	Identifier	verbosity_
+>1724	PrimaryExpression	\" \"
+>1725	Identifier	maxBucketIdx_
+>1726	PrimaryExpression	\" \"
+>1727	Identifier	maxSteps_
+>1728	PrimaryExpression	\" \"
+>1729	Identifier	learnIteration_
+>1730	PrimaryExpression	\" \"
+>1731	Identifier	actValueAlpha_
+>1732	PrimaryExpression	\" \"
+>1733	Identifier	alpha_
+>1734	PrimaryExpression	\" \"
+>1735	CallExpression	version ( )
+>1736	ArgumentList	 
+>1737	Callee	version
+>1738	Identifier	version
+>1739	Identifier	outStream
+>1740	ExpressionStatement	 
+>1741	ShiftExpression	outStream << version_ << endl
+>1742	ShiftExpression	version_ << endl
+>1743	Identifier	endl
+>1744	Identifier	version_
+>1745	Identifier	outStream
+>1746	ExpressionStatement	 
+>1747	ShiftExpression	outStream << \"FastCLAClassifier\" << endl
+>1748	ShiftExpression	\"FastCLAClassifier\" << endl
+>1749	Identifier	endl
+>1750	PrimaryExpression	\"FastCLAClassifier\"
+>1751	Identifier	outStream
+>1787	FunctionDef	FastCLAClassifier 
+>1788	ParameterList	istream & inStream
+>1789	Parameter	 
+>1790	Identifier	inStream
+>1791	ParameterType	istream &
+>1792	ReturnType	void
+>1793	CompoundStatement	 
+>1794	ExpressionStatement	 
+>1795	AssignmentExpr	version_ = Version
+>1796	Identifier	Version
+>1797	Identifier	version_
+>1798	ExpressionStatement	 
+>1799	CallExpression	NTA_CHECK ( marker == \"~FastCLAClassifier\" )
+>1800	ArgumentList	marker == \"~FastCLAClassifier\"
+>1801	Argument	marker == \"~FastCLAClassifier\"
+>1802	EqualityExpression	marker == \"~FastCLAClassifier\"
+>1803	PrimaryExpression	\"~FastCLAClassifier\"
+>1804	Identifier	marker
+>1805	Callee	NTA_CHECK
+>1806	Identifier	NTA_CHECK
+>1807	ExpressionStatement	 
+>1808	ShiftExpression	inStream >> marker
+>1809	Identifier	marker
+>1810	Identifier	inStream
+>1811	ForStatement	for ( UInt i = 0 ; i < numBuckets ; ++ i )
+>1812	CompoundStatement	 
+>1813	ExpressionStatement	 
+>1814	CallExpression	actualValuesSet_ . push_back ( actualValueSet )
+>1815	ArgumentList	actualValueSet
+>1816	Argument	actualValueSet
+>1817	Identifier	actualValueSet
+>1818	Callee	actualValuesSet_ . push_back
+>1819	MemberAccess	actualValuesSet_ . push_back
+>1820	Identifier	push_back
+>1821	Identifier	actualValuesSet_
+>1822	ExpressionStatement	 
+>1823	ShiftExpression	inStream >> actualValueSet
+>1824	Identifier	actualValueSet
+>1825	Identifier	inStream
+>1826	ExpressionStatement	 
+>1827	CallExpression	actualValues_ . push_back ( actualValue )
+>1828	ArgumentList	actualValue
+>1829	Argument	actualValue
+>1830	Identifier	actualValue
+>1831	Callee	actualValues_ . push_back
+>1832	MemberAccess	actualValues_ . push_back
+>1833	Identifier	push_back
+>1834	Identifier	actualValues_
+>1835	ExpressionStatement	 
+>1836	ShiftExpression	inStream >> actualValue
+>1837	Identifier	actualValue
+>1838	Identifier	inStream
+>1839	UnaryExpression	 
+>1840	Identifier	i
+>1841	IncDec	++
+>1842	Condition	 
+>1843	RelationalExpression	i < numBuckets
+>1844	Identifier	numBuckets
+>1845	Identifier	i
+>1846	ForInit	 
+>1847	IdentifierDeclStatement	UInt i = 0 ;
+>1848	IdentifierDecl	i = 0
+>1849	AssignmentExpr	i = 0
+>1850	PrimaryExpression	0
+>1851	Identifier	i
+>1852	Identifier	i
+>1853	IdentifierDeclType	UInt
+>1854	ExpressionStatement	 
+>1855	ShiftExpression	inStream >> numBuckets
+>1856	Identifier	numBuckets
+>1857	Identifier	inStream
+>1858	IdentifierDeclStatement	 
+>1859	IdentifierDecl	actualValueSet
+>1860	Identifier	actualValueSet
+>1861	IdentifierDeclType	bool
+>1862	IdentifierDeclStatement	 
+>1863	IdentifierDecl	actualValue
+>1864	Identifier	actualValue
+>1865	IdentifierDeclType	Real64
+>1866	IdentifierDeclStatement	 
+>1867	IdentifierDecl	numBuckets
+>1868	Identifier	numBuckets
+>1869	IdentifierDeclType	UInt
+>1870	ForStatement	for ( UInt i = 0 ; i < numSteps ; ++ i )
+>1871	CompoundStatement	 
+>1872	ExpressionStatement	 
+>1873	Statement	 
+>1874	Statement	 
+>1875	Statement	 
+>1876	Statement	 
+>1877	Statement	 
+>1878	Statement	 
+>1879	Statement	 
+>1880	Statement	 
+>1881	Statement	 
+>1882	Statement	 
+>1883	Statement	 
+>1884	Statement	 
+>1885	Statement	 
+>1886	Statement	 
+>1887	Statement	 
+>1888	Statement	 
+>1889	Statement	 
+>1890	Statement	 
+>1891	Statement	 
+>1892	Statement	 
+>1893	Statement	 
+>1894	Statement	 
+>1895	Statement	 
+>1896	ForStatement	for ( UInt j = 0 ; j < numInputBits ; ++ j )
+>1897	CompoundStatement	 
+>1898	ExpressionStatement	 
+>1899	Statement	 
+>1900	Statement	 
+>1901	Statement	 
+>1902	Statement	 
+>1903	Statement	 
+>1904	Statement	 
+>1905	Statement	 
+>1906	Statement	 
+>1907	Statement	 
+>1908	Statement	 
+>1909	Statement	 
+>1910	Statement	 
+>1911	Statement	 
+>1912	Statement	 
+>1913	Statement	 
+>1914	Statement	 
+>1915	Statement	 
+>1916	ExpressionStatement	 
+>1917	CallExpression	bitHistory -> load ( inStream )
+>1918	ArgumentList	inStream
+>1919	Argument	inStream
+>1920	Identifier	inStream
+>1921	Callee	bitHistory -> load
+>1922	PtrMemberAccess	bitHistory -> load
+>1923	Identifier	load
+>1924	Identifier	bitHistory
+>1925	ExpressionStatement	 
+>1926	AssignmentExpr	bitHistory = new BitHistory ( )
+>1927	UnaryExpression	new BitHistory ( )
+>1928	Identifier	bitHistory
+>1929	ExpressionStatement	 
+>1930	ShiftExpression	inStream >> inputBit
+>1931	Identifier	inputBit
+>1932	Identifier	inStream
+>1933	UnaryExpression	 
+>1934	Identifier	j
+>1935	IncDec	++
+>1936	Condition	 
+>1937	RelationalExpression	j < numInputBits
+>1938	Identifier	numInputBits
+>1939	Identifier	j
+>1940	ForInit	 
+>1941	IdentifierDeclStatement	UInt j = 0 ;
+>1942	IdentifierDecl	j = 0
+>1943	AssignmentExpr	j = 0
+>1944	PrimaryExpression	0
+>1945	Identifier	j
+>1946	Identifier	j
+>1947	IdentifierDeclType	UInt
+>1948	ExpressionStatement	 
+>1949	AssignmentExpr	bitHistoryMap = new map < UInt , BitHistory * > ( )
+>1950	UnaryExpression	new map < UInt , BitHistory * > ( )
+>1951	Identifier	bitHistoryMap
+>1952	ExpressionStatement	 
+>1953	ShiftExpression	inStream >> numInputBits
+>1954	Identifier	numInputBits
+>1955	Identifier	inStream
+>1956	ExpressionStatement	 
+>1957	ShiftExpression	inStream >> step
+>1958	Identifier	step
+>1959	Identifier	inStream
+>1960	UnaryExpression	 
+>1961	Identifier	i
+>1962	IncDec	++
+>1963	Condition	 
+>1964	RelationalExpression	i < numSteps
+>1965	Identifier	numSteps
+>1966	Identifier	i
+>1967	ForInit	 
+>1968	IdentifierDeclStatement	UInt i = 0 ;
+>1969	IdentifierDecl	i = 0
+>1970	AssignmentExpr	i = 0
+>1971	PrimaryExpression	0
+>1972	Identifier	i
+>1973	Identifier	i
+>1974	IdentifierDeclType	UInt
+>1975	ExpressionStatement	 
+>1976	ShiftExpression	inStream >> numSteps
+>1977	Identifier	numSteps
+>1978	Identifier	inStream
+>1979	IdentifierDeclStatement	 
+>1980	IdentifierDecl	* bitHistoryMap
+>1981	Identifier	bitHistoryMap
+>1982	IdentifierDeclType	map < UInt , BitHistory * > *
+>1983	IdentifierDeclStatement	 
+>1984	IdentifierDecl	* bitHistory
+>1985	Identifier	bitHistory
+>1986	IdentifierDeclType	BitHistory *
+>1987	IdentifierDeclStatement	 
+>1988	IdentifierDecl	inputBit
+>1989	Identifier	inputBit
+>1990	IdentifierDeclType	UInt
+>1991	IdentifierDeclStatement	 
+>1992	IdentifierDecl	numInputBits
+>1993	Identifier	numInputBits
+>1994	IdentifierDeclType	UInt
+>1995	IdentifierDeclStatement	 
+>1996	IdentifierDecl	numSteps
+>1997	Identifier	numSteps
+>1998	IdentifierDeclType	UInt
+>1999	ForStatement	for ( UInt i = 0 ; i < size ; ++ i )
+>2000	CompoundStatement	 
+>2001	IfStatement	if ( version == 0 )
+>2002	CompoundStatement	 
+>2003	ExpressionStatement	 
+>2004	CallExpression	iterationNumHistory_ . push_back ( learnIteration_ - ( size - i ) )
+>2005	ArgumentList	learnIteration_ - ( size - i )
+>2006	Argument	learnIteration_ - ( size - i )
+>2007	AdditiveExpression	learnIteration_ - ( size - i )
+>2008	AdditiveExpression	size - i
+>2009	Identifier	i
+>2010	Identifier	size
+>2011	Identifier	learnIteration_
+>2012	Callee	iterationNumHistory_ . push_back
+>2013	MemberAccess	iterationNumHistory_ . push_back
+>2014	Identifier	push_back
+>2015	Identifier	iterationNumHistory_
+>2016	Condition	 
+>2017	EqualityExpression	version == 0
+>2018	PrimaryExpression	0
+>2019	Identifier	version
+>2020	ExpressionStatement	 
+>2021	CallExpression	patternNZHistory_ . push_back ( v )
+>2022	ArgumentList	v
+>2023	Argument	v
+>2024	Identifier	v
+>2025	Callee	patternNZHistory_ . push_back
+>2026	MemberAccess	patternNZHistory_ . push_back
+>2027	Identifier	push_back
+>2028	Identifier	patternNZHistory_
+>2029	ForStatement	for ( UInt j = 0 ; j < vSize ; ++ j )
+>2030	CompoundStatement	 
+>2031	ExpressionStatement	 
+>2032	ShiftExpression	inStream >> ( * v ) [ j ]
+>2033	ArrayIndexing	( * v ) [ j ]
+>2034	Identifier	j
+>2035	UnaryOp	* v
+>2036	Identifier	v
+>2037	UnaryOperator	*
+>2038	Identifier	inStream
+>2039	UnaryExpression	 
+>2040	Identifier	j
+>2041	IncDec	++
+>2042	Condition	 
+>2043	RelationalExpression	j < vSize
+>2044	Identifier	vSize
+>2045	Identifier	j
+>2046	ForInit	 
+>2047	IdentifierDeclStatement	UInt j = 0 ;
+>2048	IdentifierDecl	j = 0
+>2049	AssignmentExpr	j = 0
+>2050	PrimaryExpression	0
+>2051	Identifier	j
+>2052	Identifier	j
+>2053	IdentifierDeclType	UInt
+>2054	IdentifierDeclStatement	 
+>2055	IdentifierDecl	* v = new vector < UInt > ( vSize )
+>2056	AssignmentExpr	* v = new vector < UInt > ( vSize )
+>2057	Identifier	vSize
+>2058	Identifier	vSize
+>2059	Identifier	v
+>2060	IdentifierDeclType	vector < UInt > *
+>2061	ExpressionStatement	 
+>2062	ShiftExpression	inStream >> vSize
+>2063	Identifier	vSize
+>2064	Identifier	inStream
+>2065	UnaryExpression	 
+>2066	Identifier	i
+>2067	IncDec	++
+>2068	Condition	 
+>2069	RelationalExpression	i < size
+>2070	Identifier	size
+>2071	Identifier	i
+>2072	ForInit	 
+>2073	IdentifierDeclStatement	UInt i = 0 ;
+>2074	IdentifierDecl	i = 0
+>2075	AssignmentExpr	i = 0
+>2076	PrimaryExpression	0
+>2077	Identifier	i
+>2078	Identifier	i
+>2079	IdentifierDeclType	UInt
+>2080	IdentifierDeclStatement	 
+>2081	IdentifierDecl	vSize
+>2082	Identifier	vSize
+>2083	IdentifierDeclType	UInt
+>2084	ExpressionStatement	 
+>2085	ShiftExpression	inStream >> size
+>2086	Identifier	size
+>2087	Identifier	inStream
+>2088	ForStatement	for ( UInt i = 0 ; i < size ; ++ i )
+>2089	CompoundStatement	 
+>2090	ExpressionStatement	 
+>2091	CallExpression	steps_ . push_back ( step )
+>2092	ArgumentList	step
+>2093	Argument	step
+>2094	Identifier	step
+>2095	Callee	steps_ . push_back
+>2096	MemberAccess	steps_ . push_back
+>2097	Identifier	push_back
+>2098	Identifier	steps_
+>2099	ExpressionStatement	 
+>2100	ShiftExpression	inStream >> step
+>2101	Identifier	step
+>2102	Identifier	inStream
+>2103	UnaryExpression	 
+>2104	Identifier	i
+>2105	IncDec	++
+>2106	Condition	 
+>2107	RelationalExpression	i < size
+>2108	Identifier	size
+>2109	Identifier	i
+>2110	ForInit	 
+>2111	IdentifierDeclStatement	UInt i = 0 ;
+>2112	IdentifierDecl	i = 0
+>2113	AssignmentExpr	i = 0
+>2114	PrimaryExpression	0
+>2115	Identifier	i
+>2116	Identifier	i
+>2117	IdentifierDeclType	UInt
+>2118	ExpressionStatement	 
+>2119	ShiftExpression	inStream >> size
+>2120	Identifier	size
+>2121	Identifier	inStream
+>2122	IdentifierDeclStatement	 
+>2123	IdentifierDecl	step
+>2124	Identifier	step
+>2125	IdentifierDeclType	UInt
+>2126	IdentifierDeclStatement	 
+>2127	IdentifierDecl	size
+>2128	Identifier	size
+>2129	IdentifierDeclType	UInt
+>2130	ExpressionStatement	 
+>2131	CallExpression	steps_ . clear ( )
+>2132	ArgumentList	 
+>2133	Callee	steps_ . clear
+>2134	MemberAccess	steps_ . clear
+>2135	Identifier	clear
+>2136	Identifier	steps_
+>2137	IfStatement	if ( version == 1 )
+>2138	ElseStatement	else
+>2139	CompoundStatement	 
+>2140	ExpressionStatement	 
+>2141	AssignmentExpr	recordNumMinusLearnIterationSet_ = false
+>2142	Identifier	false
+>2143	Identifier	recordNumMinusLearnIterationSet_
+>2144	CompoundStatement	 
+>2145	ForStatement	for ( UInt i = 0 ; i < numIterationHistory ; ++ i )
+>2146	CompoundStatement	 
+>2147	ExpressionStatement	 
+>2148	CallExpression	iterationNumHistory_ . push_back ( curIterationNum )
+>2149	ArgumentList	curIterationNum
+>2150	Argument	curIterationNum
+>2151	Identifier	curIterationNum
+>2152	Callee	iterationNumHistory_ . push_back
+>2153	MemberAccess	iterationNumHistory_ . push_back
+>2154	Identifier	push_back
+>2155	Identifier	iterationNumHistory_
+>2156	ExpressionStatement	 
+>2157	ShiftExpression	inStream >> curIterationNum
+>2158	Identifier	curIterationNum
+>2159	Identifier	inStream
+>2160	UnaryExpression	 
+>2161	Identifier	i
+>2162	IncDec	++
+>2163	Condition	 
+>2164	RelationalExpression	i < numIterationHistory
+>2165	Identifier	numIterationHistory
+>2166	Identifier	i
+>2167	ForInit	 
+>2168	IdentifierDeclStatement	UInt i = 0 ;
+>2169	IdentifierDecl	i = 0
+>2170	AssignmentExpr	i = 0
+>2171	PrimaryExpression	0
+>2172	Identifier	i
+>2173	Identifier	i
+>2174	IdentifierDeclType	UInt
+>2175	ExpressionStatement	 
+>2176	ShiftExpression	inStream >> numIterationHistory
+>2177	Identifier	numIterationHistory
+>2178	Identifier	inStream
+>2179	ExpressionStatement	 
+>2180	ShiftExpression	inStream >> recordNumMinusLearnIteration_ >> recordNumMinusLearnIterationSet_
+>2181	ShiftExpression	recordNumMinusLearnIteration_ >> recordNumMinusLearnIterationSet_
+>2182	Identifier	recordNumMinusLearnIterationSet_
+>2183	Identifier	recordNumMinusLearnIteration_
+>2184	Identifier	inStream
+>2185	Condition	 
+>2186	EqualityExpression	version == 1
+>2187	PrimaryExpression	1
+>2188	Identifier	version
+>2189	IdentifierDeclStatement	 
+>2190	IdentifierDecl	curIterationNum
+>2191	Identifier	curIterationNum
+>2192	IdentifierDeclType	UInt
+>2193	IdentifierDeclStatement	 
+>2194	IdentifierDecl	numIterationHistory
+>2195	Identifier	numIterationHistory
+>2196	IdentifierDeclType	UInt
+>2197	ExpressionStatement	 
+>2198	ShiftExpression	inStream >> version_ >> alpha_ >> actValueAlpha_ >> learnIteration_ >> maxSteps_ >> maxBucketIdx_ >> \
+>2199	ShiftExpression	version_ >> alpha_ >> actValueAlpha_ >> learnIteration_ >> maxSteps_ >> maxBucketIdx_ >> verbosity_
+>2200	ShiftExpression	alpha_ >> actValueAlpha_ >> learnIteration_ >> maxSteps_ >> maxBucketIdx_ >> verbosity_
+>2201	ShiftExpression	actValueAlpha_ >> learnIteration_ >> maxSteps_ >> maxBucketIdx_ >> verbosity_
+>2202	ShiftExpression	learnIteration_ >> maxSteps_ >> maxBucketIdx_ >> verbosity_
+>2203	ShiftExpression	maxSteps_ >> maxBucketIdx_ >> verbosity_
+>2204	ShiftExpression	maxBucketIdx_ >> verbosity_
+>2205	Identifier	verbosity_
+>2206	Identifier	maxBucketIdx_
+>2207	Identifier	maxSteps_
+>2208	Identifier	learnIteration_
+>2209	Identifier	actValueAlpha_
+>2210	Identifier	alpha_
+>2211	Identifier	version_
+>2212	Identifier	inStream
+>2213	ExpressionStatement	 
+>2214	CallExpression	NTA_CHECK ( version >= 0 && version <= 1 )
+>2215	ArgumentList	version >= 0 && version <= 1
+>2216	Argument	version >= 0 && version <= 1
+>2217	AndExpression	version >= 0 && version <= 1
+>2218	RelationalExpression	version <= 1
+>2219	PrimaryExpression	1
+>2220	Identifier	version
+>2221	RelationalExpression	version >= 0
+>2222	PrimaryExpression	0
+>2223	Identifier	version
+>2224	Callee	NTA_CHECK
+>2225	Identifier	NTA_CHECK
+>2226	ExpressionStatement	 
+>2227	ShiftExpression	inStream >> version
+>2228	Identifier	version
+>2229	Identifier	inStream
+>2230	IdentifierDeclStatement	 
+>2231	IdentifierDecl	version
+>2232	Identifier	version
+>2233	IdentifierDeclType	UInt
+>2234	ExpressionStatement	 
+>2235	CallExpression	NTA_CHECK ( marker == \"FastCLAClassifier\" )
+>2236	ArgumentList	marker == \"FastCLAClassifier\"
+>2237	Argument	marker == \"FastCLAClassifier\"
+>2238	EqualityExpression	marker == \"FastCLAClassifier\"
+>2239	PrimaryExpression	\"FastCLAClassifier\"
+>2240	Identifier	marker
+>2241	Callee	NTA_CHECK
+>2242	Identifier	NTA_CHECK
+>2243	ExpressionStatement	 
+>2244	ShiftExpression	inStream >> marker
+>2245	Identifier	marker
+>2246	Identifier	inStream
+>2247	IdentifierDeclStatement	 
+>2248	IdentifierDecl	marker
+>2249	Identifier	marker
+>2250	IdentifierDeclType	string
+<3=17,4
+<4=14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=92,88,84,36,27,18
+<18=19
+<19=23,20
+<20=21
+<21=22
+<23=24
+<24=26,25
+<27=28
+<28=32,29
+<29=30
+<30=31
+<32=33
+<33=35,34
+<36=76,67,64,37
+<37=48,38
+<38=44,39
+<39=40
+<40=41
+<41=43,42
+<44=45
+<45=47,46
+<48=49
+<49=63,62,50
+<50=61,51
+<51=53,52
+<53=57,54
+<54=55
+<55=56
+<57=58
+<58=60,59
+<64=66,65
+<67=68
+<68=75,69
+<69=71,70
+<71=72
+<72=74,73
+<76=77
+<77=78
+<78=83,82,79
+<79=81,80
+<84=85
+<85=87,86
+<88=89
+<89=91,90
+<92=117,108,105,93
+<93=94
+<94=95
+<95=101,96
+<96=97
+<97=98
+<98=100,99
+<101=102
+<102=104,103
+<105=107,106
+<108=109
+<109=116,110
+<110=112,111
+<112=113
+<113=115,114
+<117=118
+<118=119
+<119=129,128,120
+<120=127,121
+<121=123,122
+<123=124
+<124=126,125
+<151=153,152
+<153=222,154
+<154=209,200,197,155
+<155=161,160,156
+<156=157
+<157=159,158
+<161=182,171,168,162
+<162=167,163
+<163=164
+<164=166,165
+<168=170,169
+<171=172
+<172=181,173
+<173=175,174
+<175=176
+<176=178,177
+<178=180,179
+<182=183
+<183=184
+<184=196,195,185
+<185=194,186
+<186=188,187
+<188=189
+<189=191,190
+<191=193,192
+<197=199,198
+<200=201
+<201=208,202
+<202=204,203
+<204=205
+<205=207,206
+<209=210
+<210=211
+<211=221,220,212
+<212=219,213
+<213=215,214
+<215=216
+<216=218,217
+<222=241,232,229,223
+<223=228,224
+<224=225
+<225=227,226
+<229=231,230
+<232=233
+<233=240,234
+<234=236,235
+<236=237
+<237=239,238
+<241=242
+<242=243
+<243=253,252,244
+<244=251,245
+<245=247,246
+<247=248
+<248=250,249
+<271=298,297,272
+<272=294,291,288,285,282,279,276,273
+<273=275,274
+<276=278,277
+<279=281,280
+<282=284,283
+<285=287,286
+<288=290,289
+<291=293,292
+<294=296,295
+<298=1167,1161,1154,1121,1112,1103,1070,643,299
+<299=641,300
+<300=631,602,562,301
+<301=554,545,542,302
+<302=533,526,514,468,461,452,303
+<303=444,435,432,304
+<304=418,367,351,322,305
+<305=306
+<306=312,307
+<307=310,308
+<308=309
+<310=311
+<312=313
+<313=315,314
+<315=317,316
+<317=321,318
+<318=320,319
+<322=340,323
+<323=324
+<324=325
+<325=333,326
+<326=332,327
+<327=331,328
+<328=330,329
+<333=335,334
+<335=339,336
+<336=338,337
+<340=341
+<341=350,342
+<342=344,343
+<344=345
+<345=347,346
+<347=349,348
+<351=352
+<352=366,365,353
+<353=364,354
+<354=358,355
+<355=356
+<356=357
+<358=359
+<359=361,360
+<361=363,362
+<367=402,368
+<368=401,400,399,398,397,396,395,394,393,392,391,390,389,388,387,386,385,384,383,382,381,380,379,378,377,376,375,374,373,372,371,370,369
+<402=403
+<403=410,404
+<404=406,405
+<406=407
+<407=409,408
+<410=414,411
+<411=412
+<412=413
+<414=415
+<415=417,416
+<418=419
+<419=431,430,420
+<420=429,421
+<421=425,422
+<422=423
+<423=424
+<425=426
+<426=428,427
+<432=434,433
+<435=436
+<436=443,437
+<437=439,438
+<439=440
+<440=442,441
+<444=445
+<445=446
+<446=451,450,447
+<447=449,448
+<452=453
+<453=460,459,454
+<454=458,455
+<455=457,456
+<461=464,462
+<462=463
+<464=465
+<465=467,466
+<468=501,492,485,469
+<469=470
+<470=477,471
+<471=473,472
+<473=474
+<474=476,475
+<477=478
+<478=482,479
+<479=481,480
+<482=484,483
+<485=489,486
+<486=488,487
+<489=491,490
+<492=493
+<493=500,494
+<494=496,495
+<496=497
+<497=499,498
+<501=502
+<502=503
+<503=513,512,504
+<504=511,505
+<505=507,506
+<507=508
+<508=510,509
+<514=515
+<515=525,524,516
+<516=523,517
+<517=519,518
+<519=520
+<520=522,521
+<526=527
+<527=532,531,528
+<528=530,529
+<533=534
+<534=541,540,535
+<535=539,536
+<536=538,537
+<542=544,543
+<545=546
+<546=553,547
+<547=549,548
+<549=550
+<550=552,551
+<554=555
+<555=556
+<556=561,560,557
+<557=559,558
+<562=594,581,563
+<563=564
+<564=565
+<565=566
+<566=578,567
+<567=571,568
+<568=570,569
+<571=575,572
+<572=574,573
+<575=577,576
+<578=580,579
+<581=588,582
+<582=583
+<583=585,584
+<585=587,586
+<588=589
+<589=591,590
+<591=593,592
+<594=595
+<595=597,596
+<597=601,598
+<598=600,599
+<602=622,603
+<603=613,604
+<604=605
+<605=609,606
+<606=607
+<607=608
+<609=610
+<610=612,611
+<613=614
+<614=618,615
+<615=616
+<616=617
+<618=619
+<619=621,620
+<622=623
+<623=625,624
+<625=627,626
+<627=628
+<628=630,629
+<631=637,632
+<632=633
+<633=634
+<634=636,635
+<637=638
+<638=640,639
+<641=642
+<643=1068,644
+<644=1045,997,645
+<645=984,975,972,646
+<646=924,902,893,743,736,706,647
+<647=698,689,686,648
+<648=649
+<649=682,667,650
+<650=651
+<651=652
+<652=653
+<653=662,654
+<654=661,655
+<655=657,656
+<657=658
+<658=660,659
+<662=664,663
+<664=666,665
+<667=668
+<668=669
+<669=677,670
+<670=672,671
+<672=674,673
+<674=676,675
+<677=679,678
+<679=681,680
+<682=683
+<683=685,684
+<686=688,687
+<689=690
+<690=697,691
+<691=693,692
+<693=694
+<694=696,695
+<698=699
+<699=700
+<700=705,704,701
+<701=703,702
+<706=728,719,716,707
+<707=708
+<708=709
+<709=715,710
+<710=712,711
+<712=714,713
+<716=718,717
+<719=720
+<720=727,721
+<721=723,722
+<723=724
+<724=726,725
+<728=729
+<729=730
+<730=735,734,731
+<731=733,732
+<736=737
+<737=742,741,738
+<738=740,739
+<743=880,871,868,744
+<744=745
+<745=842,746
+<746=820,792,779,747
+<747=771,762,759,748
+<748=749
+<749=750
+<750=754,751
+<751=753,752
+<754=756,755
+<756=758,757
+<759=761,760
+<762=763
+<763=770,764
+<764=766,765
+<766=767
+<767=769,768
+<771=772
+<772=773
+<773=778,777,774
+<774=776,775
+<779=780
+<780=788,781
+<781=786,782
+<782=783
+<783=785,784
+<786=787
+<788=789
+<789=791,790
+<792=812,803,800,793
+<793=794
+<794=795
+<795=797,796
+<797=799,798
+<800=802,801
+<803=804
+<804=811,805
+<805=807,806
+<807=808
+<808=810,809
+<812=813
+<813=814
+<814=819,818,815
+<815=817,816
+<820=821
+<821=841,840,822
+<822=839,823
+<823=825,824
+<825=831,826
+<826=827
+<827=828
+<828=830,829
+<831=832
+<832=834,833
+<834=838,835
+<835=837,836
+<842=843
+<843=854,844
+<844=846,845
+<846=847
+<847=849,848
+<849=853,850
+<850=852,851
+<854=860,855
+<855=856
+<856=857
+<857=859,858
+<860=861
+<861=863,862
+<863=867,864
+<864=866,865
+<868=870,869
+<871=872
+<872=879,873
+<873=875,874
+<875=876
+<876=878,877
+<880=881
+<881=882
+<882=892,891,883
+<883=890,884
+<884=886,885
+<886=887
+<887=889,888
+<893=894
+<894=901,900,895
+<895=897,896
+<897=899,898
+<902=903
+<903=923,922,904
+<904=921,905
+<905=917,906
+<906=913,909,907
+<907=908
+<909=910
+<910=912,911
+<913=914
+<914=916,915
+<917=918
+<918=920,919
+<924=954,925
+<925=927,926
+<927=928
+<928=950,929
+<929=946,939,930
+<930=931
+<931=938,932
+<932=934,933
+<934=935
+<935=937,936
+<939=940
+<940=942,941
+<942=943
+<943=945,944
+<946=947
+<947=949,948
+<950=951
+<951=953,952
+<954=955
+<955=962,956
+<956=958,957
+<958=959
+<959=961,960
+<962=968,963
+<963=964
+<964=965
+<965=967,966
+<968=969
+<969=971,970
+<972=974,973
+<975=976
+<976=983,977
+<977=979,978
+<979=980
+<980=982,981
+<984=985
+<985=986
+<986=996,995,987
+<987=994,988
+<988=990,989
+<990=991
+<991=993,992
+<997=1037,1028,1025,998
+<998=999
+<999=1021,1010,1000
+<1000=1001
+<1001=1002
+<1002=1003
+<1003=1005,1004
+<1005=1007,1006
+<1007=1009,1008
+<1010=1011
+<1011=1012
+<1012=1016,1013
+<1013=1015,1014
+<1016=1018,1017
+<1018=1020,1019
+<1021=1022
+<1022=1024,1023
+<1025=1027,1026
+<1028=1029
+<1029=1036,1030
+<1030=1032,1031
+<1032=1033
+<1033=1035,1034
+<1037=1038
+<1038=1039
+<1039=1044,1043,1040
+<1040=1042,1041
+<1045=1046
+<1046=1067,1066,1047
+<1047=1065,1048
+<1048=1061,1049
+<1049=1059,1052,1050
+<1050=1051
+<1052=1053
+<1053=1055,1054
+<1055=1056
+<1056=1058,1057
+<1059=1060
+<1061=1062
+<1062=1064,1063
+<1068=1069
+<1070=1094,1071
+<1071=1093,1086,1079,1072
+<1072=1073
+<1073=1075,1074
+<1075=1076
+<1076=1078,1077
+<1079=1080
+<1080=1082,1081
+<1082=1083
+<1083=1085,1084
+<1086=1087
+<1087=1089,1088
+<1089=1090
+<1090=1092,1091
+<1094=1095
+<1095=1097,1096
+<1097=1099,1098
+<1099=1100
+<1100=1102,1101
+<1103=1104
+<1104=1108,1105
+<1105=1106
+<1106=1107
+<1108=1109
+<1109=1111,1110
+<1112=1113
+<1113=1117,1114
+<1114=1115
+<1115=1116
+<1117=1118
+<1118=1120,1119
+<1121=1146,1137,1134,1122
+<1122=1123
+<1123=1124
+<1124=1130,1125
+<1125=1126
+<1126=1127
+<1127=1129,1128
+<1130=1131
+<1131=1133,1132
+<1134=1136,1135
+<1137=1138
+<1138=1145,1139
+<1139=1141,1140
+<1141=1142
+<1142=1144,1143
+<1146=1147
+<1147=1148
+<1148=1153,1152,1149
+<1149=1151,1150
+<1154=1155
+<1155=1160,1159,1156
+<1156=1158,1157
+<1161=1162
+<1162=1166,1163
+<1163=1165,1164
+<1167=1179,1168
+<1168=1173,1169
+<1169=1170
+<1170=1172,1171
+<1173=1174
+<1174=1178,1175
+<1175=1177,1176
+<1179=1180
+<1180=1182,1181
+<1275=1278,1277,1276
+<1278=1323,1314,1313,1312,1311,1310,1309,1308,1307,1306,1305,1304,1303,1302,1301,1300,1291,1279
+<1279=1280
+<1280=1282,1281
+<1282=1283
+<1283=1285,1284
+<1285=1287,1286
+<1287=1288
+<1288=1290,1289
+<1291=1292
+<1292=1296,1293
+<1293=1294
+<1294=1295
+<1296=1297
+<1297=1299,1298
+<1314=1315
+<1315=1319,1316
+<1316=1317
+<1317=1318
+<1319=1320
+<1320=1322,1321
+<1323=1324
+<1324=1326,1325
+<1335=1341,1340,1336
+<1336=1337
+<1337=1339,1338
+<1341=1746,1740,1705,1695,1684,1649,1645,1634,1604,1600,1596,1585,1514,1510,1499,1401,1390,1352,1348,1342
+<1342=1343
+<1343=1347,1344
+<1344=1346,1345
+<1348=1349
+<1349=1351,1350
+<1352=1382,1373,1370,1353
+<1353=1362,1354
+<1354=1355
+<1355=1361,1356
+<1356=1358,1357
+<1358=1360,1359
+<1362=1363
+<1363=1369,1364
+<1364=1366,1365
+<1366=1368,1367
+<1370=1372,1371
+<1373=1374
+<1374=1381,1375
+<1375=1377,1376
+<1377=1378
+<1378=1380,1379
+<1382=1383
+<1383=1384
+<1384=1389,1388,1385
+<1385=1387,1386
+<1390=1391
+<1391=1400,1392
+<1392=1394,1393
+<1394=1396,1395
+<1396=1397
+<1397=1399,1398
+<1401=1486,1477,1474,1402
+<1402=1466,1453,1403
+<1403=1438,1427,1424,1404
+<1404=1416,1405
+<1405=1406
+<1406=1410,1407
+<1407=1408
+<1408=1409
+<1410=1411
+<1411=1413,1412
+<1413=1415,1414
+<1416=1417
+<1417=1423,1418
+<1418=1420,1419
+<1420=1422,1421
+<1424=1426,1425
+<1427=1428
+<1428=1437,1429
+<1429=1431,1430
+<1431=1432
+<1432=1434,1433
+<1434=1436,1435
+<1438=1439
+<1439=1440
+<1440=1452,1451,1441
+<1441=1450,1442
+<1442=1444,1443
+<1444=1445
+<1445=1447,1446
+<1447=1449,1448
+<1453=1454
+<1454=1465,1455
+<1455=1457,1456
+<1457=1459,1458
+<1459=1460
+<1460=1462,1461
+<1462=1464,1463
+<1466=1467
+<1467=1473,1468
+<1468=1470,1469
+<1470=1472,1471
+<1474=1476,1475
+<1477=1478
+<1478=1485,1479
+<1479=1481,1480
+<1481=1482
+<1482=1484,1483
+<1486=1487
+<1487=1488
+<1488=1498,1497,1489
+<1489=1496,1490
+<1490=1492,1491
+<1492=1493
+<1493=1495,1494
+<1499=1500
+<1500=1509,1501
+<1501=1503,1502
+<1503=1505,1504
+<1505=1506
+<1506=1508,1507
+<1510=1511
+<1511=1513,1512
+<1514=1577,1568,1565,1515
+<1515=1559,1548,1516
+<1516=1540,1531,1528,1517
+<1517=1518
+<1518=1519
+<1519=1527,1520
+<1520=1522,1521
+<1522=1524,1523
+<1524=1526,1525
+<1528=1530,1529
+<1531=1532
+<1532=1539,1533
+<1533=1535,1534
+<1535=1536
+<1536=1538,1537
+<1540=1541
+<1541=1542
+<1542=1547,1546,1543
+<1543=1545,1544
+<1548=1549
+<1549=1558,1550
+<1550=1552,1551
+<1552=1554,1553
+<1554=1555
+<1555=1557,1556
+<1559=1560
+<1560=1564,1561
+<1561=1563,1562
+<1565=1567,1566
+<1568=1569
+<1569=1576,1570
+<1570=1572,1571
+<1572=1573
+<1573=1575,1574
+<1577=1578
+<1578=1579
+<1579=1584,1583,1580
+<1580=1582,1581
+<1585=1586
+<1586=1595,1587
+<1587=1589,1588
+<1589=1591,1590
+<1591=1592
+<1592=1594,1593
+<1596=1597
+<1597=1599,1598
+<1600=1601
+<1601=1603,1602
+<1604=1626,1617,1614,1605
+<1605=1606
+<1606=1607
+<1607=1613,1608
+<1608=1610,1609
+<1610=1612,1611
+<1614=1616,1615
+<1617=1618
+<1618=1625,1619
+<1619=1621,1620
+<1621=1622
+<1622=1624,1623
+<1626=1627
+<1627=1628
+<1628=1633,1632,1629
+<1629=1631,1630
+<1634=1635
+<1635=1644,1636
+<1636=1638,1637
+<1638=1640,1639
+<1640=1641
+<1641=1643,1642
+<1645=1646
+<1646=1648,1647
+<1649=1671,1662,1659,1650
+<1650=1651
+<1651=1652
+<1652=1658,1653
+<1653=1655,1654
+<1655=1657,1656
+<1659=1661,1660
+<1662=1663
+<1663=1670,1664
+<1664=1666,1665
+<1666=1667
+<1667=1669,1668
+<1671=1672
+<1672=1673
+<1673=1683,1682,1674
+<1674=1681,1675
+<1675=1677,1676
+<1677=1678
+<1678=1680,1679
+<1684=1685
+<1685=1694,1686
+<1686=1688,1687
+<1688=1690,1689
+<1690=1691
+<1691=1693,1692
+<1695=1696
+<1696=1704,1697
+<1697=1703,1698
+<1698=1702,1699
+<1699=1701,1700
+<1705=1706
+<1706=1739,1707
+<1707=1735,1708
+<1708=1734,1709
+<1709=1733,1710
+<1710=1732,1711
+<1711=1731,1712
+<1712=1730,1713
+<1713=1729,1714
+<1714=1728,1715
+<1715=1727,1716
+<1716=1726,1717
+<1717=1725,1718
+<1718=1724,1719
+<1719=1723,1720
+<1720=1722,1721
+<1735=1737,1736
+<1737=1738
+<1740=1741
+<1741=1745,1742
+<1742=1744,1743
+<1746=1747
+<1747=1751,1748
+<1748=1750,1749
+<1787=1793,1792,1788
+<1788=1789
+<1789=1791,1790
+<1793=2247,2243,2234,2230,2226,2213,2197,2193,2189,2137,2130,2126,2122,2118,2088,2084,2080,1999,1995,1991,1987,1983,1979,1975,1870,1866,1862,1858,1854,1811,1807,1798,1794
+<1794=1795
+<1795=1797,1796
+<1798=1799
+<1799=1805,1800
+<1800=1801
+<1801=1802
+<1802=1804,1803
+<1805=1806
+<1807=1808
+<1808=1810,1809
+<1811=1846,1842,1839,1812
+<1812=1835,1826,1822,1813
+<1813=1814
+<1814=1818,1815
+<1815=1816
+<1816=1817
+<1818=1819
+<1819=1821,1820
+<1822=1823
+<1823=1825,1824
+<1826=1827
+<1827=1831,1828
+<1828=1829
+<1829=1830
+<1831=1832
+<1832=1834,1833
+<1835=1836
+<1836=1838,1837
+<1839=1841,1840
+<1842=1843
+<1843=1845,1844
+<1846=1847
+<1847=1848
+<1848=1853,1852,1849
+<1849=1851,1850
+<1854=1855
+<1855=1857,1856
+<1858=1859
+<1859=1861,1860
+<1862=1863
+<1863=1865,1864
+<1866=1867
+<1867=1869,1868
+<1870=1967,1963,1960,1871
+<1871=1956,1952,1948,1896,1895,1894,1893,1892,1891,1890,1889,1888,1887,1886,1885,1884,1883,1882,1881,1880,1879,1878,1877,1876,1875,1874,1873,1872
+<1896=1940,1936,1933,1897
+<1897=1929,1925,1916,1915,1914,1913,1912,1911,1910,1909,1908,1907,1906,1905,1904,1903,1902,1901,1900,1899,1898
+<1916=1917
+<1917=1921,1918
+<1918=1919
+<1919=1920
+<1921=1922
+<1922=1924,1923
+<1925=1926
+<1926=1928,1927
+<1929=1930
+<1930=1932,1931
+<1933=1935,1934
+<1936=1937
+<1937=1939,1938
+<1940=1941
+<1941=1942
+<1942=1947,1946,1943
+<1943=1945,1944
+<1948=1949
+<1949=1951,1950
+<1952=1953
+<1953=1955,1954
+<1956=1957
+<1957=1959,1958
+<1960=1962,1961
+<1963=1964
+<1964=1966,1965
+<1967=1968
+<1968=1969
+<1969=1974,1973,1970
+<1970=1972,1971
+<1975=1976
+<1976=1978,1977
+<1979=1980
+<1980=1982,1981
+<1983=1984
+<1984=1986,1985
+<1987=1988
+<1988=1990,1989
+<1991=1992
+<1992=1994,1993
+<1995=1996
+<1996=1998,1997
+<1999=2072,2068,2065,2000
+<2000=2061,2054,2029,2020,2001
+<2001=2016,2002
+<2002=2003
+<2003=2004
+<2004=2012,2005
+<2005=2006
+<2006=2007
+<2007=2011,2008
+<2008=2010,2009
+<2012=2013
+<2013=2015,2014
+<2016=2017
+<2017=2019,2018
+<2020=2021
+<2021=2025,2022
+<2022=2023
+<2023=2024
+<2025=2026
+<2026=2028,2027
+<2029=2046,2042,2039,2030
+<2030=2031
+<2031=2032
+<2032=2038,2033
+<2033=2035,2034
+<2035=2037,2036
+<2039=2041,2040
+<2042=2043
+<2043=2045,2044
+<2046=2047
+<2047=2048
+<2048=2053,2052,2049
+<2049=2051,2050
+<2054=2055
+<2055=2060,2059,2056
+<2056=2058,2057
+<2061=2062
+<2062=2064,2063
+<2065=2067,2066
+<2068=2069
+<2069=2071,2070
+<2072=2073
+<2073=2074
+<2074=2079,2078,2075
+<2075=2077,2076
+<2080=2081
+<2081=2083,2082
+<2084=2085
+<2085=2087,2086
+<2088=2110,2106,2103,2089
+<2089=2099,2090
+<2090=2091
+<2091=2095,2092
+<2092=2093
+<2093=2094
+<2095=2096
+<2096=2098,2097
+<2099=2100
+<2100=2102,2101
+<2103=2105,2104
+<2106=2107
+<2107=2109,2108
+<2110=2111
+<2111=2112
+<2112=2117,2116,2113
+<2113=2115,2114
+<2118=2119
+<2119=2121,2120
+<2122=2123
+<2123=2125,2124
+<2126=2127
+<2127=2129,2128
+<2130=2131
+<2131=2133,2132
+<2133=2134
+<2134=2136,2135
+<2137=2185,2144,2138
+<2138=2139
+<2139=2140
+<2140=2141
+<2141=2143,2142
+<2144=2179,2175,2145
+<2145=2167,2163,2160,2146
+<2146=2156,2147
+<2147=2148
+<2148=2152,2149
+<2149=2150
+<2150=2151
+<2152=2153
+<2153=2155,2154
+<2156=2157
+<2157=2159,2158
+<2160=2162,2161
+<2163=2164
+<2164=2166,2165
+<2167=2168
+<2168=2169
+<2169=2174,2173,2170
+<2170=2172,2171
+<2175=2176
+<2176=2178,2177
+<2179=2180
+<2180=2184,2181
+<2181=2183,2182
+<2185=2186
+<2186=2188,2187
+<2189=2190
+<2190=2192,2191
+<2193=2194
+<2194=2196,2195
+<2197=2198
+<2198=2212,2199
+<2199=2211,2200
+<2200=2210,2201
+<2201=2209,2202
+<2202=2208,2203
+<2203=2207,2204
+<2204=2206,2205
+<2213=2214
+<2214=2224,2215
+<2215=2216
+<2216=2217
+<2217=2221,2218
+<2218=2220,2219
+<2221=2223,2222
+<2224=2225
+<2226=2227
+<2227=2229,2228
+<2230=2231
+<2231=2233,2232
+<2234=2235
+<2235=2241,2236
+<2236=2237
+<2237=2238
+<2238=2240,2239
+<2241=2242
+<2243=2244
+<2244=2246,2245
+<2247=2248
+<2248=2250,2249

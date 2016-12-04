@@ -1,0 +1,1689 @@
+>3	FunctionDef	KeyFrameGraphDisplay 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	AssignmentExpr	printNumbers = false
+>8	Identifier	false
+>9	Identifier	printNumbers
+>10	ExpressionStatement	 
+>11	AssignmentExpr	flushPointcloud = false
+>12	Identifier	false
+>13	Identifier	flushPointcloud
+>20	FunctionDef	KeyFrameGraphDisplay 
+>21	ParameterList	 
+>22	CompoundStatement	 
+>23	ExpressionStatement	 
+>24	ArrayIndexing	keyframes [ i ]
+>25	Identifier	i
+>26	Identifier	keyframes
+>27	ForStatement	for ( unsigned int i = 0 ; i < keyframes . size ( ) ; i ++ )
+>28	Statement	 
+>29	IncDecOp	 
+>30	IncDec	++
+>31	Identifier	i
+>32	Condition	 
+>33	RelationalExpression	i < keyframes . size ( )
+>34	CallExpression	keyframes . size ( )
+>35	ArgumentList	 
+>36	Callee	keyframes . size
+>37	MemberAccess	keyframes . size
+>38	Identifier	size
+>39	Identifier	keyframes
+>40	Identifier	i
+>41	ForInit	 
+>42	IdentifierDeclStatement	unsigned int i = 0 ;
+>43	IdentifierDecl	i = 0
+>44	AssignmentExpr	i = 0
+>45	PrimaryExpression	0
+>46	Identifier	i
+>47	Identifier	i
+>48	IdentifierDeclType	unsigned int
+>55	FunctionDef	KeyFrameGraphDisplay 
+>56	ParameterList	 
+>57	ReturnType	void
+>58	CompoundStatement	 
+>59	ExpressionStatement	 
+>60	CallExpression	dataMutex . unlock ( )
+>61	ArgumentList	 
+>62	Callee	dataMutex . unlock
+>63	MemberAccess	dataMutex . unlock
+>64	Identifier	unlock
+>65	Identifier	dataMutex
+>66	IfStatement	if ( showConstraints )
+>67	CompoundStatement	 
+>68	ExpressionStatement	 
+>69	CallExpression	glEnd ( )
+>70	ArgumentList	 
+>71	Callee	glEnd
+>72	Identifier	glEnd
+>73	ForStatement	for ( unsigned int i = 0 ; i < constraints . size ( ) ; i ++ )
+>74	CompoundStatement	 
+>75	ExpressionStatement	 
+>76	CallExpression	glVertex3f ( ( GLfloat ) t [ 0 ] , ( GLfloat ) t [ 1 ] , ( GLfloat ) t [ 2 ] )
+>77	ArgumentList	( GLfloat ) t [ 0 ]
+>78	Argument	( GLfloat ) t [ 2 ]
+>79	CastExpression	( GLfloat ) t [ 2 ]
+>80	ArrayIndexing	t [ 2 ]
+>81	PrimaryExpression	2
+>82	Identifier	t
+>83	CastTarget	GLfloat
+>84	Argument	( GLfloat ) t [ 1 ]
+>85	CastExpression	( GLfloat ) t [ 1 ]
+>86	ArrayIndexing	t [ 1 ]
+>87	PrimaryExpression	1
+>88	Identifier	t
+>89	CastTarget	GLfloat
+>90	Argument	( GLfloat ) t [ 0 ]
+>91	CastExpression	( GLfloat ) t [ 0 ]
+>92	ArrayIndexing	t [ 0 ]
+>93	PrimaryExpression	0
+>94	Identifier	t
+>95	CastTarget	GLfloat
+>96	Callee	glVertex3f
+>97	Identifier	glVertex3f
+>98	ExpressionStatement	 
+>99	AssignmentExpr	t = constraints [ i ] . to -> camToWorld . translation ( )
+>100	CallExpression	constraints [ i ] . to -> camToWorld . translation ( )
+>101	ArgumentList	 
+>102	Callee	constraints [ i ] . to -> camToWorld . translation
+>103	MemberAccess	constraints [ i ] . to -> camToWorld . translation
+>104	Identifier	translation
+>105	PtrMemberAccess	constraints [ i ] . to -> camToWorld
+>106	Identifier	camToWorld
+>107	MemberAccess	constraints [ i ] . to
+>108	Identifier	to
+>109	ArrayIndexing	constraints [ i ]
+>110	Identifier	i
+>111	Identifier	constraints
+>112	Identifier	t
+>113	ExpressionStatement	 
+>114	CallExpression	glVertex3f ( ( GLfloat ) t [ 0 ] , ( GLfloat ) t [ 1 ] , ( GLfloat ) t [ 2 ] )
+>115	ArgumentList	( GLfloat ) t [ 0 ]
+>116	Argument	( GLfloat ) t [ 2 ]
+>117	CastExpression	( GLfloat ) t [ 2 ]
+>118	ArrayIndexing	t [ 2 ]
+>119	PrimaryExpression	2
+>120	Identifier	t
+>121	CastTarget	GLfloat
+>122	Argument	( GLfloat ) t [ 1 ]
+>123	CastExpression	( GLfloat ) t [ 1 ]
+>124	ArrayIndexing	t [ 1 ]
+>125	PrimaryExpression	1
+>126	Identifier	t
+>127	CastTarget	GLfloat
+>128	Argument	( GLfloat ) t [ 0 ]
+>129	CastExpression	( GLfloat ) t [ 0 ]
+>130	ArrayIndexing	t [ 0 ]
+>131	PrimaryExpression	0
+>132	Identifier	t
+>133	CastTarget	GLfloat
+>134	Callee	glVertex3f
+>135	Identifier	glVertex3f
+>136	IdentifierDeclStatement	 
+>137	IdentifierDecl	t = constraints [ i ] . from -> camToWorld . translation ( )
+>138	AssignmentExpr	t = constraints [ i ] . from -> camToWorld . translation ( )
+>139	CallExpression	constraints [ i ] . from -> camToWorld . translation ( )
+>140	ArgumentList	 
+>141	Callee	constraints [ i ] . from -> camToWorld . translation
+>142	MemberAccess	constraints [ i ] . from -> camToWorld . translation
+>143	Identifier	translation
+>144	PtrMemberAccess	constraints [ i ] . from -> camToWorld
+>145	Identifier	camToWorld
+>146	MemberAccess	constraints [ i ] . from
+>147	Identifier	from
+>148	ArrayIndexing	constraints [ i ]
+>149	Identifier	i
+>150	Identifier	constraints
+>151	Identifier	t
+>152	Identifier	t
+>153	IdentifierDeclType	Sophus 
+>154	ExpressionStatement	 
+>155	CallExpression	glColor3f ( colorScalar , 1 - colorScalar , 0 )
+>156	ArgumentList	colorScalar
+>157	Argument	0
+>158	PrimaryExpression	0
+>159	Argument	1 - colorScalar
+>160	AdditiveExpression	1 - colorScalar
+>161	Identifier	colorScalar
+>162	PrimaryExpression	1
+>163	Argument	colorScalar
+>164	Identifier	colorScalar
+>165	Callee	glColor3f
+>166	Identifier	glColor3f
+>167	IdentifierDeclStatement	 
+>168	IdentifierDecl	colorScalar = std 
+>169	AssignmentExpr	colorScalar = std 
+>170	CallExpression	std 
+>171	ArgumentList	0.0
+>172	Argument	std 
+>173	CallExpression	std 
+>174	ArgumentList	1.0
+>175	Argument	constraints [ i ] . err / 0.05
+>176	MultiplicativeExpression	constraints [ i ] . err / 0.05
+>177	PrimaryExpression	0.05
+>178	MemberAccess	constraints [ i ] . err
+>179	Identifier	err
+>180	ArrayIndexing	constraints [ i ]
+>181	Identifier	i
+>182	Identifier	constraints
+>183	Argument	1.0
+>184	PrimaryExpression	1.0
+>185	Callee	std 
+>186	Identifier	std 
+>187	Argument	0.0
+>188	PrimaryExpression	0.0
+>189	Callee	std 
+>190	Identifier	std 
+>191	Identifier	colorScalar
+>192	Identifier	colorScalar
+>193	IdentifierDeclType	double
+>194	IfStatement	if ( constraints [ i ] . from == 0 || constraints [ i ] . to == 0 )
+>195	ContinueStatement	 
+>196	Condition	 
+>197	OrExpression	constraints [ i ] . from == 0 || constraints [ i ] . to == 0
+>198	EqualityExpression	constraints [ i ] . to == 0
+>199	PrimaryExpression	0
+>200	MemberAccess	constraints [ i ] . to
+>201	Identifier	to
+>202	ArrayIndexing	constraints [ i ]
+>203	Identifier	i
+>204	Identifier	constraints
+>205	EqualityExpression	constraints [ i ] . from == 0
+>206	PrimaryExpression	0
+>207	MemberAccess	constraints [ i ] . from
+>208	Identifier	from
+>209	ArrayIndexing	constraints [ i ]
+>210	Identifier	i
+>211	Identifier	constraints
+>212	IncDecOp	 
+>213	IncDec	++
+>214	Identifier	i
+>215	Condition	 
+>216	RelationalExpression	i < constraints . size ( )
+>217	CallExpression	constraints . size ( )
+>218	ArgumentList	 
+>219	Callee	constraints . size
+>220	MemberAccess	constraints . size
+>221	Identifier	size
+>222	Identifier	constraints
+>223	Identifier	i
+>224	ForInit	 
+>225	IdentifierDeclStatement	unsigned int i = 0 ;
+>226	IdentifierDecl	i = 0
+>227	AssignmentExpr	i = 0
+>228	PrimaryExpression	0
+>229	Identifier	i
+>230	Identifier	i
+>231	IdentifierDeclType	unsigned int
+>232	ExpressionStatement	 
+>233	CallExpression	glBegin ( GL_LINES )
+>234	ArgumentList	GL_LINES
+>235	Argument	GL_LINES
+>236	Identifier	GL_LINES
+>237	Callee	glBegin
+>238	Identifier	glBegin
+>239	ExpressionStatement	 
+>240	CallExpression	glLineWidth ( lineTesselation )
+>241	ArgumentList	lineTesselation
+>242	Argument	lineTesselation
+>243	Identifier	lineTesselation
+>244	Callee	glLineWidth
+>245	Identifier	glLineWidth
+>246	Condition	 
+>247	Identifier	showConstraints
+>248	IfStatement	if ( printNumbers )
+>249	CompoundStatement	 
+>250	ExpressionStatement	 
+>251	AssignmentExpr	printNumbers = false
+>252	Identifier	false
+>253	Identifier	printNumbers
+>254	ExpressionStatement	 
+>255	CallExpression	printf ( \"Have %d points, %d keyframes, %d constraints. Displaying %d points.\n\" , totalPoint , ( int ) keyframes \
+>256	ArgumentList	\"Have %d points, %d keyframes, %d constraints. Displaying %d points.\n\"
+>257	Argument	visPoints
+>258	Identifier	visPoints
+>259	Argument	( int ) constraints . size ( )
+>260	CastExpression	( int ) constraints . size ( )
+>261	CallExpression	constraints . size ( )
+>262	ArgumentList	 
+>263	Callee	constraints . size
+>264	MemberAccess	constraints . size
+>265	Identifier	size
+>266	Identifier	constraints
+>267	CastTarget	int
+>268	Argument	( int ) keyframes . size ( )
+>269	CastExpression	( int ) keyframes . size ( )
+>270	CallExpression	keyframes . size ( )
+>271	ArgumentList	 
+>272	Callee	keyframes . size
+>273	MemberAccess	keyframes . size
+>274	Identifier	size
+>275	Identifier	keyframes
+>276	CastTarget	int
+>277	Argument	totalPoint
+>278	Identifier	totalPoint
+>279	Argument	\"Have %d points, %d keyframes, %d constraints. Displaying %d points.\n\"
+>280	PrimaryExpression	\"Have %d points, %d keyframes, %d constraints. Displaying %d points.\n\"
+>281	Callee	printf
+>282	Identifier	printf
+>283	ForStatement	for ( unsigned int i = 0 ; i < keyframes . size ( ) ; i ++ )
+>284	CompoundStatement	 
+>285	ExpressionStatement	 
+>286	AssignmentExpr	visPoints += keyframes [ i ] -> displayedPoints
+>287	PtrMemberAccess	keyframes [ i ] -> displayedPoints
+>288	Identifier	displayedPoints
+>289	ArrayIndexing	keyframes [ i ]
+>290	Identifier	i
+>291	Identifier	keyframes
+>292	Identifier	visPoints
+>293	ExpressionStatement	 
+>294	AssignmentExpr	totalPoint += keyframes [ i ] -> totalPoints
+>295	PtrMemberAccess	keyframes [ i ] -> totalPoints
+>296	Identifier	totalPoints
+>297	ArrayIndexing	keyframes [ i ]
+>298	Identifier	i
+>299	Identifier	keyframes
+>300	Identifier	totalPoint
+>301	IncDecOp	 
+>302	IncDec	++
+>303	Identifier	i
+>304	Condition	 
+>305	RelationalExpression	i < keyframes . size ( )
+>306	CallExpression	keyframes . size ( )
+>307	ArgumentList	 
+>308	Callee	keyframes . size
+>309	MemberAccess	keyframes . size
+>310	Identifier	size
+>311	Identifier	keyframes
+>312	Identifier	i
+>313	ForInit	 
+>314	IdentifierDeclStatement	unsigned int i = 0 ;
+>315	IdentifierDecl	i = 0
+>316	AssignmentExpr	i = 0
+>317	PrimaryExpression	0
+>318	Identifier	i
+>319	Identifier	i
+>320	IdentifierDeclType	unsigned int
+>321	IdentifierDeclStatement	 
+>322	IdentifierDecl	visPoints = 0
+>323	AssignmentExpr	visPoints = 0
+>324	PrimaryExpression	0
+>325	Identifier	visPoints
+>326	Identifier	visPoints
+>327	IdentifierDeclType	int
+>328	IdentifierDeclStatement	 
+>329	IdentifierDecl	totalPoint = 0
+>330	AssignmentExpr	totalPoint = 0
+>331	PrimaryExpression	0
+>332	Identifier	totalPoint
+>333	Identifier	totalPoint
+>334	IdentifierDeclType	int
+>335	Condition	 
+>336	Identifier	printNumbers
+>337	IfStatement	if ( flushPointcloud )
+>338	CompoundStatement	 
+>339	ExpressionStatement	 
+>340	CallExpression	printf ( \"Done Flushing Pointcloud with %d points!\n\" , numpts )
+>341	ArgumentList	\"Done Flushing Pointcloud with %d points!\n\"
+>342	Argument	numpts
+>343	Identifier	numpts
+>344	Argument	\"Done Flushing Pointcloud with %d points!\n\"
+>345	PrimaryExpression	\"Done Flushing Pointcloud with %d points!\n\"
+>346	Callee	printf
+>347	Identifier	printf
+>348	ExpressionStatement	 
+>349	AssignmentExpr	flushPointcloud = false
+>350	Identifier	false
+>351	Identifier	flushPointcloud
+>352	ExpressionStatement	 
+>353	CallExpression	system ( ( \"rm \" + ros 
+>354	ArgumentList	( \"rm \" + ros 
+>355	Argument	( \"rm \" + ros 
+>356	CallExpression	( \"rm \" + ros 
+>357	ArgumentList	 
+>358	Callee	( \"rm \" + ros 
+>359	MemberAccess	( \"rm \" + ros 
+>360	Identifier	c_str
+>361	AdditiveExpression	\"rm \" + ros 
+>362	AdditiveExpression	ros 
+>363	PrimaryExpression	\"/pc_tmp.ply\"
+>364	CallExpression	ros 
+>365	ArgumentList	\"lsd_slam_viewer\"
+>366	Argument	\"lsd_slam_viewer\"
+>367	PrimaryExpression	\"lsd_slam_viewer\"
+>368	Callee	ros 
+>369	Identifier	ros 
+>370	PrimaryExpression	\"rm \"
+>371	Callee	system
+>372	Identifier	system
+>373	ExpressionStatement	 
+>374	CallExpression	f3 . close ( )
+>375	ArgumentList	 
+>376	Callee	f3 . close
+>377	MemberAccess	f3 . close
+>378	Identifier	close
+>379	Identifier	f3
+>380	ExpressionStatement	 
+>381	CallExpression	f2 . close ( )
+>382	ArgumentList	 
+>383	Callee	f2 . close
+>384	MemberAccess	f2 . close
+>385	Identifier	close
+>386	Identifier	f2
+>387	WhileStatement	while ( ! f3 . eof ( ) )
+>388	ExpressionStatement	 
+>389	CallExpression	f2 . put ( f3 . get ( ) )
+>390	ArgumentList	f3 . get ( )
+>391	Argument	f3 . get ( )
+>392	CallExpression	f3 . get ( )
+>393	ArgumentList	 
+>394	Callee	f3 . get
+>395	MemberAccess	f3 . get
+>396	Identifier	get
+>397	Identifier	f3
+>398	Callee	f2 . put
+>399	MemberAccess	f2 . put
+>400	Identifier	put
+>401	Identifier	f2
+>402	Condition	 
+>403	UnaryOp	! f3 . eof ( )
+>404	CallExpression	f3 . eof ( )
+>405	ArgumentList	 
+>406	Callee	f3 . eof
+>407	MemberAccess	f3 . eof
+>408	Identifier	eof
+>409	Identifier	f3
+>410	UnaryOperator	!
+>411	IdentifierDeclStatement	 
+>412	IdentifierDecl	f3 ( ( ros 
+>413	CallExpression	( ros 
+>414	ArgumentList	 
+>415	Callee	( ros 
+>416	MemberAccess	( ros 
+>417	Identifier	c_str
+>418	AdditiveExpression	ros 
+>419	PrimaryExpression	\"/pc_tmp.ply\"
+>420	CallExpression	ros 
+>421	ArgumentList	\"lsd_slam_viewer\"
+>422	Argument	\"lsd_slam_viewer\"
+>423	PrimaryExpression	\"lsd_slam_viewer\"
+>424	Callee	ros 
+>425	Identifier	ros 
+>426	Identifier	f3
+>427	IdentifierDeclType	std 
+>428	ExpressionStatement	 
+>429	ShiftExpression	f2 << std 
+>430	CallExpression	std 
+>431	ArgumentList	\"end_header\n\"
+>432	Argument	\"end_header\n\"
+>433	PrimaryExpression	\"end_header\n\"
+>434	Callee	std 
+>435	Identifier	std 
+>436	Identifier	f2
+>437	ExpressionStatement	 
+>438	ShiftExpression	f2 << std 
+>439	CallExpression	std 
+>440	ArgumentList	\"property float intensity\n\"
+>441	Argument	\"property float intensity\n\"
+>442	PrimaryExpression	\"property float intensity\n\"
+>443	Callee	std 
+>444	Identifier	std 
+>445	Identifier	f2
+>446	ExpressionStatement	 
+>447	ShiftExpression	f2 << std 
+>448	CallExpression	std 
+>449	ArgumentList	\"property float z\n\"
+>450	Argument	\"property float z\n\"
+>451	PrimaryExpression	\"property float z\n\"
+>452	Callee	std 
+>453	Identifier	std 
+>454	Identifier	f2
+>455	ExpressionStatement	 
+>456	ShiftExpression	f2 << std 
+>457	CallExpression	std 
+>458	ArgumentList	\"property float y\n\"
+>459	Argument	\"property float y\n\"
+>460	PrimaryExpression	\"property float y\n\"
+>461	Callee	std 
+>462	Identifier	std 
+>463	Identifier	f2
+>464	ExpressionStatement	 
+>465	ShiftExpression	f2 << std 
+>466	CallExpression	std 
+>467	ArgumentList	\"property float x\n\"
+>468	Argument	\"property float x\n\"
+>469	PrimaryExpression	\"property float x\n\"
+>470	Callee	std 
+>471	Identifier	std 
+>472	Identifier	f2
+>473	ExpressionStatement	 
+>474	ShiftExpression	f2 << std 
+>475	ShiftExpression	std 
+>476	ShiftExpression	numpts << std 
+>477	CallExpression	std 
+>478	ArgumentList	\"\n\"
+>479	Argument	\"\n\"
+>480	PrimaryExpression	\"\n\"
+>481	Callee	std 
+>482	Identifier	std 
+>483	Identifier	numpts
+>484	CallExpression	std 
+>485	ArgumentList	\"element vertex \"
+>486	Argument	\"element vertex \"
+>487	PrimaryExpression	\"element vertex \"
+>488	Callee	std 
+>489	Identifier	std 
+>490	Identifier	f2
+>491	ExpressionStatement	 
+>492	ShiftExpression	f2 << std 
+>493	CallExpression	std 
+>494	ArgumentList	\"format binary_little_endian 1.0\n\"
+>495	Argument	\"format binary_little_endian 1.0\n\"
+>496	PrimaryExpression	\"format binary_little_endian 1.0\n\"
+>497	Callee	std 
+>498	Identifier	std 
+>499	Identifier	f2
+>500	ExpressionStatement	 
+>501	ShiftExpression	f2 << std 
+>502	CallExpression	std 
+>503	ArgumentList	\"ply\n\"
+>504	Argument	\"ply\n\"
+>505	PrimaryExpression	\"ply\n\"
+>506	Callee	std 
+>507	Identifier	std 
+>508	Identifier	f2
+>509	IdentifierDeclStatement	 
+>510	IdentifierDecl	f2 ( ( ros 
+>511	CallExpression	( ros 
+>512	ArgumentList	 
+>513	Callee	( ros 
+>514	MemberAccess	( ros 
+>515	Identifier	c_str
+>516	AdditiveExpression	ros 
+>517	PrimaryExpression	\"/pc.ply\"
+>518	CallExpression	ros 
+>519	ArgumentList	\"lsd_slam_viewer\"
+>520	Argument	\"lsd_slam_viewer\"
+>521	PrimaryExpression	\"lsd_slam_viewer\"
+>522	Callee	ros 
+>523	Identifier	ros 
+>524	Identifier	f2
+>525	IdentifierDeclType	std 
+>526	ExpressionStatement	 
+>527	CallExpression	f . close ( )
+>528	ArgumentList	 
+>529	Callee	f . close
+>530	MemberAccess	f . close
+>531	Identifier	close
+>532	Identifier	f
+>533	ExpressionStatement	 
+>534	CallExpression	f . flush ( )
+>535	ArgumentList	 
+>536	Callee	f . flush
+>537	MemberAccess	f . flush
+>538	Identifier	flush
+>539	Identifier	f
+>540	ForStatement	for ( unsigned int i = 0 ; i < keyframes . size ( ) ; i ++ )
+>541	CompoundStatement	 
+>542	IfStatement	if ( ( int ) i > cutFirstNKf )
+>543	ExpressionStatement	 
+>544	AssignmentExpr	numpts += keyframes [ i ] -> flushPC ( & f )
+>545	CallExpression	keyframes [ i ] -> flushPC ( & f )
+>546	ArgumentList	& f
+>547	Argument	& f
+>548	UnaryOp	& f
+>549	Identifier	f
+>550	UnaryOperator	&
+>551	Callee	keyframes [ i ] -> flushPC
+>552	PtrMemberAccess	keyframes [ i ] -> flushPC
+>553	Identifier	flushPC
+>554	ArrayIndexing	keyframes [ i ]
+>555	Identifier	i
+>556	Identifier	keyframes
+>557	Identifier	numpts
+>558	Condition	 
+>559	RelationalExpression	( int ) i > cutFirstNKf
+>560	Identifier	cutFirstNKf
+>561	CastExpression	( int ) i
+>562	Identifier	i
+>563	CastTarget	int
+>564	IncDecOp	 
+>565	IncDec	++
+>566	Identifier	i
+>567	Condition	 
+>568	RelationalExpression	i < keyframes . size ( )
+>569	CallExpression	keyframes . size ( )
+>570	ArgumentList	 
+>571	Callee	keyframes . size
+>572	MemberAccess	keyframes . size
+>573	Identifier	size
+>574	Identifier	keyframes
+>575	Identifier	i
+>576	ForInit	 
+>577	IdentifierDeclStatement	unsigned int i = 0 ;
+>578	IdentifierDecl	i = 0
+>579	AssignmentExpr	i = 0
+>580	PrimaryExpression	0
+>581	Identifier	i
+>582	Identifier	i
+>583	IdentifierDeclType	unsigned int
+>584	IdentifierDeclStatement	 
+>585	IdentifierDecl	numpts = 0
+>586	AssignmentExpr	numpts = 0
+>587	PrimaryExpression	0
+>588	Identifier	numpts
+>589	Identifier	numpts
+>590	IdentifierDeclType	int
+>591	IdentifierDeclStatement	 
+>592	IdentifierDecl	f ( ( ros 
+>593	CallExpression	( ros 
+>594	ArgumentList	 
+>595	Callee	( ros 
+>596	MemberAccess	( ros 
+>597	Identifier	c_str
+>598	AdditiveExpression	ros 
+>599	PrimaryExpression	\"/pc_tmp.ply\"
+>600	CallExpression	ros 
+>601	ArgumentList	\"lsd_slam_viewer\"
+>602	Argument	\"lsd_slam_viewer\"
+>603	PrimaryExpression	\"lsd_slam_viewer\"
+>604	Callee	ros 
+>605	Identifier	ros 
+>606	Identifier	f
+>607	IdentifierDeclType	std 
+>608	ExpressionStatement	 
+>609	CallExpression	printf ( \"Flushing Pointcloud to %s!\n\" , ( ros 
+>610	ArgumentList	\"Flushing Pointcloud to %s!\n\"
+>611	Argument	( ros 
+>612	CallExpression	( ros 
+>613	ArgumentList	 
+>614	Callee	( ros 
+>615	MemberAccess	( ros 
+>616	Identifier	c_str
+>617	AdditiveExpression	ros 
+>618	PrimaryExpression	\"/pc_tmp.ply\"
+>619	CallExpression	ros 
+>620	ArgumentList	\"lsd_slam_viewer\"
+>621	Argument	\"lsd_slam_viewer\"
+>622	PrimaryExpression	\"lsd_slam_viewer\"
+>623	Callee	ros 
+>624	Identifier	ros 
+>625	Argument	\"Flushing Pointcloud to %s!\n\"
+>626	PrimaryExpression	\"Flushing Pointcloud to %s!\n\"
+>627	Callee	printf
+>628	Identifier	printf
+>629	Condition	 
+>630	Identifier	flushPointcloud
+>631	ForStatement	for ( unsigned int i = 0 ; i < keyframes . size ( ) ; i ++ )
+>632	CompoundStatement	 
+>633	IfStatement	if ( ( showKFPointclouds && ( int ) i > cutFirstNKf ) || i == keyframes . size ( ) - 1 )
+>634	ExpressionStatement	 
+>635	CallExpression	keyframes [ i ] -> drawPC ( pointTesselation , 1 )
+>636	ArgumentList	pointTesselation
+>637	Argument	1
+>638	PrimaryExpression	1
+>639	Argument	pointTesselation
+>640	Identifier	pointTesselation
+>641	Callee	keyframes [ i ] -> drawPC
+>642	PtrMemberAccess	keyframes [ i ] -> drawPC
+>643	Identifier	drawPC
+>644	ArrayIndexing	keyframes [ i ]
+>645	Identifier	i
+>646	Identifier	keyframes
+>647	Condition	 
+>648	OrExpression	( showKFPointclouds && ( int ) i > cutFirstNKf ) || i == keyframes . size ( ) - 1
+>649	EqualityExpression	i == keyframes . size ( ) - 1
+>650	AdditiveExpression	keyframes . size ( ) - 1
+>651	PrimaryExpression	1
+>652	CallExpression	keyframes . size ( )
+>653	ArgumentList	 
+>654	Callee	keyframes . size
+>655	MemberAccess	keyframes . size
+>656	Identifier	size
+>657	Identifier	keyframes
+>658	Identifier	i
+>659	AndExpression	showKFPointclouds && ( int ) i > cutFirstNKf
+>660	RelationalExpression	( int ) i > cutFirstNKf
+>661	Identifier	cutFirstNKf
+>662	CastExpression	( int ) i
+>663	Identifier	i
+>664	CastTarget	int
+>665	Identifier	showKFPointclouds
+>666	IfStatement	if ( showKFCameras )
+>667	ExpressionStatement	 
+>668	CallExpression	keyframes [ i ] -> drawCam ( lineTesselation , color )
+>669	ArgumentList	lineTesselation
+>670	Argument	color
+>671	Identifier	color
+>672	Argument	lineTesselation
+>673	Identifier	lineTesselation
+>674	Callee	keyframes [ i ] -> drawCam
+>675	PtrMemberAccess	keyframes [ i ] -> drawCam
+>676	Identifier	drawCam
+>677	ArrayIndexing	keyframes [ i ]
+>678	Identifier	i
+>679	Identifier	keyframes
+>680	Condition	 
+>681	Identifier	showKFCameras
+>682	IncDecOp	 
+>683	IncDec	++
+>684	Identifier	i
+>685	Condition	 
+>686	RelationalExpression	i < keyframes . size ( )
+>687	CallExpression	keyframes . size ( )
+>688	ArgumentList	 
+>689	Callee	keyframes . size
+>690	MemberAccess	keyframes . size
+>691	Identifier	size
+>692	Identifier	keyframes
+>693	Identifier	i
+>694	ForInit	 
+>695	IdentifierDeclStatement	unsigned int i = 0 ;
+>696	IdentifierDecl	i = 0
+>697	AssignmentExpr	i = 0
+>698	PrimaryExpression	0
+>699	Identifier	i
+>700	Identifier	i
+>701	IdentifierDeclType	unsigned int
+>702	IdentifierDeclStatement	 
+>703	IdentifierDecl	color [ 3 ] = { 0 , 0 , 1 }
+>704	AssignmentExpr	color [ 3 ] = { 0 , 0 , 1 }
+>705	InitializerList	0
+>706	PrimaryExpression	1
+>707	PrimaryExpression	0
+>708	PrimaryExpression	0
+>709	Identifier	color
+>710	PrimaryExpression	3
+>711	Identifier	color
+>712	IdentifierDeclType	float [ 3 ]
+>713	ExpressionStatement	 
+>714	AssignmentExpr	numRefreshedAlready = 0
+>715	PrimaryExpression	0
+>716	Identifier	numRefreshedAlready
+>717	ExpressionStatement	 
+>718	CallExpression	dataMutex . lock ( )
+>719	ArgumentList	 
+>720	Callee	dataMutex . lock
+>721	MemberAccess	dataMutex . lock
+>722	Identifier	lock
+>723	Identifier	dataMutex
+>780	FunctionDef	KeyFrameGraphDisplay 
+>781	ParameterList	lsd_slam_viewer 
+>782	Parameter	 
+>783	Identifier	msg
+>784	ParameterType	lsd_slam_viewer 
+>785	ReturnType	void
+>786	CompoundStatement	 
+>787	ExpressionStatement	 
+>788	CallExpression	dataMutex . unlock ( )
+>789	ArgumentList	 
+>790	Callee	dataMutex . unlock
+>791	MemberAccess	dataMutex . unlock
+>792	Identifier	unlock
+>793	Identifier	dataMutex
+>794	ExpressionStatement	 
+>795	CallExpression	keyframesByID [ msg -> id ] -> setFrom ( msg )
+>796	ArgumentList	msg
+>797	Argument	msg
+>798	Identifier	msg
+>799	Callee	keyframesByID [ msg -> id ] -> setFrom
+>800	PtrMemberAccess	keyframesByID [ msg -> id ] -> setFrom
+>801	Identifier	setFrom
+>802	ArrayIndexing	keyframesByID [ msg -> id ]
+>803	PtrMemberAccess	msg -> id
+>804	Identifier	id
+>805	Identifier	msg
+>806	Identifier	keyframesByID
+>807	IfStatement	if ( keyframesByID . count ( msg -> id ) == 0 )
+>808	CompoundStatement	 
+>809	ExpressionStatement	 
+>810	CallExpression	keyframes . push_back ( disp )
+>811	ArgumentList	disp
+>812	Argument	disp
+>813	Identifier	disp
+>814	Callee	keyframes . push_back
+>815	MemberAccess	keyframes . push_back
+>816	Identifier	push_back
+>817	Identifier	keyframes
+>818	ExpressionStatement	 
+>819	AssignmentExpr	keyframesByID [ msg -> id ] = disp
+>820	Identifier	disp
+>821	ArrayIndexing	keyframesByID [ msg -> id ]
+>822	PtrMemberAccess	msg -> id
+>823	Identifier	id
+>824	Identifier	msg
+>825	Identifier	keyframesByID
+>826	IdentifierDeclStatement	 
+>827	IdentifierDecl	* disp = new KeyFrameDisplay ( )
+>828	AssignmentExpr	* disp = new KeyFrameDisplay ( )
+>829	UnaryExpression	new KeyFrameDisplay ( )
+>830	Identifier	disp
+>831	Identifier	disp
+>832	IdentifierDeclType	KeyFrameDisplay *
+>833	Condition	 
+>834	EqualityExpression	keyframesByID . count ( msg -> id ) == 0
+>835	PrimaryExpression	0
+>836	CallExpression	keyframesByID . count ( msg -> id )
+>837	ArgumentList	msg -> id
+>838	Argument	msg -> id
+>839	PtrMemberAccess	msg -> id
+>840	Identifier	id
+>841	Identifier	msg
+>842	Callee	keyframesByID . count
+>843	MemberAccess	keyframesByID . count
+>844	Identifier	count
+>845	Identifier	keyframesByID
+>846	ExpressionStatement	 
+>847	CallExpression	dataMutex . lock ( )
+>848	ArgumentList	 
+>849	Callee	dataMutex . lock
+>850	MemberAccess	dataMutex . lock
+>851	Identifier	lock
+>852	Identifier	dataMutex
+>867	FunctionDef	KeyFrameGraphDisplay 
+>868	ParameterList	lsd_slam_viewer 
+>869	Parameter	 
+>870	Identifier	msg
+>871	ParameterType	lsd_slam_viewer 
+>872	ReturnType	void
+>873	CompoundStatement	 
+>874	ExpressionStatement	 
+>875	CallExpression	dataMutex . unlock ( )
+>876	ArgumentList	 
+>877	Callee	dataMutex . unlock
+>878	MemberAccess	dataMutex . unlock
+>879	Identifier	unlock
+>880	Identifier	dataMutex
+>881	ForStatement	for ( int i = 0 ; i < numGraphPoses ; i ++ )
+>882	CompoundStatement	 
+>883	IfStatement	if ( keyframesByID . count ( graphPoses [ i ] . id ) == 0 )
+>884	ElseStatement	else
+>885	ExpressionStatement	 
+>886	CallExpression	memcpy ( keyframesByID [ graphPoses [ i ] . id ] -> camToWorld . data ( ) , graphPoses [ i ] . camToWorld , 7 * \
+>887	ArgumentList	keyframesByID [ graphPoses [ i ] . id ] -> camToWorld . data ( )
+>888	Argument	7 * sizeof ( float )
+>889	MultiplicativeExpression	7 * sizeof ( float )
+>890	SizeofExpr	sizeof ( float )
+>891	SizeofOperand	float
+>892	Sizeof	sizeof
+>893	PrimaryExpression	7
+>894	Argument	graphPoses [ i ] . camToWorld
+>895	MemberAccess	graphPoses [ i ] . camToWorld
+>896	Identifier	camToWorld
+>897	ArrayIndexing	graphPoses [ i ]
+>898	Identifier	i
+>899	Identifier	graphPoses
+>900	Argument	keyframesByID [ graphPoses [ i ] . id ] -> camToWorld . data ( )
+>901	CallExpression	keyframesByID [ graphPoses [ i ] . id ] -> camToWorld . data ( )
+>902	ArgumentList	 
+>903	Callee	keyframesByID [ graphPoses [ i ] . id ] -> camToWorld . data
+>904	MemberAccess	keyframesByID [ graphPoses [ i ] . id ] -> camToWorld . data
+>905	Identifier	data
+>906	PtrMemberAccess	keyframesByID [ graphPoses [ i ] . id ] -> camToWorld
+>907	Identifier	camToWorld
+>908	ArrayIndexing	keyframesByID [ graphPoses [ i ] . id ]
+>909	MemberAccess	graphPoses [ i ] . id
+>910	Identifier	id
+>911	ArrayIndexing	graphPoses [ i ]
+>912	Identifier	i
+>913	Identifier	graphPoses
+>914	Identifier	keyframesByID
+>915	Callee	memcpy
+>916	Identifier	memcpy
+>917	CompoundStatement	 
+>918	Condition	 
+>919	EqualityExpression	keyframesByID . count ( graphPoses [ i ] . id ) == 0
+>920	PrimaryExpression	0
+>921	CallExpression	keyframesByID . count ( graphPoses [ i ] . id )
+>922	ArgumentList	graphPoses [ i ] . id
+>923	Argument	graphPoses [ i ] . id
+>924	MemberAccess	graphPoses [ i ] . id
+>925	Identifier	id
+>926	ArrayIndexing	graphPoses [ i ]
+>927	Identifier	i
+>928	Identifier	graphPoses
+>929	Callee	keyframesByID . count
+>930	MemberAccess	keyframesByID . count
+>931	Identifier	count
+>932	Identifier	keyframesByID
+>933	IncDecOp	 
+>934	IncDec	++
+>935	Identifier	i
+>936	Condition	 
+>937	RelationalExpression	i < numGraphPoses
+>938	Identifier	numGraphPoses
+>939	Identifier	i
+>940	ForInit	 
+>941	IdentifierDeclStatement	int i = 0 ;
+>942	IdentifierDecl	i = 0
+>943	AssignmentExpr	i = 0
+>944	PrimaryExpression	0
+>945	Identifier	i
+>946	Identifier	i
+>947	IdentifierDeclType	int
+>948	ExpressionStatement	 
+>949	CallExpression	assert ( msg -> frameData . size ( ) == sizeof ( GraphFramePose ) * msg -> numFrames )
+>950	ArgumentList	msg -> frameData . size ( ) == sizeof ( GraphFramePose ) * msg -> numFrames
+>951	Argument	msg -> frameData . size ( ) == sizeof ( GraphFramePose ) * msg -> numFrames
+>952	EqualityExpression	msg -> frameData . size ( ) == sizeof ( GraphFramePose ) * msg -> numFrames
+>953	MultiplicativeExpression	sizeof ( GraphFramePose ) * msg -> numFrames
+>954	PtrMemberAccess	msg -> numFrames
+>955	Identifier	numFrames
+>956	Identifier	msg
+>957	SizeofExpr	sizeof ( GraphFramePose )
+>958	SizeofOperand	GraphFramePose
+>959	Sizeof	sizeof
+>960	CallExpression	msg -> frameData . size ( )
+>961	ArgumentList	 
+>962	Callee	msg -> frameData . size
+>963	MemberAccess	msg -> frameData . size
+>964	Identifier	size
+>965	PtrMemberAccess	msg -> frameData
+>966	Identifier	frameData
+>967	Identifier	msg
+>968	Callee	assert
+>969	Identifier	assert
+>970	IdentifierDeclStatement	 
+>971	IdentifierDecl	numGraphPoses = msg -> numFrames
+>972	AssignmentExpr	numGraphPoses = msg -> numFrames
+>973	PtrMemberAccess	msg -> numFrames
+>974	Identifier	numFrames
+>975	Identifier	msg
+>976	Identifier	numGraphPoses
+>977	Identifier	numGraphPoses
+>978	IdentifierDeclType	int
+>979	IdentifierDeclStatement	 
+>980	IdentifierDecl	* graphPoses = ( GraphFramePose * ) msg -> frameData . data ( )
+>981	AssignmentExpr	* graphPoses = ( GraphFramePose * ) msg -> frameData . data ( )
+>982	CastExpression	( GraphFramePose * ) msg -> frameData . data ( )
+>983	CallExpression	msg -> frameData . data ( )
+>984	ArgumentList	 
+>985	Callee	msg -> frameData . data
+>986	MemberAccess	msg -> frameData . data
+>987	Identifier	data
+>988	PtrMemberAccess	msg -> frameData
+>989	Identifier	frameData
+>990	Identifier	msg
+>991	CastTarget	GraphFramePose *
+>992	Identifier	graphPoses
+>993	Identifier	graphPoses
+>994	IdentifierDeclType	GraphFramePose *
+>995	ForStatement	for ( int i = 0 ; i < msg -> numConstraints ; i ++ )
+>996	CompoundStatement	 
+>997	IfStatement	if ( keyframesByID . count ( constraintsIn [ i ] . to ) != 0 )
+>998	ExpressionStatement	 
+>999	AssignmentExpr	constraints [ i ] . to = keyframesByID [ constraintsIn [ i ] . to ]
+>1000	ArrayIndexing	keyframesByID [ constraintsIn [ i ] . to ]
+>1001	MemberAccess	constraintsIn [ i ] . to
+>1002	Identifier	to
+>1003	ArrayIndexing	constraintsIn [ i ]
+>1004	Identifier	i
+>1005	Identifier	constraintsIn
+>1006	Identifier	keyframesByID
+>1007	MemberAccess	constraints [ i ] . to
+>1008	Identifier	to
+>1009	ArrayIndexing	constraints [ i ]
+>1010	Identifier	i
+>1011	Identifier	constraints
+>1012	Condition	 
+>1013	EqualityExpression	keyframesByID . count ( constraintsIn [ i ] . to ) != 0
+>1014	PrimaryExpression	0
+>1015	CallExpression	keyframesByID . count ( constraintsIn [ i ] . to )
+>1016	ArgumentList	constraintsIn [ i ] . to
+>1017	Argument	constraintsIn [ i ] . to
+>1018	MemberAccess	constraintsIn [ i ] . to
+>1019	Identifier	to
+>1020	ArrayIndexing	constraintsIn [ i ]
+>1021	Identifier	i
+>1022	Identifier	constraintsIn
+>1023	Callee	keyframesByID . count
+>1024	MemberAccess	keyframesByID . count
+>1025	Identifier	count
+>1026	Identifier	keyframesByID
+>1027	IfStatement	if ( keyframesByID . count ( constraintsIn [ i ] . from ) != 0 )
+>1028	ExpressionStatement	 
+>1029	AssignmentExpr	constraints [ i ] . from = keyframesByID [ constraintsIn [ i ] . from ]
+>1030	ArrayIndexing	keyframesByID [ constraintsIn [ i ] . from ]
+>1031	MemberAccess	constraintsIn [ i ] . from
+>1032	Identifier	from
+>1033	ArrayIndexing	constraintsIn [ i ]
+>1034	Identifier	i
+>1035	Identifier	constraintsIn
+>1036	Identifier	keyframesByID
+>1037	MemberAccess	constraints [ i ] . from
+>1038	Identifier	from
+>1039	ArrayIndexing	constraints [ i ]
+>1040	Identifier	i
+>1041	Identifier	constraints
+>1042	Condition	 
+>1043	EqualityExpression	keyframesByID . count ( constraintsIn [ i ] . from ) != 0
+>1044	PrimaryExpression	0
+>1045	CallExpression	keyframesByID . count ( constraintsIn [ i ] . from )
+>1046	ArgumentList	constraintsIn [ i ] . from
+>1047	Argument	constraintsIn [ i ] . from
+>1048	MemberAccess	constraintsIn [ i ] . from
+>1049	Identifier	from
+>1050	ArrayIndexing	constraintsIn [ i ]
+>1051	Identifier	i
+>1052	Identifier	constraintsIn
+>1053	Callee	keyframesByID . count
+>1054	MemberAccess	keyframesByID . count
+>1055	Identifier	count
+>1056	Identifier	keyframesByID
+>1057	ExpressionStatement	 
+>1058	AssignmentExpr	constraints [ i ] . to = 0
+>1059	PrimaryExpression	0
+>1060	MemberAccess	constraints [ i ] . to
+>1061	Identifier	to
+>1062	ArrayIndexing	constraints [ i ]
+>1063	Identifier	i
+>1064	Identifier	constraints
+>1065	ExpressionStatement	 
+>1066	AssignmentExpr	constraints [ i ] . from = 0
+>1067	PrimaryExpression	0
+>1068	MemberAccess	constraints [ i ] . from
+>1069	Identifier	from
+>1070	ArrayIndexing	constraints [ i ]
+>1071	Identifier	i
+>1072	Identifier	constraints
+>1073	ExpressionStatement	 
+>1074	AssignmentExpr	constraints [ i ] . err = constraintsIn [ i ] . err
+>1075	MemberAccess	constraintsIn [ i ] . err
+>1076	Identifier	err
+>1077	ArrayIndexing	constraintsIn [ i ]
+>1078	Identifier	i
+>1079	Identifier	constraintsIn
+>1080	MemberAccess	constraints [ i ] . err
+>1081	Identifier	err
+>1082	ArrayIndexing	constraints [ i ]
+>1083	Identifier	i
+>1084	Identifier	constraints
+>1085	IncDecOp	 
+>1086	IncDec	++
+>1087	Identifier	i
+>1088	Condition	 
+>1089	RelationalExpression	i < msg -> numConstraints
+>1090	PtrMemberAccess	msg -> numConstraints
+>1091	Identifier	numConstraints
+>1092	Identifier	msg
+>1093	Identifier	i
+>1094	ForInit	 
+>1095	IdentifierDeclStatement	int i = 0 ;
+>1096	IdentifierDecl	i = 0
+>1097	AssignmentExpr	i = 0
+>1098	PrimaryExpression	0
+>1099	Identifier	i
+>1100	Identifier	i
+>1101	IdentifierDeclType	int
+>1102	IdentifierDeclStatement	 
+>1103	IdentifierDecl	* constraintsIn = ( GraphConstraint * ) msg -> constraintsData . data ( )
+>1104	AssignmentExpr	* constraintsIn = ( GraphConstraint * ) msg -> constraintsData . data ( )
+>1105	CastExpression	( GraphConstraint * ) msg -> constraintsData . data ( )
+>1106	CallExpression	msg -> constraintsData . data ( )
+>1107	ArgumentList	 
+>1108	Callee	msg -> constraintsData . data
+>1109	MemberAccess	msg -> constraintsData . data
+>1110	Identifier	data
+>1111	PtrMemberAccess	msg -> constraintsData
+>1112	Identifier	constraintsData
+>1113	Identifier	msg
+>1114	CastTarget	GraphConstraint *
+>1115	Identifier	constraintsIn
+>1116	Identifier	constraintsIn
+>1117	IdentifierDeclType	GraphConstraint *
+>1118	ExpressionStatement	 
+>1119	CallExpression	assert ( msg -> constraintsData . size ( ) == sizeof ( GraphConstraint ) * msg -> numConstraints )
+>1120	ArgumentList	msg -> constraintsData . size ( ) == sizeof ( GraphConstraint ) * msg -> numConstraints
+>1121	Argument	msg -> constraintsData . size ( ) == sizeof ( GraphConstraint ) * msg -> numConstraints
+>1122	EqualityExpression	msg -> constraintsData . size ( ) == sizeof ( GraphConstraint ) * msg -> numConstraints
+>1123	MultiplicativeExpression	sizeof ( GraphConstraint ) * msg -> numConstraints
+>1124	PtrMemberAccess	msg -> numConstraints
+>1125	Identifier	numConstraints
+>1126	Identifier	msg
+>1127	SizeofExpr	sizeof ( GraphConstraint )
+>1128	SizeofOperand	GraphConstraint
+>1129	Sizeof	sizeof
+>1130	CallExpression	msg -> constraintsData . size ( )
+>1131	ArgumentList	 
+>1132	Callee	msg -> constraintsData . size
+>1133	MemberAccess	msg -> constraintsData . size
+>1134	Identifier	size
+>1135	PtrMemberAccess	msg -> constraintsData
+>1136	Identifier	constraintsData
+>1137	Identifier	msg
+>1138	Callee	assert
+>1139	Identifier	assert
+>1140	ExpressionStatement	 
+>1141	CallExpression	constraints . resize ( msg -> numConstraints )
+>1142	ArgumentList	msg -> numConstraints
+>1143	Argument	msg -> numConstraints
+>1144	PtrMemberAccess	msg -> numConstraints
+>1145	Identifier	numConstraints
+>1146	Identifier	msg
+>1147	Callee	constraints . resize
+>1148	MemberAccess	constraints . resize
+>1149	Identifier	resize
+>1150	Identifier	constraints
+>1151	ExpressionStatement	 
+>1152	CallExpression	dataMutex . lock ( )
+>1153	ArgumentList	 
+>1154	Callee	dataMutex . lock
+>1155	MemberAccess	dataMutex . lock
+>1156	Identifier	lock
+>1157	Identifier	dataMutex
+<3=5,4
+<5=10,6
+<6=7
+<7=9,8
+<10=11
+<11=13,12
+<20=22,21
+<22=27,23
+<23=24
+<24=26,25
+<27=41,32,29,28
+<29=31,30
+<32=33
+<33=40,34
+<34=36,35
+<36=37
+<37=39,38
+<41=42
+<42=43
+<43=48,47,44
+<44=46,45
+<55=58,57,56
+<58=717,713,702,631,337,248,66,59
+<59=60
+<60=62,61
+<62=63
+<63=65,64
+<66=246,67
+<67=239,232,73,68
+<68=69
+<69=71,70
+<71=72
+<73=224,215,212,74
+<74=194,167,154,136,113,98,75
+<75=76
+<76=96,77
+<77=90,84,78
+<78=79
+<79=83,80
+<80=82,81
+<84=85
+<85=89,86
+<86=88,87
+<90=91
+<91=95,92
+<92=94,93
+<96=97
+<98=99
+<99=112,100
+<100=102,101
+<102=103
+<103=105,104
+<105=107,106
+<107=109,108
+<109=111,110
+<113=114
+<114=134,115
+<115=128,122,116
+<116=117
+<117=121,118
+<118=120,119
+<122=123
+<123=127,124
+<124=126,125
+<128=129
+<129=133,130
+<130=132,131
+<134=135
+<136=137
+<137=153,152,138
+<138=151,139
+<139=141,140
+<141=142
+<142=144,143
+<144=146,145
+<146=148,147
+<148=150,149
+<154=155
+<155=165,156
+<156=163,159,157
+<157=158
+<159=160
+<160=162,161
+<163=164
+<165=166
+<167=168
+<168=193,192,169
+<169=191,170
+<170=189,171
+<171=187,172
+<172=173
+<173=185,174
+<174=183,175
+<175=176
+<176=178,177
+<178=180,179
+<180=182,181
+<183=184
+<185=186
+<187=188
+<189=190
+<194=196,195
+<196=197
+<197=205,198
+<198=200,199
+<200=202,201
+<202=204,203
+<205=207,206
+<207=209,208
+<209=211,210
+<212=214,213
+<215=216
+<216=223,217
+<217=219,218
+<219=220
+<220=222,221
+<224=225
+<225=226
+<226=231,230,227
+<227=229,228
+<232=233
+<233=237,234
+<234=235
+<235=236
+<237=238
+<239=240
+<240=244,241
+<241=242
+<242=243
+<244=245
+<246=247
+<248=335,249
+<249=328,321,283,254,250
+<250=251
+<251=253,252
+<254=255
+<255=281,256
+<256=279,277,268,259,257
+<257=258
+<259=260
+<260=267,261
+<261=263,262
+<263=264
+<264=266,265
+<268=269
+<269=276,270
+<270=272,271
+<272=273
+<273=275,274
+<277=278
+<279=280
+<281=282
+<283=313,304,301,284
+<284=293,285
+<285=286
+<286=292,287
+<287=289,288
+<289=291,290
+<293=294
+<294=300,295
+<295=297,296
+<297=299,298
+<301=303,302
+<304=305
+<305=312,306
+<306=308,307
+<308=309
+<309=311,310
+<313=314
+<314=315
+<315=320,319,316
+<316=318,317
+<321=322
+<322=327,326,323
+<323=325,324
+<328=329
+<329=334,333,330
+<330=332,331
+<335=336
+<337=629,338
+<338=608,591,584,540,533,526,509,500,491,473,464,455,446,437,428,411,387,380,373,352,348,339
+<339=340
+<340=346,341
+<341=344,342
+<342=343
+<344=345
+<346=347
+<348=349
+<349=351,350
+<352=353
+<353=371,354
+<354=355
+<355=356
+<356=358,357
+<358=359
+<359=361,360
+<361=370,362
+<362=364,363
+<364=368,365
+<365=366
+<366=367
+<368=369
+<371=372
+<373=374
+<374=376,375
+<376=377
+<377=379,378
+<380=381
+<381=383,382
+<383=384
+<384=386,385
+<387=402,388
+<388=389
+<389=398,390
+<390=391
+<391=392
+<392=394,393
+<394=395
+<395=397,396
+<398=399
+<399=401,400
+<402=403
+<403=410,404
+<404=406,405
+<406=407
+<407=409,408
+<411=412
+<412=427,426,413
+<413=415,414
+<415=416
+<416=418,417
+<418=420,419
+<420=424,421
+<421=422
+<422=423
+<424=425
+<428=429
+<429=436,430
+<430=434,431
+<431=432
+<432=433
+<434=435
+<437=438
+<438=445,439
+<439=443,440
+<440=441
+<441=442
+<443=444
+<446=447
+<447=454,448
+<448=452,449
+<449=450
+<450=451
+<452=453
+<455=456
+<456=463,457
+<457=461,458
+<458=459
+<459=460
+<461=462
+<464=465
+<465=472,466
+<466=470,467
+<467=468
+<468=469
+<470=471
+<473=474
+<474=490,475
+<475=484,476
+<476=483,477
+<477=481,478
+<478=479
+<479=480
+<481=482
+<484=488,485
+<485=486
+<486=487
+<488=489
+<491=492
+<492=499,493
+<493=497,494
+<494=495
+<495=496
+<497=498
+<500=501
+<501=508,502
+<502=506,503
+<503=504
+<504=505
+<506=507
+<509=510
+<510=525,524,511
+<511=513,512
+<513=514
+<514=516,515
+<516=518,517
+<518=522,519
+<519=520
+<520=521
+<522=523
+<526=527
+<527=529,528
+<529=530
+<530=532,531
+<533=534
+<534=536,535
+<536=537
+<537=539,538
+<540=576,567,564,541
+<541=542
+<542=558,543
+<543=544
+<544=557,545
+<545=551,546
+<546=547
+<547=548
+<548=550,549
+<551=552
+<552=554,553
+<554=556,555
+<558=559
+<559=561,560
+<561=563,562
+<564=566,565
+<567=568
+<568=575,569
+<569=571,570
+<571=572
+<572=574,573
+<576=577
+<577=578
+<578=583,582,579
+<579=581,580
+<584=585
+<585=590,589,586
+<586=588,587
+<591=592
+<592=607,606,593
+<593=595,594
+<595=596
+<596=598,597
+<598=600,599
+<600=604,601
+<601=602
+<602=603
+<604=605
+<608=609
+<609=627,610
+<610=625,611
+<611=612
+<612=614,613
+<614=615
+<615=617,616
+<617=619,618
+<619=623,620
+<620=621
+<621=622
+<623=624
+<625=626
+<627=628
+<629=630
+<631=694,685,682,632
+<632=666,633
+<633=647,634
+<634=635
+<635=641,636
+<636=639,637
+<637=638
+<639=640
+<641=642
+<642=644,643
+<644=646,645
+<647=648
+<648=659,649
+<649=658,650
+<650=652,651
+<652=654,653
+<654=655
+<655=657,656
+<659=665,660
+<660=662,661
+<662=664,663
+<666=680,667
+<667=668
+<668=674,669
+<669=672,670
+<670=671
+<672=673
+<674=675
+<675=677,676
+<677=679,678
+<680=681
+<682=684,683
+<685=686
+<686=693,687
+<687=689,688
+<689=690
+<690=692,691
+<694=695
+<695=696
+<696=701,700,697
+<697=699,698
+<702=703
+<703=712,711,710,704
+<704=709,705
+<705=708,707,706
+<713=714
+<714=716,715
+<717=718
+<718=720,719
+<720=721
+<721=723,722
+<780=786,785,781
+<781=782
+<782=784,783
+<786=846,807,794,787
+<787=788
+<788=790,789
+<790=791
+<791=793,792
+<794=795
+<795=799,796
+<796=797
+<797=798
+<799=800
+<800=802,801
+<802=806,803
+<803=805,804
+<807=833,808
+<808=826,818,809
+<809=810
+<810=814,811
+<811=812
+<812=813
+<814=815
+<815=817,816
+<818=819
+<819=821,820
+<821=825,822
+<822=824,823
+<826=827
+<827=832,831,828
+<828=830,829
+<833=834
+<834=836,835
+<836=842,837
+<837=838
+<838=839
+<839=841,840
+<842=843
+<843=845,844
+<846=847
+<847=849,848
+<849=850
+<850=852,851
+<867=873,872,868
+<868=869
+<869=871,870
+<873=1151,1140,1118,1102,995,979,970,948,881,874
+<874=875
+<875=877,876
+<877=878
+<878=880,879
+<881=940,936,933,882
+<882=883
+<883=918,917,884
+<884=885
+<885=886
+<886=915,887
+<887=900,894,888
+<888=889
+<889=893,890
+<890=892,891
+<894=895
+<895=897,896
+<897=899,898
+<900=901
+<901=903,902
+<903=904
+<904=906,905
+<906=908,907
+<908=914,909
+<909=911,910
+<911=913,912
+<915=916
+<918=919
+<919=921,920
+<921=929,922
+<922=923
+<923=924
+<924=926,925
+<926=928,927
+<929=930
+<930=932,931
+<933=935,934
+<936=937
+<937=939,938
+<940=941
+<941=942
+<942=947,946,943
+<943=945,944
+<948=949
+<949=968,950
+<950=951
+<951=952
+<952=960,953
+<953=957,954
+<954=956,955
+<957=959,958
+<960=962,961
+<962=963
+<963=965,964
+<965=967,966
+<968=969
+<970=971
+<971=978,977,972
+<972=976,973
+<973=975,974
+<979=980
+<980=994,993,981
+<981=992,982
+<982=991,983
+<983=985,984
+<985=986
+<986=988,987
+<988=990,989
+<995=1094,1088,1085,996
+<996=1073,1065,1057,1027,997
+<997=1012,998
+<998=999
+<999=1007,1000
+<1000=1006,1001
+<1001=1003,1002
+<1003=1005,1004
+<1007=1009,1008
+<1009=1011,1010
+<1012=1013
+<1013=1015,1014
+<1015=1023,1016
+<1016=1017
+<1017=1018
+<1018=1020,1019
+<1020=1022,1021
+<1023=1024
+<1024=1026,1025
+<1027=1042,1028
+<1028=1029
+<1029=1037,1030
+<1030=1036,1031
+<1031=1033,1032
+<1033=1035,1034
+<1037=1039,1038
+<1039=1041,1040
+<1042=1043
+<1043=1045,1044
+<1045=1053,1046
+<1046=1047
+<1047=1048
+<1048=1050,1049
+<1050=1052,1051
+<1053=1054
+<1054=1056,1055
+<1057=1058
+<1058=1060,1059
+<1060=1062,1061
+<1062=1064,1063
+<1065=1066
+<1066=1068,1067
+<1068=1070,1069
+<1070=1072,1071
+<1073=1074
+<1074=1080,1075
+<1075=1077,1076
+<1077=1079,1078
+<1080=1082,1081
+<1082=1084,1083
+<1085=1087,1086
+<1088=1089
+<1089=1093,1090
+<1090=1092,1091
+<1094=1095
+<1095=1096
+<1096=1101,1100,1097
+<1097=1099,1098
+<1102=1103
+<1103=1117,1116,1104
+<1104=1115,1105
+<1105=1114,1106
+<1106=1108,1107
+<1108=1109
+<1109=1111,1110
+<1111=1113,1112
+<1118=1119
+<1119=1138,1120
+<1120=1121
+<1121=1122
+<1122=1130,1123
+<1123=1127,1124
+<1124=1126,1125
+<1127=1129,1128
+<1130=1132,1131
+<1132=1133
+<1133=1135,1134
+<1135=1137,1136
+<1138=1139
+<1140=1141
+<1141=1147,1142
+<1142=1143
+<1143=1144
+<1144=1146,1145
+<1147=1148
+<1148=1150,1149
+<1151=1152
+<1152=1154,1153
+<1154=1155
+<1155=1157,1156

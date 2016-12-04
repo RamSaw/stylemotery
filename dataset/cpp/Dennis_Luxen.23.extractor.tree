@@ -1,0 +1,1482 @@
+>3	FunctionDef	extractor 
+>4	ParameterList	 
+>5	ReturnType	int
+>6	CompoundStatement	 
+>7	ReturnStatement	 
+>8	PrimaryExpression	0
+>9	BlockStarter	 
+>10	CompoundStatement	 
+>11	ReturnStatement	return 1 ;
+>12	PrimaryExpression	1
+>13	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << e . what ( )
+>14	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << e . what ( )
+>15	CallExpression	e . what ( )
+>16	ArgumentList	 
+>17	Callee	e . what
+>18	MemberAccess	e . what
+>19	Identifier	what
+>20	Identifier	e
+>21	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>22	ArgumentList	logWARNING
+>23	Argument	logWARNING
+>24	Identifier	logWARNING
+>25	Callee	SimpleLogger ( ) . Write
+>26	MemberAccess	SimpleLogger ( ) . Write
+>27	Identifier	Write
+>28	CallExpression	SimpleLogger ( )
+>29	ArgumentList	 
+>30	Callee	SimpleLogger
+>31	Identifier	SimpleLogger
+>32	Identifier	e
+>33	BlockStarter	 
+>34	CompoundStatement	 
+>35	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"To prepare the data for routing, run
+>36	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"To prepare the data for routing, run
+>37	ShiftExpression	\"To prepare the data for routing, run
+>38	ShiftExpression	\"./osrm-prepare \" << config . output_file_name << std 
+>39	ShiftExpression	config . output_file_name << std 
+>40	Identifier	std 
+>41	MemberAccess	config . output_file_name
+>42	Identifier	output_file_name
+>43	Identifier	config
+>44	PrimaryExpression	\"./osrm-prepare \"
+>45	PrimaryExpression	\"To prepare the data for routing, run
+>46	CallExpression	SimpleLogger ( ) . Write ( )
+>47	ArgumentList	 
+>48	Callee	SimpleLogger ( ) . Write
+>49	MemberAccess	SimpleLogger ( ) . Write
+>50	Identifier	Write
+>51	CallExpression	SimpleLogger ( )
+>52	ArgumentList	 
+>53	Callee	SimpleLogger
+>54	Identifier	SimpleLogger
+>55	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"extraction finished after \" << TIMER_SEC ( extracting ) << \"s\"
+>56	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"extraction finished after \" << TIMER_SEC ( extracting ) << \"s\"
+>57	ShiftExpression	\"extraction finished after \" << TIMER_SEC ( extracting ) << \"s\"
+>58	ShiftExpression	TIMER_SEC ( extracting ) << \"s\"
+>59	PrimaryExpression	\"s\"
+>60	CallExpression	TIMER_SEC ( extracting )
+>61	ArgumentList	extracting
+>62	Argument	extracting
+>63	Identifier	extracting
+>64	Callee	TIMER_SEC
+>65	Identifier	TIMER_SEC
+>66	PrimaryExpression	\"extraction finished after \"
+>67	CallExpression	SimpleLogger ( ) . Write ( )
+>68	ArgumentList	 
+>69	Callee	SimpleLogger ( ) . Write
+>70	MemberAccess	SimpleLogger ( ) . Write
+>71	Identifier	Write
+>72	CallExpression	SimpleLogger ( )
+>73	ArgumentList	 
+>74	Callee	SimpleLogger
+>75	Identifier	SimpleLogger
+>76	ExpressionStatement	TIMER_STOP ( extracting )
+>77	CallExpression	TIMER_STOP ( extracting )
+>78	ArgumentList	extracting
+>79	Argument	extracting
+>80	Identifier	extracting
+>81	Callee	TIMER_STOP
+>82	Identifier	TIMER_STOP
+>83	ExpressionStatement	extraction_containers . PrepareData ( config . output_file_name , config . restriction_file_name , config . names_\
+>84	CallExpression	extraction_containers . PrepareData ( config . output_file_name , config . restriction_file_name , config . names_\
+>85	ArgumentList	config . output_file_name
+>86	Argument	config . names_file_name
+>87	MemberAccess	config . names_file_name
+>88	Identifier	names_file_name
+>89	Identifier	config
+>90	Argument	config . restriction_file_name
+>91	MemberAccess	config . restriction_file_name
+>92	Identifier	restriction_file_name
+>93	Identifier	config
+>94	Argument	config . output_file_name
+>95	MemberAccess	config . output_file_name
+>96	Identifier	output_file_name
+>97	Identifier	config
+>98	Callee	extraction_containers . PrepareData
+>99	MemberAccess	extraction_containers . PrepareData
+>100	Identifier	PrepareData
+>101	Identifier	extraction_containers
+>102	IfStatement	if ( extraction_containers . all_edges_list . empty ( ) )
+>103	CompoundStatement	 
+>104	ReturnStatement	return 1 ;
+>105	PrimaryExpression	1
+>106	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << \"The input data is empty, exiting.\"
+>107	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"The input data is empty, exiting.\"
+>108	PrimaryExpression	\"The input data is empty, exiting.\"
+>109	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>110	ArgumentList	logWARNING
+>111	Argument	logWARNING
+>112	Identifier	logWARNING
+>113	Callee	SimpleLogger ( ) . Write
+>114	MemberAccess	SimpleLogger ( ) . Write
+>115	Identifier	Write
+>116	CallExpression	SimpleLogger ( )
+>117	ArgumentList	 
+>118	Callee	SimpleLogger
+>119	Identifier	SimpleLogger
+>120	Condition	extraction_containers . all_edges_list . empty ( )
+>121	CallExpression	extraction_containers . all_edges_list . empty ( )
+>122	ArgumentList	 
+>123	Callee	extraction_containers . all_edges_list . empty
+>124	MemberAccess	extraction_containers . all_edges_list . empty
+>125	Identifier	empty
+>126	MemberAccess	extraction_containers . all_edges_list
+>127	Identifier	all_edges_list
+>128	Identifier	extraction_containers
+>129	ExpressionStatement	extractor_callbacks . reset ( )
+>130	CallExpression	extractor_callbacks . reset ( )
+>131	ArgumentList	 
+>132	Callee	extractor_callbacks . reset
+>133	MemberAccess	extractor_callbacks . reset
+>134	Identifier	reset
+>135	Identifier	extractor_callbacks
+>136	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Raw input contains \" << number_of_nodes . load ( ) << \" nodes, \" << number_of_\
+>137	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Raw input contains \" << number_of_nodes . load ( ) << \" nodes, \" << \
+>138	ShiftExpression	\"Raw input contains \" << number_of_nodes . load ( ) << \" nodes, \" << number_of_ways . load ( ) << \" \
+>139	ShiftExpression	number_of_nodes . load ( ) << \" nodes, \" << number_of_ways . load ( ) << \" ways, and \" << number_of_\
+>140	ShiftExpression	\" nodes, \" << number_of_ways . load ( ) << \" ways, and \" << number_of_relations . load ( ) << \" relations, \
+>141	ShiftExpression	number_of_ways . load ( ) << \" ways, and \" << number_of_relations . load ( ) << \" relations, and \" << \
+>142	ShiftExpression	\" ways, and \" << number_of_relations . load ( ) << \" relations, and \" << number_of_others . load ( ) << \" \
+>143	ShiftExpression	number_of_relations . load ( ) << \" relations, and \" << number_of_others . load ( ) << \" unknown entities\"\
+>144	ShiftExpression	\" relations, and \" << number_of_others . load ( ) << \" unknown entities\"
+>145	ShiftExpression	number_of_others . load ( ) << \" unknown entities\"
+>146	PrimaryExpression	\" unknown entities\"
+>147	CallExpression	number_of_others . load ( )
+>148	ArgumentList	 
+>149	Callee	number_of_others . load
+>150	MemberAccess	number_of_others . load
+>151	Identifier	load
+>152	Identifier	number_of_others
+>153	PrimaryExpression	\" relations, and \"
+>154	CallExpression	number_of_relations . load ( )
+>155	ArgumentList	 
+>156	Callee	number_of_relations . load
+>157	MemberAccess	number_of_relations . load
+>158	Identifier	load
+>159	Identifier	number_of_relations
+>160	PrimaryExpression	\" ways, and \"
+>161	CallExpression	number_of_ways . load ( )
+>162	ArgumentList	 
+>163	Callee	number_of_ways . load
+>164	MemberAccess	number_of_ways . load
+>165	Identifier	load
+>166	Identifier	number_of_ways
+>167	PrimaryExpression	\" nodes, \"
+>168	CallExpression	number_of_nodes . load ( )
+>169	ArgumentList	 
+>170	Callee	number_of_nodes . load
+>171	MemberAccess	number_of_nodes . load
+>172	Identifier	load
+>173	Identifier	number_of_nodes
+>174	PrimaryExpression	\"Raw input contains \"
+>175	CallExpression	SimpleLogger ( ) . Write ( )
+>176	ArgumentList	 
+>177	Callee	SimpleLogger ( ) . Write
+>178	MemberAccess	SimpleLogger ( ) . Write
+>179	Identifier	Write
+>180	CallExpression	SimpleLogger ( )
+>181	ArgumentList	 
+>182	Callee	SimpleLogger
+>183	Identifier	SimpleLogger
+>184	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Parsing finished after \" << TIMER_SEC ( parsing ) << \" seconds\"
+>185	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Parsing finished after \" << TIMER_SEC ( parsing ) << \" seconds\"
+>186	ShiftExpression	\"Parsing finished after \" << TIMER_SEC ( parsing ) << \" seconds\"
+>187	ShiftExpression	TIMER_SEC ( parsing ) << \" seconds\"
+>188	PrimaryExpression	\" seconds\"
+>189	CallExpression	TIMER_SEC ( parsing )
+>190	ArgumentList	parsing
+>191	Argument	parsing
+>192	Identifier	parsing
+>193	Callee	TIMER_SEC
+>194	Identifier	TIMER_SEC
+>195	PrimaryExpression	\"Parsing finished after \"
+>196	CallExpression	SimpleLogger ( ) . Write ( )
+>197	ArgumentList	 
+>198	Callee	SimpleLogger ( ) . Write
+>199	MemberAccess	SimpleLogger ( ) . Write
+>200	Identifier	Write
+>201	CallExpression	SimpleLogger ( )
+>202	ArgumentList	 
+>203	Callee	SimpleLogger
+>204	Identifier	SimpleLogger
+>205	ExpressionStatement	TIMER_STOP ( parsing )
+>206	CallExpression	TIMER_STOP ( parsing )
+>207	ArgumentList	parsing
+>208	Argument	parsing
+>209	Identifier	parsing
+>210	Callee	TIMER_STOP
+>211	Identifier	TIMER_STOP
+>212	WhileStatement	while ( const osmium 
+>213	CompoundStatement	 
+>214	CompoundStatement	 
+>215	ExpressionStatement	extractor_callbacks -> ProcessRestriction ( result )
+>216	CallExpression	extractor_callbacks -> ProcessRestriction ( result )
+>217	ArgumentList	result
+>218	Argument	result
+>219	Identifier	result
+>220	Callee	extractor_callbacks -> ProcessRestriction
+>221	PtrMemberAccess	extractor_callbacks -> ProcessRestriction
+>222	Identifier	ProcessRestriction
+>223	Identifier	extractor_callbacks
+>224	Statement	)
+>225	Statement	resulting_restrictions
+>226	Label	result 
+>227	Identifier	result
+>228	Statement	&
+>229	Statement	auto
+>230	Statement	const
+>231	Statement	(
+>232	Statement	for
+>233	CompoundStatement	 
+>234	ExpressionStatement	 
+>235	Statement	)
+>236	Statement	second
+>237	Statement	.
+>238	Statement	result
+>239	Statement	,
+>240	Statement	)
+>241	Statement	)
+>242	Statement	]
+>243	Statement	first
+>244	Statement	.
+>245	Statement	result
+>246	Statement	[
+>247	Statement	osm_elements
+>248	Statement	(
+>249	Statement	*
+>250	Statement	(
+>251	Statement	>
+>252	Statement	&
+>253	Statement	Way
+>254	Statement	 
+>255	Statement	osmium
+>256	Statement	const
+>257	Statement	<
+>258	Statement	static_cast
+>259	Statement	(
+>260	Statement	ProcessWay
+>261	Statement	->
+>262	Statement	extractor_callbacks
+>263	Statement	)
+>264	Statement	resulting_ways
+>265	Label	result 
+>266	Identifier	result
+>267	Statement	&
+>268	Statement	auto
+>269	Statement	const
+>270	Statement	(
+>271	Statement	for
+>272	CompoundStatement	 
+>273	ExpressionStatement	 
+>274	Statement	)
+>275	Statement	second
+>276	Statement	.
+>277	Statement	result
+>278	Statement	,
+>279	Statement	)
+>280	Statement	)
+>281	Statement	]
+>282	Statement	first
+>283	Statement	.
+>284	Statement	result
+>285	Statement	[
+>286	Statement	osm_elements
+>287	Statement	(
+>288	Statement	*
+>289	Statement	(
+>290	Statement	>
+>291	Statement	&
+>292	Statement	Node
+>293	Statement	 
+>294	Statement	osmium
+>295	Statement	const
+>296	Statement	<
+>297	Statement	static_cast
+>298	Statement	(
+>299	Statement	ProcessNode
+>300	Statement	->
+>301	Statement	extractor_callbacks
+>302	Statement	)
+>303	Statement	resulting_nodes
+>304	Label	result 
+>305	Identifier	result
+>306	Statement	&
+>307	Statement	auto
+>308	Statement	const
+>309	Statement	(
+>310	Statement	for
+>311	ExpressionStatement	 
+>312	Statement	)
+>313	CompoundStatement	 
+>314	CompoundStatement	 
+>315	SwitchStatement	switch ( entity -> type ( ) )
+>316	CompoundStatement	 
+>317	BreakStatement	break ;
+>318	ExpressionStatement	++ number_of_others
+>319	UnaryExpression	++ number_of_others
+>320	Identifier	number_of_others
+>321	IncDec	++
+>322	Label	default 
+>323	Identifier	default
+>324	BreakStatement	break ;
+>325	ExpressionStatement	 
+>326	Statement	)
+>327	Statement	)
+>328	Statement	)
+>329	Statement	entity
+>330	Statement	*
+>331	Statement	(
+>332	Statement	>
+>333	Statement	&
+>334	Statement	Relation
+>335	Statement	 
+>336	Statement	osmium
+>337	Statement	const
+>338	Statement	<
+>339	Statement	static_cast
+>340	Statement	(
+>341	Statement	TryParse
+>342	Statement	.
+>343	Statement	restriction_parser
+>344	Statement	(
+>345	Statement	push_back
+>346	Statement	.
+>347	Statement	resulting_restrictions
+>348	ExpressionStatement	++ number_of_relations
+>349	UnaryExpression	++ number_of_relations
+>350	Identifier	number_of_relations
+>351	IncDec	++
+>352	Label	case osmium 
+>353	Identifier	osmium 
+>354	BreakStatement	break ;
+>355	ExpressionStatement	resulting_ways . push_back ( std 
+>356	CallExpression	resulting_ways . push_back ( std 
+>357	ArgumentList	std 
+>358	Argument	std 
+>359	CallExpression	std 
+>360	ArgumentList	x
+>361	Argument	result_way
+>362	Identifier	result_way
+>363	Argument	x
+>364	Identifier	x
+>365	Callee	std 
+>366	Identifier	std 
+>367	Callee	resulting_ways . push_back
+>368	MemberAccess	resulting_ways . push_back
+>369	Identifier	push_back
+>370	Identifier	resulting_ways
+>371	ExpressionStatement	 
+>372	Statement	)
+>373	Statement	)
+>374	Statement	result_way
+>375	Statement	(
+>376	Statement	ref
+>377	Statement	 
+>378	Statement	boost
+>379	Statement	,
+>380	Statement	)
+>381	Statement	)
+>382	Statement	entity
+>383	Statement	*
+>384	Statement	(
+>385	Statement	>
+>386	Statement	&
+>387	Statement	Way
+>388	Statement	 
+>389	Statement	osmium
+>390	Statement	const
+>391	Statement	<
+>392	Statement	static_cast
+>393	Statement	(
+>394	Statement	cref
+>395	Statement	 
+>396	Statement	boost
+>397	Statement	,
+>398	Statement	\"way_function\"
+>399	Statement	,
+>400	Statement	local_state
+>401	Statement	(
+>402	Statement	>
+>403	Statement	void
+>404	Statement	<
+>405	Statement	call_function
+>406	Statement	 
+>407	Statement	luabind
+>408	ExpressionStatement	++ number_of_ways
+>409	UnaryExpression	++ number_of_ways
+>410	Identifier	number_of_ways
+>411	IncDec	++
+>412	ExpressionStatement	result_way . clear ( )
+>413	CallExpression	result_way . clear ( )
+>414	ArgumentList	 
+>415	Callee	result_way . clear
+>416	MemberAccess	result_way . clear
+>417	Identifier	clear
+>418	Identifier	result_way
+>419	Label	case osmium 
+>420	Identifier	osmium 
+>421	BreakStatement	break ;
+>422	ExpressionStatement	resulting_nodes . push_back ( std 
+>423	CallExpression	resulting_nodes . push_back ( std 
+>424	ArgumentList	std 
+>425	Argument	std 
+>426	CallExpression	std 
+>427	ArgumentList	x
+>428	Argument	result_node
+>429	Identifier	result_node
+>430	Argument	x
+>431	Identifier	x
+>432	Callee	std 
+>433	Identifier	std 
+>434	Callee	resulting_nodes . push_back
+>435	MemberAccess	resulting_nodes . push_back
+>436	Identifier	push_back
+>437	Identifier	resulting_nodes
+>438	ExpressionStatement	 
+>439	Statement	)
+>440	Statement	)
+>441	Statement	result_node
+>442	Statement	(
+>443	Statement	ref
+>444	Statement	 
+>445	Statement	boost
+>446	Statement	,
+>447	Statement	)
+>448	Statement	)
+>449	Statement	entity
+>450	Statement	*
+>451	Statement	(
+>452	Statement	>
+>453	Statement	&
+>454	Statement	Node
+>455	Statement	 
+>456	Statement	osmium
+>457	Statement	const
+>458	Statement	<
+>459	Statement	static_cast
+>460	Statement	(
+>461	Statement	cref
+>462	Statement	 
+>463	Statement	boost
+>464	Statement	,
+>465	Statement	\"node_function\"
+>466	Statement	,
+>467	Statement	local_state
+>468	Statement	(
+>469	Statement	>
+>470	Statement	void
+>471	Statement	<
+>472	Statement	call_function
+>473	Statement	 
+>474	Statement	luabind
+>475	ExpressionStatement	++ number_of_nodes
+>476	UnaryExpression	++ number_of_nodes
+>477	Identifier	number_of_nodes
+>478	IncDec	++
+>479	ExpressionStatement	result_node . clear ( )
+>480	CallExpression	result_node . clear ( )
+>481	ArgumentList	 
+>482	Callee	result_node . clear
+>483	MemberAccess	result_node . clear
+>484	Identifier	clear
+>485	Identifier	result_node
+>486	Label	case osmium 
+>487	Identifier	osmium 
+>488	Condition	entity -> type ( )
+>489	CallExpression	entity -> type ( )
+>490	ArgumentList	 
+>491	Callee	entity -> type
+>492	PtrMemberAccess	entity -> type
+>493	Identifier	type
+>494	Identifier	entity
+>495	ExpressionStatement	entity = osm_elements [ x ]
+>496	AssignmentExpr	entity = osm_elements [ x ]
+>497	ArrayIndexing	osm_elements [ x ]
+>498	Identifier	x
+>499	Identifier	osm_elements
+>500	Identifier	entity
+>501	Statement	auto
+>502	Statement	const
+>503	Statement	)
+>504	Statement	x
+>505	Statement	++
+>506	ExpressionStatement	x != range . end ( )
+>507	EqualityExpression	x != range . end ( )
+>508	CallExpression	range . end ( )
+>509	ArgumentList	 
+>510	Callee	range . end
+>511	MemberAccess	range . end
+>512	Identifier	end
+>513	Identifier	range
+>514	Identifier	x
+>515	ExpressionStatement	x = range . begin ( )
+>516	AssignmentExpr	x = range . begin ( )
+>517	CallExpression	range . begin ( )
+>518	ArgumentList	 
+>519	Callee	range . begin
+>520	MemberAccess	range . begin
+>521	Identifier	begin
+>522	Identifier	range
+>523	Identifier	x
+>524	Statement	auto
+>525	Statement	(
+>526	Statement	for
+>527	IdentifierDeclStatement	lua_State * local_state = scripting_environment . get_lua_state ( ) ;
+>528	IdentifierDecl	* local_state = scripting_environment . get_lua_state ( )
+>529	AssignmentExpr	* local_state = scripting_environment . get_lua_state ( )
+>530	CallExpression	scripting_environment . get_lua_state ( )
+>531	ArgumentList	 
+>532	Callee	scripting_environment . get_lua_state
+>533	MemberAccess	scripting_environment . get_lua_state
+>534	Identifier	get_lua_state
+>535	Identifier	scripting_environment
+>536	Identifier	local_state
+>537	Identifier	local_state
+>538	IdentifierDeclType	lua_State *
+>539	IdentifierDeclStatement	ExtractionWay result_way ;
+>540	IdentifierDecl	result_way
+>541	Identifier	result_way
+>542	IdentifierDeclType	ExtractionWay
+>543	IdentifierDeclStatement	ExtractionNode result_node ;
+>544	IdentifierDecl	result_node
+>545	Identifier	result_node
+>546	IdentifierDeclType	ExtractionNode
+>547	Statement	)
+>548	Statement	range
+>549	Statement	&
+>550	Statement	>
+>551	Statement	size_t
+>552	Statement	 
+>553	Statement	std
+>554	Statement	<
+>555	Statement	blocked_range
+>556	Statement	 
+>557	Statement	tbb
+>558	Statement	const
+>559	Statement	(
+>560	Statement	]
+>561	Statement	&
+>562	Statement	[
+>563	Statement	,
+>564	Statement	)
+>565	Statement	)
+>566	Statement	(
+>567	Statement	size
+>568	Statement	.
+>569	Statement	osm_elements
+>570	Statement	,
+>571	Statement	0
+>572	Statement	(
+>573	Statement	>
+>574	Statement	size_t
+>575	Statement	 
+>576	Statement	std
+>577	Statement	<
+>578	Statement	blocked_range
+>579	Statement	 
+>580	Statement	tbb
+>581	Statement	(
+>582	Statement	parallel_for
+>583	Statement	 
+>584	Statement	tbb
+>585	ExpressionStatement	resulting_restrictions . clear ( )
+>586	CallExpression	resulting_restrictions . clear ( )
+>587	ArgumentList	 
+>588	Callee	resulting_restrictions . clear
+>589	MemberAccess	resulting_restrictions . clear
+>590	Identifier	clear
+>591	Identifier	resulting_restrictions
+>592	ExpressionStatement	resulting_ways . clear ( )
+>593	CallExpression	resulting_ways . clear ( )
+>594	ArgumentList	 
+>595	Callee	resulting_ways . clear
+>596	MemberAccess	resulting_ways . clear
+>597	Identifier	clear
+>598	Identifier	resulting_ways
+>599	ExpressionStatement	resulting_nodes . clear ( )
+>600	CallExpression	resulting_nodes . clear ( )
+>601	ArgumentList	 
+>602	Callee	resulting_nodes . clear
+>603	MemberAccess	resulting_nodes . clear
+>604	Identifier	clear
+>605	Identifier	resulting_nodes
+>606	CompoundStatement	 
+>607	ExpressionStatement	osm_elements . push_back ( iter )
+>608	CallExpression	osm_elements . push_back ( iter )
+>609	ArgumentList	iter
+>610	Argument	iter
+>611	Identifier	iter
+>612	Callee	osm_elements . push_back
+>613	MemberAccess	osm_elements . push_back
+>614	Identifier	push_back
+>615	Identifier	osm_elements
+>616	Statement	)
+>617	Statement	iter
+>618	Statement	++
+>619	ExpressionStatement	iter != std 
+>620	EqualityExpression	iter != std 
+>621	CallExpression	std 
+>622	ArgumentList	buffer
+>623	Argument	buffer
+>624	Identifier	buffer
+>625	Callee	std 
+>626	Identifier	std 
+>627	Identifier	iter
+>628	ExpressionStatement	iter = std 
+>629	AssignmentExpr	iter = std 
+>630	CallExpression	std 
+>631	ArgumentList	buffer
+>632	Argument	buffer
+>633	Identifier	buffer
+>634	Callee	std 
+>635	Identifier	std 
+>636	Identifier	iter
+>637	Statement	auto
+>638	Statement	(
+>639	Statement	for
+>640	IdentifierDeclStatement	std 
+>641	IdentifierDecl	osm_elements
+>642	Identifier	osm_elements
+>643	IdentifierDeclType	std 
+>644	Condition	buffer
+>645	CallExpression	reader . read ( )
+>646	ArgumentList	 
+>647	Callee	reader . read
+>648	MemberAccess	reader . read
+>649	Identifier	read
+>650	Identifier	reader
+>651	Identifier	buffer
+>652	IdentifierDeclStatement	const RestrictionParser restriction_parser ( scripting_environment . get_lua_state ( ) ) ;
+>653	IdentifierDecl	restriction_parser ( scripting_environment . get_lua_state ( ) )
+>654	CallExpression	scripting_environment . get_lua_state ( )
+>655	ArgumentList	 
+>656	Callee	scripting_environment . get_lua_state
+>657	MemberAccess	scripting_environment . get_lua_state
+>658	Identifier	get_lua_state
+>659	Identifier	scripting_environment
+>660	Identifier	restriction_parser
+>661	IdentifierDeclType	const RestrictionParser
+>662	ExpressionStatement	tbb 
+>663	RelationalExpression	tbb 
+>664	RelationalExpression	mapbox 
+>665	ShiftExpression	InputRestrictionContainer >> resulting_restrictions
+>666	Identifier	resulting_restrictions
+>667	Identifier	InputRestrictionContainer
+>668	Identifier	mapbox 
+>669	Identifier	tbb 
+>670	ExpressionStatement	tbb 
+>671	Expression	tbb 
+>672	ShiftExpression	ExtractionWay >> resulting_ways
+>673	Identifier	resulting_ways
+>674	Identifier	ExtractionWay
+>675	RelationalExpression	tbb 
+>676	RelationalExpression	std 
+>677	Identifier	std 
+>678	Identifier	std 
+>679	Identifier	tbb 
+>680	ExpressionStatement	tbb 
+>681	Expression	tbb 
+>682	ShiftExpression	ExtractionNode >> resulting_nodes
+>683	Identifier	resulting_nodes
+>684	Identifier	ExtractionNode
+>685	RelationalExpression	tbb 
+>686	RelationalExpression	std 
+>687	Identifier	std 
+>688	Identifier	std 
+>689	Identifier	tbb 
+>690	ExpressionStatement	timestamp_out . close ( )
+>691	CallExpression	timestamp_out . close ( )
+>692	ArgumentList	 
+>693	Callee	timestamp_out . close
+>694	MemberAccess	timestamp_out . close
+>695	Identifier	close
+>696	Identifier	timestamp_out
+>697	ExpressionStatement	timestamp_out . write ( timestamp . c_str ( ) , timestamp . length ( ) )
+>698	CallExpression	timestamp_out . write ( timestamp . c_str ( ) , timestamp . length ( ) )
+>699	ArgumentList	timestamp . c_str ( )
+>700	Argument	timestamp . length ( )
+>701	CallExpression	timestamp . length ( )
+>702	ArgumentList	 
+>703	Callee	timestamp . length
+>704	MemberAccess	timestamp . length
+>705	Identifier	length
+>706	Identifier	timestamp
+>707	Argument	timestamp . c_str ( )
+>708	CallExpression	timestamp . c_str ( )
+>709	ArgumentList	 
+>710	Callee	timestamp . c_str
+>711	MemberAccess	timestamp . c_str
+>712	Identifier	c_str
+>713	Identifier	timestamp
+>714	Callee	timestamp_out . write
+>715	MemberAccess	timestamp_out . write
+>716	Identifier	write
+>717	Identifier	timestamp_out
+>718	IdentifierDeclStatement	boost 
+>719	IdentifierDecl	timestamp_out ( config . timestamp_file_name )
+>720	MemberAccess	config . timestamp_file_name
+>721	Identifier	timestamp_file_name
+>722	Identifier	config
+>723	Identifier	timestamp_out
+>724	IdentifierDeclType	boost 
+>725	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"timestamp
+>726	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"timestamp
+>727	ShiftExpression	\"timestamp
+>728	Identifier	timestamp
+>729	PrimaryExpression	\"timestamp
+>730	CallExpression	SimpleLogger ( ) . Write ( )
+>731	ArgumentList	 
+>732	Callee	SimpleLogger ( ) . Write
+>733	MemberAccess	SimpleLogger ( ) . Write
+>734	Identifier	Write
+>735	CallExpression	SimpleLogger ( )
+>736	ArgumentList	 
+>737	Callee	SimpleLogger
+>738	Identifier	SimpleLogger
+>739	IfStatement	if ( timestamp . empty ( ) )
+>740	CompoundStatement	 
+>741	ExpressionStatement	timestamp = \"n/a\"
+>742	AssignmentExpr	timestamp = \"n/a\"
+>743	PrimaryExpression	\"n/a\"
+>744	Identifier	timestamp
+>745	Condition	timestamp . empty ( )
+>746	CallExpression	timestamp . empty ( )
+>747	ArgumentList	 
+>748	Callee	timestamp . empty
+>749	MemberAccess	timestamp . empty
+>750	Identifier	empty
+>751	Identifier	timestamp
+>752	IdentifierDeclStatement	std 
+>753	IdentifierDecl	timestamp = header . get ( \"osmosis_replication_timestamp\" )
+>754	AssignmentExpr	timestamp = header . get ( \"osmosis_replication_timestamp\" )
+>755	CallExpression	header . get ( \"osmosis_replication_timestamp\" )
+>756	ArgumentList	\"osmosis_replication_timestamp\"
+>757	Argument	\"osmosis_replication_timestamp\"
+>758	PrimaryExpression	\"osmosis_replication_timestamp\"
+>759	Callee	header . get
+>760	MemberAccess	header . get
+>761	Identifier	get
+>762	Identifier	header
+>763	Identifier	timestamp
+>764	Identifier	timestamp
+>765	IdentifierDeclType	std 
+>766	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"input file generated by \" << generator
+>767	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"input file generated by \" << generator
+>768	ShiftExpression	\"input file generated by \" << generator
+>769	Identifier	generator
+>770	PrimaryExpression	\"input file generated by \"
+>771	CallExpression	SimpleLogger ( ) . Write ( )
+>772	ArgumentList	 
+>773	Callee	SimpleLogger ( ) . Write
+>774	MemberAccess	SimpleLogger ( ) . Write
+>775	Identifier	Write
+>776	CallExpression	SimpleLogger ( )
+>777	ArgumentList	 
+>778	Callee	SimpleLogger
+>779	Identifier	SimpleLogger
+>780	IfStatement	if ( generator . empty ( ) )
+>781	CompoundStatement	 
+>782	ExpressionStatement	generator = \"unknown tool\"
+>783	AssignmentExpr	generator = \"unknown tool\"
+>784	PrimaryExpression	\"unknown tool\"
+>785	Identifier	generator
+>786	Condition	generator . empty ( )
+>787	CallExpression	generator . empty ( )
+>788	ArgumentList	 
+>789	Callee	generator . empty
+>790	MemberAccess	generator . empty
+>791	Identifier	empty
+>792	Identifier	generator
+>793	IdentifierDeclStatement	std 
+>794	IdentifierDecl	generator = header . get ( \"generator\" )
+>795	AssignmentExpr	generator = header . get ( \"generator\" )
+>796	CallExpression	header . get ( \"generator\" )
+>797	ArgumentList	\"generator\"
+>798	Argument	\"generator\"
+>799	PrimaryExpression	\"generator\"
+>800	Callee	header . get
+>801	MemberAccess	header . get
+>802	Identifier	get
+>803	Identifier	header
+>804	Identifier	generator
+>805	Identifier	generator
+>806	IdentifierDeclType	std 
+>807	ExpressionStatement	TIMER_START ( parsing )
+>808	CallExpression	TIMER_START ( parsing )
+>809	ArgumentList	parsing
+>810	Argument	parsing
+>811	Identifier	parsing
+>812	Callee	TIMER_START
+>813	Identifier	TIMER_START
+>814	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Parsing in progress..\"
+>815	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Parsing in progress..\"
+>816	PrimaryExpression	\"Parsing in progress..\"
+>817	CallExpression	SimpleLogger ( ) . Write ( )
+>818	ArgumentList	 
+>819	Callee	SimpleLogger ( ) . Write
+>820	MemberAccess	SimpleLogger ( ) . Write
+>821	Identifier	Write
+>822	CallExpression	SimpleLogger ( )
+>823	ArgumentList	 
+>824	Callee	SimpleLogger
+>825	Identifier	SimpleLogger
+>826	ExpressionStatement	 
+>827	CompoundStatement	 
+>828	Statement	0
+>829	Statement	number_of_others
+>830	Statement	>
+>831	Statement	unsigned
+>832	Statement	<
+>833	Statement	atomic
+>834	Statement	 
+>835	Statement	std
+>836	ExpressionStatement	 
+>837	CompoundStatement	 
+>838	Statement	0
+>839	Statement	number_of_relations
+>840	Statement	>
+>841	Statement	unsigned
+>842	Statement	<
+>843	Statement	atomic
+>844	Statement	 
+>845	Statement	std
+>846	ExpressionStatement	 
+>847	CompoundStatement	 
+>848	Statement	0
+>849	Statement	number_of_ways
+>850	Statement	>
+>851	Statement	unsigned
+>852	Statement	<
+>853	Statement	atomic
+>854	Statement	 
+>855	Statement	std
+>856	ExpressionStatement	 
+>857	CompoundStatement	 
+>858	Statement	0
+>859	Statement	number_of_nodes
+>860	Statement	>
+>861	Statement	unsigned
+>862	Statement	<
+>863	Statement	atomic
+>864	Statement	 
+>865	Statement	std
+>866	IdentifierDeclStatement	const osmium 
+>867	IdentifierDecl	header = reader . header ( )
+>868	AssignmentExpr	header = reader . header ( )
+>869	CallExpression	reader . header ( )
+>870	ArgumentList	 
+>871	Callee	reader . header
+>872	MemberAccess	reader . header
+>873	Identifier	header
+>874	Identifier	reader
+>875	Identifier	header
+>876	Identifier	header
+>877	IdentifierDeclType	const osmium 
+>878	IdentifierDeclStatement	osmium 
+>879	IdentifierDecl	reader ( input_file )
+>880	Identifier	input_file
+>881	Identifier	reader
+>882	IdentifierDeclType	osmium 
+>883	IdentifierDeclStatement	const osmium 
+>884	IdentifierDecl	input_file ( config . input_path . string ( ) )
+>885	CallExpression	config . input_path . string ( )
+>886	ArgumentList	 
+>887	Callee	config . input_path . string
+>888	MemberAccess	config . input_path . string
+>889	Identifier	string
+>890	MemberAccess	config . input_path
+>891	Identifier	input_path
+>892	Identifier	config
+>893	Identifier	input_file
+>894	IdentifierDeclType	const osmium 
+>895	ExpressionStatement	extractor_callbacks = osrm 
+>896	AssignmentExpr	extractor_callbacks = osrm 
+>897	RelationalExpression	osrm 
+>898	RelationalExpression	ExtractorCallbacks > ( extraction_containers )
+>899	Identifier	extraction_containers
+>900	Identifier	ExtractorCallbacks
+>901	Identifier	osrm 
+>902	Identifier	extractor_callbacks
+>903	Statement	auto
+>904	IdentifierDeclStatement	ExtractionContainers extraction_containers ;
+>905	IdentifierDecl	extraction_containers
+>906	Identifier	extraction_containers
+>907	IdentifierDeclType	ExtractionContainers
+>908	IdentifierDeclStatement	ScriptingEnvironment scripting_environment ( config . profile_path . string ( ) . c_str ( ) ) ;
+>909	IdentifierDecl	scripting_environment ( config . profile_path . string ( ) . c_str ( ) )
+>910	CallExpression	config . profile_path . string ( ) . c_str ( )
+>911	ArgumentList	 
+>912	Callee	config . profile_path . string ( ) . c_str
+>913	MemberAccess	config . profile_path . string ( ) . c_str
+>914	Identifier	c_str
+>915	CallExpression	config . profile_path . string ( )
+>916	ArgumentList	 
+>917	Callee	config . profile_path . string
+>918	MemberAccess	config . profile_path . string
+>919	Identifier	string
+>920	MemberAccess	config . profile_path
+>921	Identifier	profile_path
+>922	Identifier	config
+>923	Identifier	scripting_environment
+>924	IdentifierDeclType	ScriptingEnvironment
+>925	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Threads
+>926	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Threads
+>927	ShiftExpression	\"Threads
+>928	Identifier	number_of_threads
+>929	PrimaryExpression	\"Threads
+>930	CallExpression	SimpleLogger ( ) . Write ( )
+>931	ArgumentList	 
+>932	Callee	SimpleLogger ( ) . Write
+>933	MemberAccess	SimpleLogger ( ) . Write
+>934	Identifier	Write
+>935	CallExpression	SimpleLogger ( )
+>936	ArgumentList	 
+>937	Callee	SimpleLogger
+>938	Identifier	SimpleLogger
+>939	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Profile
+>940	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Profile
+>941	ShiftExpression	\"Profile
+>942	CallExpression	config . profile_path . filename ( ) . string ( )
+>943	ArgumentList	 
+>944	Callee	config . profile_path . filename ( ) . string
+>945	MemberAccess	config . profile_path . filename ( ) . string
+>946	Identifier	string
+>947	CallExpression	config . profile_path . filename ( )
+>948	ArgumentList	 
+>949	Callee	config . profile_path . filename
+>950	MemberAccess	config . profile_path . filename
+>951	Identifier	filename
+>952	MemberAccess	config . profile_path
+>953	Identifier	profile_path
+>954	Identifier	config
+>955	PrimaryExpression	\"Profile
+>956	CallExpression	SimpleLogger ( ) . Write ( )
+>957	ArgumentList	 
+>958	Callee	SimpleLogger ( ) . Write
+>959	MemberAccess	SimpleLogger ( ) . Write
+>960	Identifier	Write
+>961	CallExpression	SimpleLogger ( )
+>962	ArgumentList	 
+>963	Callee	SimpleLogger
+>964	Identifier	SimpleLogger
+>965	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"Input file
+>966	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Input file
+>967	ShiftExpression	\"Input file
+>968	CallExpression	config . input_path . filename ( ) . string ( )
+>969	ArgumentList	 
+>970	Callee	config . input_path . filename ( ) . string
+>971	MemberAccess	config . input_path . filename ( ) . string
+>972	Identifier	string
+>973	CallExpression	config . input_path . filename ( )
+>974	ArgumentList	 
+>975	Callee	config . input_path . filename
+>976	MemberAccess	config . input_path . filename
+>977	Identifier	filename
+>978	MemberAccess	config . input_path
+>979	Identifier	input_path
+>980	Identifier	config
+>981	PrimaryExpression	\"Input file
+>982	CallExpression	SimpleLogger ( ) . Write ( )
+>983	ArgumentList	 
+>984	Callee	SimpleLogger ( ) . Write
+>985	MemberAccess	SimpleLogger ( ) . Write
+>986	Identifier	Write
+>987	CallExpression	SimpleLogger ( )
+>988	ArgumentList	 
+>989	Callee	SimpleLogger
+>990	Identifier	SimpleLogger
+>991	IdentifierDeclStatement	tbb 
+>992	IdentifierDecl	init ( number_of_threads )
+>993	Identifier	number_of_threads
+>994	Identifier	init
+>995	IdentifierDeclType	tbb 
+>996	ExpressionStatement	number_of_threads = std 
+>997	AssignmentExpr	number_of_threads = std 
+>998	CallExpression	std 
+>999	ArgumentList	recommended_num_threads
+>1000	Argument	config . requested_num_threads
+>1001	MemberAccess	config . requested_num_threads
+>1002	Identifier	requested_num_threads
+>1003	Identifier	config
+>1004	Argument	recommended_num_threads
+>1005	Identifier	recommended_num_threads
+>1006	Callee	std 
+>1007	Identifier	std 
+>1008	Identifier	number_of_threads
+>1009	Statement	auto
+>1010	Statement	const
+>1011	IdentifierDeclStatement	unsigned recommended_num_threads = tbb 
+>1012	IdentifierDecl	recommended_num_threads = tbb 
+>1013	AssignmentExpr	recommended_num_threads = tbb 
+>1014	CallExpression	tbb 
+>1015	ArgumentList	 
+>1016	Callee	tbb 
+>1017	Identifier	tbb 
+>1018	Identifier	recommended_num_threads
+>1019	Identifier	recommended_num_threads
+>1020	IdentifierDeclType	unsigned
+>1021	Statement	const
+>1022	ExpressionStatement	TIMER_START ( extracting )
+>1023	CallExpression	TIMER_START ( extracting )
+>1024	ArgumentList	extracting
+>1025	Argument	extracting
+>1026	Identifier	extracting
+>1027	Callee	TIMER_START
+>1028	Identifier	TIMER_START
+>1029	ExpressionStatement	LogPolicy 
+>1030	CallExpression	LogPolicy 
+>1031	ArgumentList	 
+>1032	Callee	LogPolicy 
+>1033	MemberAccess	LogPolicy 
+>1034	Identifier	Unmute
+>1035	CallExpression	LogPolicy 
+>1036	ArgumentList	 
+>1037	Callee	LogPolicy 
+>1038	Identifier	LogPolicy 
+<3=6,5,4
+<6=33,9,7
+<7=8
+<9=32,10
+<10=13,11
+<11=12
+<13=14
+<14=21,15
+<15=17,16
+<17=18
+<18=20,19
+<21=25,22
+<22=23
+<23=24
+<25=26
+<26=28,27
+<28=30,29
+<30=31
+<33=34
+<34=1029,1022,1021,1011,1010,1009,996,991,965,939,925,908,904,903,895,883,878,866,865,864,863,862,861,860,859,857,856,855,854,35,55,76,83,102,129,136,184,205,212,652,662,670,680,690,697,718,725,739,752,766,780,793,807,814,826,827,829,830,831,832,833,834,835,836,837,839,840,841,842,843,844,845,846,847,849,850,851,852,853
+<35=36
+<36=46,37
+<37=45,38
+<38=44,39
+<39=41,40
+<41=43,42
+<46=48,47
+<48=49
+<49=51,50
+<51=53,52
+<53=54
+<55=56
+<56=67,57
+<57=66,58
+<58=60,59
+<60=64,61
+<61=62
+<62=63
+<64=65
+<67=69,68
+<69=70
+<70=72,71
+<72=74,73
+<74=75
+<76=77
+<77=81,78
+<78=79
+<79=80
+<81=82
+<83=84
+<84=98,85
+<85=94,90,86
+<86=87
+<87=89,88
+<90=91
+<91=93,92
+<94=95
+<95=97,96
+<98=99
+<99=101,100
+<102=120,103
+<103=106,104
+<104=105
+<106=107
+<107=109,108
+<109=113,110
+<110=111
+<111=112
+<113=114
+<114=116,115
+<116=118,117
+<118=119
+<120=121
+<121=123,122
+<123=124
+<124=126,125
+<126=128,127
+<129=130
+<130=132,131
+<132=133
+<133=135,134
+<136=137
+<137=175,138
+<138=174,139
+<139=168,140
+<140=167,141
+<141=161,142
+<142=160,143
+<143=154,144
+<144=153,145
+<145=147,146
+<147=149,148
+<149=150
+<150=152,151
+<154=156,155
+<156=157
+<157=159,158
+<161=163,162
+<163=164
+<164=166,165
+<168=170,169
+<170=171
+<171=173,172
+<175=177,176
+<177=178
+<178=180,179
+<180=182,181
+<182=183
+<184=185
+<185=196,186
+<186=195,187
+<187=189,188
+<189=193,190
+<190=191
+<191=192
+<193=194
+<196=198,197
+<198=199
+<199=201,200
+<201=203,202
+<203=204
+<205=206
+<206=210,207
+<207=208
+<208=209
+<210=211
+<212=644,213
+<213=640,639,638,637,628,619,618,617,616,606,599,592,585,584,583,582,581,580,579,578,577,576,575,574,573,572,571,570,569,568,567,214,224,225,226,228,229,230,231,232,233,263,264,265,267,268,269,270,271,272,302,303,304,306,307,308,309,310,311,312,313,547,548,549,550,551,552,553,554,555,556,557,558,559,560,561,562,563,564,565,566
+<214=215
+<215=216
+<216=220,217
+<217=218
+<218=219
+<220=221
+<221=223,222
+<226=227
+<233=262,261,260,259,258,257,256,255,254,253,252,251,250,249,248,247,246,245,244,243,242,241,240,239,238,237,236,235,234
+<265=266
+<272=301,300,299,298,297,296,295,294,293,292,291,290,289,288,287,286,285,284,283,282,281,280,279,278,277,276,275,274,273
+<304=305
+<313=543,539,527,526,525,524,515,506,505,504,503,314
+<314=502,501,495,315
+<315=488,316
+<316=486,479,475,474,473,472,471,470,469,468,467,466,465,464,463,462,461,460,459,458,457,456,455,454,453,452,451,450,449,448,447,446,445,444,443,442,441,440,439,438,422,421,419,412,408,407,406,405,404,403,402,401,400,399,398,397,396,395,394,393,392,391,390,317,318,322,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,352,354,355,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389
+<318=319
+<319=321,320
+<322=323
+<348=349
+<349=351,350
+<352=353
+<355=356
+<356=367,357
+<357=358
+<358=359
+<359=365,360
+<360=363,361
+<361=362
+<363=364
+<365=366
+<367=368
+<368=370,369
+<408=409
+<409=411,410
+<412=413
+<413=415,414
+<415=416
+<416=418,417
+<419=420
+<422=423
+<423=434,424
+<424=425
+<425=426
+<426=432,427
+<427=430,428
+<428=429
+<430=431
+<432=433
+<434=435
+<435=437,436
+<475=476
+<476=478,477
+<479=480
+<480=482,481
+<482=483
+<483=485,484
+<486=487
+<488=489
+<489=491,490
+<491=492
+<492=494,493
+<495=496
+<496=500,497
+<497=499,498
+<506=507
+<507=514,508
+<508=510,509
+<510=511
+<511=513,512
+<515=516
+<516=523,517
+<517=519,518
+<519=520
+<520=522,521
+<527=528
+<528=538,537,529
+<529=536,530
+<530=532,531
+<532=533
+<533=535,534
+<539=540
+<540=542,541
+<543=544
+<544=546,545
+<585=586
+<586=588,587
+<588=589
+<589=591,590
+<592=593
+<593=595,594
+<595=596
+<596=598,597
+<599=600
+<600=602,601
+<602=603
+<603=605,604
+<606=607
+<607=608
+<608=612,609
+<609=610
+<610=611
+<612=613
+<613=615,614
+<619=620
+<620=627,621
+<621=625,622
+<622=623
+<623=624
+<625=626
+<628=629
+<629=636,630
+<630=634,631
+<631=632
+<632=633
+<634=635
+<640=641
+<641=643,642
+<644=651,645
+<645=647,646
+<647=648
+<648=650,649
+<652=653
+<653=661,660,654
+<654=656,655
+<656=657
+<657=659,658
+<662=663
+<663=669,664
+<664=668,665
+<665=667,666
+<670=671
+<671=675,672
+<672=674,673
+<675=679,676
+<676=678,677
+<680=681
+<681=685,682
+<682=684,683
+<685=689,686
+<686=688,687
+<690=691
+<691=693,692
+<693=694
+<694=696,695
+<697=698
+<698=714,699
+<699=707,700
+<700=701
+<701=703,702
+<703=704
+<704=706,705
+<707=708
+<708=710,709
+<710=711
+<711=713,712
+<714=715
+<715=717,716
+<718=719
+<719=724,723,720
+<720=722,721
+<725=726
+<726=730,727
+<727=729,728
+<730=732,731
+<732=733
+<733=735,734
+<735=737,736
+<737=738
+<739=745,740
+<740=741
+<741=742
+<742=744,743
+<745=746
+<746=748,747
+<748=749
+<749=751,750
+<752=753
+<753=765,764,754
+<754=763,755
+<755=759,756
+<756=757
+<757=758
+<759=760
+<760=762,761
+<766=767
+<767=771,768
+<768=770,769
+<771=773,772
+<773=774
+<774=776,775
+<776=778,777
+<778=779
+<780=786,781
+<781=782
+<782=783
+<783=785,784
+<786=787
+<787=789,788
+<789=790
+<790=792,791
+<793=794
+<794=806,805,795
+<795=804,796
+<796=800,797
+<797=798
+<798=799
+<800=801
+<801=803,802
+<807=808
+<808=812,809
+<809=810
+<810=811
+<812=813
+<814=815
+<815=817,816
+<817=819,818
+<819=820
+<820=822,821
+<822=824,823
+<824=825
+<827=828
+<837=838
+<847=848
+<857=858
+<866=867
+<867=877,876,868
+<868=875,869
+<869=871,870
+<871=872
+<872=874,873
+<878=879
+<879=882,881,880
+<883=884
+<884=894,893,885
+<885=887,886
+<887=888
+<888=890,889
+<890=892,891
+<895=896
+<896=902,897
+<897=901,898
+<898=900,899
+<904=905
+<905=907,906
+<908=909
+<909=924,923,910
+<910=912,911
+<912=913
+<913=915,914
+<915=917,916
+<917=918
+<918=920,919
+<920=922,921
+<925=926
+<926=930,927
+<927=929,928
+<930=932,931
+<932=933
+<933=935,934
+<935=937,936
+<937=938
+<939=940
+<940=956,941
+<941=955,942
+<942=944,943
+<944=945
+<945=947,946
+<947=949,948
+<949=950
+<950=952,951
+<952=954,953
+<956=958,957
+<958=959
+<959=961,960
+<961=963,962
+<963=964
+<965=966
+<966=982,967
+<967=981,968
+<968=970,969
+<970=971
+<971=973,972
+<973=975,974
+<975=976
+<976=978,977
+<978=980,979
+<982=984,983
+<984=985
+<985=987,986
+<987=989,988
+<989=990
+<991=992
+<992=995,994,993
+<996=997
+<997=1008,998
+<998=1006,999
+<999=1004,1000
+<1000=1001
+<1001=1003,1002
+<1004=1005
+<1006=1007
+<1011=1012
+<1012=1020,1019,1013
+<1013=1018,1014
+<1014=1016,1015
+<1016=1017
+<1022=1023
+<1023=1027,1024
+<1024=1025
+<1025=1026
+<1027=1028
+<1029=1030
+<1030=1032,1031
+<1032=1033
+<1033=1035,1034
+<1035=1037,1036
+<1037=1038

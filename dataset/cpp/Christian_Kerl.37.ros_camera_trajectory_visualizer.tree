@@ -1,0 +1,3042 @@
+>4	FunctionDef	RosCameraVisualizer (std 
+>5	ParameterList	std 
+>6	Parameter	 
+>7	Identifier	point_cloud_aggregator
+>8	ParameterType	dvo 
+>9	Parameter	 
+>10	Identifier	image_topic
+>11	ParameterType	image_transport 
+>12	Parameter	 
+>13	Identifier	marker_server
+>14	ParameterType	interactive_markers 
+>15	Parameter	 
+>16	Identifier	name
+>17	ParameterType	std 
+>18	CompoundStatement	 
+>19	ExpressionStatement	 
+>20	AssignmentExpr	marker_callback_ = boost 
+>21	CallExpression	boost 
+>22	ArgumentList	& RosCameraVisualizer 
+>23	Argument	_1
+>24	Identifier	_1
+>25	Argument	this
+>26	Identifier	this
+>27	Argument	& RosCameraVisualizer 
+>28	UnaryOp	& RosCameraVisualizer 
+>29	Identifier	RosCameraVisualizer 
+>30	UnaryOperator	&
+>31	Callee	boost 
+>32	Identifier	boost 
+>33	Identifier	marker_callback_
+>34	ExpressionStatement	 
+>35	CallExpression	createInteractiveCameraMarker ( marker_ )
+>36	ArgumentList	marker_
+>37	Argument	marker_
+>38	Identifier	marker_
+>39	Callee	createInteractiveCameraMarker
+>40	Identifier	createInteractiveCameraMarker
+>41	ExpressionStatement	 
+>42	AssignmentExpr	name_ = name
+>43	Identifier	name
+>44	Identifier	name_
+>59	FunctionDef	~RosCameraVisualizer ()
+>60	ParameterList	 
+>61	CompoundStatement	 
+>62	ExpressionStatement	 
+>63	CallExpression	point_cloud_aggregator_ . remove ( name ( ) )
+>64	ArgumentList	name ( )
+>65	Argument	name ( )
+>66	CallExpression	name ( )
+>67	ArgumentList	 
+>68	Callee	name
+>69	Identifier	name
+>70	Callee	point_cloud_aggregator_ . remove
+>71	MemberAccess	point_cloud_aggregator_ . remove
+>72	Identifier	remove
+>73	Identifier	point_cloud_aggregator_
+>74	ExpressionStatement	 
+>75	CallExpression	marker_server_ . erase ( name ( ) )
+>76	ArgumentList	name ( )
+>77	Argument	name ( )
+>78	CallExpression	name ( )
+>79	ArgumentList	 
+>80	Callee	name
+>81	Identifier	name
+>82	Callee	marker_server_ . erase
+>83	MemberAccess	marker_server_ . erase
+>84	Identifier	erase
+>85	Identifier	marker_server_
+>92	FunctionDef	hide ()
+>93	ParameterList	 
+>94	ReturnType	virtual void
+>95	CompoundStatement	 
+>96	ExpressionStatement	 
+>97	CallExpression	show ( ShowNothing )
+>98	ArgumentList	ShowNothing
+>99	Argument	ShowNothing
+>100	Identifier	ShowNothing
+>101	Callee	show
+>102	Identifier	show
+>107	FunctionDef	onclick (const OnClickCallback & callback)
+>108	ParameterList	const OnClickCallback & callback
+>109	Parameter	 
+>110	Identifier	callback
+>111	ParameterType	const OnClickCallback &
+>112	ReturnType	virtual CameraVisualizer &
+>113	CompoundStatement	 
+>114	ReturnStatement	 
+>115	UnaryOp	* this
+>116	Identifier	this
+>117	UnaryOperator	*
+>118	ExpressionStatement	 
+>119	AssignmentExpr	onclick_callback_ = callback
+>120	Identifier	callback
+>121	Identifier	onclick_callback_
+>129	FunctionDef	update (const dvo 
+>130	ParameterList	const dvo 
+>131	Parameter	 
+>132	Identifier	pose
+>133	ParameterType	const Eigen 
+>134	Parameter	 
+>135	Identifier	img
+>136	ParameterType	const dvo 
+>137	ReturnType	virtual CameraVisualizer &
+>138	CompoundStatement	 
+>139	ReturnStatement	 
+>140	UnaryOp	* this
+>141	Identifier	this
+>142	UnaryOperator	*
+>143	ExpressionStatement	 
+>144	CallExpression	point_cloud_builder_ . reset ( new AsyncPointCloudBuilder 
+>145	ArgumentList	img , pose
+>146	Argument	img , pose
+>147	Expression	img , pose
+>148	Identifier	pose
+>149	Identifier	img
+>150	Callee	point_cloud_builder_ . reset
+>151	MemberAccess	point_cloud_builder_ . reset
+>152	Identifier	reset
+>153	Identifier	point_cloud_builder_
+>154	IfStatement	if ( ! marker_server_ . get ( name_ , tmp ) || hasColorChanged ( tmp ) )
+>155	ElseStatement	else
+>156	CompoundStatement	 
+>157	ExpressionStatement	 
+>158	CallExpression	marker_server_ . setPose ( name_ , marker_ . pose )
+>159	ArgumentList	name_
+>160	Argument	marker_ . pose
+>161	MemberAccess	marker_ . pose
+>162	Identifier	pose
+>163	Identifier	marker_
+>164	Argument	name_
+>165	Identifier	name_
+>166	Callee	marker_server_ . setPose
+>167	MemberAccess	marker_server_ . setPose
+>168	Identifier	setPose
+>169	Identifier	marker_server_
+>170	CompoundStatement	 
+>171	ExpressionStatement	 
+>172	CallExpression	marker_server_ . insert ( marker_ , marker_callback_ )
+>173	ArgumentList	marker_
+>174	Argument	marker_callback_
+>175	Identifier	marker_callback_
+>176	Argument	marker_
+>177	Identifier	marker_
+>178	Callee	marker_server_ . insert
+>179	MemberAccess	marker_server_ . insert
+>180	Identifier	insert
+>181	Identifier	marker_server_
+>182	ExpressionStatement	 
+>183	CallExpression	updateMarkerColor ( marker_ )
+>184	ArgumentList	marker_
+>185	Argument	marker_
+>186	Identifier	marker_
+>187	Callee	updateMarkerColor
+>188	Identifier	updateMarkerColor
+>189	Condition	 
+>190	OrExpression	! marker_server_ . get ( name_ , tmp ) || hasColorChanged ( tmp )
+>191	CallExpression	hasColorChanged ( tmp )
+>192	ArgumentList	tmp
+>193	Argument	tmp
+>194	Identifier	tmp
+>195	Callee	hasColorChanged
+>196	Identifier	hasColorChanged
+>197	UnaryOp	! marker_server_ . get ( name_ , tmp )
+>198	CallExpression	marker_server_ . get ( name_ , tmp )
+>199	ArgumentList	name_
+>200	Argument	tmp
+>201	Identifier	tmp
+>202	Argument	name_
+>203	Identifier	name_
+>204	Callee	marker_server_ . get
+>205	MemberAccess	marker_server_ . get
+>206	Identifier	get
+>207	Identifier	marker_server_
+>208	UnaryOperator	!
+>209	IdentifierDeclStatement	 
+>210	IdentifierDecl	tmp
+>211	Identifier	tmp
+>212	IdentifierDeclType	visualization_msgs 
+>213	ExpressionStatement	 
+>214	CallExpression	tf 
+>215	ArgumentList	pose
+>216	Argument	marker_ . pose
+>217	MemberAccess	marker_ . pose
+>218	Identifier	pose
+>219	Identifier	marker_
+>220	Argument	pose
+>221	Identifier	pose
+>222	Callee	tf 
+>223	Identifier	tf 
+>258	FunctionDef	onMarkerFeedback (const visualization_msgs 
+>259	ParameterList	const visualization_msgs 
+>260	Parameter	 
+>261	Identifier	feedback
+>262	ParameterType	const visualization_msgs 
+>263	ReturnType	void
+>264	CompoundStatement	 
+>265	IfStatement	if ( feedback -> event_type == visualization_msgs 
+>266	CompoundStatement	 
+>267	ExpressionStatement	 
+>268	CallExpression	onclick_callback_ ( * this )
+>269	ArgumentList	* this
+>270	Argument	* this
+>271	UnaryOp	* this
+>272	Identifier	this
+>273	UnaryOperator	*
+>274	Callee	onclick_callback_
+>275	Identifier	onclick_callback_
+>276	ExpressionStatement	 
+>277	CallExpression	image_topic_ . publish ( img . toImageMsg ( ) )
+>278	ArgumentList	img . toImageMsg ( )
+>279	Argument	img . toImageMsg ( )
+>280	CallExpression	img . toImageMsg ( )
+>281	ArgumentList	 
+>282	Callee	img . toImageMsg
+>283	MemberAccess	img . toImageMsg
+>284	Identifier	toImageMsg
+>285	Identifier	img
+>286	Callee	image_topic_ . publish
+>287	MemberAccess	image_topic_ . publish
+>288	Identifier	publish
+>289	Identifier	image_topic_
+>290	IdentifierDeclStatement	 
+>291	IdentifierDecl	img ( h , \"mono8\" , tmp )
+>292	Expression	h , \"mono8\" , tmp
+>293	Expression	\"mono8\" , tmp
+>294	Identifier	tmp
+>295	PrimaryExpression	\"mono8\"
+>296	Identifier	h
+>297	Identifier	img
+>298	IdentifierDeclType	cv_bridge 
+>299	ExpressionStatement	 
+>300	CallExpression	point_cloud_builder_ -> image . intensity . convertTo ( tmp , CV_8UC1 )
+>301	ArgumentList	tmp
+>302	Argument	CV_8UC1
+>303	Identifier	CV_8UC1
+>304	Argument	tmp
+>305	Identifier	tmp
+>306	Callee	point_cloud_builder_ -> image . intensity . convertTo
+>307	MemberAccess	point_cloud_builder_ -> image . intensity . convertTo
+>308	Identifier	convertTo
+>309	MemberAccess	point_cloud_builder_ -> image . intensity
+>310	Identifier	intensity
+>311	PtrMemberAccess	point_cloud_builder_ -> image
+>312	Identifier	image
+>313	Identifier	point_cloud_builder_
+>314	IdentifierDeclStatement	 
+>315	IdentifierDecl	tmp
+>316	Identifier	tmp
+>317	IdentifierDeclType	cv 
+>318	ExpressionStatement	 
+>319	AssignmentExpr	h . frame_id = name_
+>320	Identifier	name_
+>321	MemberAccess	h . frame_id
+>322	Identifier	frame_id
+>323	Identifier	h
+>324	ExpressionStatement	 
+>325	AssignmentExpr	h . stamp = ros 
+>326	CallExpression	ros 
+>327	ArgumentList	point_cloud_builder_ -> image . timestamp
+>328	Argument	point_cloud_builder_ -> image . timestamp
+>329	MemberAccess	point_cloud_builder_ -> image . timestamp
+>330	Identifier	timestamp
+>331	PtrMemberAccess	point_cloud_builder_ -> image
+>332	Identifier	image
+>333	Identifier	point_cloud_builder_
+>334	Callee	ros 
+>335	Identifier	ros 
+>336	MemberAccess	h . stamp
+>337	Identifier	stamp
+>338	Identifier	h
+>339	IdentifierDeclStatement	 
+>340	IdentifierDecl	h
+>341	Identifier	h
+>342	IdentifierDeclType	std_msgs 
+>343	Condition	 
+>344	EqualityExpression	feedback -> event_type == visualization_msgs 
+>345	Identifier	visualization_msgs 
+>346	PtrMemberAccess	feedback -> event_type
+>347	Identifier	event_type
+>348	Identifier	feedback
+>373	FunctionDef	updateVisualization ()
+>374	ParameterList	 
+>375	ReturnType	void
+>376	CompoundStatement	 
+>377	ExpressionStatement	 
+>378	CallExpression	marker_server_ . applyChanges ( )
+>379	ArgumentList	 
+>380	Callee	marker_server_ . applyChanges
+>381	MemberAccess	marker_server_ . applyChanges
+>382	Identifier	applyChanges
+>383	Identifier	marker_server_
+>384	SwitchStatement	switch ( visibility_ )
+>385	CompoundStatement	 
+>386	BreakStatement	 
+>387	ExpressionStatement	 
+>388	CallExpression	point_cloud_aggregator_ . remove ( name ( ) )
+>389	ArgumentList	name ( )
+>390	Argument	name ( )
+>391	CallExpression	name ( )
+>392	ArgumentList	 
+>393	Callee	name
+>394	Identifier	name
+>395	Callee	point_cloud_aggregator_ . remove
+>396	MemberAccess	point_cloud_aggregator_ . remove
+>397	Identifier	remove
+>398	Identifier	point_cloud_aggregator_
+>399	ExpressionStatement	 
+>400	CallExpression	marker_server_ . erase ( name_ )
+>401	ArgumentList	name_
+>402	Argument	name_
+>403	Identifier	name_
+>404	Callee	marker_server_ . erase
+>405	MemberAccess	marker_server_ . erase
+>406	Identifier	erase
+>407	Identifier	marker_server_
+>408	Label	 
+>409	Identifier	default
+>410	BreakStatement	 
+>411	ExpressionStatement	 
+>412	CallExpression	point_cloud_aggregator_ . remove ( name ( ) )
+>413	ArgumentList	name ( )
+>414	Argument	name ( )
+>415	CallExpression	name ( )
+>416	ArgumentList	 
+>417	Callee	name
+>418	Identifier	name
+>419	Callee	point_cloud_aggregator_ . remove
+>420	MemberAccess	point_cloud_aggregator_ . remove
+>421	Identifier	remove
+>422	Identifier	point_cloud_aggregator_
+>423	Label	 
+>424	Identifier	ShowCamera
+>425	BreakStatement	 
+>426	ExpressionStatement	 
+>427	CallExpression	point_cloud_aggregator_ . add ( name ( ) , boost 
+>428	ArgumentList	name ( )
+>429	Argument	boost 
+>430	CallExpression	boost 
+>431	ArgumentList	& AsyncPointCloudBuilder 
+>432	Argument	point_cloud_builder_
+>433	Identifier	point_cloud_builder_
+>434	Argument	& AsyncPointCloudBuilder 
+>435	UnaryOp	& AsyncPointCloudBuilder 
+>436	Identifier	AsyncPointCloudBuilder 
+>437	UnaryOperator	&
+>438	Callee	boost 
+>439	Identifier	boost 
+>440	Argument	name ( )
+>441	CallExpression	name ( )
+>442	ArgumentList	 
+>443	Callee	name
+>444	Identifier	name
+>445	Callee	point_cloud_aggregator_ . add
+>446	MemberAccess	point_cloud_aggregator_ . add
+>447	Identifier	add
+>448	Identifier	point_cloud_aggregator_
+>449	Label	 
+>450	Identifier	ShowCameraAndCloud
+>451	Condition	 
+>452	Identifier	visibility_
+>464	FunctionDef	hasColorChanged (const visualization_msgs 
+>465	ParameterList	const visualization_msgs 
+>466	Parameter	 
+>467	Identifier	m
+>468	ParameterType	const visualization_msgs 
+>469	ReturnType	bool
+>470	CompoundStatement	 
+>471	ReturnStatement	 
+>472	OrExpression	std 
+>473	OrExpression	std 
+>474	RelationalExpression	std 
+>475	PrimaryExpression	1e-3
+>476	CallExpression	std 
+>477	ArgumentList	m . controls [ 0 ] . markers [ 0 ] . color . b - color ( ) . b
+>478	Argument	m . controls [ 0 ] . markers [ 0 ] . color . b - color ( ) . b
+>479	AdditiveExpression	m . controls [ 0 ] . markers [ 0 ] . color . b - color ( ) . b
+>480	MemberAccess	color ( ) . b
+>481	Identifier	b
+>482	CallExpression	color ( )
+>483	ArgumentList	 
+>484	Callee	color
+>485	Identifier	color
+>486	MemberAccess	m . controls [ 0 ] . markers [ 0 ] . color . b
+>487	Identifier	b
+>488	MemberAccess	m . controls [ 0 ] . markers [ 0 ] . color
+>489	Identifier	color
+>490	ArrayIndexing	m . controls [ 0 ] . markers [ 0 ]
+>491	PrimaryExpression	0
+>492	MemberAccess	m . controls [ 0 ] . markers
+>493	Identifier	markers
+>494	ArrayIndexing	m . controls [ 0 ]
+>495	PrimaryExpression	0
+>496	MemberAccess	m . controls
+>497	Identifier	controls
+>498	Identifier	m
+>499	Callee	std 
+>500	Identifier	std 
+>501	RelationalExpression	std 
+>502	PrimaryExpression	1e-3
+>503	CallExpression	std 
+>504	ArgumentList	m . controls [ 0 ] . markers [ 0 ] . color . g - color ( ) . g
+>505	Argument	m . controls [ 0 ] . markers [ 0 ] . color . g - color ( ) . g
+>506	AdditiveExpression	m . controls [ 0 ] . markers [ 0 ] . color . g - color ( ) . g
+>507	MemberAccess	color ( ) . g
+>508	Identifier	g
+>509	CallExpression	color ( )
+>510	ArgumentList	 
+>511	Callee	color
+>512	Identifier	color
+>513	MemberAccess	m . controls [ 0 ] . markers [ 0 ] . color . g
+>514	Identifier	g
+>515	MemberAccess	m . controls [ 0 ] . markers [ 0 ] . color
+>516	Identifier	color
+>517	ArrayIndexing	m . controls [ 0 ] . markers [ 0 ]
+>518	PrimaryExpression	0
+>519	MemberAccess	m . controls [ 0 ] . markers
+>520	Identifier	markers
+>521	ArrayIndexing	m . controls [ 0 ]
+>522	PrimaryExpression	0
+>523	MemberAccess	m . controls
+>524	Identifier	controls
+>525	Identifier	m
+>526	Callee	std 
+>527	Identifier	std 
+>528	RelationalExpression	std 
+>529	PrimaryExpression	1e-3
+>530	CallExpression	std 
+>531	ArgumentList	m . controls [ 0 ] . markers [ 0 ] . color . r - color ( ) . r
+>532	Argument	m . controls [ 0 ] . markers [ 0 ] . color . r - color ( ) . r
+>533	AdditiveExpression	m . controls [ 0 ] . markers [ 0 ] . color . r - color ( ) . r
+>534	MemberAccess	color ( ) . r
+>535	Identifier	r
+>536	CallExpression	color ( )
+>537	ArgumentList	 
+>538	Callee	color
+>539	Identifier	color
+>540	MemberAccess	m . controls [ 0 ] . markers [ 0 ] . color . r
+>541	Identifier	r
+>542	MemberAccess	m . controls [ 0 ] . markers [ 0 ] . color
+>543	Identifier	color
+>544	ArrayIndexing	m . controls [ 0 ] . markers [ 0 ]
+>545	PrimaryExpression	0
+>546	MemberAccess	m . controls [ 0 ] . markers
+>547	Identifier	markers
+>548	ArrayIndexing	m . controls [ 0 ]
+>549	PrimaryExpression	0
+>550	MemberAccess	m . controls
+>551	Identifier	controls
+>552	Identifier	m
+>553	Callee	std 
+>554	Identifier	std 
+>575	FunctionDef	createInteractiveCameraMarker (visualization_msgs 
+>576	ParameterList	visualization_msgs 
+>577	Parameter	 
+>578	Identifier	marker
+>579	ParameterType	visualization_msgs 
+>580	ReturnType	void
+>581	CompoundStatement	 
+>582	ExpressionStatement	 
+>583	CallExpression	marker . controls . push_back ( control )
+>584	ArgumentList	control
+>585	Argument	control
+>586	Identifier	control
+>587	Callee	marker . controls . push_back
+>588	MemberAccess	marker . controls . push_back
+>589	Identifier	push_back
+>590	MemberAccess	marker . controls
+>591	Identifier	controls
+>592	Identifier	marker
+>593	ExpressionStatement	 
+>594	AssignmentExpr	marker . header . frame_id = \"/world\"
+>595	PrimaryExpression	\"/world\"
+>596	MemberAccess	marker . header . frame_id
+>597	Identifier	frame_id
+>598	MemberAccess	marker . header
+>599	Identifier	header
+>600	Identifier	marker
+>601	ExpressionStatement	 
+>602	AssignmentExpr	marker . name = name_
+>603	Identifier	name_
+>604	MemberAccess	marker . name
+>605	Identifier	name
+>606	Identifier	marker
+>607	ExpressionStatement	 
+>608	CallExpression	createCameraMarker ( control )
+>609	ArgumentList	control
+>610	Argument	control
+>611	Identifier	control
+>612	Callee	createCameraMarker
+>613	Identifier	createCameraMarker
+>614	ExpressionStatement	 
+>615	AssignmentExpr	control . interaction_mode = visualization_msgs 
+>616	Identifier	visualization_msgs 
+>617	MemberAccess	control . interaction_mode
+>618	Identifier	interaction_mode
+>619	Identifier	control
+>620	ExpressionStatement	 
+>621	AssignmentExpr	control . always_visible = true
+>622	Identifier	true
+>623	MemberAccess	control . always_visible
+>624	Identifier	always_visible
+>625	Identifier	control
+>626	IdentifierDeclStatement	 
+>627	IdentifierDecl	control
+>628	Identifier	control
+>629	IdentifierDeclType	visualization_msgs 
+>644	FunctionDef	createCameraMarker (visualization_msgs 
+>645	ParameterList	visualization_msgs 
+>646	Parameter	 
+>647	Identifier	parent
+>648	ParameterType	visualization_msgs 
+>649	ReturnType	void
+>650	CompoundStatement	 
+>651	ExpressionStatement	 
+>652	CallExpression	parent . markers . push_back ( mbox )
+>653	ArgumentList	mbox
+>654	Argument	mbox
+>655	Identifier	mbox
+>656	Callee	parent . markers . push_back
+>657	MemberAccess	parent . markers . push_back
+>658	Identifier	push_back
+>659	MemberAccess	parent . markers
+>660	Identifier	markers
+>661	Identifier	parent
+>662	ExpressionStatement	 
+>663	CallExpression	m . points . push_back ( p )
+>664	ArgumentList	p
+>665	Argument	p
+>666	Identifier	p
+>667	Callee	m . points . push_back
+>668	MemberAccess	m . points . push_back
+>669	Identifier	push_back
+>670	MemberAccess	m . points
+>671	Identifier	points
+>672	Identifier	m
+>673	ExpressionStatement	 
+>674	AssignmentExpr	p . z = length
+>675	Identifier	length
+>676	MemberAccess	p . z
+>677	Identifier	z
+>678	Identifier	p
+>679	ExpressionStatement	 
+>680	AssignmentExpr	p . y = - big
+>681	UnaryOp	- big
+>682	Identifier	big
+>683	UnaryOperator	-
+>684	MemberAccess	p . y
+>685	Identifier	y
+>686	Identifier	p
+>687	ExpressionStatement	 
+>688	AssignmentExpr	p . x = big
+>689	Identifier	big
+>690	MemberAccess	p . x
+>691	Identifier	x
+>692	Identifier	p
+>693	ExpressionStatement	 
+>694	CallExpression	m . points . push_back ( p )
+>695	ArgumentList	p
+>696	Argument	p
+>697	Identifier	p
+>698	Callee	m . points . push_back
+>699	MemberAccess	m . points . push_back
+>700	Identifier	push_back
+>701	MemberAccess	m . points
+>702	Identifier	points
+>703	Identifier	m
+>704	ExpressionStatement	 
+>705	AssignmentExpr	p . z = 0.0
+>706	PrimaryExpression	0.0
+>707	MemberAccess	p . z
+>708	Identifier	z
+>709	Identifier	p
+>710	ExpressionStatement	 
+>711	AssignmentExpr	p . y = - small
+>712	UnaryOp	- small
+>713	Identifier	small
+>714	UnaryOperator	-
+>715	MemberAccess	p . y
+>716	Identifier	y
+>717	Identifier	p
+>718	ExpressionStatement	 
+>719	AssignmentExpr	p . x = small
+>720	Identifier	small
+>721	MemberAccess	p . x
+>722	Identifier	x
+>723	Identifier	p
+>724	ExpressionStatement	 
+>725	CallExpression	m . points . push_back ( p )
+>726	ArgumentList	p
+>727	Argument	p
+>728	Identifier	p
+>729	Callee	m . points . push_back
+>730	MemberAccess	m . points . push_back
+>731	Identifier	push_back
+>732	MemberAccess	m . points
+>733	Identifier	points
+>734	Identifier	m
+>735	ExpressionStatement	 
+>736	AssignmentExpr	p . z = length
+>737	Identifier	length
+>738	MemberAccess	p . z
+>739	Identifier	z
+>740	Identifier	p
+>741	ExpressionStatement	 
+>742	AssignmentExpr	p . y = - big
+>743	UnaryOp	- big
+>744	Identifier	big
+>745	UnaryOperator	-
+>746	MemberAccess	p . y
+>747	Identifier	y
+>748	Identifier	p
+>749	ExpressionStatement	 
+>750	AssignmentExpr	p . x = - big
+>751	UnaryOp	- big
+>752	Identifier	big
+>753	UnaryOperator	-
+>754	MemberAccess	p . x
+>755	Identifier	x
+>756	Identifier	p
+>757	ExpressionStatement	 
+>758	CallExpression	m . points . push_back ( p )
+>759	ArgumentList	p
+>760	Argument	p
+>761	Identifier	p
+>762	Callee	m . points . push_back
+>763	MemberAccess	m . points . push_back
+>764	Identifier	push_back
+>765	MemberAccess	m . points
+>766	Identifier	points
+>767	Identifier	m
+>768	ExpressionStatement	 
+>769	AssignmentExpr	p . z = 0.0
+>770	PrimaryExpression	0.0
+>771	MemberAccess	p . z
+>772	Identifier	z
+>773	Identifier	p
+>774	ExpressionStatement	 
+>775	AssignmentExpr	p . y = - small
+>776	UnaryOp	- small
+>777	Identifier	small
+>778	UnaryOperator	-
+>779	MemberAccess	p . y
+>780	Identifier	y
+>781	Identifier	p
+>782	ExpressionStatement	 
+>783	AssignmentExpr	p . x = - small
+>784	UnaryOp	- small
+>785	Identifier	small
+>786	UnaryOperator	-
+>787	MemberAccess	p . x
+>788	Identifier	x
+>789	Identifier	p
+>790	ExpressionStatement	 
+>791	CallExpression	m . points . push_back ( p )
+>792	ArgumentList	p
+>793	Argument	p
+>794	Identifier	p
+>795	Callee	m . points . push_back
+>796	MemberAccess	m . points . push_back
+>797	Identifier	push_back
+>798	MemberAccess	m . points
+>799	Identifier	points
+>800	Identifier	m
+>801	ExpressionStatement	 
+>802	AssignmentExpr	p . z = length
+>803	Identifier	length
+>804	MemberAccess	p . z
+>805	Identifier	z
+>806	Identifier	p
+>807	ExpressionStatement	 
+>808	AssignmentExpr	p . y = big
+>809	Identifier	big
+>810	MemberAccess	p . y
+>811	Identifier	y
+>812	Identifier	p
+>813	ExpressionStatement	 
+>814	AssignmentExpr	p . x = - big
+>815	UnaryOp	- big
+>816	Identifier	big
+>817	UnaryOperator	-
+>818	MemberAccess	p . x
+>819	Identifier	x
+>820	Identifier	p
+>821	ExpressionStatement	 
+>822	CallExpression	m . points . push_back ( p )
+>823	ArgumentList	p
+>824	Argument	p
+>825	Identifier	p
+>826	Callee	m . points . push_back
+>827	MemberAccess	m . points . push_back
+>828	Identifier	push_back
+>829	MemberAccess	m . points
+>830	Identifier	points
+>831	Identifier	m
+>832	ExpressionStatement	 
+>833	AssignmentExpr	p . z = 0.0
+>834	PrimaryExpression	0.0
+>835	MemberAccess	p . z
+>836	Identifier	z
+>837	Identifier	p
+>838	ExpressionStatement	 
+>839	AssignmentExpr	p . y = small
+>840	Identifier	small
+>841	MemberAccess	p . y
+>842	Identifier	y
+>843	Identifier	p
+>844	ExpressionStatement	 
+>845	AssignmentExpr	p . x = - small
+>846	UnaryOp	- small
+>847	Identifier	small
+>848	UnaryOperator	-
+>849	MemberAccess	p . x
+>850	Identifier	x
+>851	Identifier	p
+>852	ExpressionStatement	 
+>853	CallExpression	m . points . push_back ( p )
+>854	ArgumentList	p
+>855	Argument	p
+>856	Identifier	p
+>857	Callee	m . points . push_back
+>858	MemberAccess	m . points . push_back
+>859	Identifier	push_back
+>860	MemberAccess	m . points
+>861	Identifier	points
+>862	Identifier	m
+>863	ExpressionStatement	 
+>864	AssignmentExpr	p . z = length
+>865	Identifier	length
+>866	MemberAccess	p . z
+>867	Identifier	z
+>868	Identifier	p
+>869	ExpressionStatement	 
+>870	AssignmentExpr	p . y = big
+>871	Identifier	big
+>872	MemberAccess	p . y
+>873	Identifier	y
+>874	Identifier	p
+>875	ExpressionStatement	 
+>876	AssignmentExpr	p . x = big
+>877	Identifier	big
+>878	MemberAccess	p . x
+>879	Identifier	x
+>880	Identifier	p
+>881	ExpressionStatement	 
+>882	CallExpression	m . points . push_back ( p )
+>883	ArgumentList	p
+>884	Argument	p
+>885	Identifier	p
+>886	Callee	m . points . push_back
+>887	MemberAccess	m . points . push_back
+>888	Identifier	push_back
+>889	MemberAccess	m . points
+>890	Identifier	points
+>891	Identifier	m
+>892	ExpressionStatement	 
+>893	AssignmentExpr	p . z = 0.0
+>894	PrimaryExpression	0.0
+>895	MemberAccess	p . z
+>896	Identifier	z
+>897	Identifier	p
+>898	ExpressionStatement	 
+>899	AssignmentExpr	p . y = small
+>900	Identifier	small
+>901	MemberAccess	p . y
+>902	Identifier	y
+>903	Identifier	p
+>904	ExpressionStatement	 
+>905	AssignmentExpr	p . x = small
+>906	Identifier	small
+>907	MemberAccess	p . x
+>908	Identifier	x
+>909	Identifier	p
+>910	ExpressionStatement	 
+>911	CallExpression	m . points . push_back ( p )
+>912	ArgumentList	p
+>913	Argument	p
+>914	Identifier	p
+>915	Callee	m . points . push_back
+>916	MemberAccess	m . points . push_back
+>917	Identifier	push_back
+>918	MemberAccess	m . points
+>919	Identifier	points
+>920	Identifier	m
+>921	ExpressionStatement	 
+>922	AssignmentExpr	p . y = big
+>923	Identifier	big
+>924	MemberAccess	p . y
+>925	Identifier	y
+>926	Identifier	p
+>927	ExpressionStatement	 
+>928	AssignmentExpr	p . x = big
+>929	Identifier	big
+>930	MemberAccess	p . x
+>931	Identifier	x
+>932	Identifier	p
+>933	ExpressionStatement	 
+>934	CallExpression	m . points . push_back ( p )
+>935	ArgumentList	p
+>936	Argument	p
+>937	Identifier	p
+>938	Callee	m . points . push_back
+>939	MemberAccess	m . points . push_back
+>940	Identifier	push_back
+>941	MemberAccess	m . points
+>942	Identifier	points
+>943	Identifier	m
+>944	ExpressionStatement	 
+>945	CallExpression	m . points . push_back ( p )
+>946	ArgumentList	p
+>947	Argument	p
+>948	Identifier	p
+>949	Callee	m . points . push_back
+>950	MemberAccess	m . points . push_back
+>951	Identifier	push_back
+>952	MemberAccess	m . points
+>953	Identifier	points
+>954	Identifier	m
+>955	ExpressionStatement	 
+>956	AssignmentExpr	p . y = - big
+>957	UnaryOp	- big
+>958	Identifier	big
+>959	UnaryOperator	-
+>960	MemberAccess	p . y
+>961	Identifier	y
+>962	Identifier	p
+>963	ExpressionStatement	 
+>964	AssignmentExpr	p . x = big
+>965	Identifier	big
+>966	MemberAccess	p . x
+>967	Identifier	x
+>968	Identifier	p
+>969	ExpressionStatement	 
+>970	CallExpression	m . points . push_back ( p )
+>971	ArgumentList	p
+>972	Argument	p
+>973	Identifier	p
+>974	Callee	m . points . push_back
+>975	MemberAccess	m . points . push_back
+>976	Identifier	push_back
+>977	MemberAccess	m . points
+>978	Identifier	points
+>979	Identifier	m
+>980	ExpressionStatement	 
+>981	CallExpression	m . points . push_back ( p )
+>982	ArgumentList	p
+>983	Argument	p
+>984	Identifier	p
+>985	Callee	m . points . push_back
+>986	MemberAccess	m . points . push_back
+>987	Identifier	push_back
+>988	MemberAccess	m . points
+>989	Identifier	points
+>990	Identifier	m
+>991	ExpressionStatement	 
+>992	AssignmentExpr	p . y = - big
+>993	UnaryOp	- big
+>994	Identifier	big
+>995	UnaryOperator	-
+>996	MemberAccess	p . y
+>997	Identifier	y
+>998	Identifier	p
+>999	ExpressionStatement	 
+>1000	AssignmentExpr	p . x = - big
+>1001	UnaryOp	- big
+>1002	Identifier	big
+>1003	UnaryOperator	-
+>1004	MemberAccess	p . x
+>1005	Identifier	x
+>1006	Identifier	p
+>1007	ExpressionStatement	 
+>1008	CallExpression	m . points . push_back ( p )
+>1009	ArgumentList	p
+>1010	Argument	p
+>1011	Identifier	p
+>1012	Callee	m . points . push_back
+>1013	MemberAccess	m . points . push_back
+>1014	Identifier	push_back
+>1015	MemberAccess	m . points
+>1016	Identifier	points
+>1017	Identifier	m
+>1018	ExpressionStatement	 
+>1019	CallExpression	m . points . push_back ( p )
+>1020	ArgumentList	p
+>1021	Argument	p
+>1022	Identifier	p
+>1023	Callee	m . points . push_back
+>1024	MemberAccess	m . points . push_back
+>1025	Identifier	push_back
+>1026	MemberAccess	m . points
+>1027	Identifier	points
+>1028	Identifier	m
+>1029	ExpressionStatement	 
+>1030	AssignmentExpr	p . y = big
+>1031	Identifier	big
+>1032	MemberAccess	p . y
+>1033	Identifier	y
+>1034	Identifier	p
+>1035	ExpressionStatement	 
+>1036	AssignmentExpr	p . x = - big
+>1037	UnaryOp	- big
+>1038	Identifier	big
+>1039	UnaryOperator	-
+>1040	MemberAccess	p . x
+>1041	Identifier	x
+>1042	Identifier	p
+>1043	ExpressionStatement	 
+>1044	CallExpression	m . points . push_back ( p )
+>1045	ArgumentList	p
+>1046	Argument	p
+>1047	Identifier	p
+>1048	Callee	m . points . push_back
+>1049	MemberAccess	m . points . push_back
+>1050	Identifier	push_back
+>1051	MemberAccess	m . points
+>1052	Identifier	points
+>1053	Identifier	m
+>1054	ExpressionStatement	 
+>1055	AssignmentExpr	p . y = big
+>1056	Identifier	big
+>1057	MemberAccess	p . y
+>1058	Identifier	y
+>1059	Identifier	p
+>1060	ExpressionStatement	 
+>1061	AssignmentExpr	p . x = big
+>1062	Identifier	big
+>1063	MemberAccess	p . x
+>1064	Identifier	x
+>1065	Identifier	p
+>1066	ExpressionStatement	 
+>1067	AssignmentExpr	p . z = length
+>1068	Identifier	length
+>1069	MemberAccess	p . z
+>1070	Identifier	z
+>1071	Identifier	p
+>1072	ExpressionStatement	 
+>1073	CallExpression	m . points . push_back ( p )
+>1074	ArgumentList	p
+>1075	Argument	p
+>1076	Identifier	p
+>1077	Callee	m . points . push_back
+>1078	MemberAccess	m . points . push_back
+>1079	Identifier	push_back
+>1080	MemberAccess	m . points
+>1081	Identifier	points
+>1082	Identifier	m
+>1083	ExpressionStatement	 
+>1084	AssignmentExpr	p . y = small
+>1085	Identifier	small
+>1086	MemberAccess	p . y
+>1087	Identifier	y
+>1088	Identifier	p
+>1089	ExpressionStatement	 
+>1090	AssignmentExpr	p . x = small
+>1091	Identifier	small
+>1092	MemberAccess	p . x
+>1093	Identifier	x
+>1094	Identifier	p
+>1095	ExpressionStatement	 
+>1096	CallExpression	m . points . push_back ( p )
+>1097	ArgumentList	p
+>1098	Argument	p
+>1099	Identifier	p
+>1100	Callee	m . points . push_back
+>1101	MemberAccess	m . points . push_back
+>1102	Identifier	push_back
+>1103	MemberAccess	m . points
+>1104	Identifier	points
+>1105	Identifier	m
+>1106	ExpressionStatement	 
+>1107	CallExpression	m . points . push_back ( p )
+>1108	ArgumentList	p
+>1109	Argument	p
+>1110	Identifier	p
+>1111	Callee	m . points . push_back
+>1112	MemberAccess	m . points . push_back
+>1113	Identifier	push_back
+>1114	MemberAccess	m . points
+>1115	Identifier	points
+>1116	Identifier	m
+>1117	ExpressionStatement	 
+>1118	AssignmentExpr	p . y = - small
+>1119	UnaryOp	- small
+>1120	Identifier	small
+>1121	UnaryOperator	-
+>1122	MemberAccess	p . y
+>1123	Identifier	y
+>1124	Identifier	p
+>1125	ExpressionStatement	 
+>1126	AssignmentExpr	p . x = small
+>1127	Identifier	small
+>1128	MemberAccess	p . x
+>1129	Identifier	x
+>1130	Identifier	p
+>1131	ExpressionStatement	 
+>1132	CallExpression	m . points . push_back ( p )
+>1133	ArgumentList	p
+>1134	Argument	p
+>1135	Identifier	p
+>1136	Callee	m . points . push_back
+>1137	MemberAccess	m . points . push_back
+>1138	Identifier	push_back
+>1139	MemberAccess	m . points
+>1140	Identifier	points
+>1141	Identifier	m
+>1142	ExpressionStatement	 
+>1143	CallExpression	m . points . push_back ( p )
+>1144	ArgumentList	p
+>1145	Argument	p
+>1146	Identifier	p
+>1147	Callee	m . points . push_back
+>1148	MemberAccess	m . points . push_back
+>1149	Identifier	push_back
+>1150	MemberAccess	m . points
+>1151	Identifier	points
+>1152	Identifier	m
+>1153	ExpressionStatement	 
+>1154	AssignmentExpr	p . y = - small
+>1155	UnaryOp	- small
+>1156	Identifier	small
+>1157	UnaryOperator	-
+>1158	MemberAccess	p . y
+>1159	Identifier	y
+>1160	Identifier	p
+>1161	ExpressionStatement	 
+>1162	AssignmentExpr	p . x = - small
+>1163	UnaryOp	- small
+>1164	Identifier	small
+>1165	UnaryOperator	-
+>1166	MemberAccess	p . x
+>1167	Identifier	x
+>1168	Identifier	p
+>1169	ExpressionStatement	 
+>1170	CallExpression	m . points . push_back ( p )
+>1171	ArgumentList	p
+>1172	Argument	p
+>1173	Identifier	p
+>1174	Callee	m . points . push_back
+>1175	MemberAccess	m . points . push_back
+>1176	Identifier	push_back
+>1177	MemberAccess	m . points
+>1178	Identifier	points
+>1179	Identifier	m
+>1180	ExpressionStatement	 
+>1181	CallExpression	m . points . push_back ( p )
+>1182	ArgumentList	p
+>1183	Argument	p
+>1184	Identifier	p
+>1185	Callee	m . points . push_back
+>1186	MemberAccess	m . points . push_back
+>1187	Identifier	push_back
+>1188	MemberAccess	m . points
+>1189	Identifier	points
+>1190	Identifier	m
+>1191	ExpressionStatement	 
+>1192	AssignmentExpr	p . y = small
+>1193	Identifier	small
+>1194	MemberAccess	p . y
+>1195	Identifier	y
+>1196	Identifier	p
+>1197	ExpressionStatement	 
+>1198	AssignmentExpr	p . x = - small
+>1199	UnaryOp	- small
+>1200	Identifier	small
+>1201	UnaryOperator	-
+>1202	MemberAccess	p . x
+>1203	Identifier	x
+>1204	Identifier	p
+>1205	ExpressionStatement	 
+>1206	CallExpression	m . points . push_back ( p )
+>1207	ArgumentList	p
+>1208	Argument	p
+>1209	Identifier	p
+>1210	Callee	m . points . push_back
+>1211	MemberAccess	m . points . push_back
+>1212	Identifier	push_back
+>1213	MemberAccess	m . points
+>1214	Identifier	points
+>1215	Identifier	m
+>1216	ExpressionStatement	 
+>1217	AssignmentExpr	p . y = small
+>1218	Identifier	small
+>1219	MemberAccess	p . y
+>1220	Identifier	y
+>1221	Identifier	p
+>1222	ExpressionStatement	 
+>1223	AssignmentExpr	p . x = small
+>1224	Identifier	small
+>1225	MemberAccess	p . x
+>1226	Identifier	x
+>1227	Identifier	p
+>1228	ExpressionStatement	 
+>1229	AssignmentExpr	p . z = 0.0
+>1230	PrimaryExpression	0.0
+>1231	MemberAccess	p . z
+>1232	Identifier	z
+>1233	Identifier	p
+>1234	IdentifierDeclStatement	 
+>1235	IdentifierDecl	p
+>1236	Identifier	p
+>1237	IdentifierDeclType	geometry_msgs 
+>1238	ExpressionStatement	 
+>1239	AssignmentExpr	mbox . pose . position . z = - 0.5 * small
+>1240	MultiplicativeExpression	- 0.5 * small
+>1241	Identifier	small
+>1242	UnaryOp	- 0.5
+>1243	PrimaryExpression	0.5
+>1244	UnaryOperator	-
+>1245	MemberAccess	mbox . pose . position . z
+>1246	Identifier	z
+>1247	MemberAccess	mbox . pose . position
+>1248	Identifier	position
+>1249	MemberAccess	mbox . pose
+>1250	Identifier	pose
+>1251	Identifier	mbox
+>1252	ExpressionStatement	 
+>1253	AssignmentExpr	mbox . scale . z = small
+>1254	Identifier	small
+>1255	MemberAccess	mbox . scale . z
+>1256	Identifier	z
+>1257	MemberAccess	mbox . scale
+>1258	Identifier	scale
+>1259	Identifier	mbox
+>1260	ExpressionStatement	 
+>1261	AssignmentExpr	mbox . scale . y = big
+>1262	Identifier	big
+>1263	MemberAccess	mbox . scale . y
+>1264	Identifier	y
+>1265	MemberAccess	mbox . scale
+>1266	Identifier	scale
+>1267	Identifier	mbox
+>1268	ExpressionStatement	 
+>1269	AssignmentExpr	mbox . scale . x = big
+>1270	Identifier	big
+>1271	MemberAccess	mbox . scale . x
+>1272	Identifier	x
+>1273	MemberAccess	mbox . scale
+>1274	Identifier	scale
+>1275	Identifier	mbox
+>1276	ExpressionStatement	 
+>1277	AssignmentExpr	length = 0.05
+>1278	PrimaryExpression	0.05
+>1279	Identifier	length
+>1280	ExpressionStatement	 
+>1281	AssignmentExpr	big = small * 2.0
+>1282	MultiplicativeExpression	small * 2.0
+>1283	PrimaryExpression	2.0
+>1284	Identifier	small
+>1285	Identifier	big
+>1286	ExpressionStatement	 
+>1287	AssignmentExpr	small = 0.02
+>1288	PrimaryExpression	0.02
+>1289	Identifier	small
+>1290	IdentifierDeclStatement	 
+>1291	IdentifierDecl	length
+>1292	Identifier	length
+>1293	IdentifierDeclType	double
+>1294	IdentifierDecl	big
+>1295	Identifier	big
+>1296	IdentifierDeclType	double
+>1297	IdentifierDecl	small
+>1298	Identifier	small
+>1299	IdentifierDeclType	double
+>1300	ExpressionStatement	 
+>1301	AssignmentExpr	mbox . color . a = 1.0f
+>1302	PrimaryExpression	1.0f
+>1303	MemberAccess	mbox . color . a
+>1304	Identifier	a
+>1305	MemberAccess	mbox . color
+>1306	Identifier	color
+>1307	Identifier	mbox
+>1308	ExpressionStatement	 
+>1309	AssignmentExpr	mbox . type = visualization_msgs 
+>1310	Identifier	visualization_msgs 
+>1311	MemberAccess	mbox . type
+>1312	Identifier	type
+>1313	Identifier	mbox
+>1314	ExpressionStatement	 
+>1315	AssignmentExpr	m . color . a = 1.0f
+>1316	PrimaryExpression	1.0f
+>1317	MemberAccess	m . color . a
+>1318	Identifier	a
+>1319	MemberAccess	m . color
+>1320	Identifier	color
+>1321	Identifier	m
+>1322	ExpressionStatement	 
+>1323	AssignmentExpr	m . scale . x = 0.005
+>1324	PrimaryExpression	0.005
+>1325	MemberAccess	m . scale . x
+>1326	Identifier	x
+>1327	MemberAccess	m . scale
+>1328	Identifier	scale
+>1329	Identifier	m
+>1330	ExpressionStatement	 
+>1331	AssignmentExpr	m . type = visualization_msgs 
+>1332	Identifier	visualization_msgs 
+>1333	MemberAccess	m . type
+>1334	Identifier	type
+>1335	Identifier	m
+>1336	IdentifierDeclStatement	 
+>1337	IdentifierDecl	mbox
+>1338	Identifier	mbox
+>1339	IdentifierDeclType	visualization_msgs 
+>1340	IdentifierDecl	m
+>1341	Identifier	m
+>1342	IdentifierDeclType	visualization_msgs 
+>1375	FunctionDef	updateMarkerColor (visualization_msgs 
+>1376	ParameterList	visualization_msgs 
+>1377	Parameter	 
+>1378	Identifier	marker
+>1379	ParameterType	visualization_msgs 
+>1380	ReturnType	void
+>1381	CompoundStatement	 
+>1382	ExpressionStatement	 
+>1383	AssignmentExpr	marker . controls [ 0 ] . markers [ 0 ] . color . b = color ( ) . b
+>1384	MemberAccess	color ( ) . b
+>1385	Identifier	b
+>1386	CallExpression	color ( )
+>1387	ArgumentList	 
+>1388	Callee	color
+>1389	Identifier	color
+>1390	MemberAccess	marker . controls [ 0 ] . markers [ 0 ] . color . b
+>1391	Identifier	b
+>1392	MemberAccess	marker . controls [ 0 ] . markers [ 0 ] . color
+>1393	Identifier	color
+>1394	ArrayIndexing	marker . controls [ 0 ] . markers [ 0 ]
+>1395	PrimaryExpression	0
+>1396	MemberAccess	marker . controls [ 0 ] . markers
+>1397	Identifier	markers
+>1398	ArrayIndexing	marker . controls [ 0 ]
+>1399	PrimaryExpression	0
+>1400	MemberAccess	marker . controls
+>1401	Identifier	controls
+>1402	Identifier	marker
+>1403	ExpressionStatement	 
+>1404	AssignmentExpr	marker . controls [ 0 ] . markers [ 0 ] . color . g = color ( ) . g
+>1405	MemberAccess	color ( ) . g
+>1406	Identifier	g
+>1407	CallExpression	color ( )
+>1408	ArgumentList	 
+>1409	Callee	color
+>1410	Identifier	color
+>1411	MemberAccess	marker . controls [ 0 ] . markers [ 0 ] . color . g
+>1412	Identifier	g
+>1413	MemberAccess	marker . controls [ 0 ] . markers [ 0 ] . color
+>1414	Identifier	color
+>1415	ArrayIndexing	marker . controls [ 0 ] . markers [ 0 ]
+>1416	PrimaryExpression	0
+>1417	MemberAccess	marker . controls [ 0 ] . markers
+>1418	Identifier	markers
+>1419	ArrayIndexing	marker . controls [ 0 ]
+>1420	PrimaryExpression	0
+>1421	MemberAccess	marker . controls
+>1422	Identifier	controls
+>1423	Identifier	marker
+>1424	ExpressionStatement	 
+>1425	AssignmentExpr	marker . controls [ 0 ] . markers [ 0 ] . color . r = color ( ) . r
+>1426	MemberAccess	color ( ) . r
+>1427	Identifier	r
+>1428	CallExpression	color ( )
+>1429	ArgumentList	 
+>1430	Callee	color
+>1431	Identifier	color
+>1432	MemberAccess	marker . controls [ 0 ] . markers [ 0 ] . color . r
+>1433	Identifier	r
+>1434	MemberAccess	marker . controls [ 0 ] . markers [ 0 ] . color
+>1435	Identifier	color
+>1436	ArrayIndexing	marker . controls [ 0 ] . markers [ 0 ]
+>1437	PrimaryExpression	0
+>1438	MemberAccess	marker . controls [ 0 ] . markers
+>1439	Identifier	markers
+>1440	ArrayIndexing	marker . controls [ 0 ]
+>1441	PrimaryExpression	0
+>1442	MemberAccess	marker . controls
+>1443	Identifier	controls
+>1444	Identifier	marker
+>1465	FunctionDef	RosTrajectoryVisualizer (std 
+>1466	ParameterList	std 
+>1467	Parameter	 
+>1468	Identifier	marker_server
+>1469	ParameterType	interactive_markers 
+>1470	Parameter	 
+>1471	Identifier	name
+>1472	ParameterType	std 
+>1473	CompoundStatement	 
+>1474	ExpressionStatement	 
+>1475	CallExpression	createTrajectoryMarker ( name , marker_ )
+>1476	ArgumentList	name
+>1477	Argument	marker_
+>1478	Identifier	marker_
+>1479	Argument	name
+>1480	Identifier	name
+>1481	Callee	createTrajectoryMarker
+>1482	Identifier	createTrajectoryMarker
+>1489	FunctionDef	~RosTrajectoryVisualizer ()
+>1490	ParameterList	 
+>1491	CompoundStatement	 
+>1492	ExpressionStatement	 
+>1493	CallExpression	marker_server_ . erase ( marker_ . name )
+>1494	ArgumentList	marker_ . name
+>1495	Argument	marker_ . name
+>1496	MemberAccess	marker_ . name
+>1497	Identifier	name
+>1498	Identifier	marker_
+>1499	Callee	marker_server_ . erase
+>1500	MemberAccess	marker_server_ . erase
+>1501	Identifier	erase
+>1502	Identifier	marker_server_
+>1509	FunctionDef	add (const Eigen 
+>1510	ParameterList	const Eigen 
+>1511	Parameter	 
+>1512	Identifier	pose
+>1513	ParameterType	const Eigen 
+>1514	ReturnType	virtual TrajectoryVisualizer &
+>1515	CompoundStatement	 
+>1516	ReturnStatement	 
+>1517	UnaryOp	* this
+>1518	Identifier	this
+>1519	UnaryOperator	*
+>1520	ExpressionStatement	 
+>1521	CallExpression	marker_server_ . applyChanges ( )
+>1522	ArgumentList	 
+>1523	Callee	marker_server_ . applyChanges
+>1524	MemberAccess	marker_server_ . applyChanges
+>1525	Identifier	applyChanges
+>1526	Identifier	marker_server_
+>1527	ExpressionStatement	 
+>1528	CallExpression	marker_server_ . insert ( marker_ )
+>1529	ArgumentList	marker_
+>1530	Argument	marker_
+>1531	Identifier	marker_
+>1532	Callee	marker_server_ . insert
+>1533	MemberAccess	marker_server_ . insert
+>1534	Identifier	insert
+>1535	Identifier	marker_server_
+>1536	ExpressionStatement	 
+>1537	CallExpression	marker_ . controls [ 0 ] . markers [ 0 ] . points . push_back ( p )
+>1538	ArgumentList	p
+>1539	Argument	p
+>1540	Identifier	p
+>1541	Callee	marker_ . controls [ 0 ] . markers [ 0 ] . points . push_back
+>1542	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . points . push_back
+>1543	Identifier	push_back
+>1544	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . points
+>1545	Identifier	points
+>1546	ArrayIndexing	marker_ . controls [ 0 ] . markers [ 0 ]
+>1547	PrimaryExpression	0
+>1548	MemberAccess	marker_ . controls [ 0 ] . markers
+>1549	Identifier	markers
+>1550	ArrayIndexing	marker_ . controls [ 0 ]
+>1551	PrimaryExpression	0
+>1552	MemberAccess	marker_ . controls
+>1553	Identifier	controls
+>1554	Identifier	marker_
+>1555	ExpressionStatement	 
+>1556	AssignmentExpr	p . z = pose . translation ( ) ( 2 )
+>1557	CallExpression	pose . translation ( ) ( 2 )
+>1558	ArgumentList	2
+>1559	Argument	2
+>1560	PrimaryExpression	2
+>1561	Callee	pose . translation ( )
+>1562	CallExpression	pose . translation ( )
+>1563	ArgumentList	 
+>1564	Callee	pose . translation
+>1565	MemberAccess	pose . translation
+>1566	Identifier	translation
+>1567	Identifier	pose
+>1568	MemberAccess	p . z
+>1569	Identifier	z
+>1570	Identifier	p
+>1571	ExpressionStatement	 
+>1572	AssignmentExpr	p . y = pose . translation ( ) ( 1 )
+>1573	CallExpression	pose . translation ( ) ( 1 )
+>1574	ArgumentList	1
+>1575	Argument	1
+>1576	PrimaryExpression	1
+>1577	Callee	pose . translation ( )
+>1578	CallExpression	pose . translation ( )
+>1579	ArgumentList	 
+>1580	Callee	pose . translation
+>1581	MemberAccess	pose . translation
+>1582	Identifier	translation
+>1583	Identifier	pose
+>1584	MemberAccess	p . y
+>1585	Identifier	y
+>1586	Identifier	p
+>1587	ExpressionStatement	 
+>1588	AssignmentExpr	p . x = pose . translation ( ) ( 0 )
+>1589	CallExpression	pose . translation ( ) ( 0 )
+>1590	ArgumentList	0
+>1591	Argument	0
+>1592	PrimaryExpression	0
+>1593	Callee	pose . translation ( )
+>1594	CallExpression	pose . translation ( )
+>1595	ArgumentList	 
+>1596	Callee	pose . translation
+>1597	MemberAccess	pose . translation
+>1598	Identifier	translation
+>1599	Identifier	pose
+>1600	MemberAccess	p . x
+>1601	Identifier	x
+>1602	Identifier	p
+>1603	IdentifierDeclStatement	 
+>1604	IdentifierDecl	p
+>1605	Identifier	p
+>1606	IdentifierDeclType	geometry_msgs 
+>1607	ExpressionStatement	 
+>1608	CallExpression	updateMarkerColor ( )
+>1609	ArgumentList	 
+>1610	Callee	updateMarkerColor
+>1611	Identifier	updateMarkerColor
+>1637	FunctionDef	createTrajectoryMarker (std 
+>1638	ParameterList	std 
+>1639	Parameter	 
+>1640	Identifier	marker
+>1641	ParameterType	visualization_msgs 
+>1642	Parameter	 
+>1643	Identifier	name
+>1644	ParameterType	std 
+>1645	ReturnType	void
+>1646	CompoundStatement	 
+>1647	ExpressionStatement	 
+>1648	CallExpression	marker . controls . push_back ( control )
+>1649	ArgumentList	control
+>1650	Argument	control
+>1651	Identifier	control
+>1652	Callee	marker . controls . push_back
+>1653	MemberAccess	marker . controls . push_back
+>1654	Identifier	push_back
+>1655	MemberAccess	marker . controls
+>1656	Identifier	controls
+>1657	Identifier	marker
+>1658	ExpressionStatement	 
+>1659	AssignmentExpr	marker . name = name + std 
+>1660	AdditiveExpression	name + std 
+>1661	CallExpression	std 
+>1662	ArgumentList	\"_trajectory\"
+>1663	Argument	\"_trajectory\"
+>1664	PrimaryExpression	\"_trajectory\"
+>1665	Callee	std 
+>1666	Identifier	std 
+>1667	Identifier	name
+>1668	MemberAccess	marker . name
+>1669	Identifier	name
+>1670	Identifier	marker
+>1671	ExpressionStatement	 
+>1672	AssignmentExpr	marker . header . frame_id = \"/world\"
+>1673	PrimaryExpression	\"/world\"
+>1674	MemberAccess	marker . header . frame_id
+>1675	Identifier	frame_id
+>1676	MemberAccess	marker . header
+>1677	Identifier	header
+>1678	Identifier	marker
+>1679	ExpressionStatement	 
+>1680	CallExpression	control . markers . push_back ( m )
+>1681	ArgumentList	m
+>1682	Argument	m
+>1683	Identifier	m
+>1684	Callee	control . markers . push_back
+>1685	MemberAccess	control . markers . push_back
+>1686	Identifier	push_back
+>1687	MemberAccess	control . markers
+>1688	Identifier	markers
+>1689	Identifier	control
+>1690	ExpressionStatement	 
+>1691	AssignmentExpr	control . always_visible = true
+>1692	Identifier	true
+>1693	MemberAccess	control . always_visible
+>1694	Identifier	always_visible
+>1695	Identifier	control
+>1696	IdentifierDeclStatement	 
+>1697	IdentifierDecl	control
+>1698	Identifier	control
+>1699	IdentifierDeclType	visualization_msgs 
+>1700	ExpressionStatement	 
+>1701	AssignmentExpr	m . scale . x = 0.02
+>1702	PrimaryExpression	0.02
+>1703	MemberAccess	m . scale . x
+>1704	Identifier	x
+>1705	MemberAccess	m . scale
+>1706	Identifier	scale
+>1707	Identifier	m
+>1708	ExpressionStatement	 
+>1709	AssignmentExpr	m . color . a = 1.0f
+>1710	PrimaryExpression	1.0f
+>1711	MemberAccess	m . color . a
+>1712	Identifier	a
+>1713	MemberAccess	m . color
+>1714	Identifier	color
+>1715	Identifier	m
+>1716	ExpressionStatement	 
+>1717	AssignmentExpr	m . type = visualization_msgs 
+>1718	Identifier	visualization_msgs 
+>1719	MemberAccess	m . type
+>1720	Identifier	type
+>1721	Identifier	m
+>1722	IdentifierDeclStatement	 
+>1723	IdentifierDecl	m
+>1724	Identifier	m
+>1725	IdentifierDeclType	visualization_msgs 
+>1747	FunctionDef	updateMarkerColor ()
+>1748	ParameterList	 
+>1749	ReturnType	void
+>1750	CompoundStatement	 
+>1751	ExpressionStatement	 
+>1752	AssignmentExpr	marker_ . controls [ 0 ] . markers [ 0 ] . color . b = float ( color ( ) . b )
+>1753	CallExpression	float ( color ( ) . b )
+>1754	ArgumentList	color ( ) . b
+>1755	Argument	color ( ) . b
+>1756	MemberAccess	color ( ) . b
+>1757	Identifier	b
+>1758	CallExpression	color ( )
+>1759	ArgumentList	 
+>1760	Callee	color
+>1761	Identifier	color
+>1762	Callee	float
+>1763	Identifier	float
+>1764	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . color . b
+>1765	Identifier	b
+>1766	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . color
+>1767	Identifier	color
+>1768	ArrayIndexing	marker_ . controls [ 0 ] . markers [ 0 ]
+>1769	PrimaryExpression	0
+>1770	MemberAccess	marker_ . controls [ 0 ] . markers
+>1771	Identifier	markers
+>1772	ArrayIndexing	marker_ . controls [ 0 ]
+>1773	PrimaryExpression	0
+>1774	MemberAccess	marker_ . controls
+>1775	Identifier	controls
+>1776	Identifier	marker_
+>1777	ExpressionStatement	 
+>1778	AssignmentExpr	marker_ . controls [ 0 ] . markers [ 0 ] . color . g = float ( color ( ) . g )
+>1779	CallExpression	float ( color ( ) . g )
+>1780	ArgumentList	color ( ) . g
+>1781	Argument	color ( ) . g
+>1782	MemberAccess	color ( ) . g
+>1783	Identifier	g
+>1784	CallExpression	color ( )
+>1785	ArgumentList	 
+>1786	Callee	color
+>1787	Identifier	color
+>1788	Callee	float
+>1789	Identifier	float
+>1790	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . color . g
+>1791	Identifier	g
+>1792	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . color
+>1793	Identifier	color
+>1794	ArrayIndexing	marker_ . controls [ 0 ] . markers [ 0 ]
+>1795	PrimaryExpression	0
+>1796	MemberAccess	marker_ . controls [ 0 ] . markers
+>1797	Identifier	markers
+>1798	ArrayIndexing	marker_ . controls [ 0 ]
+>1799	PrimaryExpression	0
+>1800	MemberAccess	marker_ . controls
+>1801	Identifier	controls
+>1802	Identifier	marker_
+>1803	ExpressionStatement	 
+>1804	AssignmentExpr	marker_ . controls [ 0 ] . markers [ 0 ] . color . r = float ( color ( ) . r )
+>1805	CallExpression	float ( color ( ) . r )
+>1806	ArgumentList	color ( ) . r
+>1807	Argument	color ( ) . r
+>1808	MemberAccess	color ( ) . r
+>1809	Identifier	r
+>1810	CallExpression	color ( )
+>1811	ArgumentList	 
+>1812	Callee	color
+>1813	Identifier	color
+>1814	Callee	float
+>1815	Identifier	float
+>1816	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . color . r
+>1817	Identifier	r
+>1818	MemberAccess	marker_ . controls [ 0 ] . markers [ 0 ] . color
+>1819	Identifier	color
+>1820	ArrayIndexing	marker_ . controls [ 0 ] . markers [ 0 ]
+>1821	PrimaryExpression	0
+>1822	MemberAccess	marker_ . controls [ 0 ] . markers
+>1823	Identifier	markers
+>1824	ArrayIndexing	marker_ . controls [ 0 ]
+>1825	PrimaryExpression	0
+>1826	MemberAccess	marker_ . controls
+>1827	Identifier	controls
+>1828	Identifier	marker_
+>1854	FunctionDef	RosCameraTrajectoryVisualizerImpl (ros 
+>1855	ParameterList	ros 
+>1856	Parameter	 
+>1857	Identifier	nh
+>1858	ParameterType	ros 
+>1859	CompoundStatement	 
+>1860	ExpressionStatement	 
+>1861	AssignmentExpr	update_timer_ = nh_ . createTimer ( ros 
+>1862	CallExpression	nh_ . createTimer ( ros 
+>1863	ArgumentList	ros 
+>1864	Argument	true
+>1865	Identifier	true
+>1866	Argument	false
+>1867	Identifier	false
+>1868	Argument	this
+>1869	Identifier	this
+>1870	Argument	& RosCameraTrajectoryVisualizerImpl 
+>1871	UnaryOp	& RosCameraTrajectoryVisualizerImpl 
+>1872	Identifier	RosCameraTrajectoryVisualizerImpl 
+>1873	UnaryOperator	&
+>1874	Argument	ros 
+>1875	CallExpression	ros 
+>1876	ArgumentList	1.0
+>1877	Argument	1.0
+>1878	PrimaryExpression	1.0
+>1879	Callee	ros 
+>1880	Identifier	ros 
+>1881	Callee	nh_ . createTimer
+>1882	MemberAccess	nh_ . createTimer
+>1883	Identifier	createTimer
+>1884	Identifier	nh_
+>1885	Identifier	update_timer_
+>1886	ExpressionStatement	 
+>1887	AssignmentExpr	point_cloud_topic_ = nh_ . advertise < AsyncPointCloudBuilder 
+>1888	RelationalExpression	nh_ . advertise < AsyncPointCloudBuilder 
+>1889	RelationalExpression	AsyncPointCloudBuilder 
+>1890	Expression	\"cloud\" , 1 , true
+>1891	Expression	1 , true
+>1892	Identifier	true
+>1893	PrimaryExpression	1
+>1894	PrimaryExpression	\"cloud\"
+>1895	Identifier	AsyncPointCloudBuilder 
+>1896	MemberAccess	nh_ . advertise
+>1897	Identifier	advertise
+>1898	Identifier	nh_
+>1899	Identifier	point_cloud_topic_
+>1900	ExpressionStatement	 
+>1901	AssignmentExpr	image_topic_ = it_ . advertise ( \"image\" , 1 , true )
+>1902	CallExpression	it_ . advertise ( \"image\" , 1 , true )
+>1903	ArgumentList	\"image\"
+>1904	Argument	true
+>1905	Identifier	true
+>1906	Argument	1
+>1907	PrimaryExpression	1
+>1908	Argument	\"image\"
+>1909	PrimaryExpression	\"image\"
+>1910	Callee	it_ . advertise
+>1911	MemberAccess	it_ . advertise
+>1912	Identifier	advertise
+>1913	Identifier	it_
+>1914	Identifier	image_topic_
+>1933	FunctionDef	~RosCameraTrajectoryVisualizerImpl ()
+>1934	ParameterList	 
+>1935	CompoundStatement	 
+>1939	FunctionDef	camera (std 
+>1940	ParameterList	std 
+>1941	Parameter	 
+>1942	Identifier	name
+>1943	ParameterType	std 
+>1944	ReturnType	CameraVisualizer 
+>1945	CompoundStatement	 
+>1946	ReturnStatement	 
+>1947	PtrMemberAccess	camera -> second
+>1948	Identifier	second
+>1949	Identifier	camera
+>1950	IfStatement	if ( camera_visualizers_ . end ( ) == camera )
+>1951	CompoundStatement	 
+>1952	ExpressionStatement	 
+>1953	AssignmentExpr	camera = camera_visualizers_ . insert ( std 
+>1954	MemberAccess	camera_visualizers_ . insert ( std 
+>1955	Identifier	first
+>1956	CallExpression	camera_visualizers_ . insert ( std 
+>1957	ArgumentList	std 
+>1958	Argument	std 
+>1959	CallExpression	std 
+>1960	ArgumentList	name
+>1961	Argument	CameraVisualizer 
+>1962	CallExpression	CameraVisualizer 
+>1963	ArgumentList	name , marker_server_ , image_topic_ , point_cloud_aggregator_
+>1964	Argument	name , marker_server_ , image_topic_ , point_cloud_aggregator_
+>1965	Expression	name , marker_server_ , image_topic_ , point_cloud_aggregator_
+>1966	Expression	marker_server_ , image_topic_ , point_cloud_aggregator_
+>1967	Expression	image_topic_ , point_cloud_aggregator_
+>1968	Identifier	point_cloud_aggregator_
+>1969	Identifier	image_topic_
+>1970	Identifier	marker_server_
+>1971	Identifier	name
+>1972	Callee	CameraVisualizer 
+>1973	Identifier	CameraVisualizer 
+>1974	Argument	name
+>1975	Identifier	name
+>1976	Callee	std 
+>1977	Identifier	std 
+>1978	Callee	camera_visualizers_ . insert
+>1979	MemberAccess	camera_visualizers_ . insert
+>1980	Identifier	insert
+>1981	Identifier	camera_visualizers_
+>1982	Identifier	camera
+>1983	Condition	 
+>1984	EqualityExpression	camera_visualizers_ . end ( ) == camera
+>1985	Identifier	camera
+>1986	CallExpression	camera_visualizers_ . end ( )
+>1987	ArgumentList	 
+>1988	Callee	camera_visualizers_ . end
+>1989	MemberAccess	camera_visualizers_ . end
+>1990	Identifier	end
+>1991	Identifier	camera_visualizers_
+>1992	IdentifierDeclStatement	 
+>1993	IdentifierDecl	camera = camera_visualizers_ . find ( name )
+>1994	AssignmentExpr	camera = camera_visualizers_ . find ( name )
+>1995	CallExpression	camera_visualizers_ . find ( name )
+>1996	ArgumentList	name
+>1997	Argument	name
+>1998	Identifier	name
+>1999	Callee	camera_visualizers_ . find
+>2000	MemberAccess	camera_visualizers_ . find
+>2001	Identifier	find
+>2002	Identifier	camera_visualizers_
+>2003	Identifier	camera
+>2004	Identifier	camera
+>2005	IdentifierDeclType	CameraVisualizerMap 
+>2023	FunctionDef	trajectory (std 
+>2024	ParameterList	std 
+>2025	Parameter	 
+>2026	Identifier	name
+>2027	ParameterType	std 
+>2028	ReturnType	TrajectoryVisualizer 
+>2029	CompoundStatement	 
+>2030	ReturnStatement	 
+>2031	PtrMemberAccess	trajectory -> second
+>2032	Identifier	second
+>2033	Identifier	trajectory
+>2034	IfStatement	if ( trajectory_visualizers_ . end ( ) == trajectory )
+>2035	CompoundStatement	 
+>2036	ExpressionStatement	 
+>2037	AssignmentExpr	trajectory = trajectory_visualizers_ . insert ( std 
+>2038	MemberAccess	trajectory_visualizers_ . insert ( std 
+>2039	Identifier	first
+>2040	CallExpression	trajectory_visualizers_ . insert ( std 
+>2041	ArgumentList	std 
+>2042	Argument	std 
+>2043	CallExpression	std 
+>2044	ArgumentList	name
+>2045	Argument	TrajectoryVisualizer 
+>2046	CallExpression	TrajectoryVisualizer 
+>2047	ArgumentList	name , marker_server_
+>2048	Argument	name , marker_server_
+>2049	Expression	name , marker_server_
+>2050	Identifier	marker_server_
+>2051	Identifier	name
+>2052	Callee	TrajectoryVisualizer 
+>2053	Identifier	TrajectoryVisualizer 
+>2054	Argument	name
+>2055	Identifier	name
+>2056	Callee	std 
+>2057	Identifier	std 
+>2058	Callee	trajectory_visualizers_ . insert
+>2059	MemberAccess	trajectory_visualizers_ . insert
+>2060	Identifier	insert
+>2061	Identifier	trajectory_visualizers_
+>2062	Identifier	trajectory
+>2063	Condition	 
+>2064	EqualityExpression	trajectory_visualizers_ . end ( ) == trajectory
+>2065	Identifier	trajectory
+>2066	CallExpression	trajectory_visualizers_ . end ( )
+>2067	ArgumentList	 
+>2068	Callee	trajectory_visualizers_ . end
+>2069	MemberAccess	trajectory_visualizers_ . end
+>2070	Identifier	end
+>2071	Identifier	trajectory_visualizers_
+>2072	IdentifierDeclStatement	 
+>2073	IdentifierDecl	trajectory = trajectory_visualizers_ . find ( name )
+>2074	AssignmentExpr	trajectory = trajectory_visualizers_ . find ( name )
+>2075	CallExpression	trajectory_visualizers_ . find ( name )
+>2076	ArgumentList	name
+>2077	Argument	name
+>2078	Identifier	name
+>2079	Callee	trajectory_visualizers_ . find
+>2080	MemberAccess	trajectory_visualizers_ . find
+>2081	Identifier	find
+>2082	Identifier	trajectory_visualizers_
+>2083	Identifier	trajectory
+>2084	Identifier	trajectory
+>2085	IdentifierDeclType	TrajectoryVisualizerMap 
+>2101	FunctionDef	reset ()
+>2102	ParameterList	 
+>2103	ReturnType	void
+>2104	CompoundStatement	 
+>2105	ExpressionStatement	 
+>2106	CallExpression	marker_server_ . applyChanges ( )
+>2107	ArgumentList	 
+>2108	Callee	marker_server_ . applyChanges
+>2109	MemberAccess	marker_server_ . applyChanges
+>2110	Identifier	applyChanges
+>2111	Identifier	marker_server_
+>2112	ExpressionStatement	 
+>2113	CallExpression	trajectory_visualizers_ . clear ( )
+>2114	ArgumentList	 
+>2115	Callee	trajectory_visualizers_ . clear
+>2116	MemberAccess	trajectory_visualizers_ . clear
+>2117	Identifier	clear
+>2118	Identifier	trajectory_visualizers_
+>2119	ExpressionStatement	 
+>2120	CallExpression	camera_visualizers_ . clear ( )
+>2121	ArgumentList	 
+>2122	Callee	camera_visualizers_ . clear
+>2123	MemberAccess	camera_visualizers_ . clear
+>2124	Identifier	clear
+>2125	Identifier	camera_visualizers_
+>2132	FunctionDef	native ()
+>2133	ParameterList	 
+>2134	ReturnType	interactive_markers 
+>2135	CompoundStatement	 
+>2136	ReturnStatement	 
+>2137	UnaryOp	& marker_server_
+>2138	Identifier	marker_server_
+>2139	UnaryOperator	&
+>2162	FunctionDef	update (const ros 
+>2163	ParameterList	const ros 
+>2164	Parameter	 
+>2165	Identifier	e
+>2166	ParameterType	const ros 
+>2167	ReturnType	void
+>2168	CompoundStatement	 
+>2169	ExpressionStatement	 
+>2170	CallExpression	point_cloud_topic_ . publish ( cloud )
+>2171	ArgumentList	cloud
+>2172	Argument	cloud
+>2173	Identifier	cloud
+>2174	Callee	point_cloud_topic_ . publish
+>2175	MemberAccess	point_cloud_topic_ . publish
+>2176	Identifier	publish
+>2177	Identifier	point_cloud_topic_
+>2178	ExpressionStatement	 
+>2179	AssignmentExpr	cloud -> is_dense = true
+>2180	Identifier	true
+>2181	PtrMemberAccess	cloud -> is_dense
+>2182	Identifier	is_dense
+>2183	Identifier	cloud
+>2184	ExpressionStatement	 
+>2185	AssignmentExpr	cloud -> header . frame_id = \"/world\"
+>2186	PrimaryExpression	\"/world\"
+>2187	MemberAccess	cloud -> header . frame_id
+>2188	Identifier	frame_id
+>2189	PtrMemberAccess	cloud -> header
+>2190	Identifier	header
+>2191	Identifier	cloud
+>2192	IdentifierDeclStatement	 
+>2193	IdentifierDecl	cloud = point_cloud_aggregator_ . build ( )
+>2194	AssignmentExpr	cloud = point_cloud_aggregator_ . build ( )
+>2195	CallExpression	point_cloud_aggregator_ . build ( )
+>2196	ArgumentList	 
+>2197	Callee	point_cloud_aggregator_ . build
+>2198	MemberAccess	point_cloud_aggregator_ . build
+>2199	Identifier	build
+>2200	Identifier	point_cloud_aggregator_
+>2201	Identifier	cloud
+>2202	Identifier	cloud
+>2203	IdentifierDeclType	dvo 
+>2204	IfStatement	if ( point_cloud_topic_ . getNumSubscribers ( ) == 0 )
+>2205	ReturnStatement	 
+>2206	Condition	 
+>2207	EqualityExpression	point_cloud_topic_ . getNumSubscribers ( ) == 0
+>2208	PrimaryExpression	0
+>2209	CallExpression	point_cloud_topic_ . getNumSubscribers ( )
+>2210	ArgumentList	 
+>2211	Callee	point_cloud_topic_ . getNumSubscribers
+>2212	MemberAccess	point_cloud_topic_ . getNumSubscribers
+>2213	Identifier	getNumSubscribers
+>2214	Identifier	point_cloud_topic_
+>2229	FunctionDef	RosCameraTrajectoryVisualizer 
+>2230	ParameterList	ros 
+>2231	Parameter	 
+>2232	Identifier	nh
+>2233	ParameterType	ros 
+>2234	CompoundStatement	 
+>2239	FunctionDef	RosCameraTrajectoryVisualizer 
+>2240	ParameterList	 
+>2241	CompoundStatement	 
+>2242	ExpressionStatement	 
+>2243	Identifier	impl_
+>2244	Statement	 
+>2248	FunctionDef	RosCameraTrajectoryVisualizer 
+>2249	ParameterList	std 
+>2250	Parameter	 
+>2251	Identifier	name
+>2252	ParameterType	std 
+>2253	ReturnType	dvo 
+>2254	CompoundStatement	 
+>2255	ReturnStatement	 
+>2256	CallExpression	impl_ -> camera ( name )
+>2257	ArgumentList	name
+>2258	Argument	name
+>2259	Identifier	name
+>2260	Callee	impl_ -> camera
+>2261	PtrMemberAccess	impl_ -> camera
+>2262	Identifier	camera
+>2263	Identifier	impl_
+>2271	FunctionDef	RosCameraTrajectoryVisualizer 
+>2272	ParameterList	std 
+>2273	Parameter	 
+>2274	Identifier	name
+>2275	ParameterType	std 
+>2276	ReturnType	dvo 
+>2277	CompoundStatement	 
+>2278	ReturnStatement	 
+>2279	CallExpression	impl_ -> trajectory ( name )
+>2280	ArgumentList	name
+>2281	Argument	name
+>2282	Identifier	name
+>2283	Callee	impl_ -> trajectory
+>2284	PtrMemberAccess	impl_ -> trajectory
+>2285	Identifier	trajectory
+>2286	Identifier	impl_
+>2294	FunctionDef	RosCameraTrajectoryVisualizer 
+>2295	ParameterList	 
+>2296	ReturnType	void
+>2297	CompoundStatement	 
+>2298	ExpressionStatement	 
+>2299	CallExpression	impl_ -> reset ( )
+>2300	ArgumentList	 
+>2301	Callee	impl_ -> reset
+>2302	PtrMemberAccess	impl_ -> reset
+>2303	Identifier	reset
+>2304	Identifier	impl_
+>2309	FunctionDef	RosCameraTrajectoryVisualizer 
+>2310	ParameterList	void * & native_visualizer
+>2311	Parameter	 
+>2312	Identifier	native_visualizer
+>2313	ParameterType	void * &
+>2314	ReturnType	bool
+>2315	CompoundStatement	 
+>2316	ReturnStatement	 
+>2317	Identifier	true
+>2318	ExpressionStatement	 
+>2319	AssignmentExpr	native_visualizer = impl_ -> native ( )
+>2320	CallExpression	impl_ -> native ( )
+>2321	ArgumentList	 
+>2322	Callee	impl_ -> native
+>2323	PtrMemberAccess	impl_ -> native
+>2324	Identifier	native
+>2325	Identifier	impl_
+>2326	Identifier	native_visualizer
+<4=18,5
+<5=15,12,9,6
+<6=8,7
+<9=11,10
+<12=14,13
+<15=17,16
+<18=41,34,19
+<19=20
+<20=33,21
+<21=31,22
+<22=27,25,23
+<23=24
+<25=26
+<27=28
+<28=30,29
+<31=32
+<34=35
+<35=39,36
+<36=37
+<37=38
+<39=40
+<41=42
+<42=44,43
+<59=61,60
+<61=74,62
+<62=63
+<63=70,64
+<64=65
+<65=66
+<66=68,67
+<68=69
+<70=71
+<71=73,72
+<74=75
+<75=82,76
+<76=77
+<77=78
+<78=80,79
+<80=81
+<82=83
+<83=85,84
+<92=95,94,93
+<95=96
+<96=97
+<97=101,98
+<98=99
+<99=100
+<101=102
+<107=113,112,108
+<108=109
+<109=111,110
+<113=118,114
+<114=115
+<115=117,116
+<118=119
+<119=121,120
+<129=138,137,130
+<130=134,131
+<131=133,132
+<134=136,135
+<138=213,209,154,143,139
+<139=140
+<140=142,141
+<143=144
+<144=150,145
+<145=146
+<146=147
+<147=149,148
+<150=151
+<151=153,152
+<154=189,170,155
+<155=156
+<156=157
+<157=158
+<158=166,159
+<159=164,160
+<160=161
+<161=163,162
+<164=165
+<166=167
+<167=169,168
+<170=182,171
+<171=172
+<172=178,173
+<173=176,174
+<174=175
+<176=177
+<178=179
+<179=181,180
+<182=183
+<183=187,184
+<184=185
+<185=186
+<187=188
+<189=190
+<190=197,191
+<191=195,192
+<192=193
+<193=194
+<195=196
+<197=208,198
+<198=204,199
+<199=202,200
+<200=201
+<202=203
+<204=205
+<205=207,206
+<209=210
+<210=212,211
+<213=214
+<214=222,215
+<215=220,216
+<216=217
+<217=219,218
+<220=221
+<222=223
+<258=264,263,259
+<259=260
+<260=262,261
+<264=265
+<265=343,266
+<266=339,324,318,314,299,290,276,267
+<267=268
+<268=274,269
+<269=270
+<270=271
+<271=273,272
+<274=275
+<276=277
+<277=286,278
+<278=279
+<279=280
+<280=282,281
+<282=283
+<283=285,284
+<286=287
+<287=289,288
+<290=291
+<291=298,297,292
+<292=296,293
+<293=295,294
+<299=300
+<300=306,301
+<301=304,302
+<302=303
+<304=305
+<306=307
+<307=309,308
+<309=311,310
+<311=313,312
+<314=315
+<315=317,316
+<318=319
+<319=321,320
+<321=323,322
+<324=325
+<325=336,326
+<326=334,327
+<327=328
+<328=329
+<329=331,330
+<331=333,332
+<334=335
+<336=338,337
+<339=340
+<340=342,341
+<343=344
+<344=346,345
+<346=348,347
+<373=376,375,374
+<376=384,377
+<377=378
+<378=380,379
+<380=381
+<381=383,382
+<384=451,385
+<385=449,426,425,423,411,410,408,399,387,386
+<387=388
+<388=395,389
+<389=390
+<390=391
+<391=393,392
+<393=394
+<395=396
+<396=398,397
+<399=400
+<400=404,401
+<401=402
+<402=403
+<404=405
+<405=407,406
+<408=409
+<411=412
+<412=419,413
+<413=414
+<414=415
+<415=417,416
+<417=418
+<419=420
+<420=422,421
+<423=424
+<426=427
+<427=445,428
+<428=440,429
+<429=430
+<430=438,431
+<431=434,432
+<432=433
+<434=435
+<435=437,436
+<438=439
+<440=441
+<441=443,442
+<443=444
+<445=446
+<446=448,447
+<449=450
+<451=452
+<464=470,469,465
+<465=466
+<466=468,467
+<470=471
+<471=472
+<472=528,473
+<473=501,474
+<474=476,475
+<476=499,477
+<477=478
+<478=479
+<479=486,480
+<480=482,481
+<482=484,483
+<484=485
+<486=488,487
+<488=490,489
+<490=492,491
+<492=494,493
+<494=496,495
+<496=498,497
+<499=500
+<501=503,502
+<503=526,504
+<504=505
+<505=506
+<506=513,507
+<507=509,508
+<509=511,510
+<511=512
+<513=515,514
+<515=517,516
+<517=519,518
+<519=521,520
+<521=523,522
+<523=525,524
+<526=527
+<528=530,529
+<530=553,531
+<531=532
+<532=533
+<533=540,534
+<534=536,535
+<536=538,537
+<538=539
+<540=542,541
+<542=544,543
+<544=546,545
+<546=548,547
+<548=550,549
+<550=552,551
+<553=554
+<575=581,580,576
+<576=577
+<577=579,578
+<581=626,620,614,607,601,593,582
+<582=583
+<583=587,584
+<584=585
+<585=586
+<587=588
+<588=590,589
+<590=592,591
+<593=594
+<594=596,595
+<596=598,597
+<598=600,599
+<601=602
+<602=604,603
+<604=606,605
+<607=608
+<608=612,609
+<609=610
+<610=611
+<612=613
+<614=615
+<615=617,616
+<617=619,618
+<620=621
+<621=623,622
+<623=625,624
+<626=627
+<627=629,628
+<644=650,649,645
+<645=646
+<646=648,647
+<650=1336,1330,1322,1314,1308,1300,1290,1286,1280,1276,1268,1260,1252,1238,1234,1228,1222,1216,1205,1197,1191,1180,1169,1161,1153,1142,1131,1125,1117,1106,1095,1089,1083,1072,1066,1060,651,662,673,679,687,693,704,710,718,724,735,741,749,757,768,774,782,790,801,807,813,821,832,838,844,852,863,869,875,881,892,898,904,910,921,927,933,944,955,963,969,980,991,999,1007,1018,1029,1035,1043,1054
+<651=652
+<652=656,653
+<653=654
+<654=655
+<656=657
+<657=659,658
+<659=661,660
+<662=663
+<663=667,664
+<664=665
+<665=666
+<667=668
+<668=670,669
+<670=672,671
+<673=674
+<674=676,675
+<676=678,677
+<679=680
+<680=684,681
+<681=683,682
+<684=686,685
+<687=688
+<688=690,689
+<690=692,691
+<693=694
+<694=698,695
+<695=696
+<696=697
+<698=699
+<699=701,700
+<701=703,702
+<704=705
+<705=707,706
+<707=709,708
+<710=711
+<711=715,712
+<712=714,713
+<715=717,716
+<718=719
+<719=721,720
+<721=723,722
+<724=725
+<725=729,726
+<726=727
+<727=728
+<729=730
+<730=732,731
+<732=734,733
+<735=736
+<736=738,737
+<738=740,739
+<741=742
+<742=746,743
+<743=745,744
+<746=748,747
+<749=750
+<750=754,751
+<751=753,752
+<754=756,755
+<757=758
+<758=762,759
+<759=760
+<760=761
+<762=763
+<763=765,764
+<765=767,766
+<768=769
+<769=771,770
+<771=773,772
+<774=775
+<775=779,776
+<776=778,777
+<779=781,780
+<782=783
+<783=787,784
+<784=786,785
+<787=789,788
+<790=791
+<791=795,792
+<792=793
+<793=794
+<795=796
+<796=798,797
+<798=800,799
+<801=802
+<802=804,803
+<804=806,805
+<807=808
+<808=810,809
+<810=812,811
+<813=814
+<814=818,815
+<815=817,816
+<818=820,819
+<821=822
+<822=826,823
+<823=824
+<824=825
+<826=827
+<827=829,828
+<829=831,830
+<832=833
+<833=835,834
+<835=837,836
+<838=839
+<839=841,840
+<841=843,842
+<844=845
+<845=849,846
+<846=848,847
+<849=851,850
+<852=853
+<853=857,854
+<854=855
+<855=856
+<857=858
+<858=860,859
+<860=862,861
+<863=864
+<864=866,865
+<866=868,867
+<869=870
+<870=872,871
+<872=874,873
+<875=876
+<876=878,877
+<878=880,879
+<881=882
+<882=886,883
+<883=884
+<884=885
+<886=887
+<887=889,888
+<889=891,890
+<892=893
+<893=895,894
+<895=897,896
+<898=899
+<899=901,900
+<901=903,902
+<904=905
+<905=907,906
+<907=909,908
+<910=911
+<911=915,912
+<912=913
+<913=914
+<915=916
+<916=918,917
+<918=920,919
+<921=922
+<922=924,923
+<924=926,925
+<927=928
+<928=930,929
+<930=932,931
+<933=934
+<934=938,935
+<935=936
+<936=937
+<938=939
+<939=941,940
+<941=943,942
+<944=945
+<945=949,946
+<946=947
+<947=948
+<949=950
+<950=952,951
+<952=954,953
+<955=956
+<956=960,957
+<957=959,958
+<960=962,961
+<963=964
+<964=966,965
+<966=968,967
+<969=970
+<970=974,971
+<971=972
+<972=973
+<974=975
+<975=977,976
+<977=979,978
+<980=981
+<981=985,982
+<982=983
+<983=984
+<985=986
+<986=988,987
+<988=990,989
+<991=992
+<992=996,993
+<993=995,994
+<996=998,997
+<999=1000
+<1000=1004,1001
+<1001=1003,1002
+<1004=1006,1005
+<1007=1008
+<1008=1012,1009
+<1009=1010
+<1010=1011
+<1012=1013
+<1013=1015,1014
+<1015=1017,1016
+<1018=1019
+<1019=1023,1020
+<1020=1021
+<1021=1022
+<1023=1024
+<1024=1026,1025
+<1026=1028,1027
+<1029=1030
+<1030=1032,1031
+<1032=1034,1033
+<1035=1036
+<1036=1040,1037
+<1037=1039,1038
+<1040=1042,1041
+<1043=1044
+<1044=1048,1045
+<1045=1046
+<1046=1047
+<1048=1049
+<1049=1051,1050
+<1051=1053,1052
+<1054=1055
+<1055=1057,1056
+<1057=1059,1058
+<1060=1061
+<1061=1063,1062
+<1063=1065,1064
+<1066=1067
+<1067=1069,1068
+<1069=1071,1070
+<1072=1073
+<1073=1077,1074
+<1074=1075
+<1075=1076
+<1077=1078
+<1078=1080,1079
+<1080=1082,1081
+<1083=1084
+<1084=1086,1085
+<1086=1088,1087
+<1089=1090
+<1090=1092,1091
+<1092=1094,1093
+<1095=1096
+<1096=1100,1097
+<1097=1098
+<1098=1099
+<1100=1101
+<1101=1103,1102
+<1103=1105,1104
+<1106=1107
+<1107=1111,1108
+<1108=1109
+<1109=1110
+<1111=1112
+<1112=1114,1113
+<1114=1116,1115
+<1117=1118
+<1118=1122,1119
+<1119=1121,1120
+<1122=1124,1123
+<1125=1126
+<1126=1128,1127
+<1128=1130,1129
+<1131=1132
+<1132=1136,1133
+<1133=1134
+<1134=1135
+<1136=1137
+<1137=1139,1138
+<1139=1141,1140
+<1142=1143
+<1143=1147,1144
+<1144=1145
+<1145=1146
+<1147=1148
+<1148=1150,1149
+<1150=1152,1151
+<1153=1154
+<1154=1158,1155
+<1155=1157,1156
+<1158=1160,1159
+<1161=1162
+<1162=1166,1163
+<1163=1165,1164
+<1166=1168,1167
+<1169=1170
+<1170=1174,1171
+<1171=1172
+<1172=1173
+<1174=1175
+<1175=1177,1176
+<1177=1179,1178
+<1180=1181
+<1181=1185,1182
+<1182=1183
+<1183=1184
+<1185=1186
+<1186=1188,1187
+<1188=1190,1189
+<1191=1192
+<1192=1194,1193
+<1194=1196,1195
+<1197=1198
+<1198=1202,1199
+<1199=1201,1200
+<1202=1204,1203
+<1205=1206
+<1206=1210,1207
+<1207=1208
+<1208=1209
+<1210=1211
+<1211=1213,1212
+<1213=1215,1214
+<1216=1217
+<1217=1219,1218
+<1219=1221,1220
+<1222=1223
+<1223=1225,1224
+<1225=1227,1226
+<1228=1229
+<1229=1231,1230
+<1231=1233,1232
+<1234=1235
+<1235=1237,1236
+<1238=1239
+<1239=1245,1240
+<1240=1242,1241
+<1242=1244,1243
+<1245=1247,1246
+<1247=1249,1248
+<1249=1251,1250
+<1252=1253
+<1253=1255,1254
+<1255=1257,1256
+<1257=1259,1258
+<1260=1261
+<1261=1263,1262
+<1263=1265,1264
+<1265=1267,1266
+<1268=1269
+<1269=1271,1270
+<1271=1273,1272
+<1273=1275,1274
+<1276=1277
+<1277=1279,1278
+<1280=1281
+<1281=1285,1282
+<1282=1284,1283
+<1286=1287
+<1287=1289,1288
+<1290=1297,1294,1291
+<1291=1293,1292
+<1294=1296,1295
+<1297=1299,1298
+<1300=1301
+<1301=1303,1302
+<1303=1305,1304
+<1305=1307,1306
+<1308=1309
+<1309=1311,1310
+<1311=1313,1312
+<1314=1315
+<1315=1317,1316
+<1317=1319,1318
+<1319=1321,1320
+<1322=1323
+<1323=1325,1324
+<1325=1327,1326
+<1327=1329,1328
+<1330=1331
+<1331=1333,1332
+<1333=1335,1334
+<1336=1340,1337
+<1337=1339,1338
+<1340=1342,1341
+<1375=1381,1380,1376
+<1376=1377
+<1377=1379,1378
+<1381=1424,1403,1382
+<1382=1383
+<1383=1390,1384
+<1384=1386,1385
+<1386=1388,1387
+<1388=1389
+<1390=1392,1391
+<1392=1394,1393
+<1394=1396,1395
+<1396=1398,1397
+<1398=1400,1399
+<1400=1402,1401
+<1403=1404
+<1404=1411,1405
+<1405=1407,1406
+<1407=1409,1408
+<1409=1410
+<1411=1413,1412
+<1413=1415,1414
+<1415=1417,1416
+<1417=1419,1418
+<1419=1421,1420
+<1421=1423,1422
+<1424=1425
+<1425=1432,1426
+<1426=1428,1427
+<1428=1430,1429
+<1430=1431
+<1432=1434,1433
+<1434=1436,1435
+<1436=1438,1437
+<1438=1440,1439
+<1440=1442,1441
+<1442=1444,1443
+<1465=1473,1466
+<1466=1470,1467
+<1467=1469,1468
+<1470=1472,1471
+<1473=1474
+<1474=1475
+<1475=1481,1476
+<1476=1479,1477
+<1477=1478
+<1479=1480
+<1481=1482
+<1489=1491,1490
+<1491=1492
+<1492=1493
+<1493=1499,1494
+<1494=1495
+<1495=1496
+<1496=1498,1497
+<1499=1500
+<1500=1502,1501
+<1509=1515,1514,1510
+<1510=1511
+<1511=1513,1512
+<1515=1607,1603,1587,1571,1555,1536,1527,1520,1516
+<1516=1517
+<1517=1519,1518
+<1520=1521
+<1521=1523,1522
+<1523=1524
+<1524=1526,1525
+<1527=1528
+<1528=1532,1529
+<1529=1530
+<1530=1531
+<1532=1533
+<1533=1535,1534
+<1536=1537
+<1537=1541,1538
+<1538=1539
+<1539=1540
+<1541=1542
+<1542=1544,1543
+<1544=1546,1545
+<1546=1548,1547
+<1548=1550,1549
+<1550=1552,1551
+<1552=1554,1553
+<1555=1556
+<1556=1568,1557
+<1557=1561,1558
+<1558=1559
+<1559=1560
+<1561=1562
+<1562=1564,1563
+<1564=1565
+<1565=1567,1566
+<1568=1570,1569
+<1571=1572
+<1572=1584,1573
+<1573=1577,1574
+<1574=1575
+<1575=1576
+<1577=1578
+<1578=1580,1579
+<1580=1581
+<1581=1583,1582
+<1584=1586,1585
+<1587=1588
+<1588=1600,1589
+<1589=1593,1590
+<1590=1591
+<1591=1592
+<1593=1594
+<1594=1596,1595
+<1596=1597
+<1597=1599,1598
+<1600=1602,1601
+<1603=1604
+<1604=1606,1605
+<1607=1608
+<1608=1610,1609
+<1610=1611
+<1637=1646,1645,1638
+<1638=1642,1639
+<1639=1641,1640
+<1642=1644,1643
+<1646=1722,1716,1708,1700,1696,1690,1679,1671,1658,1647
+<1647=1648
+<1648=1652,1649
+<1649=1650
+<1650=1651
+<1652=1653
+<1653=1655,1654
+<1655=1657,1656
+<1658=1659
+<1659=1668,1660
+<1660=1667,1661
+<1661=1665,1662
+<1662=1663
+<1663=1664
+<1665=1666
+<1668=1670,1669
+<1671=1672
+<1672=1674,1673
+<1674=1676,1675
+<1676=1678,1677
+<1679=1680
+<1680=1684,1681
+<1681=1682
+<1682=1683
+<1684=1685
+<1685=1687,1686
+<1687=1689,1688
+<1690=1691
+<1691=1693,1692
+<1693=1695,1694
+<1696=1697
+<1697=1699,1698
+<1700=1701
+<1701=1703,1702
+<1703=1705,1704
+<1705=1707,1706
+<1708=1709
+<1709=1711,1710
+<1711=1713,1712
+<1713=1715,1714
+<1716=1717
+<1717=1719,1718
+<1719=1721,1720
+<1722=1723
+<1723=1725,1724
+<1747=1750,1749,1748
+<1750=1803,1777,1751
+<1751=1752
+<1752=1764,1753
+<1753=1762,1754
+<1754=1755
+<1755=1756
+<1756=1758,1757
+<1758=1760,1759
+<1760=1761
+<1762=1763
+<1764=1766,1765
+<1766=1768,1767
+<1768=1770,1769
+<1770=1772,1771
+<1772=1774,1773
+<1774=1776,1775
+<1777=1778
+<1778=1790,1779
+<1779=1788,1780
+<1780=1781
+<1781=1782
+<1782=1784,1783
+<1784=1786,1785
+<1786=1787
+<1788=1789
+<1790=1792,1791
+<1792=1794,1793
+<1794=1796,1795
+<1796=1798,1797
+<1798=1800,1799
+<1800=1802,1801
+<1803=1804
+<1804=1816,1805
+<1805=1814,1806
+<1806=1807
+<1807=1808
+<1808=1810,1809
+<1810=1812,1811
+<1812=1813
+<1814=1815
+<1816=1818,1817
+<1818=1820,1819
+<1820=1822,1821
+<1822=1824,1823
+<1824=1826,1825
+<1826=1828,1827
+<1854=1859,1855
+<1855=1856
+<1856=1858,1857
+<1859=1900,1886,1860
+<1860=1861
+<1861=1885,1862
+<1862=1881,1863
+<1863=1874,1870,1868,1866,1864
+<1864=1865
+<1866=1867
+<1868=1869
+<1870=1871
+<1871=1873,1872
+<1874=1875
+<1875=1879,1876
+<1876=1877
+<1877=1878
+<1879=1880
+<1881=1882
+<1882=1884,1883
+<1886=1887
+<1887=1899,1888
+<1888=1896,1889
+<1889=1895,1890
+<1890=1894,1891
+<1891=1893,1892
+<1896=1898,1897
+<1900=1901
+<1901=1914,1902
+<1902=1910,1903
+<1903=1908,1906,1904
+<1904=1905
+<1906=1907
+<1908=1909
+<1910=1911
+<1911=1913,1912
+<1933=1935,1934
+<1939=1945,1944,1940
+<1940=1941
+<1941=1943,1942
+<1945=1992,1950,1946
+<1946=1947
+<1947=1949,1948
+<1950=1983,1951
+<1951=1952
+<1952=1953
+<1953=1982,1954
+<1954=1956,1955
+<1956=1978,1957
+<1957=1958
+<1958=1959
+<1959=1976,1960
+<1960=1974,1961
+<1961=1962
+<1962=1972,1963
+<1963=1964
+<1964=1965
+<1965=1971,1966
+<1966=1970,1967
+<1967=1969,1968
+<1972=1973
+<1974=1975
+<1976=1977
+<1978=1979
+<1979=1981,1980
+<1983=1984
+<1984=1986,1985
+<1986=1988,1987
+<1988=1989
+<1989=1991,1990
+<1992=1993
+<1993=2005,2004,1994
+<1994=2003,1995
+<1995=1999,1996
+<1996=1997
+<1997=1998
+<1999=2000
+<2000=2002,2001
+<2023=2029,2028,2024
+<2024=2025
+<2025=2027,2026
+<2029=2072,2034,2030
+<2030=2031
+<2031=2033,2032
+<2034=2063,2035
+<2035=2036
+<2036=2037
+<2037=2062,2038
+<2038=2040,2039
+<2040=2058,2041
+<2041=2042
+<2042=2043
+<2043=2056,2044
+<2044=2054,2045
+<2045=2046
+<2046=2052,2047
+<2047=2048
+<2048=2049
+<2049=2051,2050
+<2052=2053
+<2054=2055
+<2056=2057
+<2058=2059
+<2059=2061,2060
+<2063=2064
+<2064=2066,2065
+<2066=2068,2067
+<2068=2069
+<2069=2071,2070
+<2072=2073
+<2073=2085,2084,2074
+<2074=2083,2075
+<2075=2079,2076
+<2076=2077
+<2077=2078
+<2079=2080
+<2080=2082,2081
+<2101=2104,2103,2102
+<2104=2119,2112,2105
+<2105=2106
+<2106=2108,2107
+<2108=2109
+<2109=2111,2110
+<2112=2113
+<2113=2115,2114
+<2115=2116
+<2116=2118,2117
+<2119=2120
+<2120=2122,2121
+<2122=2123
+<2123=2125,2124
+<2132=2135,2134,2133
+<2135=2136
+<2136=2137
+<2137=2139,2138
+<2162=2168,2167,2163
+<2163=2164
+<2164=2166,2165
+<2168=2204,2192,2184,2178,2169
+<2169=2170
+<2170=2174,2171
+<2171=2172
+<2172=2173
+<2174=2175
+<2175=2177,2176
+<2178=2179
+<2179=2181,2180
+<2181=2183,2182
+<2184=2185
+<2185=2187,2186
+<2187=2189,2188
+<2189=2191,2190
+<2192=2193
+<2193=2203,2202,2194
+<2194=2201,2195
+<2195=2197,2196
+<2197=2198
+<2198=2200,2199
+<2204=2206,2205
+<2206=2207
+<2207=2209,2208
+<2209=2211,2210
+<2211=2212
+<2212=2214,2213
+<2229=2234,2230
+<2230=2231
+<2231=2233,2232
+<2239=2241,2240
+<2241=2244,2242
+<2242=2243
+<2248=2254,2253,2249
+<2249=2250
+<2250=2252,2251
+<2254=2255
+<2255=2256
+<2256=2260,2257
+<2257=2258
+<2258=2259
+<2260=2261
+<2261=2263,2262
+<2271=2277,2276,2272
+<2272=2273
+<2273=2275,2274
+<2277=2278
+<2278=2279
+<2279=2283,2280
+<2280=2281
+<2281=2282
+<2283=2284
+<2284=2286,2285
+<2294=2297,2296,2295
+<2297=2298
+<2298=2299
+<2299=2301,2300
+<2301=2302
+<2302=2304,2303
+<2309=2315,2314,2310
+<2310=2311
+<2311=2313,2312
+<2315=2318,2316
+<2316=2317
+<2318=2319
+<2319=2326,2320
+<2320=2322,2321
+<2322=2323
+<2323=2325,2324

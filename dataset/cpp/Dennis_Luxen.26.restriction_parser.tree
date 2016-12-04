@@ -1,0 +1,1293 @@
+>3	FunctionDef	lua_error_callback (lua_State * lua_state)
+>4	ParameterList	lua_State * lua_state
+>5	Parameter	 
+>6	Identifier	lua_state
+>7	ParameterType	lua_State *
+>8	ReturnType	int
+>9	CompoundStatement	 
+>10	ExpressionStatement	 
+>11	CallExpression	osrm 
+>12	ArgumentList	\"ERROR occured in profile script
+>13	Argument	\"ERROR occured in profile script
+>14	AdditiveExpression	\"ERROR occured in profile script
+>15	CallExpression	error_stream . str ( )
+>16	ArgumentList	 
+>17	Callee	error_stream . str
+>18	MemberAccess	error_stream . str
+>19	Identifier	str
+>20	Identifier	error_stream
+>21	PrimaryExpression	\"ERROR occured in profile script
+>22	Callee	osrm 
+>23	Identifier	osrm 
+>24	Statement	 
+>25	ExpressionStatement	 
+>26	ShiftExpression	error_stream << error_msg
+>27	Identifier	error_msg
+>28	Identifier	error_stream
+>29	IdentifierDeclStatement	 
+>30	IdentifierDecl	error_stream
+>31	Identifier	error_stream
+>32	IdentifierDeclType	std 
+>33	IdentifierDeclStatement	 
+>34	IdentifierDecl	error_msg = lua_tostring ( lua_state , - 1 )
+>35	AssignmentExpr	error_msg = lua_tostring ( lua_state , - 1 )
+>36	CallExpression	lua_tostring ( lua_state , - 1 )
+>37	ArgumentList	lua_state
+>38	Argument	- 1
+>39	UnaryOp	- 1
+>40	PrimaryExpression	1
+>41	UnaryOperator	-
+>42	Argument	lua_state
+>43	Identifier	lua_state
+>44	Callee	lua_tostring
+>45	Identifier	lua_tostring
+>46	Identifier	error_msg
+>47	Identifier	error_msg
+>48	IdentifierDeclType	std 
+>57	FunctionDef	RestrictionParser 
+>58	ParameterList	lua_State * lua_state
+>59	Parameter	 
+>60	Identifier	lua_state
+>61	ParameterType	lua_State *
+>62	CompoundStatement	 
+>63	IfStatement	if ( use_turn_restrictions )
+>64	CompoundStatement	 
+>65	ExpressionStatement	 
+>66	CallExpression	ReadRestrictionExceptions ( lua_state )
+>67	ArgumentList	lua_state
+>68	Argument	lua_state
+>69	Identifier	lua_state
+>70	Callee	ReadRestrictionExceptions
+>71	Identifier	ReadRestrictionExceptions
+>72	Condition	 
+>73	Identifier	use_turn_restrictions
+>74	ExpressionStatement	 
+>75	CallExpression	ReadUseRestrictionsSetting ( lua_state )
+>76	ArgumentList	lua_state
+>77	Argument	lua_state
+>78	Identifier	lua_state
+>79	Callee	ReadUseRestrictionsSetting
+>80	Identifier	ReadUseRestrictionsSetting
+>86	FunctionDef	RestrictionParser 
+>87	ParameterList	lua_State * lua_state
+>88	Parameter	 
+>89	Identifier	lua_state
+>90	ParameterType	lua_State *
+>91	ReturnType	void
+>92	CompoundStatement	 
+>93	IfStatement	if ( use_turn_restrictions )
+>94	ElseStatement	else
+>95	CompoundStatement	 
+>96	ExpressionStatement	 
+>97	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Ignoring turn restrictions\"
+>98	PrimaryExpression	\"Ignoring turn restrictions\"
+>99	CallExpression	SimpleLogger ( ) . Write ( )
+>100	ArgumentList	 
+>101	Callee	SimpleLogger ( ) . Write
+>102	MemberAccess	SimpleLogger ( ) . Write
+>103	Identifier	Write
+>104	CallExpression	SimpleLogger ( )
+>105	ArgumentList	 
+>106	Callee	SimpleLogger
+>107	Identifier	SimpleLogger
+>108	CompoundStatement	 
+>109	ExpressionStatement	 
+>110	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Using turn restrictions\"
+>111	PrimaryExpression	\"Using turn restrictions\"
+>112	CallExpression	SimpleLogger ( ) . Write ( )
+>113	ArgumentList	 
+>114	Callee	SimpleLogger ( ) . Write
+>115	MemberAccess	SimpleLogger ( ) . Write
+>116	Identifier	Write
+>117	CallExpression	SimpleLogger ( )
+>118	ArgumentList	 
+>119	Callee	SimpleLogger
+>120	Identifier	SimpleLogger
+>121	Condition	 
+>122	Identifier	use_turn_restrictions
+>123	IfStatement	if ( 0 == luaL_dostring ( lua_state , \"return use_turn_restrictions\n\" ) && lua_isboolean ( lua_state , - 1 ) )
+>124	CompoundStatement	 
+>125	ExpressionStatement	 
+>126	AssignmentExpr	use_turn_restrictions = lua_toboolean ( lua_state , - 1 )
+>127	CallExpression	lua_toboolean ( lua_state , - 1 )
+>128	ArgumentList	lua_state
+>129	Argument	- 1
+>130	UnaryOp	- 1
+>131	PrimaryExpression	1
+>132	UnaryOperator	-
+>133	Argument	lua_state
+>134	Identifier	lua_state
+>135	Callee	lua_toboolean
+>136	Identifier	lua_toboolean
+>137	Identifier	use_turn_restrictions
+>138	Condition	 
+>139	AndExpression	0 == luaL_dostring ( lua_state , \"return use_turn_restrictions\n\" ) && lua_isboolean ( lua_state , - \
+>140	CallExpression	lua_isboolean ( lua_state , - 1 )
+>141	ArgumentList	lua_state
+>142	Argument	- 1
+>143	UnaryOp	- 1
+>144	PrimaryExpression	1
+>145	UnaryOperator	-
+>146	Argument	lua_state
+>147	Identifier	lua_state
+>148	Callee	lua_isboolean
+>149	Identifier	lua_isboolean
+>150	EqualityExpression	0 == luaL_dostring ( lua_state , \"return use_turn_restrictions\n\" )
+>151	CallExpression	luaL_dostring ( lua_state , \"return use_turn_restrictions\n\" )
+>152	ArgumentList	lua_state
+>153	Argument	\"return use_turn_restrictions\n\"
+>154	PrimaryExpression	\"return use_turn_restrictions\n\"
+>155	Argument	lua_state
+>156	Identifier	lua_state
+>157	Callee	luaL_dostring
+>158	Identifier	luaL_dostring
+>159	PrimaryExpression	0
+>169	FunctionDef	RestrictionParser 
+>170	ParameterList	lua_State * lua_state
+>171	Parameter	 
+>172	Identifier	lua_state
+>173	ParameterType	lua_State *
+>174	ReturnType	void
+>175	CompoundStatement	 
+>176	IfStatement	if ( lua_function_exists ( lua_state , \"get_exceptions\" ) )
+>177	ElseStatement	else
+>178	CompoundStatement	 
+>179	ExpressionStatement	 
+>180	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Found no exceptions to turn restrictions\"
+>181	PrimaryExpression	\"Found no exceptions to turn restrictions\"
+>182	CallExpression	SimpleLogger ( ) . Write ( )
+>183	ArgumentList	 
+>184	Callee	SimpleLogger ( ) . Write
+>185	MemberAccess	SimpleLogger ( ) . Write
+>186	Identifier	Write
+>187	CallExpression	SimpleLogger ( )
+>188	ArgumentList	 
+>189	Callee	SimpleLogger
+>190	Identifier	SimpleLogger
+>191	CompoundStatement	 
+>192	CompoundStatement	 
+>193	ExpressionStatement	 
+>194	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"  \" << str
+>195	ShiftExpression	\"  \" << str
+>196	Identifier	str
+>197	PrimaryExpression	\"  \"
+>198	CallExpression	SimpleLogger ( ) . Write ( )
+>199	ArgumentList	 
+>200	Callee	SimpleLogger ( ) . Write
+>201	MemberAccess	SimpleLogger ( ) . Write
+>202	Identifier	Write
+>203	CallExpression	SimpleLogger ( )
+>204	ArgumentList	 
+>205	Callee	SimpleLogger
+>206	Identifier	SimpleLogger
+>207	Statement	 
+>208	Statement	 
+>209	Label	 
+>210	Identifier	str
+>211	Statement	 
+>212	Statement	 
+>213	Statement	 
+>214	Statement	 
+>215	Statement	 
+>216	Statement	 
+>217	Statement	 
+>218	ExpressionStatement	 
+>219	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"Found \" << exception_count << \" exceptions to turn restrictions
+>220	ShiftExpression	\"Found \" << exception_count << \" exceptions to turn restrictions
+>221	ShiftExpression	exception_count << \" exceptions to turn restrictions
+>222	PrimaryExpression	\" exceptions to turn restrictions
+>223	Identifier	exception_count
+>224	PrimaryExpression	\"Found \"
+>225	CallExpression	SimpleLogger ( ) . Write ( )
+>226	ArgumentList	 
+>227	Callee	SimpleLogger ( ) . Write
+>228	MemberAccess	SimpleLogger ( ) . Write
+>229	Identifier	Write
+>230	CallExpression	SimpleLogger ( )
+>231	ArgumentList	 
+>232	Callee	SimpleLogger
+>233	Identifier	SimpleLogger
+>234	IdentifierDeclStatement	 
+>235	IdentifierDecl	exception_count = restriction_exceptions . size ( )
+>236	AssignmentExpr	exception_count = restriction_exceptions . size ( )
+>237	CallExpression	restriction_exceptions . size ( )
+>238	ArgumentList	 
+>239	Callee	restriction_exceptions . size
+>240	MemberAccess	restriction_exceptions . size
+>241	Identifier	size
+>242	Identifier	restriction_exceptions
+>243	Identifier	exception_count
+>244	Identifier	exception_count
+>245	IdentifierDeclType	unsigned
+>246	Statement	 
+>247	ExpressionStatement	 
+>248	Expression	lua_state , \"get_exceptions\" , boost 
+>249	Expression	\"get_exceptions\" , boost 
+>250	CallExpression	boost 
+>251	ArgumentList	restriction_exceptions
+>252	Argument	restriction_exceptions
+>253	Identifier	restriction_exceptions
+>254	Callee	boost 
+>255	Identifier	boost 
+>256	PrimaryExpression	\"get_exceptions\"
+>257	Identifier	lua_state
+>258	Statement	 
+>259	Statement	 
+>260	Statement	 
+>261	Statement	 
+>262	Statement	 
+>263	Statement	 
+>264	ExpressionStatement	 
+>265	CallExpression	luabind 
+>266	ArgumentList	& lua_error_callback
+>267	Argument	& lua_error_callback
+>268	UnaryOp	& lua_error_callback
+>269	Identifier	lua_error_callback
+>270	UnaryOperator	&
+>271	Callee	luabind 
+>272	Identifier	luabind 
+>273	Condition	 
+>274	CallExpression	lua_function_exists ( lua_state , \"get_exceptions\" )
+>275	ArgumentList	lua_state
+>276	Argument	\"get_exceptions\"
+>277	PrimaryExpression	\"get_exceptions\"
+>278	Argument	lua_state
+>279	Identifier	lua_state
+>280	Callee	lua_function_exists
+>281	Identifier	lua_function_exists
+>292	FunctionDef	RestrictionParser 
+>293	ParameterList	const osmium 
+>294	Parameter	 
+>295	Identifier	relation
+>296	ParameterType	const osmium 
+>297	ReturnType	mapbox 
+>298	CompoundStatement	 
+>299	ReturnStatement	 
+>300	RelationalExpression	mapbox 
+>301	RelationalExpression	InputRestrictionContainer > ( restriction_container )
+>302	Identifier	restriction_container
+>303	Identifier	InputRestrictionContainer
+>304	Identifier	mapbox 
+>305	CompoundStatement	 
+>306	SwitchStatement	switch ( member . type ( ) )
+>307	CompoundStatement	 
+>308	BreakStatement	 
+>309	Label	 
+>310	Identifier	default
+>311	BreakStatement	 
+>312	Label	 
+>313	Identifier	osmium 
+>314	BreakStatement	 
+>315	IfStatement	if ( 0 == strcmp ( \"from\" , role ) )
+>316	ElseStatement	else
+>317	IfStatement	if ( 0 == strcmp ( \"to\" , role ) )
+>318	CompoundStatement	 
+>319	ExpressionStatement	 
+>320	AssignmentExpr	restriction_container . restriction . to . way = member . ref ( )
+>321	CallExpression	member . ref ( )
+>322	ArgumentList	 
+>323	Callee	member . ref
+>324	MemberAccess	member . ref
+>325	Identifier	ref
+>326	Identifier	member
+>327	MemberAccess	restriction_container . restriction . to . way
+>328	Identifier	way
+>329	MemberAccess	restriction_container . restriction . to
+>330	Identifier	to
+>331	MemberAccess	restriction_container . restriction
+>332	Identifier	restriction
+>333	Identifier	restriction_container
+>334	Condition	 
+>335	EqualityExpression	0 == strcmp ( \"to\" , role )
+>336	CallExpression	strcmp ( \"to\" , role )
+>337	ArgumentList	\"to\"
+>338	Argument	role
+>339	Identifier	role
+>340	Argument	\"to\"
+>341	PrimaryExpression	\"to\"
+>342	Callee	strcmp
+>343	Identifier	strcmp
+>344	PrimaryExpression	0
+>345	CompoundStatement	 
+>346	ExpressionStatement	 
+>347	AssignmentExpr	restriction_container . restriction . from . way = member . ref ( )
+>348	CallExpression	member . ref ( )
+>349	ArgumentList	 
+>350	Callee	member . ref
+>351	MemberAccess	member . ref
+>352	Identifier	ref
+>353	Identifier	member
+>354	MemberAccess	restriction_container . restriction . from . way
+>355	Identifier	way
+>356	MemberAccess	restriction_container . restriction . from
+>357	Identifier	from
+>358	MemberAccess	restriction_container . restriction
+>359	Identifier	restriction
+>360	Identifier	restriction_container
+>361	Condition	 
+>362	EqualityExpression	0 == strcmp ( \"from\" , role )
+>363	CallExpression	strcmp ( \"from\" , role )
+>364	ArgumentList	\"from\"
+>365	Argument	role
+>366	Identifier	role
+>367	Argument	\"from\"
+>368	PrimaryExpression	\"from\"
+>369	Callee	strcmp
+>370	Identifier	strcmp
+>371	PrimaryExpression	0
+>372	ExpressionStatement	 
+>373	CallExpression	BOOST_ASSERT ( 0 == strcmp ( \"from\" , role ) || 0 == strcmp ( \"to\" , role ) || 0 == strcmp ( \"via\" , role ) )
+>374	ArgumentList	0 == strcmp ( \"from\" , role ) || 0 == strcmp ( \"to\" , role ) || 0 == strcmp ( \"via\" , role )
+>375	Argument	0 == strcmp ( \"from\" , role ) || 0 == strcmp ( \"to\" , role ) || 0 == strcmp ( \"via\" , role )
+>376	OrExpression	0 == strcmp ( \"from\" , role ) || 0 == strcmp ( \"to\" , role ) || 0 == strcmp ( \"via\" , role )
+>377	OrExpression	0 == strcmp ( \"to\" , role ) || 0 == strcmp ( \"via\" , role )
+>378	EqualityExpression	0 == strcmp ( \"via\" , role )
+>379	CallExpression	strcmp ( \"via\" , role )
+>380	ArgumentList	\"via\"
+>381	Argument	role
+>382	Identifier	role
+>383	Argument	\"via\"
+>384	PrimaryExpression	\"via\"
+>385	Callee	strcmp
+>386	Identifier	strcmp
+>387	PrimaryExpression	0
+>388	EqualityExpression	0 == strcmp ( \"to\" , role )
+>389	CallExpression	strcmp ( \"to\" , role )
+>390	ArgumentList	\"to\"
+>391	Argument	role
+>392	Identifier	role
+>393	Argument	\"to\"
+>394	PrimaryExpression	\"to\"
+>395	Callee	strcmp
+>396	Identifier	strcmp
+>397	PrimaryExpression	0
+>398	EqualityExpression	0 == strcmp ( \"from\" , role )
+>399	CallExpression	strcmp ( \"from\" , role )
+>400	ArgumentList	\"from\"
+>401	Argument	role
+>402	Identifier	role
+>403	Argument	\"from\"
+>404	PrimaryExpression	\"from\"
+>405	Callee	strcmp
+>406	Identifier	strcmp
+>407	PrimaryExpression	0
+>408	Callee	BOOST_ASSERT
+>409	Identifier	BOOST_ASSERT
+>410	Label	 
+>411	Identifier	osmium 
+>412	BreakStatement	 
+>413	ExpressionStatement	 
+>414	AssignmentExpr	restriction_container . restriction . via . node = member . ref ( )
+>415	CallExpression	member . ref ( )
+>416	ArgumentList	 
+>417	Callee	member . ref
+>418	MemberAccess	member . ref
+>419	Identifier	ref
+>420	Identifier	member
+>421	MemberAccess	restriction_container . restriction . via . node
+>422	Identifier	node
+>423	MemberAccess	restriction_container . restriction . via
+>424	Identifier	via
+>425	MemberAccess	restriction_container . restriction
+>426	Identifier	restriction
+>427	Identifier	restriction_container
+>428	ExpressionStatement	 
+>429	CallExpression	BOOST_ASSERT ( 0 == strcmp ( \"via\" , role ) )
+>430	ArgumentList	0 == strcmp ( \"via\" , role )
+>431	Argument	0 == strcmp ( \"via\" , role )
+>432	EqualityExpression	0 == strcmp ( \"via\" , role )
+>433	CallExpression	strcmp ( \"via\" , role )
+>434	ArgumentList	\"via\"
+>435	Argument	role
+>436	Identifier	role
+>437	Argument	\"via\"
+>438	PrimaryExpression	\"via\"
+>439	Callee	strcmp
+>440	Identifier	strcmp
+>441	PrimaryExpression	0
+>442	Callee	BOOST_ASSERT
+>443	Identifier	BOOST_ASSERT
+>444	IfStatement	if ( 0 == strcmp ( \"from\" , role ) || 0 == strcmp ( \"to\" , role ) )
+>445	CompoundStatement	 
+>446	ContinueStatement	 
+>447	Condition	 
+>448	OrExpression	0 == strcmp ( \"from\" , role ) || 0 == strcmp ( \"to\" , role )
+>449	EqualityExpression	0 == strcmp ( \"to\" , role )
+>450	CallExpression	strcmp ( \"to\" , role )
+>451	ArgumentList	\"to\"
+>452	Argument	role
+>453	Identifier	role
+>454	Argument	\"to\"
+>455	PrimaryExpression	\"to\"
+>456	Callee	strcmp
+>457	Identifier	strcmp
+>458	PrimaryExpression	0
+>459	EqualityExpression	0 == strcmp ( \"from\" , role )
+>460	CallExpression	strcmp ( \"from\" , role )
+>461	ArgumentList	\"from\"
+>462	Argument	role
+>463	Identifier	role
+>464	Argument	\"from\"
+>465	PrimaryExpression	\"from\"
+>466	Callee	strcmp
+>467	Identifier	strcmp
+>468	PrimaryExpression	0
+>469	Label	 
+>470	Identifier	osmium 
+>471	Condition	 
+>472	CallExpression	member . type ( )
+>473	ArgumentList	 
+>474	Callee	member . type
+>475	MemberAccess	member . type
+>476	Identifier	type
+>477	Identifier	member
+>478	IfStatement	if ( strcmp ( \"from\" , role ) != 0 && strcmp ( \"to\" , role ) != 0 && strcmp ( \"via\" , role ) != 0 )
+>479	CompoundStatement	 
+>480	ContinueStatement	 
+>481	Condition	 
+>482	AndExpression	strcmp ( \"from\" , role ) != 0 && strcmp ( \"to\" , role ) != 0 && strcmp ( \"via\" , role ) != 0
+>483	AndExpression	strcmp ( \"to\" , role ) != 0 && strcmp ( \"via\" , role ) != 0
+>484	EqualityExpression	strcmp ( \"via\" , role ) != 0
+>485	PrimaryExpression	0
+>486	CallExpression	strcmp ( \"via\" , role )
+>487	ArgumentList	\"via\"
+>488	Argument	role
+>489	Identifier	role
+>490	Argument	\"via\"
+>491	PrimaryExpression	\"via\"
+>492	Callee	strcmp
+>493	Identifier	strcmp
+>494	EqualityExpression	strcmp ( \"to\" , role ) != 0
+>495	PrimaryExpression	0
+>496	CallExpression	strcmp ( \"to\" , role )
+>497	ArgumentList	\"to\"
+>498	Argument	role
+>499	Identifier	role
+>500	Argument	\"to\"
+>501	PrimaryExpression	\"to\"
+>502	Callee	strcmp
+>503	Identifier	strcmp
+>504	EqualityExpression	strcmp ( \"from\" , role ) != 0
+>505	PrimaryExpression	0
+>506	CallExpression	strcmp ( \"from\" , role )
+>507	ArgumentList	\"from\"
+>508	Argument	role
+>509	Identifier	role
+>510	Argument	\"from\"
+>511	PrimaryExpression	\"from\"
+>512	Callee	strcmp
+>513	Identifier	strcmp
+>514	IdentifierDeclStatement	 
+>515	IdentifierDecl	* role = member . role ( )
+>516	AssignmentExpr	* role = member . role ( )
+>517	CallExpression	member . role ( )
+>518	ArgumentList	 
+>519	Callee	member . role
+>520	MemberAccess	member . role
+>521	Identifier	role
+>522	Identifier	member
+>523	Identifier	role
+>524	Identifier	role
+>525	IdentifierDeclType	const char *
+>526	Statement	 
+>527	Statement	 
+>528	Statement	 
+>529	Statement	 
+>530	Statement	 
+>531	Statement	 
+>532	Label	 
+>533	Identifier	member
+>534	Statement	 
+>535	Statement	 
+>536	Statement	 
+>537	Statement	 
+>538	Statement	 
+>539	IdentifierDeclStatement	 
+>540	IdentifierDecl	restriction_container ( is_only_restriction )
+>541	Identifier	is_only_restriction
+>542	Identifier	restriction_container
+>543	IdentifierDeclType	InputRestrictionContainer
+>544	CompoundStatement	 
+>545	IfStatement	if ( std 
+>546	CompoundStatement	 
+>547	IfStatement	if ( restriction_value . find ( \"only_\" ) == 0 )
+>548	CompoundStatement	 
+>549	ExpressionStatement	 
+>550	AssignmentExpr	is_only_restriction = true
+>551	Identifier	true
+>552	Identifier	is_only_restriction
+>553	Condition	 
+>554	EqualityExpression	restriction_value . find ( \"only_\" ) == 0
+>555	PrimaryExpression	0
+>556	CallExpression	restriction_value . find ( \"only_\" )
+>557	ArgumentList	\"only_\"
+>558	Argument	\"only_\"
+>559	PrimaryExpression	\"only_\"
+>560	Callee	restriction_value . find
+>561	MemberAccess	restriction_value . find
+>562	Identifier	find
+>563	Identifier	restriction_value
+>564	IdentifierDeclStatement	 
+>565	IdentifierDecl	restriction_value ( iter -> value ( ) )
+>566	CallExpression	iter -> value ( )
+>567	ArgumentList	 
+>568	Callee	iter -> value
+>569	PtrMemberAccess	iter -> value
+>570	Identifier	value
+>571	Identifier	iter
+>572	Identifier	restriction_value
+>573	IdentifierDeclType	const std 
+>574	Condition	 
+>575	OrExpression	std 
+>576	EqualityExpression	std 
+>577	CallExpression	iter -> key ( )
+>578	ArgumentList	 
+>579	Callee	iter -> key
+>580	PtrMemberAccess	iter -> key
+>581	Identifier	key
+>582	Identifier	iter
+>583	CallExpression	std 
+>584	ArgumentList	\"restriction
+>585	Argument	\"restriction
+>586	PrimaryExpression	\"restriction
+>587	Callee	std 
+>588	Identifier	std 
+>589	EqualityExpression	std 
+>590	CallExpression	iter -> key ( )
+>591	ArgumentList	 
+>592	Callee	iter -> key
+>593	PtrMemberAccess	iter -> key
+>594	Identifier	key
+>595	Identifier	iter
+>596	CallExpression	std 
+>597	ArgumentList	\"restriction\"
+>598	Argument	\"restriction\"
+>599	PrimaryExpression	\"restriction\"
+>600	Callee	std 
+>601	Identifier	std 
+>602	Statement	 
+>603	Statement	 
+>604	Statement	 
+>605	ExpressionStatement	 
+>606	EqualityExpression	iter != fi_end
+>607	Identifier	fi_end
+>608	Identifier	iter
+>609	ExpressionStatement	 
+>610	AssignmentExpr	iter = fi_begin
+>611	Identifier	fi_begin
+>612	Identifier	iter
+>613	Statement	 
+>614	Statement	 
+>615	Statement	 
+>616	IdentifierDeclStatement	 
+>617	IdentifierDecl	is_only_restriction = false
+>618	AssignmentExpr	is_only_restriction = false
+>619	Identifier	false
+>620	Identifier	false
+>621	Identifier	is_only_restriction
+>622	IdentifierDeclType	bool
+>623	IfStatement	if ( except != nullptr && ShouldIgnoreRestriction ( except ) )
+>624	CompoundStatement	 
+>625	ExpressionStatement	 
+>626	Statement	 
+>627	Statement	 
+>628	Statement	 
+>629	Statement	 
+>630	Statement	 
+>631	Statement	 
+>632	Statement	 
+>633	Statement	 
+>634	Statement	 
+>635	Statement	 
+>636	Statement	 
+>637	Condition	 
+>638	AndExpression	except != nullptr && ShouldIgnoreRestriction ( except )
+>639	CallExpression	ShouldIgnoreRestriction ( except )
+>640	ArgumentList	except
+>641	Argument	except
+>642	Identifier	except
+>643	Callee	ShouldIgnoreRestriction
+>644	Identifier	ShouldIgnoreRestriction
+>645	EqualityExpression	except != nullptr
+>646	Identifier	nullptr
+>647	Identifier	except
+>648	IdentifierDeclStatement	 
+>649	IdentifierDecl	* except = relation . get_value_by_key ( \"except\" )
+>650	AssignmentExpr	* except = relation . get_value_by_key ( \"except\" )
+>651	CallExpression	relation . get_value_by_key ( \"except\" )
+>652	ArgumentList	\"except\"
+>653	Argument	\"except\"
+>654	PrimaryExpression	\"except\"
+>655	Callee	relation . get_value_by_key
+>656	MemberAccess	relation . get_value_by_key
+>657	Identifier	get_value_by_key
+>658	Identifier	relation
+>659	Identifier	except
+>660	Identifier	except
+>661	IdentifierDeclType	const char *
+>662	IfStatement	if ( std 
+>663	CompoundStatement	 
+>664	ExpressionStatement	 
+>665	Statement	 
+>666	Statement	 
+>667	Statement	 
+>668	Statement	 
+>669	Statement	 
+>670	Statement	 
+>671	Statement	 
+>672	Statement	 
+>673	Statement	 
+>674	Statement	 
+>675	Statement	 
+>676	Condition	 
+>677	EqualityExpression	std 
+>678	PrimaryExpression	0
+>679	CallExpression	std 
+>680	ArgumentList	fi_begin
+>681	Argument	fi_end
+>682	Identifier	fi_end
+>683	Argument	fi_begin
+>684	Identifier	fi_begin
+>685	Callee	std 
+>686	Identifier	std 
+>687	IdentifierDeclStatement	 
+>688	IdentifierDecl	fi_end ( filter , tag_list . end ( ) , tag_list . end ( ) )
+>689	Expression	filter , tag_list . end ( ) , tag_list . end ( )
+>690	Expression	tag_list . end ( ) , tag_list . end ( )
+>691	CallExpression	tag_list . end ( )
+>692	ArgumentList	 
+>693	Callee	tag_list . end
+>694	MemberAccess	tag_list . end
+>695	Identifier	end
+>696	Identifier	tag_list
+>697	CallExpression	tag_list . end ( )
+>698	ArgumentList	 
+>699	Callee	tag_list . end
+>700	MemberAccess	tag_list . end
+>701	Identifier	end
+>702	Identifier	tag_list
+>703	Identifier	filter
+>704	Identifier	fi_end
+>705	IdentifierDeclType	osmium 
+>706	IdentifierDeclStatement	 
+>707	IdentifierDecl	fi_begin ( filter , tag_list . begin ( ) , tag_list . end ( ) )
+>708	Expression	filter , tag_list . begin ( ) , tag_list . end ( )
+>709	Expression	tag_list . begin ( ) , tag_list . end ( )
+>710	CallExpression	tag_list . end ( )
+>711	ArgumentList	 
+>712	Callee	tag_list . end
+>713	MemberAccess	tag_list . end
+>714	Identifier	end
+>715	Identifier	tag_list
+>716	CallExpression	tag_list . begin ( )
+>717	ArgumentList	 
+>718	Callee	tag_list . begin
+>719	MemberAccess	tag_list . begin
+>720	Identifier	begin
+>721	Identifier	tag_list
+>722	Identifier	filter
+>723	Identifier	fi_begin
+>724	IdentifierDeclType	osmium 
+>725	IdentifierDeclStatement	 
+>726	IdentifierDecl	& tag_list = relation . tags ( )
+>727	AssignmentExpr	& tag_list = relation . tags ( )
+>728	CallExpression	relation . tags ( )
+>729	ArgumentList	 
+>730	Callee	relation . tags
+>731	MemberAccess	relation . tags
+>732	Identifier	tags
+>733	Identifier	relation
+>734	Identifier	tag_list
+>735	Identifier	tag_list
+>736	IdentifierDeclType	const osmium 
+>737	ExpressionStatement	 
+>738	CallExpression	filter . add ( true , \"restriction\" )
+>739	ArgumentList	true
+>740	Argument	\"restriction\"
+>741	PrimaryExpression	\"restriction\"
+>742	Argument	true
+>743	Identifier	true
+>744	Callee	filter . add
+>745	MemberAccess	filter . add
+>746	Identifier	add
+>747	Identifier	filter
+>748	IdentifierDeclStatement	 
+>749	IdentifierDecl	filter ( false )
+>750	Identifier	false
+>751	Identifier	filter
+>752	IdentifierDeclType	osmium 
+>753	IfStatement	if ( ! use_turn_restrictions )
+>754	CompoundStatement	 
+>755	ExpressionStatement	 
+>756	Statement	 
+>757	Statement	 
+>758	Statement	 
+>759	Statement	 
+>760	Statement	 
+>761	Statement	 
+>762	Statement	 
+>763	Statement	 
+>764	Statement	 
+>765	Statement	 
+>766	Statement	 
+>767	Condition	 
+>768	UnaryOp	! use_turn_restrictions
+>769	Identifier	use_turn_restrictions
+>770	UnaryOperator	!
+>812	FunctionDef	RestrictionParser 
+>813	ParameterList	const std 
+>814	Parameter	 
+>815	Identifier	except_tag_string
+>816	ParameterType	const std 
+>817	ReturnType	bool
+>818	CompoundStatement	 
+>819	ExpressionStatement	 
+>820	Statement	 
+>821	CompoundStatement	 
+>822	ReturnStatement	 
+>823	Identifier	false
+>824	IfStatement	if ( std 
+>825	CompoundStatement	 
+>826	ReturnStatement	 
+>827	Identifier	true
+>828	Condition	 
+>829	EqualityExpression	std 
+>830	CallExpression	std 
+>831	ArgumentList	std 
+>832	Argument	current_string
+>833	Identifier	current_string
+>834	Argument	std 
+>835	CallExpression	std 
+>836	ArgumentList	restriction_exceptions
+>837	Argument	restriction_exceptions
+>838	Identifier	restriction_exceptions
+>839	Callee	std 
+>840	Identifier	std 
+>841	Argument	std 
+>842	CallExpression	std 
+>843	ArgumentList	restriction_exceptions
+>844	Argument	restriction_exceptions
+>845	Identifier	restriction_exceptions
+>846	Callee	std 
+>847	Identifier	std 
+>848	Callee	std 
+>849	Identifier	std 
+>850	CallExpression	std 
+>851	ArgumentList	restriction_exceptions
+>852	Argument	restriction_exceptions
+>853	Identifier	restriction_exceptions
+>854	Callee	std 
+>855	Identifier	std 
+>856	Statement	 
+>857	Statement	 
+>858	Statement	 
+>859	Statement	 
+>860	Statement	 
+>861	Statement	 
+>862	Statement	 
+>863	Statement	 
+>864	Statement	 
+>865	Statement	 
+>866	Statement	 
+>867	Statement	 
+>868	Statement	 
+>869	Statement	 
+>870	Statement	 
+>871	Statement	 
+>872	Statement	 
+>873	Statement	 
+>874	Statement	 
+>875	Statement	 
+>876	Statement	 
+>877	Statement	 
+>878	Statement	 
+>879	Statement	 
+>880	Statement	 
+>881	Statement	 
+>882	Statement	 
+>883	Statement	 
+>884	Statement	 
+>885	Statement	 
+>886	ExpressionStatement	 
+>887	CallExpression	boost 
+>888	ArgumentList	exceptions
+>889	Argument	boost 
+>890	CallExpression	boost 
+>891	ArgumentList	\"[;][ ]*\"
+>892	Argument	\"[;][ ]*\"
+>893	PrimaryExpression	\"[;][ ]*\"
+>894	Callee	boost 
+>895	Identifier	boost 
+>896	Argument	except_tag_string
+>897	Identifier	except_tag_string
+>898	Argument	exceptions
+>899	Identifier	exceptions
+>900	Callee	boost 
+>901	Identifier	boost 
+>902	IdentifierDeclStatement	 
+>903	IdentifierDecl	exceptions
+>904	Identifier	exceptions
+>905	IdentifierDeclType	std 
+>906	IfStatement	if ( except_tag_string . empty ( ) )
+>907	CompoundStatement	 
+>908	ReturnStatement	 
+>909	Identifier	false
+>910	Condition	 
+>911	CallExpression	except_tag_string . empty ( )
+>912	ArgumentList	 
+>913	Callee	except_tag_string . empty
+>914	MemberAccess	except_tag_string . empty
+>915	Identifier	empty
+>916	Identifier	except_tag_string
+<3=9,8,4
+<4=5
+<5=7,6
+<9=33,29,25,24,10
+<10=11
+<11=22,12
+<12=13
+<13=14
+<14=21,15
+<15=17,16
+<17=18
+<18=20,19
+<22=23
+<25=26
+<26=28,27
+<29=30
+<30=32,31
+<33=34
+<34=48,47,35
+<35=46,36
+<36=44,37
+<37=42,38
+<38=39
+<39=41,40
+<42=43
+<44=45
+<57=62,58
+<58=59
+<59=61,60
+<62=74,63
+<63=72,64
+<64=65
+<65=66
+<66=70,67
+<67=68
+<68=69
+<70=71
+<72=73
+<74=75
+<75=79,76
+<76=77
+<77=78
+<79=80
+<86=92,91,87
+<87=88
+<88=90,89
+<92=123,93
+<93=121,108,94
+<94=95
+<95=96
+<96=97
+<97=99,98
+<99=101,100
+<101=102
+<102=104,103
+<104=106,105
+<106=107
+<108=109
+<109=110
+<110=112,111
+<112=114,113
+<114=115
+<115=117,116
+<117=119,118
+<119=120
+<121=122
+<123=138,124
+<124=125
+<125=126
+<126=137,127
+<127=135,128
+<128=133,129
+<129=130
+<130=132,131
+<133=134
+<135=136
+<138=139
+<139=150,140
+<140=148,141
+<141=146,142
+<142=143
+<143=145,144
+<146=147
+<148=149
+<150=159,151
+<151=157,152
+<152=155,153
+<153=154
+<155=156
+<157=158
+<169=175,174,170
+<170=171
+<171=173,172
+<175=176
+<176=273,191,177
+<177=178
+<178=179
+<179=180
+<180=182,181
+<182=184,183
+<184=185
+<185=187,186
+<187=189,188
+<189=190
+<191=264,263,262,261,260,259,258,247,246,234,218,217,216,215,214,213,212,211,209,208,207,192
+<192=193
+<193=194
+<194=198,195
+<195=197,196
+<198=200,199
+<200=201
+<201=203,202
+<203=205,204
+<205=206
+<209=210
+<218=219
+<219=225,220
+<220=224,221
+<221=223,222
+<225=227,226
+<227=228
+<228=230,229
+<230=232,231
+<232=233
+<234=235
+<235=245,244,236
+<236=243,237
+<237=239,238
+<239=240
+<240=242,241
+<247=248
+<248=257,249
+<249=256,250
+<250=254,251
+<251=252
+<252=253
+<254=255
+<264=265
+<265=271,266
+<266=267
+<267=268
+<268=270,269
+<271=272
+<273=274
+<274=280,275
+<275=278,276
+<276=277
+<278=279
+<280=281
+<292=298,297,293
+<293=294
+<294=296,295
+<298=753,748,737,725,706,687,662,648,623,616,615,614,613,609,605,604,603,602,544,539,538,537,536,535,534,532,531,530,529,528,527,526,305,299
+<299=300
+<300=304,301
+<301=303,302
+<305=514,478,306
+<306=471,307
+<307=469,444,428,413,412,410,372,315,314,312,311,309,308
+<309=310
+<312=313
+<315=361,345,316
+<316=317
+<317=334,318
+<318=319
+<319=320
+<320=327,321
+<321=323,322
+<323=324
+<324=326,325
+<327=329,328
+<329=331,330
+<331=333,332
+<334=335
+<335=344,336
+<336=342,337
+<337=340,338
+<338=339
+<340=341
+<342=343
+<345=346
+<346=347
+<347=354,348
+<348=350,349
+<350=351
+<351=353,352
+<354=356,355
+<356=358,357
+<358=360,359
+<361=362
+<362=371,363
+<363=369,364
+<364=367,365
+<365=366
+<367=368
+<369=370
+<372=373
+<373=408,374
+<374=375
+<375=376
+<376=398,377
+<377=388,378
+<378=387,379
+<379=385,380
+<380=383,381
+<381=382
+<383=384
+<385=386
+<388=397,389
+<389=395,390
+<390=393,391
+<391=392
+<393=394
+<395=396
+<398=407,399
+<399=405,400
+<400=403,401
+<401=402
+<403=404
+<405=406
+<408=409
+<410=411
+<413=414
+<414=421,415
+<415=417,416
+<417=418
+<418=420,419
+<421=423,422
+<423=425,424
+<425=427,426
+<428=429
+<429=442,430
+<430=431
+<431=432
+<432=441,433
+<433=439,434
+<434=437,435
+<435=436
+<437=438
+<439=440
+<442=443
+<444=447,445
+<445=446
+<447=448
+<448=459,449
+<449=458,450
+<450=456,451
+<451=454,452
+<452=453
+<454=455
+<456=457
+<459=468,460
+<460=466,461
+<461=464,462
+<462=463
+<464=465
+<466=467
+<469=470
+<471=472
+<472=474,473
+<474=475
+<475=477,476
+<478=481,479
+<479=480
+<481=482
+<482=504,483
+<483=494,484
+<484=486,485
+<486=492,487
+<487=490,488
+<488=489
+<490=491
+<492=493
+<494=496,495
+<496=502,497
+<497=500,498
+<498=499
+<500=501
+<502=503
+<504=506,505
+<506=512,507
+<507=510,508
+<508=509
+<510=511
+<512=513
+<514=515
+<515=525,524,516
+<516=523,517
+<517=519,518
+<519=520
+<520=522,521
+<532=533
+<539=540
+<540=543,542,541
+<544=545
+<545=574,546
+<546=564,547
+<547=553,548
+<548=549
+<549=550
+<550=552,551
+<553=554
+<554=556,555
+<556=560,557
+<557=558
+<558=559
+<560=561
+<561=563,562
+<564=565
+<565=573,572,566
+<566=568,567
+<568=569
+<569=571,570
+<574=575
+<575=589,576
+<576=583,577
+<577=579,578
+<579=580
+<580=582,581
+<583=587,584
+<584=585
+<585=586
+<587=588
+<589=596,590
+<590=592,591
+<592=593
+<593=595,594
+<596=600,597
+<597=598
+<598=599
+<600=601
+<605=606
+<606=608,607
+<609=610
+<610=612,611
+<616=617
+<617=622,621,618
+<618=620,619
+<623=637,624
+<624=636,635,634,633,632,631,630,629,628,627,626,625
+<637=638
+<638=645,639
+<639=643,640
+<640=641
+<641=642
+<643=644
+<645=647,646
+<648=649
+<649=661,660,650
+<650=659,651
+<651=655,652
+<652=653
+<653=654
+<655=656
+<656=658,657
+<662=676,663
+<663=675,674,673,672,671,670,669,668,667,666,665,664
+<676=677
+<677=679,678
+<679=685,680
+<680=683,681
+<681=682
+<683=684
+<685=686
+<687=688
+<688=705,704,689
+<689=703,690
+<690=697,691
+<691=693,692
+<693=694
+<694=696,695
+<697=699,698
+<699=700
+<700=702,701
+<706=707
+<707=724,723,708
+<708=722,709
+<709=716,710
+<710=712,711
+<712=713
+<713=715,714
+<716=718,717
+<718=719
+<719=721,720
+<725=726
+<726=736,735,727
+<727=734,728
+<728=730,729
+<730=731
+<731=733,732
+<737=738
+<738=744,739
+<739=742,740
+<740=741
+<742=743
+<744=745
+<745=747,746
+<748=749
+<749=752,751,750
+<753=767,754
+<754=766,765,764,763,762,761,760,759,758,757,756,755
+<767=768
+<768=770,769
+<812=818,817,813
+<813=814
+<814=816,815
+<818=906,902,886,885,884,883,882,881,880,879,878,877,876,875,874,873,872,871,870,869,868,867,866,865,864,863,862,861,860,859,858,857,856,821,820,819
+<821=824,822
+<822=823
+<824=828,825
+<825=826
+<826=827
+<828=829
+<829=850,830
+<830=848,831
+<831=841,834,832
+<832=833
+<834=835
+<835=839,836
+<836=837
+<837=838
+<839=840
+<841=842
+<842=846,843
+<843=844
+<844=845
+<846=847
+<848=849
+<850=854,851
+<851=852
+<852=853
+<854=855
+<886=887
+<887=900,888
+<888=898,896,889
+<889=890
+<890=894,891
+<891=892
+<892=893
+<894=895
+<896=897
+<898=899
+<900=901
+<902=903
+<903=905,904
+<906=910,907
+<907=908
+<908=909
+<910=911
+<911=913,912
+<913=914
+<914=916,915

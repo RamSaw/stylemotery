@@ -1,0 +1,1353 @@
+>3	FunctionDef	SVGpath 
+>4	ParameterList	path_t path , bool normalize , int curve_segments
+>5	Parameter	 
+>6	Identifier	curve_segments
+>7	ParameterType	int
+>8	Parameter	 
+>9	Identifier	normalize
+>10	ParameterType	bool
+>11	Parameter	 
+>12	Identifier	path
+>13	ParameterType	path_t
+>14	CompoundStatement	 
+>15	IfStatement	if ( normalize )
+>16	ExpressionStatement	 
+>17	CallExpression	normalize_pathset ( )
+>18	ArgumentList	 
+>19	Callee	normalize_pathset
+>20	Identifier	normalize_pathset
+>21	Condition	 
+>22	Identifier	normalize
+>23	ExpressionStatement	 
+>24	AssignmentExpr	m_pathset = path_to_vertices ( path )
+>25	CallExpression	path_to_vertices ( path )
+>26	ArgumentList	path
+>27	Argument	path
+>28	Identifier	path
+>29	Callee	path_to_vertices
+>30	Identifier	path_to_vertices
+>31	Identifier	m_pathset
+>40	FunctionDef	SVGpath 
+>41	ParameterList	path_t path
+>42	Parameter	 
+>43	Identifier	path
+>44	ParameterType	path_t
+>45	ReturnType	pathset_t
+>46	CompoundStatement	 
+>47	ReturnStatement	 
+>48	Identifier	curves
+>49	IfStatement	if ( ! verts . empty ( ) )
+>50	ExpressionStatement	 
+>51	CallExpression	curves . push_back ( verts )
+>52	ArgumentList	verts
+>53	Argument	verts
+>54	Identifier	verts
+>55	Callee	curves . push_back
+>56	MemberAccess	curves . push_back
+>57	Identifier	push_back
+>58	Identifier	curves
+>59	Condition	 
+>60	UnaryOp	! verts . empty ( )
+>61	CallExpression	verts . empty ( )
+>62	ArgumentList	 
+>63	Callee	verts . empty
+>64	MemberAccess	verts . empty
+>65	Identifier	empty
+>66	Identifier	verts
+>67	UnaryOperator	!
+>68	ForStatement	for ( path_t 
+>69	CompoundStatement	 
+>70	SwitchStatement	switch ( command )
+>71	CompoundStatement	 
+>72	BreakStatement	 
+>73	ExpressionStatement	 
+>74	CallExpression	printf ( \"unhandled SVG path command '%c'\" , command )
+>75	ArgumentList	\"unhandled SVG path command '%c'\"
+>76	Argument	command
+>77	Identifier	command
+>78	Argument	\"unhandled SVG path command '%c'\"
+>79	PrimaryExpression	\"unhandled SVG path command '%c'\"
+>80	Callee	printf
+>81	Identifier	printf
+>82	Label	 
+>83	Identifier	default
+>84	BreakStatement	 
+>85	ExpressionStatement	 
+>86	AssignmentExpr	cur_point = start
+>87	Identifier	start
+>88	Identifier	cur_point
+>89	Label	 
+>90	Label	 
+>91	BreakStatement	 
+>92	CompoundStatement	 
+>93	ExpressionStatement	 
+>94	AssignmentExpr	last_cp = new_cp
+>95	Identifier	new_cp
+>96	Identifier	last_cp
+>97	ExpressionStatement	 
+>98	CallExpression	copy ( curve . begin ( ) , curve . end ( ) , back_inserter ( verts ) )
+>99	ArgumentList	curve . begin ( )
+>100	Argument	back_inserter ( verts )
+>101	CallExpression	back_inserter ( verts )
+>102	ArgumentList	verts
+>103	Argument	verts
+>104	Identifier	verts
+>105	Callee	back_inserter
+>106	Identifier	back_inserter
+>107	Argument	curve . end ( )
+>108	CallExpression	curve . end ( )
+>109	ArgumentList	 
+>110	Callee	curve . end
+>111	MemberAccess	curve . end
+>112	Identifier	end
+>113	Identifier	curve
+>114	Argument	curve . begin ( )
+>115	CallExpression	curve . begin ( )
+>116	ArgumentList	 
+>117	Callee	curve . begin
+>118	MemberAccess	curve . begin
+>119	Identifier	begin
+>120	Identifier	curve
+>121	Callee	copy
+>122	Identifier	copy
+>123	ExpressionStatement	 
+>124	AssignmentExpr	cur_point = curve . back ( )
+>125	CallExpression	curve . back ( )
+>126	ArgumentList	 
+>127	Callee	curve . back
+>128	MemberAccess	curve . back
+>129	Identifier	back
+>130	Identifier	curve
+>131	Identifier	cur_point
+>132	IdentifierDeclStatement	 
+>133	IdentifierDecl	curve = Procedural 
+>134	AssignmentExpr	curve = Procedural 
+>135	CallExpression	Procedural 
+>136	ArgumentList	cur_point
+>137	Argument	m_curve_segments
+>138	Identifier	m_curve_segments
+>139	Argument	data [ 0 ]
+>140	ArrayIndexing	data [ 0 ]
+>141	PrimaryExpression	0
+>142	Identifier	data
+>143	Argument	new_cp
+>144	Identifier	new_cp
+>145	Argument	cur_point
+>146	Identifier	cur_point
+>147	Callee	Procedural 
+>148	Identifier	Procedural 
+>149	Identifier	curve
+>150	Identifier	curve
+>151	IdentifierDeclType	vec2_ary_t
+>152	IfStatement	if ( last_cp_set )
+>153	ElseStatement	else
+>154	CompoundStatement	 
+>155	ExpressionStatement	 
+>156	AssignmentExpr	new_cp = cur_point
+>157	Identifier	cur_point
+>158	Identifier	new_cp
+>159	CompoundStatement	 
+>160	ExpressionStatement	 
+>161	AssignmentExpr	new_cp = cur_point + ( cur_point - last_cp )
+>162	AdditiveExpression	cur_point + ( cur_point - last_cp )
+>163	AdditiveExpression	cur_point - last_cp
+>164	Identifier	last_cp
+>165	Identifier	cur_point
+>166	Identifier	cur_point
+>167	Identifier	new_cp
+>168	Condition	 
+>169	Identifier	last_cp_set
+>170	IdentifierDeclStatement	 
+>171	IdentifierDecl	new_cp
+>172	Identifier	new_cp
+>173	IdentifierDeclType	vec2
+>174	Label	 
+>175	BreakStatement	 
+>176	CompoundStatement	 
+>177	ExpressionStatement	 
+>178	CallExpression	copy ( curve . begin ( ) , curve . end ( ) , back_inserter ( verts ) )
+>179	ArgumentList	curve . begin ( )
+>180	Argument	back_inserter ( verts )
+>181	CallExpression	back_inserter ( verts )
+>182	ArgumentList	verts
+>183	Argument	verts
+>184	Identifier	verts
+>185	Callee	back_inserter
+>186	Identifier	back_inserter
+>187	Argument	curve . end ( )
+>188	CallExpression	curve . end ( )
+>189	ArgumentList	 
+>190	Callee	curve . end
+>191	MemberAccess	curve . end
+>192	Identifier	end
+>193	Identifier	curve
+>194	Argument	curve . begin ( )
+>195	CallExpression	curve . begin ( )
+>196	ArgumentList	 
+>197	Callee	curve . begin
+>198	MemberAccess	curve . begin
+>199	Identifier	begin
+>200	Identifier	curve
+>201	Callee	copy
+>202	Identifier	copy
+>203	ExpressionStatement	 
+>204	AssignmentExpr	last_cp_set = true
+>205	Identifier	true
+>206	Identifier	last_cp_set
+>207	ExpressionStatement	 
+>208	AssignmentExpr	last_cp = data [ 0 ]
+>209	ArrayIndexing	data [ 0 ]
+>210	PrimaryExpression	0
+>211	Identifier	data
+>212	Identifier	last_cp
+>213	ExpressionStatement	 
+>214	AssignmentExpr	cur_point = curve . back ( )
+>215	CallExpression	curve . back ( )
+>216	ArgumentList	 
+>217	Callee	curve . back
+>218	MemberAccess	curve . back
+>219	Identifier	back
+>220	Identifier	curve
+>221	Identifier	cur_point
+>222	IdentifierDeclStatement	 
+>223	IdentifierDecl	curve = Procedural 
+>224	AssignmentExpr	curve = Procedural 
+>225	CallExpression	Procedural 
+>226	ArgumentList	cur_point
+>227	Argument	m_curve_segments
+>228	Identifier	m_curve_segments
+>229	Argument	data [ 1 ]
+>230	ArrayIndexing	data [ 1 ]
+>231	PrimaryExpression	1
+>232	Identifier	data
+>233	Argument	data [ 0 ]
+>234	ArrayIndexing	data [ 0 ]
+>235	PrimaryExpression	0
+>236	Identifier	data
+>237	Argument	cur_point
+>238	Identifier	cur_point
+>239	Callee	Procedural 
+>240	Identifier	Procedural 
+>241	Identifier	curve
+>242	Identifier	curve
+>243	IdentifierDeclType	vec2_ary_t
+>244	Label	 
+>245	BreakStatement	 
+>246	CompoundStatement	 
+>247	ExpressionStatement	 
+>248	CallExpression	copy ( curve . begin ( ) , curve . end ( ) , back_inserter ( verts ) )
+>249	ArgumentList	curve . begin ( )
+>250	Argument	back_inserter ( verts )
+>251	CallExpression	back_inserter ( verts )
+>252	ArgumentList	verts
+>253	Argument	verts
+>254	Identifier	verts
+>255	Callee	back_inserter
+>256	Identifier	back_inserter
+>257	Argument	curve . end ( )
+>258	CallExpression	curve . end ( )
+>259	ArgumentList	 
+>260	Callee	curve . end
+>261	MemberAccess	curve . end
+>262	Identifier	end
+>263	Identifier	curve
+>264	Argument	curve . begin ( )
+>265	CallExpression	curve . begin ( )
+>266	ArgumentList	 
+>267	Callee	curve . begin
+>268	MemberAccess	curve . begin
+>269	Identifier	begin
+>270	Identifier	curve
+>271	Callee	copy
+>272	Identifier	copy
+>273	ExpressionStatement	 
+>274	AssignmentExpr	cur_point = curve . back ( )
+>275	CallExpression	curve . back ( )
+>276	ArgumentList	 
+>277	Callee	curve . back
+>278	MemberAccess	curve . back
+>279	Identifier	back
+>280	Identifier	curve
+>281	Identifier	cur_point
+>282	IdentifierDeclStatement	 
+>283	IdentifierDecl	curve = Procedural 
+>284	AssignmentExpr	curve = Procedural 
+>285	CallExpression	Procedural 
+>286	ArgumentList	cur_point
+>287	Argument	m_curve_segments
+>288	Identifier	m_curve_segments
+>289	Argument	data [ 2 ]
+>290	ArrayIndexing	data [ 2 ]
+>291	PrimaryExpression	2
+>292	Identifier	data
+>293	Argument	data [ 1 ]
+>294	ArrayIndexing	data [ 1 ]
+>295	PrimaryExpression	1
+>296	Identifier	data
+>297	Argument	data [ 0 ]
+>298	ArrayIndexing	data [ 0 ]
+>299	PrimaryExpression	0
+>300	Identifier	data
+>301	Argument	cur_point
+>302	Identifier	cur_point
+>303	Callee	Procedural 
+>304	Identifier	Procedural 
+>305	Identifier	curve
+>306	Identifier	curve
+>307	IdentifierDeclType	vec2_ary_t
+>308	Label	 
+>309	BreakStatement	 
+>310	CompoundStatement	 
+>311	ExpressionStatement	 
+>312	AssignmentExpr	cur_point = v
+>313	Identifier	v
+>314	Identifier	cur_point
+>315	ExpressionStatement	 
+>316	CallExpression	verts . push_back ( v )
+>317	ArgumentList	v
+>318	Argument	v
+>319	Identifier	v
+>320	Callee	verts . push_back
+>321	MemberAccess	verts . push_back
+>322	Identifier	push_back
+>323	Identifier	verts
+>324	IdentifierDeclStatement	 
+>325	IdentifierDecl	v ( data [ 0 ] [ 0 ] , cur_point [ 1 ] )
+>326	Expression	data [ 0 ] [ 0 ] , cur_point [ 1 ]
+>327	ArrayIndexing	cur_point [ 1 ]
+>328	PrimaryExpression	1
+>329	Identifier	cur_point
+>330	ArrayIndexing	data [ 0 ] [ 0 ]
+>331	PrimaryExpression	0
+>332	ArrayIndexing	data [ 0 ]
+>333	PrimaryExpression	0
+>334	Identifier	data
+>335	Identifier	v
+>336	IdentifierDeclType	vec2
+>337	Label	 
+>338	BreakStatement	 
+>339	CompoundStatement	 
+>340	ExpressionStatement	 
+>341	AssignmentExpr	cur_point = v
+>342	Identifier	v
+>343	Identifier	cur_point
+>344	ExpressionStatement	 
+>345	CallExpression	verts . push_back ( v )
+>346	ArgumentList	v
+>347	Argument	v
+>348	Identifier	v
+>349	Callee	verts . push_back
+>350	MemberAccess	verts . push_back
+>351	Identifier	push_back
+>352	Identifier	verts
+>353	IdentifierDeclStatement	 
+>354	IdentifierDecl	v ( cur_point [ 0 ] , data [ 0 ] [ 0 ] )
+>355	Expression	cur_point [ 0 ] , data [ 0 ] [ 0 ]
+>356	ArrayIndexing	data [ 0 ] [ 0 ]
+>357	PrimaryExpression	0
+>358	ArrayIndexing	data [ 0 ]
+>359	PrimaryExpression	0
+>360	Identifier	data
+>361	ArrayIndexing	cur_point [ 0 ]
+>362	PrimaryExpression	0
+>363	Identifier	cur_point
+>364	Identifier	v
+>365	IdentifierDeclType	vec2
+>366	Label	 
+>367	BreakStatement	 
+>368	ExpressionStatement	 
+>369	AssignmentExpr	cur_point = data [ 0 ] + cur_point
+>370	AdditiveExpression	data [ 0 ] + cur_point
+>371	Identifier	cur_point
+>372	ArrayIndexing	data [ 0 ]
+>373	PrimaryExpression	0
+>374	Identifier	data
+>375	Identifier	cur_point
+>376	ExpressionStatement	 
+>377	CallExpression	verts . push_back ( data [ 0 ] )
+>378	ArgumentList	data [ 0 ]
+>379	Argument	data [ 0 ]
+>380	ArrayIndexing	data [ 0 ]
+>381	PrimaryExpression	0
+>382	Identifier	data
+>383	Callee	verts . push_back
+>384	MemberAccess	verts . push_back
+>385	Identifier	push_back
+>386	Identifier	verts
+>387	Label	 
+>388	BreakStatement	 
+>389	ExpressionStatement	 
+>390	AssignmentExpr	cur_point = data [ 0 ]
+>391	ArrayIndexing	data [ 0 ]
+>392	PrimaryExpression	0
+>393	Identifier	data
+>394	Identifier	cur_point
+>395	ExpressionStatement	 
+>396	CallExpression	verts . push_back ( data [ 0 ] )
+>397	ArgumentList	data [ 0 ]
+>398	Argument	data [ 0 ]
+>399	ArrayIndexing	data [ 0 ]
+>400	PrimaryExpression	0
+>401	Identifier	data
+>402	Callee	verts . push_back
+>403	MemberAccess	verts . push_back
+>404	Identifier	push_back
+>405	Identifier	verts
+>406	Label	 
+>407	BreakStatement	 
+>408	ExpressionStatement	 
+>409	AssignmentExpr	start = cur_point
+>410	Identifier	cur_point
+>411	Identifier	start
+>412	ExpressionStatement	 
+>413	AssignmentExpr	cur_point = data [ 0 ]
+>414	ArrayIndexing	data [ 0 ]
+>415	PrimaryExpression	0
+>416	Identifier	data
+>417	Identifier	cur_point
+>418	ExpressionStatement	 
+>419	CallExpression	verts . push_back ( data [ 0 ] )
+>420	ArgumentList	data [ 0 ]
+>421	Argument	data [ 0 ]
+>422	ArrayIndexing	data [ 0 ]
+>423	PrimaryExpression	0
+>424	Identifier	data
+>425	Callee	verts . push_back
+>426	MemberAccess	verts . push_back
+>427	Identifier	push_back
+>428	Identifier	verts
+>429	ExpressionStatement	 
+>430	CallExpression	verts . clear ( )
+>431	ArgumentList	 
+>432	Callee	verts . clear
+>433	MemberAccess	verts . clear
+>434	Identifier	clear
+>435	Identifier	verts
+>436	IfStatement	if ( ! verts . empty ( ) )
+>437	ExpressionStatement	 
+>438	CallExpression	curves . push_back ( verts )
+>439	ArgumentList	verts
+>440	Argument	verts
+>441	Identifier	verts
+>442	Callee	curves . push_back
+>443	MemberAccess	curves . push_back
+>444	Identifier	push_back
+>445	Identifier	curves
+>446	Condition	 
+>447	UnaryOp	! verts . empty ( )
+>448	CallExpression	verts . empty ( )
+>449	ArgumentList	 
+>450	Callee	verts . empty
+>451	MemberAccess	verts . empty
+>452	Identifier	empty
+>453	Identifier	verts
+>454	UnaryOperator	!
+>455	Label	 
+>456	Label	 
+>457	Condition	 
+>458	Identifier	command
+>459	SwitchStatement	switch ( command )
+>460	CompoundStatement	 
+>461	BreakStatement	 
+>462	ExpressionStatement	 
+>463	AssignmentExpr	last_cp_set = false
+>464	Identifier	false
+>465	Identifier	last_cp_set
+>466	Label	 
+>467	Identifier	default
+>468	BreakStatement	 
+>469	Label	 
+>470	Label	 
+>471	Label	 
+>472	Label	 
+>473	Condition	 
+>474	Identifier	command
+>475	IdentifierDeclStatement	 
+>476	IdentifierDecl	data = token . second
+>477	AssignmentExpr	data = token . second
+>478	MemberAccess	token . second
+>479	Identifier	second
+>480	Identifier	token
+>481	Identifier	data
+>482	Identifier	data
+>483	IdentifierDeclType	vec2_ary_t
+>484	IdentifierDeclStatement	 
+>485	IdentifierDecl	command = token . first
+>486	AssignmentExpr	command = token . first
+>487	MemberAccess	token . first
+>488	Identifier	first
+>489	Identifier	token
+>490	Identifier	command
+>491	Identifier	command
+>492	IdentifierDeclType	char
+>493	IdentifierDeclStatement	 
+>494	IdentifierDecl	token = * it
+>495	AssignmentExpr	token = * it
+>496	UnaryOp	* it
+>497	Identifier	it
+>498	UnaryOperator	*
+>499	Identifier	token
+>500	Identifier	token
+>501	IdentifierDeclType	path_token_t
+>502	UnaryExpression	 
+>503	Identifier	it
+>504	IncDec	++
+>505	Condition	 
+>506	RelationalExpression	it < path . end ( )
+>507	CallExpression	path . end ( )
+>508	ArgumentList	 
+>509	Callee	path . end
+>510	MemberAccess	path . end
+>511	Identifier	end
+>512	Identifier	path
+>513	Identifier	it
+>514	ForInit	 
+>515	IdentifierDeclStatement	path_t 
+>516	IdentifierDecl	it = path . begin ( )
+>517	AssignmentExpr	it = path . begin ( )
+>518	CallExpression	path . begin ( )
+>519	ArgumentList	 
+>520	Callee	path . begin
+>521	MemberAccess	path . begin
+>522	Identifier	begin
+>523	Identifier	path
+>524	Identifier	it
+>525	Identifier	it
+>526	IdentifierDeclType	path_t 
+>527	IdentifierDeclStatement	 
+>528	IdentifierDecl	last_cp_set = false
+>529	AssignmentExpr	last_cp_set = false
+>530	Identifier	false
+>531	Identifier	false
+>532	Identifier	last_cp_set
+>533	IdentifierDeclType	bool
+>534	IdentifierDeclStatement	 
+>535	IdentifierDecl	last_cp
+>536	Identifier	last_cp
+>537	IdentifierDeclType	vec2
+>538	IdentifierDeclStatement	 
+>539	IdentifierDecl	curves
+>540	Identifier	curves
+>541	IdentifierDeclType	pathset_t
+>542	IdentifierDeclStatement	 
+>543	IdentifierDecl	verts
+>544	Identifier	verts
+>545	IdentifierDeclType	vec2_ary_t
+>546	IdentifierDeclStatement	 
+>547	IdentifierDecl	start
+>548	Identifier	start
+>549	IdentifierDeclType	vec2
+>550	IdentifierDeclStatement	 
+>551	IdentifierDecl	cur_point
+>552	Identifier	cur_point
+>553	IdentifierDeclType	vec2
+>587	FunctionDef	SVGpath 
+>588	ParameterList	 
+>589	ReturnType	void
+>590	CompoundStatement	 
+>591	ExpressionStatement	 
+>592	CallExpression	m_pathset . swap ( pathset_new )
+>593	ArgumentList	pathset_new
+>594	Argument	pathset_new
+>595	Identifier	pathset_new
+>596	Callee	m_pathset . swap
+>597	MemberAccess	m_pathset . swap
+>598	Identifier	swap
+>599	Identifier	m_pathset
+>600	ForStatement	for ( pathset_t 
+>601	CompoundStatement	 
+>602	ExpressionStatement	 
+>603	CallExpression	pathset_new . push_back ( path )
+>604	ArgumentList	path
+>605	Argument	path
+>606	Identifier	path
+>607	Callee	pathset_new . push_back
+>608	MemberAccess	pathset_new . push_back
+>609	Identifier	push_back
+>610	Identifier	pathset_new
+>611	ForStatement	for ( vec2_ary_t 
+>612	CompoundStatement	 
+>613	ExpressionStatement	 
+>614	AssignmentExpr	* p_it = ( p - mid_p ) / divisor
+>615	MultiplicativeExpression	( p - mid_p ) / divisor
+>616	Identifier	divisor
+>617	AdditiveExpression	p - mid_p
+>618	Identifier	mid_p
+>619	Identifier	p
+>620	UnaryOp	* p_it
+>621	Identifier	p_it
+>622	UnaryOperator	*
+>623	IdentifierDeclStatement	 
+>624	IdentifierDecl	p = * p_it
+>625	AssignmentExpr	p = * p_it
+>626	UnaryOp	* p_it
+>627	Identifier	p_it
+>628	UnaryOperator	*
+>629	Identifier	p
+>630	Identifier	p
+>631	IdentifierDeclType	vec2
+>632	UnaryExpression	 
+>633	Identifier	p_it
+>634	IncDec	++
+>635	Condition	 
+>636	EqualityExpression	p_it != path . end ( )
+>637	CallExpression	path . end ( )
+>638	ArgumentList	 
+>639	Callee	path . end
+>640	MemberAccess	path . end
+>641	Identifier	end
+>642	Identifier	path
+>643	Identifier	p_it
+>644	ForInit	 
+>645	IdentifierDeclStatement	vec2_ary_t 
+>646	IdentifierDecl	p_it = path . begin ( )
+>647	AssignmentExpr	p_it = path . begin ( )
+>648	CallExpression	path . begin ( )
+>649	ArgumentList	 
+>650	Callee	path . begin
+>651	MemberAccess	path . begin
+>652	Identifier	begin
+>653	Identifier	path
+>654	Identifier	p_it
+>655	Identifier	p_it
+>656	IdentifierDeclType	vec2_ary_t 
+>657	IdentifierDeclStatement	 
+>658	IdentifierDecl	path = * it
+>659	AssignmentExpr	path = * it
+>660	UnaryOp	* it
+>661	Identifier	it
+>662	UnaryOperator	*
+>663	Identifier	path
+>664	Identifier	path
+>665	IdentifierDeclType	vec2_ary_t
+>666	UnaryExpression	 
+>667	Identifier	it
+>668	IncDec	++
+>669	Condition	 
+>670	EqualityExpression	it != m_pathset . end ( )
+>671	CallExpression	m_pathset . end ( )
+>672	ArgumentList	 
+>673	Callee	m_pathset . end
+>674	MemberAccess	m_pathset . end
+>675	Identifier	end
+>676	Identifier	m_pathset
+>677	Identifier	it
+>678	ForInit	 
+>679	IdentifierDeclStatement	pathset_t 
+>680	IdentifierDecl	it = m_pathset . begin ( )
+>681	AssignmentExpr	it = m_pathset . begin ( )
+>682	CallExpression	m_pathset . begin ( )
+>683	ArgumentList	 
+>684	Callee	m_pathset . begin
+>685	MemberAccess	m_pathset . begin
+>686	Identifier	begin
+>687	Identifier	m_pathset
+>688	Identifier	it
+>689	Identifier	it
+>690	IdentifierDeclType	pathset_t 
+>691	IdentifierDeclStatement	 
+>692	IdentifierDecl	pathset_new
+>693	Identifier	pathset_new
+>694	IdentifierDeclType	pathset_t
+>695	IdentifierDeclStatement	 
+>696	IdentifierDecl	divisor = ( xsize > ysize ) ? xsize 
+>697	AssignmentExpr	divisor = ( xsize > ysize ) ? xsize 
+>698	ConditionalExpression	( xsize > ysize ) ? xsize 
+>699	Identifier	ysize
+>700	Identifier	xsize
+>701	Condition	xsize > ysize
+>702	RelationalExpression	xsize > ysize
+>703	Identifier	ysize
+>704	Identifier	xsize
+>705	Identifier	divisor
+>706	Identifier	divisor
+>707	IdentifierDeclType	float
+>708	IdentifierDeclStatement	 
+>709	IdentifierDecl	ysize = fabs ( max_p [ 1 ] - min_p [ 1 ] )
+>710	AssignmentExpr	ysize = fabs ( max_p [ 1 ] - min_p [ 1 ] )
+>711	CallExpression	fabs ( max_p [ 1 ] - min_p [ 1 ] )
+>712	ArgumentList	max_p [ 1 ] - min_p [ 1 ]
+>713	Argument	max_p [ 1 ] - min_p [ 1 ]
+>714	AdditiveExpression	max_p [ 1 ] - min_p [ 1 ]
+>715	ArrayIndexing	min_p [ 1 ]
+>716	PrimaryExpression	1
+>717	Identifier	min_p
+>718	ArrayIndexing	max_p [ 1 ]
+>719	PrimaryExpression	1
+>720	Identifier	max_p
+>721	Callee	fabs
+>722	Identifier	fabs
+>723	Identifier	ysize
+>724	Identifier	ysize
+>725	IdentifierDeclType	float
+>726	IdentifierDeclStatement	 
+>727	IdentifierDecl	xsize = fabs ( max_p [ 0 ] - min_p [ 0 ] )
+>728	AssignmentExpr	xsize = fabs ( max_p [ 0 ] - min_p [ 0 ] )
+>729	CallExpression	fabs ( max_p [ 0 ] - min_p [ 0 ] )
+>730	ArgumentList	max_p [ 0 ] - min_p [ 0 ]
+>731	Argument	max_p [ 0 ] - min_p [ 0 ]
+>732	AdditiveExpression	max_p [ 0 ] - min_p [ 0 ]
+>733	ArrayIndexing	min_p [ 0 ]
+>734	PrimaryExpression	0
+>735	Identifier	min_p
+>736	ArrayIndexing	max_p [ 0 ]
+>737	PrimaryExpression	0
+>738	Identifier	max_p
+>739	Callee	fabs
+>740	Identifier	fabs
+>741	Identifier	xsize
+>742	Identifier	xsize
+>743	IdentifierDeclType	float
+>744	IdentifierDeclStatement	 
+>745	IdentifierDecl	mid_p = ( min_p + max_p ) / 2.0
+>746	AssignmentExpr	mid_p = ( min_p + max_p ) / 2.0
+>747	MultiplicativeExpression	( min_p + max_p ) / 2.0
+>748	PrimaryExpression	2.0
+>749	AdditiveExpression	min_p + max_p
+>750	Identifier	max_p
+>751	Identifier	min_p
+>752	Identifier	mid_p
+>753	Identifier	mid_p
+>754	IdentifierDeclType	vec2
+>755	ForStatement	for ( pathset_t 
+>756	CompoundStatement	 
+>757	ForStatement	for ( vec2_ary_t 
+>758	CompoundStatement	 
+>759	IfStatement	if ( p [ 1 ] > max_p [ 1 ] )
+>760	ExpressionStatement	 
+>761	AssignmentExpr	max_p [ 1 ] = p [ 1 ]
+>762	ArrayIndexing	p [ 1 ]
+>763	PrimaryExpression	1
+>764	Identifier	p
+>765	ArrayIndexing	max_p [ 1 ]
+>766	PrimaryExpression	1
+>767	Identifier	max_p
+>768	Condition	 
+>769	RelationalExpression	p [ 1 ] > max_p [ 1 ]
+>770	ArrayIndexing	max_p [ 1 ]
+>771	PrimaryExpression	1
+>772	Identifier	max_p
+>773	ArrayIndexing	p [ 1 ]
+>774	PrimaryExpression	1
+>775	Identifier	p
+>776	IfStatement	if ( p [ 1 ] < min_p [ 1 ] )
+>777	ExpressionStatement	 
+>778	AssignmentExpr	min_p [ 1 ] = p [ 1 ]
+>779	ArrayIndexing	p [ 1 ]
+>780	PrimaryExpression	1
+>781	Identifier	p
+>782	ArrayIndexing	min_p [ 1 ]
+>783	PrimaryExpression	1
+>784	Identifier	min_p
+>785	Condition	 
+>786	RelationalExpression	p [ 1 ] < min_p [ 1 ]
+>787	ArrayIndexing	min_p [ 1 ]
+>788	PrimaryExpression	1
+>789	Identifier	min_p
+>790	ArrayIndexing	p [ 1 ]
+>791	PrimaryExpression	1
+>792	Identifier	p
+>793	IfStatement	if ( p [ 0 ] > max_p [ 0 ] )
+>794	ExpressionStatement	 
+>795	AssignmentExpr	max_p [ 0 ] = p [ 0 ]
+>796	ArrayIndexing	p [ 0 ]
+>797	PrimaryExpression	0
+>798	Identifier	p
+>799	ArrayIndexing	max_p [ 0 ]
+>800	PrimaryExpression	0
+>801	Identifier	max_p
+>802	Condition	 
+>803	RelationalExpression	p [ 0 ] > max_p [ 0 ]
+>804	ArrayIndexing	max_p [ 0 ]
+>805	PrimaryExpression	0
+>806	Identifier	max_p
+>807	ArrayIndexing	p [ 0 ]
+>808	PrimaryExpression	0
+>809	Identifier	p
+>810	IfStatement	if ( p [ 0 ] < min_p [ 0 ] )
+>811	ExpressionStatement	 
+>812	AssignmentExpr	min_p [ 0 ] = p [ 0 ]
+>813	ArrayIndexing	p [ 0 ]
+>814	PrimaryExpression	0
+>815	Identifier	p
+>816	ArrayIndexing	min_p [ 0 ]
+>817	PrimaryExpression	0
+>818	Identifier	min_p
+>819	Condition	 
+>820	RelationalExpression	p [ 0 ] < min_p [ 0 ]
+>821	ArrayIndexing	min_p [ 0 ]
+>822	PrimaryExpression	0
+>823	Identifier	min_p
+>824	ArrayIndexing	p [ 0 ]
+>825	PrimaryExpression	0
+>826	Identifier	p
+>827	IdentifierDeclStatement	 
+>828	IdentifierDecl	p = * p_it
+>829	AssignmentExpr	p = * p_it
+>830	UnaryOp	* p_it
+>831	Identifier	p_it
+>832	UnaryOperator	*
+>833	Identifier	p
+>834	Identifier	p
+>835	IdentifierDeclType	vec2
+>836	UnaryExpression	 
+>837	Identifier	p_it
+>838	IncDec	++
+>839	Condition	 
+>840	EqualityExpression	p_it != path . end ( )
+>841	CallExpression	path . end ( )
+>842	ArgumentList	 
+>843	Callee	path . end
+>844	MemberAccess	path . end
+>845	Identifier	end
+>846	Identifier	path
+>847	Identifier	p_it
+>848	ForInit	 
+>849	IdentifierDeclStatement	vec2_ary_t 
+>850	IdentifierDecl	p_it = path . begin ( )
+>851	AssignmentExpr	p_it = path . begin ( )
+>852	CallExpression	path . begin ( )
+>853	ArgumentList	 
+>854	Callee	path . begin
+>855	MemberAccess	path . begin
+>856	Identifier	begin
+>857	Identifier	path
+>858	Identifier	p_it
+>859	Identifier	p_it
+>860	IdentifierDeclType	vec2_ary_t 
+>861	IdentifierDeclStatement	 
+>862	IdentifierDecl	path = * it
+>863	AssignmentExpr	path = * it
+>864	UnaryOp	* it
+>865	Identifier	it
+>866	UnaryOperator	*
+>867	Identifier	path
+>868	Identifier	path
+>869	IdentifierDeclType	vec2_ary_t
+>870	UnaryExpression	 
+>871	Identifier	it
+>872	IncDec	++
+>873	Condition	 
+>874	EqualityExpression	it != m_pathset . end ( )
+>875	CallExpression	m_pathset . end ( )
+>876	ArgumentList	 
+>877	Callee	m_pathset . end
+>878	MemberAccess	m_pathset . end
+>879	Identifier	end
+>880	Identifier	m_pathset
+>881	Identifier	it
+>882	ForInit	 
+>883	IdentifierDeclStatement	pathset_t 
+>884	IdentifierDecl	it = m_pathset . begin ( )
+>885	AssignmentExpr	it = m_pathset . begin ( )
+>886	CallExpression	m_pathset . begin ( )
+>887	ArgumentList	 
+>888	Callee	m_pathset . begin
+>889	MemberAccess	m_pathset . begin
+>890	Identifier	begin
+>891	Identifier	m_pathset
+>892	Identifier	it
+>893	Identifier	it
+>894	IdentifierDeclType	pathset_t 
+>895	IdentifierDeclStatement	 
+>896	IdentifierDecl	max_p = m_pathset [ 0 ] [ 0 ]
+>897	AssignmentExpr	max_p = m_pathset [ 0 ] [ 0 ]
+>898	ArrayIndexing	m_pathset [ 0 ] [ 0 ]
+>899	PrimaryExpression	0
+>900	ArrayIndexing	m_pathset [ 0 ]
+>901	PrimaryExpression	0
+>902	Identifier	m_pathset
+>903	Identifier	max_p
+>904	Identifier	max_p
+>905	IdentifierDeclType	vec2
+>906	IdentifierDeclStatement	 
+>907	IdentifierDecl	min_p = m_pathset [ 0 ] [ 0 ]
+>908	AssignmentExpr	min_p = m_pathset [ 0 ] [ 0 ]
+>909	ArrayIndexing	m_pathset [ 0 ] [ 0 ]
+>910	PrimaryExpression	0
+>911	ArrayIndexing	m_pathset [ 0 ]
+>912	PrimaryExpression	0
+>913	Identifier	m_pathset
+>914	Identifier	min_p
+>915	Identifier	min_p
+>916	IdentifierDeclType	vec2
+>944	FunctionDef	SVGpath 
+>945	ParameterList	 
+>946	ReturnType	pathset_t
+>947	CompoundStatement	 
+>948	ReturnStatement	 
+>949	Identifier	m_pathset
+<3=14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=23,15
+<15=21,16
+<16=17
+<17=19,18
+<19=20
+<21=22
+<23=24
+<24=31,25
+<25=29,26
+<26=27
+<27=28
+<29=30
+<40=46,45,41
+<41=42
+<42=44,43
+<46=550,546,542,538,534,527,68,49,47
+<47=48
+<49=59,50
+<50=51
+<51=55,52
+<52=53
+<53=54
+<55=56
+<56=58,57
+<59=60
+<60=67,61
+<61=63,62
+<63=64
+<64=66,65
+<68=514,505,502,69
+<69=493,484,475,459,70
+<70=457,71
+<71=456,455,436,429,418,412,408,407,406,395,389,388,387,376,368,367,366,339,338,337,310,309,308,246,245,244,176,175,174,92,91,90,89,85,84,82,73,72
+<73=74
+<74=80,75
+<75=78,76
+<76=77
+<78=79
+<80=81
+<82=83
+<85=86
+<86=88,87
+<92=170,152,132,123,97,93
+<93=94
+<94=96,95
+<97=98
+<98=121,99
+<99=114,107,100
+<100=101
+<101=105,102
+<102=103
+<103=104
+<105=106
+<107=108
+<108=110,109
+<110=111
+<111=113,112
+<114=115
+<115=117,116
+<117=118
+<118=120,119
+<121=122
+<123=124
+<124=131,125
+<125=127,126
+<127=128
+<128=130,129
+<132=133
+<133=151,150,134
+<134=149,135
+<135=147,136
+<136=145,143,139,137
+<137=138
+<139=140
+<140=142,141
+<143=144
+<145=146
+<147=148
+<152=168,159,153
+<153=154
+<154=155
+<155=156
+<156=158,157
+<159=160
+<160=161
+<161=167,162
+<162=166,163
+<163=165,164
+<168=169
+<170=171
+<171=173,172
+<176=222,213,207,203,177
+<177=178
+<178=201,179
+<179=194,187,180
+<180=181
+<181=185,182
+<182=183
+<183=184
+<185=186
+<187=188
+<188=190,189
+<190=191
+<191=193,192
+<194=195
+<195=197,196
+<197=198
+<198=200,199
+<201=202
+<203=204
+<204=206,205
+<207=208
+<208=212,209
+<209=211,210
+<213=214
+<214=221,215
+<215=217,216
+<217=218
+<218=220,219
+<222=223
+<223=243,242,224
+<224=241,225
+<225=239,226
+<226=237,233,229,227
+<227=228
+<229=230
+<230=232,231
+<233=234
+<234=236,235
+<237=238
+<239=240
+<246=282,273,247
+<247=248
+<248=271,249
+<249=264,257,250
+<250=251
+<251=255,252
+<252=253
+<253=254
+<255=256
+<257=258
+<258=260,259
+<260=261
+<261=263,262
+<264=265
+<265=267,266
+<267=268
+<268=270,269
+<271=272
+<273=274
+<274=281,275
+<275=277,276
+<277=278
+<278=280,279
+<282=283
+<283=307,306,284
+<284=305,285
+<285=303,286
+<286=301,297,293,289,287
+<287=288
+<289=290
+<290=292,291
+<293=294
+<294=296,295
+<297=298
+<298=300,299
+<301=302
+<303=304
+<310=324,315,311
+<311=312
+<312=314,313
+<315=316
+<316=320,317
+<317=318
+<318=319
+<320=321
+<321=323,322
+<324=325
+<325=336,335,326
+<326=330,327
+<327=329,328
+<330=332,331
+<332=334,333
+<339=353,344,340
+<340=341
+<341=343,342
+<344=345
+<345=349,346
+<346=347
+<347=348
+<349=350
+<350=352,351
+<353=354
+<354=365,364,355
+<355=361,356
+<356=358,357
+<358=360,359
+<361=363,362
+<368=369
+<369=375,370
+<370=372,371
+<372=374,373
+<376=377
+<377=383,378
+<378=379
+<379=380
+<380=382,381
+<383=384
+<384=386,385
+<389=390
+<390=394,391
+<391=393,392
+<395=396
+<396=402,397
+<397=398
+<398=399
+<399=401,400
+<402=403
+<403=405,404
+<408=409
+<409=411,410
+<412=413
+<413=417,414
+<414=416,415
+<418=419
+<419=425,420
+<420=421
+<421=422
+<422=424,423
+<425=426
+<426=428,427
+<429=430
+<430=432,431
+<432=433
+<433=435,434
+<436=446,437
+<437=438
+<438=442,439
+<439=440
+<440=441
+<442=443
+<443=445,444
+<446=447
+<447=454,448
+<448=450,449
+<450=451
+<451=453,452
+<457=458
+<459=473,460
+<460=472,471,470,469,468,466,462,461
+<462=463
+<463=465,464
+<466=467
+<473=474
+<475=476
+<476=483,482,477
+<477=481,478
+<478=480,479
+<484=485
+<485=492,491,486
+<486=490,487
+<487=489,488
+<493=494
+<494=501,500,495
+<495=499,496
+<496=498,497
+<502=504,503
+<505=506
+<506=513,507
+<507=509,508
+<509=510
+<510=512,511
+<514=515
+<515=516
+<516=526,525,517
+<517=524,518
+<518=520,519
+<520=521
+<521=523,522
+<527=528
+<528=533,532,529
+<529=531,530
+<534=535
+<535=537,536
+<538=539
+<539=541,540
+<542=543
+<543=545,544
+<546=547
+<547=549,548
+<550=551
+<551=553,552
+<587=590,589,588
+<590=906,895,755,744,726,708,695,691,600,591
+<591=592
+<592=596,593
+<593=594
+<594=595
+<596=597
+<597=599,598
+<600=678,669,666,601
+<601=657,611,602
+<602=603
+<603=607,604
+<604=605
+<605=606
+<607=608
+<608=610,609
+<611=644,635,632,612
+<612=623,613
+<613=614
+<614=620,615
+<615=617,616
+<617=619,618
+<620=622,621
+<623=624
+<624=631,630,625
+<625=629,626
+<626=628,627
+<632=634,633
+<635=636
+<636=643,637
+<637=639,638
+<639=640
+<640=642,641
+<644=645
+<645=646
+<646=656,655,647
+<647=654,648
+<648=650,649
+<650=651
+<651=653,652
+<657=658
+<658=665,664,659
+<659=663,660
+<660=662,661
+<666=668,667
+<669=670
+<670=677,671
+<671=673,672
+<673=674
+<674=676,675
+<678=679
+<679=680
+<680=690,689,681
+<681=688,682
+<682=684,683
+<684=685
+<685=687,686
+<691=692
+<692=694,693
+<695=696
+<696=707,706,697
+<697=705,698
+<698=701,700,699
+<701=702
+<702=704,703
+<708=709
+<709=725,724,710
+<710=723,711
+<711=721,712
+<712=713
+<713=714
+<714=718,715
+<715=717,716
+<718=720,719
+<721=722
+<726=727
+<727=743,742,728
+<728=741,729
+<729=739,730
+<730=731
+<731=732
+<732=736,733
+<733=735,734
+<736=738,737
+<739=740
+<744=745
+<745=754,753,746
+<746=752,747
+<747=749,748
+<749=751,750
+<755=882,873,870,756
+<756=861,757
+<757=848,839,836,758
+<758=827,810,793,776,759
+<759=768,760
+<760=761
+<761=765,762
+<762=764,763
+<765=767,766
+<768=769
+<769=773,770
+<770=772,771
+<773=775,774
+<776=785,777
+<777=778
+<778=782,779
+<779=781,780
+<782=784,783
+<785=786
+<786=790,787
+<787=789,788
+<790=792,791
+<793=802,794
+<794=795
+<795=799,796
+<796=798,797
+<799=801,800
+<802=803
+<803=807,804
+<804=806,805
+<807=809,808
+<810=819,811
+<811=812
+<812=816,813
+<813=815,814
+<816=818,817
+<819=820
+<820=824,821
+<821=823,822
+<824=826,825
+<827=828
+<828=835,834,829
+<829=833,830
+<830=832,831
+<836=838,837
+<839=840
+<840=847,841
+<841=843,842
+<843=844
+<844=846,845
+<848=849
+<849=850
+<850=860,859,851
+<851=858,852
+<852=854,853
+<854=855
+<855=857,856
+<861=862
+<862=869,868,863
+<863=867,864
+<864=866,865
+<870=872,871
+<873=874
+<874=881,875
+<875=877,876
+<877=878
+<878=880,879
+<882=883
+<883=884
+<884=894,893,885
+<885=892,886
+<886=888,887
+<888=889
+<889=891,890
+<895=896
+<896=905,904,897
+<897=903,898
+<898=900,899
+<900=902,901
+<906=907
+<907=916,915,908
+<908=914,909
+<909=911,910
+<911=913,912
+<944=947,946,945
+<947=948
+<948=949

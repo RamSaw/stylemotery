@@ -1,0 +1,1462 @@
+>3	FunctionDef	CComponentsList 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	CComponentsList 
+>10	ParameterList	 
+>11	ReturnType	void
+>12	CompoundStatement	 
+>13	ExpressionStatement	 
+>14	CallExpression	this -> Invalidate ( )
+>15	ArgumentList	 
+>16	Callee	this -> Invalidate
+>17	PtrMemberAccess	this -> Invalidate
+>18	Identifier	Invalidate
+>19	Identifier	this
+>24	FunctionDef	CComponentsList 
+>25	ParameterList	LPDRAWITEMSTRUCT lpDrawItemStruct
+>26	Parameter	 
+>27	Identifier	lpDrawItemStruct
+>28	ParameterType	LPDRAWITEMSTRUCT
+>29	ReturnType	void
+>30	CompoundStatement	 
+>31	IfStatement	if ( ( lpDrawItemStruct -> itemAction & ODA_FOCUS ) != 0 )
+>32	ExpressionStatement	 
+>33	CallExpression	pDC -> DrawFocusRect ( & ( lpDrawItemStruct -> rcItem ) )
+>34	ArgumentList	& ( lpDrawItemStruct -> rcItem )
+>35	Argument	& ( lpDrawItemStruct -> rcItem )
+>36	UnaryOp	& ( lpDrawItemStruct -> rcItem )
+>37	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>38	Identifier	rcItem
+>39	Identifier	lpDrawItemStruct
+>40	UnaryOperator	&
+>41	Callee	pDC -> DrawFocusRect
+>42	PtrMemberAccess	pDC -> DrawFocusRect
+>43	Identifier	DrawFocusRect
+>44	Identifier	pDC
+>45	Condition	 
+>46	EqualityExpression	( lpDrawItemStruct -> itemAction & ODA_FOCUS ) != 0
+>47	PrimaryExpression	0
+>48	BitAndExpression	lpDrawItemStruct -> itemAction & ODA_FOCUS
+>49	Identifier	ODA_FOCUS
+>50	PtrMemberAccess	lpDrawItemStruct -> itemAction
+>51	Identifier	itemAction
+>52	Identifier	lpDrawItemStruct
+>53	IfStatement	if ( ( ( LONG ) ( lpDrawItemStruct -> itemID ) >= 0 ) && ( lpDrawItemStruct -> itemAction & ( ODA_DRAWENTIRE | ODA_\
+>54	CompoundStatement	 
+>55	ExpressionStatement	 
+>56	CallExpression	pDC -> SetBkColor ( oldBkColor )
+>57	ArgumentList	oldBkColor
+>58	Argument	oldBkColor
+>59	Identifier	oldBkColor
+>60	Callee	pDC -> SetBkColor
+>61	PtrMemberAccess	pDC -> SetBkColor
+>62	Identifier	SetBkColor
+>63	Identifier	pDC
+>64	ExpressionStatement	 
+>65	CallExpression	pDC -> SetTextColor ( oldTextColor )
+>66	ArgumentList	oldTextColor
+>67	Argument	oldTextColor
+>68	Identifier	oldTextColor
+>69	Callee	pDC -> SetTextColor
+>70	PtrMemberAccess	pDC -> SetTextColor
+>71	Identifier	SetTextColor
+>72	Identifier	pDC
+>73	IfStatement	if ( fDisabled && nCheck == 0 )
+>74	CompoundStatement	 
+>75	ExpressionStatement	 
+>76	CallExpression	pDC -> FillRect ( & checkbox , & brush )
+>77	ArgumentList	& checkbox
+>78	Argument	& brush
+>79	UnaryOp	& brush
+>80	Identifier	brush
+>81	UnaryOperator	&
+>82	Argument	& checkbox
+>83	UnaryOp	& checkbox
+>84	Identifier	checkbox
+>85	UnaryOperator	&
+>86	Callee	pDC -> FillRect
+>87	PtrMemberAccess	pDC -> FillRect
+>88	Identifier	FillRect
+>89	Identifier	pDC
+>90	IdentifierDeclStatement	 
+>91	IdentifierDecl	brush ( newBkColor )
+>92	Identifier	newBkColor
+>93	Identifier	brush
+>94	IdentifierDeclType	CBrush
+>95	IdentifierDeclStatement	 
+>96	IdentifierDecl	newBkColor = GetSysColor ( COLOR_WINDOW )
+>97	AssignmentExpr	newBkColor = GetSysColor ( COLOR_WINDOW )
+>98	CallExpression	GetSysColor ( COLOR_WINDOW )
+>99	ArgumentList	COLOR_WINDOW
+>100	Argument	COLOR_WINDOW
+>101	Identifier	COLOR_WINDOW
+>102	Callee	GetSysColor
+>103	Identifier	GetSysColor
+>104	Identifier	newBkColor
+>105	Identifier	newBkColor
+>106	IdentifierDeclType	COLORREF
+>107	IdentifierDeclStatement	 
+>108	IdentifierDecl	checkbox ( 0 , lpDrawItemStruct -> rcItem . top , lpDrawItemStruct -> rcItem . left , lpDrawItemStruct -> rcItem \
+>109	Expression	0 , lpDrawItemStruct -> rcItem . top , lpDrawItemStruct -> rcItem . left , lpDrawItemStruct -> rcItem . bottom
+>110	Expression	lpDrawItemStruct -> rcItem . top , lpDrawItemStruct -> rcItem . left , lpDrawItemStruct -> rcItem . bottom
+>111	Expression	lpDrawItemStruct -> rcItem . left , lpDrawItemStruct -> rcItem . bottom
+>112	MemberAccess	lpDrawItemStruct -> rcItem . bottom
+>113	Identifier	bottom
+>114	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>115	Identifier	rcItem
+>116	Identifier	lpDrawItemStruct
+>117	MemberAccess	lpDrawItemStruct -> rcItem . left
+>118	Identifier	left
+>119	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>120	Identifier	rcItem
+>121	Identifier	lpDrawItemStruct
+>122	MemberAccess	lpDrawItemStruct -> rcItem . top
+>123	Identifier	top
+>124	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>125	Identifier	rcItem
+>126	Identifier	lpDrawItemStruct
+>127	PrimaryExpression	0
+>128	Identifier	checkbox
+>129	IdentifierDeclType	CRect
+>130	Condition	 
+>131	AndExpression	fDisabled && nCheck == 0
+>132	EqualityExpression	nCheck == 0
+>133	PrimaryExpression	0
+>134	Identifier	nCheck
+>135	Identifier	fDisabled
+>136	IdentifierDeclStatement	 
+>137	IdentifierDecl	nCheck = GetCheck ( lpDrawItemStruct -> itemID )
+>138	AssignmentExpr	nCheck = GetCheck ( lpDrawItemStruct -> itemID )
+>139	CallExpression	GetCheck ( lpDrawItemStruct -> itemID )
+>140	ArgumentList	lpDrawItemStruct -> itemID
+>141	Argument	lpDrawItemStruct -> itemID
+>142	PtrMemberAccess	lpDrawItemStruct -> itemID
+>143	Identifier	itemID
+>144	Identifier	lpDrawItemStruct
+>145	Callee	GetCheck
+>146	Identifier	GetCheck
+>147	Identifier	nCheck
+>148	Identifier	nCheck
+>149	IdentifierDeclType	int
+>150	ExpressionStatement	 
+>151	CallExpression	pDC -> ExtTextOut ( lpDrawItemStruct -> rcItem . left + 5 , lpDrawItemStruct -> rcItem . top + max ( 0 , ( cyItem \
+>152	ArgumentList	lpDrawItemStruct -> rcItem . left + 5
+>153	Argument	NULL
+>154	Identifier	NULL
+>155	Argument	strText . GetLength ( )
+>156	CallExpression	strText . GetLength ( )
+>157	ArgumentList	 
+>158	Callee	strText . GetLength
+>159	MemberAccess	strText . GetLength
+>160	Identifier	GetLength
+>161	Identifier	strText
+>162	Argument	strText
+>163	Identifier	strText
+>164	Argument	& ( lpDrawItemStruct -> rcItem )
+>165	UnaryOp	& ( lpDrawItemStruct -> rcItem )
+>166	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>167	Identifier	rcItem
+>168	Identifier	lpDrawItemStruct
+>169	UnaryOperator	&
+>170	Argument	ETO_OPAQUE
+>171	Identifier	ETO_OPAQUE
+>172	Argument	lpDrawItemStruct -> rcItem . top + max ( 0 , ( cyItem - m_cyText ) / 2 )
+>173	AdditiveExpression	lpDrawItemStruct -> rcItem . top + max ( 0 , ( cyItem - m_cyText ) / 2 )
+>174	CallExpression	max ( 0 , ( cyItem - m_cyText ) / 2 )
+>175	ArgumentList	0
+>176	Argument	( cyItem - m_cyText ) / 2
+>177	MultiplicativeExpression	( cyItem - m_cyText ) / 2
+>178	PrimaryExpression	2
+>179	AdditiveExpression	cyItem - m_cyText
+>180	Identifier	m_cyText
+>181	Identifier	cyItem
+>182	Argument	0
+>183	PrimaryExpression	0
+>184	Callee	max
+>185	Identifier	max
+>186	MemberAccess	lpDrawItemStruct -> rcItem . top
+>187	Identifier	top
+>188	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>189	Identifier	rcItem
+>190	Identifier	lpDrawItemStruct
+>191	Argument	lpDrawItemStruct -> rcItem . left + 5
+>192	AdditiveExpression	lpDrawItemStruct -> rcItem . left + 5
+>193	PrimaryExpression	5
+>194	MemberAccess	lpDrawItemStruct -> rcItem . left
+>195	Identifier	left
+>196	PtrMemberAccess	lpDrawItemStruct -> rcItem
+>197	Identifier	rcItem
+>198	Identifier	lpDrawItemStruct
+>199	Callee	pDC -> ExtTextOut
+>200	PtrMemberAccess	pDC -> ExtTextOut
+>201	Identifier	ExtTextOut
+>202	Identifier	pDC
+>203	ExpressionStatement	 
+>204	CallExpression	GetText ( lpDrawItemStruct -> itemID , strText )
+>205	ArgumentList	lpDrawItemStruct -> itemID
+>206	Argument	strText
+>207	Identifier	strText
+>208	Argument	lpDrawItemStruct -> itemID
+>209	PtrMemberAccess	lpDrawItemStruct -> itemID
+>210	Identifier	itemID
+>211	Identifier	lpDrawItemStruct
+>212	Callee	GetText
+>213	Identifier	GetText
+>214	IdentifierDeclStatement	 
+>215	IdentifierDecl	strText
+>216	Identifier	strText
+>217	IdentifierDeclType	CString
+>218	IfStatement	if ( m_cyText == 0 )
+>219	ExpressionStatement	 
+>220	CallExpression	VERIFY ( cyItem >= CalcMinimumItemHeight ( ) )
+>221	ArgumentList	cyItem >= CalcMinimumItemHeight ( )
+>222	Argument	cyItem >= CalcMinimumItemHeight ( )
+>223	RelationalExpression	cyItem >= CalcMinimumItemHeight ( )
+>224	CallExpression	CalcMinimumItemHeight ( )
+>225	ArgumentList	 
+>226	Callee	CalcMinimumItemHeight
+>227	Identifier	CalcMinimumItemHeight
+>228	Identifier	cyItem
+>229	Callee	VERIFY
+>230	Identifier	VERIFY
+>231	Condition	 
+>232	EqualityExpression	m_cyText == 0
+>233	PrimaryExpression	0
+>234	Identifier	m_cyText
+>235	IfStatement	if ( ! fDisabled && ( ( lpDrawItemStruct -> itemState & ODS_SELECTED ) != 0 ) )
+>236	CompoundStatement	 
+>237	ExpressionStatement	 
+>238	CallExpression	pDC -> SetBkColor ( GetSysColor ( COLOR_HIGHLIGHT ) )
+>239	ArgumentList	GetSysColor ( COLOR_HIGHLIGHT )
+>240	Argument	GetSysColor ( COLOR_HIGHLIGHT )
+>241	CallExpression	GetSysColor ( COLOR_HIGHLIGHT )
+>242	ArgumentList	COLOR_HIGHLIGHT
+>243	Argument	COLOR_HIGHLIGHT
+>244	Identifier	COLOR_HIGHLIGHT
+>245	Callee	GetSysColor
+>246	Identifier	GetSysColor
+>247	Callee	pDC -> SetBkColor
+>248	PtrMemberAccess	pDC -> SetBkColor
+>249	Identifier	SetBkColor
+>250	Identifier	pDC
+>251	ExpressionStatement	 
+>252	CallExpression	pDC -> SetTextColor ( GetSysColor ( COLOR_HIGHLIGHTTEXT ) )
+>253	ArgumentList	GetSysColor ( COLOR_HIGHLIGHTTEXT )
+>254	Argument	GetSysColor ( COLOR_HIGHLIGHTTEXT )
+>255	CallExpression	GetSysColor ( COLOR_HIGHLIGHTTEXT )
+>256	ArgumentList	COLOR_HIGHLIGHTTEXT
+>257	Argument	COLOR_HIGHLIGHTTEXT
+>258	Identifier	COLOR_HIGHLIGHTTEXT
+>259	Callee	GetSysColor
+>260	Identifier	GetSysColor
+>261	Callee	pDC -> SetTextColor
+>262	PtrMemberAccess	pDC -> SetTextColor
+>263	Identifier	SetTextColor
+>264	Identifier	pDC
+>265	Condition	 
+>266	AndExpression	! fDisabled && ( ( lpDrawItemStruct -> itemState & ODS_SELECTED ) != 0 )
+>267	EqualityExpression	( lpDrawItemStruct -> itemState & ODS_SELECTED ) != 0
+>268	PrimaryExpression	0
+>269	BitAndExpression	lpDrawItemStruct -> itemState & ODS_SELECTED
+>270	Identifier	ODS_SELECTED
+>271	PtrMemberAccess	lpDrawItemStruct -> itemState
+>272	Identifier	itemState
+>273	Identifier	lpDrawItemStruct
+>274	UnaryOp	! fDisabled
+>275	Identifier	fDisabled
+>276	UnaryOperator	!
+>277	IfStatement	if ( newTextColor == newBkColor )
+>278	ExpressionStatement	 
+>279	AssignmentExpr	newTextColor = RGB ( 0xC0 , 0xC0 , 0xC0 )
+>280	CallExpression	RGB ( 0xC0 , 0xC0 , 0xC0 )
+>281	ArgumentList	0xC0
+>282	Argument	0xC0
+>283	PrimaryExpression	0xC0
+>284	Argument	0xC0
+>285	PrimaryExpression	0xC0
+>286	Argument	0xC0
+>287	PrimaryExpression	0xC0
+>288	Callee	RGB
+>289	Identifier	RGB
+>290	Identifier	newTextColor
+>291	Condition	 
+>292	EqualityExpression	newTextColor == newBkColor
+>293	Identifier	newBkColor
+>294	Identifier	newTextColor
+>295	IdentifierDeclStatement	 
+>296	IdentifierDecl	oldBkColor = pDC -> SetBkColor ( newBkColor )
+>297	AssignmentExpr	oldBkColor = pDC -> SetBkColor ( newBkColor )
+>298	CallExpression	pDC -> SetBkColor ( newBkColor )
+>299	ArgumentList	newBkColor
+>300	Argument	newBkColor
+>301	Identifier	newBkColor
+>302	Callee	pDC -> SetBkColor
+>303	PtrMemberAccess	pDC -> SetBkColor
+>304	Identifier	SetBkColor
+>305	Identifier	pDC
+>306	Identifier	oldBkColor
+>307	Identifier	oldBkColor
+>308	IdentifierDeclType	COLORREF
+>309	IdentifierDeclStatement	 
+>310	IdentifierDecl	newBkColor = GetSysColor ( COLOR_WINDOW )
+>311	AssignmentExpr	newBkColor = GetSysColor ( COLOR_WINDOW )
+>312	CallExpression	GetSysColor ( COLOR_WINDOW )
+>313	ArgumentList	COLOR_WINDOW
+>314	Argument	COLOR_WINDOW
+>315	Identifier	COLOR_WINDOW
+>316	Callee	GetSysColor
+>317	Identifier	GetSysColor
+>318	Identifier	newBkColor
+>319	Identifier	newBkColor
+>320	IdentifierDeclType	COLORREF
+>321	IdentifierDeclStatement	 
+>322	IdentifierDecl	oldTextColor = pDC -> SetTextColor ( newTextColor )
+>323	AssignmentExpr	oldTextColor = pDC -> SetTextColor ( newTextColor )
+>324	CallExpression	pDC -> SetTextColor ( newTextColor )
+>325	ArgumentList	newTextColor
+>326	Argument	newTextColor
+>327	Identifier	newTextColor
+>328	Callee	pDC -> SetTextColor
+>329	PtrMemberAccess	pDC -> SetTextColor
+>330	Identifier	SetTextColor
+>331	Identifier	pDC
+>332	Identifier	oldTextColor
+>333	Identifier	oldTextColor
+>334	IdentifierDeclType	COLORREF
+>335	IdentifierDeclStatement	 
+>336	IdentifierDecl	newTextColor = fDisabled ? RGB ( 0 , 0 , 0 ) 
+>337	AssignmentExpr	newTextColor = fDisabled ? RGB ( 0 , 0 , 0 ) 
+>338	ConditionalExpression	fDisabled ? RGB ( 0 , 0 , 0 ) 
+>339	CallExpression	GetSysColor ( COLOR_WINDOWTEXT )
+>340	ArgumentList	COLOR_WINDOWTEXT
+>341	Argument	COLOR_WINDOWTEXT
+>342	Identifier	COLOR_WINDOWTEXT
+>343	Callee	GetSysColor
+>344	Identifier	GetSysColor
+>345	CallExpression	RGB ( 0 , 0 , 0 )
+>346	ArgumentList	0
+>347	Argument	0
+>348	PrimaryExpression	0
+>349	Argument	0
+>350	PrimaryExpression	0
+>351	Argument	0
+>352	PrimaryExpression	0
+>353	Callee	RGB
+>354	Identifier	RGB
+>355	Condition	fDisabled
+>356	Identifier	fDisabled
+>357	Identifier	newTextColor
+>358	Identifier	newTextColor
+>359	IdentifierDeclType	COLORREF
+>360	IdentifierDeclStatement	 
+>361	IdentifierDecl	fDisabled = ! IsWindowEnabled ( ) || ! IsEnabled ( lpDrawItemStruct -> itemID )
+>362	AssignmentExpr	fDisabled = ! IsWindowEnabled ( ) || ! IsEnabled ( lpDrawItemStruct -> itemID )
+>363	OrExpression	! IsWindowEnabled ( ) || ! IsEnabled ( lpDrawItemStruct -> itemID )
+>364	UnaryOp	! IsEnabled ( lpDrawItemStruct -> itemID )
+>365	CallExpression	IsEnabled ( lpDrawItemStruct -> itemID )
+>366	ArgumentList	lpDrawItemStruct -> itemID
+>367	Argument	lpDrawItemStruct -> itemID
+>368	PtrMemberAccess	lpDrawItemStruct -> itemID
+>369	Identifier	itemID
+>370	Identifier	lpDrawItemStruct
+>371	Callee	IsEnabled
+>372	Identifier	IsEnabled
+>373	UnaryOperator	!
+>374	UnaryOp	! IsWindowEnabled ( )
+>375	CallExpression	IsWindowEnabled ( )
+>376	ArgumentList	 
+>377	Callee	IsWindowEnabled
+>378	Identifier	IsWindowEnabled
+>379	UnaryOperator	!
+>380	Identifier	fDisabled
+>381	Identifier	fDisabled
+>382	IdentifierDeclType	BOOL
+>383	IdentifierDeclStatement	 
+>384	IdentifierDecl	cyItem = GetItemHeight ( lpDrawItemStruct -> itemID )
+>385	AssignmentExpr	cyItem = GetItemHeight ( lpDrawItemStruct -> itemID )
+>386	CallExpression	GetItemHeight ( lpDrawItemStruct -> itemID )
+>387	ArgumentList	lpDrawItemStruct -> itemID
+>388	Argument	lpDrawItemStruct -> itemID
+>389	PtrMemberAccess	lpDrawItemStruct -> itemID
+>390	Identifier	itemID
+>391	Identifier	lpDrawItemStruct
+>392	Callee	GetItemHeight
+>393	Identifier	GetItemHeight
+>394	Identifier	cyItem
+>395	Identifier	cyItem
+>396	IdentifierDeclType	int
+>397	Condition	 
+>398	AndExpression	( ( LONG ) ( lpDrawItemStruct -> itemID ) >= 0 ) && ( lpDrawItemStruct -> itemAction & ( ODA_DRAWENTIRE | \
+>399	BitAndExpression	lpDrawItemStruct -> itemAction & ( ODA_DRAWENTIRE | ODA_SELECT )
+>400	InclusiveOrExpression	ODA_DRAWENTIRE | ODA_SELECT
+>401	Identifier	ODA_SELECT
+>402	Identifier	ODA_DRAWENTIRE
+>403	PtrMemberAccess	lpDrawItemStruct -> itemAction
+>404	Identifier	itemAction
+>405	Identifier	lpDrawItemStruct
+>406	RelationalExpression	( LONG ) ( lpDrawItemStruct -> itemID ) >= 0
+>407	PrimaryExpression	0
+>408	CastExpression	( LONG ) ( lpDrawItemStruct -> itemID )
+>409	PtrMemberAccess	lpDrawItemStruct -> itemID
+>410	Identifier	itemID
+>411	Identifier	lpDrawItemStruct
+>412	CastTarget	LONG
+>413	IdentifierDeclStatement	 
+>414	IdentifierDecl	* pDC = CDC 
+>415	AssignmentExpr	* pDC = CDC 
+>416	CallExpression	CDC 
+>417	ArgumentList	lpDrawItemStruct -> hDC
+>418	Argument	lpDrawItemStruct -> hDC
+>419	PtrMemberAccess	lpDrawItemStruct -> hDC
+>420	Identifier	hDC
+>421	Identifier	lpDrawItemStruct
+>422	Callee	CDC 
+>423	Identifier	CDC 
+>424	Identifier	pDC
+>425	Identifier	pDC
+>426	IdentifierDeclType	CDC *
+>478	FunctionDef	CComponentsList 
+>479	ParameterList	LPDRAWITEMSTRUCT lpDrawItemStruct
+>480	Parameter	 
+>481	Identifier	lpDrawItemStruct
+>482	ParameterType	LPDRAWITEMSTRUCT
+>483	ReturnType	void
+>484	CompoundStatement	 
+>485	ExpressionStatement	 
+>486	CallExpression	CCheckListBox 
+>487	ArgumentList	lpDrawItemStruct
+>488	Argument	lpDrawItemStruct
+>489	Identifier	lpDrawItemStruct
+>490	Callee	CCheckListBox 
+>491	Identifier	CCheckListBox 
+>496	FunctionDef	CComponentsList 
+>497	ParameterList	const ComponentPtr & component
+>498	Parameter	 
+>499	Identifier	component
+>500	ParameterType	const ComponentPtr &
+>501	ReturnType	void
+>502	CompoundStatement	 
+>503	ExpressionStatement	 
+>504	CallExpression	ReleaseDC ( pDC )
+>505	ArgumentList	pDC
+>506	Argument	pDC
+>507	Identifier	pDC
+>508	Callee	ReleaseDC
+>509	Identifier	ReleaseDC
+>510	IfStatement	if ( ( size . cx > 0 ) && ( GetHorizontalExtent ( ) < size . cx ) )
+>511	CompoundStatement	 
+>512	ExpressionStatement	 
+>513	CallExpression	SetHorizontalExtent ( size . cx )
+>514	ArgumentList	size . cx
+>515	Argument	size . cx
+>516	MemberAccess	size . cx
+>517	Identifier	cx
+>518	Identifier	size
+>519	Callee	SetHorizontalExtent
+>520	Identifier	SetHorizontalExtent
+>521	Condition	 
+>522	AndExpression	( size . cx > 0 ) && ( GetHorizontalExtent ( ) < size . cx )
+>523	RelationalExpression	GetHorizontalExtent ( ) < size . cx
+>524	MemberAccess	size . cx
+>525	Identifier	cx
+>526	Identifier	size
+>527	CallExpression	GetHorizontalExtent ( )
+>528	ArgumentList	 
+>529	Callee	GetHorizontalExtent
+>530	Identifier	GetHorizontalExtent
+>531	RelationalExpression	size . cx > 0
+>532	PrimaryExpression	0
+>533	MemberAccess	size . cx
+>534	Identifier	cx
+>535	Identifier	size
+>536	IdentifierDeclStatement	 
+>537	IdentifierDecl	size = pDC -> GetTextExtent ( component -> GetDisplayName ( ) . c_str ( ) )
+>538	AssignmentExpr	size = pDC -> GetTextExtent ( component -> GetDisplayName ( ) . c_str ( ) )
+>539	CallExpression	pDC -> GetTextExtent ( component -> GetDisplayName ( ) . c_str ( ) )
+>540	ArgumentList	component -> GetDisplayName ( ) . c_str ( )
+>541	Argument	component -> GetDisplayName ( ) . c_str ( )
+>542	CallExpression	component -> GetDisplayName ( ) . c_str ( )
+>543	ArgumentList	 
+>544	Callee	component -> GetDisplayName ( ) . c_str
+>545	MemberAccess	component -> GetDisplayName ( ) . c_str
+>546	Identifier	c_str
+>547	CallExpression	component -> GetDisplayName ( )
+>548	ArgumentList	 
+>549	Callee	component -> GetDisplayName
+>550	PtrMemberAccess	component -> GetDisplayName
+>551	Identifier	GetDisplayName
+>552	Identifier	component
+>553	Callee	pDC -> GetTextExtent
+>554	PtrMemberAccess	pDC -> GetTextExtent
+>555	Identifier	GetTextExtent
+>556	Identifier	pDC
+>557	Identifier	size
+>558	Identifier	size
+>559	IdentifierDeclType	CSize
+>560	ExpressionStatement	 
+>561	CallExpression	ASSERT ( pDC )
+>562	ArgumentList	pDC
+>563	Argument	pDC
+>564	Identifier	pDC
+>565	Callee	ASSERT
+>566	Identifier	ASSERT
+>567	IdentifierDeclStatement	 
+>568	IdentifierDecl	* pDC = GetDC ( )
+>569	AssignmentExpr	* pDC = GetDC ( )
+>570	CallExpression	GetDC ( )
+>571	ArgumentList	 
+>572	Callee	GetDC
+>573	Identifier	GetDC
+>574	Identifier	pDC
+>575	Identifier	pDC
+>576	IdentifierDeclType	CDC *
+>577	IfStatement	if ( component -> disabled )
+>578	ExpressionStatement	 
+>579	CallExpression	Enable ( id , 0 )
+>580	ArgumentList	id
+>581	Argument	0
+>582	PrimaryExpression	0
+>583	Argument	id
+>584	Identifier	id
+>585	Callee	Enable
+>586	Identifier	Enable
+>587	Condition	 
+>588	PtrMemberAccess	component -> disabled
+>589	Identifier	disabled
+>590	Identifier	component
+>591	IfStatement	if ( component -> checked )
+>592	ExpressionStatement	 
+>593	CallExpression	SetCheck ( id , 1 )
+>594	ArgumentList	id
+>595	Argument	1
+>596	PrimaryExpression	1
+>597	Argument	id
+>598	Identifier	id
+>599	Callee	SetCheck
+>600	Identifier	SetCheck
+>601	Condition	 
+>602	PtrMemberAccess	component -> checked
+>603	Identifier	checked
+>604	Identifier	component
+>605	ExpressionStatement	 
+>606	CallExpression	SetItemDataPtr ( id , get ( component ) )
+>607	ArgumentList	id
+>608	Argument	get ( component )
+>609	CallExpression	get ( component )
+>610	ArgumentList	component
+>611	Argument	component
+>612	Identifier	component
+>613	Callee	get
+>614	Identifier	get
+>615	Argument	id
+>616	Identifier	id
+>617	Callee	SetItemDataPtr
+>618	Identifier	SetItemDataPtr
+>619	IdentifierDeclStatement	 
+>620	IdentifierDecl	id = AddString ( component -> description . c_str ( ) )
+>621	AssignmentExpr	id = AddString ( component -> description . c_str ( ) )
+>622	CallExpression	AddString ( component -> description . c_str ( ) )
+>623	ArgumentList	component -> description . c_str ( )
+>624	Argument	component -> description . c_str ( )
+>625	CallExpression	component -> description . c_str ( )
+>626	ArgumentList	 
+>627	Callee	component -> description . c_str
+>628	MemberAccess	component -> description . c_str
+>629	Identifier	c_str
+>630	PtrMemberAccess	component -> description
+>631	Identifier	description
+>632	Identifier	component
+>633	Callee	AddString
+>634	Identifier	AddString
+>635	Identifier	id
+>636	Identifier	id
+>637	IdentifierDeclType	int
+>659	FunctionDef	CComponentsList 
+>660	ParameterList	UINT nFlags , CPoint point
+>661	Parameter	 
+>662	Identifier	point
+>663	ParameterType	CPoint
+>664	Parameter	 
+>665	Identifier	nFlags
+>666	ParameterType	UINT
+>667	ReturnType	void
+>668	CompoundStatement	 
+>669	IfStatement	if ( nFlags & MK_CONTROL && nFlags && MK_LBUTTON )
+>670	ElseStatement	else
+>671	IfStatement	if ( nFlags & MK_SHIFT && nFlags && MK_LBUTTON )
+>672	CompoundStatement	 
+>673	IfStatement	if ( ! bOutside )
+>674	CompoundStatement	 
+>675	ExpressionStatement	 
+>676	CallExpression	SetCheck ( uiItem , ! GetCheck ( uiItem ) )
+>677	ArgumentList	uiItem
+>678	Argument	! GetCheck ( uiItem )
+>679	UnaryOp	! GetCheck ( uiItem )
+>680	CallExpression	GetCheck ( uiItem )
+>681	ArgumentList	uiItem
+>682	Argument	uiItem
+>683	Identifier	uiItem
+>684	Callee	GetCheck
+>685	Identifier	GetCheck
+>686	UnaryOperator	!
+>687	Argument	uiItem
+>688	Identifier	uiItem
+>689	Callee	SetCheck
+>690	Identifier	SetCheck
+>691	IdentifierDeclStatement	 
+>692	IdentifierDecl	component = m_pConfiguration -> GetComponentPtr ( ( Component * ) GetItemDataPtr ( uiItem ) )
+>693	AssignmentExpr	component = m_pConfiguration -> GetComponentPtr ( ( Component * ) GetItemDataPtr ( uiItem ) )
+>694	CallExpression	m_pConfiguration -> GetComponentPtr ( ( Component * ) GetItemDataPtr ( uiItem ) )
+>695	ArgumentList	( Component * ) GetItemDataPtr ( uiItem )
+>696	Argument	( Component * ) GetItemDataPtr ( uiItem )
+>697	CastExpression	( Component * ) GetItemDataPtr ( uiItem )
+>698	CallExpression	GetItemDataPtr ( uiItem )
+>699	ArgumentList	uiItem
+>700	Argument	uiItem
+>701	Identifier	uiItem
+>702	Callee	GetItemDataPtr
+>703	Identifier	GetItemDataPtr
+>704	CastTarget	Component *
+>705	Callee	m_pConfiguration -> GetComponentPtr
+>706	PtrMemberAccess	m_pConfiguration -> GetComponentPtr
+>707	Identifier	GetComponentPtr
+>708	Identifier	m_pConfiguration
+>709	Identifier	component
+>710	Identifier	component
+>711	IdentifierDeclType	ComponentPtr
+>712	Condition	 
+>713	UnaryOp	! bOutside
+>714	Identifier	bOutside
+>715	UnaryOperator	!
+>716	IdentifierDeclStatement	 
+>717	IdentifierDecl	uiItem = ItemFromPoint ( point , bOutside )
+>718	AssignmentExpr	uiItem = ItemFromPoint ( point , bOutside )
+>719	CallExpression	ItemFromPoint ( point , bOutside )
+>720	ArgumentList	point
+>721	Argument	bOutside
+>722	Identifier	bOutside
+>723	Argument	point
+>724	Identifier	point
+>725	Callee	ItemFromPoint
+>726	Identifier	ItemFromPoint
+>727	Identifier	uiItem
+>728	Identifier	uiItem
+>729	IdentifierDeclType	UINT
+>730	IdentifierDeclStatement	 
+>731	IdentifierDecl	bOutside = false
+>732	AssignmentExpr	bOutside = false
+>733	Identifier	false
+>734	Identifier	false
+>735	Identifier	bOutside
+>736	IdentifierDeclType	BOOL
+>737	Condition	 
+>738	AndExpression	nFlags & MK_SHIFT && nFlags && MK_LBUTTON
+>739	AndExpression	nFlags && MK_LBUTTON
+>740	Identifier	MK_LBUTTON
+>741	Identifier	nFlags
+>742	BitAndExpression	nFlags & MK_SHIFT
+>743	Identifier	MK_SHIFT
+>744	Identifier	nFlags
+>745	CompoundStatement	 
+>746	IfStatement	if ( ! bOutside )
+>747	CompoundStatement	 
+>748	IfStatement	if ( m_pExecuteCallback )
+>749	CompoundStatement	 
+>750	ExpressionStatement	 
+>751	CallExpression	m_pExecuteCallback -> LoadComponentsList ( false )
+>752	ArgumentList	false
+>753	Argument	false
+>754	Identifier	false
+>755	Callee	m_pExecuteCallback -> LoadComponentsList
+>756	PtrMemberAccess	m_pExecuteCallback -> LoadComponentsList
+>757	Identifier	LoadComponentsList
+>758	Identifier	m_pExecuteCallback
+>759	Condition	 
+>760	Identifier	m_pExecuteCallback
+>761	ExpressionStatement	 
+>762	CallExpression	Exec ( component )
+>763	ArgumentList	component
+>764	Argument	component
+>765	Identifier	component
+>766	Callee	Exec
+>767	Identifier	Exec
+>768	IdentifierDeclStatement	 
+>769	IdentifierDecl	component = m_pConfiguration -> GetComponentPtr ( ( Component * ) GetItemDataPtr ( uiItem ) )
+>770	AssignmentExpr	component = m_pConfiguration -> GetComponentPtr ( ( Component * ) GetItemDataPtr ( uiItem ) )
+>771	CallExpression	m_pConfiguration -> GetComponentPtr ( ( Component * ) GetItemDataPtr ( uiItem ) )
+>772	ArgumentList	( Component * ) GetItemDataPtr ( uiItem )
+>773	Argument	( Component * ) GetItemDataPtr ( uiItem )
+>774	CastExpression	( Component * ) GetItemDataPtr ( uiItem )
+>775	CallExpression	GetItemDataPtr ( uiItem )
+>776	ArgumentList	uiItem
+>777	Argument	uiItem
+>778	Identifier	uiItem
+>779	Callee	GetItemDataPtr
+>780	Identifier	GetItemDataPtr
+>781	CastTarget	Component *
+>782	Callee	m_pConfiguration -> GetComponentPtr
+>783	PtrMemberAccess	m_pConfiguration -> GetComponentPtr
+>784	Identifier	GetComponentPtr
+>785	Identifier	m_pConfiguration
+>786	Identifier	component
+>787	Identifier	component
+>788	IdentifierDeclType	ComponentPtr
+>789	Condition	 
+>790	UnaryOp	! bOutside
+>791	Identifier	bOutside
+>792	UnaryOperator	!
+>793	IdentifierDeclStatement	 
+>794	IdentifierDecl	uiItem = ItemFromPoint ( point , bOutside )
+>795	AssignmentExpr	uiItem = ItemFromPoint ( point , bOutside )
+>796	CallExpression	ItemFromPoint ( point , bOutside )
+>797	ArgumentList	point
+>798	Argument	bOutside
+>799	Identifier	bOutside
+>800	Argument	point
+>801	Identifier	point
+>802	Callee	ItemFromPoint
+>803	Identifier	ItemFromPoint
+>804	Identifier	uiItem
+>805	Identifier	uiItem
+>806	IdentifierDeclType	UINT
+>807	IdentifierDeclStatement	 
+>808	IdentifierDecl	bOutside = false
+>809	AssignmentExpr	bOutside = false
+>810	Identifier	false
+>811	Identifier	false
+>812	Identifier	bOutside
+>813	IdentifierDeclType	BOOL
+>814	Condition	 
+>815	AndExpression	nFlags & MK_CONTROL && nFlags && MK_LBUTTON
+>816	AndExpression	nFlags && MK_LBUTTON
+>817	Identifier	MK_LBUTTON
+>818	Identifier	nFlags
+>819	BitAndExpression	nFlags & MK_CONTROL
+>820	Identifier	MK_CONTROL
+>821	Identifier	nFlags
+>841	FunctionDef	CComponentsList 
+>842	ParameterList	const ComponentPtr & component
+>843	Parameter	 
+>844	Identifier	component
+>845	ParameterType	const ComponentPtr &
+>846	ReturnType	void
+>847	CompoundStatement	 
+>848	BlockStarter	 
+>849	CompoundStatement	 
+>850	ExpressionStatement	DniMessageBox 
+>851	CallExpression	DniMessageBox 
+>852	ArgumentList	DVLib 
+>853	Argument	MB_OK | MB_ICONSTOP
+>854	InclusiveOrExpression	MB_OK | MB_ICONSTOP
+>855	Identifier	MB_ICONSTOP
+>856	Identifier	MB_OK
+>857	Argument	DVLib 
+>858	CallExpression	DVLib 
+>859	ArgumentList	 
+>860	Callee	DVLib 
+>861	MemberAccess	DVLib 
+>862	Identifier	c_str
+>863	CallExpression	DVLib 
+>864	ArgumentList	ex . what ( )
+>865	Argument	ex . what ( )
+>866	CallExpression	ex . what ( )
+>867	ArgumentList	 
+>868	Callee	ex . what
+>869	MemberAccess	ex . what
+>870	Identifier	what
+>871	Identifier	ex
+>872	Callee	DVLib 
+>873	Identifier	DVLib 
+>874	Callee	DniMessageBox 
+>875	Identifier	DniMessageBox 
+>876	ExpressionStatement	 
+>877	Statement	)
+>878	Statement	)
+>879	Statement	)
+>880	Statement	(
+>881	Statement	what
+>882	Statement	.
+>883	Statement	ex
+>884	Statement	(
+>885	Statement	string2wstring
+>886	Statement	 
+>887	Statement	DVLib
+>888	Statement	<<
+>889	Statement	\")
+>890	Statement	L
+>891	Statement	<<
+>892	Statement	)
+>893	Statement	(
+>894	Statement	GetDisplayName
+>895	Statement	->
+>896	Statement	component
+>897	Statement	<<
+>898	Statement	\"' (\"
+>899	Statement	L
+>900	Statement	<<
+>901	Statement	id
+>902	Statement	->
+>903	Statement	component
+>904	Statement	<<
+>905	Statement	\"*** Component '\"
+>906	Statement	L
+>907	Statement	(
+>908	Statement	LOG
+>909	Identifier	ex
+>910	BlockStarter	 
+>911	CompoundStatement	 
+>912	IfStatement	if ( m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecSuccess ( component ) )
+>913	ReturnStatement	return ;
+>914	Condition	m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecSuccess ( component )
+>915	AndExpression	m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecSuccess ( component )
+>916	UnaryOp	! m_pExecuteCallback -> OnComponentExecSuccess ( component )
+>917	CallExpression	m_pExecuteCallback -> OnComponentExecSuccess ( component )
+>918	ArgumentList	component
+>919	Argument	component
+>920	Identifier	component
+>921	Callee	m_pExecuteCallback -> OnComponentExecSuccess
+>922	PtrMemberAccess	m_pExecuteCallback -> OnComponentExecSuccess
+>923	Identifier	OnComponentExecSuccess
+>924	Identifier	m_pExecuteCallback
+>925	UnaryOperator	!
+>926	Identifier	m_pExecuteCallback
+>927	ExpressionStatement	 
+>928	Statement	)
+>929	Statement	\")
+>930	Statement	L
+>931	Statement	<<
+>932	Statement	)
+>933	Statement	(
+>934	Statement	GetDisplayName
+>935	Statement	->
+>936	Statement	component
+>937	Statement	<<
+>938	Statement	\"' (\"
+>939	Statement	L
+>940	Statement	<<
+>941	Statement	id
+>942	Statement	->
+>943	Statement	component
+>944	Statement	<<
+>945	Statement	\"*** Component '\"
+>946	Statement	L
+>947	Statement	(
+>948	Statement	LOG
+>949	ExpressionStatement	component -> Wait ( )
+>950	CallExpression	component -> Wait ( )
+>951	ArgumentList	 
+>952	Callee	component -> Wait
+>953	PtrMemberAccess	component -> Wait
+>954	Identifier	Wait
+>955	Identifier	component
+>956	IfStatement	if ( m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecWait ( component ) )
+>957	ReturnStatement	return ;
+>958	Condition	m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecWait ( component )
+>959	AndExpression	m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecWait ( component )
+>960	UnaryOp	! m_pExecuteCallback -> OnComponentExecWait ( component )
+>961	CallExpression	m_pExecuteCallback -> OnComponentExecWait ( component )
+>962	ArgumentList	component
+>963	Argument	component
+>964	Identifier	component
+>965	Callee	m_pExecuteCallback -> OnComponentExecWait
+>966	PtrMemberAccess	m_pExecuteCallback -> OnComponentExecWait
+>967	Identifier	OnComponentExecWait
+>968	Identifier	m_pExecuteCallback
+>969	UnaryOperator	!
+>970	Identifier	m_pExecuteCallback
+>971	ExpressionStatement	component -> Exec ( )
+>972	CallExpression	component -> Exec ( )
+>973	ArgumentList	 
+>974	Callee	component -> Exec
+>975	PtrMemberAccess	component -> Exec
+>976	Identifier	Exec
+>977	Identifier	component
+>978	IfStatement	if ( m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecBegin ( component ) )
+>979	ReturnStatement	return ;
+>980	Condition	m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecBegin ( component )
+>981	AndExpression	m_pExecuteCallback && ! m_pExecuteCallback -> OnComponentExecBegin ( component )
+>982	UnaryOp	! m_pExecuteCallback -> OnComponentExecBegin ( component )
+>983	CallExpression	m_pExecuteCallback -> OnComponentExecBegin ( component )
+>984	ArgumentList	component
+>985	Argument	component
+>986	Identifier	component
+>987	Callee	m_pExecuteCallback -> OnComponentExecBegin
+>988	PtrMemberAccess	m_pExecuteCallback -> OnComponentExecBegin
+>989	Identifier	OnComponentExecBegin
+>990	Identifier	m_pExecuteCallback
+>991	UnaryOperator	!
+>992	Identifier	m_pExecuteCallback
+>993	ExpressionStatement	 
+>994	Statement	)
+>995	Statement	\")
+>996	Statement	L
+>997	Statement	<<
+>998	Statement	)
+>999	Statement	(
+>1000	Statement	GetDisplayName
+>1001	Statement	->
+>1002	Statement	component
+>1003	Statement	<<
+>1004	Statement	\"' (\"
+>1005	Statement	L
+>1006	Statement	<<
+>1007	Statement	id
+>1008	Statement	->
+>1009	Statement	component
+>1010	Statement	<<
+>1011	Statement	\"--- Component '\"
+>1012	Statement	L
+>1013	Statement	(
+>1014	Statement	LOG
+>1015	IfStatement	if ( m_pExecuteCallback )
+>1016	CompoundStatement	 
+>1017	ExpressionStatement	m_pExecuteCallback -> OnExecBegin ( )
+>1018	CallExpression	m_pExecuteCallback -> OnExecBegin ( )
+>1019	ArgumentList	 
+>1020	Callee	m_pExecuteCallback -> OnExecBegin
+>1021	PtrMemberAccess	m_pExecuteCallback -> OnExecBegin
+>1022	Identifier	OnExecBegin
+>1023	Identifier	m_pExecuteCallback
+>1024	Condition	m_pExecuteCallback
+>1025	Identifier	m_pExecuteCallback
+>1041	FunctionDef	CComponentsList 
+>1042	ParameterList	CdotNetInstallerDlg * pExec
+>1043	Parameter	 
+>1044	Identifier	pExec
+>1045	ParameterType	CdotNetInstallerDlg *
+>1046	ReturnType	void
+>1047	CompoundStatement	 
+>1048	ExpressionStatement	 
+>1049	AssignmentExpr	m_pExecuteCallback = pExec
+>1050	Identifier	pExec
+>1051	Identifier	m_pExecuteCallback
+>1057	FunctionDef	CComponentsList 
+>1058	ParameterList	InstallConfiguration * pConfiguration
+>1059	Parameter	 
+>1060	Identifier	pConfiguration
+>1061	ParameterType	InstallConfiguration *
+>1062	ReturnType	void
+>1063	CompoundStatement	 
+>1064	ExpressionStatement	 
+>1065	AssignmentExpr	m_pConfiguration = pConfiguration
+>1066	Identifier	pConfiguration
+>1067	Identifier	m_pConfiguration
+<3=5,4
+<9=12,11,10
+<12=13
+<13=14
+<14=16,15
+<16=17
+<17=19,18
+<24=30,29,25
+<25=26
+<26=28,27
+<30=413,53,31
+<31=45,32
+<32=33
+<33=41,34
+<34=35
+<35=36
+<36=40,37
+<37=39,38
+<41=42
+<42=44,43
+<45=46
+<46=48,47
+<48=50,49
+<50=52,51
+<53=397,54
+<54=383,360,335,321,309,295,277,235,218,214,203,150,136,73,64,55
+<55=56
+<56=60,57
+<57=58
+<58=59
+<60=61
+<61=63,62
+<64=65
+<65=69,66
+<66=67
+<67=68
+<69=70
+<70=72,71
+<73=130,74
+<74=107,95,90,75
+<75=76
+<76=86,77
+<77=82,78
+<78=79
+<79=81,80
+<82=83
+<83=85,84
+<86=87
+<87=89,88
+<90=91
+<91=94,93,92
+<95=96
+<96=106,105,97
+<97=104,98
+<98=102,99
+<99=100
+<100=101
+<102=103
+<107=108
+<108=129,128,109
+<109=127,110
+<110=122,111
+<111=117,112
+<112=114,113
+<114=116,115
+<117=119,118
+<119=121,120
+<122=124,123
+<124=126,125
+<130=131
+<131=135,132
+<132=134,133
+<136=137
+<137=149,148,138
+<138=147,139
+<139=145,140
+<140=141
+<141=142
+<142=144,143
+<145=146
+<150=151
+<151=199,152
+<152=191,172,170,164,162,155,153
+<153=154
+<155=156
+<156=158,157
+<158=159
+<159=161,160
+<162=163
+<164=165
+<165=169,166
+<166=168,167
+<170=171
+<172=173
+<173=186,174
+<174=184,175
+<175=182,176
+<176=177
+<177=179,178
+<179=181,180
+<182=183
+<184=185
+<186=188,187
+<188=190,189
+<191=192
+<192=194,193
+<194=196,195
+<196=198,197
+<199=200
+<200=202,201
+<203=204
+<204=212,205
+<205=208,206
+<206=207
+<208=209
+<209=211,210
+<212=213
+<214=215
+<215=217,216
+<218=231,219
+<219=220
+<220=229,221
+<221=222
+<222=223
+<223=228,224
+<224=226,225
+<226=227
+<229=230
+<231=232
+<232=234,233
+<235=265,236
+<236=251,237
+<237=238
+<238=247,239
+<239=240
+<240=241
+<241=245,242
+<242=243
+<243=244
+<245=246
+<247=248
+<248=250,249
+<251=252
+<252=261,253
+<253=254
+<254=255
+<255=259,256
+<256=257
+<257=258
+<259=260
+<261=262
+<262=264,263
+<265=266
+<266=274,267
+<267=269,268
+<269=271,270
+<271=273,272
+<274=276,275
+<277=291,278
+<278=279
+<279=290,280
+<280=288,281
+<281=286,284,282
+<282=283
+<284=285
+<286=287
+<288=289
+<291=292
+<292=294,293
+<295=296
+<296=308,307,297
+<297=306,298
+<298=302,299
+<299=300
+<300=301
+<302=303
+<303=305,304
+<309=310
+<310=320,319,311
+<311=318,312
+<312=316,313
+<313=314
+<314=315
+<316=317
+<321=322
+<322=334,333,323
+<323=332,324
+<324=328,325
+<325=326
+<326=327
+<328=329
+<329=331,330
+<335=336
+<336=359,358,337
+<337=357,338
+<338=355,345,339
+<339=343,340
+<340=341
+<341=342
+<343=344
+<345=353,346
+<346=351,349,347
+<347=348
+<349=350
+<351=352
+<353=354
+<355=356
+<360=361
+<361=382,381,362
+<362=380,363
+<363=374,364
+<364=373,365
+<365=371,366
+<366=367
+<367=368
+<368=370,369
+<371=372
+<374=379,375
+<375=377,376
+<377=378
+<383=384
+<384=396,395,385
+<385=394,386
+<386=392,387
+<387=388
+<388=389
+<389=391,390
+<392=393
+<397=398
+<398=406,399
+<399=403,400
+<400=402,401
+<403=405,404
+<406=408,407
+<408=412,409
+<409=411,410
+<413=414
+<414=426,425,415
+<415=424,416
+<416=422,417
+<417=418
+<418=419
+<419=421,420
+<422=423
+<478=484,483,479
+<479=480
+<480=482,481
+<484=485
+<485=486
+<486=490,487
+<487=488
+<488=489
+<490=491
+<496=502,501,497
+<497=498
+<498=500,499
+<502=619,605,591,577,567,560,536,510,503
+<503=504
+<504=508,505
+<505=506
+<506=507
+<508=509
+<510=521,511
+<511=512
+<512=513
+<513=519,514
+<514=515
+<515=516
+<516=518,517
+<519=520
+<521=522
+<522=531,523
+<523=527,524
+<524=526,525
+<527=529,528
+<529=530
+<531=533,532
+<533=535,534
+<536=537
+<537=559,558,538
+<538=557,539
+<539=553,540
+<540=541
+<541=542
+<542=544,543
+<544=545
+<545=547,546
+<547=549,548
+<549=550
+<550=552,551
+<553=554
+<554=556,555
+<560=561
+<561=565,562
+<562=563
+<563=564
+<565=566
+<567=568
+<568=576,575,569
+<569=574,570
+<570=572,571
+<572=573
+<577=587,578
+<578=579
+<579=585,580
+<580=583,581
+<581=582
+<583=584
+<585=586
+<587=588
+<588=590,589
+<591=601,592
+<592=593
+<593=599,594
+<594=597,595
+<595=596
+<597=598
+<599=600
+<601=602
+<602=604,603
+<605=606
+<606=617,607
+<607=615,608
+<608=609
+<609=613,610
+<610=611
+<611=612
+<613=614
+<615=616
+<617=618
+<619=620
+<620=637,636,621
+<621=635,622
+<622=633,623
+<623=624
+<624=625
+<625=627,626
+<627=628
+<628=630,629
+<630=632,631
+<633=634
+<659=668,667,660
+<660=664,661
+<661=663,662
+<664=666,665
+<668=669
+<669=814,745,670
+<670=671
+<671=737,672
+<672=730,716,673
+<673=712,674
+<674=691,675
+<675=676
+<676=689,677
+<677=687,678
+<678=679
+<679=686,680
+<680=684,681
+<681=682
+<682=683
+<684=685
+<687=688
+<689=690
+<691=692
+<692=711,710,693
+<693=709,694
+<694=705,695
+<695=696
+<696=697
+<697=704,698
+<698=702,699
+<699=700
+<700=701
+<702=703
+<705=706
+<706=708,707
+<712=713
+<713=715,714
+<716=717
+<717=729,728,718
+<718=727,719
+<719=725,720
+<720=723,721
+<721=722
+<723=724
+<725=726
+<730=731
+<731=736,735,732
+<732=734,733
+<737=738
+<738=742,739
+<739=741,740
+<742=744,743
+<745=807,793,746
+<746=789,747
+<747=768,761,748
+<748=759,749
+<749=750
+<750=751
+<751=755,752
+<752=753
+<753=754
+<755=756
+<756=758,757
+<759=760
+<761=762
+<762=766,763
+<763=764
+<764=765
+<766=767
+<768=769
+<769=788,787,770
+<770=786,771
+<771=782,772
+<772=773
+<773=774
+<774=781,775
+<775=779,776
+<776=777
+<777=778
+<779=780
+<782=783
+<783=785,784
+<789=790
+<790=792,791
+<793=794
+<794=806,805,795
+<795=804,796
+<796=802,797
+<797=800,798
+<798=799
+<800=801
+<802=803
+<807=808
+<808=813,812,809
+<809=811,810
+<814=815
+<815=819,816
+<816=818,817
+<819=821,820
+<841=847,846,842
+<842=843
+<843=845,844
+<847=910,848
+<848=909,849
+<849=908,907,906,905,904,903,902,901,900,899,898,897,896,895,894,893,892,891,890,889,888,887,886,885,884,883,882,881,880,879,878,877,876,850
+<850=851
+<851=874,852
+<852=857,853
+<853=854
+<854=856,855
+<857=858
+<858=860,859
+<860=861
+<861=863,862
+<863=872,864
+<864=865
+<865=866
+<866=868,867
+<868=869
+<869=871,870
+<872=873
+<874=875
+<910=911
+<911=912,927,928,929,930,931,932,933,934,935,936,937,938,939,940,941,942,943,944,945,946,947,948,949,956,971,978,993,994,995,996,997,998,999,1000,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1011,1012,1013,1014,1015
+<912=914,913
+<914=915
+<915=926,916
+<916=925,917
+<917=921,918
+<918=919
+<919=920
+<921=922
+<922=924,923
+<949=950
+<950=952,951
+<952=953
+<953=955,954
+<956=958,957
+<958=959
+<959=970,960
+<960=969,961
+<961=965,962
+<962=963
+<963=964
+<965=966
+<966=968,967
+<971=972
+<972=974,973
+<974=975
+<975=977,976
+<978=980,979
+<980=981
+<981=992,982
+<982=991,983
+<983=987,984
+<984=985
+<985=986
+<987=988
+<988=990,989
+<1015=1024,1016
+<1016=1017
+<1017=1018
+<1018=1020,1019
+<1020=1021
+<1021=1023,1022
+<1024=1025
+<1041=1047,1046,1042
+<1042=1043
+<1043=1045,1044
+<1047=1048
+<1048=1049
+<1049=1051,1050
+<1057=1063,1062,1058
+<1058=1059
+<1059=1061,1060
+<1063=1064
+<1064=1065
+<1065=1067,1066

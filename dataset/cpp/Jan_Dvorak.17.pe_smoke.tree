@@ -1,0 +1,276 @@
+>7	FunctionDef	PE_Smoke 
+>8	ParameterList	vec2 const & pos
+>9	Parameter	 
+>10	Identifier	pos
+>11	ParameterType	vec2 const &
+>12	CompoundStatement	 
+>17	FunctionDef	PE_Smoke 
+>18	ParameterList	Particle & p , float delta_t , float p_time
+>19	Parameter	 
+>20	Identifier	p_time
+>21	ParameterType	float
+>22	Parameter	 
+>23	Identifier	delta_t
+>24	ParameterType	float
+>25	Parameter	 
+>26	Identifier	p
+>27	ParameterType	Particle &
+>28	ReturnType	void
+>29	CompoundStatement	 
+>30	IfStatement	if ( ( p . cur_pos [ 1 ] + p . cur_size / 2.0 ) < 0.0 )
+>31	ExpressionStatement	 
+>32	AssignmentExpr	p . alive = false
+>33	Identifier	false
+>34	MemberAccess	p . alive
+>35	Identifier	alive
+>36	Identifier	p
+>37	Condition	 
+>38	RelationalExpression	( p . cur_pos [ 1 ] + p . cur_size / 2.0 ) < 0.0
+>39	PrimaryExpression	0.0
+>40	AdditiveExpression	p . cur_pos [ 1 ] + p . cur_size / 2.0
+>41	MultiplicativeExpression	p . cur_size / 2.0
+>42	PrimaryExpression	2.0
+>43	MemberAccess	p . cur_size
+>44	Identifier	cur_size
+>45	Identifier	p
+>46	ArrayIndexing	p . cur_pos [ 1 ]
+>47	PrimaryExpression	1
+>48	MemberAccess	p . cur_pos
+>49	Identifier	cur_pos
+>50	Identifier	p
+>51	ExpressionStatement	 
+>52	AssignmentExpr	p . cur_color [ 3 ] = 1.0
+>53	PrimaryExpression	1.0
+>54	ArrayIndexing	p . cur_color [ 3 ]
+>55	PrimaryExpression	3
+>56	MemberAccess	p . cur_color
+>57	Identifier	cur_color
+>58	Identifier	p
+>59	ExpressionStatement	 
+>60	AssignmentExpr	p . cur_color -= 2.0 * delta_t
+>61	MultiplicativeExpression	2.0 * delta_t
+>62	Identifier	delta_t
+>63	PrimaryExpression	2.0
+>64	MemberAccess	p . cur_color
+>65	Identifier	cur_color
+>66	Identifier	p
+>67	ExpressionStatement	 
+>68	AssignmentExpr	p . cur_size += 0.015 * delta_t
+>69	MultiplicativeExpression	0.015 * delta_t
+>70	Identifier	delta_t
+>71	PrimaryExpression	0.015
+>72	MemberAccess	p . cur_size
+>73	Identifier	cur_size
+>74	Identifier	p
+>75	IfStatement	if ( p . cur_speed [ 1 ] > - 0.04 )
+>76	ExpressionStatement	 
+>77	AssignmentExpr	p . cur_speed [ 1 ] = - 0.04
+>78	UnaryOp	- 0.04
+>79	PrimaryExpression	0.04
+>80	UnaryOperator	-
+>81	ArrayIndexing	p . cur_speed [ 1 ]
+>82	PrimaryExpression	1
+>83	MemberAccess	p . cur_speed
+>84	Identifier	cur_speed
+>85	Identifier	p
+>86	Condition	 
+>87	RelationalExpression	p . cur_speed [ 1 ] > - 0.04
+>88	UnaryOp	- 0.04
+>89	PrimaryExpression	0.04
+>90	UnaryOperator	-
+>91	ArrayIndexing	p . cur_speed [ 1 ]
+>92	PrimaryExpression	1
+>93	MemberAccess	p . cur_speed
+>94	Identifier	cur_speed
+>95	Identifier	p
+>96	ExpressionStatement	 
+>97	AssignmentExpr	p . cur_speed [ 1 ] += 0.02 * delta_t
+>98	MultiplicativeExpression	0.02 * delta_t
+>99	Identifier	delta_t
+>100	PrimaryExpression	0.02
+>101	ArrayIndexing	p . cur_speed [ 1 ]
+>102	PrimaryExpression	1
+>103	MemberAccess	p . cur_speed
+>104	Identifier	cur_speed
+>105	Identifier	p
+>106	ExpressionStatement	 
+>107	AssignmentExpr	p . cur_speed [ 0 ] -= 0.02 * delta_t
+>108	MultiplicativeExpression	0.02 * delta_t
+>109	Identifier	delta_t
+>110	PrimaryExpression	0.02
+>111	ArrayIndexing	p . cur_speed [ 0 ]
+>112	PrimaryExpression	0
+>113	MemberAccess	p . cur_speed
+>114	Identifier	cur_speed
+>115	Identifier	p
+>116	ExpressionStatement	 
+>117	AssignmentExpr	p . cur_pos += p . cur_speed * delta_t
+>118	MultiplicativeExpression	p . cur_speed * delta_t
+>119	Identifier	delta_t
+>120	MemberAccess	p . cur_speed
+>121	Identifier	cur_speed
+>122	Identifier	p
+>123	MemberAccess	p . cur_pos
+>124	Identifier	cur_pos
+>125	Identifier	p
+>142	FunctionDef	PE_Smoke 
+>143	ParameterList	Particle & p
+>144	Parameter	 
+>145	Identifier	p
+>146	ParameterType	Particle &
+>147	ReturnType	void
+>148	CompoundStatement	 
+>149	ExpressionStatement	 
+>150	AssignmentExpr	p . cur_color = g_layouts -> cur ( ) -> color_fire_start
+>151	PtrMemberAccess	g_layouts -> cur ( ) -> color_fire_start
+>152	Identifier	color_fire_start
+>153	CallExpression	g_layouts -> cur ( )
+>154	ArgumentList	 
+>155	Callee	g_layouts -> cur
+>156	PtrMemberAccess	g_layouts -> cur
+>157	Identifier	cur
+>158	Identifier	g_layouts
+>159	MemberAccess	p . cur_color
+>160	Identifier	cur_color
+>161	Identifier	p
+>162	ExpressionStatement	 
+>163	AssignmentExpr	p . cur_size = 0.01
+>164	PrimaryExpression	0.01
+>165	MemberAccess	p . cur_size
+>166	Identifier	cur_size
+>167	Identifier	p
+>168	ExpressionStatement	 
+>169	AssignmentExpr	p . cur_speed = vec2 ( ( - 0.02 + RAND_0_1 * 0.04 ) , - 0.1 )
+>170	CallExpression	vec2 ( ( - 0.02 + RAND_0_1 * 0.04 ) , - 0.1 )
+>171	ArgumentList	- 0.02 + RAND_0_1 * 0.04
+>172	Argument	- 0.1
+>173	UnaryOp	- 0.1
+>174	PrimaryExpression	0.1
+>175	UnaryOperator	-
+>176	Argument	- 0.02 + RAND_0_1 * 0.04
+>177	AdditiveExpression	- 0.02 + RAND_0_1 * 0.04
+>178	MultiplicativeExpression	RAND_0_1 * 0.04
+>179	PrimaryExpression	0.04
+>180	Identifier	RAND_0_1
+>181	UnaryOp	- 0.02
+>182	PrimaryExpression	0.02
+>183	UnaryOperator	-
+>184	Callee	vec2
+>185	Identifier	vec2
+>186	MemberAccess	p . cur_speed
+>187	Identifier	cur_speed
+>188	Identifier	p
+>189	ExpressionStatement	 
+>190	AssignmentExpr	p . cur_pos = m_pos + vec2 ( RAND_0_1 * 0.02f , RAND_0_1 * 0.01f )
+>191	AdditiveExpression	m_pos + vec2 ( RAND_0_1 * 0.02f , RAND_0_1 * 0.01f )
+>192	CallExpression	vec2 ( RAND_0_1 * 0.02f , RAND_0_1 * 0.01f )
+>193	ArgumentList	RAND_0_1 * 0.02f
+>194	Argument	RAND_0_1 * 0.01f
+>195	MultiplicativeExpression	RAND_0_1 * 0.01f
+>196	PrimaryExpression	0.01f
+>197	Identifier	RAND_0_1
+>198	Argument	RAND_0_1 * 0.02f
+>199	MultiplicativeExpression	RAND_0_1 * 0.02f
+>200	PrimaryExpression	0.02f
+>201	Identifier	RAND_0_1
+>202	Callee	vec2
+>203	Identifier	vec2
+>204	Identifier	m_pos
+>205	MemberAccess	p . cur_pos
+>206	Identifier	cur_pos
+>207	Identifier	p
+<7=12,8
+<8=9
+<9=11,10
+<17=29,28,18
+<18=25,22,19
+<19=21,20
+<22=24,23
+<25=27,26
+<29=116,106,96,75,67,59,51,30
+<30=37,31
+<31=32
+<32=34,33
+<34=36,35
+<37=38
+<38=40,39
+<40=46,41
+<41=43,42
+<43=45,44
+<46=48,47
+<48=50,49
+<51=52
+<52=54,53
+<54=56,55
+<56=58,57
+<59=60
+<60=64,61
+<61=63,62
+<64=66,65
+<67=68
+<68=72,69
+<69=71,70
+<72=74,73
+<75=86,76
+<76=77
+<77=81,78
+<78=80,79
+<81=83,82
+<83=85,84
+<86=87
+<87=91,88
+<88=90,89
+<91=93,92
+<93=95,94
+<96=97
+<97=101,98
+<98=100,99
+<101=103,102
+<103=105,104
+<106=107
+<107=111,108
+<108=110,109
+<111=113,112
+<113=115,114
+<116=117
+<117=123,118
+<118=120,119
+<120=122,121
+<123=125,124
+<142=148,147,143
+<143=144
+<144=146,145
+<148=189,168,162,149
+<149=150
+<150=159,151
+<151=153,152
+<153=155,154
+<155=156
+<156=158,157
+<159=161,160
+<162=163
+<163=165,164
+<165=167,166
+<168=169
+<169=186,170
+<170=184,171
+<171=176,172
+<172=173
+<173=175,174
+<176=177
+<177=181,178
+<178=180,179
+<181=183,182
+<184=185
+<186=188,187
+<189=190
+<190=205,191
+<191=204,192
+<192=202,193
+<193=198,194
+<194=195
+<195=197,196
+<198=199
+<199=201,200
+<202=203
+<205=207,206

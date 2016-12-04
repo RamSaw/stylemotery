@@ -1,0 +1,2500 @@
+>3	FunctionDef	NyARRotTransOptimize_O2 
+>4	ParameterList	const NyARPerspectiveProjectionMatrix * i_projection_mat_ref
+>5	Parameter	 
+>6	Identifier	i_projection_mat_ref
+>7	ParameterType	const NyARPerspectiveProjectionMatrix *
+>8	CompoundStatement	 
+>9	ReturnStatement	 
+>10	ExpressionStatement	 
+>11	AssignmentExpr	this -> _projection_mat_ref = i_projection_mat_ref
+>12	Identifier	i_projection_mat_ref
+>13	PtrMemberAccess	this -> _projection_mat_ref
+>14	Identifier	_projection_mat_ref
+>15	Identifier	this
+>23	FunctionDef	NyARRotTransOptimize_O2 
+>24	ParameterList	NyARRotMatrix & io_rotmat , TNyARDoublePoint3d & io_transvec , const NyARFitVecCalculator & i_calculator
+>25	Parameter	 
+>26	Identifier	i_calculator
+>27	ParameterType	const NyARFitVecCalculator &
+>28	Parameter	 
+>29	Identifier	io_transvec
+>30	ParameterType	TNyARDoublePoint3d &
+>31	Parameter	 
+>32	Identifier	io_rotmat
+>33	ParameterType	NyARRotMatrix &
+>34	ReturnType	double
+>35	CompoundStatement	 
+>36	ReturnStatement	 
+>37	Identifier	err
+>38	ForStatement	for ( int i = 0 ; ; i ++ )
+>39	CompoundStatement	 
+>40	ExpressionStatement	 
+>41	CallExpression	i_calculator . calculateTransfer ( io_rotmat , io_transvec )
+>42	ArgumentList	io_rotmat
+>43	Argument	io_transvec
+>44	Identifier	io_transvec
+>45	Argument	io_rotmat
+>46	Identifier	io_rotmat
+>47	Callee	i_calculator . calculateTransfer
+>48	MemberAccess	i_calculator . calculateTransfer
+>49	Identifier	calculateTransfer
+>50	Identifier	i_calculator
+>51	IfStatement	if ( err < AR_GET_TRANS_MAT_MAX_FIT_ERROR || i == AR_GET_TRANS_MAT_MAX_LOOP_COUNT - 1 )
+>52	CompoundStatement	 
+>53	BreakStatement	 
+>54	Condition	 
+>55	OrExpression	err < AR_GET_TRANS_MAT_MAX_FIT_ERROR || i == AR_GET_TRANS_MAT_MAX_LOOP_COUNT - 1
+>56	EqualityExpression	i == AR_GET_TRANS_MAT_MAX_LOOP_COUNT - 1
+>57	AdditiveExpression	AR_GET_TRANS_MAT_MAX_LOOP_COUNT - 1
+>58	PrimaryExpression	1
+>59	Identifier	AR_GET_TRANS_MAT_MAX_LOOP_COUNT
+>60	Identifier	i
+>61	RelationalExpression	err < AR_GET_TRANS_MAT_MAX_FIT_ERROR
+>62	Identifier	AR_GET_TRANS_MAT_MAX_FIT_ERROR
+>63	Identifier	err
+>64	ExpressionStatement	 
+>65	AssignmentExpr	err = modifyMatrix ( io_rotmat , io_transvec , offset_square , fit_vertex )
+>66	CallExpression	modifyMatrix ( io_rotmat , io_transvec , offset_square , fit_vertex )
+>67	ArgumentList	io_rotmat
+>68	Argument	fit_vertex
+>69	Identifier	fit_vertex
+>70	Argument	offset_square
+>71	Identifier	offset_square
+>72	Argument	io_transvec
+>73	Identifier	io_transvec
+>74	Argument	io_rotmat
+>75	Identifier	io_rotmat
+>76	Callee	modifyMatrix
+>77	Identifier	modifyMatrix
+>78	Identifier	err
+>79	ExpressionStatement	 
+>80	CallExpression	i_calculator . calculateTransfer ( io_rotmat , io_transvec )
+>81	ArgumentList	io_rotmat
+>82	Argument	io_transvec
+>83	Identifier	io_transvec
+>84	Argument	io_rotmat
+>85	Identifier	io_rotmat
+>86	Callee	i_calculator . calculateTransfer
+>87	MemberAccess	i_calculator . calculateTransfer
+>88	Identifier	calculateTransfer
+>89	Identifier	i_calculator
+>90	ExpressionStatement	 
+>91	AssignmentExpr	err = modifyMatrix ( io_rotmat , io_transvec , offset_square , fit_vertex )
+>92	CallExpression	modifyMatrix ( io_rotmat , io_transvec , offset_square , fit_vertex )
+>93	ArgumentList	io_rotmat
+>94	Argument	fit_vertex
+>95	Identifier	fit_vertex
+>96	Argument	offset_square
+>97	Identifier	offset_square
+>98	Argument	io_transvec
+>99	Identifier	io_transvec
+>100	Argument	io_rotmat
+>101	Identifier	io_rotmat
+>102	Callee	modifyMatrix
+>103	Identifier	modifyMatrix
+>104	Identifier	err
+>105	IncDecOp	 
+>106	IncDec	++
+>107	Identifier	i
+>108	ForInit	 
+>109	IdentifierDeclStatement	int i = 0 ;
+>110	IdentifierDecl	i = 0
+>111	AssignmentExpr	i = 0
+>112	PrimaryExpression	0
+>113	Identifier	i
+>114	Identifier	i
+>115	IdentifierDeclType	int
+>116	IdentifierDeclStatement	 
+>117	IdentifierDecl	err = - 1
+>118	AssignmentExpr	err = - 1
+>119	UnaryOp	- 1
+>120	PrimaryExpression	1
+>121	UnaryOperator	-
+>122	Identifier	err
+>123	Identifier	err
+>124	IdentifierDeclType	double
+>125	IdentifierDeclStatement	 
+>126	IdentifierDecl	* offset_square = i_calculator . getOffsetVertex ( ) -> vertex
+>127	AssignmentExpr	* offset_square = i_calculator . getOffsetVertex ( ) -> vertex
+>128	PtrMemberAccess	i_calculator . getOffsetVertex ( ) -> vertex
+>129	Identifier	vertex
+>130	CallExpression	i_calculator . getOffsetVertex ( )
+>131	ArgumentList	 
+>132	Callee	i_calculator . getOffsetVertex
+>133	MemberAccess	i_calculator . getOffsetVertex
+>134	Identifier	getOffsetVertex
+>135	Identifier	i_calculator
+>136	Identifier	offset_square
+>137	Identifier	offset_square
+>138	IdentifierDeclType	const TNyARDoublePoint3d *
+>139	IdentifierDeclStatement	 
+>140	IdentifierDecl	* fit_vertex = i_calculator . getFitSquare ( )
+>141	AssignmentExpr	* fit_vertex = i_calculator . getFitSquare ( )
+>142	CallExpression	i_calculator . getFitSquare ( )
+>143	ArgumentList	 
+>144	Callee	i_calculator . getFitSquare
+>145	MemberAccess	i_calculator . getFitSquare
+>146	Identifier	getFitSquare
+>147	Identifier	i_calculator
+>148	Identifier	fit_vertex
+>149	Identifier	fit_vertex
+>150	IdentifierDeclType	const TNyARDoublePoint2d *
+>170	FunctionDef	NyARRotTransOptimize_O2 
+>171	ParameterList	NyARRotMatrix & io_rot , TNyARDoublePoint3d & trans , const TNyARDoublePoint3d i_vertex3d [ ] , const TNyARDoublePoint2d \
+>172	Parameter	 
+>173	Identifier	i_vertex2d
+>174	ParameterType	const TNyARDoublePoint2d [ ]
+>175	Parameter	 
+>176	Identifier	i_vertex3d
+>177	ParameterType	const TNyARDoublePoint3d [ ]
+>178	Parameter	 
+>179	Identifier	trans
+>180	ParameterType	TNyARDoublePoint3d &
+>181	Parameter	 
+>182	Identifier	io_rot
+>183	ParameterType	NyARRotMatrix &
+>184	ReturnType	double
+>185	CompoundStatement	 
+>186	ReturnStatement	 
+>187	MultiplicativeExpression	minerr / 4
+>188	PrimaryExpression	4
+>189	Identifier	minerr
+>190	ExpressionStatement	 
+>191	CallExpression	io_rot . setAngle ( a2 , b2 , c2 )
+>192	ArgumentList	a2
+>193	Argument	c2
+>194	Identifier	c2
+>195	Argument	b2
+>196	Identifier	b2
+>197	Argument	a2
+>198	Identifier	a2
+>199	Callee	io_rot . setAngle
+>200	MemberAccess	io_rot . setAngle
+>201	Identifier	setAngle
+>202	Identifier	io_rot
+>203	ForStatement	for ( int i = 0 ; i < 10 ; i ++ )
+>204	CompoundStatement	 
+>205	IfStatement	if ( best_idx == ( 1 + 3 + 9 ) )
+>206	CompoundStatement	 
+>207	ExpressionStatement	 
+>208	AssignmentExpr	factor *= 0.5
+>209	PrimaryExpression	0.5
+>210	Identifier	factor
+>211	Condition	 
+>212	EqualityExpression	best_idx == ( 1 + 3 + 9 )
+>213	AdditiveExpression	1 + 3 + 9
+>214	AdditiveExpression	3 + 9
+>215	PrimaryExpression	9
+>216	PrimaryExpression	3
+>217	PrimaryExpression	1
+>218	Identifier	best_idx
+>219	ForStatement	for ( t1 = 0 ; t1 < 3 ; t1 ++ )
+>220	CompoundStatement	 
+>221	ForStatement	for ( t2 = 0 ; t2 < 3 ; t2 ++ )
+>222	CompoundStatement	 
+>223	ForStatement	for ( t3 = 0 ; t3 < 3 ; t3 ++ )
+>224	CompoundStatement	 
+>225	IfStatement	if ( err < minerr )
+>226	CompoundStatement	 
+>227	ExpressionStatement	 
+>228	AssignmentExpr	best_idx = t1 + t2 * 3 + t3 * 9
+>229	AdditiveExpression	t1 + t2 * 3 + t3 * 9
+>230	AdditiveExpression	t2 * 3 + t3 * 9
+>231	MultiplicativeExpression	t3 * 9
+>232	PrimaryExpression	9
+>233	Identifier	t3
+>234	MultiplicativeExpression	t2 * 3
+>235	PrimaryExpression	3
+>236	Identifier	t2
+>237	Identifier	t1
+>238	Identifier	best_idx
+>239	ExpressionStatement	 
+>240	AssignmentExpr	c2 = c_factor [ t3 ]
+>241	ArrayIndexing	c_factor [ t3 ]
+>242	Identifier	t3
+>243	Identifier	c_factor
+>244	Identifier	c2
+>245	ExpressionStatement	 
+>246	AssignmentExpr	b2 = b_factor [ t2 ]
+>247	ArrayIndexing	b_factor [ t2 ]
+>248	Identifier	t2
+>249	Identifier	b_factor
+>250	Identifier	b2
+>251	ExpressionStatement	 
+>252	AssignmentExpr	a2 = a_factor [ t1 ]
+>253	ArrayIndexing	a_factor [ t1 ]
+>254	Identifier	t1
+>255	Identifier	a_factor
+>256	Identifier	a2
+>257	ExpressionStatement	 
+>258	AssignmentExpr	minerr = err
+>259	Identifier	err
+>260	Identifier	minerr
+>261	Condition	 
+>262	RelationalExpression	err < minerr
+>263	Identifier	minerr
+>264	Identifier	err
+>265	ExpressionStatement	 
+>266	AssignmentExpr	err += x * x + y * y
+>267	AdditiveExpression	x * x + y * y
+>268	MultiplicativeExpression	y * y
+>269	Identifier	y
+>270	Identifier	y
+>271	MultiplicativeExpression	x * x
+>272	Identifier	x
+>273	Identifier	x
+>274	Identifier	err
+>275	ExpressionStatement	 
+>276	AssignmentExpr	y = P2D31 - ( combo10 * VX30 + combo11 * VX31 + combo12_11 ) / h
+>277	AdditiveExpression	P2D31 - ( combo10 * VX30 + combo11 * VX31 + combo12_11 ) / h
+>278	MultiplicativeExpression	( combo10 * VX30 + combo11 * VX31 + combo12_11 ) / h
+>279	Identifier	h
+>280	AdditiveExpression	combo10 * VX30 + combo11 * VX31 + combo12_11
+>281	AdditiveExpression	combo11 * VX31 + combo12_11
+>282	Identifier	combo12_11
+>283	MultiplicativeExpression	combo11 * VX31
+>284	Identifier	VX31
+>285	Identifier	combo11
+>286	MultiplicativeExpression	combo10 * VX30
+>287	Identifier	VX30
+>288	Identifier	combo10
+>289	Identifier	P2D31
+>290	Identifier	y
+>291	ExpressionStatement	 
+>292	AssignmentExpr	x = P2D30 - ( combo00 * VX30 + combo01 * VX31 + combo02_11 ) / h
+>293	AdditiveExpression	P2D30 - ( combo00 * VX30 + combo01 * VX31 + combo02_11 ) / h
+>294	MultiplicativeExpression	( combo00 * VX30 + combo01 * VX31 + combo02_11 ) / h
+>295	Identifier	h
+>296	AdditiveExpression	combo00 * VX30 + combo01 * VX31 + combo02_11
+>297	AdditiveExpression	combo01 * VX31 + combo02_11
+>298	Identifier	combo02_11
+>299	MultiplicativeExpression	combo01 * VX31
+>300	Identifier	VX31
+>301	Identifier	combo01
+>302	MultiplicativeExpression	combo00 * VX30
+>303	Identifier	VX30
+>304	Identifier	combo00
+>305	Identifier	P2D30
+>306	Identifier	x
+>307	ExpressionStatement	 
+>308	AssignmentExpr	h = combo20 * VX30 + combo21 * VX31 + combo22_11
+>309	AdditiveExpression	combo20 * VX30 + combo21 * VX31 + combo22_11
+>310	AdditiveExpression	combo21 * VX31 + combo22_11
+>311	Identifier	combo22_11
+>312	MultiplicativeExpression	combo21 * VX31
+>313	Identifier	VX31
+>314	Identifier	combo21
+>315	MultiplicativeExpression	combo20 * VX30
+>316	Identifier	VX30
+>317	Identifier	combo20
+>318	Identifier	h
+>319	ExpressionStatement	 
+>320	AssignmentExpr	err += x * x + y * y
+>321	AdditiveExpression	x * x + y * y
+>322	MultiplicativeExpression	y * y
+>323	Identifier	y
+>324	Identifier	y
+>325	MultiplicativeExpression	x * x
+>326	Identifier	x
+>327	Identifier	x
+>328	Identifier	err
+>329	ExpressionStatement	 
+>330	AssignmentExpr	y = P2D21 - ( combo10 * VX20 + combo11 * VX21 + combo12_8 ) / h
+>331	AdditiveExpression	P2D21 - ( combo10 * VX20 + combo11 * VX21 + combo12_8 ) / h
+>332	MultiplicativeExpression	( combo10 * VX20 + combo11 * VX21 + combo12_8 ) / h
+>333	Identifier	h
+>334	AdditiveExpression	combo10 * VX20 + combo11 * VX21 + combo12_8
+>335	AdditiveExpression	combo11 * VX21 + combo12_8
+>336	Identifier	combo12_8
+>337	MultiplicativeExpression	combo11 * VX21
+>338	Identifier	VX21
+>339	Identifier	combo11
+>340	MultiplicativeExpression	combo10 * VX20
+>341	Identifier	VX20
+>342	Identifier	combo10
+>343	Identifier	P2D21
+>344	Identifier	y
+>345	ExpressionStatement	 
+>346	AssignmentExpr	x = P2D20 - ( combo00 * VX20 + combo01 * VX21 + combo02_8 ) / h
+>347	AdditiveExpression	P2D20 - ( combo00 * VX20 + combo01 * VX21 + combo02_8 ) / h
+>348	MultiplicativeExpression	( combo00 * VX20 + combo01 * VX21 + combo02_8 ) / h
+>349	Identifier	h
+>350	AdditiveExpression	combo00 * VX20 + combo01 * VX21 + combo02_8
+>351	AdditiveExpression	combo01 * VX21 + combo02_8
+>352	Identifier	combo02_8
+>353	MultiplicativeExpression	combo01 * VX21
+>354	Identifier	VX21
+>355	Identifier	combo01
+>356	MultiplicativeExpression	combo00 * VX20
+>357	Identifier	VX20
+>358	Identifier	combo00
+>359	Identifier	P2D20
+>360	Identifier	x
+>361	ExpressionStatement	 
+>362	AssignmentExpr	h = combo20 * VX20 + combo21 * VX21 + combo22_8
+>363	AdditiveExpression	combo20 * VX20 + combo21 * VX21 + combo22_8
+>364	AdditiveExpression	combo21 * VX21 + combo22_8
+>365	Identifier	combo22_8
+>366	MultiplicativeExpression	combo21 * VX21
+>367	Identifier	VX21
+>368	Identifier	combo21
+>369	MultiplicativeExpression	combo20 * VX20
+>370	Identifier	VX20
+>371	Identifier	combo20
+>372	Identifier	h
+>373	ExpressionStatement	 
+>374	AssignmentExpr	err += x * x + y * y
+>375	AdditiveExpression	x * x + y * y
+>376	MultiplicativeExpression	y * y
+>377	Identifier	y
+>378	Identifier	y
+>379	MultiplicativeExpression	x * x
+>380	Identifier	x
+>381	Identifier	x
+>382	Identifier	err
+>383	ExpressionStatement	 
+>384	AssignmentExpr	y = P2D11 - ( combo10 * VX10 + combo11 * VX11 + combo12_5 ) / h
+>385	AdditiveExpression	P2D11 - ( combo10 * VX10 + combo11 * VX11 + combo12_5 ) / h
+>386	MultiplicativeExpression	( combo10 * VX10 + combo11 * VX11 + combo12_5 ) / h
+>387	Identifier	h
+>388	AdditiveExpression	combo10 * VX10 + combo11 * VX11 + combo12_5
+>389	AdditiveExpression	combo11 * VX11 + combo12_5
+>390	Identifier	combo12_5
+>391	MultiplicativeExpression	combo11 * VX11
+>392	Identifier	VX11
+>393	Identifier	combo11
+>394	MultiplicativeExpression	combo10 * VX10
+>395	Identifier	VX10
+>396	Identifier	combo10
+>397	Identifier	P2D11
+>398	Identifier	y
+>399	ExpressionStatement	 
+>400	AssignmentExpr	x = P2D10 - ( combo00 * VX10 + combo01 * VX11 + combo02_5 ) / h
+>401	AdditiveExpression	P2D10 - ( combo00 * VX10 + combo01 * VX11 + combo02_5 ) / h
+>402	MultiplicativeExpression	( combo00 * VX10 + combo01 * VX11 + combo02_5 ) / h
+>403	Identifier	h
+>404	AdditiveExpression	combo00 * VX10 + combo01 * VX11 + combo02_5
+>405	AdditiveExpression	combo01 * VX11 + combo02_5
+>406	Identifier	combo02_5
+>407	MultiplicativeExpression	combo01 * VX11
+>408	Identifier	VX11
+>409	Identifier	combo01
+>410	MultiplicativeExpression	combo00 * VX10
+>411	Identifier	VX10
+>412	Identifier	combo00
+>413	Identifier	P2D10
+>414	Identifier	x
+>415	ExpressionStatement	 
+>416	AssignmentExpr	h = combo20 * VX10 + combo21 * VX11 + combo22_5
+>417	AdditiveExpression	combo20 * VX10 + combo21 * VX11 + combo22_5
+>418	AdditiveExpression	combo21 * VX11 + combo22_5
+>419	Identifier	combo22_5
+>420	MultiplicativeExpression	combo21 * VX11
+>421	Identifier	VX11
+>422	Identifier	combo21
+>423	MultiplicativeExpression	combo20 * VX10
+>424	Identifier	VX10
+>425	Identifier	combo20
+>426	Identifier	h
+>427	ExpressionStatement	 
+>428	AssignmentExpr	err += x * x + y * y
+>429	AdditiveExpression	x * x + y * y
+>430	MultiplicativeExpression	y * y
+>431	Identifier	y
+>432	Identifier	y
+>433	MultiplicativeExpression	x * x
+>434	Identifier	x
+>435	Identifier	x
+>436	Identifier	err
+>437	ExpressionStatement	 
+>438	AssignmentExpr	y = P2D01 - ( combo10 * VX00 + combo11 * VX01 + combo12_2 ) / h
+>439	AdditiveExpression	P2D01 - ( combo10 * VX00 + combo11 * VX01 + combo12_2 ) / h
+>440	MultiplicativeExpression	( combo10 * VX00 + combo11 * VX01 + combo12_2 ) / h
+>441	Identifier	h
+>442	AdditiveExpression	combo10 * VX00 + combo11 * VX01 + combo12_2
+>443	AdditiveExpression	combo11 * VX01 + combo12_2
+>444	Identifier	combo12_2
+>445	MultiplicativeExpression	combo11 * VX01
+>446	Identifier	VX01
+>447	Identifier	combo11
+>448	MultiplicativeExpression	combo10 * VX00
+>449	Identifier	VX00
+>450	Identifier	combo10
+>451	Identifier	P2D01
+>452	Identifier	y
+>453	ExpressionStatement	 
+>454	AssignmentExpr	x = P2D00 - ( combo00 * VX00 + combo01 * VX01 + combo02_2 ) / h
+>455	AdditiveExpression	P2D00 - ( combo00 * VX00 + combo01 * VX01 + combo02_2 ) / h
+>456	MultiplicativeExpression	( combo00 * VX00 + combo01 * VX01 + combo02_2 ) / h
+>457	Identifier	h
+>458	AdditiveExpression	combo00 * VX00 + combo01 * VX01 + combo02_2
+>459	AdditiveExpression	combo01 * VX01 + combo02_2
+>460	Identifier	combo02_2
+>461	MultiplicativeExpression	combo01 * VX01
+>462	Identifier	VX01
+>463	Identifier	combo01
+>464	MultiplicativeExpression	combo00 * VX00
+>465	Identifier	VX00
+>466	Identifier	combo00
+>467	Identifier	P2D00
+>468	Identifier	x
+>469	ExpressionStatement	 
+>470	AssignmentExpr	h = combo20 * VX00 + combo21 * VX01 + combo22_2
+>471	AdditiveExpression	combo20 * VX00 + combo21 * VX01 + combo22_2
+>472	AdditiveExpression	combo21 * VX01 + combo22_2
+>473	Identifier	combo22_2
+>474	MultiplicativeExpression	combo21 * VX01
+>475	Identifier	VX01
+>476	Identifier	combo21
+>477	MultiplicativeExpression	combo20 * VX00
+>478	Identifier	VX00
+>479	Identifier	combo20
+>480	Identifier	h
+>481	ExpressionStatement	 
+>482	AssignmentExpr	err = 0.0
+>483	PrimaryExpression	0.0
+>484	Identifier	err
+>485	ExpressionStatement	 
+>486	AssignmentExpr	combo21 = CP8 * rot0 + CP9 * rot1 + CP10 * rot2
+>487	AdditiveExpression	CP8 * rot0 + CP9 * rot1 + CP10 * rot2
+>488	AdditiveExpression	CP9 * rot1 + CP10 * rot2
+>489	MultiplicativeExpression	CP10 * rot2
+>490	Identifier	rot2
+>491	Identifier	CP10
+>492	MultiplicativeExpression	CP9 * rot1
+>493	Identifier	rot1
+>494	Identifier	CP9
+>495	MultiplicativeExpression	CP8 * rot0
+>496	Identifier	rot0
+>497	Identifier	CP8
+>498	Identifier	combo21
+>499	ExpressionStatement	 
+>500	AssignmentExpr	combo11 = CP4 * rot0 + CP5 * rot1 + CP6 * rot2
+>501	AdditiveExpression	CP4 * rot0 + CP5 * rot1 + CP6 * rot2
+>502	AdditiveExpression	CP5 * rot1 + CP6 * rot2
+>503	MultiplicativeExpression	CP6 * rot2
+>504	Identifier	rot2
+>505	Identifier	CP6
+>506	MultiplicativeExpression	CP5 * rot1
+>507	Identifier	rot1
+>508	Identifier	CP5
+>509	MultiplicativeExpression	CP4 * rot0
+>510	Identifier	rot0
+>511	Identifier	CP4
+>512	Identifier	combo11
+>513	ExpressionStatement	 
+>514	AssignmentExpr	combo01 = CP0 * rot0 + CP1 * rot1 + CP2 * rot2
+>515	AdditiveExpression	CP0 * rot0 + CP1 * rot1 + CP2 * rot2
+>516	AdditiveExpression	CP1 * rot1 + CP2 * rot2
+>517	MultiplicativeExpression	CP2 * rot2
+>518	Identifier	rot2
+>519	Identifier	CP2
+>520	MultiplicativeExpression	CP1 * rot1
+>521	Identifier	rot1
+>522	Identifier	CP1
+>523	MultiplicativeExpression	CP0 * rot0
+>524	Identifier	rot0
+>525	Identifier	CP0
+>526	Identifier	combo01
+>527	ExpressionStatement	 
+>528	AssignmentExpr	rot2 = CASB * wsin - SASB * wcos
+>529	AdditiveExpression	CASB * wsin - SASB * wcos
+>530	MultiplicativeExpression	SASB * wcos
+>531	Identifier	wcos
+>532	Identifier	SASB
+>533	MultiplicativeExpression	CASB * wsin
+>534	Identifier	wsin
+>535	Identifier	CASB
+>536	Identifier	rot2
+>537	ExpressionStatement	 
+>538	AssignmentExpr	rot1 = - SACACBSC + SACASC + SASACB * wcos + CACA * wcos
+>539	AdditiveExpression	- SACACBSC + SACASC + SASACB * wcos + CACA * wcos
+>540	AdditiveExpression	SACASC + SASACB * wcos + CACA * wcos
+>541	AdditiveExpression	SASACB * wcos + CACA * wcos
+>542	MultiplicativeExpression	CACA * wcos
+>543	Identifier	wcos
+>544	Identifier	CACA
+>545	MultiplicativeExpression	SASACB * wcos
+>546	Identifier	wcos
+>547	Identifier	SASACB
+>548	Identifier	SACASC
+>549	UnaryOp	- SACACBSC
+>550	Identifier	SACACBSC
+>551	UnaryOperator	-
+>552	Identifier	rot1
+>553	ExpressionStatement	 
+>554	AssignmentExpr	rot0 = - CACACB * wsin - SASA * wsin + SACACBCC - SACACC
+>555	AdditiveExpression	- CACACB * wsin - SASA * wsin + SACACBCC - SACACC
+>556	AdditiveExpression	SASA * wsin + SACACBCC - SACACC
+>557	AdditiveExpression	SACACBCC - SACACC
+>558	Identifier	SACACC
+>559	Identifier	SACACBCC
+>560	MultiplicativeExpression	SASA * wsin
+>561	Identifier	wsin
+>562	Identifier	SASA
+>563	MultiplicativeExpression	- CACACB * wsin
+>564	Identifier	wsin
+>565	UnaryOp	- CACACB
+>566	Identifier	CACACB
+>567	UnaryOperator	-
+>568	Identifier	rot0
+>569	ExpressionStatement	 
+>570	AssignmentExpr	combo20 = CP8 * rot0 + CP9 * rot1 + CP10 * rot2
+>571	AdditiveExpression	CP8 * rot0 + CP9 * rot1 + CP10 * rot2
+>572	AdditiveExpression	CP9 * rot1 + CP10 * rot2
+>573	MultiplicativeExpression	CP10 * rot2
+>574	Identifier	rot2
+>575	Identifier	CP10
+>576	MultiplicativeExpression	CP9 * rot1
+>577	Identifier	rot1
+>578	Identifier	CP9
+>579	MultiplicativeExpression	CP8 * rot0
+>580	Identifier	rot0
+>581	Identifier	CP8
+>582	Identifier	combo20
+>583	ExpressionStatement	 
+>584	AssignmentExpr	combo10 = CP4 * rot0 + CP5 * rot1 + CP6 * rot2
+>585	AdditiveExpression	CP4 * rot0 + CP5 * rot1 + CP6 * rot2
+>586	AdditiveExpression	CP5 * rot1 + CP6 * rot2
+>587	MultiplicativeExpression	CP6 * rot2
+>588	Identifier	rot2
+>589	Identifier	CP6
+>590	MultiplicativeExpression	CP5 * rot1
+>591	Identifier	rot1
+>592	Identifier	CP5
+>593	MultiplicativeExpression	CP4 * rot0
+>594	Identifier	rot0
+>595	Identifier	CP4
+>596	Identifier	combo10
+>597	ExpressionStatement	 
+>598	AssignmentExpr	combo00 = CP0 * rot0 + CP1 * rot1 + CP2 * rot2
+>599	AdditiveExpression	CP0 * rot0 + CP1 * rot1 + CP2 * rot2
+>600	AdditiveExpression	CP1 * rot1 + CP2 * rot2
+>601	MultiplicativeExpression	CP2 * rot2
+>602	Identifier	rot2
+>603	Identifier	CP2
+>604	MultiplicativeExpression	CP1 * rot1
+>605	Identifier	rot1
+>606	Identifier	CP1
+>607	MultiplicativeExpression	CP0 * rot0
+>608	Identifier	rot0
+>609	Identifier	CP0
+>610	Identifier	combo00
+>611	ExpressionStatement	 
+>612	AssignmentExpr	rot2 = - CASB * wcos - SASB * wsin
+>613	AdditiveExpression	- CASB * wcos - SASB * wsin
+>614	MultiplicativeExpression	SASB * wsin
+>615	Identifier	wsin
+>616	Identifier	SASB
+>617	MultiplicativeExpression	- CASB * wcos
+>618	Identifier	wcos
+>619	UnaryOp	- CASB
+>620	Identifier	CASB
+>621	UnaryOperator	-
+>622	Identifier	rot2
+>623	ExpressionStatement	 
+>624	AssignmentExpr	rot1 = SACACBCC - SACACC + SASACB * wsin + CACA * wsin
+>625	AdditiveExpression	SACACBCC - SACACC + SASACB * wsin + CACA * wsin
+>626	AdditiveExpression	SACACC + SASACB * wsin + CACA * wsin
+>627	AdditiveExpression	SASACB * wsin + CACA * wsin
+>628	MultiplicativeExpression	CACA * wsin
+>629	Identifier	wsin
+>630	Identifier	CACA
+>631	MultiplicativeExpression	SASACB * wsin
+>632	Identifier	wsin
+>633	Identifier	SASACB
+>634	Identifier	SACACC
+>635	Identifier	SACACBCC
+>636	Identifier	rot1
+>637	ExpressionStatement	 
+>638	AssignmentExpr	rot0 = CACACB * wcos + SASA * wcos + SACACBSC - SACASC
+>639	AdditiveExpression	CACACB * wcos + SASA * wcos + SACACBSC - SACASC
+>640	AdditiveExpression	SASA * wcos + SACACBSC - SACASC
+>641	AdditiveExpression	SACACBSC - SACASC
+>642	Identifier	SACASC
+>643	Identifier	SACACBSC
+>644	MultiplicativeExpression	SASA * wcos
+>645	Identifier	wcos
+>646	Identifier	SASA
+>647	MultiplicativeExpression	CACACB * wcos
+>648	Identifier	wcos
+>649	Identifier	CACACB
+>650	Identifier	rot0
+>651	ExpressionStatement	 
+>652	AssignmentExpr	SACACBCC = SACACB * wcos
+>653	MultiplicativeExpression	SACACB * wcos
+>654	Identifier	wcos
+>655	Identifier	SACACB
+>656	Identifier	SACACBCC
+>657	ExpressionStatement	 
+>658	AssignmentExpr	SACACBSC = SACACB * wsin
+>659	MultiplicativeExpression	SACACB * wsin
+>660	Identifier	wsin
+>661	Identifier	SACACB
+>662	Identifier	SACACBSC
+>663	ExpressionStatement	 
+>664	AssignmentExpr	SACACC = SACA * wcos
+>665	MultiplicativeExpression	SACA * wcos
+>666	Identifier	wcos
+>667	Identifier	SACA
+>668	Identifier	SACACC
+>669	ExpressionStatement	 
+>670	AssignmentExpr	SACASC = SACA * wsin
+>671	MultiplicativeExpression	SACA * wsin
+>672	Identifier	wsin
+>673	Identifier	SACA
+>674	Identifier	SACASC
+>675	ExpressionStatement	 
+>676	AssignmentExpr	wcos = cosc [ t3 ]
+>677	ArrayIndexing	cosc [ t3 ]
+>678	Identifier	t3
+>679	Identifier	cosc
+>680	Identifier	wcos
+>681	ExpressionStatement	 
+>682	AssignmentExpr	wsin = sinc [ t3 ]
+>683	ArrayIndexing	sinc [ t3 ]
+>684	Identifier	t3
+>685	Identifier	sinc
+>686	Identifier	wsin
+>687	IncDecOp	 
+>688	IncDec	++
+>689	Identifier	t3
+>690	Condition	 
+>691	RelationalExpression	t3 < 3
+>692	PrimaryExpression	3
+>693	Identifier	t3
+>694	ForInit	 
+>695	AssignmentExpr	t3 = 0
+>696	PrimaryExpression	0
+>697	Identifier	t3
+>698	ExpressionStatement	 
+>699	AssignmentExpr	combo22_11 = combo22 * VX32 + combo23
+>700	AdditiveExpression	combo22 * VX32 + combo23
+>701	Identifier	combo23
+>702	MultiplicativeExpression	combo22 * VX32
+>703	Identifier	VX32
+>704	Identifier	combo22
+>705	Identifier	combo22_11
+>706	ExpressionStatement	 
+>707	AssignmentExpr	combo22_8 = combo22 * VX22 + combo23
+>708	AdditiveExpression	combo22 * VX22 + combo23
+>709	Identifier	combo23
+>710	MultiplicativeExpression	combo22 * VX22
+>711	Identifier	VX22
+>712	Identifier	combo22
+>713	Identifier	combo22_8
+>714	ExpressionStatement	 
+>715	AssignmentExpr	combo22_5 = combo22 * VX12 + combo23
+>716	AdditiveExpression	combo22 * VX12 + combo23
+>717	Identifier	combo23
+>718	MultiplicativeExpression	combo22 * VX12
+>719	Identifier	VX12
+>720	Identifier	combo22
+>721	Identifier	combo22_5
+>722	ExpressionStatement	 
+>723	AssignmentExpr	combo22_2 = combo22 * VX02 + combo23
+>724	AdditiveExpression	combo22 * VX02 + combo23
+>725	Identifier	combo23
+>726	MultiplicativeExpression	combo22 * VX02
+>727	Identifier	VX02
+>728	Identifier	combo22
+>729	Identifier	combo22_2
+>730	ExpressionStatement	 
+>731	AssignmentExpr	combo12_11 = combo12 * VX32 + combo13
+>732	AdditiveExpression	combo12 * VX32 + combo13
+>733	Identifier	combo13
+>734	MultiplicativeExpression	combo12 * VX32
+>735	Identifier	VX32
+>736	Identifier	combo12
+>737	Identifier	combo12_11
+>738	ExpressionStatement	 
+>739	AssignmentExpr	combo12_8 = combo12 * VX22 + combo13
+>740	AdditiveExpression	combo12 * VX22 + combo13
+>741	Identifier	combo13
+>742	MultiplicativeExpression	combo12 * VX22
+>743	Identifier	VX22
+>744	Identifier	combo12
+>745	Identifier	combo12_8
+>746	ExpressionStatement	 
+>747	AssignmentExpr	combo12_5 = combo12 * VX12 + combo13
+>748	AdditiveExpression	combo12 * VX12 + combo13
+>749	Identifier	combo13
+>750	MultiplicativeExpression	combo12 * VX12
+>751	Identifier	VX12
+>752	Identifier	combo12
+>753	Identifier	combo12_5
+>754	ExpressionStatement	 
+>755	AssignmentExpr	combo12_2 = combo12 * VX02 + combo13
+>756	AdditiveExpression	combo12 * VX02 + combo13
+>757	Identifier	combo13
+>758	MultiplicativeExpression	combo12 * VX02
+>759	Identifier	VX02
+>760	Identifier	combo12
+>761	Identifier	combo12_2
+>762	ExpressionStatement	 
+>763	AssignmentExpr	combo02_11 = combo02 * VX32 + combo03
+>764	AdditiveExpression	combo02 * VX32 + combo03
+>765	Identifier	combo03
+>766	MultiplicativeExpression	combo02 * VX32
+>767	Identifier	VX32
+>768	Identifier	combo02
+>769	Identifier	combo02_11
+>770	ExpressionStatement	 
+>771	AssignmentExpr	combo02_8 = combo02 * VX22 + combo03
+>772	AdditiveExpression	combo02 * VX22 + combo03
+>773	Identifier	combo03
+>774	MultiplicativeExpression	combo02 * VX22
+>775	Identifier	VX22
+>776	Identifier	combo02
+>777	Identifier	combo02_8
+>778	ExpressionStatement	 
+>779	AssignmentExpr	combo02_5 = combo02 * VX12 + combo03
+>780	AdditiveExpression	combo02 * VX12 + combo03
+>781	Identifier	combo03
+>782	MultiplicativeExpression	combo02 * VX12
+>783	Identifier	VX12
+>784	Identifier	combo02
+>785	Identifier	combo02_5
+>786	ExpressionStatement	 
+>787	AssignmentExpr	combo02_2 = combo02 * VX02 + combo03
+>788	AdditiveExpression	combo02 * VX02 + combo03
+>789	Identifier	combo03
+>790	MultiplicativeExpression	combo02 * VX02
+>791	Identifier	VX02
+>792	Identifier	combo02
+>793	Identifier	combo02_2
+>794	ExpressionStatement	 
+>795	AssignmentExpr	combo22 = CP8 * CASB + CP9 * SASB + CP10 * wcos
+>796	AdditiveExpression	CP8 * CASB + CP9 * SASB + CP10 * wcos
+>797	AdditiveExpression	CP9 * SASB + CP10 * wcos
+>798	MultiplicativeExpression	CP10 * wcos
+>799	Identifier	wcos
+>800	Identifier	CP10
+>801	MultiplicativeExpression	CP9 * SASB
+>802	Identifier	SASB
+>803	Identifier	CP9
+>804	MultiplicativeExpression	CP8 * CASB
+>805	Identifier	CASB
+>806	Identifier	CP8
+>807	Identifier	combo22
+>808	ExpressionStatement	 
+>809	AssignmentExpr	combo12 = CP4 * CASB + CP5 * SASB + CP6 * wcos
+>810	AdditiveExpression	CP4 * CASB + CP5 * SASB + CP6 * wcos
+>811	AdditiveExpression	CP5 * SASB + CP6 * wcos
+>812	MultiplicativeExpression	CP6 * wcos
+>813	Identifier	wcos
+>814	Identifier	CP6
+>815	MultiplicativeExpression	CP5 * SASB
+>816	Identifier	SASB
+>817	Identifier	CP5
+>818	MultiplicativeExpression	CP4 * CASB
+>819	Identifier	CASB
+>820	Identifier	CP4
+>821	Identifier	combo12
+>822	ExpressionStatement	 
+>823	AssignmentExpr	combo02 = CP0 * CASB + CP1 * SASB + CP2 * wcos
+>824	AdditiveExpression	CP0 * CASB + CP1 * SASB + CP2 * wcos
+>825	AdditiveExpression	CP1 * SASB + CP2 * wcos
+>826	MultiplicativeExpression	CP2 * wcos
+>827	Identifier	wcos
+>828	Identifier	CP2
+>829	MultiplicativeExpression	CP1 * SASB
+>830	Identifier	SASB
+>831	Identifier	CP1
+>832	MultiplicativeExpression	CP0 * CASB
+>833	Identifier	CASB
+>834	Identifier	CP0
+>835	Identifier	combo02
+>836	ExpressionStatement	 
+>837	AssignmentExpr	SASB = SA * wsin
+>838	MultiplicativeExpression	SA * wsin
+>839	Identifier	wsin
+>840	Identifier	SA
+>841	Identifier	SASB
+>842	ExpressionStatement	 
+>843	AssignmentExpr	CASB = CA * wsin
+>844	MultiplicativeExpression	CA * wsin
+>845	Identifier	wsin
+>846	Identifier	CA
+>847	Identifier	CASB
+>848	ExpressionStatement	 
+>849	AssignmentExpr	SASACB = SASA * wcos
+>850	MultiplicativeExpression	SASA * wcos
+>851	Identifier	wcos
+>852	Identifier	SASA
+>853	Identifier	SASACB
+>854	ExpressionStatement	 
+>855	AssignmentExpr	SACACB = SACA * wcos
+>856	MultiplicativeExpression	SACA * wcos
+>857	Identifier	wcos
+>858	Identifier	SACA
+>859	Identifier	SACACB
+>860	ExpressionStatement	 
+>861	AssignmentExpr	CACACB = CACA * wcos
+>862	MultiplicativeExpression	CACA * wcos
+>863	Identifier	wcos
+>864	Identifier	CACA
+>865	Identifier	CACACB
+>866	ExpressionStatement	 
+>867	AssignmentExpr	wcos = cosb [ t2 ]
+>868	ArrayIndexing	cosb [ t2 ]
+>869	Identifier	t2
+>870	Identifier	cosb
+>871	Identifier	wcos
+>872	ExpressionStatement	 
+>873	AssignmentExpr	wsin = sinb [ t2 ]
+>874	ArrayIndexing	sinb [ t2 ]
+>875	Identifier	t2
+>876	Identifier	sinb
+>877	Identifier	wsin
+>878	IncDecOp	 
+>879	IncDec	++
+>880	Identifier	t2
+>881	Condition	 
+>882	RelationalExpression	t2 < 3
+>883	PrimaryExpression	3
+>884	Identifier	t2
+>885	ForInit	 
+>886	AssignmentExpr	t2 = 0
+>887	PrimaryExpression	0
+>888	Identifier	t2
+>889	ExpressionStatement	 
+>890	AssignmentExpr	SACA = SA * CA
+>891	MultiplicativeExpression	SA * CA
+>892	Identifier	CA
+>893	Identifier	SA
+>894	Identifier	SACA
+>895	ExpressionStatement	 
+>896	AssignmentExpr	SASA = SA * SA
+>897	MultiplicativeExpression	SA * SA
+>898	Identifier	SA
+>899	Identifier	SA
+>900	Identifier	SASA
+>901	ExpressionStatement	 
+>902	AssignmentExpr	CACA = CA * CA
+>903	MultiplicativeExpression	CA * CA
+>904	Identifier	CA
+>905	Identifier	CA
+>906	Identifier	CACA
+>907	ExpressionStatement	 
+>908	AssignmentExpr	CA = cos ( a_factor [ t1 ] )
+>909	CallExpression	cos ( a_factor [ t1 ] )
+>910	ArgumentList	a_factor [ t1 ]
+>911	Argument	a_factor [ t1 ]
+>912	ArrayIndexing	a_factor [ t1 ]
+>913	Identifier	t1
+>914	Identifier	a_factor
+>915	Callee	cos
+>916	Identifier	cos
+>917	Identifier	CA
+>918	ExpressionStatement	 
+>919	AssignmentExpr	SA = sin ( a_factor [ t1 ] )
+>920	CallExpression	sin ( a_factor [ t1 ] )
+>921	ArgumentList	a_factor [ t1 ]
+>922	Argument	a_factor [ t1 ]
+>923	ArrayIndexing	a_factor [ t1 ]
+>924	Identifier	t1
+>925	Identifier	a_factor
+>926	Callee	sin
+>927	Identifier	sin
+>928	Identifier	SA
+>929	IncDecOp	 
+>930	IncDec	++
+>931	Identifier	t1
+>932	Condition	 
+>933	RelationalExpression	t1 < 3
+>934	PrimaryExpression	3
+>935	Identifier	t1
+>936	ForInit	 
+>937	AssignmentExpr	t1 = 0
+>938	PrimaryExpression	0
+>939	Identifier	t1
+>940	ForStatement	for ( int j = 0 ; j < 3 ; j ++ )
+>941	CompoundStatement	 
+>942	ExpressionStatement	 
+>943	AssignmentExpr	cosc [ j ] = cos ( w )
+>944	CallExpression	cos ( w )
+>945	ArgumentList	w
+>946	Argument	w
+>947	Identifier	w
+>948	Callee	cos
+>949	Identifier	cos
+>950	ArrayIndexing	cosc [ j ]
+>951	Identifier	j
+>952	Identifier	cosc
+>953	ExpressionStatement	 
+>954	AssignmentExpr	sinc [ j ] = sin ( w )
+>955	CallExpression	sin ( w )
+>956	ArgumentList	w
+>957	Argument	w
+>958	Identifier	w
+>959	Callee	sin
+>960	Identifier	sin
+>961	ArrayIndexing	sinc [ j ]
+>962	Identifier	j
+>963	Identifier	sinc
+>964	ExpressionStatement	 
+>965	AssignmentExpr	c_factor [ j ] = w
+>966	Identifier	w
+>967	ArrayIndexing	c_factor [ j ]
+>968	Identifier	j
+>969	Identifier	c_factor
+>970	ExpressionStatement	 
+>971	AssignmentExpr	w = c2 + w2
+>972	AdditiveExpression	c2 + w2
+>973	Identifier	w2
+>974	Identifier	c2
+>975	Identifier	w
+>976	ExpressionStatement	 
+>977	AssignmentExpr	cosb [ j ] = cos ( w )
+>978	CallExpression	cos ( w )
+>979	ArgumentList	w
+>980	Argument	w
+>981	Identifier	w
+>982	Callee	cos
+>983	Identifier	cos
+>984	ArrayIndexing	cosb [ j ]
+>985	Identifier	j
+>986	Identifier	cosb
+>987	ExpressionStatement	 
+>988	AssignmentExpr	sinb [ j ] = sin ( w )
+>989	CallExpression	sin ( w )
+>990	ArgumentList	w
+>991	Argument	w
+>992	Identifier	w
+>993	Callee	sin
+>994	Identifier	sin
+>995	ArrayIndexing	sinb [ j ]
+>996	Identifier	j
+>997	Identifier	sinb
+>998	ExpressionStatement	 
+>999	AssignmentExpr	b_factor [ j ] = w
+>1000	Identifier	w
+>1001	ArrayIndexing	b_factor [ j ]
+>1002	Identifier	j
+>1003	Identifier	b_factor
+>1004	ExpressionStatement	 
+>1005	AssignmentExpr	w = b2 + w2
+>1006	AdditiveExpression	b2 + w2
+>1007	Identifier	w2
+>1008	Identifier	b2
+>1009	Identifier	w
+>1010	ExpressionStatement	 
+>1011	AssignmentExpr	a_factor [ j ] = w
+>1012	Identifier	w
+>1013	ArrayIndexing	a_factor [ j ]
+>1014	Identifier	j
+>1015	Identifier	a_factor
+>1016	ExpressionStatement	 
+>1017	AssignmentExpr	w = a2 + w2
+>1018	AdditiveExpression	a2 + w2
+>1019	Identifier	w2
+>1020	Identifier	a2
+>1021	Identifier	w
+>1022	ExpressionStatement	 
+>1023	AssignmentExpr	w2 = factor * ( j - 1 )
+>1024	MultiplicativeExpression	factor * ( j - 1 )
+>1025	AdditiveExpression	j - 1
+>1026	PrimaryExpression	1
+>1027	Identifier	j
+>1028	Identifier	factor
+>1029	Identifier	w2
+>1030	IncDecOp	 
+>1031	IncDec	++
+>1032	Identifier	j
+>1033	Condition	 
+>1034	RelationalExpression	j < 3
+>1035	PrimaryExpression	3
+>1036	Identifier	j
+>1037	ForInit	 
+>1038	IdentifierDeclStatement	int j = 0 ;
+>1039	IdentifierDecl	j = 0
+>1040	AssignmentExpr	j = 0
+>1041	PrimaryExpression	0
+>1042	Identifier	j
+>1043	Identifier	j
+>1044	IdentifierDeclType	int
+>1045	ExpressionStatement	 
+>1046	AssignmentExpr	minerr = 1000000000.0
+>1047	PrimaryExpression	1000000000.0
+>1048	Identifier	minerr
+>1049	IncDecOp	 
+>1050	IncDec	++
+>1051	Identifier	i
+>1052	Condition	 
+>1053	RelationalExpression	i < 10
+>1054	PrimaryExpression	10
+>1055	Identifier	i
+>1056	ForInit	 
+>1057	IdentifierDeclStatement	int i = 0 ;
+>1058	IdentifierDecl	i = 0
+>1059	AssignmentExpr	i = 0
+>1060	PrimaryExpression	0
+>1061	Identifier	i
+>1062	Identifier	i
+>1063	IdentifierDeclType	int
+>1064	ExpressionStatement	 
+>1065	AssignmentExpr	c2 = angle . z
+>1066	MemberAccess	angle . z
+>1067	Identifier	z
+>1068	Identifier	angle
+>1069	Identifier	c2
+>1070	ExpressionStatement	 
+>1071	AssignmentExpr	b2 = angle . y
+>1072	MemberAccess	angle . y
+>1073	Identifier	y
+>1074	Identifier	angle
+>1075	Identifier	b2
+>1076	ExpressionStatement	 
+>1077	AssignmentExpr	a2 = angle . x
+>1078	MemberAccess	angle . x
+>1079	Identifier	x
+>1080	Identifier	angle
+>1081	Identifier	a2
+>1082	ExpressionStatement	 
+>1083	CallExpression	io_rot . getAngle ( angle )
+>1084	ArgumentList	angle
+>1085	Argument	angle
+>1086	Identifier	angle
+>1087	Callee	io_rot . getAngle
+>1088	MemberAccess	io_rot . getAngle
+>1089	Identifier	getAngle
+>1090	Identifier	io_rot
+>1091	IdentifierDeclStatement	 
+>1092	IdentifierDecl	wcos
+>1093	Identifier	wcos
+>1094	IdentifierDeclType	double
+>1095	IdentifierDecl	wsin
+>1096	Identifier	wsin
+>1097	IdentifierDeclType	double
+>1098	IdentifierDeclStatement	 
+>1099	IdentifierDecl	w2
+>1100	Identifier	w2
+>1101	IdentifierDeclType	double
+>1102	IdentifierDecl	w
+>1103	Identifier	w
+>1104	IdentifierDeclType	double
+>1105	IdentifierDeclStatement	 
+>1106	IdentifierDecl	c_factor [ 3 ]
+>1107	PrimaryExpression	3
+>1108	Identifier	c_factor
+>1109	IdentifierDeclType	double [ 3 ]
+>1110	IdentifierDeclStatement	 
+>1111	IdentifierDecl	cosc [ 3 ]
+>1112	PrimaryExpression	3
+>1113	Identifier	cosc
+>1114	IdentifierDeclType	double [ 3 ]
+>1115	IdentifierDeclStatement	 
+>1116	IdentifierDecl	sinc [ 3 ]
+>1117	PrimaryExpression	3
+>1118	Identifier	sinc
+>1119	IdentifierDeclType	double [ 3 ]
+>1120	IdentifierDeclStatement	 
+>1121	IdentifierDecl	b_factor [ 3 ]
+>1122	PrimaryExpression	3
+>1123	Identifier	b_factor
+>1124	IdentifierDeclType	double [ 3 ]
+>1125	IdentifierDeclStatement	 
+>1126	IdentifierDecl	cosb [ 3 ]
+>1127	PrimaryExpression	3
+>1128	Identifier	cosb
+>1129	IdentifierDeclType	double [ 3 ]
+>1130	IdentifierDeclStatement	 
+>1131	IdentifierDecl	sinb [ 3 ]
+>1132	PrimaryExpression	3
+>1133	Identifier	sinb
+>1134	IdentifierDeclType	double [ 3 ]
+>1135	IdentifierDeclStatement	 
+>1136	IdentifierDecl	a_factor [ 3 ]
+>1137	PrimaryExpression	3
+>1138	Identifier	a_factor
+>1139	IdentifierDeclType	double [ 3 ]
+>1140	IdentifierDeclStatement	 
+>1141	IdentifierDecl	angle
+>1142	Identifier	angle
+>1143	IdentifierDeclType	TNyARDoublePoint3d
+>1144	IdentifierDeclStatement	 
+>1145	IdentifierDecl	SACACC
+>1146	Identifier	SACACC
+>1147	IdentifierDeclType	double
+>1148	IdentifierDecl	SACACBCC
+>1149	Identifier	SACACBCC
+>1150	IdentifierDeclType	double
+>1151	IdentifierDecl	SACACBSC
+>1152	Identifier	SACACBSC
+>1153	IdentifierDeclType	double
+>1154	IdentifierDecl	SACASC
+>1155	Identifier	SACASC
+>1156	IdentifierDeclType	double
+>1157	IdentifierDeclStatement	 
+>1158	IdentifierDecl	SASB
+>1159	Identifier	SASB
+>1160	IdentifierDeclType	double
+>1161	IdentifierDecl	CASB
+>1162	Identifier	CASB
+>1163	IdentifierDeclType	double
+>1164	IdentifierDecl	SASACB
+>1165	Identifier	SASACB
+>1166	IdentifierDeclType	double
+>1167	IdentifierDecl	SACACB
+>1168	Identifier	SACACB
+>1169	IdentifierDeclType	double
+>1170	IdentifierDecl	CACACB
+>1171	Identifier	CACACB
+>1172	IdentifierDeclType	double
+>1173	IdentifierDeclStatement	 
+>1174	IdentifierDecl	SA
+>1175	Identifier	SA
+>1176	IdentifierDeclType	double
+>1177	IdentifierDecl	CA
+>1178	Identifier	CA
+>1179	IdentifierDeclType	double
+>1180	IdentifierDecl	SACA
+>1181	Identifier	SACA
+>1182	IdentifierDeclType	double
+>1183	IdentifierDecl	SASA
+>1184	Identifier	SASA
+>1185	IdentifierDeclType	double
+>1186	IdentifierDecl	CACA
+>1187	Identifier	CACA
+>1188	IdentifierDeclType	double
+>1189	ExpressionStatement	 
+>1190	AssignmentExpr	combo23 = CP8 * trans . x + CP9 * trans . y + CP10 * trans . z + prjmat -> m23
+>1191	AdditiveExpression	CP8 * trans . x + CP9 * trans . y + CP10 * trans . z + prjmat -> m23
+>1192	AdditiveExpression	CP9 * trans . y + CP10 * trans . z + prjmat -> m23
+>1193	AdditiveExpression	CP10 * trans . z + prjmat -> m23
+>1194	PtrMemberAccess	prjmat -> m23
+>1195	Identifier	m23
+>1196	Identifier	prjmat
+>1197	MultiplicativeExpression	CP10 * trans . z
+>1198	MemberAccess	trans . z
+>1199	Identifier	z
+>1200	Identifier	trans
+>1201	Identifier	CP10
+>1202	MultiplicativeExpression	CP9 * trans . y
+>1203	MemberAccess	trans . y
+>1204	Identifier	y
+>1205	Identifier	trans
+>1206	Identifier	CP9
+>1207	MultiplicativeExpression	CP8 * trans . x
+>1208	MemberAccess	trans . x
+>1209	Identifier	x
+>1210	Identifier	trans
+>1211	Identifier	CP8
+>1212	Identifier	combo23
+>1213	ExpressionStatement	 
+>1214	AssignmentExpr	combo13 = CP4 * trans . x + CP5 * trans . y + CP6 * trans . z + prjmat -> m13
+>1215	AdditiveExpression	CP4 * trans . x + CP5 * trans . y + CP6 * trans . z + prjmat -> m13
+>1216	AdditiveExpression	CP5 * trans . y + CP6 * trans . z + prjmat -> m13
+>1217	AdditiveExpression	CP6 * trans . z + prjmat -> m13
+>1218	PtrMemberAccess	prjmat -> m13
+>1219	Identifier	m13
+>1220	Identifier	prjmat
+>1221	MultiplicativeExpression	CP6 * trans . z
+>1222	MemberAccess	trans . z
+>1223	Identifier	z
+>1224	Identifier	trans
+>1225	Identifier	CP6
+>1226	MultiplicativeExpression	CP5 * trans . y
+>1227	MemberAccess	trans . y
+>1228	Identifier	y
+>1229	Identifier	trans
+>1230	Identifier	CP5
+>1231	MultiplicativeExpression	CP4 * trans . x
+>1232	MemberAccess	trans . x
+>1233	Identifier	x
+>1234	Identifier	trans
+>1235	Identifier	CP4
+>1236	Identifier	combo13
+>1237	ExpressionStatement	 
+>1238	AssignmentExpr	combo03 = CP0 * trans . x + CP1 * trans . y + CP2 * trans . z + prjmat -> m03
+>1239	AdditiveExpression	CP0 * trans . x + CP1 * trans . y + CP2 * trans . z + prjmat -> m03
+>1240	AdditiveExpression	CP1 * trans . y + CP2 * trans . z + prjmat -> m03
+>1241	AdditiveExpression	CP2 * trans . z + prjmat -> m03
+>1242	PtrMemberAccess	prjmat -> m03
+>1243	Identifier	m03
+>1244	Identifier	prjmat
+>1245	MultiplicativeExpression	CP2 * trans . z
+>1246	MemberAccess	trans . z
+>1247	Identifier	z
+>1248	Identifier	trans
+>1249	Identifier	CP2
+>1250	MultiplicativeExpression	CP1 * trans . y
+>1251	MemberAccess	trans . y
+>1252	Identifier	y
+>1253	Identifier	trans
+>1254	Identifier	CP1
+>1255	MultiplicativeExpression	CP0 * trans . x
+>1256	MemberAccess	trans . x
+>1257	Identifier	x
+>1258	Identifier	trans
+>1259	Identifier	CP0
+>1260	Identifier	combo03
+>1261	IdentifierDeclStatement	 
+>1262	IdentifierDecl	CP10 = prjmat -> m22
+>1263	AssignmentExpr	CP10 = prjmat -> m22
+>1264	PtrMemberAccess	prjmat -> m22
+>1265	Identifier	m22
+>1266	Identifier	prjmat
+>1267	Identifier	CP10
+>1268	Identifier	CP10
+>1269	IdentifierDeclType	double
+>1270	IdentifierDecl	CP9 = prjmat -> m21
+>1271	AssignmentExpr	CP9 = prjmat -> m21
+>1272	PtrMemberAccess	prjmat -> m21
+>1273	Identifier	m21
+>1274	Identifier	prjmat
+>1275	Identifier	CP9
+>1276	Identifier	CP9
+>1277	IdentifierDeclType	double
+>1278	IdentifierDecl	CP8 = prjmat -> m20
+>1279	AssignmentExpr	CP8 = prjmat -> m20
+>1280	PtrMemberAccess	prjmat -> m20
+>1281	Identifier	m20
+>1282	Identifier	prjmat
+>1283	Identifier	CP8
+>1284	Identifier	CP8
+>1285	IdentifierDeclType	double
+>1286	IdentifierDecl	CP6 = prjmat -> m12
+>1287	AssignmentExpr	CP6 = prjmat -> m12
+>1288	PtrMemberAccess	prjmat -> m12
+>1289	Identifier	m12
+>1290	Identifier	prjmat
+>1291	Identifier	CP6
+>1292	Identifier	CP6
+>1293	IdentifierDeclType	double
+>1294	IdentifierDecl	CP5 = prjmat -> m11
+>1295	AssignmentExpr	CP5 = prjmat -> m11
+>1296	PtrMemberAccess	prjmat -> m11
+>1297	Identifier	m11
+>1298	Identifier	prjmat
+>1299	Identifier	CP5
+>1300	Identifier	CP5
+>1301	IdentifierDeclType	double
+>1302	IdentifierDecl	CP4 = prjmat -> m10
+>1303	AssignmentExpr	CP4 = prjmat -> m10
+>1304	PtrMemberAccess	prjmat -> m10
+>1305	Identifier	m10
+>1306	Identifier	prjmat
+>1307	Identifier	CP4
+>1308	Identifier	CP4
+>1309	IdentifierDeclType	double
+>1310	IdentifierDecl	CP2 = prjmat -> m02
+>1311	AssignmentExpr	CP2 = prjmat -> m02
+>1312	PtrMemberAccess	prjmat -> m02
+>1313	Identifier	m02
+>1314	Identifier	prjmat
+>1315	Identifier	CP2
+>1316	Identifier	CP2
+>1317	IdentifierDeclType	double
+>1318	IdentifierDecl	CP1 = prjmat -> m01
+>1319	AssignmentExpr	CP1 = prjmat -> m01
+>1320	PtrMemberAccess	prjmat -> m01
+>1321	Identifier	m01
+>1322	Identifier	prjmat
+>1323	Identifier	CP1
+>1324	Identifier	CP1
+>1325	IdentifierDeclType	double
+>1326	IdentifierDecl	CP0 = prjmat -> m00
+>1327	AssignmentExpr	CP0 = prjmat -> m00
+>1328	PtrMemberAccess	prjmat -> m00
+>1329	Identifier	m00
+>1330	Identifier	prjmat
+>1331	Identifier	CP0
+>1332	Identifier	CP0
+>1333	IdentifierDeclType	double
+>1334	IdentifierDeclStatement	 
+>1335	IdentifierDecl	* prjmat = this -> _projection_mat_ref
+>1336	AssignmentExpr	* prjmat = this -> _projection_mat_ref
+>1337	PtrMemberAccess	this -> _projection_mat_ref
+>1338	Identifier	_projection_mat_ref
+>1339	Identifier	this
+>1340	Identifier	prjmat
+>1341	Identifier	prjmat
+>1342	IdentifierDeclType	const NyARPerspectiveProjectionMatrix *
+>1343	ExpressionStatement	 
+>1344	AssignmentExpr	P2D31 = i_vertex2d [ 3 ] . y
+>1345	MemberAccess	i_vertex2d [ 3 ] . y
+>1346	Identifier	y
+>1347	ArrayIndexing	i_vertex2d [ 3 ]
+>1348	PrimaryExpression	3
+>1349	Identifier	i_vertex2d
+>1350	Identifier	P2D31
+>1351	ExpressionStatement	 
+>1352	AssignmentExpr	P2D30 = i_vertex2d [ 3 ] . x
+>1353	MemberAccess	i_vertex2d [ 3 ] . x
+>1354	Identifier	x
+>1355	ArrayIndexing	i_vertex2d [ 3 ]
+>1356	PrimaryExpression	3
+>1357	Identifier	i_vertex2d
+>1358	Identifier	P2D30
+>1359	ExpressionStatement	 
+>1360	AssignmentExpr	P2D21 = i_vertex2d [ 2 ] . y
+>1361	MemberAccess	i_vertex2d [ 2 ] . y
+>1362	Identifier	y
+>1363	ArrayIndexing	i_vertex2d [ 2 ]
+>1364	PrimaryExpression	2
+>1365	Identifier	i_vertex2d
+>1366	Identifier	P2D21
+>1367	ExpressionStatement	 
+>1368	AssignmentExpr	P2D20 = i_vertex2d [ 2 ] . x
+>1369	MemberAccess	i_vertex2d [ 2 ] . x
+>1370	Identifier	x
+>1371	ArrayIndexing	i_vertex2d [ 2 ]
+>1372	PrimaryExpression	2
+>1373	Identifier	i_vertex2d
+>1374	Identifier	P2D20
+>1375	ExpressionStatement	 
+>1376	AssignmentExpr	P2D11 = i_vertex2d [ 1 ] . y
+>1377	MemberAccess	i_vertex2d [ 1 ] . y
+>1378	Identifier	y
+>1379	ArrayIndexing	i_vertex2d [ 1 ]
+>1380	PrimaryExpression	1
+>1381	Identifier	i_vertex2d
+>1382	Identifier	P2D11
+>1383	ExpressionStatement	 
+>1384	AssignmentExpr	P2D10 = i_vertex2d [ 1 ] . x
+>1385	MemberAccess	i_vertex2d [ 1 ] . x
+>1386	Identifier	x
+>1387	ArrayIndexing	i_vertex2d [ 1 ]
+>1388	PrimaryExpression	1
+>1389	Identifier	i_vertex2d
+>1390	Identifier	P2D10
+>1391	ExpressionStatement	 
+>1392	AssignmentExpr	P2D01 = i_vertex2d [ 0 ] . y
+>1393	MemberAccess	i_vertex2d [ 0 ] . y
+>1394	Identifier	y
+>1395	ArrayIndexing	i_vertex2d [ 0 ]
+>1396	PrimaryExpression	0
+>1397	Identifier	i_vertex2d
+>1398	Identifier	P2D01
+>1399	ExpressionStatement	 
+>1400	AssignmentExpr	P2D00 = i_vertex2d [ 0 ] . x
+>1401	MemberAccess	i_vertex2d [ 0 ] . x
+>1402	Identifier	x
+>1403	ArrayIndexing	i_vertex2d [ 0 ]
+>1404	PrimaryExpression	0
+>1405	Identifier	i_vertex2d
+>1406	Identifier	P2D00
+>1407	IdentifierDeclStatement	 
+>1408	IdentifierDecl	P2D31
+>1409	Identifier	P2D31
+>1410	IdentifierDeclType	double
+>1411	IdentifierDecl	P2D30
+>1412	Identifier	P2D30
+>1413	IdentifierDeclType	double
+>1414	IdentifierDecl	P2D21
+>1415	Identifier	P2D21
+>1416	IdentifierDeclType	double
+>1417	IdentifierDecl	P2D20
+>1418	Identifier	P2D20
+>1419	IdentifierDeclType	double
+>1420	IdentifierDecl	P2D11
+>1421	Identifier	P2D11
+>1422	IdentifierDeclType	double
+>1423	IdentifierDecl	P2D10
+>1424	Identifier	P2D10
+>1425	IdentifierDeclType	double
+>1426	IdentifierDecl	P2D01
+>1427	Identifier	P2D01
+>1428	IdentifierDeclType	double
+>1429	IdentifierDecl	P2D00
+>1430	Identifier	P2D00
+>1431	IdentifierDeclType	double
+>1432	ExpressionStatement	 
+>1433	AssignmentExpr	VX32 = i_vertex3d [ 3 ] . z
+>1434	MemberAccess	i_vertex3d [ 3 ] . z
+>1435	Identifier	z
+>1436	ArrayIndexing	i_vertex3d [ 3 ]
+>1437	PrimaryExpression	3
+>1438	Identifier	i_vertex3d
+>1439	Identifier	VX32
+>1440	ExpressionStatement	 
+>1441	AssignmentExpr	VX31 = i_vertex3d [ 3 ] . y
+>1442	MemberAccess	i_vertex3d [ 3 ] . y
+>1443	Identifier	y
+>1444	ArrayIndexing	i_vertex3d [ 3 ]
+>1445	PrimaryExpression	3
+>1446	Identifier	i_vertex3d
+>1447	Identifier	VX31
+>1448	ExpressionStatement	 
+>1449	AssignmentExpr	VX30 = i_vertex3d [ 3 ] . x
+>1450	MemberAccess	i_vertex3d [ 3 ] . x
+>1451	Identifier	x
+>1452	ArrayIndexing	i_vertex3d [ 3 ]
+>1453	PrimaryExpression	3
+>1454	Identifier	i_vertex3d
+>1455	Identifier	VX30
+>1456	ExpressionStatement	 
+>1457	AssignmentExpr	VX22 = i_vertex3d [ 2 ] . z
+>1458	MemberAccess	i_vertex3d [ 2 ] . z
+>1459	Identifier	z
+>1460	ArrayIndexing	i_vertex3d [ 2 ]
+>1461	PrimaryExpression	2
+>1462	Identifier	i_vertex3d
+>1463	Identifier	VX22
+>1464	ExpressionStatement	 
+>1465	AssignmentExpr	VX21 = i_vertex3d [ 2 ] . y
+>1466	MemberAccess	i_vertex3d [ 2 ] . y
+>1467	Identifier	y
+>1468	ArrayIndexing	i_vertex3d [ 2 ]
+>1469	PrimaryExpression	2
+>1470	Identifier	i_vertex3d
+>1471	Identifier	VX21
+>1472	ExpressionStatement	 
+>1473	AssignmentExpr	VX20 = i_vertex3d [ 2 ] . x
+>1474	MemberAccess	i_vertex3d [ 2 ] . x
+>1475	Identifier	x
+>1476	ArrayIndexing	i_vertex3d [ 2 ]
+>1477	PrimaryExpression	2
+>1478	Identifier	i_vertex3d
+>1479	Identifier	VX20
+>1480	ExpressionStatement	 
+>1481	AssignmentExpr	VX12 = i_vertex3d [ 1 ] . z
+>1482	MemberAccess	i_vertex3d [ 1 ] . z
+>1483	Identifier	z
+>1484	ArrayIndexing	i_vertex3d [ 1 ]
+>1485	PrimaryExpression	1
+>1486	Identifier	i_vertex3d
+>1487	Identifier	VX12
+>1488	ExpressionStatement	 
+>1489	AssignmentExpr	VX11 = i_vertex3d [ 1 ] . y
+>1490	MemberAccess	i_vertex3d [ 1 ] . y
+>1491	Identifier	y
+>1492	ArrayIndexing	i_vertex3d [ 1 ]
+>1493	PrimaryExpression	1
+>1494	Identifier	i_vertex3d
+>1495	Identifier	VX11
+>1496	ExpressionStatement	 
+>1497	AssignmentExpr	VX10 = i_vertex3d [ 1 ] . x
+>1498	MemberAccess	i_vertex3d [ 1 ] . x
+>1499	Identifier	x
+>1500	ArrayIndexing	i_vertex3d [ 1 ]
+>1501	PrimaryExpression	1
+>1502	Identifier	i_vertex3d
+>1503	Identifier	VX10
+>1504	ExpressionStatement	 
+>1505	AssignmentExpr	VX02 = i_vertex3d [ 0 ] . z
+>1506	MemberAccess	i_vertex3d [ 0 ] . z
+>1507	Identifier	z
+>1508	ArrayIndexing	i_vertex3d [ 0 ]
+>1509	PrimaryExpression	0
+>1510	Identifier	i_vertex3d
+>1511	Identifier	VX02
+>1512	ExpressionStatement	 
+>1513	AssignmentExpr	VX01 = i_vertex3d [ 0 ] . y
+>1514	MemberAccess	i_vertex3d [ 0 ] . y
+>1515	Identifier	y
+>1516	ArrayIndexing	i_vertex3d [ 0 ]
+>1517	PrimaryExpression	0
+>1518	Identifier	i_vertex3d
+>1519	Identifier	VX01
+>1520	ExpressionStatement	 
+>1521	AssignmentExpr	VX00 = i_vertex3d [ 0 ] . x
+>1522	MemberAccess	i_vertex3d [ 0 ] . x
+>1523	Identifier	x
+>1524	ArrayIndexing	i_vertex3d [ 0 ]
+>1525	PrimaryExpression	0
+>1526	Identifier	i_vertex3d
+>1527	Identifier	VX00
+>1528	IdentifierDeclStatement	 
+>1529	IdentifierDecl	VX32
+>1530	Identifier	VX32
+>1531	IdentifierDeclType	double
+>1532	IdentifierDecl	VX31
+>1533	Identifier	VX31
+>1534	IdentifierDeclType	double
+>1535	IdentifierDecl	VX30
+>1536	Identifier	VX30
+>1537	IdentifierDeclType	double
+>1538	IdentifierDecl	VX22
+>1539	Identifier	VX22
+>1540	IdentifierDeclType	double
+>1541	IdentifierDecl	VX21
+>1542	Identifier	VX21
+>1543	IdentifierDeclType	double
+>1544	IdentifierDecl	VX20
+>1545	Identifier	VX20
+>1546	IdentifierDeclType	double
+>1547	IdentifierDecl	VX12
+>1548	Identifier	VX12
+>1549	IdentifierDeclType	double
+>1550	IdentifierDecl	VX11
+>1551	Identifier	VX11
+>1552	IdentifierDeclType	double
+>1553	IdentifierDecl	VX10
+>1554	Identifier	VX10
+>1555	IdentifierDeclType	double
+>1556	IdentifierDecl	VX02
+>1557	Identifier	VX02
+>1558	IdentifierDeclType	double
+>1559	IdentifierDecl	VX01
+>1560	Identifier	VX01
+>1561	IdentifierDeclType	double
+>1562	IdentifierDecl	VX00
+>1563	Identifier	VX00
+>1564	IdentifierDeclType	double
+>1565	IdentifierDeclStatement	 
+>1566	IdentifierDecl	combo12_11
+>1567	Identifier	combo12_11
+>1568	IdentifierDeclType	double
+>1569	IdentifierDecl	combo12_8
+>1570	Identifier	combo12_8
+>1571	IdentifierDeclType	double
+>1572	IdentifierDecl	combo12_5
+>1573	Identifier	combo12_5
+>1574	IdentifierDeclType	double
+>1575	IdentifierDecl	combo12_2
+>1576	Identifier	combo12_2
+>1577	IdentifierDeclType	double
+>1578	IdentifierDeclStatement	 
+>1579	IdentifierDecl	combo22_11
+>1580	Identifier	combo22_11
+>1581	IdentifierDeclType	double
+>1582	IdentifierDecl	combo22_8
+>1583	Identifier	combo22_8
+>1584	IdentifierDeclType	double
+>1585	IdentifierDecl	combo22_5
+>1586	Identifier	combo22_5
+>1587	IdentifierDeclType	double
+>1588	IdentifierDecl	combo22_2
+>1589	Identifier	combo22_2
+>1590	IdentifierDeclType	double
+>1591	IdentifierDeclStatement	 
+>1592	IdentifierDecl	combo02_11
+>1593	Identifier	combo02_11
+>1594	IdentifierDeclType	double
+>1595	IdentifierDecl	combo02_8
+>1596	Identifier	combo02_8
+>1597	IdentifierDeclType	double
+>1598	IdentifierDecl	combo02_5
+>1599	Identifier	combo02_5
+>1600	IdentifierDeclType	double
+>1601	IdentifierDecl	combo02_2
+>1602	Identifier	combo02_2
+>1603	IdentifierDeclType	double
+>1604	IdentifierDeclStatement	 
+>1605	IdentifierDecl	combo23
+>1606	Identifier	combo23
+>1607	IdentifierDeclType	double
+>1608	IdentifierDecl	combo22
+>1609	Identifier	combo22
+>1610	IdentifierDeclType	double
+>1611	IdentifierDecl	combo21
+>1612	Identifier	combo21
+>1613	IdentifierDeclType	double
+>1614	IdentifierDecl	combo20
+>1615	Identifier	combo20
+>1616	IdentifierDeclType	double
+>1617	IdentifierDecl	combo13
+>1618	Identifier	combo13
+>1619	IdentifierDeclType	double
+>1620	IdentifierDecl	combo12
+>1621	Identifier	combo12
+>1622	IdentifierDeclType	double
+>1623	IdentifierDecl	combo11
+>1624	Identifier	combo11
+>1625	IdentifierDeclType	double
+>1626	IdentifierDecl	combo10
+>1627	Identifier	combo10
+>1628	IdentifierDeclType	double
+>1629	IdentifierDecl	combo03
+>1630	Identifier	combo03
+>1631	IdentifierDeclType	double
+>1632	IdentifierDecl	combo02
+>1633	Identifier	combo02
+>1634	IdentifierDeclType	double
+>1635	IdentifierDecl	combo01
+>1636	Identifier	combo01
+>1637	IdentifierDeclType	double
+>1638	IdentifierDecl	combo00
+>1639	Identifier	combo00
+>1640	IdentifierDeclType	double
+>1641	IdentifierDeclStatement	 
+>1642	IdentifierDecl	rot2
+>1643	Identifier	rot2
+>1644	IdentifierDeclType	double
+>1645	IdentifierDecl	rot1
+>1646	Identifier	rot1
+>1647	IdentifierDeclType	double
+>1648	IdentifierDecl	rot0
+>1649	Identifier	rot0
+>1650	IdentifierDeclType	double
+>1651	ExpressionStatement	 
+>1652	AssignmentExpr	factor = 10.0 * NyAR_PI / 180.0
+>1653	MultiplicativeExpression	10.0 * NyAR_PI / 180.0
+>1654	MultiplicativeExpression	NyAR_PI / 180.0
+>1655	PrimaryExpression	180.0
+>1656	Identifier	NyAR_PI
+>1657	PrimaryExpression	10.0
+>1658	Identifier	factor
+>1659	IdentifierDeclStatement	 
+>1660	IdentifierDecl	best_idx = 0
+>1661	AssignmentExpr	best_idx = 0
+>1662	PrimaryExpression	0
+>1663	Identifier	best_idx
+>1664	Identifier	best_idx
+>1665	IdentifierDeclType	int
+>1666	IdentifierDeclStatement	 
+>1667	IdentifierDecl	t3
+>1668	Identifier	t3
+>1669	IdentifierDeclType	int
+>1670	IdentifierDecl	t2
+>1671	Identifier	t2
+>1672	IdentifierDeclType	int
+>1673	IdentifierDecl	t1
+>1674	Identifier	t1
+>1675	IdentifierDeclType	int
+>1676	IdentifierDeclStatement	 
+>1677	IdentifierDecl	minerr = 0
+>1678	AssignmentExpr	minerr = 0
+>1679	PrimaryExpression	0
+>1680	Identifier	minerr
+>1681	Identifier	minerr
+>1682	IdentifierDeclType	double
+>1683	IdentifierDecl	err
+>1684	Identifier	err
+>1685	IdentifierDeclType	double
+>1686	IdentifierDeclStatement	 
+>1687	IdentifierDecl	y
+>1688	Identifier	y
+>1689	IdentifierDeclType	double
+>1690	IdentifierDecl	x
+>1691	Identifier	x
+>1692	IdentifierDeclType	double
+>1693	IdentifierDecl	h
+>1694	Identifier	h
+>1695	IdentifierDeclType	double
+>1696	IdentifierDeclStatement	 
+>1697	IdentifierDecl	c2
+>1698	Identifier	c2
+>1699	IdentifierDeclType	double
+>1700	IdentifierDecl	b2
+>1701	Identifier	b2
+>1702	IdentifierDeclType	double
+>1703	IdentifierDecl	a2
+>1704	Identifier	a2
+>1705	IdentifierDeclType	double
+>1706	IdentifierDeclStatement	 
+>1707	IdentifierDecl	factor
+>1708	Identifier	factor
+>1709	IdentifierDeclType	double
+<3=8,4
+<4=5
+<5=7,6
+<8=10,9
+<10=11
+<11=13,12
+<13=15,14
+<23=35,34,24
+<24=31,28,25
+<25=27,26
+<28=30,29
+<31=33,32
+<35=139,125,116,38,36
+<36=37
+<38=108,105,39
+<39=90,79,64,51,40
+<40=41
+<41=47,42
+<42=45,43
+<43=44
+<45=46
+<47=48
+<48=50,49
+<51=54,52
+<52=53
+<54=55
+<55=61,56
+<56=60,57
+<57=59,58
+<61=63,62
+<64=65
+<65=78,66
+<66=76,67
+<67=74,72,70,68
+<68=69
+<70=71
+<72=73
+<74=75
+<76=77
+<79=80
+<80=86,81
+<81=84,82
+<82=83
+<84=85
+<86=87
+<87=89,88
+<90=91
+<91=104,92
+<92=102,93
+<93=100,98,96,94
+<94=95
+<96=97
+<98=99
+<100=101
+<102=103
+<105=107,106
+<108=109
+<109=110
+<110=115,114,111
+<111=113,112
+<116=117
+<117=124,123,118
+<118=122,119
+<119=121,120
+<125=126
+<126=138,137,127
+<127=136,128
+<128=130,129
+<130=132,131
+<132=133
+<133=135,134
+<139=140
+<140=150,149,141
+<141=148,142
+<142=144,143
+<144=145
+<145=147,146
+<170=185,184,171
+<171=181,178,175,172
+<172=174,173
+<175=177,176
+<178=180,179
+<181=183,182
+<185=1706,1696,1686,1676,1666,1659,1651,1641,1604,186,190,203,1064,1070,1076,1082,1091,1098,1105,1110,1115,1120,1125,1130,1135,1140,1144,1157,1173,1189,1213,1237,1261,1334,1343,1351,1359,1367,1375,1383,1391,1399,1407,1432,1440,1448,1456,1464,1472,1480,1488,1496,1504,1512,1520,1528,1565,1578,1591
+<186=187
+<187=189,188
+<190=191
+<191=199,192
+<192=197,195,193
+<193=194
+<195=196
+<197=198
+<199=200
+<200=202,201
+<203=1056,1052,1049,204
+<204=1045,940,219,205
+<205=211,206
+<206=207
+<207=208
+<208=210,209
+<211=212
+<212=218,213
+<213=217,214
+<214=216,215
+<219=936,932,929,220
+<220=918,907,901,895,889,221
+<221=885,881,878,222
+<222=872,866,860,854,848,842,836,822,808,794,786,778,770,762,754,746,738,730,722,714,706,698,223
+<223=694,690,687,224
+<224=681,675,669,663,657,651,637,623,611,597,583,569,553,537,527,513,499,485,481,469,453,437,427,415,399,383,373,361,345,329,319,307,291,275,265,225
+<225=261,226
+<226=257,251,245,239,227
+<227=228
+<228=238,229
+<229=237,230
+<230=234,231
+<231=233,232
+<234=236,235
+<239=240
+<240=244,241
+<241=243,242
+<245=246
+<246=250,247
+<247=249,248
+<251=252
+<252=256,253
+<253=255,254
+<257=258
+<258=260,259
+<261=262
+<262=264,263
+<265=266
+<266=274,267
+<267=271,268
+<268=270,269
+<271=273,272
+<275=276
+<276=290,277
+<277=289,278
+<278=280,279
+<280=286,281
+<281=283,282
+<283=285,284
+<286=288,287
+<291=292
+<292=306,293
+<293=305,294
+<294=296,295
+<296=302,297
+<297=299,298
+<299=301,300
+<302=304,303
+<307=308
+<308=318,309
+<309=315,310
+<310=312,311
+<312=314,313
+<315=317,316
+<319=320
+<320=328,321
+<321=325,322
+<322=324,323
+<325=327,326
+<329=330
+<330=344,331
+<331=343,332
+<332=334,333
+<334=340,335
+<335=337,336
+<337=339,338
+<340=342,341
+<345=346
+<346=360,347
+<347=359,348
+<348=350,349
+<350=356,351
+<351=353,352
+<353=355,354
+<356=358,357
+<361=362
+<362=372,363
+<363=369,364
+<364=366,365
+<366=368,367
+<369=371,370
+<373=374
+<374=382,375
+<375=379,376
+<376=378,377
+<379=381,380
+<383=384
+<384=398,385
+<385=397,386
+<386=388,387
+<388=394,389
+<389=391,390
+<391=393,392
+<394=396,395
+<399=400
+<400=414,401
+<401=413,402
+<402=404,403
+<404=410,405
+<405=407,406
+<407=409,408
+<410=412,411
+<415=416
+<416=426,417
+<417=423,418
+<418=420,419
+<420=422,421
+<423=425,424
+<427=428
+<428=436,429
+<429=433,430
+<430=432,431
+<433=435,434
+<437=438
+<438=452,439
+<439=451,440
+<440=442,441
+<442=448,443
+<443=445,444
+<445=447,446
+<448=450,449
+<453=454
+<454=468,455
+<455=467,456
+<456=458,457
+<458=464,459
+<459=461,460
+<461=463,462
+<464=466,465
+<469=470
+<470=480,471
+<471=477,472
+<472=474,473
+<474=476,475
+<477=479,478
+<481=482
+<482=484,483
+<485=486
+<486=498,487
+<487=495,488
+<488=492,489
+<489=491,490
+<492=494,493
+<495=497,496
+<499=500
+<500=512,501
+<501=509,502
+<502=506,503
+<503=505,504
+<506=508,507
+<509=511,510
+<513=514
+<514=526,515
+<515=523,516
+<516=520,517
+<517=519,518
+<520=522,521
+<523=525,524
+<527=528
+<528=536,529
+<529=533,530
+<530=532,531
+<533=535,534
+<537=538
+<538=552,539
+<539=549,540
+<540=548,541
+<541=545,542
+<542=544,543
+<545=547,546
+<549=551,550
+<553=554
+<554=568,555
+<555=563,556
+<556=560,557
+<557=559,558
+<560=562,561
+<563=565,564
+<565=567,566
+<569=570
+<570=582,571
+<571=579,572
+<572=576,573
+<573=575,574
+<576=578,577
+<579=581,580
+<583=584
+<584=596,585
+<585=593,586
+<586=590,587
+<587=589,588
+<590=592,591
+<593=595,594
+<597=598
+<598=610,599
+<599=607,600
+<600=604,601
+<601=603,602
+<604=606,605
+<607=609,608
+<611=612
+<612=622,613
+<613=617,614
+<614=616,615
+<617=619,618
+<619=621,620
+<623=624
+<624=636,625
+<625=635,626
+<626=634,627
+<627=631,628
+<628=630,629
+<631=633,632
+<637=638
+<638=650,639
+<639=647,640
+<640=644,641
+<641=643,642
+<644=646,645
+<647=649,648
+<651=652
+<652=656,653
+<653=655,654
+<657=658
+<658=662,659
+<659=661,660
+<663=664
+<664=668,665
+<665=667,666
+<669=670
+<670=674,671
+<671=673,672
+<675=676
+<676=680,677
+<677=679,678
+<681=682
+<682=686,683
+<683=685,684
+<687=689,688
+<690=691
+<691=693,692
+<694=695
+<695=697,696
+<698=699
+<699=705,700
+<700=702,701
+<702=704,703
+<706=707
+<707=713,708
+<708=710,709
+<710=712,711
+<714=715
+<715=721,716
+<716=718,717
+<718=720,719
+<722=723
+<723=729,724
+<724=726,725
+<726=728,727
+<730=731
+<731=737,732
+<732=734,733
+<734=736,735
+<738=739
+<739=745,740
+<740=742,741
+<742=744,743
+<746=747
+<747=753,748
+<748=750,749
+<750=752,751
+<754=755
+<755=761,756
+<756=758,757
+<758=760,759
+<762=763
+<763=769,764
+<764=766,765
+<766=768,767
+<770=771
+<771=777,772
+<772=774,773
+<774=776,775
+<778=779
+<779=785,780
+<780=782,781
+<782=784,783
+<786=787
+<787=793,788
+<788=790,789
+<790=792,791
+<794=795
+<795=807,796
+<796=804,797
+<797=801,798
+<798=800,799
+<801=803,802
+<804=806,805
+<808=809
+<809=821,810
+<810=818,811
+<811=815,812
+<812=814,813
+<815=817,816
+<818=820,819
+<822=823
+<823=835,824
+<824=832,825
+<825=829,826
+<826=828,827
+<829=831,830
+<832=834,833
+<836=837
+<837=841,838
+<838=840,839
+<842=843
+<843=847,844
+<844=846,845
+<848=849
+<849=853,850
+<850=852,851
+<854=855
+<855=859,856
+<856=858,857
+<860=861
+<861=865,862
+<862=864,863
+<866=867
+<867=871,868
+<868=870,869
+<872=873
+<873=877,874
+<874=876,875
+<878=880,879
+<881=882
+<882=884,883
+<885=886
+<886=888,887
+<889=890
+<890=894,891
+<891=893,892
+<895=896
+<896=900,897
+<897=899,898
+<901=902
+<902=906,903
+<903=905,904
+<907=908
+<908=917,909
+<909=915,910
+<910=911
+<911=912
+<912=914,913
+<915=916
+<918=919
+<919=928,920
+<920=926,921
+<921=922
+<922=923
+<923=925,924
+<926=927
+<929=931,930
+<932=933
+<933=935,934
+<936=937
+<937=939,938
+<940=1037,1033,1030,941
+<941=1022,1016,1010,1004,998,987,976,970,964,953,942
+<942=943
+<943=950,944
+<944=948,945
+<945=946
+<946=947
+<948=949
+<950=952,951
+<953=954
+<954=961,955
+<955=959,956
+<956=957
+<957=958
+<959=960
+<961=963,962
+<964=965
+<965=967,966
+<967=969,968
+<970=971
+<971=975,972
+<972=974,973
+<976=977
+<977=984,978
+<978=982,979
+<979=980
+<980=981
+<982=983
+<984=986,985
+<987=988
+<988=995,989
+<989=993,990
+<990=991
+<991=992
+<993=994
+<995=997,996
+<998=999
+<999=1001,1000
+<1001=1003,1002
+<1004=1005
+<1005=1009,1006
+<1006=1008,1007
+<1010=1011
+<1011=1013,1012
+<1013=1015,1014
+<1016=1017
+<1017=1021,1018
+<1018=1020,1019
+<1022=1023
+<1023=1029,1024
+<1024=1028,1025
+<1025=1027,1026
+<1030=1032,1031
+<1033=1034
+<1034=1036,1035
+<1037=1038
+<1038=1039
+<1039=1044,1043,1040
+<1040=1042,1041
+<1045=1046
+<1046=1048,1047
+<1049=1051,1050
+<1052=1053
+<1053=1055,1054
+<1056=1057
+<1057=1058
+<1058=1063,1062,1059
+<1059=1061,1060
+<1064=1065
+<1065=1069,1066
+<1066=1068,1067
+<1070=1071
+<1071=1075,1072
+<1072=1074,1073
+<1076=1077
+<1077=1081,1078
+<1078=1080,1079
+<1082=1083
+<1083=1087,1084
+<1084=1085
+<1085=1086
+<1087=1088
+<1088=1090,1089
+<1091=1095,1092
+<1092=1094,1093
+<1095=1097,1096
+<1098=1102,1099
+<1099=1101,1100
+<1102=1104,1103
+<1105=1106
+<1106=1109,1108,1107
+<1110=1111
+<1111=1114,1113,1112
+<1115=1116
+<1116=1119,1118,1117
+<1120=1121
+<1121=1124,1123,1122
+<1125=1126
+<1126=1129,1128,1127
+<1130=1131
+<1131=1134,1133,1132
+<1135=1136
+<1136=1139,1138,1137
+<1140=1141
+<1141=1143,1142
+<1144=1154,1151,1148,1145
+<1145=1147,1146
+<1148=1150,1149
+<1151=1153,1152
+<1154=1156,1155
+<1157=1170,1167,1164,1161,1158
+<1158=1160,1159
+<1161=1163,1162
+<1164=1166,1165
+<1167=1169,1168
+<1170=1172,1171
+<1173=1186,1183,1180,1177,1174
+<1174=1176,1175
+<1177=1179,1178
+<1180=1182,1181
+<1183=1185,1184
+<1186=1188,1187
+<1189=1190
+<1190=1212,1191
+<1191=1207,1192
+<1192=1202,1193
+<1193=1197,1194
+<1194=1196,1195
+<1197=1201,1198
+<1198=1200,1199
+<1202=1206,1203
+<1203=1205,1204
+<1207=1211,1208
+<1208=1210,1209
+<1213=1214
+<1214=1236,1215
+<1215=1231,1216
+<1216=1226,1217
+<1217=1221,1218
+<1218=1220,1219
+<1221=1225,1222
+<1222=1224,1223
+<1226=1230,1227
+<1227=1229,1228
+<1231=1235,1232
+<1232=1234,1233
+<1237=1238
+<1238=1260,1239
+<1239=1255,1240
+<1240=1250,1241
+<1241=1245,1242
+<1242=1244,1243
+<1245=1249,1246
+<1246=1248,1247
+<1250=1254,1251
+<1251=1253,1252
+<1255=1259,1256
+<1256=1258,1257
+<1261=1262,1270,1278,1286,1294,1302,1310,1318,1326
+<1262=1269,1268,1263
+<1263=1267,1264
+<1264=1266,1265
+<1270=1277,1276,1271
+<1271=1275,1272
+<1272=1274,1273
+<1278=1285,1284,1279
+<1279=1283,1280
+<1280=1282,1281
+<1286=1293,1292,1287
+<1287=1291,1288
+<1288=1290,1289
+<1294=1301,1300,1295
+<1295=1299,1296
+<1296=1298,1297
+<1302=1309,1308,1303
+<1303=1307,1304
+<1304=1306,1305
+<1310=1317,1316,1311
+<1311=1315,1312
+<1312=1314,1313
+<1318=1325,1324,1319
+<1319=1323,1320
+<1320=1322,1321
+<1326=1333,1332,1327
+<1327=1331,1328
+<1328=1330,1329
+<1334=1335
+<1335=1342,1341,1336
+<1336=1340,1337
+<1337=1339,1338
+<1343=1344
+<1344=1350,1345
+<1345=1347,1346
+<1347=1349,1348
+<1351=1352
+<1352=1358,1353
+<1353=1355,1354
+<1355=1357,1356
+<1359=1360
+<1360=1366,1361
+<1361=1363,1362
+<1363=1365,1364
+<1367=1368
+<1368=1374,1369
+<1369=1371,1370
+<1371=1373,1372
+<1375=1376
+<1376=1382,1377
+<1377=1379,1378
+<1379=1381,1380
+<1383=1384
+<1384=1390,1385
+<1385=1387,1386
+<1387=1389,1388
+<1391=1392
+<1392=1398,1393
+<1393=1395,1394
+<1395=1397,1396
+<1399=1400
+<1400=1406,1401
+<1401=1403,1402
+<1403=1405,1404
+<1407=1429,1426,1423,1420,1417,1414,1411,1408
+<1408=1410,1409
+<1411=1413,1412
+<1414=1416,1415
+<1417=1419,1418
+<1420=1422,1421
+<1423=1425,1424
+<1426=1428,1427
+<1429=1431,1430
+<1432=1433
+<1433=1439,1434
+<1434=1436,1435
+<1436=1438,1437
+<1440=1441
+<1441=1447,1442
+<1442=1444,1443
+<1444=1446,1445
+<1448=1449
+<1449=1455,1450
+<1450=1452,1451
+<1452=1454,1453
+<1456=1457
+<1457=1463,1458
+<1458=1460,1459
+<1460=1462,1461
+<1464=1465
+<1465=1471,1466
+<1466=1468,1467
+<1468=1470,1469
+<1472=1473
+<1473=1479,1474
+<1474=1476,1475
+<1476=1478,1477
+<1480=1481
+<1481=1487,1482
+<1482=1484,1483
+<1484=1486,1485
+<1488=1489
+<1489=1495,1490
+<1490=1492,1491
+<1492=1494,1493
+<1496=1497
+<1497=1503,1498
+<1498=1500,1499
+<1500=1502,1501
+<1504=1505
+<1505=1511,1506
+<1506=1508,1507
+<1508=1510,1509
+<1512=1513
+<1513=1519,1514
+<1514=1516,1515
+<1516=1518,1517
+<1520=1521
+<1521=1527,1522
+<1522=1524,1523
+<1524=1526,1525
+<1528=1562,1559,1556,1553,1550,1547,1544,1541,1538,1535,1532,1529
+<1529=1531,1530
+<1532=1534,1533
+<1535=1537,1536
+<1538=1540,1539
+<1541=1543,1542
+<1544=1546,1545
+<1547=1549,1548
+<1550=1552,1551
+<1553=1555,1554
+<1556=1558,1557
+<1559=1561,1560
+<1562=1564,1563
+<1565=1575,1572,1569,1566
+<1566=1568,1567
+<1569=1571,1570
+<1572=1574,1573
+<1575=1577,1576
+<1578=1588,1585,1582,1579
+<1579=1581,1580
+<1582=1584,1583
+<1585=1587,1586
+<1588=1590,1589
+<1591=1601,1598,1595,1592
+<1592=1594,1593
+<1595=1597,1596
+<1598=1600,1599
+<1601=1603,1602
+<1604=1638,1635,1632,1629,1626,1623,1620,1617,1614,1611,1608,1605
+<1605=1607,1606
+<1608=1610,1609
+<1611=1613,1612
+<1614=1616,1615
+<1617=1619,1618
+<1620=1622,1621
+<1623=1625,1624
+<1626=1628,1627
+<1629=1631,1630
+<1632=1634,1633
+<1635=1637,1636
+<1638=1640,1639
+<1641=1648,1645,1642
+<1642=1644,1643
+<1645=1647,1646
+<1648=1650,1649
+<1651=1652
+<1652=1658,1653
+<1653=1657,1654
+<1654=1656,1655
+<1659=1660
+<1660=1665,1664,1661
+<1661=1663,1662
+<1666=1673,1670,1667
+<1667=1669,1668
+<1670=1672,1671
+<1673=1675,1674
+<1676=1683,1677
+<1677=1682,1681,1678
+<1678=1680,1679
+<1683=1685,1684
+<1686=1693,1690,1687
+<1687=1689,1688
+<1690=1692,1691
+<1693=1695,1694
+<1696=1703,1700,1697
+<1697=1699,1698
+<1700=1702,1701
+<1703=1705,1704
+<1706=1707
+<1707=1709,1708

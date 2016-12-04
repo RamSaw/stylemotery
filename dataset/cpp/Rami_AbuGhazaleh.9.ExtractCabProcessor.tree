@@ -1,0 +1,98 @@
+>3	FunctionDef	ExtractCabProcessor 
+>4	ParameterList	HMODULE h , const std 
+>5	Parameter	 
+>6	Identifier	pDialog
+>7	ParameterType	CDialog *
+>8	Parameter	 
+>9	Identifier	id
+>10	ParameterType	const std 
+>11	Parameter	 
+>12	Identifier	h
+>13	ParameterType	HMODULE
+>14	CompoundStatement	 
+>21	FunctionDef	ExtractCabProcessor 
+>22	ParameterList	const std 
+>23	Parameter	 
+>24	Identifier	status
+>25	ParameterType	const std 
+>26	ReturnType	void
+>27	CompoundStatement	 
+>28	IfStatement	if ( m_pDialog != NULL && m_pDialog -> GetSafeHwnd ( ) != NULL )
+>29	CompoundStatement	 
+>30	ExpressionStatement	 
+>31	CallExpression	m_pDialog -> PostMessage ( WM_USER_SETSTATUSINSTALL , ( WPARAM ) release ( installstatus ) )
+>32	ArgumentList	WM_USER_SETSTATUSINSTALL
+>33	Argument	( WPARAM ) release ( installstatus )
+>34	CastExpression	( WPARAM ) release ( installstatus )
+>35	CallExpression	release ( installstatus )
+>36	ArgumentList	installstatus
+>37	Argument	installstatus
+>38	Identifier	installstatus
+>39	Callee	release
+>40	Identifier	release
+>41	CastTarget	WPARAM
+>42	Argument	WM_USER_SETSTATUSINSTALL
+>43	Identifier	WM_USER_SETSTATUSINSTALL
+>44	Callee	m_pDialog -> PostMessage
+>45	PtrMemberAccess	m_pDialog -> PostMessage
+>46	Identifier	PostMessage
+>47	Identifier	m_pDialog
+>48	IdentifierDeclStatement	 
+>49	IdentifierDecl	installstatus ( InstallStatus 
+>50	CallExpression	InstallStatus 
+>51	ArgumentList	status
+>52	Argument	status
+>53	Identifier	status
+>54	Callee	InstallStatus 
+>55	Identifier	InstallStatus 
+>56	Identifier	installstatus
+>57	IdentifierDeclType	InstallStatusPtr
+>58	Condition	 
+>59	AndExpression	m_pDialog != NULL && m_pDialog -> GetSafeHwnd ( ) != NULL
+>60	EqualityExpression	m_pDialog -> GetSafeHwnd ( ) != NULL
+>61	Identifier	NULL
+>62	CallExpression	m_pDialog -> GetSafeHwnd ( )
+>63	ArgumentList	 
+>64	Callee	m_pDialog -> GetSafeHwnd
+>65	PtrMemberAccess	m_pDialog -> GetSafeHwnd
+>66	Identifier	GetSafeHwnd
+>67	Identifier	m_pDialog
+>68	EqualityExpression	m_pDialog != NULL
+>69	Identifier	NULL
+>70	Identifier	m_pDialog
+<3=14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<21=27,26,22
+<22=23
+<23=25,24
+<27=28
+<28=58,29
+<29=48,30
+<30=31
+<31=44,32
+<32=42,33
+<33=34
+<34=41,35
+<35=39,36
+<36=37
+<37=38
+<39=40
+<42=43
+<44=45
+<45=47,46
+<48=49
+<49=57,56,50
+<50=54,51
+<51=52
+<52=53
+<54=55
+<58=59
+<59=68,60
+<60=62,61
+<62=64,63
+<64=65
+<65=67,66
+<68=70,69

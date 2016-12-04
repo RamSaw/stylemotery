@@ -1,0 +1,2763 @@
+>3	FunctionDef	printSynapse (UInt srcCellIdx , UInt nCellsPerCol)
+>4	ParameterList	UInt srcCellIdx , UInt nCellsPerCol
+>5	Parameter	 
+>6	Identifier	nCellsPerCol
+>7	ParameterType	UInt
+>8	Parameter	 
+>9	Identifier	srcCellIdx
+>10	ParameterType	UInt
+>11	ReturnType	void
+>12	CompoundStatement	 
+>13	ExpressionStatement	 
+>14	ShiftExpression	std 
+>15	ShiftExpression	\"[\" << col << \",\" << cell << \"]  \"
+>16	ShiftExpression	col << \",\" << cell << \"]  \"
+>17	ShiftExpression	\",\" << cell << \"]  \"
+>18	ShiftExpression	cell << \"]  \"
+>19	PrimaryExpression	\"]  \"
+>20	Identifier	cell
+>21	PrimaryExpression	\",\"
+>22	Identifier	col
+>23	PrimaryExpression	\"[\"
+>24	Identifier	std 
+>25	IdentifierDeclStatement	 
+>26	IdentifierDecl	cell = srcCellIdx - col * nCellsPerCol
+>27	AssignmentExpr	cell = srcCellIdx - col * nCellsPerCol
+>28	AdditiveExpression	srcCellIdx - col * nCellsPerCol
+>29	MultiplicativeExpression	col * nCellsPerCol
+>30	Identifier	nCellsPerCol
+>31	Identifier	col
+>32	Identifier	srcCellIdx
+>33	Identifier	cell
+>34	Identifier	cell
+>35	IdentifierDeclType	UInt
+>36	IdentifierDeclStatement	 
+>37	IdentifierDecl	col = ( UInt ) ( srcCellIdx / nCellsPerCol )
+>38	AssignmentExpr	col = ( UInt ) ( srcCellIdx / nCellsPerCol )
+>39	CastExpression	( UInt ) ( srcCellIdx / nCellsPerCol )
+>40	MultiplicativeExpression	srcCellIdx / nCellsPerCol
+>41	Identifier	nCellsPerCol
+>42	Identifier	srcCellIdx
+>43	CastTarget	UInt
+>44	Identifier	col
+>45	Identifier	col
+>46	IdentifierDeclType	UInt
+>54	FunctionDef	Segment 
+>55	ParameterList	const InSynapses & _s , Real frequency , bool seqSegFlag , Real permConnected , UInt iteration
+>56	Parameter	 
+>57	Identifier	iteration
+>58	ParameterType	UInt
+>59	Parameter	 
+>60	Identifier	permConnected
+>61	ParameterType	Real
+>62	Parameter	 
+>63	Identifier	seqSegFlag
+>64	ParameterType	bool
+>65	Parameter	 
+>66	Identifier	frequency
+>67	ParameterType	Real
+>68	Parameter	 
+>69	Identifier	_s
+>70	ParameterType	const InSynapses &
+>71	CompoundStatement	 
+>72	ExpressionStatement	 
+>73	CallExpression	NTA_ASSERT ( invariants ( ) )
+>74	ArgumentList	invariants ( )
+>75	Argument	invariants ( )
+>76	CallExpression	invariants ( )
+>77	ArgumentList	 
+>78	Callee	invariants
+>79	Identifier	invariants
+>80	Callee	NTA_ASSERT
+>81	Identifier	NTA_ASSERT
+>82	ExpressionStatement	 
+>83	CallExpression	std 
+>84	ArgumentList	_synapses . begin ( )
+>85	Argument	InSynapseOrder ( )
+>86	CallExpression	InSynapseOrder ( )
+>87	ArgumentList	 
+>88	Callee	InSynapseOrder
+>89	Identifier	InSynapseOrder
+>90	Argument	_synapses . end ( )
+>91	CallExpression	_synapses . end ( )
+>92	ArgumentList	 
+>93	Callee	_synapses . end
+>94	MemberAccess	_synapses . end
+>95	Identifier	end
+>96	Identifier	_synapses
+>97	Argument	_synapses . begin ( )
+>98	CallExpression	_synapses . begin ( )
+>99	ArgumentList	 
+>100	Callee	_synapses . begin
+>101	MemberAccess	_synapses . begin
+>102	Identifier	begin
+>103	Identifier	_synapses
+>104	Callee	std 
+>105	Identifier	std 
+>106	ForStatement	for ( UInt i = 0 ; i != _synapses . size ( ) ; ++ i )
+>107	IfStatement	if ( _synapses [ i ] . permanence ( ) >= permConnected )
+>108	ExpressionStatement	 
+>109	UnaryExpression	++ _nConnected
+>110	Identifier	_nConnected
+>111	IncDec	++
+>112	Condition	 
+>113	RelationalExpression	_synapses [ i ] . permanence ( ) >= permConnected
+>114	Identifier	permConnected
+>115	CallExpression	_synapses [ i ] . permanence ( )
+>116	ArgumentList	 
+>117	Callee	_synapses [ i ] . permanence
+>118	MemberAccess	_synapses [ i ] . permanence
+>119	Identifier	permanence
+>120	ArrayIndexing	_synapses [ i ]
+>121	Identifier	i
+>122	Identifier	_synapses
+>123	UnaryExpression	 
+>124	Identifier	i
+>125	IncDec	++
+>126	Condition	 
+>127	EqualityExpression	i != _synapses . size ( )
+>128	CallExpression	_synapses . size ( )
+>129	ArgumentList	 
+>130	Callee	_synapses . size
+>131	MemberAccess	_synapses . size
+>132	Identifier	size
+>133	Identifier	_synapses
+>134	Identifier	i
+>135	ForInit	 
+>136	IdentifierDeclStatement	UInt i = 0 ;
+>137	IdentifierDecl	i = 0
+>138	AssignmentExpr	i = 0
+>139	PrimaryExpression	0
+>140	Identifier	i
+>141	Identifier	i
+>142	IdentifierDeclType	UInt
+>161	FunctionDef	operator = (const Segment & o)
+>162	ParameterList	const Segment & o
+>163	Parameter	 
+>164	Identifier	o
+>165	ParameterType	const Segment &
+>166	CompoundStatement	 
+>167	ReturnStatement	 
+>168	UnaryOp	* this
+>169	Identifier	this
+>170	UnaryOperator	*
+>171	ExpressionStatement	 
+>172	CallExpression	NTA_ASSERT ( invariants ( ) )
+>173	ArgumentList	invariants ( )
+>174	Argument	invariants ( )
+>175	CallExpression	invariants ( )
+>176	ArgumentList	 
+>177	Callee	invariants
+>178	Identifier	invariants
+>179	Callee	NTA_ASSERT
+>180	Identifier	NTA_ASSERT
+>181	IfStatement	if ( & o != this )
+>182	CompoundStatement	 
+>183	ExpressionStatement	 
+>184	AssignmentExpr	_lastPosDutyCycleIteration = o . _lastPosDutyCycleIteration
+>185	MemberAccess	o . _lastPosDutyCycleIteration
+>186	Identifier	_lastPosDutyCycleIteration
+>187	Identifier	o
+>188	Identifier	_lastPosDutyCycleIteration
+>189	ExpressionStatement	 
+>190	AssignmentExpr	_lastPosDutyCycle = o . _lastPosDutyCycle
+>191	MemberAccess	o . _lastPosDutyCycle
+>192	Identifier	_lastPosDutyCycle
+>193	Identifier	o
+>194	Identifier	_lastPosDutyCycle
+>195	ExpressionStatement	 
+>196	AssignmentExpr	_lastActiveIteration = o . _lastActiveIteration
+>197	MemberAccess	o . _lastActiveIteration
+>198	Identifier	_lastActiveIteration
+>199	Identifier	o
+>200	Identifier	_lastActiveIteration
+>201	ExpressionStatement	 
+>202	AssignmentExpr	_positiveActivations = o . _positiveActivations
+>203	MemberAccess	o . _positiveActivations
+>204	Identifier	_positiveActivations
+>205	Identifier	o
+>206	Identifier	_positiveActivations
+>207	ExpressionStatement	 
+>208	AssignmentExpr	_totalActivations = o . _totalActivations
+>209	MemberAccess	o . _totalActivations
+>210	Identifier	_totalActivations
+>211	Identifier	o
+>212	Identifier	_totalActivations
+>213	ExpressionStatement	 
+>214	AssignmentExpr	_nConnected = o . _nConnected
+>215	MemberAccess	o . _nConnected
+>216	Identifier	_nConnected
+>217	Identifier	o
+>218	Identifier	_nConnected
+>219	ExpressionStatement	 
+>220	AssignmentExpr	_synapses = o . _synapses
+>221	MemberAccess	o . _synapses
+>222	Identifier	_synapses
+>223	Identifier	o
+>224	Identifier	_synapses
+>225	ExpressionStatement	 
+>226	AssignmentExpr	_frequency = o . _frequency
+>227	MemberAccess	o . _frequency
+>228	Identifier	_frequency
+>229	Identifier	o
+>230	Identifier	_frequency
+>231	ExpressionStatement	 
+>232	AssignmentExpr	_seqSegFlag = o . _seqSegFlag
+>233	MemberAccess	o . _seqSegFlag
+>234	Identifier	_seqSegFlag
+>235	Identifier	o
+>236	Identifier	_seqSegFlag
+>237	Condition	 
+>238	EqualityExpression	& o != this
+>239	Identifier	this
+>240	UnaryOp	& o
+>241	Identifier	o
+>242	UnaryOperator	&
+>269	FunctionDef	Segment 
+>270	ParameterList	const Segment & o
+>271	Parameter	 
+>272	Identifier	o
+>273	ParameterType	const Segment &
+>274	CompoundStatement	 
+>275	ExpressionStatement	 
+>276	CallExpression	NTA_ASSERT ( invariants ( ) )
+>277	ArgumentList	invariants ( )
+>278	Argument	invariants ( )
+>279	CallExpression	invariants ( )
+>280	ArgumentList	 
+>281	Callee	invariants
+>282	Identifier	invariants
+>283	Callee	NTA_ASSERT
+>284	Identifier	NTA_ASSERT
+>290	FunctionDef	Segment 
+>291	ParameterList	const CState & activities , Real permConnected , UInt activationThreshold
+>292	Parameter	 
+>293	Identifier	activationThreshold
+>294	ParameterType	UInt
+>295	Parameter	 
+>296	Identifier	permConnected
+>297	ParameterType	Real
+>298	Parameter	 
+>299	Identifier	activities
+>300	ParameterType	const CState &
+>301	ReturnType	bool
+>302	CompoundStatement	 
+>303	ReturnStatement	 
+>304	RelationalExpression	activity >= activationThreshold
+>305	Identifier	activationThreshold
+>306	Identifier	activity
+>307	ForStatement	for ( UInt i = 0 ; i != size ( ) && activity < activationThreshold ; ++ i )
+>308	IfStatement	if ( _synapses [ i ] . permanence ( ) >= permConnected && activities . isSet ( _synapses [ i ] . srcCellIdx ( ) ) )
+>309	ExpressionStatement	 
+>310	IncDecOp	activity ++
+>311	IncDec	++
+>312	Identifier	activity
+>313	Condition	 
+>314	AndExpression	_synapses [ i ] . permanence ( ) >= permConnected && activities . isSet ( _synapses [ i ] . srcCellIdx ( ) )
+>315	CallExpression	activities . isSet ( _synapses [ i ] . srcCellIdx ( ) )
+>316	ArgumentList	_synapses [ i ] . srcCellIdx ( )
+>317	Argument	_synapses [ i ] . srcCellIdx ( )
+>318	CallExpression	_synapses [ i ] . srcCellIdx ( )
+>319	ArgumentList	 
+>320	Callee	_synapses [ i ] . srcCellIdx
+>321	MemberAccess	_synapses [ i ] . srcCellIdx
+>322	Identifier	srcCellIdx
+>323	ArrayIndexing	_synapses [ i ]
+>324	Identifier	i
+>325	Identifier	_synapses
+>326	Callee	activities . isSet
+>327	MemberAccess	activities . isSet
+>328	Identifier	isSet
+>329	Identifier	activities
+>330	RelationalExpression	_synapses [ i ] . permanence ( ) >= permConnected
+>331	Identifier	permConnected
+>332	CallExpression	_synapses [ i ] . permanence ( )
+>333	ArgumentList	 
+>334	Callee	_synapses [ i ] . permanence
+>335	MemberAccess	_synapses [ i ] . permanence
+>336	Identifier	permanence
+>337	ArrayIndexing	_synapses [ i ]
+>338	Identifier	i
+>339	Identifier	_synapses
+>340	UnaryExpression	 
+>341	Identifier	i
+>342	IncDec	++
+>343	Condition	 
+>344	AndExpression	i != size ( ) && activity < activationThreshold
+>345	RelationalExpression	activity < activationThreshold
+>346	Identifier	activationThreshold
+>347	Identifier	activity
+>348	EqualityExpression	i != size ( )
+>349	CallExpression	size ( )
+>350	ArgumentList	 
+>351	Callee	size
+>352	Identifier	size
+>353	Identifier	i
+>354	ForInit	 
+>355	IdentifierDeclStatement	UInt i = 0 ;
+>356	IdentifierDecl	i = 0
+>357	AssignmentExpr	i = 0
+>358	PrimaryExpression	0
+>359	Identifier	i
+>360	Identifier	i
+>361	IdentifierDeclType	UInt
+>362	IfStatement	if ( _nConnected < activationThreshold )
+>363	ReturnStatement	 
+>364	Identifier	false
+>365	Condition	 
+>366	RelationalExpression	_nConnected < activationThreshold
+>367	Identifier	activationThreshold
+>368	Identifier	_nConnected
+>369	IdentifierDeclStatement	 
+>370	IdentifierDecl	activity = 0
+>371	AssignmentExpr	activity = 0
+>372	PrimaryExpression	0
+>373	Identifier	activity
+>374	Identifier	activity
+>375	IdentifierDeclType	UInt
+>376	CompoundStatement	 
+>377	ExpressionStatement	 
+>378	CallExpression	NTA_ASSERT ( invariants ( ) )
+>379	ArgumentList	invariants ( )
+>380	Argument	invariants ( )
+>381	CallExpression	invariants ( )
+>382	ArgumentList	 
+>383	Callee	invariants
+>384	Identifier	invariants
+>385	Callee	NTA_ASSERT
+>386	Identifier	NTA_ASSERT
+>405	FunctionDef	Segment 
+>406	ParameterList	UInt iteration , bool active , bool readOnly
+>407	Parameter	 
+>408	Identifier	readOnly
+>409	ParameterType	bool
+>410	Parameter	 
+>411	Identifier	active
+>412	ParameterType	bool
+>413	Parameter	 
+>414	Identifier	iteration
+>415	ParameterType	UInt
+>416	ReturnType	Real
+>417	CompoundStatement	 
+>418	ReturnStatement	 
+>419	Identifier	dutyCycle
+>420	IfStatement	if ( ! readOnly )
+>421	CompoundStatement	 
+>422	ExpressionStatement	 
+>423	AssignmentExpr	_lastPosDutyCycleIteration = iteration
+>424	Identifier	iteration
+>425	Identifier	_lastPosDutyCycleIteration
+>426	ExpressionStatement	 
+>427	AssignmentExpr	_lastPosDutyCycle = dutyCycle
+>428	Identifier	dutyCycle
+>429	Identifier	_lastPosDutyCycle
+>430	Condition	 
+>431	UnaryOp	! readOnly
+>432	Identifier	readOnly
+>433	UnaryOperator	!
+>434	IfStatement	if ( active )
+>435	ExpressionStatement	 
+>436	AssignmentExpr	dutyCycle += alpha
+>437	Identifier	alpha
+>438	Identifier	dutyCycle
+>439	Condition	 
+>440	Identifier	active
+>441	ExpressionStatement	 
+>442	AssignmentExpr	dutyCycle = pow ( ( Real64 ) ( 1.0 - alpha ) , ( Real64 ) age ) * _lastPosDutyCycle
+>443	MultiplicativeExpression	pow ( ( Real64 ) ( 1.0 - alpha ) , ( Real64 ) age ) * _lastPosDutyCycle
+>444	Identifier	_lastPosDutyCycle
+>445	CallExpression	pow ( ( Real64 ) ( 1.0 - alpha ) , ( Real64 ) age )
+>446	ArgumentList	( Real64 ) ( 1.0 - alpha )
+>447	Argument	( Real64 ) age
+>448	CastExpression	( Real64 ) age
+>449	Identifier	age
+>450	CastTarget	Real64
+>451	Argument	( Real64 ) ( 1.0 - alpha )
+>452	CastExpression	( Real64 ) ( 1.0 - alpha )
+>453	AdditiveExpression	1.0 - alpha
+>454	Identifier	alpha
+>455	PrimaryExpression	1.0
+>456	CastTarget	Real64
+>457	Callee	pow
+>458	Identifier	pow
+>459	Identifier	dutyCycle
+>460	ForStatement	for ( UInt tierIdx = _numTiers - 1 ; tierIdx > 0 ; tierIdx -- )
+>461	CompoundStatement	 
+>462	IfStatement	if ( iteration > _dutyCycleTiers [ tierIdx ] )
+>463	CompoundStatement	 
+>464	BreakStatement	 
+>465	ExpressionStatement	 
+>466	AssignmentExpr	alpha = _dutyCycleAlphas [ tierIdx ]
+>467	ArrayIndexing	_dutyCycleAlphas [ tierIdx ]
+>468	Identifier	tierIdx
+>469	Identifier	_dutyCycleAlphas
+>470	Identifier	alpha
+>471	Condition	 
+>472	RelationalExpression	iteration > _dutyCycleTiers [ tierIdx ]
+>473	ArrayIndexing	_dutyCycleTiers [ tierIdx ]
+>474	Identifier	tierIdx
+>475	Identifier	_dutyCycleTiers
+>476	Identifier	iteration
+>477	IncDecOp	 
+>478	IncDec	--
+>479	Identifier	tierIdx
+>480	Condition	 
+>481	RelationalExpression	tierIdx > 0
+>482	PrimaryExpression	0
+>483	Identifier	tierIdx
+>484	ForInit	 
+>485	IdentifierDeclStatement	UInt tierIdx = _numTiers - 1 ;
+>486	IdentifierDecl	tierIdx = _numTiers - 1
+>487	AssignmentExpr	tierIdx = _numTiers - 1
+>488	AdditiveExpression	_numTiers - 1
+>489	PrimaryExpression	1
+>490	Identifier	_numTiers
+>491	Identifier	tierIdx
+>492	Identifier	tierIdx
+>493	IdentifierDeclType	UInt
+>494	IdentifierDeclStatement	 
+>495	IdentifierDecl	alpha = 0
+>496	AssignmentExpr	alpha = 0
+>497	PrimaryExpression	0
+>498	Identifier	alpha
+>499	Identifier	alpha
+>500	IdentifierDeclType	Real
+>501	IfStatement	if ( age == 0 && ! active )
+>502	ReturnStatement	 
+>503	Identifier	_lastPosDutyCycle
+>504	Condition	 
+>505	AndExpression	age == 0 && ! active
+>506	UnaryOp	! active
+>507	Identifier	active
+>508	UnaryOperator	!
+>509	EqualityExpression	age == 0
+>510	PrimaryExpression	0
+>511	Identifier	age
+>512	IdentifierDeclStatement	 
+>513	IdentifierDecl	age = iteration - _lastPosDutyCycleIteration
+>514	AssignmentExpr	age = iteration - _lastPosDutyCycleIteration
+>515	AdditiveExpression	iteration - _lastPosDutyCycleIteration
+>516	Identifier	_lastPosDutyCycleIteration
+>517	Identifier	iteration
+>518	Identifier	age
+>519	Identifier	age
+>520	IdentifierDeclType	UInt
+>521	IfStatement	if ( iteration <= _dutyCycleTiers [ 1 ] )
+>522	CompoundStatement	 
+>523	ReturnStatement	 
+>524	Identifier	dutyCycle
+>525	IfStatement	if ( ! readOnly )
+>526	CompoundStatement	 
+>527	ExpressionStatement	 
+>528	AssignmentExpr	_lastPosDutyCycle = dutyCycle
+>529	Identifier	dutyCycle
+>530	Identifier	_lastPosDutyCycle
+>531	ExpressionStatement	 
+>532	AssignmentExpr	_lastPosDutyCycleIteration = iteration
+>533	Identifier	iteration
+>534	Identifier	_lastPosDutyCycleIteration
+>535	Condition	 
+>536	UnaryOp	! readOnly
+>537	Identifier	readOnly
+>538	UnaryOperator	!
+>539	ExpressionStatement	 
+>540	AssignmentExpr	dutyCycle = ( ( Real ) _positiveActivations ) / iteration
+>541	MultiplicativeExpression	( ( Real ) _positiveActivations ) / iteration
+>542	Identifier	iteration
+>543	CastExpression	( Real ) _positiveActivations
+>544	Identifier	_positiveActivations
+>545	CastTarget	Real
+>546	Identifier	dutyCycle
+>547	Condition	 
+>548	RelationalExpression	iteration <= _dutyCycleTiers [ 1 ]
+>549	ArrayIndexing	_dutyCycleTiers [ 1 ]
+>550	PrimaryExpression	1
+>551	Identifier	_dutyCycleTiers
+>552	Identifier	iteration
+>553	IdentifierDeclStatement	 
+>554	IdentifierDecl	dutyCycle = 0.0
+>555	AssignmentExpr	dutyCycle = 0.0
+>556	PrimaryExpression	0.0
+>557	Identifier	dutyCycle
+>558	Identifier	dutyCycle
+>559	IdentifierDeclType	Real
+>560	CompoundStatement	 
+>561	ExpressionStatement	 
+>562	CallExpression	NTA_ASSERT ( iteration > 0 )
+>563	ArgumentList	iteration > 0
+>564	Argument	iteration > 0
+>565	RelationalExpression	iteration > 0
+>566	PrimaryExpression	0
+>567	Identifier	iteration
+>568	Callee	NTA_ASSERT
+>569	Identifier	NTA_ASSERT
+>590	FunctionDef	Segment 
+>591	ParameterList	const CState & activities , Real permConnected , bool connectedSynapsesOnly
+>592	Parameter	 
+>593	Identifier	connectedSynapsesOnly
+>594	ParameterType	bool
+>595	Parameter	 
+>596	Identifier	permConnected
+>597	ParameterType	Real
+>598	Parameter	 
+>599	Identifier	activities
+>600	ParameterType	const CState &
+>601	ReturnType	UInt
+>602	CompoundStatement	 
+>603	ReturnStatement	 
+>604	Identifier	activity
+>605	IfStatement	if ( connectedSynapsesOnly )
+>606	ElseStatement	else
+>607	CompoundStatement	 
+>608	ForStatement	for ( UInt i = 0 ; i != size ( ) ; ++ i )
+>609	IfStatement	if ( activities . isSet ( _synapses [ i ] . srcCellIdx ( ) ) )
+>610	ExpressionStatement	 
+>611	IncDecOp	activity ++
+>612	IncDec	++
+>613	Identifier	activity
+>614	Condition	 
+>615	CallExpression	activities . isSet ( _synapses [ i ] . srcCellIdx ( ) )
+>616	ArgumentList	_synapses [ i ] . srcCellIdx ( )
+>617	Argument	_synapses [ i ] . srcCellIdx ( )
+>618	CallExpression	_synapses [ i ] . srcCellIdx ( )
+>619	ArgumentList	 
+>620	Callee	_synapses [ i ] . srcCellIdx
+>621	MemberAccess	_synapses [ i ] . srcCellIdx
+>622	Identifier	srcCellIdx
+>623	ArrayIndexing	_synapses [ i ]
+>624	Identifier	i
+>625	Identifier	_synapses
+>626	Callee	activities . isSet
+>627	MemberAccess	activities . isSet
+>628	Identifier	isSet
+>629	Identifier	activities
+>630	UnaryExpression	 
+>631	Identifier	i
+>632	IncDec	++
+>633	Condition	 
+>634	EqualityExpression	i != size ( )
+>635	CallExpression	size ( )
+>636	ArgumentList	 
+>637	Callee	size
+>638	Identifier	size
+>639	Identifier	i
+>640	ForInit	 
+>641	IdentifierDeclStatement	UInt i = 0 ;
+>642	IdentifierDecl	i = 0
+>643	AssignmentExpr	i = 0
+>644	PrimaryExpression	0
+>645	Identifier	i
+>646	Identifier	i
+>647	IdentifierDeclType	UInt
+>648	CompoundStatement	 
+>649	ForStatement	for ( UInt i = 0 ; i != size ( ) ; ++ i )
+>650	IfStatement	if ( activities . isSet ( _synapses [ i ] . srcCellIdx ( ) ) && ( _synapses [ i ] . permanence ( ) >= permConnected ) )
+>651	ExpressionStatement	 
+>652	IncDecOp	activity ++
+>653	IncDec	++
+>654	Identifier	activity
+>655	Condition	 
+>656	AndExpression	activities . isSet ( _synapses [ i ] . srcCellIdx ( ) ) && ( _synapses [ i ] . permanence ( ) >= permConnected )
+>657	RelationalExpression	_synapses [ i ] . permanence ( ) >= permConnected
+>658	Identifier	permConnected
+>659	CallExpression	_synapses [ i ] . permanence ( )
+>660	ArgumentList	 
+>661	Callee	_synapses [ i ] . permanence
+>662	MemberAccess	_synapses [ i ] . permanence
+>663	Identifier	permanence
+>664	ArrayIndexing	_synapses [ i ]
+>665	Identifier	i
+>666	Identifier	_synapses
+>667	CallExpression	activities . isSet ( _synapses [ i ] . srcCellIdx ( ) )
+>668	ArgumentList	_synapses [ i ] . srcCellIdx ( )
+>669	Argument	_synapses [ i ] . srcCellIdx ( )
+>670	CallExpression	_synapses [ i ] . srcCellIdx ( )
+>671	ArgumentList	 
+>672	Callee	_synapses [ i ] . srcCellIdx
+>673	MemberAccess	_synapses [ i ] . srcCellIdx
+>674	Identifier	srcCellIdx
+>675	ArrayIndexing	_synapses [ i ]
+>676	Identifier	i
+>677	Identifier	_synapses
+>678	Callee	activities . isSet
+>679	MemberAccess	activities . isSet
+>680	Identifier	isSet
+>681	Identifier	activities
+>682	UnaryExpression	 
+>683	Identifier	i
+>684	IncDec	++
+>685	Condition	 
+>686	EqualityExpression	i != size ( )
+>687	CallExpression	size ( )
+>688	ArgumentList	 
+>689	Callee	size
+>690	Identifier	size
+>691	Identifier	i
+>692	ForInit	 
+>693	IdentifierDeclStatement	UInt i = 0 ;
+>694	IdentifierDecl	i = 0
+>695	AssignmentExpr	i = 0
+>696	PrimaryExpression	0
+>697	Identifier	i
+>698	Identifier	i
+>699	IdentifierDeclType	UInt
+>700	Condition	 
+>701	Identifier	connectedSynapsesOnly
+>702	IdentifierDeclStatement	 
+>703	IdentifierDecl	activity = 0
+>704	AssignmentExpr	activity = 0
+>705	PrimaryExpression	0
+>706	Identifier	activity
+>707	Identifier	activity
+>708	IdentifierDeclType	UInt
+>709	CompoundStatement	 
+>710	ExpressionStatement	 
+>711	CallExpression	NTA_ASSERT ( invariants ( ) )
+>712	ArgumentList	invariants ( )
+>713	Argument	invariants ( )
+>714	CallExpression	invariants ( )
+>715	ArgumentList	 
+>716	Callee	invariants
+>717	Identifier	invariants
+>718	Callee	NTA_ASSERT
+>719	Identifier	NTA_ASSERT
+>736	FunctionDef	Segment 
+>737	ParameterList	const std 
+>738	Parameter	 
+>739	Identifier	permConnected
+>740	ParameterType	Real
+>741	Parameter	 
+>742	Identifier	initStrength
+>743	ParameterType	Real
+>744	Parameter	 
+>745	Identifier	srcCells
+>746	ParameterType	const std 
+>747	ReturnType	void
+>748	CompoundStatement	 
+>749	ExpressionStatement	 
+>750	CallExpression	NTA_ASSERT ( invariants ( ) )
+>751	ArgumentList	invariants ( )
+>752	Argument	invariants ( )
+>753	CallExpression	invariants ( )
+>754	ArgumentList	 
+>755	Callee	invariants
+>756	Identifier	invariants
+>757	Callee	NTA_ASSERT
+>758	Identifier	NTA_ASSERT
+>759	ExpressionStatement	 
+>760	CallExpression	sort ( _synapses , InSynapseOrder ( ) )
+>761	ArgumentList	_synapses
+>762	Argument	InSynapseOrder ( )
+>763	CallExpression	InSynapseOrder ( )
+>764	ArgumentList	 
+>765	Callee	InSynapseOrder
+>766	Identifier	InSynapseOrder
+>767	Argument	_synapses
+>768	Identifier	_synapses
+>769	Callee	sort
+>770	Identifier	sort
+>771	ForStatement	for ( ; srcCellIdx != srcCells . end ( ) ; ++ srcCellIdx )
+>772	CompoundStatement	 
+>773	IfStatement	if ( initStrength >= permConnected )
+>774	ExpressionStatement	 
+>775	UnaryExpression	++ _nConnected
+>776	Identifier	_nConnected
+>777	IncDec	++
+>778	Condition	 
+>779	RelationalExpression	initStrength >= permConnected
+>780	Identifier	permConnected
+>781	Identifier	initStrength
+>782	ExpressionStatement	 
+>783	CallExpression	_synapses . push_back ( InSynapse ( * srcCellIdx , initStrength ) )
+>784	ArgumentList	InSynapse ( * srcCellIdx , initStrength )
+>785	Argument	InSynapse ( * srcCellIdx , initStrength )
+>786	CallExpression	InSynapse ( * srcCellIdx , initStrength )
+>787	ArgumentList	* srcCellIdx
+>788	Argument	initStrength
+>789	Identifier	initStrength
+>790	Argument	* srcCellIdx
+>791	UnaryOp	* srcCellIdx
+>792	Identifier	srcCellIdx
+>793	UnaryOperator	*
+>794	Callee	InSynapse
+>795	Identifier	InSynapse
+>796	Callee	_synapses . push_back
+>797	MemberAccess	_synapses . push_back
+>798	Identifier	push_back
+>799	Identifier	_synapses
+>800	UnaryExpression	 
+>801	Identifier	srcCellIdx
+>802	IncDec	++
+>803	Condition	 
+>804	EqualityExpression	srcCellIdx != srcCells . end ( )
+>805	CallExpression	srcCells . end ( )
+>806	ArgumentList	 
+>807	Callee	srcCells . end
+>808	MemberAccess	srcCells . end
+>809	Identifier	end
+>810	Identifier	srcCells
+>811	Identifier	srcCellIdx
+>812	IdentifierDeclStatement	 
+>813	IdentifierDecl	srcCellIdx = srcCells . begin ( )
+>814	AssignmentExpr	srcCellIdx = srcCells . begin ( )
+>815	CallExpression	srcCells . begin ( )
+>816	ArgumentList	 
+>817	Callee	srcCells . begin
+>818	MemberAccess	srcCells . begin
+>819	Identifier	begin
+>820	Identifier	srcCells
+>821	Identifier	srcCellIdx
+>822	Identifier	srcCellIdx
+>823	IdentifierDeclType	std 
+>838	FunctionDef	Segment 
+>839	ParameterList	Real decay , std 
+>840	Parameter	 
+>841	Identifier	doDecay
+>842	ParameterType	bool
+>843	Parameter	 
+>844	Identifier	permConnected
+>845	ParameterType	Real
+>846	Parameter	 
+>847	Identifier	removed
+>848	ParameterType	std 
+>849	Parameter	 
+>850	Identifier	decay
+>851	ParameterType	Real
+>852	ReturnType	void
+>853	CompoundStatement	 
+>854	ExpressionStatement	 
+>855	CallExpression	NTA_ASSERT ( invariants ( ) )
+>856	ArgumentList	invariants ( )
+>857	Argument	invariants ( )
+>858	CallExpression	invariants ( )
+>859	ArgumentList	 
+>860	Callee	invariants
+>861	Identifier	invariants
+>862	Callee	NTA_ASSERT
+>863	Identifier	NTA_ASSERT
+>864	ExpressionStatement	 
+>865	CallExpression	_removeSynapses ( del )
+>866	ArgumentList	del
+>867	Argument	del
+>868	Identifier	del
+>869	Callee	_removeSynapses
+>870	Identifier	_removeSynapses
+>871	ForStatement	for ( UInt i = 0 ; i != _synapses . size ( ) ; ++ i )
+>872	CompoundStatement	 
+>873	ExpressionStatement	 
+>874	AssignmentExpr	_nConnected += isConnected - wasConnected
+>875	AdditiveExpression	isConnected - wasConnected
+>876	Identifier	wasConnected
+>877	Identifier	isConnected
+>878	Identifier	_nConnected
+>879	IdentifierDeclStatement	 
+>880	IdentifierDecl	isConnected = ( int ) ( _synapses [ i ] . permanence ( ) >= permConnected )
+>881	AssignmentExpr	isConnected = ( int ) ( _synapses [ i ] . permanence ( ) >= permConnected )
+>882	CastExpression	( int ) ( _synapses [ i ] . permanence ( ) >= permConnected )
+>883	RelationalExpression	_synapses [ i ] . permanence ( ) >= permConnected
+>884	Identifier	permConnected
+>885	CallExpression	_synapses [ i ] . permanence ( )
+>886	ArgumentList	 
+>887	Callee	_synapses [ i ] . permanence
+>888	MemberAccess	_synapses [ i ] . permanence
+>889	Identifier	permanence
+>890	ArrayIndexing	_synapses [ i ]
+>891	Identifier	i
+>892	Identifier	_synapses
+>893	CastTarget	int
+>894	Identifier	isConnected
+>895	Identifier	isConnected
+>896	IdentifierDeclType	int
+>897	IfStatement	if ( _synapses [ i ] . permanence ( ) < decay )
+>898	ElseStatement	else
+>899	IfStatement	if ( doDecay )
+>900	CompoundStatement	 
+>901	ExpressionStatement	 
+>902	AssignmentExpr	_synapses [ i ] . permanence ( ) -= decay
+>903	Identifier	decay
+>904	CallExpression	_synapses [ i ] . permanence ( )
+>905	ArgumentList	 
+>906	Callee	_synapses [ i ] . permanence
+>907	MemberAccess	_synapses [ i ] . permanence
+>908	Identifier	permanence
+>909	ArrayIndexing	_synapses [ i ]
+>910	Identifier	i
+>911	Identifier	_synapses
+>912	Condition	 
+>913	Identifier	doDecay
+>914	CompoundStatement	 
+>915	ExpressionStatement	 
+>916	CallExpression	del . push_back ( i )
+>917	ArgumentList	i
+>918	Argument	i
+>919	Identifier	i
+>920	Callee	del . push_back
+>921	MemberAccess	del . push_back
+>922	Identifier	push_back
+>923	Identifier	del
+>924	ExpressionStatement	 
+>925	CallExpression	removed . push_back ( _synapses [ i ] . srcCellIdx ( ) )
+>926	ArgumentList	_synapses [ i ] . srcCellIdx ( )
+>927	Argument	_synapses [ i ] . srcCellIdx ( )
+>928	CallExpression	_synapses [ i ] . srcCellIdx ( )
+>929	ArgumentList	 
+>930	Callee	_synapses [ i ] . srcCellIdx
+>931	MemberAccess	_synapses [ i ] . srcCellIdx
+>932	Identifier	srcCellIdx
+>933	ArrayIndexing	_synapses [ i ]
+>934	Identifier	i
+>935	Identifier	_synapses
+>936	Callee	removed . push_back
+>937	MemberAccess	removed . push_back
+>938	Identifier	push_back
+>939	Identifier	removed
+>940	Condition	 
+>941	RelationalExpression	_synapses [ i ] . permanence ( ) < decay
+>942	Identifier	decay
+>943	CallExpression	_synapses [ i ] . permanence ( )
+>944	ArgumentList	 
+>945	Callee	_synapses [ i ] . permanence
+>946	MemberAccess	_synapses [ i ] . permanence
+>947	Identifier	permanence
+>948	ArrayIndexing	_synapses [ i ]
+>949	Identifier	i
+>950	Identifier	_synapses
+>951	IdentifierDeclStatement	 
+>952	IdentifierDecl	wasConnected = ( int ) ( _synapses [ i ] . permanence ( ) >= permConnected )
+>953	AssignmentExpr	wasConnected = ( int ) ( _synapses [ i ] . permanence ( ) >= permConnected )
+>954	CastExpression	( int ) ( _synapses [ i ] . permanence ( ) >= permConnected )
+>955	RelationalExpression	_synapses [ i ] . permanence ( ) >= permConnected
+>956	Identifier	permConnected
+>957	CallExpression	_synapses [ i ] . permanence ( )
+>958	ArgumentList	 
+>959	Callee	_synapses [ i ] . permanence
+>960	MemberAccess	_synapses [ i ] . permanence
+>961	Identifier	permanence
+>962	ArrayIndexing	_synapses [ i ]
+>963	Identifier	i
+>964	Identifier	_synapses
+>965	CastTarget	int
+>966	Identifier	wasConnected
+>967	Identifier	wasConnected
+>968	IdentifierDeclType	int
+>969	UnaryExpression	 
+>970	Identifier	i
+>971	IncDec	++
+>972	Condition	 
+>973	EqualityExpression	i != _synapses . size ( )
+>974	CallExpression	_synapses . size ( )
+>975	ArgumentList	 
+>976	Callee	_synapses . size
+>977	MemberAccess	_synapses . size
+>978	Identifier	size
+>979	Identifier	_synapses
+>980	Identifier	i
+>981	ForInit	 
+>982	IdentifierDeclStatement	UInt i = 0 ;
+>983	IdentifierDecl	i = 0
+>984	AssignmentExpr	i = 0
+>985	PrimaryExpression	0
+>986	Identifier	i
+>987	Identifier	i
+>988	IdentifierDeclType	UInt
+>989	ExpressionStatement	 
+>990	CallExpression	del . clear ( )
+>991	ArgumentList	 
+>992	Callee	del . clear
+>993	MemberAccess	del . clear
+>994	Identifier	clear
+>995	Identifier	del
+>996	IdentifierDeclStatement	 
+>997	IdentifierDecl	del
+>998	Identifier	del
+>999	IdentifierDeclType	std 
+>1000	Statement	 
+>1001	IfStatement	if ( _synapses . empty ( ) )
+>1002	ReturnStatement	 
+>1003	Condition	 
+>1004	CallExpression	_synapses . empty ( )
+>1005	ArgumentList	 
+>1006	Callee	_synapses . empty
+>1007	MemberAccess	_synapses . empty
+>1008	Identifier	empty
+>1009	Identifier	_synapses
+>1010	ExpressionStatement	 
+>1011	CallExpression	NTA_ASSERT ( invariants ( ) )
+>1012	ArgumentList	invariants ( )
+>1013	Argument	invariants ( )
+>1014	CallExpression	invariants ( )
+>1015	ArgumentList	 
+>1016	Callee	invariants
+>1017	Identifier	invariants
+>1018	Callee	NTA_ASSERT
+>1019	Identifier	NTA_ASSERT
+>1040	FunctionDef	Segment 
+>1041	ParameterList	Real decay , std 
+>1042	Parameter	 
+>1043	Identifier	permConnected
+>1044	ParameterType	Real
+>1045	Parameter	 
+>1046	Identifier	removed
+>1047	ParameterType	std 
+>1048	Parameter	 
+>1049	Identifier	decay
+>1050	ParameterType	Real
+>1051	ReturnType	void
+>1052	CompoundStatement	 
+>1053	ExpressionStatement	 
+>1054	CallExpression	NTA_ASSERT ( invariants ( ) )
+>1055	ArgumentList	invariants ( )
+>1056	Argument	invariants ( )
+>1057	CallExpression	invariants ( )
+>1058	ArgumentList	 
+>1059	Callee	invariants
+>1060	Identifier	invariants
+>1061	Callee	NTA_ASSERT
+>1062	Identifier	NTA_ASSERT
+>1063	ExpressionStatement	 
+>1064	CallExpression	_removeSynapses ( del )
+>1065	ArgumentList	del
+>1066	Argument	del
+>1067	Identifier	del
+>1068	Callee	_removeSynapses
+>1069	Identifier	_removeSynapses
+>1070	ForStatement	for ( UInt i = 0 ; i != _synapses . size ( ) ; ++ i )
+>1071	CompoundStatement	 
+>1072	IfStatement	if ( _synapses [ i ] . permanence ( ) <= decay )
+>1073	ElseStatement	else
+>1074	CompoundStatement	 
+>1075	IfStatement	if ( ( _synapses [ i ] . permanence ( ) + decay >= permConnected ) && ( _synapses [ i ] . permanence ( ) < permConnected ) )
+>1076	ExpressionStatement	 
+>1077	IncDecOp	_nConnected --
+>1078	IncDec	--
+>1079	Identifier	_nConnected
+>1080	Condition	 
+>1081	AndExpression	( _synapses [ i ] . permanence ( ) + decay >= permConnected ) && ( _synapses [ i ] . permanence ( ) < \
+>1082	RelationalExpression	_synapses [ i ] . permanence ( ) < permConnected
+>1083	Identifier	permConnected
+>1084	CallExpression	_synapses [ i ] . permanence ( )
+>1085	ArgumentList	 
+>1086	Callee	_synapses [ i ] . permanence
+>1087	MemberAccess	_synapses [ i ] . permanence
+>1088	Identifier	permanence
+>1089	ArrayIndexing	_synapses [ i ]
+>1090	Identifier	i
+>1091	Identifier	_synapses
+>1092	RelationalExpression	_synapses [ i ] . permanence ( ) + decay >= permConnected
+>1093	Identifier	permConnected
+>1094	AdditiveExpression	_synapses [ i ] . permanence ( ) + decay
+>1095	Identifier	decay
+>1096	CallExpression	_synapses [ i ] . permanence ( )
+>1097	ArgumentList	 
+>1098	Callee	_synapses [ i ] . permanence
+>1099	MemberAccess	_synapses [ i ] . permanence
+>1100	Identifier	permanence
+>1101	ArrayIndexing	_synapses [ i ]
+>1102	Identifier	i
+>1103	Identifier	_synapses
+>1104	ExpressionStatement	 
+>1105	AssignmentExpr	_synapses [ i ] . permanence ( ) -= decay
+>1106	Identifier	decay
+>1107	CallExpression	_synapses [ i ] . permanence ( )
+>1108	ArgumentList	 
+>1109	Callee	_synapses [ i ] . permanence
+>1110	MemberAccess	_synapses [ i ] . permanence
+>1111	Identifier	permanence
+>1112	ArrayIndexing	_synapses [ i ]
+>1113	Identifier	i
+>1114	Identifier	_synapses
+>1115	CompoundStatement	 
+>1116	ExpressionStatement	 
+>1117	CallExpression	del . push_back ( i )
+>1118	ArgumentList	i
+>1119	Argument	i
+>1120	Identifier	i
+>1121	Callee	del . push_back
+>1122	MemberAccess	del . push_back
+>1123	Identifier	push_back
+>1124	Identifier	del
+>1125	ExpressionStatement	 
+>1126	CallExpression	removed . push_back ( _synapses [ i ] . srcCellIdx ( ) )
+>1127	ArgumentList	_synapses [ i ] . srcCellIdx ( )
+>1128	Argument	_synapses [ i ] . srcCellIdx ( )
+>1129	CallExpression	_synapses [ i ] . srcCellIdx ( )
+>1130	ArgumentList	 
+>1131	Callee	_synapses [ i ] . srcCellIdx
+>1132	MemberAccess	_synapses [ i ] . srcCellIdx
+>1133	Identifier	srcCellIdx
+>1134	ArrayIndexing	_synapses [ i ]
+>1135	Identifier	i
+>1136	Identifier	_synapses
+>1137	Callee	removed . push_back
+>1138	MemberAccess	removed . push_back
+>1139	Identifier	push_back
+>1140	Identifier	removed
+>1141	IfStatement	if ( _synapses [ i ] . permanence ( ) >= permConnected )
+>1142	ExpressionStatement	 
+>1143	IncDecOp	_nConnected --
+>1144	IncDec	--
+>1145	Identifier	_nConnected
+>1146	Condition	 
+>1147	RelationalExpression	_synapses [ i ] . permanence ( ) >= permConnected
+>1148	Identifier	permConnected
+>1149	CallExpression	_synapses [ i ] . permanence ( )
+>1150	ArgumentList	 
+>1151	Callee	_synapses [ i ] . permanence
+>1152	MemberAccess	_synapses [ i ] . permanence
+>1153	Identifier	permanence
+>1154	ArrayIndexing	_synapses [ i ]
+>1155	Identifier	i
+>1156	Identifier	_synapses
+>1157	Condition	 
+>1158	RelationalExpression	_synapses [ i ] . permanence ( ) <= decay
+>1159	Identifier	decay
+>1160	CallExpression	_synapses [ i ] . permanence ( )
+>1161	ArgumentList	 
+>1162	Callee	_synapses [ i ] . permanence
+>1163	MemberAccess	_synapses [ i ] . permanence
+>1164	Identifier	permanence
+>1165	ArrayIndexing	_synapses [ i ]
+>1166	Identifier	i
+>1167	Identifier	_synapses
+>1168	UnaryExpression	 
+>1169	Identifier	i
+>1170	IncDec	++
+>1171	Condition	 
+>1172	EqualityExpression	i != _synapses . size ( )
+>1173	CallExpression	_synapses . size ( )
+>1174	ArgumentList	 
+>1175	Callee	_synapses . size
+>1176	MemberAccess	_synapses . size
+>1177	Identifier	size
+>1178	Identifier	_synapses
+>1179	Identifier	i
+>1180	ForInit	 
+>1181	IdentifierDeclStatement	UInt i = 0 ;
+>1182	IdentifierDecl	i = 0
+>1183	AssignmentExpr	i = 0
+>1184	PrimaryExpression	0
+>1185	Identifier	i
+>1186	Identifier	i
+>1187	IdentifierDeclType	UInt
+>1188	ExpressionStatement	 
+>1189	CallExpression	del . clear ( )
+>1190	ArgumentList	 
+>1191	Callee	del . clear
+>1192	MemberAccess	del . clear
+>1193	Identifier	clear
+>1194	Identifier	del
+>1195	IdentifierDeclStatement	 
+>1196	IdentifierDecl	del
+>1197	Identifier	del
+>1198	IdentifierDeclType	std 
+>1199	Statement	 
+>1200	IfStatement	if ( _synapses . empty ( ) )
+>1201	ReturnStatement	 
+>1202	Condition	 
+>1203	CallExpression	_synapses . empty ( )
+>1204	ArgumentList	 
+>1205	Callee	_synapses . empty
+>1206	MemberAccess	_synapses . empty
+>1207	Identifier	empty
+>1208	Identifier	_synapses
+>1209	ExpressionStatement	 
+>1210	CallExpression	NTA_ASSERT ( invariants ( ) )
+>1211	ArgumentList	invariants ( )
+>1212	Argument	invariants ( )
+>1213	CallExpression	invariants ( )
+>1214	ArgumentList	 
+>1215	Callee	invariants
+>1216	Identifier	invariants
+>1217	Callee	NTA_ASSERT
+>1218	Identifier	NTA_ASSERT
+>1237	FunctionDef	operator ( ) (const InSynapse & a , const InSynapse & b)
+>1238	ParameterList	const InSynapse & a , const InSynapse & b
+>1239	Parameter	 
+>1240	Identifier	b
+>1241	ParameterType	const InSynapse &
+>1242	Parameter	 
+>1243	Identifier	a
+>1244	ParameterType	const InSynapse &
+>1245	ReturnType	inline bool
+>1246	CompoundStatement	 
+>1247	ReturnStatement	 
+>1248	RelationalExpression	a . permanence ( ) < b . permanence ( )
+>1249	CallExpression	b . permanence ( )
+>1250	ArgumentList	 
+>1251	Callee	b . permanence
+>1252	MemberAccess	b . permanence
+>1253	Identifier	permanence
+>1254	Identifier	b
+>1255	CallExpression	a . permanence ( )
+>1256	ArgumentList	 
+>1257	Callee	a . permanence
+>1258	MemberAccess	a . permanence
+>1259	Identifier	permanence
+>1260	Identifier	a
+>1269	FunctionDef	operator ( ) (const UInt a , const UInt b)
+>1270	ParameterList	const UInt a , const UInt b
+>1271	Parameter	 
+>1272	Identifier	b
+>1273	ParameterType	const UInt
+>1274	Parameter	 
+>1275	Identifier	a
+>1276	ParameterType	const UInt
+>1277	ReturnType	inline bool
+>1278	CompoundStatement	 
+>1279	ReturnStatement	 
+>1280	RelationalExpression	a < b
+>1281	Identifier	b
+>1282	Identifier	a
+>1288	FunctionDef	Segment 
+>1289	ParameterList	UInt numToFree , std 
+>1290	Parameter	 
+>1291	Identifier	permMax
+>1292	ParameterType	Real
+>1293	Parameter	 
+>1294	Identifier	nCellsPerCol
+>1295	ParameterType	UInt
+>1296	Parameter	 
+>1297	Identifier	verbosity
+>1298	ParameterType	UInt
+>1299	Parameter	 
+>1300	Identifier	removed
+>1301	ParameterType	std 
+>1302	Parameter	 
+>1303	Identifier	activeSegmentIndices
+>1304	ParameterType	std 
+>1305	Parameter	 
+>1306	Identifier	activeSynapseIndices
+>1307	ParameterType	std 
+>1308	Parameter	 
+>1309	Identifier	inactiveSegmentIndices
+>1310	ParameterType	std 
+>1311	Parameter	 
+>1312	Identifier	inactiveSynapseIndices
+>1313	ParameterType	std 
+>1314	Parameter	 
+>1315	Identifier	numToFree
+>1316	ParameterType	UInt
+>1317	ReturnType	void
+>1318	CompoundStatement	 
+>1319	IfStatement	if ( verbosity >= 4 )
+>1320	CompoundStatement	 
+>1321	ExpressionStatement	 
+>1322	ShiftExpression	std 
+>1323	PrimaryExpression	\"\n\"
+>1324	Identifier	std 
+>1325	ExpressionStatement	 
+>1326	CallExpression	print ( std 
+>1327	ArgumentList	std 
+>1328	Argument	nCellsPerCol
+>1329	Identifier	nCellsPerCol
+>1330	Argument	std 
+>1331	Identifier	std 
+>1332	Callee	print
+>1333	Identifier	print
+>1334	ExpressionStatement	 
+>1335	ShiftExpression	std 
+>1336	PrimaryExpression	\"Segment AFTER remove synapses
+>1337	Identifier	std 
+>1338	Condition	 
+>1339	RelationalExpression	verbosity >= 4
+>1340	PrimaryExpression	4
+>1341	Identifier	verbosity
+>1342	IfStatement	if ( numToFree > 0 )
+>1343	CompoundStatement	 
+>1344	ExpressionStatement	 
+>1345	CallExpression	_removeSynapses ( del )
+>1346	ArgumentList	del
+>1347	Argument	del
+>1348	Identifier	del
+>1349	Callee	_removeSynapses
+>1350	Identifier	_removeSynapses
+>1351	ExpressionStatement	 
+>1352	CallExpression	std 
+>1353	ArgumentList	del . begin ( )
+>1354	Argument	InSrcCellOrder ( )
+>1355	CallExpression	InSrcCellOrder ( )
+>1356	ArgumentList	 
+>1357	Callee	InSrcCellOrder
+>1358	Identifier	InSrcCellOrder
+>1359	Argument	del . end ( )
+>1360	CallExpression	del . end ( )
+>1361	ArgumentList	 
+>1362	Callee	del . end
+>1363	MemberAccess	del . end
+>1364	Identifier	end
+>1365	Identifier	del
+>1366	Argument	del . begin ( )
+>1367	CallExpression	del . begin ( )
+>1368	ArgumentList	 
+>1369	Callee	del . begin
+>1370	MemberAccess	del . begin
+>1371	Identifier	begin
+>1372	Identifier	del
+>1373	Callee	std 
+>1374	Identifier	std 
+>1375	Condition	 
+>1376	RelationalExpression	numToFree > 0
+>1377	PrimaryExpression	0
+>1378	Identifier	numToFree
+>1379	IfStatement	if ( verbosity >= 4 )
+>1380	CompoundStatement	 
+>1381	ExpressionStatement	 
+>1382	ShiftExpression	std 
+>1383	PrimaryExpression	\"\n\"
+>1384	Identifier	std 
+>1385	ExpressionStatement	 
+>1386	CallExpression	print ( std 
+>1387	ArgumentList	std 
+>1388	Argument	nCellsPerCol
+>1389	Identifier	nCellsPerCol
+>1390	Argument	std 
+>1391	Identifier	std 
+>1392	Callee	print
+>1393	Identifier	print
+>1394	ExpressionStatement	 
+>1395	ShiftExpression	std 
+>1396	PrimaryExpression	\"Segment BEFORE remove synapses
+>1397	Identifier	std 
+>1398	ExpressionStatement	 
+>1399	ShiftExpression	std 
+>1400	PrimaryExpression	\"\n\"
+>1401	Identifier	std 
+>1402	ForStatement	for ( UInt i = 0 ; i < removed . size ( ) ; i ++ )
+>1403	CompoundStatement	 
+>1404	ExpressionStatement	 
+>1405	CallExpression	printSynapse ( removed [ i ] , nCellsPerCol )
+>1406	ArgumentList	removed [ i ]
+>1407	Argument	nCellsPerCol
+>1408	Identifier	nCellsPerCol
+>1409	Argument	removed [ i ]
+>1410	ArrayIndexing	removed [ i ]
+>1411	Identifier	i
+>1412	Identifier	removed
+>1413	Callee	printSynapse
+>1414	Identifier	printSynapse
+>1415	IncDecOp	 
+>1416	IncDec	++
+>1417	Identifier	i
+>1418	Condition	 
+>1419	RelationalExpression	i < removed . size ( )
+>1420	CallExpression	removed . size ( )
+>1421	ArgumentList	 
+>1422	Callee	removed . size
+>1423	MemberAccess	removed . size
+>1424	Identifier	size
+>1425	Identifier	removed
+>1426	Identifier	i
+>1427	ForInit	 
+>1428	IdentifierDeclStatement	UInt i = 0 ;
+>1429	IdentifierDecl	i = 0
+>1430	AssignmentExpr	i = 0
+>1431	PrimaryExpression	0
+>1432	Identifier	i
+>1433	Identifier	i
+>1434	IdentifierDeclType	UInt
+>1435	ExpressionStatement	 
+>1436	ShiftExpression	std 
+>1437	PrimaryExpression	\"Removing these synapses
+>1438	Identifier	std 
+>1439	Condition	 
+>1440	RelationalExpression	verbosity >= 4
+>1441	PrimaryExpression	4
+>1442	Identifier	verbosity
+>1443	ForStatement	for ( UInt i = 0 ; i < numToFree ; i ++ )
+>1444	CompoundStatement	 
+>1445	ExpressionStatement	 
+>1446	CallExpression	removed . push_back ( cellIdx )
+>1447	ArgumentList	cellIdx
+>1448	Argument	cellIdx
+>1449	Identifier	cellIdx
+>1450	Callee	removed . push_back
+>1451	MemberAccess	removed . push_back
+>1452	Identifier	push_back
+>1453	Identifier	removed
+>1454	IdentifierDeclStatement	 
+>1455	IdentifierDecl	cellIdx = _synapses [ candidates [ i ] . srcCellIdx ( ) ] . srcCellIdx ( )
+>1456	AssignmentExpr	cellIdx = _synapses [ candidates [ i ] . srcCellIdx ( ) ] . srcCellIdx ( )
+>1457	CallExpression	_synapses [ candidates [ i ] . srcCellIdx ( ) ] . srcCellIdx ( )
+>1458	ArgumentList	 
+>1459	Callee	_synapses [ candidates [ i ] . srcCellIdx ( ) ] . srcCellIdx
+>1460	MemberAccess	_synapses [ candidates [ i ] . srcCellIdx ( ) ] . srcCellIdx
+>1461	Identifier	srcCellIdx
+>1462	ArrayIndexing	_synapses [ candidates [ i ] . srcCellIdx ( ) ]
+>1463	CallExpression	candidates [ i ] . srcCellIdx ( )
+>1464	ArgumentList	 
+>1465	Callee	candidates [ i ] . srcCellIdx
+>1466	MemberAccess	candidates [ i ] . srcCellIdx
+>1467	Identifier	srcCellIdx
+>1468	ArrayIndexing	candidates [ i ]
+>1469	Identifier	i
+>1470	Identifier	candidates
+>1471	Identifier	_synapses
+>1472	Identifier	cellIdx
+>1473	Identifier	cellIdx
+>1474	IdentifierDeclType	UInt
+>1475	ExpressionStatement	 
+>1476	CallExpression	del . push_back ( candidates [ i ] . srcCellIdx ( ) )
+>1477	ArgumentList	candidates [ i ] . srcCellIdx ( )
+>1478	Argument	candidates [ i ] . srcCellIdx ( )
+>1479	CallExpression	candidates [ i ] . srcCellIdx ( )
+>1480	ArgumentList	 
+>1481	Callee	candidates [ i ] . srcCellIdx
+>1482	MemberAccess	candidates [ i ] . srcCellIdx
+>1483	Identifier	srcCellIdx
+>1484	ArrayIndexing	candidates [ i ]
+>1485	Identifier	i
+>1486	Identifier	candidates
+>1487	Callee	del . push_back
+>1488	MemberAccess	del . push_back
+>1489	Identifier	push_back
+>1490	Identifier	del
+>1491	IncDecOp	 
+>1492	IncDec	++
+>1493	Identifier	i
+>1494	Condition	 
+>1495	RelationalExpression	i < numToFree
+>1496	Identifier	numToFree
+>1497	Identifier	i
+>1498	ForInit	 
+>1499	IdentifierDeclStatement	UInt i = 0 ;
+>1500	IdentifierDecl	i = 0
+>1501	AssignmentExpr	i = 0
+>1502	PrimaryExpression	0
+>1503	Identifier	i
+>1504	Identifier	i
+>1505	IdentifierDeclType	UInt
+>1506	ExpressionStatement	 
+>1507	CallExpression	del . clear ( )
+>1508	ArgumentList	 
+>1509	Callee	del . clear
+>1510	MemberAccess	del . clear
+>1511	Identifier	clear
+>1512	Identifier	del
+>1513	IdentifierDeclStatement	 
+>1514	IdentifierDecl	del
+>1515	Identifier	del
+>1516	IdentifierDeclType	std 
+>1517	Statement	 
+>1518	ExpressionStatement	 
+>1519	CallExpression	std 
+>1520	ArgumentList	candidates . begin ( )
+>1521	Argument	InPermanenceOrder ( )
+>1522	CallExpression	InPermanenceOrder ( )
+>1523	ArgumentList	 
+>1524	Callee	InPermanenceOrder
+>1525	Identifier	InPermanenceOrder
+>1526	Argument	candidates . end ( )
+>1527	CallExpression	candidates . end ( )
+>1528	ArgumentList	 
+>1529	Callee	candidates . end
+>1530	MemberAccess	candidates . end
+>1531	Identifier	end
+>1532	Identifier	candidates
+>1533	Argument	candidates . begin ( )
+>1534	CallExpression	candidates . begin ( )
+>1535	ArgumentList	 
+>1536	Callee	candidates . begin
+>1537	MemberAccess	candidates . begin
+>1538	Identifier	begin
+>1539	Identifier	candidates
+>1540	Callee	std 
+>1541	Identifier	std 
+>1542	IfStatement	if ( candidates . size ( ) < numToFree )
+>1543	CompoundStatement	 
+>1544	ForStatement	for ( UInt i = 0 ; i < activeSegmentIndices . size ( ) ; i ++ )
+>1545	CompoundStatement	 
+>1546	ExpressionStatement	 
+>1547	CallExpression	candidates . push_back ( InSynapse ( activeSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) + permMax ) )
+>1548	ArgumentList	InSynapse ( activeSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) + permMax )
+>1549	Argument	InSynapse ( activeSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) + permMax )
+>1550	CallExpression	InSynapse ( activeSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) + permMax )
+>1551	ArgumentList	activeSegmentIndices [ i ]
+>1552	Argument	_synapses [ i ] . permanence ( ) + permMax
+>1553	AdditiveExpression	_synapses [ i ] . permanence ( ) + permMax
+>1554	Identifier	permMax
+>1555	CallExpression	_synapses [ i ] . permanence ( )
+>1556	ArgumentList	 
+>1557	Callee	_synapses [ i ] . permanence
+>1558	MemberAccess	_synapses [ i ] . permanence
+>1559	Identifier	permanence
+>1560	ArrayIndexing	_synapses [ i ]
+>1561	Identifier	i
+>1562	Identifier	_synapses
+>1563	Argument	activeSegmentIndices [ i ]
+>1564	ArrayIndexing	activeSegmentIndices [ i ]
+>1565	Identifier	i
+>1566	Identifier	activeSegmentIndices
+>1567	Callee	InSynapse
+>1568	Identifier	InSynapse
+>1569	Callee	candidates . push_back
+>1570	MemberAccess	candidates . push_back
+>1571	Identifier	push_back
+>1572	Identifier	candidates
+>1573	IncDecOp	 
+>1574	IncDec	++
+>1575	Identifier	i
+>1576	Condition	 
+>1577	RelationalExpression	i < activeSegmentIndices . size ( )
+>1578	CallExpression	activeSegmentIndices . size ( )
+>1579	ArgumentList	 
+>1580	Callee	activeSegmentIndices . size
+>1581	MemberAccess	activeSegmentIndices . size
+>1582	Identifier	size
+>1583	Identifier	activeSegmentIndices
+>1584	Identifier	i
+>1585	ForInit	 
+>1586	IdentifierDeclStatement	UInt i = 0 ;
+>1587	IdentifierDecl	i = 0
+>1588	AssignmentExpr	i = 0
+>1589	PrimaryExpression	0
+>1590	Identifier	i
+>1591	Identifier	i
+>1592	IdentifierDeclType	UInt
+>1593	Condition	 
+>1594	RelationalExpression	candidates . size ( ) < numToFree
+>1595	Identifier	numToFree
+>1596	CallExpression	candidates . size ( )
+>1597	ArgumentList	 
+>1598	Callee	candidates . size
+>1599	MemberAccess	candidates . size
+>1600	Identifier	size
+>1601	Identifier	candidates
+>1602	ForStatement	for ( UInt i = 0 ; i < inactiveSegmentIndices . size ( ) ; i ++ )
+>1603	CompoundStatement	 
+>1604	ExpressionStatement	 
+>1605	CallExpression	candidates . push_back ( InSynapse ( inactiveSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) ) )
+>1606	ArgumentList	InSynapse ( inactiveSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) )
+>1607	Argument	InSynapse ( inactiveSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) )
+>1608	CallExpression	InSynapse ( inactiveSegmentIndices [ i ] , _synapses [ i ] . permanence ( ) )
+>1609	ArgumentList	inactiveSegmentIndices [ i ]
+>1610	Argument	_synapses [ i ] . permanence ( )
+>1611	CallExpression	_synapses [ i ] . permanence ( )
+>1612	ArgumentList	 
+>1613	Callee	_synapses [ i ] . permanence
+>1614	MemberAccess	_synapses [ i ] . permanence
+>1615	Identifier	permanence
+>1616	ArrayIndexing	_synapses [ i ]
+>1617	Identifier	i
+>1618	Identifier	_synapses
+>1619	Argument	inactiveSegmentIndices [ i ]
+>1620	ArrayIndexing	inactiveSegmentIndices [ i ]
+>1621	Identifier	i
+>1622	Identifier	inactiveSegmentIndices
+>1623	Callee	InSynapse
+>1624	Identifier	InSynapse
+>1625	Callee	candidates . push_back
+>1626	MemberAccess	candidates . push_back
+>1627	Identifier	push_back
+>1628	Identifier	candidates
+>1629	IncDecOp	 
+>1630	IncDec	++
+>1631	Identifier	i
+>1632	Condition	 
+>1633	RelationalExpression	i < inactiveSegmentIndices . size ( )
+>1634	CallExpression	inactiveSegmentIndices . size ( )
+>1635	ArgumentList	 
+>1636	Callee	inactiveSegmentIndices . size
+>1637	MemberAccess	inactiveSegmentIndices . size
+>1638	Identifier	size
+>1639	Identifier	inactiveSegmentIndices
+>1640	Identifier	i
+>1641	ForInit	 
+>1642	IdentifierDeclStatement	UInt i = 0 ;
+>1643	IdentifierDecl	i = 0
+>1644	AssignmentExpr	i = 0
+>1645	PrimaryExpression	0
+>1646	Identifier	i
+>1647	Identifier	i
+>1648	IdentifierDeclType	UInt
+>1649	IdentifierDeclStatement	 
+>1650	IdentifierDecl	candidates
+>1651	Identifier	candidates
+>1652	IdentifierDeclType	InSynapses
+>1653	IfStatement	if ( verbosity >= 4 )
+>1654	CompoundStatement	 
+>1655	ExpressionStatement	 
+>1656	ShiftExpression	std 
+>1657	PrimaryExpression	\"\n\"
+>1658	Identifier	std 
+>1659	ForStatement	for ( UInt i = 0 ; i < inactiveSynapseIndices . size ( ) ; i ++ )
+>1660	CompoundStatement	 
+>1661	ExpressionStatement	 
+>1662	CallExpression	printSynapse ( inactiveSynapseIndices [ i ] , nCellsPerCol )
+>1663	ArgumentList	inactiveSynapseIndices [ i ]
+>1664	Argument	nCellsPerCol
+>1665	Identifier	nCellsPerCol
+>1666	Argument	inactiveSynapseIndices [ i ]
+>1667	ArrayIndexing	inactiveSynapseIndices [ i ]
+>1668	Identifier	i
+>1669	Identifier	inactiveSynapseIndices
+>1670	Callee	printSynapse
+>1671	Identifier	printSynapse
+>1672	IncDecOp	 
+>1673	IncDec	++
+>1674	Identifier	i
+>1675	Condition	 
+>1676	RelationalExpression	i < inactiveSynapseIndices . size ( )
+>1677	CallExpression	inactiveSynapseIndices . size ( )
+>1678	ArgumentList	 
+>1679	Callee	inactiveSynapseIndices . size
+>1680	MemberAccess	inactiveSynapseIndices . size
+>1681	Identifier	size
+>1682	Identifier	inactiveSynapseIndices
+>1683	Identifier	i
+>1684	ForInit	 
+>1685	IdentifierDeclStatement	UInt i = 0 ;
+>1686	IdentifierDecl	i = 0
+>1687	AssignmentExpr	i = 0
+>1688	PrimaryExpression	0
+>1689	Identifier	i
+>1690	Identifier	i
+>1691	IdentifierDeclType	UInt
+>1692	ExpressionStatement	 
+>1693	ShiftExpression	std 
+>1694	ShiftExpression	\"\nIn CPP freeNSynapses with numToFree = \" << numToFree << \", inactiveSynapses = \"
+>1695	ShiftExpression	numToFree << \", inactiveSynapses = \"
+>1696	PrimaryExpression	\", inactiveSynapses = \"
+>1697	Identifier	numToFree
+>1698	PrimaryExpression	\"\nIn CPP freeNSynapses with numToFree = \"
+>1699	Identifier	std 
+>1700	Condition	 
+>1701	RelationalExpression	verbosity >= 4
+>1702	PrimaryExpression	4
+>1703	Identifier	verbosity
+>1704	ExpressionStatement	 
+>1705	CallExpression	NTA_CHECK ( inactiveSegmentIndices . size ( ) == inactiveSynapseIndices . size ( ) )
+>1706	ArgumentList	inactiveSegmentIndices . size ( ) == inactiveSynapseIndices . size ( )
+>1707	Argument	inactiveSegmentIndices . size ( ) == inactiveSynapseIndices . size ( )
+>1708	EqualityExpression	inactiveSegmentIndices . size ( ) == inactiveSynapseIndices . size ( )
+>1709	CallExpression	inactiveSynapseIndices . size ( )
+>1710	ArgumentList	 
+>1711	Callee	inactiveSynapseIndices . size
+>1712	MemberAccess	inactiveSynapseIndices . size
+>1713	Identifier	size
+>1714	Identifier	inactiveSynapseIndices
+>1715	CallExpression	inactiveSegmentIndices . size ( )
+>1716	ArgumentList	 
+>1717	Callee	inactiveSegmentIndices . size
+>1718	MemberAccess	inactiveSegmentIndices . size
+>1719	Identifier	size
+>1720	Identifier	inactiveSegmentIndices
+>1721	Callee	NTA_CHECK
+>1722	Identifier	NTA_CHECK
+>1766	FunctionDef	Segment 
+>1767	ParameterList	std 
+>1768	Parameter	 
+>1769	Identifier	nCellsPerCol
+>1770	ParameterType	UInt
+>1771	Parameter	 
+>1772	Identifier	outStream
+>1773	ParameterType	std 
+>1774	ReturnType	void
+>1775	CompoundStatement	 
+>1776	ForStatement	for ( UInt i = 0 ; i != _synapses . size ( ) ; ++ i )
+>1777	CompoundStatement	 
+>1778	IfStatement	if ( i < _synapses . size ( ) - 1 )
+>1779	ExpressionStatement	 
+>1780	ShiftExpression	std 
+>1781	PrimaryExpression	\" \"
+>1782	Identifier	std 
+>1783	Condition	 
+>1784	RelationalExpression	i < _synapses . size ( ) - 1
+>1785	AdditiveExpression	_synapses . size ( ) - 1
+>1786	PrimaryExpression	1
+>1787	CallExpression	_synapses . size ( )
+>1788	ArgumentList	 
+>1789	Callee	_synapses . size
+>1790	MemberAccess	_synapses . size
+>1791	Identifier	size
+>1792	Identifier	_synapses
+>1793	Identifier	i
+>1794	IfStatement	if ( nCellsPerCol > 0 )
+>1795	ElseStatement	else
+>1796	CompoundStatement	 
+>1797	ExpressionStatement	 
+>1798	ShiftExpression	outStream << _synapses [ i ]
+>1799	ArrayIndexing	_synapses [ i ]
+>1800	Identifier	i
+>1801	Identifier	_synapses
+>1802	Identifier	outStream
+>1803	CompoundStatement	 
+>1804	ExpressionStatement	 
+>1805	ShiftExpression	outStream << \"[\" << col << \",\" << cell << \"]\" << std 
+>1806	ShiftExpression	\"[\" << col << \",\" << cell << \"]\" << std 
+>1807	ShiftExpression	col << \",\" << cell << \"]\" << std 
+>1808	ShiftExpression	\",\" << cell << \"]\" << std 
+>1809	ShiftExpression	cell << \"]\" << std 
+>1810	ShiftExpression	\"]\" << std 
+>1811	ShiftExpression	std 
+>1812	ShiftExpression	_synapses [ i ] . permanence ( ) << \" \"
+>1813	PrimaryExpression	\" \"
+>1814	CallExpression	_synapses [ i ] . permanence ( )
+>1815	ArgumentList	 
+>1816	Callee	_synapses [ i ] . permanence
+>1817	MemberAccess	_synapses [ i ] . permanence
+>1818	Identifier	permanence
+>1819	ArrayIndexing	_synapses [ i ]
+>1820	Identifier	i
+>1821	Identifier	_synapses
+>1822	CallExpression	std 
+>1823	ArgumentList	4
+>1824	Argument	4
+>1825	PrimaryExpression	4
+>1826	Callee	std 
+>1827	Identifier	std 
+>1828	PrimaryExpression	\"]\"
+>1829	Identifier	cell
+>1830	PrimaryExpression	\",\"
+>1831	Identifier	col
+>1832	PrimaryExpression	\"[\"
+>1833	Identifier	outStream
+>1834	IdentifierDeclStatement	 
+>1835	IdentifierDecl	cell = cellIdx - col * nCellsPerCol
+>1836	AssignmentExpr	cell = cellIdx - col * nCellsPerCol
+>1837	AdditiveExpression	cellIdx - col * nCellsPerCol
+>1838	MultiplicativeExpression	col * nCellsPerCol
+>1839	Identifier	nCellsPerCol
+>1840	Identifier	col
+>1841	Identifier	cellIdx
+>1842	Identifier	cell
+>1843	Identifier	cell
+>1844	IdentifierDeclType	UInt
+>1845	IdentifierDeclStatement	 
+>1846	IdentifierDecl	col = ( UInt ) ( cellIdx / nCellsPerCol )
+>1847	AssignmentExpr	col = ( UInt ) ( cellIdx / nCellsPerCol )
+>1848	CastExpression	( UInt ) ( cellIdx / nCellsPerCol )
+>1849	MultiplicativeExpression	cellIdx / nCellsPerCol
+>1850	Identifier	nCellsPerCol
+>1851	Identifier	cellIdx
+>1852	CastTarget	UInt
+>1853	Identifier	col
+>1854	Identifier	col
+>1855	IdentifierDeclType	UInt
+>1856	IdentifierDeclStatement	 
+>1857	IdentifierDecl	cellIdx = _synapses [ i ] . srcCellIdx ( )
+>1858	AssignmentExpr	cellIdx = _synapses [ i ] . srcCellIdx ( )
+>1859	CallExpression	_synapses [ i ] . srcCellIdx ( )
+>1860	ArgumentList	 
+>1861	Callee	_synapses [ i ] . srcCellIdx
+>1862	MemberAccess	_synapses [ i ] . srcCellIdx
+>1863	Identifier	srcCellIdx
+>1864	ArrayIndexing	_synapses [ i ]
+>1865	Identifier	i
+>1866	Identifier	_synapses
+>1867	Identifier	cellIdx
+>1868	Identifier	cellIdx
+>1869	IdentifierDeclType	UInt
+>1870	Condition	 
+>1871	RelationalExpression	nCellsPerCol > 0
+>1872	PrimaryExpression	0
+>1873	Identifier	nCellsPerCol
+>1874	UnaryExpression	 
+>1875	Identifier	i
+>1876	IncDec	++
+>1877	Condition	 
+>1878	EqualityExpression	i != _synapses . size ( )
+>1879	CallExpression	_synapses . size ( )
+>1880	ArgumentList	 
+>1881	Callee	_synapses . size
+>1882	MemberAccess	_synapses . size
+>1883	Identifier	size
+>1884	Identifier	_synapses
+>1885	Identifier	i
+>1886	ForInit	 
+>1887	IdentifierDeclStatement	UInt i = 0 ;
+>1888	IdentifierDecl	i = 0
+>1889	AssignmentExpr	i = 0
+>1890	PrimaryExpression	0
+>1891	Identifier	i
+>1892	Identifier	i
+>1893	IdentifierDeclType	UInt
+>1894	ExpressionStatement	 
+>1895	ShiftExpression	outStream << ( _seqSegFlag ? \"True \" 
+>1896	ShiftExpression	( _seqSegFlag ? \"True \" 
+>1897	ShiftExpression	\"dc\" << std 
+>1898	ShiftExpression	std 
+>1899	ShiftExpression	_lastPosDutyCycle << \" (\" << _positiveActivations << \"/\" << _totalActivations << \") \"
+>1900	ShiftExpression	\" (\" << _positiveActivations << \"/\" << _totalActivations << \") \"
+>1901	ShiftExpression	_positiveActivations << \"/\" << _totalActivations << \") \"
+>1902	ShiftExpression	\"/\" << _totalActivations << \") \"
+>1903	ShiftExpression	_totalActivations << \") \"
+>1904	PrimaryExpression	\") \"
+>1905	Identifier	_totalActivations
+>1906	PrimaryExpression	\"/\"
+>1907	Identifier	_positiveActivations
+>1908	PrimaryExpression	\" (\"
+>1909	Identifier	_lastPosDutyCycle
+>1910	CallExpression	std 
+>1911	ArgumentList	4
+>1912	Argument	4
+>1913	PrimaryExpression	4
+>1914	Callee	std 
+>1915	Identifier	std 
+>1916	PrimaryExpression	\"dc\"
+>1917	ConditionalExpression	_seqSegFlag ? \"True \" 
+>1918	PrimaryExpression	\"False \"
+>1919	PrimaryExpression	\"True \"
+>1920	Condition	_seqSegFlag
+>1921	Identifier	_seqSegFlag
+>1922	Identifier	outStream
+>1938	FunctionDef	operator << (std 
+>1939	ParameterList	std 
+>1940	Parameter	 
+>1941	Identifier	seg
+>1942	ParameterType	const Segment &
+>1943	Parameter	 
+>1944	Identifier	outStream
+>1945	ParameterType	std 
+>1946	ReturnType	std 
+>1947	CompoundStatement	 
+>1948	ReturnStatement	 
+>1949	Identifier	outStream
+>1950	ExpressionStatement	 
+>1951	CallExpression	seg . print ( outStream )
+>1952	ArgumentList	outStream
+>1953	Argument	outStream
+>1954	Identifier	outStream
+>1955	Callee	seg . print
+>1956	MemberAccess	seg . print
+>1957	Identifier	print
+>1958	Identifier	seg
+>1964	FunctionDef	operator << (std 
+>1965	ParameterList	std 
+>1966	Parameter	 
+>1967	Identifier	cstate
+>1968	ParameterType	const CState &
+>1969	Parameter	 
+>1970	Identifier	outStream
+>1971	ParameterType	std 
+>1972	ReturnType	std 
+>1973	CompoundStatement	 
+>1974	ReturnStatement	 
+>1975	Identifier	outStream
+>1976	ExpressionStatement	 
+>1977	CallExpression	cstate . print ( outStream )
+>1978	ArgumentList	outStream
+>1979	Argument	outStream
+>1980	Identifier	outStream
+>1981	Callee	cstate . print
+>1982	MemberAccess	cstate . print
+>1983	Identifier	print
+>1984	Identifier	cstate
+>1990	FunctionDef	operator << (std 
+>1991	ParameterList	std 
+>1992	Parameter	 
+>1993	Identifier	cstate
+>1994	ParameterType	const CStateIndexed &
+>1995	Parameter	 
+>1996	Identifier	outStream
+>1997	ParameterType	std 
+>1998	ReturnType	std 
+>1999	CompoundStatement	 
+>2000	ReturnStatement	 
+>2001	Identifier	outStream
+>2002	ExpressionStatement	 
+>2003	CallExpression	cstate . print ( outStream )
+>2004	ArgumentList	outStream
+>2005	Argument	outStream
+>2006	Identifier	outStream
+>2007	Callee	cstate . print
+>2008	MemberAccess	cstate . print
+>2009	Identifier	print
+>2010	Identifier	cstate
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=36,25,13
+<13=14
+<14=24,15
+<15=23,16
+<16=22,17
+<17=21,18
+<18=20,19
+<25=26
+<26=35,34,27
+<27=33,28
+<28=32,29
+<29=31,30
+<36=37
+<37=46,45,38
+<38=44,39
+<39=43,40
+<40=42,41
+<54=71,55
+<55=68,65,62,59,56
+<56=58,57
+<59=61,60
+<62=64,63
+<65=67,66
+<68=70,69
+<71=106,82,72
+<72=73
+<73=80,74
+<74=75
+<75=76
+<76=78,77
+<78=79
+<80=81
+<82=83
+<83=104,84
+<84=97,90,85
+<85=86
+<86=88,87
+<88=89
+<90=91
+<91=93,92
+<93=94
+<94=96,95
+<97=98
+<98=100,99
+<100=101
+<101=103,102
+<104=105
+<106=135,126,123,107
+<107=112,108
+<108=109
+<109=111,110
+<112=113
+<113=115,114
+<115=117,116
+<117=118
+<118=120,119
+<120=122,121
+<123=125,124
+<126=127
+<127=134,128
+<128=130,129
+<130=131
+<131=133,132
+<135=136
+<136=137
+<137=142,141,138
+<138=140,139
+<161=166,162
+<162=163
+<163=165,164
+<166=181,171,167
+<167=168
+<168=170,169
+<171=172
+<172=179,173
+<173=174
+<174=175
+<175=177,176
+<177=178
+<179=180
+<181=237,182
+<182=231,225,219,213,207,201,195,189,183
+<183=184
+<184=188,185
+<185=187,186
+<189=190
+<190=194,191
+<191=193,192
+<195=196
+<196=200,197
+<197=199,198
+<201=202
+<202=206,203
+<203=205,204
+<207=208
+<208=212,209
+<209=211,210
+<213=214
+<214=218,215
+<215=217,216
+<219=220
+<220=224,221
+<221=223,222
+<225=226
+<226=230,227
+<227=229,228
+<231=232
+<232=236,233
+<233=235,234
+<237=238
+<238=240,239
+<240=242,241
+<269=274,270
+<270=271
+<271=273,272
+<274=275
+<275=276
+<276=283,277
+<277=278
+<278=279
+<279=281,280
+<281=282
+<283=284
+<290=302,301,291
+<291=298,295,292
+<292=294,293
+<295=297,296
+<298=300,299
+<302=376,369,362,307,303
+<303=304
+<304=306,305
+<307=354,343,340,308
+<308=313,309
+<309=310
+<310=312,311
+<313=314
+<314=330,315
+<315=326,316
+<316=317
+<317=318
+<318=320,319
+<320=321
+<321=323,322
+<323=325,324
+<326=327
+<327=329,328
+<330=332,331
+<332=334,333
+<334=335
+<335=337,336
+<337=339,338
+<340=342,341
+<343=344
+<344=348,345
+<345=347,346
+<348=353,349
+<349=351,350
+<351=352
+<354=355
+<355=356
+<356=361,360,357
+<357=359,358
+<362=365,363
+<363=364
+<365=366
+<366=368,367
+<369=370
+<370=375,374,371
+<371=373,372
+<376=377
+<377=378
+<378=385,379
+<379=380
+<380=381
+<381=383,382
+<383=384
+<385=386
+<405=417,416,406
+<406=413,410,407
+<407=409,408
+<410=412,411
+<413=415,414
+<417=560,553,521,512,501,494,460,441,434,420,418
+<418=419
+<420=430,421
+<421=426,422
+<422=423
+<423=425,424
+<426=427
+<427=429,428
+<430=431
+<431=433,432
+<434=439,435
+<435=436
+<436=438,437
+<439=440
+<441=442
+<442=459,443
+<443=445,444
+<445=457,446
+<446=451,447
+<447=448
+<448=450,449
+<451=452
+<452=456,453
+<453=455,454
+<457=458
+<460=484,480,477,461
+<461=462
+<462=471,463
+<463=465,464
+<465=466
+<466=470,467
+<467=469,468
+<471=472
+<472=476,473
+<473=475,474
+<477=479,478
+<480=481
+<481=483,482
+<484=485
+<485=486
+<486=493,492,487
+<487=491,488
+<488=490,489
+<494=495
+<495=500,499,496
+<496=498,497
+<501=504,502
+<502=503
+<504=505
+<505=509,506
+<506=508,507
+<509=511,510
+<512=513
+<513=520,519,514
+<514=518,515
+<515=517,516
+<521=547,522
+<522=539,525,523
+<523=524
+<525=535,526
+<526=531,527
+<527=528
+<528=530,529
+<531=532
+<532=534,533
+<535=536
+<536=538,537
+<539=540
+<540=546,541
+<541=543,542
+<543=545,544
+<547=548
+<548=552,549
+<549=551,550
+<553=554
+<554=559,558,555
+<555=557,556
+<560=561
+<561=562
+<562=568,563
+<563=564
+<564=565
+<565=567,566
+<568=569
+<590=602,601,591
+<591=598,595,592
+<592=594,593
+<595=597,596
+<598=600,599
+<602=709,702,605,603
+<603=604
+<605=700,648,606
+<606=607
+<607=608
+<608=640,633,630,609
+<609=614,610
+<610=611
+<611=613,612
+<614=615
+<615=626,616
+<616=617
+<617=618
+<618=620,619
+<620=621
+<621=623,622
+<623=625,624
+<626=627
+<627=629,628
+<630=632,631
+<633=634
+<634=639,635
+<635=637,636
+<637=638
+<640=641
+<641=642
+<642=647,646,643
+<643=645,644
+<648=649
+<649=692,685,682,650
+<650=655,651
+<651=652
+<652=654,653
+<655=656
+<656=667,657
+<657=659,658
+<659=661,660
+<661=662
+<662=664,663
+<664=666,665
+<667=678,668
+<668=669
+<669=670
+<670=672,671
+<672=673
+<673=675,674
+<675=677,676
+<678=679
+<679=681,680
+<682=684,683
+<685=686
+<686=691,687
+<687=689,688
+<689=690
+<692=693
+<693=694
+<694=699,698,695
+<695=697,696
+<700=701
+<702=703
+<703=708,707,704
+<704=706,705
+<709=710
+<710=711
+<711=718,712
+<712=713
+<713=714
+<714=716,715
+<716=717
+<718=719
+<736=748,747,737
+<737=744,741,738
+<738=740,739
+<741=743,742
+<744=746,745
+<748=812,771,759,749
+<749=750
+<750=757,751
+<751=752
+<752=753
+<753=755,754
+<755=756
+<757=758
+<759=760
+<760=769,761
+<761=767,762
+<762=763
+<763=765,764
+<765=766
+<767=768
+<769=770
+<771=803,800,772
+<772=782,773
+<773=778,774
+<774=775
+<775=777,776
+<778=779
+<779=781,780
+<782=783
+<783=796,784
+<784=785
+<785=786
+<786=794,787
+<787=790,788
+<788=789
+<790=791
+<791=793,792
+<794=795
+<796=797
+<797=799,798
+<800=802,801
+<803=804
+<804=811,805
+<805=807,806
+<807=808
+<808=810,809
+<812=813
+<813=823,822,814
+<814=821,815
+<815=817,816
+<817=818
+<818=820,819
+<838=853,852,839
+<839=849,846,843,840
+<840=842,841
+<843=845,844
+<846=848,847
+<849=851,850
+<853=1010,1001,1000,996,989,871,864,854
+<854=855
+<855=862,856
+<856=857
+<857=858
+<858=860,859
+<860=861
+<862=863
+<864=865
+<865=869,866
+<866=867
+<867=868
+<869=870
+<871=981,972,969,872
+<872=951,897,879,873
+<873=874
+<874=878,875
+<875=877,876
+<879=880
+<880=896,895,881
+<881=894,882
+<882=893,883
+<883=885,884
+<885=887,886
+<887=888
+<888=890,889
+<890=892,891
+<897=940,914,898
+<898=899
+<899=912,900
+<900=901
+<901=902
+<902=904,903
+<904=906,905
+<906=907
+<907=909,908
+<909=911,910
+<912=913
+<914=924,915
+<915=916
+<916=920,917
+<917=918
+<918=919
+<920=921
+<921=923,922
+<924=925
+<925=936,926
+<926=927
+<927=928
+<928=930,929
+<930=931
+<931=933,932
+<933=935,934
+<936=937
+<937=939,938
+<940=941
+<941=943,942
+<943=945,944
+<945=946
+<946=948,947
+<948=950,949
+<951=952
+<952=968,967,953
+<953=966,954
+<954=965,955
+<955=957,956
+<957=959,958
+<959=960
+<960=962,961
+<962=964,963
+<969=971,970
+<972=973
+<973=980,974
+<974=976,975
+<976=977
+<977=979,978
+<981=982
+<982=983
+<983=988,987,984
+<984=986,985
+<989=990
+<990=992,991
+<992=993
+<993=995,994
+<996=997
+<997=999,998
+<1001=1003,1002
+<1003=1004
+<1004=1006,1005
+<1006=1007
+<1007=1009,1008
+<1010=1011
+<1011=1018,1012
+<1012=1013
+<1013=1014
+<1014=1016,1015
+<1016=1017
+<1018=1019
+<1040=1052,1051,1041
+<1041=1048,1045,1042
+<1042=1044,1043
+<1045=1047,1046
+<1048=1050,1049
+<1052=1209,1200,1199,1195,1188,1070,1063,1053
+<1053=1054
+<1054=1061,1055
+<1055=1056
+<1056=1057
+<1057=1059,1058
+<1059=1060
+<1061=1062
+<1063=1064
+<1064=1068,1065
+<1065=1066
+<1066=1067
+<1068=1069
+<1070=1180,1171,1168,1071
+<1071=1072
+<1072=1157,1115,1073
+<1073=1074
+<1074=1104,1075
+<1075=1080,1076
+<1076=1077
+<1077=1079,1078
+<1080=1081
+<1081=1092,1082
+<1082=1084,1083
+<1084=1086,1085
+<1086=1087
+<1087=1089,1088
+<1089=1091,1090
+<1092=1094,1093
+<1094=1096,1095
+<1096=1098,1097
+<1098=1099
+<1099=1101,1100
+<1101=1103,1102
+<1104=1105
+<1105=1107,1106
+<1107=1109,1108
+<1109=1110
+<1110=1112,1111
+<1112=1114,1113
+<1115=1141,1125,1116
+<1116=1117
+<1117=1121,1118
+<1118=1119
+<1119=1120
+<1121=1122
+<1122=1124,1123
+<1125=1126
+<1126=1137,1127
+<1127=1128
+<1128=1129
+<1129=1131,1130
+<1131=1132
+<1132=1134,1133
+<1134=1136,1135
+<1137=1138
+<1138=1140,1139
+<1141=1146,1142
+<1142=1143
+<1143=1145,1144
+<1146=1147
+<1147=1149,1148
+<1149=1151,1150
+<1151=1152
+<1152=1154,1153
+<1154=1156,1155
+<1157=1158
+<1158=1160,1159
+<1160=1162,1161
+<1162=1163
+<1163=1165,1164
+<1165=1167,1166
+<1168=1170,1169
+<1171=1172
+<1172=1179,1173
+<1173=1175,1174
+<1175=1176
+<1176=1178,1177
+<1180=1181
+<1181=1182
+<1182=1187,1186,1183
+<1183=1185,1184
+<1188=1189
+<1189=1191,1190
+<1191=1192
+<1192=1194,1193
+<1195=1196
+<1196=1198,1197
+<1200=1202,1201
+<1202=1203
+<1203=1205,1204
+<1205=1206
+<1206=1208,1207
+<1209=1210
+<1210=1217,1211
+<1211=1212
+<1212=1213
+<1213=1215,1214
+<1215=1216
+<1217=1218
+<1237=1246,1245,1238
+<1238=1242,1239
+<1239=1241,1240
+<1242=1244,1243
+<1246=1247
+<1247=1248
+<1248=1255,1249
+<1249=1251,1250
+<1251=1252
+<1252=1254,1253
+<1255=1257,1256
+<1257=1258
+<1258=1260,1259
+<1269=1278,1277,1270
+<1270=1274,1271
+<1271=1273,1272
+<1274=1276,1275
+<1278=1279
+<1279=1280
+<1280=1282,1281
+<1288=1318,1317,1289
+<1289=1314,1311,1308,1305,1302,1299,1296,1293,1290
+<1290=1292,1291
+<1293=1295,1294
+<1296=1298,1297
+<1299=1301,1300
+<1302=1304,1303
+<1305=1307,1306
+<1308=1310,1309
+<1311=1313,1312
+<1314=1316,1315
+<1318=1704,1653,1649,1602,1542,1518,1517,1513,1506,1443,1379,1342,1319
+<1319=1338,1320
+<1320=1334,1325,1321
+<1321=1322
+<1322=1324,1323
+<1325=1326
+<1326=1332,1327
+<1327=1330,1328
+<1328=1329
+<1330=1331
+<1332=1333
+<1334=1335
+<1335=1337,1336
+<1338=1339
+<1339=1341,1340
+<1342=1375,1343
+<1343=1351,1344
+<1344=1345
+<1345=1349,1346
+<1346=1347
+<1347=1348
+<1349=1350
+<1351=1352
+<1352=1373,1353
+<1353=1366,1359,1354
+<1354=1355
+<1355=1357,1356
+<1357=1358
+<1359=1360
+<1360=1362,1361
+<1362=1363
+<1363=1365,1364
+<1366=1367
+<1367=1369,1368
+<1369=1370
+<1370=1372,1371
+<1373=1374
+<1375=1376
+<1376=1378,1377
+<1379=1439,1380
+<1380=1435,1402,1398,1394,1385,1381
+<1381=1382
+<1382=1384,1383
+<1385=1386
+<1386=1392,1387
+<1387=1390,1388
+<1388=1389
+<1390=1391
+<1392=1393
+<1394=1395
+<1395=1397,1396
+<1398=1399
+<1399=1401,1400
+<1402=1427,1418,1415,1403
+<1403=1404
+<1404=1405
+<1405=1413,1406
+<1406=1409,1407
+<1407=1408
+<1409=1410
+<1410=1412,1411
+<1413=1414
+<1415=1417,1416
+<1418=1419
+<1419=1426,1420
+<1420=1422,1421
+<1422=1423
+<1423=1425,1424
+<1427=1428
+<1428=1429
+<1429=1434,1433,1430
+<1430=1432,1431
+<1435=1436
+<1436=1438,1437
+<1439=1440
+<1440=1442,1441
+<1443=1498,1494,1491,1444
+<1444=1475,1454,1445
+<1445=1446
+<1446=1450,1447
+<1447=1448
+<1448=1449
+<1450=1451
+<1451=1453,1452
+<1454=1455
+<1455=1474,1473,1456
+<1456=1472,1457
+<1457=1459,1458
+<1459=1460
+<1460=1462,1461
+<1462=1471,1463
+<1463=1465,1464
+<1465=1466
+<1466=1468,1467
+<1468=1470,1469
+<1475=1476
+<1476=1487,1477
+<1477=1478
+<1478=1479
+<1479=1481,1480
+<1481=1482
+<1482=1484,1483
+<1484=1486,1485
+<1487=1488
+<1488=1490,1489
+<1491=1493,1492
+<1494=1495
+<1495=1497,1496
+<1498=1499
+<1499=1500
+<1500=1505,1504,1501
+<1501=1503,1502
+<1506=1507
+<1507=1509,1508
+<1509=1510
+<1510=1512,1511
+<1513=1514
+<1514=1516,1515
+<1518=1519
+<1519=1540,1520
+<1520=1533,1526,1521
+<1521=1522
+<1522=1524,1523
+<1524=1525
+<1526=1527
+<1527=1529,1528
+<1529=1530
+<1530=1532,1531
+<1533=1534
+<1534=1536,1535
+<1536=1537
+<1537=1539,1538
+<1540=1541
+<1542=1593,1543
+<1543=1544
+<1544=1585,1576,1573,1545
+<1545=1546
+<1546=1547
+<1547=1569,1548
+<1548=1549
+<1549=1550
+<1550=1567,1551
+<1551=1563,1552
+<1552=1553
+<1553=1555,1554
+<1555=1557,1556
+<1557=1558
+<1558=1560,1559
+<1560=1562,1561
+<1563=1564
+<1564=1566,1565
+<1567=1568
+<1569=1570
+<1570=1572,1571
+<1573=1575,1574
+<1576=1577
+<1577=1584,1578
+<1578=1580,1579
+<1580=1581
+<1581=1583,1582
+<1585=1586
+<1586=1587
+<1587=1592,1591,1588
+<1588=1590,1589
+<1593=1594
+<1594=1596,1595
+<1596=1598,1597
+<1598=1599
+<1599=1601,1600
+<1602=1641,1632,1629,1603
+<1603=1604
+<1604=1605
+<1605=1625,1606
+<1606=1607
+<1607=1608
+<1608=1623,1609
+<1609=1619,1610
+<1610=1611
+<1611=1613,1612
+<1613=1614
+<1614=1616,1615
+<1616=1618,1617
+<1619=1620
+<1620=1622,1621
+<1623=1624
+<1625=1626
+<1626=1628,1627
+<1629=1631,1630
+<1632=1633
+<1633=1640,1634
+<1634=1636,1635
+<1636=1637
+<1637=1639,1638
+<1641=1642
+<1642=1643
+<1643=1648,1647,1644
+<1644=1646,1645
+<1649=1650
+<1650=1652,1651
+<1653=1700,1654
+<1654=1692,1659,1655
+<1655=1656
+<1656=1658,1657
+<1659=1684,1675,1672,1660
+<1660=1661
+<1661=1662
+<1662=1670,1663
+<1663=1666,1664
+<1664=1665
+<1666=1667
+<1667=1669,1668
+<1670=1671
+<1672=1674,1673
+<1675=1676
+<1676=1683,1677
+<1677=1679,1678
+<1679=1680
+<1680=1682,1681
+<1684=1685
+<1685=1686
+<1686=1691,1690,1687
+<1687=1689,1688
+<1692=1693
+<1693=1699,1694
+<1694=1698,1695
+<1695=1697,1696
+<1700=1701
+<1701=1703,1702
+<1704=1705
+<1705=1721,1706
+<1706=1707
+<1707=1708
+<1708=1715,1709
+<1709=1711,1710
+<1711=1712
+<1712=1714,1713
+<1715=1717,1716
+<1717=1718
+<1718=1720,1719
+<1721=1722
+<1766=1775,1774,1767
+<1767=1771,1768
+<1768=1770,1769
+<1771=1773,1772
+<1775=1894,1776
+<1776=1886,1877,1874,1777
+<1777=1794,1778
+<1778=1783,1779
+<1779=1780
+<1780=1782,1781
+<1783=1784
+<1784=1793,1785
+<1785=1787,1786
+<1787=1789,1788
+<1789=1790
+<1790=1792,1791
+<1794=1870,1803,1795
+<1795=1796
+<1796=1797
+<1797=1798
+<1798=1802,1799
+<1799=1801,1800
+<1803=1856,1845,1834,1804
+<1804=1805
+<1805=1833,1806
+<1806=1832,1807
+<1807=1831,1808
+<1808=1830,1809
+<1809=1829,1810
+<1810=1828,1811
+<1811=1822,1812
+<1812=1814,1813
+<1814=1816,1815
+<1816=1817
+<1817=1819,1818
+<1819=1821,1820
+<1822=1826,1823
+<1823=1824
+<1824=1825
+<1826=1827
+<1834=1835
+<1835=1844,1843,1836
+<1836=1842,1837
+<1837=1841,1838
+<1838=1840,1839
+<1845=1846
+<1846=1855,1854,1847
+<1847=1853,1848
+<1848=1852,1849
+<1849=1851,1850
+<1856=1857
+<1857=1869,1868,1858
+<1858=1867,1859
+<1859=1861,1860
+<1861=1862
+<1862=1864,1863
+<1864=1866,1865
+<1870=1871
+<1871=1873,1872
+<1874=1876,1875
+<1877=1878
+<1878=1885,1879
+<1879=1881,1880
+<1881=1882
+<1882=1884,1883
+<1886=1887
+<1887=1888
+<1888=1893,1892,1889
+<1889=1891,1890
+<1894=1895
+<1895=1922,1896
+<1896=1917,1897
+<1897=1916,1898
+<1898=1910,1899
+<1899=1909,1900
+<1900=1908,1901
+<1901=1907,1902
+<1902=1906,1903
+<1903=1905,1904
+<1910=1914,1911
+<1911=1912
+<1912=1913
+<1914=1915
+<1917=1920,1919,1918
+<1920=1921
+<1938=1947,1946,1939
+<1939=1943,1940
+<1940=1942,1941
+<1943=1945,1944
+<1947=1950,1948
+<1948=1949
+<1950=1951
+<1951=1955,1952
+<1952=1953
+<1953=1954
+<1955=1956
+<1956=1958,1957
+<1964=1973,1972,1965
+<1965=1969,1966
+<1966=1968,1967
+<1969=1971,1970
+<1973=1976,1974
+<1974=1975
+<1976=1977
+<1977=1981,1978
+<1978=1979
+<1979=1980
+<1981=1982
+<1982=1984,1983
+<1990=1999,1998,1991
+<1991=1995,1992
+<1992=1994,1993
+<1995=1997,1996
+<1999=2002,2000
+<2000=2001
+<2002=2003
+<2003=2007,2004
+<2004=2005
+<2005=2006
+<2007=2008
+<2008=2010,2009

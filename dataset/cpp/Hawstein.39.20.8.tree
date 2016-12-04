@@ -1,0 +1,390 @@
+>14	FunctionDef	Trie 
+>15	ParameterList	const char * s
+>16	Parameter	 
+>17	Identifier	s
+>18	ParameterType	const char *
+>19	CompoundStatement	 
+>20	WhileStatement	while ( * s )
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	UnaryExpression	++ s
+>24	Identifier	s
+>25	IncDec	++
+>26	ExpressionStatement	 
+>27	CallExpression	insert ( s )
+>28	ArgumentList	s
+>29	Argument	s
+>30	Identifier	s
+>31	Callee	insert
+>32	Identifier	insert
+>33	Condition	 
+>34	UnaryOp	* s
+>35	Identifier	s
+>36	UnaryOperator	*
+>37	ExpressionStatement	 
+>38	AssignmentExpr	size = 1
+>39	PrimaryExpression	1
+>40	Identifier	size
+>41	ExpressionStatement	 
+>42	CallExpression	memset ( trie [ 0 ] , - 1 , sizeof ( trie [ 0 ] ) )
+>43	ArgumentList	trie [ 0 ]
+>44	Argument	sizeof ( trie [ 0 ] )
+>45	SizeofExpr	sizeof ( trie [ 0 ] )
+>46	ArrayIndexing	trie [ 0 ]
+>47	PrimaryExpression	0
+>48	Identifier	trie
+>49	Sizeof	sizeof
+>50	Argument	- 1
+>51	UnaryOp	- 1
+>52	PrimaryExpression	1
+>53	UnaryOperator	-
+>54	Argument	trie [ 0 ]
+>55	ArrayIndexing	trie [ 0 ]
+>56	PrimaryExpression	0
+>57	Identifier	trie
+>58	Callee	memset
+>59	Identifier	memset
+>68	FunctionDef	Trie 
+>69	ParameterList	const char * s
+>70	Parameter	 
+>71	Identifier	s
+>72	ParameterType	const char *
+>73	ReturnType	void
+>74	CompoundStatement	 
+>75	WhileStatement	while ( * s )
+>76	CompoundStatement	 
+>77	ExpressionStatement	 
+>78	UnaryExpression	++ s
+>79	Identifier	s
+>80	IncDec	++
+>81	ExpressionStatement	 
+>82	AssignmentExpr	p = trie [ p ] [ i ]
+>83	ArrayIndexing	trie [ p ] [ i ]
+>84	Identifier	i
+>85	ArrayIndexing	trie [ p ]
+>86	Identifier	p
+>87	Identifier	trie
+>88	Identifier	p
+>89	IfStatement	if ( - 1 == trie [ p ] [ i ] )
+>90	CompoundStatement	 
+>91	ExpressionStatement	 
+>92	AssignmentExpr	trie [ p ] [ i ] = size ++
+>93	IncDecOp	size ++
+>94	IncDec	++
+>95	Identifier	size
+>96	ArrayIndexing	trie [ p ] [ i ]
+>97	Identifier	i
+>98	ArrayIndexing	trie [ p ]
+>99	Identifier	p
+>100	Identifier	trie
+>101	ExpressionStatement	 
+>102	CallExpression	memset ( trie [ size ] , - 1 , sizeof ( trie [ size ] ) )
+>103	ArgumentList	trie [ size ]
+>104	Argument	sizeof ( trie [ size ] )
+>105	SizeofExpr	sizeof ( trie [ size ] )
+>106	ArrayIndexing	trie [ size ]
+>107	Identifier	size
+>108	Identifier	trie
+>109	Sizeof	sizeof
+>110	Argument	- 1
+>111	UnaryOp	- 1
+>112	PrimaryExpression	1
+>113	UnaryOperator	-
+>114	Argument	trie [ size ]
+>115	ArrayIndexing	trie [ size ]
+>116	Identifier	size
+>117	Identifier	trie
+>118	Callee	memset
+>119	Identifier	memset
+>120	Condition	 
+>121	EqualityExpression	- 1 == trie [ p ] [ i ]
+>122	ArrayIndexing	trie [ p ] [ i ]
+>123	Identifier	i
+>124	ArrayIndexing	trie [ p ]
+>125	Identifier	p
+>126	Identifier	trie
+>127	UnaryOp	- 1
+>128	PrimaryExpression	1
+>129	UnaryOperator	-
+>130	IdentifierDeclStatement	 
+>131	IdentifierDecl	i = * s - 'a'
+>132	AssignmentExpr	i = * s - 'a'
+>133	AdditiveExpression	* s - 'a'
+>134	PrimaryExpression	'a'
+>135	UnaryOp	* s
+>136	Identifier	s
+>137	UnaryOperator	*
+>138	Identifier	i
+>139	Identifier	i
+>140	IdentifierDeclType	int
+>141	Condition	 
+>142	UnaryOp	* s
+>143	Identifier	s
+>144	UnaryOperator	*
+>145	IdentifierDeclStatement	 
+>146	IdentifierDecl	p = 0
+>147	AssignmentExpr	p = 0
+>148	PrimaryExpression	0
+>149	Identifier	p
+>150	Identifier	p
+>151	IdentifierDeclType	int
+>167	FunctionDef	Trie 
+>168	ParameterList	const char * s
+>169	Parameter	 
+>170	Identifier	s
+>171	ParameterType	const char *
+>172	ReturnType	bool
+>173	CompoundStatement	 
+>174	ReturnStatement	 
+>175	Identifier	true
+>176	WhileStatement	while ( * s )
+>177	CompoundStatement	 
+>178	ExpressionStatement	 
+>179	UnaryExpression	++ s
+>180	Identifier	s
+>181	IncDec	++
+>182	ExpressionStatement	 
+>183	AssignmentExpr	p = trie [ p ] [ i ]
+>184	ArrayIndexing	trie [ p ] [ i ]
+>185	Identifier	i
+>186	ArrayIndexing	trie [ p ]
+>187	Identifier	p
+>188	Identifier	trie
+>189	Identifier	p
+>190	IfStatement	if ( - 1 == trie [ p ] [ i ] )
+>191	ReturnStatement	 
+>192	Identifier	false
+>193	Condition	 
+>194	EqualityExpression	- 1 == trie [ p ] [ i ]
+>195	ArrayIndexing	trie [ p ] [ i ]
+>196	Identifier	i
+>197	ArrayIndexing	trie [ p ]
+>198	Identifier	p
+>199	Identifier	trie
+>200	UnaryOp	- 1
+>201	PrimaryExpression	1
+>202	UnaryOperator	-
+>203	IdentifierDeclStatement	 
+>204	IdentifierDecl	i = * s - 'a'
+>205	AssignmentExpr	i = * s - 'a'
+>206	AdditiveExpression	* s - 'a'
+>207	PrimaryExpression	'a'
+>208	UnaryOp	* s
+>209	Identifier	s
+>210	UnaryOperator	*
+>211	Identifier	i
+>212	Identifier	i
+>213	IdentifierDeclType	int
+>214	Condition	 
+>215	UnaryOp	* s
+>216	Identifier	s
+>217	UnaryOperator	*
+>218	IdentifierDeclStatement	 
+>219	IdentifierDecl	p = 0
+>220	AssignmentExpr	p = 0
+>221	PrimaryExpression	0
+>222	Identifier	p
+>223	Identifier	p
+>224	IdentifierDeclType	int
+>240	FunctionDef	main ()
+>241	ParameterList	 
+>242	ReturnType	int
+>243	CompoundStatement	 
+>244	ReturnStatement	 
+>245	PrimaryExpression	0
+>246	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>247	ExpressionStatement	 
+>248	ShiftExpression	cout << tree . find ( ( char * ) & patt [ i ] [ 0 ] ) << endl
+>249	ShiftExpression	tree . find ( ( char * ) & patt [ i ] [ 0 ] ) << endl
+>250	Identifier	endl
+>251	CallExpression	tree . find ( ( char * ) & patt [ i ] [ 0 ] )
+>252	ArgumentList	( char * ) & patt [ i ] [ 0 ]
+>253	Argument	( char * ) & patt [ i ] [ 0 ]
+>254	CastExpression	( char * ) & patt [ i ] [ 0 ]
+>255	UnaryOp	& patt [ i ] [ 0 ]
+>256	ArrayIndexing	patt [ i ] [ 0 ]
+>257	PrimaryExpression	0
+>258	ArrayIndexing	patt [ i ]
+>259	Identifier	i
+>260	Identifier	patt
+>261	UnaryOperator	&
+>262	CastTarget	char *
+>263	Callee	tree . find
+>264	MemberAccess	tree . find
+>265	Identifier	find
+>266	Identifier	tree
+>267	Identifier	cout
+>268	UnaryExpression	 
+>269	Identifier	i
+>270	IncDec	++
+>271	Condition	 
+>272	RelationalExpression	i < n
+>273	Identifier	n
+>274	Identifier	i
+>275	ForInit	 
+>276	IdentifierDeclStatement	int i = 0 ;
+>277	IdentifierDecl	i = 0
+>278	AssignmentExpr	i = 0
+>279	PrimaryExpression	0
+>280	Identifier	i
+>281	Identifier	i
+>282	IdentifierDeclType	int
+>283	IdentifierDeclStatement	 
+>284	IdentifierDecl	n = 5
+>285	AssignmentExpr	n = 5
+>286	PrimaryExpression	5
+>287	Identifier	n
+>288	Identifier	n
+>289	IdentifierDeclType	int
+>290	IdentifierDeclStatement	 
+>291	IdentifierDecl	patt [ ] = { \"is\" , \"sip\" , \"hi\" , \"sis\" , \"mississippa\" }
+>292	AssignmentExpr	patt [ ] = { \"is\" , \"sip\" , \"hi\" , \"sis\" , \"mississippa\" }
+>293	InitializerList	\"is\"
+>294	PrimaryExpression	\"mississippa\"
+>295	PrimaryExpression	\"sis\"
+>296	PrimaryExpression	\"hi\"
+>297	PrimaryExpression	\"sip\"
+>298	PrimaryExpression	\"is\"
+>299	Identifier	patt
+>300	Identifier	patt
+>301	IdentifierDeclType	string [ ]
+>302	IdentifierDeclStatement	 
+>303	IdentifierDecl	tree ( \"mississippi\" )
+>304	PrimaryExpression	\"mississippi\"
+>305	Identifier	tree
+>306	IdentifierDeclType	Trie
+<14=19,15
+<15=16
+<16=18,17
+<19=41,37,20
+<20=33,21
+<21=26,22
+<22=23
+<23=25,24
+<26=27
+<27=31,28
+<28=29
+<29=30
+<31=32
+<33=34
+<34=36,35
+<37=38
+<38=40,39
+<41=42
+<42=58,43
+<43=54,50,44
+<44=45
+<45=49,46
+<46=48,47
+<50=51
+<51=53,52
+<54=55
+<55=57,56
+<58=59
+<68=74,73,69
+<69=70
+<70=72,71
+<74=145,75
+<75=141,76
+<76=130,89,81,77
+<77=78
+<78=80,79
+<81=82
+<82=88,83
+<83=85,84
+<85=87,86
+<89=120,90
+<90=101,91
+<91=92
+<92=96,93
+<93=95,94
+<96=98,97
+<98=100,99
+<101=102
+<102=118,103
+<103=114,110,104
+<104=105
+<105=109,106
+<106=108,107
+<110=111
+<111=113,112
+<114=115
+<115=117,116
+<118=119
+<120=121
+<121=127,122
+<122=124,123
+<124=126,125
+<127=129,128
+<130=131
+<131=140,139,132
+<132=138,133
+<133=135,134
+<135=137,136
+<141=142
+<142=144,143
+<145=146
+<146=151,150,147
+<147=149,148
+<167=173,172,168
+<168=169
+<169=171,170
+<173=218,176,174
+<174=175
+<176=214,177
+<177=203,190,182,178
+<178=179
+<179=181,180
+<182=183
+<183=189,184
+<184=186,185
+<186=188,187
+<190=193,191
+<191=192
+<193=194
+<194=200,195
+<195=197,196
+<197=199,198
+<200=202,201
+<203=204
+<204=213,212,205
+<205=211,206
+<206=208,207
+<208=210,209
+<214=215
+<215=217,216
+<218=219
+<219=224,223,220
+<220=222,221
+<240=243,242,241
+<243=302,290,283,246,244
+<244=245
+<246=275,271,268,247
+<247=248
+<248=267,249
+<249=251,250
+<251=263,252
+<252=253
+<253=254
+<254=262,255
+<255=261,256
+<256=258,257
+<258=260,259
+<263=264
+<264=266,265
+<268=270,269
+<271=272
+<272=274,273
+<275=276
+<276=277
+<277=282,281,278
+<278=280,279
+<283=284
+<284=289,288,285
+<285=287,286
+<290=291
+<291=301,300,292
+<292=299,293
+<293=298,297,296,295,294
+<302=303
+<303=306,305,304

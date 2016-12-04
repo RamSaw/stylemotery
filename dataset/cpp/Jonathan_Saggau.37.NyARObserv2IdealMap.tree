@@ -1,0 +1,459 @@
+>3	FunctionDef	NyARObserv2IdealMap 
+>4	ParameterList	const NyARCameraDistortionFactor & i_distfactor , const TNyARIntSize & i_screen_size
+>5	Parameter	 
+>6	Identifier	i_screen_size
+>7	ParameterType	const TNyARIntSize &
+>8	Parameter	 
+>9	Identifier	i_distfactor
+>10	ParameterType	const NyARCameraDistortionFactor &
+>11	CompoundStatement	 
+>12	ReturnStatement	 
+>13	ForStatement	for ( int i = i_screen_size . h - 1 ; i >= 0 ; i -- )
+>14	CompoundStatement	 
+>15	ForStatement	for ( int i2 = i_screen_size . w - 1 ; i2 >= 0 ; i2 -- )
+>16	CompoundStatement	 
+>17	ExpressionStatement	 
+>18	IncDecOp	ptr --
+>19	IncDec	--
+>20	Identifier	ptr
+>21	ExpressionStatement	 
+>22	AssignmentExpr	this -> _mapy [ ptr ] = opoint . y
+>23	MemberAccess	opoint . y
+>24	Identifier	y
+>25	Identifier	opoint
+>26	ArrayIndexing	this -> _mapy [ ptr ]
+>27	Identifier	ptr
+>28	PtrMemberAccess	this -> _mapy
+>29	Identifier	_mapy
+>30	Identifier	this
+>31	ExpressionStatement	 
+>32	AssignmentExpr	this -> _mapx [ ptr ] = opoint . x
+>33	MemberAccess	opoint . x
+>34	Identifier	x
+>35	Identifier	opoint
+>36	ArrayIndexing	this -> _mapx [ ptr ]
+>37	Identifier	ptr
+>38	PtrMemberAccess	this -> _mapx
+>39	Identifier	_mapx
+>40	Identifier	this
+>41	ExpressionStatement	 
+>42	CallExpression	i_distfactor . observ2Ideal ( i2 , i , opoint )
+>43	ArgumentList	i2
+>44	Argument	opoint
+>45	Identifier	opoint
+>46	Argument	i
+>47	Identifier	i
+>48	Argument	i2
+>49	Identifier	i2
+>50	Callee	i_distfactor . observ2Ideal
+>51	MemberAccess	i_distfactor . observ2Ideal
+>52	Identifier	observ2Ideal
+>53	Identifier	i_distfactor
+>54	IncDecOp	 
+>55	IncDec	--
+>56	Identifier	i2
+>57	Condition	 
+>58	RelationalExpression	i2 >= 0
+>59	PrimaryExpression	0
+>60	Identifier	i2
+>61	ForInit	 
+>62	IdentifierDeclStatement	int i2 = i_screen_size . w - 1 ;
+>63	IdentifierDecl	i2 = i_screen_size . w - 1
+>64	AssignmentExpr	i2 = i_screen_size . w - 1
+>65	AdditiveExpression	i_screen_size . w - 1
+>66	PrimaryExpression	1
+>67	MemberAccess	i_screen_size . w
+>68	Identifier	w
+>69	Identifier	i_screen_size
+>70	Identifier	i2
+>71	Identifier	i2
+>72	IdentifierDeclType	int
+>73	IncDecOp	 
+>74	IncDec	--
+>75	Identifier	i
+>76	Condition	 
+>77	RelationalExpression	i >= 0
+>78	PrimaryExpression	0
+>79	Identifier	i
+>80	ForInit	 
+>81	IdentifierDeclStatement	int i = i_screen_size . h - 1 ;
+>82	IdentifierDecl	i = i_screen_size . h - 1
+>83	AssignmentExpr	i = i_screen_size . h - 1
+>84	AdditiveExpression	i_screen_size . h - 1
+>85	PrimaryExpression	1
+>86	MemberAccess	i_screen_size . h
+>87	Identifier	h
+>88	Identifier	i_screen_size
+>89	Identifier	i
+>90	Identifier	i
+>91	IdentifierDeclType	int
+>92	IdentifierDeclStatement	 
+>93	IdentifierDecl	ptr = i_screen_size . h * i_screen_size . w - 1
+>94	AssignmentExpr	ptr = i_screen_size . h * i_screen_size . w - 1
+>95	AdditiveExpression	i_screen_size . h * i_screen_size . w - 1
+>96	PrimaryExpression	1
+>97	MultiplicativeExpression	i_screen_size . h * i_screen_size . w
+>98	MemberAccess	i_screen_size . w
+>99	Identifier	w
+>100	Identifier	i_screen_size
+>101	MemberAccess	i_screen_size . h
+>102	Identifier	h
+>103	Identifier	i_screen_size
+>104	Identifier	ptr
+>105	Identifier	ptr
+>106	IdentifierDeclType	int
+>107	ExpressionStatement	 
+>108	AssignmentExpr	this -> _stride = i_screen_size . w
+>109	MemberAccess	i_screen_size . w
+>110	Identifier	w
+>111	Identifier	i_screen_size
+>112	PtrMemberAccess	this -> _stride
+>113	Identifier	_stride
+>114	Identifier	this
+>115	ExpressionStatement	 
+>116	AssignmentExpr	this -> _mapy = new double [ i_screen_size . w * i_screen_size . h ]
+>117	MultiplicativeExpression	i_screen_size . w * i_screen_size . h
+>118	MemberAccess	i_screen_size . h
+>119	Identifier	h
+>120	Identifier	i_screen_size
+>121	MemberAccess	i_screen_size . w
+>122	Identifier	w
+>123	Identifier	i_screen_size
+>124	PtrMemberAccess	this -> _mapy
+>125	Identifier	_mapy
+>126	Identifier	this
+>127	ExpressionStatement	 
+>128	AssignmentExpr	this -> _mapx = new double [ i_screen_size . w * i_screen_size . h ]
+>129	MultiplicativeExpression	i_screen_size . w * i_screen_size . h
+>130	MemberAccess	i_screen_size . h
+>131	Identifier	h
+>132	Identifier	i_screen_size
+>133	MemberAccess	i_screen_size . w
+>134	Identifier	w
+>135	Identifier	i_screen_size
+>136	PtrMemberAccess	this -> _mapx
+>137	Identifier	_mapx
+>138	Identifier	this
+>139	IdentifierDeclStatement	 
+>140	IdentifierDecl	opoint
+>141	Identifier	opoint
+>142	IdentifierDeclType	TNyARDoublePoint2d
+>165	FunctionDef	NyARObserv2IdealMap 
+>166	ParameterList	 
+>167	CompoundStatement	 
+>168	ExpressionStatement	 
+>169	CallExpression	NyAR_SAFE_DELETE ( this -> _mapy )
+>170	ArgumentList	this -> _mapy
+>171	Argument	this -> _mapy
+>172	PtrMemberAccess	this -> _mapy
+>173	Identifier	_mapy
+>174	Identifier	this
+>175	Callee	NyAR_SAFE_DELETE
+>176	Identifier	NyAR_SAFE_DELETE
+>177	ExpressionStatement	 
+>178	CallExpression	NyAR_SAFE_DELETE ( this -> _mapx )
+>179	ArgumentList	this -> _mapx
+>180	Argument	this -> _mapx
+>181	PtrMemberAccess	this -> _mapx
+>182	Identifier	_mapx
+>183	Identifier	this
+>184	Callee	NyAR_SAFE_DELETE
+>185	Identifier	NyAR_SAFE_DELETE
+>193	FunctionDef	NyARObserv2IdealMap 
+>194	ParameterList	double ix , double iy , TNyARDoublePoint2d & o_point
+>195	Parameter	 
+>196	Identifier	o_point
+>197	ParameterType	TNyARDoublePoint2d &
+>198	Parameter	 
+>199	Identifier	iy
+>200	ParameterType	double
+>201	Parameter	 
+>202	Identifier	ix
+>203	ParameterType	double
+>204	ReturnType	void
+>205	CompoundStatement	 
+>206	ReturnStatement	 
+>207	ExpressionStatement	 
+>208	AssignmentExpr	o_point . y = this -> _mapy [ idx ]
+>209	ArrayIndexing	this -> _mapy [ idx ]
+>210	Identifier	idx
+>211	PtrMemberAccess	this -> _mapy
+>212	Identifier	_mapy
+>213	Identifier	this
+>214	MemberAccess	o_point . y
+>215	Identifier	y
+>216	Identifier	o_point
+>217	ExpressionStatement	 
+>218	AssignmentExpr	o_point . x = this -> _mapx [ idx ]
+>219	ArrayIndexing	this -> _mapx [ idx ]
+>220	Identifier	idx
+>221	PtrMemberAccess	this -> _mapx
+>222	Identifier	_mapx
+>223	Identifier	this
+>224	MemberAccess	o_point . x
+>225	Identifier	x
+>226	Identifier	o_point
+>227	IdentifierDeclStatement	 
+>228	IdentifierDecl	idx = ( int ) ix + ( int ) iy * this -> _stride
+>229	AssignmentExpr	idx = ( int ) ix + ( int ) iy * this -> _stride
+>230	AdditiveExpression	( int ) ix + ( int ) iy * this -> _stride
+>231	MultiplicativeExpression	( int ) iy * this -> _stride
+>232	PtrMemberAccess	this -> _stride
+>233	Identifier	_stride
+>234	Identifier	this
+>235	CastExpression	( int ) iy
+>236	Identifier	iy
+>237	CastTarget	int
+>238	CastExpression	( int ) ix
+>239	Identifier	ix
+>240	CastTarget	int
+>241	Identifier	idx
+>242	Identifier	idx
+>243	IdentifierDeclType	int
+>262	FunctionDef	NyARObserv2IdealMap 
+>263	ParameterList	const int i_x_coord [ ] , const int i_y_coord [ ] , int i_start , int i_num , double o_x_coord [ ] , double o_y_\
+>264	Parameter	 
+>265	Identifier	o_y_coord
+>266	ParameterType	double [ ]
+>267	Parameter	 
+>268	Identifier	o_x_coord
+>269	ParameterType	double [ ]
+>270	Parameter	 
+>271	Identifier	i_num
+>272	ParameterType	int
+>273	Parameter	 
+>274	Identifier	i_start
+>275	ParameterType	int
+>276	Parameter	 
+>277	Identifier	i_y_coord
+>278	ParameterType	const int [ ]
+>279	Parameter	 
+>280	Identifier	i_x_coord
+>281	ParameterType	const int [ ]
+>282	ReturnType	void
+>283	CompoundStatement	 
+>284	ReturnStatement	 
+>285	ForStatement	for ( int j = 0 ; j < i_num ; j ++ )
+>286	CompoundStatement	 
+>287	ExpressionStatement	 
+>288	IncDecOp	ptr ++
+>289	IncDec	++
+>290	Identifier	ptr
+>291	ExpressionStatement	 
+>292	AssignmentExpr	o_y_coord [ ptr ] = this -> _mapy [ idx ]
+>293	ArrayIndexing	this -> _mapy [ idx ]
+>294	Identifier	idx
+>295	PtrMemberAccess	this -> _mapy
+>296	Identifier	_mapy
+>297	Identifier	this
+>298	ArrayIndexing	o_y_coord [ ptr ]
+>299	Identifier	ptr
+>300	Identifier	o_y_coord
+>301	ExpressionStatement	 
+>302	AssignmentExpr	o_x_coord [ ptr ] = this -> _mapx [ idx ]
+>303	ArrayIndexing	this -> _mapx [ idx ]
+>304	Identifier	idx
+>305	PtrMemberAccess	this -> _mapx
+>306	Identifier	_mapx
+>307	Identifier	this
+>308	ArrayIndexing	o_x_coord [ ptr ]
+>309	Identifier	ptr
+>310	Identifier	o_x_coord
+>311	ExpressionStatement	 
+>312	AssignmentExpr	idx = i_x_coord [ i_start + j ] + i_y_coord [ i_start + j ] * this -> _stride
+>313	AdditiveExpression	i_x_coord [ i_start + j ] + i_y_coord [ i_start + j ] * this -> _stride
+>314	MultiplicativeExpression	i_y_coord [ i_start + j ] * this -> _stride
+>315	PtrMemberAccess	this -> _stride
+>316	Identifier	_stride
+>317	Identifier	this
+>318	ArrayIndexing	i_y_coord [ i_start + j ]
+>319	AdditiveExpression	i_start + j
+>320	Identifier	j
+>321	Identifier	i_start
+>322	Identifier	i_y_coord
+>323	ArrayIndexing	i_x_coord [ i_start + j ]
+>324	AdditiveExpression	i_start + j
+>325	Identifier	j
+>326	Identifier	i_start
+>327	Identifier	i_x_coord
+>328	Identifier	idx
+>329	IncDecOp	 
+>330	IncDec	++
+>331	Identifier	j
+>332	Condition	 
+>333	RelationalExpression	j < i_num
+>334	Identifier	i_num
+>335	Identifier	j
+>336	ForInit	 
+>337	IdentifierDeclStatement	int j = 0 ;
+>338	IdentifierDecl	j = 0
+>339	AssignmentExpr	j = 0
+>340	PrimaryExpression	0
+>341	Identifier	j
+>342	Identifier	j
+>343	IdentifierDeclType	int
+>344	IdentifierDeclStatement	 
+>345	IdentifierDecl	ptr = 0
+>346	AssignmentExpr	ptr = 0
+>347	PrimaryExpression	0
+>348	Identifier	ptr
+>349	Identifier	ptr
+>350	IdentifierDeclType	int
+>351	IdentifierDeclStatement	 
+>352	IdentifierDecl	idx
+>353	Identifier	idx
+>354	IdentifierDeclType	int
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=139,127,115,107,92,13,12
+<13=80,76,73,14
+<14=15
+<15=61,57,54,16
+<16=41,31,21,17
+<17=18
+<18=20,19
+<21=22
+<22=26,23
+<23=25,24
+<26=28,27
+<28=30,29
+<31=32
+<32=36,33
+<33=35,34
+<36=38,37
+<38=40,39
+<41=42
+<42=50,43
+<43=48,46,44
+<44=45
+<46=47
+<48=49
+<50=51
+<51=53,52
+<54=56,55
+<57=58
+<58=60,59
+<61=62
+<62=63
+<63=72,71,64
+<64=70,65
+<65=67,66
+<67=69,68
+<73=75,74
+<76=77
+<77=79,78
+<80=81
+<81=82
+<82=91,90,83
+<83=89,84
+<84=86,85
+<86=88,87
+<92=93
+<93=106,105,94
+<94=104,95
+<95=97,96
+<97=101,98
+<98=100,99
+<101=103,102
+<107=108
+<108=112,109
+<109=111,110
+<112=114,113
+<115=116
+<116=124,117
+<117=121,118
+<118=120,119
+<121=123,122
+<124=126,125
+<127=128
+<128=136,129
+<129=133,130
+<130=132,131
+<133=135,134
+<136=138,137
+<139=140
+<140=142,141
+<165=167,166
+<167=177,168
+<168=169
+<169=175,170
+<170=171
+<171=172
+<172=174,173
+<175=176
+<177=178
+<178=184,179
+<179=180
+<180=181
+<181=183,182
+<184=185
+<193=205,204,194
+<194=201,198,195
+<195=197,196
+<198=200,199
+<201=203,202
+<205=227,217,207,206
+<207=208
+<208=214,209
+<209=211,210
+<211=213,212
+<214=216,215
+<217=218
+<218=224,219
+<219=221,220
+<221=223,222
+<224=226,225
+<227=228
+<228=243,242,229
+<229=241,230
+<230=238,231
+<231=235,232
+<232=234,233
+<235=237,236
+<238=240,239
+<262=283,282,263
+<263=279,276,273,270,267,264
+<264=266,265
+<267=269,268
+<270=272,271
+<273=275,274
+<276=278,277
+<279=281,280
+<283=351,344,285,284
+<285=336,332,329,286
+<286=311,301,291,287
+<287=288
+<288=290,289
+<291=292
+<292=298,293
+<293=295,294
+<295=297,296
+<298=300,299
+<301=302
+<302=308,303
+<303=305,304
+<305=307,306
+<308=310,309
+<311=312
+<312=328,313
+<313=323,314
+<314=318,315
+<315=317,316
+<318=322,319
+<319=321,320
+<323=327,324
+<324=326,325
+<329=331,330
+<332=333
+<333=335,334
+<336=337
+<337=338
+<338=343,342,339
+<339=341,340
+<344=345
+<345=350,349,346
+<346=348,347
+<351=352
+<352=354,353

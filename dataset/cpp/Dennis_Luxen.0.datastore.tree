@@ -1,0 +1,4320 @@
+>3	FunctionDef	delete_region (const SharedDataType region)
+>4	ParameterList	const SharedDataType region
+>5	Parameter	 
+>6	Identifier	region
+>7	ParameterType	const SharedDataType
+>8	ReturnType	void
+>9	CompoundStatement	 
+>10	IfStatement	if ( SharedMemory 
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"could not delete shared memory region \" << name
+>14	ShiftExpression	\"could not delete shared memory region \" << name
+>15	Identifier	name
+>16	PrimaryExpression	\"could not delete shared memory region \"
+>17	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>18	ArgumentList	logWARNING
+>19	Argument	logWARNING
+>20	Identifier	logWARNING
+>21	Callee	SimpleLogger ( ) . Write
+>22	MemberAccess	SimpleLogger ( ) . Write
+>23	Identifier	Write
+>24	CallExpression	SimpleLogger ( )
+>25	ArgumentList	 
+>26	Callee	SimpleLogger
+>27	Identifier	SimpleLogger
+>28	ExpressionStatement	 
+>29	Statement	 
+>30	Statement	 
+>31	CompoundStatement	 
+>32	SwitchStatement	switch ( region )
+>33	CompoundStatement	 
+>34	ReturnStatement	 
+>35	PrimaryExpression	\"DATA_NONE\"
+>36	Label	 
+>37	Identifier	default
+>38	ReturnStatement	 
+>39	PrimaryExpression	\"LAYOUT_NONE\"
+>40	Label	 
+>41	Identifier	LAYOUT_NONE
+>42	ReturnStatement	 
+>43	PrimaryExpression	\"DATA_2\"
+>44	Label	 
+>45	Identifier	DATA_2
+>46	ReturnStatement	 
+>47	PrimaryExpression	\"LAYOUT_2\"
+>48	Label	 
+>49	Identifier	LAYOUT_2
+>50	ReturnStatement	 
+>51	PrimaryExpression	\"DATA_1\"
+>52	Label	 
+>53	Identifier	DATA_1
+>54	ReturnStatement	 
+>55	PrimaryExpression	\"LAYOUT_1\"
+>56	Label	 
+>57	Identifier	LAYOUT_1
+>58	ReturnStatement	 
+>59	PrimaryExpression	\"CURRENT_REGIONS\"
+>60	Label	 
+>61	Identifier	CURRENT_REGIONS
+>62	Condition	 
+>63	Identifier	region
+>64	Statement	 
+>65	Statement	 
+>66	Statement	 
+>67	Statement	 
+>68	Statement	 
+>69	Statement	 
+>70	Statement	 
+>71	Statement	 
+>72	Statement	 
+>73	Condition	 
+>74	AndExpression	SharedMemory 
+>75	UnaryOp	! SharedMemory 
+>76	CallExpression	SharedMemory 
+>77	ArgumentList	region
+>78	Argument	region
+>79	Identifier	region
+>80	Callee	SharedMemory 
+>81	Identifier	SharedMemory 
+>82	UnaryOperator	!
+>83	CallExpression	SharedMemory 
+>84	ArgumentList	region
+>85	Argument	region
+>86	Identifier	region
+>87	Callee	SharedMemory 
+>88	Identifier	SharedMemory 
+>97	FunctionDef	main (const int argc , const char * argv [ ])
+>98	ParameterList	const int argc , const char * argv [ ]
+>99	Parameter	 
+>100	Identifier	argv
+>101	ParameterType	const char * [ ]
+>102	Parameter	 
+>103	Identifier	argc
+>104	ParameterType	const int
+>105	ReturnType	int
+>106	CompoundStatement	 
+>107	ReturnStatement	 
+>108	PrimaryExpression	0
+>109	BlockStarter	 
+>110	CompoundStatement	 
+>111	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << \"caught exception
+>112	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"caught exception
+>113	ShiftExpression	\"caught exception
+>114	CallExpression	e . what ( )
+>115	ArgumentList	 
+>116	Callee	e . what
+>117	MemberAccess	e . what
+>118	Identifier	what
+>119	Identifier	e
+>120	PrimaryExpression	\"caught exception
+>121	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>122	ArgumentList	logWARNING
+>123	Argument	logWARNING
+>124	Identifier	logWARNING
+>125	Callee	SimpleLogger ( ) . Write
+>126	MemberAccess	SimpleLogger ( ) . Write
+>127	Identifier	Write
+>128	CallExpression	SimpleLogger ( )
+>129	ArgumentList	 
+>130	Callee	SimpleLogger
+>131	Identifier	SimpleLogger
+>132	Identifier	e
+>133	BlockStarter	 
+>134	CompoundStatement	 
+>135	ExpressionStatement	shared_layout_ptr -> PrintInformation ( )
+>136	CallExpression	shared_layout_ptr -> PrintInformation ( )
+>137	ArgumentList	 
+>138	Callee	shared_layout_ptr -> PrintInformation
+>139	PtrMemberAccess	shared_layout_ptr -> PrintInformation
+>140	Identifier	PrintInformation
+>141	Identifier	shared_layout_ptr
+>142	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"all data loaded\"
+>143	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"all data loaded\"
+>144	PrimaryExpression	\"all data loaded\"
+>145	CallExpression	SimpleLogger ( ) . Write ( )
+>146	ArgumentList	 
+>147	Callee	SimpleLogger ( ) . Write
+>148	MemberAccess	SimpleLogger ( ) . Write
+>149	Identifier	Write
+>150	CallExpression	SimpleLogger ( )
+>151	ArgumentList	 
+>152	Callee	SimpleLogger
+>153	Identifier	SimpleLogger
+>154	ExpressionStatement	delete_region ( previous_layout_region )
+>155	CallExpression	delete_region ( previous_layout_region )
+>156	ArgumentList	previous_layout_region
+>157	Argument	previous_layout_region
+>158	Identifier	previous_layout_region
+>159	Callee	delete_region
+>160	Identifier	delete_region
+>161	ExpressionStatement	delete_region ( previous_data_region )
+>162	CallExpression	delete_region ( previous_data_region )
+>163	ArgumentList	previous_data_region
+>164	Argument	previous_data_region
+>165	Identifier	previous_data_region
+>166	Callee	delete_region
+>167	Identifier	delete_region
+>168	ExpressionStatement	data_timestamp_ptr -> timestamp += 1
+>169	AssignmentExpr	data_timestamp_ptr -> timestamp += 1
+>170	PrimaryExpression	1
+>171	PtrMemberAccess	data_timestamp_ptr -> timestamp
+>172	Identifier	timestamp
+>173	Identifier	data_timestamp_ptr
+>174	ExpressionStatement	data_timestamp_ptr -> data = data_region
+>175	AssignmentExpr	data_timestamp_ptr -> data = data_region
+>176	Identifier	data_region
+>177	PtrMemberAccess	data_timestamp_ptr -> data
+>178	Identifier	data
+>179	Identifier	data_timestamp_ptr
+>180	ExpressionStatement	data_timestamp_ptr -> layout = layout_region
+>181	AssignmentExpr	data_timestamp_ptr -> layout = layout_region
+>182	Identifier	layout_region
+>183	PtrMemberAccess	data_timestamp_ptr -> layout
+>184	Identifier	layout
+>185	Identifier	data_timestamp_ptr
+>186	IfStatement	if ( 0 < barrier . number_of_queries )
+>187	CompoundStatement	 
+>188	ExpressionStatement	barrier . no_running_queries_condition . wait ( query_lock )
+>189	CallExpression	barrier . no_running_queries_condition . wait ( query_lock )
+>190	ArgumentList	query_lock
+>191	Argument	query_lock
+>192	Identifier	query_lock
+>193	Callee	barrier . no_running_queries_condition . wait
+>194	MemberAccess	barrier . no_running_queries_condition . wait
+>195	Identifier	wait
+>196	MemberAccess	barrier . no_running_queries_condition
+>197	Identifier	no_running_queries_condition
+>198	Identifier	barrier
+>199	Condition	0 < barrier . number_of_queries
+>200	RelationalExpression	0 < barrier . number_of_queries
+>201	MemberAccess	barrier . number_of_queries
+>202	Identifier	number_of_queries
+>203	Identifier	barrier
+>204	PrimaryExpression	0
+>205	IdentifierDeclStatement	boost 
+>206	IdentifierDecl	query_lock ( barrier . query_mutex )
+>207	MemberAccess	barrier . query_mutex
+>208	Identifier	query_mutex
+>209	Identifier	barrier
+>210	Identifier	query_lock
+>211	IdentifierDeclType	boost 
+>212	ExpressionStatement	data_type_memory -> Ptr ( )
+>213	CallExpression	data_type_memory -> Ptr ( )
+>214	ArgumentList	 
+>215	Callee	data_type_memory -> Ptr
+>216	PtrMemberAccess	data_type_memory -> Ptr
+>217	Identifier	Ptr
+>218	Identifier	data_type_memory
+>219	Statement	>
+>220	Statement	*
+>221	Statement	SharedDataTimestamp
+>222	Statement	<
+>223	Statement	static_cast
+>224	Statement	=
+>225	Statement	data_timestamp_ptr
+>226	Statement	*
+>227	Statement	SharedDataTimestamp
+>228	IdentifierDeclStatement	SharedMemory * data_type_memory = SharedMemoryFactory 
+>229	IdentifierDecl	* data_type_memory = SharedMemoryFactory 
+>230	AssignmentExpr	* data_type_memory = SharedMemoryFactory 
+>231	CallExpression	SharedMemoryFactory 
+>232	ArgumentList	CURRENT_REGIONS
+>233	Argument	false
+>234	Identifier	false
+>235	Argument	true
+>236	Identifier	true
+>237	Argument	sizeof ( SharedDataTimestamp )
+>238	SizeofExpr	sizeof ( SharedDataTimestamp )
+>239	SizeofOperand	SharedDataTimestamp
+>240	Sizeof	sizeof
+>241	Argument	CURRENT_REGIONS
+>242	Identifier	CURRENT_REGIONS
+>243	Callee	SharedMemoryFactory 
+>244	Identifier	SharedMemoryFactory 
+>245	Identifier	data_type_memory
+>246	Identifier	data_type_memory
+>247	IdentifierDeclType	SharedMemory *
+>248	ExpressionStatement	hsgr_input_stream . close ( )
+>249	CallExpression	hsgr_input_stream . close ( )
+>250	ArgumentList	 
+>251	Callee	hsgr_input_stream . close
+>252	MemberAccess	hsgr_input_stream . close
+>253	Identifier	close
+>254	Identifier	hsgr_input_stream
+>255	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>256	CompoundStatement	 
+>257	ExpressionStatement	hsgr_input_stream . read ( ( char * ) graph_edge_list_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>258	CallExpression	hsgr_input_stream . read ( ( char * ) graph_edge_list_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>259	ArgumentList	( char * ) graph_edge_list_ptr
+>260	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>261	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>262	ArgumentList	SharedDataLayout 
+>263	Argument	SharedDataLayout 
+>264	Identifier	SharedDataLayout 
+>265	Callee	shared_layout_ptr -> GetBlockSize
+>266	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>267	Identifier	GetBlockSize
+>268	Identifier	shared_layout_ptr
+>269	Argument	( char * ) graph_edge_list_ptr
+>270	CastExpression	( char * ) graph_edge_list_ptr
+>271	Identifier	graph_edge_list_ptr
+>272	CastTarget	char *
+>273	Callee	hsgr_input_stream . read
+>274	MemberAccess	hsgr_input_stream . read
+>275	Identifier	read
+>276	Identifier	hsgr_input_stream
+>277	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>278	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>279	PrimaryExpression	0
+>280	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>281	ArgumentList	SharedDataLayout 
+>282	Argument	SharedDataLayout 
+>283	Identifier	SharedDataLayout 
+>284	Callee	shared_layout_ptr -> GetBlockSize
+>285	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>286	Identifier	GetBlockSize
+>287	Identifier	shared_layout_ptr
+>288	ExpressionStatement	QueryGraph 
+>289	Expression	QueryGraph 
+>290	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>291	Expression	shared_memory_ptr , SharedDataLayout 
+>292	Identifier	SharedDataLayout 
+>293	Identifier	shared_memory_ptr
+>294	Identifier	true
+>295	AssignmentExpr	QueryGraph 
+>296	RelationalExpression	shared_layout_ptr -> GetBlockPtr < QueryGraph 
+>297	Identifier	QueryGraph 
+>298	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>299	Identifier	GetBlockPtr
+>300	Identifier	shared_layout_ptr
+>301	MultiplicativeExpression	QueryGraph 
+>302	Identifier	graph_edge_list_ptr
+>303	Identifier	QueryGraph 
+>304	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>305	CompoundStatement	 
+>306	ExpressionStatement	hsgr_input_stream . read ( ( char * ) graph_node_list_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>307	CallExpression	hsgr_input_stream . read ( ( char * ) graph_node_list_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>308	ArgumentList	( char * ) graph_node_list_ptr
+>309	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>310	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>311	ArgumentList	SharedDataLayout 
+>312	Argument	SharedDataLayout 
+>313	Identifier	SharedDataLayout 
+>314	Callee	shared_layout_ptr -> GetBlockSize
+>315	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>316	Identifier	GetBlockSize
+>317	Identifier	shared_layout_ptr
+>318	Argument	( char * ) graph_node_list_ptr
+>319	CastExpression	( char * ) graph_node_list_ptr
+>320	Identifier	graph_node_list_ptr
+>321	CastTarget	char *
+>322	Callee	hsgr_input_stream . read
+>323	MemberAccess	hsgr_input_stream . read
+>324	Identifier	read
+>325	Identifier	hsgr_input_stream
+>326	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>327	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>328	PrimaryExpression	0
+>329	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>330	ArgumentList	SharedDataLayout 
+>331	Argument	SharedDataLayout 
+>332	Identifier	SharedDataLayout 
+>333	Callee	shared_layout_ptr -> GetBlockSize
+>334	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>335	Identifier	GetBlockSize
+>336	Identifier	shared_layout_ptr
+>337	ExpressionStatement	QueryGraph 
+>338	Expression	QueryGraph 
+>339	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>340	Expression	shared_memory_ptr , SharedDataLayout 
+>341	Identifier	SharedDataLayout 
+>342	Identifier	shared_memory_ptr
+>343	Identifier	true
+>344	AssignmentExpr	QueryGraph 
+>345	RelationalExpression	shared_layout_ptr -> GetBlockPtr < QueryGraph 
+>346	Identifier	QueryGraph 
+>347	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>348	Identifier	GetBlockPtr
+>349	Identifier	shared_layout_ptr
+>350	MultiplicativeExpression	QueryGraph 
+>351	Identifier	graph_node_list_ptr
+>352	Identifier	QueryGraph 
+>353	ExpressionStatement	tree_node_file . close ( )
+>354	CallExpression	tree_node_file . close ( )
+>355	ArgumentList	 
+>356	Callee	tree_node_file . close
+>357	MemberAccess	tree_node_file . close
+>358	Identifier	close
+>359	Identifier	tree_node_file
+>360	IfStatement	if ( tree_size > 0 )
+>361	CompoundStatement	 
+>362	ExpressionStatement	tree_node_file . read ( rtree_ptr , sizeof ( RTreeNode ) * tree_size )
+>363	CallExpression	tree_node_file . read ( rtree_ptr , sizeof ( RTreeNode ) * tree_size )
+>364	ArgumentList	rtree_ptr
+>365	Argument	sizeof ( RTreeNode ) * tree_size
+>366	MultiplicativeExpression	sizeof ( RTreeNode ) * tree_size
+>367	Identifier	tree_size
+>368	SizeofExpr	sizeof ( RTreeNode )
+>369	SizeofOperand	RTreeNode
+>370	Sizeof	sizeof
+>371	Argument	rtree_ptr
+>372	Identifier	rtree_ptr
+>373	Callee	tree_node_file . read
+>374	MemberAccess	tree_node_file . read
+>375	Identifier	read
+>376	Identifier	tree_node_file
+>377	Condition	tree_size > 0
+>378	RelationalExpression	tree_size > 0
+>379	PrimaryExpression	0
+>380	Identifier	tree_size
+>381	ExpressionStatement	char * rtree_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>382	Expression	char * rtree_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>383	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>384	Expression	shared_memory_ptr , SharedDataLayout 
+>385	Identifier	SharedDataLayout 
+>386	Identifier	shared_memory_ptr
+>387	Identifier	true
+>388	AssignmentExpr	char * rtree_ptr = shared_layout_ptr -> GetBlockPtr < char
+>389	RelationalExpression	shared_layout_ptr -> GetBlockPtr < char
+>390	Identifier	char
+>391	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>392	Identifier	GetBlockPtr
+>393	Identifier	shared_layout_ptr
+>394	MultiplicativeExpression	char * rtree_ptr
+>395	Identifier	rtree_ptr
+>396	Identifier	char
+>397	ExpressionStatement	std 
+>398	CallExpression	std 
+>399	ArgumentList	m_timestamp . c_str ( )
+>400	Argument	timestamp_ptr
+>401	Identifier	timestamp_ptr
+>402	Argument	m_timestamp . c_str ( ) + m_timestamp . length ( )
+>403	AdditiveExpression	m_timestamp . c_str ( ) + m_timestamp . length ( )
+>404	CallExpression	m_timestamp . length ( )
+>405	ArgumentList	 
+>406	Callee	m_timestamp . length
+>407	MemberAccess	m_timestamp . length
+>408	Identifier	length
+>409	Identifier	m_timestamp
+>410	CallExpression	m_timestamp . c_str ( )
+>411	ArgumentList	 
+>412	Callee	m_timestamp . c_str
+>413	MemberAccess	m_timestamp . c_str
+>414	Identifier	c_str
+>415	Identifier	m_timestamp
+>416	Argument	m_timestamp . c_str ( )
+>417	CallExpression	m_timestamp . c_str ( )
+>418	ArgumentList	 
+>419	Callee	m_timestamp . c_str
+>420	MemberAccess	m_timestamp . c_str
+>421	Identifier	c_str
+>422	Identifier	m_timestamp
+>423	Callee	std 
+>424	Identifier	std 
+>425	ExpressionStatement	char * timestamp_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>426	Expression	char * timestamp_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>427	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>428	Expression	shared_memory_ptr , SharedDataLayout 
+>429	Identifier	SharedDataLayout 
+>430	Identifier	shared_memory_ptr
+>431	Identifier	true
+>432	AssignmentExpr	char * timestamp_ptr = shared_layout_ptr -> GetBlockPtr < char
+>433	RelationalExpression	shared_layout_ptr -> GetBlockPtr < char
+>434	Identifier	char
+>435	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>436	Identifier	GetBlockPtr
+>437	Identifier	shared_layout_ptr
+>438	MultiplicativeExpression	char * timestamp_ptr
+>439	Identifier	timestamp_ptr
+>440	Identifier	char
+>441	ExpressionStatement	nodes_input_stream . close ( )
+>442	CallExpression	nodes_input_stream . close ( )
+>443	ArgumentList	 
+>444	Callee	nodes_input_stream . close
+>445	MemberAccess	nodes_input_stream . close
+>446	Identifier	close
+>447	Identifier	nodes_input_stream
+>448	ForStatement	for ( unsigned i = 0 ; i < coordinate_list_size ; ++ i )
+>449	CompoundStatement	 
+>450	ExpressionStatement	coordinates_ptr [ i ] = FixedPointCoordinate ( current_node . lat , current_node . lon )
+>451	AssignmentExpr	coordinates_ptr [ i ] = FixedPointCoordinate ( current_node . lat , current_node . lon )
+>452	CallExpression	FixedPointCoordinate ( current_node . lat , current_node . lon )
+>453	ArgumentList	current_node . lat
+>454	Argument	current_node . lon
+>455	MemberAccess	current_node . lon
+>456	Identifier	lon
+>457	Identifier	current_node
+>458	Argument	current_node . lat
+>459	MemberAccess	current_node . lat
+>460	Identifier	lat
+>461	Identifier	current_node
+>462	Callee	FixedPointCoordinate
+>463	Identifier	FixedPointCoordinate
+>464	ArrayIndexing	coordinates_ptr [ i ]
+>465	Identifier	i
+>466	Identifier	coordinates_ptr
+>467	ExpressionStatement	nodes_input_stream . read ( ( char * ) & current_node , sizeof ( QueryNode ) )
+>468	CallExpression	nodes_input_stream . read ( ( char * ) & current_node , sizeof ( QueryNode ) )
+>469	ArgumentList	( char * ) & current_node
+>470	Argument	sizeof ( QueryNode )
+>471	SizeofExpr	sizeof ( QueryNode )
+>472	SizeofOperand	QueryNode
+>473	Sizeof	sizeof
+>474	Argument	( char * ) & current_node
+>475	CastExpression	( char * ) & current_node
+>476	UnaryOp	& current_node
+>477	Identifier	current_node
+>478	UnaryOperator	&
+>479	CastTarget	char *
+>480	Callee	nodes_input_stream . read
+>481	MemberAccess	nodes_input_stream . read
+>482	Identifier	read
+>483	Identifier	nodes_input_stream
+>484	UnaryExpression	++ i
+>485	Identifier	i
+>486	IncDec	++
+>487	Condition	i < coordinate_list_size
+>488	RelationalExpression	i < coordinate_list_size
+>489	Identifier	coordinate_list_size
+>490	Identifier	i
+>491	ForInit	unsigned i = 0 ;
+>492	IdentifierDeclStatement	unsigned i = 0 ;
+>493	IdentifierDecl	i = 0
+>494	AssignmentExpr	i = 0
+>495	PrimaryExpression	0
+>496	Identifier	i
+>497	Identifier	i
+>498	IdentifierDeclType	unsigned
+>499	IdentifierDeclStatement	QueryNode current_node ;
+>500	IdentifierDecl	current_node
+>501	Identifier	current_node
+>502	IdentifierDeclType	QueryNode
+>503	ExpressionStatement	FixedPointCoordinate * coordinates_ptr = shared_layout_ptr -> GetBlockPtr < FixedPointCoordinate , true > ( shared_\
+>504	Expression	FixedPointCoordinate * coordinates_ptr = shared_layout_ptr -> GetBlockPtr < FixedPointCoordinate , true > ( shared_\
+>505	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>506	Expression	shared_memory_ptr , SharedDataLayout 
+>507	Identifier	SharedDataLayout 
+>508	Identifier	shared_memory_ptr
+>509	Identifier	true
+>510	AssignmentExpr	FixedPointCoordinate * coordinates_ptr = shared_layout_ptr -> GetBlockPtr < FixedPointCoordinate
+>511	RelationalExpression	shared_layout_ptr -> GetBlockPtr < FixedPointCoordinate
+>512	Identifier	FixedPointCoordinate
+>513	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>514	Identifier	GetBlockPtr
+>515	Identifier	shared_layout_ptr
+>516	MultiplicativeExpression	FixedPointCoordinate * coordinates_ptr
+>517	Identifier	coordinates_ptr
+>518	Identifier	FixedPointCoordinate
+>519	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>520	CompoundStatement	 
+>521	ExpressionStatement	geometry_input_stream . read ( ( char * ) geometries_list_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>522	CallExpression	geometry_input_stream . read ( ( char * ) geometries_list_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>523	ArgumentList	( char * ) geometries_list_ptr
+>524	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>525	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>526	ArgumentList	SharedDataLayout 
+>527	Argument	SharedDataLayout 
+>528	Identifier	SharedDataLayout 
+>529	Callee	shared_layout_ptr -> GetBlockSize
+>530	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>531	Identifier	GetBlockSize
+>532	Identifier	shared_layout_ptr
+>533	Argument	( char * ) geometries_list_ptr
+>534	CastExpression	( char * ) geometries_list_ptr
+>535	Identifier	geometries_list_ptr
+>536	CastTarget	char *
+>537	Callee	geometry_input_stream . read
+>538	MemberAccess	geometry_input_stream . read
+>539	Identifier	read
+>540	Identifier	geometry_input_stream
+>541	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>542	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>543	PrimaryExpression	0
+>544	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>545	ArgumentList	SharedDataLayout 
+>546	Argument	SharedDataLayout 
+>547	Identifier	SharedDataLayout 
+>548	Callee	shared_layout_ptr -> GetBlockSize
+>549	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>550	Identifier	GetBlockSize
+>551	Identifier	shared_layout_ptr
+>552	ExpressionStatement	BOOST_ASSERT ( temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>553	CallExpression	BOOST_ASSERT ( temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>554	ArgumentList	temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>555	Argument	temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>556	EqualityExpression	temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>557	ArrayIndexing	shared_layout_ptr -> num_entries [ SharedDataLayout 
+>558	Identifier	SharedDataLayout 
+>559	PtrMemberAccess	shared_layout_ptr -> num_entries
+>560	Identifier	num_entries
+>561	Identifier	shared_layout_ptr
+>562	Identifier	temporary_value
+>563	Callee	BOOST_ASSERT
+>564	Identifier	BOOST_ASSERT
+>565	ExpressionStatement	geometry_input_stream . read ( ( char * ) & temporary_value , sizeof ( unsigned ) )
+>566	CallExpression	geometry_input_stream . read ( ( char * ) & temporary_value , sizeof ( unsigned ) )
+>567	ArgumentList	( char * ) & temporary_value
+>568	Argument	sizeof ( unsigned )
+>569	SizeofExpr	sizeof ( unsigned )
+>570	SizeofOperand	unsigned
+>571	Sizeof	sizeof
+>572	Argument	( char * ) & temporary_value
+>573	CastExpression	( char * ) & temporary_value
+>574	UnaryOp	& temporary_value
+>575	Identifier	temporary_value
+>576	UnaryOperator	&
+>577	CastTarget	char *
+>578	Callee	geometry_input_stream . read
+>579	MemberAccess	geometry_input_stream . read
+>580	Identifier	read
+>581	Identifier	geometry_input_stream
+>582	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>583	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>584	Expression	shared_memory_ptr , SharedDataLayout 
+>585	Identifier	SharedDataLayout 
+>586	Identifier	shared_memory_ptr
+>587	Identifier	true
+>588	Statement	,
+>589	Statement	unsigned
+>590	Statement	<
+>591	Statement	GetBlockPtr
+>592	Statement	->
+>593	Statement	shared_layout_ptr
+>594	Statement	=
+>595	Statement	geometries_list_ptr
+>596	Statement	*
+>597	Statement	unsigned
+>598	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>599	CompoundStatement	 
+>600	ExpressionStatement	geometry_input_stream . read ( ( char * ) geometries_index_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>601	CallExpression	geometry_input_stream . read ( ( char * ) geometries_index_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>602	ArgumentList	( char * ) geometries_index_ptr
+>603	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>604	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>605	ArgumentList	SharedDataLayout 
+>606	Argument	SharedDataLayout 
+>607	Identifier	SharedDataLayout 
+>608	Callee	shared_layout_ptr -> GetBlockSize
+>609	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>610	Identifier	GetBlockSize
+>611	Identifier	shared_layout_ptr
+>612	Argument	( char * ) geometries_index_ptr
+>613	CastExpression	( char * ) geometries_index_ptr
+>614	Identifier	geometries_index_ptr
+>615	CastTarget	char *
+>616	Callee	geometry_input_stream . read
+>617	MemberAccess	geometry_input_stream . read
+>618	Identifier	read
+>619	Identifier	geometry_input_stream
+>620	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>621	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>622	PrimaryExpression	0
+>623	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>624	ArgumentList	SharedDataLayout 
+>625	Argument	SharedDataLayout 
+>626	Identifier	SharedDataLayout 
+>627	Callee	shared_layout_ptr -> GetBlockSize
+>628	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>629	Identifier	GetBlockSize
+>630	Identifier	shared_layout_ptr
+>631	ExpressionStatement	BOOST_ASSERT ( temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>632	CallExpression	BOOST_ASSERT ( temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>633	ArgumentList	temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>634	Argument	temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>635	EqualityExpression	temporary_value == shared_layout_ptr -> num_entries [ SharedDataLayout 
+>636	ArrayIndexing	shared_layout_ptr -> num_entries [ SharedDataLayout 
+>637	Identifier	SharedDataLayout 
+>638	PtrMemberAccess	shared_layout_ptr -> num_entries
+>639	Identifier	num_entries
+>640	Identifier	shared_layout_ptr
+>641	Identifier	temporary_value
+>642	Callee	BOOST_ASSERT
+>643	Identifier	BOOST_ASSERT
+>644	ExpressionStatement	geometry_input_stream . read ( ( char * ) & temporary_value , sizeof ( unsigned ) )
+>645	CallExpression	geometry_input_stream . read ( ( char * ) & temporary_value , sizeof ( unsigned ) )
+>646	ArgumentList	( char * ) & temporary_value
+>647	Argument	sizeof ( unsigned )
+>648	SizeofExpr	sizeof ( unsigned )
+>649	SizeofOperand	unsigned
+>650	Sizeof	sizeof
+>651	Argument	( char * ) & temporary_value
+>652	CastExpression	( char * ) & temporary_value
+>653	UnaryOp	& temporary_value
+>654	Identifier	temporary_value
+>655	UnaryOperator	&
+>656	CastTarget	char *
+>657	Callee	geometry_input_stream . read
+>658	MemberAccess	geometry_input_stream . read
+>659	Identifier	read
+>660	Identifier	geometry_input_stream
+>661	ExpressionStatement	geometry_input_stream . seekg ( 0 , geometry_input_stream . beg )
+>662	CallExpression	geometry_input_stream . seekg ( 0 , geometry_input_stream . beg )
+>663	ArgumentList	0
+>664	Argument	geometry_input_stream . beg
+>665	MemberAccess	geometry_input_stream . beg
+>666	Identifier	beg
+>667	Identifier	geometry_input_stream
+>668	Argument	0
+>669	PrimaryExpression	0
+>670	Callee	geometry_input_stream . seekg
+>671	MemberAccess	geometry_input_stream . seekg
+>672	Identifier	seekg
+>673	Identifier	geometry_input_stream
+>674	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>675	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>676	Expression	shared_memory_ptr , SharedDataLayout 
+>677	Identifier	SharedDataLayout 
+>678	Identifier	shared_memory_ptr
+>679	Identifier	true
+>680	Statement	,
+>681	Statement	unsigned
+>682	Statement	<
+>683	Statement	GetBlockPtr
+>684	Statement	->
+>685	Statement	shared_layout_ptr
+>686	Statement	=
+>687	Statement	geometries_index_ptr
+>688	Statement	*
+>689	Statement	unsigned
+>690	IdentifierDeclStatement	unsigned temporary_value ;
+>691	IdentifierDecl	temporary_value
+>692	Identifier	temporary_value
+>693	IdentifierDeclType	unsigned
+>694	ExpressionStatement	edges_input_stream . close ( )
+>695	CallExpression	edges_input_stream . close ( )
+>696	ArgumentList	 
+>697	Callee	edges_input_stream . close
+>698	MemberAccess	edges_input_stream . close
+>699	Identifier	close
+>700	Identifier	edges_input_stream
+>701	ForStatement	for ( unsigned i = 0 ; i < number_of_original_edges ; ++ i )
+>702	CompoundStatement	 
+>703	IfStatement	if ( current_edge_data . compressed_geometry )
+>704	CompoundStatement	 
+>705	ExpressionStatement	geometries_indicator_ptr [ bucket ] = ( value | ( 1 << offset ) )
+>706	AssignmentExpr	geometries_indicator_ptr [ bucket ] = ( value | ( 1 << offset ) )
+>707	InclusiveOrExpression	value | ( 1 << offset )
+>708	ShiftExpression	1 << offset
+>709	Identifier	offset
+>710	PrimaryExpression	1
+>711	Identifier	value
+>712	ArrayIndexing	geometries_indicator_ptr [ bucket ]
+>713	Identifier	bucket
+>714	Identifier	geometries_indicator_ptr
+>715	Condition	current_edge_data . compressed_geometry
+>716	MemberAccess	current_edge_data . compressed_geometry
+>717	Identifier	compressed_geometry
+>718	Identifier	current_edge_data
+>719	ExpressionStatement	 
+>720	Statement	)
+>721	Statement	(
+>722	CompoundStatement	 
+>723	ReturnStatement	return return_value ;
+>724	Identifier	return_value
+>725	IfStatement	if ( 0 != offset )
+>726	CompoundStatement	 
+>727	ExpressionStatement	return_value = geometries_indicator_ptr [ bucket ]
+>728	AssignmentExpr	return_value = geometries_indicator_ptr [ bucket ]
+>729	ArrayIndexing	geometries_indicator_ptr [ bucket ]
+>730	Identifier	bucket
+>731	Identifier	geometries_indicator_ptr
+>732	Identifier	return_value
+>733	Condition	0 != offset
+>734	EqualityExpression	0 != offset
+>735	Identifier	offset
+>736	PrimaryExpression	0
+>737	IdentifierDeclStatement	unsigned return_value = 0 ;
+>738	IdentifierDecl	return_value = 0
+>739	AssignmentExpr	return_value = 0
+>740	PrimaryExpression	0
+>741	Identifier	return_value
+>742	Identifier	return_value
+>743	IdentifierDeclType	unsigned
+>744	Statement	]
+>745	Statement	&
+>746	Statement	[
+>747	Statement	=
+>748	Statement	value
+>749	Statement	unsigned
+>750	Statement	const
+>751	IdentifierDeclStatement	unsigned offset = i % 32 ;
+>752	IdentifierDecl	offset = i % 32
+>753	AssignmentExpr	offset = i % 32
+>754	MultiplicativeExpression	i % 32
+>755	PrimaryExpression	32
+>756	Identifier	i
+>757	Identifier	offset
+>758	Identifier	offset
+>759	IdentifierDeclType	unsigned
+>760	Statement	const
+>761	IdentifierDeclStatement	unsigned bucket = i / 32 ;
+>762	IdentifierDecl	bucket = i / 32
+>763	AssignmentExpr	bucket = i / 32
+>764	MultiplicativeExpression	i / 32
+>765	PrimaryExpression	32
+>766	Identifier	i
+>767	Identifier	bucket
+>768	Identifier	bucket
+>769	IdentifierDeclType	unsigned
+>770	Statement	const
+>771	ExpressionStatement	turn_instructions_ptr [ i ] = current_edge_data . turn_instruction
+>772	AssignmentExpr	turn_instructions_ptr [ i ] = current_edge_data . turn_instruction
+>773	MemberAccess	current_edge_data . turn_instruction
+>774	Identifier	turn_instruction
+>775	Identifier	current_edge_data
+>776	ArrayIndexing	turn_instructions_ptr [ i ]
+>777	Identifier	i
+>778	Identifier	turn_instructions_ptr
+>779	ExpressionStatement	travel_mode_ptr [ i ] = current_edge_data . travel_mode
+>780	AssignmentExpr	travel_mode_ptr [ i ] = current_edge_data . travel_mode
+>781	MemberAccess	current_edge_data . travel_mode
+>782	Identifier	travel_mode
+>783	Identifier	current_edge_data
+>784	ArrayIndexing	travel_mode_ptr [ i ]
+>785	Identifier	i
+>786	Identifier	travel_mode_ptr
+>787	ExpressionStatement	name_id_ptr [ i ] = current_edge_data . name_id
+>788	AssignmentExpr	name_id_ptr [ i ] = current_edge_data . name_id
+>789	MemberAccess	current_edge_data . name_id
+>790	Identifier	name_id
+>791	Identifier	current_edge_data
+>792	ArrayIndexing	name_id_ptr [ i ]
+>793	Identifier	i
+>794	Identifier	name_id_ptr
+>795	ExpressionStatement	via_node_ptr [ i ] = current_edge_data . via_node
+>796	AssignmentExpr	via_node_ptr [ i ] = current_edge_data . via_node
+>797	MemberAccess	current_edge_data . via_node
+>798	Identifier	via_node
+>799	Identifier	current_edge_data
+>800	ArrayIndexing	via_node_ptr [ i ]
+>801	Identifier	i
+>802	Identifier	via_node_ptr
+>803	ExpressionStatement	edges_input_stream . read ( ( char * ) & ( current_edge_data ) , sizeof ( OriginalEdgeData ) )
+>804	CallExpression	edges_input_stream . read ( ( char * ) & ( current_edge_data ) , sizeof ( OriginalEdgeData ) )
+>805	ArgumentList	( char * ) & ( current_edge_data )
+>806	Argument	sizeof ( OriginalEdgeData )
+>807	SizeofExpr	sizeof ( OriginalEdgeData )
+>808	SizeofOperand	OriginalEdgeData
+>809	Sizeof	sizeof
+>810	Argument	( char * ) & ( current_edge_data )
+>811	CastExpression	( char * ) & ( current_edge_data )
+>812	UnaryOp	& ( current_edge_data )
+>813	Identifier	current_edge_data
+>814	UnaryOperator	&
+>815	CastTarget	char *
+>816	Callee	edges_input_stream . read
+>817	MemberAccess	edges_input_stream . read
+>818	Identifier	read
+>819	Identifier	edges_input_stream
+>820	UnaryExpression	++ i
+>821	Identifier	i
+>822	IncDec	++
+>823	Condition	i < number_of_original_edges
+>824	RelationalExpression	i < number_of_original_edges
+>825	Identifier	number_of_original_edges
+>826	Identifier	i
+>827	ForInit	unsigned i = 0 ;
+>828	IdentifierDeclStatement	unsigned i = 0 ;
+>829	IdentifierDecl	i = 0
+>830	AssignmentExpr	i = 0
+>831	PrimaryExpression	0
+>832	Identifier	i
+>833	Identifier	i
+>834	IdentifierDeclType	unsigned
+>835	IdentifierDeclStatement	OriginalEdgeData current_edge_data ;
+>836	IdentifierDecl	current_edge_data
+>837	Identifier	current_edge_data
+>838	IdentifierDeclType	OriginalEdgeData
+>839	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>840	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>841	Expression	shared_memory_ptr , SharedDataLayout 
+>842	Identifier	SharedDataLayout 
+>843	Identifier	shared_memory_ptr
+>844	Identifier	true
+>845	Statement	,
+>846	Statement	unsigned
+>847	Statement	<
+>848	Statement	GetBlockPtr
+>849	Statement	->
+>850	Statement	shared_layout_ptr
+>851	Statement	=
+>852	Statement	geometries_indicator_ptr
+>853	Statement	*
+>854	Statement	unsigned
+>855	ExpressionStatement	TurnInstruction * turn_instructions_ptr = shared_layout_ptr -> GetBlockPtr < TurnInstruction , true > ( shared_\
+>856	Expression	TurnInstruction * turn_instructions_ptr = shared_layout_ptr -> GetBlockPtr < TurnInstruction , true > ( shared_memory_\
+>857	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>858	Expression	shared_memory_ptr , SharedDataLayout 
+>859	Identifier	SharedDataLayout 
+>860	Identifier	shared_memory_ptr
+>861	Identifier	true
+>862	AssignmentExpr	TurnInstruction * turn_instructions_ptr = shared_layout_ptr -> GetBlockPtr < TurnInstruction
+>863	RelationalExpression	shared_layout_ptr -> GetBlockPtr < TurnInstruction
+>864	Identifier	TurnInstruction
+>865	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>866	Identifier	GetBlockPtr
+>867	Identifier	shared_layout_ptr
+>868	MultiplicativeExpression	TurnInstruction * turn_instructions_ptr
+>869	Identifier	turn_instructions_ptr
+>870	Identifier	TurnInstruction
+>871	ExpressionStatement	TravelMode * travel_mode_ptr = shared_layout_ptr -> GetBlockPtr < TravelMode , true > ( shared_memory_ptr , SharedDataLayout 
+>872	Expression	TravelMode * travel_mode_ptr = shared_layout_ptr -> GetBlockPtr < TravelMode , true > ( shared_memory_ptr , SharedDataLayout 
+>873	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>874	Expression	shared_memory_ptr , SharedDataLayout 
+>875	Identifier	SharedDataLayout 
+>876	Identifier	shared_memory_ptr
+>877	Identifier	true
+>878	AssignmentExpr	TravelMode * travel_mode_ptr = shared_layout_ptr -> GetBlockPtr < TravelMode
+>879	RelationalExpression	shared_layout_ptr -> GetBlockPtr < TravelMode
+>880	Identifier	TravelMode
+>881	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>882	Identifier	GetBlockPtr
+>883	Identifier	shared_layout_ptr
+>884	MultiplicativeExpression	TravelMode * travel_mode_ptr
+>885	Identifier	travel_mode_ptr
+>886	Identifier	TravelMode
+>887	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>888	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>889	Expression	shared_memory_ptr , SharedDataLayout 
+>890	Identifier	SharedDataLayout 
+>891	Identifier	shared_memory_ptr
+>892	Identifier	true
+>893	Statement	,
+>894	Statement	unsigned
+>895	Statement	<
+>896	Statement	GetBlockPtr
+>897	Statement	->
+>898	Statement	shared_layout_ptr
+>899	Statement	=
+>900	Statement	name_id_ptr
+>901	Statement	*
+>902	Statement	unsigned
+>903	ExpressionStatement	NodeID * via_node_ptr = shared_layout_ptr -> GetBlockPtr < NodeID , true > ( shared_memory_ptr , SharedDataLayout 
+>904	Expression	NodeID * via_node_ptr = shared_layout_ptr -> GetBlockPtr < NodeID , true > ( shared_memory_ptr , SharedDataLayout 
+>905	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>906	Expression	shared_memory_ptr , SharedDataLayout 
+>907	Identifier	SharedDataLayout 
+>908	Identifier	shared_memory_ptr
+>909	Identifier	true
+>910	AssignmentExpr	NodeID * via_node_ptr = shared_layout_ptr -> GetBlockPtr < NodeID
+>911	RelationalExpression	shared_layout_ptr -> GetBlockPtr < NodeID
+>912	Identifier	NodeID
+>913	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>914	Identifier	GetBlockPtr
+>915	Identifier	shared_layout_ptr
+>916	MultiplicativeExpression	NodeID * via_node_ptr
+>917	Identifier	via_node_ptr
+>918	Identifier	NodeID
+>919	ExpressionStatement	name_stream . close ( )
+>920	CallExpression	name_stream . close ( )
+>921	ArgumentList	 
+>922	Callee	name_stream . close
+>923	MemberAccess	name_stream . close
+>924	Identifier	close
+>925	Identifier	name_stream
+>926	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>927	CompoundStatement	 
+>928	ExpressionStatement	name_stream . read ( name_char_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>929	CallExpression	name_stream . read ( name_char_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>930	ArgumentList	name_char_ptr
+>931	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>932	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>933	ArgumentList	SharedDataLayout 
+>934	Argument	SharedDataLayout 
+>935	Identifier	SharedDataLayout 
+>936	Callee	shared_layout_ptr -> GetBlockSize
+>937	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>938	Identifier	GetBlockSize
+>939	Identifier	shared_layout_ptr
+>940	Argument	name_char_ptr
+>941	Identifier	name_char_ptr
+>942	Callee	name_stream . read
+>943	MemberAccess	name_stream . read
+>944	Identifier	read
+>945	Identifier	name_stream
+>946	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>947	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>948	PrimaryExpression	0
+>949	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>950	ArgumentList	SharedDataLayout 
+>951	Argument	SharedDataLayout 
+>952	Identifier	SharedDataLayout 
+>953	Callee	shared_layout_ptr -> GetBlockSize
+>954	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>955	Identifier	GetBlockSize
+>956	Identifier	shared_layout_ptr
+>957	ExpressionStatement	BOOST_ASSERT_MSG ( temp_length == shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>958	CallExpression	BOOST_ASSERT_MSG ( temp_length == shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>959	ArgumentList	temp_length == shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>960	Argument	\"Name file corrupted!\"
+>961	PrimaryExpression	\"Name file corrupted!\"
+>962	Argument	temp_length == shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>963	EqualityExpression	temp_length == shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>964	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>965	ArgumentList	SharedDataLayout 
+>966	Argument	SharedDataLayout 
+>967	Identifier	SharedDataLayout 
+>968	Callee	shared_layout_ptr -> GetBlockSize
+>969	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>970	Identifier	GetBlockSize
+>971	Identifier	shared_layout_ptr
+>972	Identifier	temp_length
+>973	Callee	BOOST_ASSERT_MSG
+>974	Identifier	BOOST_ASSERT_MSG
+>975	ExpressionStatement	name_stream . read ( ( char * ) & temp_length , sizeof ( unsigned ) )
+>976	CallExpression	name_stream . read ( ( char * ) & temp_length , sizeof ( unsigned ) )
+>977	ArgumentList	( char * ) & temp_length
+>978	Argument	sizeof ( unsigned )
+>979	SizeofExpr	sizeof ( unsigned )
+>980	SizeofOperand	unsigned
+>981	Sizeof	sizeof
+>982	Argument	( char * ) & temp_length
+>983	CastExpression	( char * ) & temp_length
+>984	UnaryOp	& temp_length
+>985	Identifier	temp_length
+>986	UnaryOperator	&
+>987	CastTarget	char *
+>988	Callee	name_stream . read
+>989	MemberAccess	name_stream . read
+>990	Identifier	read
+>991	Identifier	name_stream
+>992	IdentifierDeclStatement	unsigned temp_length ;
+>993	IdentifierDecl	temp_length
+>994	Identifier	temp_length
+>995	IdentifierDeclType	unsigned
+>996	ExpressionStatement	char * name_char_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>997	Expression	char * name_char_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>998	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>999	Expression	shared_memory_ptr , SharedDataLayout 
+>1000	Identifier	SharedDataLayout 
+>1001	Identifier	shared_memory_ptr
+>1002	Identifier	true
+>1003	AssignmentExpr	char * name_char_ptr = shared_layout_ptr -> GetBlockPtr < char
+>1004	RelationalExpression	shared_layout_ptr -> GetBlockPtr < char
+>1005	Identifier	char
+>1006	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>1007	Identifier	GetBlockPtr
+>1008	Identifier	shared_layout_ptr
+>1009	MultiplicativeExpression	char * name_char_ptr
+>1010	Identifier	name_char_ptr
+>1011	Identifier	char
+>1012	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1013	CompoundStatement	 
+>1014	ExpressionStatement	name_stream . read ( ( char * ) name_blocks_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1015	CallExpression	name_stream . read ( ( char * ) name_blocks_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1016	ArgumentList	( char * ) name_blocks_ptr
+>1017	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1018	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1019	ArgumentList	SharedDataLayout 
+>1020	Argument	SharedDataLayout 
+>1021	Identifier	SharedDataLayout 
+>1022	Callee	shared_layout_ptr -> GetBlockSize
+>1023	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>1024	Identifier	GetBlockSize
+>1025	Identifier	shared_layout_ptr
+>1026	Argument	( char * ) name_blocks_ptr
+>1027	CastExpression	( char * ) name_blocks_ptr
+>1028	Identifier	name_blocks_ptr
+>1029	CastTarget	char *
+>1030	Callee	name_stream . read
+>1031	MemberAccess	name_stream . read
+>1032	Identifier	read
+>1033	Identifier	name_stream
+>1034	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1035	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1036	PrimaryExpression	0
+>1037	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1038	ArgumentList	SharedDataLayout 
+>1039	Argument	SharedDataLayout 
+>1040	Identifier	SharedDataLayout 
+>1041	Callee	shared_layout_ptr -> GetBlockSize
+>1042	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>1043	Identifier	GetBlockSize
+>1044	Identifier	shared_layout_ptr
+>1045	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>1046	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>1047	Expression	shared_memory_ptr , SharedDataLayout 
+>1048	Identifier	SharedDataLayout 
+>1049	Identifier	shared_memory_ptr
+>1050	Identifier	true
+>1051	Statement	,
+>1052	Statement	unsigned
+>1053	Statement	<
+>1054	Statement	GetBlockPtr
+>1055	Statement	->
+>1056	Statement	shared_layout_ptr
+>1057	Statement	=
+>1058	Statement	name_blocks_ptr
+>1059	Statement	*
+>1060	Statement	unsigned
+>1061	IfStatement	if ( shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1062	CompoundStatement	 
+>1063	ExpressionStatement	name_stream . read ( ( char * ) name_offsets_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1064	CallExpression	name_stream . read ( ( char * ) name_offsets_ptr , shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1065	ArgumentList	( char * ) name_offsets_ptr
+>1066	Argument	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1067	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1068	ArgumentList	SharedDataLayout 
+>1069	Argument	SharedDataLayout 
+>1070	Identifier	SharedDataLayout 
+>1071	Callee	shared_layout_ptr -> GetBlockSize
+>1072	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>1073	Identifier	GetBlockSize
+>1074	Identifier	shared_layout_ptr
+>1075	Argument	( char * ) name_offsets_ptr
+>1076	CastExpression	( char * ) name_offsets_ptr
+>1077	Identifier	name_offsets_ptr
+>1078	CastTarget	char *
+>1079	Callee	name_stream . read
+>1080	MemberAccess	name_stream . read
+>1081	Identifier	read
+>1082	Identifier	name_stream
+>1083	Condition	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1084	RelationalExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1085	PrimaryExpression	0
+>1086	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1087	ArgumentList	SharedDataLayout 
+>1088	Argument	SharedDataLayout 
+>1089	Identifier	SharedDataLayout 
+>1090	Callee	shared_layout_ptr -> GetBlockSize
+>1091	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>1092	Identifier	GetBlockSize
+>1093	Identifier	shared_layout_ptr
+>1094	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>1095	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>1096	Expression	shared_memory_ptr , SharedDataLayout 
+>1097	Identifier	SharedDataLayout 
+>1098	Identifier	shared_memory_ptr
+>1099	Identifier	true
+>1100	Statement	,
+>1101	Statement	unsigned
+>1102	Statement	<
+>1103	Statement	GetBlockPtr
+>1104	Statement	->
+>1105	Statement	shared_layout_ptr
+>1106	Statement	=
+>1107	Statement	name_offsets_ptr
+>1108	Statement	*
+>1109	Statement	unsigned
+>1110	ExpressionStatement	std 
+>1111	CallExpression	std 
+>1112	ArgumentList	file_index_path . begin ( )
+>1113	Argument	file_index_path_ptr
+>1114	Identifier	file_index_path_ptr
+>1115	Argument	file_index_path . end ( )
+>1116	CallExpression	file_index_path . end ( )
+>1117	ArgumentList	 
+>1118	Callee	file_index_path . end
+>1119	MemberAccess	file_index_path . end
+>1120	Identifier	end
+>1121	Identifier	file_index_path
+>1122	Argument	file_index_path . begin ( )
+>1123	CallExpression	file_index_path . begin ( )
+>1124	ArgumentList	 
+>1125	Callee	file_index_path . begin
+>1126	MemberAccess	file_index_path . begin
+>1127	Identifier	begin
+>1128	Identifier	file_index_path
+>1129	Callee	std 
+>1130	Identifier	std 
+>1131	ExpressionStatement	std 
+>1132	CallExpression	std 
+>1133	ArgumentList	file_index_path_ptr
+>1134	Argument	0
+>1135	PrimaryExpression	0
+>1136	Argument	file_index_path_ptr + shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1137	AdditiveExpression	file_index_path_ptr + shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1138	CallExpression	shared_layout_ptr -> GetBlockSize ( SharedDataLayout 
+>1139	ArgumentList	SharedDataLayout 
+>1140	Argument	SharedDataLayout 
+>1141	Identifier	SharedDataLayout 
+>1142	Callee	shared_layout_ptr -> GetBlockSize
+>1143	PtrMemberAccess	shared_layout_ptr -> GetBlockSize
+>1144	Identifier	GetBlockSize
+>1145	Identifier	shared_layout_ptr
+>1146	Identifier	file_index_path_ptr
+>1147	Argument	file_index_path_ptr
+>1148	Identifier	file_index_path_ptr
+>1149	Callee	std 
+>1150	Identifier	std 
+>1151	ExpressionStatement	char * file_index_path_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>1152	Expression	char * file_index_path_ptr = shared_layout_ptr -> GetBlockPtr < char , true > ( shared_memory_ptr , SharedDataLayout 
+>1153	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>1154	Expression	shared_memory_ptr , SharedDataLayout 
+>1155	Identifier	SharedDataLayout 
+>1156	Identifier	shared_memory_ptr
+>1157	Identifier	true
+>1158	AssignmentExpr	char * file_index_path_ptr = shared_layout_ptr -> GetBlockPtr < char
+>1159	RelationalExpression	shared_layout_ptr -> GetBlockPtr < char
+>1160	Identifier	char
+>1161	PtrMemberAccess	shared_layout_ptr -> GetBlockPtr
+>1162	Identifier	GetBlockPtr
+>1163	Identifier	shared_layout_ptr
+>1164	MultiplicativeExpression	char * file_index_path_ptr
+>1165	Identifier	file_index_path_ptr
+>1166	Identifier	char
+>1167	ExpressionStatement	* checksum_ptr = checksum
+>1168	AssignmentExpr	* checksum_ptr = checksum
+>1169	Identifier	checksum
+>1170	UnaryOp	* checksum_ptr
+>1171	Identifier	checksum_ptr
+>1172	UnaryOperator	*
+>1173	ExpressionStatement	true > ( shared_memory_ptr , SharedDataLayout 
+>1174	RelationalExpression	true > ( shared_memory_ptr , SharedDataLayout 
+>1175	Expression	shared_memory_ptr , SharedDataLayout 
+>1176	Identifier	SharedDataLayout 
+>1177	Identifier	shared_memory_ptr
+>1178	Identifier	true
+>1179	Statement	,
+>1180	Statement	unsigned
+>1181	Statement	<
+>1182	Statement	GetBlockPtr
+>1183	Statement	->
+>1184	Statement	shared_layout_ptr
+>1185	Statement	=
+>1186	Statement	checksum_ptr
+>1187	Statement	*
+>1188	Statement	unsigned
+>1189	ExpressionStatement	shared_memory -> Ptr ( )
+>1190	CallExpression	shared_memory -> Ptr ( )
+>1191	ArgumentList	 
+>1192	Callee	shared_memory -> Ptr
+>1193	PtrMemberAccess	shared_memory -> Ptr
+>1194	Identifier	Ptr
+>1195	Identifier	shared_memory
+>1196	Statement	>
+>1197	Statement	*
+>1198	Statement	char
+>1199	Statement	<
+>1200	Statement	static_cast
+>1201	Statement	=
+>1202	Statement	shared_memory_ptr
+>1203	Statement	*
+>1204	Statement	char
+>1205	IdentifierDeclStatement	SharedMemory * shared_memory = SharedMemoryFactory 
+>1206	IdentifierDecl	* shared_memory = SharedMemoryFactory 
+>1207	AssignmentExpr	* shared_memory = SharedMemoryFactory 
+>1208	CallExpression	SharedMemoryFactory 
+>1209	ArgumentList	data_region
+>1210	Argument	shared_layout_ptr -> GetSizeOfLayout ( )
+>1211	CallExpression	shared_layout_ptr -> GetSizeOfLayout ( )
+>1212	ArgumentList	 
+>1213	Callee	shared_layout_ptr -> GetSizeOfLayout
+>1214	PtrMemberAccess	shared_layout_ptr -> GetSizeOfLayout
+>1215	Identifier	GetSizeOfLayout
+>1216	Identifier	shared_layout_ptr
+>1217	Argument	data_region
+>1218	Identifier	data_region
+>1219	Callee	SharedMemoryFactory 
+>1220	Identifier	SharedMemoryFactory 
+>1221	Identifier	shared_memory
+>1222	Identifier	shared_memory
+>1223	IdentifierDeclType	SharedMemory *
+>1224	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"allocating shared memory of \" << shared_layout_ptr -> GetSizeOfLayout ( ) << \" \
+>1225	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"allocating shared memory of \" << shared_layout_ptr -> GetSizeOfLayout ( ) << \" \
+>1226	ShiftExpression	\"allocating shared memory of \" << shared_layout_ptr -> GetSizeOfLayout ( ) << \" bytes\"
+>1227	ShiftExpression	shared_layout_ptr -> GetSizeOfLayout ( ) << \" bytes\"
+>1228	PrimaryExpression	\" bytes\"
+>1229	CallExpression	shared_layout_ptr -> GetSizeOfLayout ( )
+>1230	ArgumentList	 
+>1231	Callee	shared_layout_ptr -> GetSizeOfLayout
+>1232	PtrMemberAccess	shared_layout_ptr -> GetSizeOfLayout
+>1233	Identifier	GetSizeOfLayout
+>1234	Identifier	shared_layout_ptr
+>1235	PrimaryExpression	\"allocating shared memory of \"
+>1236	CallExpression	SimpleLogger ( ) . Write ( )
+>1237	ArgumentList	 
+>1238	Callee	SimpleLogger ( ) . Write
+>1239	MemberAccess	SimpleLogger ( ) . Write
+>1240	Identifier	Write
+>1241	CallExpression	SimpleLogger ( )
+>1242	ArgumentList	 
+>1243	Callee	SimpleLogger
+>1244	Identifier	SimpleLogger
+>1245	ExpressionStatement	SharedDataLayout 
+>1246	Expression	SharedDataLayout 
+>1247	Identifier	number_of_compressed_geometries
+>1248	Identifier	SharedDataLayout 
+>1249	Statement	>
+>1250	Statement	unsigned
+>1251	Statement	<
+>1252	Statement	SetBlockSize
+>1253	Statement	->
+>1254	Statement	shared_layout_ptr
+>1255	ExpressionStatement	geometry_input_stream . read ( ( char * ) & number_of_compressed_geometries , sizeof ( unsigned ) )
+>1256	CallExpression	geometry_input_stream . read ( ( char * ) & number_of_compressed_geometries , sizeof ( unsigned ) )
+>1257	ArgumentList	( char * ) & number_of_compressed_geometries
+>1258	Argument	sizeof ( unsigned )
+>1259	SizeofExpr	sizeof ( unsigned )
+>1260	SizeofOperand	unsigned
+>1261	Sizeof	sizeof
+>1262	Argument	( char * ) & number_of_compressed_geometries
+>1263	CastExpression	( char * ) & number_of_compressed_geometries
+>1264	UnaryOp	& number_of_compressed_geometries
+>1265	Identifier	number_of_compressed_geometries
+>1266	UnaryOperator	&
+>1267	CastTarget	char *
+>1268	Callee	geometry_input_stream . read
+>1269	MemberAccess	geometry_input_stream . read
+>1270	Identifier	read
+>1271	Identifier	geometry_input_stream
+>1272	ExpressionStatement	boost 
+>1273	CallExpression	boost 
+>1274	ArgumentList	geometry_input_stream
+>1275	Argument	BOOST_IOS 
+>1276	Identifier	BOOST_IOS 
+>1277	Argument	number_of_geometries_indices * sizeof ( unsigned )
+>1278	MultiplicativeExpression	number_of_geometries_indices * sizeof ( unsigned )
+>1279	SizeofExpr	sizeof ( unsigned )
+>1280	SizeofOperand	unsigned
+>1281	Sizeof	sizeof
+>1282	Identifier	number_of_geometries_indices
+>1283	Argument	geometry_input_stream
+>1284	Identifier	geometry_input_stream
+>1285	Callee	boost 
+>1286	Identifier	boost 
+>1287	ExpressionStatement	SharedDataLayout 
+>1288	Expression	SharedDataLayout 
+>1289	Identifier	number_of_geometries_indices
+>1290	Identifier	SharedDataLayout 
+>1291	Statement	>
+>1292	Statement	unsigned
+>1293	Statement	<
+>1294	Statement	SetBlockSize
+>1295	Statement	->
+>1296	Statement	shared_layout_ptr
+>1297	ExpressionStatement	geometry_input_stream . read ( ( char * ) & number_of_geometries_indices , sizeof ( unsigned ) )
+>1298	CallExpression	geometry_input_stream . read ( ( char * ) & number_of_geometries_indices , sizeof ( unsigned ) )
+>1299	ArgumentList	( char * ) & number_of_geometries_indices
+>1300	Argument	sizeof ( unsigned )
+>1301	SizeofExpr	sizeof ( unsigned )
+>1302	SizeofOperand	unsigned
+>1303	Sizeof	sizeof
+>1304	Argument	( char * ) & number_of_geometries_indices
+>1305	CastExpression	( char * ) & number_of_geometries_indices
+>1306	UnaryOp	& number_of_geometries_indices
+>1307	Identifier	number_of_geometries_indices
+>1308	UnaryOperator	&
+>1309	CastTarget	char *
+>1310	Callee	geometry_input_stream . read
+>1311	MemberAccess	geometry_input_stream . read
+>1312	Identifier	read
+>1313	Identifier	geometry_input_stream
+>1314	IdentifierDeclStatement	unsigned number_of_compressed_geometries = 0 ;
+>1315	IdentifierDecl	number_of_compressed_geometries = 0
+>1316	AssignmentExpr	number_of_compressed_geometries = 0
+>1317	PrimaryExpression	0
+>1318	Identifier	number_of_compressed_geometries
+>1319	Identifier	number_of_compressed_geometries
+>1320	IdentifierDeclType	unsigned
+>1321	IdentifierDeclStatement	unsigned number_of_geometries_indices = 0 ;
+>1322	IdentifierDecl	number_of_geometries_indices = 0
+>1323	AssignmentExpr	number_of_geometries_indices = 0
+>1324	PrimaryExpression	0
+>1325	Identifier	number_of_geometries_indices
+>1326	Identifier	number_of_geometries_indices
+>1327	IdentifierDeclType	unsigned
+>1328	IdentifierDeclStatement	std 
+>1329	IdentifierDecl	geometry_input_stream ( geometries_data_path . string ( ) . c_str ( ) , std 
+>1330	Expression	geometries_data_path . string ( ) . c_str ( ) , std 
+>1331	Identifier	std 
+>1332	CallExpression	geometries_data_path . string ( ) . c_str ( )
+>1333	ArgumentList	 
+>1334	Callee	geometries_data_path . string ( ) . c_str
+>1335	MemberAccess	geometries_data_path . string ( ) . c_str
+>1336	Identifier	c_str
+>1337	CallExpression	geometries_data_path . string ( )
+>1338	ArgumentList	 
+>1339	Callee	geometries_data_path . string
+>1340	MemberAccess	geometries_data_path . string
+>1341	Identifier	string
+>1342	Identifier	geometries_data_path
+>1343	Identifier	geometry_input_stream
+>1344	IdentifierDeclType	std 
+>1345	ExpressionStatement	shared_layout_ptr -> SetBlockSize < FixedPointCoordinate > ( SharedDataLayout 
+>1346	RelationalExpression	shared_layout_ptr -> SetBlockSize < FixedPointCoordinate > ( SharedDataLayout 
+>1347	RelationalExpression	FixedPointCoordinate > ( SharedDataLayout 
+>1348	Expression	SharedDataLayout 
+>1349	Identifier	coordinate_list_size
+>1350	Identifier	SharedDataLayout 
+>1351	Identifier	FixedPointCoordinate
+>1352	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1353	Identifier	SetBlockSize
+>1354	Identifier	shared_layout_ptr
+>1355	ExpressionStatement	nodes_input_stream . read ( ( char * ) & coordinate_list_size , sizeof ( unsigned ) )
+>1356	CallExpression	nodes_input_stream . read ( ( char * ) & coordinate_list_size , sizeof ( unsigned ) )
+>1357	ArgumentList	( char * ) & coordinate_list_size
+>1358	Argument	sizeof ( unsigned )
+>1359	SizeofExpr	sizeof ( unsigned )
+>1360	SizeofOperand	unsigned
+>1361	Sizeof	sizeof
+>1362	Argument	( char * ) & coordinate_list_size
+>1363	CastExpression	( char * ) & coordinate_list_size
+>1364	UnaryOp	& coordinate_list_size
+>1365	Identifier	coordinate_list_size
+>1366	UnaryOperator	&
+>1367	CastTarget	char *
+>1368	Callee	nodes_input_stream . read
+>1369	MemberAccess	nodes_input_stream . read
+>1370	Identifier	read
+>1371	Identifier	nodes_input_stream
+>1372	IdentifierDeclStatement	unsigned coordinate_list_size = 0 ;
+>1373	IdentifierDecl	coordinate_list_size = 0
+>1374	AssignmentExpr	coordinate_list_size = 0
+>1375	PrimaryExpression	0
+>1376	Identifier	coordinate_list_size
+>1377	Identifier	coordinate_list_size
+>1378	IdentifierDeclType	unsigned
+>1379	IdentifierDeclStatement	boost 
+>1380	IdentifierDecl	nodes_input_stream ( nodes_data_path , std 
+>1381	Expression	nodes_data_path , std 
+>1382	Identifier	std 
+>1383	Identifier	nodes_data_path
+>1384	Identifier	nodes_input_stream
+>1385	IdentifierDeclType	boost 
+>1386	ExpressionStatement	shared_layout_ptr -> SetBlockSize < char > ( SharedDataLayout 
+>1387	RelationalExpression	shared_layout_ptr -> SetBlockSize < char > ( SharedDataLayout 
+>1388	RelationalExpression	char > ( SharedDataLayout 
+>1389	Expression	SharedDataLayout 
+>1390	CallExpression	m_timestamp . length ( )
+>1391	ArgumentList	 
+>1392	Callee	m_timestamp . length
+>1393	MemberAccess	m_timestamp . length
+>1394	Identifier	length
+>1395	Identifier	m_timestamp
+>1396	Identifier	SharedDataLayout 
+>1397	Identifier	char
+>1398	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1399	Identifier	SetBlockSize
+>1400	Identifier	shared_layout_ptr
+>1401	IfStatement	if ( 25 < m_timestamp . length ( ) )
+>1402	CompoundStatement	 
+>1403	ExpressionStatement	m_timestamp . resize ( 25 )
+>1404	CallExpression	m_timestamp . resize ( 25 )
+>1405	ArgumentList	25
+>1406	Argument	25
+>1407	PrimaryExpression	25
+>1408	Callee	m_timestamp . resize
+>1409	MemberAccess	m_timestamp . resize
+>1410	Identifier	resize
+>1411	Identifier	m_timestamp
+>1412	Condition	25 < m_timestamp . length ( )
+>1413	RelationalExpression	25 < m_timestamp . length ( )
+>1414	CallExpression	m_timestamp . length ( )
+>1415	ArgumentList	 
+>1416	Callee	m_timestamp . length
+>1417	MemberAccess	m_timestamp . length
+>1418	Identifier	length
+>1419	Identifier	m_timestamp
+>1420	PrimaryExpression	25
+>1421	IfStatement	if ( m_timestamp . empty ( ) )
+>1422	CompoundStatement	 
+>1423	ExpressionStatement	m_timestamp = \"n/a\"
+>1424	AssignmentExpr	m_timestamp = \"n/a\"
+>1425	PrimaryExpression	\"n/a\"
+>1426	Identifier	m_timestamp
+>1427	Condition	m_timestamp . empty ( )
+>1428	CallExpression	m_timestamp . empty ( )
+>1429	ArgumentList	 
+>1430	Callee	m_timestamp . empty
+>1431	MemberAccess	m_timestamp . empty
+>1432	Identifier	empty
+>1433	Identifier	m_timestamp
+>1434	IfStatement	if ( boost 
+>1435	CompoundStatement	 
+>1436	IfStatement	if ( ! timestamp_stream )
+>1437	ElseStatement	else
+>1438	CompoundStatement	 
+>1439	ExpressionStatement	timestamp_stream . close ( )
+>1440	CallExpression	timestamp_stream . close ( )
+>1441	ArgumentList	 
+>1442	Callee	timestamp_stream . close
+>1443	MemberAccess	timestamp_stream . close
+>1444	Identifier	close
+>1445	Identifier	timestamp_stream
+>1446	ExpressionStatement	getline ( timestamp_stream , m_timestamp )
+>1447	CallExpression	getline ( timestamp_stream , m_timestamp )
+>1448	ArgumentList	timestamp_stream
+>1449	Argument	m_timestamp
+>1450	Identifier	m_timestamp
+>1451	Argument	timestamp_stream
+>1452	Identifier	timestamp_stream
+>1453	Callee	getline
+>1454	Identifier	getline
+>1455	CompoundStatement	 
+>1456	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << timestamp_path << \" not found. setting to default\"
+>1457	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << timestamp_path << \" not found. setting to default\"
+>1458	ShiftExpression	timestamp_path << \" not found. setting to default\"
+>1459	PrimaryExpression	\" not found. setting to default\"
+>1460	Identifier	timestamp_path
+>1461	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>1462	ArgumentList	logWARNING
+>1463	Argument	logWARNING
+>1464	Identifier	logWARNING
+>1465	Callee	SimpleLogger ( ) . Write
+>1466	MemberAccess	SimpleLogger ( ) . Write
+>1467	Identifier	Write
+>1468	CallExpression	SimpleLogger ( )
+>1469	ArgumentList	 
+>1470	Callee	SimpleLogger
+>1471	Identifier	SimpleLogger
+>1472	Condition	! timestamp_stream
+>1473	UnaryOp	! timestamp_stream
+>1474	Identifier	timestamp_stream
+>1475	UnaryOperator	!
+>1476	IdentifierDeclStatement	boost 
+>1477	IdentifierDecl	timestamp_stream ( timestamp_path )
+>1478	Identifier	timestamp_path
+>1479	Identifier	timestamp_stream
+>1480	IdentifierDeclType	boost 
+>1481	Condition	boost 
+>1482	CallExpression	boost 
+>1483	ArgumentList	timestamp_path
+>1484	Argument	timestamp_path
+>1485	Identifier	timestamp_path
+>1486	Callee	boost 
+>1487	Identifier	boost 
+>1488	IdentifierDeclStatement	std 
+>1489	IdentifierDecl	m_timestamp
+>1490	Identifier	m_timestamp
+>1491	IdentifierDeclType	std 
+>1492	ExpressionStatement	shared_layout_ptr -> SetBlockSize < RTreeNode > ( SharedDataLayout 
+>1493	RelationalExpression	shared_layout_ptr -> SetBlockSize < RTreeNode > ( SharedDataLayout 
+>1494	RelationalExpression	RTreeNode > ( SharedDataLayout 
+>1495	Expression	SharedDataLayout 
+>1496	Identifier	tree_size
+>1497	Identifier	SharedDataLayout 
+>1498	Identifier	RTreeNode
+>1499	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1500	Identifier	SetBlockSize
+>1501	Identifier	shared_layout_ptr
+>1502	ExpressionStatement	tree_node_file . read ( ( char * ) & tree_size , sizeof ( uint32_t ) )
+>1503	CallExpression	tree_node_file . read ( ( char * ) & tree_size , sizeof ( uint32_t ) )
+>1504	ArgumentList	( char * ) & tree_size
+>1505	Argument	sizeof ( uint32_t )
+>1506	SizeofExpr	sizeof ( uint32_t )
+>1507	SizeofOperand	uint32_t
+>1508	Sizeof	sizeof
+>1509	Argument	( char * ) & tree_size
+>1510	CastExpression	( char * ) & tree_size
+>1511	UnaryOp	& tree_size
+>1512	Identifier	tree_size
+>1513	UnaryOperator	&
+>1514	CastTarget	char *
+>1515	Callee	tree_node_file . read
+>1516	MemberAccess	tree_node_file . read
+>1517	Identifier	read
+>1518	Identifier	tree_node_file
+>1519	IdentifierDeclStatement	uint32_t tree_size = 0 ;
+>1520	IdentifierDecl	tree_size = 0
+>1521	AssignmentExpr	tree_size = 0
+>1522	PrimaryExpression	0
+>1523	Identifier	tree_size
+>1524	Identifier	tree_size
+>1525	IdentifierDeclType	uint32_t
+>1526	IdentifierDeclStatement	boost 
+>1527	IdentifierDecl	tree_node_file ( ram_index_path , std 
+>1528	Expression	ram_index_path , std 
+>1529	Identifier	std 
+>1530	Identifier	ram_index_path
+>1531	Identifier	tree_node_file
+>1532	IdentifierDeclType	boost 
+>1533	ExpressionStatement	shared_layout_ptr -> SetBlockSize < QueryGraph 
+>1534	RelationalExpression	shared_layout_ptr -> SetBlockSize < QueryGraph 
+>1535	RelationalExpression	QueryGraph 
+>1536	Expression	SharedDataLayout 
+>1537	Identifier	number_of_graph_edges
+>1538	Identifier	SharedDataLayout 
+>1539	Identifier	QueryGraph 
+>1540	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1541	Identifier	SetBlockSize
+>1542	Identifier	shared_layout_ptr
+>1543	ExpressionStatement	hsgr_input_stream . read ( ( char * ) & number_of_graph_edges , sizeof ( unsigned ) )
+>1544	CallExpression	hsgr_input_stream . read ( ( char * ) & number_of_graph_edges , sizeof ( unsigned ) )
+>1545	ArgumentList	( char * ) & number_of_graph_edges
+>1546	Argument	sizeof ( unsigned )
+>1547	SizeofExpr	sizeof ( unsigned )
+>1548	SizeofOperand	unsigned
+>1549	Sizeof	sizeof
+>1550	Argument	( char * ) & number_of_graph_edges
+>1551	CastExpression	( char * ) & number_of_graph_edges
+>1552	UnaryOp	& number_of_graph_edges
+>1553	Identifier	number_of_graph_edges
+>1554	UnaryOperator	&
+>1555	CastTarget	char *
+>1556	Callee	hsgr_input_stream . read
+>1557	MemberAccess	hsgr_input_stream . read
+>1558	Identifier	read
+>1559	Identifier	hsgr_input_stream
+>1560	IdentifierDeclStatement	unsigned number_of_graph_edges = 0 ;
+>1561	IdentifierDecl	number_of_graph_edges = 0
+>1562	AssignmentExpr	number_of_graph_edges = 0
+>1563	PrimaryExpression	0
+>1564	Identifier	number_of_graph_edges
+>1565	Identifier	number_of_graph_edges
+>1566	IdentifierDeclType	unsigned
+>1567	ExpressionStatement	shared_layout_ptr -> SetBlockSize < QueryGraph 
+>1568	RelationalExpression	shared_layout_ptr -> SetBlockSize < QueryGraph 
+>1569	RelationalExpression	QueryGraph 
+>1570	Expression	SharedDataLayout 
+>1571	Identifier	number_of_graph_nodes
+>1572	Identifier	SharedDataLayout 
+>1573	Identifier	QueryGraph 
+>1574	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1575	Identifier	SetBlockSize
+>1576	Identifier	shared_layout_ptr
+>1577	ExpressionStatement	BOOST_ASSERT_MSG ( ( 0 != number_of_graph_nodes ) , \"number of nodes is zero\" )
+>1578	CallExpression	BOOST_ASSERT_MSG ( ( 0 != number_of_graph_nodes ) , \"number of nodes is zero\" )
+>1579	ArgumentList	0 != number_of_graph_nodes
+>1580	Argument	\"number of nodes is zero\"
+>1581	PrimaryExpression	\"number of nodes is zero\"
+>1582	Argument	0 != number_of_graph_nodes
+>1583	EqualityExpression	0 != number_of_graph_nodes
+>1584	Identifier	number_of_graph_nodes
+>1585	PrimaryExpression	0
+>1586	Callee	BOOST_ASSERT_MSG
+>1587	Identifier	BOOST_ASSERT_MSG
+>1588	ExpressionStatement	hsgr_input_stream . read ( ( char * ) & number_of_graph_nodes , sizeof ( unsigned ) )
+>1589	CallExpression	hsgr_input_stream . read ( ( char * ) & number_of_graph_nodes , sizeof ( unsigned ) )
+>1590	ArgumentList	( char * ) & number_of_graph_nodes
+>1591	Argument	sizeof ( unsigned )
+>1592	SizeofExpr	sizeof ( unsigned )
+>1593	SizeofOperand	unsigned
+>1594	Sizeof	sizeof
+>1595	Argument	( char * ) & number_of_graph_nodes
+>1596	CastExpression	( char * ) & number_of_graph_nodes
+>1597	UnaryOp	& number_of_graph_nodes
+>1598	Identifier	number_of_graph_nodes
+>1599	UnaryOperator	&
+>1600	CastTarget	char *
+>1601	Callee	hsgr_input_stream . read
+>1602	MemberAccess	hsgr_input_stream . read
+>1603	Identifier	read
+>1604	Identifier	hsgr_input_stream
+>1605	IdentifierDeclStatement	unsigned number_of_graph_nodes = 0 ;
+>1606	IdentifierDecl	number_of_graph_nodes = 0
+>1607	AssignmentExpr	number_of_graph_nodes = 0
+>1608	PrimaryExpression	0
+>1609	Identifier	number_of_graph_nodes
+>1610	Identifier	number_of_graph_nodes
+>1611	IdentifierDeclType	unsigned
+>1612	ExpressionStatement	SharedDataLayout 
+>1613	Expression	SharedDataLayout 
+>1614	PrimaryExpression	1
+>1615	Identifier	SharedDataLayout 
+>1616	Statement	>
+>1617	Statement	unsigned
+>1618	Statement	<
+>1619	Statement	SetBlockSize
+>1620	Statement	->
+>1621	Statement	shared_layout_ptr
+>1622	ExpressionStatement	hsgr_input_stream . read ( ( char * ) & checksum , sizeof ( unsigned ) )
+>1623	CallExpression	hsgr_input_stream . read ( ( char * ) & checksum , sizeof ( unsigned ) )
+>1624	ArgumentList	( char * ) & checksum
+>1625	Argument	sizeof ( unsigned )
+>1626	SizeofExpr	sizeof ( unsigned )
+>1627	SizeofOperand	unsigned
+>1628	Sizeof	sizeof
+>1629	Argument	( char * ) & checksum
+>1630	CastExpression	( char * ) & checksum
+>1631	UnaryOp	& checksum
+>1632	Identifier	checksum
+>1633	UnaryOperator	&
+>1634	CastTarget	char *
+>1635	Callee	hsgr_input_stream . read
+>1636	MemberAccess	hsgr_input_stream . read
+>1637	Identifier	read
+>1638	Identifier	hsgr_input_stream
+>1639	IdentifierDeclStatement	unsigned checksum = 0 ;
+>1640	IdentifierDecl	checksum = 0
+>1641	AssignmentExpr	checksum = 0
+>1642	PrimaryExpression	0
+>1643	Identifier	checksum
+>1644	Identifier	checksum
+>1645	IdentifierDeclType	unsigned
+>1646	IfStatement	if ( fingerprint_loaded . TestGraphUtil ( fingerprint_valid ) )
+>1647	ElseStatement	else
+>1648	CompoundStatement	 
+>1649	ExpressionStatement	\"Reprocess to get rid of this warning.\"
+>1650	PrimaryExpression	\"Reprocess to get rid of this warning.\"
+>1651	Statement	\".hsgr was prepared with different build. \"
+>1652	Statement	<<
+>1653	Statement	)
+>1654	Statement	logWARNING
+>1655	Statement	(
+>1656	Statement	Write
+>1657	Statement	.
+>1658	Statement	)
+>1659	Statement	(
+>1660	Statement	SimpleLogger
+>1661	CompoundStatement	 
+>1662	ExpressionStatement	SimpleLogger ( ) . Write ( logDEBUG ) << \"Fingerprint checked out ok\"
+>1663	ShiftExpression	SimpleLogger ( ) . Write ( logDEBUG ) << \"Fingerprint checked out ok\"
+>1664	PrimaryExpression	\"Fingerprint checked out ok\"
+>1665	CallExpression	SimpleLogger ( ) . Write ( logDEBUG )
+>1666	ArgumentList	logDEBUG
+>1667	Argument	logDEBUG
+>1668	Identifier	logDEBUG
+>1669	Callee	SimpleLogger ( ) . Write
+>1670	MemberAccess	SimpleLogger ( ) . Write
+>1671	Identifier	Write
+>1672	CallExpression	SimpleLogger ( )
+>1673	ArgumentList	 
+>1674	Callee	SimpleLogger
+>1675	Identifier	SimpleLogger
+>1676	Condition	fingerprint_loaded . TestGraphUtil ( fingerprint_valid )
+>1677	CallExpression	fingerprint_loaded . TestGraphUtil ( fingerprint_valid )
+>1678	ArgumentList	fingerprint_valid
+>1679	Argument	fingerprint_valid
+>1680	Identifier	fingerprint_valid
+>1681	Callee	fingerprint_loaded . TestGraphUtil
+>1682	MemberAccess	fingerprint_loaded . TestGraphUtil
+>1683	Identifier	TestGraphUtil
+>1684	Identifier	fingerprint_loaded
+>1685	ExpressionStatement	hsgr_input_stream . read ( ( char * ) & fingerprint_loaded , sizeof ( FingerPrint ) )
+>1686	CallExpression	hsgr_input_stream . read ( ( char * ) & fingerprint_loaded , sizeof ( FingerPrint ) )
+>1687	ArgumentList	( char * ) & fingerprint_loaded
+>1688	Argument	sizeof ( FingerPrint )
+>1689	SizeofExpr	sizeof ( FingerPrint )
+>1690	SizeofOperand	FingerPrint
+>1691	Sizeof	sizeof
+>1692	Argument	( char * ) & fingerprint_loaded
+>1693	CastExpression	( char * ) & fingerprint_loaded
+>1694	UnaryOp	& fingerprint_loaded
+>1695	Identifier	fingerprint_loaded
+>1696	UnaryOperator	&
+>1697	CastTarget	char *
+>1698	Callee	hsgr_input_stream . read
+>1699	MemberAccess	hsgr_input_stream . read
+>1700	Identifier	read
+>1701	Identifier	hsgr_input_stream
+>1702	IdentifierDeclStatement	FingerPrint fingerprint_loaded ;
+>1703	IdentifierDecl	fingerprint_loaded
+>1704	Identifier	fingerprint_loaded
+>1705	IdentifierDeclType	FingerPrint
+>1706	IdentifierDeclStatement	FingerPrint fingerprint_valid = FingerPrint 
+>1707	IdentifierDecl	fingerprint_valid = FingerPrint 
+>1708	AssignmentExpr	fingerprint_valid = FingerPrint 
+>1709	CallExpression	FingerPrint 
+>1710	ArgumentList	 
+>1711	Callee	FingerPrint 
+>1712	Identifier	FingerPrint 
+>1713	Identifier	fingerprint_valid
+>1714	Identifier	fingerprint_valid
+>1715	IdentifierDeclType	FingerPrint
+>1716	IdentifierDeclStatement	boost 
+>1717	IdentifierDecl	hsgr_input_stream ( hsgr_path , std 
+>1718	Expression	hsgr_path , std 
+>1719	Identifier	std 
+>1720	Identifier	hsgr_path
+>1721	Identifier	hsgr_input_stream
+>1722	IdentifierDeclType	boost 
+>1723	ExpressionStatement	SharedDataLayout 
+>1724	Expression	SharedDataLayout 
+>1725	Identifier	number_of_original_edges
+>1726	Identifier	SharedDataLayout 
+>1727	Statement	>
+>1728	Statement	unsigned
+>1729	Statement	<
+>1730	Statement	SetBlockSize
+>1731	Statement	->
+>1732	Statement	shared_layout_ptr
+>1733	ExpressionStatement	shared_layout_ptr -> SetBlockSize < TurnInstruction > ( SharedDataLayout 
+>1734	RelationalExpression	shared_layout_ptr -> SetBlockSize < TurnInstruction > ( SharedDataLayout 
+>1735	RelationalExpression	TurnInstruction > ( SharedDataLayout 
+>1736	Expression	SharedDataLayout 
+>1737	Identifier	number_of_original_edges
+>1738	Identifier	SharedDataLayout 
+>1739	Identifier	TurnInstruction
+>1740	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1741	Identifier	SetBlockSize
+>1742	Identifier	shared_layout_ptr
+>1743	ExpressionStatement	shared_layout_ptr -> SetBlockSize < TravelMode > ( SharedDataLayout 
+>1744	RelationalExpression	shared_layout_ptr -> SetBlockSize < TravelMode > ( SharedDataLayout 
+>1745	RelationalExpression	TravelMode > ( SharedDataLayout 
+>1746	Expression	SharedDataLayout 
+>1747	Identifier	number_of_original_edges
+>1748	Identifier	SharedDataLayout 
+>1749	Identifier	TravelMode
+>1750	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1751	Identifier	SetBlockSize
+>1752	Identifier	shared_layout_ptr
+>1753	ExpressionStatement	SharedDataLayout 
+>1754	Expression	SharedDataLayout 
+>1755	Identifier	number_of_original_edges
+>1756	Identifier	SharedDataLayout 
+>1757	Statement	>
+>1758	Statement	unsigned
+>1759	Statement	<
+>1760	Statement	SetBlockSize
+>1761	Statement	->
+>1762	Statement	shared_layout_ptr
+>1763	ExpressionStatement	shared_layout_ptr -> SetBlockSize < NodeID > ( SharedDataLayout 
+>1764	RelationalExpression	shared_layout_ptr -> SetBlockSize < NodeID > ( SharedDataLayout 
+>1765	RelationalExpression	NodeID > ( SharedDataLayout 
+>1766	Expression	SharedDataLayout 
+>1767	Identifier	number_of_original_edges
+>1768	Identifier	SharedDataLayout 
+>1769	Identifier	NodeID
+>1770	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1771	Identifier	SetBlockSize
+>1772	Identifier	shared_layout_ptr
+>1773	ExpressionStatement	edges_input_stream . read ( ( char * ) & number_of_original_edges , sizeof ( unsigned ) )
+>1774	CallExpression	edges_input_stream . read ( ( char * ) & number_of_original_edges , sizeof ( unsigned ) )
+>1775	ArgumentList	( char * ) & number_of_original_edges
+>1776	Argument	sizeof ( unsigned )
+>1777	SizeofExpr	sizeof ( unsigned )
+>1778	SizeofOperand	unsigned
+>1779	Sizeof	sizeof
+>1780	Argument	( char * ) & number_of_original_edges
+>1781	CastExpression	( char * ) & number_of_original_edges
+>1782	UnaryOp	& number_of_original_edges
+>1783	Identifier	number_of_original_edges
+>1784	UnaryOperator	&
+>1785	CastTarget	char *
+>1786	Callee	edges_input_stream . read
+>1787	MemberAccess	edges_input_stream . read
+>1788	Identifier	read
+>1789	Identifier	edges_input_stream
+>1790	IdentifierDeclStatement	unsigned number_of_original_edges = 0 ;
+>1791	IdentifierDecl	number_of_original_edges = 0
+>1792	AssignmentExpr	number_of_original_edges = 0
+>1793	PrimaryExpression	0
+>1794	Identifier	number_of_original_edges
+>1795	Identifier	number_of_original_edges
+>1796	IdentifierDeclType	unsigned
+>1797	IdentifierDeclStatement	boost 
+>1798	IdentifierDecl	edges_input_stream ( edges_data_path , std 
+>1799	Expression	edges_data_path , std 
+>1800	Identifier	std 
+>1801	Identifier	edges_data_path
+>1802	Identifier	edges_input_stream
+>1803	IdentifierDeclType	boost 
+>1804	ExpressionStatement	shared_layout_ptr -> SetBlockSize < char > ( SharedDataLayout 
+>1805	RelationalExpression	shared_layout_ptr -> SetBlockSize < char > ( SharedDataLayout 
+>1806	RelationalExpression	char > ( SharedDataLayout 
+>1807	Expression	SharedDataLayout 
+>1808	Identifier	number_of_chars
+>1809	Identifier	SharedDataLayout 
+>1810	Identifier	char
+>1811	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1812	Identifier	SetBlockSize
+>1813	Identifier	shared_layout_ptr
+>1814	ExpressionStatement	name_stream . read ( ( char * ) & number_of_chars , sizeof ( unsigned ) )
+>1815	CallExpression	name_stream . read ( ( char * ) & number_of_chars , sizeof ( unsigned ) )
+>1816	ArgumentList	( char * ) & number_of_chars
+>1817	Argument	sizeof ( unsigned )
+>1818	SizeofExpr	sizeof ( unsigned )
+>1819	SizeofOperand	unsigned
+>1820	Sizeof	sizeof
+>1821	Argument	( char * ) & number_of_chars
+>1822	CastExpression	( char * ) & number_of_chars
+>1823	UnaryOp	& number_of_chars
+>1824	Identifier	number_of_chars
+>1825	UnaryOperator	&
+>1826	CastTarget	char *
+>1827	Callee	name_stream . read
+>1828	MemberAccess	name_stream . read
+>1829	Identifier	read
+>1830	Identifier	name_stream
+>1831	IdentifierDeclStatement	unsigned number_of_chars = 0 ;
+>1832	IdentifierDecl	number_of_chars = 0
+>1833	AssignmentExpr	number_of_chars = 0
+>1834	PrimaryExpression	0
+>1835	Identifier	number_of_chars
+>1836	Identifier	number_of_chars
+>1837	IdentifierDeclType	unsigned
+>1838	ExpressionStatement	BOOST_ASSERT_MSG ( 0 != name_blocks , \"name file broken\" )
+>1839	CallExpression	BOOST_ASSERT_MSG ( 0 != name_blocks , \"name file broken\" )
+>1840	ArgumentList	0 != name_blocks
+>1841	Argument	\"name file broken\"
+>1842	PrimaryExpression	\"name file broken\"
+>1843	Argument	0 != name_blocks
+>1844	EqualityExpression	0 != name_blocks
+>1845	Identifier	name_blocks
+>1846	PrimaryExpression	0
+>1847	Callee	BOOST_ASSERT_MSG
+>1848	Identifier	BOOST_ASSERT_MSG
+>1849	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"name offsets size
+>1850	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"name offsets size
+>1851	ShiftExpression	\"name offsets size
+>1852	Identifier	name_blocks
+>1853	PrimaryExpression	\"name offsets size
+>1854	CallExpression	SimpleLogger ( ) . Write ( )
+>1855	ArgumentList	 
+>1856	Callee	SimpleLogger ( ) . Write
+>1857	MemberAccess	SimpleLogger ( ) . Write
+>1858	Identifier	Write
+>1859	CallExpression	SimpleLogger ( )
+>1860	ArgumentList	 
+>1861	Callee	SimpleLogger
+>1862	Identifier	SimpleLogger
+>1863	ExpressionStatement	BlockT > ( SharedDataLayout 
+>1864	RelationalExpression	BlockT > ( SharedDataLayout 
+>1865	Expression	SharedDataLayout 
+>1866	Identifier	name_blocks
+>1867	Identifier	SharedDataLayout 
+>1868	Identifier	BlockT
+>1869	Statement	 
+>1870	Statement	>
+>1871	Statement	true
+>1872	Statement	,
+>1873	Statement	16
+>1874	Statement	<
+>1875	Statement	RangeTable
+>1876	Statement	typename
+>1877	Statement	<
+>1878	Statement	SetBlockSize
+>1879	Statement	->
+>1880	Statement	shared_layout_ptr
+>1881	ExpressionStatement	SharedDataLayout 
+>1882	Expression	SharedDataLayout 
+>1883	Identifier	name_blocks
+>1884	Identifier	SharedDataLayout 
+>1885	Statement	>
+>1886	Statement	unsigned
+>1887	Statement	<
+>1888	Statement	SetBlockSize
+>1889	Statement	->
+>1890	Statement	shared_layout_ptr
+>1891	ExpressionStatement	name_stream . read ( ( char * ) & name_blocks , sizeof ( unsigned ) )
+>1892	CallExpression	name_stream . read ( ( char * ) & name_blocks , sizeof ( unsigned ) )
+>1893	ArgumentList	( char * ) & name_blocks
+>1894	Argument	sizeof ( unsigned )
+>1895	SizeofExpr	sizeof ( unsigned )
+>1896	SizeofOperand	unsigned
+>1897	Sizeof	sizeof
+>1898	Argument	( char * ) & name_blocks
+>1899	CastExpression	( char * ) & name_blocks
+>1900	UnaryOp	& name_blocks
+>1901	Identifier	name_blocks
+>1902	UnaryOperator	&
+>1903	CastTarget	char *
+>1904	Callee	name_stream . read
+>1905	MemberAccess	name_stream . read
+>1906	Identifier	read
+>1907	Identifier	name_stream
+>1908	IdentifierDeclStatement	unsigned name_blocks = 0 ;
+>1909	IdentifierDecl	name_blocks = 0
+>1910	AssignmentExpr	name_blocks = 0
+>1911	PrimaryExpression	0
+>1912	Identifier	name_blocks
+>1913	Identifier	name_blocks
+>1914	IdentifierDeclType	unsigned
+>1915	IdentifierDeclStatement	boost 
+>1916	IdentifierDecl	name_stream ( names_data_path , std 
+>1917	Expression	names_data_path , std 
+>1918	Identifier	std 
+>1919	Identifier	names_data_path
+>1920	Identifier	name_stream
+>1921	IdentifierDeclType	boost 
+>1922	ExpressionStatement	SimpleLogger ( ) . Write ( ) << \"load names from
+>1923	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"load names from
+>1924	ShiftExpression	\"load names from
+>1925	Identifier	names_data_path
+>1926	PrimaryExpression	\"load names from
+>1927	CallExpression	SimpleLogger ( ) . Write ( )
+>1928	ArgumentList	 
+>1929	Callee	SimpleLogger ( ) . Write
+>1930	MemberAccess	SimpleLogger ( ) . Write
+>1931	Identifier	Write
+>1932	CallExpression	SimpleLogger ( )
+>1933	ArgumentList	 
+>1934	Callee	SimpleLogger
+>1935	Identifier	SimpleLogger
+>1936	ExpressionStatement	shared_layout_ptr -> SetBlockSize < char > ( SharedDataLayout 
+>1937	RelationalExpression	shared_layout_ptr -> SetBlockSize < char > ( SharedDataLayout 
+>1938	RelationalExpression	char > ( SharedDataLayout 
+>1939	Expression	SharedDataLayout 
+>1940	AdditiveExpression	file_index_path . length ( ) + 1
+>1941	PrimaryExpression	1
+>1942	CallExpression	file_index_path . length ( )
+>1943	ArgumentList	 
+>1944	Callee	file_index_path . length
+>1945	MemberAccess	file_index_path . length
+>1946	Identifier	length
+>1947	Identifier	file_index_path
+>1948	Identifier	SharedDataLayout 
+>1949	Identifier	char
+>1950	PtrMemberAccess	shared_layout_ptr -> SetBlockSize
+>1951	Identifier	SetBlockSize
+>1952	Identifier	shared_layout_ptr
+>1953	ExpressionStatement	SharedDataLayout ( )
+>1954	CallExpression	SharedDataLayout ( )
+>1955	ArgumentList	 
+>1956	Callee	SharedDataLayout
+>1957	Identifier	SharedDataLayout
+>1958	Statement	)
+>1959	Statement	)
+>1960	Statement	(
+>1961	Statement	Ptr
+>1962	Statement	->
+>1963	Statement	layout_memory
+>1964	Statement	(
+>1965	Statement	new
+>1966	Statement	=
+>1967	Statement	shared_layout_ptr
+>1968	ExpressionStatement	layout_memory -> Ptr ( )
+>1969	CallExpression	layout_memory -> Ptr ( )
+>1970	ArgumentList	 
+>1971	Callee	layout_memory -> Ptr
+>1972	PtrMemberAccess	layout_memory -> Ptr
+>1973	Identifier	Ptr
+>1974	Identifier	layout_memory
+>1975	Statement	>
+>1976	Statement	*
+>1977	Statement	SharedDataLayout
+>1978	Statement	<
+>1979	Statement	static_cast
+>1980	Statement	=
+>1981	Statement	shared_layout_ptr
+>1982	Statement	*
+>1983	Statement	SharedDataLayout
+>1984	IdentifierDeclStatement	SharedMemory * layout_memory = SharedMemoryFactory 
+>1985	IdentifierDecl	* layout_memory = SharedMemoryFactory 
+>1986	AssignmentExpr	* layout_memory = SharedMemoryFactory 
+>1987	CallExpression	SharedMemoryFactory 
+>1988	ArgumentList	layout_region
+>1989	Argument	sizeof ( SharedDataLayout )
+>1990	SizeofExpr	sizeof ( SharedDataLayout )
+>1991	SizeofOperand	SharedDataLayout
+>1992	Sizeof	sizeof
+>1993	Argument	layout_region
+>1994	Identifier	layout_region
+>1995	Callee	SharedMemoryFactory 
+>1996	Identifier	SharedMemoryFactory 
+>1997	Identifier	layout_memory
+>1998	Identifier	layout_memory
+>1999	IdentifierDeclType	SharedMemory *
+>2000	ExpressionStatement	 
+>2001	Statement	)
+>2002	Statement	(
+>2003	CompoundStatement	 
+>2004	ReturnStatement	return segment2_in_use ? DATA_2 
+>2005	ConditionalExpression	segment2_in_use ? DATA_2 
+>2006	Identifier	DATA_1
+>2007	Identifier	DATA_2
+>2008	Condition	segment2_in_use
+>2009	Identifier	segment2_in_use
+>2010	Statement	]
+>2011	Statement	&
+>2012	Statement	[
+>2013	Statement	=
+>2014	Statement	previous_data_region
+>2015	Statement	SharedDataType
+>2016	Statement	const
+>2017	ExpressionStatement	 
+>2018	Statement	)
+>2019	Statement	(
+>2020	CompoundStatement	 
+>2021	ReturnStatement	return segment2_in_use ? LAYOUT_2 
+>2022	ConditionalExpression	segment2_in_use ? LAYOUT_2 
+>2023	Identifier	LAYOUT_1
+>2024	Identifier	LAYOUT_2
+>2025	Condition	segment2_in_use
+>2026	Identifier	segment2_in_use
+>2027	Statement	]
+>2028	Statement	&
+>2029	Statement	[
+>2030	Statement	=
+>2031	Statement	previous_layout_region
+>2032	Statement	SharedDataType
+>2033	Statement	const
+>2034	ExpressionStatement	 
+>2035	Statement	)
+>2036	Statement	(
+>2037	CompoundStatement	 
+>2038	ReturnStatement	return segment2_in_use ? DATA_1 
+>2039	ConditionalExpression	segment2_in_use ? DATA_1 
+>2040	Identifier	DATA_2
+>2041	Identifier	DATA_1
+>2042	Condition	segment2_in_use
+>2043	Identifier	segment2_in_use
+>2044	Statement	]
+>2045	Statement	&
+>2046	Statement	[
+>2047	Statement	=
+>2048	Statement	data_region
+>2049	Statement	SharedDataType
+>2050	Statement	const
+>2051	ExpressionStatement	 
+>2052	Statement	)
+>2053	Statement	(
+>2054	CompoundStatement	 
+>2055	ReturnStatement	return segment2_in_use ? LAYOUT_1 
+>2056	ConditionalExpression	segment2_in_use ? LAYOUT_1 
+>2057	Identifier	LAYOUT_2
+>2058	Identifier	LAYOUT_1
+>2059	Condition	segment2_in_use
+>2060	Identifier	segment2_in_use
+>2061	Statement	]
+>2062	Statement	&
+>2063	Statement	[
+>2064	Statement	=
+>2065	Statement	layout_region
+>2066	Statement	SharedDataType
+>2067	Statement	const
+>2068	IdentifierDeclStatement	bool segment2_in_use = SharedMemory 
+>2069	IdentifierDecl	segment2_in_use = SharedMemory 
+>2070	AssignmentExpr	segment2_in_use = SharedMemory 
+>2071	CallExpression	SharedMemory 
+>2072	ArgumentList	LAYOUT_2
+>2073	Argument	LAYOUT_2
+>2074	Identifier	LAYOUT_2
+>2075	Callee	SharedMemory 
+>2076	Identifier	SharedMemory 
+>2077	Identifier	segment2_in_use
+>2078	Identifier	segment2_in_use
+>2079	IdentifierDeclType	bool
+>2080	IdentifierDeclStatement	const boost 
+>2081	IdentifierDecl	& geometries_data_path = paths_iterator -> second
+>2082	AssignmentExpr	& geometries_data_path = paths_iterator -> second
+>2083	PtrMemberAccess	paths_iterator -> second
+>2084	Identifier	second
+>2085	Identifier	paths_iterator
+>2086	Identifier	geometries_data_path
+>2087	Identifier	geometries_data_path
+>2088	IdentifierDeclType	const boost 
+>2089	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2090	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2091	ArgumentList	! paths_iterator -> second . empty ( )
+>2092	Argument	! paths_iterator -> second . empty ( )
+>2093	UnaryOp	! paths_iterator -> second . empty ( )
+>2094	CallExpression	paths_iterator -> second . empty ( )
+>2095	ArgumentList	 
+>2096	Callee	paths_iterator -> second . empty
+>2097	MemberAccess	paths_iterator -> second . empty
+>2098	Identifier	empty
+>2099	PtrMemberAccess	paths_iterator -> second
+>2100	Identifier	second
+>2101	Identifier	paths_iterator
+>2102	UnaryOperator	!
+>2103	Callee	BOOST_ASSERT
+>2104	Identifier	BOOST_ASSERT
+>2105	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2106	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2107	ArgumentList	server_paths . end ( ) != paths_iterator
+>2108	Argument	server_paths . end ( ) != paths_iterator
+>2109	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2110	Identifier	paths_iterator
+>2111	CallExpression	server_paths . end ( )
+>2112	ArgumentList	 
+>2113	Callee	server_paths . end
+>2114	MemberAccess	server_paths . end
+>2115	Identifier	end
+>2116	Identifier	server_paths
+>2117	Callee	BOOST_ASSERT
+>2118	Identifier	BOOST_ASSERT
+>2119	ExpressionStatement	paths_iterator = server_paths . find ( \"geometry\" )
+>2120	AssignmentExpr	paths_iterator = server_paths . find ( \"geometry\" )
+>2121	CallExpression	server_paths . find ( \"geometry\" )
+>2122	ArgumentList	\"geometry\"
+>2123	Argument	\"geometry\"
+>2124	PrimaryExpression	\"geometry\"
+>2125	Callee	server_paths . find
+>2126	MemberAccess	server_paths . find
+>2127	Identifier	find
+>2128	Identifier	server_paths
+>2129	Identifier	paths_iterator
+>2130	IdentifierDeclStatement	const boost 
+>2131	IdentifierDecl	& names_data_path = paths_iterator -> second
+>2132	AssignmentExpr	& names_data_path = paths_iterator -> second
+>2133	PtrMemberAccess	paths_iterator -> second
+>2134	Identifier	second
+>2135	Identifier	paths_iterator
+>2136	Identifier	names_data_path
+>2137	Identifier	names_data_path
+>2138	IdentifierDeclType	const boost 
+>2139	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2140	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2141	ArgumentList	! paths_iterator -> second . empty ( )
+>2142	Argument	! paths_iterator -> second . empty ( )
+>2143	UnaryOp	! paths_iterator -> second . empty ( )
+>2144	CallExpression	paths_iterator -> second . empty ( )
+>2145	ArgumentList	 
+>2146	Callee	paths_iterator -> second . empty
+>2147	MemberAccess	paths_iterator -> second . empty
+>2148	Identifier	empty
+>2149	PtrMemberAccess	paths_iterator -> second
+>2150	Identifier	second
+>2151	Identifier	paths_iterator
+>2152	UnaryOperator	!
+>2153	Callee	BOOST_ASSERT
+>2154	Identifier	BOOST_ASSERT
+>2155	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2156	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2157	ArgumentList	server_paths . end ( ) != paths_iterator
+>2158	Argument	server_paths . end ( ) != paths_iterator
+>2159	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2160	Identifier	paths_iterator
+>2161	CallExpression	server_paths . end ( )
+>2162	ArgumentList	 
+>2163	Callee	server_paths . end
+>2164	MemberAccess	server_paths . end
+>2165	Identifier	end
+>2166	Identifier	server_paths
+>2167	Callee	BOOST_ASSERT
+>2168	Identifier	BOOST_ASSERT
+>2169	ExpressionStatement	paths_iterator = server_paths . find ( \"namesdata\" )
+>2170	AssignmentExpr	paths_iterator = server_paths . find ( \"namesdata\" )
+>2171	CallExpression	server_paths . find ( \"namesdata\" )
+>2172	ArgumentList	\"namesdata\"
+>2173	Argument	\"namesdata\"
+>2174	PrimaryExpression	\"namesdata\"
+>2175	Callee	server_paths . find
+>2176	MemberAccess	server_paths . find
+>2177	Identifier	find
+>2178	Identifier	server_paths
+>2179	Identifier	paths_iterator
+>2180	IdentifierDeclStatement	const boost 
+>2181	IdentifierDecl	& edges_data_path = paths_iterator -> second
+>2182	AssignmentExpr	& edges_data_path = paths_iterator -> second
+>2183	PtrMemberAccess	paths_iterator -> second
+>2184	Identifier	second
+>2185	Identifier	paths_iterator
+>2186	Identifier	edges_data_path
+>2187	Identifier	edges_data_path
+>2188	IdentifierDeclType	const boost 
+>2189	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2190	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2191	ArgumentList	! paths_iterator -> second . empty ( )
+>2192	Argument	! paths_iterator -> second . empty ( )
+>2193	UnaryOp	! paths_iterator -> second . empty ( )
+>2194	CallExpression	paths_iterator -> second . empty ( )
+>2195	ArgumentList	 
+>2196	Callee	paths_iterator -> second . empty
+>2197	MemberAccess	paths_iterator -> second . empty
+>2198	Identifier	empty
+>2199	PtrMemberAccess	paths_iterator -> second
+>2200	Identifier	second
+>2201	Identifier	paths_iterator
+>2202	UnaryOperator	!
+>2203	Callee	BOOST_ASSERT
+>2204	Identifier	BOOST_ASSERT
+>2205	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2206	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2207	ArgumentList	server_paths . end ( ) != paths_iterator
+>2208	Argument	server_paths . end ( ) != paths_iterator
+>2209	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2210	Identifier	paths_iterator
+>2211	CallExpression	server_paths . end ( )
+>2212	ArgumentList	 
+>2213	Callee	server_paths . end
+>2214	MemberAccess	server_paths . end
+>2215	Identifier	end
+>2216	Identifier	server_paths
+>2217	Callee	BOOST_ASSERT
+>2218	Identifier	BOOST_ASSERT
+>2219	ExpressionStatement	paths_iterator = server_paths . find ( \"edgesdata\" )
+>2220	AssignmentExpr	paths_iterator = server_paths . find ( \"edgesdata\" )
+>2221	CallExpression	server_paths . find ( \"edgesdata\" )
+>2222	ArgumentList	\"edgesdata\"
+>2223	Argument	\"edgesdata\"
+>2224	PrimaryExpression	\"edgesdata\"
+>2225	Callee	server_paths . find
+>2226	MemberAccess	server_paths . find
+>2227	Identifier	find
+>2228	Identifier	server_paths
+>2229	Identifier	paths_iterator
+>2230	IdentifierDeclStatement	const boost 
+>2231	IdentifierDecl	& nodes_data_path = paths_iterator -> second
+>2232	AssignmentExpr	& nodes_data_path = paths_iterator -> second
+>2233	PtrMemberAccess	paths_iterator -> second
+>2234	Identifier	second
+>2235	Identifier	paths_iterator
+>2236	Identifier	nodes_data_path
+>2237	Identifier	nodes_data_path
+>2238	IdentifierDeclType	const boost 
+>2239	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2240	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2241	ArgumentList	! paths_iterator -> second . empty ( )
+>2242	Argument	! paths_iterator -> second . empty ( )
+>2243	UnaryOp	! paths_iterator -> second . empty ( )
+>2244	CallExpression	paths_iterator -> second . empty ( )
+>2245	ArgumentList	 
+>2246	Callee	paths_iterator -> second . empty
+>2247	MemberAccess	paths_iterator -> second . empty
+>2248	Identifier	empty
+>2249	PtrMemberAccess	paths_iterator -> second
+>2250	Identifier	second
+>2251	Identifier	paths_iterator
+>2252	UnaryOperator	!
+>2253	Callee	BOOST_ASSERT
+>2254	Identifier	BOOST_ASSERT
+>2255	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2256	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2257	ArgumentList	server_paths . end ( ) != paths_iterator
+>2258	Argument	server_paths . end ( ) != paths_iterator
+>2259	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2260	Identifier	paths_iterator
+>2261	CallExpression	server_paths . end ( )
+>2262	ArgumentList	 
+>2263	Callee	server_paths . end
+>2264	MemberAccess	server_paths . end
+>2265	Identifier	end
+>2266	Identifier	server_paths
+>2267	Callee	BOOST_ASSERT
+>2268	Identifier	BOOST_ASSERT
+>2269	ExpressionStatement	paths_iterator = server_paths . find ( \"nodesdata\" )
+>2270	AssignmentExpr	paths_iterator = server_paths . find ( \"nodesdata\" )
+>2271	CallExpression	server_paths . find ( \"nodesdata\" )
+>2272	ArgumentList	\"nodesdata\"
+>2273	Argument	\"nodesdata\"
+>2274	PrimaryExpression	\"nodesdata\"
+>2275	Callee	server_paths . find
+>2276	MemberAccess	server_paths . find
+>2277	Identifier	find
+>2278	Identifier	server_paths
+>2279	Identifier	paths_iterator
+>2280	IdentifierDeclStatement	const std 
+>2281	IdentifierDecl	& file_index_path = index_file_path_absolute . string ( )
+>2282	AssignmentExpr	& file_index_path = index_file_path_absolute . string ( )
+>2283	CallExpression	index_file_path_absolute . string ( )
+>2284	ArgumentList	 
+>2285	Callee	index_file_path_absolute . string
+>2286	MemberAccess	index_file_path_absolute . string
+>2287	Identifier	string
+>2288	Identifier	index_file_path_absolute
+>2289	Identifier	file_index_path
+>2290	Identifier	file_index_path
+>2291	IdentifierDeclType	const std 
+>2292	IdentifierDeclStatement	const boost 
+>2293	IdentifierDecl	index_file_path_absolute = boost 
+>2294	AssignmentExpr	index_file_path_absolute = boost 
+>2295	CallExpression	boost 
+>2296	ArgumentList	paths_iterator -> second
+>2297	Argument	paths_iterator -> second
+>2298	PtrMemberAccess	paths_iterator -> second
+>2299	Identifier	second
+>2300	Identifier	paths_iterator
+>2301	Callee	boost 
+>2302	Identifier	boost 
+>2303	Identifier	index_file_path_absolute
+>2304	Identifier	index_file_path_absolute
+>2305	IdentifierDeclType	const boost 
+>2306	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2307	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2308	ArgumentList	! paths_iterator -> second . empty ( )
+>2309	Argument	! paths_iterator -> second . empty ( )
+>2310	UnaryOp	! paths_iterator -> second . empty ( )
+>2311	CallExpression	paths_iterator -> second . empty ( )
+>2312	ArgumentList	 
+>2313	Callee	paths_iterator -> second . empty
+>2314	MemberAccess	paths_iterator -> second . empty
+>2315	Identifier	empty
+>2316	PtrMemberAccess	paths_iterator -> second
+>2317	Identifier	second
+>2318	Identifier	paths_iterator
+>2319	UnaryOperator	!
+>2320	Callee	BOOST_ASSERT
+>2321	Identifier	BOOST_ASSERT
+>2322	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2323	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2324	ArgumentList	server_paths . end ( ) != paths_iterator
+>2325	Argument	server_paths . end ( ) != paths_iterator
+>2326	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2327	Identifier	paths_iterator
+>2328	CallExpression	server_paths . end ( )
+>2329	ArgumentList	 
+>2330	Callee	server_paths . end
+>2331	MemberAccess	server_paths . end
+>2332	Identifier	end
+>2333	Identifier	server_paths
+>2334	Callee	BOOST_ASSERT
+>2335	Identifier	BOOST_ASSERT
+>2336	ExpressionStatement	paths_iterator = server_paths . find ( \"fileindex\" )
+>2337	AssignmentExpr	paths_iterator = server_paths . find ( \"fileindex\" )
+>2338	CallExpression	server_paths . find ( \"fileindex\" )
+>2339	ArgumentList	\"fileindex\"
+>2340	Argument	\"fileindex\"
+>2341	PrimaryExpression	\"fileindex\"
+>2342	Callee	server_paths . find
+>2343	MemberAccess	server_paths . find
+>2344	Identifier	find
+>2345	Identifier	server_paths
+>2346	Identifier	paths_iterator
+>2347	IdentifierDeclStatement	const boost 
+>2348	IdentifierDecl	& ram_index_path = paths_iterator -> second
+>2349	AssignmentExpr	& ram_index_path = paths_iterator -> second
+>2350	PtrMemberAccess	paths_iterator -> second
+>2351	Identifier	second
+>2352	Identifier	paths_iterator
+>2353	Identifier	ram_index_path
+>2354	Identifier	ram_index_path
+>2355	IdentifierDeclType	const boost 
+>2356	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2357	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2358	ArgumentList	! paths_iterator -> second . empty ( )
+>2359	Argument	! paths_iterator -> second . empty ( )
+>2360	UnaryOp	! paths_iterator -> second . empty ( )
+>2361	CallExpression	paths_iterator -> second . empty ( )
+>2362	ArgumentList	 
+>2363	Callee	paths_iterator -> second . empty
+>2364	MemberAccess	paths_iterator -> second . empty
+>2365	Identifier	empty
+>2366	PtrMemberAccess	paths_iterator -> second
+>2367	Identifier	second
+>2368	Identifier	paths_iterator
+>2369	UnaryOperator	!
+>2370	Callee	BOOST_ASSERT
+>2371	Identifier	BOOST_ASSERT
+>2372	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2373	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2374	ArgumentList	server_paths . end ( ) != paths_iterator
+>2375	Argument	server_paths . end ( ) != paths_iterator
+>2376	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2377	Identifier	paths_iterator
+>2378	CallExpression	server_paths . end ( )
+>2379	ArgumentList	 
+>2380	Callee	server_paths . end
+>2381	MemberAccess	server_paths . end
+>2382	Identifier	end
+>2383	Identifier	server_paths
+>2384	Callee	BOOST_ASSERT
+>2385	Identifier	BOOST_ASSERT
+>2386	ExpressionStatement	paths_iterator = server_paths . find ( \"ramindex\" )
+>2387	AssignmentExpr	paths_iterator = server_paths . find ( \"ramindex\" )
+>2388	CallExpression	server_paths . find ( \"ramindex\" )
+>2389	ArgumentList	\"ramindex\"
+>2390	Argument	\"ramindex\"
+>2391	PrimaryExpression	\"ramindex\"
+>2392	Callee	server_paths . find
+>2393	MemberAccess	server_paths . find
+>2394	Identifier	find
+>2395	Identifier	server_paths
+>2396	Identifier	paths_iterator
+>2397	IdentifierDeclStatement	const boost 
+>2398	IdentifierDecl	& timestamp_path = paths_iterator -> second
+>2399	AssignmentExpr	& timestamp_path = paths_iterator -> second
+>2400	PtrMemberAccess	paths_iterator -> second
+>2401	Identifier	second
+>2402	Identifier	paths_iterator
+>2403	Identifier	timestamp_path
+>2404	Identifier	timestamp_path
+>2405	IdentifierDeclType	const boost 
+>2406	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2407	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2408	ArgumentList	! paths_iterator -> second . empty ( )
+>2409	Argument	! paths_iterator -> second . empty ( )
+>2410	UnaryOp	! paths_iterator -> second . empty ( )
+>2411	CallExpression	paths_iterator -> second . empty ( )
+>2412	ArgumentList	 
+>2413	Callee	paths_iterator -> second . empty
+>2414	MemberAccess	paths_iterator -> second . empty
+>2415	Identifier	empty
+>2416	PtrMemberAccess	paths_iterator -> second
+>2417	Identifier	second
+>2418	Identifier	paths_iterator
+>2419	UnaryOperator	!
+>2420	Callee	BOOST_ASSERT
+>2421	Identifier	BOOST_ASSERT
+>2422	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2423	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2424	ArgumentList	server_paths . end ( ) != paths_iterator
+>2425	Argument	server_paths . end ( ) != paths_iterator
+>2426	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2427	Identifier	paths_iterator
+>2428	CallExpression	server_paths . end ( )
+>2429	ArgumentList	 
+>2430	Callee	server_paths . end
+>2431	MemberAccess	server_paths . end
+>2432	Identifier	end
+>2433	Identifier	server_paths
+>2434	Callee	BOOST_ASSERT
+>2435	Identifier	BOOST_ASSERT
+>2436	ExpressionStatement	paths_iterator = server_paths . find ( \"timestamp\" )
+>2437	AssignmentExpr	paths_iterator = server_paths . find ( \"timestamp\" )
+>2438	CallExpression	server_paths . find ( \"timestamp\" )
+>2439	ArgumentList	\"timestamp\"
+>2440	Argument	\"timestamp\"
+>2441	PrimaryExpression	\"timestamp\"
+>2442	Callee	server_paths . find
+>2443	MemberAccess	server_paths . find
+>2444	Identifier	find
+>2445	Identifier	server_paths
+>2446	Identifier	paths_iterator
+>2447	IdentifierDeclStatement	const boost 
+>2448	IdentifierDecl	& hsgr_path = paths_iterator -> second
+>2449	AssignmentExpr	& hsgr_path = paths_iterator -> second
+>2450	PtrMemberAccess	paths_iterator -> second
+>2451	Identifier	second
+>2452	Identifier	paths_iterator
+>2453	Identifier	hsgr_path
+>2454	Identifier	hsgr_path
+>2455	IdentifierDeclType	const boost 
+>2456	ExpressionStatement	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2457	CallExpression	BOOST_ASSERT ( ! paths_iterator -> second . empty ( ) )
+>2458	ArgumentList	! paths_iterator -> second . empty ( )
+>2459	Argument	! paths_iterator -> second . empty ( )
+>2460	UnaryOp	! paths_iterator -> second . empty ( )
+>2461	CallExpression	paths_iterator -> second . empty ( )
+>2462	ArgumentList	 
+>2463	Callee	paths_iterator -> second . empty
+>2464	MemberAccess	paths_iterator -> second . empty
+>2465	Identifier	empty
+>2466	PtrMemberAccess	paths_iterator -> second
+>2467	Identifier	second
+>2468	Identifier	paths_iterator
+>2469	UnaryOperator	!
+>2470	Callee	BOOST_ASSERT
+>2471	Identifier	BOOST_ASSERT
+>2472	ExpressionStatement	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2473	CallExpression	BOOST_ASSERT ( server_paths . end ( ) != paths_iterator )
+>2474	ArgumentList	server_paths . end ( ) != paths_iterator
+>2475	Argument	server_paths . end ( ) != paths_iterator
+>2476	EqualityExpression	server_paths . end ( ) != paths_iterator
+>2477	Identifier	paths_iterator
+>2478	CallExpression	server_paths . end ( )
+>2479	ArgumentList	 
+>2480	Callee	server_paths . end
+>2481	MemberAccess	server_paths . end
+>2482	Identifier	end
+>2483	Identifier	server_paths
+>2484	Callee	BOOST_ASSERT
+>2485	Identifier	BOOST_ASSERT
+>2486	IdentifierDeclStatement	ServerPaths 
+>2487	IdentifierDecl	paths_iterator = server_paths . find ( \"hsgrdata\" )
+>2488	AssignmentExpr	paths_iterator = server_paths . find ( \"hsgrdata\" )
+>2489	CallExpression	server_paths . find ( \"hsgrdata\" )
+>2490	ArgumentList	\"hsgrdata\"
+>2491	Argument	\"hsgrdata\"
+>2492	PrimaryExpression	\"hsgrdata\"
+>2493	Callee	server_paths . find
+>2494	MemberAccess	server_paths . find
+>2495	Identifier	find
+>2496	Identifier	server_paths
+>2497	Identifier	paths_iterator
+>2498	Identifier	paths_iterator
+>2499	IdentifierDeclType	ServerPaths 
+>2500	IfStatement	if ( server_paths . find ( \"geometry\" ) == server_paths . end ( ) )
+>2501	CompoundStatement	 
+>2502	ExpressionStatement	osrm 
+>2503	CallExpression	osrm 
+>2504	ArgumentList	\"no geometry file found\"
+>2505	Argument	\"no geometry file found\"
+>2506	PrimaryExpression	\"no geometry file found\"
+>2507	Callee	osrm 
+>2508	Identifier	osrm 
+>2509	Statement	throw
+>2510	Condition	server_paths . find ( \"geometry\" ) == server_paths . end ( )
+>2511	EqualityExpression	server_paths . find ( \"geometry\" ) == server_paths . end ( )
+>2512	CallExpression	server_paths . end ( )
+>2513	ArgumentList	 
+>2514	Callee	server_paths . end
+>2515	MemberAccess	server_paths . end
+>2516	Identifier	end
+>2517	Identifier	server_paths
+>2518	CallExpression	server_paths . find ( \"geometry\" )
+>2519	ArgumentList	\"geometry\"
+>2520	Argument	\"geometry\"
+>2521	PrimaryExpression	\"geometry\"
+>2522	Callee	server_paths . find
+>2523	MemberAccess	server_paths . find
+>2524	Identifier	find
+>2525	Identifier	server_paths
+>2526	IfStatement	if ( server_paths . find ( \"namesdata\" ) == server_paths . end ( ) )
+>2527	CompoundStatement	 
+>2528	ExpressionStatement	osrm 
+>2529	CallExpression	osrm 
+>2530	ArgumentList	\"no names file found\"
+>2531	Argument	\"no names file found\"
+>2532	PrimaryExpression	\"no names file found\"
+>2533	Callee	osrm 
+>2534	Identifier	osrm 
+>2535	Statement	throw
+>2536	Condition	server_paths . find ( \"namesdata\" ) == server_paths . end ( )
+>2537	EqualityExpression	server_paths . find ( \"namesdata\" ) == server_paths . end ( )
+>2538	CallExpression	server_paths . end ( )
+>2539	ArgumentList	 
+>2540	Callee	server_paths . end
+>2541	MemberAccess	server_paths . end
+>2542	Identifier	end
+>2543	Identifier	server_paths
+>2544	CallExpression	server_paths . find ( \"namesdata\" )
+>2545	ArgumentList	\"namesdata\"
+>2546	Argument	\"namesdata\"
+>2547	PrimaryExpression	\"namesdata\"
+>2548	Callee	server_paths . find
+>2549	MemberAccess	server_paths . find
+>2550	Identifier	find
+>2551	Identifier	server_paths
+>2552	IfStatement	if ( server_paths . find ( \"edgesdata\" ) == server_paths . end ( ) )
+>2553	CompoundStatement	 
+>2554	ExpressionStatement	osrm 
+>2555	CallExpression	osrm 
+>2556	ArgumentList	\"no edges file found\"
+>2557	Argument	\"no edges file found\"
+>2558	PrimaryExpression	\"no edges file found\"
+>2559	Callee	osrm 
+>2560	Identifier	osrm 
+>2561	Statement	throw
+>2562	Condition	server_paths . find ( \"edgesdata\" ) == server_paths . end ( )
+>2563	EqualityExpression	server_paths . find ( \"edgesdata\" ) == server_paths . end ( )
+>2564	CallExpression	server_paths . end ( )
+>2565	ArgumentList	 
+>2566	Callee	server_paths . end
+>2567	MemberAccess	server_paths . end
+>2568	Identifier	end
+>2569	Identifier	server_paths
+>2570	CallExpression	server_paths . find ( \"edgesdata\" )
+>2571	ArgumentList	\"edgesdata\"
+>2572	Argument	\"edgesdata\"
+>2573	PrimaryExpression	\"edgesdata\"
+>2574	Callee	server_paths . find
+>2575	MemberAccess	server_paths . find
+>2576	Identifier	find
+>2577	Identifier	server_paths
+>2578	IfStatement	if ( server_paths . find ( \"nodesdata\" ) == server_paths . end ( ) )
+>2579	CompoundStatement	 
+>2580	ExpressionStatement	osrm 
+>2581	CallExpression	osrm 
+>2582	ArgumentList	\"no nodes file found\"
+>2583	Argument	\"no nodes file found\"
+>2584	PrimaryExpression	\"no nodes file found\"
+>2585	Callee	osrm 
+>2586	Identifier	osrm 
+>2587	Statement	throw
+>2588	Condition	server_paths . find ( \"nodesdata\" ) == server_paths . end ( )
+>2589	EqualityExpression	server_paths . find ( \"nodesdata\" ) == server_paths . end ( )
+>2590	CallExpression	server_paths . end ( )
+>2591	ArgumentList	 
+>2592	Callee	server_paths . end
+>2593	MemberAccess	server_paths . end
+>2594	Identifier	end
+>2595	Identifier	server_paths
+>2596	CallExpression	server_paths . find ( \"nodesdata\" )
+>2597	ArgumentList	\"nodesdata\"
+>2598	Argument	\"nodesdata\"
+>2599	PrimaryExpression	\"nodesdata\"
+>2600	Callee	server_paths . find
+>2601	MemberAccess	server_paths . find
+>2602	Identifier	find
+>2603	Identifier	server_paths
+>2604	IfStatement	if ( server_paths . find ( \"fileindex\" ) == server_paths . end ( ) )
+>2605	CompoundStatement	 
+>2606	ExpressionStatement	osrm 
+>2607	CallExpression	osrm 
+>2608	ArgumentList	\"no leaf index file found\"
+>2609	Argument	\"no leaf index file found\"
+>2610	PrimaryExpression	\"no leaf index file found\"
+>2611	Callee	osrm 
+>2612	Identifier	osrm 
+>2613	Statement	throw
+>2614	Condition	server_paths . find ( \"fileindex\" ) == server_paths . end ( )
+>2615	EqualityExpression	server_paths . find ( \"fileindex\" ) == server_paths . end ( )
+>2616	CallExpression	server_paths . end ( )
+>2617	ArgumentList	 
+>2618	Callee	server_paths . end
+>2619	MemberAccess	server_paths . end
+>2620	Identifier	end
+>2621	Identifier	server_paths
+>2622	CallExpression	server_paths . find ( \"fileindex\" )
+>2623	ArgumentList	\"fileindex\"
+>2624	Argument	\"fileindex\"
+>2625	PrimaryExpression	\"fileindex\"
+>2626	Callee	server_paths . find
+>2627	MemberAccess	server_paths . find
+>2628	Identifier	find
+>2629	Identifier	server_paths
+>2630	IfStatement	if ( server_paths . find ( \"ramindex\" ) == server_paths . end ( ) )
+>2631	CompoundStatement	 
+>2632	ExpressionStatement	osrm 
+>2633	CallExpression	osrm 
+>2634	ArgumentList	\"no ram index file found\"
+>2635	Argument	\"no ram index file found\"
+>2636	PrimaryExpression	\"no ram index file found\"
+>2637	Callee	osrm 
+>2638	Identifier	osrm 
+>2639	Statement	throw
+>2640	Condition	server_paths . find ( \"ramindex\" ) == server_paths . end ( )
+>2641	EqualityExpression	server_paths . find ( \"ramindex\" ) == server_paths . end ( )
+>2642	CallExpression	server_paths . end ( )
+>2643	ArgumentList	 
+>2644	Callee	server_paths . end
+>2645	MemberAccess	server_paths . end
+>2646	Identifier	end
+>2647	Identifier	server_paths
+>2648	CallExpression	server_paths . find ( \"ramindex\" )
+>2649	ArgumentList	\"ramindex\"
+>2650	Argument	\"ramindex\"
+>2651	PrimaryExpression	\"ramindex\"
+>2652	Callee	server_paths . find
+>2653	MemberAccess	server_paths . find
+>2654	Identifier	find
+>2655	Identifier	server_paths
+>2656	IfStatement	if ( server_paths . find ( \"hsgrdata\" ) == server_paths . end ( ) )
+>2657	CompoundStatement	 
+>2658	ExpressionStatement	osrm 
+>2659	CallExpression	osrm 
+>2660	ArgumentList	\"no hsgr file found\"
+>2661	Argument	\"no hsgr file found\"
+>2662	PrimaryExpression	\"no hsgr file found\"
+>2663	Callee	osrm 
+>2664	Identifier	osrm 
+>2665	Statement	throw
+>2666	Condition	server_paths . find ( \"hsgrdata\" ) == server_paths . end ( )
+>2667	EqualityExpression	server_paths . find ( \"hsgrdata\" ) == server_paths . end ( )
+>2668	CallExpression	server_paths . end ( )
+>2669	ArgumentList	 
+>2670	Callee	server_paths . end
+>2671	MemberAccess	server_paths . end
+>2672	Identifier	end
+>2673	Identifier	server_paths
+>2674	CallExpression	server_paths . find ( \"hsgrdata\" )
+>2675	ArgumentList	\"hsgrdata\"
+>2676	Argument	\"hsgrdata\"
+>2677	PrimaryExpression	\"hsgrdata\"
+>2678	Callee	server_paths . find
+>2679	MemberAccess	server_paths . find
+>2680	Identifier	find
+>2681	Identifier	server_paths
+>2682	IfStatement	if ( ! GenerateDataStoreOptions ( argc , argv , server_paths ) )
+>2683	CompoundStatement	 
+>2684	ReturnStatement	return 0 ;
+>2685	PrimaryExpression	0
+>2686	Condition	! GenerateDataStoreOptions ( argc , argv , server_paths )
+>2687	UnaryOp	! GenerateDataStoreOptions ( argc , argv , server_paths )
+>2688	CallExpression	GenerateDataStoreOptions ( argc , argv , server_paths )
+>2689	ArgumentList	argc
+>2690	Argument	server_paths
+>2691	Identifier	server_paths
+>2692	Argument	argv
+>2693	Identifier	argv
+>2694	Argument	argc
+>2695	Identifier	argc
+>2696	Callee	GenerateDataStoreOptions
+>2697	Identifier	GenerateDataStoreOptions
+>2698	UnaryOperator	!
+>2699	IdentifierDeclStatement	ServerPaths server_paths ;
+>2700	IdentifierDecl	server_paths
+>2701	Identifier	server_paths
+>2702	IdentifierDeclType	ServerPaths
+>2703	ExpressionStatement	SimpleLogger ( ) . Write ( logDEBUG ) << \"Checking input parameters\"
+>2704	ShiftExpression	SimpleLogger ( ) . Write ( logDEBUG ) << \"Checking input parameters\"
+>2705	PrimaryExpression	\"Checking input parameters\"
+>2706	CallExpression	SimpleLogger ( ) . Write ( logDEBUG )
+>2707	ArgumentList	logDEBUG
+>2708	Argument	logDEBUG
+>2709	Identifier	logDEBUG
+>2710	Callee	SimpleLogger ( ) . Write
+>2711	MemberAccess	SimpleLogger ( ) . Write
+>2712	Identifier	Write
+>2713	CallExpression	SimpleLogger ( )
+>2714	ArgumentList	 
+>2715	Callee	SimpleLogger
+>2716	Identifier	SimpleLogger
+>2717	BlockStarter	 
+>2718	CompoundStatement	 
+>2719	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << \"[exception] \" << e . what ( )
+>2720	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"[exception] \" << e . what ( )
+>2721	ShiftExpression	\"[exception] \" << e . what ( )
+>2722	CallExpression	e . what ( )
+>2723	ArgumentList	 
+>2724	Callee	e . what
+>2725	MemberAccess	e . what
+>2726	Identifier	what
+>2727	Identifier	e
+>2728	PrimaryExpression	\"[exception] \"
+>2729	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>2730	ArgumentList	logWARNING
+>2731	Argument	logWARNING
+>2732	Identifier	logWARNING
+>2733	Callee	SimpleLogger ( ) . Write
+>2734	MemberAccess	SimpleLogger ( ) . Write
+>2735	Identifier	Write
+>2736	CallExpression	SimpleLogger ( )
+>2737	ArgumentList	 
+>2738	Callee	SimpleLogger
+>2739	Identifier	SimpleLogger
+>2740	Identifier	e
+>2741	BlockStarter	 
+>2742	CompoundStatement	 
+>2743	CompoundStatement	 
+>2744	ExpressionStatement	barrier . pending_update_mutex . unlock ( )
+>2745	CallExpression	barrier . pending_update_mutex . unlock ( )
+>2746	ArgumentList	 
+>2747	Callee	barrier . pending_update_mutex . unlock
+>2748	MemberAccess	barrier . pending_update_mutex . unlock
+>2749	Identifier	unlock
+>2750	MemberAccess	barrier . pending_update_mutex
+>2751	Identifier	pending_update_mutex
+>2752	Identifier	barrier
+>2753	Statement	)
+>2754	Statement	.
+>2755	Statement	.
+>2756	Statement	.
+>2757	Statement	(
+>2758	Statement	catch
+>2759	BlockStarter	try
+>2760	CompoundStatement	 
+>2761	IdentifierDeclStatement	boost 
+>2762	IdentifierDecl	pending_lock ( barrier . pending_update_mutex )
+>2763	MemberAccess	barrier . pending_update_mutex
+>2764	Identifier	pending_update_mutex
+>2765	Identifier	barrier
+>2766	Identifier	pending_lock
+>2767	IdentifierDeclType	boost 
+>2768	IfStatement	if ( - 1 == mlockall ( lock_flags ) )
+>2769	CompoundStatement	 
+>2770	ExpressionStatement	SimpleLogger ( ) . Write ( logWARNING ) << \"Process \" << argv [ 0 ] << \" could not request RAM lock\"
+>2771	ShiftExpression	SimpleLogger ( ) . Write ( logWARNING ) << \"Process \" << argv [ 0 ] << \" could not request RAM lock\"\
+>2772	ShiftExpression	\"Process \" << argv [ 0 ] << \" could not request RAM lock\"
+>2773	ShiftExpression	argv [ 0 ] << \" could not request RAM lock\"
+>2774	PrimaryExpression	\" could not request RAM lock\"
+>2775	ArrayIndexing	argv [ 0 ]
+>2776	PrimaryExpression	0
+>2777	Identifier	argv
+>2778	PrimaryExpression	\"Process \"
+>2779	CallExpression	SimpleLogger ( ) . Write ( logWARNING )
+>2780	ArgumentList	logWARNING
+>2781	Argument	logWARNING
+>2782	Identifier	logWARNING
+>2783	Callee	SimpleLogger ( ) . Write
+>2784	MemberAccess	SimpleLogger ( ) . Write
+>2785	Identifier	Write
+>2786	CallExpression	SimpleLogger ( )
+>2787	ArgumentList	 
+>2788	Callee	SimpleLogger
+>2789	Identifier	SimpleLogger
+>2790	Condition	- 1 == mlockall ( lock_flags )
+>2791	EqualityExpression	- 1 == mlockall ( lock_flags )
+>2792	CallExpression	mlockall ( lock_flags )
+>2793	ArgumentList	lock_flags
+>2794	Argument	lock_flags
+>2795	Identifier	lock_flags
+>2796	Callee	mlockall
+>2797	Identifier	mlockall
+>2798	UnaryOp	- 1
+>2799	PrimaryExpression	1
+>2800	UnaryOperator	-
+>2801	IdentifierDeclStatement	const bool lock_flags = MCL_CURRENT | MCL_FUTURE ;
+>2802	IdentifierDecl	lock_flags = MCL_CURRENT | MCL_FUTURE
+>2803	AssignmentExpr	lock_flags = MCL_CURRENT | MCL_FUTURE
+>2804	InclusiveOrExpression	MCL_CURRENT | MCL_FUTURE
+>2805	Identifier	MCL_FUTURE
+>2806	Identifier	MCL_CURRENT
+>2807	Identifier	lock_flags
+>2808	Identifier	lock_flags
+>2809	IdentifierDeclType	const bool
+>2810	IdentifierDeclStatement	 
+>2811	IdentifierDecl	barrier
+>2812	Identifier	barrier
+>2813	IdentifierDeclType	SharedBarriers
+>2814	ExpressionStatement	 
+>2815	CallExpression	LogPolicy 
+>2816	ArgumentList	 
+>2817	Callee	LogPolicy 
+>2818	MemberAccess	LogPolicy 
+>2819	Identifier	Unmute
+>2820	CallExpression	LogPolicy 
+>2821	ArgumentList	 
+>2822	Callee	LogPolicy 
+>2823	Identifier	LogPolicy 
+<3=9,8,4
+<4=5
+<5=7,6
+<9=10
+<10=73,11
+<11=72,71,70,69,68,67,66,65,64,31,30,29,28,12
+<12=13
+<13=17,14
+<14=16,15
+<17=21,18
+<18=19
+<19=20
+<21=22
+<22=24,23
+<24=26,25
+<26=27
+<31=32
+<32=62,33
+<33=60,58,56,54,52,50,48,46,44,42,40,38,36,34
+<34=35
+<36=37
+<38=39
+<40=41
+<42=43
+<44=45
+<46=47
+<48=49
+<50=51
+<52=53
+<54=55
+<56=57
+<58=59
+<60=61
+<62=63
+<73=74
+<74=83,75
+<75=82,76
+<76=80,77
+<77=78
+<78=79
+<80=81
+<83=87,84
+<84=85
+<85=86
+<87=88
+<97=106,105,98
+<98=102,99
+<99=101,100
+<102=104,103
+<106=2814,2810,2741,2717,133,109,107
+<107=108
+<109=132,110
+<110=111
+<111=112
+<112=121,113
+<113=120,114
+<114=116,115
+<116=117
+<117=119,118
+<121=125,122
+<122=123
+<123=124
+<125=126
+<126=128,127
+<128=130,129
+<130=131
+<133=134
+<134=2703,2699,2682,2656,2630,2604,2578,2552,2526,2500,2486,2472,2456,2447,2436,2422,2406,2397,2386,2372,2356,2347,2336,2322,2306,2292,2280,2269,2255,2239,2230,2219,2205,2189,2180,2169,2155,2139,2130,2119,2105,2089,2080,2068,2067,2066,2065,2064,2063,2062,2061,2054,2053,2052,2051,2050,2049,2048,2047,2046,2045,2044,2037,2036,2035,2034,2033,2032,2031,2030,2029,2028,2027,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2003,2002,2001,2000,1984,1983,1982,1981,1980,1979,1978,1977,1976,1975,1968,1967,1966,1965,1964,1963,1962,1961,1960,1959,1958,1953,1936,1922,1915,1908,1891,1890,1889,1888,1887,1886,1885,1881,1880,1879,1878,1877,1876,1875,1874,1873,1872,1871,1870,1869,1863,1849,1838,1831,1814,1804,1797,1790,1773,1763,1762,1761,1760,1759,1758,1757,1753,1743,1733,1732,1731,1730,1729,1728,1727,1723,1716,1706,1702,1685,1646,1639,1622,1621,1620,1619,1618,1617,1616,1612,1605,1588,1577,1567,1560,1543,1533,1526,1519,1502,1492,1488,1434,1421,1401,1386,1379,1372,1355,1345,1328,1321,1314,1297,1296,1295,1294,1293,1292,1291,1287,1272,1255,1254,1253,1252,1251,1250,1249,1245,1224,1205,1204,1203,1202,1201,1200,1199,1198,1197,1196,1189,1188,1187,1186,1185,1184,1183,1182,1181,1180,1179,1173,1167,1151,1131,1110,1109,1108,1107,1106,1105,1104,1103,1102,1101,1100,1094,1061,1060,1059,1058,1057,1056,1055,1054,1053,1052,1051,1045,1012,996,992,975,957,926,919,903,902,901,900,899,898,897,896,895,894,893,887,871,855,854,853,852,851,850,849,848,847,846,845,839,835,701,694,690,689,688,687,686,685,684,683,682,681,680,674,661,644,135,142,154,161,168,174,180,186,205,212,219,220,221,222,223,224,225,226,227,228,248,255,288,304,337,353,360,381,397,425,441,448,499,503,519,552,565,582,588,589,590,591,592,593,594,595,596,597,598,631
+<135=136
+<136=138,137
+<138=139
+<139=141,140
+<142=143
+<143=145,144
+<145=147,146
+<147=148
+<148=150,149
+<150=152,151
+<152=153
+<154=155
+<155=159,156
+<156=157
+<157=158
+<159=160
+<161=162
+<162=166,163
+<163=164
+<164=165
+<166=167
+<168=169
+<169=171,170
+<171=173,172
+<174=175
+<175=177,176
+<177=179,178
+<180=181
+<181=183,182
+<183=185,184
+<186=199,187
+<187=188
+<188=189
+<189=193,190
+<190=191
+<191=192
+<193=194
+<194=196,195
+<196=198,197
+<199=200
+<200=204,201
+<201=203,202
+<205=206
+<206=211,210,207
+<207=209,208
+<212=213
+<213=215,214
+<215=216
+<216=218,217
+<228=229
+<229=247,246,230
+<230=245,231
+<231=243,232
+<232=241,237,235,233
+<233=234
+<235=236
+<237=238
+<238=240,239
+<241=242
+<243=244
+<248=249
+<249=251,250
+<251=252
+<252=254,253
+<255=277,256
+<256=257
+<257=258
+<258=273,259
+<259=269,260
+<260=261
+<261=265,262
+<262=263
+<263=264
+<265=266
+<266=268,267
+<269=270
+<270=272,271
+<273=274
+<274=276,275
+<277=278
+<278=280,279
+<280=284,281
+<281=282
+<282=283
+<284=285
+<285=287,286
+<288=289
+<289=295,290
+<290=294,291
+<291=293,292
+<295=301,296
+<296=298,297
+<298=300,299
+<301=303,302
+<304=326,305
+<305=306
+<306=307
+<307=322,308
+<308=318,309
+<309=310
+<310=314,311
+<311=312
+<312=313
+<314=315
+<315=317,316
+<318=319
+<319=321,320
+<322=323
+<323=325,324
+<326=327
+<327=329,328
+<329=333,330
+<330=331
+<331=332
+<333=334
+<334=336,335
+<337=338
+<338=344,339
+<339=343,340
+<340=342,341
+<344=350,345
+<345=347,346
+<347=349,348
+<350=352,351
+<353=354
+<354=356,355
+<356=357
+<357=359,358
+<360=377,361
+<361=362
+<362=363
+<363=373,364
+<364=371,365
+<365=366
+<366=368,367
+<368=370,369
+<371=372
+<373=374
+<374=376,375
+<377=378
+<378=380,379
+<381=382
+<382=388,383
+<383=387,384
+<384=386,385
+<388=394,389
+<389=391,390
+<391=393,392
+<394=396,395
+<397=398
+<398=423,399
+<399=416,402,400
+<400=401
+<402=403
+<403=410,404
+<404=406,405
+<406=407
+<407=409,408
+<410=412,411
+<412=413
+<413=415,414
+<416=417
+<417=419,418
+<419=420
+<420=422,421
+<423=424
+<425=426
+<426=432,427
+<427=431,428
+<428=430,429
+<432=438,433
+<433=435,434
+<435=437,436
+<438=440,439
+<441=442
+<442=444,443
+<444=445
+<445=447,446
+<448=491,487,484,449
+<449=467,450
+<450=451
+<451=464,452
+<452=462,453
+<453=458,454
+<454=455
+<455=457,456
+<458=459
+<459=461,460
+<462=463
+<464=466,465
+<467=468
+<468=480,469
+<469=474,470
+<470=471
+<471=473,472
+<474=475
+<475=479,476
+<476=478,477
+<480=481
+<481=483,482
+<484=486,485
+<487=488
+<488=490,489
+<491=492
+<492=493
+<493=498,497,494
+<494=496,495
+<499=500
+<500=502,501
+<503=504
+<504=510,505
+<505=509,506
+<506=508,507
+<510=516,511
+<511=513,512
+<513=515,514
+<516=518,517
+<519=541,520
+<520=521
+<521=522
+<522=537,523
+<523=533,524
+<524=525
+<525=529,526
+<526=527
+<527=528
+<529=530
+<530=532,531
+<533=534
+<534=536,535
+<537=538
+<538=540,539
+<541=542
+<542=544,543
+<544=548,545
+<545=546
+<546=547
+<548=549
+<549=551,550
+<552=553
+<553=563,554
+<554=555
+<555=556
+<556=562,557
+<557=559,558
+<559=561,560
+<563=564
+<565=566
+<566=578,567
+<567=572,568
+<568=569
+<569=571,570
+<572=573
+<573=577,574
+<574=576,575
+<578=579
+<579=581,580
+<582=583
+<583=587,584
+<584=586,585
+<598=620,599
+<599=600
+<600=601
+<601=616,602
+<602=612,603
+<603=604
+<604=608,605
+<605=606
+<606=607
+<608=609
+<609=611,610
+<612=613
+<613=615,614
+<616=617
+<617=619,618
+<620=621
+<621=623,622
+<623=627,624
+<624=625
+<625=626
+<627=628
+<628=630,629
+<631=632
+<632=642,633
+<633=634
+<634=635
+<635=641,636
+<636=638,637
+<638=640,639
+<642=643
+<644=645
+<645=657,646
+<646=651,647
+<647=648
+<648=650,649
+<651=652
+<652=656,653
+<653=655,654
+<657=658
+<658=660,659
+<661=662
+<662=670,663
+<663=668,664
+<664=665
+<665=667,666
+<668=669
+<670=671
+<671=673,672
+<674=675
+<675=679,676
+<676=678,677
+<690=691
+<691=693,692
+<694=695
+<695=697,696
+<697=698
+<698=700,699
+<701=827,823,820,702
+<702=803,795,787,779,771,770,761,760,751,750,749,748,747,746,745,744,722,721,720,719,703
+<703=715,704
+<704=705
+<705=706
+<706=712,707
+<707=711,708
+<708=710,709
+<712=714,713
+<715=716
+<716=718,717
+<722=737,725,723
+<723=724
+<725=733,726
+<726=727
+<727=728
+<728=732,729
+<729=731,730
+<733=734
+<734=736,735
+<737=738
+<738=743,742,739
+<739=741,740
+<751=752
+<752=759,758,753
+<753=757,754
+<754=756,755
+<761=762
+<762=769,768,763
+<763=767,764
+<764=766,765
+<771=772
+<772=776,773
+<773=775,774
+<776=778,777
+<779=780
+<780=784,781
+<781=783,782
+<784=786,785
+<787=788
+<788=792,789
+<789=791,790
+<792=794,793
+<795=796
+<796=800,797
+<797=799,798
+<800=802,801
+<803=804
+<804=816,805
+<805=810,806
+<806=807
+<807=809,808
+<810=811
+<811=815,812
+<812=814,813
+<816=817
+<817=819,818
+<820=822,821
+<823=824
+<824=826,825
+<827=828
+<828=829
+<829=834,833,830
+<830=832,831
+<835=836
+<836=838,837
+<839=840
+<840=844,841
+<841=843,842
+<855=856
+<856=862,857
+<857=861,858
+<858=860,859
+<862=868,863
+<863=865,864
+<865=867,866
+<868=870,869
+<871=872
+<872=878,873
+<873=877,874
+<874=876,875
+<878=884,879
+<879=881,880
+<881=883,882
+<884=886,885
+<887=888
+<888=892,889
+<889=891,890
+<903=904
+<904=910,905
+<905=909,906
+<906=908,907
+<910=916,911
+<911=913,912
+<913=915,914
+<916=918,917
+<919=920
+<920=922,921
+<922=923
+<923=925,924
+<926=946,927
+<927=928
+<928=929
+<929=942,930
+<930=940,931
+<931=932
+<932=936,933
+<933=934
+<934=935
+<936=937
+<937=939,938
+<940=941
+<942=943
+<943=945,944
+<946=947
+<947=949,948
+<949=953,950
+<950=951
+<951=952
+<953=954
+<954=956,955
+<957=958
+<958=973,959
+<959=962,960
+<960=961
+<962=963
+<963=972,964
+<964=968,965
+<965=966
+<966=967
+<968=969
+<969=971,970
+<973=974
+<975=976
+<976=988,977
+<977=982,978
+<978=979
+<979=981,980
+<982=983
+<983=987,984
+<984=986,985
+<988=989
+<989=991,990
+<992=993
+<993=995,994
+<996=997
+<997=1003,998
+<998=1002,999
+<999=1001,1000
+<1003=1009,1004
+<1004=1006,1005
+<1006=1008,1007
+<1009=1011,1010
+<1012=1034,1013
+<1013=1014
+<1014=1015
+<1015=1030,1016
+<1016=1026,1017
+<1017=1018
+<1018=1022,1019
+<1019=1020
+<1020=1021
+<1022=1023
+<1023=1025,1024
+<1026=1027
+<1027=1029,1028
+<1030=1031
+<1031=1033,1032
+<1034=1035
+<1035=1037,1036
+<1037=1041,1038
+<1038=1039
+<1039=1040
+<1041=1042
+<1042=1044,1043
+<1045=1046
+<1046=1050,1047
+<1047=1049,1048
+<1061=1083,1062
+<1062=1063
+<1063=1064
+<1064=1079,1065
+<1065=1075,1066
+<1066=1067
+<1067=1071,1068
+<1068=1069
+<1069=1070
+<1071=1072
+<1072=1074,1073
+<1075=1076
+<1076=1078,1077
+<1079=1080
+<1080=1082,1081
+<1083=1084
+<1084=1086,1085
+<1086=1090,1087
+<1087=1088
+<1088=1089
+<1090=1091
+<1091=1093,1092
+<1094=1095
+<1095=1099,1096
+<1096=1098,1097
+<1110=1111
+<1111=1129,1112
+<1112=1122,1115,1113
+<1113=1114
+<1115=1116
+<1116=1118,1117
+<1118=1119
+<1119=1121,1120
+<1122=1123
+<1123=1125,1124
+<1125=1126
+<1126=1128,1127
+<1129=1130
+<1131=1132
+<1132=1149,1133
+<1133=1147,1136,1134
+<1134=1135
+<1136=1137
+<1137=1146,1138
+<1138=1142,1139
+<1139=1140
+<1140=1141
+<1142=1143
+<1143=1145,1144
+<1147=1148
+<1149=1150
+<1151=1152
+<1152=1158,1153
+<1153=1157,1154
+<1154=1156,1155
+<1158=1164,1159
+<1159=1161,1160
+<1161=1163,1162
+<1164=1166,1165
+<1167=1168
+<1168=1170,1169
+<1170=1172,1171
+<1173=1174
+<1174=1178,1175
+<1175=1177,1176
+<1189=1190
+<1190=1192,1191
+<1192=1193
+<1193=1195,1194
+<1205=1206
+<1206=1223,1222,1207
+<1207=1221,1208
+<1208=1219,1209
+<1209=1217,1210
+<1210=1211
+<1211=1213,1212
+<1213=1214
+<1214=1216,1215
+<1217=1218
+<1219=1220
+<1224=1225
+<1225=1236,1226
+<1226=1235,1227
+<1227=1229,1228
+<1229=1231,1230
+<1231=1232
+<1232=1234,1233
+<1236=1238,1237
+<1238=1239
+<1239=1241,1240
+<1241=1243,1242
+<1243=1244
+<1245=1246
+<1246=1248,1247
+<1255=1256
+<1256=1268,1257
+<1257=1262,1258
+<1258=1259
+<1259=1261,1260
+<1262=1263
+<1263=1267,1264
+<1264=1266,1265
+<1268=1269
+<1269=1271,1270
+<1272=1273
+<1273=1285,1274
+<1274=1283,1277,1275
+<1275=1276
+<1277=1278
+<1278=1282,1279
+<1279=1281,1280
+<1283=1284
+<1285=1286
+<1287=1288
+<1288=1290,1289
+<1297=1298
+<1298=1310,1299
+<1299=1304,1300
+<1300=1301
+<1301=1303,1302
+<1304=1305
+<1305=1309,1306
+<1306=1308,1307
+<1310=1311
+<1311=1313,1312
+<1314=1315
+<1315=1320,1319,1316
+<1316=1318,1317
+<1321=1322
+<1322=1327,1326,1323
+<1323=1325,1324
+<1328=1329
+<1329=1344,1343,1330
+<1330=1332,1331
+<1332=1334,1333
+<1334=1335
+<1335=1337,1336
+<1337=1339,1338
+<1339=1340
+<1340=1342,1341
+<1345=1346
+<1346=1352,1347
+<1347=1351,1348
+<1348=1350,1349
+<1352=1354,1353
+<1355=1356
+<1356=1368,1357
+<1357=1362,1358
+<1358=1359
+<1359=1361,1360
+<1362=1363
+<1363=1367,1364
+<1364=1366,1365
+<1368=1369
+<1369=1371,1370
+<1372=1373
+<1373=1378,1377,1374
+<1374=1376,1375
+<1379=1380
+<1380=1385,1384,1381
+<1381=1383,1382
+<1386=1387
+<1387=1398,1388
+<1388=1397,1389
+<1389=1396,1390
+<1390=1392,1391
+<1392=1393
+<1393=1395,1394
+<1398=1400,1399
+<1401=1412,1402
+<1402=1403
+<1403=1404
+<1404=1408,1405
+<1405=1406
+<1406=1407
+<1408=1409
+<1409=1411,1410
+<1412=1413
+<1413=1420,1414
+<1414=1416,1415
+<1416=1417
+<1417=1419,1418
+<1421=1427,1422
+<1422=1423
+<1423=1424
+<1424=1426,1425
+<1427=1428
+<1428=1430,1429
+<1430=1431
+<1431=1433,1432
+<1434=1481,1435
+<1435=1476,1436
+<1436=1472,1455,1437
+<1437=1438
+<1438=1446,1439
+<1439=1440
+<1440=1442,1441
+<1442=1443
+<1443=1445,1444
+<1446=1447
+<1447=1453,1448
+<1448=1451,1449
+<1449=1450
+<1451=1452
+<1453=1454
+<1455=1456
+<1456=1457
+<1457=1461,1458
+<1458=1460,1459
+<1461=1465,1462
+<1462=1463
+<1463=1464
+<1465=1466
+<1466=1468,1467
+<1468=1470,1469
+<1470=1471
+<1472=1473
+<1473=1475,1474
+<1476=1477
+<1477=1480,1479,1478
+<1481=1482
+<1482=1486,1483
+<1483=1484
+<1484=1485
+<1486=1487
+<1488=1489
+<1489=1491,1490
+<1492=1493
+<1493=1499,1494
+<1494=1498,1495
+<1495=1497,1496
+<1499=1501,1500
+<1502=1503
+<1503=1515,1504
+<1504=1509,1505
+<1505=1506
+<1506=1508,1507
+<1509=1510
+<1510=1514,1511
+<1511=1513,1512
+<1515=1516
+<1516=1518,1517
+<1519=1520
+<1520=1525,1524,1521
+<1521=1523,1522
+<1526=1527
+<1527=1532,1531,1528
+<1528=1530,1529
+<1533=1534
+<1534=1540,1535
+<1535=1539,1536
+<1536=1538,1537
+<1540=1542,1541
+<1543=1544
+<1544=1556,1545
+<1545=1550,1546
+<1546=1547
+<1547=1549,1548
+<1550=1551
+<1551=1555,1552
+<1552=1554,1553
+<1556=1557
+<1557=1559,1558
+<1560=1561
+<1561=1566,1565,1562
+<1562=1564,1563
+<1567=1568
+<1568=1574,1569
+<1569=1573,1570
+<1570=1572,1571
+<1574=1576,1575
+<1577=1578
+<1578=1586,1579
+<1579=1582,1580
+<1580=1581
+<1582=1583
+<1583=1585,1584
+<1586=1587
+<1588=1589
+<1589=1601,1590
+<1590=1595,1591
+<1591=1592
+<1592=1594,1593
+<1595=1596
+<1596=1600,1597
+<1597=1599,1598
+<1601=1602
+<1602=1604,1603
+<1605=1606
+<1606=1611,1610,1607
+<1607=1609,1608
+<1612=1613
+<1613=1615,1614
+<1622=1623
+<1623=1635,1624
+<1624=1629,1625
+<1625=1626
+<1626=1628,1627
+<1629=1630
+<1630=1634,1631
+<1631=1633,1632
+<1635=1636
+<1636=1638,1637
+<1639=1640
+<1640=1645,1644,1641
+<1641=1643,1642
+<1646=1676,1661,1647
+<1647=1648
+<1648=1660,1659,1658,1657,1656,1655,1654,1653,1652,1651,1649
+<1649=1650
+<1661=1662
+<1662=1663
+<1663=1665,1664
+<1665=1669,1666
+<1666=1667
+<1667=1668
+<1669=1670
+<1670=1672,1671
+<1672=1674,1673
+<1674=1675
+<1676=1677
+<1677=1681,1678
+<1678=1679
+<1679=1680
+<1681=1682
+<1682=1684,1683
+<1685=1686
+<1686=1698,1687
+<1687=1692,1688
+<1688=1689
+<1689=1691,1690
+<1692=1693
+<1693=1697,1694
+<1694=1696,1695
+<1698=1699
+<1699=1701,1700
+<1702=1703
+<1703=1705,1704
+<1706=1707
+<1707=1715,1714,1708
+<1708=1713,1709
+<1709=1711,1710
+<1711=1712
+<1716=1717
+<1717=1722,1721,1718
+<1718=1720,1719
+<1723=1724
+<1724=1726,1725
+<1733=1734
+<1734=1740,1735
+<1735=1739,1736
+<1736=1738,1737
+<1740=1742,1741
+<1743=1744
+<1744=1750,1745
+<1745=1749,1746
+<1746=1748,1747
+<1750=1752,1751
+<1753=1754
+<1754=1756,1755
+<1763=1764
+<1764=1770,1765
+<1765=1769,1766
+<1766=1768,1767
+<1770=1772,1771
+<1773=1774
+<1774=1786,1775
+<1775=1780,1776
+<1776=1777
+<1777=1779,1778
+<1780=1781
+<1781=1785,1782
+<1782=1784,1783
+<1786=1787
+<1787=1789,1788
+<1790=1791
+<1791=1796,1795,1792
+<1792=1794,1793
+<1797=1798
+<1798=1803,1802,1799
+<1799=1801,1800
+<1804=1805
+<1805=1811,1806
+<1806=1810,1807
+<1807=1809,1808
+<1811=1813,1812
+<1814=1815
+<1815=1827,1816
+<1816=1821,1817
+<1817=1818
+<1818=1820,1819
+<1821=1822
+<1822=1826,1823
+<1823=1825,1824
+<1827=1828
+<1828=1830,1829
+<1831=1832
+<1832=1837,1836,1833
+<1833=1835,1834
+<1838=1839
+<1839=1847,1840
+<1840=1843,1841
+<1841=1842
+<1843=1844
+<1844=1846,1845
+<1847=1848
+<1849=1850
+<1850=1854,1851
+<1851=1853,1852
+<1854=1856,1855
+<1856=1857
+<1857=1859,1858
+<1859=1861,1860
+<1861=1862
+<1863=1864
+<1864=1868,1865
+<1865=1867,1866
+<1881=1882
+<1882=1884,1883
+<1891=1892
+<1892=1904,1893
+<1893=1898,1894
+<1894=1895
+<1895=1897,1896
+<1898=1899
+<1899=1903,1900
+<1900=1902,1901
+<1904=1905
+<1905=1907,1906
+<1908=1909
+<1909=1914,1913,1910
+<1910=1912,1911
+<1915=1916
+<1916=1921,1920,1917
+<1917=1919,1918
+<1922=1923
+<1923=1927,1924
+<1924=1926,1925
+<1927=1929,1928
+<1929=1930
+<1930=1932,1931
+<1932=1934,1933
+<1934=1935
+<1936=1937
+<1937=1950,1938
+<1938=1949,1939
+<1939=1948,1940
+<1940=1942,1941
+<1942=1944,1943
+<1944=1945
+<1945=1947,1946
+<1950=1952,1951
+<1953=1954
+<1954=1956,1955
+<1956=1957
+<1968=1969
+<1969=1971,1970
+<1971=1972
+<1972=1974,1973
+<1984=1985
+<1985=1999,1998,1986
+<1986=1997,1987
+<1987=1995,1988
+<1988=1993,1989
+<1989=1990
+<1990=1992,1991
+<1993=1994
+<1995=1996
+<2003=2004
+<2004=2005
+<2005=2008,2007,2006
+<2008=2009
+<2020=2021
+<2021=2022
+<2022=2025,2024,2023
+<2025=2026
+<2037=2038
+<2038=2039
+<2039=2042,2041,2040
+<2042=2043
+<2054=2055
+<2055=2056
+<2056=2059,2058,2057
+<2059=2060
+<2068=2069
+<2069=2079,2078,2070
+<2070=2077,2071
+<2071=2075,2072
+<2072=2073
+<2073=2074
+<2075=2076
+<2080=2081
+<2081=2088,2087,2082
+<2082=2086,2083
+<2083=2085,2084
+<2089=2090
+<2090=2103,2091
+<2091=2092
+<2092=2093
+<2093=2102,2094
+<2094=2096,2095
+<2096=2097
+<2097=2099,2098
+<2099=2101,2100
+<2103=2104
+<2105=2106
+<2106=2117,2107
+<2107=2108
+<2108=2109
+<2109=2111,2110
+<2111=2113,2112
+<2113=2114
+<2114=2116,2115
+<2117=2118
+<2119=2120
+<2120=2129,2121
+<2121=2125,2122
+<2122=2123
+<2123=2124
+<2125=2126
+<2126=2128,2127
+<2130=2131
+<2131=2138,2137,2132
+<2132=2136,2133
+<2133=2135,2134
+<2139=2140
+<2140=2153,2141
+<2141=2142
+<2142=2143
+<2143=2152,2144
+<2144=2146,2145
+<2146=2147
+<2147=2149,2148
+<2149=2151,2150
+<2153=2154
+<2155=2156
+<2156=2167,2157
+<2157=2158
+<2158=2159
+<2159=2161,2160
+<2161=2163,2162
+<2163=2164
+<2164=2166,2165
+<2167=2168
+<2169=2170
+<2170=2179,2171
+<2171=2175,2172
+<2172=2173
+<2173=2174
+<2175=2176
+<2176=2178,2177
+<2180=2181
+<2181=2188,2187,2182
+<2182=2186,2183
+<2183=2185,2184
+<2189=2190
+<2190=2203,2191
+<2191=2192
+<2192=2193
+<2193=2202,2194
+<2194=2196,2195
+<2196=2197
+<2197=2199,2198
+<2199=2201,2200
+<2203=2204
+<2205=2206
+<2206=2217,2207
+<2207=2208
+<2208=2209
+<2209=2211,2210
+<2211=2213,2212
+<2213=2214
+<2214=2216,2215
+<2217=2218
+<2219=2220
+<2220=2229,2221
+<2221=2225,2222
+<2222=2223
+<2223=2224
+<2225=2226
+<2226=2228,2227
+<2230=2231
+<2231=2238,2237,2232
+<2232=2236,2233
+<2233=2235,2234
+<2239=2240
+<2240=2253,2241
+<2241=2242
+<2242=2243
+<2243=2252,2244
+<2244=2246,2245
+<2246=2247
+<2247=2249,2248
+<2249=2251,2250
+<2253=2254
+<2255=2256
+<2256=2267,2257
+<2257=2258
+<2258=2259
+<2259=2261,2260
+<2261=2263,2262
+<2263=2264
+<2264=2266,2265
+<2267=2268
+<2269=2270
+<2270=2279,2271
+<2271=2275,2272
+<2272=2273
+<2273=2274
+<2275=2276
+<2276=2278,2277
+<2280=2281
+<2281=2291,2290,2282
+<2282=2289,2283
+<2283=2285,2284
+<2285=2286
+<2286=2288,2287
+<2292=2293
+<2293=2305,2304,2294
+<2294=2303,2295
+<2295=2301,2296
+<2296=2297
+<2297=2298
+<2298=2300,2299
+<2301=2302
+<2306=2307
+<2307=2320,2308
+<2308=2309
+<2309=2310
+<2310=2319,2311
+<2311=2313,2312
+<2313=2314
+<2314=2316,2315
+<2316=2318,2317
+<2320=2321
+<2322=2323
+<2323=2334,2324
+<2324=2325
+<2325=2326
+<2326=2328,2327
+<2328=2330,2329
+<2330=2331
+<2331=2333,2332
+<2334=2335
+<2336=2337
+<2337=2346,2338
+<2338=2342,2339
+<2339=2340
+<2340=2341
+<2342=2343
+<2343=2345,2344
+<2347=2348
+<2348=2355,2354,2349
+<2349=2353,2350
+<2350=2352,2351
+<2356=2357
+<2357=2370,2358
+<2358=2359
+<2359=2360
+<2360=2369,2361
+<2361=2363,2362
+<2363=2364
+<2364=2366,2365
+<2366=2368,2367
+<2370=2371
+<2372=2373
+<2373=2384,2374
+<2374=2375
+<2375=2376
+<2376=2378,2377
+<2378=2380,2379
+<2380=2381
+<2381=2383,2382
+<2384=2385
+<2386=2387
+<2387=2396,2388
+<2388=2392,2389
+<2389=2390
+<2390=2391
+<2392=2393
+<2393=2395,2394
+<2397=2398
+<2398=2405,2404,2399
+<2399=2403,2400
+<2400=2402,2401
+<2406=2407
+<2407=2420,2408
+<2408=2409
+<2409=2410
+<2410=2419,2411
+<2411=2413,2412
+<2413=2414
+<2414=2416,2415
+<2416=2418,2417
+<2420=2421
+<2422=2423
+<2423=2434,2424
+<2424=2425
+<2425=2426
+<2426=2428,2427
+<2428=2430,2429
+<2430=2431
+<2431=2433,2432
+<2434=2435
+<2436=2437
+<2437=2446,2438
+<2438=2442,2439
+<2439=2440
+<2440=2441
+<2442=2443
+<2443=2445,2444
+<2447=2448
+<2448=2455,2454,2449
+<2449=2453,2450
+<2450=2452,2451
+<2456=2457
+<2457=2470,2458
+<2458=2459
+<2459=2460
+<2460=2469,2461
+<2461=2463,2462
+<2463=2464
+<2464=2466,2465
+<2466=2468,2467
+<2470=2471
+<2472=2473
+<2473=2484,2474
+<2474=2475
+<2475=2476
+<2476=2478,2477
+<2478=2480,2479
+<2480=2481
+<2481=2483,2482
+<2484=2485
+<2486=2487
+<2487=2499,2498,2488
+<2488=2497,2489
+<2489=2493,2490
+<2490=2491
+<2491=2492
+<2493=2494
+<2494=2496,2495
+<2500=2510,2501
+<2501=2509,2502
+<2502=2503
+<2503=2507,2504
+<2504=2505
+<2505=2506
+<2507=2508
+<2510=2511
+<2511=2518,2512
+<2512=2514,2513
+<2514=2515
+<2515=2517,2516
+<2518=2522,2519
+<2519=2520
+<2520=2521
+<2522=2523
+<2523=2525,2524
+<2526=2536,2527
+<2527=2535,2528
+<2528=2529
+<2529=2533,2530
+<2530=2531
+<2531=2532
+<2533=2534
+<2536=2537
+<2537=2544,2538
+<2538=2540,2539
+<2540=2541
+<2541=2543,2542
+<2544=2548,2545
+<2545=2546
+<2546=2547
+<2548=2549
+<2549=2551,2550
+<2552=2562,2553
+<2553=2561,2554
+<2554=2555
+<2555=2559,2556
+<2556=2557
+<2557=2558
+<2559=2560
+<2562=2563
+<2563=2570,2564
+<2564=2566,2565
+<2566=2567
+<2567=2569,2568
+<2570=2574,2571
+<2571=2572
+<2572=2573
+<2574=2575
+<2575=2577,2576
+<2578=2588,2579
+<2579=2587,2580
+<2580=2581
+<2581=2585,2582
+<2582=2583
+<2583=2584
+<2585=2586
+<2588=2589
+<2589=2596,2590
+<2590=2592,2591
+<2592=2593
+<2593=2595,2594
+<2596=2600,2597
+<2597=2598
+<2598=2599
+<2600=2601
+<2601=2603,2602
+<2604=2614,2605
+<2605=2613,2606
+<2606=2607
+<2607=2611,2608
+<2608=2609
+<2609=2610
+<2611=2612
+<2614=2615
+<2615=2622,2616
+<2616=2618,2617
+<2618=2619
+<2619=2621,2620
+<2622=2626,2623
+<2623=2624
+<2624=2625
+<2626=2627
+<2627=2629,2628
+<2630=2640,2631
+<2631=2639,2632
+<2632=2633
+<2633=2637,2634
+<2634=2635
+<2635=2636
+<2637=2638
+<2640=2641
+<2641=2648,2642
+<2642=2644,2643
+<2644=2645
+<2645=2647,2646
+<2648=2652,2649
+<2649=2650
+<2650=2651
+<2652=2653
+<2653=2655,2654
+<2656=2666,2657
+<2657=2665,2658
+<2658=2659
+<2659=2663,2660
+<2660=2661
+<2661=2662
+<2663=2664
+<2666=2667
+<2667=2674,2668
+<2668=2670,2669
+<2670=2671
+<2671=2673,2672
+<2674=2678,2675
+<2675=2676
+<2676=2677
+<2678=2679
+<2679=2681,2680
+<2682=2686,2683
+<2683=2684
+<2684=2685
+<2686=2687
+<2687=2698,2688
+<2688=2696,2689
+<2689=2694,2692,2690
+<2690=2691
+<2692=2693
+<2694=2695
+<2696=2697
+<2699=2700
+<2700=2702,2701
+<2703=2704
+<2704=2706,2705
+<2706=2710,2707
+<2707=2708
+<2708=2709
+<2710=2711
+<2711=2713,2712
+<2713=2715,2714
+<2715=2716
+<2717=2740,2718
+<2718=2719
+<2719=2720
+<2720=2729,2721
+<2721=2728,2722
+<2722=2724,2723
+<2724=2725
+<2725=2727,2726
+<2729=2733,2730
+<2730=2731
+<2731=2732
+<2733=2734
+<2734=2736,2735
+<2736=2738,2737
+<2738=2739
+<2741=2742
+<2742=2801,2768,2759,2758,2757,2756,2755,2754,2753,2743
+<2743=2744
+<2744=2745
+<2745=2747,2746
+<2747=2748
+<2748=2750,2749
+<2750=2752,2751
+<2759=2760
+<2760=2761
+<2761=2762
+<2762=2767,2766,2763
+<2763=2765,2764
+<2768=2790,2769
+<2769=2770
+<2770=2771
+<2771=2779,2772
+<2772=2778,2773
+<2773=2775,2774
+<2775=2777,2776
+<2779=2783,2780
+<2780=2781
+<2781=2782
+<2783=2784
+<2784=2786,2785
+<2786=2788,2787
+<2788=2789
+<2790=2791
+<2791=2798,2792
+<2792=2796,2793
+<2793=2794
+<2794=2795
+<2796=2797
+<2798=2800,2799
+<2801=2802
+<2802=2809,2808,2803
+<2803=2807,2804
+<2804=2806,2805
+<2810=2811
+<2811=2813,2812
+<2814=2815
+<2815=2817,2816
+<2817=2818
+<2818=2820,2819
+<2820=2822,2821
+<2822=2823

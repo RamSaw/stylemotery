@@ -1,0 +1,640 @@
+>5	FunctionDef	swap (int & a , int & b)
+>6	ParameterList	int & a , int & b
+>7	Parameter	 
+>8	Identifier	b
+>9	ParameterType	int &
+>10	Parameter	 
+>11	Identifier	a
+>12	ParameterType	int &
+>13	ReturnType	void
+>14	CompoundStatement	 
+>15	ExpressionStatement	 
+>16	AssignmentExpr	a = a ^ b
+>17	ExclusiveOrExpression	a ^ b
+>18	Identifier	b
+>19	Identifier	a
+>20	Identifier	a
+>21	ExpressionStatement	 
+>22	AssignmentExpr	b = a ^ b
+>23	ExclusiveOrExpression	a ^ b
+>24	Identifier	b
+>25	Identifier	a
+>26	Identifier	b
+>27	ExpressionStatement	 
+>28	AssignmentExpr	a = a ^ b
+>29	ExclusiveOrExpression	a ^ b
+>30	Identifier	b
+>31	Identifier	a
+>32	Identifier	a
+>38	FunctionDef	flipsign (int a)
+>39	ParameterList	int a
+>40	Parameter	 
+>41	Identifier	a
+>42	ParameterType	int
+>43	ReturnType	int
+>44	CompoundStatement	 
+>45	ReturnStatement	 
+>46	Identifier	opa
+>47	WhileStatement	while ( a != 0 )
+>48	CompoundStatement	 
+>49	ExpressionStatement	 
+>50	AssignmentExpr	opa += d
+>51	Identifier	d
+>52	Identifier	opa
+>53	ExpressionStatement	 
+>54	AssignmentExpr	a += d
+>55	Identifier	d
+>56	Identifier	a
+>57	Condition	 
+>58	EqualityExpression	a != 0
+>59	PrimaryExpression	0
+>60	Identifier	a
+>61	IdentifierDeclStatement	 
+>62	IdentifierDecl	opa = 0
+>63	AssignmentExpr	opa = 0
+>64	PrimaryExpression	0
+>65	Identifier	opa
+>66	Identifier	opa
+>67	IdentifierDeclType	int
+>68	IdentifierDeclStatement	 
+>69	IdentifierDecl	d = a < 0 ? 1 
+>70	AssignmentExpr	d = a < 0 ? 1 
+>71	ConditionalExpression	a < 0 ? 1 
+>72	UnaryOp	- 1
+>73	PrimaryExpression	1
+>74	UnaryOperator	-
+>75	PrimaryExpression	1
+>76	Condition	a < 0
+>77	RelationalExpression	a < 0
+>78	PrimaryExpression	0
+>79	Identifier	a
+>80	Identifier	d
+>81	Identifier	d
+>82	IdentifierDeclType	int
+>89	FunctionDef	abs (int a)
+>90	ParameterList	int a
+>91	Parameter	 
+>92	Identifier	a
+>93	ParameterType	int
+>94	ReturnType	int
+>95	CompoundStatement	 
+>96	ReturnStatement	 
+>97	Identifier	a
+>98	IfStatement	if ( a < 0 )
+>99	ExpressionStatement	 
+>100	AssignmentExpr	a = flipsign ( a )
+>101	CallExpression	flipsign ( a )
+>102	ArgumentList	a
+>103	Argument	a
+>104	Identifier	a
+>105	Callee	flipsign
+>106	Identifier	flipsign
+>107	Identifier	a
+>108	Condition	 
+>109	RelationalExpression	a < 0
+>110	PrimaryExpression	0
+>111	Identifier	a
+>117	FunctionDef	opsign (int a , int b)
+>118	ParameterList	int a , int b
+>119	Parameter	 
+>120	Identifier	b
+>121	ParameterType	int
+>122	Parameter	 
+>123	Identifier	a
+>124	ParameterType	int
+>125	ReturnType	bool
+>126	CompoundStatement	 
+>127	ReturnStatement	 
+>128	OrExpression	( a > 0 && b < 0 ) || ( a < 0 && b > 0 )
+>129	AndExpression	a < 0 && b > 0
+>130	RelationalExpression	b > 0
+>131	PrimaryExpression	0
+>132	Identifier	b
+>133	RelationalExpression	a < 0
+>134	PrimaryExpression	0
+>135	Identifier	a
+>136	AndExpression	a > 0 && b < 0
+>137	RelationalExpression	b < 0
+>138	PrimaryExpression	0
+>139	Identifier	b
+>140	RelationalExpression	a > 0
+>141	PrimaryExpression	0
+>142	Identifier	a
+>148	FunctionDef	times (int a , int b)
+>149	ParameterList	int a , int b
+>150	Parameter	 
+>151	Identifier	b
+>152	ParameterType	int
+>153	Parameter	 
+>154	Identifier	a
+>155	ParameterType	int
+>156	ReturnType	int
+>157	CompoundStatement	 
+>158	ReturnStatement	 
+>159	Identifier	res
+>160	IfStatement	if ( opsign ( a , b ) )
+>161	ExpressionStatement	 
+>162	AssignmentExpr	res = flipsign ( res )
+>163	CallExpression	flipsign ( res )
+>164	ArgumentList	res
+>165	Argument	res
+>166	Identifier	res
+>167	Callee	flipsign
+>168	Identifier	flipsign
+>169	Identifier	res
+>170	Condition	 
+>171	CallExpression	opsign ( a , b )
+>172	ArgumentList	a
+>173	Argument	b
+>174	Identifier	b
+>175	Argument	a
+>176	Identifier	a
+>177	Callee	opsign
+>178	Identifier	opsign
+>179	ForStatement	for ( int i = 0 ; i < bb ; ++ i , res += aa )
+>180	ExpressionStatement	 
+>181	Expression	 
+>182	AssignmentExpr	res += aa
+>183	Identifier	aa
+>184	Identifier	res
+>185	UnaryExpression	++ i
+>186	Identifier	i
+>187	IncDec	++
+>188	Condition	 
+>189	RelationalExpression	i < bb
+>190	Identifier	bb
+>191	Identifier	i
+>192	ForInit	 
+>193	IdentifierDeclStatement	int i = 0 ;
+>194	IdentifierDecl	i = 0
+>195	AssignmentExpr	i = 0
+>196	PrimaryExpression	0
+>197	Identifier	i
+>198	Identifier	i
+>199	IdentifierDeclType	int
+>200	IfStatement	if ( aa < bb )
+>201	ExpressionStatement	 
+>202	CallExpression	swap ( aa , bb )
+>203	ArgumentList	aa
+>204	Argument	bb
+>205	Identifier	bb
+>206	Argument	aa
+>207	Identifier	aa
+>208	Callee	swap
+>209	Identifier	swap
+>210	Condition	 
+>211	RelationalExpression	aa < bb
+>212	Identifier	bb
+>213	Identifier	aa
+>214	IdentifierDeclStatement	 
+>215	IdentifierDecl	res = 0
+>216	AssignmentExpr	res = 0
+>217	PrimaryExpression	0
+>218	Identifier	res
+>219	Identifier	res
+>220	IdentifierDeclType	int
+>221	IdentifierDeclStatement	 
+>222	IdentifierDecl	bb = abs ( b )
+>223	AssignmentExpr	bb = abs ( b )
+>224	CallExpression	abs ( b )
+>225	ArgumentList	b
+>226	Argument	b
+>227	Identifier	b
+>228	Callee	abs
+>229	Identifier	abs
+>230	Identifier	bb
+>231	Identifier	bb
+>232	IdentifierDeclType	int
+>233	IdentifierDecl	aa = abs ( a )
+>234	AssignmentExpr	aa = abs ( a )
+>235	CallExpression	abs ( a )
+>236	ArgumentList	a
+>237	Argument	a
+>238	Identifier	a
+>239	Callee	abs
+>240	Identifier	abs
+>241	Identifier	aa
+>242	Identifier	aa
+>243	IdentifierDeclType	int
+>256	FunctionDef	minuss (int a , int b)
+>257	ParameterList	int a , int b
+>258	Parameter	 
+>259	Identifier	b
+>260	ParameterType	int
+>261	Parameter	 
+>262	Identifier	a
+>263	ParameterType	int
+>264	ReturnType	int
+>265	CompoundStatement	 
+>266	ReturnStatement	 
+>267	AdditiveExpression	a + flipsign ( b )
+>268	CallExpression	flipsign ( b )
+>269	ArgumentList	b
+>270	Argument	b
+>271	Identifier	b
+>272	Callee	flipsign
+>273	Identifier	flipsign
+>274	Identifier	a
+>281	FunctionDef	divide (int a , int b)
+>282	ParameterList	int a , int b
+>283	Parameter	 
+>284	Identifier	b
+>285	ParameterType	int
+>286	Parameter	 
+>287	Identifier	a
+>288	ParameterType	int
+>289	ReturnType	int
+>290	CompoundStatement	 
+>291	ReturnStatement	 
+>292	Identifier	res
+>293	IfStatement	if ( opsign ( a , b ) )
+>294	ExpressionStatement	 
+>295	AssignmentExpr	res = flipsign ( res )
+>296	CallExpression	flipsign ( res )
+>297	ArgumentList	res
+>298	Argument	res
+>299	Identifier	res
+>300	Callee	flipsign
+>301	Identifier	flipsign
+>302	Identifier	res
+>303	Condition	 
+>304	CallExpression	opsign ( a , b )
+>305	ArgumentList	a
+>306	Argument	b
+>307	Identifier	b
+>308	Argument	a
+>309	Identifier	a
+>310	Callee	opsign
+>311	Identifier	opsign
+>312	ForStatement	for ( ; ( aa -= bb ) >= 0 ; ++ res )
+>313	ExpressionStatement	 
+>314	UnaryExpression	 
+>315	Identifier	res
+>316	IncDec	++
+>317	Condition	 
+>318	RelationalExpression	( aa -= bb ) >= 0
+>319	PrimaryExpression	0
+>320	AssignmentExpr	aa -= bb
+>321	Identifier	bb
+>322	Identifier	aa
+>323	IdentifierDeclStatement	 
+>324	IdentifierDecl	res = 0
+>325	AssignmentExpr	res = 0
+>326	PrimaryExpression	0
+>327	Identifier	res
+>328	Identifier	res
+>329	IdentifierDeclType	int
+>330	IdentifierDeclStatement	 
+>331	IdentifierDecl	bb = abs ( b )
+>332	AssignmentExpr	bb = abs ( b )
+>333	CallExpression	abs ( b )
+>334	ArgumentList	b
+>335	Argument	b
+>336	Identifier	b
+>337	Callee	abs
+>338	Identifier	abs
+>339	Identifier	bb
+>340	Identifier	bb
+>341	IdentifierDeclType	int
+>342	IdentifierDecl	aa = abs ( a )
+>343	AssignmentExpr	aa = abs ( a )
+>344	CallExpression	abs ( a )
+>345	ArgumentList	a
+>346	Argument	a
+>347	Identifier	a
+>348	Callee	abs
+>349	Identifier	abs
+>350	Identifier	aa
+>351	Identifier	aa
+>352	IdentifierDeclType	int
+>353	IfStatement	if ( b == 0 )
+>354	ReturnStatement	 
+>355	Identifier	INF
+>356	Condition	 
+>357	EqualityExpression	b == 0
+>358	PrimaryExpression	0
+>359	Identifier	b
+>372	FunctionDef	main ()
+>373	ParameterList	 
+>374	ReturnType	int
+>375	CompoundStatement	 
+>376	ReturnStatement	 
+>377	PrimaryExpression	0
+>378	ForStatement	for ( int i = 0 ; i < 5 ; ++ i )
+>379	CompoundStatement	 
+>380	ExpressionStatement	 
+>381	ShiftExpression	cout << times ( a [ i ] , b [ i ] ) << \" \" << minuss ( a [ i ] , b [ i ] ) << \" \" << divide ( a [ i ] , \
+>382	ShiftExpression	times ( a [ i ] , b [ i ] ) << \" \" << minuss ( a [ i ] , b [ i ] ) << \" \" << divide ( a [ i ] , b [ \
+>383	ShiftExpression	\" \" << minuss ( a [ i ] , b [ i ] ) << \" \" << divide ( a [ i ] , b [ i ] ) << endl
+>384	ShiftExpression	minuss ( a [ i ] , b [ i ] ) << \" \" << divide ( a [ i ] , b [ i ] ) << endl
+>385	ShiftExpression	\" \" << divide ( a [ i ] , b [ i ] ) << endl
+>386	ShiftExpression	divide ( a [ i ] , b [ i ] ) << endl
+>387	Identifier	endl
+>388	CallExpression	divide ( a [ i ] , b [ i ] )
+>389	ArgumentList	a [ i ]
+>390	Argument	b [ i ]
+>391	ArrayIndexing	b [ i ]
+>392	Identifier	i
+>393	Identifier	b
+>394	Argument	a [ i ]
+>395	ArrayIndexing	a [ i ]
+>396	Identifier	i
+>397	Identifier	a
+>398	Callee	divide
+>399	Identifier	divide
+>400	PrimaryExpression	\" \"
+>401	CallExpression	minuss ( a [ i ] , b [ i ] )
+>402	ArgumentList	a [ i ]
+>403	Argument	b [ i ]
+>404	ArrayIndexing	b [ i ]
+>405	Identifier	i
+>406	Identifier	b
+>407	Argument	a [ i ]
+>408	ArrayIndexing	a [ i ]
+>409	Identifier	i
+>410	Identifier	a
+>411	Callee	minuss
+>412	Identifier	minuss
+>413	PrimaryExpression	\" \"
+>414	CallExpression	times ( a [ i ] , b [ i ] )
+>415	ArgumentList	a [ i ]
+>416	Argument	b [ i ]
+>417	ArrayIndexing	b [ i ]
+>418	Identifier	i
+>419	Identifier	b
+>420	Argument	a [ i ]
+>421	ArrayIndexing	a [ i ]
+>422	Identifier	i
+>423	Identifier	a
+>424	Callee	times
+>425	Identifier	times
+>426	Identifier	cout
+>427	UnaryExpression	 
+>428	Identifier	i
+>429	IncDec	++
+>430	Condition	 
+>431	RelationalExpression	i < 5
+>432	PrimaryExpression	5
+>433	Identifier	i
+>434	ForInit	 
+>435	IdentifierDeclStatement	int i = 0 ;
+>436	IdentifierDecl	i = 0
+>437	AssignmentExpr	i = 0
+>438	PrimaryExpression	0
+>439	Identifier	i
+>440	Identifier	i
+>441	IdentifierDeclType	int
+>442	IdentifierDeclStatement	 
+>443	IdentifierDecl	b [ ] = { 3 , 5 , 3 , 0 , - 3 }
+>444	AssignmentExpr	b [ ] = { 3 , 5 , 3 , 0 , - 3 }
+>445	InitializerList	3
+>446	UnaryOp	- 3
+>447	PrimaryExpression	3
+>448	UnaryOperator	-
+>449	PrimaryExpression	0
+>450	PrimaryExpression	3
+>451	PrimaryExpression	5
+>452	PrimaryExpression	3
+>453	Identifier	b
+>454	Identifier	b
+>455	IdentifierDeclType	int [ ]
+>456	IdentifierDeclStatement	 
+>457	IdentifierDecl	a [ ] = { 8 , 0 , - 8 , - 5 , 9 }
+>458	AssignmentExpr	a [ ] = { 8 , 0 , - 8 , - 5 , 9 }
+>459	InitializerList	8
+>460	PrimaryExpression	9
+>461	UnaryOp	- 5
+>462	PrimaryExpression	5
+>463	UnaryOperator	-
+>464	UnaryOp	- 8
+>465	PrimaryExpression	8
+>466	UnaryOperator	-
+>467	PrimaryExpression	0
+>468	PrimaryExpression	8
+>469	Identifier	a
+>470	Identifier	a
+>471	IdentifierDeclType	int [ ]
+<5=14,13,6
+<6=10,7
+<7=9,8
+<10=12,11
+<14=27,21,15
+<15=16
+<16=20,17
+<17=19,18
+<21=22
+<22=26,23
+<23=25,24
+<27=28
+<28=32,29
+<29=31,30
+<38=44,43,39
+<39=40
+<40=42,41
+<44=68,61,47,45
+<45=46
+<47=57,48
+<48=53,49
+<49=50
+<50=52,51
+<53=54
+<54=56,55
+<57=58
+<58=60,59
+<61=62
+<62=67,66,63
+<63=65,64
+<68=69
+<69=82,81,70
+<70=80,71
+<71=76,75,72
+<72=74,73
+<76=77
+<77=79,78
+<89=95,94,90
+<90=91
+<91=93,92
+<95=98,96
+<96=97
+<98=108,99
+<99=100
+<100=107,101
+<101=105,102
+<102=103
+<103=104
+<105=106
+<108=109
+<109=111,110
+<117=126,125,118
+<118=122,119
+<119=121,120
+<122=124,123
+<126=127
+<127=128
+<128=136,129
+<129=133,130
+<130=132,131
+<133=135,134
+<136=140,137
+<137=139,138
+<140=142,141
+<148=157,156,149
+<149=153,150
+<150=152,151
+<153=155,154
+<157=221,214,200,179,160,158
+<158=159
+<160=170,161
+<161=162
+<162=169,163
+<163=167,164
+<164=165
+<165=166
+<167=168
+<170=171
+<171=177,172
+<172=175,173
+<173=174
+<175=176
+<177=178
+<179=192,188,181,180
+<181=185,182
+<182=184,183
+<185=187,186
+<188=189
+<189=191,190
+<192=193
+<193=194
+<194=199,198,195
+<195=197,196
+<200=210,201
+<201=202
+<202=208,203
+<203=206,204
+<204=205
+<206=207
+<208=209
+<210=211
+<211=213,212
+<214=215
+<215=220,219,216
+<216=218,217
+<221=233,222
+<222=232,231,223
+<223=230,224
+<224=228,225
+<225=226
+<226=227
+<228=229
+<233=243,242,234
+<234=241,235
+<235=239,236
+<236=237
+<237=238
+<239=240
+<256=265,264,257
+<257=261,258
+<258=260,259
+<261=263,262
+<265=266
+<266=267
+<267=274,268
+<268=272,269
+<269=270
+<270=271
+<272=273
+<281=290,289,282
+<282=286,283
+<283=285,284
+<286=288,287
+<290=353,330,323,312,293,291
+<291=292
+<293=303,294
+<294=295
+<295=302,296
+<296=300,297
+<297=298
+<298=299
+<300=301
+<303=304
+<304=310,305
+<305=308,306
+<306=307
+<308=309
+<310=311
+<312=317,314,313
+<314=316,315
+<317=318
+<318=320,319
+<320=322,321
+<323=324
+<324=329,328,325
+<325=327,326
+<330=342,331
+<331=341,340,332
+<332=339,333
+<333=337,334
+<334=335
+<335=336
+<337=338
+<342=352,351,343
+<343=350,344
+<344=348,345
+<345=346
+<346=347
+<348=349
+<353=356,354
+<354=355
+<356=357
+<357=359,358
+<372=375,374,373
+<375=456,442,378,376
+<376=377
+<378=434,430,427,379
+<379=380
+<380=381
+<381=426,382
+<382=414,383
+<383=413,384
+<384=401,385
+<385=400,386
+<386=388,387
+<388=398,389
+<389=394,390
+<390=391
+<391=393,392
+<394=395
+<395=397,396
+<398=399
+<401=411,402
+<402=407,403
+<403=404
+<404=406,405
+<407=408
+<408=410,409
+<411=412
+<414=424,415
+<415=420,416
+<416=417
+<417=419,418
+<420=421
+<421=423,422
+<424=425
+<427=429,428
+<430=431
+<431=433,432
+<434=435
+<435=436
+<436=441,440,437
+<437=439,438
+<442=443
+<443=455,454,444
+<444=453,445
+<445=452,451,450,449,446
+<446=448,447
+<456=457
+<457=471,470,458
+<458=469,459
+<459=468,467,464,461,460
+<461=463,462
+<464=466,465

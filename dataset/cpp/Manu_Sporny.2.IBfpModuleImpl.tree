@@ -1,0 +1,1524 @@
+>3	FunctionDef	IBfpModuleImpl 
+>4	ParameterList	bitmunk 
+>5	Parameter	 
+>6	Identifier	node
+>7	ParameterType	bitmunk 
+>8	CompoundStatement	 
+>13	FunctionDef	IBfpModuleImpl 
+>14	ParameterList	 
+>15	CompoundStatement	 
+>19	FunctionDef	fileSha1 (File file , string & sha1)
+>20	ParameterList	File file , string & sha1
+>21	Parameter	 
+>22	Identifier	sha1
+>23	ParameterType	string &
+>24	Parameter	 
+>25	Identifier	file
+>26	ParameterType	File
+>27	ReturnType	static bool
+>28	CompoundStatement	 
+>29	ReturnStatement	 
+>30	Identifier	rval
+>31	IfStatement	if ( rval )
+>32	CompoundStatement	 
+>33	ExpressionStatement	 
+>34	AssignmentExpr	sha1 = md . getDigest ( )
+>35	CallExpression	md . getDigest ( )
+>36	ArgumentList	 
+>37	Callee	md . getDigest
+>38	MemberAccess	md . getDigest
+>39	Identifier	getDigest
+>40	Identifier	md
+>41	Identifier	sha1
+>42	Condition	 
+>43	Identifier	rval
+>44	IdentifierDeclStatement	 
+>45	IdentifierDecl	rval = md . start ( \"SHA1\" ) && md . digestFile ( file )
+>46	AssignmentExpr	rval = md . start ( \"SHA1\" ) && md . digestFile ( file )
+>47	AndExpression	md . start ( \"SHA1\" ) && md . digestFile ( file )
+>48	CallExpression	md . digestFile ( file )
+>49	ArgumentList	file
+>50	Argument	file
+>51	Identifier	file
+>52	Callee	md . digestFile
+>53	MemberAccess	md . digestFile
+>54	Identifier	digestFile
+>55	Identifier	md
+>56	CallExpression	md . start ( \"SHA1\" )
+>57	ArgumentList	\"SHA1\"
+>58	Argument	\"SHA1\"
+>59	PrimaryExpression	\"SHA1\"
+>60	Callee	md . start
+>61	MemberAccess	md . start
+>62	Identifier	start
+>63	Identifier	md
+>64	Identifier	rval
+>65	Identifier	rval
+>66	IdentifierDeclType	bool
+>67	IdentifierDeclStatement	 
+>68	IdentifierDecl	md
+>69	Identifier	md
+>70	IdentifierDeclType	MessageDigest
+>81	FunctionDef	IBfpModuleImpl 
+>82	ParameterList	BfpId id
+>83	Parameter	 
+>84	Identifier	id
+>85	ParameterType	BfpId
+>86	ReturnType	Bfp *
+>87	CompoundStatement	 
+>88	ReturnStatement	 
+>89	Identifier	rval
+>90	IfStatement	if ( f != NULL )
+>91	ElseStatement	else
+>92	CompoundStatement	 
+>93	ExpressionStatement	 
+>94	CallExpression	mLock . unlock ( )
+>95	ArgumentList	 
+>96	Callee	mLock . unlock
+>97	MemberAccess	mLock . unlock
+>98	Identifier	unlock
+>99	Identifier	mLock
+>100	CompoundStatement	 
+>101	IfStatement	if ( success && loaded )
+>102	CompoundStatement	 
+>103	ExpressionStatement	 
+>104	AssignmentExpr	rval = f -> createBfp ( id )
+>105	CallExpression	f -> createBfp ( id )
+>106	ArgumentList	id
+>107	Argument	id
+>108	Identifier	id
+>109	Callee	f -> createBfp
+>110	PtrMemberAccess	f -> createBfp
+>111	Identifier	createBfp
+>112	Identifier	f
+>113	Identifier	rval
+>114	ExpressionStatement	 
+>115	AssignmentExpr	f = getBfpFactory ( id )
+>116	CallExpression	getBfpFactory ( id )
+>117	ArgumentList	id
+>118	Argument	id
+>119	Identifier	id
+>120	Callee	getBfpFactory
+>121	Identifier	getBfpFactory
+>122	Identifier	f
+>123	Condition	 
+>124	AndExpression	success && loaded
+>125	Identifier	loaded
+>126	Identifier	success
+>127	IfStatement	if ( success && ! loaded )
+>128	CompoundStatement	 
+>129	ExpressionStatement	 
+>130	AssignmentExpr	mCheckBfp = false
+>131	Identifier	false
+>132	Identifier	mCheckBfp
+>133	IfStatement	if ( lib -> loadModule ( file -> getAbsolutePath ( ) ) != NULL )
+>134	CompoundStatement	 
+>135	ExpressionStatement	 
+>136	AssignmentExpr	loaded = true
+>137	Identifier	true
+>138	Identifier	loaded
+>139	Condition	 
+>140	EqualityExpression	lib -> loadModule ( file -> getAbsolutePath ( ) ) != NULL
+>141	Identifier	NULL
+>142	CallExpression	lib -> loadModule ( file -> getAbsolutePath ( ) )
+>143	ArgumentList	file -> getAbsolutePath ( )
+>144	Argument	file -> getAbsolutePath ( )
+>145	CallExpression	file -> getAbsolutePath ( )
+>146	ArgumentList	 
+>147	Callee	file -> getAbsolutePath
+>148	PtrMemberAccess	file -> getAbsolutePath
+>149	Identifier	getAbsolutePath
+>150	Identifier	file
+>151	Callee	lib -> loadModule
+>152	PtrMemberAccess	lib -> loadModule
+>153	Identifier	loadModule
+>154	Identifier	lib
+>155	IdentifierDeclStatement	 
+>156	IdentifierDecl	* lib = mNode -> getKernel ( ) -> getModuleLibrary ( )
+>157	AssignmentExpr	* lib = mNode -> getKernel ( ) -> getModuleLibrary ( )
+>158	CallExpression	mNode -> getKernel ( ) -> getModuleLibrary ( )
+>159	ArgumentList	 
+>160	Callee	mNode -> getKernel ( ) -> getModuleLibrary
+>161	PtrMemberAccess	mNode -> getKernel ( ) -> getModuleLibrary
+>162	Identifier	getModuleLibrary
+>163	CallExpression	mNode -> getKernel ( )
+>164	ArgumentList	 
+>165	Callee	mNode -> getKernel
+>166	PtrMemberAccess	mNode -> getKernel
+>167	Identifier	getKernel
+>168	Identifier	mNode
+>169	Identifier	lib
+>170	Identifier	lib
+>171	IdentifierDeclType	ModuleLibrary *
+>172	ExpressionStatement	 
+>173	CallExpression	MO_CAT_INFO ( BM_BFP_CAT , \"Loading BFP
+>174	ArgumentList	BM_BFP_CAT
+>175	Argument	file -> getAbsolutePath ( )
+>176	CallExpression	file -> getAbsolutePath ( )
+>177	ArgumentList	 
+>178	Callee	file -> getAbsolutePath
+>179	PtrMemberAccess	file -> getAbsolutePath
+>180	Identifier	getAbsolutePath
+>181	Identifier	file
+>182	Argument	\"Loading BFP
+>183	PrimaryExpression	\"Loading BFP
+>184	Argument	BM_BFP_CAT
+>185	Identifier	BM_BFP_CAT
+>186	Callee	MO_CAT_INFO
+>187	Identifier	MO_CAT_INFO
+>188	Condition	 
+>189	AndExpression	success && ! loaded
+>190	UnaryOp	! loaded
+>191	Identifier	loaded
+>192	UnaryOperator	!
+>193	Identifier	success
+>194	IfStatement	if ( success && ! loaded && ( mCheckBfp || ! file -> exists ( ) ) )
+>195	CompoundStatement	 
+>196	IfStatement	if ( ( success = ( hc != NULL ) ) )
+>197	CompoundStatement	 
+>198	ExpressionStatement	 
+>199	Identifier	response
+>200	Statement	 
+>201	ExpressionStatement	 
+>202	Identifier	request
+>203	Statement	 
+>204	ExpressionStatement	 
+>205	Identifier	hc
+>206	Statement	 
+>207	ExpressionStatement	 
+>208	CallExpression	hc -> close ( )
+>209	ArgumentList	 
+>210	Callee	hc -> close
+>211	PtrMemberAccess	hc -> close
+>212	Identifier	close
+>213	Identifier	hc
+>214	IfStatement	if ( success && ( success = c -> sendMessage ( & url , & out , request , & in , response ) ) )
+>215	CompoundStatement	 
+>216	IfStatement	if ( code == 304 )
+>217	ElseStatement	else
+>218	IfStatement	if ( code == 200 )
+>219	ElseStatement	else
+>220	CompoundStatement	 
+>221	ExpressionStatement	 
+>222	CallExpression	MO_CAT_WARNING ( BM_BFP_CAT , \"BFP check got unknown response code
+>223	ArgumentList	BM_BFP_CAT
+>224	Argument	code
+>225	Identifier	code
+>226	Argument	\"BFP check got unknown response code
+>227	PrimaryExpression	\"BFP check got unknown response code
+>228	Argument	BM_BFP_CAT
+>229	Identifier	BM_BFP_CAT
+>230	Callee	MO_CAT_WARNING
+>231	Identifier	MO_CAT_WARNING
+>232	CompoundStatement	 
+>233	IfStatement	if ( success )
+>234	ElseStatement	else
+>235	CompoundStatement	 
+>236	ExpressionStatement	 
+>237	CallExpression	MO_CAT_ERROR ( BM_BFP_CAT , \"BFP download error\" )
+>238	ArgumentList	BM_BFP_CAT
+>239	Argument	\"BFP download error\"
+>240	PrimaryExpression	\"BFP download error\"
+>241	Argument	BM_BFP_CAT
+>242	Identifier	BM_BFP_CAT
+>243	Callee	MO_CAT_ERROR
+>244	Identifier	MO_CAT_ERROR
+>245	CompoundStatement	 
+>246	ExpressionStatement	 
+>247	CallExpression	MO_CAT_INFO ( BM_BFP_CAT , \"BFP downloaded\" )
+>248	ArgumentList	BM_BFP_CAT
+>249	Argument	\"BFP downloaded\"
+>250	PrimaryExpression	\"BFP downloaded\"
+>251	Argument	BM_BFP_CAT
+>252	Identifier	BM_BFP_CAT
+>253	Callee	MO_CAT_INFO
+>254	Identifier	MO_CAT_INFO
+>255	Condition	 
+>256	Identifier	success
+>257	ExpressionStatement	 
+>258	AssignmentExpr	success = success && in . receiveContent ( response )
+>259	AndExpression	success && in . receiveContent ( response )
+>260	CallExpression	in . receiveContent ( response )
+>261	ArgumentList	response
+>262	Argument	response
+>263	Identifier	response
+>264	Callee	in . receiveContent
+>265	MemberAccess	in . receiveContent
+>266	Identifier	receiveContent
+>267	Identifier	in
+>268	Identifier	success
+>269	Identifier	success
+>270	ExpressionStatement	 
+>271	CallExpression	in . setContentSink ( & fos , true )
+>272	ArgumentList	& fos
+>273	Argument	true
+>274	Identifier	true
+>275	Argument	& fos
+>276	UnaryOp	& fos
+>277	Identifier	fos
+>278	UnaryOperator	&
+>279	Callee	in . setContentSink
+>280	MemberAccess	in . setContentSink
+>281	Identifier	setContentSink
+>282	Identifier	in
+>283	IdentifierDeclStatement	 
+>284	IdentifierDecl	fos ( file )
+>285	Identifier	file
+>286	Identifier	fos
+>287	IdentifierDeclType	FileOutputStream
+>288	ExpressionStatement	 
+>289	AssignmentExpr	success = file -> mkdirs ( )
+>290	CallExpression	file -> mkdirs ( )
+>291	ArgumentList	 
+>292	Callee	file -> mkdirs
+>293	PtrMemberAccess	file -> mkdirs
+>294	Identifier	mkdirs
+>295	Identifier	file
+>296	Identifier	success
+>297	Condition	 
+>298	EqualityExpression	code == 200
+>299	PrimaryExpression	200
+>300	Identifier	code
+>301	CompoundStatement	 
+>302	ExpressionStatement	 
+>303	CallExpression	MO_CAT_INFO ( BM_BFP_CAT , \"BFP unchanged.\" )
+>304	ArgumentList	BM_BFP_CAT
+>305	Argument	\"BFP unchanged.\"
+>306	PrimaryExpression	\"BFP unchanged.\"
+>307	Argument	BM_BFP_CAT
+>308	Identifier	BM_BFP_CAT
+>309	Callee	MO_CAT_INFO
+>310	Identifier	MO_CAT_INFO
+>311	Condition	 
+>312	EqualityExpression	code == 304
+>313	PrimaryExpression	304
+>314	Identifier	code
+>315	IdentifierDeclStatement	 
+>316	IdentifierDecl	code = hrh -> getStatusCode ( )
+>317	AssignmentExpr	code = hrh -> getStatusCode ( )
+>318	CallExpression	hrh -> getStatusCode ( )
+>319	ArgumentList	 
+>320	Callee	hrh -> getStatusCode
+>321	PtrMemberAccess	hrh -> getStatusCode
+>322	Identifier	getStatusCode
+>323	Identifier	hrh
+>324	Identifier	code
+>325	Identifier	code
+>326	IdentifierDeclType	int
+>327	IdentifierDeclStatement	 
+>328	IdentifierDecl	* hrh = response -> getHeader ( )
+>329	AssignmentExpr	* hrh = response -> getHeader ( )
+>330	CallExpression	response -> getHeader ( )
+>331	ArgumentList	 
+>332	Callee	response -> getHeader
+>333	PtrMemberAccess	response -> getHeader
+>334	Identifier	getHeader
+>335	Identifier	response
+>336	Identifier	hrh
+>337	Identifier	hrh
+>338	IdentifierDeclType	HttpResponseHeader *
+>339	Condition	 
+>340	AndExpression	success && ( success = c -> sendMessage ( & url , & out , request , & in , response ) )
+>341	AssignmentExpr	success = c -> sendMessage ( & url , & out , request , & in , response )
+>342	CallExpression	c -> sendMessage ( & url , & out , request , & in , response )
+>343	ArgumentList	& url
+>344	Argument	response
+>345	Identifier	response
+>346	Argument	& in
+>347	UnaryOp	& in
+>348	Identifier	in
+>349	UnaryOperator	&
+>350	Argument	request
+>351	Identifier	request
+>352	Argument	& out
+>353	UnaryOp	& out
+>354	Identifier	out
+>355	UnaryOperator	&
+>356	Argument	& url
+>357	UnaryOp	& url
+>358	Identifier	url
+>359	UnaryOperator	&
+>360	Callee	c -> sendMessage
+>361	PtrMemberAccess	c -> sendMessage
+>362	Identifier	sendMessage
+>363	Identifier	c
+>364	Identifier	success
+>365	Identifier	success
+>366	IdentifierDeclStatement	 
+>367	IdentifierDecl	in
+>368	Identifier	in
+>369	IdentifierDeclType	BtpMessage
+>370	ExpressionStatement	 
+>371	CallExpression	out . setType ( BtpMessage 
+>372	ArgumentList	BtpMessage 
+>373	Argument	BtpMessage 
+>374	Identifier	BtpMessage 
+>375	Callee	out . setType
+>376	MemberAccess	out . setType
+>377	Identifier	setType
+>378	Identifier	out
+>379	IdentifierDeclStatement	 
+>380	IdentifierDecl	out
+>381	Identifier	out
+>382	IdentifierDeclType	BtpMessage
+>383	IfStatement	if ( file -> exists ( ) )
+>384	ElseStatement	else
+>385	CompoundStatement	 
+>386	ExpressionStatement	 
+>387	CallExpression	MO_CAT_INFO ( BM_BFP_CAT , \"Downloading BFP
+>388	ArgumentList	BM_BFP_CAT
+>389	Argument	file -> getAbsolutePath ( )
+>390	CallExpression	file -> getAbsolutePath ( )
+>391	ArgumentList	 
+>392	Callee	file -> getAbsolutePath
+>393	PtrMemberAccess	file -> getAbsolutePath
+>394	Identifier	getAbsolutePath
+>395	Identifier	file
+>396	Argument	\"Downloading BFP
+>397	PrimaryExpression	\"Downloading BFP
+>398	Argument	BM_BFP_CAT
+>399	Identifier	BM_BFP_CAT
+>400	Callee	MO_CAT_INFO
+>401	Identifier	MO_CAT_INFO
+>402	CompoundStatement	 
+>403	ExpressionStatement	 
+>404	CallExpression	request -> getHeader ( ) -> setField ( \"ETag\" , etag -> getString ( ) )
+>405	ArgumentList	\"ETag\"
+>406	Argument	etag -> getString ( )
+>407	CallExpression	etag -> getString ( )
+>408	ArgumentList	 
+>409	Callee	etag -> getString
+>410	PtrMemberAccess	etag -> getString
+>411	Identifier	getString
+>412	Identifier	etag
+>413	Argument	\"ETag\"
+>414	PrimaryExpression	\"ETag\"
+>415	Callee	request -> getHeader ( ) -> setField
+>416	PtrMemberAccess	request -> getHeader ( ) -> setField
+>417	Identifier	setField
+>418	CallExpression	request -> getHeader ( )
+>419	ArgumentList	 
+>420	Callee	request -> getHeader
+>421	PtrMemberAccess	request -> getHeader
+>422	Identifier	getHeader
+>423	Identifier	request
+>424	ExpressionStatement	 
+>425	CallExpression	etag -> format ( \"\\"%s\\"\" , sha1 . c_str ( ) )
+>426	ArgumentList	\"\\"%s\\"\"
+>427	Argument	sha1 . c_str ( )
+>428	CallExpression	sha1 . c_str ( )
+>429	ArgumentList	 
+>430	Callee	sha1 . c_str
+>431	MemberAccess	sha1 . c_str
+>432	Identifier	c_str
+>433	Identifier	sha1
+>434	Argument	\"\\"%s\\"\"
+>435	PrimaryExpression	\"\\"%s\\"\"
+>436	Callee	etag -> format
+>437	PtrMemberAccess	etag -> format
+>438	Identifier	format
+>439	Identifier	etag
+>440	IdentifierDeclStatement	 
+>441	IdentifierDecl	etag
+>442	Identifier	etag
+>443	IdentifierDeclType	DynamicObject
+>444	ExpressionStatement	 
+>445	AssignmentExpr	success = fileSha1 ( file , sha1 )
+>446	CallExpression	fileSha1 ( file , sha1 )
+>447	ArgumentList	file
+>448	Argument	sha1
+>449	Identifier	sha1
+>450	Argument	file
+>451	Identifier	file
+>452	Callee	fileSha1
+>453	Identifier	fileSha1
+>454	Identifier	success
+>455	IdentifierDeclStatement	 
+>456	IdentifierDecl	sha1
+>457	Identifier	sha1
+>458	IdentifierDeclType	string
+>459	ExpressionStatement	 
+>460	CallExpression	MO_CAT_INFO ( BM_BFP_CAT , \"Checking for BFP update
+>461	ArgumentList	BM_BFP_CAT
+>462	Argument	file -> getAbsolutePath ( )
+>463	CallExpression	file -> getAbsolutePath ( )
+>464	ArgumentList	 
+>465	Callee	file -> getAbsolutePath
+>466	PtrMemberAccess	file -> getAbsolutePath
+>467	Identifier	getAbsolutePath
+>468	Identifier	file
+>469	Argument	\"Checking for BFP update
+>470	PrimaryExpression	\"Checking for BFP update
+>471	Argument	BM_BFP_CAT
+>472	Identifier	BM_BFP_CAT
+>473	Callee	MO_CAT_INFO
+>474	Identifier	MO_CAT_INFO
+>475	Condition	 
+>476	CallExpression	file -> exists ( )
+>477	ArgumentList	 
+>478	Callee	file -> exists
+>479	PtrMemberAccess	file -> exists
+>480	Identifier	exists
+>481	Identifier	file
+>482	ExpressionStatement	 
+>483	CallExpression	request -> getHeader ( ) -> setField ( \"Connection\" , \"close\" )
+>484	ArgumentList	\"Connection\"
+>485	Argument	\"close\"
+>486	PrimaryExpression	\"close\"
+>487	Argument	\"Connection\"
+>488	PrimaryExpression	\"Connection\"
+>489	Callee	request -> getHeader ( ) -> setField
+>490	PtrMemberAccess	request -> getHeader ( ) -> setField
+>491	Identifier	setField
+>492	CallExpression	request -> getHeader ( )
+>493	ArgumentList	 
+>494	Callee	request -> getHeader
+>495	PtrMemberAccess	request -> getHeader
+>496	Identifier	getHeader
+>497	Identifier	request
+>498	IdentifierDeclStatement	 
+>499	IdentifierDecl	* response = ( HttpResponse * ) request -> createResponse ( )
+>500	AssignmentExpr	* response = ( HttpResponse * ) request -> createResponse ( )
+>501	CastExpression	( HttpResponse * ) request -> createResponse ( )
+>502	CallExpression	request -> createResponse ( )
+>503	ArgumentList	 
+>504	Callee	request -> createResponse
+>505	PtrMemberAccess	request -> createResponse
+>506	Identifier	createResponse
+>507	Identifier	request
+>508	CastTarget	HttpResponse *
+>509	Identifier	response
+>510	Identifier	response
+>511	IdentifierDeclType	HttpResponse *
+>512	IdentifierDeclStatement	 
+>513	IdentifierDecl	* request = ( HttpRequest * ) hc -> createRequest ( )
+>514	AssignmentExpr	* request = ( HttpRequest * ) hc -> createRequest ( )
+>515	CastExpression	( HttpRequest * ) hc -> createRequest ( )
+>516	CallExpression	hc -> createRequest ( )
+>517	ArgumentList	 
+>518	Callee	hc -> createRequest
+>519	PtrMemberAccess	hc -> createRequest
+>520	Identifier	createRequest
+>521	Identifier	hc
+>522	CastTarget	HttpRequest *
+>523	Identifier	request
+>524	Identifier	request
+>525	IdentifierDeclType	HttpRequest *
+>526	Condition	 
+>527	AssignmentExpr	success = ( hc != NULL )
+>528	EqualityExpression	hc != NULL
+>529	Identifier	NULL
+>530	Identifier	hc
+>531	Identifier	success
+>532	IdentifierDeclStatement	 
+>533	IdentifierDecl	* hc = c -> createConnection ( 1 , & url )
+>534	AssignmentExpr	* hc = c -> createConnection ( 1 , & url )
+>535	CallExpression	c -> createConnection ( 1 , & url )
+>536	ArgumentList	1
+>537	Argument	& url
+>538	UnaryOp	& url
+>539	Identifier	url
+>540	UnaryOperator	&
+>541	Argument	1
+>542	PrimaryExpression	1
+>543	Callee	c -> createConnection
+>544	PtrMemberAccess	c -> createConnection
+>545	Identifier	createConnection
+>546	Identifier	c
+>547	Identifier	hc
+>548	Identifier	hc
+>549	IdentifierDeclType	HttpConnection *
+>550	IdentifierDeclStatement	 
+>551	IdentifierDecl	* c = mNode -> getMessenger ( ) -> getBtpClient ( )
+>552	AssignmentExpr	* c = mNode -> getMessenger ( ) -> getBtpClient ( )
+>553	CallExpression	mNode -> getMessenger ( ) -> getBtpClient ( )
+>554	ArgumentList	 
+>555	Callee	mNode -> getMessenger ( ) -> getBtpClient
+>556	PtrMemberAccess	mNode -> getMessenger ( ) -> getBtpClient
+>557	Identifier	getBtpClient
+>558	CallExpression	mNode -> getMessenger ( )
+>559	ArgumentList	 
+>560	Callee	mNode -> getMessenger
+>561	PtrMemberAccess	mNode -> getMessenger
+>562	Identifier	getMessenger
+>563	Identifier	mNode
+>564	Identifier	c
+>565	Identifier	c
+>566	IdentifierDeclType	BtpClient *
+>567	ExpressionStatement	 
+>568	CallExpression	url . format ( \"%s/api/3.0/sva/bfp?id=%u&apiVersion=%s&os=%s&cpuType=%s\" , mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) \
+>569	ArgumentList	\"%s/api/3.0/sva/bfp?id=%u&apiVersion=%s&os=%s&cpuType=%s\"
+>570	Argument	pi [ \"cpuType\" ] -> getString ( )
+>571	CallExpression	pi [ \"cpuType\" ] -> getString ( )
+>572	ArgumentList	 
+>573	Callee	pi [ \"cpuType\" ] -> getString
+>574	PtrMemberAccess	pi [ \"cpuType\" ] -> getString
+>575	Identifier	getString
+>576	ArrayIndexing	pi [ \"cpuType\" ]
+>577	PrimaryExpression	\"cpuType\"
+>578	Identifier	pi
+>579	Argument	pi [ \"os\" ] -> getString ( )
+>580	CallExpression	pi [ \"os\" ] -> getString ( )
+>581	ArgumentList	 
+>582	Callee	pi [ \"os\" ] -> getString
+>583	PtrMemberAccess	pi [ \"os\" ] -> getString
+>584	Identifier	getString
+>585	ArrayIndexing	pi [ \"os\" ]
+>586	PrimaryExpression	\"os\"
+>587	Identifier	pi
+>588	Argument	BITMUNK_BFP_API_VERSION
+>589	Identifier	BITMUNK_BFP_API_VERSION
+>590	Argument	id
+>591	Identifier	id
+>592	Argument	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString ( ) . c_str ( )
+>593	CallExpression	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString ( ) . c_str ( )
+>594	ArgumentList	 
+>595	Callee	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString ( ) . c_str
+>596	MemberAccess	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString ( ) . c_str
+>597	Identifier	c_str
+>598	CallExpression	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString ( )
+>599	ArgumentList	 
+>600	Callee	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString
+>601	PtrMemberAccess	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( ) -> toString
+>602	Identifier	toString
+>603	CallExpression	mNode -> getMessenger ( ) -> getSecureBitmunkUrl ( )
+>604	ArgumentList	 
+>605	Callee	mNode -> getMessenger ( ) -> getSecureBitmunkUrl
+>606	PtrMemberAccess	mNode -> getMessenger ( ) -> getSecureBitmunkUrl
+>607	Identifier	getSecureBitmunkUrl
+>608	CallExpression	mNode -> getMessenger ( )
+>609	ArgumentList	 
+>610	Callee	mNode -> getMessenger
+>611	PtrMemberAccess	mNode -> getMessenger
+>612	Identifier	getMessenger
+>613	Identifier	mNode
+>614	Argument	\"%s/api/3.0/sva/bfp?id=%u&apiVersion=%s&os=%s&cpuType=%s\"
+>615	PrimaryExpression	\"%s/api/3.0/sva/bfp?id=%u&apiVersion=%s&os=%s&cpuType=%s\"
+>616	Callee	url . format
+>617	MemberAccess	url . format
+>618	Identifier	format
+>619	Identifier	url
+>620	IdentifierDeclStatement	 
+>621	IdentifierDecl	url
+>622	Identifier	url
+>623	IdentifierDeclType	Url
+>624	ExpressionStatement	 
+>625	CallExpression	MO_CAT_INFO ( BM_BFP_CAT , \"Checking BFP...\" )
+>626	ArgumentList	BM_BFP_CAT
+>627	Argument	\"Checking BFP...\"
+>628	PrimaryExpression	\"Checking BFP...\"
+>629	Argument	BM_BFP_CAT
+>630	Identifier	BM_BFP_CAT
+>631	Callee	MO_CAT_INFO
+>632	Identifier	MO_CAT_INFO
+>633	Condition	 
+>634	AndExpression	success && ! loaded && ( mCheckBfp || ! file -> exists ( ) )
+>635	AndExpression	! loaded && ( mCheckBfp || ! file -> exists ( ) )
+>636	OrExpression	mCheckBfp || ! file -> exists ( )
+>637	UnaryOp	! file -> exists ( )
+>638	CallExpression	file -> exists ( )
+>639	ArgumentList	 
+>640	Callee	file -> exists
+>641	PtrMemberAccess	file -> exists
+>642	Identifier	exists
+>643	Identifier	file
+>644	UnaryOperator	!
+>645	Identifier	mCheckBfp
+>646	UnaryOp	! loaded
+>647	Identifier	loaded
+>648	UnaryOperator	!
+>649	Identifier	success
+>650	IdentifierDeclStatement	 
+>651	IdentifierDecl	loaded = ( getBfpFactory ( id ) != NULL )
+>652	AssignmentExpr	loaded = ( getBfpFactory ( id ) != NULL )
+>653	EqualityExpression	getBfpFactory ( id ) != NULL
+>654	Identifier	NULL
+>655	CallExpression	getBfpFactory ( id )
+>656	ArgumentList	id
+>657	Argument	id
+>658	Identifier	id
+>659	Callee	getBfpFactory
+>660	Identifier	getBfpFactory
+>661	Identifier	loaded
+>662	Identifier	loaded
+>663	IdentifierDeclType	bool
+>664	ExpressionStatement	 
+>665	CallExpression	mLock . lock ( )
+>666	ArgumentList	 
+>667	Callee	mLock . lock
+>668	MemberAccess	mLock . lock
+>669	Identifier	lock
+>670	Identifier	mLock
+>671	IdentifierDeclStatement	 
+>672	IdentifierDecl	file ( path . c_str ( ) )
+>673	CallExpression	path . c_str ( )
+>674	ArgumentList	 
+>675	Callee	path . c_str
+>676	MemberAccess	path . c_str
+>677	Identifier	c_str
+>678	Identifier	path
+>679	Identifier	file
+>680	IdentifierDeclType	File
+>681	IfStatement	if ( success )
+>682	CompoundStatement	 
+>683	ExpressionStatement	 
+>684	AssignmentExpr	path = File 
+>685	CallExpression	File 
+>686	ArgumentList	fullCachePath . c_str ( )
+>687	Argument	libname -> getString ( )
+>688	CallExpression	libname -> getString ( )
+>689	ArgumentList	 
+>690	Callee	libname -> getString
+>691	PtrMemberAccess	libname -> getString
+>692	Identifier	getString
+>693	Identifier	libname
+>694	Argument	fullCachePath . c_str ( )
+>695	CallExpression	fullCachePath . c_str ( )
+>696	ArgumentList	 
+>697	Callee	fullCachePath . c_str
+>698	MemberAccess	fullCachePath . c_str
+>699	Identifier	c_str
+>700	Identifier	fullCachePath
+>701	Callee	File 
+>702	Identifier	File 
+>703	Identifier	path
+>704	ExpressionStatement	 
+>705	CallExpression	libname -> format ( \"%sbmbfp-%u-%s-%s-%s.%s\" , Platform 
+>706	ArgumentList	\"%sbmbfp-%u-%s-%s-%s.%s\"
+>707	Argument	Platform 
+>708	CallExpression	Platform 
+>709	ArgumentList	pi [ \"os\" ] -> getString ( )
+>710	Argument	pi [ \"os\" ] -> getString ( )
+>711	CallExpression	pi [ \"os\" ] -> getString ( )
+>712	ArgumentList	 
+>713	Callee	pi [ \"os\" ] -> getString
+>714	PtrMemberAccess	pi [ \"os\" ] -> getString
+>715	Identifier	getString
+>716	ArrayIndexing	pi [ \"os\" ]
+>717	PrimaryExpression	\"os\"
+>718	Identifier	pi
+>719	Callee	Platform 
+>720	Identifier	Platform 
+>721	Argument	pi [ \"cpuType\" ] -> getString ( )
+>722	CallExpression	pi [ \"cpuType\" ] -> getString ( )
+>723	ArgumentList	 
+>724	Callee	pi [ \"cpuType\" ] -> getString
+>725	PtrMemberAccess	pi [ \"cpuType\" ] -> getString
+>726	Identifier	getString
+>727	ArrayIndexing	pi [ \"cpuType\" ]
+>728	PrimaryExpression	\"cpuType\"
+>729	Identifier	pi
+>730	Argument	pi [ \"os\" ] -> getString ( )
+>731	CallExpression	pi [ \"os\" ] -> getString ( )
+>732	ArgumentList	 
+>733	Callee	pi [ \"os\" ] -> getString
+>734	PtrMemberAccess	pi [ \"os\" ] -> getString
+>735	Identifier	getString
+>736	ArrayIndexing	pi [ \"os\" ]
+>737	PrimaryExpression	\"os\"
+>738	Identifier	pi
+>739	Argument	BITMUNK_BFP_API_VERSION
+>740	Identifier	BITMUNK_BFP_API_VERSION
+>741	Argument	id
+>742	Identifier	id
+>743	Argument	Platform 
+>744	CallExpression	Platform 
+>745	ArgumentList	pi [ \"os\" ] -> getString ( )
+>746	Argument	pi [ \"os\" ] -> getString ( )
+>747	CallExpression	pi [ \"os\" ] -> getString ( )
+>748	ArgumentList	 
+>749	Callee	pi [ \"os\" ] -> getString
+>750	PtrMemberAccess	pi [ \"os\" ] -> getString
+>751	Identifier	getString
+>752	ArrayIndexing	pi [ \"os\" ]
+>753	PrimaryExpression	\"os\"
+>754	Identifier	pi
+>755	Callee	Platform 
+>756	Identifier	Platform 
+>757	Argument	\"%sbmbfp-%u-%s-%s-%s.%s\"
+>758	PrimaryExpression	\"%sbmbfp-%u-%s-%s-%s.%s\"
+>759	Callee	libname -> format
+>760	PtrMemberAccess	libname -> format
+>761	Identifier	format
+>762	Identifier	libname
+>763	IdentifierDeclStatement	 
+>764	IdentifierDecl	libname
+>765	Identifier	libname
+>766	IdentifierDeclType	DynamicObject
+>767	Condition	 
+>768	Identifier	success
+>769	IdentifierDeclStatement	 
+>770	IdentifierDecl	path
+>771	Identifier	path
+>772	IdentifierDeclType	string
+>773	ExpressionStatement	 
+>774	AssignmentExpr	success = mNode -> getConfigManager ( ) -> expandBitmunkHomePath ( cachePath , fullCachePath )
+>775	CallExpression	mNode -> getConfigManager ( ) -> expandBitmunkHomePath ( cachePath , fullCachePath )
+>776	ArgumentList	cachePath
+>777	Argument	fullCachePath
+>778	Identifier	fullCachePath
+>779	Argument	cachePath
+>780	Identifier	cachePath
+>781	Callee	mNode -> getConfigManager ( ) -> expandBitmunkHomePath
+>782	PtrMemberAccess	mNode -> getConfigManager ( ) -> expandBitmunkHomePath
+>783	Identifier	expandBitmunkHomePath
+>784	CallExpression	mNode -> getConfigManager ( )
+>785	ArgumentList	 
+>786	Callee	mNode -> getConfigManager
+>787	PtrMemberAccess	mNode -> getConfigManager
+>788	Identifier	getConfigManager
+>789	Identifier	mNode
+>790	Identifier	success
+>791	IdentifierDeclStatement	 
+>792	IdentifierDecl	fullCachePath
+>793	Identifier	fullCachePath
+>794	IdentifierDeclType	string
+>795	IdentifierDeclStatement	 
+>796	IdentifierDecl	* cachePath = cfg [ \"cachePath\" ] -> getString ( )
+>797	AssignmentExpr	* cachePath = cfg [ \"cachePath\" ] -> getString ( )
+>798	CallExpression	cfg [ \"cachePath\" ] -> getString ( )
+>799	ArgumentList	 
+>800	Callee	cfg [ \"cachePath\" ] -> getString
+>801	PtrMemberAccess	cfg [ \"cachePath\" ] -> getString
+>802	Identifier	getString
+>803	ArrayIndexing	cfg [ \"cachePath\" ]
+>804	PrimaryExpression	\"cachePath\"
+>805	Identifier	cfg
+>806	Identifier	cachePath
+>807	Identifier	cachePath
+>808	IdentifierDeclType	const char *
+>809	IdentifierDeclStatement	 
+>810	IdentifierDecl	cfg = mNode -> getConfigManager ( ) -> getModuleConfig ( \"bitmunk.bfp.Bfp\" )
+>811	AssignmentExpr	cfg = mNode -> getConfigManager ( ) -> getModuleConfig ( \"bitmunk.bfp.Bfp\" )
+>812	CallExpression	mNode -> getConfigManager ( ) -> getModuleConfig ( \"bitmunk.bfp.Bfp\" )
+>813	ArgumentList	\"bitmunk.bfp.Bfp\"
+>814	Argument	\"bitmunk.bfp.Bfp\"
+>815	PrimaryExpression	\"bitmunk.bfp.Bfp\"
+>816	Callee	mNode -> getConfigManager ( ) -> getModuleConfig
+>817	PtrMemberAccess	mNode -> getConfigManager ( ) -> getModuleConfig
+>818	Identifier	getModuleConfig
+>819	CallExpression	mNode -> getConfigManager ( )
+>820	ArgumentList	 
+>821	Callee	mNode -> getConfigManager
+>822	PtrMemberAccess	mNode -> getConfigManager
+>823	Identifier	getConfigManager
+>824	Identifier	mNode
+>825	Identifier	cfg
+>826	Identifier	cfg
+>827	IdentifierDeclType	Config
+>828	IdentifierDeclStatement	 
+>829	IdentifierDecl	pi = Platform 
+>830	AssignmentExpr	pi = Platform 
+>831	CallExpression	Platform 
+>832	ArgumentList	 
+>833	Callee	Platform 
+>834	Identifier	Platform 
+>835	Identifier	pi
+>836	Identifier	pi
+>837	IdentifierDeclType	Platform 
+>838	IdentifierDeclStatement	 
+>839	IdentifierDecl	success
+>840	Identifier	success
+>841	IdentifierDeclType	bool
+>842	CompoundStatement	 
+>843	ExpressionStatement	 
+>844	AssignmentExpr	rval = f -> createBfp ( id )
+>845	CallExpression	f -> createBfp ( id )
+>846	ArgumentList	id
+>847	Argument	id
+>848	Identifier	id
+>849	Callee	f -> createBfp
+>850	PtrMemberAccess	f -> createBfp
+>851	Identifier	createBfp
+>852	Identifier	f
+>853	Identifier	rval
+>854	Condition	 
+>855	EqualityExpression	f != NULL
+>856	Identifier	NULL
+>857	Identifier	f
+>858	IdentifierDeclStatement	 
+>859	IdentifierDecl	* f = getBfpFactory ( id )
+>860	AssignmentExpr	* f = getBfpFactory ( id )
+>861	CallExpression	getBfpFactory ( id )
+>862	ArgumentList	id
+>863	Argument	id
+>864	Identifier	id
+>865	Callee	getBfpFactory
+>866	Identifier	getBfpFactory
+>867	Identifier	f
+>868	Identifier	f
+>869	IdentifierDeclType	BfpFactory *
+>870	IdentifierDeclStatement	 
+>871	IdentifierDecl	* rval = NULL
+>872	AssignmentExpr	* rval = NULL
+>873	Identifier	NULL
+>874	Identifier	NULL
+>875	Identifier	rval
+>876	IdentifierDeclType	Bfp *
+>976	FunctionDef	IBfpModuleImpl 
+>977	ParameterList	Bfp * bfp
+>978	Parameter	 
+>979	Identifier	bfp
+>980	ParameterType	Bfp *
+>981	ReturnType	void
+>982	CompoundStatement	 
+>983	IfStatement	if ( f != NULL )
+>984	CompoundStatement	 
+>985	ExpressionStatement	 
+>986	CallExpression	f -> freeBfp ( bfp )
+>987	ArgumentList	bfp
+>988	Argument	bfp
+>989	Identifier	bfp
+>990	Callee	f -> freeBfp
+>991	PtrMemberAccess	f -> freeBfp
+>992	Identifier	freeBfp
+>993	Identifier	f
+>994	Condition	 
+>995	EqualityExpression	f != NULL
+>996	Identifier	NULL
+>997	Identifier	f
+>998	IdentifierDeclStatement	 
+>999	IdentifierDecl	* f = ( bfp != NULL ) ? getBfpFactory ( bfp -> getId ( ) ) 
+>1000	AssignmentExpr	* f = ( bfp != NULL ) ? getBfpFactory ( bfp -> getId ( ) ) 
+>1001	ConditionalExpression	( bfp != NULL ) ? getBfpFactory ( bfp -> getId ( ) ) 
+>1002	Identifier	NULL
+>1003	CallExpression	getBfpFactory ( bfp -> getId ( ) )
+>1004	ArgumentList	bfp -> getId ( )
+>1005	Argument	bfp -> getId ( )
+>1006	CallExpression	bfp -> getId ( )
+>1007	ArgumentList	 
+>1008	Callee	bfp -> getId
+>1009	PtrMemberAccess	bfp -> getId
+>1010	Identifier	getId
+>1011	Identifier	bfp
+>1012	Callee	getBfpFactory
+>1013	Identifier	getBfpFactory
+>1014	Condition	bfp != NULL
+>1015	EqualityExpression	bfp != NULL
+>1016	Identifier	NULL
+>1017	Identifier	bfp
+>1018	Identifier	f
+>1019	Identifier	f
+>1020	IdentifierDeclType	BfpFactory *
+>1030	FunctionDef	IBfpModuleImpl 
+>1031	ParameterList	bitmunk 
+>1032	Parameter	 
+>1033	Identifier	id
+>1034	ParameterType	bitmunk 
+>1035	ReturnType	BfpFactory *
+>1036	CompoundStatement	 
+>1037	ExpressionStatement	 
+>1038	CallExpression	lib -> getModuleInterface ( & mid )
+>1039	ArgumentList	& mid
+>1040	Argument	& mid
+>1041	UnaryOp	& mid
+>1042	Identifier	mid
+>1043	UnaryOperator	&
+>1044	Callee	lib -> getModuleInterface
+>1045	PtrMemberAccess	lib -> getModuleInterface
+>1046	Identifier	getModuleInterface
+>1047	Identifier	lib
+>1048	Statement	 
+>1049	Statement	 
+>1050	Statement	 
+>1051	Statement	 
+>1052	Statement	 
+>1053	Statement	 
+>1054	IdentifierDeclStatement	 
+>1055	IdentifierDecl	* lib = mNode -> getKernel ( ) -> getModuleLibrary ( )
+>1056	AssignmentExpr	* lib = mNode -> getKernel ( ) -> getModuleLibrary ( )
+>1057	CallExpression	mNode -> getKernel ( ) -> getModuleLibrary ( )
+>1058	ArgumentList	 
+>1059	Callee	mNode -> getKernel ( ) -> getModuleLibrary
+>1060	PtrMemberAccess	mNode -> getKernel ( ) -> getModuleLibrary
+>1061	Identifier	getModuleLibrary
+>1062	CallExpression	mNode -> getKernel ( )
+>1063	ArgumentList	 
+>1064	Callee	mNode -> getKernel
+>1065	PtrMemberAccess	mNode -> getKernel
+>1066	Identifier	getKernel
+>1067	Identifier	mNode
+>1068	Identifier	lib
+>1069	Identifier	lib
+>1070	IdentifierDeclType	ModuleLibrary *
+>1071	IdentifierDeclStatement	 
+>1072	IdentifierDecl	mid ( \"bitmunk.bfp.BfpFactory\" , version )
+>1073	Expression	\"bitmunk.bfp.BfpFactory\" , version
+>1074	Identifier	version
+>1075	PrimaryExpression	\"bitmunk.bfp.BfpFactory\"
+>1076	Identifier	mid
+>1077	IdentifierDeclType	ModuleId
+>1078	ExpressionStatement	 
+>1079	Statement	 
+>1080	Statement	 
+>1081	Statement	 
+>1082	Statement	 
+>1083	Statement	 
+>1084	Statement	 
+>1085	Statement	 
+>1086	Statement	 
+>1087	Statement	 
+>1088	Statement	 
+>1089	Statement	 
+>1090	IdentifierDeclStatement	 
+>1091	IdentifierDecl	version [ 24 ]
+>1092	PrimaryExpression	24
+>1093	Identifier	version
+>1094	IdentifierDeclType	char [ 24 ]
+<3=8,4
+<4=5
+<5=7,6
+<13=15,14
+<19=28,27,20
+<20=24,21
+<21=23,22
+<24=26,25
+<28=67,44,31,29
+<29=30
+<31=42,32
+<32=33
+<33=34
+<34=41,35
+<35=37,36
+<37=38
+<38=40,39
+<42=43
+<44=45
+<45=66,65,46
+<46=64,47
+<47=56,48
+<48=52,49
+<49=50
+<50=51
+<52=53
+<53=55,54
+<56=60,57
+<57=58
+<58=59
+<60=61
+<61=63,62
+<67=68
+<68=70,69
+<81=87,86,82
+<82=83
+<83=85,84
+<87=870,858,90,88
+<88=89
+<90=854,842,91
+<91=92
+<92=838,828,809,795,791,773,769,681,671,664,100,93
+<93=94
+<94=96,95
+<96=97
+<97=99,98
+<100=650,194,127,101
+<101=123,102
+<102=114,103
+<103=104
+<104=113,105
+<105=109,106
+<106=107
+<107=108
+<109=110
+<110=112,111
+<114=115
+<115=122,116
+<116=120,117
+<117=118
+<118=119
+<120=121
+<123=124
+<124=126,125
+<127=188,128
+<128=172,155,133,129
+<129=130
+<130=132,131
+<133=139,134
+<134=135
+<135=136
+<136=138,137
+<139=140
+<140=142,141
+<142=151,143
+<143=144
+<144=145
+<145=147,146
+<147=148
+<148=150,149
+<151=152
+<152=154,153
+<155=156
+<156=171,170,157
+<157=169,158
+<158=160,159
+<160=161
+<161=163,162
+<163=165,164
+<165=166
+<166=168,167
+<172=173
+<173=186,174
+<174=184,182,175
+<175=176
+<176=178,177
+<178=179
+<179=181,180
+<182=183
+<184=185
+<186=187
+<188=189
+<189=193,190
+<190=192,191
+<194=633,195
+<195=624,620,567,550,532,196
+<196=526,197
+<197=512,498,482,383,379,370,366,214,207,206,204,203,201,200,198
+<198=199
+<201=202
+<204=205
+<207=208
+<208=210,209
+<210=211
+<211=213,212
+<214=339,215
+<215=327,315,216
+<216=311,301,217
+<217=218
+<218=297,232,219
+<219=220
+<220=221
+<221=222
+<222=230,223
+<223=228,226,224
+<224=225
+<226=227
+<228=229
+<230=231
+<232=288,283,270,257,233
+<233=255,245,234
+<234=235
+<235=236
+<236=237
+<237=243,238
+<238=241,239
+<239=240
+<241=242
+<243=244
+<245=246
+<246=247
+<247=253,248
+<248=251,249
+<249=250
+<251=252
+<253=254
+<255=256
+<257=258
+<258=269,259
+<259=268,260
+<260=264,261
+<261=262
+<262=263
+<264=265
+<265=267,266
+<270=271
+<271=279,272
+<272=275,273
+<273=274
+<275=276
+<276=278,277
+<279=280
+<280=282,281
+<283=284
+<284=287,286,285
+<288=289
+<289=296,290
+<290=292,291
+<292=293
+<293=295,294
+<297=298
+<298=300,299
+<301=302
+<302=303
+<303=309,304
+<304=307,305
+<305=306
+<307=308
+<309=310
+<311=312
+<312=314,313
+<315=316
+<316=326,325,317
+<317=324,318
+<318=320,319
+<320=321
+<321=323,322
+<327=328
+<328=338,337,329
+<329=336,330
+<330=332,331
+<332=333
+<333=335,334
+<339=340
+<340=365,341
+<341=364,342
+<342=360,343
+<343=356,352,350,346,344
+<344=345
+<346=347
+<347=349,348
+<350=351
+<352=353
+<353=355,354
+<356=357
+<357=359,358
+<360=361
+<361=363,362
+<366=367
+<367=369,368
+<370=371
+<371=375,372
+<372=373
+<373=374
+<375=376
+<376=378,377
+<379=380
+<380=382,381
+<383=475,402,384
+<384=385
+<385=386
+<386=387
+<387=400,388
+<388=398,396,389
+<389=390
+<390=392,391
+<392=393
+<393=395,394
+<396=397
+<398=399
+<400=401
+<402=459,455,444,440,424,403
+<403=404
+<404=415,405
+<405=413,406
+<406=407
+<407=409,408
+<409=410
+<410=412,411
+<413=414
+<415=416
+<416=418,417
+<418=420,419
+<420=421
+<421=423,422
+<424=425
+<425=436,426
+<426=434,427
+<427=428
+<428=430,429
+<430=431
+<431=433,432
+<434=435
+<436=437
+<437=439,438
+<440=441
+<441=443,442
+<444=445
+<445=454,446
+<446=452,447
+<447=450,448
+<448=449
+<450=451
+<452=453
+<455=456
+<456=458,457
+<459=460
+<460=473,461
+<461=471,469,462
+<462=463
+<463=465,464
+<465=466
+<466=468,467
+<469=470
+<471=472
+<473=474
+<475=476
+<476=478,477
+<478=479
+<479=481,480
+<482=483
+<483=489,484
+<484=487,485
+<485=486
+<487=488
+<489=490
+<490=492,491
+<492=494,493
+<494=495
+<495=497,496
+<498=499
+<499=511,510,500
+<500=509,501
+<501=508,502
+<502=504,503
+<504=505
+<505=507,506
+<512=513
+<513=525,524,514
+<514=523,515
+<515=522,516
+<516=518,517
+<518=519
+<519=521,520
+<526=527
+<527=531,528
+<528=530,529
+<532=533
+<533=549,548,534
+<534=547,535
+<535=543,536
+<536=541,537
+<537=538
+<538=540,539
+<541=542
+<543=544
+<544=546,545
+<550=551
+<551=566,565,552
+<552=564,553
+<553=555,554
+<555=556
+<556=558,557
+<558=560,559
+<560=561
+<561=563,562
+<567=568
+<568=616,569
+<569=614,592,590,588,579,570
+<570=571
+<571=573,572
+<573=574
+<574=576,575
+<576=578,577
+<579=580
+<580=582,581
+<582=583
+<583=585,584
+<585=587,586
+<588=589
+<590=591
+<592=593
+<593=595,594
+<595=596
+<596=598,597
+<598=600,599
+<600=601
+<601=603,602
+<603=605,604
+<605=606
+<606=608,607
+<608=610,609
+<610=611
+<611=613,612
+<614=615
+<616=617
+<617=619,618
+<620=621
+<621=623,622
+<624=625
+<625=631,626
+<626=629,627
+<627=628
+<629=630
+<631=632
+<633=634
+<634=649,635
+<635=646,636
+<636=645,637
+<637=644,638
+<638=640,639
+<640=641
+<641=643,642
+<646=648,647
+<650=651
+<651=663,662,652
+<652=661,653
+<653=655,654
+<655=659,656
+<656=657
+<657=658
+<659=660
+<664=665
+<665=667,666
+<667=668
+<668=670,669
+<671=672
+<672=680,679,673
+<673=675,674
+<675=676
+<676=678,677
+<681=767,682
+<682=763,704,683
+<683=684
+<684=703,685
+<685=701,686
+<686=694,687
+<687=688
+<688=690,689
+<690=691
+<691=693,692
+<694=695
+<695=697,696
+<697=698
+<698=700,699
+<701=702
+<704=705
+<705=759,706
+<706=757,743,741,739,730,721,707
+<707=708
+<708=719,709
+<709=710
+<710=711
+<711=713,712
+<713=714
+<714=716,715
+<716=718,717
+<719=720
+<721=722
+<722=724,723
+<724=725
+<725=727,726
+<727=729,728
+<730=731
+<731=733,732
+<733=734
+<734=736,735
+<736=738,737
+<739=740
+<741=742
+<743=744
+<744=755,745
+<745=746
+<746=747
+<747=749,748
+<749=750
+<750=752,751
+<752=754,753
+<755=756
+<757=758
+<759=760
+<760=762,761
+<763=764
+<764=766,765
+<767=768
+<769=770
+<770=772,771
+<773=774
+<774=790,775
+<775=781,776
+<776=779,777
+<777=778
+<779=780
+<781=782
+<782=784,783
+<784=786,785
+<786=787
+<787=789,788
+<791=792
+<792=794,793
+<795=796
+<796=808,807,797
+<797=806,798
+<798=800,799
+<800=801
+<801=803,802
+<803=805,804
+<809=810
+<810=827,826,811
+<811=825,812
+<812=816,813
+<813=814
+<814=815
+<816=817
+<817=819,818
+<819=821,820
+<821=822
+<822=824,823
+<828=829
+<829=837,836,830
+<830=835,831
+<831=833,832
+<833=834
+<838=839
+<839=841,840
+<842=843
+<843=844
+<844=853,845
+<845=849,846
+<846=847
+<847=848
+<849=850
+<850=852,851
+<854=855
+<855=857,856
+<858=859
+<859=869,868,860
+<860=867,861
+<861=865,862
+<862=863
+<863=864
+<865=866
+<870=871
+<871=876,875,872
+<872=874,873
+<976=982,981,977
+<977=978
+<978=980,979
+<982=998,983
+<983=994,984
+<984=985
+<985=986
+<986=990,987
+<987=988
+<988=989
+<990=991
+<991=993,992
+<994=995
+<995=997,996
+<998=999
+<999=1020,1019,1000
+<1000=1018,1001
+<1001=1014,1003,1002
+<1003=1012,1004
+<1004=1005
+<1005=1006
+<1006=1008,1007
+<1008=1009
+<1009=1011,1010
+<1012=1013
+<1014=1015
+<1015=1017,1016
+<1030=1036,1035,1031
+<1031=1032
+<1032=1034,1033
+<1036=1090,1089,1088,1087,1086,1085,1084,1083,1082,1081,1080,1079,1078,1071,1054,1053,1052,1051,1050,1049,1048,1037
+<1037=1038
+<1038=1044,1039
+<1039=1040
+<1040=1041
+<1041=1043,1042
+<1044=1045
+<1045=1047,1046
+<1054=1055
+<1055=1070,1069,1056
+<1056=1068,1057
+<1057=1059,1058
+<1059=1060
+<1060=1062,1061
+<1062=1064,1063
+<1064=1065
+<1065=1067,1066
+<1071=1072
+<1072=1077,1076,1073
+<1073=1075,1074
+<1090=1091
+<1091=1094,1093,1092

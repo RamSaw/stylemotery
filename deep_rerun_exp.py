@@ -7,7 +7,7 @@ from chainer import serializers
 from models.lstm_models import RecursiveHighWayLSTM, RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import split_trees, pick_subsets, evaluate, train
-from utils.fun_utils import parse_src_files, print_model
+from utils.dataset_utils import parse_src_files, print_model
 import argparse
 from argparse import Namespace
 

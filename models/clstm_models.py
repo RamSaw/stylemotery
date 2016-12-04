@@ -108,6 +108,43 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         self.reset_states()
         return h0
 
+
+
+class RecursiveDyanmicLSTM(RecursiveBaseLSTM):
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, classes=None, peephole=False):
+        super(RecursiveDyanmicLSTM, self).__init__(n_units, n_label, dropout=dropout,feature_dict=feature_dict, classes=classes)
+        self.layers = layers
+        self.base_lstm = L.StatefulPeepholeLSTM if peephole else L.LSTM
+        for i in range(1, layers + 1):
+            self.add_link("lstm" + str(i), self.base_lstm(n_units, n_units))
+
+    def one_step(self, x, train_mode):
+        h = x
+        import random
+        rlayers = list(range(1, self.layers + 1))
+        random.shuffle(rlayers)
+        for i in rlayers:
+            h_prev = h
+            lstm_layer = getattr(self, "lstm" + str(i))
+            h = lstm_layer(h) + h_prev
+            h = F.dropout(h, ratio=self.dropout, train=train_mode)
+        return h
+
+    def reset_states(self):
+        for i in range(1, self.layers + 1):
+            layer = getattr(self, "lstm" + str(i))
+            layer.reset_state()
+
+    def merge(self, x, children, train_mode):
+        # forward
+        timestamps = []
+        h0 = self.one_step(x, train_mode)  # self.batch(
+        for child in children:
+            h0 = self.one_step(child, train_mode)
+        self.reset_states()
+        return h0
+
+
 class RecursiveBiLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None):
         super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,feature_dict=feature_dict,

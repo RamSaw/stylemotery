@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from ast_tree.ast_parser import bfs, children, split_trees2
-from utils.fun_utils import get_basefolder, parse_src_files
+from ast_tree.traverse import bfs, children, split_trees2
+from utils.dataset_utils import get_basefolder, parse_src_files, unified_ast_trees, make_binary_tree
 import os
 
 def max_depth(ast_tree):
@@ -75,9 +75,11 @@ def plot_dists(name, depths, branches, max_len=1000,base_folder=None):
 if __name__ == "__main__":
     basefolder = get_basefolder()
     X, y, tags = parse_src_files(basefolder)
+
+    # X = make_binary_tree(unified_ast_trees(X), 9)
     depths = [max_depth(x) for x in X]
     branches = [max_branch(x) for x in X]
-    plot_dists("Single Tree", depths, branches, max_len=100,base_folder=R"C:\Users\bms\Desktop")
+    plot_dists("Single Tree", depths, branches, max_len=100)
 
     # X,y,tags = split_trees2(X,y,tags)
     # depths = np.array([max_depth(x) for x in X])

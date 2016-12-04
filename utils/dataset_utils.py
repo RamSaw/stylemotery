@@ -5,28 +5,15 @@ import sys
 import numpy as np
 
 import copy
-from ast_tree.ast_parser import children, ast_print, bfs
+
+from tqdm import tqdm
+
+from ast_tree.traverse import children, bfs
+from ast_tree.tree_nodes import DotNodes, AstNodes
+from ast_tree.tree_parser import parse_dot, ast_parse_file, fast_parse_dot, parse_tree
 
 
-def get_basefolder():
-    if platform.system().startswith("Linux"):
-        return R"dataset700"
-    elif platform.system().startswith("Win"):
-        return R"dataset/dataset700"
-
-
-def ast_parse_file(filename):
-    try:
-        with open(filename, 'r', encoding="utf-8") as file:
-            tree = ast.parse(file.read())
-            return tree
-    except Exception as e:
-        print("ERROR: ", e, " filename", filename)
-
-
-
-
-def get_src_files(basefolder):
+def get_ast_src_files(basefolder):
     files = os.listdir(basefolder)
     files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
 
@@ -35,10 +22,35 @@ def get_src_files(basefolder):
 
     return np.array([os.path.join(basefolder, file) for file in files]), np.array(users), np.array(problems)
 
+def get_dot_files(basefolder):
+    trees = []
+    users = []
+    problems = []
+    for folder in [f for f in os.listdir(basefolder) if os.path.isdir(os.path.join(basefolder,f))]:
+        for number in os.listdir(os.path.join(basefolder, folder)):
+            file = [filename for filename in os.listdir(os.path.join(basefolder, folder, number)) if
+                    filename.endswith(".tree")][0]
+            trees.append(parse_tree(os.path.join(basefolder, folder, number, file)))
+            users.append(folder)
+    return np.array(trees),np.array(users),np.array(problems)
+
+def get_dot_files2(basefolder):
+    trees = []
+    users = []
+    problems = []
+    for file in tqdm(os.listdir(basefolder)):
+        trees.append(parse_tree(os.path.join(basefolder, file)))
+        users.append(file.split('.')[0])
+    return np.array(trees),np.array(users),np.array(problems)
 
 def parse_src_files(basefolder, seperate_trees=False):
-    X_names, y, problems = get_src_files(basefolder)
-    return np.array([ast_parse_file(name) for name in X_names]), np.array(y), problems
+    if basefolder.endswith("python"):
+        X_names, y, problems = get_ast_src_files(basefolder)
+        return np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems,AstNodes()
+    else:
+        X, y, problems = get_dot_files2(basefolder)
+        return np.array(X), np.array(y), problems, DotNodes()
+
     # return np.array(make_binary_tree(unified_ast_trees([ast_parse_file(name) for name in X_names]))), np.array(y), problems
 
 
@@ -90,12 +102,6 @@ def print_model(model,depth=0,output=sys.stdout):
             print_model(child,depth=depth+1,output=output)
 
 
-class Node:
-    def __init__(self,child):
-        self.children = child
-        self._fields = ('children',)
-
-
 def unified_ast_trees(trees):
     def convert_tree(src_tree):
         childern = []
@@ -107,27 +113,7 @@ def unified_ast_trees(trees):
     for tree in trees:
         utrees.append(convert_tree(tree))
     return utrees
-def max_depth(ast_tree):
-    def max_depth_lambda(x, d, o):
-        if len(o) == 0:
-            o.append(d)
-        elif d > o[0]:
-            o[0] = d
 
-    out = bfs(ast_tree, callback=max_depth_lambda, mode="leaves", out=[])
-    return out[0]
-
-
-def max_branch(ast_tree):
-    def max_branch_lambda(x, d, o):
-        count = len(list(children(x)))
-        if len(o) == 0:
-            o.append(count)
-        elif count > o[0]:
-            o[0] = count
-
-    out = bfs(ast_tree, callback=max_branch_lambda, mode="all", out=[])
-    return out[0]
 def make_binary_tree(trees,max_branches=10):
     def make_binary_tree(src_tree,dst_tree,max_branches = 2):
         childs = list(children(src_tree))
@@ -156,12 +142,6 @@ def make_binary_tree(trees,max_branches=10):
         binary_tree.children = []
         dst_trees.append(make_binary_tree(tree,binary_tree,max_branches))
     return np.array(dst_trees)
-
-if __name__ == "__main__":
-    trees,labels,problems = generate_trees("",2,5,20)
-    trees = unified_ast_trees(trees[:1])
-    ast_print(trees[0])
-    ast_print(make_binary_tree(trees,max_branches=2)[0])
 
 
 

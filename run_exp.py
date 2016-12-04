@@ -17,7 +17,7 @@ from sklearn.pipeline import Pipeline
 from information_gain.InformationGain import TopRandomTreesEmbedding
 from ast_tree.ASTVectorizater import ASTVectorizer
 from utils.exp_utlis import read_config, pick_subsets, split_trees
-from utils.fun_utils import get_basefolder, parse_src_files
+from utils.dataset_utils import get_basefolder, parse_src_files
 import collections
 
 def full_evaluation(rf, X, y, cv):

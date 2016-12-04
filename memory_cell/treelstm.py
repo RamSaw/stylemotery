@@ -78,7 +78,6 @@ class FastTreeLSTM(link.Chain):
         c_prev = f * c
         c_cur = a * i + F.reshape(F.sum(c_prev, axis=0), (1, -1))
         h = o * F.tanh(c_cur)
-
         return c_cur, h
 
 

@@ -1,7 +1,7 @@
 from chainer import optimizers
 
 from models.tree_models import RecursiveTreeLSTM
-from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
+from utils.dataset_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 import chainer
 import chainer.functions as F
 import chainer.links as L

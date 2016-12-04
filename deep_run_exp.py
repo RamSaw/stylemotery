@@ -7,13 +7,13 @@ from operator import itemgetter
 import chainer
 from chainer import optimizers
 import math
-from ast_tree.ast_parser import split_trees2, ast_print
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+from models.clstm_models import RecursiveDyanmicLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
-from utils.fun_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree, max_branch, max_depth
+from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree
 
 
 def print_table(table):
@@ -49,7 +49,7 @@ def main_experiment():
     parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')
 
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--dataset', '-d', type=str, default="dataset/dataset700", help='Experiment dataset')
+    parser.add_argument('--dataset', '-d', type=str, default="cpp", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
@@ -71,12 +71,12 @@ def main_experiment():
     models_base_folder = "saved_models"
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
-    dataset_folder = args.dataset
+    dataset_folder = os.path.join("dataset",args.dataset)
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
 
-    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+    trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder)
 
     if args.train:
         rand_seed, classes = read_config(os.path.join("train",args.train))
@@ -88,7 +88,7 @@ def main_experiment():
 
 
     #if model_name in ("treelstm","slstm"):
-    trees = make_binary_tree(unified_ast_trees(trees),2)
+    # trees = make_binary_tree(unified_ast_trees(trees),2)
 
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
@@ -109,21 +109,21 @@ def main_experiment():
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
+    elif model_name == "dlstm":
+        model = RecursiveDyanmicLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,peephole=False)
+        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=False)
     elif model_name == "biplstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=True)
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,feature_dict=tree_nodes,peephole=True)
     elif model_name == "plstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=True)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=True)
     # elif model_name == "highway":
     #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "reslstm":
-        model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=False)
     elif model_name == "treelstm":
-        model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout, classes=classes)
-    elif model_name == "treebilstm":
-        model = RecursiveTreeBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
     else:
         print("No model was found")
         return
@@ -141,7 +141,7 @@ def main_experiment():
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
-    optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
+    optimizer.add_hook(chainer.optimizer.GradientClipping(5.0))
 
     hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
     output_file.write(" {0} \n".format(hooks))
@@ -183,6 +183,8 @@ def main_experiment():
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
 
+        # if epoch % 5 == 0:
+        #     model.curr_layers += 1
         # save the best models
         saved = False
         if args.save > 0 and epoch > 0:

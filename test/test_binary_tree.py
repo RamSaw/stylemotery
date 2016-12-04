@@ -1,5 +1,5 @@
-from ast_tree.ast_parser import ast_print
-from utils.fun_utils import parse_src_files, get_basefolder, make_binary_tree
+from ast_tree.traverse import ast_print
+from utils.dataset_utils import parse_src_files, get_basefolder, make_binary_tree
 import os
 
 if __name__ == "__main__":

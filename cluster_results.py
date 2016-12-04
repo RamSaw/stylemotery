@@ -15,11 +15,11 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.manifold import TSNE
 from sklearn.neighbors import NearestNeighbors
 
-from ast_tree.ast_parser import AstNodes
+from ast_tree.traverse import AstNodes
 from deep_run_exp import split_trees, pick_subsets
 from models.lstm_models import RecursiveLSTM
 from utils.extract_loss_progress import parse_result_file
-from utils.fun_utils import print_model, parse_src_files
+from utils.dataset_utils import print_model, parse_src_files
 from utils.graph import plot_all, plot_each
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt

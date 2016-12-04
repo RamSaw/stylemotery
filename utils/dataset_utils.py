@@ -44,7 +44,7 @@ def get_dot_files2(basefolder):
     return np.array(trees),np.array(users),np.array(problems)
 
 def parse_src_files(basefolder, seperate_trees=False):
-    if basefolder.endswith("../dataset//python"):
+    if basefolder.endswith("python"):
         X_names, y, problems = get_ast_src_files(basefolder)
         return np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems,AstNodes()
     else:

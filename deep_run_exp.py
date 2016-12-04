@@ -79,13 +79,12 @@ def main_experiment():
     trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder)
 
     if args.train:
-        rand_seed, classes = read_config(os.path.join("train",args.train))
+        rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
     else:
         rand_seed = random.randint(0, 4294967295)
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
-
 
     #if model_name in ("treelstm","slstm"):
     # trees = make_binary_tree(unified_ast_trees(trees),2)

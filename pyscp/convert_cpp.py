@@ -1,6 +1,9 @@
+import random
 from collections import defaultdict
 
 import shutil
+
+from tqdm import tqdm
 
 from ast_tree.tree_nodes import Node
 import os
@@ -104,10 +107,9 @@ def traverse1(basefolder):
     trees = []
     users = []
     problems = []
-    for file in os.listdir(basefolder):
+    for file in tqdm(os.listdir(basefolder)):
         trees.append(parse_tree(os.path.join(basefolder, file)))
-        users.append(os.path.splitext(file)[0])
-        print(file+ " ...done.")
+        users.append(file.split('.')[0])
     return np.array(trees),np.array(users),np.array(problems)
 
 def copy_trees(basefolder,dstfolder):
@@ -120,9 +122,28 @@ def copy_trees(basefolder,dstfolder):
                         os.path.join(dstfolder, folder+"."+number+"."+file ))
         print("done.")
 basefolder = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\balanced_cpp"
-dstfolder = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\cpp_new"
+dstfolder = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\cpp"
 # copy_trees(basefolder,dstfolder)
-traverse1(dstfolder)
+_, users, __ = traverse1(dstfolder)
+
+max_authors = 5
+print(max_authors,"*"*max_authors)
+for i in range(5):
+    random.shuffle(users)
+    print(','.join(["'{0}'".format(s) for s in users[:max_authors]]))
+
+
+max_authors = 15
+print(max_authors,"*"*max_authors)
+for i in range(5):
+    random.shuffle(users)
+    print(','.join(["'{0}'".format(s) for s in users[:max_authors]]))
+
+max_authors = 25
+print(max_authors,"*"*max_authors)
+for i in range(5):
+    random.shuffle(users)
+    print(','.join(["'{0}'".format(s) for s in users[:max_authors]]))
 
 
 

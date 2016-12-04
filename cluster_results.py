@@ -15,9 +15,11 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.manifold import TSNE
 from sklearn.neighbors import NearestNeighbors
 
-from ast_tree.traverse import AstNodes
+from ast_tree.ASTVectorizater import TreeFeatures
+from ast_tree.tree_nodes import AstNodes
 from deep_run_exp import split_trees, pick_subsets
 from models.lstm_models import RecursiveLSTM
+from models.tree_models import RecursiveTreeLSTM
 from utils.extract_loss_progress import parse_result_file
 from utils.dataset_utils import print_model, parse_src_files
 from utils.graph import plot_all, plot_each
@@ -151,7 +153,7 @@ def show_embeding(model):
 
 from sklearn.preprocessing import scale
 def show_authors(model):
-    dataset_folder = "dataset700"
+    dataset_folder = "python"
     trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
     # trees, tree_labels = pick_subsets(trees, tree_labels, labels=2)
     classes_, y = np.unique(tree_labels, return_inverse=True)
@@ -183,12 +185,12 @@ def show_authors(model):
     neighbors_table(estimator, trees_X, y, tree_labels)
 
 if __name__ == "__main__":
-    path = R"C:\Users\bms\Files\study\DC\Experiments\results\best results\saved_models\1_lstm_1_250_70_labels10_epoch_135.my"
-    model = RecursiveLSTM(250, 70,1,0.2, classes=None)
+    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
+    model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
     serializers.load_npz(path,model)
     print_model(model, depth=1, output=sys.stdout)
 
-    #show_embeding(model)
+    show_embeding(model)
     show_authors(model)
 
 

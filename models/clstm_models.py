@@ -122,7 +122,8 @@ class RecursiveDyanmicLSTM(RecursiveBaseLSTM):
         h = x
         import random
         rlayers = list(range(1, self.layers + 1))
-        random.shuffle(rlayers)
+        if train_mode:
+            random.shuffle(rlayers)
         for i in rlayers:
             h_prev = h
             lstm_layer = getattr(self, "lstm" + str(i))

@@ -114,6 +114,8 @@ class DotNodes:
         if node is None:
             return self.nodetypes_indices[self.NONE]
         if isinstance(node, Node):
+            # if not node.type:
+            #     return self.nodetypes_indices[self.NONE]
             return self.nodetypes_indices[node.type.upper()]
         elif isinstance(node, tuple):
             return sum([(self.size() ** i) * s for i, s in enumerate(reversed(node))])

@@ -1,7 +1,7 @@
 import ast
 import os
 from collections import defaultdict
-from ast_tree.tree_nodes import Node, print_dot_node
+from ast_tree.tree_nodes import Node, print_dot_node, DotNodes
 from ast_tree.traverse import tree_print, bfs, children
 import sys
 def ast_parse_file(filename):
@@ -28,6 +28,12 @@ def parse_tree(filename):
             nodes[id].children.append(nodes[link])
             root_nodes.append(link)
 
+    dot = DotNodes()
+    for node in nodes.values():
+        try:
+            dot.index(node)
+        except:
+            print(filename)
     root_nodes = set(nodes.keys()) - set(root_nodes)
     root = Node("Program","",[nodes[id] for id in list(sorted(root_nodes))])
     return root

@@ -111,13 +111,7 @@ def main_experiment():
     elif model_name == "dlstm":
         model = RecursiveDyanmicLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
     elif model_name == "bilstm":
-<<<<<<< HEAD
-        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,peephole=False)
-    elif model_name == "bbilstm":
-        model = RecursiveBBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
-=======
         model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=False)
->>>>>>> 756f17db619b01a162b995803d305bb1dff7ef97
     elif model_name == "biplstm":
         model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,feature_dict=tree_nodes,peephole=True)
     elif model_name == "plstm":

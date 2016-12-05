@@ -1,0 +1,797 @@
+>3	FunctionDef	drwnParseMexSuperpixels (const mxArray * array , drwnSuperpixelContainer & container)
+>4	ParameterList	const mxArray * array , drwnSuperpixelContainer & container
+>5	Parameter	 
+>6	Identifier	container
+>7	ParameterType	drwnSuperpixelContainer &
+>8	Parameter	 
+>9	Identifier	array
+>10	ParameterType	const mxArray *
+>11	ReturnType	void
+>12	CompoundStatement	 
+>13	ForStatement	for ( int c = 0 ; c < nChannels ; c ++ )
+>14	CompoundStatement	 
+>15	ExpressionStatement	 
+>16	CallExpression	container . addSuperpixels ( m )
+>17	ArgumentList	m
+>18	Argument	m
+>19	Identifier	m
+>20	Callee	container . addSuperpixels
+>21	MemberAccess	container . addSuperpixels
+>22	Identifier	addSuperpixels
+>23	Identifier	container
+>24	ForStatement	for ( int x = 0 ; x < nCols ; x ++ )
+>25	CompoundStatement	 
+>26	ForStatement	for ( int y = 0 ; y < nRows ; y ++ )
+>27	CompoundStatement	 
+>28	ExpressionStatement	 
+>29	AssignmentExpr	m . at < int > ( y , x ) = ( int ) ( * px ++ ) - 1
+>30	AdditiveExpression	( int ) ( * px ++ ) - 1
+>31	PrimaryExpression	1
+>32	CastExpression	( int ) ( * px ++ )
+>33	UnaryOp	* px ++
+>34	IncDecOp	px ++
+>35	IncDec	++
+>36	Identifier	px
+>37	UnaryOperator	*
+>38	CastTarget	int
+>39	RelationalExpression	m . at < int > ( y , x )
+>40	RelationalExpression	int > ( y , x )
+>41	Expression	y , x
+>42	Identifier	x
+>43	Identifier	y
+>44	Identifier	int
+>45	MemberAccess	m . at
+>46	Identifier	at
+>47	Identifier	m
+>48	IncDecOp	 
+>49	IncDec	++
+>50	Identifier	y
+>51	Condition	 
+>52	RelationalExpression	y < nRows
+>53	Identifier	nRows
+>54	Identifier	y
+>55	ForInit	 
+>56	IdentifierDeclStatement	int y = 0 ;
+>57	IdentifierDecl	y = 0
+>58	AssignmentExpr	y = 0
+>59	PrimaryExpression	0
+>60	Identifier	y
+>61	Identifier	y
+>62	IdentifierDeclType	int
+>63	IncDecOp	 
+>64	IncDec	++
+>65	Identifier	x
+>66	Condition	 
+>67	RelationalExpression	x < nCols
+>68	Identifier	nCols
+>69	Identifier	x
+>70	ForInit	 
+>71	IdentifierDeclStatement	int x = 0 ;
+>72	IdentifierDecl	x = 0
+>73	AssignmentExpr	x = 0
+>74	PrimaryExpression	0
+>75	Identifier	x
+>76	Identifier	x
+>77	IdentifierDeclType	int
+>78	IdentifierDeclStatement	 
+>79	IdentifierDecl	m ( nRows , nCols , CV_32SC1 )
+>80	Expression	nRows , nCols , CV_32SC1
+>81	Expression	nCols , CV_32SC1
+>82	Identifier	CV_32SC1
+>83	Identifier	nCols
+>84	Identifier	nRows
+>85	Identifier	m
+>86	IdentifierDeclType	cv 
+>87	IncDecOp	 
+>88	IncDec	++
+>89	Identifier	c
+>90	Condition	 
+>91	RelationalExpression	c < nChannels
+>92	Identifier	nChannels
+>93	Identifier	c
+>94	ForInit	 
+>95	IdentifierDeclStatement	int c = 0 ;
+>96	IdentifierDecl	c = 0
+>97	AssignmentExpr	c = 0
+>98	PrimaryExpression	0
+>99	Identifier	c
+>100	Identifier	c
+>101	IdentifierDeclType	int
+>102	IdentifierDeclStatement	 
+>103	IdentifierDecl	* px = ( T * ) mxGetData ( array )
+>104	AssignmentExpr	* px = ( T * ) mxGetData ( array )
+>105	CastExpression	( T * ) mxGetData ( array )
+>106	CallExpression	mxGetData ( array )
+>107	ArgumentList	array
+>108	Argument	array
+>109	Identifier	array
+>110	Callee	mxGetData
+>111	Identifier	mxGetData
+>112	CastTarget	T *
+>113	Identifier	px
+>114	Identifier	px
+>115	IdentifierDeclType	T *
+>116	ExpressionStatement	 
+>117	CallExpression	DRWN_LOG_DEBUG ( \"parsing a \" << nRows << \"-by-\" << nCols << \"-by-\" << nChannels << \" matrix...\" )
+>118	ArgumentList	\"parsing a \" << nRows << \"-by-\" << nCols << \"-by-\" << nChannels << \" matrix...\"
+>119	Argument	\"parsing a \" << nRows << \"-by-\" << nCols << \"-by-\" << nChannels << \" matrix...\"
+>120	ShiftExpression	\"parsing a \" << nRows << \"-by-\" << nCols << \"-by-\" << nChannels << \" matrix...\"
+>121	ShiftExpression	nRows << \"-by-\" << nCols << \"-by-\" << nChannels << \" matrix...\"
+>122	ShiftExpression	\"-by-\" << nCols << \"-by-\" << nChannels << \" matrix...\"
+>123	ShiftExpression	nCols << \"-by-\" << nChannels << \" matrix...\"
+>124	ShiftExpression	\"-by-\" << nChannels << \" matrix...\"
+>125	ShiftExpression	nChannels << \" matrix...\"
+>126	PrimaryExpression	\" matrix...\"
+>127	Identifier	nChannels
+>128	PrimaryExpression	\"-by-\"
+>129	Identifier	nCols
+>130	PrimaryExpression	\"-by-\"
+>131	Identifier	nRows
+>132	PrimaryExpression	\"parsing a \"
+>133	Callee	DRWN_LOG_DEBUG
+>134	Identifier	DRWN_LOG_DEBUG
+>135	IdentifierDeclStatement	 
+>136	IdentifierDecl	nChannels = ( nDims == 3 ) ? mxGetDimensions ( array ) [ 2 ] 
+>137	AssignmentExpr	nChannels = ( nDims == 3 ) ? mxGetDimensions ( array ) [ 2 ] 
+>138	ConditionalExpression	( nDims == 3 ) ? mxGetDimensions ( array ) [ 2 ] 
+>139	PrimaryExpression	1
+>140	ArrayIndexing	mxGetDimensions ( array ) [ 2 ]
+>141	PrimaryExpression	2
+>142	CallExpression	mxGetDimensions ( array )
+>143	ArgumentList	array
+>144	Argument	array
+>145	Identifier	array
+>146	Callee	mxGetDimensions
+>147	Identifier	mxGetDimensions
+>148	Condition	nDims == 3
+>149	EqualityExpression	nDims == 3
+>150	PrimaryExpression	3
+>151	Identifier	nDims
+>152	Identifier	nChannels
+>153	Identifier	nChannels
+>154	IdentifierDeclType	const int
+>155	IdentifierDeclStatement	 
+>156	IdentifierDecl	nCols = mxGetDimensions ( array ) [ 1 ]
+>157	AssignmentExpr	nCols = mxGetDimensions ( array ) [ 1 ]
+>158	ArrayIndexing	mxGetDimensions ( array ) [ 1 ]
+>159	PrimaryExpression	1
+>160	CallExpression	mxGetDimensions ( array )
+>161	ArgumentList	array
+>162	Argument	array
+>163	Identifier	array
+>164	Callee	mxGetDimensions
+>165	Identifier	mxGetDimensions
+>166	Identifier	nCols
+>167	Identifier	nCols
+>168	IdentifierDeclType	const int
+>169	IdentifierDeclStatement	 
+>170	IdentifierDecl	nRows = mxGetDimensions ( array ) [ 0 ]
+>171	AssignmentExpr	nRows = mxGetDimensions ( array ) [ 0 ]
+>172	ArrayIndexing	mxGetDimensions ( array ) [ 0 ]
+>173	PrimaryExpression	0
+>174	CallExpression	mxGetDimensions ( array )
+>175	ArgumentList	array
+>176	Argument	array
+>177	Identifier	array
+>178	Callee	mxGetDimensions
+>179	Identifier	mxGetDimensions
+>180	Identifier	nRows
+>181	Identifier	nRows
+>182	IdentifierDeclType	const int
+>183	ExpressionStatement	 
+>184	CallExpression	DRWN_ASSERT_MSG ( ( nDims == 2 ) || ( nDims == 3 ) , \"expecting multi-channel superpixel matrix\" )
+>185	ArgumentList	( nDims == 2 ) || ( nDims == 3 )
+>186	Argument	\"expecting multi-channel superpixel matrix\"
+>187	PrimaryExpression	\"expecting multi-channel superpixel matrix\"
+>188	Argument	( nDims == 2 ) || ( nDims == 3 )
+>189	OrExpression	( nDims == 2 ) || ( nDims == 3 )
+>190	EqualityExpression	nDims == 3
+>191	PrimaryExpression	3
+>192	Identifier	nDims
+>193	EqualityExpression	nDims == 2
+>194	PrimaryExpression	2
+>195	Identifier	nDims
+>196	Callee	DRWN_ASSERT_MSG
+>197	Identifier	DRWN_ASSERT_MSG
+>198	IdentifierDeclStatement	 
+>199	IdentifierDecl	nDims = mxGetNumberOfDimensions ( array )
+>200	AssignmentExpr	nDims = mxGetNumberOfDimensions ( array )
+>201	CallExpression	mxGetNumberOfDimensions ( array )
+>202	ArgumentList	array
+>203	Argument	array
+>204	Identifier	array
+>205	Callee	mxGetNumberOfDimensions
+>206	Identifier	mxGetNumberOfDimensions
+>207	Identifier	nDims
+>208	Identifier	nDims
+>209	IdentifierDeclType	const int
+>232	FunctionDef	usage ()
+>233	ParameterList	 
+>234	ReturnType	void
+>235	CompoundStatement	 
+>236	ExpressionStatement	 
+>237	CallExpression	mexPrintf ( \"\n\" )
+>238	ArgumentList	\"\n\"
+>239	Argument	\"\n\"
+>240	PrimaryExpression	\"\n\"
+>241	Callee	mexPrintf
+>242	Identifier	mexPrintf
+>243	ExpressionStatement	 
+>244	CallExpression	drwnMatlabUtils 
+>245	ArgumentList	 
+>246	Callee	drwnMatlabUtils 
+>247	Identifier	drwnMatlabUtils 
+>248	ExpressionStatement	 
+>249	CallExpression	mexPrintf ( \"OPTIONS
+>250	ArgumentList	\"OPTIONS
+>251	Argument	\"OPTIONS
+>252	PrimaryExpression	\"OPTIONS
+>253	Callee	mexPrintf
+>254	Identifier	mexPrintf
+>255	ExpressionStatement	 
+>256	CallExpression	mexPrintf ( \"  sp       
+>257	ArgumentList	\"  sp       
+>258	Argument	\"  sp       
+>259	PrimaryExpression	\"  sp       
+>260	Callee	mexPrintf
+>261	Identifier	mexPrintf
+>262	ExpressionStatement	 
+>263	CallExpression	mexPrintf ( \"  filename 
+>264	ArgumentList	\"  filename 
+>265	Argument	\"  filename 
+>266	PrimaryExpression	\"  filename 
+>267	Callee	mexPrintf
+>268	Identifier	mexPrintf
+>269	ExpressionStatement	 
+>270	CallExpression	mexPrintf ( \"USAGE
+>271	ArgumentList	\"USAGE
+>272	Argument	\"USAGE
+>273	PrimaryExpression	\"USAGE
+>274	Callee	mexPrintf
+>275	Identifier	mexPrintf
+>276	ExpressionStatement	 
+>277	CallExpression	mexPrintf ( \"  Saves superpixel maps to a drwnSuperpixelContainer object on disk.\n\" )
+>278	ArgumentList	\"  Saves superpixel maps to a drwnSuperpixelContainer object on disk.\n\"
+>279	Argument	\"  Saves superpixel maps to a drwnSuperpixelContainer object on disk.\n\"
+>280	PrimaryExpression	\"  Saves superpixel maps to a drwnSuperpixelContainer object on disk.\n\"
+>281	Callee	mexPrintf
+>282	Identifier	mexPrintf
+>283	ExpressionStatement	 
+>284	CallExpression	mexPrintf ( \"\nDESCRIPITON
+>285	ArgumentList	\"\nDESCRIPITON
+>286	Argument	\"\nDESCRIPITON
+>287	PrimaryExpression	\"\nDESCRIPITON
+>288	Callee	mexPrintf
+>289	Identifier	mexPrintf
+>290	ExpressionStatement	 
+>291	CallExpression	mexPrintf ( DRWN_USAGE_HEADER )
+>292	ArgumentList	DRWN_USAGE_HEADER
+>293	Argument	DRWN_USAGE_HEADER
+>294	Identifier	DRWN_USAGE_HEADER
+>295	Callee	mexPrintf
+>296	Identifier	mexPrintf
+>301	FunctionDef	mexFunction (int nlhs , mxArray * plhs [ ] , int nrhs , const mxArray * prhs [ ])
+>302	ParameterList	int nlhs , mxArray * plhs [ ] , int nrhs , const mxArray * prhs [ ]
+>303	Parameter	 
+>304	Identifier	prhs
+>305	ParameterType	const mxArray * [ ]
+>306	Parameter	 
+>307	Identifier	nrhs
+>308	ParameterType	int
+>309	Parameter	 
+>310	Identifier	plhs
+>311	ParameterType	mxArray * [ ]
+>312	Parameter	 
+>313	Identifier	nlhs
+>314	ParameterType	int
+>315	ReturnType	void
+>316	CompoundStatement	 
+>317	ExpressionStatement	 
+>318	CallExpression	drwnCodeProfiler 
+>319	ArgumentList	 
+>320	Callee	drwnCodeProfiler 
+>321	Identifier	drwnCodeProfiler 
+>322	ExpressionStatement	 
+>323	CallExpression	drwnCodeProfiler 
+>324	ArgumentList	drwnCodeProfiler 
+>325	Argument	drwnCodeProfiler 
+>326	CallExpression	drwnCodeProfiler 
+>327	ArgumentList	\"mex\"
+>328	Argument	\"mex\"
+>329	PrimaryExpression	\"mex\"
+>330	Callee	drwnCodeProfiler 
+>331	Identifier	drwnCodeProfiler 
+>332	Callee	drwnCodeProfiler 
+>333	Identifier	drwnCodeProfiler 
+>334	ExpressionStatement	 
+>335	CallExpression	mxFree ( filename )
+>336	ArgumentList	filename
+>337	Argument	filename
+>338	Identifier	filename
+>339	Callee	mxFree
+>340	Identifier	mxFree
+>341	ExpressionStatement	 
+>342	CallExpression	ofs . close ( )
+>343	ArgumentList	 
+>344	Callee	ofs . close
+>345	MemberAccess	ofs . close
+>346	Identifier	close
+>347	Identifier	ofs
+>348	ExpressionStatement	 
+>349	CallExpression	container . write ( ofs )
+>350	ArgumentList	ofs
+>351	Argument	ofs
+>352	Identifier	ofs
+>353	Callee	container . write
+>354	MemberAccess	container . write
+>355	Identifier	write
+>356	Identifier	container
+>357	IdentifierDeclStatement	 
+>358	IdentifierDecl	ofs ( filename , ios 
+>359	Expression	filename , ios 
+>360	InclusiveOrExpression	ios 
+>361	Identifier	ios 
+>362	Identifier	ios 
+>363	Identifier	filename
+>364	Identifier	ofs
+>365	IdentifierDeclType	ofstream
+>366	ExpressionStatement	 
+>367	CallExpression	DRWN_LOG_VERBOSE ( \"Saving superpixels to \" << filename << \"...\" )
+>368	ArgumentList	\"Saving superpixels to \" << filename << \"...\"
+>369	Argument	\"Saving superpixels to \" << filename << \"...\"
+>370	ShiftExpression	\"Saving superpixels to \" << filename << \"...\"
+>371	ShiftExpression	filename << \"...\"
+>372	PrimaryExpression	\"...\"
+>373	Identifier	filename
+>374	PrimaryExpression	\"Saving superpixels to \"
+>375	Callee	DRWN_LOG_VERBOSE
+>376	Identifier	DRWN_LOG_VERBOSE
+>377	IdentifierDeclStatement	 
+>378	IdentifierDecl	* filename = mxArrayToString ( prhs [ 0 ] )
+>379	AssignmentExpr	* filename = mxArrayToString ( prhs [ 0 ] )
+>380	CallExpression	mxArrayToString ( prhs [ 0 ] )
+>381	ArgumentList	prhs [ 0 ]
+>382	Argument	prhs [ 0 ]
+>383	ArrayIndexing	prhs [ 0 ]
+>384	PrimaryExpression	0
+>385	Identifier	prhs
+>386	Callee	mxArrayToString
+>387	Identifier	mxArrayToString
+>388	Identifier	filename
+>389	Identifier	filename
+>390	IdentifierDeclType	char *
+>391	SwitchStatement	switch ( mxGetClassID ( prhs [ 1 ] ) )
+>392	CompoundStatement	 
+>393	ExpressionStatement	 
+>394	CallExpression	DRWN_LOG_FATAL ( \"unexpected superpixel matrix type, try 'sp = double(sp);'\" )
+>395	ArgumentList	\"unexpected superpixel matrix type, try 'sp = double(sp);'\"
+>396	Argument	\"unexpected superpixel matrix type, try 'sp = double(sp);'\"
+>397	PrimaryExpression	\"unexpected superpixel matrix type, try 'sp = double(sp);'\"
+>398	Callee	DRWN_LOG_FATAL
+>399	Identifier	DRWN_LOG_FATAL
+>400	Label	 
+>401	Identifier	default
+>402	BreakStatement	 
+>403	ExpressionStatement	 
+>404	RelationalExpression	drwnParseMexSuperpixels < int32_T > ( prhs [ 1 ] , container )
+>405	RelationalExpression	int32_T > ( prhs [ 1 ] , container )
+>406	Expression	prhs [ 1 ] , container
+>407	Identifier	container
+>408	ArrayIndexing	prhs [ 1 ]
+>409	PrimaryExpression	1
+>410	Identifier	prhs
+>411	Identifier	int32_T
+>412	Identifier	drwnParseMexSuperpixels
+>413	Label	 
+>414	Identifier	mxINT32_CLASS
+>415	BreakStatement	 
+>416	ExpressionStatement	 
+>417	RelationalExpression	drwnParseMexSuperpixels < uint8_T > ( prhs [ 1 ] , container )
+>418	RelationalExpression	uint8_T > ( prhs [ 1 ] , container )
+>419	Expression	prhs [ 1 ] , container
+>420	Identifier	container
+>421	ArrayIndexing	prhs [ 1 ]
+>422	PrimaryExpression	1
+>423	Identifier	prhs
+>424	Identifier	uint8_T
+>425	Identifier	drwnParseMexSuperpixels
+>426	Label	 
+>427	Identifier	mxUINT8_CLASS
+>428	BreakStatement	 
+>429	ExpressionStatement	 
+>430	RelationalExpression	drwnParseMexSuperpixels < double > ( prhs [ 1 ] , container )
+>431	RelationalExpression	double > ( prhs [ 1 ] , container )
+>432	Expression	prhs [ 1 ] , container
+>433	Identifier	container
+>434	ArrayIndexing	prhs [ 1 ]
+>435	PrimaryExpression	1
+>436	Identifier	prhs
+>437	Identifier	double
+>438	Identifier	drwnParseMexSuperpixels
+>439	Label	 
+>440	Identifier	mxDOUBLE_CLASS
+>441	Condition	 
+>442	CallExpression	mxGetClassID ( prhs [ 1 ] )
+>443	ArgumentList	prhs [ 1 ]
+>444	Argument	prhs [ 1 ]
+>445	ArrayIndexing	prhs [ 1 ]
+>446	PrimaryExpression	1
+>447	Identifier	prhs
+>448	Callee	mxGetClassID
+>449	Identifier	mxGetClassID
+>450	IdentifierDeclStatement	 
+>451	IdentifierDecl	container
+>452	Identifier	container
+>453	IdentifierDeclType	drwnSuperpixelContainer
+>454	ExpressionStatement	 
+>455	CallExpression	drwnCodeProfiler 
+>456	ArgumentList	drwnCodeProfiler 
+>457	Argument	drwnCodeProfiler 
+>458	CallExpression	drwnCodeProfiler 
+>459	ArgumentList	\"mex\"
+>460	Argument	\"mex\"
+>461	PrimaryExpression	\"mex\"
+>462	Callee	drwnCodeProfiler 
+>463	Identifier	drwnCodeProfiler 
+>464	Callee	drwnCodeProfiler 
+>465	Identifier	drwnCodeProfiler 
+>466	ExpressionStatement	 
+>467	CallExpression	drwnMatlabUtils 
+>468	ArgumentList	options
+>469	Argument	options
+>470	Identifier	options
+>471	Callee	drwnMatlabUtils 
+>472	Identifier	drwnMatlabUtils 
+>473	IfStatement	if ( nrhs == 3 )
+>474	CompoundStatement	 
+>475	ExpressionStatement	 
+>476	CallExpression	drwnMatlabUtils 
+>477	ArgumentList	prhs [ nrhs - 1 ]
+>478	Argument	options
+>479	Identifier	options
+>480	Argument	prhs [ nrhs - 1 ]
+>481	ArrayIndexing	prhs [ nrhs - 1 ]
+>482	AdditiveExpression	nrhs - 1
+>483	PrimaryExpression	1
+>484	Identifier	nrhs
+>485	Identifier	prhs
+>486	Callee	drwnMatlabUtils 
+>487	Identifier	drwnMatlabUtils 
+>488	Condition	 
+>489	EqualityExpression	nrhs == 3
+>490	PrimaryExpression	3
+>491	Identifier	nrhs
+>492	ExpressionStatement	 
+>493	CallExpression	drwnMatlabUtils 
+>494	ArgumentList	options
+>495	Argument	options
+>496	Identifier	options
+>497	Callee	drwnMatlabUtils 
+>498	Identifier	drwnMatlabUtils 
+>499	IdentifierDeclStatement	 
+>500	IdentifierDecl	options
+>501	Identifier	options
+>502	IdentifierDeclType	map < string , string >
+>503	IfStatement	if ( ( nrhs != 2 ) && ( nrhs != 3 ) )
+>504	CompoundStatement	 
+>505	ExpressionStatement	 
+>506	CallExpression	mexErrMsgTxt ( \"incorrect number of input arguments\" )
+>507	ArgumentList	\"incorrect number of input arguments\"
+>508	Argument	\"incorrect number of input arguments\"
+>509	PrimaryExpression	\"incorrect number of input arguments\"
+>510	Callee	mexErrMsgTxt
+>511	Identifier	mexErrMsgTxt
+>512	ExpressionStatement	 
+>513	CallExpression	usage ( )
+>514	ArgumentList	 
+>515	Callee	usage
+>516	Identifier	usage
+>517	Condition	 
+>518	AndExpression	( nrhs != 2 ) && ( nrhs != 3 )
+>519	EqualityExpression	nrhs != 3
+>520	PrimaryExpression	3
+>521	Identifier	nrhs
+>522	EqualityExpression	nrhs != 2
+>523	PrimaryExpression	2
+>524	Identifier	nrhs
+>525	ExpressionStatement	 
+>526	CallExpression	drwnMatlabUtils 
+>527	ArgumentList	 
+>528	Callee	drwnMatlabUtils 
+>529	Identifier	drwnMatlabUtils 
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=198,183,169,155,135,116,102,13
+<13=94,90,87,14
+<14=78,24,15
+<15=16
+<16=20,17
+<17=18
+<18=19
+<20=21
+<21=23,22
+<24=70,66,63,25
+<25=26
+<26=55,51,48,27
+<27=28
+<28=29
+<29=39,30
+<30=32,31
+<32=38,33
+<33=37,34
+<34=36,35
+<39=45,40
+<40=44,41
+<41=43,42
+<45=47,46
+<48=50,49
+<51=52
+<52=54,53
+<55=56
+<56=57
+<57=62,61,58
+<58=60,59
+<63=65,64
+<66=67
+<67=69,68
+<70=71
+<71=72
+<72=77,76,73
+<73=75,74
+<78=79
+<79=86,85,80
+<80=84,81
+<81=83,82
+<87=89,88
+<90=91
+<91=93,92
+<94=95
+<95=96
+<96=101,100,97
+<97=99,98
+<102=103
+<103=115,114,104
+<104=113,105
+<105=112,106
+<106=110,107
+<107=108
+<108=109
+<110=111
+<116=117
+<117=133,118
+<118=119
+<119=120
+<120=132,121
+<121=131,122
+<122=130,123
+<123=129,124
+<124=128,125
+<125=127,126
+<133=134
+<135=136
+<136=154,153,137
+<137=152,138
+<138=148,140,139
+<140=142,141
+<142=146,143
+<143=144
+<144=145
+<146=147
+<148=149
+<149=151,150
+<155=156
+<156=168,167,157
+<157=166,158
+<158=160,159
+<160=164,161
+<161=162
+<162=163
+<164=165
+<169=170
+<170=182,181,171
+<171=180,172
+<172=174,173
+<174=178,175
+<175=176
+<176=177
+<178=179
+<183=184
+<184=196,185
+<185=188,186
+<186=187
+<188=189
+<189=193,190
+<190=192,191
+<193=195,194
+<196=197
+<198=199
+<199=209,208,200
+<200=207,201
+<201=205,202
+<202=203
+<203=204
+<205=206
+<232=235,234,233
+<235=290,283,276,269,262,255,248,243,236
+<236=237
+<237=241,238
+<238=239
+<239=240
+<241=242
+<243=244
+<244=246,245
+<246=247
+<248=249
+<249=253,250
+<250=251
+<251=252
+<253=254
+<255=256
+<256=260,257
+<257=258
+<258=259
+<260=261
+<262=263
+<263=267,264
+<264=265
+<265=266
+<267=268
+<269=270
+<270=274,271
+<271=272
+<272=273
+<274=275
+<276=277
+<277=281,278
+<278=279
+<279=280
+<281=282
+<283=284
+<284=288,285
+<285=286
+<286=287
+<288=289
+<290=291
+<291=295,292
+<292=293
+<293=294
+<295=296
+<301=316,315,302
+<302=312,309,306,303
+<303=305,304
+<306=308,307
+<309=311,310
+<312=314,313
+<316=525,503,499,492,473,466,454,450,391,377,366,357,348,341,334,322,317
+<317=318
+<318=320,319
+<320=321
+<322=323
+<323=332,324
+<324=325
+<325=326
+<326=330,327
+<327=328
+<328=329
+<330=331
+<332=333
+<334=335
+<335=339,336
+<336=337
+<337=338
+<339=340
+<341=342
+<342=344,343
+<344=345
+<345=347,346
+<348=349
+<349=353,350
+<350=351
+<351=352
+<353=354
+<354=356,355
+<357=358
+<358=365,364,359
+<359=363,360
+<360=362,361
+<366=367
+<367=375,368
+<368=369
+<369=370
+<370=374,371
+<371=373,372
+<375=376
+<377=378
+<378=390,389,379
+<379=388,380
+<380=386,381
+<381=382
+<382=383
+<383=385,384
+<386=387
+<391=441,392
+<392=439,429,428,426,416,415,413,403,402,400,393
+<393=394
+<394=398,395
+<395=396
+<396=397
+<398=399
+<400=401
+<403=404
+<404=412,405
+<405=411,406
+<406=408,407
+<408=410,409
+<413=414
+<416=417
+<417=425,418
+<418=424,419
+<419=421,420
+<421=423,422
+<426=427
+<429=430
+<430=438,431
+<431=437,432
+<432=434,433
+<434=436,435
+<439=440
+<441=442
+<442=448,443
+<443=444
+<444=445
+<445=447,446
+<448=449
+<450=451
+<451=453,452
+<454=455
+<455=464,456
+<456=457
+<457=458
+<458=462,459
+<459=460
+<460=461
+<462=463
+<464=465
+<466=467
+<467=471,468
+<468=469
+<469=470
+<471=472
+<473=488,474
+<474=475
+<475=476
+<476=486,477
+<477=480,478
+<478=479
+<480=481
+<481=485,482
+<482=484,483
+<486=487
+<488=489
+<489=491,490
+<492=493
+<493=497,494
+<494=495
+<495=496
+<497=498
+<499=500
+<500=502,501
+<503=517,504
+<504=512,505
+<505=506
+<506=510,507
+<507=508
+<508=509
+<510=511
+<512=513
+<513=515,514
+<515=516
+<517=518
+<518=522,519
+<519=521,520
+<522=524,523
+<525=526
+<526=528,527
+<528=529

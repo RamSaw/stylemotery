@@ -15,11 +15,13 @@ from sklearn.cross_validation import StratifiedKFold
 from sklearn.manifold import TSNE
 from sklearn.neighbors import NearestNeighbors
 
-from ast_tree.ast_parser import AstNodes
+from ast_tree.ASTVectorizater import TreeFeatures
+from ast_tree.tree_nodes import AstNodes
 from deep_run_exp import split_trees, pick_subsets
 from models.lstm_models import RecursiveLSTM
+from models.tree_models import RecursiveTreeLSTM
 from utils.extract_loss_progress import parse_result_file
-from utils.fun_utils import print_model, parse_src_files
+from utils.dataset_utils import print_model, parse_src_files
 from utils.graph import plot_all, plot_each
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
@@ -29,7 +31,7 @@ from sklearn.decomposition import PCA,KernelPCA
 from utils.prog_bar import Progbar
 
 
-def cluster_plot(estimator,X,y,true_labels):
+def cluster_plot(estimator,X,y,true_labels,basefolder=None):
     reducer = KernelPCA(kernel="rbf",n_components=2)
     # X_r = X
     X_r = reducer.fit_transform(X)
@@ -55,7 +57,10 @@ def cluster_plot(estimator,X,y,true_labels):
             plt.annotate(y, (x[0], x[1]))
 
     plt.title('Estimated number of clusters: %d' % n_clusters_)
-    plt.show()
+    if basefolder is None:
+        plt.show()
+    else:
+        plt.savefig(basefolder, dpi=900)
 
 def neighbors_table(estimator,X,y,labels):
     # estimator = PCA(n_components=2)
@@ -129,7 +134,7 @@ def evaluate(model, test_trees, test_labels):
     predict = np.array(predict)
     return predict, test_labels
 
-def show_embeding(model):
+def show_embeding(model,basefolder):
     # Word Embedding Analysis
     X = scale(model.embed.W.data)
     y = np.arange(X.shape[0])
@@ -141,7 +146,7 @@ def show_embeding(model):
 
     # estimator = DBSCAN(eps=0.3, min_samples=10)
     estimator = KMeans(n_clusters=10,init='k-means++')
-    cluster_plot(estimator, X, y, true_labels)
+    cluster_plot(estimator, X, y, true_labels,basefolder=basefolder)
     print("*"*10," Cluster AST Node types:","*"*10)
     cluster_table(estimator, X, y, true_labels)
 
@@ -150,9 +155,9 @@ def show_embeding(model):
     neighbors_table(estimator, X, y, true_labels)
 
 from sklearn.preprocessing import scale
-def show_authors(model):
-    dataset_folder = "dataset700"
-    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+def show_authors(model,basefolder=None):
+    dataset_folder = "dataset/cpp"
+    trees, tree_labels, lable_problems,features = parse_src_files(dataset_folder)
     # trees, tree_labels = pick_subsets(trees, tree_labels, labels=2)
     classes_, y = np.unique(tree_labels, return_inverse=True)
     trees_X,_ = evaluate(model,trees,y)
@@ -176,21 +181,41 @@ def show_authors(model):
 
     X_scale = scale(X_avg)
     cluster_table(estimator,  trees_X, y, tree_labels)
-    cluster_plot(estimator,  X_scale, y_avg, label_avg)
+    cluster_plot(estimator,  X_scale, y_avg, label_avg,basefolder=basefolder)
 
     estimator = NearestNeighbors(n_neighbors=5)
     print("*" * 10, " Neighbors of Authors:", "*" * 10)
     neighbors_table(estimator, trees_X, y, tree_labels)
 
 if __name__ == "__main__":
-    path = R"C:\Users\bms\Files\study\DC\Experiments\results\best results\saved_models\1_lstm_1_250_70_labels10_epoch_135.my"
-    model = RecursiveLSTM(250, 70,1,0.2, classes=None)
+
+    basefolder= R""
+    # treelstm 3
+    model_name = ""
+    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
+    model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
     serializers.load_npz(path,model)
     print_model(model, depth=1, output=sys.stdout)
+    # show_embeding(model,basefolder=os.path.join(basefolder,model_name+"_embed"))
+    show_authors(model,basefolder=os.path.join(basefolder,model_name+"_authors"))
 
-    #show_embeding(model)
-    show_authors(model)
+    # bilstm
+    model_name = ""
+    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
+    model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
+    serializers.load_npz(path,model)
+    print_model(model, depth=1, output=sys.stdout)
+    show_embeding(model,basefolder=os.path.join(basefolder,model_name+"_embed"))
+    show_authors(model,basefolder=os.path.join(basefolder,model_name+"_authors"))
 
+    # lstm
+    model_name = ""
+    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
+    model = RecursiveTreeLSTM(n_children=1, n_units=500, n_label=70, dropout=0.2, feature_dict=TreeFeatures())
+    serializers.load_npz(path, model)
+    print_model(model, depth=1, output=sys.stdout)
+    show_embeding(model, basefolder=os.path.join(basefolder, model_name + "_embed"))
+    show_authors(model, basefolder=os.path.join(basefolder, model_name + "_authors"))
 
 
 

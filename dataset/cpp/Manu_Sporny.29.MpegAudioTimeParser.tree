@@ -1,0 +1,436 @@
+>3	FunctionDef	MpegAudioTimeParser 
+>4	ParameterList	double start , double end
+>5	Parameter	 
+>6	Identifier	end
+>7	ParameterType	double
+>8	Parameter	 
+>9	Identifier	start
+>10	ParameterType	double
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	AssignmentExpr	mStripBytes = 0
+>14	PrimaryExpression	0
+>15	Identifier	mStripBytes
+>16	ExpressionStatement	 
+>17	AssignmentExpr	mAcceptBytes = 0
+>18	PrimaryExpression	0
+>19	Identifier	mAcceptBytes
+>27	FunctionDef	MpegAudioTimeParser 
+>28	ParameterList	 
+>29	CompoundStatement	 
+>33	FunctionDef	MpegAudioTimeParser 
+>34	ParameterList	ByteBuffer * src , ByteBuffer * dst , bool finish
+>35	Parameter	 
+>36	Identifier	finish
+>37	ParameterType	bool
+>38	Parameter	 
+>39	Identifier	dst
+>40	ParameterType	ByteBuffer *
+>41	Parameter	 
+>42	Identifier	src
+>43	ParameterType	ByteBuffer *
+>44	ReturnType	MutationAlgorithm 
+>45	CompoundStatement	 
+>46	ReturnStatement	 
+>47	Identifier	rval
+>48	IfStatement	if ( src -> isEmpty ( ) || ( mAcceptBytes == 0 && mStripBytes == 0 && src -> length ( ) < 4 ) )
+>49	ElseStatement	else
+>50	CompoundStatement	 
+>51	IfStatement	if ( mAcceptBytes > 0 )
+>52	ElseStatement	else
+>53	IfStatement	if ( mStripBytes > 0 )
+>54	ElseStatement	else
+>55	CompoundStatement	 
+>56	IfStatement	if ( mFrameParser . getLastHeader ( ) != NULL )
+>57	ElseStatement	else
+>58	CompoundStatement	 
+>59	ExpressionStatement	 
+>60	AssignmentExpr	rval = MutationAlgorithm 
+>61	Identifier	MutationAlgorithm 
+>62	Identifier	rval
+>63	ExpressionStatement	 
+>64	CallExpression	Exception 
+>65	ArgumentList	e
+>66	Argument	e
+>67	Identifier	e
+>68	Callee	Exception 
+>69	Identifier	Exception 
+>70	IdentifierDeclStatement	 
+>71	IdentifierDecl	e = new Exception ( \"Invalid mpeg data. No header found while parsing sample.\" )
+>72	AssignmentExpr	e = new Exception ( \"Invalid mpeg data. No header found while parsing sample.\" )
+>73	PrimaryExpression	\"Invalid mpeg data. No header found while parsing sample.\"
+>74	Identifier	e
+>75	Identifier	e
+>76	IdentifierDeclType	ExceptionRef
+>77	CompoundStatement	 
+>78	IfStatement	if ( mFrameParser . getLastOffset ( ) > src -> offset ( ) )
+>79	ElseStatement	else
+>80	CompoundStatement	 
+>81	IfStatement	if ( isTimeValid ( getCurrentTime ( ) ) )
+>82	ElseStatement	else
+>83	CompoundStatement	 
+>84	ExpressionStatement	 
+>85	AssignmentExpr	mStripBytes = header -> getFrameLength ( )
+>86	CallExpression	header -> getFrameLength ( )
+>87	ArgumentList	 
+>88	Callee	header -> getFrameLength
+>89	PtrMemberAccess	header -> getFrameLength
+>90	Identifier	getFrameLength
+>91	Identifier	header
+>92	Identifier	mStripBytes
+>93	CompoundStatement	 
+>94	ExpressionStatement	 
+>95	AssignmentExpr	mAcceptBytes = header -> getFrameLength ( )
+>96	CallExpression	header -> getFrameLength ( )
+>97	ArgumentList	 
+>98	Callee	header -> getFrameLength
+>99	PtrMemberAccess	header -> getFrameLength
+>100	Identifier	getFrameLength
+>101	Identifier	header
+>102	Identifier	mAcceptBytes
+>103	Condition	 
+>104	CallExpression	isTimeValid ( getCurrentTime ( ) )
+>105	ArgumentList	getCurrentTime ( )
+>106	Argument	getCurrentTime ( )
+>107	CallExpression	getCurrentTime ( )
+>108	ArgumentList	 
+>109	Callee	getCurrentTime
+>110	Identifier	getCurrentTime
+>111	Callee	isTimeValid
+>112	Identifier	isTimeValid
+>113	ExpressionStatement	 
+>114	CallExpression	setCurrentTime ( getCurrentTime ( ) + header -> getAudioLength ( ) )
+>115	ArgumentList	getCurrentTime ( ) + header -> getAudioLength ( )
+>116	Argument	getCurrentTime ( ) + header -> getAudioLength ( )
+>117	AdditiveExpression	getCurrentTime ( ) + header -> getAudioLength ( )
+>118	CallExpression	header -> getAudioLength ( )
+>119	ArgumentList	 
+>120	Callee	header -> getAudioLength
+>121	PtrMemberAccess	header -> getAudioLength
+>122	Identifier	getAudioLength
+>123	Identifier	header
+>124	CallExpression	getCurrentTime ( )
+>125	ArgumentList	 
+>126	Callee	getCurrentTime
+>127	Identifier	getCurrentTime
+>128	Callee	setCurrentTime
+>129	Identifier	setCurrentTime
+>130	IdentifierDeclStatement	 
+>131	IdentifierDecl	* header = mFrameParser . getLastHeader ( )
+>132	AssignmentExpr	* header = mFrameParser . getLastHeader ( )
+>133	CallExpression	mFrameParser . getLastHeader ( )
+>134	ArgumentList	 
+>135	Callee	mFrameParser . getLastHeader
+>136	MemberAccess	mFrameParser . getLastHeader
+>137	Identifier	getLastHeader
+>138	Identifier	mFrameParser
+>139	Identifier	header
+>140	Identifier	header
+>141	IdentifierDeclType	AudioFrameHeader *
+>142	CompoundStatement	 
+>143	ExpressionStatement	 
+>144	AssignmentExpr	mAcceptBytes = mFrameParser . getLastOffset ( ) - src -> offset ( )
+>145	AdditiveExpression	mFrameParser . getLastOffset ( ) - src -> offset ( )
+>146	CallExpression	src -> offset ( )
+>147	ArgumentList	 
+>148	Callee	src -> offset
+>149	PtrMemberAccess	src -> offset
+>150	Identifier	offset
+>151	Identifier	src
+>152	CallExpression	mFrameParser . getLastOffset ( )
+>153	ArgumentList	 
+>154	Callee	mFrameParser . getLastOffset
+>155	MemberAccess	mFrameParser . getLastOffset
+>156	Identifier	getLastOffset
+>157	Identifier	mFrameParser
+>158	Identifier	mAcceptBytes
+>159	Condition	 
+>160	RelationalExpression	mFrameParser . getLastOffset ( ) > src -> offset ( )
+>161	CallExpression	src -> offset ( )
+>162	ArgumentList	 
+>163	Callee	src -> offset
+>164	PtrMemberAccess	src -> offset
+>165	Identifier	offset
+>166	Identifier	src
+>167	CallExpression	mFrameParser . getLastOffset ( )
+>168	ArgumentList	 
+>169	Callee	mFrameParser . getLastOffset
+>170	MemberAccess	mFrameParser . getLastOffset
+>171	Identifier	getLastOffset
+>172	Identifier	mFrameParser
+>173	Condition	 
+>174	EqualityExpression	mFrameParser . getLastHeader ( ) != NULL
+>175	Identifier	NULL
+>176	CallExpression	mFrameParser . getLastHeader ( )
+>177	ArgumentList	 
+>178	Callee	mFrameParser . getLastHeader
+>179	MemberAccess	mFrameParser . getLastHeader
+>180	Identifier	getLastHeader
+>181	Identifier	mFrameParser
+>182	ExpressionStatement	 
+>183	CallExpression	mFrameParser . findFrame ( src -> data ( ) , src -> length ( ) )
+>184	ArgumentList	src -> data ( )
+>185	Argument	src -> length ( )
+>186	CallExpression	src -> length ( )
+>187	ArgumentList	 
+>188	Callee	src -> length
+>189	PtrMemberAccess	src -> length
+>190	Identifier	length
+>191	Identifier	src
+>192	Argument	src -> data ( )
+>193	CallExpression	src -> data ( )
+>194	ArgumentList	 
+>195	Callee	src -> data
+>196	PtrMemberAccess	src -> data
+>197	Identifier	data
+>198	Identifier	src
+>199	Callee	mFrameParser . findFrame
+>200	MemberAccess	mFrameParser . findFrame
+>201	Identifier	findFrame
+>202	Identifier	mFrameParser
+>203	CompoundStatement	 
+>204	ExpressionStatement	 
+>205	AssignmentExpr	mStripBytes -= src -> clear ( mStripBytes )
+>206	CallExpression	src -> clear ( mStripBytes )
+>207	ArgumentList	mStripBytes
+>208	Argument	mStripBytes
+>209	Identifier	mStripBytes
+>210	Callee	src -> clear
+>211	PtrMemberAccess	src -> clear
+>212	Identifier	clear
+>213	Identifier	src
+>214	Identifier	mStripBytes
+>215	Condition	 
+>216	RelationalExpression	mStripBytes > 0
+>217	PrimaryExpression	0
+>218	Identifier	mStripBytes
+>219	CompoundStatement	 
+>220	ExpressionStatement	 
+>221	AssignmentExpr	mAcceptBytes -= src -> get ( dst , mAcceptBytes , true )
+>222	CallExpression	src -> get ( dst , mAcceptBytes , true )
+>223	ArgumentList	dst
+>224	Argument	true
+>225	Identifier	true
+>226	Argument	mAcceptBytes
+>227	Identifier	mAcceptBytes
+>228	Argument	dst
+>229	Identifier	dst
+>230	Callee	src -> get
+>231	PtrMemberAccess	src -> get
+>232	Identifier	get
+>233	Identifier	src
+>234	Identifier	mAcceptBytes
+>235	Condition	 
+>236	RelationalExpression	mAcceptBytes > 0
+>237	PrimaryExpression	0
+>238	Identifier	mAcceptBytes
+>239	CompoundStatement	 
+>240	IfStatement	if ( finish )
+>241	ElseStatement	else
+>242	CompoundStatement	 
+>243	ExpressionStatement	 
+>244	AssignmentExpr	rval = MutationAlgorithm 
+>245	Identifier	MutationAlgorithm 
+>246	Identifier	rval
+>247	CompoundStatement	 
+>248	ExpressionStatement	 
+>249	AssignmentExpr	rval = MutationAlgorithm 
+>250	Identifier	MutationAlgorithm 
+>251	Identifier	rval
+>252	Condition	 
+>253	Identifier	finish
+>254	Condition	 
+>255	OrExpression	src -> isEmpty ( ) || ( mAcceptBytes == 0 && mStripBytes == 0 && src -> length ( ) < 4 )
+>256	AndExpression	mAcceptBytes == 0 && mStripBytes == 0 && src -> length ( ) < 4
+>257	AndExpression	mStripBytes == 0 && src -> length ( ) < 4
+>258	RelationalExpression	src -> length ( ) < 4
+>259	PrimaryExpression	4
+>260	CallExpression	src -> length ( )
+>261	ArgumentList	 
+>262	Callee	src -> length
+>263	PtrMemberAccess	src -> length
+>264	Identifier	length
+>265	Identifier	src
+>266	EqualityExpression	mStripBytes == 0
+>267	PrimaryExpression	0
+>268	Identifier	mStripBytes
+>269	EqualityExpression	mAcceptBytes == 0
+>270	PrimaryExpression	0
+>271	Identifier	mAcceptBytes
+>272	CallExpression	src -> isEmpty ( )
+>273	ArgumentList	 
+>274	Callee	src -> isEmpty
+>275	PtrMemberAccess	src -> isEmpty
+>276	Identifier	isEmpty
+>277	Identifier	src
+>278	IdentifierDeclStatement	 
+>279	IdentifierDecl	rval = MutationAlgorithm 
+>280	AssignmentExpr	rval = MutationAlgorithm 
+>281	Identifier	MutationAlgorithm 
+>282	Identifier	MutationAlgorithm 
+>283	Identifier	rval
+>284	IdentifierDeclType	MutationAlgorithm 
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=16,12
+<12=13
+<13=15,14
+<16=17
+<17=19,18
+<27=29,28
+<33=45,44,34
+<34=41,38,35
+<35=37,36
+<38=40,39
+<41=43,42
+<45=278,48,46
+<46=47
+<48=254,239,49
+<49=50
+<50=51
+<51=235,219,52
+<52=53
+<53=215,203,54
+<54=55
+<55=182,56
+<56=173,77,57
+<57=58
+<58=70,63,59
+<59=60
+<60=62,61
+<63=64
+<64=68,65
+<65=66
+<66=67
+<68=69
+<70=71
+<71=76,75,72
+<72=74,73
+<77=78
+<78=159,142,79
+<79=80
+<80=130,113,81
+<81=103,93,82
+<82=83
+<83=84
+<84=85
+<85=92,86
+<86=88,87
+<88=89
+<89=91,90
+<93=94
+<94=95
+<95=102,96
+<96=98,97
+<98=99
+<99=101,100
+<103=104
+<104=111,105
+<105=106
+<106=107
+<107=109,108
+<109=110
+<111=112
+<113=114
+<114=128,115
+<115=116
+<116=117
+<117=124,118
+<118=120,119
+<120=121
+<121=123,122
+<124=126,125
+<126=127
+<128=129
+<130=131
+<131=141,140,132
+<132=139,133
+<133=135,134
+<135=136
+<136=138,137
+<142=143
+<143=144
+<144=158,145
+<145=152,146
+<146=148,147
+<148=149
+<149=151,150
+<152=154,153
+<154=155
+<155=157,156
+<159=160
+<160=167,161
+<161=163,162
+<163=164
+<164=166,165
+<167=169,168
+<169=170
+<170=172,171
+<173=174
+<174=176,175
+<176=178,177
+<178=179
+<179=181,180
+<182=183
+<183=199,184
+<184=192,185
+<185=186
+<186=188,187
+<188=189
+<189=191,190
+<192=193
+<193=195,194
+<195=196
+<196=198,197
+<199=200
+<200=202,201
+<203=204
+<204=205
+<205=214,206
+<206=210,207
+<207=208
+<208=209
+<210=211
+<211=213,212
+<215=216
+<216=218,217
+<219=220
+<220=221
+<221=234,222
+<222=230,223
+<223=228,226,224
+<224=225
+<226=227
+<228=229
+<230=231
+<231=233,232
+<235=236
+<236=238,237
+<239=240
+<240=252,247,241
+<241=242
+<242=243
+<243=244
+<244=246,245
+<247=248
+<248=249
+<249=251,250
+<252=253
+<254=255
+<255=272,256
+<256=269,257
+<257=266,258
+<258=260,259
+<260=262,261
+<262=263
+<263=265,264
+<266=268,267
+<269=271,270
+<272=274,273
+<274=275
+<275=277,276
+<278=279
+<279=284,283,280
+<280=282,281

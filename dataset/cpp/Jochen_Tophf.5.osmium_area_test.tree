@@ -1,0 +1,617 @@
+>12	FunctionDef	WKTDump (std 
+>13	ParameterList	std 
+>14	Parameter	 
+>15	Identifier	out
+>16	ParameterType	std 
+>17	CompoundStatement	 
+>22	FunctionDef	area (const osmium 
+>23	ParameterList	const osmium 
+>24	Parameter	 
+>25	Identifier	area
+>26	ParameterType	const osmium 
+>27	ReturnType	void
+>28	CompoundStatement	 
+>29	BlockStarter	 
+>30	CompoundStatement	 
+>31	ExpressionStatement	m_out << \"GEOMETRY ERROR
+>32	ShiftExpression	m_out << \"GEOMETRY ERROR
+>33	ShiftExpression	\"GEOMETRY ERROR
+>34	ShiftExpression	e . what ( ) << \"\n\"
+>35	PrimaryExpression	\"\n\"
+>36	CallExpression	e . what ( )
+>37	ArgumentList	 
+>38	Callee	e . what
+>39	MemberAccess	e . what
+>40	Identifier	what
+>41	Identifier	e
+>42	PrimaryExpression	\"GEOMETRY ERROR
+>43	Identifier	m_out
+>44	Identifier	e
+>45	BlockStarter	 
+>46	CompoundStatement	 
+>47	ExpressionStatement	m_out << m_factory . create_multipolygon ( area ) << \"\n\"
+>48	ShiftExpression	m_out << m_factory . create_multipolygon ( area ) << \"\n\"
+>49	ShiftExpression	m_factory . create_multipolygon ( area ) << \"\n\"
+>50	PrimaryExpression	\"\n\"
+>51	CallExpression	m_factory . create_multipolygon ( area )
+>52	ArgumentList	area
+>53	Argument	area
+>54	Identifier	area
+>55	Callee	m_factory . create_multipolygon
+>56	MemberAccess	m_factory . create_multipolygon
+>57	Identifier	create_multipolygon
+>58	Identifier	m_factory
+>59	Identifier	m_out
+>66	FunctionDef	print_help ()
+>67	ParameterList	 
+>68	ReturnType	void
+>69	CompoundStatement	 
+>70	ExpressionStatement	 
+>71	ShiftExpression	std 
+>72	ShiftExpression	\"osmium_area_test [OPTIONS] OSMFILE\n\n\" << \"Read OSMFILE and build multipolygons from it.\n\" << \"\nOptions
+>73	ShiftExpression	\"Read OSMFILE and build multipolygons from it.\n\" << \"\nOptions
+>74	ShiftExpression	\"\nOptions
+>75	ShiftExpression	\"  -h, --help           This help message\n\" << \"  -w, --dump-wkt       Dump area geometries as WKT\n\" << \"  \
+>76	ShiftExpression	\"  -w, --dump-wkt       Dump area geometries as WKT\n\" << \"  -o, --dump-objects   Dump area objects\n\"\
+>77	PrimaryExpression	\"  -o, --dump-objects   Dump area objects\n\"
+>78	PrimaryExpression	\"  -w, --dump-wkt       Dump area geometries as WKT\n\"
+>79	PrimaryExpression	\"  -h, --help           This help message\n\"
+>80	PrimaryExpression	\"\nOptions
+>81	PrimaryExpression	\"Read OSMFILE and build multipolygons from it.\n\"
+>82	PrimaryExpression	\"osmium_area_test [OPTIONS] OSMFILE\n\n\"
+>83	Identifier	std 
+>87	FunctionDef	main (int argc , char * argv [ ])
+>88	ParameterList	int argc , char * argv [ ]
+>89	Parameter	 
+>90	Identifier	argv
+>91	ParameterType	char * [ ]
+>92	Parameter	 
+>93	Identifier	argc
+>94	ParameterType	int
+>95	ReturnType	int
+>96	CompoundStatement	 
+>97	IfStatement	if ( ! incomplete_relations . empty ( ) )
+>98	CompoundStatement	 
+>99	ExpressionStatement	 
+>100	ShiftExpression	std 
+>101	PrimaryExpression	\"\n\"
+>102	Identifier	std 
+>103	CompoundStatement	 
+>104	ExpressionStatement	 
+>105	ShiftExpression	std 
+>106	ShiftExpression	\" \" << relation -> id ( )
+>107	CallExpression	relation -> id ( )
+>108	ArgumentList	 
+>109	Callee	relation -> id
+>110	PtrMemberAccess	relation -> id
+>111	Identifier	id
+>112	Identifier	relation
+>113	PrimaryExpression	\" \"
+>114	Identifier	std 
+>115	Statement	 
+>116	Statement	 
+>117	Label	 
+>118	Identifier	relation
+>119	Statement	 
+>120	Statement	 
+>121	Statement	 
+>122	Statement	 
+>123	Statement	 
+>124	ExpressionStatement	 
+>125	ShiftExpression	std 
+>126	PrimaryExpression	\"Warning! Some member ways missing for these multipolygon relations
+>127	Identifier	std 
+>128	Condition	 
+>129	UnaryOp	! incomplete_relations . empty ( )
+>130	CallExpression	incomplete_relations . empty ( )
+>131	ArgumentList	 
+>132	Callee	incomplete_relations . empty
+>133	MemberAccess	incomplete_relations . empty
+>134	Identifier	empty
+>135	Identifier	incomplete_relations
+>136	UnaryOperator	!
+>137	IdentifierDeclStatement	 
+>138	IdentifierDecl	incomplete_relations = collector . get_incomplete_relations ( )
+>139	AssignmentExpr	incomplete_relations = collector . get_incomplete_relations ( )
+>140	CallExpression	collector . get_incomplete_relations ( )
+>141	ArgumentList	 
+>142	Callee	collector . get_incomplete_relations
+>143	MemberAccess	collector . get_incomplete_relations
+>144	Identifier	get_incomplete_relations
+>145	Identifier	collector
+>146	Identifier	incomplete_relations
+>147	Identifier	incomplete_relations
+>148	IdentifierDeclType	std 
+>149	ExpressionStatement	 
+>150	CallExpression	collector . used_memory ( )
+>151	ArgumentList	 
+>152	Callee	collector . used_memory
+>153	MemberAccess	collector . used_memory
+>154	Identifier	used_memory
+>155	Identifier	collector
+>156	ExpressionStatement	 
+>157	ShiftExpression	std 
+>158	PrimaryExpression	\"Memory
+>159	Identifier	std 
+>160	ExpressionStatement	 
+>161	ShiftExpression	std 
+>162	PrimaryExpression	\"Pass 2 done\n\"
+>163	Identifier	std 
+>164	ExpressionStatement	 
+>165	CallExpression	reader2 . close ( )
+>166	ArgumentList	 
+>167	Callee	reader2 . close
+>168	MemberAccess	reader2 . close
+>169	Identifier	close
+>170	Identifier	reader2
+>171	ExpressionStatement	 
+>172	Statement	 
+>173	Statement	 
+>174	CompoundStatement	 
+>175	ExpressionStatement	 
+>176	CallExpression	osmium 
+>177	ArgumentList	buffer
+>178	Argument	handler
+>179	Identifier	handler
+>180	Argument	buffer
+>181	Identifier	buffer
+>182	Callee	osmium 
+>183	Identifier	osmium 
+>184	Statement	 
+>185	Statement	 
+>186	Statement	 
+>187	Statement	 
+>188	Statement	 
+>189	Statement	 
+>190	Statement	 
+>191	Statement	 
+>192	Statement	 
+>193	Statement	 
+>194	Statement	 
+>195	Statement	 
+>196	Statement	 
+>197	Statement	 
+>198	Statement	 
+>199	Statement	 
+>200	Statement	 
+>201	Statement	 
+>202	Statement	 
+>203	Statement	 
+>204	Statement	 
+>205	Statement	 
+>206	Statement	 
+>207	Statement	 
+>208	Statement	 
+>209	IdentifierDeclStatement	 
+>210	IdentifierDecl	reader2 ( infile )
+>211	Identifier	infile
+>212	Identifier	reader2
+>213	IdentifierDeclType	osmium 
+>214	ExpressionStatement	 
+>215	ShiftExpression	std 
+>216	PrimaryExpression	\"Pass 2...\n\"
+>217	Identifier	std 
+>218	ExpressionStatement	 
+>219	CallExpression	location_handler . ignore_errors ( )
+>220	ArgumentList	 
+>221	Callee	location_handler . ignore_errors
+>222	MemberAccess	location_handler . ignore_errors
+>223	Identifier	ignore_errors
+>224	Identifier	location_handler
+>225	IdentifierDeclStatement	 
+>226	IdentifierDecl	location_handler ( index_pos , index_neg )
+>227	Expression	index_pos , index_neg
+>228	Identifier	index_neg
+>229	Identifier	index_pos
+>230	Identifier	location_handler
+>231	IdentifierDeclType	location_handler_type
+>232	IdentifierDeclStatement	 
+>233	IdentifierDecl	index_neg
+>234	Identifier	index_neg
+>235	IdentifierDeclType	index_neg_type
+>236	IdentifierDeclStatement	 
+>237	IdentifierDecl	index_pos
+>238	Identifier	index_pos
+>239	IdentifierDeclType	index_pos_type
+>240	ExpressionStatement	 
+>241	CallExpression	collector . used_memory ( )
+>242	ArgumentList	 
+>243	Callee	collector . used_memory
+>244	MemberAccess	collector . used_memory
+>245	Identifier	used_memory
+>246	Identifier	collector
+>247	ExpressionStatement	 
+>248	ShiftExpression	std 
+>249	PrimaryExpression	\"Memory
+>250	Identifier	std 
+>251	ExpressionStatement	 
+>252	ShiftExpression	std 
+>253	PrimaryExpression	\"Pass 1 done\n\"
+>254	Identifier	std 
+>255	ExpressionStatement	 
+>256	CallExpression	reader1 . close ( )
+>257	ArgumentList	 
+>258	Callee	reader1 . close
+>259	MemberAccess	reader1 . close
+>260	Identifier	close
+>261	Identifier	reader1
+>262	ExpressionStatement	 
+>263	CallExpression	collector . read_relations ( reader1 )
+>264	ArgumentList	reader1
+>265	Argument	reader1
+>266	Identifier	reader1
+>267	Callee	collector . read_relations
+>268	MemberAccess	collector . read_relations
+>269	Identifier	read_relations
+>270	Identifier	collector
+>271	IdentifierDeclStatement	 
+>272	IdentifierDecl	reader1 ( infile , osmium 
+>273	Expression	infile , osmium 
+>274	Identifier	osmium 
+>275	Identifier	infile
+>276	Identifier	reader1
+>277	IdentifierDeclType	osmium 
+>278	ExpressionStatement	 
+>279	ShiftExpression	std 
+>280	PrimaryExpression	\"Pass 1...\n\"
+>281	Identifier	std 
+>282	IdentifierDeclStatement	 
+>283	IdentifierDecl	collector ( assembler_config )
+>284	Identifier	assembler_config
+>285	Identifier	collector
+>286	IdentifierDeclType	osmium 
+>287	IdentifierDeclStatement	 
+>288	IdentifierDecl	assembler_config
+>289	Identifier	assembler_config
+>290	IdentifierDeclType	osmium 
+>291	IdentifierDeclStatement	 
+>292	IdentifierDecl	infile ( argv [ optind ] )
+>293	ArrayIndexing	argv [ optind ]
+>294	Identifier	optind
+>295	Identifier	argv
+>296	Identifier	infile
+>297	IdentifierDeclType	osmium 
+>298	IfStatement	if ( remaining_args != 1 )
+>299	CompoundStatement	 
+>300	ExpressionStatement	 
+>301	CallExpression	exit ( 1 )
+>302	ArgumentList	1
+>303	Argument	1
+>304	PrimaryExpression	1
+>305	Callee	exit
+>306	Identifier	exit
+>307	ExpressionStatement	 
+>308	ShiftExpression	std 
+>309	ShiftExpression	\"Usage
+>310	ShiftExpression	argv [ 0 ] << \" [OPTIONS] OSMFILE\n\"
+>311	PrimaryExpression	\" [OPTIONS] OSMFILE\n\"
+>312	ArrayIndexing	argv [ 0 ]
+>313	PrimaryExpression	0
+>314	Identifier	argv
+>315	PrimaryExpression	\"Usage
+>316	Identifier	std 
+>317	Condition	 
+>318	EqualityExpression	remaining_args != 1
+>319	PrimaryExpression	1
+>320	Identifier	remaining_args
+>321	IdentifierDeclStatement	 
+>322	IdentifierDecl	remaining_args = argc - optind
+>323	AssignmentExpr	remaining_args = argc - optind
+>324	AdditiveExpression	argc - optind
+>325	Identifier	optind
+>326	Identifier	argc
+>327	Identifier	remaining_args
+>328	Identifier	remaining_args
+>329	IdentifierDeclType	int
+>330	WhileStatement	while ( true )
+>331	CompoundStatement	 
+>332	SwitchStatement	switch ( c )
+>333	CompoundStatement	 
+>334	ExpressionStatement	 
+>335	CallExpression	exit ( 1 )
+>336	ArgumentList	1
+>337	Argument	1
+>338	PrimaryExpression	1
+>339	Callee	exit
+>340	Identifier	exit
+>341	Label	 
+>342	Identifier	default
+>343	BreakStatement	 
+>344	ExpressionStatement	 
+>345	RelationalExpression	handler . set < osmium 
+>346	RelationalExpression	osmium 
+>347	Identifier	std 
+>348	Identifier	osmium 
+>349	MemberAccess	handler . set
+>350	Identifier	set
+>351	Identifier	handler
+>352	Label	 
+>353	BreakStatement	 
+>354	ExpressionStatement	 
+>355	RelationalExpression	handler . set < WKTDump > ( std 
+>356	RelationalExpression	WKTDump > ( std 
+>357	Identifier	std 
+>358	Identifier	WKTDump
+>359	MemberAccess	handler . set
+>360	Identifier	set
+>361	Identifier	handler
+>362	Label	 
+>363	ExpressionStatement	 
+>364	CallExpression	exit ( 0 )
+>365	ArgumentList	0
+>366	Argument	0
+>367	PrimaryExpression	0
+>368	Callee	exit
+>369	Identifier	exit
+>370	ExpressionStatement	 
+>371	CallExpression	print_help ( )
+>372	ArgumentList	 
+>373	Callee	print_help
+>374	Identifier	print_help
+>375	Label	 
+>376	Condition	 
+>377	Identifier	c
+>378	IfStatement	if ( c == - 1 )
+>379	CompoundStatement	 
+>380	BreakStatement	 
+>381	Condition	 
+>382	EqualityExpression	c == - 1
+>383	UnaryOp	- 1
+>384	PrimaryExpression	1
+>385	UnaryOperator	-
+>386	Identifier	c
+>387	IdentifierDeclStatement	 
+>388	IdentifierDecl	c = getopt_long ( argc , argv , \"hwo\" , long_options , 0 )
+>389	AssignmentExpr	c = getopt_long ( argc , argv , \"hwo\" , long_options , 0 )
+>390	CallExpression	getopt_long ( argc , argv , \"hwo\" , long_options , 0 )
+>391	ArgumentList	argc
+>392	Argument	0
+>393	PrimaryExpression	0
+>394	Argument	long_options
+>395	Identifier	long_options
+>396	Argument	\"hwo\"
+>397	PrimaryExpression	\"hwo\"
+>398	Argument	argv
+>399	Identifier	argv
+>400	Argument	argc
+>401	Identifier	argc
+>402	Callee	getopt_long
+>403	Identifier	getopt_long
+>404	Identifier	c
+>405	Identifier	c
+>406	IdentifierDeclType	int
+>407	Condition	 
+>408	Identifier	true
+>409	IdentifierDeclStatement	 
+>410	IdentifierDecl	handler
+>411	Identifier	handler
+>412	IdentifierDeclType	osmium 
+>413	IdentifierDeclStatement	 
+>414	IdentifierDecl	long_options [ ] = { { \"help\" , no_argument , 0 , 'h' } , { \"dump-wkt\" , no_argument , 0 , 'w' } , { \"dump-objects\" , \
+>415	AssignmentExpr	long_options [ ] = { { \"help\" , no_argument , 0 , 'h' } , { \"dump-wkt\" , no_argument , 0 , 'w' } , { \"\
+>416	InitializerList	\"help\"
+>417	InitializerList	0
+>418	PrimaryExpression	0
+>419	PrimaryExpression	0
+>420	PrimaryExpression	0
+>421	PrimaryExpression	0
+>422	InitializerList	\"dump-objects\"
+>423	PrimaryExpression	'o'
+>424	PrimaryExpression	0
+>425	Identifier	no_argument
+>426	PrimaryExpression	\"dump-objects\"
+>427	InitializerList	\"dump-wkt\"
+>428	PrimaryExpression	'w'
+>429	PrimaryExpression	0
+>430	Identifier	no_argument
+>431	PrimaryExpression	\"dump-wkt\"
+>432	InitializerList	\"help\"
+>433	PrimaryExpression	'h'
+>434	PrimaryExpression	0
+>435	Identifier	no_argument
+>436	PrimaryExpression	\"help\"
+>437	Identifier	long_options
+>438	Identifier	long_options
+>439	IdentifierDeclType	struct option [ ]
+>440	Statement	 
+<12=17,13
+<13=14
+<14=16,15
+<22=28,27,23
+<23=24
+<24=26,25
+<28=45,29
+<29=44,30
+<30=31
+<31=32
+<32=43,33
+<33=42,34
+<34=36,35
+<36=38,37
+<38=39
+<39=41,40
+<45=46
+<46=47
+<47=48
+<48=59,49
+<49=51,50
+<51=55,52
+<52=53
+<53=54
+<55=56
+<56=58,57
+<66=69,68,67
+<69=70
+<70=71
+<71=83,72
+<72=82,73
+<73=81,74
+<74=80,75
+<75=79,76
+<76=78,77
+<87=96,95,88
+<88=92,89
+<89=91,90
+<92=94,93
+<96=440,413,409,330,321,298,291,97,137,149,156,160,164,171,172,173,174,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,214,218,225,232,236,240,247,251,255,262,271,278,282,287
+<97=128,98
+<98=124,123,122,121,120,119,117,116,115,103,99
+<99=100
+<100=102,101
+<103=104
+<104=105
+<105=114,106
+<106=113,107
+<107=109,108
+<109=110
+<110=112,111
+<117=118
+<124=125
+<125=127,126
+<128=129
+<129=136,130
+<130=132,131
+<132=133
+<133=135,134
+<137=138
+<138=148,147,139
+<139=146,140
+<140=142,141
+<142=143
+<143=145,144
+<149=150
+<150=152,151
+<152=153
+<153=155,154
+<156=157
+<157=159,158
+<160=161
+<161=163,162
+<164=165
+<165=167,166
+<167=168
+<168=170,169
+<174=175
+<175=176
+<176=182,177
+<177=180,178
+<178=179
+<180=181
+<182=183
+<209=210
+<210=213,212,211
+<214=215
+<215=217,216
+<218=219
+<219=221,220
+<221=222
+<222=224,223
+<225=226
+<226=231,230,227
+<227=229,228
+<232=233
+<233=235,234
+<236=237
+<237=239,238
+<240=241
+<241=243,242
+<243=244
+<244=246,245
+<247=248
+<248=250,249
+<251=252
+<252=254,253
+<255=256
+<256=258,257
+<258=259
+<259=261,260
+<262=263
+<263=267,264
+<264=265
+<265=266
+<267=268
+<268=270,269
+<271=272
+<272=277,276,273
+<273=275,274
+<278=279
+<279=281,280
+<282=283
+<283=286,285,284
+<287=288
+<288=290,289
+<291=292
+<292=297,296,293
+<293=295,294
+<298=317,299
+<299=307,300
+<300=301
+<301=305,302
+<302=303
+<303=304
+<305=306
+<307=308
+<308=316,309
+<309=315,310
+<310=312,311
+<312=314,313
+<317=318
+<318=320,319
+<321=322
+<322=329,328,323
+<323=327,324
+<324=326,325
+<330=407,331
+<331=387,378,332
+<332=376,333
+<333=375,370,363,362,354,353,352,344,343,341,334
+<334=335
+<335=339,336
+<336=337
+<337=338
+<339=340
+<341=342
+<344=345
+<345=349,346
+<346=348,347
+<349=351,350
+<354=355
+<355=359,356
+<356=358,357
+<359=361,360
+<363=364
+<364=368,365
+<365=366
+<366=367
+<368=369
+<370=371
+<371=373,372
+<373=374
+<376=377
+<378=381,379
+<379=380
+<381=382
+<382=386,383
+<383=385,384
+<387=388
+<388=406,405,389
+<389=404,390
+<390=402,391
+<391=400,398,396,394,392
+<392=393
+<394=395
+<396=397
+<398=399
+<400=401
+<402=403
+<407=408
+<409=410
+<410=412,411
+<413=414
+<414=439,438,415
+<415=437,416
+<416=432,427,422,417
+<417=421,420,419,418
+<422=426,425,424,423
+<427=431,430,429,428
+<432=436,435,434,433

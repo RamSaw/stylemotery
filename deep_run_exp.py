@@ -6,14 +6,14 @@ from operator import itemgetter
 
 import chainer
 from chainer import optimizers
-
-from ast_tree.ast_parser import split_trees2
+import math
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM, RecursiveTreeBiLSTM
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+from models.clstm_models import RecursiveDyanmicLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
-from utils.fun_utils import parse_src_files, print_model
+from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree
 
 
 def print_table(table):
@@ -49,7 +49,7 @@ def main_experiment():
     parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')
 
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
-    parser.add_argument('--dataset', '-d', type=str, default="dataset/dataset700", help='Experiment dataset')
+    parser.add_argument('--dataset', '-d', type=str, default="cpp", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
@@ -71,19 +71,24 @@ def main_experiment():
     models_base_folder = "saved_models"
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
-    dataset_folder = args.dataset
+    dataset_folder = os.path.join("dataset",args.dataset)
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
 
-    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+    trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder)
+
     if args.train:
-        rand_seed, classes = read_config(os.path.join("train",args.train))
+        rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
     else:
         rand_seed = random.randint(0, 4294967295)
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
+
+    #if model_name in ("treelstm","slstm"):
+    # trees = make_binary_tree(unified_ast_trees(trees),2)
+
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
 
@@ -102,23 +107,27 @@ def main_experiment():
     output_file.write(
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
+    elif model_name == "dlstm":
+        model = RecursiveDyanmicLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
     elif model_name == "bilstm":
+<<<<<<< HEAD
         model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,peephole=False)
     elif model_name == "bbilstm":
         model = RecursiveBBiLSTM(n_units, len(classes), dropout=dropout, classes=classes)
+=======
+        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=False)
+>>>>>>> 756f17db619b01a162b995803d305bb1dff7ef97
     elif model_name == "biplstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,peephole=True)
+        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,feature_dict=tree_nodes,peephole=True)
     elif model_name == "plstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=True)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=True)
     # elif model_name == "highway":
     #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
     elif model_name == "reslstm":
-        model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=False)
     elif model_name == "treelstm":
-        model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout, classes=classes)
-    elif model_name == "treebilstm":
-        model = RecursiveTreeBiLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
     else:
         print("No model was found")
         return
@@ -137,17 +146,40 @@ def main_experiment():
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
-    optimizer.add_hook(chainer.optimizer.GradientClipping(10.0))
+    optimizer.add_hook(chainer.optimizer.GradientClipping(5.0))
 
     hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
     output_file.write(" {0} \n".format(hooks))
 
     output_file.write("Evaluation\n")
-    output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}\n".format("epoch", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
+    output_file.write("{0:<10}{1:<20}{2:<20}{3:<20}{4:<20}{5:<20}\n".format("epoch","learing_rate", "train_loss", "test_loss","train_accuracy", "test_accuracy"))
     output_file.flush()
+
+
+    def drop_decay(epoch,initial_lrate=0.1,drop=0.5,epochs_drop = 10.0):
+        lrate = initial_lrate * math.pow(drop, math.floor((1 + epoch) / epochs_drop))
+        return lrate
+
+    def time_decay(epoch, initial_lrate=0.1, decay=0.1):
+        return initial_lrate * 1 / (1 + decay * epoch)
+
+    def range_decay(epoch):
+        class RangeDictionary(dict):
+            def __getitem__(self, key):
+                for r in self.keys():
+                    if key in r:
+                        return super().__getitem__(r)
+                return super().__getitem__(key)
+        rates = {range(0,10):0.01,
+                 range(10,30):0.005,
+                 range(30,50):0.001,
+                 range(50,100):0.0005,
+                 range(100,500):0.0001}
+        return RangeDictionary(rates)[epoch]
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
+        # optimizer.lr = range_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
         print('Train')
@@ -156,6 +188,8 @@ def main_experiment():
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()
 
+        # if epoch % 5 == 0:
+        #     model.curr_layers += 1
         # save the best models
         saved = False
         if args.save > 0 and epoch > 0:
@@ -171,7 +205,7 @@ def main_experiment():
                 best_scores = (epoch, test_loss, test_accuracy)
 
         output_file.write(
-            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}{5:<10}\n".format(epoch, training_loss, test_loss,
+            "{0:<10}{1:<20.10f}{2:<20.10f}{3:<20.10f}{4:<20.10f}{5:<20.10f}{6:<10}\n".format(epoch,optimizer.lr, training_loss, test_loss,
                                                                                   training_accuracy, test_accuracy,
                                                                                   "saved" if saved else ""))
         output_file.flush()
@@ -190,3 +224,4 @@ def main_experiment():
 
 if __name__ == "__main__":
     main_experiment()
+

@@ -1,0 +1,1270 @@
+>3	FunctionDef	NyARFitVecCalculator 
+>4	ParameterList	const NyARPerspectiveProjectionMatrix * i_projection_mat_ref , const NyARCameraDistortionFactor * i_distortion_ref
+>5	Parameter	 
+>6	Identifier	i_distortion_ref
+>7	ParameterType	const NyARCameraDistortionFactor *
+>8	Parameter	 
+>9	Identifier	i_projection_mat_ref
+>10	ParameterType	const NyARPerspectiveProjectionMatrix *
+>11	CompoundStatement	 
+>12	ReturnStatement	 
+>13	ExpressionStatement	 
+>14	AssignmentExpr	this -> _offset_square = NULL
+>15	Identifier	NULL
+>16	PtrMemberAccess	this -> _offset_square
+>17	Identifier	_offset_square
+>18	Identifier	this
+>19	ExpressionStatement	 
+>20	AssignmentExpr	this -> _distortionfactor = i_distortion_ref
+>21	Identifier	i_distortion_ref
+>22	PtrMemberAccess	this -> _distortionfactor
+>23	Identifier	_distortionfactor
+>24	Identifier	this
+>25	ExpressionStatement	 
+>26	AssignmentExpr	this -> _projection_mat = i_projection_mat_ref
+>27	Identifier	i_projection_mat_ref
+>28	PtrMemberAccess	this -> _projection_mat
+>29	Identifier	_projection_mat
+>30	Identifier	this
+>31	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>32	CompoundStatement	 
+>33	ExpressionStatement	 
+>34	AssignmentExpr	a_array [ ( x2 + 1 ) * 3 + 1 ] = b_array [ 1 * 8 + x2 + 1 ] = i_projection_mat_ref -> m11
+>35	AssignmentExpr	b_array [ 1 * 8 + x2 + 1 ] = i_projection_mat_ref -> m11
+>36	PtrMemberAccess	i_projection_mat_ref -> m11
+>37	Identifier	m11
+>38	Identifier	i_projection_mat_ref
+>39	ArrayIndexing	b_array [ 1 * 8 + x2 + 1 ]
+>40	AdditiveExpression	1 * 8 + x2 + 1
+>41	AdditiveExpression	x2 + 1
+>42	PrimaryExpression	1
+>43	Identifier	x2
+>44	MultiplicativeExpression	1 * 8
+>45	PrimaryExpression	8
+>46	PrimaryExpression	1
+>47	Identifier	b_array
+>48	ArrayIndexing	a_array [ ( x2 + 1 ) * 3 + 1 ]
+>49	AdditiveExpression	( x2 + 1 ) * 3 + 1
+>50	PrimaryExpression	1
+>51	MultiplicativeExpression	( x2 + 1 ) * 3
+>52	PrimaryExpression	3
+>53	AdditiveExpression	x2 + 1
+>54	PrimaryExpression	1
+>55	Identifier	x2
+>56	Identifier	a_array
+>57	ExpressionStatement	 
+>58	AssignmentExpr	a_array [ ( x2 + 1 ) * 3 + 0 ] = b_array [ 0 * 8 + x2 + 1 ] = 0.0
+>59	AssignmentExpr	b_array [ 0 * 8 + x2 + 1 ] = 0.0
+>60	PrimaryExpression	0.0
+>61	ArrayIndexing	b_array [ 0 * 8 + x2 + 1 ]
+>62	AdditiveExpression	0 * 8 + x2 + 1
+>63	AdditiveExpression	x2 + 1
+>64	PrimaryExpression	1
+>65	Identifier	x2
+>66	MultiplicativeExpression	0 * 8
+>67	PrimaryExpression	8
+>68	PrimaryExpression	0
+>69	Identifier	b_array
+>70	ArrayIndexing	a_array [ ( x2 + 1 ) * 3 + 0 ]
+>71	AdditiveExpression	( x2 + 1 ) * 3 + 0
+>72	PrimaryExpression	0
+>73	MultiplicativeExpression	( x2 + 1 ) * 3
+>74	PrimaryExpression	3
+>75	AdditiveExpression	x2 + 1
+>76	PrimaryExpression	1
+>77	Identifier	x2
+>78	Identifier	a_array
+>79	ExpressionStatement	 
+>80	AssignmentExpr	a_array [ x2 * 3 + 1 ] = b_array [ 1 * 8 + x2 ] = i_projection_mat_ref -> m01
+>81	AssignmentExpr	b_array [ 1 * 8 + x2 ] = i_projection_mat_ref -> m01
+>82	PtrMemberAccess	i_projection_mat_ref -> m01
+>83	Identifier	m01
+>84	Identifier	i_projection_mat_ref
+>85	ArrayIndexing	b_array [ 1 * 8 + x2 ]
+>86	AdditiveExpression	1 * 8 + x2
+>87	Identifier	x2
+>88	MultiplicativeExpression	1 * 8
+>89	PrimaryExpression	8
+>90	PrimaryExpression	1
+>91	Identifier	b_array
+>92	ArrayIndexing	a_array [ x2 * 3 + 1 ]
+>93	AdditiveExpression	x2 * 3 + 1
+>94	PrimaryExpression	1
+>95	MultiplicativeExpression	x2 * 3
+>96	PrimaryExpression	3
+>97	Identifier	x2
+>98	Identifier	a_array
+>99	ExpressionStatement	 
+>100	AssignmentExpr	a_array [ x2 * 3 + 0 ] = b_array [ 0 * 8 + x2 ] = i_projection_mat_ref -> m00
+>101	AssignmentExpr	b_array [ 0 * 8 + x2 ] = i_projection_mat_ref -> m00
+>102	PtrMemberAccess	i_projection_mat_ref -> m00
+>103	Identifier	m00
+>104	Identifier	i_projection_mat_ref
+>105	ArrayIndexing	b_array [ 0 * 8 + x2 ]
+>106	AdditiveExpression	0 * 8 + x2
+>107	Identifier	x2
+>108	MultiplicativeExpression	0 * 8
+>109	PrimaryExpression	8
+>110	PrimaryExpression	0
+>111	Identifier	b_array
+>112	ArrayIndexing	a_array [ x2 * 3 + 0 ]
+>113	AdditiveExpression	x2 * 3 + 0
+>114	PrimaryExpression	0
+>115	MultiplicativeExpression	x2 * 3
+>116	PrimaryExpression	3
+>117	Identifier	x2
+>118	Identifier	a_array
+>119	IdentifierDeclStatement	 
+>120	IdentifierDecl	x2 = i * 2
+>121	AssignmentExpr	x2 = i * 2
+>122	MultiplicativeExpression	i * 2
+>123	PrimaryExpression	2
+>124	Identifier	i
+>125	Identifier	x2
+>126	Identifier	x2
+>127	IdentifierDeclType	const int
+>128	IncDecOp	 
+>129	IncDec	++
+>130	Identifier	i
+>131	Condition	 
+>132	RelationalExpression	i < 4
+>133	PrimaryExpression	4
+>134	Identifier	i
+>135	ForInit	 
+>136	IdentifierDeclStatement	int i = 0 ;
+>137	IdentifierDecl	i = 0
+>138	AssignmentExpr	i = 0
+>139	PrimaryExpression	0
+>140	Identifier	i
+>141	Identifier	i
+>142	IdentifierDeclType	int
+>143	IdentifierDeclStatement	 
+>144	IdentifierDecl	* b_array = this -> _mat_b -> getArray ( )
+>145	AssignmentExpr	* b_array = this -> _mat_b -> getArray ( )
+>146	CallExpression	this -> _mat_b -> getArray ( )
+>147	ArgumentList	 
+>148	Callee	this -> _mat_b -> getArray
+>149	PtrMemberAccess	this -> _mat_b -> getArray
+>150	Identifier	getArray
+>151	PtrMemberAccess	this -> _mat_b
+>152	Identifier	_mat_b
+>153	Identifier	this
+>154	Identifier	b_array
+>155	Identifier	b_array
+>156	IdentifierDeclType	double *
+>157	IdentifierDeclStatement	 
+>158	IdentifierDecl	* a_array = this -> _mat_a -> getArray ( )
+>159	AssignmentExpr	* a_array = this -> _mat_a -> getArray ( )
+>160	CallExpression	this -> _mat_a -> getArray ( )
+>161	ArgumentList	 
+>162	Callee	this -> _mat_a -> getArray
+>163	PtrMemberAccess	this -> _mat_a -> getArray
+>164	Identifier	getArray
+>165	PtrMemberAccess	this -> _mat_a
+>166	Identifier	_mat_a
+>167	Identifier	this
+>168	Identifier	a_array
+>169	Identifier	a_array
+>170	IdentifierDeclType	double *
+>171	ExpressionStatement	 
+>172	AssignmentExpr	this -> __calculateTransferVec_mat_c = new NyARMat ( 8 , 1 )
+>173	Expression	8 , 1
+>174	PrimaryExpression	1
+>175	PrimaryExpression	8
+>176	PtrMemberAccess	this -> __calculateTransferVec_mat_c
+>177	Identifier	__calculateTransferVec_mat_c
+>178	Identifier	this
+>179	ExpressionStatement	 
+>180	AssignmentExpr	this -> _mat_f = new NyARMat ( 3 , 1 )
+>181	Expression	3 , 1
+>182	PrimaryExpression	1
+>183	PrimaryExpression	3
+>184	PtrMemberAccess	this -> _mat_f
+>185	Identifier	_mat_f
+>186	Identifier	this
+>187	ExpressionStatement	 
+>188	AssignmentExpr	this -> _mat_e = new NyARMat ( 3 , 1 )
+>189	Expression	3 , 1
+>190	PrimaryExpression	1
+>191	PrimaryExpression	3
+>192	PtrMemberAccess	this -> _mat_e
+>193	Identifier	_mat_e
+>194	Identifier	this
+>195	ExpressionStatement	 
+>196	AssignmentExpr	this -> _mat_d = new NyARMat ( 3 , 3 )
+>197	Expression	3 , 3
+>198	PrimaryExpression	3
+>199	PrimaryExpression	3
+>200	PtrMemberAccess	this -> _mat_d
+>201	Identifier	_mat_d
+>202	Identifier	this
+>203	ExpressionStatement	 
+>204	AssignmentExpr	this -> _mat_b = new NyARMat ( 3 , 8 )
+>205	Expression	3 , 8
+>206	PrimaryExpression	8
+>207	PrimaryExpression	3
+>208	PtrMemberAccess	this -> _mat_b
+>209	Identifier	_mat_b
+>210	Identifier	this
+>211	ExpressionStatement	 
+>212	AssignmentExpr	this -> _mat_a = new NyARMat ( 8 , 3 )
+>213	Expression	8 , 3
+>214	PrimaryExpression	3
+>215	PrimaryExpression	8
+>216	PtrMemberAccess	this -> _mat_a
+>217	Identifier	_mat_a
+>218	Identifier	this
+>252	FunctionDef	NyARFitVecCalculator 
+>253	ParameterList	 
+>254	CompoundStatement	 
+>255	ReturnStatement	 
+>256	ExpressionStatement	 
+>257	CallExpression	NyAR_SAFE_DELETE ( this -> __calculateTransferVec_mat_c )
+>258	ArgumentList	this -> __calculateTransferVec_mat_c
+>259	Argument	this -> __calculateTransferVec_mat_c
+>260	PtrMemberAccess	this -> __calculateTransferVec_mat_c
+>261	Identifier	__calculateTransferVec_mat_c
+>262	Identifier	this
+>263	Callee	NyAR_SAFE_DELETE
+>264	Identifier	NyAR_SAFE_DELETE
+>265	ExpressionStatement	 
+>266	CallExpression	NyAR_SAFE_DELETE ( this -> _mat_f )
+>267	ArgumentList	this -> _mat_f
+>268	Argument	this -> _mat_f
+>269	PtrMemberAccess	this -> _mat_f
+>270	Identifier	_mat_f
+>271	Identifier	this
+>272	Callee	NyAR_SAFE_DELETE
+>273	Identifier	NyAR_SAFE_DELETE
+>274	ExpressionStatement	 
+>275	CallExpression	NyAR_SAFE_DELETE ( this -> _mat_e )
+>276	ArgumentList	this -> _mat_e
+>277	Argument	this -> _mat_e
+>278	PtrMemberAccess	this -> _mat_e
+>279	Identifier	_mat_e
+>280	Identifier	this
+>281	Callee	NyAR_SAFE_DELETE
+>282	Identifier	NyAR_SAFE_DELETE
+>283	ExpressionStatement	 
+>284	CallExpression	NyAR_SAFE_DELETE ( this -> _mat_d )
+>285	ArgumentList	this -> _mat_d
+>286	Argument	this -> _mat_d
+>287	PtrMemberAccess	this -> _mat_d
+>288	Identifier	_mat_d
+>289	Identifier	this
+>290	Callee	NyAR_SAFE_DELETE
+>291	Identifier	NyAR_SAFE_DELETE
+>292	ExpressionStatement	 
+>293	CallExpression	NyAR_SAFE_DELETE ( this -> _mat_b )
+>294	ArgumentList	this -> _mat_b
+>295	Argument	this -> _mat_b
+>296	PtrMemberAccess	this -> _mat_b
+>297	Identifier	_mat_b
+>298	Identifier	this
+>299	Callee	NyAR_SAFE_DELETE
+>300	Identifier	NyAR_SAFE_DELETE
+>301	ExpressionStatement	 
+>302	CallExpression	NyAR_SAFE_DELETE ( this -> _mat_a )
+>303	ArgumentList	this -> _mat_a
+>304	Argument	this -> _mat_a
+>305	PtrMemberAccess	this -> _mat_a
+>306	Identifier	_mat_a
+>307	Identifier	this
+>308	Callee	NyAR_SAFE_DELETE
+>309	Identifier	NyAR_SAFE_DELETE
+>321	FunctionDef	NyARFitVecCalculator 
+>322	ParameterList	const NyARTransOffset * i_offset
+>323	Parameter	 
+>324	Identifier	i_offset
+>325	ParameterType	const NyARTransOffset *
+>326	ReturnType	void
+>327	CompoundStatement	 
+>328	ReturnStatement	 
+>329	ExpressionStatement	 
+>330	AssignmentExpr	this -> _offset_square = i_offset
+>331	Identifier	i_offset
+>332	PtrMemberAccess	this -> _offset_square
+>333	Identifier	_offset_square
+>334	Identifier	this
+>342	FunctionDef	NyARFitVecCalculator 
+>343	ParameterList	 
+>344	ReturnType	const TNyARDoublePoint2d *
+>345	CompoundStatement	 
+>346	ReturnStatement	 
+>347	PtrMemberAccess	this -> _fitsquare_vertex
+>348	Identifier	_fitsquare_vertex
+>349	Identifier	this
+>356	FunctionDef	NyARFitVecCalculator 
+>357	ParameterList	 
+>358	ReturnType	const NyARTransOffset *
+>359	CompoundStatement	 
+>360	ReturnStatement	 
+>361	PtrMemberAccess	this -> _offset_square
+>362	Identifier	_offset_square
+>363	Identifier	this
+>370	FunctionDef	NyARFitVecCalculator 
+>371	ParameterList	const TNyARDoublePoint2d * i_square_vertex [ ]
+>372	Parameter	 
+>373	Identifier	i_square_vertex
+>374	ParameterType	const TNyARDoublePoint2d * [ ]
+>375	ReturnType	void
+>376	CompoundStatement	 
+>377	ReturnStatement	 
+>378	ExpressionStatement	 
+>379	CallExpression	mat_d . matrixSelfInv ( )
+>380	ArgumentList	 
+>381	Callee	mat_d . matrixSelfInv
+>382	MemberAccess	mat_d . matrixSelfInv
+>383	Identifier	matrixSelfInv
+>384	Identifier	mat_d
+>385	ExpressionStatement	 
+>386	CallExpression	mat_d . matrixMul ( mat_b , mat_a )
+>387	ArgumentList	mat_b
+>388	Argument	mat_a
+>389	Identifier	mat_a
+>390	Argument	mat_b
+>391	Identifier	mat_b
+>392	Callee	mat_d . matrixMul
+>393	MemberAccess	mat_d . matrixMul
+>394	Identifier	matrixMul
+>395	Identifier	mat_d
+>396	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>397	CompoundStatement	 
+>398	ExpressionStatement	 
+>399	AssignmentExpr	a_array [ ( x2 + 1 ) * 3 + 2 ] = b_array [ 2 * 8 + x2 + 1 ] = cpara12 - vertex [ i ] . y
+>400	AssignmentExpr	b_array [ 2 * 8 + x2 + 1 ] = cpara12 - vertex [ i ] . y
+>401	AdditiveExpression	cpara12 - vertex [ i ] . y
+>402	MemberAccess	vertex [ i ] . y
+>403	Identifier	y
+>404	ArrayIndexing	vertex [ i ]
+>405	Identifier	i
+>406	Identifier	vertex
+>407	Identifier	cpara12
+>408	ArrayIndexing	b_array [ 2 * 8 + x2 + 1 ]
+>409	AdditiveExpression	2 * 8 + x2 + 1
+>410	AdditiveExpression	x2 + 1
+>411	PrimaryExpression	1
+>412	Identifier	x2
+>413	MultiplicativeExpression	2 * 8
+>414	PrimaryExpression	8
+>415	PrimaryExpression	2
+>416	Identifier	b_array
+>417	ArrayIndexing	a_array [ ( x2 + 1 ) * 3 + 2 ]
+>418	AdditiveExpression	( x2 + 1 ) * 3 + 2
+>419	PrimaryExpression	2
+>420	MultiplicativeExpression	( x2 + 1 ) * 3
+>421	PrimaryExpression	3
+>422	AdditiveExpression	x2 + 1
+>423	PrimaryExpression	1
+>424	Identifier	x2
+>425	Identifier	a_array
+>426	ExpressionStatement	 
+>427	AssignmentExpr	a_array [ x2 * 3 + 2 ] = b_array [ 2 * 8 + x2 ] = cpara02 - vertex [ i ] . x
+>428	AssignmentExpr	b_array [ 2 * 8 + x2 ] = cpara02 - vertex [ i ] . x
+>429	AdditiveExpression	cpara02 - vertex [ i ] . x
+>430	MemberAccess	vertex [ i ] . x
+>431	Identifier	x
+>432	ArrayIndexing	vertex [ i ]
+>433	Identifier	i
+>434	Identifier	vertex
+>435	Identifier	cpara02
+>436	ArrayIndexing	b_array [ 2 * 8 + x2 ]
+>437	AdditiveExpression	2 * 8 + x2
+>438	Identifier	x2
+>439	MultiplicativeExpression	2 * 8
+>440	PrimaryExpression	8
+>441	PrimaryExpression	2
+>442	Identifier	b_array
+>443	ArrayIndexing	a_array [ x2 * 3 + 2 ]
+>444	AdditiveExpression	x2 * 3 + 2
+>445	PrimaryExpression	2
+>446	MultiplicativeExpression	x2 * 3
+>447	PrimaryExpression	3
+>448	Identifier	x2
+>449	Identifier	a_array
+>450	IdentifierDeclStatement	 
+>451	IdentifierDecl	x2 = i * 2
+>452	AssignmentExpr	x2 = i * 2
+>453	MultiplicativeExpression	i * 2
+>454	PrimaryExpression	2
+>455	Identifier	i
+>456	Identifier	x2
+>457	Identifier	x2
+>458	IdentifierDeclType	const int
+>459	IncDecOp	 
+>460	IncDec	++
+>461	Identifier	i
+>462	Condition	 
+>463	RelationalExpression	i < 4
+>464	PrimaryExpression	4
+>465	Identifier	i
+>466	ForInit	 
+>467	IdentifierDeclStatement	int i = 0 ;
+>468	IdentifierDecl	i = 0
+>469	AssignmentExpr	i = 0
+>470	PrimaryExpression	0
+>471	Identifier	i
+>472	Identifier	i
+>473	IdentifierDeclType	int
+>474	IdentifierDeclStatement	 
+>475	IdentifierDecl	* b_array = mat_b . getArray ( )
+>476	AssignmentExpr	* b_array = mat_b . getArray ( )
+>477	CallExpression	mat_b . getArray ( )
+>478	ArgumentList	 
+>479	Callee	mat_b . getArray
+>480	MemberAccess	mat_b . getArray
+>481	Identifier	getArray
+>482	Identifier	mat_b
+>483	Identifier	b_array
+>484	Identifier	b_array
+>485	IdentifierDeclType	double *
+>486	IdentifierDeclStatement	 
+>487	IdentifierDecl	* a_array = mat_a . getArray ( )
+>488	AssignmentExpr	* a_array = mat_a . getArray ( )
+>489	CallExpression	mat_a . getArray ( )
+>490	ArgumentList	 
+>491	Callee	mat_a . getArray
+>492	MemberAccess	mat_a . getArray
+>493	Identifier	getArray
+>494	Identifier	mat_a
+>495	Identifier	a_array
+>496	Identifier	a_array
+>497	IdentifierDeclType	double *
+>498	IdentifierDeclStatement	 
+>499	IdentifierDecl	& mat_b = * this -> _mat_b
+>500	AssignmentExpr	& mat_b = * this -> _mat_b
+>501	UnaryOp	* this -> _mat_b
+>502	PtrMemberAccess	this -> _mat_b
+>503	Identifier	_mat_b
+>504	Identifier	this
+>505	UnaryOperator	*
+>506	Identifier	mat_b
+>507	Identifier	mat_b
+>508	IdentifierDeclType	NyARMat &
+>509	IdentifierDeclStatement	 
+>510	IdentifierDecl	& mat_a = * this -> _mat_a
+>511	AssignmentExpr	& mat_a = * this -> _mat_a
+>512	UnaryOp	* this -> _mat_a
+>513	PtrMemberAccess	this -> _mat_a
+>514	Identifier	_mat_a
+>515	Identifier	this
+>516	UnaryOperator	*
+>517	Identifier	mat_a
+>518	Identifier	mat_a
+>519	IdentifierDeclType	NyARMat &
+>520	IdentifierDeclStatement	 
+>521	IdentifierDecl	& mat_d = * this -> _mat_d
+>522	AssignmentExpr	& mat_d = * this -> _mat_d
+>523	UnaryOp	* this -> _mat_d
+>524	PtrMemberAccess	this -> _mat_d
+>525	Identifier	_mat_d
+>526	Identifier	this
+>527	UnaryOperator	*
+>528	Identifier	mat_d
+>529	Identifier	mat_d
+>530	IdentifierDeclType	NyARMat &
+>531	IdentifierDeclStatement	 
+>532	IdentifierDecl	cpara12 = this -> _projection_mat -> m12
+>533	AssignmentExpr	cpara12 = this -> _projection_mat -> m12
+>534	PtrMemberAccess	this -> _projection_mat -> m12
+>535	Identifier	m12
+>536	PtrMemberAccess	this -> _projection_mat
+>537	Identifier	_projection_mat
+>538	Identifier	this
+>539	Identifier	cpara12
+>540	Identifier	cpara12
+>541	IdentifierDeclType	const double
+>542	IdentifierDeclStatement	 
+>543	IdentifierDecl	cpara02 = this -> _projection_mat -> m02
+>544	AssignmentExpr	cpara02 = this -> _projection_mat -> m02
+>545	PtrMemberAccess	this -> _projection_mat -> m02
+>546	Identifier	m02
+>547	PtrMemberAccess	this -> _projection_mat
+>548	Identifier	_projection_mat
+>549	Identifier	this
+>550	Identifier	cpara02
+>551	Identifier	cpara02
+>552	IdentifierDeclType	const double
+>553	ExpressionStatement	 
+>554	CallExpression	this -> _distortionfactor -> ideal2ObservBatch ( i_square_vertex , vertex , 4 )
+>555	ArgumentList	i_square_vertex
+>556	Argument	4
+>557	PrimaryExpression	4
+>558	Argument	vertex
+>559	Identifier	vertex
+>560	Argument	i_square_vertex
+>561	Identifier	i_square_vertex
+>562	Callee	this -> _distortionfactor -> ideal2ObservBatch
+>563	PtrMemberAccess	this -> _distortionfactor -> ideal2ObservBatch
+>564	Identifier	ideal2ObservBatch
+>565	PtrMemberAccess	this -> _distortionfactor
+>566	Identifier	_distortionfactor
+>567	Identifier	this
+>568	IdentifierDeclStatement	 
+>569	IdentifierDecl	* vertex = this -> _fitsquare_vertex
+>570	AssignmentExpr	* vertex = this -> _fitsquare_vertex
+>571	PtrMemberAccess	this -> _fitsquare_vertex
+>572	Identifier	_fitsquare_vertex
+>573	Identifier	this
+>574	Identifier	vertex
+>575	Identifier	vertex
+>576	IdentifierDeclType	TNyARDoublePoint2d *
+>615	FunctionDef	NyARFitVecCalculator 
+>616	ParameterList	const NyARRotMatrix & i_rotation , TNyARDoublePoint3d & o_transfer
+>617	Parameter	 
+>618	Identifier	o_transfer
+>619	ParameterType	TNyARDoublePoint3d &
+>620	Parameter	 
+>621	Identifier	i_rotation
+>622	ParameterType	const NyARRotMatrix &
+>623	ReturnType	void
+>624	CompoundStatement	 
+>625	ReturnStatement	 
+>626	ExpressionStatement	 
+>627	AssignmentExpr	o_transfer . z = f_array [ 2 * 1 + 0 ]
+>628	ArrayIndexing	f_array [ 2 * 1 + 0 ]
+>629	AdditiveExpression	2 * 1 + 0
+>630	PrimaryExpression	0
+>631	MultiplicativeExpression	2 * 1
+>632	PrimaryExpression	1
+>633	PrimaryExpression	2
+>634	Identifier	f_array
+>635	MemberAccess	o_transfer . z
+>636	Identifier	z
+>637	Identifier	o_transfer
+>638	ExpressionStatement	 
+>639	AssignmentExpr	o_transfer . y = f_array [ 1 * 1 + 0 ]
+>640	ArrayIndexing	f_array [ 1 * 1 + 0 ]
+>641	AdditiveExpression	1 * 1 + 0
+>642	PrimaryExpression	0
+>643	MultiplicativeExpression	1 * 1
+>644	PrimaryExpression	1
+>645	PrimaryExpression	1
+>646	Identifier	f_array
+>647	MemberAccess	o_transfer . y
+>648	Identifier	y
+>649	Identifier	o_transfer
+>650	ExpressionStatement	 
+>651	AssignmentExpr	o_transfer . x = f_array [ 0 * 1 + 0 ]
+>652	ArrayIndexing	f_array [ 0 * 1 + 0 ]
+>653	AdditiveExpression	0 * 1 + 0
+>654	PrimaryExpression	0
+>655	MultiplicativeExpression	0 * 1
+>656	PrimaryExpression	1
+>657	PrimaryExpression	0
+>658	Identifier	f_array
+>659	MemberAccess	o_transfer . x
+>660	Identifier	x
+>661	Identifier	o_transfer
+>662	ExpressionStatement	 
+>663	CallExpression	this -> _mat_f -> matrixMul ( * this -> _mat_d , * this -> _mat_e )
+>664	ArgumentList	* this -> _mat_d
+>665	Argument	* this -> _mat_e
+>666	UnaryOp	* this -> _mat_e
+>667	PtrMemberAccess	this -> _mat_e
+>668	Identifier	_mat_e
+>669	Identifier	this
+>670	UnaryOperator	*
+>671	Argument	* this -> _mat_d
+>672	UnaryOp	* this -> _mat_d
+>673	PtrMemberAccess	this -> _mat_d
+>674	Identifier	_mat_d
+>675	Identifier	this
+>676	UnaryOperator	*
+>677	Callee	this -> _mat_f -> matrixMul
+>678	PtrMemberAccess	this -> _mat_f -> matrixMul
+>679	Identifier	matrixMul
+>680	PtrMemberAccess	this -> _mat_f
+>681	Identifier	_mat_f
+>682	Identifier	this
+>683	ExpressionStatement	 
+>684	CallExpression	this -> _mat_e -> matrixMul ( * this -> _mat_b , mat_c )
+>685	ArgumentList	* this -> _mat_b
+>686	Argument	mat_c
+>687	Identifier	mat_c
+>688	Argument	* this -> _mat_b
+>689	UnaryOp	* this -> _mat_b
+>690	PtrMemberAccess	this -> _mat_b
+>691	Identifier	_mat_b
+>692	Identifier	this
+>693	UnaryOperator	*
+>694	Callee	this -> _mat_e -> matrixMul
+>695	PtrMemberAccess	this -> _mat_e -> matrixMul
+>696	Identifier	matrixMul
+>697	PtrMemberAccess	this -> _mat_e
+>698	Identifier	_mat_e
+>699	Identifier	this
+>700	ForStatement	for ( int i = 0 ; i < 4 ; i ++ )
+>701	CompoundStatement	 
+>702	ExpressionStatement	 
+>703	AssignmentExpr	c_array [ ( x2 + 1 ) * 1 + 0 ] = point3d_ptr . z * vertex2d [ i ] . y - cpara11 * point3d_ptr . y - cpara12 * \
+>704	AdditiveExpression	point3d_ptr . z * vertex2d [ i ] . y - cpara11 * point3d_ptr . y - cpara12 * point3d_ptr . z
+>705	AdditiveExpression	cpara11 * point3d_ptr . y - cpara12 * point3d_ptr . z
+>706	MultiplicativeExpression	cpara12 * point3d_ptr . z
+>707	MemberAccess	point3d_ptr . z
+>708	Identifier	z
+>709	Identifier	point3d_ptr
+>710	Identifier	cpara12
+>711	MultiplicativeExpression	cpara11 * point3d_ptr . y
+>712	MemberAccess	point3d_ptr . y
+>713	Identifier	y
+>714	Identifier	point3d_ptr
+>715	Identifier	cpara11
+>716	MultiplicativeExpression	point3d_ptr . z * vertex2d [ i ] . y
+>717	MemberAccess	vertex2d [ i ] . y
+>718	Identifier	y
+>719	ArrayIndexing	vertex2d [ i ]
+>720	Identifier	i
+>721	Identifier	vertex2d
+>722	MemberAccess	point3d_ptr . z
+>723	Identifier	z
+>724	Identifier	point3d_ptr
+>725	ArrayIndexing	c_array [ ( x2 + 1 ) * 1 + 0 ]
+>726	AdditiveExpression	( x2 + 1 ) * 1 + 0
+>727	PrimaryExpression	0
+>728	MultiplicativeExpression	( x2 + 1 ) * 1
+>729	PrimaryExpression	1
+>730	AdditiveExpression	x2 + 1
+>731	PrimaryExpression	1
+>732	Identifier	x2
+>733	Identifier	c_array
+>734	ExpressionStatement	 
+>735	AssignmentExpr	c_array [ x2 * 1 + 0 ] = point3d_ptr . z * vertex2d [ i ] . x - cpara00 * point3d_ptr . x - cpara01 * \
+>736	AdditiveExpression	point3d_ptr . z * vertex2d [ i ] . x - cpara00 * point3d_ptr . x - cpara01 * point3d_ptr . y - cpara02 * \
+>737	AdditiveExpression	cpara00 * point3d_ptr . x - cpara01 * point3d_ptr . y - cpara02 * point3d_ptr . z
+>738	AdditiveExpression	cpara01 * point3d_ptr . y - cpara02 * point3d_ptr . z
+>739	MultiplicativeExpression	cpara02 * point3d_ptr . z
+>740	MemberAccess	point3d_ptr . z
+>741	Identifier	z
+>742	Identifier	point3d_ptr
+>743	Identifier	cpara02
+>744	MultiplicativeExpression	cpara01 * point3d_ptr . y
+>745	MemberAccess	point3d_ptr . y
+>746	Identifier	y
+>747	Identifier	point3d_ptr
+>748	Identifier	cpara01
+>749	MultiplicativeExpression	cpara00 * point3d_ptr . x
+>750	MemberAccess	point3d_ptr . x
+>751	Identifier	x
+>752	Identifier	point3d_ptr
+>753	Identifier	cpara00
+>754	MultiplicativeExpression	point3d_ptr . z * vertex2d [ i ] . x
+>755	MemberAccess	vertex2d [ i ] . x
+>756	Identifier	x
+>757	ArrayIndexing	vertex2d [ i ]
+>758	Identifier	i
+>759	Identifier	vertex2d
+>760	MemberAccess	point3d_ptr . z
+>761	Identifier	z
+>762	Identifier	point3d_ptr
+>763	ArrayIndexing	c_array [ x2 * 1 + 0 ]
+>764	AdditiveExpression	x2 * 1 + 0
+>765	PrimaryExpression	0
+>766	MultiplicativeExpression	x2 * 1
+>767	PrimaryExpression	1
+>768	Identifier	x2
+>769	Identifier	c_array
+>770	IdentifierDeclStatement	 
+>771	IdentifierDecl	& point3d_ptr = point3d [ i ]
+>772	AssignmentExpr	& point3d_ptr = point3d [ i ]
+>773	ArrayIndexing	point3d [ i ]
+>774	Identifier	i
+>775	Identifier	point3d
+>776	Identifier	point3d_ptr
+>777	Identifier	point3d_ptr
+>778	IdentifierDeclType	const TNyARDoublePoint3d &
+>779	IdentifierDeclStatement	 
+>780	IdentifierDecl	x2 = i + i
+>781	AssignmentExpr	x2 = i + i
+>782	AdditiveExpression	i + i
+>783	Identifier	i
+>784	Identifier	i
+>785	Identifier	x2
+>786	Identifier	x2
+>787	IdentifierDeclType	const int
+>788	IncDecOp	 
+>789	IncDec	++
+>790	Identifier	i
+>791	Condition	 
+>792	RelationalExpression	i < 4
+>793	PrimaryExpression	4
+>794	Identifier	i
+>795	ForInit	 
+>796	IdentifierDeclStatement	int i = 0 ;
+>797	IdentifierDecl	i = 0
+>798	AssignmentExpr	i = 0
+>799	PrimaryExpression	0
+>800	Identifier	i
+>801	Identifier	i
+>802	IdentifierDeclType	int
+>803	ExpressionStatement	 
+>804	CallExpression	i_rotation . getPoint3dBatch ( vertex3d , point3d , 4 )
+>805	ArgumentList	vertex3d
+>806	Argument	4
+>807	PrimaryExpression	4
+>808	Argument	point3d
+>809	Identifier	point3d
+>810	Argument	vertex3d
+>811	Identifier	vertex3d
+>812	Callee	i_rotation . getPoint3dBatch
+>813	MemberAccess	i_rotation . getPoint3dBatch
+>814	Identifier	getPoint3dBatch
+>815	Identifier	i_rotation
+>816	IdentifierDeclStatement	 
+>817	IdentifierDecl	* c_array = mat_c . getArray ( )
+>818	AssignmentExpr	* c_array = mat_c . getArray ( )
+>819	CallExpression	mat_c . getArray ( )
+>820	ArgumentList	 
+>821	Callee	mat_c . getArray
+>822	MemberAccess	mat_c . getArray
+>823	Identifier	getArray
+>824	Identifier	mat_c
+>825	Identifier	c_array
+>826	Identifier	c_array
+>827	IdentifierDeclType	double *
+>828	IdentifierDeclStatement	 
+>829	IdentifierDecl	* f_array = this -> _mat_f -> getArray ( )
+>830	AssignmentExpr	* f_array = this -> _mat_f -> getArray ( )
+>831	CallExpression	this -> _mat_f -> getArray ( )
+>832	ArgumentList	 
+>833	Callee	this -> _mat_f -> getArray
+>834	PtrMemberAccess	this -> _mat_f -> getArray
+>835	Identifier	getArray
+>836	PtrMemberAccess	this -> _mat_f
+>837	Identifier	_mat_f
+>838	Identifier	this
+>839	Identifier	f_array
+>840	Identifier	f_array
+>841	IdentifierDeclType	double *
+>842	IdentifierDeclStatement	 
+>843	IdentifierDecl	& mat_c = * this -> __calculateTransferVec_mat_c
+>844	AssignmentExpr	& mat_c = * this -> __calculateTransferVec_mat_c
+>845	UnaryOp	* this -> __calculateTransferVec_mat_c
+>846	PtrMemberAccess	this -> __calculateTransferVec_mat_c
+>847	Identifier	__calculateTransferVec_mat_c
+>848	Identifier	this
+>849	UnaryOperator	*
+>850	Identifier	mat_c
+>851	Identifier	mat_c
+>852	IdentifierDeclType	NyARMat &
+>853	IdentifierDeclStatement	 
+>854	IdentifierDecl	* vertex2d = this -> _fitsquare_vertex
+>855	AssignmentExpr	* vertex2d = this -> _fitsquare_vertex
+>856	PtrMemberAccess	this -> _fitsquare_vertex
+>857	Identifier	_fitsquare_vertex
+>858	Identifier	this
+>859	Identifier	vertex2d
+>860	Identifier	vertex2d
+>861	IdentifierDeclType	const TNyARDoublePoint2d *
+>862	IdentifierDeclStatement	 
+>863	IdentifierDecl	* vertex3d = this -> _offset_square -> vertex
+>864	AssignmentExpr	* vertex3d = this -> _offset_square -> vertex
+>865	PtrMemberAccess	this -> _offset_square -> vertex
+>866	Identifier	vertex
+>867	PtrMemberAccess	this -> _offset_square
+>868	Identifier	_offset_square
+>869	Identifier	this
+>870	Identifier	vertex3d
+>871	Identifier	vertex3d
+>872	IdentifierDeclType	const TNyARDoublePoint3d *
+>873	IdentifierDeclStatement	 
+>874	IdentifierDecl	cpara12 = this -> _projection_mat -> m12
+>875	AssignmentExpr	cpara12 = this -> _projection_mat -> m12
+>876	PtrMemberAccess	this -> _projection_mat -> m12
+>877	Identifier	m12
+>878	PtrMemberAccess	this -> _projection_mat
+>879	Identifier	_projection_mat
+>880	Identifier	this
+>881	Identifier	cpara12
+>882	Identifier	cpara12
+>883	IdentifierDeclType	const double
+>884	IdentifierDeclStatement	 
+>885	IdentifierDecl	cpara11 = this -> _projection_mat -> m11
+>886	AssignmentExpr	cpara11 = this -> _projection_mat -> m11
+>887	PtrMemberAccess	this -> _projection_mat -> m11
+>888	Identifier	m11
+>889	PtrMemberAccess	this -> _projection_mat
+>890	Identifier	_projection_mat
+>891	Identifier	this
+>892	Identifier	cpara11
+>893	Identifier	cpara11
+>894	IdentifierDeclType	const double
+>895	IdentifierDeclStatement	 
+>896	IdentifierDecl	cpara02 = this -> _projection_mat -> m02
+>897	AssignmentExpr	cpara02 = this -> _projection_mat -> m02
+>898	PtrMemberAccess	this -> _projection_mat -> m02
+>899	Identifier	m02
+>900	PtrMemberAccess	this -> _projection_mat
+>901	Identifier	_projection_mat
+>902	Identifier	this
+>903	Identifier	cpara02
+>904	Identifier	cpara02
+>905	IdentifierDeclType	const double
+>906	IdentifierDeclStatement	 
+>907	IdentifierDecl	cpara01 = this -> _projection_mat -> m01
+>908	AssignmentExpr	cpara01 = this -> _projection_mat -> m01
+>909	PtrMemberAccess	this -> _projection_mat -> m01
+>910	Identifier	m01
+>911	PtrMemberAccess	this -> _projection_mat
+>912	Identifier	_projection_mat
+>913	Identifier	this
+>914	Identifier	cpara01
+>915	Identifier	cpara01
+>916	IdentifierDeclType	const double
+>917	IdentifierDeclStatement	 
+>918	IdentifierDecl	cpara00 = this -> _projection_mat -> m00
+>919	AssignmentExpr	cpara00 = this -> _projection_mat -> m00
+>920	PtrMemberAccess	this -> _projection_mat -> m00
+>921	Identifier	m00
+>922	PtrMemberAccess	this -> _projection_mat
+>923	Identifier	_projection_mat
+>924	Identifier	this
+>925	Identifier	cpara00
+>926	Identifier	cpara00
+>927	IdentifierDeclType	const double
+>928	IdentifierDeclStatement	 
+>929	IdentifierDecl	point3d [ 4 ]
+>930	PrimaryExpression	4
+>931	Identifier	point3d
+>932	IdentifierDeclType	TNyARDoublePoint3d [ 4 ]
+>933	ExpressionStatement	 
+>934	CallExpression	NyAR_ASSERT ( this -> _offset_square != NULL )
+>935	ArgumentList	this -> _offset_square != NULL
+>936	Argument	this -> _offset_square != NULL
+>937	EqualityExpression	this -> _offset_square != NULL
+>938	Identifier	NULL
+>939	PtrMemberAccess	this -> _offset_square
+>940	Identifier	_offset_square
+>941	Identifier	this
+>942	Callee	NyAR_ASSERT
+>943	Identifier	NyAR_ASSERT
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<11=211,203,195,187,179,171,157,143,31,25,19,13,12
+<13=14
+<14=16,15
+<16=18,17
+<19=20
+<20=22,21
+<22=24,23
+<25=26
+<26=28,27
+<28=30,29
+<31=135,131,128,32
+<32=119,99,79,57,33
+<33=34
+<34=48,35
+<35=39,36
+<36=38,37
+<39=47,40
+<40=44,41
+<41=43,42
+<44=46,45
+<48=56,49
+<49=51,50
+<51=53,52
+<53=55,54
+<57=58
+<58=70,59
+<59=61,60
+<61=69,62
+<62=66,63
+<63=65,64
+<66=68,67
+<70=78,71
+<71=73,72
+<73=75,74
+<75=77,76
+<79=80
+<80=92,81
+<81=85,82
+<82=84,83
+<85=91,86
+<86=88,87
+<88=90,89
+<92=98,93
+<93=95,94
+<95=97,96
+<99=100
+<100=112,101
+<101=105,102
+<102=104,103
+<105=111,106
+<106=108,107
+<108=110,109
+<112=118,113
+<113=115,114
+<115=117,116
+<119=120
+<120=127,126,121
+<121=125,122
+<122=124,123
+<128=130,129
+<131=132
+<132=134,133
+<135=136
+<136=137
+<137=142,141,138
+<138=140,139
+<143=144
+<144=156,155,145
+<145=154,146
+<146=148,147
+<148=149
+<149=151,150
+<151=153,152
+<157=158
+<158=170,169,159
+<159=168,160
+<160=162,161
+<162=163
+<163=165,164
+<165=167,166
+<171=172
+<172=176,173
+<173=175,174
+<176=178,177
+<179=180
+<180=184,181
+<181=183,182
+<184=186,185
+<187=188
+<188=192,189
+<189=191,190
+<192=194,193
+<195=196
+<196=200,197
+<197=199,198
+<200=202,201
+<203=204
+<204=208,205
+<205=207,206
+<208=210,209
+<211=212
+<212=216,213
+<213=215,214
+<216=218,217
+<252=254,253
+<254=301,292,283,274,265,256,255
+<256=257
+<257=263,258
+<258=259
+<259=260
+<260=262,261
+<263=264
+<265=266
+<266=272,267
+<267=268
+<268=269
+<269=271,270
+<272=273
+<274=275
+<275=281,276
+<276=277
+<277=278
+<278=280,279
+<281=282
+<283=284
+<284=290,285
+<285=286
+<286=287
+<287=289,288
+<290=291
+<292=293
+<293=299,294
+<294=295
+<295=296
+<296=298,297
+<299=300
+<301=302
+<302=308,303
+<303=304
+<304=305
+<305=307,306
+<308=309
+<321=327,326,322
+<322=323
+<323=325,324
+<327=329,328
+<329=330
+<330=332,331
+<332=334,333
+<342=345,344,343
+<345=346
+<346=347
+<347=349,348
+<356=359,358,357
+<359=360
+<360=361
+<361=363,362
+<370=376,375,371
+<371=372
+<372=374,373
+<376=568,553,542,531,520,509,498,486,474,396,385,378,377
+<378=379
+<379=381,380
+<381=382
+<382=384,383
+<385=386
+<386=392,387
+<387=390,388
+<388=389
+<390=391
+<392=393
+<393=395,394
+<396=466,462,459,397
+<397=450,426,398
+<398=399
+<399=417,400
+<400=408,401
+<401=407,402
+<402=404,403
+<404=406,405
+<408=416,409
+<409=413,410
+<410=412,411
+<413=415,414
+<417=425,418
+<418=420,419
+<420=422,421
+<422=424,423
+<426=427
+<427=443,428
+<428=436,429
+<429=435,430
+<430=432,431
+<432=434,433
+<436=442,437
+<437=439,438
+<439=441,440
+<443=449,444
+<444=446,445
+<446=448,447
+<450=451
+<451=458,457,452
+<452=456,453
+<453=455,454
+<459=461,460
+<462=463
+<463=465,464
+<466=467
+<467=468
+<468=473,472,469
+<469=471,470
+<474=475
+<475=485,484,476
+<476=483,477
+<477=479,478
+<479=480
+<480=482,481
+<486=487
+<487=497,496,488
+<488=495,489
+<489=491,490
+<491=492
+<492=494,493
+<498=499
+<499=508,507,500
+<500=506,501
+<501=505,502
+<502=504,503
+<509=510
+<510=519,518,511
+<511=517,512
+<512=516,513
+<513=515,514
+<520=521
+<521=530,529,522
+<522=528,523
+<523=527,524
+<524=526,525
+<531=532
+<532=541,540,533
+<533=539,534
+<534=536,535
+<536=538,537
+<542=543
+<543=552,551,544
+<544=550,545
+<545=547,546
+<547=549,548
+<553=554
+<554=562,555
+<555=560,558,556
+<556=557
+<558=559
+<560=561
+<562=563
+<563=565,564
+<565=567,566
+<568=569
+<569=576,575,570
+<570=574,571
+<571=573,572
+<615=624,623,616
+<616=620,617
+<617=619,618
+<620=622,621
+<624=933,928,917,906,895,884,873,862,853,842,828,816,803,700,683,662,650,638,626,625
+<626=627
+<627=635,628
+<628=634,629
+<629=631,630
+<631=633,632
+<635=637,636
+<638=639
+<639=647,640
+<640=646,641
+<641=643,642
+<643=645,644
+<647=649,648
+<650=651
+<651=659,652
+<652=658,653
+<653=655,654
+<655=657,656
+<659=661,660
+<662=663
+<663=677,664
+<664=671,665
+<665=666
+<666=670,667
+<667=669,668
+<671=672
+<672=676,673
+<673=675,674
+<677=678
+<678=680,679
+<680=682,681
+<683=684
+<684=694,685
+<685=688,686
+<686=687
+<688=689
+<689=693,690
+<690=692,691
+<694=695
+<695=697,696
+<697=699,698
+<700=795,791,788,701
+<701=779,770,734,702
+<702=703
+<703=725,704
+<704=716,705
+<705=711,706
+<706=710,707
+<707=709,708
+<711=715,712
+<712=714,713
+<716=722,717
+<717=719,718
+<719=721,720
+<722=724,723
+<725=733,726
+<726=728,727
+<728=730,729
+<730=732,731
+<734=735
+<735=763,736
+<736=754,737
+<737=749,738
+<738=744,739
+<739=743,740
+<740=742,741
+<744=748,745
+<745=747,746
+<749=753,750
+<750=752,751
+<754=760,755
+<755=757,756
+<757=759,758
+<760=762,761
+<763=769,764
+<764=766,765
+<766=768,767
+<770=771
+<771=778,777,772
+<772=776,773
+<773=775,774
+<779=780
+<780=787,786,781
+<781=785,782
+<782=784,783
+<788=790,789
+<791=792
+<792=794,793
+<795=796
+<796=797
+<797=802,801,798
+<798=800,799
+<803=804
+<804=812,805
+<805=810,808,806
+<806=807
+<808=809
+<810=811
+<812=813
+<813=815,814
+<816=817
+<817=827,826,818
+<818=825,819
+<819=821,820
+<821=822
+<822=824,823
+<828=829
+<829=841,840,830
+<830=839,831
+<831=833,832
+<833=834
+<834=836,835
+<836=838,837
+<842=843
+<843=852,851,844
+<844=850,845
+<845=849,846
+<846=848,847
+<853=854
+<854=861,860,855
+<855=859,856
+<856=858,857
+<862=863
+<863=872,871,864
+<864=870,865
+<865=867,866
+<867=869,868
+<873=874
+<874=883,882,875
+<875=881,876
+<876=878,877
+<878=880,879
+<884=885
+<885=894,893,886
+<886=892,887
+<887=889,888
+<889=891,890
+<895=896
+<896=905,904,897
+<897=903,898
+<898=900,899
+<900=902,901
+<906=907
+<907=916,915,908
+<908=914,909
+<909=911,910
+<911=913,912
+<917=918
+<918=927,926,919
+<919=925,920
+<920=922,921
+<922=924,923
+<928=929
+<929=932,931,930
+<933=934
+<934=942,935
+<935=936
+<936=937
+<937=939,938
+<939=941,940
+<942=943

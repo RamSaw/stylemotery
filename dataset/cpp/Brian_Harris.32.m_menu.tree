@@ -1,0 +1,5601 @@
+>111	FunctionDef	M_ReadSaveStrings ()
+>112	ParameterList	 
+>113	ReturnType	void
+>114	CompoundStatement	 
+>115	ForStatement	for ( i = 0 ; i < load_end ; i ++ )
+>116	CompoundStatement	 
+>117	ExpressionStatement	 
+>118	AssignmentExpr	g -> LoadMenu [ i ] . status = 1
+>119	PrimaryExpression	1
+>120	MemberAccess	g -> LoadMenu [ i ] . status
+>121	Identifier	status
+>122	ArrayIndexing	g -> LoadMenu [ i ]
+>123	Identifier	i
+>124	PtrMemberAccess	g -> LoadMenu
+>125	Identifier	LoadMenu
+>126	Identifier	g
+>127	Statement	 
+>128	ExpressionStatement	 
+>129	Statement	 
+>130	Statement	 
+>131	Statement	 
+>132	Statement	 
+>133	Statement	 
+>134	Statement	 
+>135	Statement	 
+>136	Statement	 
+>137	Statement	 
+>138	Statement	 
+>139	Statement	 
+>140	Statement	 
+>141	ExpressionStatement	 
+>142	CallExpression	fileSystem -> CloseFile ( handle )
+>143	ArgumentList	handle
+>144	Argument	handle
+>145	Identifier	handle
+>146	Callee	fileSystem -> CloseFile
+>147	PtrMemberAccess	fileSystem -> CloseFile
+>148	Identifier	CloseFile
+>149	Identifier	fileSystem
+>150	ExpressionStatement	 
+>151	Statement	 
+>152	Statement	 
+>153	Statement	 
+>154	Statement	 
+>155	Statement	 
+>156	Statement	 
+>157	Statement	 
+>158	Statement	 
+>159	Statement	 
+>160	Statement	 
+>161	Statement	 
+>162	Statement	 
+>163	Statement	 
+>164	Statement	 
+>165	Statement	 
+>166	Statement	 
+>167	Statement	 
+>168	IfStatement	if ( handle == NULL )
+>169	CompoundStatement	 
+>170	ContinueStatement	 
+>171	ExpressionStatement	 
+>172	AssignmentExpr	g -> LoadMenu [ i ] . status = 0
+>173	PrimaryExpression	0
+>174	MemberAccess	g -> LoadMenu [ i ] . status
+>175	Identifier	status
+>176	ArrayIndexing	g -> LoadMenu [ i ]
+>177	Identifier	i
+>178	PtrMemberAccess	g -> LoadMenu
+>179	Identifier	LoadMenu
+>180	Identifier	g
+>181	Statement	 
+>182	ExpressionStatement	 
+>183	Statement	 
+>184	Statement	 
+>185	Statement	 
+>186	Statement	 
+>187	Statement	 
+>188	Statement	 
+>189	Statement	 
+>190	Statement	 
+>191	Statement	 
+>192	Statement	 
+>193	Statement	 
+>194	Statement	 
+>195	Statement	 
+>196	Statement	 
+>197	Statement	 
+>198	Statement	 
+>199	Condition	 
+>200	EqualityExpression	handle == NULL
+>201	Identifier	NULL
+>202	Identifier	handle
+>203	ExpressionStatement	 
+>204	AssignmentExpr	handle = fileSystem -> OpenFileRead ( name , false )
+>205	CallExpression	fileSystem -> OpenFileRead ( name , false )
+>206	ArgumentList	name
+>207	Argument	false
+>208	Identifier	false
+>209	Argument	name
+>210	Identifier	name
+>211	Callee	fileSystem -> OpenFileRead
+>212	PtrMemberAccess	fileSystem -> OpenFileRead
+>213	Identifier	OpenFileRead
+>214	Identifier	fileSystem
+>215	Identifier	handle
+>216	IfStatement	if ( common -> GetCurrentGame ( ) == DOOM_CLASSIC )
+>217	ElseStatement	else
+>218	CompoundStatement	 
+>219	IfStatement	if ( DoomLib 
+>220	ElseStatement	else
+>221	CompoundStatement	 
+>222	ExpressionStatement	 
+>223	CallExpression	sprintf ( name , \"DOOM2_NRFTL\\%s%d.dsg\" , SAVEGAMENAME , i )
+>224	ArgumentList	name
+>225	Argument	i
+>226	Identifier	i
+>227	Argument	SAVEGAMENAME
+>228	Identifier	SAVEGAMENAME
+>229	Argument	\"DOOM2_NRFTL\\%s%d.dsg\"
+>230	PrimaryExpression	\"DOOM2_NRFTL\\%s%d.dsg\"
+>231	Argument	name
+>232	Identifier	name
+>233	Callee	sprintf
+>234	Identifier	sprintf
+>235	CompoundStatement	 
+>236	ExpressionStatement	 
+>237	CallExpression	sprintf ( name , \"DOOM2\\%s%d.dsg\" , SAVEGAMENAME , i )
+>238	ArgumentList	name
+>239	Argument	i
+>240	Identifier	i
+>241	Argument	SAVEGAMENAME
+>242	Identifier	SAVEGAMENAME
+>243	Argument	\"DOOM2\\%s%d.dsg\"
+>244	PrimaryExpression	\"DOOM2\\%s%d.dsg\"
+>245	Argument	name
+>246	Identifier	name
+>247	Callee	sprintf
+>248	Identifier	sprintf
+>249	Condition	 
+>250	EqualityExpression	DoomLib 
+>251	Identifier	doom2
+>252	Identifier	DoomLib 
+>253	CompoundStatement	 
+>254	ExpressionStatement	 
+>255	CallExpression	sprintf ( name , \"DOOM\\%s%d.dsg\" , SAVEGAMENAME , i )
+>256	ArgumentList	name
+>257	Argument	i
+>258	Identifier	i
+>259	Argument	SAVEGAMENAME
+>260	Identifier	SAVEGAMENAME
+>261	Argument	\"DOOM\\%s%d.dsg\"
+>262	PrimaryExpression	\"DOOM\\%s%d.dsg\"
+>263	Argument	name
+>264	Identifier	name
+>265	Callee	sprintf
+>266	Identifier	sprintf
+>267	Condition	 
+>268	EqualityExpression	common -> GetCurrentGame ( ) == DOOM_CLASSIC
+>269	Identifier	DOOM_CLASSIC
+>270	CallExpression	common -> GetCurrentGame ( )
+>271	ArgumentList	 
+>272	Callee	common -> GetCurrentGame
+>273	PtrMemberAccess	common -> GetCurrentGame
+>274	Identifier	GetCurrentGame
+>275	Identifier	common
+>276	IncDecOp	 
+>277	IncDec	++
+>278	Identifier	i
+>279	Condition	 
+>280	RelationalExpression	i < load_end
+>281	Identifier	load_end
+>282	Identifier	i
+>283	ForInit	 
+>284	AssignmentExpr	i = 0
+>285	PrimaryExpression	0
+>286	Identifier	i
+>287	IdentifierDeclStatement	 
+>288	IdentifierDecl	name [ 256 ]
+>289	PrimaryExpression	256
+>290	Identifier	name
+>291	IdentifierDeclType	char [ 256 ]
+>292	IdentifierDeclStatement	 
+>293	IdentifierDecl	i
+>294	Identifier	i
+>295	IdentifierDeclType	int
+>296	IdentifierDeclStatement	 
+>297	IdentifierDecl	count
+>298	Identifier	count
+>299	IdentifierDeclType	int
+>300	IdentifierDeclStatement	 
+>301	IdentifierDecl	* handle
+>302	Identifier	handle
+>303	IdentifierDeclType	idFile *
+>331	FunctionDef	M_DrawLoad ()
+>332	ParameterList	 
+>333	ReturnType	void
+>334	CompoundStatement	 
+>335	ForStatement	for ( i = 0 ; i < load_end ; i ++ )
+>336	CompoundStatement	 
+>337	ExpressionStatement	 
+>338	Statement	 
+>339	Statement	 
+>340	Statement	 
+>341	Statement	 
+>342	Statement	 
+>343	Statement	 
+>344	Statement	 
+>345	Statement	 
+>346	Statement	 
+>347	Statement	 
+>348	Statement	 
+>349	Statement	 
+>350	Statement	 
+>351	Statement	 
+>352	Statement	 
+>353	Statement	 
+>354	Statement	 
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	Statement	 
+>362	Statement	 
+>363	Statement	 
+>364	Statement	 
+>365	Statement	 
+>366	ExpressionStatement	 
+>367	Statement	 
+>368	Statement	 
+>369	Statement	 
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	Statement	 
+>378	Statement	 
+>379	Statement	 
+>380	Statement	 
+>381	Statement	 
+>382	Statement	 
+>383	Statement	 
+>384	Statement	 
+>385	Statement	 
+>386	Statement	 
+>387	IncDecOp	 
+>388	IncDec	++
+>389	Identifier	i
+>390	Condition	 
+>391	RelationalExpression	i < load_end
+>392	Identifier	load_end
+>393	Identifier	i
+>394	ForInit	 
+>395	AssignmentExpr	i = 0
+>396	PrimaryExpression	0
+>397	Identifier	i
+>398	ExpressionStatement	 
+>399	CallExpression	V_DrawPatchDirect ( 72 , 28 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_LOADG\" , PU_CACHE_SHARED ) )
+>400	ArgumentList	72
+>401	Argument	( patch_t * ) W_CacheLumpName ( \"M_LOADG\" , PU_CACHE_SHARED )
+>402	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_LOADG\" , PU_CACHE_SHARED )
+>403	CallExpression	W_CacheLumpName ( \"M_LOADG\" , PU_CACHE_SHARED )
+>404	ArgumentList	\"M_LOADG\"
+>405	Argument	PU_CACHE_SHARED
+>406	Identifier	PU_CACHE_SHARED
+>407	Argument	\"M_LOADG\"
+>408	PrimaryExpression	\"M_LOADG\"
+>409	Callee	W_CacheLumpName
+>410	Identifier	W_CacheLumpName
+>411	CastTarget	patch_t *
+>412	Argument	0
+>413	PrimaryExpression	0
+>414	Argument	28
+>415	PrimaryExpression	28
+>416	Argument	72
+>417	PrimaryExpression	72
+>418	Callee	V_DrawPatchDirect
+>419	Identifier	V_DrawPatchDirect
+>420	IdentifierDeclStatement	 
+>421	IdentifierDecl	i
+>422	Identifier	i
+>423	IdentifierDeclType	int
+>431	FunctionDef	M_DrawSaveLoadBorder (int x , int y)
+>432	ParameterList	int x , int y
+>433	Parameter	 
+>434	Identifier	y
+>435	ParameterType	int
+>436	Parameter	 
+>437	Identifier	x
+>438	ParameterType	int
+>439	ReturnType	void
+>440	CompoundStatement	 
+>441	ExpressionStatement	 
+>442	CallExpression	V_DrawPatchDirect ( x , y + 7 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_LSRGHT\" , PU_CACHE_SHARED ) )
+>443	ArgumentList	x
+>444	Argument	( patch_t * ) W_CacheLumpName ( \"M_LSRGHT\" , PU_CACHE_SHARED )
+>445	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_LSRGHT\" , PU_CACHE_SHARED )
+>446	CallExpression	W_CacheLumpName ( \"M_LSRGHT\" , PU_CACHE_SHARED )
+>447	ArgumentList	\"M_LSRGHT\"
+>448	Argument	PU_CACHE_SHARED
+>449	Identifier	PU_CACHE_SHARED
+>450	Argument	\"M_LSRGHT\"
+>451	PrimaryExpression	\"M_LSRGHT\"
+>452	Callee	W_CacheLumpName
+>453	Identifier	W_CacheLumpName
+>454	CastTarget	patch_t *
+>455	Argument	0
+>456	PrimaryExpression	0
+>457	Argument	y + 7
+>458	AdditiveExpression	y + 7
+>459	PrimaryExpression	7
+>460	Identifier	y
+>461	Argument	x
+>462	Identifier	x
+>463	Callee	V_DrawPatchDirect
+>464	Identifier	V_DrawPatchDirect
+>465	ForStatement	for ( i = 0 ; i < 28 ; i ++ )
+>466	CompoundStatement	 
+>467	ExpressionStatement	 
+>468	AssignmentExpr	x += 8
+>469	PrimaryExpression	8
+>470	Identifier	x
+>471	ExpressionStatement	 
+>472	CallExpression	V_DrawPatchDirect ( x , y + 7 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_LSCNTR\" , PU_CACHE_SHARED ) )
+>473	ArgumentList	x
+>474	Argument	( patch_t * ) W_CacheLumpName ( \"M_LSCNTR\" , PU_CACHE_SHARED )
+>475	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_LSCNTR\" , PU_CACHE_SHARED )
+>476	CallExpression	W_CacheLumpName ( \"M_LSCNTR\" , PU_CACHE_SHARED )
+>477	ArgumentList	\"M_LSCNTR\"
+>478	Argument	PU_CACHE_SHARED
+>479	Identifier	PU_CACHE_SHARED
+>480	Argument	\"M_LSCNTR\"
+>481	PrimaryExpression	\"M_LSCNTR\"
+>482	Callee	W_CacheLumpName
+>483	Identifier	W_CacheLumpName
+>484	CastTarget	patch_t *
+>485	Argument	0
+>486	PrimaryExpression	0
+>487	Argument	y + 7
+>488	AdditiveExpression	y + 7
+>489	PrimaryExpression	7
+>490	Identifier	y
+>491	Argument	x
+>492	Identifier	x
+>493	Callee	V_DrawPatchDirect
+>494	Identifier	V_DrawPatchDirect
+>495	IncDecOp	 
+>496	IncDec	++
+>497	Identifier	i
+>498	Condition	 
+>499	RelationalExpression	i < 28
+>500	PrimaryExpression	28
+>501	Identifier	i
+>502	ForInit	 
+>503	AssignmentExpr	i = 0
+>504	PrimaryExpression	0
+>505	Identifier	i
+>506	ExpressionStatement	 
+>507	CallExpression	V_DrawPatchDirect ( x - 8 , y + 7 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_LSLEFT\" , PU_CACHE_SHARED ) )
+>508	ArgumentList	x - 8
+>509	Argument	( patch_t * ) W_CacheLumpName ( \"M_LSLEFT\" , PU_CACHE_SHARED )
+>510	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_LSLEFT\" , PU_CACHE_SHARED )
+>511	CallExpression	W_CacheLumpName ( \"M_LSLEFT\" , PU_CACHE_SHARED )
+>512	ArgumentList	\"M_LSLEFT\"
+>513	Argument	PU_CACHE_SHARED
+>514	Identifier	PU_CACHE_SHARED
+>515	Argument	\"M_LSLEFT\"
+>516	PrimaryExpression	\"M_LSLEFT\"
+>517	Callee	W_CacheLumpName
+>518	Identifier	W_CacheLumpName
+>519	CastTarget	patch_t *
+>520	Argument	0
+>521	PrimaryExpression	0
+>522	Argument	y + 7
+>523	AdditiveExpression	y + 7
+>524	PrimaryExpression	7
+>525	Identifier	y
+>526	Argument	x - 8
+>527	AdditiveExpression	x - 8
+>528	PrimaryExpression	8
+>529	Identifier	x
+>530	Callee	V_DrawPatchDirect
+>531	Identifier	V_DrawPatchDirect
+>532	IdentifierDeclStatement	 
+>533	IdentifierDecl	i
+>534	Identifier	i
+>535	IdentifierDeclType	int
+>544	FunctionDef	M_LoadSelect (int choice)
+>545	ParameterList	int choice
+>546	Parameter	 
+>547	Identifier	choice
+>548	ParameterType	int
+>549	ReturnType	void
+>550	CompoundStatement	 
+>551	CompoundStatement	 
+>552	ExpressionStatement	 
+>553	Statement	 
+>554	Statement	 
+>555	Statement	 
+>556	Statement	 
+>557	Statement	 
+>558	Statement	 
+>559	Statement	 
+>560	Statement	 
+>561	Statement	 
+>562	Statement	 
+>563	Statement	 
+>564	Statement	 
+>565	Statement	 
+>566	Statement	 
+>567	Statement	 
+>568	Statement	 
+>569	Statement	 
+>570	Statement	 
+>571	Statement	 
+>576	FunctionDef	M_LoadExpansion (int choice)
+>577	ParameterList	int choice
+>578	Parameter	 
+>579	Identifier	choice
+>580	ParameterType	int
+>581	ReturnType	void
+>582	CompoundStatement	 
+>583	ExpressionStatement	 
+>584	CallExpression	M_ReadSaveStrings ( )
+>585	ArgumentList	 
+>586	Callee	M_ReadSaveStrings
+>587	Identifier	M_ReadSaveStrings
+>588	ExpressionStatement	 
+>589	Statement	 
+>590	Statement	 
+>591	Statement	 
+>592	Statement	 
+>593	Statement	 
+>594	Statement	 
+>595	Statement	 
+>596	Statement	 
+>597	IfStatement	if ( choice == 0 )
+>598	ElseStatement	else
+>599	CompoundStatement	 
+>600	ExpressionStatement	 
+>601	CallExpression	DoomLib 
+>602	ArgumentList	pack_nerve
+>603	Argument	pack_nerve
+>604	Identifier	pack_nerve
+>605	Callee	DoomLib 
+>606	Identifier	DoomLib 
+>607	CompoundStatement	 
+>608	ExpressionStatement	 
+>609	CallExpression	DoomLib 
+>610	ArgumentList	doom2
+>611	Argument	doom2
+>612	Identifier	doom2
+>613	Callee	DoomLib 
+>614	Identifier	DoomLib 
+>615	Condition	 
+>616	EqualityExpression	choice == 0
+>617	PrimaryExpression	0
+>618	Identifier	choice
+>619	ExpressionStatement	 
+>620	AssignmentExpr	g -> exp = choice
+>621	Identifier	choice
+>622	PtrMemberAccess	g -> exp
+>623	Identifier	exp
+>624	Identifier	g
+>625	Statement	 
+>635	FunctionDef	M_LoadGame (int choice)
+>636	ParameterList	int choice
+>637	Parameter	 
+>638	Identifier	choice
+>639	ParameterType	int
+>640	ReturnType	void
+>641	CompoundStatement	 
+>642	CompoundStatement	 
+>643	ExpressionStatement	 
+>644	Statement	 
+>645	Statement	 
+>646	Statement	 
+>647	Statement	 
+>648	Statement	 
+>649	Statement	 
+>650	Statement	 
+>651	Statement	 
+>652	Statement	 
+>653	Statement	 
+>654	Statement	 
+>655	Statement	 
+>656	Statement	 
+>657	Statement	 
+>658	Statement	 
+>659	Statement	 
+>660	Statement	 
+>661	CompoundStatement	 
+>662	ReturnStatement	 
+>663	ExpressionStatement	 
+>664	CallExpression	M_StartMessage ( LOADNET , NULL , false )
+>665	ArgumentList	LOADNET
+>666	Argument	false
+>667	Identifier	false
+>668	Argument	NULL
+>669	Identifier	NULL
+>670	Argument	LOADNET
+>671	Identifier	LOADNET
+>672	Callee	M_StartMessage
+>673	Identifier	M_StartMessage
+>674	Statement	 
+>675	Statement	 
+>676	Statement	 
+>677	Statement	 
+>678	Statement	 
+>679	Statement	 
+>680	Statement	 
+>688	FunctionDef	M_DrawSave ()
+>689	ParameterList	 
+>690	ReturnType	void
+>691	CompoundStatement	 
+>692	CompoundStatement	 
+>693	ExpressionStatement	 
+>694	Statement	 
+>695	Statement	 
+>696	Statement	 
+>697	Statement	 
+>698	Statement	 
+>699	Statement	 
+>700	Statement	 
+>701	Statement	 
+>702	Statement	 
+>703	Statement	 
+>704	Statement	 
+>705	Statement	 
+>706	Statement	 
+>707	Statement	 
+>708	Statement	 
+>709	Statement	 
+>710	Statement	 
+>711	Statement	 
+>712	Statement	 
+>713	Statement	 
+>714	Statement	 
+>715	Statement	 
+>716	Statement	 
+>717	Statement	 
+>718	Statement	 
+>719	Statement	 
+>720	Statement	 
+>721	ExpressionStatement	 
+>722	Statement	 
+>723	Statement	 
+>724	Statement	 
+>725	Statement	 
+>726	Statement	 
+>727	Statement	 
+>728	Statement	 
+>729	Statement	 
+>730	Statement	 
+>731	Statement	 
+>732	Statement	 
+>733	Statement	 
+>734	Statement	 
+>735	Statement	 
+>736	Statement	 
+>737	Statement	 
+>738	Statement	 
+>739	Statement	 
+>740	Statement	 
+>741	Statement	 
+>742	Statement	 
+>743	Statement	 
+>744	ForStatement	for ( i = 0 ; i < load_end ; i ++ )
+>745	CompoundStatement	 
+>746	ExpressionStatement	 
+>747	Statement	 
+>748	Statement	 
+>749	Statement	 
+>750	Statement	 
+>751	Statement	 
+>752	Statement	 
+>753	Statement	 
+>754	Statement	 
+>755	Statement	 
+>756	Statement	 
+>757	Statement	 
+>758	Statement	 
+>759	Statement	 
+>760	Statement	 
+>761	Statement	 
+>762	Statement	 
+>763	Statement	 
+>764	Statement	 
+>765	Statement	 
+>766	Statement	 
+>767	Statement	 
+>768	Statement	 
+>769	Statement	 
+>770	Statement	 
+>771	Statement	 
+>772	Statement	 
+>773	Statement	 
+>774	Statement	 
+>775	ExpressionStatement	 
+>776	Statement	 
+>777	Statement	 
+>778	Statement	 
+>779	Statement	 
+>780	Statement	 
+>781	Statement	 
+>782	Statement	 
+>783	Statement	 
+>784	Statement	 
+>785	Statement	 
+>786	Statement	 
+>787	Statement	 
+>788	Statement	 
+>789	Statement	 
+>790	Statement	 
+>791	Statement	 
+>792	Statement	 
+>793	Statement	 
+>794	Statement	 
+>795	Statement	 
+>796	IncDecOp	 
+>797	IncDec	++
+>798	Identifier	i
+>799	Condition	 
+>800	RelationalExpression	i < load_end
+>801	Identifier	load_end
+>802	Identifier	i
+>803	ForInit	 
+>804	AssignmentExpr	i = 0
+>805	PrimaryExpression	0
+>806	Identifier	i
+>807	ExpressionStatement	 
+>808	CallExpression	V_DrawPatchDirect ( 72 , 28 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_SAVEG\" , PU_CACHE_SHARED ) )
+>809	ArgumentList	72
+>810	Argument	( patch_t * ) W_CacheLumpName ( \"M_SAVEG\" , PU_CACHE_SHARED )
+>811	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_SAVEG\" , PU_CACHE_SHARED )
+>812	CallExpression	W_CacheLumpName ( \"M_SAVEG\" , PU_CACHE_SHARED )
+>813	ArgumentList	\"M_SAVEG\"
+>814	Argument	PU_CACHE_SHARED
+>815	Identifier	PU_CACHE_SHARED
+>816	Argument	\"M_SAVEG\"
+>817	PrimaryExpression	\"M_SAVEG\"
+>818	Callee	W_CacheLumpName
+>819	Identifier	W_CacheLumpName
+>820	CastTarget	patch_t *
+>821	Argument	0
+>822	PrimaryExpression	0
+>823	Argument	28
+>824	PrimaryExpression	28
+>825	Argument	72
+>826	PrimaryExpression	72
+>827	Callee	V_DrawPatchDirect
+>828	Identifier	V_DrawPatchDirect
+>829	IdentifierDeclStatement	 
+>830	IdentifierDecl	i
+>831	Identifier	i
+>832	IdentifierDeclType	int
+>840	FunctionDef	M_DoSave (int slot)
+>841	ParameterList	int slot
+>842	Parameter	 
+>843	Identifier	slot
+>844	ParameterType	int
+>845	ReturnType	void
+>846	CompoundStatement	 
+>847	ExpressionStatement	 
+>848	AssignmentExpr	g -> quickSaveSlot = slot
+>849	Identifier	slot
+>850	PtrMemberAccess	g -> quickSaveSlot
+>851	Identifier	quickSaveSlot
+>852	Identifier	g
+>853	Statement	 
+>854	Statement	 
+>855	Statement	 
+>856	Statement	 
+>857	Statement	 
+>858	Statement	 
+>859	Statement	 
+>860	Statement	 
+>861	Statement	 
+>862	Statement	 
+>863	Statement	 
+>864	ExpressionStatement	 
+>865	CallExpression	M_ClearMenus ( )
+>866	ArgumentList	 
+>867	Callee	M_ClearMenus
+>868	Identifier	M_ClearMenus
+>869	ExpressionStatement	 
+>870	Statement	 
+>871	Statement	 
+>872	Statement	 
+>873	Statement	 
+>874	Statement	 
+>875	Statement	 
+>876	Statement	 
+>877	Statement	 
+>878	Statement	 
+>879	Statement	 
+>880	Statement	 
+>881	Statement	 
+>893	FunctionDef	M_SaveSelect (int choice)
+>894	ParameterList	int choice
+>895	Parameter	 
+>896	Identifier	choice
+>897	ParameterType	int
+>898	ReturnType	void
+>899	CompoundStatement	 
+>900	ExpressionStatement	 
+>901	Statement	 
+>902	Statement	 
+>903	Statement	 
+>904	Statement	 
+>905	Statement	 
+>906	Statement	 
+>907	Statement	 
+>908	ExpressionStatement	 
+>909	Statement	 
+>910	Statement	 
+>911	Statement	 
+>912	Statement	 
+>913	Statement	 
+>914	Statement	 
+>915	Statement	 
+>916	Statement	 
+>917	Statement	 
+>918	Statement	 
+>919	Statement	 
+>920	Statement	 
+>921	Statement	 
+>922	Statement	 
+>923	Statement	 
+>924	ExpressionStatement	 
+>925	AssignmentExpr	g -> saveSlot = choice
+>926	Identifier	choice
+>927	PtrMemberAccess	g -> saveSlot
+>928	Identifier	saveSlot
+>929	Identifier	g
+>930	Statement	 
+>931	CompoundStatement	 
+>932	BreakStatement	 
+>933	ExpressionStatement	 
+>934	Statement	 
+>935	Statement	 
+>936	Statement	 
+>937	Statement	 
+>938	Statement	 
+>939	Statement	 
+>940	Statement	 
+>941	Statement	 
+>942	Statement	 
+>943	Statement	 
+>944	Statement	 
+>945	Statement	 
+>946	Statement	 
+>947	Statement	 
+>948	Statement	 
+>949	Label	 
+>950	Identifier	default
+>951	Label	 
+>952	Identifier	commercial
+>953	BreakStatement	 
+>954	ExpressionStatement	 
+>955	Statement	 
+>956	Statement	 
+>957	Statement	 
+>958	Statement	 
+>959	Statement	 
+>960	Statement	 
+>961	Statement	 
+>962	Statement	 
+>963	Statement	 
+>964	Statement	 
+>965	Statement	 
+>966	Statement	 
+>967	Statement	 
+>968	Statement	 
+>969	Statement	 
+>970	Statement	 
+>971	Statement	 
+>972	Statement	 
+>973	Statement	 
+>974	Statement	 
+>975	Statement	 
+>976	Statement	 
+>977	Statement	 
+>978	Statement	 
+>979	Statement	 
+>980	Statement	 
+>981	Label	 
+>982	Identifier	retail
+>983	Label	 
+>984	Identifier	registered
+>985	Label	 
+>986	Identifier	shareware
+>987	Statement	 
+>988	Statement	 
+>989	Statement	 
+>990	Statement	 
+>991	Statement	 
+>992	Statement	 
+>993	Statement	 
+>994	IdentifierDeclStatement	 
+>995	IdentifierDecl	* exp = DoomLib 
+>996	AssignmentExpr	* exp = DoomLib 
+>997	CallExpression	DoomLib 
+>998	ArgumentList	 
+>999	Callee	DoomLib 
+>1000	Identifier	DoomLib 
+>1001	Identifier	exp
+>1002	Identifier	exp
+>1003	IdentifierDeclType	const ExpansionData *
+>1004	IdentifierDeclStatement	 
+>1005	IdentifierDecl	* s
+>1006	Identifier	s
+>1007	IdentifierDeclType	const char *
+>1019	FunctionDef	M_SaveGame (int choice)
+>1020	ParameterList	int choice
+>1021	Parameter	 
+>1022	Identifier	choice
+>1023	ParameterType	int
+>1024	ReturnType	void
+>1025	CompoundStatement	 
+>1026	CompoundStatement	 
+>1027	ReturnStatement	 
+>1028	ExpressionStatement	 
+>1029	CallExpression	M_StartMessage ( SAVEDEAD , NULL , false )
+>1030	ArgumentList	SAVEDEAD
+>1031	Argument	false
+>1032	Identifier	false
+>1033	Argument	NULL
+>1034	Identifier	NULL
+>1035	Argument	SAVEDEAD
+>1036	Identifier	SAVEDEAD
+>1037	Callee	M_StartMessage
+>1038	Identifier	M_StartMessage
+>1039	Statement	 
+>1040	Statement	 
+>1041	Statement	 
+>1042	Statement	 
+>1043	Statement	 
+>1044	Statement	 
+>1045	Statement	 
+>1046	Statement	 
+>1054	FunctionDef	M_QuickSaveResponse (int ch)
+>1055	ParameterList	int ch
+>1056	Parameter	 
+>1057	Identifier	ch
+>1058	ParameterType	int
+>1059	ReturnType	void
+>1060	CompoundStatement	 
+>1061	IfStatement	if ( ch == KEY_ENTER )
+>1062	CompoundStatement	 
+>1063	ExpressionStatement	 
+>1064	CallExpression	S_StartSound ( NULL , sfx_swtchx )
+>1065	ArgumentList	NULL
+>1066	Argument	sfx_swtchx
+>1067	Identifier	sfx_swtchx
+>1068	Argument	NULL
+>1069	Identifier	NULL
+>1070	Callee	S_StartSound
+>1071	Identifier	S_StartSound
+>1072	ExpressionStatement	 
+>1073	Statement	 
+>1074	Statement	 
+>1075	Statement	 
+>1076	Statement	 
+>1077	Statement	 
+>1078	Statement	 
+>1079	Statement	 
+>1080	Condition	 
+>1081	EqualityExpression	ch == KEY_ENTER
+>1082	Identifier	KEY_ENTER
+>1083	Identifier	ch
+>1091	FunctionDef	M_QuickSave ()
+>1092	ParameterList	 
+>1093	ReturnType	void
+>1094	CompoundStatement	 
+>1095	ExpressionStatement	 
+>1096	Statement	 
+>1097	Statement	 
+>1098	Statement	 
+>1099	Statement	 
+>1100	Statement	 
+>1101	Statement	 
+>1102	Statement	 
+>1103	Statement	 
+>1104	Statement	 
+>1105	Statement	 
+>1106	Statement	 
+>1107	ExpressionStatement	 
+>1108	Statement	 
+>1109	Statement	 
+>1110	Statement	 
+>1111	Statement	 
+>1112	Statement	 
+>1113	Statement	 
+>1114	Statement	 
+>1115	Statement	 
+>1116	Statement	 
+>1117	Statement	 
+>1118	Statement	 
+>1119	Statement	 
+>1120	Statement	 
+>1121	Statement	 
+>1122	Statement	 
+>1123	Statement	 
+>1124	Statement	 
+>1125	Statement	 
+>1126	Statement	 
+>1127	Statement	 
+>1128	CompoundStatement	 
+>1129	ReturnStatement	 
+>1130	ExpressionStatement	 
+>1131	AssignmentExpr	g -> quickSaveSlot = - 2
+>1132	UnaryOp	- 2
+>1133	PrimaryExpression	2
+>1134	UnaryOperator	-
+>1135	PtrMemberAccess	g -> quickSaveSlot
+>1136	Identifier	quickSaveSlot
+>1137	Identifier	g
+>1138	Statement	 
+>1139	ExpressionStatement	 
+>1140	Statement	 
+>1141	Statement	 
+>1142	Statement	 
+>1143	Statement	 
+>1144	Statement	 
+>1145	Statement	 
+>1146	Statement	 
+>1147	Statement	 
+>1148	ExpressionStatement	 
+>1149	CallExpression	M_ReadSaveStrings ( )
+>1150	ArgumentList	 
+>1151	Callee	M_ReadSaveStrings
+>1152	Identifier	M_ReadSaveStrings
+>1153	ExpressionStatement	 
+>1154	CallExpression	M_StartControlPanel ( )
+>1155	ArgumentList	 
+>1156	Callee	M_StartControlPanel
+>1157	Identifier	M_StartControlPanel
+>1158	Statement	 
+>1159	Statement	 
+>1160	Statement	 
+>1161	Statement	 
+>1162	Statement	 
+>1163	Statement	 
+>1164	Statement	 
+>1165	Statement	 
+>1166	Statement	 
+>1167	ReturnStatement	 
+>1168	Statement	 
+>1169	Statement	 
+>1170	Statement	 
+>1171	Statement	 
+>1172	Statement	 
+>1173	Statement	 
+>1174	Statement	 
+>1175	Statement	 
+>1176	Statement	 
+>1177	CompoundStatement	 
+>1178	ReturnStatement	 
+>1179	ExpressionStatement	 
+>1180	CallExpression	S_StartSound ( NULL , sfx_oof )
+>1181	ArgumentList	NULL
+>1182	Argument	sfx_oof
+>1183	Identifier	sfx_oof
+>1184	Argument	NULL
+>1185	Identifier	NULL
+>1186	Callee	S_StartSound
+>1187	Identifier	S_StartSound
+>1188	Statement	 
+>1189	Statement	 
+>1190	Statement	 
+>1191	Statement	 
+>1192	Statement	 
+>1193	Statement	 
+>1194	Statement	 
+>1195	Statement	 
+>1204	FunctionDef	M_QuickLoadResponse (int ch)
+>1205	ParameterList	int ch
+>1206	Parameter	 
+>1207	Identifier	ch
+>1208	ParameterType	int
+>1209	ReturnType	void
+>1210	CompoundStatement	 
+>1211	IfStatement	if ( ch == KEY_ENTER )
+>1212	CompoundStatement	 
+>1213	ExpressionStatement	 
+>1214	CallExpression	S_StartSound ( NULL , sfx_swtchx )
+>1215	ArgumentList	NULL
+>1216	Argument	sfx_swtchx
+>1217	Identifier	sfx_swtchx
+>1218	Argument	NULL
+>1219	Identifier	NULL
+>1220	Callee	S_StartSound
+>1221	Identifier	S_StartSound
+>1222	ExpressionStatement	 
+>1223	Statement	 
+>1224	Statement	 
+>1225	Statement	 
+>1226	Statement	 
+>1227	Statement	 
+>1228	Statement	 
+>1229	Statement	 
+>1230	Condition	 
+>1231	EqualityExpression	ch == KEY_ENTER
+>1232	Identifier	KEY_ENTER
+>1233	Identifier	ch
+>1241	FunctionDef	M_QuickLoad ()
+>1242	ParameterList	 
+>1243	ReturnType	void
+>1244	CompoundStatement	 
+>1245	ExpressionStatement	 
+>1246	Statement	 
+>1247	Statement	 
+>1248	Statement	 
+>1249	Statement	 
+>1250	Statement	 
+>1251	Statement	 
+>1252	Statement	 
+>1253	Statement	 
+>1254	Statement	 
+>1255	Statement	 
+>1256	Statement	 
+>1257	ExpressionStatement	 
+>1258	Statement	 
+>1259	Statement	 
+>1260	Statement	 
+>1261	Statement	 
+>1262	Statement	 
+>1263	Statement	 
+>1264	Statement	 
+>1265	Statement	 
+>1266	Statement	 
+>1267	Statement	 
+>1268	Statement	 
+>1269	Statement	 
+>1270	Statement	 
+>1271	Statement	 
+>1272	Statement	 
+>1273	Statement	 
+>1274	Statement	 
+>1275	Statement	 
+>1276	Statement	 
+>1277	Statement	 
+>1278	CompoundStatement	 
+>1279	ReturnStatement	 
+>1280	ExpressionStatement	 
+>1281	CallExpression	M_StartMessage ( QSAVESPOT , NULL , false )
+>1282	ArgumentList	QSAVESPOT
+>1283	Argument	false
+>1284	Identifier	false
+>1285	Argument	NULL
+>1286	Identifier	NULL
+>1287	Argument	QSAVESPOT
+>1288	Identifier	QSAVESPOT
+>1289	Callee	M_StartMessage
+>1290	Identifier	M_StartMessage
+>1291	Statement	 
+>1292	Statement	 
+>1293	Statement	 
+>1294	Statement	 
+>1295	Statement	 
+>1296	Statement	 
+>1297	Statement	 
+>1298	Statement	 
+>1299	Statement	 
+>1300	CompoundStatement	 
+>1301	ReturnStatement	 
+>1302	ExpressionStatement	 
+>1303	CallExpression	M_StartMessage ( QLOADNET , NULL , false )
+>1304	ArgumentList	QLOADNET
+>1305	Argument	false
+>1306	Identifier	false
+>1307	Argument	NULL
+>1308	Identifier	NULL
+>1309	Argument	QLOADNET
+>1310	Identifier	QLOADNET
+>1311	Callee	M_StartMessage
+>1312	Identifier	M_StartMessage
+>1313	Statement	 
+>1314	Statement	 
+>1315	Statement	 
+>1316	Statement	 
+>1317	Statement	 
+>1318	Statement	 
+>1319	Statement	 
+>1327	FunctionDef	M_DrawReadThis1 ()
+>1328	ParameterList	 
+>1329	ReturnType	void
+>1330	CompoundStatement	 
+>1331	ReturnStatement	 
+>1332	CompoundStatement	 
+>1333	BreakStatement	 
+>1334	Label	 
+>1335	Identifier	default
+>1336	BreakStatement	 
+>1337	ExpressionStatement	 
+>1338	CallExpression	V_DrawPatchDirect ( 0 , 0 , 0 , ( patch_t * ) W_CacheLumpName ( \"HELP1\" , PU_CACHE_SHARED ) )
+>1339	ArgumentList	0
+>1340	Argument	( patch_t * ) W_CacheLumpName ( \"HELP1\" , PU_CACHE_SHARED )
+>1341	CastExpression	( patch_t * ) W_CacheLumpName ( \"HELP1\" , PU_CACHE_SHARED )
+>1342	CallExpression	W_CacheLumpName ( \"HELP1\" , PU_CACHE_SHARED )
+>1343	ArgumentList	\"HELP1\"
+>1344	Argument	PU_CACHE_SHARED
+>1345	Identifier	PU_CACHE_SHARED
+>1346	Argument	\"HELP1\"
+>1347	PrimaryExpression	\"HELP1\"
+>1348	Callee	W_CacheLumpName
+>1349	Identifier	W_CacheLumpName
+>1350	CastTarget	patch_t *
+>1351	Argument	0
+>1352	PrimaryExpression	0
+>1353	Argument	0
+>1354	PrimaryExpression	0
+>1355	Argument	0
+>1356	PrimaryExpression	0
+>1357	Callee	V_DrawPatchDirect
+>1358	Identifier	V_DrawPatchDirect
+>1359	Label	 
+>1360	Identifier	retail
+>1361	Label	 
+>1362	Identifier	registered
+>1363	Label	 
+>1364	Identifier	shareware
+>1365	BreakStatement	 
+>1366	ExpressionStatement	 
+>1367	CallExpression	V_DrawPatchDirect ( 0 , 0 , 0 , ( patch_t * ) W_CacheLumpName ( \"HELP\" , PU_CACHE_SHARED ) )
+>1368	ArgumentList	0
+>1369	Argument	( patch_t * ) W_CacheLumpName ( \"HELP\" , PU_CACHE_SHARED )
+>1370	CastExpression	( patch_t * ) W_CacheLumpName ( \"HELP\" , PU_CACHE_SHARED )
+>1371	CallExpression	W_CacheLumpName ( \"HELP\" , PU_CACHE_SHARED )
+>1372	ArgumentList	\"HELP\"
+>1373	Argument	PU_CACHE_SHARED
+>1374	Identifier	PU_CACHE_SHARED
+>1375	Argument	\"HELP\"
+>1376	PrimaryExpression	\"HELP\"
+>1377	Callee	W_CacheLumpName
+>1378	Identifier	W_CacheLumpName
+>1379	CastTarget	patch_t *
+>1380	Argument	0
+>1381	PrimaryExpression	0
+>1382	Argument	0
+>1383	PrimaryExpression	0
+>1384	Argument	0
+>1385	PrimaryExpression	0
+>1386	Callee	V_DrawPatchDirect
+>1387	Identifier	V_DrawPatchDirect
+>1388	Label	 
+>1389	Identifier	commercial
+>1390	Statement	 
+>1391	Statement	 
+>1392	Statement	 
+>1393	Statement	 
+>1394	Statement	 
+>1395	Statement	 
+>1396	Statement	 
+>1397	ExpressionStatement	 
+>1398	AssignmentExpr	g -> inhelpscreens = true
+>1399	Identifier	true
+>1400	PtrMemberAccess	g -> inhelpscreens
+>1401	Identifier	inhelpscreens
+>1402	Identifier	g
+>1403	Statement	 
+>1414	FunctionDef	M_DrawReadThis2 ()
+>1415	ParameterList	 
+>1416	ReturnType	void
+>1417	CompoundStatement	 
+>1418	ReturnStatement	 
+>1419	CompoundStatement	 
+>1420	BreakStatement	 
+>1421	Label	 
+>1422	Identifier	default
+>1423	BreakStatement	 
+>1424	ExpressionStatement	 
+>1425	CallExpression	V_DrawPatchDirect ( 0 , 0 , 0 , ( patch_t * ) W_CacheLumpName ( \"HELP2\" , PU_CACHE_SHARED ) )
+>1426	ArgumentList	0
+>1427	Argument	( patch_t * ) W_CacheLumpName ( \"HELP2\" , PU_CACHE_SHARED )
+>1428	CastExpression	( patch_t * ) W_CacheLumpName ( \"HELP2\" , PU_CACHE_SHARED )
+>1429	CallExpression	W_CacheLumpName ( \"HELP2\" , PU_CACHE_SHARED )
+>1430	ArgumentList	\"HELP2\"
+>1431	Argument	PU_CACHE_SHARED
+>1432	Identifier	PU_CACHE_SHARED
+>1433	Argument	\"HELP2\"
+>1434	PrimaryExpression	\"HELP2\"
+>1435	Callee	W_CacheLumpName
+>1436	Identifier	W_CacheLumpName
+>1437	CastTarget	patch_t *
+>1438	Argument	0
+>1439	PrimaryExpression	0
+>1440	Argument	0
+>1441	PrimaryExpression	0
+>1442	Argument	0
+>1443	PrimaryExpression	0
+>1444	Callee	V_DrawPatchDirect
+>1445	Identifier	V_DrawPatchDirect
+>1446	Label	 
+>1447	Identifier	registered
+>1448	Label	 
+>1449	Identifier	shareware
+>1450	BreakStatement	 
+>1451	ExpressionStatement	 
+>1452	CallExpression	V_DrawPatchDirect ( 0 , 0 , 0 , ( patch_t * ) W_CacheLumpName ( \"CREDIT\" , PU_CACHE_SHARED ) )
+>1453	ArgumentList	0
+>1454	Argument	( patch_t * ) W_CacheLumpName ( \"CREDIT\" , PU_CACHE_SHARED )
+>1455	CastExpression	( patch_t * ) W_CacheLumpName ( \"CREDIT\" , PU_CACHE_SHARED )
+>1456	CallExpression	W_CacheLumpName ( \"CREDIT\" , PU_CACHE_SHARED )
+>1457	ArgumentList	\"CREDIT\"
+>1458	Argument	PU_CACHE_SHARED
+>1459	Identifier	PU_CACHE_SHARED
+>1460	Argument	\"CREDIT\"
+>1461	PrimaryExpression	\"CREDIT\"
+>1462	Callee	W_CacheLumpName
+>1463	Identifier	W_CacheLumpName
+>1464	CastTarget	patch_t *
+>1465	Argument	0
+>1466	PrimaryExpression	0
+>1467	Argument	0
+>1468	PrimaryExpression	0
+>1469	Argument	0
+>1470	PrimaryExpression	0
+>1471	Callee	V_DrawPatchDirect
+>1472	Identifier	V_DrawPatchDirect
+>1473	Label	 
+>1474	Identifier	commercial
+>1475	Label	 
+>1476	Identifier	retail
+>1477	Statement	 
+>1478	Statement	 
+>1479	Statement	 
+>1480	Statement	 
+>1481	Statement	 
+>1482	Statement	 
+>1483	Statement	 
+>1484	ExpressionStatement	 
+>1485	AssignmentExpr	g -> inhelpscreens = true
+>1486	Identifier	true
+>1487	PtrMemberAccess	g -> inhelpscreens
+>1488	Identifier	inhelpscreens
+>1489	Identifier	g
+>1490	Statement	 
+>1501	FunctionDef	M_DrawSound ()
+>1502	ParameterList	 
+>1503	ReturnType	void
+>1504	CompoundStatement	 
+>1505	ExpressionStatement	 
+>1506	Statement	 
+>1507	Statement	 
+>1508	Statement	 
+>1509	Statement	 
+>1510	Statement	 
+>1511	Statement	 
+>1512	Statement	 
+>1513	Statement	 
+>1514	Statement	 
+>1515	Statement	 
+>1516	Statement	 
+>1517	Statement	 
+>1518	Statement	 
+>1519	Statement	 
+>1520	Statement	 
+>1521	Statement	 
+>1522	Statement	 
+>1523	Statement	 
+>1524	Statement	 
+>1525	Statement	 
+>1526	Statement	 
+>1527	Statement	 
+>1528	Statement	 
+>1529	Statement	 
+>1530	Statement	 
+>1531	Statement	 
+>1532	Statement	 
+>1533	Statement	 
+>1534	Statement	 
+>1535	Statement	 
+>1536	Statement	 
+>1537	Statement	 
+>1538	ExpressionStatement	 
+>1539	Statement	 
+>1540	Statement	 
+>1541	Statement	 
+>1542	Statement	 
+>1543	Statement	 
+>1544	Statement	 
+>1545	Statement	 
+>1546	Statement	 
+>1547	Statement	 
+>1548	Statement	 
+>1549	Statement	 
+>1550	Statement	 
+>1551	Statement	 
+>1552	Statement	 
+>1553	Statement	 
+>1554	Statement	 
+>1555	Statement	 
+>1556	Statement	 
+>1557	Statement	 
+>1558	Statement	 
+>1559	Statement	 
+>1560	Statement	 
+>1561	Statement	 
+>1562	Statement	 
+>1563	Statement	 
+>1564	Statement	 
+>1565	Statement	 
+>1566	Statement	 
+>1567	Statement	 
+>1568	Statement	 
+>1569	Statement	 
+>1570	Statement	 
+>1571	ExpressionStatement	 
+>1572	CallExpression	V_DrawPatchDirect ( 60 , 38 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_SVOL\" , PU_CACHE_SHARED ) )
+>1573	ArgumentList	60
+>1574	Argument	( patch_t * ) W_CacheLumpName ( \"M_SVOL\" , PU_CACHE_SHARED )
+>1575	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_SVOL\" , PU_CACHE_SHARED )
+>1576	CallExpression	W_CacheLumpName ( \"M_SVOL\" , PU_CACHE_SHARED )
+>1577	ArgumentList	\"M_SVOL\"
+>1578	Argument	PU_CACHE_SHARED
+>1579	Identifier	PU_CACHE_SHARED
+>1580	Argument	\"M_SVOL\"
+>1581	PrimaryExpression	\"M_SVOL\"
+>1582	Callee	W_CacheLumpName
+>1583	Identifier	W_CacheLumpName
+>1584	CastTarget	patch_t *
+>1585	Argument	0
+>1586	PrimaryExpression	0
+>1587	Argument	38
+>1588	PrimaryExpression	38
+>1589	Argument	60
+>1590	PrimaryExpression	60
+>1591	Callee	V_DrawPatchDirect
+>1592	Identifier	V_DrawPatchDirect
+>1598	FunctionDef	M_Sound (int choice)
+>1599	ParameterList	int choice
+>1600	Parameter	 
+>1601	Identifier	choice
+>1602	ParameterType	int
+>1603	ReturnType	void
+>1604	CompoundStatement	 
+>1605	ExpressionStatement	 
+>1606	Statement	 
+>1607	Statement	 
+>1608	Statement	 
+>1609	Statement	 
+>1610	Statement	 
+>1611	Statement	 
+>1612	Statement	 
+>1613	Statement	 
+>1618	FunctionDef	M_SfxVol (int choice)
+>1619	ParameterList	int choice
+>1620	Parameter	 
+>1621	Identifier	choice
+>1622	ParameterType	int
+>1623	ReturnType	void
+>1624	CompoundStatement	 
+>1625	ExpressionStatement	 
+>1626	CallExpression	S_SetSfxVolume ( s_volume_sound . GetInteger ( ) )
+>1627	ArgumentList	s_volume_sound . GetInteger ( )
+>1628	Argument	s_volume_sound . GetInteger ( )
+>1629	CallExpression	s_volume_sound . GetInteger ( )
+>1630	ArgumentList	 
+>1631	Callee	s_volume_sound . GetInteger
+>1632	MemberAccess	s_volume_sound . GetInteger
+>1633	Identifier	GetInteger
+>1634	Identifier	s_volume_sound
+>1635	Callee	S_SetSfxVolume
+>1636	Identifier	S_SetSfxVolume
+>1637	SwitchStatement	switch ( choice )
+>1638	CompoundStatement	 
+>1639	BreakStatement	 
+>1640	ExpressionStatement	 
+>1641	CallExpression	s_volume_sound . SetInteger ( s_volume_sound . GetInteger ( ) + 1 )
+>1642	ArgumentList	s_volume_sound . GetInteger ( ) + 1
+>1643	Argument	s_volume_sound . GetInteger ( ) + 1
+>1644	AdditiveExpression	s_volume_sound . GetInteger ( ) + 1
+>1645	PrimaryExpression	1
+>1646	CallExpression	s_volume_sound . GetInteger ( )
+>1647	ArgumentList	 
+>1648	Callee	s_volume_sound . GetInteger
+>1649	MemberAccess	s_volume_sound . GetInteger
+>1650	Identifier	GetInteger
+>1651	Identifier	s_volume_sound
+>1652	Callee	s_volume_sound . SetInteger
+>1653	MemberAccess	s_volume_sound . SetInteger
+>1654	Identifier	SetInteger
+>1655	Identifier	s_volume_sound
+>1656	Label	 
+>1657	BreakStatement	 
+>1658	ExpressionStatement	 
+>1659	CallExpression	s_volume_sound . SetInteger ( s_volume_sound . GetInteger ( ) - 1 )
+>1660	ArgumentList	s_volume_sound . GetInteger ( ) - 1
+>1661	Argument	s_volume_sound . GetInteger ( ) - 1
+>1662	AdditiveExpression	s_volume_sound . GetInteger ( ) - 1
+>1663	PrimaryExpression	1
+>1664	CallExpression	s_volume_sound . GetInteger ( )
+>1665	ArgumentList	 
+>1666	Callee	s_volume_sound . GetInteger
+>1667	MemberAccess	s_volume_sound . GetInteger
+>1668	Identifier	GetInteger
+>1669	Identifier	s_volume_sound
+>1670	Callee	s_volume_sound . SetInteger
+>1671	MemberAccess	s_volume_sound . SetInteger
+>1672	Identifier	SetInteger
+>1673	Identifier	s_volume_sound
+>1674	Label	 
+>1675	Condition	 
+>1676	Identifier	choice
+>1683	FunctionDef	M_MusicVol (int choice)
+>1684	ParameterList	int choice
+>1685	Parameter	 
+>1686	Identifier	choice
+>1687	ParameterType	int
+>1688	ReturnType	void
+>1689	CompoundStatement	 
+>1690	ExpressionStatement	 
+>1691	CallExpression	S_SetMusicVolume ( s_volume_midi . GetInteger ( ) )
+>1692	ArgumentList	s_volume_midi . GetInteger ( )
+>1693	Argument	s_volume_midi . GetInteger ( )
+>1694	CallExpression	s_volume_midi . GetInteger ( )
+>1695	ArgumentList	 
+>1696	Callee	s_volume_midi . GetInteger
+>1697	MemberAccess	s_volume_midi . GetInteger
+>1698	Identifier	GetInteger
+>1699	Identifier	s_volume_midi
+>1700	Callee	S_SetMusicVolume
+>1701	Identifier	S_SetMusicVolume
+>1702	SwitchStatement	switch ( choice )
+>1703	CompoundStatement	 
+>1704	BreakStatement	 
+>1705	ExpressionStatement	 
+>1706	CallExpression	s_volume_midi . SetInteger ( s_volume_midi . GetInteger ( ) + 1 )
+>1707	ArgumentList	s_volume_midi . GetInteger ( ) + 1
+>1708	Argument	s_volume_midi . GetInteger ( ) + 1
+>1709	AdditiveExpression	s_volume_midi . GetInteger ( ) + 1
+>1710	PrimaryExpression	1
+>1711	CallExpression	s_volume_midi . GetInteger ( )
+>1712	ArgumentList	 
+>1713	Callee	s_volume_midi . GetInteger
+>1714	MemberAccess	s_volume_midi . GetInteger
+>1715	Identifier	GetInteger
+>1716	Identifier	s_volume_midi
+>1717	Callee	s_volume_midi . SetInteger
+>1718	MemberAccess	s_volume_midi . SetInteger
+>1719	Identifier	SetInteger
+>1720	Identifier	s_volume_midi
+>1721	Label	 
+>1722	BreakStatement	 
+>1723	ExpressionStatement	 
+>1724	CallExpression	s_volume_midi . SetInteger ( s_volume_midi . GetInteger ( ) - 1 )
+>1725	ArgumentList	s_volume_midi . GetInteger ( ) - 1
+>1726	Argument	s_volume_midi . GetInteger ( ) - 1
+>1727	AdditiveExpression	s_volume_midi . GetInteger ( ) - 1
+>1728	PrimaryExpression	1
+>1729	CallExpression	s_volume_midi . GetInteger ( )
+>1730	ArgumentList	 
+>1731	Callee	s_volume_midi . GetInteger
+>1732	MemberAccess	s_volume_midi . GetInteger
+>1733	Identifier	GetInteger
+>1734	Identifier	s_volume_midi
+>1735	Callee	s_volume_midi . SetInteger
+>1736	MemberAccess	s_volume_midi . SetInteger
+>1737	Identifier	SetInteger
+>1738	Identifier	s_volume_midi
+>1739	Label	 
+>1740	Condition	 
+>1741	Identifier	choice
+>1748	FunctionDef	M_DrawMainMenu ()
+>1749	ParameterList	 
+>1750	ReturnType	void
+>1751	CompoundStatement	 
+>1752	ExpressionStatement	 
+>1753	CallExpression	V_DrawPatchDirect ( 94 , 2 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_DOOM\" , PU_CACHE_SHARED ) )
+>1754	ArgumentList	94
+>1755	Argument	( patch_t * ) W_CacheLumpName ( \"M_DOOM\" , PU_CACHE_SHARED )
+>1756	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_DOOM\" , PU_CACHE_SHARED )
+>1757	CallExpression	W_CacheLumpName ( \"M_DOOM\" , PU_CACHE_SHARED )
+>1758	ArgumentList	\"M_DOOM\"
+>1759	Argument	PU_CACHE_SHARED
+>1760	Identifier	PU_CACHE_SHARED
+>1761	Argument	\"M_DOOM\"
+>1762	PrimaryExpression	\"M_DOOM\"
+>1763	Callee	W_CacheLumpName
+>1764	Identifier	W_CacheLumpName
+>1765	CastTarget	patch_t *
+>1766	Argument	0
+>1767	PrimaryExpression	0
+>1768	Argument	2
+>1769	PrimaryExpression	2
+>1770	Argument	94
+>1771	PrimaryExpression	94
+>1772	Callee	V_DrawPatchDirect
+>1773	Identifier	V_DrawPatchDirect
+>1779	FunctionDef	M_DrawQuit ()
+>1780	ParameterList	 
+>1781	ReturnType	void
+>1782	CompoundStatement	 
+>1783	ExpressionStatement	 
+>1784	CallExpression	V_DrawPatchDirect ( 54 , 38 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_EXITO\" , PU_CACHE_SHARED ) )
+>1785	ArgumentList	54
+>1786	Argument	( patch_t * ) W_CacheLumpName ( \"M_EXITO\" , PU_CACHE_SHARED )
+>1787	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_EXITO\" , PU_CACHE_SHARED )
+>1788	CallExpression	W_CacheLumpName ( \"M_EXITO\" , PU_CACHE_SHARED )
+>1789	ArgumentList	\"M_EXITO\"
+>1790	Argument	PU_CACHE_SHARED
+>1791	Identifier	PU_CACHE_SHARED
+>1792	Argument	\"M_EXITO\"
+>1793	PrimaryExpression	\"M_EXITO\"
+>1794	Callee	W_CacheLumpName
+>1795	Identifier	W_CacheLumpName
+>1796	CastTarget	patch_t *
+>1797	Argument	0
+>1798	PrimaryExpression	0
+>1799	Argument	38
+>1800	PrimaryExpression	38
+>1801	Argument	54
+>1802	PrimaryExpression	54
+>1803	Callee	V_DrawPatchDirect
+>1804	Identifier	V_DrawPatchDirect
+>1810	FunctionDef	M_DrawNewGame ()
+>1811	ParameterList	 
+>1812	ReturnType	void
+>1813	CompoundStatement	 
+>1814	ExpressionStatement	 
+>1815	CallExpression	V_DrawPatchDirect ( 54 , 38 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_SKILL\" , PU_CACHE_SHARED ) )
+>1816	ArgumentList	54
+>1817	Argument	( patch_t * ) W_CacheLumpName ( \"M_SKILL\" , PU_CACHE_SHARED )
+>1818	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_SKILL\" , PU_CACHE_SHARED )
+>1819	CallExpression	W_CacheLumpName ( \"M_SKILL\" , PU_CACHE_SHARED )
+>1820	ArgumentList	\"M_SKILL\"
+>1821	Argument	PU_CACHE_SHARED
+>1822	Identifier	PU_CACHE_SHARED
+>1823	Argument	\"M_SKILL\"
+>1824	PrimaryExpression	\"M_SKILL\"
+>1825	Callee	W_CacheLumpName
+>1826	Identifier	W_CacheLumpName
+>1827	CastTarget	patch_t *
+>1828	Argument	0
+>1829	PrimaryExpression	0
+>1830	Argument	38
+>1831	PrimaryExpression	38
+>1832	Argument	54
+>1833	PrimaryExpression	54
+>1834	Callee	V_DrawPatchDirect
+>1835	Identifier	V_DrawPatchDirect
+>1836	ExpressionStatement	 
+>1837	CallExpression	V_DrawPatchDirect ( 96 , 14 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_NEWG\" , PU_CACHE_SHARED ) )
+>1838	ArgumentList	96
+>1839	Argument	( patch_t * ) W_CacheLumpName ( \"M_NEWG\" , PU_CACHE_SHARED )
+>1840	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_NEWG\" , PU_CACHE_SHARED )
+>1841	CallExpression	W_CacheLumpName ( \"M_NEWG\" , PU_CACHE_SHARED )
+>1842	ArgumentList	\"M_NEWG\"
+>1843	Argument	PU_CACHE_SHARED
+>1844	Identifier	PU_CACHE_SHARED
+>1845	Argument	\"M_NEWG\"
+>1846	PrimaryExpression	\"M_NEWG\"
+>1847	Callee	W_CacheLumpName
+>1848	Identifier	W_CacheLumpName
+>1849	CastTarget	patch_t *
+>1850	Argument	0
+>1851	PrimaryExpression	0
+>1852	Argument	14
+>1853	PrimaryExpression	14
+>1854	Argument	96
+>1855	PrimaryExpression	96
+>1856	Callee	V_DrawPatchDirect
+>1857	Identifier	V_DrawPatchDirect
+>1863	FunctionDef	M_NewGame (int choice)
+>1864	ParameterList	int choice
+>1865	Parameter	 
+>1866	Identifier	choice
+>1867	ParameterType	int
+>1868	ReturnType	void
+>1869	CompoundStatement	 
+>1870	ExpressionStatement	 
+>1871	Statement	 
+>1872	Statement	 
+>1873	Statement	 
+>1874	Statement	 
+>1875	Statement	 
+>1876	Statement	 
+>1877	Statement	 
+>1878	Statement	 
+>1879	Statement	 
+>1880	Statement	 
+>1881	Statement	 
+>1882	Statement	 
+>1883	Statement	 
+>1884	Statement	 
+>1885	Statement	 
+>1886	Statement	 
+>1887	Statement	 
+>1888	CompoundStatement	 
+>1889	ReturnStatement	 
+>1890	ExpressionStatement	 
+>1891	CallExpression	M_StartMessage ( NEWGAME , NULL , false )
+>1892	ArgumentList	NEWGAME
+>1893	Argument	false
+>1894	Identifier	false
+>1895	Argument	NULL
+>1896	Identifier	NULL
+>1897	Argument	NEWGAME
+>1898	Identifier	NEWGAME
+>1899	Callee	M_StartMessage
+>1900	Identifier	M_StartMessage
+>1901	Statement	 
+>1902	Statement	 
+>1903	Statement	 
+>1904	Statement	 
+>1905	Statement	 
+>1906	Statement	 
+>1907	Statement	 
+>1908	Statement	 
+>1909	Statement	 
+>1910	Statement	 
+>1911	Statement	 
+>1912	Statement	 
+>1913	Statement	 
+>1921	FunctionDef	M_DrawEpisode ()
+>1922	ParameterList	 
+>1923	ReturnType	void
+>1924	CompoundStatement	 
+>1925	ExpressionStatement	 
+>1926	CallExpression	V_DrawPatchDirect ( 54 , 38 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_EPISOD\" , PU_CACHE_SHARED ) )
+>1927	ArgumentList	54
+>1928	Argument	( patch_t * ) W_CacheLumpName ( \"M_EPISOD\" , PU_CACHE_SHARED )
+>1929	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_EPISOD\" , PU_CACHE_SHARED )
+>1930	CallExpression	W_CacheLumpName ( \"M_EPISOD\" , PU_CACHE_SHARED )
+>1931	ArgumentList	\"M_EPISOD\"
+>1932	Argument	PU_CACHE_SHARED
+>1933	Identifier	PU_CACHE_SHARED
+>1934	Argument	\"M_EPISOD\"
+>1935	PrimaryExpression	\"M_EPISOD\"
+>1936	Callee	W_CacheLumpName
+>1937	Identifier	W_CacheLumpName
+>1938	CastTarget	patch_t *
+>1939	Argument	0
+>1940	PrimaryExpression	0
+>1941	Argument	38
+>1942	PrimaryExpression	38
+>1943	Argument	54
+>1944	PrimaryExpression	54
+>1945	Callee	V_DrawPatchDirect
+>1946	Identifier	V_DrawPatchDirect
+>1952	FunctionDef	M_VerifyNightmare (int ch)
+>1953	ParameterList	int ch
+>1954	Parameter	 
+>1955	Identifier	ch
+>1956	ParameterType	int
+>1957	ReturnType	void
+>1958	CompoundStatement	 
+>1959	ExpressionStatement	 
+>1960	CallExpression	M_ClearMenus ( )
+>1961	ArgumentList	 
+>1962	Callee	M_ClearMenus
+>1963	Identifier	M_ClearMenus
+>1964	ExpressionStatement	 
+>1965	Statement	 
+>1966	Statement	 
+>1967	Statement	 
+>1968	Statement	 
+>1969	Statement	 
+>1970	Statement	 
+>1971	Statement	 
+>1972	Statement	 
+>1973	Statement	 
+>1974	Statement	 
+>1975	Statement	 
+>1976	Statement	 
+>1977	Statement	 
+>1978	Statement	 
+>1979	Statement	 
+>1980	Statement	 
+>1981	IfStatement	if ( ch != KEY_ENTER )
+>1982	ReturnStatement	 
+>1983	Condition	 
+>1984	EqualityExpression	ch != KEY_ENTER
+>1985	Identifier	KEY_ENTER
+>1986	Identifier	ch
+>1992	FunctionDef	M_ChooseSkill (int choice)
+>1993	ParameterList	int choice
+>1994	Parameter	 
+>1995	Identifier	choice
+>1996	ParameterType	int
+>1997	ReturnType	void
+>1998	CompoundStatement	 
+>1999	CompoundStatement	 
+>2000	ExpressionStatement	 
+>2001	CallExpression	M_ClearMenus ( )
+>2002	ArgumentList	 
+>2003	Callee	M_ClearMenus
+>2004	Identifier	M_ClearMenus
+>2005	ExpressionStatement	 
+>2006	Statement	 
+>2007	Statement	 
+>2008	Statement	 
+>2009	Statement	 
+>2010	Statement	 
+>2011	Statement	 
+>2012	Statement	 
+>2013	Statement	 
+>2014	Statement	 
+>2015	Statement	 
+>2016	Statement	 
+>2017	Statement	 
+>2018	Statement	 
+>2019	Statement	 
+>2020	Statement	 
+>2021	Statement	 
+>2022	IdentifierDeclStatement	 
+>2023	IdentifierDecl	startLevel = 1
+>2024	AssignmentExpr	startLevel = 1
+>2025	PrimaryExpression	1
+>2026	Identifier	startLevel
+>2027	Identifier	startLevel
+>2028	IdentifierDeclType	int
+>2029	Statement	 
+>2030	Statement	 
+>2031	Statement	 
+>2032	Statement	 
+>2033	Statement	 
+>2034	Statement	 
+>2035	Statement	 
+>2036	Statement	 
+>2037	Statement	 
+>2038	Statement	 
+>2044	FunctionDef	M_Episode (int choice)
+>2045	ParameterList	int choice
+>2046	Parameter	 
+>2047	Identifier	choice
+>2048	ParameterType	int
+>2049	ReturnType	void
+>2050	CompoundStatement	 
+>2051	ExpressionStatement	 
+>2052	Statement	 
+>2053	Statement	 
+>2054	Statement	 
+>2055	Statement	 
+>2056	Statement	 
+>2057	Statement	 
+>2058	Statement	 
+>2059	Statement	 
+>2060	ExpressionStatement	 
+>2061	AssignmentExpr	g -> epi = choice
+>2062	Identifier	choice
+>2063	PtrMemberAccess	g -> epi
+>2064	Identifier	epi
+>2065	Identifier	g
+>2066	Statement	 
+>2067	CompoundStatement	 
+>2068	ExpressionStatement	 
+>2069	AssignmentExpr	choice = 0
+>2070	PrimaryExpression	0
+>2071	Identifier	choice
+>2072	ExpressionStatement	 
+>2073	CallExpression	I_PrintfE ( \"M_Episode
+>2074	ArgumentList	\"M_Episode
+>2075	Argument	\"M_Episode
+>2076	PrimaryExpression	\"M_Episode
+>2077	Callee	I_PrintfE
+>2078	Identifier	I_PrintfE
+>2079	Statement	 
+>2080	Statement	 
+>2081	Statement	 
+>2082	Statement	 
+>2083	Statement	 
+>2084	Statement	 
+>2085	Statement	 
+>2086	Statement	 
+>2087	Statement	 
+>2088	Statement	 
+>2089	Statement	 
+>2090	Statement	 
+>2091	Statement	 
+>2092	Statement	 
+>2093	Statement	 
+>2094	Statement	 
+>2095	Statement	 
+>2103	FunctionDef	M_Expansion (int choice)
+>2104	ParameterList	int choice
+>2105	Parameter	 
+>2106	Identifier	choice
+>2107	ParameterType	int
+>2108	ReturnType	void
+>2109	CompoundStatement	 
+>2110	ExpressionStatement	 
+>2111	Statement	 
+>2112	Statement	 
+>2113	Statement	 
+>2114	Statement	 
+>2115	Statement	 
+>2116	Statement	 
+>2117	Statement	 
+>2118	Statement	 
+>2119	IfStatement	if ( choice == 0 )
+>2120	ElseStatement	else
+>2121	CompoundStatement	 
+>2122	ExpressionStatement	 
+>2123	CallExpression	DoomLib 
+>2124	ArgumentList	pack_nerve
+>2125	Argument	pack_nerve
+>2126	Identifier	pack_nerve
+>2127	Callee	DoomLib 
+>2128	Identifier	DoomLib 
+>2129	CompoundStatement	 
+>2130	ExpressionStatement	 
+>2131	CallExpression	DoomLib 
+>2132	ArgumentList	doom2
+>2133	Argument	doom2
+>2134	Identifier	doom2
+>2135	Callee	DoomLib 
+>2136	Identifier	DoomLib 
+>2137	Condition	 
+>2138	EqualityExpression	choice == 0
+>2139	PrimaryExpression	0
+>2140	Identifier	choice
+>2141	ExpressionStatement	 
+>2142	AssignmentExpr	g -> exp = choice
+>2143	Identifier	choice
+>2144	PtrMemberAccess	g -> exp
+>2145	Identifier	exp
+>2146	Identifier	g
+>2147	Statement	 
+>2157	FunctionDef	M_GetMouseSpeedForMenu (float cvarValue)
+>2158	ParameterList	float cvarValue
+>2159	Parameter	 
+>2160	Identifier	cvarValue
+>2161	ParameterType	float
+>2162	ReturnType	int
+>2163	CompoundStatement	 
+>2164	ReturnStatement	 
+>2165	Identifier	roundedMouseSpeed
+>2166	IdentifierDeclStatement	 
+>2167	IdentifierDecl	roundedMouseSpeed = static_cast < int > ( scaledMouseSpeed + 0.5f )
+>2168	AssignmentExpr	roundedMouseSpeed = static_cast < int > ( scaledMouseSpeed + 0.5f )
+>2169	RelationalExpression	static_cast < int > ( scaledMouseSpeed + 0.5f )
+>2170	RelationalExpression	int > ( scaledMouseSpeed + 0.5f )
+>2171	AdditiveExpression	scaledMouseSpeed + 0.5f
+>2172	PrimaryExpression	0.5f
+>2173	Identifier	scaledMouseSpeed
+>2174	Identifier	int
+>2175	Identifier	static_cast
+>2176	Identifier	roundedMouseSpeed
+>2177	Identifier	roundedMouseSpeed
+>2178	IdentifierDeclType	const int
+>2179	IdentifierDeclStatement	 
+>2180	IdentifierDecl	scaledMouseSpeed = normalizedMouseSpeed * 15.0f
+>2181	AssignmentExpr	scaledMouseSpeed = normalizedMouseSpeed * 15.0f
+>2182	MultiplicativeExpression	normalizedMouseSpeed * 15.0f
+>2183	PrimaryExpression	15.0f
+>2184	Identifier	normalizedMouseSpeed
+>2185	Identifier	scaledMouseSpeed
+>2186	Identifier	scaledMouseSpeed
+>2187	IdentifierDeclType	const float
+>2188	IdentifierDeclStatement	 
+>2189	IdentifierDecl	normalizedMouseSpeed = shiftedMouseSpeed / ( 4.0f - 0.25 )
+>2190	AssignmentExpr	normalizedMouseSpeed = shiftedMouseSpeed / ( 4.0f - 0.25 )
+>2191	MultiplicativeExpression	shiftedMouseSpeed / ( 4.0f - 0.25 )
+>2192	AdditiveExpression	4.0f - 0.25
+>2193	PrimaryExpression	0.25
+>2194	PrimaryExpression	4.0f
+>2195	Identifier	shiftedMouseSpeed
+>2196	Identifier	normalizedMouseSpeed
+>2197	Identifier	normalizedMouseSpeed
+>2198	IdentifierDeclType	const float
+>2199	IdentifierDeclStatement	 
+>2200	IdentifierDecl	shiftedMouseSpeed = cvarValue - 0.25f
+>2201	AssignmentExpr	shiftedMouseSpeed = cvarValue - 0.25f
+>2202	AdditiveExpression	cvarValue - 0.25f
+>2203	PrimaryExpression	0.25f
+>2204	Identifier	cvarValue
+>2205	Identifier	shiftedMouseSpeed
+>2206	Identifier	shiftedMouseSpeed
+>2207	IdentifierDeclType	const float
+>2218	FunctionDef	M_DrawOptions ()
+>2219	ParameterList	 
+>2220	ReturnType	void
+>2221	CompoundStatement	 
+>2222	ExpressionStatement	 
+>2223	Statement	 
+>2224	Statement	 
+>2225	Statement	 
+>2226	Statement	 
+>2227	Statement	 
+>2228	Statement	 
+>2229	Statement	 
+>2230	Statement	 
+>2231	Statement	 
+>2232	Statement	 
+>2233	Statement	 
+>2234	Statement	 
+>2235	Statement	 
+>2236	Statement	 
+>2237	Statement	 
+>2238	Statement	 
+>2239	Statement	 
+>2240	Statement	 
+>2241	Statement	 
+>2242	Statement	 
+>2243	Statement	 
+>2244	Statement	 
+>2245	Statement	 
+>2246	Statement	 
+>2247	Statement	 
+>2248	Statement	 
+>2249	Statement	 
+>2250	Statement	 
+>2251	IdentifierDeclStatement	 
+>2252	IdentifierDecl	roundedMouseSpeed = M_GetMouseSpeedForMenu ( in_mouseSpeed . GetFloat ( ) )
+>2253	AssignmentExpr	roundedMouseSpeed = M_GetMouseSpeedForMenu ( in_mouseSpeed . GetFloat ( ) )
+>2254	CallExpression	M_GetMouseSpeedForMenu ( in_mouseSpeed . GetFloat ( ) )
+>2255	ArgumentList	in_mouseSpeed . GetFloat ( )
+>2256	Argument	in_mouseSpeed . GetFloat ( )
+>2257	CallExpression	in_mouseSpeed . GetFloat ( )
+>2258	ArgumentList	 
+>2259	Callee	in_mouseSpeed . GetFloat
+>2260	MemberAccess	in_mouseSpeed . GetFloat
+>2261	Identifier	GetFloat
+>2262	Identifier	in_mouseSpeed
+>2263	Callee	M_GetMouseSpeedForMenu
+>2264	Identifier	M_GetMouseSpeedForMenu
+>2265	Identifier	roundedMouseSpeed
+>2266	Identifier	roundedMouseSpeed
+>2267	IdentifierDeclType	const int
+>2268	IdentifierDeclStatement	 
+>2269	IdentifierDecl	in_mouseSpeed
+>2270	Identifier	in_mouseSpeed
+>2271	IdentifierDeclType	extern idCVar
+>2272	ExpressionStatement	 
+>2273	Statement	 
+>2274	Statement	 
+>2275	Statement	 
+>2276	Statement	 
+>2277	Statement	 
+>2278	Statement	 
+>2279	Statement	 
+>2280	Statement	 
+>2281	Statement	 
+>2282	Statement	 
+>2283	Statement	 
+>2284	Statement	 
+>2285	Statement	 
+>2286	Statement	 
+>2287	Statement	 
+>2288	Statement	 
+>2289	Statement	 
+>2290	Statement	 
+>2291	Statement	 
+>2292	Statement	 
+>2293	Statement	 
+>2294	Statement	 
+>2295	Statement	 
+>2296	Statement	 
+>2297	Statement	 
+>2298	Statement	 
+>2299	Statement	 
+>2300	Statement	 
+>2301	Statement	 
+>2302	Statement	 
+>2303	Statement	 
+>2304	Statement	 
+>2305	Statement	 
+>2306	Statement	 
+>2307	Statement	 
+>2308	Statement	 
+>2309	Statement	 
+>2310	Statement	 
+>2311	Statement	 
+>2312	Statement	 
+>2313	Statement	 
+>2314	Statement	 
+>2315	ExpressionStatement	 
+>2316	Statement	 
+>2317	Statement	 
+>2318	Statement	 
+>2319	Statement	 
+>2320	Statement	 
+>2321	Statement	 
+>2322	Statement	 
+>2323	Statement	 
+>2324	Statement	 
+>2325	Statement	 
+>2326	Statement	 
+>2327	Statement	 
+>2328	Statement	 
+>2329	Statement	 
+>2330	Statement	 
+>2331	Statement	 
+>2332	Statement	 
+>2333	Statement	 
+>2334	Statement	 
+>2335	Statement	 
+>2336	Statement	 
+>2337	Statement	 
+>2338	Statement	 
+>2339	Statement	 
+>2340	Statement	 
+>2341	Statement	 
+>2342	Statement	 
+>2343	Statement	 
+>2344	Statement	 
+>2345	Statement	 
+>2346	Statement	 
+>2347	Statement	 
+>2348	Statement	 
+>2349	Statement	 
+>2350	Statement	 
+>2351	Statement	 
+>2352	Statement	 
+>2353	Statement	 
+>2354	Statement	 
+>2355	Statement	 
+>2356	Statement	 
+>2357	Statement	 
+>2358	ExpressionStatement	 
+>2359	Statement	 
+>2360	Statement	 
+>2361	Statement	 
+>2362	Statement	 
+>2363	Statement	 
+>2364	Statement	 
+>2365	Statement	 
+>2366	Statement	 
+>2367	Statement	 
+>2368	Statement	 
+>2369	Statement	 
+>2370	Statement	 
+>2371	Statement	 
+>2372	Statement	 
+>2373	Statement	 
+>2374	Statement	 
+>2375	Statement	 
+>2376	Statement	 
+>2377	Statement	 
+>2378	Statement	 
+>2379	Statement	 
+>2380	Statement	 
+>2381	Statement	 
+>2382	Statement	 
+>2383	Statement	 
+>2384	Statement	 
+>2385	Statement	 
+>2386	Statement	 
+>2387	Statement	 
+>2388	Statement	 
+>2389	Statement	 
+>2390	Statement	 
+>2391	Statement	 
+>2392	Statement	 
+>2393	Statement	 
+>2394	Statement	 
+>2395	Statement	 
+>2396	Statement	 
+>2397	IdentifierDeclStatement	 
+>2398	IdentifierDecl	fullscreenOnOff = r_fullscreen . GetInteger ( ) >= 1 ? 1 
+>2399	AssignmentExpr	fullscreenOnOff = r_fullscreen . GetInteger ( ) >= 1 ? 1 
+>2400	ConditionalExpression	r_fullscreen . GetInteger ( ) >= 1 ? 1 
+>2401	PrimaryExpression	0
+>2402	PrimaryExpression	1
+>2403	Condition	r_fullscreen . GetInteger ( ) >= 1
+>2404	RelationalExpression	r_fullscreen . GetInteger ( ) >= 1
+>2405	PrimaryExpression	1
+>2406	CallExpression	r_fullscreen . GetInteger ( )
+>2407	ArgumentList	 
+>2408	Callee	r_fullscreen . GetInteger
+>2409	MemberAccess	r_fullscreen . GetInteger
+>2410	Identifier	GetInteger
+>2411	Identifier	r_fullscreen
+>2412	Identifier	fullscreenOnOff
+>2413	Identifier	fullscreenOnOff
+>2414	IdentifierDeclType	int
+>2415	ExpressionStatement	 
+>2416	CallExpression	V_DrawPatchDirect ( 108 , 15 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_OPTTTL\" , PU_CACHE_SHARED ) )
+>2417	ArgumentList	108
+>2418	Argument	( patch_t * ) W_CacheLumpName ( \"M_OPTTTL\" , PU_CACHE_SHARED )
+>2419	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_OPTTTL\" , PU_CACHE_SHARED )
+>2420	CallExpression	W_CacheLumpName ( \"M_OPTTTL\" , PU_CACHE_SHARED )
+>2421	ArgumentList	\"M_OPTTTL\"
+>2422	Argument	PU_CACHE_SHARED
+>2423	Identifier	PU_CACHE_SHARED
+>2424	Argument	\"M_OPTTTL\"
+>2425	PrimaryExpression	\"M_OPTTTL\"
+>2426	Callee	W_CacheLumpName
+>2427	Identifier	W_CacheLumpName
+>2428	CastTarget	patch_t *
+>2429	Argument	0
+>2430	PrimaryExpression	0
+>2431	Argument	15
+>2432	PrimaryExpression	15
+>2433	Argument	108
+>2434	PrimaryExpression	108
+>2435	Callee	V_DrawPatchDirect
+>2436	Identifier	V_DrawPatchDirect
+>2449	FunctionDef	M_Options (int choice)
+>2450	ParameterList	int choice
+>2451	Parameter	 
+>2452	Identifier	choice
+>2453	ParameterType	int
+>2454	ReturnType	void
+>2455	CompoundStatement	 
+>2456	ExpressionStatement	 
+>2457	Statement	 
+>2458	Statement	 
+>2459	Statement	 
+>2460	Statement	 
+>2461	Statement	 
+>2462	Statement	 
+>2463	Statement	 
+>2464	Statement	 
+>2469	FunctionDef	M_ChangeMessages (int choice)
+>2470	ParameterList	int choice
+>2471	Parameter	 
+>2472	Identifier	choice
+>2473	ParameterType	int
+>2474	ReturnType	void
+>2475	CompoundStatement	 
+>2476	ExpressionStatement	 
+>2477	AssignmentExpr	g -> message_dontfuckwithme = true
+>2478	Identifier	true
+>2479	PtrMemberAccess	g -> message_dontfuckwithme
+>2480	Identifier	message_dontfuckwithme
+>2481	Identifier	g
+>2482	Statement	 
+>2483	ExpressionStatement	 
+>2484	AssignmentExpr	message = MSGON
+>2485	Identifier	MSGON
+>2486	Identifier	message
+>2487	Statement	 
+>2488	Statement	 
+>2489	Statement	 
+>2490	Statement	 
+>2491	Statement	 
+>2492	Statement	 
+>2493	Statement	 
+>2494	Statement	 
+>2495	Statement	 
+>2496	Statement	 
+>2497	ExpressionStatement	 
+>2498	AssignmentExpr	message = MSGOFF
+>2499	Identifier	MSGOFF
+>2500	Identifier	message
+>2501	Statement	 
+>2502	Statement	 
+>2503	Statement	 
+>2504	Statement	 
+>2505	Statement	 
+>2506	Statement	 
+>2507	Statement	 
+>2508	Statement	 
+>2509	Statement	 
+>2510	Statement	 
+>2511	IfStatement	if ( ! m_show_messages . GetBool ( ) )
+>2512	ElseStatement	else
+>2513	Statement	 
+>2514	Statement	 
+>2515	Condition	 
+>2516	UnaryOp	! m_show_messages . GetBool ( )
+>2517	CallExpression	m_show_messages . GetBool ( )
+>2518	ArgumentList	 
+>2519	Callee	m_show_messages . GetBool
+>2520	MemberAccess	m_show_messages . GetBool
+>2521	Identifier	GetBool
+>2522	Identifier	m_show_messages
+>2523	UnaryOperator	!
+>2524	ExpressionStatement	 
+>2525	CallExpression	m_show_messages . SetBool ( ! m_show_messages . GetBool ( ) )
+>2526	ArgumentList	! m_show_messages . GetBool ( )
+>2527	Argument	! m_show_messages . GetBool ( )
+>2528	UnaryOp	! m_show_messages . GetBool ( )
+>2529	CallExpression	m_show_messages . GetBool ( )
+>2530	ArgumentList	 
+>2531	Callee	m_show_messages . GetBool
+>2532	MemberAccess	m_show_messages . GetBool
+>2533	Identifier	GetBool
+>2534	Identifier	m_show_messages
+>2535	UnaryOperator	!
+>2536	Callee	m_show_messages . SetBool
+>2537	MemberAccess	m_show_messages . SetBool
+>2538	Identifier	SetBool
+>2539	Identifier	m_show_messages
+>2540	ExpressionStatement	 
+>2541	AssignmentExpr	choice = 0
+>2542	PrimaryExpression	0
+>2543	Identifier	choice
+>2557	FunctionDef	M_ChangeGPad (int choice)
+>2558	ParameterList	int choice
+>2559	Parameter	 
+>2560	Identifier	choice
+>2561	ParameterType	int
+>2562	ReturnType	void
+>2563	CompoundStatement	 
+>2564	ExpressionStatement	 
+>2565	AssignmentExpr	g -> message_dontfuckwithme = true
+>2566	Identifier	true
+>2567	PtrMemberAccess	g -> message_dontfuckwithme
+>2568	Identifier	message_dontfuckwithme
+>2569	Identifier	g
+>2570	Statement	 
+>2571	ExpressionStatement	 
+>2572	CallExpression	in_useJoystick . SetBool ( ! in_useJoystick . GetBool ( ) )
+>2573	ArgumentList	! in_useJoystick . GetBool ( )
+>2574	Argument	! in_useJoystick . GetBool ( )
+>2575	UnaryOp	! in_useJoystick . GetBool ( )
+>2576	CallExpression	in_useJoystick . GetBool ( )
+>2577	ArgumentList	 
+>2578	Callee	in_useJoystick . GetBool
+>2579	MemberAccess	in_useJoystick . GetBool
+>2580	Identifier	GetBool
+>2581	Identifier	in_useJoystick
+>2582	UnaryOperator	!
+>2583	Callee	in_useJoystick . SetBool
+>2584	MemberAccess	in_useJoystick . SetBool
+>2585	Identifier	SetBool
+>2586	Identifier	in_useJoystick
+>2587	ExpressionStatement	 
+>2588	AssignmentExpr	choice = 0
+>2589	PrimaryExpression	0
+>2590	Identifier	choice
+>2601	FunctionDef	M_FullScreen (int choice)
+>2602	ParameterList	int choice
+>2603	Parameter	 
+>2604	Identifier	choice
+>2605	ParameterType	int
+>2606	ReturnType	void
+>2607	CompoundStatement	 
+>2608	ExpressionStatement	 
+>2609	CallExpression	cmdSystem -> BufferCommandText ( CMD_EXEC_APPEND , \"vid_restart\n\" )
+>2610	ArgumentList	CMD_EXEC_APPEND
+>2611	Argument	\"vid_restart\n\"
+>2612	PrimaryExpression	\"vid_restart\n\"
+>2613	Argument	CMD_EXEC_APPEND
+>2614	Identifier	CMD_EXEC_APPEND
+>2615	Callee	cmdSystem -> BufferCommandText
+>2616	PtrMemberAccess	cmdSystem -> BufferCommandText
+>2617	Identifier	BufferCommandText
+>2618	Identifier	cmdSystem
+>2619	ExpressionStatement	 
+>2620	CallExpression	r_fullscreen . SetInteger ( r_fullscreen . GetInteger ( ) ? 0 
+>2621	ArgumentList	r_fullscreen . GetInteger ( ) ? 0 
+>2622	Argument	r_fullscreen . GetInteger ( ) ? 0 
+>2623	ConditionalExpression	r_fullscreen . GetInteger ( ) ? 0 
+>2624	PrimaryExpression	1
+>2625	PrimaryExpression	0
+>2626	Condition	r_fullscreen . GetInteger ( )
+>2627	CallExpression	r_fullscreen . GetInteger ( )
+>2628	ArgumentList	 
+>2629	Callee	r_fullscreen . GetInteger
+>2630	MemberAccess	r_fullscreen . GetInteger
+>2631	Identifier	GetInteger
+>2632	Identifier	r_fullscreen
+>2633	Callee	r_fullscreen . SetInteger
+>2634	MemberAccess	r_fullscreen . SetInteger
+>2635	Identifier	SetInteger
+>2636	Identifier	r_fullscreen
+>2645	FunctionDef	M_EndGameResponse (int ch)
+>2646	ParameterList	int ch
+>2647	Parameter	 
+>2648	Identifier	ch
+>2649	ParameterType	int
+>2650	ReturnType	void
+>2651	CompoundStatement	 
+>2652	ExpressionStatement	 
+>2653	CallExpression	D_StartTitle ( )
+>2654	ArgumentList	 
+>2655	Callee	D_StartTitle
+>2656	Identifier	D_StartTitle
+>2657	ExpressionStatement	 
+>2658	CallExpression	M_ClearMenus ( )
+>2659	ArgumentList	 
+>2660	Callee	M_ClearMenus
+>2661	Identifier	M_ClearMenus
+>2662	ExpressionStatement	 
+>2663	PtrMemberAccess	g -> itemOn
+>2664	Identifier	itemOn
+>2665	Identifier	g
+>2666	Statement	 
+>2667	Statement	 
+>2668	Statement	 
+>2669	Statement	 
+>2670	Statement	 
+>2671	Statement	 
+>2672	Statement	 
+>2673	Statement	 
+>2674	IfStatement	if ( ch != KEY_ENTER )
+>2675	ReturnStatement	 
+>2676	Condition	 
+>2677	EqualityExpression	ch != KEY_ENTER
+>2678	Identifier	KEY_ENTER
+>2679	Identifier	ch
+>2686	FunctionDef	M_EndGame (int choice)
+>2687	ParameterList	int choice
+>2688	Parameter	 
+>2689	Identifier	choice
+>2690	ParameterType	int
+>2691	ReturnType	void
+>2692	CompoundStatement	 
+>2693	ExpressionStatement	 
+>2694	CallExpression	M_StartMessage ( ENDGAME , M_EndGameResponse , true )
+>2695	ArgumentList	ENDGAME
+>2696	Argument	true
+>2697	Identifier	true
+>2698	Argument	M_EndGameResponse
+>2699	Identifier	M_EndGameResponse
+>2700	Argument	ENDGAME
+>2701	Identifier	ENDGAME
+>2702	Callee	M_StartMessage
+>2703	Identifier	M_StartMessage
+>2704	CompoundStatement	 
+>2705	ReturnStatement	 
+>2706	ExpressionStatement	 
+>2707	CallExpression	M_StartMessage ( NETEND , NULL , false )
+>2708	ArgumentList	NETEND
+>2709	Argument	false
+>2710	Identifier	false
+>2711	Argument	NULL
+>2712	Identifier	NULL
+>2713	Argument	NETEND
+>2714	Identifier	NETEND
+>2715	Callee	M_StartMessage
+>2716	Identifier	M_StartMessage
+>2717	Statement	 
+>2718	Statement	 
+>2719	Statement	 
+>2720	Statement	 
+>2721	Statement	 
+>2722	Statement	 
+>2723	Statement	 
+>2724	CompoundStatement	 
+>2725	ReturnStatement	 
+>2726	ExpressionStatement	 
+>2727	CallExpression	S_StartSound ( NULL , sfx_oof )
+>2728	ArgumentList	NULL
+>2729	Argument	sfx_oof
+>2730	Identifier	sfx_oof
+>2731	Argument	NULL
+>2732	Identifier	NULL
+>2733	Callee	S_StartSound
+>2734	Identifier	S_StartSound
+>2735	Statement	 
+>2736	Statement	 
+>2737	Statement	 
+>2738	Statement	 
+>2739	Statement	 
+>2740	Statement	 
+>2741	Statement	 
+>2742	Statement	 
+>2743	ExpressionStatement	 
+>2744	AssignmentExpr	choice = 0
+>2745	PrimaryExpression	0
+>2746	Identifier	choice
+>2758	FunctionDef	M_ReadThis (int choice)
+>2759	ParameterList	int choice
+>2760	Parameter	 
+>2761	Identifier	choice
+>2762	ParameterType	int
+>2763	ReturnType	void
+>2764	CompoundStatement	 
+>2769	FunctionDef	M_ReadThis2 (int choice)
+>2770	ParameterList	int choice
+>2771	Parameter	 
+>2772	Identifier	choice
+>2773	ParameterType	int
+>2774	ReturnType	void
+>2775	CompoundStatement	 
+>2780	FunctionDef	M_FinishReadThis (int choice)
+>2781	ParameterList	int choice
+>2782	Parameter	 
+>2783	Identifier	choice
+>2784	ParameterType	int
+>2785	ReturnType	void
+>2786	CompoundStatement	 
+>2787	ExpressionStatement	 
+>2788	Statement	 
+>2789	Statement	 
+>2790	Statement	 
+>2791	Statement	 
+>2792	Statement	 
+>2793	Statement	 
+>2794	Statement	 
+>2795	Statement	 
+>2796	ExpressionStatement	 
+>2797	AssignmentExpr	choice = 0
+>2798	PrimaryExpression	0
+>2799	Identifier	choice
+>2804	FunctionDef	M_QuitResponse (int ch)
+>2805	ParameterList	int ch
+>2806	Parameter	 
+>2807	Identifier	ch
+>2808	ParameterType	int
+>2809	ReturnType	void
+>2810	CompoundStatement	 
+>2815	FunctionDef	M_QuitDOOM (int choice)
+>2816	ParameterList	int choice
+>2817	Parameter	 
+>2818	Identifier	choice
+>2819	ParameterType	int
+>2820	ReturnType	void
+>2821	CompoundStatement	 
+>2822	ExpressionStatement	 
+>2823	Statement	 
+>2824	Statement	 
+>2825	Statement	 
+>2826	Statement	 
+>2827	Statement	 
+>2828	Statement	 
+>2829	Statement	 
+>2830	Statement	 
+>2835	FunctionDef	M_ExitGame (int choice)
+>2836	ParameterList	int choice
+>2837	Parameter	 
+>2838	Identifier	choice
+>2839	ParameterType	int
+>2840	ReturnType	void
+>2841	CompoundStatement	 
+>2842	ExpressionStatement	 
+>2843	CallExpression	common -> Quit ( )
+>2844	ArgumentList	 
+>2845	Callee	common -> Quit
+>2846	PtrMemberAccess	common -> Quit
+>2847	Identifier	Quit
+>2848	Identifier	common
+>2854	FunctionDef	M_CancelExit (int choice)
+>2855	ParameterList	int choice
+>2856	Parameter	 
+>2857	Identifier	choice
+>2858	ParameterType	int
+>2859	ReturnType	void
+>2860	CompoundStatement	 
+>2861	ExpressionStatement	 
+>2862	Statement	 
+>2863	Statement	 
+>2864	Statement	 
+>2865	Statement	 
+>2866	Statement	 
+>2867	Statement	 
+>2868	Statement	 
+>2869	Statement	 
+>2874	FunctionDef	M_GameSelection (int choice)
+>2875	ParameterList	int choice
+>2876	Parameter	 
+>2877	Identifier	choice
+>2878	ParameterType	int
+>2879	ReturnType	void
+>2880	CompoundStatement	 
+>2881	ExpressionStatement	 
+>2882	CallExpression	common -> SwitchToGame ( DOOM3_BFG )
+>2883	ArgumentList	DOOM3_BFG
+>2884	Argument	DOOM3_BFG
+>2885	Identifier	DOOM3_BFG
+>2886	Callee	common -> SwitchToGame
+>2887	PtrMemberAccess	common -> SwitchToGame
+>2888	Identifier	SwitchToGame
+>2889	Identifier	common
+>2896	FunctionDef	M_ChangeSensitivity (int choice)
+>2897	ParameterList	int choice
+>2898	Parameter	 
+>2899	Identifier	choice
+>2900	ParameterType	int
+>2901	ReturnType	void
+>2902	CompoundStatement	 
+>2903	ExpressionStatement	 
+>2904	CallExpression	in_mouseSpeed . SetFloat ( rescaledNewMouseSpeed )
+>2905	ArgumentList	rescaledNewMouseSpeed
+>2906	Argument	rescaledNewMouseSpeed
+>2907	Identifier	rescaledNewMouseSpeed
+>2908	Callee	in_mouseSpeed . SetFloat
+>2909	MemberAccess	in_mouseSpeed . SetFloat
+>2910	Identifier	SetFloat
+>2911	Identifier	in_mouseSpeed
+>2912	IdentifierDeclStatement	 
+>2913	IdentifierDecl	rescaledNewMouseSpeed = 0.25f + ( ( 4.0f - 0.25 ) * normalizedNewMouseSpeed )
+>2914	AssignmentExpr	rescaledNewMouseSpeed = 0.25f + ( ( 4.0f - 0.25 ) * normalizedNewMouseSpeed )
+>2915	AdditiveExpression	0.25f + ( ( 4.0f - 0.25 ) * normalizedNewMouseSpeed )
+>2916	MultiplicativeExpression	( 4.0f - 0.25 ) * normalizedNewMouseSpeed
+>2917	Identifier	normalizedNewMouseSpeed
+>2918	AdditiveExpression	4.0f - 0.25
+>2919	PrimaryExpression	0.25
+>2920	PrimaryExpression	4.0f
+>2921	PrimaryExpression	0.25f
+>2922	Identifier	rescaledNewMouseSpeed
+>2923	Identifier	rescaledNewMouseSpeed
+>2924	IdentifierDeclType	const float
+>2925	IdentifierDeclStatement	 
+>2926	IdentifierDecl	normalizedNewMouseSpeed = roundedMouseSpeed / 15.0f
+>2927	AssignmentExpr	normalizedNewMouseSpeed = roundedMouseSpeed / 15.0f
+>2928	MultiplicativeExpression	roundedMouseSpeed / 15.0f
+>2929	PrimaryExpression	15.0f
+>2930	Identifier	roundedMouseSpeed
+>2931	Identifier	normalizedNewMouseSpeed
+>2932	Identifier	normalizedNewMouseSpeed
+>2933	IdentifierDeclType	const float
+>2934	SwitchStatement	switch ( choice )
+>2935	CompoundStatement	 
+>2936	BreakStatement	 
+>2937	IfStatement	if ( roundedMouseSpeed < 15 )
+>2938	CompoundStatement	 
+>2939	ExpressionStatement	 
+>2940	IncDecOp	roundedMouseSpeed ++
+>2941	IncDec	++
+>2942	Identifier	roundedMouseSpeed
+>2943	Condition	 
+>2944	RelationalExpression	roundedMouseSpeed < 15
+>2945	PrimaryExpression	15
+>2946	Identifier	roundedMouseSpeed
+>2947	Label	 
+>2948	BreakStatement	 
+>2949	IfStatement	if ( roundedMouseSpeed > 0 )
+>2950	CompoundStatement	 
+>2951	ExpressionStatement	 
+>2952	IncDecOp	roundedMouseSpeed --
+>2953	IncDec	--
+>2954	Identifier	roundedMouseSpeed
+>2955	Condition	 
+>2956	RelationalExpression	roundedMouseSpeed > 0
+>2957	PrimaryExpression	0
+>2958	Identifier	roundedMouseSpeed
+>2959	Label	 
+>2960	Condition	 
+>2961	Identifier	choice
+>2962	IdentifierDeclStatement	 
+>2963	IdentifierDecl	roundedMouseSpeed = M_GetMouseSpeedForMenu ( in_mouseSpeed . GetFloat ( ) )
+>2964	AssignmentExpr	roundedMouseSpeed = M_GetMouseSpeedForMenu ( in_mouseSpeed . GetFloat ( ) )
+>2965	CallExpression	M_GetMouseSpeedForMenu ( in_mouseSpeed . GetFloat ( ) )
+>2966	ArgumentList	in_mouseSpeed . GetFloat ( )
+>2967	Argument	in_mouseSpeed . GetFloat ( )
+>2968	CallExpression	in_mouseSpeed . GetFloat ( )
+>2969	ArgumentList	 
+>2970	Callee	in_mouseSpeed . GetFloat
+>2971	MemberAccess	in_mouseSpeed . GetFloat
+>2972	Identifier	GetFloat
+>2973	Identifier	in_mouseSpeed
+>2974	Callee	M_GetMouseSpeedForMenu
+>2975	Identifier	M_GetMouseSpeedForMenu
+>2976	Identifier	roundedMouseSpeed
+>2977	Identifier	roundedMouseSpeed
+>2978	IdentifierDeclType	int
+>2979	IdentifierDeclStatement	 
+>2980	IdentifierDecl	in_mouseSpeed
+>2981	Identifier	in_mouseSpeed
+>2982	IdentifierDeclType	extern idCVar
+>2993	FunctionDef	M_ChangeDetail (int choice)
+>2994	ParameterList	int choice
+>2995	Parameter	 
+>2996	Identifier	choice
+>2997	ParameterType	int
+>2998	ReturnType	void
+>2999	CompoundStatement	 
+>3000	ReturnStatement	 
+>3001	ExpressionStatement	 
+>3002	CallExpression	I_PrintfE ( \"M_ChangeDetail
+>3003	ArgumentList	\"M_ChangeDetail
+>3004	Argument	\"M_ChangeDetail
+>3005	PrimaryExpression	\"M_ChangeDetail
+>3006	Callee	I_PrintfE
+>3007	Identifier	I_PrintfE
+>3008	ExpressionStatement	 
+>3009	PtrMemberAccess	g -> detailLevel
+>3010	Identifier	detailLevel
+>3011	Identifier	g
+>3012	Statement	 
+>3013	Statement	 
+>3014	Statement	 
+>3015	Statement	 
+>3016	Statement	 
+>3017	Statement	 
+>3018	Statement	 
+>3019	Statement	 
+>3020	ExpressionStatement	 
+>3021	AssignmentExpr	choice = 0
+>3022	PrimaryExpression	0
+>3023	Identifier	choice
+>3029	FunctionDef	M_SizeDisplay (int choice)
+>3030	ParameterList	int choice
+>3031	Parameter	 
+>3032	Identifier	choice
+>3033	ParameterType	int
+>3034	ReturnType	void
+>3035	CompoundStatement	 
+>3036	ExpressionStatement	 
+>3037	Statement	 
+>3038	Statement	 
+>3039	Statement	 
+>3040	Statement	 
+>3041	Statement	 
+>3042	Statement	 
+>3043	Statement	 
+>3044	Statement	 
+>3045	Statement	 
+>3046	Statement	 
+>3047	Statement	 
+>3048	Statement	 
+>3049	SwitchStatement	switch ( choice )
+>3050	CompoundStatement	 
+>3051	BreakStatement	 
+>3052	CompoundStatement	 
+>3053	ExpressionStatement	 
+>3054	IncDecOp	g -> screenSize ++
+>3055	IncDec	++
+>3056	PtrMemberAccess	g -> screenSize
+>3057	Identifier	screenSize
+>3058	Identifier	g
+>3059	Statement	 
+>3060	ExpressionStatement	 
+>3061	IncDecOp	g -> screenblocks ++
+>3062	IncDec	++
+>3063	PtrMemberAccess	g -> screenblocks
+>3064	Identifier	screenblocks
+>3065	Identifier	g
+>3066	Statement	 
+>3067	Statement	 
+>3068	Statement	 
+>3069	Statement	 
+>3070	Statement	 
+>3071	Statement	 
+>3072	Statement	 
+>3073	Statement	 
+>3074	Statement	 
+>3075	Statement	 
+>3076	Label	 
+>3077	BreakStatement	 
+>3078	CompoundStatement	 
+>3079	ExpressionStatement	 
+>3080	IncDecOp	g -> screenSize --
+>3081	IncDec	--
+>3082	PtrMemberAccess	g -> screenSize
+>3083	Identifier	screenSize
+>3084	Identifier	g
+>3085	Statement	 
+>3086	ExpressionStatement	 
+>3087	IncDecOp	g -> screenblocks --
+>3088	IncDec	--
+>3089	PtrMemberAccess	g -> screenblocks
+>3090	Identifier	screenblocks
+>3091	Identifier	g
+>3092	Statement	 
+>3093	Statement	 
+>3094	Statement	 
+>3095	Statement	 
+>3096	Statement	 
+>3097	Statement	 
+>3098	Statement	 
+>3099	Statement	 
+>3100	Statement	 
+>3101	Statement	 
+>3102	Label	 
+>3103	Condition	 
+>3104	Identifier	choice
+>3113	FunctionDef	M_DrawThermo (int x , int y , int thermWidth , int thermDot)
+>3114	ParameterList	int x , int y , int thermWidth , int thermDot
+>3115	Parameter	 
+>3116	Identifier	thermDot
+>3117	ParameterType	int
+>3118	Parameter	 
+>3119	Identifier	thermWidth
+>3120	ParameterType	int
+>3121	Parameter	 
+>3122	Identifier	y
+>3123	ParameterType	int
+>3124	Parameter	 
+>3125	Identifier	x
+>3126	ParameterType	int
+>3127	ReturnType	void
+>3128	CompoundStatement	 
+>3129	ExpressionStatement	 
+>3130	CallExpression	V_DrawPatchDirect ( ( x + 8 ) + thermDot * 8 , y , 0 , ( patch_t * ) W_CacheLumpName ( \"M_THERMO\" , PU_CACHE_SHARED ) )
+>3131	ArgumentList	( x + 8 ) + thermDot * 8
+>3132	Argument	( patch_t * ) W_CacheLumpName ( \"M_THERMO\" , PU_CACHE_SHARED )
+>3133	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_THERMO\" , PU_CACHE_SHARED )
+>3134	CallExpression	W_CacheLumpName ( \"M_THERMO\" , PU_CACHE_SHARED )
+>3135	ArgumentList	\"M_THERMO\"
+>3136	Argument	PU_CACHE_SHARED
+>3137	Identifier	PU_CACHE_SHARED
+>3138	Argument	\"M_THERMO\"
+>3139	PrimaryExpression	\"M_THERMO\"
+>3140	Callee	W_CacheLumpName
+>3141	Identifier	W_CacheLumpName
+>3142	CastTarget	patch_t *
+>3143	Argument	0
+>3144	PrimaryExpression	0
+>3145	Argument	y
+>3146	Identifier	y
+>3147	Argument	( x + 8 ) + thermDot * 8
+>3148	AdditiveExpression	( x + 8 ) + thermDot * 8
+>3149	MultiplicativeExpression	thermDot * 8
+>3150	PrimaryExpression	8
+>3151	Identifier	thermDot
+>3152	AdditiveExpression	x + 8
+>3153	PrimaryExpression	8
+>3154	Identifier	x
+>3155	Callee	V_DrawPatchDirect
+>3156	Identifier	V_DrawPatchDirect
+>3157	ExpressionStatement	 
+>3158	CallExpression	V_DrawPatchDirect ( xx , y , 0 , ( patch_t * ) W_CacheLumpName ( \"M_THERMR\" , PU_CACHE_SHARED ) )
+>3159	ArgumentList	xx
+>3160	Argument	( patch_t * ) W_CacheLumpName ( \"M_THERMR\" , PU_CACHE_SHARED )
+>3161	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_THERMR\" , PU_CACHE_SHARED )
+>3162	CallExpression	W_CacheLumpName ( \"M_THERMR\" , PU_CACHE_SHARED )
+>3163	ArgumentList	\"M_THERMR\"
+>3164	Argument	PU_CACHE_SHARED
+>3165	Identifier	PU_CACHE_SHARED
+>3166	Argument	\"M_THERMR\"
+>3167	PrimaryExpression	\"M_THERMR\"
+>3168	Callee	W_CacheLumpName
+>3169	Identifier	W_CacheLumpName
+>3170	CastTarget	patch_t *
+>3171	Argument	0
+>3172	PrimaryExpression	0
+>3173	Argument	y
+>3174	Identifier	y
+>3175	Argument	xx
+>3176	Identifier	xx
+>3177	Callee	V_DrawPatchDirect
+>3178	Identifier	V_DrawPatchDirect
+>3179	ForStatement	for ( i = 0 ; i < thermWidth ; i ++ )
+>3180	CompoundStatement	 
+>3181	ExpressionStatement	 
+>3182	AssignmentExpr	xx += 8
+>3183	PrimaryExpression	8
+>3184	Identifier	xx
+>3185	ExpressionStatement	 
+>3186	CallExpression	V_DrawPatchDirect ( xx , y , 0 , ( patch_t * ) W_CacheLumpName ( \"M_THERMM\" , PU_CACHE_SHARED ) )
+>3187	ArgumentList	xx
+>3188	Argument	( patch_t * ) W_CacheLumpName ( \"M_THERMM\" , PU_CACHE_SHARED )
+>3189	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_THERMM\" , PU_CACHE_SHARED )
+>3190	CallExpression	W_CacheLumpName ( \"M_THERMM\" , PU_CACHE_SHARED )
+>3191	ArgumentList	\"M_THERMM\"
+>3192	Argument	PU_CACHE_SHARED
+>3193	Identifier	PU_CACHE_SHARED
+>3194	Argument	\"M_THERMM\"
+>3195	PrimaryExpression	\"M_THERMM\"
+>3196	Callee	W_CacheLumpName
+>3197	Identifier	W_CacheLumpName
+>3198	CastTarget	patch_t *
+>3199	Argument	0
+>3200	PrimaryExpression	0
+>3201	Argument	y
+>3202	Identifier	y
+>3203	Argument	xx
+>3204	Identifier	xx
+>3205	Callee	V_DrawPatchDirect
+>3206	Identifier	V_DrawPatchDirect
+>3207	IncDecOp	 
+>3208	IncDec	++
+>3209	Identifier	i
+>3210	Condition	 
+>3211	RelationalExpression	i < thermWidth
+>3212	Identifier	thermWidth
+>3213	Identifier	i
+>3214	ForInit	 
+>3215	AssignmentExpr	i = 0
+>3216	PrimaryExpression	0
+>3217	Identifier	i
+>3218	ExpressionStatement	 
+>3219	AssignmentExpr	xx += 8
+>3220	PrimaryExpression	8
+>3221	Identifier	xx
+>3222	ExpressionStatement	 
+>3223	CallExpression	V_DrawPatchDirect ( xx , y , 0 , ( patch_t * ) W_CacheLumpName ( \"M_THERML\" , PU_CACHE_SHARED ) )
+>3224	ArgumentList	xx
+>3225	Argument	( patch_t * ) W_CacheLumpName ( \"M_THERML\" , PU_CACHE_SHARED )
+>3226	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_THERML\" , PU_CACHE_SHARED )
+>3227	CallExpression	W_CacheLumpName ( \"M_THERML\" , PU_CACHE_SHARED )
+>3228	ArgumentList	\"M_THERML\"
+>3229	Argument	PU_CACHE_SHARED
+>3230	Identifier	PU_CACHE_SHARED
+>3231	Argument	\"M_THERML\"
+>3232	PrimaryExpression	\"M_THERML\"
+>3233	Callee	W_CacheLumpName
+>3234	Identifier	W_CacheLumpName
+>3235	CastTarget	patch_t *
+>3236	Argument	0
+>3237	PrimaryExpression	0
+>3238	Argument	y
+>3239	Identifier	y
+>3240	Argument	xx
+>3241	Identifier	xx
+>3242	Callee	V_DrawPatchDirect
+>3243	Identifier	V_DrawPatchDirect
+>3244	ExpressionStatement	 
+>3245	AssignmentExpr	xx = x
+>3246	Identifier	x
+>3247	Identifier	xx
+>3248	IdentifierDeclStatement	 
+>3249	IdentifierDecl	i
+>3250	Identifier	i
+>3251	IdentifierDeclType	int
+>3252	IdentifierDeclStatement	 
+>3253	IdentifierDecl	xx
+>3254	Identifier	xx
+>3255	IdentifierDeclType	int
+>3267	FunctionDef	M_DrawEmptyCell (menu_t * menu , int item)
+>3268	ParameterList	menu_t * menu , int item
+>3269	Parameter	 
+>3270	Identifier	item
+>3271	ParameterType	int
+>3272	Parameter	 
+>3273	Identifier	menu
+>3274	ParameterType	menu_t *
+>3275	ReturnType	void
+>3276	CompoundStatement	 
+>3277	ExpressionStatement	 
+>3278	CallExpression	V_DrawPatchDirect ( menu -> x - 10 , menu -> y + item * LINEHEIGHT - 1 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_\
+>3279	ArgumentList	menu -> x - 10
+>3280	Argument	( patch_t * ) W_CacheLumpName ( \"M_CELL1\" , PU_CACHE_SHARED )
+>3281	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_CELL1\" , PU_CACHE_SHARED )
+>3282	CallExpression	W_CacheLumpName ( \"M_CELL1\" , PU_CACHE_SHARED )
+>3283	ArgumentList	\"M_CELL1\"
+>3284	Argument	PU_CACHE_SHARED
+>3285	Identifier	PU_CACHE_SHARED
+>3286	Argument	\"M_CELL1\"
+>3287	PrimaryExpression	\"M_CELL1\"
+>3288	Callee	W_CacheLumpName
+>3289	Identifier	W_CacheLumpName
+>3290	CastTarget	patch_t *
+>3291	Argument	0
+>3292	PrimaryExpression	0
+>3293	Argument	menu -> y + item * LINEHEIGHT - 1
+>3294	AdditiveExpression	menu -> y + item * LINEHEIGHT - 1
+>3295	AdditiveExpression	item * LINEHEIGHT - 1
+>3296	PrimaryExpression	1
+>3297	MultiplicativeExpression	item * LINEHEIGHT
+>3298	Identifier	LINEHEIGHT
+>3299	Identifier	item
+>3300	PtrMemberAccess	menu -> y
+>3301	Identifier	y
+>3302	Identifier	menu
+>3303	Argument	menu -> x - 10
+>3304	AdditiveExpression	menu -> x - 10
+>3305	PrimaryExpression	10
+>3306	PtrMemberAccess	menu -> x
+>3307	Identifier	x
+>3308	Identifier	menu
+>3309	Callee	V_DrawPatchDirect
+>3310	Identifier	V_DrawPatchDirect
+>3322	FunctionDef	M_DrawSelCell (menu_t * menu , int item)
+>3323	ParameterList	menu_t * menu , int item
+>3324	Parameter	 
+>3325	Identifier	item
+>3326	ParameterType	int
+>3327	Parameter	 
+>3328	Identifier	menu
+>3329	ParameterType	menu_t *
+>3330	ReturnType	void
+>3331	CompoundStatement	 
+>3332	ExpressionStatement	 
+>3333	CallExpression	V_DrawPatchDirect ( menu -> x - 10 , menu -> y + item * LINEHEIGHT - 1 , 0 , ( patch_t * ) W_CacheLumpName ( \"M_\
+>3334	ArgumentList	menu -> x - 10
+>3335	Argument	( patch_t * ) W_CacheLumpName ( \"M_CELL2\" , PU_CACHE_SHARED )
+>3336	CastExpression	( patch_t * ) W_CacheLumpName ( \"M_CELL2\" , PU_CACHE_SHARED )
+>3337	CallExpression	W_CacheLumpName ( \"M_CELL2\" , PU_CACHE_SHARED )
+>3338	ArgumentList	\"M_CELL2\"
+>3339	Argument	PU_CACHE_SHARED
+>3340	Identifier	PU_CACHE_SHARED
+>3341	Argument	\"M_CELL2\"
+>3342	PrimaryExpression	\"M_CELL2\"
+>3343	Callee	W_CacheLumpName
+>3344	Identifier	W_CacheLumpName
+>3345	CastTarget	patch_t *
+>3346	Argument	0
+>3347	PrimaryExpression	0
+>3348	Argument	menu -> y + item * LINEHEIGHT - 1
+>3349	AdditiveExpression	menu -> y + item * LINEHEIGHT - 1
+>3350	AdditiveExpression	item * LINEHEIGHT - 1
+>3351	PrimaryExpression	1
+>3352	MultiplicativeExpression	item * LINEHEIGHT
+>3353	Identifier	LINEHEIGHT
+>3354	Identifier	item
+>3355	PtrMemberAccess	menu -> y
+>3356	Identifier	y
+>3357	Identifier	menu
+>3358	Argument	menu -> x - 10
+>3359	AdditiveExpression	menu -> x - 10
+>3360	PrimaryExpression	10
+>3361	PtrMemberAccess	menu -> x
+>3362	Identifier	x
+>3363	Identifier	menu
+>3364	Callee	V_DrawPatchDirect
+>3365	Identifier	V_DrawPatchDirect
+>3377	FunctionDef	M_StartMessage (char * string , messageRoutine_t routine , qboolean input)
+>3378	ParameterList	char * string , messageRoutine_t routine , qboolean input
+>3379	Parameter	 
+>3380	Identifier	input
+>3381	ParameterType	qboolean
+>3382	Parameter	 
+>3383	Identifier	routine
+>3384	ParameterType	messageRoutine_t
+>3385	Parameter	 
+>3386	Identifier	string
+>3387	ParameterType	char *
+>3388	ReturnType	void
+>3389	CompoundStatement	 
+>3390	ReturnStatement	 
+>3391	ExpressionStatement	 
+>3392	AssignmentExpr	g -> menuactive = true
+>3393	Identifier	true
+>3394	PtrMemberAccess	g -> menuactive
+>3395	Identifier	menuactive
+>3396	Identifier	g
+>3397	Statement	 
+>3398	ExpressionStatement	 
+>3399	AssignmentExpr	g -> messageNeedsInput = input
+>3400	Identifier	input
+>3401	PtrMemberAccess	g -> messageNeedsInput
+>3402	Identifier	messageNeedsInput
+>3403	Identifier	g
+>3404	Statement	 
+>3405	ExpressionStatement	 
+>3406	AssignmentExpr	g -> messageRoutine = ( messageRoutine_t ) routine
+>3407	CastExpression	( messageRoutine_t ) routine
+>3408	Identifier	routine
+>3409	CastTarget	messageRoutine_t
+>3410	PtrMemberAccess	g -> messageRoutine
+>3411	Identifier	messageRoutine
+>3412	Identifier	g
+>3413	Statement	 
+>3414	ExpressionStatement	 
+>3415	AssignmentExpr	g -> messageString = string
+>3416	Identifier	string
+>3417	PtrMemberAccess	g -> messageString
+>3418	Identifier	messageString
+>3419	Identifier	g
+>3420	Statement	 
+>3421	ExpressionStatement	 
+>3422	AssignmentExpr	g -> messageToPrint = 1
+>3423	PrimaryExpression	1
+>3424	PtrMemberAccess	g -> messageToPrint
+>3425	Identifier	messageToPrint
+>3426	Identifier	g
+>3427	Statement	 
+>3428	ExpressionStatement	 
+>3429	PtrMemberAccess	g -> menuactive
+>3430	Identifier	menuactive
+>3431	Identifier	g
+>3432	Statement	 
+>3433	Statement	 
+>3434	Statement	 
+>3435	Statement	 
+>3436	Statement	 
+>3437	Statement	 
+>3452	FunctionDef	M_StopMessage ()
+>3453	ParameterList	 
+>3454	ReturnType	void
+>3455	CompoundStatement	 
+>3456	ExpressionStatement	 
+>3457	AssignmentExpr	g -> messageToPrint = 0
+>3458	PrimaryExpression	0
+>3459	PtrMemberAccess	g -> messageToPrint
+>3460	Identifier	messageToPrint
+>3461	Identifier	g
+>3462	Statement	 
+>3463	ExpressionStatement	 
+>3464	PtrMemberAccess	g -> messageLastMenuActive
+>3465	Identifier	messageLastMenuActive
+>3466	Identifier	g
+>3467	Statement	 
+>3468	Statement	 
+>3469	Statement	 
+>3470	Statement	 
+>3471	Statement	 
+>3472	Statement	 
+>3479	FunctionDef	M_StringWidth (char * string)
+>3480	ParameterList	char * string
+>3481	Parameter	 
+>3482	Identifier	string
+>3483	ParameterType	char *
+>3484	ReturnType	int
+>3485	CompoundStatement	 
+>3486	ReturnStatement	 
+>3487	Identifier	w
+>3488	ForStatement	for ( i = 0 ; i < strlen ( string ) ; i ++ )
+>3489	CompoundStatement	 
+>3490	ExpressionStatement	 
+>3491	Statement	 
+>3492	Statement	 
+>3493	Statement	 
+>3494	Statement	 
+>3495	Statement	 
+>3496	Statement	 
+>3497	Statement	 
+>3498	Statement	 
+>3499	Statement	 
+>3500	Statement	 
+>3501	Statement	 
+>3502	Statement	 
+>3503	Statement	 
+>3504	IfStatement	if ( c < 0 || c >= HU_FONTSIZE )
+>3505	ElseStatement	else
+>3506	Statement	 
+>3507	ExpressionStatement	 
+>3508	AssignmentExpr	w += 4
+>3509	PrimaryExpression	4
+>3510	Identifier	w
+>3511	Condition	 
+>3512	OrExpression	c < 0 || c >= HU_FONTSIZE
+>3513	RelationalExpression	c >= HU_FONTSIZE
+>3514	Identifier	HU_FONTSIZE
+>3515	Identifier	c
+>3516	RelationalExpression	c < 0
+>3517	PrimaryExpression	0
+>3518	Identifier	c
+>3519	ExpressionStatement	 
+>3520	AssignmentExpr	c = toupper ( string [ i ] ) - HU_FONTSTART
+>3521	AdditiveExpression	toupper ( string [ i ] ) - HU_FONTSTART
+>3522	Identifier	HU_FONTSTART
+>3523	CallExpression	toupper ( string [ i ] )
+>3524	ArgumentList	string [ i ]
+>3525	Argument	string [ i ]
+>3526	ArrayIndexing	string [ i ]
+>3527	Identifier	i
+>3528	Identifier	string
+>3529	Callee	toupper
+>3530	Identifier	toupper
+>3531	Identifier	c
+>3532	IncDecOp	 
+>3533	IncDec	++
+>3534	Identifier	i
+>3535	Condition	 
+>3536	RelationalExpression	i < strlen ( string )
+>3537	CallExpression	strlen ( string )
+>3538	ArgumentList	string
+>3539	Argument	string
+>3540	Identifier	string
+>3541	Callee	strlen
+>3542	Identifier	strlen
+>3543	Identifier	i
+>3544	ForInit	 
+>3545	AssignmentExpr	i = 0
+>3546	PrimaryExpression	0
+>3547	Identifier	i
+>3548	IdentifierDeclStatement	 
+>3549	IdentifierDecl	c
+>3550	Identifier	c
+>3551	IdentifierDeclType	int
+>3552	IdentifierDeclStatement	 
+>3553	IdentifierDecl	w = 0
+>3554	AssignmentExpr	w = 0
+>3555	PrimaryExpression	0
+>3556	Identifier	w
+>3557	Identifier	w
+>3558	IdentifierDeclType	int
+>3559	IdentifierDeclStatement	 
+>3560	IdentifierDecl	i
+>3561	Identifier	i
+>3562	IdentifierDeclType	unsigned int
+>3576	FunctionDef	M_StringHeight (char * string)
+>3577	ParameterList	char * string
+>3578	Parameter	 
+>3579	Identifier	string
+>3580	ParameterType	char *
+>3581	ReturnType	int
+>3582	CompoundStatement	 
+>3583	ReturnStatement	 
+>3584	Identifier	h
+>3585	ForStatement	for ( i = 0 ; i < strlen ( string ) ; i ++ )
+>3586	IfStatement	if ( string [ i ] == '\n' )
+>3587	ExpressionStatement	 
+>3588	AssignmentExpr	h += height
+>3589	Identifier	height
+>3590	Identifier	h
+>3591	Condition	 
+>3592	EqualityExpression	string [ i ] == '\n'
+>3593	PrimaryExpression	'\n'
+>3594	ArrayIndexing	string [ i ]
+>3595	Identifier	i
+>3596	Identifier	string
+>3597	IncDecOp	 
+>3598	IncDec	++
+>3599	Identifier	i
+>3600	Condition	 
+>3601	RelationalExpression	i < strlen ( string )
+>3602	CallExpression	strlen ( string )
+>3603	ArgumentList	string
+>3604	Argument	string
+>3605	Identifier	string
+>3606	Callee	strlen
+>3607	Identifier	strlen
+>3608	Identifier	i
+>3609	ForInit	 
+>3610	AssignmentExpr	i = 0
+>3611	PrimaryExpression	0
+>3612	Identifier	i
+>3613	ExpressionStatement	 
+>3614	AssignmentExpr	h = height
+>3615	Identifier	height
+>3616	Identifier	h
+>3617	ExpressionStatement	 
+>3618	Statement	 
+>3619	Statement	 
+>3620	Statement	 
+>3621	Statement	 
+>3622	Statement	 
+>3623	Statement	 
+>3624	Statement	 
+>3625	Statement	 
+>3626	Statement	 
+>3627	Statement	 
+>3628	Statement	 
+>3629	Statement	 
+>3630	Statement	 
+>3631	Statement	 
+>3632	Statement	 
+>3633	IdentifierDeclStatement	 
+>3634	IdentifierDecl	h
+>3635	Identifier	h
+>3636	IdentifierDeclType	int
+>3637	IdentifierDeclStatement	 
+>3638	IdentifierDecl	i
+>3639	Identifier	i
+>3640	IdentifierDeclType	unsigned int
+>3651	FunctionDef	M_WriteText (int x , int y , char * string)
+>3652	ParameterList	int x , int y , char * string
+>3653	Parameter	 
+>3654	Identifier	string
+>3655	ParameterType	char *
+>3656	Parameter	 
+>3657	Identifier	y
+>3658	ParameterType	int
+>3659	Parameter	 
+>3660	Identifier	x
+>3661	ParameterType	int
+>3662	ReturnType	void
+>3663	CompoundStatement	 
+>3664	WhileStatement	while ( 1 )
+>3665	CompoundStatement	 
+>3666	ExpressionStatement	 
+>3667	AssignmentExpr	cx += w
+>3668	Identifier	w
+>3669	Identifier	cx
+>3670	ExpressionStatement	 
+>3671	Statement	 
+>3672	Statement	 
+>3673	Statement	 
+>3674	Statement	 
+>3675	Statement	 
+>3676	Statement	 
+>3677	Statement	 
+>3678	Statement	 
+>3679	Statement	 
+>3680	Statement	 
+>3681	Statement	 
+>3682	Statement	 
+>3683	Statement	 
+>3684	Statement	 
+>3685	Statement	 
+>3686	Statement	 
+>3687	IfStatement	if ( cx + w > SCREENWIDTH )
+>3688	BreakStatement	 
+>3689	Condition	 
+>3690	RelationalExpression	cx + w > SCREENWIDTH
+>3691	Identifier	SCREENWIDTH
+>3692	AdditiveExpression	cx + w
+>3693	Identifier	w
+>3694	Identifier	cx
+>3695	ExpressionStatement	 
+>3696	Statement	 
+>3697	Statement	 
+>3698	Statement	 
+>3699	Statement	 
+>3700	Statement	 
+>3701	Statement	 
+>3702	Statement	 
+>3703	Statement	 
+>3704	Statement	 
+>3705	Statement	 
+>3706	Statement	 
+>3707	Statement	 
+>3708	Statement	 
+>3709	Statement	 
+>3710	IfStatement	if ( c < 0 || c >= HU_FONTSIZE )
+>3711	CompoundStatement	 
+>3712	ContinueStatement	 
+>3713	ExpressionStatement	 
+>3714	AssignmentExpr	cx += 4
+>3715	PrimaryExpression	4
+>3716	Identifier	cx
+>3717	Condition	 
+>3718	OrExpression	c < 0 || c >= HU_FONTSIZE
+>3719	RelationalExpression	c >= HU_FONTSIZE
+>3720	Identifier	HU_FONTSIZE
+>3721	Identifier	c
+>3722	RelationalExpression	c < 0
+>3723	PrimaryExpression	0
+>3724	Identifier	c
+>3725	ExpressionStatement	 
+>3726	AssignmentExpr	c = toupper ( c ) - HU_FONTSTART
+>3727	AdditiveExpression	toupper ( c ) - HU_FONTSTART
+>3728	Identifier	HU_FONTSTART
+>3729	CallExpression	toupper ( c )
+>3730	ArgumentList	c
+>3731	Argument	c
+>3732	Identifier	c
+>3733	Callee	toupper
+>3734	Identifier	toupper
+>3735	Identifier	c
+>3736	IfStatement	if ( c == '\n' )
+>3737	CompoundStatement	 
+>3738	ContinueStatement	 
+>3739	ExpressionStatement	 
+>3740	AssignmentExpr	cy += 12
+>3741	PrimaryExpression	12
+>3742	Identifier	cy
+>3743	ExpressionStatement	 
+>3744	AssignmentExpr	cx = x
+>3745	Identifier	x
+>3746	Identifier	cx
+>3747	Condition	 
+>3748	EqualityExpression	c == '\n'
+>3749	PrimaryExpression	'\n'
+>3750	Identifier	c
+>3751	IfStatement	if ( ! c )
+>3752	BreakStatement	 
+>3753	Condition	 
+>3754	UnaryOp	! c
+>3755	Identifier	c
+>3756	UnaryOperator	!
+>3757	ExpressionStatement	 
+>3758	AssignmentExpr	c = * ch ++
+>3759	UnaryOp	* ch ++
+>3760	IncDecOp	ch ++
+>3761	IncDec	++
+>3762	Identifier	ch
+>3763	UnaryOperator	*
+>3764	Identifier	c
+>3765	Condition	 
+>3766	PrimaryExpression	1
+>3767	ExpressionStatement	 
+>3768	AssignmentExpr	cy = y
+>3769	Identifier	y
+>3770	Identifier	cy
+>3771	ExpressionStatement	 
+>3772	AssignmentExpr	cx = x
+>3773	Identifier	x
+>3774	Identifier	cx
+>3775	ExpressionStatement	 
+>3776	AssignmentExpr	ch = string
+>3777	Identifier	string
+>3778	Identifier	ch
+>3779	IdentifierDeclStatement	 
+>3780	IdentifierDecl	cy
+>3781	Identifier	cy
+>3782	IdentifierDeclType	int
+>3783	IdentifierDeclStatement	 
+>3784	IdentifierDecl	cx
+>3785	Identifier	cx
+>3786	IdentifierDeclType	int
+>3787	IdentifierDeclStatement	 
+>3788	IdentifierDecl	c
+>3789	Identifier	c
+>3790	IdentifierDeclType	int
+>3791	IdentifierDeclStatement	 
+>3792	IdentifierDecl	* ch
+>3793	Identifier	ch
+>3794	IdentifierDeclType	char *
+>3795	IdentifierDeclStatement	 
+>3796	IdentifierDecl	w
+>3797	Identifier	w
+>3798	IdentifierDeclType	int
+>3816	FunctionDef	M_Responder (event_t * ev)
+>3817	ParameterList	event_t * ev
+>3818	Parameter	 
+>3819	Identifier	ev
+>3820	ParameterType	event_t *
+>3821	ReturnType	qboolean
+>3822	CompoundStatement	 
+>3823	CompoundStatement	 
+>3824	IfStatement	if ( ev -> data1 & 2 )
+>3825	CompoundStatement	 
+>3826	ExpressionStatement	 
+>3827	AssignmentExpr	g -> joywait = I_GetTime ( ) + 5
+>3828	AdditiveExpression	I_GetTime ( ) + 5
+>3829	PrimaryExpression	5
+>3830	CallExpression	I_GetTime ( )
+>3831	ArgumentList	 
+>3832	Callee	I_GetTime
+>3833	Identifier	I_GetTime
+>3834	PtrMemberAccess	g -> joywait
+>3835	Identifier	joywait
+>3836	Identifier	g
+>3837	Statement	 
+>3838	ExpressionStatement	 
+>3839	AssignmentExpr	ch = KEY_BACKSPACE
+>3840	Identifier	KEY_BACKSPACE
+>3841	Identifier	ch
+>3842	Condition	 
+>3843	BitAndExpression	ev -> data1 & 2
+>3844	PrimaryExpression	2
+>3845	PtrMemberAccess	ev -> data1
+>3846	Identifier	data1
+>3847	Identifier	ev
+>3848	IfStatement	if ( ev -> data1 & 1 )
+>3849	CompoundStatement	 
+>3850	ExpressionStatement	 
+>3851	AssignmentExpr	g -> joywait = I_GetTime ( ) + 5
+>3852	AdditiveExpression	I_GetTime ( ) + 5
+>3853	PrimaryExpression	5
+>3854	CallExpression	I_GetTime ( )
+>3855	ArgumentList	 
+>3856	Callee	I_GetTime
+>3857	Identifier	I_GetTime
+>3858	PtrMemberAccess	g -> joywait
+>3859	Identifier	joywait
+>3860	Identifier	g
+>3861	Statement	 
+>3862	ExpressionStatement	 
+>3863	AssignmentExpr	ch = KEY_ENTER
+>3864	Identifier	KEY_ENTER
+>3865	Identifier	ch
+>3866	Condition	 
+>3867	BitAndExpression	ev -> data1 & 1
+>3868	PrimaryExpression	1
+>3869	PtrMemberAccess	ev -> data1
+>3870	Identifier	data1
+>3871	Identifier	ev
+>3872	IfStatement	if ( ev -> data2 == - 1 )
+>3873	ElseStatement	else
+>3874	IfStatement	if ( ev -> data2 == 1 )
+>3875	CompoundStatement	 
+>3876	ExpressionStatement	 
+>3877	AssignmentExpr	g -> joywait = I_GetTime ( ) + 2
+>3878	AdditiveExpression	I_GetTime ( ) + 2
+>3879	PrimaryExpression	2
+>3880	CallExpression	I_GetTime ( )
+>3881	ArgumentList	 
+>3882	Callee	I_GetTime
+>3883	Identifier	I_GetTime
+>3884	PtrMemberAccess	g -> joywait
+>3885	Identifier	joywait
+>3886	Identifier	g
+>3887	Statement	 
+>3888	ExpressionStatement	 
+>3889	AssignmentExpr	ch = KEY_RIGHTARROW
+>3890	Identifier	KEY_RIGHTARROW
+>3891	Identifier	ch
+>3892	Condition	 
+>3893	EqualityExpression	ev -> data2 == 1
+>3894	PrimaryExpression	1
+>3895	PtrMemberAccess	ev -> data2
+>3896	Identifier	data2
+>3897	Identifier	ev
+>3898	CompoundStatement	 
+>3899	ExpressionStatement	 
+>3900	AssignmentExpr	g -> joywait = I_GetTime ( ) + 2
+>3901	AdditiveExpression	I_GetTime ( ) + 2
+>3902	PrimaryExpression	2
+>3903	CallExpression	I_GetTime ( )
+>3904	ArgumentList	 
+>3905	Callee	I_GetTime
+>3906	Identifier	I_GetTime
+>3907	PtrMemberAccess	g -> joywait
+>3908	Identifier	joywait
+>3909	Identifier	g
+>3910	Statement	 
+>3911	ExpressionStatement	 
+>3912	AssignmentExpr	ch = KEY_LEFTARROW
+>3913	Identifier	KEY_LEFTARROW
+>3914	Identifier	ch
+>3915	Condition	 
+>3916	EqualityExpression	ev -> data2 == - 1
+>3917	UnaryOp	- 1
+>3918	PrimaryExpression	1
+>3919	UnaryOperator	-
+>3920	PtrMemberAccess	ev -> data2
+>3921	Identifier	data2
+>3922	Identifier	ev
+>3923	IfStatement	if ( ev -> data3 == - 1 )
+>3924	ElseStatement	else
+>3925	IfStatement	if ( ev -> data3 == 1 )
+>3926	CompoundStatement	 
+>3927	ExpressionStatement	 
+>3928	AssignmentExpr	g -> joywait = I_GetTime ( ) + 5
+>3929	AdditiveExpression	I_GetTime ( ) + 5
+>3930	PrimaryExpression	5
+>3931	CallExpression	I_GetTime ( )
+>3932	ArgumentList	 
+>3933	Callee	I_GetTime
+>3934	Identifier	I_GetTime
+>3935	PtrMemberAccess	g -> joywait
+>3936	Identifier	joywait
+>3937	Identifier	g
+>3938	Statement	 
+>3939	ExpressionStatement	 
+>3940	AssignmentExpr	ch = KEY_DOWNARROW
+>3941	Identifier	KEY_DOWNARROW
+>3942	Identifier	ch
+>3943	Condition	 
+>3944	EqualityExpression	ev -> data3 == 1
+>3945	PrimaryExpression	1
+>3946	PtrMemberAccess	ev -> data3
+>3947	Identifier	data3
+>3948	Identifier	ev
+>3949	CompoundStatement	 
+>3950	ExpressionStatement	 
+>3951	AssignmentExpr	g -> joywait = I_GetTime ( ) + 5
+>3952	AdditiveExpression	I_GetTime ( ) + 5
+>3953	PrimaryExpression	5
+>3954	CallExpression	I_GetTime ( )
+>3955	ArgumentList	 
+>3956	Callee	I_GetTime
+>3957	Identifier	I_GetTime
+>3958	PtrMemberAccess	g -> joywait
+>3959	Identifier	joywait
+>3960	Identifier	g
+>3961	Statement	 
+>3962	ExpressionStatement	 
+>3963	AssignmentExpr	ch = KEY_UPARROW
+>3964	Identifier	KEY_UPARROW
+>3965	Identifier	ch
+>3966	Condition	 
+>3967	EqualityExpression	ev -> data3 == - 1
+>3968	UnaryOp	- 1
+>3969	PrimaryExpression	1
+>3970	UnaryOperator	-
+>3971	PtrMemberAccess	ev -> data3
+>3972	Identifier	data3
+>3973	Identifier	ev
+>3974	Statement	 
+>3975	Statement	 
+>3976	Statement	 
+>3977	Statement	 
+>3978	Statement	 
+>3979	Statement	 
+>3980	Statement	 
+>3981	Statement	 
+>3982	Statement	 
+>3983	Statement	 
+>3984	Statement	 
+>3985	Statement	 
+>3986	Statement	 
+>3987	Statement	 
+>3988	Statement	 
+>3989	Statement	 
+>3990	Statement	 
+>3991	ExpressionStatement	 
+>3992	AssignmentExpr	ch = - 1
+>3993	UnaryOp	- 1
+>3994	PrimaryExpression	1
+>3995	UnaryOperator	-
+>3996	Identifier	ch
+>3997	IdentifierDeclStatement	 
+>3998	IdentifierDecl	i
+>3999	Identifier	i
+>4000	IdentifierDeclType	int
+>4001	IdentifierDeclStatement	 
+>4002	IdentifierDecl	ch
+>4003	Identifier	ch
+>4004	IdentifierDeclType	int
+>4025	FunctionDef	M_StartControlPanel ()
+>4026	ParameterList	 
+>4027	ReturnType	void
+>4028	CompoundStatement	 
+>4029	ExpressionStatement	 
+>4030	PtrMemberAccess	g -> currentMenu -> lastOn
+>4031	Identifier	lastOn
+>4032	PtrMemberAccess	g -> currentMenu
+>4033	Identifier	currentMenu
+>4034	Identifier	g
+>4035	Statement	 
+>4036	Statement	 
+>4037	Statement	 
+>4038	Statement	 
+>4039	Statement	 
+>4040	Statement	 
+>4041	ExpressionStatement	 
+>4042	PtrMemberAccess	g -> MainDef
+>4043	Identifier	MainDef
+>4044	Identifier	g
+>4045	Statement	 
+>4046	Statement	 
+>4047	Statement	 
+>4048	Statement	 
+>4049	Statement	 
+>4050	Statement	 
+>4051	Statement	 
+>4052	ExpressionStatement	 
+>4053	AssignmentExpr	g -> menuactive = 1
+>4054	PrimaryExpression	1
+>4055	PtrMemberAccess	g -> menuactive
+>4056	Identifier	menuactive
+>4057	Identifier	g
+>4058	Statement	 
+>4059	ReturnStatement	 
+>4060	Statement	 
+>4061	Statement	 
+>4062	Statement	 
+>4063	Statement	 
+>4064	Statement	 
+>4065	Statement	 
+>4066	Statement	 
+>4074	FunctionDef	M_Drawer ()
+>4075	ParameterList	 
+>4076	ReturnType	void
+>4077	CompoundStatement	 
+>4078	ExpressionStatement	 
+>4079	Statement	 
+>4080	Statement	 
+>4081	Statement	 
+>4082	Statement	 
+>4083	Statement	 
+>4084	Statement	 
+>4085	Statement	 
+>4086	Statement	 
+>4087	Statement	 
+>4088	Statement	 
+>4089	Statement	 
+>4090	Statement	 
+>4091	Statement	 
+>4092	Statement	 
+>4093	Statement	 
+>4094	Statement	 
+>4095	Statement	 
+>4096	Statement	 
+>4097	Statement	 
+>4098	Statement	 
+>4099	Statement	 
+>4100	Statement	 
+>4101	Statement	 
+>4102	Statement	 
+>4103	Statement	 
+>4104	Statement	 
+>4105	Statement	 
+>4106	Statement	 
+>4107	Statement	 
+>4108	Statement	 
+>4109	Statement	 
+>4110	Statement	 
+>4111	Statement	 
+>4112	Statement	 
+>4113	Statement	 
+>4114	Statement	 
+>4115	Statement	 
+>4116	Statement	 
+>4117	Statement	 
+>4118	Statement	 
+>4119	Statement	 
+>4120	Statement	 
+>4121	Statement	 
+>4122	Statement	 
+>4123	ForStatement	for ( i = 0 ; i < max ; i ++ )
+>4124	CompoundStatement	 
+>4125	ExpressionStatement	 
+>4126	AssignmentExpr	g -> md_y += LINEHEIGHT
+>4127	Identifier	LINEHEIGHT
+>4128	PtrMemberAccess	g -> md_y
+>4129	Identifier	md_y
+>4130	Identifier	g
+>4131	Statement	 
+>4132	ExpressionStatement	 
+>4133	Statement	 
+>4134	Statement	 
+>4135	Statement	 
+>4136	Statement	 
+>4137	Statement	 
+>4138	Statement	 
+>4139	Statement	 
+>4140	Statement	 
+>4141	Statement	 
+>4142	Statement	 
+>4143	Statement	 
+>4144	Statement	 
+>4145	Statement	 
+>4146	Statement	 
+>4147	Statement	 
+>4148	Statement	 
+>4149	Statement	 
+>4150	Statement	 
+>4151	Statement	 
+>4152	Statement	 
+>4153	Statement	 
+>4154	Statement	 
+>4155	Statement	 
+>4156	Statement	 
+>4157	Statement	 
+>4158	Statement	 
+>4159	Statement	 
+>4160	Statement	 
+>4161	Statement	 
+>4162	Statement	 
+>4163	Statement	 
+>4164	Statement	 
+>4165	Statement	 
+>4166	Statement	 
+>4167	Statement	 
+>4168	Statement	 
+>4169	Statement	 
+>4170	Statement	 
+>4171	Statement	 
+>4172	Statement	 
+>4173	Statement	 
+>4174	Statement	 
+>4175	Statement	 
+>4176	Statement	 
+>4177	Statement	 
+>4178	Statement	 
+>4179	Statement	 
+>4180	Statement	 
+>4181	Statement	 
+>4182	Statement	 
+>4183	Statement	 
+>4184	Statement	 
+>4185	IncDecOp	 
+>4186	IncDec	++
+>4187	Identifier	i
+>4188	Condition	 
+>4189	RelationalExpression	i < max
+>4190	Identifier	max
+>4191	Identifier	i
+>4192	ForInit	 
+>4193	AssignmentExpr	i = 0
+>4194	PrimaryExpression	0
+>4195	Identifier	i
+>4196	ExpressionStatement	 
+>4197	PtrMemberAccess	g -> currentMenu -> numitems
+>4198	Identifier	numitems
+>4199	PtrMemberAccess	g -> currentMenu
+>4200	Identifier	currentMenu
+>4201	Identifier	g
+>4202	Statement	 
+>4203	Statement	 
+>4204	Statement	 
+>4205	ExpressionStatement	 
+>4206	PtrMemberAccess	g -> currentMenu -> y
+>4207	Identifier	y
+>4208	PtrMemberAccess	g -> currentMenu
+>4209	Identifier	currentMenu
+>4210	Identifier	g
+>4211	Statement	 
+>4212	Statement	 
+>4213	Statement	 
+>4214	Statement	 
+>4215	Statement	 
+>4216	Statement	 
+>4217	ExpressionStatement	 
+>4218	PtrMemberAccess	g -> currentMenu -> x
+>4219	Identifier	x
+>4220	PtrMemberAccess	g -> currentMenu
+>4221	Identifier	currentMenu
+>4222	Identifier	g
+>4223	Statement	 
+>4224	Statement	 
+>4225	Statement	 
+>4226	Statement	 
+>4227	Statement	 
+>4228	Statement	 
+>4229	ExpressionStatement	 
+>4230	CallExpression	g -> currentMenu -> routine ( )
+>4231	ArgumentList	 
+>4232	Callee	g -> currentMenu -> routine
+>4233	PtrMemberAccess	g -> currentMenu -> routine
+>4234	Identifier	routine
+>4235	PtrMemberAccess	g -> currentMenu
+>4236	Identifier	currentMenu
+>4237	Identifier	g
+>4238	Statement	 
+>4239	Statement	 
+>4240	Statement	 
+>4241	Statement	 
+>4242	Statement	 
+>4243	Statement	 
+>4244	Statement	 
+>4245	Statement	 
+>4246	Statement	 
+>4247	Statement	 
+>4248	ReturnStatement	 
+>4249	Statement	 
+>4250	Statement	 
+>4251	Statement	 
+>4252	Statement	 
+>4253	Statement	 
+>4254	Statement	 
+>4255	Statement	 
+>4256	Statement	 
+>4257	CompoundStatement	 
+>4258	ReturnStatement	 
+>4259	CompoundStatement	 
+>4260	ExpressionStatement	 
+>4261	Statement	 
+>4262	Statement	 
+>4263	Statement	 
+>4264	Statement	 
+>4265	Statement	 
+>4266	Statement	 
+>4267	Statement	 
+>4268	Statement	 
+>4269	Statement	 
+>4270	Statement	 
+>4271	Statement	 
+>4272	Statement	 
+>4273	Statement	 
+>4274	Statement	 
+>4275	Statement	 
+>4276	Statement	 
+>4277	Statement	 
+>4278	ExpressionStatement	 
+>4279	Statement	 
+>4280	Statement	 
+>4281	Statement	 
+>4282	Statement	 
+>4283	Statement	 
+>4284	Statement	 
+>4285	Statement	 
+>4286	Statement	 
+>4287	Statement	 
+>4288	Statement	 
+>4289	Statement	 
+>4290	Statement	 
+>4291	Statement	 
+>4292	Statement	 
+>4293	ExpressionStatement	 
+>4294	AssignmentExpr	g -> md_x = 160 - M_StringWidth ( string ) / 2
+>4295	AdditiveExpression	160 - M_StringWidth ( string ) / 2
+>4296	MultiplicativeExpression	M_StringWidth ( string ) / 2
+>4297	PrimaryExpression	2
+>4298	CallExpression	M_StringWidth ( string )
+>4299	ArgumentList	string
+>4300	Argument	string
+>4301	Identifier	string
+>4302	Callee	M_StringWidth
+>4303	Identifier	M_StringWidth
+>4304	PrimaryExpression	160
+>4305	PtrMemberAccess	g -> md_x
+>4306	Identifier	md_x
+>4307	Identifier	g
+>4308	Statement	 
+>4309	CompoundStatement	 
+>4310	ExpressionStatement	 
+>4311	AssignmentExpr	start += i
+>4312	Identifier	i
+>4313	Identifier	start
+>4314	ExpressionStatement	 
+>4315	Statement	 
+>4316	Statement	 
+>4317	Statement	 
+>4318	Statement	 
+>4319	Statement	 
+>4320	Statement	 
+>4321	Statement	 
+>4322	Statement	 
+>4323	Statement	 
+>4324	Statement	 
+>4325	Statement	 
+>4326	Statement	 
+>4327	Statement	 
+>4328	Statement	 
+>4329	Statement	 
+>4330	Statement	 
+>4331	Statement	 
+>4332	Statement	 
+>4333	Statement	 
+>4334	Statement	 
+>4335	Statement	 
+>4336	Statement	 
+>4337	Statement	 
+>4338	Statement	 
+>4339	Statement	 
+>4340	CompoundStatement	 
+>4341	BreakStatement	 
+>4342	ExpressionStatement	 
+>4343	AssignmentExpr	start += i + 1
+>4344	AdditiveExpression	i + 1
+>4345	PrimaryExpression	1
+>4346	Identifier	i
+>4347	Identifier	start
+>4348	ExpressionStatement	 
+>4349	Statement	 
+>4350	Statement	 
+>4351	Statement	 
+>4352	Statement	 
+>4353	Statement	 
+>4354	Statement	 
+>4355	Statement	 
+>4356	Statement	 
+>4357	Statement	 
+>4358	Statement	 
+>4359	Statement	 
+>4360	Statement	 
+>4361	Statement	 
+>4362	ExpressionStatement	 
+>4363	CallExpression	memset ( string , 0 , 40 )
+>4364	ArgumentList	string
+>4365	Argument	40
+>4366	PrimaryExpression	40
+>4367	Argument	0
+>4368	PrimaryExpression	0
+>4369	Argument	string
+>4370	Identifier	string
+>4371	Callee	memset
+>4372	Identifier	memset
+>4373	Statement	 
+>4374	Statement	 
+>4375	Statement	 
+>4376	Statement	 
+>4377	Statement	 
+>4378	Statement	 
+>4379	Statement	 
+>4380	Statement	 
+>4381	Statement	 
+>4382	Statement	 
+>4383	Statement	 
+>4384	Statement	 
+>4385	Statement	 
+>4386	Statement	 
+>4387	Statement	 
+>4388	Statement	 
+>4389	Statement	 
+>4390	Statement	 
+>4391	Statement	 
+>4392	ExpressionStatement	 
+>4393	Statement	 
+>4394	Statement	 
+>4395	Statement	 
+>4396	Statement	 
+>4397	Statement	 
+>4398	Statement	 
+>4399	Statement	 
+>4400	Statement	 
+>4401	Statement	 
+>4402	Statement	 
+>4403	Statement	 
+>4404	ExpressionStatement	 
+>4405	AssignmentExpr	i = 0
+>4406	PrimaryExpression	0
+>4407	Identifier	i
+>4408	Statement	 
+>4409	Statement	 
+>4410	Statement	 
+>4411	Statement	 
+>4412	Statement	 
+>4413	Statement	 
+>4414	Statement	 
+>4415	Statement	 
+>4416	Statement	 
+>4417	Statement	 
+>4418	Statement	 
+>4419	Statement	 
+>4420	Statement	 
+>4421	Statement	 
+>4422	ExpressionStatement	 
+>4423	PrimaryExpression	2
+>4424	Statement	 
+>4425	Statement	 
+>4426	Statement	 
+>4427	Statement	 
+>4428	Statement	 
+>4429	Statement	 
+>4430	Statement	 
+>4431	Statement	 
+>4432	Statement	 
+>4433	Statement	 
+>4434	Statement	 
+>4435	Statement	 
+>4436	Statement	 
+>4437	Statement	 
+>4438	Statement	 
+>4439	ExpressionStatement	 
+>4440	AssignmentExpr	start = 0
+>4441	PrimaryExpression	0
+>4442	Identifier	start
+>4443	Statement	 
+>4444	Statement	 
+>4445	Statement	 
+>4446	Statement	 
+>4447	Statement	 
+>4448	Statement	 
+>4449	Statement	 
+>4450	ExpressionStatement	 
+>4451	AssignmentExpr	g -> inhelpscreens = false
+>4452	Identifier	false
+>4453	PtrMemberAccess	g -> inhelpscreens
+>4454	Identifier	inhelpscreens
+>4455	Identifier	g
+>4456	Statement	 
+>4457	IdentifierDeclStatement	 
+>4458	IdentifierDecl	start
+>4459	Identifier	start
+>4460	IdentifierDeclType	int
+>4461	IdentifierDeclStatement	 
+>4462	IdentifierDecl	string [ 40 ]
+>4463	PrimaryExpression	40
+>4464	Identifier	string
+>4465	IdentifierDeclType	char [ 40 ]
+>4466	IdentifierDeclStatement	 
+>4467	IdentifierDecl	max
+>4468	Identifier	max
+>4469	IdentifierDeclType	short
+>4470	IdentifierDeclStatement	 
+>4471	IdentifierDecl	i
+>4472	Identifier	i
+>4473	IdentifierDeclType	unsigned short
+>4491	FunctionDef	M_ClearMenus ()
+>4492	ParameterList	 
+>4493	ReturnType	void
+>4494	CompoundStatement	 
+>4495	ExpressionStatement	 
+>4496	AssignmentExpr	g -> menuactive = 0
+>4497	PrimaryExpression	0
+>4498	PtrMemberAccess	g -> menuactive
+>4499	Identifier	menuactive
+>4500	Identifier	g
+>4501	Statement	 
+>4508	FunctionDef	M_SetupNextMenu (menu_t * menudef)
+>4509	ParameterList	menu_t * menudef
+>4510	Parameter	 
+>4511	Identifier	menudef
+>4512	ParameterType	menu_t *
+>4513	ReturnType	void
+>4514	CompoundStatement	 
+>4515	ExpressionStatement	 
+>4516	PtrMemberAccess	g -> currentMenu -> lastOn
+>4517	Identifier	lastOn
+>4518	PtrMemberAccess	g -> currentMenu
+>4519	Identifier	currentMenu
+>4520	Identifier	g
+>4521	Statement	 
+>4522	Statement	 
+>4523	Statement	 
+>4524	Statement	 
+>4525	Statement	 
+>4526	Statement	 
+>4527	ExpressionStatement	 
+>4528	AssignmentExpr	g -> currentMenu = menudef
+>4529	Identifier	menudef
+>4530	PtrMemberAccess	g -> currentMenu
+>4531	Identifier	currentMenu
+>4532	Identifier	g
+>4533	Statement	 
+>4541	FunctionDef	M_Ticker ()
+>4542	ParameterList	 
+>4543	ReturnType	void
+>4544	CompoundStatement	 
+>4545	CompoundStatement	 
+>4546	ExpressionStatement	 
+>4547	AssignmentExpr	g -> skullAnimCounter = 8
+>4548	PrimaryExpression	8
+>4549	PtrMemberAccess	g -> skullAnimCounter
+>4550	Identifier	skullAnimCounter
+>4551	Identifier	g
+>4552	Statement	 
+>4553	ExpressionStatement	 
+>4554	AssignmentExpr	g -> whichSkull ^= 1
+>4555	PrimaryExpression	1
+>4556	PtrMemberAccess	g -> whichSkull
+>4557	Identifier	whichSkull
+>4558	Identifier	g
+>4559	Statement	 
+>4560	Statement	 
+>4561	Statement	 
+>4562	Statement	 
+>4563	Statement	 
+>4564	Statement	 
+>4565	Statement	 
+>4566	Statement	 
+>4567	Statement	 
+>4568	Statement	 
+>4569	Statement	 
+>4577	FunctionDef	M_Init ()
+>4578	ParameterList	 
+>4579	ReturnType	void
+>4580	CompoundStatement	 
+>4581	CompoundStatement	 
+>4582	BreakStatement	 
+>4583	Label	 
+>4584	Identifier	default
+>4585	Label	 
+>4586	Identifier	retail
+>4587	BreakStatement	 
+>4588	ExpressionStatement	 
+>4589	IncDecOp	g -> EpiDef . numitems --
+>4590	IncDec	--
+>4591	MemberAccess	g -> EpiDef . numitems
+>4592	Identifier	numitems
+>4593	PtrMemberAccess	g -> EpiDef
+>4594	Identifier	EpiDef
+>4595	Identifier	g
+>4596	Statement	 
+>4597	Label	 
+>4598	Identifier	registered
+>4599	Label	 
+>4600	Identifier	shareware
+>4601	BreakStatement	 
+>4602	ExpressionStatement	 
+>4603	PtrMemberAccess	g -> MainDef
+>4604	Identifier	MainDef
+>4605	Identifier	g
+>4606	Statement	 
+>4607	Statement	 
+>4608	Statement	 
+>4609	Statement	 
+>4610	Statement	 
+>4611	Statement	 
+>4612	Statement	 
+>4613	Statement	 
+>4614	Statement	 
+>4615	ExpressionStatement	 
+>4616	AssignmentExpr	g -> MainDef . y += 8
+>4617	PrimaryExpression	8
+>4618	MemberAccess	g -> MainDef . y
+>4619	Identifier	y
+>4620	PtrMemberAccess	g -> MainDef
+>4621	Identifier	MainDef
+>4622	Identifier	g
+>4623	Statement	 
+>4624	Label	 
+>4625	Identifier	commercial
+>4626	Statement	 
+>4627	Statement	 
+>4628	Statement	 
+>4629	Statement	 
+>4630	Statement	 
+>4631	Statement	 
+>4632	Statement	 
+>4633	ExpressionStatement	 
+>4634	AssignmentExpr	g -> quickSaveSlot = - 1
+>4635	UnaryOp	- 1
+>4636	PrimaryExpression	1
+>4637	UnaryOperator	-
+>4638	PtrMemberAccess	g -> quickSaveSlot
+>4639	Identifier	quickSaveSlot
+>4640	Identifier	g
+>4641	Statement	 
+>4642	ExpressionStatement	 
+>4643	PtrMemberAccess	g -> menuactive
+>4644	Identifier	menuactive
+>4645	Identifier	g
+>4646	Statement	 
+>4647	Statement	 
+>4648	Statement	 
+>4649	Statement	 
+>4650	Statement	 
+>4651	Statement	 
+>4652	ExpressionStatement	 
+>4653	AssignmentExpr	g -> messageString = NULL
+>4654	Identifier	NULL
+>4655	PtrMemberAccess	g -> messageString
+>4656	Identifier	messageString
+>4657	Identifier	g
+>4658	Statement	 
+>4659	ExpressionStatement	 
+>4660	AssignmentExpr	g -> messageToPrint = 0
+>4661	PrimaryExpression	0
+>4662	PtrMemberAccess	g -> messageToPrint
+>4663	Identifier	messageToPrint
+>4664	Identifier	g
+>4665	Statement	 
+>4666	ExpressionStatement	 
+>4667	AdditiveExpression	g -> screenblocks - 3
+>4668	PrimaryExpression	3
+>4669	PtrMemberAccess	g -> screenblocks
+>4670	Identifier	screenblocks
+>4671	Identifier	g
+>4672	Statement	 
+>4673	Statement	 
+>4674	Statement	 
+>4675	Statement	 
+>4676	Statement	 
+>4677	Statement	 
+>4678	ExpressionStatement	 
+>4679	AssignmentExpr	g -> skullAnimCounter = 10
+>4680	PrimaryExpression	10
+>4681	PtrMemberAccess	g -> skullAnimCounter
+>4682	Identifier	skullAnimCounter
+>4683	Identifier	g
+>4684	Statement	 
+>4685	ExpressionStatement	 
+>4686	AssignmentExpr	g -> whichSkull = 0
+>4687	PrimaryExpression	0
+>4688	PtrMemberAccess	g -> whichSkull
+>4689	Identifier	whichSkull
+>4690	Identifier	g
+>4691	Statement	 
+>4692	ExpressionStatement	 
+>4693	PtrMemberAccess	g -> currentMenu -> lastOn
+>4694	Identifier	lastOn
+>4695	PtrMemberAccess	g -> currentMenu
+>4696	Identifier	currentMenu
+>4697	Identifier	g
+>4698	Statement	 
+>4699	Statement	 
+>4700	Statement	 
+>4701	Statement	 
+>4702	Statement	 
+>4703	Statement	 
+>4704	ExpressionStatement	 
+>4705	AssignmentExpr	g -> menuactive = 1
+>4706	PrimaryExpression	1
+>4707	PtrMemberAccess	g -> menuactive
+>4708	Identifier	menuactive
+>4709	Identifier	g
+>4710	Statement	 
+>4711	ExpressionStatement	 
+>4712	PtrMemberAccess	g -> MainDef
+>4713	Identifier	MainDef
+>4714	Identifier	g
+>4715	Statement	 
+>4716	Statement	 
+>4717	Statement	 
+>4718	Statement	 
+>4719	Statement	 
+>4720	Statement	 
+>4721	Statement	 
+<111=114,113,112
+<114=300,296,292,287,115
+<115=283,279,276,116
+<116=216,203,168,167,166,165,164,163,162,161,160,159,158,157,156,155,154,153,152,151,150,141,140,139,138,137,136,135,134,133,132,131,130,129,128,127,117
+<117=118
+<118=120,119
+<120=122,121
+<122=124,123
+<124=126,125
+<141=142
+<142=146,143
+<143=144
+<144=145
+<146=147
+<147=149,148
+<168=199,169
+<169=198,197,196,195,194,193,192,191,190,189,188,187,186,185,184,183,182,181,171,170
+<171=172
+<172=174,173
+<174=176,175
+<176=178,177
+<178=180,179
+<199=200
+<200=202,201
+<203=204
+<204=215,205
+<205=211,206
+<206=209,207
+<207=208
+<209=210
+<211=212
+<212=214,213
+<216=267,253,217
+<217=218
+<218=219
+<219=249,235,220
+<220=221
+<221=222
+<222=223
+<223=233,224
+<224=231,229,227,225
+<225=226
+<227=228
+<229=230
+<231=232
+<233=234
+<235=236
+<236=237
+<237=247,238
+<238=245,243,241,239
+<239=240
+<241=242
+<243=244
+<245=246
+<247=248
+<249=250
+<250=252,251
+<253=254
+<254=255
+<255=265,256
+<256=263,261,259,257
+<257=258
+<259=260
+<261=262
+<263=264
+<265=266
+<267=268
+<268=270,269
+<270=272,271
+<272=273
+<273=275,274
+<276=278,277
+<279=280
+<280=282,281
+<283=284
+<284=286,285
+<287=288
+<288=291,290,289
+<292=293
+<293=295,294
+<296=297
+<297=299,298
+<300=301
+<301=303,302
+<331=334,333,332
+<334=420,398,335
+<335=394,390,387,336
+<336=337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386
+<387=389,388
+<390=391
+<391=393,392
+<394=395
+<395=397,396
+<398=399
+<399=418,400
+<400=416,414,412,401
+<401=402
+<402=411,403
+<403=409,404
+<404=407,405
+<405=406
+<407=408
+<409=410
+<412=413
+<414=415
+<416=417
+<418=419
+<420=421
+<421=423,422
+<431=440,439,432
+<432=436,433
+<433=435,434
+<436=438,437
+<440=532,506,465,441
+<441=442
+<442=463,443
+<443=461,457,455,444
+<444=445
+<445=454,446
+<446=452,447
+<447=450,448
+<448=449
+<450=451
+<452=453
+<455=456
+<457=458
+<458=460,459
+<461=462
+<463=464
+<465=502,498,495,466
+<466=471,467
+<467=468
+<468=470,469
+<471=472
+<472=493,473
+<473=491,487,485,474
+<474=475
+<475=484,476
+<476=482,477
+<477=480,478
+<478=479
+<480=481
+<482=483
+<485=486
+<487=488
+<488=490,489
+<491=492
+<493=494
+<495=497,496
+<498=499
+<499=501,500
+<502=503
+<503=505,504
+<506=507
+<507=530,508
+<508=526,522,520,509
+<509=510
+<510=519,511
+<511=517,512
+<512=515,513
+<513=514
+<515=516
+<517=518
+<520=521
+<522=523
+<523=525,524
+<526=527
+<527=529,528
+<530=531
+<532=533
+<533=535,534
+<544=550,549,545
+<545=546
+<546=548,547
+<550=571,570,569,568,567,566,565,564,563,551
+<551=562,561,560,559,558,557,556,555,554,553,552
+<576=582,581,577
+<577=578
+<578=580,579
+<582=625,619,597,596,595,594,593,592,591,590,589,588,583
+<583=584
+<584=586,585
+<586=587
+<597=615,607,598
+<598=599
+<599=600
+<600=601
+<601=605,602
+<602=603
+<603=604
+<605=606
+<607=608
+<608=609
+<609=613,610
+<610=611
+<611=612
+<613=614
+<615=616
+<616=618,617
+<619=620
+<620=622,621
+<622=624,623
+<635=641,640,636
+<636=637
+<637=639,638
+<641=680,679,678,677,676,675,674,661,660,659,658,657,656,655,654,653,652,642
+<642=651,650,649,648,647,646,645,644,643
+<661=663,662
+<663=664
+<664=672,665
+<665=670,668,666
+<666=667
+<668=669
+<670=671
+<672=673
+<688=691,690,689
+<691=829,807,744,743,742,741,740,739,738,737,692
+<692=736,735,734,733,732,731,730,729,728,727,726,725,724,723,722,721,720,719,718,717,716,715,714,713,712,711,710,709,708,707,706,705,704,703,702,701,700,699,698,697,696,695,694,693
+<744=803,799,796,745
+<745=746,747,748,749,750,751,752,753,754,755,756,757,758,759,760,761,762,763,764,765,766,767,768,769,770,771,772,773,774,775,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,795
+<796=798,797
+<799=800
+<800=802,801
+<803=804
+<804=806,805
+<807=808
+<808=827,809
+<809=825,823,821,810
+<810=811
+<811=820,812
+<812=818,813
+<813=816,814
+<814=815
+<816=817
+<818=819
+<821=822
+<823=824
+<825=826
+<827=828
+<829=830
+<830=832,831
+<840=846,845,841
+<841=842
+<842=844,843
+<846=881,880,879,878,877,876,875,874,873,872,871,870,869,864,863,862,861,860,859,858,857,856,855,854,853,847
+<847=848
+<848=850,849
+<850=852,851
+<864=865
+<865=867,866
+<867=868
+<893=899,898,894
+<894=895
+<895=897,896
+<899=1004,994,993,992,991,990,989,988,987,931,930,924,923,922,921,920,919,918,917,916,915,914,913,912,911,910,909,908,907,906,905,904,903,902,901,900
+<924=925
+<925=927,926
+<927=929,928
+<931=932,933,934,935,936,937,938,939,940,941,942,943,944,945,946,947,948,949,951,953,954,955,956,957,958,959,960,961,962,963,964,965,966,967,968,969,970,971,972,973,974,975,976,977,978,979,980,981,983,985
+<949=950
+<951=952
+<981=982
+<983=984
+<985=986
+<994=995
+<995=1003,1002,996
+<996=1001,997
+<997=999,998
+<999=1000
+<1004=1005
+<1005=1007,1006
+<1019=1025,1024,1020
+<1020=1021
+<1021=1023,1022
+<1025=1046,1045,1044,1043,1042,1041,1040,1039,1026
+<1026=1028,1027
+<1028=1029
+<1029=1037,1030
+<1030=1035,1033,1031
+<1031=1032
+<1033=1034
+<1035=1036
+<1037=1038
+<1054=1060,1059,1055
+<1055=1056
+<1056=1058,1057
+<1060=1061
+<1061=1080,1062
+<1062=1079,1078,1077,1076,1075,1074,1073,1072,1063
+<1063=1064
+<1064=1070,1065
+<1065=1068,1066
+<1066=1067
+<1068=1069
+<1070=1071
+<1080=1081
+<1081=1083,1082
+<1091=1094,1093,1092
+<1094=1195,1194,1193,1192,1191,1190,1189,1188,1177,1176,1175,1174,1095,1096,1097,1098,1099,1100,1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1111,1112,1113,1114,1115,1116,1117,1118,1119,1120,1121,1122,1123,1124,1125,1126,1127,1128,1158,1159,1160,1161,1162,1163,1164,1165,1166,1167,1168,1169,1170,1171,1172,1173
+<1128=1153,1148,1147,1146,1145,1144,1143,1142,1141,1140,1139,1138,1130,1129
+<1130=1131
+<1131=1135,1132
+<1132=1134,1133
+<1135=1137,1136
+<1148=1149
+<1149=1151,1150
+<1151=1152
+<1153=1154
+<1154=1156,1155
+<1156=1157
+<1177=1179,1178
+<1179=1180
+<1180=1186,1181
+<1181=1184,1182
+<1182=1183
+<1184=1185
+<1186=1187
+<1204=1210,1209,1205
+<1205=1206
+<1206=1208,1207
+<1210=1211
+<1211=1230,1212
+<1212=1229,1228,1227,1226,1225,1224,1223,1222,1213
+<1213=1214
+<1214=1220,1215
+<1215=1218,1216
+<1216=1217
+<1218=1219
+<1220=1221
+<1230=1231
+<1231=1233,1232
+<1241=1244,1243,1242
+<1244=1319,1245,1246,1247,1248,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1260,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1313,1314,1315,1316,1317,1318
+<1278=1280,1279
+<1280=1281
+<1281=1289,1282
+<1282=1287,1285,1283
+<1283=1284
+<1285=1286
+<1287=1288
+<1289=1290
+<1300=1302,1301
+<1302=1303
+<1303=1311,1304
+<1304=1309,1307,1305
+<1305=1306
+<1307=1308
+<1309=1310
+<1311=1312
+<1327=1330,1329,1328
+<1330=1403,1397,1396,1395,1394,1393,1392,1391,1390,1332,1331
+<1332=1388,1366,1365,1363,1361,1359,1337,1336,1334,1333
+<1334=1335
+<1337=1338
+<1338=1357,1339
+<1339=1355,1353,1351,1340
+<1340=1341
+<1341=1350,1342
+<1342=1348,1343
+<1343=1346,1344
+<1344=1345
+<1346=1347
+<1348=1349
+<1351=1352
+<1353=1354
+<1355=1356
+<1357=1358
+<1359=1360
+<1361=1362
+<1363=1364
+<1366=1367
+<1367=1386,1368
+<1368=1384,1382,1380,1369
+<1369=1370
+<1370=1379,1371
+<1371=1377,1372
+<1372=1375,1373
+<1373=1374
+<1375=1376
+<1377=1378
+<1380=1381
+<1382=1383
+<1384=1385
+<1386=1387
+<1388=1389
+<1397=1398
+<1398=1400,1399
+<1400=1402,1401
+<1414=1417,1416,1415
+<1417=1490,1484,1483,1482,1481,1480,1479,1478,1477,1419,1418
+<1419=1475,1473,1451,1450,1448,1446,1424,1423,1421,1420
+<1421=1422
+<1424=1425
+<1425=1444,1426
+<1426=1442,1440,1438,1427
+<1427=1428
+<1428=1437,1429
+<1429=1435,1430
+<1430=1433,1431
+<1431=1432
+<1433=1434
+<1435=1436
+<1438=1439
+<1440=1441
+<1442=1443
+<1444=1445
+<1446=1447
+<1448=1449
+<1451=1452
+<1452=1471,1453
+<1453=1469,1467,1465,1454
+<1454=1455
+<1455=1464,1456
+<1456=1462,1457
+<1457=1460,1458
+<1458=1459
+<1460=1461
+<1462=1463
+<1465=1466
+<1467=1468
+<1469=1470
+<1471=1472
+<1473=1474
+<1475=1476
+<1484=1485
+<1485=1487,1486
+<1487=1489,1488
+<1501=1504,1503,1502
+<1504=1571,1570,1569,1568,1567,1566,1565,1564,1563,1562,1561,1560,1559,1558,1557,1556,1555,1505,1506,1507,1508,1509,1510,1511,1512,1513,1514,1515,1516,1517,1518,1519,1520,1521,1522,1523,1524,1525,1526,1527,1528,1529,1530,1531,1532,1533,1534,1535,1536,1537,1538,1539,1540,1541,1542,1543,1544,1545,1546,1547,1548,1549,1550,1551,1552,1553,1554
+<1571=1572
+<1572=1591,1573
+<1573=1589,1587,1585,1574
+<1574=1575
+<1575=1584,1576
+<1576=1582,1577
+<1577=1580,1578
+<1578=1579
+<1580=1581
+<1582=1583
+<1585=1586
+<1587=1588
+<1589=1590
+<1591=1592
+<1598=1604,1603,1599
+<1599=1600
+<1600=1602,1601
+<1604=1613,1612,1611,1610,1609,1608,1607,1606,1605
+<1618=1624,1623,1619
+<1619=1620
+<1620=1622,1621
+<1624=1637,1625
+<1625=1626
+<1626=1635,1627
+<1627=1628
+<1628=1629
+<1629=1631,1630
+<1631=1632
+<1632=1634,1633
+<1635=1636
+<1637=1675,1638
+<1638=1674,1658,1657,1656,1640,1639
+<1640=1641
+<1641=1652,1642
+<1642=1643
+<1643=1644
+<1644=1646,1645
+<1646=1648,1647
+<1648=1649
+<1649=1651,1650
+<1652=1653
+<1653=1655,1654
+<1658=1659
+<1659=1670,1660
+<1660=1661
+<1661=1662
+<1662=1664,1663
+<1664=1666,1665
+<1666=1667
+<1667=1669,1668
+<1670=1671
+<1671=1673,1672
+<1675=1676
+<1683=1689,1688,1684
+<1684=1685
+<1685=1687,1686
+<1689=1702,1690
+<1690=1691
+<1691=1700,1692
+<1692=1693
+<1693=1694
+<1694=1696,1695
+<1696=1697
+<1697=1699,1698
+<1700=1701
+<1702=1740,1703
+<1703=1739,1723,1722,1721,1705,1704
+<1705=1706
+<1706=1717,1707
+<1707=1708
+<1708=1709
+<1709=1711,1710
+<1711=1713,1712
+<1713=1714
+<1714=1716,1715
+<1717=1718
+<1718=1720,1719
+<1723=1724
+<1724=1735,1725
+<1725=1726
+<1726=1727
+<1727=1729,1728
+<1729=1731,1730
+<1731=1732
+<1732=1734,1733
+<1735=1736
+<1736=1738,1737
+<1740=1741
+<1748=1751,1750,1749
+<1751=1752
+<1752=1753
+<1753=1772,1754
+<1754=1770,1768,1766,1755
+<1755=1756
+<1756=1765,1757
+<1757=1763,1758
+<1758=1761,1759
+<1759=1760
+<1761=1762
+<1763=1764
+<1766=1767
+<1768=1769
+<1770=1771
+<1772=1773
+<1779=1782,1781,1780
+<1782=1783
+<1783=1784
+<1784=1803,1785
+<1785=1801,1799,1797,1786
+<1786=1787
+<1787=1796,1788
+<1788=1794,1789
+<1789=1792,1790
+<1790=1791
+<1792=1793
+<1794=1795
+<1797=1798
+<1799=1800
+<1801=1802
+<1803=1804
+<1810=1813,1812,1811
+<1813=1836,1814
+<1814=1815
+<1815=1834,1816
+<1816=1832,1830,1828,1817
+<1817=1818
+<1818=1827,1819
+<1819=1825,1820
+<1820=1823,1821
+<1821=1822
+<1823=1824
+<1825=1826
+<1828=1829
+<1830=1831
+<1832=1833
+<1834=1835
+<1836=1837
+<1837=1856,1838
+<1838=1854,1852,1850,1839
+<1839=1840
+<1840=1849,1841
+<1841=1847,1842
+<1842=1845,1843
+<1843=1844
+<1845=1846
+<1847=1848
+<1850=1851
+<1852=1853
+<1854=1855
+<1856=1857
+<1863=1869,1868,1864
+<1864=1865
+<1865=1867,1866
+<1869=1913,1912,1911,1910,1909,1908,1907,1906,1905,1904,1903,1902,1901,1888,1887,1886,1885,1884,1883,1882,1881,1880,1879,1878,1877,1876,1875,1874,1873,1872,1871,1870
+<1888=1890,1889
+<1890=1891
+<1891=1899,1892
+<1892=1897,1895,1893
+<1893=1894
+<1895=1896
+<1897=1898
+<1899=1900
+<1921=1924,1923,1922
+<1924=1925
+<1925=1926
+<1926=1945,1927
+<1927=1943,1941,1939,1928
+<1928=1929
+<1929=1938,1930
+<1930=1936,1931
+<1931=1934,1932
+<1932=1933
+<1934=1935
+<1936=1937
+<1939=1940
+<1941=1942
+<1943=1944
+<1945=1946
+<1952=1958,1957,1953
+<1953=1954
+<1954=1956,1955
+<1958=1981,1980,1979,1978,1977,1976,1975,1974,1973,1972,1971,1970,1969,1968,1967,1966,1965,1964,1959
+<1959=1960
+<1960=1962,1961
+<1962=1963
+<1981=1983,1982
+<1983=1984
+<1984=1986,1985
+<1992=1998,1997,1993
+<1993=1994
+<1994=1996,1995
+<1998=2038,2037,2036,2035,2034,2033,2032,2031,2030,1999
+<1999=2029,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2000
+<2000=2001
+<2001=2003,2002
+<2003=2004
+<2022=2023
+<2023=2028,2027,2024
+<2024=2026,2025
+<2044=2050,2049,2045
+<2045=2046
+<2046=2048,2047
+<2050=2095,2094,2093,2092,2091,2090,2089,2088,2087,2086,2085,2084,2083,2082,2081,2080,2079,2067,2066,2060,2059,2058,2057,2056,2055,2054,2053,2052,2051
+<2060=2061
+<2061=2063,2062
+<2063=2065,2064
+<2067=2072,2068
+<2068=2069
+<2069=2071,2070
+<2072=2073
+<2073=2077,2074
+<2074=2075
+<2075=2076
+<2077=2078
+<2103=2109,2108,2104
+<2104=2105
+<2105=2107,2106
+<2109=2147,2141,2119,2118,2117,2116,2115,2114,2113,2112,2111,2110
+<2119=2137,2129,2120
+<2120=2121
+<2121=2122
+<2122=2123
+<2123=2127,2124
+<2124=2125
+<2125=2126
+<2127=2128
+<2129=2130
+<2130=2131
+<2131=2135,2132
+<2132=2133
+<2133=2134
+<2135=2136
+<2137=2138
+<2138=2140,2139
+<2141=2142
+<2142=2144,2143
+<2144=2146,2145
+<2157=2163,2162,2158
+<2158=2159
+<2159=2161,2160
+<2163=2199,2188,2179,2166,2164
+<2164=2165
+<2166=2167
+<2167=2178,2177,2168
+<2168=2176,2169
+<2169=2175,2170
+<2170=2174,2171
+<2171=2173,2172
+<2179=2180
+<2180=2187,2186,2181
+<2181=2185,2182
+<2182=2184,2183
+<2188=2189
+<2189=2198,2197,2190
+<2190=2196,2191
+<2191=2195,2192
+<2192=2194,2193
+<2199=2200
+<2200=2207,2206,2201
+<2201=2205,2202
+<2202=2204,2203
+<2218=2221,2220,2219
+<2221=2415,2397,2396,2395,2394,2393,2392,2391,2390,2389,2388,2387,2386,2385,2384,2383,2382,2381,2380,2379,2378,2377,2376,2375,2374,2373,2372,2371,2370,2369,2368,2367,2366,2365,2364,2363,2362,2361,2360,2359,2358,2357,2356,2355,2354,2353,2352,2351,2350,2349,2348,2347,2346,2345,2344,2343,2342,2341,2340,2339,2338,2337,2336,2335,2334,2333,2332,2331,2330,2329,2328,2327,2326,2325,2324,2323,2322,2321,2320,2319,2318,2317,2316,2315,2314,2313,2312,2311,2310,2309,2308,2307,2306,2305,2304,2303,2302,2301,2300,2299,2298,2297,2296,2295,2294,2293,2292,2291,2222,2223,2224,2225,2226,2227,2228,2229,2230,2231,2232,2233,2234,2235,2236,2237,2238,2239,2240,2241,2242,2243,2244,2245,2246,2247,2248,2249,2250,2251,2268,2272,2273,2274,2275,2276,2277,2278,2279,2280,2281,2282,2283,2284,2285,2286,2287,2288,2289,2290
+<2251=2252
+<2252=2267,2266,2253
+<2253=2265,2254
+<2254=2263,2255
+<2255=2256
+<2256=2257
+<2257=2259,2258
+<2259=2260
+<2260=2262,2261
+<2263=2264
+<2268=2269
+<2269=2271,2270
+<2397=2398
+<2398=2414,2413,2399
+<2399=2412,2400
+<2400=2403,2402,2401
+<2403=2404
+<2404=2406,2405
+<2406=2408,2407
+<2408=2409
+<2409=2411,2410
+<2415=2416
+<2416=2435,2417
+<2417=2433,2431,2429,2418
+<2418=2419
+<2419=2428,2420
+<2420=2426,2421
+<2421=2424,2422
+<2422=2423
+<2424=2425
+<2426=2427
+<2429=2430
+<2431=2432
+<2433=2434
+<2435=2436
+<2449=2455,2454,2450
+<2450=2451
+<2451=2453,2452
+<2455=2464,2463,2462,2461,2460,2459,2458,2457,2456
+<2469=2475,2474,2470
+<2470=2471
+<2471=2473,2472
+<2475=2540,2524,2511,2510,2509,2508,2507,2506,2505,2504,2503,2502,2501,2497,2496,2495,2494,2493,2492,2491,2490,2489,2488,2487,2483,2482,2476
+<2476=2477
+<2477=2479,2478
+<2479=2481,2480
+<2483=2484
+<2484=2486,2485
+<2497=2498
+<2498=2500,2499
+<2511=2515,2514,2512
+<2512=2513
+<2515=2516
+<2516=2523,2517
+<2517=2519,2518
+<2519=2520
+<2520=2522,2521
+<2524=2525
+<2525=2536,2526
+<2526=2527
+<2527=2528
+<2528=2535,2529
+<2529=2531,2530
+<2531=2532
+<2532=2534,2533
+<2536=2537
+<2537=2539,2538
+<2540=2541
+<2541=2543,2542
+<2557=2563,2562,2558
+<2558=2559
+<2559=2561,2560
+<2563=2587,2571,2570,2564
+<2564=2565
+<2565=2567,2566
+<2567=2569,2568
+<2571=2572
+<2572=2583,2573
+<2573=2574
+<2574=2575
+<2575=2582,2576
+<2576=2578,2577
+<2578=2579
+<2579=2581,2580
+<2583=2584
+<2584=2586,2585
+<2587=2588
+<2588=2590,2589
+<2601=2607,2606,2602
+<2602=2603
+<2603=2605,2604
+<2607=2619,2608
+<2608=2609
+<2609=2615,2610
+<2610=2613,2611
+<2611=2612
+<2613=2614
+<2615=2616
+<2616=2618,2617
+<2619=2620
+<2620=2633,2621
+<2621=2622
+<2622=2623
+<2623=2626,2625,2624
+<2626=2627
+<2627=2629,2628
+<2629=2630
+<2630=2632,2631
+<2633=2634
+<2634=2636,2635
+<2645=2651,2650,2646
+<2646=2647
+<2647=2649,2648
+<2651=2674,2673,2672,2671,2670,2669,2668,2667,2666,2662,2657,2652
+<2652=2653
+<2653=2655,2654
+<2655=2656
+<2657=2658
+<2658=2660,2659
+<2660=2661
+<2662=2663
+<2663=2665,2664
+<2674=2676,2675
+<2676=2677
+<2677=2679,2678
+<2686=2692,2691,2687
+<2687=2688
+<2688=2690,2689
+<2692=2743,2742,2741,2740,2739,2738,2737,2736,2735,2724,2723,2722,2721,2720,2719,2718,2717,2704,2693
+<2693=2694
+<2694=2702,2695
+<2695=2700,2698,2696
+<2696=2697
+<2698=2699
+<2700=2701
+<2702=2703
+<2704=2706,2705
+<2706=2707
+<2707=2715,2708
+<2708=2713,2711,2709
+<2709=2710
+<2711=2712
+<2713=2714
+<2715=2716
+<2724=2726,2725
+<2726=2727
+<2727=2733,2728
+<2728=2731,2729
+<2729=2730
+<2731=2732
+<2733=2734
+<2743=2744
+<2744=2746,2745
+<2758=2764,2763,2759
+<2759=2760
+<2760=2762,2761
+<2769=2775,2774,2770
+<2770=2771
+<2771=2773,2772
+<2780=2786,2785,2781
+<2781=2782
+<2782=2784,2783
+<2786=2796,2795,2794,2793,2792,2791,2790,2789,2788,2787
+<2796=2797
+<2797=2799,2798
+<2804=2810,2809,2805
+<2805=2806
+<2806=2808,2807
+<2815=2821,2820,2816
+<2816=2817
+<2817=2819,2818
+<2821=2830,2829,2828,2827,2826,2825,2824,2823,2822
+<2835=2841,2840,2836
+<2836=2837
+<2837=2839,2838
+<2841=2842
+<2842=2843
+<2843=2845,2844
+<2845=2846
+<2846=2848,2847
+<2854=2860,2859,2855
+<2855=2856
+<2856=2858,2857
+<2860=2869,2868,2867,2866,2865,2864,2863,2862,2861
+<2874=2880,2879,2875
+<2875=2876
+<2876=2878,2877
+<2880=2881
+<2881=2882
+<2882=2886,2883
+<2883=2884
+<2884=2885
+<2886=2887
+<2887=2889,2888
+<2896=2902,2901,2897
+<2897=2898
+<2898=2900,2899
+<2902=2979,2962,2934,2925,2912,2903
+<2903=2904
+<2904=2908,2905
+<2905=2906
+<2906=2907
+<2908=2909
+<2909=2911,2910
+<2912=2913
+<2913=2924,2923,2914
+<2914=2922,2915
+<2915=2921,2916
+<2916=2918,2917
+<2918=2920,2919
+<2925=2926
+<2926=2933,2932,2927
+<2927=2931,2928
+<2928=2930,2929
+<2934=2960,2935
+<2935=2959,2949,2948,2947,2937,2936
+<2937=2943,2938
+<2938=2939
+<2939=2940
+<2940=2942,2941
+<2943=2944
+<2944=2946,2945
+<2949=2955,2950
+<2950=2951
+<2951=2952
+<2952=2954,2953
+<2955=2956
+<2956=2958,2957
+<2960=2961
+<2962=2963
+<2963=2978,2977,2964
+<2964=2976,2965
+<2965=2974,2966
+<2966=2967
+<2967=2968
+<2968=2970,2969
+<2970=2971
+<2971=2973,2972
+<2974=2975
+<2979=2980
+<2980=2982,2981
+<2993=2999,2998,2994
+<2994=2995
+<2995=2997,2996
+<2999=3020,3019,3018,3017,3016,3015,3014,3013,3012,3008,3001,3000
+<3001=3002
+<3002=3006,3003
+<3003=3004
+<3004=3005
+<3006=3007
+<3008=3009
+<3009=3011,3010
+<3020=3021
+<3021=3023,3022
+<3029=3035,3034,3030
+<3030=3031
+<3031=3033,3032
+<3035=3049,3048,3047,3046,3045,3044,3043,3042,3041,3040,3039,3038,3037,3036
+<3049=3103,3050
+<3050=3102,3101,3100,3099,3098,3097,3096,3095,3094,3093,3078,3077,3076,3075,3074,3073,3072,3071,3070,3069,3068,3067,3052,3051
+<3052=3066,3060,3059,3053
+<3053=3054
+<3054=3056,3055
+<3056=3058,3057
+<3060=3061
+<3061=3063,3062
+<3063=3065,3064
+<3078=3092,3086,3085,3079
+<3079=3080
+<3080=3082,3081
+<3082=3084,3083
+<3086=3087
+<3087=3089,3088
+<3089=3091,3090
+<3103=3104
+<3113=3128,3127,3114
+<3114=3124,3121,3118,3115
+<3115=3117,3116
+<3118=3120,3119
+<3121=3123,3122
+<3124=3126,3125
+<3128=3252,3248,3244,3222,3218,3179,3157,3129
+<3129=3130
+<3130=3155,3131
+<3131=3147,3145,3143,3132
+<3132=3133
+<3133=3142,3134
+<3134=3140,3135
+<3135=3138,3136
+<3136=3137
+<3138=3139
+<3140=3141
+<3143=3144
+<3145=3146
+<3147=3148
+<3148=3152,3149
+<3149=3151,3150
+<3152=3154,3153
+<3155=3156
+<3157=3158
+<3158=3177,3159
+<3159=3175,3173,3171,3160
+<3160=3161
+<3161=3170,3162
+<3162=3168,3163
+<3163=3166,3164
+<3164=3165
+<3166=3167
+<3168=3169
+<3171=3172
+<3173=3174
+<3175=3176
+<3177=3178
+<3179=3214,3210,3207,3180
+<3180=3185,3181
+<3181=3182
+<3182=3184,3183
+<3185=3186
+<3186=3205,3187
+<3187=3203,3201,3199,3188
+<3188=3189
+<3189=3198,3190
+<3190=3196,3191
+<3191=3194,3192
+<3192=3193
+<3194=3195
+<3196=3197
+<3199=3200
+<3201=3202
+<3203=3204
+<3205=3206
+<3207=3209,3208
+<3210=3211
+<3211=3213,3212
+<3214=3215
+<3215=3217,3216
+<3218=3219
+<3219=3221,3220
+<3222=3223
+<3223=3242,3224
+<3224=3240,3238,3236,3225
+<3225=3226
+<3226=3235,3227
+<3227=3233,3228
+<3228=3231,3229
+<3229=3230
+<3231=3232
+<3233=3234
+<3236=3237
+<3238=3239
+<3240=3241
+<3242=3243
+<3244=3245
+<3245=3247,3246
+<3248=3249
+<3249=3251,3250
+<3252=3253
+<3253=3255,3254
+<3267=3276,3275,3268
+<3268=3272,3269
+<3269=3271,3270
+<3272=3274,3273
+<3276=3277
+<3277=3278
+<3278=3309,3279
+<3279=3303,3293,3291,3280
+<3280=3281
+<3281=3290,3282
+<3282=3288,3283
+<3283=3286,3284
+<3284=3285
+<3286=3287
+<3288=3289
+<3291=3292
+<3293=3294
+<3294=3300,3295
+<3295=3297,3296
+<3297=3299,3298
+<3300=3302,3301
+<3303=3304
+<3304=3306,3305
+<3306=3308,3307
+<3309=3310
+<3322=3331,3330,3323
+<3323=3327,3324
+<3324=3326,3325
+<3327=3329,3328
+<3331=3332
+<3332=3333
+<3333=3364,3334
+<3334=3358,3348,3346,3335
+<3335=3336
+<3336=3345,3337
+<3337=3343,3338
+<3338=3341,3339
+<3339=3340
+<3341=3342
+<3343=3344
+<3346=3347
+<3348=3349
+<3349=3355,3350
+<3350=3352,3351
+<3352=3354,3353
+<3355=3357,3356
+<3358=3359
+<3359=3361,3360
+<3361=3363,3362
+<3364=3365
+<3377=3389,3388,3378
+<3378=3385,3382,3379
+<3379=3381,3380
+<3382=3384,3383
+<3385=3387,3386
+<3389=3437,3436,3435,3434,3433,3432,3428,3427,3421,3420,3414,3413,3405,3404,3398,3397,3391,3390
+<3391=3392
+<3392=3394,3393
+<3394=3396,3395
+<3398=3399
+<3399=3401,3400
+<3401=3403,3402
+<3405=3406
+<3406=3410,3407
+<3407=3409,3408
+<3410=3412,3411
+<3414=3415
+<3415=3417,3416
+<3417=3419,3418
+<3421=3422
+<3422=3424,3423
+<3424=3426,3425
+<3428=3429
+<3429=3431,3430
+<3452=3455,3454,3453
+<3455=3472,3471,3470,3469,3468,3467,3463,3462,3456
+<3456=3457
+<3457=3459,3458
+<3459=3461,3460
+<3463=3464
+<3464=3466,3465
+<3479=3485,3484,3480
+<3480=3481
+<3481=3483,3482
+<3485=3559,3552,3548,3488,3486
+<3486=3487
+<3488=3544,3535,3532,3489
+<3489=3519,3504,3503,3502,3501,3500,3499,3498,3497,3496,3495,3494,3493,3492,3491,3490
+<3504=3511,3507,3505
+<3505=3506
+<3507=3508
+<3508=3510,3509
+<3511=3512
+<3512=3516,3513
+<3513=3515,3514
+<3516=3518,3517
+<3519=3520
+<3520=3531,3521
+<3521=3523,3522
+<3523=3529,3524
+<3524=3525
+<3525=3526
+<3526=3528,3527
+<3529=3530
+<3532=3534,3533
+<3535=3536
+<3536=3543,3537
+<3537=3541,3538
+<3538=3539
+<3539=3540
+<3541=3542
+<3544=3545
+<3545=3547,3546
+<3548=3549
+<3549=3551,3550
+<3552=3553
+<3553=3558,3557,3554
+<3554=3556,3555
+<3559=3560
+<3560=3562,3561
+<3576=3582,3581,3577
+<3577=3578
+<3578=3580,3579
+<3582=3637,3633,3632,3631,3630,3629,3628,3627,3626,3625,3624,3623,3622,3621,3620,3619,3618,3617,3613,3585,3583
+<3583=3584
+<3585=3609,3600,3597,3586
+<3586=3591,3587
+<3587=3588
+<3588=3590,3589
+<3591=3592
+<3592=3594,3593
+<3594=3596,3595
+<3597=3599,3598
+<3600=3601
+<3601=3608,3602
+<3602=3606,3603
+<3603=3604
+<3604=3605
+<3606=3607
+<3609=3610
+<3610=3612,3611
+<3613=3614
+<3614=3616,3615
+<3633=3634
+<3634=3636,3635
+<3637=3638
+<3638=3640,3639
+<3651=3663,3662,3652
+<3652=3659,3656,3653
+<3653=3655,3654
+<3656=3658,3657
+<3659=3661,3660
+<3663=3795,3791,3787,3783,3779,3775,3771,3767,3664
+<3664=3765,3665
+<3665=3757,3751,3736,3725,3710,3709,3708,3707,3706,3705,3704,3703,3702,3701,3700,3699,3698,3697,3696,3695,3687,3686,3685,3684,3683,3682,3681,3680,3679,3678,3677,3676,3675,3674,3673,3672,3671,3670,3666
+<3666=3667
+<3667=3669,3668
+<3687=3689,3688
+<3689=3690
+<3690=3692,3691
+<3692=3694,3693
+<3710=3717,3711
+<3711=3713,3712
+<3713=3714
+<3714=3716,3715
+<3717=3718
+<3718=3722,3719
+<3719=3721,3720
+<3722=3724,3723
+<3725=3726
+<3726=3735,3727
+<3727=3729,3728
+<3729=3733,3730
+<3730=3731
+<3731=3732
+<3733=3734
+<3736=3747,3737
+<3737=3743,3739,3738
+<3739=3740
+<3740=3742,3741
+<3743=3744
+<3744=3746,3745
+<3747=3748
+<3748=3750,3749
+<3751=3753,3752
+<3753=3754
+<3754=3756,3755
+<3757=3758
+<3758=3764,3759
+<3759=3763,3760
+<3760=3762,3761
+<3765=3766
+<3767=3768
+<3768=3770,3769
+<3771=3772
+<3772=3774,3773
+<3775=3776
+<3776=3778,3777
+<3779=3780
+<3780=3782,3781
+<3783=3784
+<3784=3786,3785
+<3787=3788
+<3788=3790,3789
+<3791=3792
+<3792=3794,3793
+<3795=3796
+<3796=3798,3797
+<3816=3822,3821,3817
+<3817=3818
+<3818=3820,3819
+<3822=4001,3997,3991,3990,3989,3988,3987,3986,3985,3984,3983,3982,3981,3980,3979,3978,3977,3976,3975,3974,3823
+<3823=3923,3872,3848,3824
+<3824=3842,3825
+<3825=3838,3837,3826
+<3826=3827
+<3827=3834,3828
+<3828=3830,3829
+<3830=3832,3831
+<3832=3833
+<3834=3836,3835
+<3838=3839
+<3839=3841,3840
+<3842=3843
+<3843=3845,3844
+<3845=3847,3846
+<3848=3866,3849
+<3849=3862,3861,3850
+<3850=3851
+<3851=3858,3852
+<3852=3854,3853
+<3854=3856,3855
+<3856=3857
+<3858=3860,3859
+<3862=3863
+<3863=3865,3864
+<3866=3867
+<3867=3869,3868
+<3869=3871,3870
+<3872=3915,3898,3873
+<3873=3874
+<3874=3892,3875
+<3875=3888,3887,3876
+<3876=3877
+<3877=3884,3878
+<3878=3880,3879
+<3880=3882,3881
+<3882=3883
+<3884=3886,3885
+<3888=3889
+<3889=3891,3890
+<3892=3893
+<3893=3895,3894
+<3895=3897,3896
+<3898=3911,3910,3899
+<3899=3900
+<3900=3907,3901
+<3901=3903,3902
+<3903=3905,3904
+<3905=3906
+<3907=3909,3908
+<3911=3912
+<3912=3914,3913
+<3915=3916
+<3916=3920,3917
+<3917=3919,3918
+<3920=3922,3921
+<3923=3966,3949,3924
+<3924=3925
+<3925=3943,3926
+<3926=3939,3938,3927
+<3927=3928
+<3928=3935,3929
+<3929=3931,3930
+<3931=3933,3932
+<3933=3934
+<3935=3937,3936
+<3939=3940
+<3940=3942,3941
+<3943=3944
+<3944=3946,3945
+<3946=3948,3947
+<3949=3962,3961,3950
+<3950=3951
+<3951=3958,3952
+<3952=3954,3953
+<3954=3956,3955
+<3956=3957
+<3958=3960,3959
+<3962=3963
+<3963=3965,3964
+<3966=3967
+<3967=3971,3968
+<3968=3970,3969
+<3971=3973,3972
+<3991=3992
+<3992=3996,3993
+<3993=3995,3994
+<3997=3998
+<3998=4000,3999
+<4001=4002
+<4002=4004,4003
+<4025=4028,4027,4026
+<4028=4066,4065,4064,4063,4062,4061,4060,4059,4058,4052,4051,4050,4049,4048,4047,4046,4045,4041,4040,4039,4038,4037,4036,4035,4029
+<4029=4030
+<4030=4032,4031
+<4032=4034,4033
+<4041=4042
+<4042=4044,4043
+<4052=4053
+<4053=4055,4054
+<4055=4057,4056
+<4074=4077,4076,4075
+<4077=4470,4466,4461,4457,4456,4450,4449,4448,4447,4446,4445,4444,4443,4257,4256,4255,4254,4253,4252,4251,4250,4249,4248,4247,4246,4245,4244,4243,4242,4241,4240,4239,4238,4229,4228,4227,4226,4225,4224,4223,4217,4216,4215,4214,4213,4212,4211,4205,4078,4079,4080,4081,4082,4083,4084,4085,4086,4087,4088,4089,4090,4091,4092,4093,4094,4095,4096,4097,4098,4099,4100,4101,4102,4103,4104,4105,4106,4107,4108,4109,4110,4111,4112,4113,4114,4115,4116,4117,4118,4119,4120,4121,4122,4123,4196,4202,4203,4204
+<4123=4192,4188,4185,4124
+<4124=4184,4183,4182,4181,4180,4125,4131,4132,4133,4134,4135,4136,4137,4138,4139,4140,4141,4142,4143,4144,4145,4146,4147,4148,4149,4150,4151,4152,4153,4154,4155,4156,4157,4158,4159,4160,4161,4162,4163,4164,4165,4166,4167,4168,4169,4170,4171,4172,4173,4174,4175,4176,4177,4178,4179
+<4125=4126
+<4126=4128,4127
+<4128=4130,4129
+<4185=4187,4186
+<4188=4189
+<4189=4191,4190
+<4192=4193
+<4193=4195,4194
+<4196=4197
+<4197=4199,4198
+<4199=4201,4200
+<4205=4206
+<4206=4208,4207
+<4208=4210,4209
+<4217=4218
+<4218=4220,4219
+<4220=4222,4221
+<4229=4230
+<4230=4232,4231
+<4232=4233
+<4233=4235,4234
+<4235=4237,4236
+<4257=4439,4438,4437,4436,4435,4434,4433,4432,4431,4430,4429,4428,4427,4426,4425,4424,4422,4421,4420,4419,4418,4417,4416,4415,4414,4413,4412,4411,4410,4259,4258
+<4259=4409,4408,4404,4403,4402,4401,4400,4399,4398,4397,4396,4395,4394,4393,4392,4391,4390,4389,4388,4387,4386,4385,4384,4383,4382,4381,4380,4379,4378,4377,4376,4375,4374,4373,4340,4260,4261,4262,4263,4264,4265,4266,4267,4268,4269,4270,4271,4272,4273,4274,4275,4276,4277,4278,4279,4280,4281,4282,4283,4284,4285,4286,4287,4288,4289,4290,4291,4292,4293,4308,4309,4326,4327,4328,4329,4330,4331,4332,4333,4334,4335,4336,4337,4338,4339
+<4293=4294
+<4294=4305,4295
+<4295=4304,4296
+<4296=4298,4297
+<4298=4302,4299
+<4299=4300
+<4300=4301
+<4302=4303
+<4305=4307,4306
+<4309=4325,4324,4323,4322,4321,4320,4319,4318,4317,4316,4315,4314,4310
+<4310=4311
+<4311=4313,4312
+<4340=4362,4361,4360,4359,4358,4357,4356,4355,4354,4353,4352,4351,4350,4349,4348,4342,4341
+<4342=4343
+<4343=4347,4344
+<4344=4346,4345
+<4362=4363
+<4363=4371,4364
+<4364=4369,4367,4365
+<4365=4366
+<4367=4368
+<4369=4370
+<4371=4372
+<4404=4405
+<4405=4407,4406
+<4422=4423
+<4439=4440
+<4440=4442,4441
+<4450=4451
+<4451=4453,4452
+<4453=4455,4454
+<4457=4458
+<4458=4460,4459
+<4461=4462
+<4462=4465,4464,4463
+<4466=4467
+<4467=4469,4468
+<4470=4471
+<4471=4473,4472
+<4491=4494,4493,4492
+<4494=4501,4495
+<4495=4496
+<4496=4498,4497
+<4498=4500,4499
+<4508=4514,4513,4509
+<4509=4510
+<4510=4512,4511
+<4514=4533,4527,4526,4525,4524,4523,4522,4521,4515
+<4515=4516
+<4516=4518,4517
+<4518=4520,4519
+<4527=4528
+<4528=4530,4529
+<4530=4532,4531
+<4541=4544,4543,4542
+<4544=4569,4568,4567,4566,4565,4564,4563,4562,4561,4560,4545
+<4545=4559,4553,4552,4546
+<4546=4547
+<4547=4549,4548
+<4549=4551,4550
+<4553=4554
+<4554=4556,4555
+<4556=4558,4557
+<4577=4580,4579,4578
+<4580=4721,4720,4719,4718,4717,4716,4715,4711,4710,4704,4703,4702,4701,4700,4699,4698,4692,4691,4685,4684,4678,4677,4676,4675,4674,4673,4672,4666,4665,4659,4658,4652,4651,4650,4649,4648,4647,4646,4642,4641,4633,4632,4631,4630,4629,4628,4627,4626,4581
+<4581=4624,4623,4615,4614,4613,4612,4611,4610,4609,4608,4607,4606,4602,4601,4599,4597,4596,4588,4587,4585,4583,4582
+<4583=4584
+<4585=4586
+<4588=4589
+<4589=4591,4590
+<4591=4593,4592
+<4593=4595,4594
+<4597=4598
+<4599=4600
+<4602=4603
+<4603=4605,4604
+<4615=4616
+<4616=4618,4617
+<4618=4620,4619
+<4620=4622,4621
+<4624=4625
+<4633=4634
+<4634=4638,4635
+<4635=4637,4636
+<4638=4640,4639
+<4642=4643
+<4643=4645,4644
+<4652=4653
+<4653=4655,4654
+<4655=4657,4656
+<4659=4660
+<4660=4662,4661
+<4662=4664,4663
+<4666=4667
+<4667=4669,4668
+<4669=4671,4670
+<4678=4679
+<4679=4681,4680
+<4681=4683,4682
+<4685=4686
+<4686=4688,4687
+<4688=4690,4689
+<4692=4693
+<4693=4695,4694
+<4695=4697,4696
+<4704=4705
+<4705=4707,4706
+<4707=4709,4708
+<4711=4712
+<4712=4714,4713

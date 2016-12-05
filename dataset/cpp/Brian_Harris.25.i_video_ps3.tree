@@ -1,0 +1,862 @@
+>3	FunctionDef	I_ShutdownGraphics ()
+>4	ParameterList	 
+>5	ReturnType	void
+>6	CompoundStatement	 
+>10	FunctionDef	I_StartFrame ()
+>11	ParameterList	 
+>12	ReturnType	void
+>13	CompoundStatement	 
+>17	FunctionDef	I_CombineMouseEvent (const event_t * in , event_t * out)
+>18	ParameterList	const event_t * in , event_t * out
+>19	Parameter	 
+>20	Identifier	out
+>21	ParameterType	event_t *
+>22	Parameter	 
+>23	Identifier	in
+>24	ParameterType	const event_t *
+>25	ReturnType	static void
+>26	CompoundStatement	 
+>27	IfStatement	if ( fabs ( ( float ) in -> data3 ) > fabs ( ( float ) out -> data3 ) )
+>28	ExpressionStatement	 
+>29	AssignmentExpr	out -> data3 = in -> data3
+>30	PtrMemberAccess	in -> data3
+>31	Identifier	data3
+>32	Identifier	in
+>33	PtrMemberAccess	out -> data3
+>34	Identifier	data3
+>35	Identifier	out
+>36	Condition	 
+>37	RelationalExpression	fabs ( ( float ) in -> data3 ) > fabs ( ( float ) out -> data3 )
+>38	CallExpression	fabs ( ( float ) out -> data3 )
+>39	ArgumentList	( float ) out -> data3
+>40	Argument	( float ) out -> data3
+>41	CastExpression	( float ) out -> data3
+>42	PtrMemberAccess	out -> data3
+>43	Identifier	data3
+>44	Identifier	out
+>45	CastTarget	float
+>46	Callee	fabs
+>47	Identifier	fabs
+>48	CallExpression	fabs ( ( float ) in -> data3 )
+>49	ArgumentList	( float ) in -> data3
+>50	Argument	( float ) in -> data3
+>51	CastExpression	( float ) in -> data3
+>52	PtrMemberAccess	in -> data3
+>53	Identifier	data3
+>54	Identifier	in
+>55	CastTarget	float
+>56	Callee	fabs
+>57	Identifier	fabs
+>58	IfStatement	if ( fabs ( ( float ) in -> data2 ) > fabs ( ( float ) out -> data2 ) )
+>59	ExpressionStatement	 
+>60	AssignmentExpr	out -> data2 = in -> data2
+>61	PtrMemberAccess	in -> data2
+>62	Identifier	data2
+>63	Identifier	in
+>64	PtrMemberAccess	out -> data2
+>65	Identifier	data2
+>66	Identifier	out
+>67	Condition	 
+>68	RelationalExpression	fabs ( ( float ) in -> data2 ) > fabs ( ( float ) out -> data2 )
+>69	CallExpression	fabs ( ( float ) out -> data2 )
+>70	ArgumentList	( float ) out -> data2
+>71	Argument	( float ) out -> data2
+>72	CastExpression	( float ) out -> data2
+>73	PtrMemberAccess	out -> data2
+>74	Identifier	data2
+>75	Identifier	out
+>76	CastTarget	float
+>77	Callee	fabs
+>78	Identifier	fabs
+>79	CallExpression	fabs ( ( float ) in -> data2 )
+>80	ArgumentList	( float ) in -> data2
+>81	Argument	( float ) in -> data2
+>82	CastExpression	( float ) in -> data2
+>83	PtrMemberAccess	in -> data2
+>84	Identifier	data2
+>85	Identifier	in
+>86	CastTarget	float
+>87	Callee	fabs
+>88	Identifier	fabs
+>89	IfStatement	if ( fabs ( ( float ) in -> data1 ) > fabs ( ( float ) out -> data1 ) )
+>90	ExpressionStatement	 
+>91	AssignmentExpr	out -> data1 = in -> data1
+>92	PtrMemberAccess	in -> data1
+>93	Identifier	data1
+>94	Identifier	in
+>95	PtrMemberAccess	out -> data1
+>96	Identifier	data1
+>97	Identifier	out
+>98	Condition	 
+>99	RelationalExpression	fabs ( ( float ) in -> data1 ) > fabs ( ( float ) out -> data1 )
+>100	CallExpression	fabs ( ( float ) out -> data1 )
+>101	ArgumentList	( float ) out -> data1
+>102	Argument	( float ) out -> data1
+>103	CastExpression	( float ) out -> data1
+>104	PtrMemberAccess	out -> data1
+>105	Identifier	data1
+>106	Identifier	out
+>107	CastTarget	float
+>108	Callee	fabs
+>109	Identifier	fabs
+>110	CallExpression	fabs ( ( float ) in -> data1 )
+>111	ArgumentList	( float ) in -> data1
+>112	Argument	( float ) in -> data1
+>113	CastExpression	( float ) in -> data1
+>114	PtrMemberAccess	in -> data1
+>115	Identifier	data1
+>116	Identifier	in
+>117	CastTarget	float
+>118	Callee	fabs
+>119	Identifier	fabs
+>134	FunctionDef	I_GetEvents (controller_t * controller)
+>135	ParameterList	controller_t * controller
+>136	Parameter	 
+>137	Identifier	controller
+>138	ParameterType	controller_t *
+>139	ReturnType	void
+>140	CompoundStatement	 
+>141	ExpressionStatement	 
+>142	CallExpression	D_PostEvent ( & e_joystick )
+>143	ArgumentList	& e_joystick
+>144	Argument	& e_joystick
+>145	UnaryOp	& e_joystick
+>146	Identifier	e_joystick
+>147	UnaryOperator	&
+>148	Callee	D_PostEvent
+>149	Identifier	D_PostEvent
+>150	ExpressionStatement	 
+>151	CallExpression	D_PostEvent ( & e_mouse )
+>152	ArgumentList	& e_mouse
+>153	Argument	& e_mouse
+>154	UnaryOp	& e_mouse
+>155	Identifier	e_mouse
+>156	UnaryOperator	&
+>157	Callee	D_PostEvent
+>158	Identifier	D_PostEvent
+>159	IfStatement	if ( numEvents )
+>160	CompoundStatement	 
+>161	ForStatement	for ( i = 0 ; i < numEvents ; ++ i )
+>162	CompoundStatement	 
+>163	IfStatement	if ( e . type == ev_keydown || e . type == ev_keyup )
+>164	ElseStatement	else
+>165	IfStatement	if ( e . type == ev_joystick )
+>166	ElseStatement	else
+>167	IfStatement	if ( e . type == ev_mouse )
+>168	CompoundStatement	 
+>169	ExpressionStatement	 
+>170	CallExpression	I_CombineMouseEvent ( & e , & e_mouse )
+>171	ArgumentList	& e
+>172	Argument	& e_mouse
+>173	UnaryOp	& e_mouse
+>174	Identifier	e_mouse
+>175	UnaryOperator	&
+>176	Argument	& e
+>177	UnaryOp	& e
+>178	Identifier	e
+>179	UnaryOperator	&
+>180	Callee	I_CombineMouseEvent
+>181	Identifier	I_CombineMouseEvent
+>182	Condition	 
+>183	EqualityExpression	e . type == ev_mouse
+>184	Identifier	ev_mouse
+>185	MemberAccess	e . type
+>186	Identifier	type
+>187	Identifier	e
+>188	CompoundStatement	 
+>189	ExpressionStatement	 
+>190	CallExpression	I_CombineMouseEvent ( & e , & e_joystick )
+>191	ArgumentList	& e
+>192	Argument	& e_joystick
+>193	UnaryOp	& e_joystick
+>194	Identifier	e_joystick
+>195	UnaryOperator	&
+>196	Argument	& e
+>197	UnaryOp	& e
+>198	Identifier	e
+>199	UnaryOperator	&
+>200	Callee	I_CombineMouseEvent
+>201	Identifier	I_CombineMouseEvent
+>202	Condition	 
+>203	EqualityExpression	e . type == ev_joystick
+>204	Identifier	ev_joystick
+>205	MemberAccess	e . type
+>206	Identifier	type
+>207	Identifier	e
+>208	CompoundStatement	 
+>209	ExpressionStatement	 
+>210	CallExpression	D_PostEvent ( & e )
+>211	ArgumentList	& e
+>212	Argument	& e
+>213	UnaryOp	& e
+>214	Identifier	e
+>215	UnaryOperator	&
+>216	Callee	D_PostEvent
+>217	Identifier	D_PostEvent
+>218	Condition	 
+>219	OrExpression	e . type == ev_keydown || e . type == ev_keyup
+>220	EqualityExpression	e . type == ev_keyup
+>221	Identifier	ev_keyup
+>222	MemberAccess	e . type
+>223	Identifier	type
+>224	Identifier	e
+>225	EqualityExpression	e . type == ev_keydown
+>226	Identifier	ev_keydown
+>227	MemberAccess	e . type
+>228	Identifier	type
+>229	Identifier	e
+>230	ExpressionStatement	 
+>231	CallExpression	I_ReturnJoystickInputEvent ( i , & e )
+>232	ArgumentList	i
+>233	Argument	& e
+>234	UnaryOp	& e
+>235	Identifier	e
+>236	UnaryOperator	&
+>237	Argument	i
+>238	Identifier	i
+>239	Callee	I_ReturnJoystickInputEvent
+>240	Identifier	I_ReturnJoystickInputEvent
+>241	UnaryExpression	 
+>242	Identifier	i
+>243	IncDec	++
+>244	Condition	 
+>245	RelationalExpression	i < numEvents
+>246	Identifier	numEvents
+>247	Identifier	i
+>248	ForInit	 
+>249	AssignmentExpr	i = 0
+>250	PrimaryExpression	0
+>251	Identifier	i
+>252	IdentifierDeclStatement	 
+>253	IdentifierDecl	e
+>254	Identifier	e
+>255	IdentifierDeclType	event_t
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	i
+>258	Identifier	i
+>259	IdentifierDeclType	int
+>260	Condition	 
+>261	Identifier	numEvents
+>262	ExpressionStatement	 
+>263	AssignmentExpr	numEvents = I_PollJoystickInputEvents ( controller )
+>264	CallExpression	I_PollJoystickInputEvents ( controller )
+>265	ArgumentList	controller
+>266	Argument	controller
+>267	Identifier	controller
+>268	Callee	I_PollJoystickInputEvents
+>269	Identifier	I_PollJoystickInputEvents
+>270	Identifier	numEvents
+>271	IfStatement	if ( numEvents )
+>272	CompoundStatement	 
+>273	ForStatement	for ( i = 0 ; i < numEvents ; ++ i )
+>274	CompoundStatement	 
+>275	IfStatement	if ( e . type == ev_mouse )
+>276	ElseStatement	else
+>277	IfStatement	if ( e . type == ev_joystick )
+>278	ExpressionStatement	 
+>279	CallExpression	I_CombineMouseEvent ( & e , & e_joystick )
+>280	ArgumentList	& e
+>281	Argument	& e_joystick
+>282	UnaryOp	& e_joystick
+>283	Identifier	e_joystick
+>284	UnaryOperator	&
+>285	Argument	& e
+>286	UnaryOp	& e
+>287	Identifier	e
+>288	UnaryOperator	&
+>289	Callee	I_CombineMouseEvent
+>290	Identifier	I_CombineMouseEvent
+>291	Condition	 
+>292	EqualityExpression	e . type == ev_joystick
+>293	Identifier	ev_joystick
+>294	MemberAccess	e . type
+>295	Identifier	type
+>296	Identifier	e
+>297	ExpressionStatement	 
+>298	CallExpression	I_CombineMouseEvent ( & e , & e_mouse )
+>299	ArgumentList	& e
+>300	Argument	& e_mouse
+>301	UnaryOp	& e_mouse
+>302	Identifier	e_mouse
+>303	UnaryOperator	&
+>304	Argument	& e
+>305	UnaryOp	& e
+>306	Identifier	e
+>307	UnaryOperator	&
+>308	Callee	I_CombineMouseEvent
+>309	Identifier	I_CombineMouseEvent
+>310	Condition	 
+>311	EqualityExpression	e . type == ev_mouse
+>312	Identifier	ev_mouse
+>313	MemberAccess	e . type
+>314	Identifier	type
+>315	Identifier	e
+>316	ExpressionStatement	 
+>317	CallExpression	I_ReturnMouseInputEvent ( i , & e )
+>318	ArgumentList	i
+>319	Argument	& e
+>320	UnaryOp	& e
+>321	Identifier	e
+>322	UnaryOperator	&
+>323	Argument	i
+>324	Identifier	i
+>325	Callee	I_ReturnMouseInputEvent
+>326	Identifier	I_ReturnMouseInputEvent
+>327	UnaryExpression	 
+>328	Identifier	i
+>329	IncDec	++
+>330	Condition	 
+>331	RelationalExpression	i < numEvents
+>332	Identifier	numEvents
+>333	Identifier	i
+>334	ForInit	 
+>335	AssignmentExpr	i = 0
+>336	PrimaryExpression	0
+>337	Identifier	i
+>338	IdentifierDeclStatement	 
+>339	IdentifierDecl	e
+>340	Identifier	e
+>341	IdentifierDeclType	event_t
+>342	IdentifierDeclStatement	 
+>343	IdentifierDecl	i
+>344	Identifier	i
+>345	IdentifierDeclType	int
+>346	Condition	 
+>347	Identifier	numEvents
+>348	ExpressionStatement	 
+>349	AssignmentExpr	numEvents = I_PollMouseInputEvents ( controller )
+>350	CallExpression	I_PollMouseInputEvents ( controller )
+>351	ArgumentList	controller
+>352	Argument	controller
+>353	Identifier	controller
+>354	Callee	I_PollMouseInputEvents
+>355	Identifier	I_PollMouseInputEvents
+>356	Identifier	numEvents
+>357	ExpressionStatement	 
+>358	AssignmentExpr	e_joystick . data1 = e_joystick . data2 = e_joystick . data3 = 0
+>359	AssignmentExpr	e_joystick . data2 = e_joystick . data3 = 0
+>360	AssignmentExpr	e_joystick . data3 = 0
+>361	PrimaryExpression	0
+>362	MemberAccess	e_joystick . data3
+>363	Identifier	data3
+>364	Identifier	e_joystick
+>365	MemberAccess	e_joystick . data2
+>366	Identifier	data2
+>367	Identifier	e_joystick
+>368	MemberAccess	e_joystick . data1
+>369	Identifier	data1
+>370	Identifier	e_joystick
+>371	ExpressionStatement	 
+>372	AssignmentExpr	e_joystick . type = ev_joystick
+>373	Identifier	ev_joystick
+>374	MemberAccess	e_joystick . type
+>375	Identifier	type
+>376	Identifier	e_joystick
+>377	ExpressionStatement	 
+>378	AssignmentExpr	e_mouse . data1 = e_mouse . data2 = e_mouse . data3 = 0
+>379	AssignmentExpr	e_mouse . data2 = e_mouse . data3 = 0
+>380	AssignmentExpr	e_mouse . data3 = 0
+>381	PrimaryExpression	0
+>382	MemberAccess	e_mouse . data3
+>383	Identifier	data3
+>384	Identifier	e_mouse
+>385	MemberAccess	e_mouse . data2
+>386	Identifier	data2
+>387	Identifier	e_mouse
+>388	MemberAccess	e_mouse . data1
+>389	Identifier	data1
+>390	Identifier	e_mouse
+>391	ExpressionStatement	 
+>392	AssignmentExpr	e_mouse . type = ev_mouse
+>393	Identifier	ev_mouse
+>394	MemberAccess	e_mouse . type
+>395	Identifier	type
+>396	Identifier	e_mouse
+>397	IdentifierDeclStatement	 
+>398	IdentifierDecl	numEvents
+>399	Identifier	numEvents
+>400	IdentifierDeclType	int
+>401	IdentifierDeclStatement	 
+>402	IdentifierDecl	e_joystick
+>403	Identifier	e_joystick
+>404	IdentifierDeclType	event_t
+>405	IdentifierDecl	e_mouse
+>406	Identifier	e_mouse
+>407	IdentifierDeclType	event_t
+>435	FunctionDef	I_UpdateNoBlit ()
+>436	ParameterList	 
+>437	ReturnType	void
+>438	CompoundStatement	 
+>442	FunctionDef	I_FinishUpdate ()
+>443	ParameterList	 
+>444	ReturnType	void
+>445	CompoundStatement	 
+>449	FunctionDef	I_ReadScreen (byte * scr)
+>450	ParameterList	byte * scr
+>451	Parameter	 
+>452	Identifier	scr
+>453	ParameterType	byte *
+>454	ReturnType	void
+>455	CompoundStatement	 
+>456	ExpressionStatement	 
+>457	Statement	 
+>458	Statement	 
+>459	Statement	 
+>460	Statement	 
+>461	Statement	 
+>462	Statement	 
+>463	Statement	 
+>464	Statement	 
+>465	Statement	 
+>466	Statement	 
+>467	Statement	 
+>468	Statement	 
+>469	Statement	 
+>470	Statement	 
+>471	Statement	 
+>472	Statement	 
+>477	FunctionDef	I_PackColor (unsigned int a , unsigned int r , unsigned int g , unsigned int b)
+>478	ParameterList	unsigned int a , unsigned int r , unsigned int g , unsigned int b
+>479	Parameter	 
+>480	Identifier	b
+>481	ParameterType	unsigned int
+>482	Parameter	 
+>483	Identifier	g
+>484	ParameterType	unsigned int
+>485	Parameter	 
+>486	Identifier	r
+>487	ParameterType	unsigned int
+>488	Parameter	 
+>489	Identifier	a
+>490	ParameterType	unsigned int
+>491	ReturnType	inline unsigned int
+>492	CompoundStatement	 
+>493	ReturnStatement	 
+>494	Identifier	color
+>495	ExpressionStatement	 
+>496	AssignmentExpr	color |= ( a & 255 )
+>497	BitAndExpression	a & 255
+>498	PrimaryExpression	255
+>499	Identifier	a
+>500	Identifier	color
+>501	ExpressionStatement	 
+>502	AssignmentExpr	color |= ( b & 255 ) << 8
+>503	ShiftExpression	( b & 255 ) << 8
+>504	PrimaryExpression	8
+>505	BitAndExpression	b & 255
+>506	PrimaryExpression	255
+>507	Identifier	b
+>508	Identifier	color
+>509	ExpressionStatement	 
+>510	AssignmentExpr	color |= ( g & 255 ) << 16
+>511	ShiftExpression	( g & 255 ) << 16
+>512	PrimaryExpression	16
+>513	BitAndExpression	g & 255
+>514	PrimaryExpression	255
+>515	Identifier	g
+>516	Identifier	color
+>517	ExpressionStatement	 
+>518	AssignmentExpr	color |= ( r & 255 ) << 24
+>519	ShiftExpression	( r & 255 ) << 24
+>520	PrimaryExpression	24
+>521	BitAndExpression	r & 255
+>522	PrimaryExpression	255
+>523	Identifier	r
+>524	Identifier	color
+>525	IdentifierDeclStatement	 
+>526	IdentifierDecl	color = 0
+>527	AssignmentExpr	color = 0
+>528	PrimaryExpression	0
+>529	Identifier	color
+>530	Identifier	color
+>531	IdentifierDeclType	unsigned int
+>540	FunctionDef	I_SetPalette (byte * palette)
+>541	ParameterList	byte * palette
+>542	Parameter	 
+>543	Identifier	palette
+>544	ParameterType	byte *
+>545	ReturnType	void
+>546	CompoundStatement	 
+>547	ForStatement	for ( i = 0 ; i < 256 ; i ++ )
+>548	CompoundStatement	 
+>549	ExpressionStatement	 
+>550	AssignmentExpr	g -> XColorMap [ i ] = I_PackColor ( 0xff , r , g , b )
+>551	CallExpression	I_PackColor ( 0xff , r , g , b )
+>552	ArgumentList	0xff
+>553	Argument	b
+>554	Identifier	b
+>555	Argument	g
+>556	Identifier	g
+>557	Argument	r
+>558	Identifier	r
+>559	Argument	0xff
+>560	PrimaryExpression	0xff
+>561	Callee	I_PackColor
+>562	Identifier	I_PackColor
+>563	ArrayIndexing	g -> XColorMap [ i ]
+>564	Identifier	i
+>565	PtrMemberAccess	g -> XColorMap
+>566	Identifier	XColorMap
+>567	Identifier	g
+>568	Statement	 
+>569	ExpressionStatement	 
+>570	Statement	 
+>571	Statement	 
+>572	Statement	 
+>573	Statement	 
+>574	Statement	 
+>575	Statement	 
+>576	Statement	 
+>577	Statement	 
+>578	Statement	 
+>579	Statement	 
+>580	Statement	 
+>581	Statement	 
+>582	Statement	 
+>583	Statement	 
+>584	ExpressionStatement	 
+>585	Statement	 
+>586	Statement	 
+>587	Statement	 
+>588	Statement	 
+>589	Statement	 
+>590	Statement	 
+>591	Statement	 
+>592	Statement	 
+>593	Statement	 
+>594	Statement	 
+>595	Statement	 
+>596	Statement	 
+>597	Statement	 
+>598	Statement	 
+>599	ExpressionStatement	 
+>600	Statement	 
+>601	Statement	 
+>602	Statement	 
+>603	Statement	 
+>604	Statement	 
+>605	Statement	 
+>606	Statement	 
+>607	Statement	 
+>608	Statement	 
+>609	Statement	 
+>610	Statement	 
+>611	Statement	 
+>612	Statement	 
+>613	Statement	 
+>614	IdentifierDeclStatement	 
+>615	IdentifierDecl	g
+>616	Identifier	g
+>617	IdentifierDeclType	int
+>618	IdentifierDecl	b
+>619	Identifier	b
+>620	IdentifierDeclType	int
+>621	IdentifierDecl	r
+>622	Identifier	r
+>623	IdentifierDeclType	int
+>624	IncDecOp	 
+>625	IncDec	++
+>626	Identifier	i
+>627	Condition	 
+>628	RelationalExpression	i < 256
+>629	PrimaryExpression	256
+>630	Identifier	i
+>631	ForInit	 
+>632	AssignmentExpr	i = 0
+>633	PrimaryExpression	0
+>634	Identifier	i
+>635	IdentifierDeclStatement	 
+>636	IdentifierDecl	i
+>637	Identifier	i
+>638	IdentifierDeclType	int
+>653	FunctionDef	I_InitGraphics ()
+>654	ParameterList	 
+>655	ReturnType	void
+>656	CompoundStatement	 
+<3=6,5,4
+<10=13,12,11
+<17=26,25,18
+<18=22,19
+<19=21,20
+<22=24,23
+<26=89,58,27
+<27=36,28
+<28=29
+<29=33,30
+<30=32,31
+<33=35,34
+<36=37
+<37=48,38
+<38=46,39
+<39=40
+<40=41
+<41=45,42
+<42=44,43
+<46=47
+<48=56,49
+<49=50
+<50=51
+<51=55,52
+<52=54,53
+<56=57
+<58=67,59
+<59=60
+<60=64,61
+<61=63,62
+<64=66,65
+<67=68
+<68=79,69
+<69=77,70
+<70=71
+<71=72
+<72=76,73
+<73=75,74
+<77=78
+<79=87,80
+<80=81
+<81=82
+<82=86,83
+<83=85,84
+<87=88
+<89=98,90
+<90=91
+<91=95,92
+<92=94,93
+<95=97,96
+<98=99
+<99=110,100
+<100=108,101
+<101=102
+<102=103
+<103=107,104
+<104=106,105
+<108=109
+<110=118,111
+<111=112
+<112=113
+<113=117,114
+<114=116,115
+<118=119
+<134=140,139,135
+<135=136
+<136=138,137
+<140=401,397,391,377,371,357,348,271,262,159,150,141
+<141=142
+<142=148,143
+<143=144
+<144=145
+<145=147,146
+<148=149
+<150=151
+<151=157,152
+<152=153
+<153=154
+<154=156,155
+<157=158
+<159=260,160
+<160=256,252,161
+<161=248,244,241,162
+<162=230,163
+<163=218,208,164
+<164=165
+<165=202,188,166
+<166=167
+<167=182,168
+<168=169
+<169=170
+<170=180,171
+<171=176,172
+<172=173
+<173=175,174
+<176=177
+<177=179,178
+<180=181
+<182=183
+<183=185,184
+<185=187,186
+<188=189
+<189=190
+<190=200,191
+<191=196,192
+<192=193
+<193=195,194
+<196=197
+<197=199,198
+<200=201
+<202=203
+<203=205,204
+<205=207,206
+<208=209
+<209=210
+<210=216,211
+<211=212
+<212=213
+<213=215,214
+<216=217
+<218=219
+<219=225,220
+<220=222,221
+<222=224,223
+<225=227,226
+<227=229,228
+<230=231
+<231=239,232
+<232=237,233
+<233=234
+<234=236,235
+<237=238
+<239=240
+<241=243,242
+<244=245
+<245=247,246
+<248=249
+<249=251,250
+<252=253
+<253=255,254
+<256=257
+<257=259,258
+<260=261
+<262=263
+<263=270,264
+<264=268,265
+<265=266
+<266=267
+<268=269
+<271=346,272
+<272=342,338,273
+<273=334,330,327,274
+<274=316,275
+<275=310,297,276
+<276=277
+<277=291,278
+<278=279
+<279=289,280
+<280=285,281
+<281=282
+<282=284,283
+<285=286
+<286=288,287
+<289=290
+<291=292
+<292=294,293
+<294=296,295
+<297=298
+<298=308,299
+<299=304,300
+<300=301
+<301=303,302
+<304=305
+<305=307,306
+<308=309
+<310=311
+<311=313,312
+<313=315,314
+<316=317
+<317=325,318
+<318=323,319
+<319=320
+<320=322,321
+<323=324
+<325=326
+<327=329,328
+<330=331
+<331=333,332
+<334=335
+<335=337,336
+<338=339
+<339=341,340
+<342=343
+<343=345,344
+<346=347
+<348=349
+<349=356,350
+<350=354,351
+<351=352
+<352=353
+<354=355
+<357=358
+<358=368,359
+<359=365,360
+<360=362,361
+<362=364,363
+<365=367,366
+<368=370,369
+<371=372
+<372=374,373
+<374=376,375
+<377=378
+<378=388,379
+<379=385,380
+<380=382,381
+<382=384,383
+<385=387,386
+<388=390,389
+<391=392
+<392=394,393
+<394=396,395
+<397=398
+<398=400,399
+<401=405,402
+<402=404,403
+<405=407,406
+<435=438,437,436
+<442=445,444,443
+<449=455,454,450
+<450=451
+<451=453,452
+<455=472,471,470,469,468,467,466,465,464,463,462,461,460,459,458,457,456
+<477=492,491,478
+<478=488,485,482,479
+<479=481,480
+<482=484,483
+<485=487,486
+<488=490,489
+<492=525,517,509,501,495,493
+<493=494
+<495=496
+<496=500,497
+<497=499,498
+<501=502
+<502=508,503
+<503=505,504
+<505=507,506
+<509=510
+<510=516,511
+<511=513,512
+<513=515,514
+<517=518
+<518=524,519
+<519=521,520
+<521=523,522
+<525=526
+<526=531,530,527
+<527=529,528
+<540=546,545,541
+<541=542
+<542=544,543
+<546=635,547
+<547=631,627,624,548
+<548=614,613,612,611,610,609,608,607,606,605,604,603,602,601,600,599,598,597,596,595,594,593,592,591,590,589,588,587,586,585,584,583,582,581,580,579,578,577,576,575,574,573,572,571,570,569,568,549
+<549=550
+<550=563,551
+<551=561,552
+<552=559,557,555,553
+<553=554
+<555=556
+<557=558
+<559=560
+<561=562
+<563=565,564
+<565=567,566
+<614=621,618,615
+<615=617,616
+<618=620,619
+<621=623,622
+<624=626,625
+<627=628
+<628=630,629
+<631=632
+<632=634,633
+<635=636
+<636=638,637
+<653=656,655,654

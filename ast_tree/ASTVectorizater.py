@@ -11,8 +11,9 @@ from sklearn.base import BaseEstimator
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.preprocessing import normalize
 
-from ast_tree.ast_parser import bfs, children, AstNodes, PythonKeywords, ast_print
-from utils.fun_utils import ast_parse_file
+from ast_tree.traverse import bfs, children
+from ast_tree.tree_nodes import AstNodes, PythonKeywords
+from utils.dataset_utils import ast_parse_file
 
 
 def ast_name(node):

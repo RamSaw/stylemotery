@@ -1,0 +1,1671 @@
+>3	FunctionDef	Relocalizer 
+>4	ParameterList	int w , int h , Eigen 
+>5	Parameter	 
+>6	Identifier	K
+>7	ParameterType	Eigen 
+>8	Parameter	 
+>9	Identifier	h
+>10	ParameterType	int
+>11	Parameter	 
+>12	Identifier	w
+>13	ParameterType	int
+>14	CompoundStatement	 
+>15	ExpressionStatement	 
+>16	AssignmentExpr	resultFrameToKeyframe = SE3 ( )
+>17	CallExpression	SE3 ( )
+>18	ArgumentList	 
+>19	Callee	SE3
+>20	Identifier	SE3
+>21	Identifier	resultFrameToKeyframe
+>22	ExpressionStatement	 
+>23	AssignmentExpr	resultFrameID = 0
+>24	PrimaryExpression	0
+>25	Identifier	resultFrameID
+>26	ExpressionStatement	 
+>27	AssignmentExpr	resultKF = 0
+>28	PrimaryExpression	0
+>29	Identifier	resultKF
+>30	ExpressionStatement	 
+>31	AssignmentExpr	hasResult = false
+>32	Identifier	false
+>33	Identifier	hasResult
+>34	ExpressionStatement	 
+>35	AssignmentExpr	continueRunning = isRunning = false
+>36	AssignmentExpr	isRunning = false
+>37	Identifier	false
+>38	Identifier	isRunning
+>39	Identifier	continueRunning
+>40	ExpressionStatement	 
+>41	AssignmentExpr	nextRelocIDX = maxRelocIDX = 0
+>42	AssignmentExpr	maxRelocIDX = 0
+>43	PrimaryExpression	0
+>44	Identifier	maxRelocIDX
+>45	Identifier	nextRelocIDX
+>46	ExpressionStatement	 
+>47	CallExpression	KFForReloc . clear ( )
+>48	ArgumentList	 
+>49	Callee	KFForReloc . clear
+>50	MemberAccess	KFForReloc . clear
+>51	Identifier	clear
+>52	Identifier	KFForReloc
+>53	ExpressionStatement	 
+>54	AssignmentExpr	this -> K = K
+>55	Identifier	K
+>56	PtrMemberAccess	this -> K
+>57	Identifier	K
+>58	Identifier	this
+>59	ExpressionStatement	 
+>60	AssignmentExpr	this -> h = h
+>61	Identifier	h
+>62	PtrMemberAccess	this -> h
+>63	Identifier	h
+>64	Identifier	this
+>65	ExpressionStatement	 
+>66	AssignmentExpr	this -> w = w
+>67	Identifier	w
+>68	PtrMemberAccess	this -> w
+>69	Identifier	w
+>70	Identifier	this
+>71	ForStatement	for ( int i = 0 ; i < RELOCALIZE_THREADS ; i ++ )
+>72	ExpressionStatement	 
+>73	AssignmentExpr	running [ i ] = false
+>74	Identifier	false
+>75	ArrayIndexing	running [ i ]
+>76	Identifier	i
+>77	Identifier	running
+>78	IncDecOp	 
+>79	IncDec	++
+>80	Identifier	i
+>81	Condition	 
+>82	RelationalExpression	i < RELOCALIZE_THREADS
+>83	Identifier	RELOCALIZE_THREADS
+>84	Identifier	i
+>85	ForInit	 
+>86	IdentifierDeclStatement	int i = 0 ;
+>87	IdentifierDecl	i = 0
+>88	AssignmentExpr	i = 0
+>89	PrimaryExpression	0
+>90	Identifier	i
+>91	Identifier	i
+>92	IdentifierDeclType	int
+>120	FunctionDef	Relocalizer 
+>121	ParameterList	 
+>122	CompoundStatement	 
+>123	ExpressionStatement	 
+>124	CallExpression	stop ( )
+>125	ArgumentList	 
+>126	Callee	stop
+>127	Identifier	stop
+>131	FunctionDef	Relocalizer 
+>132	ParameterList	 
+>133	ReturnType	void
+>134	CompoundStatement	 
+>135	ExpressionStatement	 
+>136	CallExpression	CurrentRelocFrame . reset ( )
+>137	ArgumentList	 
+>138	Callee	CurrentRelocFrame . reset
+>139	MemberAccess	CurrentRelocFrame . reset
+>140	Identifier	reset
+>141	Identifier	CurrentRelocFrame
+>142	ExpressionStatement	 
+>143	CallExpression	KFForReloc . clear ( )
+>144	ArgumentList	 
+>145	Callee	KFForReloc . clear
+>146	MemberAccess	KFForReloc . clear
+>147	Identifier	clear
+>148	Identifier	KFForReloc
+>149	ExpressionStatement	 
+>150	AssignmentExpr	isRunning = false
+>151	Identifier	false
+>152	Identifier	isRunning
+>153	ForStatement	for ( int i = 0 ; i < RELOCALIZE_THREADS ; i ++ )
+>154	CompoundStatement	 
+>155	ExpressionStatement	 
+>156	AssignmentExpr	running [ i ] = false
+>157	Identifier	false
+>158	ArrayIndexing	running [ i ]
+>159	Identifier	i
+>160	Identifier	running
+>161	ExpressionStatement	 
+>162	CallExpression	relocThreads [ i ] . join ( )
+>163	ArgumentList	 
+>164	Callee	relocThreads [ i ] . join
+>165	MemberAccess	relocThreads [ i ] . join
+>166	Identifier	join
+>167	ArrayIndexing	relocThreads [ i ]
+>168	Identifier	i
+>169	Identifier	relocThreads
+>170	IncDecOp	 
+>171	IncDec	++
+>172	Identifier	i
+>173	Condition	 
+>174	RelationalExpression	i < RELOCALIZE_THREADS
+>175	Identifier	RELOCALIZE_THREADS
+>176	Identifier	i
+>177	ForInit	 
+>178	IdentifierDeclStatement	int i = 0 ;
+>179	IdentifierDecl	i = 0
+>180	AssignmentExpr	i = 0
+>181	PrimaryExpression	0
+>182	Identifier	i
+>183	Identifier	i
+>184	IdentifierDeclType	int
+>185	ExpressionStatement	 
+>186	CallExpression	exMutex . unlock ( )
+>187	ArgumentList	 
+>188	Callee	exMutex . unlock
+>189	MemberAccess	exMutex . unlock
+>190	Identifier	unlock
+>191	Identifier	exMutex
+>192	ExpressionStatement	 
+>193	CallExpression	newCurrentFrameSignal . notify_all ( )
+>194	ArgumentList	 
+>195	Callee	newCurrentFrameSignal . notify_all
+>196	MemberAccess	newCurrentFrameSignal . notify_all
+>197	Identifier	notify_all
+>198	Identifier	newCurrentFrameSignal
+>199	ExpressionStatement	 
+>200	CallExpression	exMutex . lock ( )
+>201	ArgumentList	 
+>202	Callee	exMutex . lock
+>203	MemberAccess	exMutex . lock
+>204	Identifier	lock
+>205	Identifier	exMutex
+>206	ExpressionStatement	 
+>207	AssignmentExpr	continueRunning = false
+>208	Identifier	false
+>209	Identifier	continueRunning
+>227	FunctionDef	Relocalizer 
+>228	ParameterList	std 
+>229	Parameter	 
+>230	Identifier	currentFrame
+>231	ParameterType	std 
+>232	ReturnType	void
+>233	CompoundStatement	 
+>234	ExpressionStatement	 
+>235	CallExpression	handleKey ( pressedKey )
+>236	ArgumentList	pressedKey
+>237	Argument	pressedKey
+>238	Identifier	pressedKey
+>239	Callee	handleKey
+>240	Identifier	handleKey
+>241	IdentifierDeclStatement	 
+>242	IdentifierDecl	pressedKey = Util 
+>243	AssignmentExpr	pressedKey = Util 
+>244	CallExpression	Util 
+>245	ArgumentList	1
+>246	Argument	1
+>247	PrimaryExpression	1
+>248	Callee	Util 
+>249	Identifier	Util 
+>250	Identifier	pressedKey
+>251	Identifier	pressedKey
+>252	IdentifierDeclType	int
+>253	IfStatement	if ( displayDepthMap )
+>254	ExpressionStatement	 
+>255	CallExpression	Util 
+>256	ArgumentList	\"DebugWindow DEPTH\"
+>257	Argument	false
+>258	Identifier	false
+>259	Argument	cv 
+>260	MultiplicativeExpression	cv 
+>261	MultiplicativeExpression	1 / 255.0f
+>262	PrimaryExpression	255.0f
+>263	PrimaryExpression	1
+>264	CallExpression	cv 
+>265	ArgumentList	currentFrame -> height ( )
+>266	Argument	currentFrame -> image ( )
+>267	CallExpression	currentFrame -> image ( )
+>268	ArgumentList	 
+>269	Callee	currentFrame -> image
+>270	PtrMemberAccess	currentFrame -> image
+>271	Identifier	image
+>272	Identifier	currentFrame
+>273	Argument	CV_32F
+>274	Identifier	CV_32F
+>275	Argument	currentFrame -> width ( )
+>276	CallExpression	currentFrame -> width ( )
+>277	ArgumentList	 
+>278	Callee	currentFrame -> width
+>279	PtrMemberAccess	currentFrame -> width
+>280	Identifier	width
+>281	Identifier	currentFrame
+>282	Argument	currentFrame -> height ( )
+>283	CallExpression	currentFrame -> height ( )
+>284	ArgumentList	 
+>285	Callee	currentFrame -> height
+>286	PtrMemberAccess	currentFrame -> height
+>287	Identifier	height
+>288	Identifier	currentFrame
+>289	Callee	cv 
+>290	Identifier	cv 
+>291	Argument	\"DebugWindow DEPTH\"
+>292	PrimaryExpression	\"DebugWindow DEPTH\"
+>293	Callee	Util 
+>294	Identifier	Util 
+>295	Condition	 
+>296	Identifier	displayDepthMap
+>297	ExpressionStatement	 
+>298	CallExpression	lock . unlock ( )
+>299	ArgumentList	 
+>300	Callee	lock . unlock
+>301	MemberAccess	lock . unlock
+>302	Identifier	unlock
+>303	Identifier	lock
+>304	ExpressionStatement	 
+>305	CallExpression	newCurrentFrameSignal . notify_all ( )
+>306	ArgumentList	 
+>307	Callee	newCurrentFrameSignal . notify_all
+>308	MemberAccess	newCurrentFrameSignal . notify_all
+>309	Identifier	notify_all
+>310	Identifier	newCurrentFrameSignal
+>311	ExpressionStatement	 
+>312	AssignmentExpr	maxRelocIDX = nextRelocIDX + KFForReloc . size ( )
+>313	AdditiveExpression	nextRelocIDX + KFForReloc . size ( )
+>314	CallExpression	KFForReloc . size ( )
+>315	ArgumentList	 
+>316	Callee	KFForReloc . size
+>317	MemberAccess	KFForReloc . size
+>318	Identifier	size
+>319	Identifier	KFForReloc
+>320	Identifier	nextRelocIDX
+>321	Identifier	maxRelocIDX
+>322	ExpressionStatement	 
+>323	AssignmentExpr	this -> CurrentRelocFrame = currentFrame
+>324	Identifier	currentFrame
+>325	PtrMemberAccess	this -> CurrentRelocFrame
+>326	Identifier	CurrentRelocFrame
+>327	Identifier	this
+>328	IfStatement	if ( hasResult )
+>329	ReturnStatement	 
+>330	Condition	 
+>331	Identifier	hasResult
+>332	IdentifierDeclStatement	 
+>333	IdentifierDecl	lock ( exMutex )
+>334	Identifier	exMutex
+>335	Identifier	lock
+>336	IdentifierDeclType	boost 
+>361	FunctionDef	Relocalizer 
+>362	ParameterList	std 
+>363	Parameter	 
+>364	Identifier	allKeyframesList
+>365	ParameterType	std 
+>366	ReturnType	void
+>367	CompoundStatement	 
+>368	ForStatement	for ( int i = 0 ; i < RELOCALIZE_THREADS ; i ++ )
+>369	CompoundStatement	 
+>370	ExpressionStatement	 
+>371	AssignmentExpr	running [ i ] = true
+>372	Identifier	true
+>373	ArrayIndexing	running [ i ]
+>374	Identifier	i
+>375	Identifier	running
+>376	ExpressionStatement	 
+>377	AssignmentExpr	relocThreads [ i ] = boost 
+>378	CallExpression	boost 
+>379	ArgumentList	& Relocalizer 
+>380	Argument	i
+>381	Identifier	i
+>382	Argument	this
+>383	Identifier	this
+>384	Argument	& Relocalizer 
+>385	UnaryOp	& Relocalizer 
+>386	Identifier	Relocalizer 
+>387	UnaryOperator	&
+>388	Callee	boost 
+>389	Identifier	boost 
+>390	ArrayIndexing	relocThreads [ i ]
+>391	Identifier	i
+>392	Identifier	relocThreads
+>393	IncDecOp	 
+>394	IncDec	++
+>395	Identifier	i
+>396	Condition	 
+>397	RelationalExpression	i < RELOCALIZE_THREADS
+>398	Identifier	RELOCALIZE_THREADS
+>399	Identifier	i
+>400	ForInit	 
+>401	IdentifierDeclStatement	int i = 0 ;
+>402	IdentifierDecl	i = 0
+>403	AssignmentExpr	i = 0
+>404	PrimaryExpression	0
+>405	Identifier	i
+>406	Identifier	i
+>407	IdentifierDeclType	int
+>408	ExpressionStatement	 
+>409	AssignmentExpr	isRunning = true
+>410	Identifier	true
+>411	Identifier	isRunning
+>412	ExpressionStatement	 
+>413	AssignmentExpr	continueRunning = true
+>414	Identifier	true
+>415	Identifier	continueRunning
+>416	ExpressionStatement	 
+>417	AssignmentExpr	hasResult = false
+>418	Identifier	false
+>419	Identifier	hasResult
+>420	ExpressionStatement	 
+>421	AssignmentExpr	maxRelocIDX = KFForReloc . size ( )
+>422	CallExpression	KFForReloc . size ( )
+>423	ArgumentList	 
+>424	Callee	KFForReloc . size
+>425	MemberAccess	KFForReloc . size
+>426	Identifier	size
+>427	Identifier	KFForReloc
+>428	Identifier	maxRelocIDX
+>429	ExpressionStatement	 
+>430	AssignmentExpr	nextRelocIDX = 0
+>431	PrimaryExpression	0
+>432	Identifier	nextRelocIDX
+>433	ForStatement	for ( unsigned int k = 0 ; k < allKeyframesList . size ( ) ; k ++ )
+>434	CompoundStatement	 
+>435	ExpressionStatement	 
+>436	AssignmentExpr	KFForReloc [ ridx ] = tmp
+>437	Identifier	tmp
+>438	ArrayIndexing	KFForReloc [ ridx ]
+>439	Identifier	ridx
+>440	Identifier	KFForReloc
+>441	ExpressionStatement	 
+>442	AssignmentExpr	KFForReloc . back ( ) = KFForReloc [ ridx ]
+>443	ArrayIndexing	KFForReloc [ ridx ]
+>444	Identifier	ridx
+>445	Identifier	KFForReloc
+>446	CallExpression	KFForReloc . back ( )
+>447	ArgumentList	 
+>448	Callee	KFForReloc . back
+>449	MemberAccess	KFForReloc . back
+>450	Identifier	back
+>451	Identifier	KFForReloc
+>452	IdentifierDeclStatement	 
+>453	IdentifierDecl	* tmp = KFForReloc . back ( )
+>454	AssignmentExpr	* tmp = KFForReloc . back ( )
+>455	CallExpression	KFForReloc . back ( )
+>456	ArgumentList	 
+>457	Callee	KFForReloc . back
+>458	MemberAccess	KFForReloc . back
+>459	Identifier	back
+>460	Identifier	KFForReloc
+>461	Identifier	tmp
+>462	Identifier	tmp
+>463	IdentifierDeclType	Frame *
+>464	IdentifierDeclStatement	 
+>465	IdentifierDecl	ridx = rand ( ) % ( KFForReloc . size ( ) )
+>466	AssignmentExpr	ridx = rand ( ) % ( KFForReloc . size ( ) )
+>467	MultiplicativeExpression	rand ( ) % ( KFForReloc . size ( ) )
+>468	CallExpression	KFForReloc . size ( )
+>469	ArgumentList	 
+>470	Callee	KFForReloc . size
+>471	MemberAccess	KFForReloc . size
+>472	Identifier	size
+>473	Identifier	KFForReloc
+>474	CallExpression	rand ( )
+>475	ArgumentList	 
+>476	Callee	rand
+>477	Identifier	rand
+>478	Identifier	ridx
+>479	Identifier	ridx
+>480	IdentifierDeclType	int
+>481	ExpressionStatement	 
+>482	CallExpression	KFForReloc . push_back ( allKeyframesList [ k ] )
+>483	ArgumentList	allKeyframesList [ k ]
+>484	Argument	allKeyframesList [ k ]
+>485	ArrayIndexing	allKeyframesList [ k ]
+>486	Identifier	k
+>487	Identifier	allKeyframesList
+>488	Callee	KFForReloc . push_back
+>489	MemberAccess	KFForReloc . push_back
+>490	Identifier	push_back
+>491	Identifier	KFForReloc
+>492	IncDecOp	 
+>493	IncDec	++
+>494	Identifier	k
+>495	Condition	 
+>496	RelationalExpression	k < allKeyframesList . size ( )
+>497	CallExpression	allKeyframesList . size ( )
+>498	ArgumentList	 
+>499	Callee	allKeyframesList . size
+>500	MemberAccess	allKeyframesList . size
+>501	Identifier	size
+>502	Identifier	allKeyframesList
+>503	Identifier	k
+>504	ForInit	 
+>505	IdentifierDeclStatement	unsigned int k = 0 ;
+>506	IdentifierDecl	k = 0
+>507	AssignmentExpr	k = 0
+>508	PrimaryExpression	0
+>509	Identifier	k
+>510	Identifier	k
+>511	IdentifierDeclType	unsigned int
+>512	ExpressionStatement	 
+>513	CallExpression	KFForReloc . clear ( )
+>514	ArgumentList	 
+>515	Callee	KFForReloc . clear
+>516	MemberAccess	KFForReloc . clear
+>517	Identifier	clear
+>518	Identifier	KFForReloc
+>552	FunctionDef	Relocalizer 
+>553	ParameterList	int milliseconds
+>554	Parameter	 
+>555	Identifier	milliseconds
+>556	ParameterType	int
+>557	ReturnType	bool
+>558	CompoundStatement	 
+>559	ReturnStatement	 
+>560	Identifier	hasResult
+>561	ExpressionStatement	 
+>562	CallExpression	resultReadySignal . timed_wait ( lock , boost 
+>563	ArgumentList	lock
+>564	Argument	boost 
+>565	CallExpression	boost 
+>566	ArgumentList	milliseconds
+>567	Argument	milliseconds
+>568	Identifier	milliseconds
+>569	Callee	boost 
+>570	Identifier	boost 
+>571	Argument	lock
+>572	Identifier	lock
+>573	Callee	resultReadySignal . timed_wait
+>574	MemberAccess	resultReadySignal . timed_wait
+>575	Identifier	timed_wait
+>576	Identifier	resultReadySignal
+>577	IfStatement	if ( hasResult )
+>578	ReturnStatement	 
+>579	Identifier	true
+>580	Condition	 
+>581	Identifier	hasResult
+>582	IdentifierDeclStatement	 
+>583	IdentifierDecl	lock ( exMutex )
+>584	Identifier	exMutex
+>585	Identifier	lock
+>586	IdentifierDeclType	boost 
+>596	FunctionDef	Relocalizer 
+>597	ParameterList	Frame * & out_keyframe , std 
+>598	Parameter	 
+>599	Identifier	out_frameToKeyframe
+>600	ParameterType	SE3 &
+>601	Parameter	 
+>602	Identifier	out_successfulFrameID
+>603	ParameterType	int &
+>604	Parameter	 
+>605	Identifier	frame
+>606	ParameterType	std 
+>607	Parameter	 
+>608	Identifier	out_keyframe
+>609	ParameterType	Frame * &
+>610	ReturnType	void
+>611	CompoundStatement	 
+>612	IfStatement	if ( hasResult )
+>613	ElseStatement	else
+>614	CompoundStatement	 
+>615	ExpressionStatement	 
+>616	CallExpression	frame . reset ( )
+>617	ArgumentList	 
+>618	Callee	frame . reset
+>619	MemberAccess	frame . reset
+>620	Identifier	reset
+>621	Identifier	frame
+>622	ExpressionStatement	 
+>623	AssignmentExpr	out_frameToKeyframe = SE3 ( )
+>624	CallExpression	SE3 ( )
+>625	ArgumentList	 
+>626	Callee	SE3
+>627	Identifier	SE3
+>628	Identifier	out_frameToKeyframe
+>629	ExpressionStatement	 
+>630	AssignmentExpr	out_successfulFrameID = - 1
+>631	UnaryOp	- 1
+>632	PrimaryExpression	1
+>633	UnaryOperator	-
+>634	Identifier	out_successfulFrameID
+>635	ExpressionStatement	 
+>636	AssignmentExpr	out_keyframe = 0
+>637	PrimaryExpression	0
+>638	Identifier	out_keyframe
+>639	CompoundStatement	 
+>640	ExpressionStatement	 
+>641	AssignmentExpr	frame = resultRelocFrame
+>642	Identifier	resultRelocFrame
+>643	Identifier	frame
+>644	ExpressionStatement	 
+>645	AssignmentExpr	out_frameToKeyframe = resultFrameToKeyframe
+>646	Identifier	resultFrameToKeyframe
+>647	Identifier	out_frameToKeyframe
+>648	ExpressionStatement	 
+>649	AssignmentExpr	out_successfulFrameID = resultFrameID
+>650	Identifier	resultFrameID
+>651	Identifier	out_successfulFrameID
+>652	ExpressionStatement	 
+>653	AssignmentExpr	out_keyframe = resultKF
+>654	Identifier	resultKF
+>655	Identifier	out_keyframe
+>656	Condition	 
+>657	Identifier	hasResult
+>658	IdentifierDeclStatement	 
+>659	IdentifierDecl	lock ( exMutex )
+>660	Identifier	exMutex
+>661	Identifier	lock
+>662	IdentifierDeclType	boost 
+>677	FunctionDef	Relocalizer 
+>678	ParameterList	int idx
+>679	Parameter	 
+>680	Identifier	idx
+>681	ParameterType	int
+>682	ReturnType	void
+>683	CompoundStatement	 
+>684	ExpressionStatement	 
+>685	Identifier	tracker
+>686	Statement	 
+>687	WhileStatement	while ( continueRunning )
+>688	CompoundStatement	 
+>689	IfStatement	if ( nextRelocIDX < maxRelocIDX && CurrentRelocFrame )
+>690	ElseStatement	else
+>691	CompoundStatement	 
+>692	ExpressionStatement	 
+>693	CallExpression	newCurrentFrameSignal . wait ( lock )
+>694	ArgumentList	lock
+>695	Argument	lock
+>696	Identifier	lock
+>697	Callee	newCurrentFrameSignal . wait
+>698	MemberAccess	newCurrentFrameSignal . wait
+>699	Identifier	wait
+>700	Identifier	newCurrentFrameSignal
+>701	CompoundStatement	 
+>702	ExpressionStatement	 
+>703	CallExpression	lock . lock ( )
+>704	ArgumentList	 
+>705	Callee	lock . lock
+>706	MemberAccess	lock . lock
+>707	Identifier	lock
+>708	Identifier	lock
+>709	IfStatement	if ( todoGoodVal > relocalizationTH )
+>710	CompoundStatement	 
+>711	IfStatement	if ( numGoodNeighbours > numBadNeighbours || numGoodNeighbours >= 5 )
+>712	ElseStatement	else
+>713	CompoundStatement	 
+>714	IfStatement	if ( enablePrintDebugInfo && printRelocalizationInfo )
+>715	ExpressionStatement	 
+>716	CallExpression	printf ( \"FAILED RELOCALIZE! frame %d on %d (bestNeighbour %d)
+>717	ArgumentList	\"FAILED RELOCALIZE! frame %d on %d (bestNeighbour %d)
+>718	Argument	numGoodNeighbours + numBadNeighbours
+>719	AdditiveExpression	numGoodNeighbours + numBadNeighbours
+>720	Identifier	numBadNeighbours
+>721	Identifier	numGoodNeighbours
+>722	Argument	numGoodNeighbours
+>723	Identifier	numGoodNeighbours
+>724	Argument	100 * bestNeighbourUsage
+>725	MultiplicativeExpression	100 * bestNeighbourUsage
+>726	Identifier	bestNeighbourUsage
+>727	PrimaryExpression	100
+>728	Argument	100 * bestNeightbourGoodVal
+>729	MultiplicativeExpression	100 * bestNeightbourGoodVal
+>730	Identifier	bestNeightbourGoodVal
+>731	PrimaryExpression	100
+>732	Argument	bestKF -> id ( )
+>733	CallExpression	bestKF -> id ( )
+>734	ArgumentList	 
+>735	Callee	bestKF -> id
+>736	PtrMemberAccess	bestKF -> id
+>737	Identifier	id
+>738	Identifier	bestKF
+>739	Argument	todo -> id ( )
+>740	CallExpression	todo -> id ( )
+>741	ArgumentList	 
+>742	Callee	todo -> id
+>743	PtrMemberAccess	todo -> id
+>744	Identifier	id
+>745	Identifier	todo
+>746	Argument	myRelocFrame -> id ( )
+>747	CallExpression	myRelocFrame -> id ( )
+>748	ArgumentList	 
+>749	Callee	myRelocFrame -> id
+>750	PtrMemberAccess	myRelocFrame -> id
+>751	Identifier	id
+>752	Identifier	myRelocFrame
+>753	Argument	\"FAILED RELOCALIZE! frame %d on %d (bestNeighbour %d)
+>754	PrimaryExpression	\"FAILED RELOCALIZE! frame %d on %d (bestNeighbour %d)
+>755	Callee	printf
+>756	Identifier	printf
+>757	Condition	 
+>758	AndExpression	enablePrintDebugInfo && printRelocalizationInfo
+>759	Identifier	printRelocalizationInfo
+>760	Identifier	enablePrintDebugInfo
+>761	CompoundStatement	 
+>762	ExpressionStatement	 
+>763	CallExpression	lock . unlock ( )
+>764	ArgumentList	 
+>765	Callee	lock . unlock
+>766	MemberAccess	lock . unlock
+>767	Identifier	unlock
+>768	Identifier	lock
+>769	ExpressionStatement	 
+>770	AssignmentExpr	hasResult = true
+>771	Identifier	true
+>772	Identifier	hasResult
+>773	ExpressionStatement	 
+>774	CallExpression	resultReadySignal . notify_all ( )
+>775	ArgumentList	 
+>776	Callee	resultReadySignal . notify_all
+>777	MemberAccess	resultReadySignal . notify_all
+>778	Identifier	notify_all
+>779	Identifier	resultReadySignal
+>780	ExpressionStatement	 
+>781	AssignmentExpr	resultFrameToKeyframe = bestKFToFrame . inverse ( )
+>782	CallExpression	bestKFToFrame . inverse ( )
+>783	ArgumentList	 
+>784	Callee	bestKFToFrame . inverse
+>785	MemberAccess	bestKFToFrame . inverse
+>786	Identifier	inverse
+>787	Identifier	bestKFToFrame
+>788	Identifier	resultFrameToKeyframe
+>789	ExpressionStatement	 
+>790	AssignmentExpr	resultKF = bestKF
+>791	Identifier	bestKF
+>792	Identifier	resultKF
+>793	ExpressionStatement	 
+>794	AssignmentExpr	resultFrameID = myRelocFrame -> id ( )
+>795	CallExpression	myRelocFrame -> id ( )
+>796	ArgumentList	 
+>797	Callee	myRelocFrame -> id
+>798	PtrMemberAccess	myRelocFrame -> id
+>799	Identifier	id
+>800	Identifier	myRelocFrame
+>801	Identifier	resultFrameID
+>802	ExpressionStatement	 
+>803	AssignmentExpr	resultRelocFrame = myRelocFrame
+>804	Identifier	myRelocFrame
+>805	Identifier	resultRelocFrame
+>806	ExpressionStatement	 
+>807	CallExpression	lock . lock ( )
+>808	ArgumentList	 
+>809	Callee	lock . lock
+>810	MemberAccess	lock . lock
+>811	Identifier	lock
+>812	Identifier	lock
+>813	ExpressionStatement	 
+>814	AssignmentExpr	continueRunning = false
+>815	Identifier	false
+>816	Identifier	continueRunning
+>817	IfStatement	if ( enablePrintDebugInfo && printRelocalizationInfo )
+>818	ExpressionStatement	 
+>819	CallExpression	printf ( \"RELOCALIZED! frame %d on %d (bestNeighbour %d)
+>820	ArgumentList	\"RELOCALIZED! frame %d on %d (bestNeighbour %d)
+>821	Argument	numGoodNeighbours + numBadNeighbours
+>822	AdditiveExpression	numGoodNeighbours + numBadNeighbours
+>823	Identifier	numBadNeighbours
+>824	Identifier	numGoodNeighbours
+>825	Argument	numGoodNeighbours
+>826	Identifier	numGoodNeighbours
+>827	Argument	100 * bestNeighbourUsage
+>828	MultiplicativeExpression	100 * bestNeighbourUsage
+>829	Identifier	bestNeighbourUsage
+>830	PrimaryExpression	100
+>831	Argument	100 * bestNeightbourGoodVal
+>832	MultiplicativeExpression	100 * bestNeightbourGoodVal
+>833	Identifier	bestNeightbourGoodVal
+>834	PrimaryExpression	100
+>835	Argument	bestKF -> id ( )
+>836	CallExpression	bestKF -> id ( )
+>837	ArgumentList	 
+>838	Callee	bestKF -> id
+>839	PtrMemberAccess	bestKF -> id
+>840	Identifier	id
+>841	Identifier	bestKF
+>842	Argument	todo -> id ( )
+>843	CallExpression	todo -> id ( )
+>844	ArgumentList	 
+>845	Callee	todo -> id
+>846	PtrMemberAccess	todo -> id
+>847	Identifier	id
+>848	Identifier	todo
+>849	Argument	myRelocFrame -> id ( )
+>850	CallExpression	myRelocFrame -> id ( )
+>851	ArgumentList	 
+>852	Callee	myRelocFrame -> id
+>853	PtrMemberAccess	myRelocFrame -> id
+>854	Identifier	id
+>855	Identifier	myRelocFrame
+>856	Argument	\"RELOCALIZED! frame %d on %d (bestNeighbour %d)
+>857	PrimaryExpression	\"RELOCALIZED! frame %d on %d (bestNeighbour %d)
+>858	Callee	printf
+>859	Identifier	printf
+>860	Condition	 
+>861	AndExpression	enablePrintDebugInfo && printRelocalizationInfo
+>862	Identifier	printRelocalizationInfo
+>863	Identifier	enablePrintDebugInfo
+>864	Condition	 
+>865	OrExpression	numGoodNeighbours > numBadNeighbours || numGoodNeighbours >= 5
+>866	RelationalExpression	numGoodNeighbours >= 5
+>867	PrimaryExpression	5
+>868	Identifier	numGoodNeighbours
+>869	RelationalExpression	numGoodNeighbours > numBadNeighbours
+>870	Identifier	numBadNeighbours
+>871	Identifier	numGoodNeighbours
+>872	CompoundStatement	 
+>873	IfStatement	if ( goodVal > bestNeightbourGoodVal )
+>874	CompoundStatement	 
+>875	ExpressionStatement	 
+>876	AssignmentExpr	bestNeighbourUsage = tracker -> pointUsage
+>877	PtrMemberAccess	tracker -> pointUsage
+>878	Identifier	pointUsage
+>879	Identifier	tracker
+>880	Identifier	bestNeighbourUsage
+>881	ExpressionStatement	 
+>882	AssignmentExpr	bestKFToFrame = nkfToFrame
+>883	Identifier	nkfToFrame
+>884	Identifier	bestKFToFrame
+>885	ExpressionStatement	 
+>886	AssignmentExpr	bestKF = nkf
+>887	Identifier	nkf
+>888	Identifier	bestKF
+>889	ExpressionStatement	 
+>890	AssignmentExpr	bestNeightbourGoodVal = goodVal
+>891	Identifier	goodVal
+>892	Identifier	bestNeightbourGoodVal
+>893	Condition	 
+>894	RelationalExpression	goodVal > bestNeightbourGoodVal
+>895	Identifier	bestNeightbourGoodVal
+>896	Identifier	goodVal
+>897	IfStatement	if ( goodVal > relocalizationTH * 0.8 && ( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( ) . norm ( ) < 0.1 )
+>898	ElseStatement	else
+>899	ExpressionStatement	 
+>900	IncDecOp	numBadNeighbours ++
+>901	IncDec	++
+>902	Identifier	numBadNeighbours
+>903	ExpressionStatement	 
+>904	IncDecOp	numGoodNeighbours ++
+>905	IncDec	++
+>906	Identifier	numGoodNeighbours
+>907	Condition	 
+>908	AndExpression	goodVal > relocalizationTH * 0.8 && ( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( ) . norm ( ) < \
+>909	RelationalExpression	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( ) . norm ( ) < 0.1
+>910	PrimaryExpression	0.1
+>911	CallExpression	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( ) . norm ( )
+>912	ArgumentList	 
+>913	Callee	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( ) . norm
+>914	MemberAccess	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( ) . norm
+>915	Identifier	norm
+>916	CallExpression	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log ( )
+>917	ArgumentList	 
+>918	Callee	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log
+>919	MemberAccess	( nkfToFrame * nkfToFrame_init . inverse ( ) ) . log
+>920	Identifier	log
+>921	MultiplicativeExpression	nkfToFrame * nkfToFrame_init . inverse ( )
+>922	CallExpression	nkfToFrame_init . inverse ( )
+>923	ArgumentList	 
+>924	Callee	nkfToFrame_init . inverse
+>925	MemberAccess	nkfToFrame_init . inverse
+>926	Identifier	inverse
+>927	Identifier	nkfToFrame_init
+>928	Identifier	nkfToFrame
+>929	RelationalExpression	goodVal > relocalizationTH * 0.8
+>930	MultiplicativeExpression	relocalizationTH * 0.8
+>931	PrimaryExpression	0.8
+>932	Identifier	relocalizationTH
+>933	Identifier	goodVal
+>934	IdentifierDeclStatement	 
+>935	IdentifierDecl	goodVal = tracker -> pointUsage * tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> lastBadCount )
+>936	AssignmentExpr	goodVal = tracker -> pointUsage * tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> \
+>937	MultiplicativeExpression	tracker -> pointUsage * tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> lastBadCount )
+>938	MultiplicativeExpression	tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> lastBadCount )
+>939	AdditiveExpression	tracker -> lastGoodCount + tracker -> lastBadCount
+>940	PtrMemberAccess	tracker -> lastBadCount
+>941	Identifier	lastBadCount
+>942	Identifier	tracker
+>943	PtrMemberAccess	tracker -> lastGoodCount
+>944	Identifier	lastGoodCount
+>945	Identifier	tracker
+>946	PtrMemberAccess	tracker -> lastGoodCount
+>947	Identifier	lastGoodCount
+>948	Identifier	tracker
+>949	PtrMemberAccess	tracker -> pointUsage
+>950	Identifier	pointUsage
+>951	Identifier	tracker
+>952	Identifier	goodVal
+>953	Identifier	goodVal
+>954	IdentifierDeclType	float
+>955	IdentifierDeclStatement	 
+>956	IdentifierDecl	nkfToFrame = tracker -> trackFrameOnPermaref ( nkf , myRelocFrame . get ( ) , nkfToFrame_init )
+>957	AssignmentExpr	nkfToFrame = tracker -> trackFrameOnPermaref ( nkf , myRelocFrame . get ( ) , nkfToFrame_init )
+>958	CallExpression	tracker -> trackFrameOnPermaref ( nkf , myRelocFrame . get ( ) , nkfToFrame_init )
+>959	ArgumentList	nkf
+>960	Argument	nkfToFrame_init
+>961	Identifier	nkfToFrame_init
+>962	Argument	myRelocFrame . get ( )
+>963	CallExpression	myRelocFrame . get ( )
+>964	ArgumentList	 
+>965	Callee	myRelocFrame . get
+>966	MemberAccess	myRelocFrame . get
+>967	Identifier	get
+>968	Identifier	myRelocFrame
+>969	Argument	nkf
+>970	Identifier	nkf
+>971	Callee	tracker -> trackFrameOnPermaref
+>972	PtrMemberAccess	tracker -> trackFrameOnPermaref
+>973	Identifier	trackFrameOnPermaref
+>974	Identifier	tracker
+>975	Identifier	nkfToFrame
+>976	Identifier	nkfToFrame
+>977	IdentifierDeclType	SE3
+>978	IdentifierDeclStatement	 
+>979	IdentifierDecl	nkfToFrame_init = se3FromSim3 ( ( nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * \
+>980	AssignmentExpr	nkfToFrame_init = se3FromSim3 ( ( nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * \
+>981	CallExpression	se3FromSim3 ( ( nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame \
+>982	ArgumentList	 
+>983	Callee	se3FromSim3 ( ( nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame \
+>984	MemberAccess	se3FromSim3 ( ( nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame \
+>985	Identifier	inverse
+>986	CallExpression	se3FromSim3 ( ( nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame \
+>987	ArgumentList	nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame . inverse ( ) , \
+>988	Argument	nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame . inverse ( ) , \
+>989	MultiplicativeExpression	nkf -> getScaledCamToWorld ( ) . inverse ( ) * todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame \
+>990	MultiplicativeExpression	todo -> getScaledCamToWorld ( ) * sim3FromSE3 ( todoToFrame . inverse ( ) , 1 )
+>991	CallExpression	sim3FromSE3 ( todoToFrame . inverse ( ) , 1 )
+>992	ArgumentList	todoToFrame . inverse ( )
+>993	Argument	1
+>994	PrimaryExpression	1
+>995	Argument	todoToFrame . inverse ( )
+>996	CallExpression	todoToFrame . inverse ( )
+>997	ArgumentList	 
+>998	Callee	todoToFrame . inverse
+>999	MemberAccess	todoToFrame . inverse
+>1000	Identifier	inverse
+>1001	Identifier	todoToFrame
+>1002	Callee	sim3FromSE3
+>1003	Identifier	sim3FromSE3
+>1004	CallExpression	todo -> getScaledCamToWorld ( )
+>1005	ArgumentList	 
+>1006	Callee	todo -> getScaledCamToWorld
+>1007	PtrMemberAccess	todo -> getScaledCamToWorld
+>1008	Identifier	getScaledCamToWorld
+>1009	Identifier	todo
+>1010	CallExpression	nkf -> getScaledCamToWorld ( ) . inverse ( )
+>1011	ArgumentList	 
+>1012	Callee	nkf -> getScaledCamToWorld ( ) . inverse
+>1013	MemberAccess	nkf -> getScaledCamToWorld ( ) . inverse
+>1014	Identifier	inverse
+>1015	CallExpression	nkf -> getScaledCamToWorld ( )
+>1016	ArgumentList	 
+>1017	Callee	nkf -> getScaledCamToWorld
+>1018	PtrMemberAccess	nkf -> getScaledCamToWorld
+>1019	Identifier	getScaledCamToWorld
+>1020	Identifier	nkf
+>1021	Callee	se3FromSim3
+>1022	Identifier	se3FromSim3
+>1023	Identifier	nkfToFrame_init
+>1024	Identifier	nkfToFrame_init
+>1025	IdentifierDeclType	SE3
+>1026	Statement	 
+>1027	Statement	 
+>1028	Statement	 
+>1029	Statement	 
+>1030	Label	 
+>1031	Identifier	nkf
+>1032	Statement	 
+>1033	Statement	 
+>1034	Statement	 
+>1035	Statement	 
+>1036	IdentifierDeclStatement	 
+>1037	IdentifierDecl	bestKFToFrame = todoToFrame
+>1038	AssignmentExpr	bestKFToFrame = todoToFrame
+>1039	Identifier	todoToFrame
+>1040	Identifier	todoToFrame
+>1041	Identifier	bestKFToFrame
+>1042	IdentifierDeclType	SE3
+>1043	IdentifierDeclStatement	 
+>1044	IdentifierDecl	* bestKF = todo
+>1045	AssignmentExpr	* bestKF = todo
+>1046	Identifier	todo
+>1047	Identifier	todo
+>1048	Identifier	bestKF
+>1049	IdentifierDeclType	Frame *
+>1050	IdentifierDeclStatement	 
+>1051	IdentifierDecl	bestNeighbourUsage = tracker -> pointUsage
+>1052	AssignmentExpr	bestNeighbourUsage = tracker -> pointUsage
+>1053	PtrMemberAccess	tracker -> pointUsage
+>1054	Identifier	pointUsage
+>1055	Identifier	tracker
+>1056	Identifier	bestNeighbourUsage
+>1057	Identifier	bestNeighbourUsage
+>1058	IdentifierDeclType	float
+>1059	IdentifierDeclStatement	 
+>1060	IdentifierDecl	bestNeightbourGoodVal = todoGoodVal
+>1061	AssignmentExpr	bestNeightbourGoodVal = todoGoodVal
+>1062	Identifier	todoGoodVal
+>1063	Identifier	todoGoodVal
+>1064	Identifier	bestNeightbourGoodVal
+>1065	IdentifierDeclType	float
+>1066	IdentifierDeclStatement	 
+>1067	IdentifierDecl	numBadNeighbours = 0
+>1068	AssignmentExpr	numBadNeighbours = 0
+>1069	PrimaryExpression	0
+>1070	Identifier	numBadNeighbours
+>1071	Identifier	numBadNeighbours
+>1072	IdentifierDeclType	int
+>1073	IdentifierDeclStatement	 
+>1074	IdentifierDecl	numGoodNeighbours = 0
+>1075	AssignmentExpr	numGoodNeighbours = 0
+>1076	PrimaryExpression	0
+>1077	Identifier	numGoodNeighbours
+>1078	Identifier	numGoodNeighbours
+>1079	IdentifierDeclType	int
+>1080	Condition	 
+>1081	RelationalExpression	todoGoodVal > relocalizationTH
+>1082	Identifier	relocalizationTH
+>1083	Identifier	todoGoodVal
+>1084	IdentifierDeclStatement	 
+>1085	IdentifierDecl	todoGoodVal = tracker -> pointUsage * tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> lastBadCount )
+>1086	AssignmentExpr	todoGoodVal = tracker -> pointUsage * tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker \
+>1087	MultiplicativeExpression	tracker -> pointUsage * tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> lastBadCount )
+>1088	MultiplicativeExpression	tracker -> lastGoodCount / ( tracker -> lastGoodCount + tracker -> lastBadCount )
+>1089	AdditiveExpression	tracker -> lastGoodCount + tracker -> lastBadCount
+>1090	PtrMemberAccess	tracker -> lastBadCount
+>1091	Identifier	lastBadCount
+>1092	Identifier	tracker
+>1093	PtrMemberAccess	tracker -> lastGoodCount
+>1094	Identifier	lastGoodCount
+>1095	Identifier	tracker
+>1096	PtrMemberAccess	tracker -> lastGoodCount
+>1097	Identifier	lastGoodCount
+>1098	Identifier	tracker
+>1099	PtrMemberAccess	tracker -> pointUsage
+>1100	Identifier	pointUsage
+>1101	Identifier	tracker
+>1102	Identifier	todoGoodVal
+>1103	Identifier	todoGoodVal
+>1104	IdentifierDeclType	float
+>1105	IdentifierDeclStatement	 
+>1106	IdentifierDecl	todoToFrame = tracker -> trackFrameOnPermaref ( todo , myRelocFrame . get ( ) , SE3 ( ) )
+>1107	AssignmentExpr	todoToFrame = tracker -> trackFrameOnPermaref ( todo , myRelocFrame . get ( ) , SE3 ( ) )
+>1108	CallExpression	tracker -> trackFrameOnPermaref ( todo , myRelocFrame . get ( ) , SE3 ( ) )
+>1109	ArgumentList	todo
+>1110	Argument	SE3 ( )
+>1111	CallExpression	SE3 ( )
+>1112	ArgumentList	 
+>1113	Callee	SE3
+>1114	Identifier	SE3
+>1115	Argument	myRelocFrame . get ( )
+>1116	CallExpression	myRelocFrame . get ( )
+>1117	ArgumentList	 
+>1118	Callee	myRelocFrame . get
+>1119	MemberAccess	myRelocFrame . get
+>1120	Identifier	get
+>1121	Identifier	myRelocFrame
+>1122	Argument	todo
+>1123	Identifier	todo
+>1124	Callee	tracker -> trackFrameOnPermaref
+>1125	PtrMemberAccess	tracker -> trackFrameOnPermaref
+>1126	Identifier	trackFrameOnPermaref
+>1127	Identifier	tracker
+>1128	Identifier	todoToFrame
+>1129	Identifier	todoToFrame
+>1130	IdentifierDeclType	SE3
+>1131	ExpressionStatement	 
+>1132	CallExpression	lock . unlock ( )
+>1133	ArgumentList	 
+>1134	Callee	lock . unlock
+>1135	MemberAccess	lock . unlock
+>1136	Identifier	unlock
+>1137	Identifier	lock
+>1138	IdentifierDeclStatement	 
+>1139	IdentifierDecl	myRelocFrame = CurrentRelocFrame
+>1140	AssignmentExpr	myRelocFrame = CurrentRelocFrame
+>1141	Identifier	CurrentRelocFrame
+>1142	Identifier	CurrentRelocFrame
+>1143	Identifier	myRelocFrame
+>1144	IdentifierDeclType	std 
+>1145	IfStatement	if ( todo -> neighbors . size ( ) <= 2 )
+>1146	ContinueStatement	 
+>1147	Condition	 
+>1148	RelationalExpression	todo -> neighbors . size ( ) <= 2
+>1149	PrimaryExpression	2
+>1150	CallExpression	todo -> neighbors . size ( )
+>1151	ArgumentList	 
+>1152	Callee	todo -> neighbors . size
+>1153	MemberAccess	todo -> neighbors . size
+>1154	Identifier	size
+>1155	PtrMemberAccess	todo -> neighbors
+>1156	Identifier	neighbors
+>1157	Identifier	todo
+>1158	ExpressionStatement	 
+>1159	IncDecOp	nextRelocIDX ++
+>1160	IncDec	++
+>1161	Identifier	nextRelocIDX
+>1162	IdentifierDeclStatement	 
+>1163	IdentifierDecl	* todo = KFForReloc [ nextRelocIDX % KFForReloc . size ( ) ]
+>1164	AssignmentExpr	* todo = KFForReloc [ nextRelocIDX % KFForReloc . size ( ) ]
+>1165	ArrayIndexing	KFForReloc [ nextRelocIDX % KFForReloc . size ( ) ]
+>1166	MultiplicativeExpression	nextRelocIDX % KFForReloc . size ( )
+>1167	CallExpression	KFForReloc . size ( )
+>1168	ArgumentList	 
+>1169	Callee	KFForReloc . size
+>1170	MemberAccess	KFForReloc . size
+>1171	Identifier	size
+>1172	Identifier	KFForReloc
+>1173	Identifier	nextRelocIDX
+>1174	Identifier	KFForReloc
+>1175	Identifier	todo
+>1176	Identifier	todo
+>1177	IdentifierDeclType	Frame *
+>1178	Condition	 
+>1179	AndExpression	nextRelocIDX < maxRelocIDX && CurrentRelocFrame
+>1180	Identifier	CurrentRelocFrame
+>1181	RelationalExpression	nextRelocIDX < maxRelocIDX
+>1182	Identifier	maxRelocIDX
+>1183	Identifier	nextRelocIDX
+>1184	Condition	 
+>1185	Identifier	continueRunning
+>1186	IdentifierDeclStatement	 
+>1187	IdentifierDecl	lock ( exMutex )
+>1188	Identifier	exMutex
+>1189	Identifier	lock
+>1190	IdentifierDeclType	boost 
+>1191	IdentifierDeclStatement	 
+>1192	IdentifierDecl	* tracker = new SE3Tracker ( w , h , K )
+>1193	AssignmentExpr	* tracker = new SE3Tracker ( w , h , K )
+>1194	Expression	w , h , K
+>1195	Expression	h , K
+>1196	Identifier	K
+>1197	Identifier	h
+>1198	Identifier	w
+>1199	Identifier	tracker
+>1200	Identifier	tracker
+>1201	IdentifierDeclType	SE3Tracker *
+>1202	IfStatement	if ( ! multiThreading && idx != 0 )
+>1203	ReturnStatement	 
+>1204	Condition	 
+>1205	AndExpression	! multiThreading && idx != 0
+>1206	EqualityExpression	idx != 0
+>1207	PrimaryExpression	0
+>1208	Identifier	idx
+>1209	UnaryOp	! multiThreading
+>1210	Identifier	multiThreading
+>1211	UnaryOperator	!
+<3=14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=71,65,59,53,46,40,34,30,26,22,15
+<15=16
+<16=21,17
+<17=19,18
+<19=20
+<22=23
+<23=25,24
+<26=27
+<27=29,28
+<30=31
+<31=33,32
+<34=35
+<35=39,36
+<36=38,37
+<40=41
+<41=45,42
+<42=44,43
+<46=47
+<47=49,48
+<49=50
+<50=52,51
+<53=54
+<54=56,55
+<56=58,57
+<59=60
+<60=62,61
+<62=64,63
+<65=66
+<66=68,67
+<68=70,69
+<71=85,81,78,72
+<72=73
+<73=75,74
+<75=77,76
+<78=80,79
+<81=82
+<82=84,83
+<85=86
+<86=87
+<87=92,91,88
+<88=90,89
+<120=122,121
+<122=123
+<123=124
+<124=126,125
+<126=127
+<131=134,133,132
+<134=206,199,192,185,153,149,142,135
+<135=136
+<136=138,137
+<138=139
+<139=141,140
+<142=143
+<143=145,144
+<145=146
+<146=148,147
+<149=150
+<150=152,151
+<153=177,173,170,154
+<154=161,155
+<155=156
+<156=158,157
+<158=160,159
+<161=162
+<162=164,163
+<164=165
+<165=167,166
+<167=169,168
+<170=172,171
+<173=174
+<174=176,175
+<177=178
+<178=179
+<179=184,183,180
+<180=182,181
+<185=186
+<186=188,187
+<188=189
+<189=191,190
+<192=193
+<193=195,194
+<195=196
+<196=198,197
+<199=200
+<200=202,201
+<202=203
+<203=205,204
+<206=207
+<207=209,208
+<227=233,232,228
+<228=229
+<229=231,230
+<233=332,328,322,311,304,297,253,241,234
+<234=235
+<235=239,236
+<236=237
+<237=238
+<239=240
+<241=242
+<242=252,251,243
+<243=250,244
+<244=248,245
+<245=246
+<246=247
+<248=249
+<253=295,254
+<254=255
+<255=293,256
+<256=291,259,257
+<257=258
+<259=260
+<260=264,261
+<261=263,262
+<264=289,265
+<265=282,275,273,266
+<266=267
+<267=269,268
+<269=270
+<270=272,271
+<273=274
+<275=276
+<276=278,277
+<278=279
+<279=281,280
+<282=283
+<283=285,284
+<285=286
+<286=288,287
+<289=290
+<291=292
+<293=294
+<295=296
+<297=298
+<298=300,299
+<300=301
+<301=303,302
+<304=305
+<305=307,306
+<307=308
+<308=310,309
+<311=312
+<312=321,313
+<313=320,314
+<314=316,315
+<316=317
+<317=319,318
+<322=323
+<323=325,324
+<325=327,326
+<328=330,329
+<330=331
+<332=333
+<333=336,335,334
+<361=367,366,362
+<362=363
+<363=365,364
+<367=512,433,429,420,416,412,408,368
+<368=400,396,393,369
+<369=376,370
+<370=371
+<371=373,372
+<373=375,374
+<376=377
+<377=390,378
+<378=388,379
+<379=384,382,380
+<380=381
+<382=383
+<384=385
+<385=387,386
+<388=389
+<390=392,391
+<393=395,394
+<396=397
+<397=399,398
+<400=401
+<401=402
+<402=407,406,403
+<403=405,404
+<408=409
+<409=411,410
+<412=413
+<413=415,414
+<416=417
+<417=419,418
+<420=421
+<421=428,422
+<422=424,423
+<424=425
+<425=427,426
+<429=430
+<430=432,431
+<433=504,495,492,434
+<434=481,464,452,441,435
+<435=436
+<436=438,437
+<438=440,439
+<441=442
+<442=446,443
+<443=445,444
+<446=448,447
+<448=449
+<449=451,450
+<452=453
+<453=463,462,454
+<454=461,455
+<455=457,456
+<457=458
+<458=460,459
+<464=465
+<465=480,479,466
+<466=478,467
+<467=474,468
+<468=470,469
+<470=471
+<471=473,472
+<474=476,475
+<476=477
+<481=482
+<482=488,483
+<483=484
+<484=485
+<485=487,486
+<488=489
+<489=491,490
+<492=494,493
+<495=496
+<496=503,497
+<497=499,498
+<499=500
+<500=502,501
+<504=505
+<505=506
+<506=511,510,507
+<507=509,508
+<512=513
+<513=515,514
+<515=516
+<516=518,517
+<552=558,557,553
+<553=554
+<554=556,555
+<558=582,577,561,559
+<559=560
+<561=562
+<562=573,563
+<563=571,564
+<564=565
+<565=569,566
+<566=567
+<567=568
+<569=570
+<571=572
+<573=574
+<574=576,575
+<577=580,578
+<578=579
+<580=581
+<582=583
+<583=586,585,584
+<596=611,610,597
+<597=607,604,601,598
+<598=600,599
+<601=603,602
+<604=606,605
+<607=609,608
+<611=658,612
+<612=656,639,613
+<613=614
+<614=635,629,622,615
+<615=616
+<616=618,617
+<618=619
+<619=621,620
+<622=623
+<623=628,624
+<624=626,625
+<626=627
+<629=630
+<630=634,631
+<631=633,632
+<635=636
+<636=638,637
+<639=652,648,644,640
+<640=641
+<641=643,642
+<644=645
+<645=647,646
+<648=649
+<649=651,650
+<652=653
+<653=655,654
+<656=657
+<658=659
+<659=662,661,660
+<677=683,682,678
+<678=679
+<679=681,680
+<683=1202,1191,1186,687,686,684
+<684=685
+<687=1184,688
+<688=689
+<689=1178,701,690
+<690=691
+<691=692
+<692=693
+<693=697,694
+<694=695
+<695=696
+<697=698
+<698=700,699
+<701=1162,1158,1145,1138,1131,1105,1084,709,702
+<702=703
+<703=705,704
+<705=706
+<706=708,707
+<709=1080,710
+<710=1073,1066,1059,1050,1043,1036,1035,1034,1033,1032,1030,1029,1028,1027,1026,872,711
+<711=864,761,712
+<712=713
+<713=714
+<714=757,715
+<715=716
+<716=755,717
+<717=753,746,739,732,728,724,722,718
+<718=719
+<719=721,720
+<722=723
+<724=725
+<725=727,726
+<728=729
+<729=731,730
+<732=733
+<733=735,734
+<735=736
+<736=738,737
+<739=740
+<740=742,741
+<742=743
+<743=745,744
+<746=747
+<747=749,748
+<749=750
+<750=752,751
+<753=754
+<755=756
+<757=758
+<758=760,759
+<761=817,813,806,802,793,789,780,773,769,762
+<762=763
+<763=765,764
+<765=766
+<766=768,767
+<769=770
+<770=772,771
+<773=774
+<774=776,775
+<776=777
+<777=779,778
+<780=781
+<781=788,782
+<782=784,783
+<784=785
+<785=787,786
+<789=790
+<790=792,791
+<793=794
+<794=801,795
+<795=797,796
+<797=798
+<798=800,799
+<802=803
+<803=805,804
+<806=807
+<807=809,808
+<809=810
+<810=812,811
+<813=814
+<814=816,815
+<817=860,818
+<818=819
+<819=858,820
+<820=856,849,842,835,831,827,825,821
+<821=822
+<822=824,823
+<825=826
+<827=828
+<828=830,829
+<831=832
+<832=834,833
+<835=836
+<836=838,837
+<838=839
+<839=841,840
+<842=843
+<843=845,844
+<845=846
+<846=848,847
+<849=850
+<850=852,851
+<852=853
+<853=855,854
+<856=857
+<858=859
+<860=861
+<861=863,862
+<864=865
+<865=869,866
+<866=868,867
+<869=871,870
+<872=978,955,934,897,873
+<873=893,874
+<874=889,885,881,875
+<875=876
+<876=880,877
+<877=879,878
+<881=882
+<882=884,883
+<885=886
+<886=888,887
+<889=890
+<890=892,891
+<893=894
+<894=896,895
+<897=907,903,898
+<898=899
+<899=900
+<900=902,901
+<903=904
+<904=906,905
+<907=908
+<908=929,909
+<909=911,910
+<911=913,912
+<913=914
+<914=916,915
+<916=918,917
+<918=919
+<919=921,920
+<921=928,922
+<922=924,923
+<924=925
+<925=927,926
+<929=933,930
+<930=932,931
+<934=935
+<935=954,953,936
+<936=952,937
+<937=949,938
+<938=946,939
+<939=943,940
+<940=942,941
+<943=945,944
+<946=948,947
+<949=951,950
+<955=956
+<956=977,976,957
+<957=975,958
+<958=971,959
+<959=969,962,960
+<960=961
+<962=963
+<963=965,964
+<965=966
+<966=968,967
+<969=970
+<971=972
+<972=974,973
+<978=979
+<979=1025,1024,980
+<980=1023,981
+<981=983,982
+<983=984
+<984=986,985
+<986=1021,987
+<987=988
+<988=989
+<989=1010,990
+<990=1004,991
+<991=1002,992
+<992=995,993
+<993=994
+<995=996
+<996=998,997
+<998=999
+<999=1001,1000
+<1002=1003
+<1004=1006,1005
+<1006=1007
+<1007=1009,1008
+<1010=1012,1011
+<1012=1013
+<1013=1015,1014
+<1015=1017,1016
+<1017=1018
+<1018=1020,1019
+<1021=1022
+<1030=1031
+<1036=1037
+<1037=1042,1041,1038
+<1038=1040,1039
+<1043=1044
+<1044=1049,1048,1045
+<1045=1047,1046
+<1050=1051
+<1051=1058,1057,1052
+<1052=1056,1053
+<1053=1055,1054
+<1059=1060
+<1060=1065,1064,1061
+<1061=1063,1062
+<1066=1067
+<1067=1072,1071,1068
+<1068=1070,1069
+<1073=1074
+<1074=1079,1078,1075
+<1075=1077,1076
+<1080=1081
+<1081=1083,1082
+<1084=1085
+<1085=1104,1103,1086
+<1086=1102,1087
+<1087=1099,1088
+<1088=1096,1089
+<1089=1093,1090
+<1090=1092,1091
+<1093=1095,1094
+<1096=1098,1097
+<1099=1101,1100
+<1105=1106
+<1106=1130,1129,1107
+<1107=1128,1108
+<1108=1124,1109
+<1109=1122,1115,1110
+<1110=1111
+<1111=1113,1112
+<1113=1114
+<1115=1116
+<1116=1118,1117
+<1118=1119
+<1119=1121,1120
+<1122=1123
+<1124=1125
+<1125=1127,1126
+<1131=1132
+<1132=1134,1133
+<1134=1135
+<1135=1137,1136
+<1138=1139
+<1139=1144,1143,1140
+<1140=1142,1141
+<1145=1147,1146
+<1147=1148
+<1148=1150,1149
+<1150=1152,1151
+<1152=1153
+<1153=1155,1154
+<1155=1157,1156
+<1158=1159
+<1159=1161,1160
+<1162=1163
+<1163=1177,1176,1164
+<1164=1175,1165
+<1165=1174,1166
+<1166=1173,1167
+<1167=1169,1168
+<1169=1170
+<1170=1172,1171
+<1178=1179
+<1179=1181,1180
+<1181=1183,1182
+<1184=1185
+<1186=1187
+<1187=1190,1189,1188
+<1191=1192
+<1192=1201,1200,1193
+<1193=1199,1194
+<1194=1198,1195
+<1195=1197,1196
+<1202=1204,1203
+<1204=1205
+<1205=1209,1206
+<1206=1208,1207
+<1209=1211,1210

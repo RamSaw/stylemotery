@@ -1,0 +1,1888 @@
+>10	FunctionDef	ReadBundleFile (char * bundle_file , std 
+>11	ParameterList	char * bundle_file , std 
+>12	Parameter	 
+>13	Identifier	bundle_version
+>14	ParameterType	double &
+>15	Parameter	 
+>16	Identifier	points
+>17	ParameterType	std 
+>18	Parameter	 
+>19	Identifier	cameras
+>20	ParameterType	std 
+>21	Parameter	 
+>22	Identifier	bundle_file
+>23	ParameterType	char *
+>24	ReturnType	void
+>25	CompoundStatement	 
+>26	ExpressionStatement	 
+>27	CallExpression	fclose ( f )
+>28	ArgumentList	f
+>29	Argument	f
+>30	Identifier	f
+>31	Callee	fclose
+>32	Identifier	fclose
+>33	ForStatement	for ( int i = 0 ; i < num_points ; i ++ )
+>34	CompoundStatement	 
+>35	ExpressionStatement	 
+>36	CallExpression	points . push_back ( pt )
+>37	ArgumentList	pt
+>38	Argument	pt
+>39	Identifier	pt
+>40	Callee	points . push_back
+>41	MemberAccess	points . push_back
+>42	Identifier	push_back
+>43	Identifier	points
+>44	ForStatement	for ( int j = 0 ; j < num_visible ; j ++ )
+>45	CompoundStatement	 
+>46	IfStatement	if ( bundle_version >= 0.3 )
+>47	ExpressionStatement	 
+>48	CallExpression	fscanf ( f , \"%lf %lf\" , & x , & y )
+>49	ArgumentList	f
+>50	Argument	& y
+>51	UnaryOp	& y
+>52	Identifier	y
+>53	UnaryOperator	&
+>54	Argument	& x
+>55	UnaryOp	& x
+>56	Identifier	x
+>57	UnaryOperator	&
+>58	Argument	\"%lf %lf\"
+>59	PrimaryExpression	\"%lf %lf\"
+>60	Argument	f
+>61	Identifier	f
+>62	Callee	fscanf
+>63	Identifier	fscanf
+>64	Condition	 
+>65	RelationalExpression	bundle_version >= 0.3
+>66	PrimaryExpression	0.3
+>67	Identifier	bundle_version
+>68	IdentifierDeclStatement	 
+>69	IdentifierDecl	y
+>70	Identifier	y
+>71	IdentifierDeclType	double
+>72	IdentifierDecl	x
+>73	Identifier	x
+>74	IdentifierDeclType	double
+>75	ExpressionStatement	 
+>76	CallExpression	fscanf ( f , \"%d %d\" , & view , & key )
+>77	ArgumentList	f
+>78	Argument	& key
+>79	UnaryOp	& key
+>80	Identifier	key
+>81	UnaryOperator	&
+>82	Argument	& view
+>83	UnaryOp	& view
+>84	Identifier	view
+>85	UnaryOperator	&
+>86	Argument	\"%d %d\"
+>87	PrimaryExpression	\"%d %d\"
+>88	Argument	f
+>89	Identifier	f
+>90	Callee	fscanf
+>91	Identifier	fscanf
+>92	IdentifierDeclStatement	 
+>93	IdentifierDecl	key
+>94	Identifier	key
+>95	IdentifierDeclType	int
+>96	IdentifierDecl	view
+>97	Identifier	view
+>98	IdentifierDeclType	int
+>99	IncDecOp	 
+>100	IncDec	++
+>101	Identifier	j
+>102	Condition	 
+>103	RelationalExpression	j < num_visible
+>104	Identifier	num_visible
+>105	Identifier	j
+>106	ForInit	 
+>107	IdentifierDeclStatement	int j = 0 ;
+>108	IdentifierDecl	j = 0
+>109	AssignmentExpr	j = 0
+>110	PrimaryExpression	0
+>111	Identifier	j
+>112	Identifier	j
+>113	IdentifierDeclType	int
+>114	ExpressionStatement	 
+>115	CallExpression	fscanf ( f , \"%d\" , & num_visible )
+>116	ArgumentList	f
+>117	Argument	& num_visible
+>118	UnaryOp	& num_visible
+>119	Identifier	num_visible
+>120	UnaryOperator	&
+>121	Argument	\"%d\"
+>122	PrimaryExpression	\"%d\"
+>123	Argument	f
+>124	Identifier	f
+>125	Callee	fscanf
+>126	Identifier	fscanf
+>127	IdentifierDeclStatement	 
+>128	IdentifierDecl	num_visible
+>129	Identifier	num_visible
+>130	IdentifierDeclType	int
+>131	ExpressionStatement	 
+>132	CallExpression	fscanf ( f , \"%lf %lf %lf\n\" , pt . color + 0 , pt . color + 1 , pt . color + 2 )
+>133	ArgumentList	f
+>134	Argument	pt . color + 2
+>135	AdditiveExpression	pt . color + 2
+>136	PrimaryExpression	2
+>137	MemberAccess	pt . color
+>138	Identifier	color
+>139	Identifier	pt
+>140	Argument	pt . color + 1
+>141	AdditiveExpression	pt . color + 1
+>142	PrimaryExpression	1
+>143	MemberAccess	pt . color
+>144	Identifier	color
+>145	Identifier	pt
+>146	Argument	pt . color + 0
+>147	AdditiveExpression	pt . color + 0
+>148	PrimaryExpression	0
+>149	MemberAccess	pt . color
+>150	Identifier	color
+>151	Identifier	pt
+>152	Argument	\"%lf %lf %lf\n\"
+>153	PrimaryExpression	\"%lf %lf %lf\n\"
+>154	Argument	f
+>155	Identifier	f
+>156	Callee	fscanf
+>157	Identifier	fscanf
+>158	ExpressionStatement	 
+>159	CallExpression	fscanf ( f , \"%lf %lf %lf\n\" , pt . pos + 0 , pt . pos + 1 , pt . pos + 2 )
+>160	ArgumentList	f
+>161	Argument	pt . pos + 2
+>162	AdditiveExpression	pt . pos + 2
+>163	PrimaryExpression	2
+>164	MemberAccess	pt . pos
+>165	Identifier	pos
+>166	Identifier	pt
+>167	Argument	pt . pos + 1
+>168	AdditiveExpression	pt . pos + 1
+>169	PrimaryExpression	1
+>170	MemberAccess	pt . pos
+>171	Identifier	pos
+>172	Identifier	pt
+>173	Argument	pt . pos + 0
+>174	AdditiveExpression	pt . pos + 0
+>175	PrimaryExpression	0
+>176	MemberAccess	pt . pos
+>177	Identifier	pos
+>178	Identifier	pt
+>179	Argument	\"%lf %lf %lf\n\"
+>180	PrimaryExpression	\"%lf %lf %lf\n\"
+>181	Argument	f
+>182	Identifier	f
+>183	Callee	fscanf
+>184	Identifier	fscanf
+>185	IdentifierDeclStatement	 
+>186	IdentifierDecl	pt
+>187	Identifier	pt
+>188	IdentifierDeclType	point_t
+>189	IncDecOp	 
+>190	IncDec	++
+>191	Identifier	i
+>192	Condition	 
+>193	RelationalExpression	i < num_points
+>194	Identifier	num_points
+>195	Identifier	i
+>196	ForInit	 
+>197	IdentifierDeclStatement	int i = 0 ;
+>198	IdentifierDecl	i = 0
+>199	AssignmentExpr	i = 0
+>200	PrimaryExpression	0
+>201	Identifier	i
+>202	Identifier	i
+>203	IdentifierDeclType	int
+>204	ForStatement	for ( int i = 0 ; i < num_images ; i ++ )
+>205	CompoundStatement	 
+>206	ExpressionStatement	 
+>207	CallExpression	cameras . push_back ( cam )
+>208	ArgumentList	cam
+>209	Argument	cam
+>210	Identifier	cam
+>211	Callee	cameras . push_back
+>212	MemberAccess	cameras . push_back
+>213	Identifier	push_back
+>214	Identifier	cameras
+>215	ExpressionStatement	 
+>216	CallExpression	memcpy ( cam . t , t , sizeof ( double ) * 3 )
+>217	ArgumentList	cam . t
+>218	Argument	sizeof ( double ) * 3
+>219	MultiplicativeExpression	sizeof ( double ) * 3
+>220	PrimaryExpression	3
+>221	SizeofExpr	sizeof ( double )
+>222	SizeofOperand	double
+>223	Sizeof	sizeof
+>224	Argument	t
+>225	Identifier	t
+>226	Argument	cam . t
+>227	MemberAccess	cam . t
+>228	Identifier	t
+>229	Identifier	cam
+>230	Callee	memcpy
+>231	Identifier	memcpy
+>232	ExpressionStatement	 
+>233	CallExpression	memcpy ( cam . R , R , sizeof ( double ) * 9 )
+>234	ArgumentList	cam . R
+>235	Argument	sizeof ( double ) * 9
+>236	MultiplicativeExpression	sizeof ( double ) * 9
+>237	PrimaryExpression	9
+>238	SizeofExpr	sizeof ( double )
+>239	SizeofOperand	double
+>240	Sizeof	sizeof
+>241	Argument	R
+>242	Identifier	R
+>243	Argument	cam . R
+>244	MemberAccess	cam . R
+>245	Identifier	R
+>246	Identifier	cam
+>247	Callee	memcpy
+>248	Identifier	memcpy
+>249	ExpressionStatement	 
+>250	AssignmentExpr	cam . f = focal_length
+>251	Identifier	focal_length
+>252	MemberAccess	cam . f
+>253	Identifier	f
+>254	Identifier	cam
+>255	IdentifierDeclStatement	 
+>256	IdentifierDecl	cam
+>257	Identifier	cam
+>258	IdentifierDeclType	camera_params_t
+>259	IfStatement	if ( focal_length == 0.0 )
+>260	ContinueStatement	 
+>261	Condition	 
+>262	EqualityExpression	focal_length == 0.0
+>263	PrimaryExpression	0.0
+>264	Identifier	focal_length
+>265	ExpressionStatement	 
+>266	CallExpression	fscanf ( f , \"%lf %lf %lf\n\" , t + 0 , t + 1 , t + 2 )
+>267	ArgumentList	f
+>268	Argument	t + 2
+>269	AdditiveExpression	t + 2
+>270	PrimaryExpression	2
+>271	Identifier	t
+>272	Argument	t + 1
+>273	AdditiveExpression	t + 1
+>274	PrimaryExpression	1
+>275	Identifier	t
+>276	Argument	t + 0
+>277	AdditiveExpression	t + 0
+>278	PrimaryExpression	0
+>279	Identifier	t
+>280	Argument	\"%lf %lf %lf\n\"
+>281	PrimaryExpression	\"%lf %lf %lf\n\"
+>282	Argument	f
+>283	Identifier	f
+>284	Callee	fscanf
+>285	Identifier	fscanf
+>286	ExpressionStatement	 
+>287	CallExpression	fscanf ( f , \"%lf %lf %lf\n%lf %lf %lf\n%lf %lf %lf\n\" , R + 0 , R + 1 , R + 2 , R + 3 , R + 4 , R + 5 , R + 6 , \
+>288	ArgumentList	f
+>289	Argument	R + 8
+>290	AdditiveExpression	R + 8
+>291	PrimaryExpression	8
+>292	Identifier	R
+>293	Argument	R + 7
+>294	AdditiveExpression	R + 7
+>295	PrimaryExpression	7
+>296	Identifier	R
+>297	Argument	R + 6
+>298	AdditiveExpression	R + 6
+>299	PrimaryExpression	6
+>300	Identifier	R
+>301	Argument	R + 5
+>302	AdditiveExpression	R + 5
+>303	PrimaryExpression	5
+>304	Identifier	R
+>305	Argument	R + 4
+>306	AdditiveExpression	R + 4
+>307	PrimaryExpression	4
+>308	Identifier	R
+>309	Argument	R + 3
+>310	AdditiveExpression	R + 3
+>311	PrimaryExpression	3
+>312	Identifier	R
+>313	Argument	R + 2
+>314	AdditiveExpression	R + 2
+>315	PrimaryExpression	2
+>316	Identifier	R
+>317	Argument	R + 1
+>318	AdditiveExpression	R + 1
+>319	PrimaryExpression	1
+>320	Identifier	R
+>321	Argument	R + 0
+>322	AdditiveExpression	R + 0
+>323	PrimaryExpression	0
+>324	Identifier	R
+>325	Argument	\"%lf %lf %lf\n%lf %lf %lf\n%lf %lf %lf\n\"
+>326	PrimaryExpression	\"%lf %lf %lf\n%lf %lf %lf\n%lf %lf %lf\n\"
+>327	Argument	f
+>328	Identifier	f
+>329	Callee	fscanf
+>330	Identifier	fscanf
+>331	IfStatement	if ( bundle_version < 0.2 )
+>332	ElseStatement	else
+>333	CompoundStatement	 
+>334	ExpressionStatement	 
+>335	CallExpression	fscanf ( f , \"%lf %lf %lf\n\" , & focal_length , & k0 , & k1 )
+>336	ArgumentList	f
+>337	Argument	& k1
+>338	UnaryOp	& k1
+>339	Identifier	k1
+>340	UnaryOperator	&
+>341	Argument	& k0
+>342	UnaryOp	& k0
+>343	Identifier	k0
+>344	UnaryOperator	&
+>345	Argument	& focal_length
+>346	UnaryOp	& focal_length
+>347	Identifier	focal_length
+>348	UnaryOperator	&
+>349	Argument	\"%lf %lf %lf\n\"
+>350	PrimaryExpression	\"%lf %lf %lf\n\"
+>351	Argument	f
+>352	Identifier	f
+>353	Callee	fscanf
+>354	Identifier	fscanf
+>355	CompoundStatement	 
+>356	ExpressionStatement	 
+>357	CallExpression	fscanf ( f , \"%lf\n\" , & focal_length )
+>358	ArgumentList	f
+>359	Argument	& focal_length
+>360	UnaryOp	& focal_length
+>361	Identifier	focal_length
+>362	UnaryOperator	&
+>363	Argument	\"%lf\n\"
+>364	PrimaryExpression	\"%lf\n\"
+>365	Argument	f
+>366	Identifier	f
+>367	Callee	fscanf
+>368	Identifier	fscanf
+>369	Condition	 
+>370	RelationalExpression	bundle_version < 0.2
+>371	PrimaryExpression	0.2
+>372	Identifier	bundle_version
+>373	IdentifierDeclStatement	 
+>374	IdentifierDecl	t [ 3 ]
+>375	PrimaryExpression	3
+>376	Identifier	t
+>377	IdentifierDeclType	double [ 3 ]
+>378	IdentifierDeclStatement	 
+>379	IdentifierDecl	R [ 9 ]
+>380	PrimaryExpression	9
+>381	Identifier	R
+>382	IdentifierDeclType	double [ 9 ]
+>383	IdentifierDeclStatement	 
+>384	IdentifierDecl	k1
+>385	Identifier	k1
+>386	IdentifierDeclType	double
+>387	IdentifierDecl	k0
+>388	Identifier	k0
+>389	IdentifierDeclType	double
+>390	IdentifierDecl	focal_length
+>391	Identifier	focal_length
+>392	IdentifierDeclType	double
+>393	IncDecOp	 
+>394	IncDec	++
+>395	Identifier	i
+>396	Condition	 
+>397	RelationalExpression	i < num_images
+>398	Identifier	num_images
+>399	Identifier	i
+>400	ForInit	 
+>401	IdentifierDeclStatement	int i = 0 ;
+>402	IdentifierDecl	i = 0
+>403	AssignmentExpr	i = 0
+>404	PrimaryExpression	0
+>405	Identifier	i
+>406	Identifier	i
+>407	IdentifierDeclType	int
+>408	ExpressionStatement	 
+>409	CallExpression	printf ( \"[ReadBundleFile] Reading %d images and %d points...\n\" , num_images , num_points )
+>410	ArgumentList	\"[ReadBundleFile] Reading %d images and %d points...\n\"
+>411	Argument	num_points
+>412	Identifier	num_points
+>413	Argument	num_images
+>414	Identifier	num_images
+>415	Argument	\"[ReadBundleFile] Reading %d images and %d points...\n\"
+>416	PrimaryExpression	\"[ReadBundleFile] Reading %d images and %d points...\n\"
+>417	Callee	printf
+>418	Identifier	printf
+>419	IfStatement	if ( first_line [ 0 ] == '#' )
+>420	ElseStatement	else
+>421	IfStatement	if ( first_line [ 0 ] == 'v' )
+>422	ElseStatement	else
+>423	CompoundStatement	 
+>424	ExpressionStatement	 
+>425	CallExpression	sscanf ( first_line , \"%d %d\n\" , & num_images , & num_points )
+>426	ArgumentList	first_line
+>427	Argument	& num_points
+>428	UnaryOp	& num_points
+>429	Identifier	num_points
+>430	UnaryOperator	&
+>431	Argument	& num_images
+>432	UnaryOp	& num_images
+>433	Identifier	num_images
+>434	UnaryOperator	&
+>435	Argument	\"%d %d\n\"
+>436	PrimaryExpression	\"%d %d\n\"
+>437	Argument	first_line
+>438	Identifier	first_line
+>439	Callee	sscanf
+>440	Identifier	sscanf
+>441	ExpressionStatement	 
+>442	AssignmentExpr	bundle_version = 0.1
+>443	PrimaryExpression	0.1
+>444	Identifier	bundle_version
+>445	CompoundStatement	 
+>446	ExpressionStatement	 
+>447	CallExpression	fscanf ( f , \"%d %d\n\" , & num_images , & num_points )
+>448	ArgumentList	f
+>449	Argument	& num_points
+>450	UnaryOp	& num_points
+>451	Identifier	num_points
+>452	UnaryOperator	&
+>453	Argument	& num_images
+>454	UnaryOp	& num_images
+>455	Identifier	num_images
+>456	UnaryOperator	&
+>457	Argument	\"%d %d\n\"
+>458	PrimaryExpression	\"%d %d\n\"
+>459	Argument	f
+>460	Identifier	f
+>461	Callee	fscanf
+>462	Identifier	fscanf
+>463	ExpressionStatement	 
+>464	CallExpression	printf ( \"[ReadBundleFile] Bundle version
+>465	ArgumentList	\"[ReadBundleFile] Bundle version
+>466	Argument	version
+>467	Identifier	version
+>468	Argument	\"[ReadBundleFile] Bundle version
+>469	PrimaryExpression	\"[ReadBundleFile] Bundle version
+>470	Callee	printf
+>471	Identifier	printf
+>472	ExpressionStatement	 
+>473	AssignmentExpr	bundle_version = version
+>474	Identifier	version
+>475	Identifier	bundle_version
+>476	ExpressionStatement	 
+>477	CallExpression	sscanf ( first_line , \"v%lf\" , & version )
+>478	ArgumentList	first_line
+>479	Argument	& version
+>480	UnaryOp	& version
+>481	Identifier	version
+>482	UnaryOperator	&
+>483	Argument	\"v%lf\"
+>484	PrimaryExpression	\"v%lf\"
+>485	Argument	first_line
+>486	Identifier	first_line
+>487	Callee	sscanf
+>488	Identifier	sscanf
+>489	IdentifierDeclStatement	 
+>490	IdentifierDecl	version
+>491	Identifier	version
+>492	IdentifierDeclType	double
+>493	Condition	 
+>494	EqualityExpression	first_line [ 0 ] == 'v'
+>495	PrimaryExpression	'v'
+>496	ArrayIndexing	first_line [ 0 ]
+>497	PrimaryExpression	0
+>498	Identifier	first_line
+>499	CompoundStatement	 
+>500	ExpressionStatement	 
+>501	CallExpression	fscanf ( f , \"%d %d\n\" , & num_images , & num_points )
+>502	ArgumentList	f
+>503	Argument	& num_points
+>504	UnaryOp	& num_points
+>505	Identifier	num_points
+>506	UnaryOperator	&
+>507	Argument	& num_images
+>508	UnaryOp	& num_images
+>509	Identifier	num_images
+>510	UnaryOperator	&
+>511	Argument	\"%d %d\n\"
+>512	PrimaryExpression	\"%d %d\n\"
+>513	Argument	f
+>514	Identifier	f
+>515	Callee	fscanf
+>516	Identifier	fscanf
+>517	ExpressionStatement	 
+>518	CallExpression	printf ( \"[ReadBundleFile] Bundle version
+>519	ArgumentList	\"[ReadBundleFile] Bundle version
+>520	Argument	version
+>521	Identifier	version
+>522	Argument	\"[ReadBundleFile] Bundle version
+>523	PrimaryExpression	\"[ReadBundleFile] Bundle version
+>524	Callee	printf
+>525	Identifier	printf
+>526	ExpressionStatement	 
+>527	AssignmentExpr	bundle_version = version
+>528	Identifier	version
+>529	Identifier	bundle_version
+>530	ExpressionStatement	 
+>531	CallExpression	sscanf ( first_line , \"# Bundle file v%lf\" , & version )
+>532	ArgumentList	first_line
+>533	Argument	& version
+>534	UnaryOp	& version
+>535	Identifier	version
+>536	UnaryOperator	&
+>537	Argument	\"# Bundle file v%lf\"
+>538	PrimaryExpression	\"# Bundle file v%lf\"
+>539	Argument	first_line
+>540	Identifier	first_line
+>541	Callee	sscanf
+>542	Identifier	sscanf
+>543	IdentifierDeclStatement	 
+>544	IdentifierDecl	version
+>545	Identifier	version
+>546	IdentifierDeclType	double
+>547	Condition	 
+>548	EqualityExpression	first_line [ 0 ] == '#'
+>549	PrimaryExpression	'#'
+>550	ArrayIndexing	first_line [ 0 ]
+>551	PrimaryExpression	0
+>552	Identifier	first_line
+>553	ExpressionStatement	 
+>554	CallExpression	fgets ( first_line , 256 , f )
+>555	ArgumentList	first_line
+>556	Argument	f
+>557	Identifier	f
+>558	Argument	256
+>559	PrimaryExpression	256
+>560	Argument	first_line
+>561	Identifier	first_line
+>562	Callee	fgets
+>563	Identifier	fgets
+>564	IdentifierDeclStatement	 
+>565	IdentifierDecl	first_line [ 256 ]
+>566	PrimaryExpression	256
+>567	Identifier	first_line
+>568	IdentifierDeclType	char [ 256 ]
+>569	IdentifierDeclStatement	 
+>570	IdentifierDecl	coalesced
+>571	Identifier	coalesced
+>572	IdentifierDeclType	bool
+>573	IdentifierDeclStatement	 
+>574	IdentifierDecl	num_points
+>575	Identifier	num_points
+>576	IdentifierDeclType	int
+>577	IdentifierDecl	num_images
+>578	Identifier	num_images
+>579	IdentifierDeclType	int
+>580	IfStatement	if ( f == NULL )
+>581	CompoundStatement	 
+>582	ReturnStatement	 
+>583	ExpressionStatement	 
+>584	CallExpression	printf ( \"Error opening file %s for reading\n\" , bundle_file )
+>585	ArgumentList	\"Error opening file %s for reading\n\"
+>586	Argument	bundle_file
+>587	Identifier	bundle_file
+>588	Argument	\"Error opening file %s for reading\n\"
+>589	PrimaryExpression	\"Error opening file %s for reading\n\"
+>590	Callee	printf
+>591	Identifier	printf
+>592	Condition	 
+>593	EqualityExpression	f == NULL
+>594	Identifier	NULL
+>595	Identifier	f
+>596	IdentifierDeclStatement	 
+>597	IdentifierDecl	* f = fopen ( bundle_file , \"r\" )
+>598	AssignmentExpr	* f = fopen ( bundle_file , \"r\" )
+>599	CallExpression	fopen ( bundle_file , \"r\" )
+>600	ArgumentList	bundle_file
+>601	Argument	\"r\"
+>602	PrimaryExpression	\"r\"
+>603	Argument	bundle_file
+>604	Identifier	bundle_file
+>605	Callee	fopen
+>606	Identifier	fopen
+>607	Identifier	f
+>608	Identifier	f
+>609	IdentifierDeclType	FILE *
+>658	FunctionDef	WritePlyFile (char * ply_file , std 
+>659	ParameterList	char * ply_file , std 
+>660	Parameter	 
+>661	Identifier	write_cameras
+>662	ParameterType	int
+>663	Parameter	 
+>664	Identifier	decimate_step
+>665	ParameterType	int
+>666	Parameter	 
+>667	Identifier	bundle_version
+>668	ParameterType	double
+>669	Parameter	 
+>670	Identifier	points
+>671	ParameterType	std 
+>672	Parameter	 
+>673	Identifier	cameras
+>674	ParameterType	std 
+>675	Parameter	 
+>676	Identifier	ply_file
+>677	ParameterType	char *
+>678	ReturnType	void
+>679	CompoundStatement	 
+>680	ExpressionStatement	 
+>681	CallExpression	fclose ( f )
+>682	ArgumentList	f
+>683	Argument	f
+>684	Identifier	f
+>685	Callee	fclose
+>686	Identifier	fclose
+>687	IfStatement	if ( write_cameras )
+>688	CompoundStatement	 
+>689	ForStatement	for ( int i = 0 ; i < num_cameras ; i ++ )
+>690	CompoundStatement	 
+>691	ExpressionStatement	 
+>692	CallExpression	fprintf ( f , \"%0.16e %0.16e %0.16e 255 255 0\n\" , p [ 0 ] , p [ 1 ] , p [ 2 ] )
+>693	ArgumentList	f
+>694	Argument	p [ 2 ]
+>695	ArrayIndexing	p [ 2 ]
+>696	PrimaryExpression	2
+>697	Identifier	p
+>698	Argument	p [ 1 ]
+>699	ArrayIndexing	p [ 1 ]
+>700	PrimaryExpression	1
+>701	Identifier	p
+>702	Argument	p [ 0 ]
+>703	ArrayIndexing	p [ 0 ]
+>704	PrimaryExpression	0
+>705	Identifier	p
+>706	Argument	\"%0.16e %0.16e %0.16e 255 255 0\n\"
+>707	PrimaryExpression	\"%0.16e %0.16e %0.16e 255 255 0\n\"
+>708	Argument	f
+>709	Identifier	f
+>710	Callee	fprintf
+>711	Identifier	fprintf
+>712	ExpressionStatement	 
+>713	AssignmentExpr	p [ 2 ] += c [ 2 ]
+>714	ArrayIndexing	c [ 2 ]
+>715	PrimaryExpression	2
+>716	Identifier	c
+>717	ArrayIndexing	p [ 2 ]
+>718	PrimaryExpression	2
+>719	Identifier	p
+>720	ExpressionStatement	 
+>721	AssignmentExpr	p [ 1 ] += c [ 1 ]
+>722	ArrayIndexing	c [ 1 ]
+>723	PrimaryExpression	1
+>724	Identifier	c
+>725	ArrayIndexing	p [ 1 ]
+>726	PrimaryExpression	1
+>727	Identifier	p
+>728	ExpressionStatement	 
+>729	AssignmentExpr	p [ 0 ] += c [ 0 ]
+>730	ArrayIndexing	c [ 0 ]
+>731	PrimaryExpression	0
+>732	Identifier	c
+>733	ArrayIndexing	p [ 0 ]
+>734	PrimaryExpression	0
+>735	Identifier	p
+>736	ExpressionStatement	 
+>737	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , Rinv , p_cam , p )
+>738	ArgumentList	3
+>739	Argument	p
+>740	Identifier	p
+>741	Argument	p_cam
+>742	Identifier	p_cam
+>743	Argument	Rinv
+>744	Identifier	Rinv
+>745	Argument	1
+>746	PrimaryExpression	1
+>747	Argument	3
+>748	PrimaryExpression	3
+>749	Argument	3
+>750	PrimaryExpression	3
+>751	Argument	3
+>752	PrimaryExpression	3
+>753	Callee	matrix_product
+>754	Identifier	matrix_product
+>755	IfStatement	if ( reflect )
+>756	ExpressionStatement	 
+>757	AssignmentExpr	p_cam [ 2 ] = - p_cam [ 2 ]
+>758	UnaryOp	- p_cam [ 2 ]
+>759	ArrayIndexing	p_cam [ 2 ]
+>760	PrimaryExpression	2
+>761	Identifier	p_cam
+>762	UnaryOperator	-
+>763	ArrayIndexing	p_cam [ 2 ]
+>764	PrimaryExpression	2
+>765	Identifier	p_cam
+>766	Condition	 
+>767	Identifier	reflect
+>768	IdentifierDeclStatement	 
+>769	IdentifierDecl	p [ 3 ]
+>770	PrimaryExpression	3
+>771	Identifier	p
+>772	IdentifierDeclType	double [ 3 ]
+>773	IdentifierDeclStatement	 
+>774	IdentifierDecl	p_cam [ 3 ] = { 0.0 , 0.0 , - 0.3 }
+>775	AssignmentExpr	p_cam [ 3 ] = { 0.0 , 0.0 , - 0.3 }
+>776	InitializerList	0.0
+>777	UnaryOp	- 0.3
+>778	PrimaryExpression	0.3
+>779	UnaryOperator	-
+>780	PrimaryExpression	0.0
+>781	PrimaryExpression	0.0
+>782	Identifier	p_cam
+>783	PrimaryExpression	3
+>784	Identifier	p_cam
+>785	IdentifierDeclType	double [ 3 ]
+>786	IfStatement	if ( ( i % 2 ) == 0 )
+>787	ElseStatement	else
+>788	ExpressionStatement	 
+>789	CallExpression	fprintf ( f , \"%0.16e %0.16e %0.16e 255 0 0\n\" , c [ 0 ] , c [ 1 ] , c [ 2 ] )
+>790	ArgumentList	f
+>791	Argument	c [ 2 ]
+>792	ArrayIndexing	c [ 2 ]
+>793	PrimaryExpression	2
+>794	Identifier	c
+>795	Argument	c [ 1 ]
+>796	ArrayIndexing	c [ 1 ]
+>797	PrimaryExpression	1
+>798	Identifier	c
+>799	Argument	c [ 0 ]
+>800	ArrayIndexing	c [ 0 ]
+>801	PrimaryExpression	0
+>802	Identifier	c
+>803	Argument	\"%0.16e %0.16e %0.16e 255 0 0\n\"
+>804	PrimaryExpression	\"%0.16e %0.16e %0.16e 255 0 0\n\"
+>805	Argument	f
+>806	Identifier	f
+>807	Callee	fprintf
+>808	Identifier	fprintf
+>809	ExpressionStatement	 
+>810	CallExpression	fprintf ( f , \"%0.16e %0.16e %0.16e 0 255 0\n\" , c [ 0 ] , c [ 1 ] , c [ 2 ] )
+>811	ArgumentList	f
+>812	Argument	c [ 2 ]
+>813	ArrayIndexing	c [ 2 ]
+>814	PrimaryExpression	2
+>815	Identifier	c
+>816	Argument	c [ 1 ]
+>817	ArrayIndexing	c [ 1 ]
+>818	PrimaryExpression	1
+>819	Identifier	c
+>820	Argument	c [ 0 ]
+>821	ArrayIndexing	c [ 0 ]
+>822	PrimaryExpression	0
+>823	Identifier	c
+>824	Argument	\"%0.16e %0.16e %0.16e 0 255 0\n\"
+>825	PrimaryExpression	\"%0.16e %0.16e %0.16e 0 255 0\n\"
+>826	Argument	f
+>827	Identifier	f
+>828	Callee	fprintf
+>829	Identifier	fprintf
+>830	Condition	 
+>831	EqualityExpression	( i % 2 ) == 0
+>832	PrimaryExpression	0
+>833	MultiplicativeExpression	i % 2
+>834	PrimaryExpression	2
+>835	Identifier	i
+>836	IfStatement	if ( reflect )
+>837	ExpressionStatement	 
+>838	AssignmentExpr	c [ 2 ] = - c [ 2 ]
+>839	UnaryOp	- c [ 2 ]
+>840	ArrayIndexing	c [ 2 ]
+>841	PrimaryExpression	2
+>842	Identifier	c
+>843	UnaryOperator	-
+>844	ArrayIndexing	c [ 2 ]
+>845	PrimaryExpression	2
+>846	Identifier	c
+>847	Condition	 
+>848	Identifier	reflect
+>849	ExpressionStatement	 
+>850	CallExpression	matrix_scale ( 3 , 1 , c , - 1.0 , c )
+>851	ArgumentList	3
+>852	Argument	c
+>853	Identifier	c
+>854	Argument	- 1.0
+>855	UnaryOp	- 1.0
+>856	PrimaryExpression	1.0
+>857	UnaryOperator	-
+>858	Argument	c
+>859	Identifier	c
+>860	Argument	1
+>861	PrimaryExpression	1
+>862	Argument	3
+>863	PrimaryExpression	3
+>864	Callee	matrix_scale
+>865	Identifier	matrix_scale
+>866	ExpressionStatement	 
+>867	CallExpression	matrix_product ( 3 , 3 , 3 , 1 , Rinv , cameras [ i ] . t , c )
+>868	ArgumentList	3
+>869	Argument	c
+>870	Identifier	c
+>871	Argument	cameras [ i ] . t
+>872	MemberAccess	cameras [ i ] . t
+>873	Identifier	t
+>874	ArrayIndexing	cameras [ i ]
+>875	Identifier	i
+>876	Identifier	cameras
+>877	Argument	Rinv
+>878	Identifier	Rinv
+>879	Argument	1
+>880	PrimaryExpression	1
+>881	Argument	3
+>882	PrimaryExpression	3
+>883	Argument	3
+>884	PrimaryExpression	3
+>885	Argument	3
+>886	PrimaryExpression	3
+>887	Callee	matrix_product
+>888	Identifier	matrix_product
+>889	ExpressionStatement	 
+>890	CallExpression	matrix_transpose ( 3 , 3 , cameras [ i ] . R , Rinv )
+>891	ArgumentList	3
+>892	Argument	Rinv
+>893	Identifier	Rinv
+>894	Argument	cameras [ i ] . R
+>895	MemberAccess	cameras [ i ] . R
+>896	Identifier	R
+>897	ArrayIndexing	cameras [ i ]
+>898	Identifier	i
+>899	Identifier	cameras
+>900	Argument	3
+>901	PrimaryExpression	3
+>902	Argument	3
+>903	PrimaryExpression	3
+>904	Callee	matrix_transpose
+>905	Identifier	matrix_transpose
+>906	IdentifierDeclStatement	 
+>907	IdentifierDecl	Rinv [ 9 ]
+>908	PrimaryExpression	9
+>909	Identifier	Rinv
+>910	IdentifierDeclType	double [ 9 ]
+>911	IdentifierDeclStatement	 
+>912	IdentifierDecl	c [ 3 ]
+>913	PrimaryExpression	3
+>914	Identifier	c
+>915	IdentifierDeclType	double [ 3 ]
+>916	IncDecOp	 
+>917	IncDec	++
+>918	Identifier	i
+>919	Condition	 
+>920	RelationalExpression	i < num_cameras
+>921	Identifier	num_cameras
+>922	Identifier	i
+>923	ForInit	 
+>924	IdentifierDeclStatement	int i = 0 ;
+>925	IdentifierDecl	i = 0
+>926	AssignmentExpr	i = 0
+>927	PrimaryExpression	0
+>928	Identifier	i
+>929	Identifier	i
+>930	IdentifierDeclType	int
+>931	Condition	 
+>932	Identifier	write_cameras
+>933	ForStatement	for ( int i = 0 ; i < num_points ; i += decimate_step )
+>934	CompoundStatement	 
+>935	ExpressionStatement	 
+>936	CallExpression	fprintf ( f , \"%0.16e %0.16e %0.16e %d %d %d\n\" , points [ i ] . pos [ 0 ] , points [ i ] . pos [ 1 ] , ( reflect ? \
+>937	ArgumentList	f
+>938	Argument	( int ) points [ i ] . color [ 2 ]
+>939	CastExpression	( int ) points [ i ] . color [ 2 ]
+>940	ArrayIndexing	points [ i ] . color [ 2 ]
+>941	PrimaryExpression	2
+>942	MemberAccess	points [ i ] . color
+>943	Identifier	color
+>944	ArrayIndexing	points [ i ]
+>945	Identifier	i
+>946	Identifier	points
+>947	CastTarget	int
+>948	Argument	( int ) points [ i ] . color [ 1 ]
+>949	CastExpression	( int ) points [ i ] . color [ 1 ]
+>950	ArrayIndexing	points [ i ] . color [ 1 ]
+>951	PrimaryExpression	1
+>952	MemberAccess	points [ i ] . color
+>953	Identifier	color
+>954	ArrayIndexing	points [ i ]
+>955	Identifier	i
+>956	Identifier	points
+>957	CastTarget	int
+>958	Argument	( int ) points [ i ] . color [ 0 ]
+>959	CastExpression	( int ) points [ i ] . color [ 0 ]
+>960	ArrayIndexing	points [ i ] . color [ 0 ]
+>961	PrimaryExpression	0
+>962	MemberAccess	points [ i ] . color
+>963	Identifier	color
+>964	ArrayIndexing	points [ i ]
+>965	Identifier	i
+>966	Identifier	points
+>967	CastTarget	int
+>968	Argument	( reflect ? - 1.0 
+>969	MultiplicativeExpression	( reflect ? - 1.0 
+>970	ArrayIndexing	points [ i ] . pos [ 2 ]
+>971	PrimaryExpression	2
+>972	MemberAccess	points [ i ] . pos
+>973	Identifier	pos
+>974	ArrayIndexing	points [ i ]
+>975	Identifier	i
+>976	Identifier	points
+>977	ConditionalExpression	reflect ? - 1.0 
+>978	PrimaryExpression	1.0
+>979	UnaryOp	- 1.0
+>980	PrimaryExpression	1.0
+>981	UnaryOperator	-
+>982	Condition	reflect
+>983	Identifier	reflect
+>984	Argument	points [ i ] . pos [ 1 ]
+>985	ArrayIndexing	points [ i ] . pos [ 1 ]
+>986	PrimaryExpression	1
+>987	MemberAccess	points [ i ] . pos
+>988	Identifier	pos
+>989	ArrayIndexing	points [ i ]
+>990	Identifier	i
+>991	Identifier	points
+>992	Argument	points [ i ] . pos [ 0 ]
+>993	ArrayIndexing	points [ i ] . pos [ 0 ]
+>994	PrimaryExpression	0
+>995	MemberAccess	points [ i ] . pos
+>996	Identifier	pos
+>997	ArrayIndexing	points [ i ]
+>998	Identifier	i
+>999	Identifier	points
+>1000	Argument	\"%0.16e %0.16e %0.16e %d %d %d\n\"
+>1001	PrimaryExpression	\"%0.16e %0.16e %0.16e %d %d %d\n\"
+>1002	Argument	f
+>1003	Identifier	f
+>1004	Callee	fprintf
+>1005	Identifier	fprintf
+>1006	AssignmentExpr	 
+>1007	Identifier	decimate_step
+>1008	Identifier	i
+>1009	Condition	 
+>1010	RelationalExpression	i < num_points
+>1011	Identifier	num_points
+>1012	Identifier	i
+>1013	ForInit	 
+>1014	IdentifierDeclStatement	int i = 0 ;
+>1015	IdentifierDecl	i = 0
+>1016	AssignmentExpr	i = 0
+>1017	PrimaryExpression	0
+>1018	Identifier	i
+>1019	Identifier	i
+>1020	IdentifierDeclType	int
+>1021	IdentifierDeclStatement	 
+>1022	IdentifierDecl	reflect = bundle_version < 0.3
+>1023	AssignmentExpr	reflect = bundle_version < 0.3
+>1024	RelationalExpression	bundle_version < 0.3
+>1025	PrimaryExpression	0.3
+>1026	Identifier	bundle_version
+>1027	Identifier	reflect
+>1028	Identifier	reflect
+>1029	IdentifierDeclType	bool
+>1030	ExpressionStatement	 
+>1031	CallExpression	fprintf ( f , ply_header , num_points_out )
+>1032	ArgumentList	f
+>1033	Argument	num_points_out
+>1034	Identifier	num_points_out
+>1035	Argument	ply_header
+>1036	Identifier	ply_header
+>1037	Argument	f
+>1038	Identifier	f
+>1039	Callee	fprintf
+>1040	Identifier	fprintf
+>1041	IfStatement	if ( write_cameras )
+>1042	ElseStatement	else
+>1043	ExpressionStatement	 
+>1044	AssignmentExpr	num_points_out = num_points_decimate
+>1045	Identifier	num_points_decimate
+>1046	Identifier	num_points_out
+>1047	ExpressionStatement	 
+>1048	AssignmentExpr	num_points_out = num_points_decimate + 2 * num_cameras
+>1049	AdditiveExpression	num_points_decimate + 2 * num_cameras
+>1050	MultiplicativeExpression	2 * num_cameras
+>1051	Identifier	num_cameras
+>1052	PrimaryExpression	2
+>1053	Identifier	num_points_decimate
+>1054	Identifier	num_points_out
+>1055	Condition	 
+>1056	Identifier	write_cameras
+>1057	IdentifierDeclStatement	 
+>1058	IdentifierDecl	num_points_out = 0
+>1059	AssignmentExpr	num_points_out = 0
+>1060	PrimaryExpression	0
+>1061	Identifier	num_points_out
+>1062	Identifier	num_points_out
+>1063	IdentifierDeclType	int
+>1064	IdentifierDeclStatement	 
+>1065	IdentifierDecl	num_points_decimate = num_points / decimate_step
+>1066	AssignmentExpr	num_points_decimate = num_points / decimate_step
+>1067	MultiplicativeExpression	num_points / decimate_step
+>1068	Identifier	decimate_step
+>1069	Identifier	num_points
+>1070	Identifier	num_points_decimate
+>1071	Identifier	num_points_decimate
+>1072	IdentifierDeclType	int
+>1073	IdentifierDeclStatement	 
+>1074	IdentifierDecl	num_points = ( int ) points . size ( )
+>1075	AssignmentExpr	num_points = ( int ) points . size ( )
+>1076	CastExpression	( int ) points . size ( )
+>1077	CallExpression	points . size ( )
+>1078	ArgumentList	 
+>1079	Callee	points . size
+>1080	MemberAccess	points . size
+>1081	Identifier	size
+>1082	Identifier	points
+>1083	CastTarget	int
+>1084	Identifier	num_points
+>1085	Identifier	num_points
+>1086	IdentifierDeclType	int
+>1087	IdentifierDeclStatement	 
+>1088	IdentifierDecl	num_cameras = ( int ) cameras . size ( )
+>1089	AssignmentExpr	num_cameras = ( int ) cameras . size ( )
+>1090	CastExpression	( int ) cameras . size ( )
+>1091	CallExpression	cameras . size ( )
+>1092	ArgumentList	 
+>1093	Callee	cameras . size
+>1094	MemberAccess	cameras . size
+>1095	Identifier	size
+>1096	Identifier	cameras
+>1097	CastTarget	int
+>1098	Identifier	num_cameras
+>1099	Identifier	num_cameras
+>1100	IdentifierDeclType	int
+>1101	IfStatement	if ( f == NULL )
+>1102	CompoundStatement	 
+>1103	ReturnStatement	 
+>1104	ExpressionStatement	 
+>1105	CallExpression	printf ( \"Error opening file %s for writing\n\" , ply_file )
+>1106	ArgumentList	\"Error opening file %s for writing\n\"
+>1107	Argument	ply_file
+>1108	Identifier	ply_file
+>1109	Argument	\"Error opening file %s for writing\n\"
+>1110	PrimaryExpression	\"Error opening file %s for writing\n\"
+>1111	Callee	printf
+>1112	Identifier	printf
+>1113	Condition	 
+>1114	EqualityExpression	f == NULL
+>1115	Identifier	NULL
+>1116	Identifier	f
+>1117	IdentifierDeclStatement	 
+>1118	IdentifierDecl	* f = fopen ( ply_file , \"w\" )
+>1119	AssignmentExpr	* f = fopen ( ply_file , \"w\" )
+>1120	CallExpression	fopen ( ply_file , \"w\" )
+>1121	ArgumentList	ply_file
+>1122	Argument	\"w\"
+>1123	PrimaryExpression	\"w\"
+>1124	Argument	ply_file
+>1125	Identifier	ply_file
+>1126	Callee	fopen
+>1127	Identifier	fopen
+>1128	Identifier	f
+>1129	Identifier	f
+>1130	IdentifierDeclType	FILE *
+>1170	FunctionDef	main (int argc , char * * argv)
+>1171	ParameterList	int argc , char * * argv
+>1172	Parameter	 
+>1173	Identifier	argv
+>1174	ParameterType	char * *
+>1175	Parameter	 
+>1176	Identifier	argc
+>1177	ParameterType	int
+>1178	ReturnType	int
+>1179	CompoundStatement	 
+>1180	ReturnStatement	 
+>1181	PrimaryExpression	0
+>1182	ExpressionStatement	 
+>1183	CallExpression	WritePlyFile ( ply_file , cameras , points , bundle_version , decimate_step , write_cameras )
+>1184	ArgumentList	ply_file
+>1185	Argument	write_cameras
+>1186	Identifier	write_cameras
+>1187	Argument	decimate_step
+>1188	Identifier	decimate_step
+>1189	Argument	bundle_version
+>1190	Identifier	bundle_version
+>1191	Argument	points
+>1192	Identifier	points
+>1193	Argument	cameras
+>1194	Identifier	cameras
+>1195	Argument	ply_file
+>1196	Identifier	ply_file
+>1197	Callee	WritePlyFile
+>1198	Identifier	WritePlyFile
+>1199	ExpressionStatement	 
+>1200	CallExpression	ReadBundleFile ( bundle_file , cameras , points , bundle_version )
+>1201	ArgumentList	bundle_file
+>1202	Argument	bundle_version
+>1203	Identifier	bundle_version
+>1204	Argument	points
+>1205	Identifier	points
+>1206	Argument	cameras
+>1207	Identifier	cameras
+>1208	Argument	bundle_file
+>1209	Identifier	bundle_file
+>1210	Callee	ReadBundleFile
+>1211	Identifier	ReadBundleFile
+>1212	IdentifierDeclStatement	 
+>1213	IdentifierDecl	bundle_version
+>1214	Identifier	bundle_version
+>1215	IdentifierDeclType	double
+>1216	IdentifierDeclStatement	 
+>1217	IdentifierDecl	points
+>1218	Identifier	points
+>1219	IdentifierDeclType	std 
+>1220	IdentifierDeclStatement	 
+>1221	IdentifierDecl	cameras
+>1222	Identifier	cameras
+>1223	IdentifierDeclType	std 
+>1224	IfStatement	if ( argc >= 5 )
+>1225	CompoundStatement	 
+>1226	ExpressionStatement	 
+>1227	AssignmentExpr	write_cameras = atoi ( argv [ 4 ] )
+>1228	CallExpression	atoi ( argv [ 4 ] )
+>1229	ArgumentList	argv [ 4 ]
+>1230	Argument	argv [ 4 ]
+>1231	ArrayIndexing	argv [ 4 ]
+>1232	PrimaryExpression	4
+>1233	Identifier	argv
+>1234	Callee	atoi
+>1235	Identifier	atoi
+>1236	Identifier	write_cameras
+>1237	Condition	 
+>1238	RelationalExpression	argc >= 5
+>1239	PrimaryExpression	5
+>1240	Identifier	argc
+>1241	IdentifierDeclStatement	 
+>1242	IdentifierDecl	write_cameras = 1
+>1243	AssignmentExpr	write_cameras = 1
+>1244	PrimaryExpression	1
+>1245	Identifier	write_cameras
+>1246	Identifier	write_cameras
+>1247	IdentifierDeclType	int
+>1248	IfStatement	if ( argc >= 4 )
+>1249	CompoundStatement	 
+>1250	ExpressionStatement	 
+>1251	AssignmentExpr	decimate_step = atoi ( argv [ 3 ] )
+>1252	CallExpression	atoi ( argv [ 3 ] )
+>1253	ArgumentList	argv [ 3 ]
+>1254	Argument	argv [ 3 ]
+>1255	ArrayIndexing	argv [ 3 ]
+>1256	PrimaryExpression	3
+>1257	Identifier	argv
+>1258	Callee	atoi
+>1259	Identifier	atoi
+>1260	Identifier	decimate_step
+>1261	Condition	 
+>1262	RelationalExpression	argc >= 4
+>1263	PrimaryExpression	4
+>1264	Identifier	argc
+>1265	IdentifierDeclStatement	 
+>1266	IdentifierDecl	decimate_step = 1
+>1267	AssignmentExpr	decimate_step = 1
+>1268	PrimaryExpression	1
+>1269	Identifier	decimate_step
+>1270	Identifier	decimate_step
+>1271	IdentifierDeclType	int
+>1272	IdentifierDeclStatement	 
+>1273	IdentifierDecl	* ply_file = argv [ 2 ]
+>1274	AssignmentExpr	* ply_file = argv [ 2 ]
+>1275	ArrayIndexing	argv [ 2 ]
+>1276	PrimaryExpression	2
+>1277	Identifier	argv
+>1278	Identifier	ply_file
+>1279	Identifier	ply_file
+>1280	IdentifierDeclType	char *
+>1281	IdentifierDeclStatement	 
+>1282	IdentifierDecl	* bundle_file = argv [ 1 ]
+>1283	AssignmentExpr	* bundle_file = argv [ 1 ]
+>1284	ArrayIndexing	argv [ 1 ]
+>1285	PrimaryExpression	1
+>1286	Identifier	argv
+>1287	Identifier	bundle_file
+>1288	Identifier	bundle_file
+>1289	IdentifierDeclType	char *
+>1290	IfStatement	if ( argc != 3 && argc != 4 && argc != 5 )
+>1291	CompoundStatement	 
+>1292	ReturnStatement	 
+>1293	PrimaryExpression	1
+>1294	ExpressionStatement	 
+>1295	Statement	 
+>1296	Statement	 
+>1297	Statement	 
+>1298	Statement	 
+>1299	Statement	 
+>1300	Statement	 
+>1301	Statement	 
+>1302	Statement	 
+>1303	Statement	 
+>1304	Statement	 
+>1305	Condition	 
+>1306	AndExpression	argc != 3 && argc != 4 && argc != 5
+>1307	AndExpression	argc != 4 && argc != 5
+>1308	EqualityExpression	argc != 5
+>1309	PrimaryExpression	5
+>1310	Identifier	argc
+>1311	EqualityExpression	argc != 4
+>1312	PrimaryExpression	4
+>1313	Identifier	argc
+>1314	EqualityExpression	argc != 3
+>1315	PrimaryExpression	3
+>1316	Identifier	argc
+<10=25,24,11
+<11=21,18,15,12
+<12=14,13
+<15=17,16
+<18=20,19
+<21=23,22
+<25=596,580,573,569,564,553,419,408,204,33,26
+<26=27
+<27=31,28
+<28=29
+<29=30
+<31=32
+<33=196,192,189,34
+<34=185,158,131,127,114,44,35
+<35=36
+<36=40,37
+<37=38
+<38=39
+<40=41
+<41=43,42
+<44=106,102,99,45
+<45=92,75,68,46
+<46=64,47
+<47=48
+<48=62,49
+<49=60,58,54,50
+<50=51
+<51=53,52
+<54=55
+<55=57,56
+<58=59
+<60=61
+<62=63
+<64=65
+<65=67,66
+<68=72,69
+<69=71,70
+<72=74,73
+<75=76
+<76=90,77
+<77=88,86,82,78
+<78=79
+<79=81,80
+<82=83
+<83=85,84
+<86=87
+<88=89
+<90=91
+<92=96,93
+<93=95,94
+<96=98,97
+<99=101,100
+<102=103
+<103=105,104
+<106=107
+<107=108
+<108=113,112,109
+<109=111,110
+<114=115
+<115=125,116
+<116=123,121,117
+<117=118
+<118=120,119
+<121=122
+<123=124
+<125=126
+<127=128
+<128=130,129
+<131=132
+<132=156,133
+<133=154,152,146,140,134
+<134=135
+<135=137,136
+<137=139,138
+<140=141
+<141=143,142
+<143=145,144
+<146=147
+<147=149,148
+<149=151,150
+<152=153
+<154=155
+<156=157
+<158=159
+<159=183,160
+<160=181,179,173,167,161
+<161=162
+<162=164,163
+<164=166,165
+<167=168
+<168=170,169
+<170=172,171
+<173=174
+<174=176,175
+<176=178,177
+<179=180
+<181=182
+<183=184
+<185=186
+<186=188,187
+<189=191,190
+<192=193
+<193=195,194
+<196=197
+<197=198
+<198=203,202,199
+<199=201,200
+<204=400,396,393,205
+<205=383,378,373,331,286,265,259,255,249,232,215,206
+<206=207
+<207=211,208
+<208=209
+<209=210
+<211=212
+<212=214,213
+<215=216
+<216=230,217
+<217=226,224,218
+<218=219
+<219=221,220
+<221=223,222
+<224=225
+<226=227
+<227=229,228
+<230=231
+<232=233
+<233=247,234
+<234=243,241,235
+<235=236
+<236=238,237
+<238=240,239
+<241=242
+<243=244
+<244=246,245
+<247=248
+<249=250
+<250=252,251
+<252=254,253
+<255=256
+<256=258,257
+<259=261,260
+<261=262
+<262=264,263
+<265=266
+<266=284,267
+<267=282,280,276,272,268
+<268=269
+<269=271,270
+<272=273
+<273=275,274
+<276=277
+<277=279,278
+<280=281
+<282=283
+<284=285
+<286=287
+<287=329,288
+<288=327,325,321,317,313,309,305,301,297,293,289
+<289=290
+<290=292,291
+<293=294
+<294=296,295
+<297=298
+<298=300,299
+<301=302
+<302=304,303
+<305=306
+<306=308,307
+<309=310
+<310=312,311
+<313=314
+<314=316,315
+<317=318
+<318=320,319
+<321=322
+<322=324,323
+<325=326
+<327=328
+<329=330
+<331=369,355,332
+<332=333
+<333=334
+<334=335
+<335=353,336
+<336=351,349,345,341,337
+<337=338
+<338=340,339
+<341=342
+<342=344,343
+<345=346
+<346=348,347
+<349=350
+<351=352
+<353=354
+<355=356
+<356=357
+<357=367,358
+<358=365,363,359
+<359=360
+<360=362,361
+<363=364
+<365=366
+<367=368
+<369=370
+<370=372,371
+<373=374
+<374=377,376,375
+<378=379
+<379=382,381,380
+<383=390,387,384
+<384=386,385
+<387=389,388
+<390=392,391
+<393=395,394
+<396=397
+<397=399,398
+<400=401
+<401=402
+<402=407,406,403
+<403=405,404
+<408=409
+<409=417,410
+<410=415,413,411
+<411=412
+<413=414
+<415=416
+<417=418
+<419=547,499,420
+<420=421
+<421=493,445,422
+<422=423
+<423=441,424
+<424=425
+<425=439,426
+<426=437,435,431,427
+<427=428
+<428=430,429
+<431=432
+<432=434,433
+<435=436
+<437=438
+<439=440
+<441=442
+<442=444,443
+<445=489,476,472,463,446
+<446=447
+<447=461,448
+<448=459,457,453,449
+<449=450
+<450=452,451
+<453=454
+<454=456,455
+<457=458
+<459=460
+<461=462
+<463=464
+<464=470,465
+<465=468,466
+<466=467
+<468=469
+<470=471
+<472=473
+<473=475,474
+<476=477
+<477=487,478
+<478=485,483,479
+<479=480
+<480=482,481
+<483=484
+<485=486
+<487=488
+<489=490
+<490=492,491
+<493=494
+<494=496,495
+<496=498,497
+<499=543,530,526,517,500
+<500=501
+<501=515,502
+<502=513,511,507,503
+<503=504
+<504=506,505
+<507=508
+<508=510,509
+<511=512
+<513=514
+<515=516
+<517=518
+<518=524,519
+<519=522,520
+<520=521
+<522=523
+<524=525
+<526=527
+<527=529,528
+<530=531
+<531=541,532
+<532=539,537,533
+<533=534
+<534=536,535
+<537=538
+<539=540
+<541=542
+<543=544
+<544=546,545
+<547=548
+<548=550,549
+<550=552,551
+<553=554
+<554=562,555
+<555=560,558,556
+<556=557
+<558=559
+<560=561
+<562=563
+<564=565
+<565=568,567,566
+<569=570
+<570=572,571
+<573=577,574
+<574=576,575
+<577=579,578
+<580=592,581
+<581=583,582
+<583=584
+<584=590,585
+<585=588,586
+<586=587
+<588=589
+<590=591
+<592=593
+<593=595,594
+<596=597
+<597=609,608,598
+<598=607,599
+<599=605,600
+<600=603,601
+<601=602
+<603=604
+<605=606
+<658=679,678,659
+<659=675,672,669,666,663,660
+<660=662,661
+<663=665,664
+<666=668,667
+<669=671,670
+<672=674,673
+<675=677,676
+<679=1117,1101,1087,1073,1064,1057,1041,1030,1021,933,687,680
+<680=681
+<681=685,682
+<682=683
+<683=684
+<685=686
+<687=931,688
+<688=689
+<689=923,919,916,690
+<690=911,906,889,866,849,836,786,773,768,755,736,728,720,712,691
+<691=692
+<692=710,693
+<693=708,706,702,698,694
+<694=695
+<695=697,696
+<698=699
+<699=701,700
+<702=703
+<703=705,704
+<706=707
+<708=709
+<710=711
+<712=713
+<713=717,714
+<714=716,715
+<717=719,718
+<720=721
+<721=725,722
+<722=724,723
+<725=727,726
+<728=729
+<729=733,730
+<730=732,731
+<733=735,734
+<736=737
+<737=753,738
+<738=751,749,747,745,743,741,739
+<739=740
+<741=742
+<743=744
+<745=746
+<747=748
+<749=750
+<751=752
+<753=754
+<755=766,756
+<756=757
+<757=763,758
+<758=762,759
+<759=761,760
+<763=765,764
+<766=767
+<768=769
+<769=772,771,770
+<773=774
+<774=785,784,783,775
+<775=782,776
+<776=781,780,777
+<777=779,778
+<786=830,809,787
+<787=788
+<788=789
+<789=807,790
+<790=805,803,799,795,791
+<791=792
+<792=794,793
+<795=796
+<796=798,797
+<799=800
+<800=802,801
+<803=804
+<805=806
+<807=808
+<809=810
+<810=828,811
+<811=826,824,820,816,812
+<812=813
+<813=815,814
+<816=817
+<817=819,818
+<820=821
+<821=823,822
+<824=825
+<826=827
+<828=829
+<830=831
+<831=833,832
+<833=835,834
+<836=847,837
+<837=838
+<838=844,839
+<839=843,840
+<840=842,841
+<844=846,845
+<847=848
+<849=850
+<850=864,851
+<851=862,860,858,854,852
+<852=853
+<854=855
+<855=857,856
+<858=859
+<860=861
+<862=863
+<864=865
+<866=867
+<867=887,868
+<868=885,883,881,879,877,871,869
+<869=870
+<871=872
+<872=874,873
+<874=876,875
+<877=878
+<879=880
+<881=882
+<883=884
+<885=886
+<887=888
+<889=890
+<890=904,891
+<891=902,900,894,892
+<892=893
+<894=895
+<895=897,896
+<897=899,898
+<900=901
+<902=903
+<904=905
+<906=907
+<907=910,909,908
+<911=912
+<912=915,914,913
+<916=918,917
+<919=920
+<920=922,921
+<923=924
+<924=925
+<925=930,929,926
+<926=928,927
+<931=932
+<933=1013,1009,1006,934
+<934=935
+<935=936
+<936=1004,937
+<937=1002,1000,992,984,968,958,948,938
+<938=939
+<939=947,940
+<940=942,941
+<942=944,943
+<944=946,945
+<948=949
+<949=957,950
+<950=952,951
+<952=954,953
+<954=956,955
+<958=959
+<959=967,960
+<960=962,961
+<962=964,963
+<964=966,965
+<968=969
+<969=977,970
+<970=972,971
+<972=974,973
+<974=976,975
+<977=982,979,978
+<979=981,980
+<982=983
+<984=985
+<985=987,986
+<987=989,988
+<989=991,990
+<992=993
+<993=995,994
+<995=997,996
+<997=999,998
+<1000=1001
+<1002=1003
+<1004=1005
+<1006=1008,1007
+<1009=1010
+<1010=1012,1011
+<1013=1014
+<1014=1015
+<1015=1020,1019,1016
+<1016=1018,1017
+<1021=1022
+<1022=1029,1028,1023
+<1023=1027,1024
+<1024=1026,1025
+<1030=1031
+<1031=1039,1032
+<1032=1037,1035,1033
+<1033=1034
+<1035=1036
+<1037=1038
+<1039=1040
+<1041=1055,1047,1042
+<1042=1043
+<1043=1044
+<1044=1046,1045
+<1047=1048
+<1048=1054,1049
+<1049=1053,1050
+<1050=1052,1051
+<1055=1056
+<1057=1058
+<1058=1063,1062,1059
+<1059=1061,1060
+<1064=1065
+<1065=1072,1071,1066
+<1066=1070,1067
+<1067=1069,1068
+<1073=1074
+<1074=1086,1085,1075
+<1075=1084,1076
+<1076=1083,1077
+<1077=1079,1078
+<1079=1080
+<1080=1082,1081
+<1087=1088
+<1088=1100,1099,1089
+<1089=1098,1090
+<1090=1097,1091
+<1091=1093,1092
+<1093=1094
+<1094=1096,1095
+<1101=1113,1102
+<1102=1104,1103
+<1104=1105
+<1105=1111,1106
+<1106=1109,1107
+<1107=1108
+<1109=1110
+<1111=1112
+<1113=1114
+<1114=1116,1115
+<1117=1118
+<1118=1130,1129,1119
+<1119=1128,1120
+<1120=1126,1121
+<1121=1124,1122
+<1122=1123
+<1124=1125
+<1126=1127
+<1170=1179,1178,1171
+<1171=1175,1172
+<1172=1174,1173
+<1175=1177,1176
+<1179=1290,1281,1272,1265,1248,1241,1224,1220,1216,1212,1199,1182,1180
+<1180=1181
+<1182=1183
+<1183=1197,1184
+<1184=1195,1193,1191,1189,1187,1185
+<1185=1186
+<1187=1188
+<1189=1190
+<1191=1192
+<1193=1194
+<1195=1196
+<1197=1198
+<1199=1200
+<1200=1210,1201
+<1201=1208,1206,1204,1202
+<1202=1203
+<1204=1205
+<1206=1207
+<1208=1209
+<1210=1211
+<1212=1213
+<1213=1215,1214
+<1216=1217
+<1217=1219,1218
+<1220=1221
+<1221=1223,1222
+<1224=1237,1225
+<1225=1226
+<1226=1227
+<1227=1236,1228
+<1228=1234,1229
+<1229=1230
+<1230=1231
+<1231=1233,1232
+<1234=1235
+<1237=1238
+<1238=1240,1239
+<1241=1242
+<1242=1247,1246,1243
+<1243=1245,1244
+<1248=1261,1249
+<1249=1250
+<1250=1251
+<1251=1260,1252
+<1252=1258,1253
+<1253=1254
+<1254=1255
+<1255=1257,1256
+<1258=1259
+<1261=1262
+<1262=1264,1263
+<1265=1266
+<1266=1271,1270,1267
+<1267=1269,1268
+<1272=1273
+<1273=1280,1279,1274
+<1274=1278,1275
+<1275=1277,1276
+<1281=1282
+<1282=1289,1288,1283
+<1283=1287,1284
+<1284=1286,1285
+<1290=1305,1291
+<1291=1304,1303,1302,1301,1300,1299,1298,1297,1296,1295,1294,1292
+<1292=1293
+<1305=1306
+<1306=1314,1307
+<1307=1311,1308
+<1308=1310,1309
+<1311=1313,1312
+<1314=1316,1315

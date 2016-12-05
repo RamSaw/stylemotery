@@ -1,0 +1,595 @@
+>3	FunctionDef	cht_CheckCheat (cheatseq_t * cht , char key)
+>4	ParameterList	cheatseq_t * cht , char key
+>5	Parameter	 
+>6	Identifier	key
+>7	ParameterType	char
+>8	Parameter	 
+>9	Identifier	cht
+>10	ParameterType	cheatseq_t *
+>11	ReturnType	int
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	Identifier	rc
+>15	IfStatement	if ( * cht -> p == 1 )
+>16	ElseStatement	else
+>17	IfStatement	if ( * cht -> p == 0xff )
+>18	CompoundStatement	 
+>19	ExpressionStatement	 
+>20	AssignmentExpr	rc = 1
+>21	PrimaryExpression	1
+>22	Identifier	rc
+>23	ExpressionStatement	 
+>24	AssignmentExpr	cht -> p [ isize ] = 0xff
+>25	PrimaryExpression	0xff
+>26	ArrayIndexing	cht -> p [ isize ]
+>27	Identifier	isize
+>28	PtrMemberAccess	cht -> p
+>29	Identifier	p
+>30	Identifier	cht
+>31	WhileStatement	while ( cht -> sequence [ isize ] != 0xff )
+>32	ExpressionStatement	 
+>33	AssignmentExpr	cht -> p [ isize ] = cht -> sequence [ isize ]
+>34	ArrayIndexing	cht -> sequence [ isize ]
+>35	Identifier	isize
+>36	PtrMemberAccess	cht -> sequence
+>37	Identifier	sequence
+>38	Identifier	cht
+>39	ArrayIndexing	cht -> p [ isize ]
+>40	Identifier	isize
+>41	PtrMemberAccess	cht -> p
+>42	Identifier	p
+>43	Identifier	cht
+>44	Condition	 
+>45	EqualityExpression	cht -> sequence [ isize ] != 0xff
+>46	PrimaryExpression	0xff
+>47	ArrayIndexing	cht -> sequence [ isize ]
+>48	Identifier	isize
+>49	PtrMemberAccess	cht -> sequence
+>50	Identifier	sequence
+>51	Identifier	cht
+>52	IdentifierDeclStatement	 
+>53	IdentifierDecl	isize = 0
+>54	AssignmentExpr	isize = 0
+>55	PrimaryExpression	0
+>56	Identifier	isize
+>57	Identifier	isize
+>58	IdentifierDeclType	int
+>59	Condition	 
+>60	EqualityExpression	* cht -> p == 0xff
+>61	PrimaryExpression	0xff
+>62	UnaryOp	* cht -> p
+>63	PtrMemberAccess	cht -> p
+>64	Identifier	p
+>65	Identifier	cht
+>66	UnaryOperator	*
+>67	ExpressionStatement	 
+>68	IncDecOp	cht -> p ++
+>69	IncDec	++
+>70	PtrMemberAccess	cht -> p
+>71	Identifier	p
+>72	Identifier	cht
+>73	Condition	 
+>74	EqualityExpression	* cht -> p == 1
+>75	PrimaryExpression	1
+>76	UnaryOp	* cht -> p
+>77	PtrMemberAccess	cht -> p
+>78	Identifier	p
+>79	Identifier	cht
+>80	UnaryOperator	*
+>81	ExpressionStatement	 
+>82	IncDecOp	cht -> p ++
+>83	IncDec	++
+>84	PtrMemberAccess	cht -> p
+>85	Identifier	p
+>86	Identifier	cht
+>87	Statement	 
+>88	Statement	 
+>89	Statement	 
+>90	Statement	 
+>91	Statement	 
+>92	Statement	 
+>93	Statement	 
+>94	Statement	 
+>95	Statement	 
+>96	Statement	 
+>97	Statement	 
+>98	Statement	 
+>99	Statement	 
+>100	Statement	 
+>101	Statement	 
+>102	Statement	 
+>103	Statement	 
+>104	Statement	 
+>105	IfStatement	if ( * cht -> p == 0 )
+>106	ElseStatement	else
+>107	Statement	 
+>108	ExpressionStatement	 
+>109	AssignmentExpr	* ( cht -> p ++ ) = key
+>110	Identifier	key
+>111	UnaryOp	* ( cht -> p ++ )
+>112	IncDecOp	cht -> p ++
+>113	IncDec	++
+>114	PtrMemberAccess	cht -> p
+>115	Identifier	p
+>116	Identifier	cht
+>117	UnaryOperator	*
+>118	Condition	 
+>119	EqualityExpression	* cht -> p == 0
+>120	PrimaryExpression	0
+>121	UnaryOp	* cht -> p
+>122	PtrMemberAccess	cht -> p
+>123	Identifier	p
+>124	Identifier	cht
+>125	UnaryOperator	*
+>126	IfStatement	if ( ! cht -> p )
+>127	ElseStatement	else
+>128	CompoundStatement	 
+>129	ExpressionStatement	 
+>130	AssignmentExpr	cht -> p [ isize ] = 0xff
+>131	PrimaryExpression	0xff
+>132	ArrayIndexing	cht -> p [ isize ]
+>133	Identifier	isize
+>134	PtrMemberAccess	cht -> p
+>135	Identifier	p
+>136	Identifier	cht
+>137	WhileStatement	while ( cht -> sequence [ isize ] != 0xff )
+>138	ExpressionStatement	 
+>139	AssignmentExpr	cht -> p [ isize ] = cht -> sequence [ isize ]
+>140	ArrayIndexing	cht -> sequence [ isize ]
+>141	Identifier	isize
+>142	PtrMemberAccess	cht -> sequence
+>143	Identifier	sequence
+>144	Identifier	cht
+>145	ArrayIndexing	cht -> p [ isize ]
+>146	Identifier	isize
+>147	PtrMemberAccess	cht -> p
+>148	Identifier	p
+>149	Identifier	cht
+>150	Condition	 
+>151	EqualityExpression	cht -> sequence [ isize ] != 0xff
+>152	PrimaryExpression	0xff
+>153	ArrayIndexing	cht -> sequence [ isize ]
+>154	Identifier	isize
+>155	PtrMemberAccess	cht -> sequence
+>156	Identifier	sequence
+>157	Identifier	cht
+>158	IdentifierDeclStatement	 
+>159	IdentifierDecl	isize = 0
+>160	AssignmentExpr	isize = 0
+>161	PrimaryExpression	0
+>162	Identifier	isize
+>163	Identifier	isize
+>164	IdentifierDeclType	int
+>165	CompoundStatement	 
+>166	ExpressionStatement	 
+>167	IncDecOp	g -> usedcheatbuffer ++
+>168	IncDec	++
+>169	PtrMemberAccess	g -> usedcheatbuffer
+>170	Identifier	usedcheatbuffer
+>171	Identifier	g
+>172	Statement	 
+>173	ExpressionStatement	 
+>174	AssignmentExpr	g -> usedcheatbuffer += isize
+>175	Identifier	isize
+>176	PtrMemberAccess	g -> usedcheatbuffer
+>177	Identifier	usedcheatbuffer
+>178	Identifier	g
+>179	Statement	 
+>180	ExpressionStatement	 
+>181	AssignmentExpr	cht -> p [ isize ] = 0xff
+>182	PrimaryExpression	0xff
+>183	ArrayIndexing	cht -> p [ isize ]
+>184	Identifier	isize
+>185	PtrMemberAccess	cht -> p
+>186	Identifier	p
+>187	Identifier	cht
+>188	WhileStatement	while ( cht -> sequence [ isize ] != 0xff )
+>189	ExpressionStatement	 
+>190	AssignmentExpr	cht -> p [ isize ] = cht -> sequence [ isize ]
+>191	ArrayIndexing	cht -> sequence [ isize ]
+>192	Identifier	isize
+>193	PtrMemberAccess	cht -> sequence
+>194	Identifier	sequence
+>195	Identifier	cht
+>196	ArrayIndexing	cht -> p [ isize ]
+>197	Identifier	isize
+>198	PtrMemberAccess	cht -> p
+>199	Identifier	p
+>200	Identifier	cht
+>201	Condition	 
+>202	EqualityExpression	cht -> sequence [ isize ] != 0xff
+>203	PrimaryExpression	0xff
+>204	ArrayIndexing	cht -> sequence [ isize ]
+>205	Identifier	isize
+>206	PtrMemberAccess	cht -> sequence
+>207	Identifier	sequence
+>208	Identifier	cht
+>209	IdentifierDeclStatement	 
+>210	IdentifierDecl	isize = 0
+>211	AssignmentExpr	isize = 0
+>212	PrimaryExpression	0
+>213	Identifier	isize
+>214	Identifier	isize
+>215	IdentifierDeclType	int
+>216	ExpressionStatement	 
+>217	PtrMemberAccess	g -> usedcheatbuffer
+>218	Identifier	usedcheatbuffer
+>219	Identifier	g
+>220	Statement	 
+>221	Statement	 
+>222	Statement	 
+>223	Statement	 
+>224	Statement	 
+>225	Statement	 
+>226	Statement	 
+>227	Statement	 
+>228	Statement	 
+>229	Statement	 
+>230	Condition	 
+>231	UnaryOp	! cht -> p
+>232	PtrMemberAccess	cht -> p
+>233	Identifier	p
+>234	Identifier	cht
+>235	UnaryOperator	!
+>236	CompoundStatement	 
+>237	ExpressionStatement	 
+>238	AssignmentExpr	g -> cheat_xlate_table [ i ] = SCRAMBLE ( i )
+>239	CallExpression	SCRAMBLE ( i )
+>240	ArgumentList	i
+>241	Argument	i
+>242	Identifier	i
+>243	Callee	SCRAMBLE
+>244	Identifier	SCRAMBLE
+>245	ArrayIndexing	g -> cheat_xlate_table [ i ]
+>246	Identifier	i
+>247	PtrMemberAccess	g -> cheat_xlate_table
+>248	Identifier	cheat_xlate_table
+>249	Identifier	g
+>250	ForStatement	for ( i = 0 ; i < 256 ; i ++ )
+>251	Statement	 
+>252	IncDecOp	 
+>253	IncDec	++
+>254	Identifier	i
+>255	Condition	 
+>256	RelationalExpression	i < 256
+>257	PrimaryExpression	256
+>258	Identifier	i
+>259	ForInit	 
+>260	AssignmentExpr	i = 0
+>261	PrimaryExpression	0
+>262	Identifier	i
+>263	ExpressionStatement	 
+>264	AssignmentExpr	g -> firsttime = 0
+>265	PrimaryExpression	0
+>266	PtrMemberAccess	g -> firsttime
+>267	Identifier	firsttime
+>268	Identifier	g
+>269	Statement	 
+>270	Statement	 
+>271	Statement	 
+>272	Statement	 
+>273	Statement	 
+>274	Statement	 
+>275	Statement	 
+>276	Statement	 
+>277	IdentifierDeclStatement	 
+>278	IdentifierDecl	rc = 0
+>279	AssignmentExpr	rc = 0
+>280	PrimaryExpression	0
+>281	Identifier	rc
+>282	Identifier	rc
+>283	IdentifierDeclType	int
+>284	IdentifierDeclStatement	 
+>285	IdentifierDecl	i
+>286	Identifier	i
+>287	IdentifierDeclType	int
+>288	ReturnStatement	 
+>289	PrimaryExpression	0
+>315	FunctionDef	cht_GetParam (cheatseq_t * cht , char * buffer)
+>316	ParameterList	cheatseq_t * cht , char * buffer
+>317	Parameter	 
+>318	Identifier	buffer
+>319	ParameterType	char *
+>320	Parameter	 
+>321	Identifier	cht
+>322	ParameterType	cheatseq_t *
+>323	ReturnType	void
+>324	CompoundStatement	 
+>325	IfStatement	if ( * p == 0xff )
+>326	ExpressionStatement	 
+>327	AssignmentExpr	* buffer = 0
+>328	PrimaryExpression	0
+>329	UnaryOp	* buffer
+>330	Identifier	buffer
+>331	UnaryOperator	*
+>332	Condition	 
+>333	EqualityExpression	* p == 0xff
+>334	PrimaryExpression	0xff
+>335	UnaryOp	* p
+>336	Identifier	p
+>337	UnaryOperator	*
+>338	DoStatement	do
+>339	Condition	 
+>340	AndExpression	c && * p != 0xff
+>341	EqualityExpression	* p != 0xff
+>342	PrimaryExpression	0xff
+>343	UnaryOp	* p
+>344	Identifier	p
+>345	UnaryOperator	*
+>346	Identifier	c
+>347	CompoundStatement	 
+>348	ExpressionStatement	 
+>349	AssignmentExpr	* ( p ++ ) = 0
+>350	PrimaryExpression	0
+>351	UnaryOp	* ( p ++ )
+>352	IncDecOp	p ++
+>353	IncDec	++
+>354	Identifier	p
+>355	UnaryOperator	*
+>356	ExpressionStatement	 
+>357	AssignmentExpr	* ( buffer ++ ) = c
+>358	Identifier	c
+>359	UnaryOp	* ( buffer ++ )
+>360	IncDecOp	buffer ++
+>361	IncDec	++
+>362	Identifier	buffer
+>363	UnaryOperator	*
+>364	ExpressionStatement	 
+>365	AssignmentExpr	c = * p
+>366	UnaryOp	* p
+>367	Identifier	p
+>368	UnaryOperator	*
+>369	Identifier	c
+>370	WhileStatement	while ( * ( p ++ ) != 1 )
+>371	ExpressionStatement	 
+>372	Condition	 
+>373	EqualityExpression	* ( p ++ ) != 1
+>374	PrimaryExpression	1
+>375	UnaryOp	* ( p ++ )
+>376	IncDecOp	p ++
+>377	IncDec	++
+>378	Identifier	p
+>379	UnaryOperator	*
+>380	ExpressionStatement	 
+>381	AssignmentExpr	p = & pb [ 0 ]
+>382	UnaryOp	& pb [ 0 ]
+>383	ArrayIndexing	pb [ 0 ]
+>384	PrimaryExpression	0
+>385	Identifier	pb
+>386	UnaryOperator	&
+>387	Identifier	p
+>388	ExpressionStatement	 
+>389	AssignmentExpr	pb [ isize ] = 0xff
+>390	PrimaryExpression	0xff
+>391	ArrayIndexing	pb [ isize ]
+>392	Identifier	isize
+>393	Identifier	pb
+>394	WhileStatement	while ( cht -> sequence [ isize ] != 0xff )
+>395	ExpressionStatement	 
+>396	AssignmentExpr	pb [ isize ] = cht -> sequence [ isize ]
+>397	ArrayIndexing	cht -> sequence [ isize ]
+>398	Identifier	isize
+>399	PtrMemberAccess	cht -> sequence
+>400	Identifier	sequence
+>401	Identifier	cht
+>402	ArrayIndexing	pb [ isize ]
+>403	Identifier	isize
+>404	Identifier	pb
+>405	Condition	 
+>406	EqualityExpression	cht -> sequence [ isize ] != 0xff
+>407	PrimaryExpression	0xff
+>408	ArrayIndexing	cht -> sequence [ isize ]
+>409	Identifier	isize
+>410	PtrMemberAccess	cht -> sequence
+>411	Identifier	sequence
+>412	Identifier	cht
+>413	IdentifierDeclStatement	 
+>414	IdentifierDecl	isize = 0
+>415	AssignmentExpr	isize = 0
+>416	PrimaryExpression	0
+>417	Identifier	isize
+>418	Identifier	isize
+>419	IdentifierDeclType	int
+>420	IdentifierDeclStatement	 
+>421	IdentifierDecl	c
+>422	Identifier	c
+>423	IdentifierDeclType	unsigned char
+>424	IdentifierDeclStatement	 
+>425	IdentifierDecl	* p
+>426	Identifier	p
+>427	IdentifierDeclType	unsigned char *
+>428	IdentifierDeclStatement	 
+>429	IdentifierDecl	pb [ 16 ]
+>430	PrimaryExpression	16
+>431	Identifier	pb
+>432	IdentifierDeclType	unsigned char [ 16 ]
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=288,284,277,276,275,274,273,272,271,270,236,126,105,104,103,102,101,100,99,98,97,96,95,94,93,92,91,90,89,88,87,81,15,13
+<13=14
+<15=73,67,16
+<16=17
+<17=59,18
+<18=52,31,23,19
+<19=20
+<20=22,21
+<23=24
+<24=26,25
+<26=28,27
+<28=30,29
+<31=44,32
+<32=33
+<33=39,34
+<34=36,35
+<36=38,37
+<39=41,40
+<41=43,42
+<44=45
+<45=47,46
+<47=49,48
+<49=51,50
+<52=53
+<53=58,57,54
+<54=56,55
+<59=60
+<60=62,61
+<62=66,63
+<63=65,64
+<67=68
+<68=70,69
+<70=72,71
+<73=74
+<74=76,75
+<76=80,77
+<77=79,78
+<81=82
+<82=84,83
+<84=86,85
+<105=118,108,106
+<106=107
+<108=109
+<109=111,110
+<111=117,112
+<112=114,113
+<114=116,115
+<118=119
+<119=121,120
+<121=125,122
+<122=124,123
+<126=230,165,127
+<127=128
+<128=158,137,129
+<129=130
+<130=132,131
+<132=134,133
+<134=136,135
+<137=150,138
+<138=139
+<139=145,140
+<140=142,141
+<142=144,143
+<145=147,146
+<147=149,148
+<150=151
+<151=153,152
+<153=155,154
+<155=157,156
+<158=159
+<159=164,163,160
+<160=162,161
+<165=229,228,227,226,225,224,223,222,221,220,216,209,188,180,179,173,172,166
+<166=167
+<167=169,168
+<169=171,170
+<173=174
+<174=176,175
+<176=178,177
+<180=181
+<181=183,182
+<183=185,184
+<185=187,186
+<188=201,189
+<189=190
+<190=196,191
+<191=193,192
+<193=195,194
+<196=198,197
+<198=200,199
+<201=202
+<202=204,203
+<204=206,205
+<206=208,207
+<209=210
+<210=215,214,211
+<211=213,212
+<216=217
+<217=219,218
+<230=231
+<231=235,232
+<232=234,233
+<236=269,263,250,237
+<237=238
+<238=245,239
+<239=243,240
+<240=241
+<241=242
+<243=244
+<245=247,246
+<247=249,248
+<250=259,255,252,251
+<252=254,253
+<255=256
+<256=258,257
+<259=260
+<260=262,261
+<263=264
+<264=266,265
+<266=268,267
+<277=278
+<278=283,282,279
+<279=281,280
+<284=285
+<285=287,286
+<288=289
+<315=324,323,316
+<316=320,317
+<317=319,318
+<320=322,321
+<324=428,424,420,413,394,388,380,370,338,325
+<325=332,326
+<326=327
+<327=329,328
+<329=331,330
+<332=333
+<333=335,334
+<335=337,336
+<338=347,339
+<339=340
+<340=346,341
+<341=343,342
+<343=345,344
+<347=364,356,348
+<348=349
+<349=351,350
+<351=355,352
+<352=354,353
+<356=357
+<357=359,358
+<359=363,360
+<360=362,361
+<364=365
+<365=369,366
+<366=368,367
+<370=372,371
+<372=373
+<373=375,374
+<375=379,376
+<376=378,377
+<380=381
+<381=387,382
+<382=386,383
+<383=385,384
+<388=389
+<389=391,390
+<391=393,392
+<394=405,395
+<395=396
+<396=402,397
+<397=399,398
+<399=401,400
+<402=404,403
+<405=406
+<406=408,407
+<408=410,409
+<410=412,411
+<413=414
+<414=419,418,415
+<415=417,416
+<420=421
+<421=423,422
+<424=425
+<425=427,426
+<428=429
+<429=432,431,430

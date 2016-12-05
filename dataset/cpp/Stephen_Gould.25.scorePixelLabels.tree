@@ -1,0 +1,1119 @@
+>3	FunctionDef	usage ()
+>4	ParameterList	 
+>5	ReturnType	void
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	ShiftExpression	cerr << \"OPTIONS
+>9	ShiftExpression	\"OPTIONS
+>10	ShiftExpression	\"  -inLabels <ext>   
+>11	ShiftExpression	\"  -outScores <file> 
+>12	ShiftExpression	\"  -confusion        
+>13	ShiftExpression	DRWN_STANDARD_OPTIONS_USAGE << endl
+>14	Identifier	endl
+>15	Identifier	DRWN_STANDARD_OPTIONS_USAGE
+>16	PrimaryExpression	\"  -confusion        
+>17	PrimaryExpression	\"  -outScores <file> 
+>18	PrimaryExpression	\"  -inLabels <ext>   
+>19	PrimaryExpression	\"OPTIONS
+>20	Identifier	cerr
+>21	ExpressionStatement	 
+>22	ShiftExpression	cerr << \"USAGE
+>23	PrimaryExpression	\"USAGE
+>24	Identifier	cerr
+>25	ExpressionStatement	 
+>26	ShiftExpression	cerr << DRWN_USAGE_HEADER << endl
+>27	ShiftExpression	DRWN_USAGE_HEADER << endl
+>28	Identifier	endl
+>29	Identifier	DRWN_USAGE_HEADER
+>30	Identifier	cerr
+>34	FunctionDef	main (int argc , char * argv [ ])
+>35	ParameterList	int argc , char * argv [ ]
+>36	Parameter	 
+>37	Identifier	argv
+>38	ParameterType	char * [ ]
+>39	Parameter	 
+>40	Identifier	argc
+>41	ParameterType	int
+>42	ReturnType	int
+>43	CompoundStatement	 
+>44	ReturnStatement	 
+>45	PrimaryExpression	0
+>46	ExpressionStatement	 
+>47	CallExpression	drwnCodeProfiler 
+>48	ArgumentList	 
+>49	Callee	drwnCodeProfiler 
+>50	Identifier	drwnCodeProfiler 
+>51	ExpressionStatement	 
+>52	CallExpression	drwnCodeProfiler 
+>53	ArgumentList	drwnCodeProfiler 
+>54	Argument	drwnCodeProfiler 
+>55	CallExpression	drwnCodeProfiler 
+>56	ArgumentList	\"main\"
+>57	Argument	\"main\"
+>58	PrimaryExpression	\"main\"
+>59	Callee	drwnCodeProfiler 
+>60	Identifier	drwnCodeProfiler 
+>61	Callee	drwnCodeProfiler 
+>62	Identifier	drwnCodeProfiler 
+>63	IfStatement	if ( outScoreFile != NULL )
+>64	CompoundStatement	 
+>65	ExpressionStatement	 
+>66	CallExpression	ofs . close ( )
+>67	ArgumentList	 
+>68	Callee	ofs . close
+>69	MemberAccess	ofs . close
+>70	Identifier	close
+>71	Identifier	ofs
+>72	ForStatement	for ( int i = 0 ; i < ( int ) scores . size ( ) ; i ++ )
+>73	CompoundStatement	 
+>74	ExpressionStatement	 
+>75	ShiftExpression	ofs << scores [ i ] << \"\n\"
+>76	ShiftExpression	scores [ i ] << \"\n\"
+>77	PrimaryExpression	\"\n\"
+>78	ArrayIndexing	scores [ i ]
+>79	Identifier	i
+>80	Identifier	scores
+>81	Identifier	ofs
+>82	IncDecOp	 
+>83	IncDec	++
+>84	Identifier	i
+>85	Condition	 
+>86	RelationalExpression	i < ( int ) scores . size ( )
+>87	CastExpression	( int ) scores . size ( )
+>88	CallExpression	scores . size ( )
+>89	ArgumentList	 
+>90	Callee	scores . size
+>91	MemberAccess	scores . size
+>92	Identifier	size
+>93	Identifier	scores
+>94	CastTarget	int
+>95	Identifier	i
+>96	ForInit	 
+>97	IdentifierDeclStatement	int i = 0 ;
+>98	IdentifierDecl	i = 0
+>99	AssignmentExpr	i = 0
+>100	PrimaryExpression	0
+>101	Identifier	i
+>102	Identifier	i
+>103	IdentifierDeclType	int
+>104	ExpressionStatement	 
+>105	CallExpression	DRWN_ASSERT_MSG ( ! ofs . fail ( ) , outScoreFile )
+>106	ArgumentList	! ofs . fail ( )
+>107	Argument	outScoreFile
+>108	Identifier	outScoreFile
+>109	Argument	! ofs . fail ( )
+>110	UnaryOp	! ofs . fail ( )
+>111	CallExpression	ofs . fail ( )
+>112	ArgumentList	 
+>113	Callee	ofs . fail
+>114	MemberAccess	ofs . fail
+>115	Identifier	fail
+>116	Identifier	ofs
+>117	UnaryOperator	!
+>118	Callee	DRWN_ASSERT_MSG
+>119	Identifier	DRWN_ASSERT_MSG
+>120	IdentifierDeclStatement	 
+>121	IdentifierDecl	ofs ( outScoreFile )
+>122	Identifier	outScoreFile
+>123	Identifier	ofs
+>124	IdentifierDeclType	ofstream
+>125	Condition	 
+>126	EqualityExpression	outScoreFile != NULL
+>127	Identifier	NULL
+>128	Identifier	outScoreFile
+>129	ExpressionStatement	 
+>130	CallExpression	DRWN_LOG_MESSAGE ( \"Average jaccard score
+>131	ArgumentList	\"Average jaccard score
+>132	Argument	\"Average jaccard score
+>133	ShiftExpression	\"Average jaccard score
+>134	ShiftExpression	confusion . avgJaccard ( ) << \" (\" << evalList << \")\"
+>135	ShiftExpression	\" (\" << evalList << \")\"
+>136	ShiftExpression	evalList << \")\"
+>137	PrimaryExpression	\")\"
+>138	Identifier	evalList
+>139	PrimaryExpression	\" (\"
+>140	CallExpression	confusion . avgJaccard ( )
+>141	ArgumentList	 
+>142	Callee	confusion . avgJaccard
+>143	MemberAccess	confusion . avgJaccard
+>144	Identifier	avgJaccard
+>145	Identifier	confusion
+>146	PrimaryExpression	\"Average jaccard score
+>147	Callee	DRWN_LOG_MESSAGE
+>148	Identifier	DRWN_LOG_MESSAGE
+>149	ExpressionStatement	 
+>150	CallExpression	DRWN_LOG_MESSAGE ( \"Average class accuracy
+>151	ArgumentList	\"Average class accuracy
+>152	Argument	\"Average class accuracy
+>153	ShiftExpression	\"Average class accuracy
+>154	ShiftExpression	confusion . avgRecall ( ) << \" (\" << evalList << \")\"
+>155	ShiftExpression	\" (\" << evalList << \")\"
+>156	ShiftExpression	evalList << \")\"
+>157	PrimaryExpression	\")\"
+>158	Identifier	evalList
+>159	PrimaryExpression	\" (\"
+>160	CallExpression	confusion . avgRecall ( )
+>161	ArgumentList	 
+>162	Callee	confusion . avgRecall
+>163	MemberAccess	confusion . avgRecall
+>164	Identifier	avgRecall
+>165	Identifier	confusion
+>166	PrimaryExpression	\"Average class accuracy
+>167	Callee	DRWN_LOG_MESSAGE
+>168	Identifier	DRWN_LOG_MESSAGE
+>169	ExpressionStatement	 
+>170	CallExpression	DRWN_LOG_MESSAGE ( \"Overall class accuracy
+>171	ArgumentList	\"Overall class accuracy
+>172	Argument	\"Overall class accuracy
+>173	ShiftExpression	\"Overall class accuracy
+>174	ShiftExpression	confusion . accuracy ( ) << \" (\" << evalList << \")\"
+>175	ShiftExpression	\" (\" << evalList << \")\"
+>176	ShiftExpression	evalList << \")\"
+>177	PrimaryExpression	\")\"
+>178	Identifier	evalList
+>179	PrimaryExpression	\" (\"
+>180	CallExpression	confusion . accuracy ( )
+>181	ArgumentList	 
+>182	Callee	confusion . accuracy
+>183	MemberAccess	confusion . accuracy
+>184	Identifier	accuracy
+>185	Identifier	confusion
+>186	PrimaryExpression	\"Overall class accuracy
+>187	Callee	DRWN_LOG_MESSAGE
+>188	Identifier	DRWN_LOG_MESSAGE
+>189	IfStatement	if ( bShowConfusion )
+>190	CompoundStatement	 
+>191	ExpressionStatement	 
+>192	CallExpression	confusion . printJaccard ( cout , \"--- Intersection/Union Metric (by Class) ---\" )
+>193	ArgumentList	cout
+>194	Argument	\"--- Intersection/Union Metric (by Class) ---\"
+>195	PrimaryExpression	\"--- Intersection/Union Metric (by Class) ---\"
+>196	Argument	cout
+>197	Identifier	cout
+>198	Callee	confusion . printJaccard
+>199	MemberAccess	confusion . printJaccard
+>200	Identifier	printJaccard
+>201	Identifier	confusion
+>202	ExpressionStatement	 
+>203	CallExpression	confusion . printF1Score ( cout , \"--- F1-Score (by Class) ---\" )
+>204	ArgumentList	cout
+>205	Argument	\"--- F1-Score (by Class) ---\"
+>206	PrimaryExpression	\"--- F1-Score (by Class) ---\"
+>207	Argument	cout
+>208	Identifier	cout
+>209	Callee	confusion . printF1Score
+>210	MemberAccess	confusion . printF1Score
+>211	Identifier	printF1Score
+>212	Identifier	confusion
+>213	ExpressionStatement	 
+>214	CallExpression	confusion . printPrecisionRecall ( cout , \"--- Recall/Precision (by Class) ---\" )
+>215	ArgumentList	cout
+>216	Argument	\"--- Recall/Precision (by Class) ---\"
+>217	PrimaryExpression	\"--- Recall/Precision (by Class) ---\"
+>218	Argument	cout
+>219	Identifier	cout
+>220	Callee	confusion . printPrecisionRecall
+>221	MemberAccess	confusion . printPrecisionRecall
+>222	Identifier	printPrecisionRecall
+>223	Identifier	confusion
+>224	ExpressionStatement	 
+>225	CallExpression	confusion . printRowNormalized ( cout , \"--- Class Confusion Matrix ---\" )
+>226	ArgumentList	cout
+>227	Argument	\"--- Class Confusion Matrix ---\"
+>228	PrimaryExpression	\"--- Class Confusion Matrix ---\"
+>229	Argument	cout
+>230	Identifier	cout
+>231	Callee	confusion . printRowNormalized
+>232	MemberAccess	confusion . printRowNormalized
+>233	Identifier	printRowNormalized
+>234	Identifier	confusion
+>235	Condition	 
+>236	Identifier	bShowConfusion
+>237	ForStatement	for ( int i = 0 ; i < ( int ) baseNames . size ( ) ; i ++ )
+>238	CompoundStatement	 
+>239	ExpressionStatement	 
+>240	CallExpression	drwnCodeProfiler 
+>241	ArgumentList	hProcessImage
+>242	Argument	hProcessImage
+>243	Identifier	hProcessImage
+>244	Callee	drwnCodeProfiler 
+>245	Identifier	drwnCodeProfiler 
+>246	ExpressionStatement	 
+>247	CallExpression	confusion . accumulate ( imageConfusion )
+>248	ArgumentList	imageConfusion
+>249	Argument	imageConfusion
+>250	Identifier	imageConfusion
+>251	Callee	confusion . accumulate
+>252	MemberAccess	confusion . accumulate
+>253	Identifier	accumulate
+>254	Identifier	confusion
+>255	ExpressionStatement	 
+>256	AssignmentExpr	scores [ i ] = imageConfusion . accuracy ( )
+>257	CallExpression	imageConfusion . accuracy ( )
+>258	ArgumentList	 
+>259	Callee	imageConfusion . accuracy
+>260	MemberAccess	imageConfusion . accuracy
+>261	Identifier	accuracy
+>262	Identifier	imageConfusion
+>263	ArrayIndexing	scores [ i ]
+>264	Identifier	i
+>265	Identifier	scores
+>266	ForStatement	for ( int y = 0 ; y < actualLabels . rows ( ) ; y ++ )
+>267	CompoundStatement	 
+>268	ForStatement	for ( int x = 0 ; x < actualLabels . cols ( ) ; x ++ )
+>269	CompoundStatement	 
+>270	ExpressionStatement	 
+>271	CallExpression	imageConfusion . accumulate ( actualLabels ( y , x ) , predictedLabels ( y , x ) )
+>272	ArgumentList	actualLabels ( y , x )
+>273	Argument	predictedLabels ( y , x )
+>274	CallExpression	predictedLabels ( y , x )
+>275	ArgumentList	y
+>276	Argument	x
+>277	Identifier	x
+>278	Argument	y
+>279	Identifier	y
+>280	Callee	predictedLabels
+>281	Identifier	predictedLabels
+>282	Argument	actualLabels ( y , x )
+>283	CallExpression	actualLabels ( y , x )
+>284	ArgumentList	y
+>285	Argument	x
+>286	Identifier	x
+>287	Argument	y
+>288	Identifier	y
+>289	Callee	actualLabels
+>290	Identifier	actualLabels
+>291	Callee	imageConfusion . accumulate
+>292	MemberAccess	imageConfusion . accumulate
+>293	Identifier	accumulate
+>294	Identifier	imageConfusion
+>295	IfStatement	if ( actualLabels ( y , x ) < 0 )
+>296	ContinueStatement	 
+>297	Condition	 
+>298	RelationalExpression	actualLabels ( y , x ) < 0
+>299	PrimaryExpression	0
+>300	CallExpression	actualLabels ( y , x )
+>301	ArgumentList	y
+>302	Argument	x
+>303	Identifier	x
+>304	Argument	y
+>305	Identifier	y
+>306	Callee	actualLabels
+>307	Identifier	actualLabels
+>308	IncDecOp	 
+>309	IncDec	++
+>310	Identifier	x
+>311	Condition	 
+>312	RelationalExpression	x < actualLabels . cols ( )
+>313	CallExpression	actualLabels . cols ( )
+>314	ArgumentList	 
+>315	Callee	actualLabels . cols
+>316	MemberAccess	actualLabels . cols
+>317	Identifier	cols
+>318	Identifier	actualLabels
+>319	Identifier	x
+>320	ForInit	 
+>321	IdentifierDeclStatement	int x = 0 ;
+>322	IdentifierDecl	x = 0
+>323	AssignmentExpr	x = 0
+>324	PrimaryExpression	0
+>325	Identifier	x
+>326	Identifier	x
+>327	IdentifierDeclType	int
+>328	IncDecOp	 
+>329	IncDec	++
+>330	Identifier	y
+>331	Condition	 
+>332	RelationalExpression	y < actualLabels . rows ( )
+>333	CallExpression	actualLabels . rows ( )
+>334	ArgumentList	 
+>335	Callee	actualLabels . rows
+>336	MemberAccess	actualLabels . rows
+>337	Identifier	rows
+>338	Identifier	actualLabels
+>339	Identifier	y
+>340	ForInit	 
+>341	IdentifierDeclStatement	int y = 0 ;
+>342	IdentifierDecl	y = 0
+>343	AssignmentExpr	y = 0
+>344	PrimaryExpression	0
+>345	Identifier	y
+>346	Identifier	y
+>347	IdentifierDeclType	int
+>348	IdentifierDeclStatement	 
+>349	IdentifierDecl	imageConfusion ( nLabels )
+>350	Identifier	nLabels
+>351	Identifier	imageConfusion
+>352	IdentifierDeclType	drwnConfusionMatrix
+>353	ExpressionStatement	 
+>354	CallExpression	DRWN_ASSERT ( ( predictedLabels . rows ( ) == actualLabels . rows ( ) ) && ( predictedLabels . cols ( ) == actualLabels \
+>355	ArgumentList	( predictedLabels . rows ( ) == actualLabels . rows ( ) ) && ( predictedLabels . cols ( ) == actualLabels . cols ( ) )
+>356	Argument	( predictedLabels . rows ( ) == actualLabels . rows ( ) ) && ( predictedLabels . cols ( ) == actualLabels . cols ( ) )
+>357	AndExpression	( predictedLabels . rows ( ) == actualLabels . rows ( ) ) && ( predictedLabels . cols ( ) == actualLabels \
+>358	EqualityExpression	predictedLabels . cols ( ) == actualLabels . cols ( )
+>359	CallExpression	actualLabels . cols ( )
+>360	ArgumentList	 
+>361	Callee	actualLabels . cols
+>362	MemberAccess	actualLabels . cols
+>363	Identifier	cols
+>364	Identifier	actualLabels
+>365	CallExpression	predictedLabels . cols ( )
+>366	ArgumentList	 
+>367	Callee	predictedLabels . cols
+>368	MemberAccess	predictedLabels . cols
+>369	Identifier	cols
+>370	Identifier	predictedLabels
+>371	EqualityExpression	predictedLabels . rows ( ) == actualLabels . rows ( )
+>372	CallExpression	actualLabels . rows ( )
+>373	ArgumentList	 
+>374	Callee	actualLabels . rows
+>375	MemberAccess	actualLabels . rows
+>376	Identifier	rows
+>377	Identifier	actualLabels
+>378	CallExpression	predictedLabels . rows ( )
+>379	ArgumentList	 
+>380	Callee	predictedLabels . rows
+>381	MemberAccess	predictedLabels . rows
+>382	Identifier	rows
+>383	Identifier	predictedLabels
+>384	Callee	DRWN_ASSERT
+>385	Identifier	DRWN_ASSERT
+>386	ExpressionStatement	 
+>387	CallExpression	drwnReadMatrix ( predictedLabels , resFilename . c_str ( ) )
+>388	ArgumentList	predictedLabels
+>389	Argument	resFilename . c_str ( )
+>390	CallExpression	resFilename . c_str ( )
+>391	ArgumentList	 
+>392	Callee	resFilename . c_str
+>393	MemberAccess	resFilename . c_str
+>394	Identifier	c_str
+>395	Identifier	resFilename
+>396	Argument	predictedLabels
+>397	Identifier	predictedLabels
+>398	Callee	drwnReadMatrix
+>399	Identifier	drwnReadMatrix
+>400	IdentifierDeclStatement	 
+>401	IdentifierDecl	predictedLabels ( actualLabels . rows ( ) , actualLabels . cols ( ) )
+>402	Expression	actualLabels . rows ( ) , actualLabels . cols ( )
+>403	CallExpression	actualLabels . cols ( )
+>404	ArgumentList	 
+>405	Callee	actualLabels . cols
+>406	MemberAccess	actualLabels . cols
+>407	Identifier	cols
+>408	Identifier	actualLabels
+>409	CallExpression	actualLabels . rows ( )
+>410	ArgumentList	 
+>411	Callee	actualLabels . rows
+>412	MemberAccess	actualLabels . rows
+>413	Identifier	rows
+>414	Identifier	actualLabels
+>415	Identifier	predictedLabels
+>416	IdentifierDeclType	MatrixXi
+>417	ExpressionStatement	 
+>418	CallExpression	drwnLoadPixelLabels ( actualLabels , lblFilename . c_str ( ) , nLabels )
+>419	ArgumentList	actualLabels
+>420	Argument	nLabels
+>421	Identifier	nLabels
+>422	Argument	lblFilename . c_str ( )
+>423	CallExpression	lblFilename . c_str ( )
+>424	ArgumentList	 
+>425	Callee	lblFilename . c_str
+>426	MemberAccess	lblFilename . c_str
+>427	Identifier	c_str
+>428	Identifier	lblFilename
+>429	Argument	actualLabels
+>430	Identifier	actualLabels
+>431	Callee	drwnLoadPixelLabels
+>432	Identifier	drwnLoadPixelLabels
+>433	IdentifierDeclStatement	 
+>434	IdentifierDecl	actualLabels
+>435	Identifier	actualLabels
+>436	IdentifierDeclType	MatrixXi
+>437	ExpressionStatement	 
+>438	CallExpression	DRWN_LOG_STATUS ( \"...\" << baseNames [ i ] << \" (\" << ( i + 1 ) << \" of \" << baseNames . size ( ) << \")\" )
+>439	ArgumentList	\"...\" << baseNames [ i ] << \" (\" << ( i + 1 ) << \" of \" << baseNames . size ( ) << \")\"
+>440	Argument	\"...\" << baseNames [ i ] << \" (\" << ( i + 1 ) << \" of \" << baseNames . size ( ) << \")\"
+>441	ShiftExpression	\"...\" << baseNames [ i ] << \" (\" << ( i + 1 ) << \" of \" << baseNames . size ( ) << \")\"
+>442	ShiftExpression	baseNames [ i ] << \" (\" << ( i + 1 ) << \" of \" << baseNames . size ( ) << \")\"
+>443	ShiftExpression	\" (\" << ( i + 1 ) << \" of \" << baseNames . size ( ) << \")\"
+>444	ShiftExpression	( i + 1 ) << \" of \" << baseNames . size ( ) << \")\"
+>445	ShiftExpression	\" of \" << baseNames . size ( ) << \")\"
+>446	ShiftExpression	baseNames . size ( ) << \")\"
+>447	PrimaryExpression	\")\"
+>448	CallExpression	baseNames . size ( )
+>449	ArgumentList	 
+>450	Callee	baseNames . size
+>451	MemberAccess	baseNames . size
+>452	Identifier	size
+>453	Identifier	baseNames
+>454	PrimaryExpression	\" of \"
+>455	AdditiveExpression	i + 1
+>456	PrimaryExpression	1
+>457	Identifier	i
+>458	PrimaryExpression	\" (\"
+>459	ArrayIndexing	baseNames [ i ]
+>460	Identifier	i
+>461	Identifier	baseNames
+>462	PrimaryExpression	\"...\"
+>463	Callee	DRWN_LOG_STATUS
+>464	Identifier	DRWN_LOG_STATUS
+>465	IdentifierDeclStatement	 
+>466	IdentifierDecl	resFilename = gMultiSegConfig . filebase ( \"outputDir\" , baseNames [ i ] ) + string ( inLabelExt )
+>467	AssignmentExpr	resFilename = gMultiSegConfig . filebase ( \"outputDir\" , baseNames [ i ] ) + string ( inLabelExt )
+>468	AdditiveExpression	gMultiSegConfig . filebase ( \"outputDir\" , baseNames [ i ] ) + string ( inLabelExt )
+>469	CallExpression	string ( inLabelExt )
+>470	ArgumentList	inLabelExt
+>471	Argument	inLabelExt
+>472	Identifier	inLabelExt
+>473	Callee	string
+>474	Identifier	string
+>475	CallExpression	gMultiSegConfig . filebase ( \"outputDir\" , baseNames [ i ] )
+>476	ArgumentList	\"outputDir\"
+>477	Argument	baseNames [ i ]
+>478	ArrayIndexing	baseNames [ i ]
+>479	Identifier	i
+>480	Identifier	baseNames
+>481	Argument	\"outputDir\"
+>482	PrimaryExpression	\"outputDir\"
+>483	Callee	gMultiSegConfig . filebase
+>484	MemberAccess	gMultiSegConfig . filebase
+>485	Identifier	filebase
+>486	Identifier	gMultiSegConfig
+>487	Identifier	resFilename
+>488	Identifier	resFilename
+>489	IdentifierDeclType	string
+>490	IdentifierDeclStatement	 
+>491	IdentifierDecl	lblFilename = gMultiSegConfig . filename ( \"lblDir\" , baseNames [ i ] , \"lblExt\" )
+>492	AssignmentExpr	lblFilename = gMultiSegConfig . filename ( \"lblDir\" , baseNames [ i ] , \"lblExt\" )
+>493	CallExpression	gMultiSegConfig . filename ( \"lblDir\" , baseNames [ i ] , \"lblExt\" )
+>494	ArgumentList	\"lblDir\"
+>495	Argument	\"lblExt\"
+>496	PrimaryExpression	\"lblExt\"
+>497	Argument	baseNames [ i ]
+>498	ArrayIndexing	baseNames [ i ]
+>499	Identifier	i
+>500	Identifier	baseNames
+>501	Argument	\"lblDir\"
+>502	PrimaryExpression	\"lblDir\"
+>503	Callee	gMultiSegConfig . filename
+>504	MemberAccess	gMultiSegConfig . filename
+>505	Identifier	filename
+>506	Identifier	gMultiSegConfig
+>507	Identifier	lblFilename
+>508	Identifier	lblFilename
+>509	IdentifierDeclType	string
+>510	ExpressionStatement	 
+>511	CallExpression	drwnCodeProfiler 
+>512	ArgumentList	hProcessImage
+>513	Argument	hProcessImage
+>514	Identifier	hProcessImage
+>515	Callee	drwnCodeProfiler 
+>516	Identifier	drwnCodeProfiler 
+>517	IncDecOp	 
+>518	IncDec	++
+>519	Identifier	i
+>520	Condition	 
+>521	RelationalExpression	i < ( int ) baseNames . size ( )
+>522	CastExpression	( int ) baseNames . size ( )
+>523	CallExpression	baseNames . size ( )
+>524	ArgumentList	 
+>525	Callee	baseNames . size
+>526	MemberAccess	baseNames . size
+>527	Identifier	size
+>528	Identifier	baseNames
+>529	CastTarget	int
+>530	Identifier	i
+>531	ForInit	 
+>532	IdentifierDeclStatement	int i = 0 ;
+>533	IdentifierDecl	i = 0
+>534	AssignmentExpr	i = 0
+>535	PrimaryExpression	0
+>536	Identifier	i
+>537	Identifier	i
+>538	IdentifierDeclType	int
+>539	IdentifierDeclStatement	 
+>540	IdentifierDecl	hProcessImage = drwnCodeProfiler 
+>541	AssignmentExpr	hProcessImage = drwnCodeProfiler 
+>542	CallExpression	drwnCodeProfiler 
+>543	ArgumentList	\"processImage\"
+>544	Argument	\"processImage\"
+>545	PrimaryExpression	\"processImage\"
+>546	Callee	drwnCodeProfiler 
+>547	Identifier	drwnCodeProfiler 
+>548	Identifier	hProcessImage
+>549	Identifier	hProcessImage
+>550	IdentifierDeclType	int
+>551	ExpressionStatement	 
+>552	CallExpression	DRWN_LOG_MESSAGE ( \"Processing results (\" << inLabelExt << \")...\" )
+>553	ArgumentList	\"Processing results (\" << inLabelExt << \")...\"
+>554	Argument	\"Processing results (\" << inLabelExt << \")...\"
+>555	ShiftExpression	\"Processing results (\" << inLabelExt << \")...\"
+>556	ShiftExpression	inLabelExt << \")...\"
+>557	PrimaryExpression	\")...\"
+>558	Identifier	inLabelExt
+>559	PrimaryExpression	\"Processing results (\"
+>560	Callee	DRWN_LOG_MESSAGE
+>561	Identifier	DRWN_LOG_MESSAGE
+>562	IdentifierDeclStatement	 
+>563	IdentifierDecl	scores ( baseNames . size ( ) )
+>564	CallExpression	baseNames . size ( )
+>565	ArgumentList	 
+>566	Callee	baseNames . size
+>567	MemberAccess	baseNames . size
+>568	Identifier	size
+>569	Identifier	baseNames
+>570	Identifier	scores
+>571	IdentifierDeclType	vector < double >
+>572	IdentifierDeclStatement	 
+>573	IdentifierDecl	confusion ( nLabels )
+>574	Identifier	nLabels
+>575	Identifier	confusion
+>576	IdentifierDeclType	drwnConfusionMatrix
+>577	IdentifierDeclStatement	 
+>578	IdentifierDecl	nLabels = gMultiSegRegionDefs . maxKey ( ) + 1
+>579	AssignmentExpr	nLabels = gMultiSegRegionDefs . maxKey ( ) + 1
+>580	AdditiveExpression	gMultiSegRegionDefs . maxKey ( ) + 1
+>581	PrimaryExpression	1
+>582	CallExpression	gMultiSegRegionDefs . maxKey ( )
+>583	ArgumentList	 
+>584	Callee	gMultiSegRegionDefs . maxKey
+>585	MemberAccess	gMultiSegRegionDefs . maxKey
+>586	Identifier	maxKey
+>587	Identifier	gMultiSegRegionDefs
+>588	Identifier	nLabels
+>589	Identifier	nLabels
+>590	IdentifierDeclType	const int
+>591	ExpressionStatement	 
+>592	CallExpression	DRWN_LOG_MESSAGE ( \"...read \" << baseNames . size ( ) << \" images\" )
+>593	ArgumentList	\"...read \" << baseNames . size ( ) << \" images\"
+>594	Argument	\"...read \" << baseNames . size ( ) << \" images\"
+>595	ShiftExpression	\"...read \" << baseNames . size ( ) << \" images\"
+>596	ShiftExpression	baseNames . size ( ) << \" images\"
+>597	PrimaryExpression	\" images\"
+>598	CallExpression	baseNames . size ( )
+>599	ArgumentList	 
+>600	Callee	baseNames . size
+>601	MemberAccess	baseNames . size
+>602	Identifier	size
+>603	Identifier	baseNames
+>604	PrimaryExpression	\"...read \"
+>605	Callee	DRWN_LOG_MESSAGE
+>606	Identifier	DRWN_LOG_MESSAGE
+>607	IdentifierDeclStatement	 
+>608	IdentifierDecl	baseNames = drwnReadFile ( evalList )
+>609	AssignmentExpr	baseNames = drwnReadFile ( evalList )
+>610	CallExpression	drwnReadFile ( evalList )
+>611	ArgumentList	evalList
+>612	Argument	evalList
+>613	Identifier	evalList
+>614	Callee	drwnReadFile
+>615	Identifier	drwnReadFile
+>616	Identifier	baseNames
+>617	Identifier	baseNames
+>618	IdentifierDeclType	vector < string >
+>619	ExpressionStatement	 
+>620	CallExpression	DRWN_LOG_MESSAGE ( \"Reading evaluation list from \" << evalList << \"...\" )
+>621	ArgumentList	\"Reading evaluation list from \" << evalList << \"...\"
+>622	Argument	\"Reading evaluation list from \" << evalList << \"...\"
+>623	ShiftExpression	\"Reading evaluation list from \" << evalList << \"...\"
+>624	ShiftExpression	evalList << \"...\"
+>625	PrimaryExpression	\"...\"
+>626	Identifier	evalList
+>627	PrimaryExpression	\"Reading evaluation list from \"
+>628	Callee	DRWN_LOG_MESSAGE
+>629	Identifier	DRWN_LOG_MESSAGE
+>630	IdentifierDeclStatement	 
+>631	IdentifierDecl	* evalList = DRWN_CMDLINE_ARGV [ 0 ]
+>632	AssignmentExpr	* evalList = DRWN_CMDLINE_ARGV [ 0 ]
+>633	ArrayIndexing	DRWN_CMDLINE_ARGV [ 0 ]
+>634	PrimaryExpression	0
+>635	Identifier	DRWN_CMDLINE_ARGV
+>636	Identifier	evalList
+>637	Identifier	evalList
+>638	IdentifierDeclType	const char *
+>639	ExpressionStatement	 
+>640	CallExpression	drwnCodeProfiler 
+>641	ArgumentList	drwnCodeProfiler 
+>642	Argument	drwnCodeProfiler 
+>643	CallExpression	drwnCodeProfiler 
+>644	ArgumentList	\"main\"
+>645	Argument	\"main\"
+>646	PrimaryExpression	\"main\"
+>647	Callee	drwnCodeProfiler 
+>648	Identifier	drwnCodeProfiler 
+>649	Callee	drwnCodeProfiler 
+>650	Identifier	drwnCodeProfiler 
+>651	IfStatement	if ( DRWN_CMDLINE_ARGC != 1 )
+>652	CompoundStatement	 
+>653	ReturnStatement	 
+>654	UnaryOp	- 1
+>655	PrimaryExpression	1
+>656	UnaryOperator	-
+>657	ExpressionStatement	 
+>658	CallExpression	usage ( )
+>659	ArgumentList	 
+>660	Callee	usage
+>661	Identifier	usage
+>662	Condition	 
+>663	EqualityExpression	DRWN_CMDLINE_ARGC != 1
+>664	PrimaryExpression	1
+>665	Identifier	DRWN_CMDLINE_ARGC
+>666	ExpressionStatement	 
+>667	CallExpression	DRWN_END_CMDLINE_PROCESSING ( usage ( ) )
+>668	ArgumentList	usage ( )
+>669	Argument	usage ( )
+>670	CallExpression	usage ( )
+>671	ArgumentList	 
+>672	Callee	usage
+>673	Identifier	usage
+>674	Callee	DRWN_END_CMDLINE_PROCESSING
+>675	Identifier	DRWN_END_CMDLINE_PROCESSING
+>676	Statement	 
+>677	Statement	 
+>678	Statement	 
+>679	Statement	 
+>680	Statement	 
+>681	Statement	 
+>682	Statement	 
+>683	Statement	 
+>684	Statement	 
+>685	Statement	 
+>686	Statement	 
+>687	Statement	 
+>688	Statement	 
+>689	Statement	 
+>690	Statement	 
+>691	Statement	 
+>692	Statement	 
+>693	Statement	 
+>694	Statement	 
+>695	Statement	 
+>696	Statement	 
+>697	Statement	 
+>698	Statement	 
+>699	Statement	 
+>700	IdentifierDeclStatement	 
+>701	IdentifierDecl	bShowConfusion = false
+>702	AssignmentExpr	bShowConfusion = false
+>703	Identifier	false
+>704	Identifier	false
+>705	Identifier	bShowConfusion
+>706	IdentifierDeclType	bool
+>707	IdentifierDeclStatement	 
+>708	IdentifierDecl	* outScoreFile = NULL
+>709	AssignmentExpr	* outScoreFile = NULL
+>710	Identifier	NULL
+>711	Identifier	NULL
+>712	Identifier	outScoreFile
+>713	IdentifierDeclType	const char *
+>714	IdentifierDeclStatement	 
+>715	IdentifierDecl	* inLabelExt = \".txt\"
+>716	AssignmentExpr	* inLabelExt = \".txt\"
+>717	PrimaryExpression	\".txt\"
+>718	Identifier	inLabelExt
+>719	Identifier	inLabelExt
+>720	IdentifierDeclType	const char *
+<3=6,5,4
+<6=25,21,7
+<7=8
+<8=20,9
+<9=19,10
+<10=18,11
+<11=17,12
+<12=16,13
+<13=15,14
+<21=22
+<22=24,23
+<25=26
+<26=30,27
+<27=29,28
+<34=43,42,35
+<35=39,36
+<36=38,37
+<39=41,40
+<43=714,707,700,699,698,697,696,695,694,693,692,691,690,689,688,687,686,685,684,683,682,681,680,679,678,677,676,666,651,639,630,619,607,591,577,572,562,551,539,237,189,169,149,129,63,51,46,44
+<44=45
+<46=47
+<47=49,48
+<49=50
+<51=52
+<52=61,53
+<53=54
+<54=55
+<55=59,56
+<56=57
+<57=58
+<59=60
+<61=62
+<63=125,64
+<64=120,104,72,65
+<65=66
+<66=68,67
+<68=69
+<69=71,70
+<72=96,85,82,73
+<73=74
+<74=75
+<75=81,76
+<76=78,77
+<78=80,79
+<82=84,83
+<85=86
+<86=95,87
+<87=94,88
+<88=90,89
+<90=91
+<91=93,92
+<96=97
+<97=98
+<98=103,102,99
+<99=101,100
+<104=105
+<105=118,106
+<106=109,107
+<107=108
+<109=110
+<110=117,111
+<111=113,112
+<113=114
+<114=116,115
+<118=119
+<120=121
+<121=124,123,122
+<125=126
+<126=128,127
+<129=130
+<130=147,131
+<131=132
+<132=133
+<133=146,134
+<134=140,135
+<135=139,136
+<136=138,137
+<140=142,141
+<142=143
+<143=145,144
+<147=148
+<149=150
+<150=167,151
+<151=152
+<152=153
+<153=166,154
+<154=160,155
+<155=159,156
+<156=158,157
+<160=162,161
+<162=163
+<163=165,164
+<167=168
+<169=170
+<170=187,171
+<171=172
+<172=173
+<173=186,174
+<174=180,175
+<175=179,176
+<176=178,177
+<180=182,181
+<182=183
+<183=185,184
+<187=188
+<189=235,190
+<190=224,213,202,191
+<191=192
+<192=198,193
+<193=196,194
+<194=195
+<196=197
+<198=199
+<199=201,200
+<202=203
+<203=209,204
+<204=207,205
+<205=206
+<207=208
+<209=210
+<210=212,211
+<213=214
+<214=220,215
+<215=218,216
+<216=217
+<218=219
+<220=221
+<221=223,222
+<224=225
+<225=231,226
+<226=229,227
+<227=228
+<229=230
+<231=232
+<232=234,233
+<235=236
+<237=531,520,517,238
+<238=510,490,465,437,433,417,400,386,353,348,266,255,246,239
+<239=240
+<240=244,241
+<241=242
+<242=243
+<244=245
+<246=247
+<247=251,248
+<248=249
+<249=250
+<251=252
+<252=254,253
+<255=256
+<256=263,257
+<257=259,258
+<259=260
+<260=262,261
+<263=265,264
+<266=340,331,328,267
+<267=268
+<268=320,311,308,269
+<269=295,270
+<270=271
+<271=291,272
+<272=282,273
+<273=274
+<274=280,275
+<275=278,276
+<276=277
+<278=279
+<280=281
+<282=283
+<283=289,284
+<284=287,285
+<285=286
+<287=288
+<289=290
+<291=292
+<292=294,293
+<295=297,296
+<297=298
+<298=300,299
+<300=306,301
+<301=304,302
+<302=303
+<304=305
+<306=307
+<308=310,309
+<311=312
+<312=319,313
+<313=315,314
+<315=316
+<316=318,317
+<320=321
+<321=322
+<322=327,326,323
+<323=325,324
+<328=330,329
+<331=332
+<332=339,333
+<333=335,334
+<335=336
+<336=338,337
+<340=341
+<341=342
+<342=347,346,343
+<343=345,344
+<348=349
+<349=352,351,350
+<353=354
+<354=384,355
+<355=356
+<356=357
+<357=371,358
+<358=365,359
+<359=361,360
+<361=362
+<362=364,363
+<365=367,366
+<367=368
+<368=370,369
+<371=378,372
+<372=374,373
+<374=375
+<375=377,376
+<378=380,379
+<380=381
+<381=383,382
+<384=385
+<386=387
+<387=398,388
+<388=396,389
+<389=390
+<390=392,391
+<392=393
+<393=395,394
+<396=397
+<398=399
+<400=401
+<401=416,415,402
+<402=409,403
+<403=405,404
+<405=406
+<406=408,407
+<409=411,410
+<411=412
+<412=414,413
+<417=418
+<418=431,419
+<419=429,422,420
+<420=421
+<422=423
+<423=425,424
+<425=426
+<426=428,427
+<429=430
+<431=432
+<433=434
+<434=436,435
+<437=438
+<438=463,439
+<439=440
+<440=441
+<441=462,442
+<442=459,443
+<443=458,444
+<444=455,445
+<445=454,446
+<446=448,447
+<448=450,449
+<450=451
+<451=453,452
+<455=457,456
+<459=461,460
+<463=464
+<465=466
+<466=489,488,467
+<467=487,468
+<468=475,469
+<469=473,470
+<470=471
+<471=472
+<473=474
+<475=483,476
+<476=481,477
+<477=478
+<478=480,479
+<481=482
+<483=484
+<484=486,485
+<490=491
+<491=509,508,492
+<492=507,493
+<493=503,494
+<494=501,497,495
+<495=496
+<497=498
+<498=500,499
+<501=502
+<503=504
+<504=506,505
+<510=511
+<511=515,512
+<512=513
+<513=514
+<515=516
+<517=519,518
+<520=521
+<521=530,522
+<522=529,523
+<523=525,524
+<525=526
+<526=528,527
+<531=532
+<532=533
+<533=538,537,534
+<534=536,535
+<539=540
+<540=550,549,541
+<541=548,542
+<542=546,543
+<543=544
+<544=545
+<546=547
+<551=552
+<552=560,553
+<553=554
+<554=555
+<555=559,556
+<556=558,557
+<560=561
+<562=563
+<563=571,570,564
+<564=566,565
+<566=567
+<567=569,568
+<572=573
+<573=576,575,574
+<577=578
+<578=590,589,579
+<579=588,580
+<580=582,581
+<582=584,583
+<584=585
+<585=587,586
+<591=592
+<592=605,593
+<593=594
+<594=595
+<595=604,596
+<596=598,597
+<598=600,599
+<600=601
+<601=603,602
+<605=606
+<607=608
+<608=618,617,609
+<609=616,610
+<610=614,611
+<611=612
+<612=613
+<614=615
+<619=620
+<620=628,621
+<621=622
+<622=623
+<623=627,624
+<624=626,625
+<628=629
+<630=631
+<631=638,637,632
+<632=636,633
+<633=635,634
+<639=640
+<640=649,641
+<641=642
+<642=643
+<643=647,644
+<644=645
+<645=646
+<647=648
+<649=650
+<651=662,652
+<652=657,653
+<653=654
+<654=656,655
+<657=658
+<658=660,659
+<660=661
+<662=663
+<663=665,664
+<666=667
+<667=674,668
+<668=669
+<669=670
+<670=672,671
+<672=673
+<674=675
+<700=701
+<701=706,705,702
+<702=704,703
+<707=708
+<708=713,712,709
+<709=711,710
+<714=715
+<715=720,719,716
+<716=718,717

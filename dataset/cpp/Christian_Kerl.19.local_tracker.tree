@@ -1,0 +1,1473 @@
+>26	FunctionDef	match (const DenseTrackerPtr & tracker , const PointSelectionPtr & ref , const dvo 
+>27	ParameterList	const DenseTrackerPtr & tracker , const PointSelectionPtr & ref , const dvo 
+>28	Parameter	 
+>29	Identifier	r
+>30	ParameterType	LocalTracker 
+>31	Parameter	 
+>32	Identifier	cur
+>33	ParameterType	const dvo 
+>34	Parameter	 
+>35	Identifier	ref
+>36	ParameterType	const PointSelectionPtr &
+>37	Parameter	 
+>38	Identifier	tracker
+>39	ParameterType	const DenseTrackerPtr &
+>40	ReturnType	static void
+>41	CompoundStatement	 
+>42	ExpressionStatement	 
+>43	CallExpression	tracker -> match ( * ref , * cur , * r )
+>44	ArgumentList	* ref
+>45	Argument	* r
+>46	UnaryOp	* r
+>47	Identifier	r
+>48	UnaryOperator	*
+>49	Argument	* cur
+>50	UnaryOp	* cur
+>51	Identifier	cur
+>52	UnaryOperator	*
+>53	Argument	* ref
+>54	UnaryOp	* ref
+>55	Identifier	ref
+>56	UnaryOperator	*
+>57	Callee	tracker -> match
+>58	PtrMemberAccess	tracker -> match
+>59	Identifier	match
+>60	Identifier	tracker
+>71	FunctionDef	LocalTracker 
+>72	ParameterList	 
+>73	CompoundStatement	 
+>74	ExpressionStatement	 
+>75	CallExpression	impl_ -> active_frame_points_ . reset ( new dvo 
+>76	ArgumentList	impl_ -> predicate
+>77	Argument	impl_ -> predicate
+>78	PtrMemberAccess	impl_ -> predicate
+>79	Identifier	predicate
+>80	Identifier	impl_
+>81	Callee	impl_ -> active_frame_points_ . reset
+>82	MemberAccess	impl_ -> active_frame_points_ . reset
+>83	Identifier	reset
+>84	PtrMemberAccess	impl_ -> active_frame_points_
+>85	Identifier	active_frame_points_
+>86	Identifier	impl_
+>87	ExpressionStatement	 
+>88	CallExpression	impl_ -> keyframe_points_ . reset ( new dvo 
+>89	ArgumentList	impl_ -> predicate
+>90	Argument	impl_ -> predicate
+>91	PtrMemberAccess	impl_ -> predicate
+>92	Identifier	predicate
+>93	Identifier	impl_
+>94	Callee	impl_ -> keyframe_points_ . reset
+>95	MemberAccess	impl_ -> keyframe_points_ . reset
+>96	Identifier	reset
+>97	PtrMemberAccess	impl_ -> keyframe_points_
+>98	Identifier	keyframe_points_
+>99	Identifier	impl_
+>100	ExpressionStatement	 
+>101	AssignmentExpr	impl_ -> force_ = false
+>102	Identifier	false
+>103	PtrMemberAccess	impl_ -> force_
+>104	Identifier	force_
+>105	Identifier	impl_
+>106	ExpressionStatement	 
+>107	CallExpression	impl_ -> last_keyframe_pose_ . setIdentity ( )
+>108	ArgumentList	 
+>109	Callee	impl_ -> last_keyframe_pose_ . setIdentity
+>110	MemberAccess	impl_ -> last_keyframe_pose_ . setIdentity
+>111	Identifier	setIdentity
+>112	PtrMemberAccess	impl_ -> last_keyframe_pose_
+>113	Identifier	last_keyframe_pose_
+>114	Identifier	impl_
+>115	ExpressionStatement	 
+>116	CallExpression	impl_ -> odometry_tracker_ . reset ( new dvo 
+>117	ArgumentList	new dvo 
+>118	Argument	new dvo 
+>119	UnaryExpression	new dvo 
+>120	Callee	impl_ -> odometry_tracker_ . reset
+>121	MemberAccess	impl_ -> odometry_tracker_ . reset
+>122	Identifier	reset
+>123	PtrMemberAccess	impl_ -> odometry_tracker_
+>124	Identifier	odometry_tracker_
+>125	Identifier	impl_
+>126	ExpressionStatement	 
+>127	CallExpression	impl_ -> keyframe_tracker_ . reset ( new dvo 
+>128	ArgumentList	new dvo 
+>129	Argument	new dvo 
+>130	UnaryExpression	new dvo 
+>131	Callee	impl_ -> keyframe_tracker_ . reset
+>132	MemberAccess	impl_ -> keyframe_tracker_ . reset
+>133	Identifier	reset
+>134	PtrMemberAccess	impl_ -> keyframe_tracker_
+>135	Identifier	keyframe_tracker_
+>136	Identifier	impl_
+>150	FunctionDef	LocalTracker 
+>151	ParameterList	 
+>152	CompoundStatement	 
+>156	FunctionDef	LocalTracker 
+>157	ParameterList	 
+>158	ReturnType	dvo_slam 
+>159	CompoundStatement	 
+>160	ReturnStatement	 
+>161	Identifier	local_map_
+>166	FunctionDef	LocalTracker 
+>167	ParameterList	dvo 
+>168	Parameter	 
+>169	Identifier	pose
+>170	ParameterType	dvo 
+>171	ReturnType	void
+>172	CompoundStatement	 
+>173	ExpressionStatement	 
+>174	CallExpression	local_map_ -> getCurrentFramePose ( pose )
+>175	ArgumentList	pose
+>176	Argument	pose
+>177	Identifier	pose
+>178	Callee	local_map_ -> getCurrentFramePose
+>179	PtrMemberAccess	local_map_ -> getCurrentFramePose
+>180	Identifier	getCurrentFramePose
+>181	Identifier	local_map_
+>187	FunctionDef	LocalTracker 
+>188	ParameterList	const AcceptCallback & callback
+>189	Parameter	 
+>190	Identifier	callback
+>191	ParameterType	const AcceptCallback &
+>192	ReturnType	boost 
+>193	CompoundStatement	 
+>194	ReturnStatement	 
+>195	CallExpression	impl_ -> accept_ . connect ( callback )
+>196	ArgumentList	callback
+>197	Argument	callback
+>198	Identifier	callback
+>199	Callee	impl_ -> accept_ . connect
+>200	MemberAccess	impl_ -> accept_ . connect
+>201	Identifier	connect
+>202	PtrMemberAccess	impl_ -> accept_
+>203	Identifier	accept_
+>204	Identifier	impl_
+>213	FunctionDef	LocalTracker 
+>214	ParameterList	const MapCompleteCallback & callback
+>215	Parameter	 
+>216	Identifier	callback
+>217	ParameterType	const MapCompleteCallback &
+>218	ReturnType	boost 
+>219	CompoundStatement	 
+>220	ReturnStatement	 
+>221	CallExpression	impl_ -> map_complete_ . connect ( callback )
+>222	ArgumentList	callback
+>223	Argument	callback
+>224	Identifier	callback
+>225	Callee	impl_ -> map_complete_ . connect
+>226	MemberAccess	impl_ -> map_complete_ . connect
+>227	Identifier	connect
+>228	PtrMemberAccess	impl_ -> map_complete_
+>229	Identifier	map_complete_
+>230	Identifier	impl_
+>239	FunctionDef	LocalTracker 
+>240	ParameterList	const MapInitializedCallback & callback
+>241	Parameter	 
+>242	Identifier	callback
+>243	ParameterType	const MapInitializedCallback &
+>244	ReturnType	boost 
+>245	CompoundStatement	 
+>246	ReturnStatement	 
+>247	CallExpression	impl_ -> map_initialized_ . connect ( callback )
+>248	ArgumentList	callback
+>249	Argument	callback
+>250	Identifier	callback
+>251	Callee	impl_ -> map_initialized_ . connect
+>252	MemberAccess	impl_ -> map_initialized_ . connect
+>253	Identifier	connect
+>254	PtrMemberAccess	impl_ -> map_initialized_
+>255	Identifier	map_initialized_
+>256	Identifier	impl_
+>265	FunctionDef	LocalTracker 
+>266	ParameterList	 
+>267	ReturnType	const dvo 
+>268	CompoundStatement	 
+>269	ReturnStatement	 
+>270	CallExpression	impl_ -> odometry_tracker_ -> configuration ( )
+>271	ArgumentList	 
+>272	Callee	impl_ -> odometry_tracker_ -> configuration
+>273	PtrMemberAccess	impl_ -> odometry_tracker_ -> configuration
+>274	Identifier	configuration
+>275	PtrMemberAccess	impl_ -> odometry_tracker_
+>276	Identifier	odometry_tracker_
+>277	Identifier	impl_
+>287	FunctionDef	LocalTracker 
+>288	ParameterList	const dvo 
+>289	Parameter	 
+>290	Identifier	config
+>291	ParameterType	const dvo 
+>292	ReturnType	void
+>293	CompoundStatement	 
+>294	IfStatement	if ( impl_ -> predicate . intensity_threshold != config . IntensityDerivativeThreshold || impl_ -> predicate . depth_\
+>295	CompoundStatement	 
+>296	IfStatement	if ( local_map_ )
+>297	CompoundStatement	 
+>298	ExpressionStatement	 
+>299	CallExpression	impl_ -> keyframe_points_ -> setRgbdImagePyramid ( * local_map_ -> getKeyframe ( ) )
+>300	ArgumentList	* local_map_ -> getKeyframe ( )
+>301	Argument	* local_map_ -> getKeyframe ( )
+>302	UnaryOp	* local_map_ -> getKeyframe ( )
+>303	CallExpression	local_map_ -> getKeyframe ( )
+>304	ArgumentList	 
+>305	Callee	local_map_ -> getKeyframe
+>306	PtrMemberAccess	local_map_ -> getKeyframe
+>307	Identifier	getKeyframe
+>308	Identifier	local_map_
+>309	UnaryOperator	*
+>310	Callee	impl_ -> keyframe_points_ -> setRgbdImagePyramid
+>311	PtrMemberAccess	impl_ -> keyframe_points_ -> setRgbdImagePyramid
+>312	Identifier	setRgbdImagePyramid
+>313	PtrMemberAccess	impl_ -> keyframe_points_
+>314	Identifier	keyframe_points_
+>315	Identifier	impl_
+>316	Condition	 
+>317	Identifier	local_map_
+>318	ExpressionStatement	 
+>319	AssignmentExpr	impl_ -> predicate . depth_threshold = config . DepthDerivativeThreshold
+>320	MemberAccess	config . DepthDerivativeThreshold
+>321	Identifier	DepthDerivativeThreshold
+>322	Identifier	config
+>323	MemberAccess	impl_ -> predicate . depth_threshold
+>324	Identifier	depth_threshold
+>325	PtrMemberAccess	impl_ -> predicate
+>326	Identifier	predicate
+>327	Identifier	impl_
+>328	ExpressionStatement	 
+>329	AssignmentExpr	impl_ -> predicate . intensity_threshold = config . IntensityDerivativeThreshold
+>330	MemberAccess	config . IntensityDerivativeThreshold
+>331	Identifier	IntensityDerivativeThreshold
+>332	Identifier	config
+>333	MemberAccess	impl_ -> predicate . intensity_threshold
+>334	Identifier	intensity_threshold
+>335	PtrMemberAccess	impl_ -> predicate
+>336	Identifier	predicate
+>337	Identifier	impl_
+>338	Condition	 
+>339	OrExpression	impl_ -> predicate . intensity_threshold != config . IntensityDerivativeThreshold || impl_ -> predicate \
+>340	EqualityExpression	impl_ -> predicate . depth_threshold != config . DepthDerivativeThreshold
+>341	MemberAccess	config . DepthDerivativeThreshold
+>342	Identifier	DepthDerivativeThreshold
+>343	Identifier	config
+>344	MemberAccess	impl_ -> predicate . depth_threshold
+>345	Identifier	depth_threshold
+>346	PtrMemberAccess	impl_ -> predicate
+>347	Identifier	predicate
+>348	Identifier	impl_
+>349	EqualityExpression	impl_ -> predicate . intensity_threshold != config . IntensityDerivativeThreshold
+>350	MemberAccess	config . IntensityDerivativeThreshold
+>351	Identifier	IntensityDerivativeThreshold
+>352	Identifier	config
+>353	MemberAccess	impl_ -> predicate . intensity_threshold
+>354	Identifier	intensity_threshold
+>355	PtrMemberAccess	impl_ -> predicate
+>356	Identifier	predicate
+>357	Identifier	impl_
+>358	ExpressionStatement	 
+>359	CallExpression	impl_ -> odometry_tracker_ -> configure ( config )
+>360	ArgumentList	config
+>361	Argument	config
+>362	Identifier	config
+>363	Callee	impl_ -> odometry_tracker_ -> configure
+>364	PtrMemberAccess	impl_ -> odometry_tracker_ -> configure
+>365	Identifier	configure
+>366	PtrMemberAccess	impl_ -> odometry_tracker_
+>367	Identifier	odometry_tracker_
+>368	Identifier	impl_
+>369	ExpressionStatement	 
+>370	CallExpression	impl_ -> keyframe_tracker_ -> configure ( config )
+>371	ArgumentList	config
+>372	Argument	config
+>373	Identifier	config
+>374	Callee	impl_ -> keyframe_tracker_ -> configure
+>375	PtrMemberAccess	impl_ -> keyframe_tracker_ -> configure
+>376	Identifier	configure
+>377	PtrMemberAccess	impl_ -> keyframe_tracker_
+>378	Identifier	keyframe_tracker_
+>379	Identifier	impl_
+>400	FunctionDef	LocalTracker 
+>401	ParameterList	const dvo 
+>402	Parameter	 
+>403	Identifier	keyframe_pose
+>404	ParameterType	const dvo 
+>405	Parameter	 
+>406	Identifier	frame
+>407	ParameterType	const dvo 
+>408	Parameter	 
+>409	Identifier	keyframe
+>410	ParameterType	const dvo 
+>411	ReturnType	void
+>412	CompoundStatement	 
+>413	ExpressionStatement	 
+>414	CallExpression	initNewLocalMap ( keyframe , frame , r_odometry , keyframe_pose )
+>415	ArgumentList	keyframe
+>416	Argument	keyframe_pose
+>417	Identifier	keyframe_pose
+>418	Argument	r_odometry
+>419	Identifier	r_odometry
+>420	Argument	frame
+>421	Identifier	frame
+>422	Argument	keyframe
+>423	Identifier	keyframe
+>424	Callee	initNewLocalMap
+>425	Identifier	initNewLocalMap
+>426	ExpressionStatement	 
+>427	AssignmentExpr	impl_ -> last_keyframe_pose_ = r_odometry . Transformation
+>428	MemberAccess	r_odometry . Transformation
+>429	Identifier	Transformation
+>430	Identifier	r_odometry
+>431	PtrMemberAccess	impl_ -> last_keyframe_pose_
+>432	Identifier	last_keyframe_pose_
+>433	Identifier	impl_
+>434	ExpressionStatement	 
+>435	CallExpression	impl_ -> odometry_tracker_ -> match ( * ( impl_ -> keyframe_points_ ) , * frame , r_odometry )
+>436	ArgumentList	* ( impl_ -> keyframe_points_ )
+>437	Argument	r_odometry
+>438	Identifier	r_odometry
+>439	Argument	* frame
+>440	UnaryOp	* frame
+>441	Identifier	frame
+>442	UnaryOperator	*
+>443	Argument	* ( impl_ -> keyframe_points_ )
+>444	UnaryOp	* ( impl_ -> keyframe_points_ )
+>445	PtrMemberAccess	impl_ -> keyframe_points_
+>446	Identifier	keyframe_points_
+>447	Identifier	impl_
+>448	UnaryOperator	*
+>449	Callee	impl_ -> odometry_tracker_ -> match
+>450	PtrMemberAccess	impl_ -> odometry_tracker_ -> match
+>451	Identifier	match
+>452	PtrMemberAccess	impl_ -> odometry_tracker_
+>453	Identifier	odometry_tracker_
+>454	Identifier	impl_
+>455	ExpressionStatement	 
+>456	CallExpression	r_odometry . Transformation . setIdentity ( )
+>457	ArgumentList	 
+>458	Callee	r_odometry . Transformation . setIdentity
+>459	MemberAccess	r_odometry . Transformation . setIdentity
+>460	Identifier	setIdentity
+>461	MemberAccess	r_odometry . Transformation
+>462	Identifier	Transformation
+>463	Identifier	r_odometry
+>464	IdentifierDeclStatement	 
+>465	IdentifierDecl	r_odometry
+>466	Identifier	r_odometry
+>467	IdentifierDeclType	TrackingResult
+>468	ExpressionStatement	 
+>469	CallExpression	impl_ -> active_frame_points_ -> setRgbdImagePyramid ( * frame )
+>470	ArgumentList	* frame
+>471	Argument	* frame
+>472	UnaryOp	* frame
+>473	Identifier	frame
+>474	UnaryOperator	*
+>475	Callee	impl_ -> active_frame_points_ -> setRgbdImagePyramid
+>476	PtrMemberAccess	impl_ -> active_frame_points_ -> setRgbdImagePyramid
+>477	Identifier	setRgbdImagePyramid
+>478	PtrMemberAccess	impl_ -> active_frame_points_
+>479	Identifier	active_frame_points_
+>480	Identifier	impl_
+>481	ExpressionStatement	 
+>482	CallExpression	impl_ -> keyframe_points_ -> setRgbdImagePyramid ( * keyframe )
+>483	ArgumentList	* keyframe
+>484	Argument	* keyframe
+>485	UnaryOp	* keyframe
+>486	Identifier	keyframe
+>487	UnaryOperator	*
+>488	Callee	impl_ -> keyframe_points_ -> setRgbdImagePyramid
+>489	PtrMemberAccess	impl_ -> keyframe_points_ -> setRgbdImagePyramid
+>490	Identifier	setRgbdImagePyramid
+>491	PtrMemberAccess	impl_ -> keyframe_points_
+>492	Identifier	keyframe_points_
+>493	Identifier	impl_
+>513	FunctionDef	LocalTracker 
+>514	ParameterList	const dvo 
+>515	Parameter	 
+>516	Identifier	keyframe_pose
+>517	ParameterType	const dvo 
+>518	Parameter	 
+>519	Identifier	r_odometry
+>520	ParameterType	TrackingResult &
+>521	Parameter	 
+>522	Identifier	frame
+>523	ParameterType	const dvo 
+>524	Parameter	 
+>525	Identifier	keyframe
+>526	ParameterType	const dvo 
+>527	ReturnType	void
+>528	CompoundStatement	 
+>529	ExpressionStatement	 
+>530	CallExpression	impl_ -> map_initialized_ ( * this , local_map_ , r_odometry )
+>531	ArgumentList	* this
+>532	Argument	r_odometry
+>533	Identifier	r_odometry
+>534	Argument	local_map_
+>535	Identifier	local_map_
+>536	Argument	* this
+>537	UnaryOp	* this
+>538	Identifier	this
+>539	UnaryOperator	*
+>540	Callee	impl_ -> map_initialized_
+>541	PtrMemberAccess	impl_ -> map_initialized_
+>542	Identifier	map_initialized_
+>543	Identifier	impl_
+>544	ExpressionStatement	 
+>545	CallExpression	local_map_ -> addKeyframeMeasurement ( r_odometry . Transformation , r_odometry . Information )
+>546	ArgumentList	r_odometry . Transformation
+>547	Argument	r_odometry . Information
+>548	MemberAccess	r_odometry . Information
+>549	Identifier	Information
+>550	Identifier	r_odometry
+>551	Argument	r_odometry . Transformation
+>552	MemberAccess	r_odometry . Transformation
+>553	Identifier	Transformation
+>554	Identifier	r_odometry
+>555	Callee	local_map_ -> addKeyframeMeasurement
+>556	PtrMemberAccess	local_map_ -> addKeyframeMeasurement
+>557	Identifier	addKeyframeMeasurement
+>558	Identifier	local_map_
+>559	ExpressionStatement	 
+>560	CallExpression	local_map_ -> addFrame ( frame )
+>561	ArgumentList	frame
+>562	Argument	frame
+>563	Identifier	frame
+>564	Callee	local_map_ -> addFrame
+>565	PtrMemberAccess	local_map_ -> addFrame
+>566	Identifier	addFrame
+>567	Identifier	local_map_
+>568	ExpressionStatement	 
+>569	AssignmentExpr	local_map_ = LocalMap 
+>570	CallExpression	LocalMap 
+>571	ArgumentList	keyframe
+>572	Argument	keyframe_pose
+>573	Identifier	keyframe_pose
+>574	Argument	keyframe
+>575	Identifier	keyframe
+>576	Callee	LocalMap 
+>577	Identifier	LocalMap 
+>578	Identifier	local_map_
+>579	IfStatement	if ( r_odometry . isNaN ( ) )
+>580	CompoundStatement	 
+>581	ExpressionStatement	 
+>582	CallExpression	r_odometry . setIdentity ( )
+>583	ArgumentList	 
+>584	Callee	r_odometry . setIdentity
+>585	MemberAccess	r_odometry . setIdentity
+>586	Identifier	setIdentity
+>587	Identifier	r_odometry
+>588	ExpressionStatement	 
+>589	CallExpression	ROS_ERROR ( \"NaN in Map Initialization!\" )
+>590	ArgumentList	\"NaN in Map Initialization!\"
+>591	Argument	\"NaN in Map Initialization!\"
+>592	PrimaryExpression	\"NaN in Map Initialization!\"
+>593	Callee	ROS_ERROR
+>594	Identifier	ROS_ERROR
+>595	Condition	 
+>596	CallExpression	r_odometry . isNaN ( )
+>597	ArgumentList	 
+>598	Callee	r_odometry . isNaN
+>599	MemberAccess	r_odometry . isNaN
+>600	Identifier	isNaN
+>601	Identifier	r_odometry
+>617	FunctionDef	LocalTracker 
+>618	ParameterList	const dvo 
+>619	Parameter	 
+>620	Identifier	pose
+>621	ParameterType	dvo 
+>622	Parameter	 
+>623	Identifier	image
+>624	ParameterType	const dvo 
+>625	ReturnType	void
+>626	CompoundStatement	 
+>627	ExpressionStatement	 
+>628	CallExpression	local_map_ -> getCurrentFramePose ( pose )
+>629	ArgumentList	pose
+>630	Argument	pose
+>631	Identifier	pose
+>632	Callee	local_map_ -> getCurrentFramePose
+>633	PtrMemberAccess	local_map_ -> getCurrentFramePose
+>634	Identifier	getCurrentFramePose
+>635	Identifier	local_map_
+>636	IfStatement	if ( impl_ -> accept_ ( * this , r_odometry , r_keyframe ) && ! impl_ -> force_ )
+>637	ElseStatement	else
+>638	CompoundStatement	 
+>639	ExpressionStatement	 
+>640	AssignmentExpr	impl_ -> last_keyframe_pose_ = r_odometry . Transformation
+>641	MemberAccess	r_odometry . Transformation
+>642	Identifier	Transformation
+>643	Identifier	r_odometry
+>644	PtrMemberAccess	impl_ -> last_keyframe_pose_
+>645	Identifier	last_keyframe_pose_
+>646	Identifier	impl_
+>647	ExpressionStatement	 
+>648	CallExpression	initNewLocalMap ( old_map -> getCurrentFrame ( ) , image , r_odometry , old_pose )
+>649	ArgumentList	old_map -> getCurrentFrame ( )
+>650	Argument	old_pose
+>651	Identifier	old_pose
+>652	Argument	r_odometry
+>653	Identifier	r_odometry
+>654	Argument	image
+>655	Identifier	image
+>656	Argument	old_map -> getCurrentFrame ( )
+>657	CallExpression	old_map -> getCurrentFrame ( )
+>658	ArgumentList	 
+>659	Callee	old_map -> getCurrentFrame
+>660	PtrMemberAccess	old_map -> getCurrentFrame
+>661	Identifier	getCurrentFrame
+>662	Identifier	old_map
+>663	Callee	initNewLocalMap
+>664	Identifier	initNewLocalMap
+>665	ExpressionStatement	 
+>666	CallExpression	impl_ -> map_complete_ ( * this , old_map )
+>667	ArgumentList	* this
+>668	Argument	old_map
+>669	Identifier	old_map
+>670	Argument	* this
+>671	UnaryOp	* this
+>672	Identifier	this
+>673	UnaryOperator	*
+>674	Callee	impl_ -> map_complete_
+>675	PtrMemberAccess	impl_ -> map_complete_
+>676	Identifier	map_complete_
+>677	Identifier	impl_
+>678	IdentifierDeclStatement	 
+>679	IdentifierDecl	old_pose = old_map -> getCurrentFramePose ( )
+>680	AssignmentExpr	old_pose = old_map -> getCurrentFramePose ( )
+>681	CallExpression	old_map -> getCurrentFramePose ( )
+>682	ArgumentList	 
+>683	Callee	old_map -> getCurrentFramePose
+>684	PtrMemberAccess	old_map -> getCurrentFramePose
+>685	Identifier	getCurrentFramePose
+>686	Identifier	old_map
+>687	Identifier	old_pose
+>688	Identifier	old_pose
+>689	IdentifierDeclType	dvo 
+>690	IdentifierDeclStatement	 
+>691	IdentifierDecl	old_map = local_map_
+>692	AssignmentExpr	old_map = local_map_
+>693	Identifier	local_map_
+>694	Identifier	local_map_
+>695	Identifier	old_map
+>696	IdentifierDeclType	dvo_slam 
+>697	ExpressionStatement	 
+>698	CallExpression	impl_ -> keyframe_points_ . swap ( impl_ -> active_frame_points_ )
+>699	ArgumentList	impl_ -> active_frame_points_
+>700	Argument	impl_ -> active_frame_points_
+>701	PtrMemberAccess	impl_ -> active_frame_points_
+>702	Identifier	active_frame_points_
+>703	Identifier	impl_
+>704	Callee	impl_ -> keyframe_points_ . swap
+>705	MemberAccess	impl_ -> keyframe_points_ . swap
+>706	Identifier	swap
+>707	PtrMemberAccess	impl_ -> keyframe_points_
+>708	Identifier	keyframe_points_
+>709	Identifier	impl_
+>710	ExpressionStatement	 
+>711	AssignmentExpr	impl_ -> force_ = false
+>712	Identifier	false
+>713	PtrMemberAccess	impl_ -> force_
+>714	Identifier	force_
+>715	Identifier	impl_
+>716	CompoundStatement	 
+>717	ExpressionStatement	 
+>718	AssignmentExpr	impl_ -> last_keyframe_pose_ = r_keyframe . Transformation
+>719	MemberAccess	r_keyframe . Transformation
+>720	Identifier	Transformation
+>721	Identifier	r_keyframe
+>722	PtrMemberAccess	impl_ -> last_keyframe_pose_
+>723	Identifier	last_keyframe_pose_
+>724	Identifier	impl_
+>725	ExpressionStatement	 
+>726	CallExpression	local_map_ -> addKeyframeMeasurement ( r_keyframe . Transformation , r_keyframe . Information )
+>727	ArgumentList	r_keyframe . Transformation
+>728	Argument	r_keyframe . Information
+>729	MemberAccess	r_keyframe . Information
+>730	Identifier	Information
+>731	Identifier	r_keyframe
+>732	Argument	r_keyframe . Transformation
+>733	MemberAccess	r_keyframe . Transformation
+>734	Identifier	Transformation
+>735	Identifier	r_keyframe
+>736	Callee	local_map_ -> addKeyframeMeasurement
+>737	PtrMemberAccess	local_map_ -> addKeyframeMeasurement
+>738	Identifier	addKeyframeMeasurement
+>739	Identifier	local_map_
+>740	ExpressionStatement	 
+>741	CallExpression	local_map_ -> addOdometryMeasurement ( r_odometry . Transformation , r_odometry . Information )
+>742	ArgumentList	r_odometry . Transformation
+>743	Argument	r_odometry . Information
+>744	MemberAccess	r_odometry . Information
+>745	Identifier	Information
+>746	Identifier	r_odometry
+>747	Argument	r_odometry . Transformation
+>748	MemberAccess	r_odometry . Transformation
+>749	Identifier	Transformation
+>750	Identifier	r_odometry
+>751	Callee	local_map_ -> addOdometryMeasurement
+>752	PtrMemberAccess	local_map_ -> addOdometryMeasurement
+>753	Identifier	addOdometryMeasurement
+>754	Identifier	local_map_
+>755	ExpressionStatement	 
+>756	CallExpression	local_map_ -> addFrame ( image )
+>757	ArgumentList	image
+>758	Argument	image
+>759	Identifier	image
+>760	Callee	local_map_ -> addFrame
+>761	PtrMemberAccess	local_map_ -> addFrame
+>762	Identifier	addFrame
+>763	Identifier	local_map_
+>764	Condition	 
+>765	AndExpression	impl_ -> accept_ ( * this , r_odometry , r_keyframe ) && ! impl_ -> force_
+>766	UnaryOp	! impl_ -> force_
+>767	PtrMemberAccess	impl_ -> force_
+>768	Identifier	force_
+>769	Identifier	impl_
+>770	UnaryOperator	!
+>771	CallExpression	impl_ -> accept_ ( * this , r_odometry , r_keyframe )
+>772	ArgumentList	* this
+>773	Argument	r_keyframe
+>774	Identifier	r_keyframe
+>775	Argument	r_odometry
+>776	Identifier	r_odometry
+>777	Argument	* this
+>778	UnaryOp	* this
+>779	Identifier	this
+>780	UnaryOperator	*
+>781	Callee	impl_ -> accept_
+>782	PtrMemberAccess	impl_ -> accept_
+>783	Identifier	accept_
+>784	Identifier	impl_
+>785	ExpressionStatement	 
+>786	AssignmentExpr	impl_ -> force_ = impl_ -> force_ || r_odometry . isNaN ( ) || r_keyframe . isNaN ( )
+>787	OrExpression	impl_ -> force_ || r_odometry . isNaN ( ) || r_keyframe . isNaN ( )
+>788	OrExpression	r_odometry . isNaN ( ) || r_keyframe . isNaN ( )
+>789	CallExpression	r_keyframe . isNaN ( )
+>790	ArgumentList	 
+>791	Callee	r_keyframe . isNaN
+>792	MemberAccess	r_keyframe . isNaN
+>793	Identifier	isNaN
+>794	Identifier	r_keyframe
+>795	CallExpression	r_odometry . isNaN ( )
+>796	ArgumentList	 
+>797	Callee	r_odometry . isNaN
+>798	MemberAccess	r_odometry . isNaN
+>799	Identifier	isNaN
+>800	Identifier	r_odometry
+>801	PtrMemberAccess	impl_ -> force_
+>802	Identifier	force_
+>803	Identifier	impl_
+>804	PtrMemberAccess	impl_ -> force_
+>805	Identifier	force_
+>806	Identifier	impl_
+>807	ExpressionStatement	 
+>808	CallExpression	ROS_WARN_COND ( r_keyframe . isNaN ( ) , \"NAN in Keyframe\" )
+>809	ArgumentList	r_keyframe . isNaN ( )
+>810	Argument	\"NAN in Keyframe\"
+>811	PrimaryExpression	\"NAN in Keyframe\"
+>812	Argument	r_keyframe . isNaN ( )
+>813	CallExpression	r_keyframe . isNaN ( )
+>814	ArgumentList	 
+>815	Callee	r_keyframe . isNaN
+>816	MemberAccess	r_keyframe . isNaN
+>817	Identifier	isNaN
+>818	Identifier	r_keyframe
+>819	Callee	ROS_WARN_COND
+>820	Identifier	ROS_WARN_COND
+>821	ExpressionStatement	 
+>822	CallExpression	ROS_WARN_COND ( r_odometry . isNaN ( ) , \"NAN in Odometry\" )
+>823	ArgumentList	r_odometry . isNaN ( )
+>824	Argument	\"NAN in Odometry\"
+>825	PrimaryExpression	\"NAN in Odometry\"
+>826	Argument	r_odometry . isNaN ( )
+>827	CallExpression	r_odometry . isNaN ( )
+>828	ArgumentList	 
+>829	Callee	r_odometry . isNaN
+>830	MemberAccess	r_odometry . isNaN
+>831	Identifier	isNaN
+>832	Identifier	r_odometry
+>833	Callee	ROS_WARN_COND
+>834	Identifier	ROS_WARN_COND
+>835	ExpressionStatement	 
+>836	CallExpression	sw_match . stopAndPrint ( )
+>837	ArgumentList	 
+>838	Callee	sw_match . stopAndPrint
+>839	MemberAccess	sw_match . stopAndPrint
+>840	Identifier	stopAndPrint
+>841	Identifier	sw_match
+>842	ExpressionStatement	 
+>843	CallExpression	tbb 
+>844	ArgumentList	h1
+>845	Argument	h2
+>846	Identifier	h2
+>847	Argument	h1
+>848	Identifier	h1
+>849	Callee	tbb 
+>850	Identifier	tbb 
+>851	ExpressionStatement	 
+>852	CallExpression	sw_match . start ( )
+>853	ArgumentList	 
+>854	Callee	sw_match . start
+>855	MemberAccess	sw_match . start
+>856	Identifier	start
+>857	Identifier	sw_match
+>858	ExpressionStatement	 
+>859	AssignmentExpr	h2 = boost 
+>860	CallExpression	boost 
+>861	ArgumentList	& internal 
+>862	Argument	& r_odometry
+>863	UnaryOp	& r_odometry
+>864	Identifier	r_odometry
+>865	UnaryOperator	&
+>866	Argument	image
+>867	Identifier	image
+>868	Argument	impl_ -> active_frame_points_
+>869	PtrMemberAccess	impl_ -> active_frame_points_
+>870	Identifier	active_frame_points_
+>871	Identifier	impl_
+>872	Argument	impl_ -> odometry_tracker_
+>873	PtrMemberAccess	impl_ -> odometry_tracker_
+>874	Identifier	odometry_tracker_
+>875	Identifier	impl_
+>876	Argument	& internal 
+>877	UnaryOp	& internal 
+>878	Identifier	internal 
+>879	UnaryOperator	&
+>880	Callee	boost 
+>881	Identifier	boost 
+>882	Identifier	h2
+>883	Statement	 
+>884	Statement	 
+>885	Statement	 
+>886	Statement	 
+>887	Statement	 
+>888	Statement	 
+>889	Statement	 
+>890	Statement	 
+>891	ExpressionStatement	 
+>892	AssignmentExpr	h1 = boost 
+>893	CallExpression	boost 
+>894	ArgumentList	& internal 
+>895	Argument	& r_keyframe
+>896	UnaryOp	& r_keyframe
+>897	Identifier	r_keyframe
+>898	UnaryOperator	&
+>899	Argument	image
+>900	Identifier	image
+>901	Argument	impl_ -> keyframe_points_
+>902	PtrMemberAccess	impl_ -> keyframe_points_
+>903	Identifier	keyframe_points_
+>904	Identifier	impl_
+>905	Argument	impl_ -> keyframe_tracker_
+>906	PtrMemberAccess	impl_ -> keyframe_tracker_
+>907	Identifier	keyframe_tracker_
+>908	Identifier	impl_
+>909	Argument	& internal 
+>910	UnaryOp	& internal 
+>911	Identifier	internal 
+>912	UnaryOperator	&
+>913	Callee	boost 
+>914	Identifier	boost 
+>915	Identifier	h1
+>916	Statement	 
+>917	Statement	 
+>918	Statement	 
+>919	Statement	 
+>920	Statement	 
+>921	Statement	 
+>922	Statement	 
+>923	Statement	 
+>924	ExpressionStatement	 
+>925	CallExpression	impl_ -> active_frame_points_ -> setRgbdImagePyramid ( * local_map_ -> getCurrentFrame ( ) )
+>926	ArgumentList	* local_map_ -> getCurrentFrame ( )
+>927	Argument	* local_map_ -> getCurrentFrame ( )
+>928	UnaryOp	* local_map_ -> getCurrentFrame ( )
+>929	CallExpression	local_map_ -> getCurrentFrame ( )
+>930	ArgumentList	 
+>931	Callee	local_map_ -> getCurrentFrame
+>932	PtrMemberAccess	local_map_ -> getCurrentFrame
+>933	Identifier	getCurrentFrame
+>934	Identifier	local_map_
+>935	UnaryOperator	*
+>936	Callee	impl_ -> active_frame_points_ -> setRgbdImagePyramid
+>937	PtrMemberAccess	impl_ -> active_frame_points_ -> setRgbdImagePyramid
+>938	Identifier	setRgbdImagePyramid
+>939	PtrMemberAccess	impl_ -> active_frame_points_
+>940	Identifier	active_frame_points_
+>941	Identifier	impl_
+>942	ExpressionStatement	 
+>943	AssignmentExpr	r_keyframe . Transformation = impl_ -> last_keyframe_pose_ . inverse ( Eigen 
+>944	CallExpression	impl_ -> last_keyframe_pose_ . inverse ( Eigen 
+>945	ArgumentList	Eigen 
+>946	Argument	Eigen 
+>947	Identifier	Eigen 
+>948	Callee	impl_ -> last_keyframe_pose_ . inverse
+>949	MemberAccess	impl_ -> last_keyframe_pose_ . inverse
+>950	Identifier	inverse
+>951	PtrMemberAccess	impl_ -> last_keyframe_pose_
+>952	Identifier	last_keyframe_pose_
+>953	Identifier	impl_
+>954	MemberAccess	r_keyframe . Transformation
+>955	Identifier	Transformation
+>956	Identifier	r_keyframe
+>957	ExpressionStatement	 
+>958	CallExpression	r_odometry . Transformation . setIdentity ( )
+>959	ArgumentList	 
+>960	Callee	r_odometry . Transformation . setIdentity
+>961	MemberAccess	r_odometry . Transformation . setIdentity
+>962	Identifier	setIdentity
+>963	MemberAccess	r_odometry . Transformation
+>964	Identifier	Transformation
+>965	Identifier	r_odometry
+>966	IdentifierDeclStatement	 
+>967	IdentifierDecl	r_keyframe
+>968	Identifier	r_keyframe
+>969	IdentifierDeclType	TrackingResult
+>970	IdentifierDecl	r_odometry
+>971	Identifier	r_odometry
+>972	IdentifierDeclType	TrackingResult
+>973	ExpressionStatement	 
+>974	CallExpression	sw_prepare . stopAndPrint ( )
+>975	ArgumentList	 
+>976	Callee	sw_prepare . stopAndPrint
+>977	MemberAccess	sw_prepare . stopAndPrint
+>978	Identifier	stopAndPrint
+>979	Identifier	sw_prepare
+>980	ForStatement	for ( int idx = config . LastLevel ; idx <= config . FirstLevel ; ++ idx )
+>981	CompoundStatement	 
+>982	ExpressionStatement	 
+>983	CallExpression	image -> level ( idx ) . buildAccelerationStructure ( )
+>984	ArgumentList	 
+>985	Callee	image -> level ( idx ) . buildAccelerationStructure
+>986	MemberAccess	image -> level ( idx ) . buildAccelerationStructure
+>987	Identifier	buildAccelerationStructure
+>988	CallExpression	image -> level ( idx )
+>989	ArgumentList	idx
+>990	Argument	idx
+>991	Identifier	idx
+>992	Callee	image -> level
+>993	PtrMemberAccess	image -> level
+>994	Identifier	level
+>995	Identifier	image
+>996	ExpressionStatement	 
+>997	CallExpression	image -> level ( idx ) . buildPointCloud ( )
+>998	ArgumentList	 
+>999	Callee	image -> level ( idx ) . buildPointCloud
+>1000	MemberAccess	image -> level ( idx ) . buildPointCloud
+>1001	Identifier	buildPointCloud
+>1002	CallExpression	image -> level ( idx )
+>1003	ArgumentList	idx
+>1004	Argument	idx
+>1005	Identifier	idx
+>1006	Callee	image -> level
+>1007	PtrMemberAccess	image -> level
+>1008	Identifier	level
+>1009	Identifier	image
+>1010	UnaryExpression	 
+>1011	Identifier	idx
+>1012	IncDec	++
+>1013	Condition	 
+>1014	RelationalExpression	idx <= config . FirstLevel
+>1015	MemberAccess	config . FirstLevel
+>1016	Identifier	FirstLevel
+>1017	Identifier	config
+>1018	Identifier	idx
+>1019	ForInit	 
+>1020	IdentifierDeclStatement	int idx = config . LastLevel ;
+>1021	IdentifierDecl	idx = config . LastLevel
+>1022	AssignmentExpr	idx = config . LastLevel
+>1023	MemberAccess	config . LastLevel
+>1024	Identifier	LastLevel
+>1025	Identifier	config
+>1026	Identifier	idx
+>1027	Identifier	idx
+>1028	IdentifierDeclType	int
+>1029	ExpressionStatement	 
+>1030	CallExpression	image -> build ( config . getNumLevels ( ) )
+>1031	ArgumentList	config . getNumLevels ( )
+>1032	Argument	config . getNumLevels ( )
+>1033	CallExpression	config . getNumLevels ( )
+>1034	ArgumentList	 
+>1035	Callee	config . getNumLevels
+>1036	MemberAccess	config . getNumLevels
+>1037	Identifier	getNumLevels
+>1038	Identifier	config
+>1039	Callee	image -> build
+>1040	PtrMemberAccess	image -> build
+>1041	Identifier	build
+>1042	Identifier	image
+>1043	IdentifierDeclStatement	 
+>1044	IdentifierDecl	& config = impl_ -> keyframe_tracker_ -> configuration ( )
+>1045	AssignmentExpr	& config = impl_ -> keyframe_tracker_ -> configuration ( )
+>1046	CallExpression	impl_ -> keyframe_tracker_ -> configuration ( )
+>1047	ArgumentList	 
+>1048	Callee	impl_ -> keyframe_tracker_ -> configuration
+>1049	PtrMemberAccess	impl_ -> keyframe_tracker_ -> configuration
+>1050	Identifier	configuration
+>1051	PtrMemberAccess	impl_ -> keyframe_tracker_
+>1052	Identifier	keyframe_tracker_
+>1053	Identifier	impl_
+>1054	Identifier	config
+>1055	Identifier	config
+>1056	IdentifierDeclType	const dvo 
+>1057	ExpressionStatement	 
+>1058	CallExpression	sw_prepare . start ( )
+>1059	ArgumentList	 
+>1060	Callee	sw_prepare . start
+>1061	MemberAccess	sw_prepare . start
+>1062	Identifier	start
+>1063	Identifier	sw_prepare
+>1064	IdentifierDeclStatement	 
+>1065	IdentifierDecl	sw_match ( \"m\" , 100 )
+>1066	Expression	\"m\" , 100
+>1067	PrimaryExpression	100
+>1068	PrimaryExpression	\"m\"
+>1069	Identifier	sw_match
+>1070	IdentifierDeclType	dvo 
+>1071	IdentifierDecl	sw_prepare ( \"prepare\" , 100 )
+>1072	Expression	\"prepare\" , 100
+>1073	PrimaryExpression	100
+>1074	PrimaryExpression	\"prepare\"
+>1075	Identifier	sw_prepare
+>1076	IdentifierDeclType	dvo 
+>1077	Statement	 
+>1134	FunctionDef	LocalTracker 
+>1135	ParameterList	 
+>1136	ReturnType	void
+>1137	CompoundStatement	 
+>1138	ExpressionStatement	 
+>1139	AssignmentExpr	impl_ -> force_ = true
+>1140	Identifier	true
+>1141	PtrMemberAccess	impl_ -> force_
+>1142	Identifier	force_
+>1143	Identifier	impl_
+<26=41,40,27
+<27=37,34,31,28
+<28=30,29
+<31=33,32
+<34=36,35
+<37=39,38
+<41=42
+<42=43
+<43=57,44
+<44=53,49,45
+<45=46
+<46=48,47
+<49=50
+<50=52,51
+<53=54
+<54=56,55
+<57=58
+<58=60,59
+<71=73,72
+<73=126,115,106,100,87,74
+<74=75
+<75=81,76
+<76=77
+<77=78
+<78=80,79
+<81=82
+<82=84,83
+<84=86,85
+<87=88
+<88=94,89
+<89=90
+<90=91
+<91=93,92
+<94=95
+<95=97,96
+<97=99,98
+<100=101
+<101=103,102
+<103=105,104
+<106=107
+<107=109,108
+<109=110
+<110=112,111
+<112=114,113
+<115=116
+<116=120,117
+<117=118
+<118=119
+<120=121
+<121=123,122
+<123=125,124
+<126=127
+<127=131,128
+<128=129
+<129=130
+<131=132
+<132=134,133
+<134=136,135
+<150=152,151
+<156=159,158,157
+<159=160
+<160=161
+<166=172,171,167
+<167=168
+<168=170,169
+<172=173
+<173=174
+<174=178,175
+<175=176
+<176=177
+<178=179
+<179=181,180
+<187=193,192,188
+<188=189
+<189=191,190
+<193=194
+<194=195
+<195=199,196
+<196=197
+<197=198
+<199=200
+<200=202,201
+<202=204,203
+<213=219,218,214
+<214=215
+<215=217,216
+<219=220
+<220=221
+<221=225,222
+<222=223
+<223=224
+<225=226
+<226=228,227
+<228=230,229
+<239=245,244,240
+<240=241
+<241=243,242
+<245=246
+<246=247
+<247=251,248
+<248=249
+<249=250
+<251=252
+<252=254,253
+<254=256,255
+<265=268,267,266
+<268=269
+<269=270
+<270=272,271
+<272=273
+<273=275,274
+<275=277,276
+<287=293,292,288
+<288=289
+<289=291,290
+<293=369,358,294
+<294=338,295
+<295=328,318,296
+<296=316,297
+<297=298
+<298=299
+<299=310,300
+<300=301
+<301=302
+<302=309,303
+<303=305,304
+<305=306
+<306=308,307
+<310=311
+<311=313,312
+<313=315,314
+<316=317
+<318=319
+<319=323,320
+<320=322,321
+<323=325,324
+<325=327,326
+<328=329
+<329=333,330
+<330=332,331
+<333=335,334
+<335=337,336
+<338=339
+<339=349,340
+<340=344,341
+<341=343,342
+<344=346,345
+<346=348,347
+<349=353,350
+<350=352,351
+<353=355,354
+<355=357,356
+<358=359
+<359=363,360
+<360=361
+<361=362
+<363=364
+<364=366,365
+<366=368,367
+<369=370
+<370=374,371
+<371=372
+<372=373
+<374=375
+<375=377,376
+<377=379,378
+<400=412,411,401
+<401=408,405,402
+<402=404,403
+<405=407,406
+<408=410,409
+<412=481,468,464,455,434,426,413
+<413=414
+<414=424,415
+<415=422,420,418,416
+<416=417
+<418=419
+<420=421
+<422=423
+<424=425
+<426=427
+<427=431,428
+<428=430,429
+<431=433,432
+<434=435
+<435=449,436
+<436=443,439,437
+<437=438
+<439=440
+<440=442,441
+<443=444
+<444=448,445
+<445=447,446
+<449=450
+<450=452,451
+<452=454,453
+<455=456
+<456=458,457
+<458=459
+<459=461,460
+<461=463,462
+<464=465
+<465=467,466
+<468=469
+<469=475,470
+<470=471
+<471=472
+<472=474,473
+<475=476
+<476=478,477
+<478=480,479
+<481=482
+<482=488,483
+<483=484
+<484=485
+<485=487,486
+<488=489
+<489=491,490
+<491=493,492
+<513=528,527,514
+<514=524,521,518,515
+<515=517,516
+<518=520,519
+<521=523,522
+<524=526,525
+<528=579,568,559,544,529
+<529=530
+<530=540,531
+<531=536,534,532
+<532=533
+<534=535
+<536=537
+<537=539,538
+<540=541
+<541=543,542
+<544=545
+<545=555,546
+<546=551,547
+<547=548
+<548=550,549
+<551=552
+<552=554,553
+<555=556
+<556=558,557
+<559=560
+<560=564,561
+<561=562
+<562=563
+<564=565
+<565=567,566
+<568=569
+<569=578,570
+<570=576,571
+<571=574,572
+<572=573
+<574=575
+<576=577
+<579=595,580
+<580=588,581
+<581=582
+<582=584,583
+<584=585
+<585=587,586
+<588=589
+<589=593,590
+<590=591
+<591=592
+<593=594
+<595=596
+<596=598,597
+<598=599
+<599=601,600
+<617=626,625,618
+<618=622,619
+<619=621,620
+<622=624,623
+<626=1077,1064,1057,1043,1029,980,973,966,957,942,924,923,922,921,920,919,918,917,916,891,890,889,888,887,886,885,884,883,858,851,842,835,821,807,785,636,627
+<627=628
+<628=632,629
+<629=630
+<630=631
+<632=633
+<633=635,634
+<636=764,716,637
+<637=638
+<638=710,697,690,678,665,647,639
+<639=640
+<640=644,641
+<641=643,642
+<644=646,645
+<647=648
+<648=663,649
+<649=656,654,652,650
+<650=651
+<652=653
+<654=655
+<656=657
+<657=659,658
+<659=660
+<660=662,661
+<663=664
+<665=666
+<666=674,667
+<667=670,668
+<668=669
+<670=671
+<671=673,672
+<674=675
+<675=677,676
+<678=679
+<679=689,688,680
+<680=687,681
+<681=683,682
+<683=684
+<684=686,685
+<690=691
+<691=696,695,692
+<692=694,693
+<697=698
+<698=704,699
+<699=700
+<700=701
+<701=703,702
+<704=705
+<705=707,706
+<707=709,708
+<710=711
+<711=713,712
+<713=715,714
+<716=755,740,725,717
+<717=718
+<718=722,719
+<719=721,720
+<722=724,723
+<725=726
+<726=736,727
+<727=732,728
+<728=729
+<729=731,730
+<732=733
+<733=735,734
+<736=737
+<737=739,738
+<740=741
+<741=751,742
+<742=747,743
+<743=744
+<744=746,745
+<747=748
+<748=750,749
+<751=752
+<752=754,753
+<755=756
+<756=760,757
+<757=758
+<758=759
+<760=761
+<761=763,762
+<764=765
+<765=771,766
+<766=770,767
+<767=769,768
+<771=781,772
+<772=777,775,773
+<773=774
+<775=776
+<777=778
+<778=780,779
+<781=782
+<782=784,783
+<785=786
+<786=804,787
+<787=801,788
+<788=795,789
+<789=791,790
+<791=792
+<792=794,793
+<795=797,796
+<797=798
+<798=800,799
+<801=803,802
+<804=806,805
+<807=808
+<808=819,809
+<809=812,810
+<810=811
+<812=813
+<813=815,814
+<815=816
+<816=818,817
+<819=820
+<821=822
+<822=833,823
+<823=826,824
+<824=825
+<826=827
+<827=829,828
+<829=830
+<830=832,831
+<833=834
+<835=836
+<836=838,837
+<838=839
+<839=841,840
+<842=843
+<843=849,844
+<844=847,845
+<845=846
+<847=848
+<849=850
+<851=852
+<852=854,853
+<854=855
+<855=857,856
+<858=859
+<859=882,860
+<860=880,861
+<861=876,872,868,866,862
+<862=863
+<863=865,864
+<866=867
+<868=869
+<869=871,870
+<872=873
+<873=875,874
+<876=877
+<877=879,878
+<880=881
+<891=892
+<892=915,893
+<893=913,894
+<894=909,905,901,899,895
+<895=896
+<896=898,897
+<899=900
+<901=902
+<902=904,903
+<905=906
+<906=908,907
+<909=910
+<910=912,911
+<913=914
+<924=925
+<925=936,926
+<926=927
+<927=928
+<928=935,929
+<929=931,930
+<931=932
+<932=934,933
+<936=937
+<937=939,938
+<939=941,940
+<942=943
+<943=954,944
+<944=948,945
+<945=946
+<946=947
+<948=949
+<949=951,950
+<951=953,952
+<954=956,955
+<957=958
+<958=960,959
+<960=961
+<961=963,962
+<963=965,964
+<966=970,967
+<967=969,968
+<970=972,971
+<973=974
+<974=976,975
+<976=977
+<977=979,978
+<980=1019,1013,1010,981
+<981=996,982
+<982=983
+<983=985,984
+<985=986
+<986=988,987
+<988=992,989
+<989=990
+<990=991
+<992=993
+<993=995,994
+<996=997
+<997=999,998
+<999=1000
+<1000=1002,1001
+<1002=1006,1003
+<1003=1004
+<1004=1005
+<1006=1007
+<1007=1009,1008
+<1010=1012,1011
+<1013=1014
+<1014=1018,1015
+<1015=1017,1016
+<1019=1020
+<1020=1021
+<1021=1028,1027,1022
+<1022=1026,1023
+<1023=1025,1024
+<1029=1030
+<1030=1039,1031
+<1031=1032
+<1032=1033
+<1033=1035,1034
+<1035=1036
+<1036=1038,1037
+<1039=1040
+<1040=1042,1041
+<1043=1044
+<1044=1056,1055,1045
+<1045=1054,1046
+<1046=1048,1047
+<1048=1049
+<1049=1051,1050
+<1051=1053,1052
+<1057=1058
+<1058=1060,1059
+<1060=1061
+<1061=1063,1062
+<1064=1071,1065
+<1065=1070,1069,1066
+<1066=1068,1067
+<1071=1076,1075,1072
+<1072=1074,1073
+<1134=1137,1136,1135
+<1137=1138
+<1138=1139
+<1139=1141,1140
+<1141=1143,1142

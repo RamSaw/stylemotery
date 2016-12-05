@@ -1,0 +1,327 @@
+>3	FunctionDef	SegmentUpdate 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	SegmentUpdate 
+>10	ParameterList	UInt cellIdx , UInt segIdx , bool sequenceSegment , UInt timeStamp , const std 
+>11	Parameter	 
+>12	Identifier	cells
+>13	ParameterType	Cells4 *
+>14	Parameter	 
+>15	Identifier	weaklyPredicting
+>16	ParameterType	bool
+>17	Parameter	 
+>18	Identifier	phase1Flag
+>19	ParameterType	bool
+>20	Parameter	 
+>21	Identifier	synapses
+>22	ParameterType	const std 
+>23	Parameter	 
+>24	Identifier	timeStamp
+>25	ParameterType	UInt
+>26	Parameter	 
+>27	Identifier	sequenceSegment
+>28	ParameterType	bool
+>29	Parameter	 
+>30	Identifier	segIdx
+>31	ParameterType	UInt
+>32	Parameter	 
+>33	Identifier	cellIdx
+>34	ParameterType	UInt
+>35	CompoundStatement	 
+>36	ExpressionStatement	 
+>37	CallExpression	NTA_ASSERT ( invariants ( cells ) )
+>38	ArgumentList	invariants ( cells )
+>39	Argument	invariants ( cells )
+>40	CallExpression	invariants ( cells )
+>41	ArgumentList	cells
+>42	Argument	cells
+>43	Identifier	cells
+>44	Callee	invariants
+>45	Identifier	invariants
+>46	Callee	NTA_ASSERT
+>47	Identifier	NTA_ASSERT
+>60	FunctionDef	SegmentUpdate 
+>61	ParameterList	const SegmentUpdate & o
+>62	Parameter	 
+>63	Identifier	o
+>64	ParameterType	const SegmentUpdate &
+>65	CompoundStatement	 
+>66	ExpressionStatement	 
+>67	CallExpression	NTA_ASSERT ( invariants ( ) )
+>68	ArgumentList	invariants ( )
+>69	Argument	invariants ( )
+>70	CallExpression	invariants ( )
+>71	ArgumentList	 
+>72	Callee	invariants
+>73	Identifier	invariants
+>74	Callee	NTA_ASSERT
+>75	Identifier	NTA_ASSERT
+>76	ExpressionStatement	 
+>77	AssignmentExpr	_weaklyPredicting = o . _weaklyPredicting
+>78	MemberAccess	o . _weaklyPredicting
+>79	Identifier	_weaklyPredicting
+>80	Identifier	o
+>81	Identifier	_weaklyPredicting
+>82	ExpressionStatement	 
+>83	AssignmentExpr	_phase1Flag = o . _phase1Flag
+>84	MemberAccess	o . _phase1Flag
+>85	Identifier	_phase1Flag
+>86	Identifier	o
+>87	Identifier	_phase1Flag
+>88	ExpressionStatement	 
+>89	AssignmentExpr	_timeStamp = o . _timeStamp
+>90	MemberAccess	o . _timeStamp
+>91	Identifier	_timeStamp
+>92	Identifier	o
+>93	Identifier	_timeStamp
+>94	ExpressionStatement	 
+>95	AssignmentExpr	_synapses = o . _synapses
+>96	MemberAccess	o . _synapses
+>97	Identifier	_synapses
+>98	Identifier	o
+>99	Identifier	_synapses
+>100	ExpressionStatement	 
+>101	AssignmentExpr	_sequenceSegment = o . _sequenceSegment
+>102	MemberAccess	o . _sequenceSegment
+>103	Identifier	_sequenceSegment
+>104	Identifier	o
+>105	Identifier	_sequenceSegment
+>106	ExpressionStatement	 
+>107	AssignmentExpr	_segIdx = o . _segIdx
+>108	MemberAccess	o . _segIdx
+>109	Identifier	_segIdx
+>110	Identifier	o
+>111	Identifier	_segIdx
+>112	ExpressionStatement	 
+>113	AssignmentExpr	_cellIdx = o . _cellIdx
+>114	MemberAccess	o . _cellIdx
+>115	Identifier	_cellIdx
+>116	Identifier	o
+>117	Identifier	_cellIdx
+>137	FunctionDef	SegmentUpdate 
+>138	ParameterList	Cells4 * cells
+>139	Parameter	 
+>140	Identifier	cells
+>141	ParameterType	Cells4 *
+>142	ReturnType	bool
+>143	CompoundStatement	 
+>144	ReturnStatement	 
+>145	Identifier	ok
+>146	IfStatement	if ( cells )
+>147	CompoundStatement	 
+>148	IfStatement	if ( ! _synapses . empty ( ) )
+>149	CompoundStatement	 
+>150	ExpressionStatement	 
+>151	AssignmentExpr	ok &= is_sorted ( _synapses , true , true )
+>152	CallExpression	is_sorted ( _synapses , true , true )
+>153	ArgumentList	_synapses
+>154	Argument	true
+>155	Identifier	true
+>156	Argument	true
+>157	Identifier	true
+>158	Argument	_synapses
+>159	Identifier	_synapses
+>160	Callee	is_sorted
+>161	Identifier	is_sorted
+>162	Identifier	ok
+>163	ForStatement	for ( UInt i = 0 ; i != _synapses . size ( ) ; ++ i )
+>164	ExpressionStatement	 
+>165	AssignmentExpr	ok &= _synapses [ i ] < cells -> nCells ( )
+>166	RelationalExpression	_synapses [ i ] < cells -> nCells ( )
+>167	CallExpression	cells -> nCells ( )
+>168	ArgumentList	 
+>169	Callee	cells -> nCells
+>170	PtrMemberAccess	cells -> nCells
+>171	Identifier	nCells
+>172	Identifier	cells
+>173	ArrayIndexing	_synapses [ i ]
+>174	Identifier	i
+>175	Identifier	_synapses
+>176	Identifier	ok
+>177	UnaryExpression	 
+>178	Identifier	i
+>179	IncDec	++
+>180	Condition	 
+>181	EqualityExpression	i != _synapses . size ( )
+>182	CallExpression	_synapses . size ( )
+>183	ArgumentList	 
+>184	Callee	_synapses . size
+>185	MemberAccess	_synapses . size
+>186	Identifier	size
+>187	Identifier	_synapses
+>188	Identifier	i
+>189	ForInit	 
+>190	IdentifierDeclStatement	UInt i = 0 ;
+>191	IdentifierDecl	i = 0
+>192	AssignmentExpr	i = 0
+>193	PrimaryExpression	0
+>194	Identifier	i
+>195	Identifier	i
+>196	IdentifierDeclType	UInt
+>197	Condition	 
+>198	UnaryOp	! _synapses . empty ( )
+>199	CallExpression	_synapses . empty ( )
+>200	ArgumentList	 
+>201	Callee	_synapses . empty
+>202	MemberAccess	_synapses . empty
+>203	Identifier	empty
+>204	Identifier	_synapses
+>205	UnaryOperator	!
+>206	IfStatement	if ( _segIdx != ( UInt ) - 1 )
+>207	ExpressionStatement	 
+>208	AssignmentExpr	ok &= _segIdx < cells -> __nSegmentsOnCell ( _cellIdx )
+>209	RelationalExpression	_segIdx < cells -> __nSegmentsOnCell ( _cellIdx )
+>210	CallExpression	cells -> __nSegmentsOnCell ( _cellIdx )
+>211	ArgumentList	_cellIdx
+>212	Argument	_cellIdx
+>213	Identifier	_cellIdx
+>214	Callee	cells -> __nSegmentsOnCell
+>215	PtrMemberAccess	cells -> __nSegmentsOnCell
+>216	Identifier	__nSegmentsOnCell
+>217	Identifier	cells
+>218	Identifier	_segIdx
+>219	Identifier	ok
+>220	Condition	 
+>221	EqualityExpression	_segIdx != ( UInt ) - 1
+>222	CastExpression	( UInt ) - 1
+>223	UnaryOp	- 1
+>224	PrimaryExpression	1
+>225	UnaryOperator	-
+>226	CastTarget	UInt
+>227	Identifier	_segIdx
+>228	ExpressionStatement	 
+>229	AssignmentExpr	ok &= _cellIdx < cells -> nCells ( )
+>230	RelationalExpression	_cellIdx < cells -> nCells ( )
+>231	CallExpression	cells -> nCells ( )
+>232	ArgumentList	 
+>233	Callee	cells -> nCells
+>234	PtrMemberAccess	cells -> nCells
+>235	Identifier	nCells
+>236	Identifier	cells
+>237	Identifier	_cellIdx
+>238	Identifier	ok
+>239	Condition	 
+>240	Identifier	cells
+>241	IdentifierDeclStatement	 
+>242	IdentifierDecl	ok = true
+>243	AssignmentExpr	ok = true
+>244	Identifier	true
+>245	Identifier	true
+>246	Identifier	ok
+>247	IdentifierDeclType	bool
+<3=5,4
+<9=35,10
+<10=32,29,26,23,20,17,14,11
+<11=13,12
+<14=16,15
+<17=19,18
+<20=22,21
+<23=25,24
+<26=28,27
+<29=31,30
+<32=34,33
+<35=36
+<36=37
+<37=46,38
+<38=39
+<39=40
+<40=44,41
+<41=42
+<42=43
+<44=45
+<46=47
+<60=65,61
+<61=62
+<62=64,63
+<65=112,106,100,94,88,82,76,66
+<66=67
+<67=74,68
+<68=69
+<69=70
+<70=72,71
+<72=73
+<74=75
+<76=77
+<77=81,78
+<78=80,79
+<82=83
+<83=87,84
+<84=86,85
+<88=89
+<89=93,90
+<90=92,91
+<94=95
+<95=99,96
+<96=98,97
+<100=101
+<101=105,102
+<102=104,103
+<106=107
+<107=111,108
+<108=110,109
+<112=113
+<113=117,114
+<114=116,115
+<137=143,142,138
+<138=139
+<139=141,140
+<143=241,146,144
+<144=145
+<146=239,147
+<147=228,206,148
+<148=197,149
+<149=163,150
+<150=151
+<151=162,152
+<152=160,153
+<153=158,156,154
+<154=155
+<156=157
+<158=159
+<160=161
+<163=189,180,177,164
+<164=165
+<165=176,166
+<166=173,167
+<167=169,168
+<169=170
+<170=172,171
+<173=175,174
+<177=179,178
+<180=181
+<181=188,182
+<182=184,183
+<184=185
+<185=187,186
+<189=190
+<190=191
+<191=196,195,192
+<192=194,193
+<197=198
+<198=205,199
+<199=201,200
+<201=202
+<202=204,203
+<206=220,207
+<207=208
+<208=219,209
+<209=218,210
+<210=214,211
+<211=212
+<212=213
+<214=215
+<215=217,216
+<220=221
+<221=227,222
+<222=226,223
+<223=225,224
+<228=229
+<229=238,230
+<230=237,231
+<231=233,232
+<233=234
+<234=236,235
+<239=240
+<241=242
+<242=247,246,243
+<243=245,244

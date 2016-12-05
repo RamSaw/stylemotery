@@ -1,0 +1,504 @@
+>3	FunctionDef	I_BaseTiccmd ()
+>4	ParameterList	 
+>5	ReturnType	ticcmd_t *
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	PtrMemberAccess	g -> emptycmd
+>9	Identifier	emptycmd
+>10	Identifier	g
+>11	Statement	 
+>12	Statement	 
+>13	Statement	 
+>18	FunctionDef	I_GetHeapSize ()
+>19	ParameterList	 
+>20	ReturnType	int
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	MultiplicativeExpression	g -> mb_used * 1024 * 1024
+>24	MultiplicativeExpression	1024 * 1024
+>25	PrimaryExpression	1024
+>26	PrimaryExpression	1024
+>27	PtrMemberAccess	g -> mb_used
+>28	Identifier	mb_used
+>29	Identifier	g
+>30	Statement	 
+>31	Statement	 
+>36	FunctionDef	I_GetTime ()
+>37	ParameterList	 
+>38	ReturnType	int
+>39	CompoundStatement	 
+>40	ExpressionStatement	 
+>41	PtrMemberAccess	g -> current_time
+>42	Identifier	current_time
+>43	Identifier	g
+>44	Statement	 
+>45	Statement	 
+>50	FunctionDef	I_SetTime (int time_in)
+>51	ParameterList	int time_in
+>52	Parameter	 
+>53	Identifier	time_in
+>54	ParameterType	int
+>55	ReturnType	void
+>56	CompoundStatement	 
+>57	ExpressionStatement	 
+>58	AssignmentExpr	g -> current_time = time_in
+>59	Identifier	time_in
+>60	PtrMemberAccess	g -> current_time
+>61	Identifier	current_time
+>62	Identifier	g
+>63	Statement	 
+>71	FunctionDef	I_Init ()
+>72	ParameterList	 
+>73	ReturnType	void
+>74	CompoundStatement	 
+>75	ExpressionStatement	 
+>76	CallExpression	I_InitSound ( )
+>77	ArgumentList	 
+>78	Callee	I_InitSound
+>79	Identifier	I_InitSound
+>83	FunctionDef	I_Quit ()
+>84	ParameterList	 
+>85	ReturnType	void
+>86	CompoundStatement	 
+>87	ExpressionStatement	 
+>88	CallExpression	I_ShutdownGraphics ( )
+>89	ArgumentList	 
+>90	Callee	I_ShutdownGraphics
+>91	Identifier	I_ShutdownGraphics
+>92	ExpressionStatement	 
+>93	CallExpression	M_SaveDefaults ( )
+>94	ArgumentList	 
+>95	Callee	M_SaveDefaults
+>96	Identifier	M_SaveDefaults
+>97	ExpressionStatement	 
+>98	CallExpression	I_ShutdownMusic ( )
+>99	ArgumentList	 
+>100	Callee	I_ShutdownMusic
+>101	Identifier	I_ShutdownMusic
+>102	ExpressionStatement	 
+>103	CallExpression	I_ShutdownSound ( )
+>104	ArgumentList	 
+>105	Callee	I_ShutdownSound
+>106	Identifier	I_ShutdownSound
+>107	ExpressionStatement	 
+>108	CallExpression	D_QuitNetGame ( )
+>109	ArgumentList	 
+>110	Callee	D_QuitNetGame
+>111	Identifier	D_QuitNetGame
+>115	FunctionDef	I_WaitVBL (int count)
+>116	ParameterList	int count
+>117	Parameter	 
+>118	Identifier	count
+>119	ParameterType	int
+>120	ReturnType	void
+>121	CompoundStatement	 
+>126	FunctionDef	I_BeginRead ()
+>127	ParameterList	 
+>128	ReturnType	void
+>129	CompoundStatement	 
+>133	FunctionDef	I_EndRead ()
+>134	ParameterList	 
+>135	ReturnType	void
+>136	CompoundStatement	 
+>142	FunctionDef	I_Printf (char * msg)
+>143	ParameterList	char * msg
+>144	Parameter	 
+>145	Identifier	msg
+>146	ParameterType	char *
+>147	ReturnType	void
+>148	CompoundStatement	 
+>149	IfStatement	if ( debugOutput )
+>150	CompoundStatement	 
+>151	ExpressionStatement	 
+>152	CallExpression	va_end ( argptr )
+>153	ArgumentList	argptr
+>154	Argument	argptr
+>155	Identifier	argptr
+>156	Callee	va_end
+>157	Identifier	va_end
+>158	ExpressionStatement	 
+>159	CallExpression	safeOutputDebug ( pmsg )
+>160	ArgumentList	pmsg
+>161	Argument	pmsg
+>162	Identifier	pmsg
+>163	Callee	safeOutputDebug
+>164	Identifier	safeOutputDebug
+>165	ExpressionStatement	 
+>166	CallExpression	vsprintf ( pmsg , msg , argptr )
+>167	ArgumentList	pmsg
+>168	Argument	argptr
+>169	Identifier	argptr
+>170	Argument	msg
+>171	Identifier	msg
+>172	Argument	pmsg
+>173	Identifier	pmsg
+>174	Callee	vsprintf
+>175	Identifier	vsprintf
+>176	ExpressionStatement	 
+>177	CallExpression	va_start ( argptr , msg )
+>178	ArgumentList	argptr
+>179	Argument	msg
+>180	Identifier	msg
+>181	Argument	argptr
+>182	Identifier	argptr
+>183	Callee	va_start
+>184	Identifier	va_start
+>185	Condition	 
+>186	Identifier	debugOutput
+>187	IdentifierDeclStatement	 
+>188	IdentifierDecl	argptr
+>189	Identifier	argptr
+>190	IdentifierDeclType	va_list
+>191	IdentifierDeclStatement	 
+>192	IdentifierDecl	pmsg [ 1024 ]
+>193	PrimaryExpression	1024
+>194	Identifier	pmsg
+>195	IdentifierDeclType	char [ 1024 ]
+>203	FunctionDef	I_PrintfE (char * msg)
+>204	ParameterList	char * msg
+>205	Parameter	 
+>206	Identifier	msg
+>207	ParameterType	char *
+>208	ReturnType	void
+>209	CompoundStatement	 
+>210	IfStatement	if ( debugOutput )
+>211	CompoundStatement	 
+>212	ExpressionStatement	 
+>213	CallExpression	va_end ( argptr )
+>214	ArgumentList	argptr
+>215	Argument	argptr
+>216	Identifier	argptr
+>217	Callee	va_end
+>218	Identifier	va_end
+>219	ExpressionStatement	 
+>220	CallExpression	safeOutputDebug ( pmsg )
+>221	ArgumentList	pmsg
+>222	Argument	pmsg
+>223	Identifier	pmsg
+>224	Callee	safeOutputDebug
+>225	Identifier	safeOutputDebug
+>226	ExpressionStatement	 
+>227	CallExpression	safeOutputDebug ( \"ERROR
+>228	ArgumentList	\"ERROR
+>229	Argument	\"ERROR
+>230	PrimaryExpression	\"ERROR
+>231	Callee	safeOutputDebug
+>232	Identifier	safeOutputDebug
+>233	ExpressionStatement	 
+>234	CallExpression	vsprintf ( pmsg , msg , argptr )
+>235	ArgumentList	pmsg
+>236	Argument	argptr
+>237	Identifier	argptr
+>238	Argument	msg
+>239	Identifier	msg
+>240	Argument	pmsg
+>241	Identifier	pmsg
+>242	Callee	vsprintf
+>243	Identifier	vsprintf
+>244	ExpressionStatement	 
+>245	CallExpression	va_start ( argptr , msg )
+>246	ArgumentList	argptr
+>247	Argument	msg
+>248	Identifier	msg
+>249	Argument	argptr
+>250	Identifier	argptr
+>251	Callee	va_start
+>252	Identifier	va_start
+>253	Condition	 
+>254	Identifier	debugOutput
+>255	IdentifierDeclStatement	 
+>256	IdentifierDecl	argptr
+>257	Identifier	argptr
+>258	IdentifierDeclType	va_list
+>259	IdentifierDeclStatement	 
+>260	IdentifierDecl	pmsg [ 1024 ]
+>261	PrimaryExpression	1024
+>262	Identifier	pmsg
+>263	IdentifierDeclType	char [ 1024 ]
+>271	FunctionDef	I_Error (char * error)
+>272	ParameterList	char * error
+>273	Parameter	 
+>274	Identifier	error
+>275	ParameterType	char *
+>276	ReturnType	void
+>277	CompoundStatement	 
+>278	ExpressionStatement	 
+>279	CallExpression	common -> SwitchToGame ( DOOM3_BFG )
+>280	ArgumentList	DOOM3_BFG
+>281	Argument	DOOM3_BFG
+>282	Identifier	DOOM3_BFG
+>283	Callee	common -> SwitchToGame
+>284	PtrMemberAccess	common -> SwitchToGame
+>285	Identifier	SwitchToGame
+>286	Identifier	common
+>287	ExpressionStatement	 
+>288	CallExpression	idLib 
+>289	ArgumentList	\"DOOM Classic error
+>290	Argument	error_msg
+>291	Identifier	error_msg
+>292	Argument	\"DOOM Classic error
+>293	PrimaryExpression	\"DOOM Classic error
+>294	Callee	idLib 
+>295	Identifier	idLib 
+>296	ExpressionStatement	 
+>297	CallExpression	DoomLib 
+>298	ArgumentList	 
+>299	Callee	DoomLib 
+>300	MemberAccess	DoomLib 
+>301	Identifier	QuitCurrentGame
+>302	Identifier	DoomLib 
+>303	IfStatement	if ( debugOutput )
+>304	CompoundStatement	 
+>305	ExpressionStatement	 
+>306	CallExpression	va_end ( argptr )
+>307	ArgumentList	argptr
+>308	Argument	argptr
+>309	Identifier	argptr
+>310	Callee	va_end
+>311	Identifier	va_end
+>312	ExpressionStatement	 
+>313	CallExpression	safeOutputDebug ( \"\n\" )
+>314	ArgumentList	\"\n\"
+>315	Argument	\"\n\"
+>316	PrimaryExpression	\"\n\"
+>317	Callee	safeOutputDebug
+>318	Identifier	safeOutputDebug
+>319	ExpressionStatement	 
+>320	CallExpression	safeOutputDebug ( error_msg )
+>321	ArgumentList	error_msg
+>322	Argument	error_msg
+>323	Identifier	error_msg
+>324	Callee	safeOutputDebug
+>325	Identifier	safeOutputDebug
+>326	ExpressionStatement	 
+>327	CallExpression	safeOutputDebug ( \"Error
+>328	ArgumentList	\"Error
+>329	Argument	\"Error
+>330	PrimaryExpression	\"Error
+>331	Callee	safeOutputDebug
+>332	Identifier	safeOutputDebug
+>333	ExpressionStatement	 
+>334	CallExpression	idStr 
+>335	ArgumentList	error_msg
+>336	Argument	argptr
+>337	Identifier	argptr
+>338	Argument	error
+>339	Identifier	error
+>340	Argument	ERROR_MSG_SIZE
+>341	Identifier	ERROR_MSG_SIZE
+>342	Argument	error_msg
+>343	Identifier	error_msg
+>344	Callee	idStr 
+>345	Identifier	idStr 
+>346	ExpressionStatement	 
+>347	CallExpression	va_start ( argptr , error )
+>348	ArgumentList	argptr
+>349	Argument	error
+>350	Identifier	error
+>351	Argument	argptr
+>352	Identifier	argptr
+>353	Callee	va_start
+>354	Identifier	va_start
+>355	Condition	 
+>356	Identifier	debugOutput
+>357	IdentifierDeclStatement	 
+>358	IdentifierDecl	argptr
+>359	Identifier	argptr
+>360	IdentifierDeclType	va_list
+>361	IdentifierDeclStatement	 
+>362	IdentifierDecl	error_msg [ ERROR_MSG_SIZE ]
+>363	Identifier	ERROR_MSG_SIZE
+>364	Identifier	error_msg
+>365	IdentifierDeclType	char [ ERROR_MSG_SIZE ]
+>366	IdentifierDeclStatement	 
+>367	IdentifierDecl	ERROR_MSG_SIZE = 1024
+>368	AssignmentExpr	ERROR_MSG_SIZE = 1024
+>369	PrimaryExpression	1024
+>370	Identifier	ERROR_MSG_SIZE
+>371	Identifier	ERROR_MSG_SIZE
+>372	IdentifierDeclType	const int
+<3=6,5,4
+<6=13,12,11,7
+<7=8
+<8=10,9
+<18=21,20,19
+<21=31,30,22
+<22=23
+<23=27,24
+<24=26,25
+<27=29,28
+<36=39,38,37
+<39=45,44,40
+<40=41
+<41=43,42
+<50=56,55,51
+<51=52
+<52=54,53
+<56=63,57
+<57=58
+<58=60,59
+<60=62,61
+<71=74,73,72
+<74=75
+<75=76
+<76=78,77
+<78=79
+<83=86,85,84
+<86=107,102,97,92,87
+<87=88
+<88=90,89
+<90=91
+<92=93
+<93=95,94
+<95=96
+<97=98
+<98=100,99
+<100=101
+<102=103
+<103=105,104
+<105=106
+<107=108
+<108=110,109
+<110=111
+<115=121,120,116
+<116=117
+<117=119,118
+<126=129,128,127
+<133=136,135,134
+<142=148,147,143
+<143=144
+<144=146,145
+<148=191,187,149
+<149=185,150
+<150=176,165,158,151
+<151=152
+<152=156,153
+<153=154
+<154=155
+<156=157
+<158=159
+<159=163,160
+<160=161
+<161=162
+<163=164
+<165=166
+<166=174,167
+<167=172,170,168
+<168=169
+<170=171
+<172=173
+<174=175
+<176=177
+<177=183,178
+<178=181,179
+<179=180
+<181=182
+<183=184
+<185=186
+<187=188
+<188=190,189
+<191=192
+<192=195,194,193
+<203=209,208,204
+<204=205
+<205=207,206
+<209=259,255,210
+<210=253,211
+<211=244,233,226,219,212
+<212=213
+<213=217,214
+<214=215
+<215=216
+<217=218
+<219=220
+<220=224,221
+<221=222
+<222=223
+<224=225
+<226=227
+<227=231,228
+<228=229
+<229=230
+<231=232
+<233=234
+<234=242,235
+<235=240,238,236
+<236=237
+<238=239
+<240=241
+<242=243
+<244=245
+<245=251,246
+<246=249,247
+<247=248
+<249=250
+<251=252
+<253=254
+<255=256
+<256=258,257
+<259=260
+<260=263,262,261
+<271=277,276,272
+<272=273
+<273=275,274
+<277=366,361,357,303,296,287,278
+<278=279
+<279=283,280
+<280=281
+<281=282
+<283=284
+<284=286,285
+<287=288
+<288=294,289
+<289=292,290
+<290=291
+<292=293
+<294=295
+<296=297
+<297=299,298
+<299=300
+<300=302,301
+<303=355,304
+<304=346,333,326,319,312,305
+<305=306
+<306=310,307
+<307=308
+<308=309
+<310=311
+<312=313
+<313=317,314
+<314=315
+<315=316
+<317=318
+<319=320
+<320=324,321
+<321=322
+<322=323
+<324=325
+<326=327
+<327=331,328
+<328=329
+<329=330
+<331=332
+<333=334
+<334=344,335
+<335=342,340,338,336
+<336=337
+<338=339
+<340=341
+<342=343
+<344=345
+<346=347
+<347=353,348
+<348=351,349
+<349=350
+<351=352
+<353=354
+<355=356
+<357=358
+<358=360,359
+<361=362
+<362=365,364,363
+<366=367
+<367=372,371,368
+<368=370,369

@@ -1,0 +1,730 @@
+>15	FunctionDef	transform (const Transformation & t , Data & data)
+>16	ParameterList	const Transformation & t , Data & data
+>17	Parameter	 
+>18	Identifier	data
+>19	ParameterType	Data &
+>20	Parameter	 
+>21	Identifier	t
+>22	ParameterType	const Transformation &
+>23	ReturnType	EIGEN_DONT_INLINE void
+>24	CompoundStatement	 
+>25	ExpressionStatement	 
+>26	CallExpression	EIGEN_ASM_COMMENT ( \"end\" )
+>27	ArgumentList	\"end\"
+>28	Argument	\"end\"
+>29	PrimaryExpression	\"end\"
+>30	Callee	EIGEN_ASM_COMMENT
+>31	Identifier	EIGEN_ASM_COMMENT
+>32	ExpressionStatement	 
+>33	AssignmentExpr	data = t * data
+>34	MultiplicativeExpression	t * data
+>35	Identifier	data
+>36	Identifier	t
+>37	Identifier	data
+>38	ExpressionStatement	 
+>39	CallExpression	EIGEN_ASM_COMMENT ( \"begin\" )
+>40	ArgumentList	\"begin\"
+>41	Argument	\"begin\"
+>42	PrimaryExpression	\"begin\"
+>43	Callee	EIGEN_ASM_COMMENT
+>44	Identifier	EIGEN_ASM_COMMENT
+>50	FunctionDef	transform (const Quaternion < Scalar > & t , Data & data)
+>51	ParameterList	const Quaternion < Scalar > & t , Data & data
+>52	Parameter	 
+>53	Identifier	data
+>54	ParameterType	Data &
+>55	Parameter	 
+>56	Identifier	t
+>57	ParameterType	const Quaternion < Scalar > &
+>58	ReturnType	EIGEN_DONT_INLINE void
+>59	CompoundStatement	 
+>60	ExpressionStatement	 
+>61	CallExpression	EIGEN_ASM_COMMENT ( \"end quat\" )
+>62	ArgumentList	\"end quat\"
+>63	Argument	\"end quat\"
+>64	PrimaryExpression	\"end quat\"
+>65	Callee	EIGEN_ASM_COMMENT
+>66	Identifier	EIGEN_ASM_COMMENT
+>67	ForStatement	for ( int i = 0 ; i < data . cols ( ) ; ++ i )
+>68	ExpressionStatement	 
+>69	AssignmentExpr	data . col ( i ) = t * data . col ( i )
+>70	MultiplicativeExpression	t * data . col ( i )
+>71	CallExpression	data . col ( i )
+>72	ArgumentList	i
+>73	Argument	i
+>74	Identifier	i
+>75	Callee	data . col
+>76	MemberAccess	data . col
+>77	Identifier	col
+>78	Identifier	data
+>79	Identifier	t
+>80	CallExpression	data . col ( i )
+>81	ArgumentList	i
+>82	Argument	i
+>83	Identifier	i
+>84	Callee	data . col
+>85	MemberAccess	data . col
+>86	Identifier	col
+>87	Identifier	data
+>88	UnaryExpression	 
+>89	Identifier	i
+>90	IncDec	++
+>91	Condition	 
+>92	RelationalExpression	i < data . cols ( )
+>93	CallExpression	data . cols ( )
+>94	ArgumentList	 
+>95	Callee	data . cols
+>96	MemberAccess	data . cols
+>97	Identifier	cols
+>98	Identifier	data
+>99	Identifier	i
+>100	ForInit	 
+>101	IdentifierDeclStatement	int i = 0 ;
+>102	IdentifierDecl	i = 0
+>103	AssignmentExpr	i = 0
+>104	PrimaryExpression	0
+>105	Identifier	i
+>106	Identifier	i
+>107	IdentifierDeclType	int
+>108	ExpressionStatement	 
+>109	CallExpression	EIGEN_ASM_COMMENT ( \"begin quat\" )
+>110	ArgumentList	\"begin quat\"
+>111	Argument	\"begin quat\"
+>112	PrimaryExpression	\"begin quat\"
+>113	Callee	EIGEN_ASM_COMMENT
+>114	Identifier	EIGEN_ASM_COMMENT
+>127	FunctionDef	ToRotationMatrixWrapper (const T & o)
+>128	ParameterList	const T & o
+>129	Parameter	 
+>130	Identifier	o
+>131	ParameterType	const T &
+>132	CompoundStatement	 
+>139	FunctionDef	transform (const ToRotationMatrixWrapper < QType > & t , Data & data)
+>140	ParameterList	const ToRotationMatrixWrapper < QType > & t , Data & data
+>141	Parameter	 
+>142	Identifier	data
+>143	ParameterType	Data &
+>144	Parameter	 
+>145	Identifier	t
+>146	ParameterType	const ToRotationMatrixWrapper < QType > &
+>147	ReturnType	EIGEN_DONT_INLINE void
+>148	CompoundStatement	 
+>149	ExpressionStatement	 
+>150	CallExpression	EIGEN_ASM_COMMENT ( \"end quat via mat\" )
+>151	ArgumentList	\"end quat via mat\"
+>152	Argument	\"end quat via mat\"
+>153	PrimaryExpression	\"end quat via mat\"
+>154	Callee	EIGEN_ASM_COMMENT
+>155	Identifier	EIGEN_ASM_COMMENT
+>156	ExpressionStatement	 
+>157	AssignmentExpr	data = t . object . toRotationMatrix ( ) * data
+>158	MultiplicativeExpression	t . object . toRotationMatrix ( ) * data
+>159	Identifier	data
+>160	CallExpression	t . object . toRotationMatrix ( )
+>161	ArgumentList	 
+>162	Callee	t . object . toRotationMatrix
+>163	MemberAccess	t . object . toRotationMatrix
+>164	Identifier	toRotationMatrix
+>165	MemberAccess	t . object
+>166	Identifier	object
+>167	Identifier	t
+>168	Identifier	data
+>169	ExpressionStatement	 
+>170	CallExpression	EIGEN_ASM_COMMENT ( \"begin quat via mat\" )
+>171	ArgumentList	\"begin quat via mat\"
+>172	Argument	\"begin quat via mat\"
+>173	PrimaryExpression	\"begin quat via mat\"
+>174	Callee	EIGEN_ASM_COMMENT
+>175	Identifier	EIGEN_ASM_COMMENT
+>183	FunctionDef	transform (const Transform < Scalar , Dim , Projective > & t , Data & data)
+>184	ParameterList	const Transform < Scalar , Dim , Projective > & t , Data & data
+>185	Parameter	 
+>186	Identifier	data
+>187	ParameterType	Data &
+>188	Parameter	 
+>189	Identifier	t
+>190	ParameterType	const Transform < Scalar , Dim , Projective > &
+>191	ReturnType	EIGEN_DONT_INLINE void
+>192	CompoundStatement	 
+>193	ExpressionStatement	 
+>194	Expression	data = ( t * data . colwise ( ) . homogeneous ( ) ) . template block < Dim , Data 
+>195	RelationalExpression	Data 
+>196	Expression	0 , 0
+>197	PrimaryExpression	0
+>198	PrimaryExpression	0
+>199	Identifier	Data 
+>200	AssignmentExpr	data = ( t * data . colwise ( ) . homogeneous ( ) ) . template block < Dim
+>201	RelationalExpression	( t * data . colwise ( ) . homogeneous ( ) ) . template block < Dim
+>202	Identifier	Dim
+>203	MemberAccess	( t * data . colwise ( ) . homogeneous ( ) ) . template block
+>204	Identifier	block
+>205	MultiplicativeExpression	t * data . colwise ( ) . homogeneous ( )
+>206	CallExpression	data . colwise ( ) . homogeneous ( )
+>207	ArgumentList	 
+>208	Callee	data . colwise ( ) . homogeneous
+>209	MemberAccess	data . colwise ( ) . homogeneous
+>210	Identifier	homogeneous
+>211	CallExpression	data . colwise ( )
+>212	ArgumentList	 
+>213	Callee	data . colwise
+>214	MemberAccess	data . colwise
+>215	Identifier	colwise
+>216	Identifier	data
+>217	Identifier	t
+>218	Identifier	data
+>232	FunctionDef	run (const Transformation & t)
+>233	ParameterList	const Transformation & t
+>234	Parameter	 
+>235	Identifier	t
+>236	ParameterType	const Transformation &
+>237	ReturnType	static EIGEN_DONT_INLINE void
+>238	CompoundStatement	 
+>239	ExpressionStatement	 
+>240	ShiftExpression	cout << timer . best ( ) << \" \"
+>241	ShiftExpression	timer . best ( ) << \" \"
+>242	PrimaryExpression	\" \"
+>243	CallExpression	timer . best ( )
+>244	ArgumentList	 
+>245	Callee	timer . best
+>246	MemberAccess	timer . best
+>247	Identifier	best
+>248	Identifier	timer
+>249	Identifier	cout
+>250	ExpressionStatement	 
+>251	CallExpression	cout . width ( 9 )
+>252	ArgumentList	9
+>253	Argument	9
+>254	PrimaryExpression	9
+>255	Callee	cout . width
+>256	MemberAccess	cout . width
+>257	Identifier	width
+>258	Identifier	cout
+>259	ExpressionStatement	 
+>260	CallExpression	BENCH ( timer , 10 , 100000 , transform ( t , data ) )
+>261	ArgumentList	timer
+>262	Argument	transform ( t , data )
+>263	CallExpression	transform ( t , data )
+>264	ArgumentList	t
+>265	Argument	data
+>266	Identifier	data
+>267	Argument	t
+>268	Identifier	t
+>269	Callee	transform
+>270	Identifier	transform
+>271	Argument	100000
+>272	PrimaryExpression	100000
+>273	Argument	10
+>274	PrimaryExpression	10
+>275	Argument	timer
+>276	Identifier	timer
+>277	Callee	BENCH
+>278	Identifier	BENCH
+>279	IdentifierDeclStatement	 
+>280	IdentifierDecl	timer
+>281	Identifier	timer
+>282	IdentifierDeclType	BenchTimer
+>283	ExpressionStatement	 
+>284	CallExpression	run ( t )
+>285	ArgumentList	t
+>286	Argument	t
+>287	Identifier	t
+>288	Callee	run
+>289	Identifier	run
+>290	Statement	 
+>291	Statement	 
+>292	Statement	 
+>293	Statement	 
+>294	Statement	 
+>295	Statement	 
+>296	Statement	 
+>297	Statement	 
+>298	Statement	 
+>299	ExpressionStatement	 
+>300	CallExpression	data . setRandom ( )
+>301	ArgumentList	 
+>302	Callee	data . setRandom
+>303	MemberAccess	data . setRandom
+>304	Identifier	setRandom
+>305	Identifier	data
+>306	IdentifierDeclStatement	 
+>307	IdentifierDecl	data
+>308	Identifier	data
+>309	IdentifierDeclType	Matrix < typename Transformation 
+>318	FunctionDef	bench (const std 
+>319	ParameterList	const std 
+>320	Parameter	 
+>321	Identifier	t
+>322	ParameterType	const Transformation &
+>323	Parameter	 
+>324	Identifier	msg
+>325	ParameterType	const std 
+>326	ReturnType	EIGEN_DONT_INLINE void
+>327	CompoundStatement	 
+>328	ExpressionStatement	 
+>329	ShiftExpression	std 
+>330	PrimaryExpression	\"\n\"
+>331	Identifier	std 
+>332	ExpressionStatement	 
+>333	CallExpression	run ( t )
+>334	ArgumentList	t
+>335	Argument	t
+>336	Identifier	t
+>337	Callee	run
+>338	Identifier	run
+>339	Statement	 
+>340	Statement	 
+>341	Statement	 
+>342	Statement	 
+>343	Statement	 
+>344	Statement	 
+>345	Statement	 
+>346	ExpressionStatement	 
+>347	ShiftExpression	cout << msg << \" \"
+>348	ShiftExpression	msg << \" \"
+>349	PrimaryExpression	\" \"
+>350	Identifier	msg
+>351	Identifier	cout
+>357	FunctionDef	main (int argc , char * * argv)
+>358	ParameterList	int argc , char * * argv
+>359	Parameter	 
+>360	Identifier	argv
+>361	ParameterType	char * *
+>362	Parameter	 
+>363	Identifier	argc
+>364	ParameterType	int
+>365	ReturnType	int
+>366	CompoundStatement	 
+>367	ExpressionStatement	 
+>368	CallExpression	bench ( \"proj3     \" , proj3 )
+>369	ArgumentList	\"proj3     \"
+>370	Argument	proj3
+>371	Identifier	proj3
+>372	Argument	\"proj3     \"
+>373	PrimaryExpression	\"proj3     \"
+>374	Callee	bench
+>375	Identifier	bench
+>376	ExpressionStatement	 
+>377	CallExpression	bench ( \"c affine3 \" , caff3 )
+>378	ArgumentList	\"c affine3 \"
+>379	Argument	caff3
+>380	Identifier	caff3
+>381	Argument	\"c affine3 \"
+>382	PrimaryExpression	\"c affine3 \"
+>383	Callee	bench
+>384	Identifier	bench
+>385	ExpressionStatement	 
+>386	CallExpression	bench ( \"affine3   \" , aff3 )
+>387	ArgumentList	\"affine3   \"
+>388	Argument	aff3
+>389	Identifier	aff3
+>390	Argument	\"affine3   \"
+>391	PrimaryExpression	\"affine3   \"
+>392	Callee	bench
+>393	Identifier	bench
+>394	ExpressionStatement	 
+>395	CallExpression	bench ( \"isometry3 \" , iso3 )
+>396	ArgumentList	\"isometry3 \"
+>397	Argument	iso3
+>398	Identifier	iso3
+>399	Argument	\"isometry3 \"
+>400	PrimaryExpression	\"isometry3 \"
+>401	Callee	bench
+>402	Identifier	bench
+>403	ExpressionStatement	 
+>404	CallExpression	bench ( \"quat-mat  \" , quatmat )
+>405	ArgumentList	\"quat-mat  \"
+>406	Argument	quatmat
+>407	Identifier	quatmat
+>408	Argument	\"quat-mat  \"
+>409	PrimaryExpression	\"quat-mat  \"
+>410	Callee	bench
+>411	Identifier	bench
+>412	ExpressionStatement	 
+>413	CallExpression	bench ( \"quaternion\" , quat )
+>414	ArgumentList	\"quaternion\"
+>415	Argument	quat
+>416	Identifier	quat
+>417	Argument	\"quaternion\"
+>418	PrimaryExpression	\"quaternion\"
+>419	Callee	bench
+>420	Identifier	bench
+>421	ExpressionStatement	 
+>422	CallExpression	bench ( \"matrix 3x3\" , mat33 )
+>423	ArgumentList	\"matrix 3x3\"
+>424	Argument	mat33
+>425	Identifier	mat33
+>426	Argument	\"matrix 3x3\"
+>427	PrimaryExpression	\"matrix 3x3\"
+>428	Callee	bench
+>429	Identifier	bench
+>430	ExpressionStatement	 
+>431	ShiftExpression	cout << \"\n\"
+>432	PrimaryExpression	\"\n\"
+>433	Identifier	cout
+>434	ForStatement	for ( int i = 0 ; i < SIZE ; ++ i )
+>435	CompoundStatement	 
+>436	ExpressionStatement	 
+>437	ShiftExpression	cout << i + 1 << \" \"
+>438	ShiftExpression	i + 1 << \" \"
+>439	PrimaryExpression	\" \"
+>440	AdditiveExpression	i + 1
+>441	PrimaryExpression	1
+>442	Identifier	i
+>443	Identifier	cout
+>444	ExpressionStatement	 
+>445	CallExpression	cout . width ( 9 )
+>446	ArgumentList	9
+>447	Argument	9
+>448	PrimaryExpression	9
+>449	Callee	cout . width
+>450	MemberAccess	cout . width
+>451	Identifier	width
+>452	Identifier	cout
+>453	UnaryExpression	 
+>454	Identifier	i
+>455	IncDec	++
+>456	Condition	 
+>457	RelationalExpression	i < SIZE
+>458	Identifier	SIZE
+>459	Identifier	i
+>460	ForInit	 
+>461	IdentifierDeclStatement	int i = 0 ;
+>462	IdentifierDecl	i = 0
+>463	AssignmentExpr	i = 0
+>464	PrimaryExpression	0
+>465	Identifier	i
+>466	Identifier	i
+>467	IdentifierDeclType	int
+>468	ExpressionStatement	 
+>469	ShiftExpression	std 
+>470	PrimaryExpression	\"N          \"
+>471	Identifier	std 
+>472	ExpressionStatement	 
+>473	CallExpression	cout . precision ( 4 )
+>474	ArgumentList	4
+>475	Argument	4
+>476	PrimaryExpression	4
+>477	Callee	cout . precision
+>478	MemberAccess	cout . precision
+>479	Identifier	precision
+>480	Identifier	cout
+>481	ExpressionStatement	 
+>482	CallExpression	mat33 . setRandom ( )
+>483	ArgumentList	 
+>484	Callee	mat33 . setRandom
+>485	MemberAccess	mat33 . setRandom
+>486	Identifier	setRandom
+>487	Identifier	mat33
+>488	IdentifierDeclStatement	 
+>489	IdentifierDecl	mat33
+>490	Identifier	mat33
+>491	IdentifierDeclType	Matrix < Scalar , 3 , 3 >
+>492	IdentifierDeclStatement	 
+>493	IdentifierDecl	quatmat ( quat )
+>494	Identifier	quat
+>495	Identifier	quatmat
+>496	IdentifierDeclType	ToRotationMatrixWrapper < Quaternion < Scalar > >
+>497	ExpressionStatement	 
+>498	CallExpression	quat . setIdentity ( )
+>499	ArgumentList	 
+>500	Callee	quat . setIdentity
+>501	MemberAccess	quat . setIdentity
+>502	Identifier	setIdentity
+>503	Identifier	quat
+>504	IdentifierDeclStatement	 
+>505	IdentifierDecl	quat
+>506	Identifier	quat
+>507	IdentifierDeclType	Quaternion < Scalar >
+>508	IdentifierDeclStatement	 
+>509	IdentifierDecl	proj3 ( mat34 )
+>510	Identifier	mat34
+>511	Identifier	proj3
+>512	IdentifierDeclType	Transform < Scalar , 3 , Projective >
+>513	IdentifierDeclStatement	 
+>514	IdentifierDecl	caff3 ( mat34 )
+>515	Identifier	mat34
+>516	Identifier	caff3
+>517	IdentifierDeclType	Transform < Scalar , 3 , AffineCompact >
+>518	IdentifierDeclStatement	 
+>519	IdentifierDecl	aff3 ( mat34 )
+>520	Identifier	mat34
+>521	Identifier	aff3
+>522	IdentifierDeclType	Transform < Scalar , 3 , Affine >
+>523	IdentifierDeclStatement	 
+>524	IdentifierDecl	iso3 ( mat34 )
+>525	Identifier	mat34
+>526	Identifier	iso3
+>527	IdentifierDeclType	Transform < Scalar , 3 , Isometry >
+>528	ExpressionStatement	 
+>529	CallExpression	mat34 . setRandom ( )
+>530	ArgumentList	 
+>531	Callee	mat34 . setRandom
+>532	MemberAccess	mat34 . setRandom
+>533	Identifier	setRandom
+>534	Identifier	mat34
+>535	IdentifierDeclStatement	 
+>536	IdentifierDecl	mat34
+>537	Identifier	mat34
+>538	IdentifierDeclType	Matrix < Scalar , 3 , 4 >
+<15=24,23,16
+<16=20,17
+<17=19,18
+<20=22,21
+<24=38,32,25
+<25=26
+<26=30,27
+<27=28
+<28=29
+<30=31
+<32=33
+<33=37,34
+<34=36,35
+<38=39
+<39=43,40
+<40=41
+<41=42
+<43=44
+<50=59,58,51
+<51=55,52
+<52=54,53
+<55=57,56
+<59=108,67,60
+<60=61
+<61=65,62
+<62=63
+<63=64
+<65=66
+<67=100,91,88,68
+<68=69
+<69=80,70
+<70=79,71
+<71=75,72
+<72=73
+<73=74
+<75=76
+<76=78,77
+<80=84,81
+<81=82
+<82=83
+<84=85
+<85=87,86
+<88=90,89
+<91=92
+<92=99,93
+<93=95,94
+<95=96
+<96=98,97
+<100=101
+<101=102
+<102=107,106,103
+<103=105,104
+<108=109
+<109=113,110
+<110=111
+<111=112
+<113=114
+<127=132,128
+<128=129
+<129=131,130
+<139=148,147,140
+<140=144,141
+<141=143,142
+<144=146,145
+<148=169,156,149
+<149=150
+<150=154,151
+<151=152
+<152=153
+<154=155
+<156=157
+<157=168,158
+<158=160,159
+<160=162,161
+<162=163
+<163=165,164
+<165=167,166
+<169=170
+<170=174,171
+<171=172
+<172=173
+<174=175
+<183=192,191,184
+<184=188,185
+<185=187,186
+<188=190,189
+<192=193
+<193=194
+<194=200,195
+<195=199,196
+<196=198,197
+<200=218,201
+<201=203,202
+<203=205,204
+<205=217,206
+<206=208,207
+<208=209
+<209=211,210
+<211=213,212
+<213=214
+<214=216,215
+<232=238,237,233
+<233=234
+<234=236,235
+<238=306,299,298,297,296,295,294,293,292,291,290,283,279,259,250,239
+<239=240
+<240=249,241
+<241=243,242
+<243=245,244
+<245=246
+<246=248,247
+<250=251
+<251=255,252
+<252=253
+<253=254
+<255=256
+<256=258,257
+<259=260
+<260=277,261
+<261=275,273,271,262
+<262=263
+<263=269,264
+<264=267,265
+<265=266
+<267=268
+<269=270
+<271=272
+<273=274
+<275=276
+<277=278
+<279=280
+<280=282,281
+<283=284
+<284=288,285
+<285=286
+<286=287
+<288=289
+<299=300
+<300=302,301
+<302=303
+<303=305,304
+<306=307
+<307=309,308
+<318=327,326,319
+<319=323,320
+<320=322,321
+<323=325,324
+<327=346,345,344,343,342,341,340,339,332,328
+<328=329
+<329=331,330
+<332=333
+<333=337,334
+<334=335
+<335=336
+<337=338
+<346=347
+<347=351,348
+<348=350,349
+<357=366,365,358
+<358=362,359
+<359=361,360
+<362=364,363
+<366=535,528,523,518,513,508,504,497,492,488,481,472,468,434,430,421,412,403,394,385,376,367
+<367=368
+<368=374,369
+<369=372,370
+<370=371
+<372=373
+<374=375
+<376=377
+<377=383,378
+<378=381,379
+<379=380
+<381=382
+<383=384
+<385=386
+<386=392,387
+<387=390,388
+<388=389
+<390=391
+<392=393
+<394=395
+<395=401,396
+<396=399,397
+<397=398
+<399=400
+<401=402
+<403=404
+<404=410,405
+<405=408,406
+<406=407
+<408=409
+<410=411
+<412=413
+<413=419,414
+<414=417,415
+<415=416
+<417=418
+<419=420
+<421=422
+<422=428,423
+<423=426,424
+<424=425
+<426=427
+<428=429
+<430=431
+<431=433,432
+<434=460,456,453,435
+<435=444,436
+<436=437
+<437=443,438
+<438=440,439
+<440=442,441
+<444=445
+<445=449,446
+<446=447
+<447=448
+<449=450
+<450=452,451
+<453=455,454
+<456=457
+<457=459,458
+<460=461
+<461=462
+<462=467,466,463
+<463=465,464
+<468=469
+<469=471,470
+<472=473
+<473=477,474
+<474=475
+<475=476
+<477=478
+<478=480,479
+<481=482
+<482=484,483
+<484=485
+<485=487,486
+<488=489
+<489=491,490
+<492=493
+<493=496,495,494
+<497=498
+<498=500,499
+<500=501
+<501=503,502
+<504=505
+<505=507,506
+<508=509
+<509=512,511,510
+<513=514
+<514=517,516,515
+<518=519
+<519=522,521,520
+<523=524
+<524=527,526,525
+<528=529
+<529=531,530
+<531=532
+<532=534,533
+<535=536
+<536=538,537

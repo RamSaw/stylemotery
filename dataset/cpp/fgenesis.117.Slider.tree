@@ -1,0 +1,1213 @@
+>3	FunctionDef	Slider 
+>4	ParameterList	int len , int grabRadius , const std 
+>5	Parameter	 
+>6	Identifier	sliderGfx
+>7	ParameterType	const std 
+>8	Parameter	 
+>9	Identifier	bgQuad
+>10	ParameterType	const std 
+>11	Parameter	 
+>12	Identifier	grabRadius
+>13	ParameterType	int
+>14	Parameter	 
+>15	Identifier	len
+>16	ParameterType	int
+>17	CompoundStatement	 
+>18	ExpressionStatement	 
+>19	AssignmentExpr	shareAlphaWithChildren = 1
+>20	PrimaryExpression	1
+>21	Identifier	shareAlphaWithChildren
+>22	ExpressionStatement	 
+>23	AssignmentExpr	wasDown = wasDown2 = false
+>24	AssignmentExpr	wasDown2 = false
+>25	Identifier	false
+>26	Identifier	wasDown2
+>27	Identifier	wasDown
+>28	ExpressionStatement	 
+>29	AssignmentExpr	off = 0
+>30	PrimaryExpression	0
+>31	Identifier	off
+>32	ExpressionStatement	 
+>33	AssignmentExpr	followCamera = 1
+>34	PrimaryExpression	1
+>35	Identifier	followCamera
+>36	ExpressionStatement	 
+>37	CallExpression	addChild ( & slider , PM_STATIC )
+>38	ArgumentList	& slider
+>39	Argument	PM_STATIC
+>40	Identifier	PM_STATIC
+>41	Argument	& slider
+>42	UnaryOp	& slider
+>43	Identifier	slider
+>44	UnaryOperator	&
+>45	Callee	addChild
+>46	Identifier	addChild
+>47	ExpressionStatement	 
+>48	CallExpression	slider . setTexture ( sliderGfx )
+>49	ArgumentList	sliderGfx
+>50	Argument	sliderGfx
+>51	Identifier	sliderGfx
+>52	Callee	slider . setTexture
+>53	MemberAccess	slider . setTexture
+>54	Identifier	setTexture
+>55	Identifier	slider
+>56	ExpressionStatement	 
+>57	CallExpression	addChild ( & bg , PM_STATIC )
+>58	ArgumentList	& bg
+>59	Argument	PM_STATIC
+>60	Identifier	PM_STATIC
+>61	Argument	& bg
+>62	UnaryOp	& bg
+>63	Identifier	bg
+>64	UnaryOperator	&
+>65	Callee	addChild
+>66	Identifier	addChild
+>67	ExpressionStatement	 
+>68	CallExpression	bg . setTexture ( bgQuad )
+>69	ArgumentList	bgQuad
+>70	Argument	bgQuad
+>71	Identifier	bgQuad
+>72	Callee	bg . setTexture
+>73	MemberAccess	bg . setTexture
+>74	Identifier	setTexture
+>75	Identifier	bg
+>76	ExpressionStatement	 
+>77	AssignmentExpr	this -> grabRadius = grabRadius
+>78	Identifier	grabRadius
+>79	PtrMemberAccess	this -> grabRadius
+>80	Identifier	grabRadius
+>81	Identifier	this
+>82	ExpressionStatement	 
+>83	AssignmentExpr	sliderLength = len
+>84	Identifier	len
+>85	Identifier	sliderLength
+>86	ExpressionStatement	 
+>87	AssignmentExpr	inSlider = false
+>88	Identifier	false
+>89	Identifier	inSlider
+>90	ExpressionStatement	 
+>91	AssignmentExpr	value = 0
+>92	PrimaryExpression	0
+>93	Identifier	value
+>118	FunctionDef	Slider 
+>119	ParameterList	float v
+>120	Parameter	 
+>121	Identifier	v
+>122	ParameterType	float
+>123	ReturnType	void
+>124	CompoundStatement	 
+>125	ExpressionStatement	 
+>126	AssignmentExpr	slider . position . x = ( value * sliderLength ) - sliderLength / 2.0f
+>127	AdditiveExpression	( value * sliderLength ) - sliderLength / 2.0f
+>128	MultiplicativeExpression	sliderLength / 2.0f
+>129	PrimaryExpression	2.0f
+>130	Identifier	sliderLength
+>131	MultiplicativeExpression	value * sliderLength
+>132	Identifier	sliderLength
+>133	Identifier	value
+>134	MemberAccess	slider . position . x
+>135	Identifier	x
+>136	MemberAccess	slider . position
+>137	Identifier	position
+>138	Identifier	slider
+>139	IfStatement	if ( value > 1 )
+>140	ExpressionStatement	 
+>141	AssignmentExpr	value = 1
+>142	PrimaryExpression	1
+>143	Identifier	value
+>144	Condition	 
+>145	RelationalExpression	value > 1
+>146	PrimaryExpression	1
+>147	Identifier	value
+>148	IfStatement	if ( value < 0 )
+>149	ExpressionStatement	 
+>150	AssignmentExpr	value = 0
+>151	PrimaryExpression	0
+>152	Identifier	value
+>153	Condition	 
+>154	RelationalExpression	value < 0
+>155	PrimaryExpression	0
+>156	Identifier	value
+>157	ExpressionStatement	 
+>158	AssignmentExpr	value = v
+>159	Identifier	v
+>160	Identifier	value
+>170	FunctionDef	Slider 
+>171	ParameterList	 
+>172	ReturnType	float
+>173	CompoundStatement	 
+>174	ReturnStatement	 
+>175	Identifier	value
+>180	FunctionDef	Slider 
+>181	ParameterList	 
+>182	ReturnType	bool
+>183	CompoundStatement	 
+>184	ReturnStatement	 
+>185	Identifier	inSlider
+>190	FunctionDef	Slider 
+>191	ParameterList	float dt
+>192	Parameter	 
+>193	Identifier	dt
+>194	ParameterType	float
+>195	ReturnType	void
+>196	CompoundStatement	 
+>197	IfStatement	if ( inSlider )
+>198	CompoundStatement	 
+>199	ExpressionStatement	 
+>200	AssignmentExpr	value = float ( slider . position . x + w2 ) / float ( sliderLength )
+>201	MultiplicativeExpression	float ( slider . position . x + w2 ) / float ( sliderLength )
+>202	CallExpression	float ( sliderLength )
+>203	ArgumentList	sliderLength
+>204	Argument	sliderLength
+>205	Identifier	sliderLength
+>206	Callee	float
+>207	Identifier	float
+>208	CallExpression	float ( slider . position . x + w2 )
+>209	ArgumentList	slider . position . x + w2
+>210	Argument	slider . position . x + w2
+>211	AdditiveExpression	slider . position . x + w2
+>212	Identifier	w2
+>213	MemberAccess	slider . position . x
+>214	Identifier	x
+>215	MemberAccess	slider . position
+>216	Identifier	position
+>217	Identifier	slider
+>218	Callee	float
+>219	Identifier	float
+>220	Identifier	value
+>221	IfStatement	if ( slider . position . x > w2 )
+>222	ElseStatement	else
+>223	IfStatement	if ( slider . position . x < - w2 )
+>224	CompoundStatement	 
+>225	ExpressionStatement	 
+>226	AssignmentExpr	slider . position . x = - w2
+>227	UnaryOp	- w2
+>228	Identifier	w2
+>229	UnaryOperator	-
+>230	MemberAccess	slider . position . x
+>231	Identifier	x
+>232	MemberAccess	slider . position
+>233	Identifier	position
+>234	Identifier	slider
+>235	Condition	 
+>236	RelationalExpression	slider . position . x < - w2
+>237	UnaryOp	- w2
+>238	Identifier	w2
+>239	UnaryOperator	-
+>240	MemberAccess	slider . position . x
+>241	Identifier	x
+>242	MemberAccess	slider . position
+>243	Identifier	position
+>244	Identifier	slider
+>245	CompoundStatement	 
+>246	ExpressionStatement	 
+>247	AssignmentExpr	slider . position . x = w2
+>248	Identifier	w2
+>249	MemberAccess	slider . position . x
+>250	Identifier	x
+>251	MemberAccess	slider . position
+>252	Identifier	position
+>253	Identifier	slider
+>254	Condition	 
+>255	RelationalExpression	slider . position . x > w2
+>256	Identifier	w2
+>257	MemberAccess	slider . position . x
+>258	Identifier	x
+>259	MemberAccess	slider . position
+>260	Identifier	position
+>261	Identifier	slider
+>262	IdentifierDeclStatement	 
+>263	IdentifierDecl	w2 = sliderLength / 2
+>264	AssignmentExpr	w2 = sliderLength / 2
+>265	MultiplicativeExpression	sliderLength / 2
+>266	PrimaryExpression	2
+>267	Identifier	sliderLength
+>268	Identifier	w2
+>269	Identifier	w2
+>270	IdentifierDeclType	int
+>271	ExpressionStatement	 
+>272	AssignmentExpr	slider . position . x = core -> mouse . position . x - position . x + off
+>273	AdditiveExpression	core -> mouse . position . x - position . x + off
+>274	AdditiveExpression	position . x + off
+>275	Identifier	off
+>276	MemberAccess	position . x
+>277	Identifier	x
+>278	Identifier	position
+>279	MemberAccess	core -> mouse . position . x
+>280	Identifier	x
+>281	MemberAccess	core -> mouse . position
+>282	Identifier	position
+>283	PtrMemberAccess	core -> mouse
+>284	Identifier	mouse
+>285	Identifier	core
+>286	MemberAccess	slider . position . x
+>287	Identifier	x
+>288	MemberAccess	slider . position
+>289	Identifier	position
+>290	Identifier	slider
+>291	Condition	 
+>292	Identifier	inSlider
+>293	IfStatement	if ( ! inSlider )
+>294	CompoundStatement	 
+>295	IfStatement	if ( inSlider )
+>296	CompoundStatement	 
+>297	ExpressionStatement	 
+>298	AssignmentExpr	off = - off
+>299	UnaryOp	- off
+>300	Identifier	off
+>301	UnaryOperator	-
+>302	Identifier	off
+>303	ExpressionStatement	 
+>304	AssignmentExpr	off = core -> mouse . position . x - slider . getWorldPosition ( ) . x
+>305	AdditiveExpression	core -> mouse . position . x - slider . getWorldPosition ( ) . x
+>306	MemberAccess	slider . getWorldPosition ( ) . x
+>307	Identifier	x
+>308	CallExpression	slider . getWorldPosition ( )
+>309	ArgumentList	 
+>310	Callee	slider . getWorldPosition
+>311	MemberAccess	slider . getWorldPosition
+>312	Identifier	getWorldPosition
+>313	Identifier	slider
+>314	MemberAccess	core -> mouse . position . x
+>315	Identifier	x
+>316	MemberAccess	core -> mouse . position
+>317	Identifier	position
+>318	PtrMemberAccess	core -> mouse
+>319	Identifier	mouse
+>320	Identifier	core
+>321	Identifier	off
+>322	Condition	 
+>323	Identifier	inSlider
+>324	ExpressionStatement	 
+>325	AssignmentExpr	inSlider = ( b && ( core -> mouse . position - slider . getWorldPosition ( ) ) . isLength2DIn ( grabRadius ) )
+>326	AndExpression	b && ( core -> mouse . position - slider . getWorldPosition ( ) ) . isLength2DIn ( grabRadius )
+>327	CallExpression	( core -> mouse . position - slider . getWorldPosition ( ) ) . isLength2DIn ( grabRadius )
+>328	ArgumentList	grabRadius
+>329	Argument	grabRadius
+>330	Identifier	grabRadius
+>331	Callee	( core -> mouse . position - slider . getWorldPosition ( ) ) . isLength2DIn
+>332	MemberAccess	( core -> mouse . position - slider . getWorldPosition ( ) ) . isLength2DIn
+>333	Identifier	isLength2DIn
+>334	AdditiveExpression	core -> mouse . position - slider . getWorldPosition ( )
+>335	CallExpression	slider . getWorldPosition ( )
+>336	ArgumentList	 
+>337	Callee	slider . getWorldPosition
+>338	MemberAccess	slider . getWorldPosition
+>339	Identifier	getWorldPosition
+>340	Identifier	slider
+>341	MemberAccess	core -> mouse . position
+>342	Identifier	position
+>343	PtrMemberAccess	core -> mouse
+>344	Identifier	mouse
+>345	Identifier	core
+>346	Identifier	b
+>347	Identifier	inSlider
+>348	Condition	 
+>349	UnaryOp	! inSlider
+>350	Identifier	inSlider
+>351	UnaryOperator	!
+>352	IfStatement	if ( ( core -> mouse . position - this -> position ) . isLength2DIn ( 5 ) )
+>353	ElseStatement	else
+>354	CompoundStatement	 
+>355	ExpressionStatement	 
+>356	AssignmentExpr	wasDown2 = false
+>357	Identifier	false
+>358	Identifier	wasDown2
+>359	ExpressionStatement	 
+>360	AssignmentExpr	wasDown = false
+>361	Identifier	false
+>362	Identifier	wasDown
+>363	CompoundStatement	 
+>364	IfStatement	if ( ! wasDown2 && core -> mouse . buttons . right )
+>365	ElseStatement	else
+>366	IfStatement	if ( wasDown2 && ! core -> mouse . buttons . right )
+>367	CompoundStatement	 
+>368	ExpressionStatement	 
+>369	CallExpression	setValue ( value + 0.1f )
+>370	ArgumentList	value + 0.1f
+>371	Argument	value + 0.1f
+>372	AdditiveExpression	value + 0.1f
+>373	PrimaryExpression	0.1f
+>374	Identifier	value
+>375	Callee	setValue
+>376	Identifier	setValue
+>377	ExpressionStatement	 
+>378	AssignmentExpr	wasDown2 = false
+>379	Identifier	false
+>380	Identifier	wasDown2
+>381	Condition	 
+>382	AndExpression	wasDown2 && ! core -> mouse . buttons . right
+>383	UnaryOp	! core -> mouse . buttons . right
+>384	MemberAccess	core -> mouse . buttons . right
+>385	Identifier	right
+>386	MemberAccess	core -> mouse . buttons
+>387	Identifier	buttons
+>388	PtrMemberAccess	core -> mouse
+>389	Identifier	mouse
+>390	Identifier	core
+>391	UnaryOperator	!
+>392	Identifier	wasDown2
+>393	ExpressionStatement	 
+>394	AssignmentExpr	wasDown2 = true
+>395	Identifier	true
+>396	Identifier	wasDown2
+>397	Condition	 
+>398	AndExpression	! wasDown2 && core -> mouse . buttons . right
+>399	MemberAccess	core -> mouse . buttons . right
+>400	Identifier	right
+>401	MemberAccess	core -> mouse . buttons
+>402	Identifier	buttons
+>403	PtrMemberAccess	core -> mouse
+>404	Identifier	mouse
+>405	Identifier	core
+>406	UnaryOp	! wasDown2
+>407	Identifier	wasDown2
+>408	UnaryOperator	!
+>409	IfStatement	if ( ! wasDown && core -> mouse . buttons . left )
+>410	ElseStatement	else
+>411	IfStatement	if ( wasDown && ! core -> mouse . buttons . left )
+>412	CompoundStatement	 
+>413	ExpressionStatement	 
+>414	CallExpression	setValue ( value - 0.1f )
+>415	ArgumentList	value - 0.1f
+>416	Argument	value - 0.1f
+>417	AdditiveExpression	value - 0.1f
+>418	PrimaryExpression	0.1f
+>419	Identifier	value
+>420	Callee	setValue
+>421	Identifier	setValue
+>422	ExpressionStatement	 
+>423	AssignmentExpr	wasDown = false
+>424	Identifier	false
+>425	Identifier	wasDown
+>426	Condition	 
+>427	AndExpression	wasDown && ! core -> mouse . buttons . left
+>428	UnaryOp	! core -> mouse . buttons . left
+>429	MemberAccess	core -> mouse . buttons . left
+>430	Identifier	left
+>431	MemberAccess	core -> mouse . buttons
+>432	Identifier	buttons
+>433	PtrMemberAccess	core -> mouse
+>434	Identifier	mouse
+>435	Identifier	core
+>436	UnaryOperator	!
+>437	Identifier	wasDown
+>438	ExpressionStatement	 
+>439	AssignmentExpr	wasDown = true
+>440	Identifier	true
+>441	Identifier	wasDown
+>442	Condition	 
+>443	AndExpression	! wasDown && core -> mouse . buttons . left
+>444	MemberAccess	core -> mouse . buttons . left
+>445	Identifier	left
+>446	MemberAccess	core -> mouse . buttons
+>447	Identifier	buttons
+>448	PtrMemberAccess	core -> mouse
+>449	Identifier	mouse
+>450	Identifier	core
+>451	UnaryOp	! wasDown
+>452	Identifier	wasDown
+>453	UnaryOperator	!
+>454	Condition	 
+>455	CallExpression	( core -> mouse . position - this -> position ) . isLength2DIn ( 5 )
+>456	ArgumentList	5
+>457	Argument	5
+>458	PrimaryExpression	5
+>459	Callee	( core -> mouse . position - this -> position ) . isLength2DIn
+>460	MemberAccess	( core -> mouse . position - this -> position ) . isLength2DIn
+>461	Identifier	isLength2DIn
+>462	AdditiveExpression	core -> mouse . position - this -> position
+>463	PtrMemberAccess	this -> position
+>464	Identifier	position
+>465	Identifier	this
+>466	MemberAccess	core -> mouse . position
+>467	Identifier	position
+>468	PtrMemberAccess	core -> mouse
+>469	Identifier	mouse
+>470	Identifier	core
+>471	IfStatement	if ( ! b && inSlider )
+>472	ExpressionStatement	 
+>473	AssignmentExpr	inSlider = false
+>474	Identifier	false
+>475	Identifier	inSlider
+>476	Condition	 
+>477	AndExpression	! b && inSlider
+>478	Identifier	inSlider
+>479	UnaryOp	! b
+>480	Identifier	b
+>481	UnaryOperator	!
+>482	IdentifierDeclStatement	 
+>483	IdentifierDecl	b = ( core -> mouse . buttons . left || core -> mouse . buttons . right ) && fabsf ( core -> mouse . position . \
+>484	AssignmentExpr	b = ( core -> mouse . buttons . left || core -> mouse . buttons . right ) && fabsf ( core -> mouse . \
+>485	AndExpression	( core -> mouse . buttons . left || core -> mouse . buttons . right ) && fabsf ( core -> mouse . position \
+>486	RelationalExpression	fabsf ( core -> mouse . position . y - position . y ) < grabRadius
+>487	Identifier	grabRadius
+>488	CallExpression	fabsf ( core -> mouse . position . y - position . y )
+>489	ArgumentList	core -> mouse . position . y - position . y
+>490	Argument	core -> mouse . position . y - position . y
+>491	AdditiveExpression	core -> mouse . position . y - position . y
+>492	MemberAccess	position . y
+>493	Identifier	y
+>494	Identifier	position
+>495	MemberAccess	core -> mouse . position . y
+>496	Identifier	y
+>497	MemberAccess	core -> mouse . position
+>498	Identifier	position
+>499	PtrMemberAccess	core -> mouse
+>500	Identifier	mouse
+>501	Identifier	core
+>502	Callee	fabsf
+>503	Identifier	fabsf
+>504	OrExpression	core -> mouse . buttons . left || core -> mouse . buttons . right
+>505	MemberAccess	core -> mouse . buttons . right
+>506	Identifier	right
+>507	MemberAccess	core -> mouse . buttons
+>508	Identifier	buttons
+>509	PtrMemberAccess	core -> mouse
+>510	Identifier	mouse
+>511	Identifier	core
+>512	MemberAccess	core -> mouse . buttons . left
+>513	Identifier	left
+>514	MemberAccess	core -> mouse . buttons
+>515	Identifier	buttons
+>516	PtrMemberAccess	core -> mouse
+>517	Identifier	mouse
+>518	Identifier	core
+>519	Identifier	b
+>520	Identifier	b
+>521	IdentifierDeclType	bool
+>522	IfStatement	if ( alpha . x != 1 )
+>523	ReturnStatement	 
+>524	Condition	 
+>525	EqualityExpression	alpha . x != 1
+>526	PrimaryExpression	1
+>527	MemberAccess	alpha . x
+>528	Identifier	x
+>529	Identifier	alpha
+>530	ExpressionStatement	 
+>531	CallExpression	RenderObject 
+>532	ArgumentList	dt
+>533	Argument	dt
+>534	Identifier	dt
+>535	Callee	RenderObject 
+>536	Identifier	RenderObject 
+>578	FunctionDef	CheckBox 
+>579	ParameterList	int clickRadius , const std 
+>580	Parameter	 
+>581	Identifier	sfx
+>582	ParameterType	const std 
+>583	Parameter	 
+>584	Identifier	fgQuad
+>585	ParameterType	const std 
+>586	Parameter	 
+>587	Identifier	bgQuad
+>588	ParameterType	const std 
+>589	Parameter	 
+>590	Identifier	clickRadius
+>591	ParameterType	int
+>592	CompoundStatement	 
+>593	ExpressionStatement	 
+>594	AssignmentExpr	wasDown = false
+>595	Identifier	false
+>596	Identifier	wasDown
+>597	ExpressionStatement	 
+>598	AssignmentExpr	followCamera = 1
+>599	PrimaryExpression	1
+>600	Identifier	followCamera
+>601	ExpressionStatement	 
+>602	CallExpression	addChild ( & fg , PM_STATIC )
+>603	ArgumentList	& fg
+>604	Argument	PM_STATIC
+>605	Identifier	PM_STATIC
+>606	Argument	& fg
+>607	UnaryOp	& fg
+>608	Identifier	fg
+>609	UnaryOperator	&
+>610	Callee	addChild
+>611	Identifier	addChild
+>612	ExpressionStatement	 
+>613	CallExpression	fg . setTexture ( fgQuad )
+>614	ArgumentList	fgQuad
+>615	Argument	fgQuad
+>616	Identifier	fgQuad
+>617	Callee	fg . setTexture
+>618	MemberAccess	fg . setTexture
+>619	Identifier	setTexture
+>620	Identifier	fg
+>621	ExpressionStatement	 
+>622	CallExpression	addChild ( & bg , PM_STATIC )
+>623	ArgumentList	& bg
+>624	Argument	PM_STATIC
+>625	Identifier	PM_STATIC
+>626	Argument	& bg
+>627	UnaryOp	& bg
+>628	Identifier	bg
+>629	UnaryOperator	&
+>630	Callee	addChild
+>631	Identifier	addChild
+>632	ExpressionStatement	 
+>633	CallExpression	bg . setTexture ( bgQuad )
+>634	ArgumentList	bgQuad
+>635	Argument	bgQuad
+>636	Identifier	bgQuad
+>637	Callee	bg . setTexture
+>638	MemberAccess	bg . setTexture
+>639	Identifier	setTexture
+>640	Identifier	bg
+>641	ExpressionStatement	 
+>642	AssignmentExpr	this -> clickRadius = clickRadius
+>643	Identifier	clickRadius
+>644	PtrMemberAccess	this -> clickRadius
+>645	Identifier	clickRadius
+>646	Identifier	this
+>647	ExpressionStatement	 
+>648	AssignmentExpr	this -> sfx = sfx
+>649	Identifier	sfx
+>650	PtrMemberAccess	this -> sfx
+>651	Identifier	sfx
+>652	Identifier	this
+>672	FunctionDef	CheckBox 
+>673	ParameterList	int v
+>674	Parameter	 
+>675	Identifier	v
+>676	ParameterType	int
+>677	ReturnType	void
+>678	CompoundStatement	 
+>679	ExpressionStatement	 
+>680	CallExpression	updateVisual ( 0 )
+>681	ArgumentList	0
+>682	Argument	0
+>683	PrimaryExpression	0
+>684	Callee	updateVisual
+>685	Identifier	updateVisual
+>686	ExpressionStatement	 
+>687	AssignmentExpr	value = v
+>688	Identifier	v
+>689	Identifier	value
+>695	FunctionDef	CheckBox 
+>696	ParameterList	float t
+>697	Parameter	 
+>698	Identifier	t
+>699	ParameterType	float
+>700	ReturnType	void
+>701	CompoundStatement	 
+>702	IfStatement	if ( value != 0 )
+>703	ElseStatement	else
+>704	CompoundStatement	 
+>705	ExpressionStatement	 
+>706	CallExpression	fg . alpha . interpolateTo ( 0 , t )
+>707	ArgumentList	0
+>708	Argument	t
+>709	Identifier	t
+>710	Argument	0
+>711	PrimaryExpression	0
+>712	Callee	fg . alpha . interpolateTo
+>713	MemberAccess	fg . alpha . interpolateTo
+>714	Identifier	interpolateTo
+>715	MemberAccess	fg . alpha
+>716	Identifier	alpha
+>717	Identifier	fg
+>718	CompoundStatement	 
+>719	ExpressionStatement	 
+>720	CallExpression	fg . alpha . interpolateTo ( 1 , t )
+>721	ArgumentList	1
+>722	Argument	t
+>723	Identifier	t
+>724	Argument	1
+>725	PrimaryExpression	1
+>726	Callee	fg . alpha . interpolateTo
+>727	MemberAccess	fg . alpha . interpolateTo
+>728	Identifier	interpolateTo
+>729	MemberAccess	fg . alpha
+>730	Identifier	alpha
+>731	Identifier	fg
+>732	Condition	 
+>733	EqualityExpression	value != 0
+>734	PrimaryExpression	0
+>735	Identifier	value
+>743	FunctionDef	CheckBox 
+>744	ParameterList	 
+>745	ReturnType	int
+>746	CompoundStatement	 
+>747	ReturnStatement	 
+>748	Identifier	value
+>753	FunctionDef	CheckBox 
+>754	ParameterList	float dt
+>755	Parameter	 
+>756	Identifier	dt
+>757	ParameterType	float
+>758	ReturnType	void
+>759	CompoundStatement	 
+>760	IfStatement	if ( ( core -> mouse . position - getWorldPosition ( ) ) . isLength2DIn ( clickRadius ) )
+>761	ElseStatement	else
+>762	CompoundStatement	 
+>763	ExpressionStatement	 
+>764	AssignmentExpr	wasDown = false
+>765	Identifier	false
+>766	Identifier	wasDown
+>767	CompoundStatement	 
+>768	IfStatement	if ( ( core -> mouse . buttons . left || core -> mouse . buttons . right ) )
+>769	ElseStatement	else
+>770	CompoundStatement	 
+>771	IfStatement	if ( wasDown )
+>772	CompoundStatement	 
+>773	ExpressionStatement	 
+>774	CallExpression	core -> sound -> playSfx ( sfx )
+>775	ArgumentList	sfx
+>776	Argument	sfx
+>777	Identifier	sfx
+>778	Callee	core -> sound -> playSfx
+>779	PtrMemberAccess	core -> sound -> playSfx
+>780	Identifier	playSfx
+>781	PtrMemberAccess	core -> sound
+>782	Identifier	sound
+>783	Identifier	core
+>784	ExpressionStatement	 
+>785	CallExpression	updateVisual ( 0 )
+>786	ArgumentList	0
+>787	Argument	0
+>788	PrimaryExpression	0
+>789	Callee	updateVisual
+>790	Identifier	updateVisual
+>791	IfStatement	if ( value != 0 )
+>792	ElseStatement	else
+>793	CompoundStatement	 
+>794	ExpressionStatement	 
+>795	AssignmentExpr	value = 1
+>796	PrimaryExpression	1
+>797	Identifier	value
+>798	CompoundStatement	 
+>799	ExpressionStatement	 
+>800	AssignmentExpr	value = 0
+>801	PrimaryExpression	0
+>802	Identifier	value
+>803	Condition	 
+>804	EqualityExpression	value != 0
+>805	PrimaryExpression	0
+>806	Identifier	value
+>807	ExpressionStatement	 
+>808	AssignmentExpr	wasDown = false
+>809	Identifier	false
+>810	Identifier	wasDown
+>811	Condition	 
+>812	Identifier	wasDown
+>813	CompoundStatement	 
+>814	IfStatement	if ( ! wasDown )
+>815	CompoundStatement	 
+>816	ExpressionStatement	 
+>817	AssignmentExpr	wasDown = true
+>818	Identifier	true
+>819	Identifier	wasDown
+>820	Condition	 
+>821	UnaryOp	! wasDown
+>822	Identifier	wasDown
+>823	UnaryOperator	!
+>824	Condition	 
+>825	OrExpression	core -> mouse . buttons . left || core -> mouse . buttons . right
+>826	MemberAccess	core -> mouse . buttons . right
+>827	Identifier	right
+>828	MemberAccess	core -> mouse . buttons
+>829	Identifier	buttons
+>830	PtrMemberAccess	core -> mouse
+>831	Identifier	mouse
+>832	Identifier	core
+>833	MemberAccess	core -> mouse . buttons . left
+>834	Identifier	left
+>835	MemberAccess	core -> mouse . buttons
+>836	Identifier	buttons
+>837	PtrMemberAccess	core -> mouse
+>838	Identifier	mouse
+>839	Identifier	core
+>840	Condition	 
+>841	CallExpression	( core -> mouse . position - getWorldPosition ( ) ) . isLength2DIn ( clickRadius )
+>842	ArgumentList	clickRadius
+>843	Argument	clickRadius
+>844	Identifier	clickRadius
+>845	Callee	( core -> mouse . position - getWorldPosition ( ) ) . isLength2DIn
+>846	MemberAccess	( core -> mouse . position - getWorldPosition ( ) ) . isLength2DIn
+>847	Identifier	isLength2DIn
+>848	AdditiveExpression	core -> mouse . position - getWorldPosition ( )
+>849	CallExpression	getWorldPosition ( )
+>850	ArgumentList	 
+>851	Callee	getWorldPosition
+>852	Identifier	getWorldPosition
+>853	MemberAccess	core -> mouse . position
+>854	Identifier	position
+>855	PtrMemberAccess	core -> mouse
+>856	Identifier	mouse
+>857	Identifier	core
+>858	IfStatement	if ( alpha . x < 1 )
+>859	ReturnStatement	 
+>860	Condition	 
+>861	RelationalExpression	alpha . x < 1
+>862	PrimaryExpression	1
+>863	MemberAccess	alpha . x
+>864	Identifier	x
+>865	Identifier	alpha
+>866	ExpressionStatement	 
+>867	AssignmentExpr	bg . alphaMod = alpha . x
+>868	MemberAccess	alpha . x
+>869	Identifier	x
+>870	Identifier	alpha
+>871	MemberAccess	bg . alphaMod
+>872	Identifier	alphaMod
+>873	Identifier	bg
+>874	ExpressionStatement	 
+>875	AssignmentExpr	fg . alphaMod = alpha . x
+>876	MemberAccess	alpha . x
+>877	Identifier	x
+>878	Identifier	alpha
+>879	MemberAccess	fg . alphaMod
+>880	Identifier	alphaMod
+>881	Identifier	fg
+>882	ExpressionStatement	 
+>883	CallExpression	RenderObject 
+>884	ArgumentList	dt
+>885	Argument	dt
+>886	Identifier	dt
+>887	Callee	RenderObject 
+>888	Identifier	RenderObject 
+<3=17,4
+<4=14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=90,86,82,76,67,56,47,36,32,28,22,18
+<18=19
+<19=21,20
+<22=23
+<23=27,24
+<24=26,25
+<28=29
+<29=31,30
+<32=33
+<33=35,34
+<36=37
+<37=45,38
+<38=41,39
+<39=40
+<41=42
+<42=44,43
+<45=46
+<47=48
+<48=52,49
+<49=50
+<50=51
+<52=53
+<53=55,54
+<56=57
+<57=65,58
+<58=61,59
+<59=60
+<61=62
+<62=64,63
+<65=66
+<67=68
+<68=72,69
+<69=70
+<70=71
+<72=73
+<73=75,74
+<76=77
+<77=79,78
+<79=81,80
+<82=83
+<83=85,84
+<86=87
+<87=89,88
+<90=91
+<91=93,92
+<118=124,123,119
+<119=120
+<120=122,121
+<124=157,148,139,125
+<125=126
+<126=134,127
+<127=131,128
+<128=130,129
+<131=133,132
+<134=136,135
+<136=138,137
+<139=144,140
+<140=141
+<141=143,142
+<144=145
+<145=147,146
+<148=153,149
+<149=150
+<150=152,151
+<153=154
+<154=156,155
+<157=158
+<158=160,159
+<170=173,172,171
+<173=174
+<174=175
+<180=183,182,181
+<183=184
+<184=185
+<190=196,195,191
+<191=192
+<192=194,193
+<196=530,522,482,471,352,293,197
+<197=291,198
+<198=271,262,221,199
+<199=200
+<200=220,201
+<201=208,202
+<202=206,203
+<203=204
+<204=205
+<206=207
+<208=218,209
+<209=210
+<210=211
+<211=213,212
+<213=215,214
+<215=217,216
+<218=219
+<221=254,245,222
+<222=223
+<223=235,224
+<224=225
+<225=226
+<226=230,227
+<227=229,228
+<230=232,231
+<232=234,233
+<235=236
+<236=240,237
+<237=239,238
+<240=242,241
+<242=244,243
+<245=246
+<246=247
+<247=249,248
+<249=251,250
+<251=253,252
+<254=255
+<255=257,256
+<257=259,258
+<259=261,260
+<262=263
+<263=270,269,264
+<264=268,265
+<265=267,266
+<271=272
+<272=286,273
+<273=279,274
+<274=276,275
+<276=278,277
+<279=281,280
+<281=283,282
+<283=285,284
+<286=288,287
+<288=290,289
+<291=292
+<293=348,294
+<294=324,295
+<295=322,296
+<296=303,297
+<297=298
+<298=302,299
+<299=301,300
+<303=304
+<304=321,305
+<305=314,306
+<306=308,307
+<308=310,309
+<310=311
+<311=313,312
+<314=316,315
+<316=318,317
+<318=320,319
+<322=323
+<324=325
+<325=347,326
+<326=346,327
+<327=331,328
+<328=329
+<329=330
+<331=332
+<332=334,333
+<334=341,335
+<335=337,336
+<337=338
+<338=340,339
+<341=343,342
+<343=345,344
+<348=349
+<349=351,350
+<352=454,363,353
+<353=354
+<354=359,355
+<355=356
+<356=358,357
+<359=360
+<360=362,361
+<363=409,364
+<364=397,393,365
+<365=366
+<366=381,367
+<367=377,368
+<368=369
+<369=375,370
+<370=371
+<371=372
+<372=374,373
+<375=376
+<377=378
+<378=380,379
+<381=382
+<382=392,383
+<383=391,384
+<384=386,385
+<386=388,387
+<388=390,389
+<393=394
+<394=396,395
+<397=398
+<398=406,399
+<399=401,400
+<401=403,402
+<403=405,404
+<406=408,407
+<409=442,438,410
+<410=411
+<411=426,412
+<412=422,413
+<413=414
+<414=420,415
+<415=416
+<416=417
+<417=419,418
+<420=421
+<422=423
+<423=425,424
+<426=427
+<427=437,428
+<428=436,429
+<429=431,430
+<431=433,432
+<433=435,434
+<438=439
+<439=441,440
+<442=443
+<443=451,444
+<444=446,445
+<446=448,447
+<448=450,449
+<451=453,452
+<454=455
+<455=459,456
+<456=457
+<457=458
+<459=460
+<460=462,461
+<462=466,463
+<463=465,464
+<466=468,467
+<468=470,469
+<471=476,472
+<472=473
+<473=475,474
+<476=477
+<477=479,478
+<479=481,480
+<482=483
+<483=521,520,484
+<484=519,485
+<485=504,486
+<486=488,487
+<488=502,489
+<489=490
+<490=491
+<491=495,492
+<492=494,493
+<495=497,496
+<497=499,498
+<499=501,500
+<502=503
+<504=512,505
+<505=507,506
+<507=509,508
+<509=511,510
+<512=514,513
+<514=516,515
+<516=518,517
+<522=524,523
+<524=525
+<525=527,526
+<527=529,528
+<530=531
+<531=535,532
+<532=533
+<533=534
+<535=536
+<578=592,579
+<579=589,586,583,580
+<580=582,581
+<583=585,584
+<586=588,587
+<589=591,590
+<592=647,641,632,621,612,601,597,593
+<593=594
+<594=596,595
+<597=598
+<598=600,599
+<601=602
+<602=610,603
+<603=606,604
+<604=605
+<606=607
+<607=609,608
+<610=611
+<612=613
+<613=617,614
+<614=615
+<615=616
+<617=618
+<618=620,619
+<621=622
+<622=630,623
+<623=626,624
+<624=625
+<626=627
+<627=629,628
+<630=631
+<632=633
+<633=637,634
+<634=635
+<635=636
+<637=638
+<638=640,639
+<641=642
+<642=644,643
+<644=646,645
+<647=648
+<648=650,649
+<650=652,651
+<672=678,677,673
+<673=674
+<674=676,675
+<678=686,679
+<679=680
+<680=684,681
+<681=682
+<682=683
+<684=685
+<686=687
+<687=689,688
+<695=701,700,696
+<696=697
+<697=699,698
+<701=702
+<702=732,718,703
+<703=704
+<704=705
+<705=706
+<706=712,707
+<707=710,708
+<708=709
+<710=711
+<712=713
+<713=715,714
+<715=717,716
+<718=719
+<719=720
+<720=726,721
+<721=724,722
+<722=723
+<724=725
+<726=727
+<727=729,728
+<729=731,730
+<732=733
+<733=735,734
+<743=746,745,744
+<746=747
+<747=748
+<753=759,758,754
+<754=755
+<755=757,756
+<759=882,874,866,858,760
+<760=840,767,761
+<761=762
+<762=763
+<763=764
+<764=766,765
+<767=768
+<768=824,813,769
+<769=770
+<770=771
+<771=811,772
+<772=807,791,784,773
+<773=774
+<774=778,775
+<775=776
+<776=777
+<778=779
+<779=781,780
+<781=783,782
+<784=785
+<785=789,786
+<786=787
+<787=788
+<789=790
+<791=803,798,792
+<792=793
+<793=794
+<794=795
+<795=797,796
+<798=799
+<799=800
+<800=802,801
+<803=804
+<804=806,805
+<807=808
+<808=810,809
+<811=812
+<813=814
+<814=820,815
+<815=816
+<816=817
+<817=819,818
+<820=821
+<821=823,822
+<824=825
+<825=833,826
+<826=828,827
+<828=830,829
+<830=832,831
+<833=835,834
+<835=837,836
+<837=839,838
+<840=841
+<841=845,842
+<842=843
+<843=844
+<845=846
+<846=848,847
+<848=853,849
+<849=851,850
+<851=852
+<853=855,854
+<855=857,856
+<858=860,859
+<860=861
+<861=863,862
+<863=865,864
+<866=867
+<867=871,868
+<868=870,869
+<871=873,872
+<874=875
+<875=879,876
+<876=878,877
+<879=881,880
+<882=883
+<883=887,884
+<884=885
+<885=886
+<887=888

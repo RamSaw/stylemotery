@@ -1,26 +1,11 @@
-import argparse
-import collections
 import random
-import os
-from operator import itemgetter
 
 import numpy as np
-import chainer
-import sys
-from chainer import cuda, Serializer
-from chainer import optimizers
-from sklearn.cross_validation import StratifiedKFold
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score
-from ast_tree.ast_parser import children, split_trees2
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
-from chainer import serializers
-from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
-from models.tree_models import RecursiveTreeLSTM
 from utils.prog_bar import Progbar
-from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
-import heapq
-import argparse
-from argparse import Namespace
+
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
     progbar = Progbar(len(train_labels))
@@ -110,8 +95,8 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iteration
     #     tree_labels = tree_labels[indices]
     # classes_ = np.arange(len(classes_))
     # seed = random.randint(0, 4294967295)
-    cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=shuffle, random_state=seed)
-    for idx,(train_indices, test_indices) in enumerate(cv):
+    cv = StratifiedKFold(n_splits=n_folds, shuffle=shuffle, random_state=seed)
+    for idx,(train_indices, test_indices) in enumerate(cv.split(trees,tree_labels)):
         if idx >= iterations:
             break
     train_trees, train_lables = trees[train_indices], tree_labels[train_indices]

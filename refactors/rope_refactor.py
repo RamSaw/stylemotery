@@ -1,12 +1,27 @@
-from rope.base.project import Project
-project = Project('.')
+from time import sleep
 
+from rope.base.project import Project
+
+
+project = Project("examples")
+
+mod1 = project.get_file('mod1.py')
+try:
+        mod1.remove()
+except:
+        pass
 mod1 = project.root.create_file('mod1.py')
 mod1.write('def pow(x, y):\n    result = 1\n'
-        '    for i in range(y):\n        result *= x\n'
-        '    return result\n')
+           '    for i in range(y):\n        result *= x\n'
+           '    return result\n')
+
+mod2 = project.get_file('mod2.py')
+try:
+        mod2.remove()
+except:
+        pass
 mod2 = project.root.create_file('mod2.py')
-mod2.write('import mod1\nprint(mod1.pow(2, 3))\n')
+mod2.write('from refactors.examples import mod1\nprint(mod1.pow(2, 3))\n')
 
 from rope.refactor import restructure
 
@@ -60,6 +75,6 @@ mod2.read()
 u'import mod1\nprint(2 ** 3)\n'
 
 # Cleaning up
-mod1.remove()
-mod2.remove()
+# mod1.remove()
+# mod2.remove()
 project.close()

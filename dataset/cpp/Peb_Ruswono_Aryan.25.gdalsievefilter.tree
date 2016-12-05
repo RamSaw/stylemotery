@@ -1,0 +1,2651 @@
+>5	FunctionDef	GPMaskImageData (GDALRasterBandH hMaskBand , GByte * pabyMaskLine , int iY , int nXSize , GInt32 * panImageLine)
+>6	ParameterList	GDALRasterBandH hMaskBand , GByte * pabyMaskLine , int iY , int nXSize , GInt32 * panImageLine
+>7	Parameter	 
+>8	Identifier	panImageLine
+>9	ParameterType	GInt32 *
+>10	Parameter	 
+>11	Identifier	nXSize
+>12	ParameterType	int
+>13	Parameter	 
+>14	Identifier	iY
+>15	ParameterType	int
+>16	Parameter	 
+>17	Identifier	pabyMaskLine
+>18	ParameterType	GByte *
+>19	Parameter	 
+>20	Identifier	hMaskBand
+>21	ParameterType	GDALRasterBandH
+>22	ReturnType	static CPLErr
+>23	CompoundStatement	 
+>24	ReturnStatement	 
+>25	Identifier	eErr
+>26	IfStatement	if ( eErr == CE_None )
+>27	CompoundStatement	 
+>28	ForStatement	for ( i = 0 ; i < nXSize ; i ++ )
+>29	CompoundStatement	 
+>30	IfStatement	if ( pabyMaskLine [ i ] == 0 )
+>31	ExpressionStatement	 
+>32	AssignmentExpr	panImageLine [ i ] = GP_NODATA_MARKER
+>33	Identifier	GP_NODATA_MARKER
+>34	ArrayIndexing	panImageLine [ i ]
+>35	Identifier	i
+>36	Identifier	panImageLine
+>37	Condition	 
+>38	EqualityExpression	pabyMaskLine [ i ] == 0
+>39	PrimaryExpression	0
+>40	ArrayIndexing	pabyMaskLine [ i ]
+>41	Identifier	i
+>42	Identifier	pabyMaskLine
+>43	IncDecOp	 
+>44	IncDec	++
+>45	Identifier	i
+>46	Condition	 
+>47	RelationalExpression	i < nXSize
+>48	Identifier	nXSize
+>49	Identifier	i
+>50	ForInit	 
+>51	AssignmentExpr	i = 0
+>52	PrimaryExpression	0
+>53	Identifier	i
+>54	IdentifierDeclStatement	 
+>55	IdentifierDecl	i
+>56	Identifier	i
+>57	IdentifierDeclType	int
+>58	Condition	 
+>59	EqualityExpression	eErr == CE_None
+>60	Identifier	CE_None
+>61	Identifier	eErr
+>62	ExpressionStatement	 
+>63	AssignmentExpr	eErr = GDALRasterIO ( hMaskBand , GF_Read , 0 , iY , nXSize , 1 , pabyMaskLine , nXSize , 1 , GDT_Byte , \
+>64	CallExpression	GDALRasterIO ( hMaskBand , GF_Read , 0 , iY , nXSize , 1 , pabyMaskLine , nXSize , 1 , GDT_Byte , 0 , 0 )
+>65	ArgumentList	hMaskBand
+>66	Argument	0
+>67	PrimaryExpression	0
+>68	Argument	0
+>69	PrimaryExpression	0
+>70	Argument	GDT_Byte
+>71	Identifier	GDT_Byte
+>72	Argument	1
+>73	PrimaryExpression	1
+>74	Argument	nXSize
+>75	Identifier	nXSize
+>76	Argument	pabyMaskLine
+>77	Identifier	pabyMaskLine
+>78	Argument	1
+>79	PrimaryExpression	1
+>80	Argument	nXSize
+>81	Identifier	nXSize
+>82	Argument	iY
+>83	Identifier	iY
+>84	Argument	0
+>85	PrimaryExpression	0
+>86	Argument	GF_Read
+>87	Identifier	GF_Read
+>88	Argument	hMaskBand
+>89	Identifier	hMaskBand
+>90	Callee	GDALRasterIO
+>91	Identifier	GDALRasterIO
+>92	Identifier	eErr
+>93	IdentifierDeclStatement	 
+>94	IdentifierDecl	eErr
+>95	Identifier	eErr
+>96	IdentifierDeclType	CPLErr
+>115	FunctionDef	CompareNeighbour (int nPolyId1 , int nPolyId2 , int * panPolyIdMap , int * panPolyValue , std 
+>116	ParameterList	int nPolyId1 , int nPolyId2 , int * panPolyIdMap , int * panPolyValue , std 
+>117	Parameter	 
+>118	Identifier	anBigNeighbour
+>119	ParameterType	std 
+>120	Parameter	 
+>121	Identifier	anPolySizes
+>122	ParameterType	std 
+>123	Parameter	 
+>124	Identifier	panPolyValue
+>125	ParameterType	int *
+>126	Parameter	 
+>127	Identifier	panPolyIdMap
+>128	ParameterType	int *
+>129	Parameter	 
+>130	Identifier	nPolyId2
+>131	ParameterType	int
+>132	Parameter	 
+>133	Identifier	nPolyId1
+>134	ParameterType	int
+>135	ReturnType	static inline void
+>136	CompoundStatement	 
+>137	IfStatement	if ( anBigNeighbour [ nPolyId2 ] == - 1 || anPolySizes [ anBigNeighbour [ nPolyId2 ] ] < anPolySizes [ nPolyId1 ] )
+>138	ExpressionStatement	 
+>139	AssignmentExpr	anBigNeighbour [ nPolyId2 ] = nPolyId1
+>140	Identifier	nPolyId1
+>141	ArrayIndexing	anBigNeighbour [ nPolyId2 ]
+>142	Identifier	nPolyId2
+>143	Identifier	anBigNeighbour
+>144	Condition	 
+>145	OrExpression	anBigNeighbour [ nPolyId2 ] == - 1 || anPolySizes [ anBigNeighbour [ nPolyId2 ] ] < anPolySizes [ nPolyId1 ]
+>146	RelationalExpression	anPolySizes [ anBigNeighbour [ nPolyId2 ] ] < anPolySizes [ nPolyId1 ]
+>147	ArrayIndexing	anPolySizes [ nPolyId1 ]
+>148	Identifier	nPolyId1
+>149	Identifier	anPolySizes
+>150	ArrayIndexing	anPolySizes [ anBigNeighbour [ nPolyId2 ] ]
+>151	ArrayIndexing	anBigNeighbour [ nPolyId2 ]
+>152	Identifier	nPolyId2
+>153	Identifier	anBigNeighbour
+>154	Identifier	anPolySizes
+>155	EqualityExpression	anBigNeighbour [ nPolyId2 ] == - 1
+>156	UnaryOp	- 1
+>157	PrimaryExpression	1
+>158	UnaryOperator	-
+>159	ArrayIndexing	anBigNeighbour [ nPolyId2 ]
+>160	Identifier	nPolyId2
+>161	Identifier	anBigNeighbour
+>162	IfStatement	if ( anBigNeighbour [ nPolyId1 ] == - 1 || anPolySizes [ anBigNeighbour [ nPolyId1 ] ] < anPolySizes [ nPolyId2 ] )
+>163	ExpressionStatement	 
+>164	AssignmentExpr	anBigNeighbour [ nPolyId1 ] = nPolyId2
+>165	Identifier	nPolyId2
+>166	ArrayIndexing	anBigNeighbour [ nPolyId1 ]
+>167	Identifier	nPolyId1
+>168	Identifier	anBigNeighbour
+>169	Condition	 
+>170	OrExpression	anBigNeighbour [ nPolyId1 ] == - 1 || anPolySizes [ anBigNeighbour [ nPolyId1 ] ] < anPolySizes [ nPolyId2 ]
+>171	RelationalExpression	anPolySizes [ anBigNeighbour [ nPolyId1 ] ] < anPolySizes [ nPolyId2 ]
+>172	ArrayIndexing	anPolySizes [ nPolyId2 ]
+>173	Identifier	nPolyId2
+>174	Identifier	anPolySizes
+>175	ArrayIndexing	anPolySizes [ anBigNeighbour [ nPolyId1 ] ]
+>176	ArrayIndexing	anBigNeighbour [ nPolyId1 ]
+>177	Identifier	nPolyId1
+>178	Identifier	anBigNeighbour
+>179	Identifier	anPolySizes
+>180	EqualityExpression	anBigNeighbour [ nPolyId1 ] == - 1
+>181	UnaryOp	- 1
+>182	PrimaryExpression	1
+>183	UnaryOperator	-
+>184	ArrayIndexing	anBigNeighbour [ nPolyId1 ]
+>185	Identifier	nPolyId1
+>186	Identifier	anBigNeighbour
+>187	IfStatement	if ( panPolyValue [ nPolyId1 ] == GP_NODATA_MARKER || panPolyValue [ nPolyId2 ] == GP_NODATA_MARKER )
+>188	ReturnStatement	 
+>189	Condition	 
+>190	OrExpression	panPolyValue [ nPolyId1 ] == GP_NODATA_MARKER || panPolyValue [ nPolyId2 ] == GP_NODATA_MARKER
+>191	EqualityExpression	panPolyValue [ nPolyId2 ] == GP_NODATA_MARKER
+>192	Identifier	GP_NODATA_MARKER
+>193	ArrayIndexing	panPolyValue [ nPolyId2 ]
+>194	Identifier	nPolyId2
+>195	Identifier	panPolyValue
+>196	EqualityExpression	panPolyValue [ nPolyId1 ] == GP_NODATA_MARKER
+>197	Identifier	GP_NODATA_MARKER
+>198	ArrayIndexing	panPolyValue [ nPolyId1 ]
+>199	Identifier	nPolyId1
+>200	Identifier	panPolyValue
+>201	IfStatement	if ( nPolyId1 == nPolyId2 )
+>202	ReturnStatement	 
+>203	Condition	 
+>204	EqualityExpression	nPolyId1 == nPolyId2
+>205	Identifier	nPolyId2
+>206	Identifier	nPolyId1
+>207	ExpressionStatement	 
+>208	AssignmentExpr	nPolyId2 = panPolyIdMap [ nPolyId2 ]
+>209	ArrayIndexing	panPolyIdMap [ nPolyId2 ]
+>210	Identifier	nPolyId2
+>211	Identifier	panPolyIdMap
+>212	Identifier	nPolyId2
+>213	ExpressionStatement	 
+>214	AssignmentExpr	nPolyId1 = panPolyIdMap [ nPolyId1 ]
+>215	ArrayIndexing	panPolyIdMap [ nPolyId1 ]
+>216	Identifier	nPolyId1
+>217	Identifier	panPolyIdMap
+>218	Identifier	nPolyId1
+>238	FunctionDef	GDALSieveFilter (GDALRasterBandH hSrcBand , GDALRasterBandH hMaskBand , GDALRasterBandH hDstBand , int nSizeThreshold , \
+>239	ParameterList	GDALRasterBandH hSrcBand , GDALRasterBandH hMaskBand , GDALRasterBandH hDstBand , int nSizeThreshold , int nConnectedness , \
+>240	Parameter	 
+>241	Identifier	pProgressArg
+>242	ParameterType	void *
+>243	Parameter	 
+>244	Identifier	pfnProgress
+>245	ParameterType	GDALProgressFunc
+>246	Parameter	 
+>247	Identifier	papszOptions
+>248	ParameterType	char * *
+>249	Parameter	 
+>250	Identifier	nConnectedness
+>251	ParameterType	int
+>252	Parameter	 
+>253	Identifier	nSizeThreshold
+>254	ParameterType	int
+>255	Parameter	 
+>256	Identifier	hDstBand
+>257	ParameterType	GDALRasterBandH
+>258	Parameter	 
+>259	Identifier	hMaskBand
+>260	ParameterType	GDALRasterBandH
+>261	Parameter	 
+>262	Identifier	hSrcBand
+>263	ParameterType	GDALRasterBandH
+>264	ReturnType	CPLErr CPL_STDCALL
+>265	CompoundStatement	 
+>266	ReturnStatement	 
+>267	Identifier	eErr
+>268	ExpressionStatement	 
+>269	CallExpression	CPLFree ( pabyMaskLine )
+>270	ArgumentList	pabyMaskLine
+>271	Argument	pabyMaskLine
+>272	Identifier	pabyMaskLine
+>273	Callee	CPLFree
+>274	Identifier	CPLFree
+>275	ExpressionStatement	 
+>276	CallExpression	CPLFree ( panThisLineWriteVal )
+>277	ArgumentList	panThisLineWriteVal
+>278	Argument	panThisLineWriteVal
+>279	Identifier	panThisLineWriteVal
+>280	Callee	CPLFree
+>281	Identifier	CPLFree
+>282	ExpressionStatement	 
+>283	CallExpression	CPLFree ( panLastLineVal )
+>284	ArgumentList	panLastLineVal
+>285	Argument	panLastLineVal
+>286	Identifier	panLastLineVal
+>287	Callee	CPLFree
+>288	Identifier	CPLFree
+>289	ExpressionStatement	 
+>290	CallExpression	CPLFree ( panThisLineVal )
+>291	ArgumentList	panThisLineVal
+>292	Argument	panThisLineVal
+>293	Identifier	panThisLineVal
+>294	Callee	CPLFree
+>295	Identifier	CPLFree
+>296	ExpressionStatement	 
+>297	CallExpression	CPLFree ( panLastLineId )
+>298	ArgumentList	panLastLineId
+>299	Argument	panLastLineId
+>300	Identifier	panLastLineId
+>301	Callee	CPLFree
+>302	Identifier	CPLFree
+>303	ExpressionStatement	 
+>304	CallExpression	CPLFree ( panThisLineId )
+>305	ArgumentList	panThisLineId
+>306	Argument	panThisLineId
+>307	Identifier	panThisLineId
+>308	Callee	CPLFree
+>309	Identifier	CPLFree
+>310	ForStatement	for ( iY = 0 ; eErr == CE_None && iY < nYSize ; iY ++ )
+>311	CompoundStatement	 
+>312	IfStatement	if ( eErr == CE_None && ! pfnProgress ( 0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg ) )
+>313	CompoundStatement	 
+>314	ExpressionStatement	 
+>315	AssignmentExpr	eErr = CE_Failure
+>316	Identifier	CE_Failure
+>317	Identifier	eErr
+>318	ExpressionStatement	 
+>319	CallExpression	CPLError ( CE_Failure , CPLE_UserInterrupt , \"User terminated\" )
+>320	ArgumentList	CE_Failure
+>321	Argument	\"User terminated\"
+>322	PrimaryExpression	\"User terminated\"
+>323	Argument	CPLE_UserInterrupt
+>324	Identifier	CPLE_UserInterrupt
+>325	Argument	CE_Failure
+>326	Identifier	CE_Failure
+>327	Callee	CPLError
+>328	Identifier	CPLError
+>329	Condition	 
+>330	AndExpression	eErr == CE_None && ! pfnProgress ( 0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>331	UnaryOp	! pfnProgress ( 0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>332	CallExpression	pfnProgress ( 0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>333	ArgumentList	0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize )
+>334	Argument	pProgressArg
+>335	Identifier	pProgressArg
+>336	Argument	\"\"
+>337	PrimaryExpression	\"\"
+>338	Argument	0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize )
+>339	AdditiveExpression	0.5 + 0.5 * ( ( iY + 1 ) / ( double ) nYSize )
+>340	MultiplicativeExpression	0.5 * ( ( iY + 1 ) / ( double ) nYSize )
+>341	MultiplicativeExpression	( iY + 1 ) / ( double ) nYSize
+>342	CastExpression	( double ) nYSize
+>343	Identifier	nYSize
+>344	CastTarget	double
+>345	AdditiveExpression	iY + 1
+>346	PrimaryExpression	1
+>347	Identifier	iY
+>348	PrimaryExpression	0.5
+>349	PrimaryExpression	0.5
+>350	Callee	pfnProgress
+>351	Identifier	pfnProgress
+>352	UnaryOperator	!
+>353	EqualityExpression	eErr == CE_None
+>354	Identifier	CE_None
+>355	Identifier	eErr
+>356	ExpressionStatement	 
+>357	AssignmentExpr	panLastLineId = panTmp
+>358	Identifier	panTmp
+>359	Identifier	panLastLineId
+>360	ExpressionStatement	 
+>361	AssignmentExpr	panThisLineId = panLastLineId
+>362	Identifier	panLastLineId
+>363	Identifier	panThisLineId
+>364	ExpressionStatement	 
+>365	AssignmentExpr	panTmp = panThisLineId
+>366	Identifier	panThisLineId
+>367	Identifier	panTmp
+>368	ExpressionStatement	 
+>369	AssignmentExpr	panThisLineVal = panTmp
+>370	Identifier	panTmp
+>371	Identifier	panThisLineVal
+>372	ExpressionStatement	 
+>373	AssignmentExpr	panLastLineVal = panThisLineVal
+>374	Identifier	panThisLineVal
+>375	Identifier	panLastLineVal
+>376	IdentifierDeclStatement	 
+>377	IdentifierDecl	* panTmp = panLastLineVal
+>378	AssignmentExpr	* panTmp = panLastLineVal
+>379	Identifier	panLastLineVal
+>380	Identifier	panLastLineVal
+>381	Identifier	panTmp
+>382	IdentifierDeclType	GInt32 *
+>383	ExpressionStatement	 
+>384	AssignmentExpr	eErr = GDALRasterIO ( hDstBand , GF_Write , 0 , iY , nXSize , 1 , panThisLineWriteVal , nXSize , 1 , \
+>385	CallExpression	GDALRasterIO ( hDstBand , GF_Write , 0 , iY , nXSize , 1 , panThisLineWriteVal , nXSize , 1 , GDT_Int32 , 0 , 0 )
+>386	ArgumentList	hDstBand
+>387	Argument	0
+>388	PrimaryExpression	0
+>389	Argument	0
+>390	PrimaryExpression	0
+>391	Argument	GDT_Int32
+>392	Identifier	GDT_Int32
+>393	Argument	1
+>394	PrimaryExpression	1
+>395	Argument	nXSize
+>396	Identifier	nXSize
+>397	Argument	panThisLineWriteVal
+>398	Identifier	panThisLineWriteVal
+>399	Argument	1
+>400	PrimaryExpression	1
+>401	Argument	nXSize
+>402	Identifier	nXSize
+>403	Argument	iY
+>404	Identifier	iY
+>405	Argument	0
+>406	PrimaryExpression	0
+>407	Argument	GF_Write
+>408	Identifier	GF_Write
+>409	Argument	hDstBand
+>410	Identifier	hDstBand
+>411	Callee	GDALRasterIO
+>412	Identifier	GDALRasterIO
+>413	Identifier	eErr
+>414	ForStatement	for ( iX = 0 ; iX < nXSize ; iX ++ )
+>415	CompoundStatement	 
+>416	IfStatement	if ( anBigNeighbour [ iThisPoly ] != - 1 )
+>417	CompoundStatement	 
+>418	ExpressionStatement	 
+>419	AssignmentExpr	panThisLineWriteVal [ iX ] = oFirstEnum . panPolyValue [ anBigNeighbour [ iThisPoly ] ]
+>420	ArrayIndexing	oFirstEnum . panPolyValue [ anBigNeighbour [ iThisPoly ] ]
+>421	ArrayIndexing	anBigNeighbour [ iThisPoly ]
+>422	Identifier	iThisPoly
+>423	Identifier	anBigNeighbour
+>424	MemberAccess	oFirstEnum . panPolyValue
+>425	Identifier	panPolyValue
+>426	Identifier	oFirstEnum
+>427	ArrayIndexing	panThisLineWriteVal [ iX ]
+>428	Identifier	iX
+>429	Identifier	panThisLineWriteVal
+>430	Condition	 
+>431	EqualityExpression	anBigNeighbour [ iThisPoly ] != - 1
+>432	UnaryOp	- 1
+>433	PrimaryExpression	1
+>434	UnaryOperator	-
+>435	ArrayIndexing	anBigNeighbour [ iThisPoly ]
+>436	Identifier	iThisPoly
+>437	Identifier	anBigNeighbour
+>438	IdentifierDeclStatement	 
+>439	IdentifierDecl	iThisPoly = oFirstEnum . panPolyIdMap [ panThisLineId [ iX ] ]
+>440	AssignmentExpr	iThisPoly = oFirstEnum . panPolyIdMap [ panThisLineId [ iX ] ]
+>441	ArrayIndexing	oFirstEnum . panPolyIdMap [ panThisLineId [ iX ] ]
+>442	ArrayIndexing	panThisLineId [ iX ]
+>443	Identifier	iX
+>444	Identifier	panThisLineId
+>445	MemberAccess	oFirstEnum . panPolyIdMap
+>446	Identifier	panPolyIdMap
+>447	Identifier	oFirstEnum
+>448	Identifier	iThisPoly
+>449	Identifier	iThisPoly
+>450	IdentifierDeclType	int
+>451	IncDecOp	 
+>452	IncDec	++
+>453	Identifier	iX
+>454	Condition	 
+>455	RelationalExpression	iX < nXSize
+>456	Identifier	nXSize
+>457	Identifier	iX
+>458	ForInit	 
+>459	AssignmentExpr	iX = 0
+>460	PrimaryExpression	0
+>461	Identifier	iX
+>462	IfStatement	if ( iY == 0 )
+>463	ElseStatement	else
+>464	ExpressionStatement	 
+>465	CallExpression	oSecondEnum . ProcessLine ( panLastLineVal , panThisLineVal , panLastLineId , panThisLineId , nXSize )
+>466	ArgumentList	panLastLineVal
+>467	Argument	nXSize
+>468	Identifier	nXSize
+>469	Argument	panThisLineId
+>470	Identifier	panThisLineId
+>471	Argument	panLastLineId
+>472	Identifier	panLastLineId
+>473	Argument	panThisLineVal
+>474	Identifier	panThisLineVal
+>475	Argument	panLastLineVal
+>476	Identifier	panLastLineVal
+>477	Callee	oSecondEnum . ProcessLine
+>478	MemberAccess	oSecondEnum . ProcessLine
+>479	Identifier	ProcessLine
+>480	Identifier	oSecondEnum
+>481	ExpressionStatement	 
+>482	CallExpression	oSecondEnum . ProcessLine ( NULL , panThisLineVal , NULL , panThisLineId , nXSize )
+>483	ArgumentList	NULL
+>484	Argument	nXSize
+>485	Identifier	nXSize
+>486	Argument	panThisLineId
+>487	Identifier	panThisLineId
+>488	Argument	NULL
+>489	Identifier	NULL
+>490	Argument	panThisLineVal
+>491	Identifier	panThisLineVal
+>492	Argument	NULL
+>493	Identifier	NULL
+>494	Callee	oSecondEnum . ProcessLine
+>495	MemberAccess	oSecondEnum . ProcessLine
+>496	Identifier	ProcessLine
+>497	Identifier	oSecondEnum
+>498	Condition	 
+>499	EqualityExpression	iY == 0
+>500	PrimaryExpression	0
+>501	Identifier	iY
+>502	IfStatement	if ( eErr != CE_None )
+>503	ContinueStatement	 
+>504	Condition	 
+>505	EqualityExpression	eErr != CE_None
+>506	Identifier	CE_None
+>507	Identifier	eErr
+>508	IfStatement	if ( eErr == CE_None && hMaskBand != NULL )
+>509	ExpressionStatement	 
+>510	AssignmentExpr	eErr = GPMaskImageData ( hMaskBand , pabyMaskLine , iY , nXSize , panThisLineVal )
+>511	CallExpression	GPMaskImageData ( hMaskBand , pabyMaskLine , iY , nXSize , panThisLineVal )
+>512	ArgumentList	hMaskBand
+>513	Argument	panThisLineVal
+>514	Identifier	panThisLineVal
+>515	Argument	nXSize
+>516	Identifier	nXSize
+>517	Argument	iY
+>518	Identifier	iY
+>519	Argument	pabyMaskLine
+>520	Identifier	pabyMaskLine
+>521	Argument	hMaskBand
+>522	Identifier	hMaskBand
+>523	Callee	GPMaskImageData
+>524	Identifier	GPMaskImageData
+>525	Identifier	eErr
+>526	Condition	 
+>527	AndExpression	eErr == CE_None && hMaskBand != NULL
+>528	EqualityExpression	hMaskBand != NULL
+>529	Identifier	NULL
+>530	Identifier	hMaskBand
+>531	EqualityExpression	eErr == CE_None
+>532	Identifier	CE_None
+>533	Identifier	eErr
+>534	ExpressionStatement	 
+>535	CallExpression	memcpy ( panThisLineWriteVal , panThisLineVal , 4 * nXSize )
+>536	ArgumentList	panThisLineWriteVal
+>537	Argument	4 * nXSize
+>538	MultiplicativeExpression	4 * nXSize
+>539	Identifier	nXSize
+>540	PrimaryExpression	4
+>541	Argument	panThisLineVal
+>542	Identifier	panThisLineVal
+>543	Argument	panThisLineWriteVal
+>544	Identifier	panThisLineWriteVal
+>545	Callee	memcpy
+>546	Identifier	memcpy
+>547	ExpressionStatement	 
+>548	AssignmentExpr	eErr = GDALRasterIO ( hSrcBand , GF_Read , 0 , iY , nXSize , 1 , panThisLineVal , nXSize , 1 , GDT_Int32 , \
+>549	CallExpression	GDALRasterIO ( hSrcBand , GF_Read , 0 , iY , nXSize , 1 , panThisLineVal , nXSize , 1 , GDT_Int32 , 0 , 0 )
+>550	ArgumentList	hSrcBand
+>551	Argument	0
+>552	PrimaryExpression	0
+>553	Argument	0
+>554	PrimaryExpression	0
+>555	Argument	GDT_Int32
+>556	Identifier	GDT_Int32
+>557	Argument	1
+>558	PrimaryExpression	1
+>559	Argument	nXSize
+>560	Identifier	nXSize
+>561	Argument	panThisLineVal
+>562	Identifier	panThisLineVal
+>563	Argument	1
+>564	PrimaryExpression	1
+>565	Argument	nXSize
+>566	Identifier	nXSize
+>567	Argument	iY
+>568	Identifier	iY
+>569	Argument	0
+>570	PrimaryExpression	0
+>571	Argument	GF_Read
+>572	Identifier	GF_Read
+>573	Argument	hSrcBand
+>574	Identifier	hSrcBand
+>575	Callee	GDALRasterIO
+>576	Identifier	GDALRasterIO
+>577	Identifier	eErr
+>578	IncDecOp	 
+>579	IncDec	++
+>580	Identifier	iY
+>581	Condition	 
+>582	AndExpression	eErr == CE_None && iY < nYSize
+>583	RelationalExpression	iY < nYSize
+>584	Identifier	nYSize
+>585	Identifier	iY
+>586	EqualityExpression	eErr == CE_None
+>587	Identifier	CE_None
+>588	Identifier	eErr
+>589	ForInit	 
+>590	AssignmentExpr	iY = 0
+>591	PrimaryExpression	0
+>592	Identifier	iY
+>593	ExpressionStatement	 
+>594	CallExpression	oSecondEnum . Clear ( )
+>595	ArgumentList	 
+>596	Callee	oSecondEnum . Clear
+>597	MemberAccess	oSecondEnum . Clear
+>598	Identifier	Clear
+>599	Identifier	oSecondEnum
+>600	ExpressionStatement	 
+>601	CallExpression	CPLDebug ( \"GDALSieveFilter\" , \"Small Polygons
+>602	ArgumentList	\"GDALSieveFilter\"
+>603	Argument	nFailedMerges
+>604	Identifier	nFailedMerges
+>605	Argument	nIsolatedSmall
+>606	Identifier	nIsolatedSmall
+>607	Argument	nSieveTargets
+>608	Identifier	nSieveTargets
+>609	Argument	\"Small Polygons
+>610	PrimaryExpression	\"Small Polygons
+>611	Argument	\"GDALSieveFilter\"
+>612	PrimaryExpression	\"GDALSieveFilter\"
+>613	Callee	CPLDebug
+>614	Identifier	CPLDebug
+>615	ForStatement	for ( iPoly = 0 ; iPoly < ( int ) anPolySizes . size ( ) ; iPoly ++ )
+>616	CompoundStatement	 
+>617	ExpressionStatement	 
+>618	AssignmentExpr	anBigNeighbour [ iPoly ] = - 1
+>619	UnaryOp	- 1
+>620	PrimaryExpression	1
+>621	UnaryOperator	-
+>622	ArrayIndexing	anBigNeighbour [ iPoly ]
+>623	Identifier	iPoly
+>624	Identifier	anBigNeighbour
+>625	ExpressionStatement	 
+>626	IncDecOp	nFailedMerges ++
+>627	IncDec	++
+>628	Identifier	nFailedMerges
+>629	IfStatement	if ( anPolySizes [ anBigNeighbour [ anBigNeighbour [ iPoly ] ] ] >= nSizeThreshold )
+>630	CompoundStatement	 
+>631	ContinueStatement	 
+>632	ExpressionStatement	 
+>633	AssignmentExpr	anBigNeighbour [ iPoly ] = anBigNeighbour [ anBigNeighbour [ iPoly ] ]
+>634	ArrayIndexing	anBigNeighbour [ anBigNeighbour [ iPoly ] ]
+>635	ArrayIndexing	anBigNeighbour [ iPoly ]
+>636	Identifier	iPoly
+>637	Identifier	anBigNeighbour
+>638	Identifier	anBigNeighbour
+>639	ArrayIndexing	anBigNeighbour [ iPoly ]
+>640	Identifier	iPoly
+>641	Identifier	anBigNeighbour
+>642	Condition	 
+>643	RelationalExpression	anPolySizes [ anBigNeighbour [ anBigNeighbour [ iPoly ] ] ] >= nSizeThreshold
+>644	Identifier	nSizeThreshold
+>645	ArrayIndexing	anPolySizes [ anBigNeighbour [ anBigNeighbour [ iPoly ] ] ]
+>646	ArrayIndexing	anBigNeighbour [ anBigNeighbour [ iPoly ] ]
+>647	ArrayIndexing	anBigNeighbour [ iPoly ]
+>648	Identifier	iPoly
+>649	Identifier	anBigNeighbour
+>650	Identifier	anBigNeighbour
+>651	Identifier	anPolySizes
+>652	IfStatement	if ( anPolySizes [ anBigNeighbour [ iPoly ] ] >= nSizeThreshold )
+>653	ContinueStatement	 
+>654	Condition	 
+>655	RelationalExpression	anPolySizes [ anBigNeighbour [ iPoly ] ] >= nSizeThreshold
+>656	Identifier	nSizeThreshold
+>657	ArrayIndexing	anPolySizes [ anBigNeighbour [ iPoly ] ]
+>658	ArrayIndexing	anBigNeighbour [ iPoly ]
+>659	Identifier	iPoly
+>660	Identifier	anBigNeighbour
+>661	Identifier	anPolySizes
+>662	IfStatement	if ( anBigNeighbour [ iPoly ] == - 1 )
+>663	CompoundStatement	 
+>664	ContinueStatement	 
+>665	ExpressionStatement	 
+>666	IncDecOp	nIsolatedSmall ++
+>667	IncDec	++
+>668	Identifier	nIsolatedSmall
+>669	Condition	 
+>670	EqualityExpression	anBigNeighbour [ iPoly ] == - 1
+>671	UnaryOp	- 1
+>672	PrimaryExpression	1
+>673	UnaryOperator	-
+>674	ArrayIndexing	anBigNeighbour [ iPoly ]
+>675	Identifier	iPoly
+>676	Identifier	anBigNeighbour
+>677	ExpressionStatement	 
+>678	IncDecOp	nSieveTargets ++
+>679	IncDec	++
+>680	Identifier	nSieveTargets
+>681	IfStatement	if ( anPolySizes [ iPoly ] >= nSizeThreshold )
+>682	CompoundStatement	 
+>683	ContinueStatement	 
+>684	ExpressionStatement	 
+>685	AssignmentExpr	anBigNeighbour [ iPoly ] = - 1
+>686	UnaryOp	- 1
+>687	PrimaryExpression	1
+>688	UnaryOperator	-
+>689	ArrayIndexing	anBigNeighbour [ iPoly ]
+>690	Identifier	iPoly
+>691	Identifier	anBigNeighbour
+>692	Condition	 
+>693	RelationalExpression	anPolySizes [ iPoly ] >= nSizeThreshold
+>694	Identifier	nSizeThreshold
+>695	ArrayIndexing	anPolySizes [ iPoly ]
+>696	Identifier	iPoly
+>697	Identifier	anPolySizes
+>698	IfStatement	if ( oFirstEnum . panPolyValue [ iPoly ] == GP_NODATA_MARKER )
+>699	ContinueStatement	 
+>700	Condition	 
+>701	EqualityExpression	oFirstEnum . panPolyValue [ iPoly ] == GP_NODATA_MARKER
+>702	Identifier	GP_NODATA_MARKER
+>703	ArrayIndexing	oFirstEnum . panPolyValue [ iPoly ]
+>704	Identifier	iPoly
+>705	MemberAccess	oFirstEnum . panPolyValue
+>706	Identifier	panPolyValue
+>707	Identifier	oFirstEnum
+>708	IfStatement	if ( oFirstEnum . panPolyIdMap [ iPoly ] != iPoly )
+>709	ContinueStatement	 
+>710	Condition	 
+>711	EqualityExpression	oFirstEnum . panPolyIdMap [ iPoly ] != iPoly
+>712	Identifier	iPoly
+>713	ArrayIndexing	oFirstEnum . panPolyIdMap [ iPoly ]
+>714	Identifier	iPoly
+>715	MemberAccess	oFirstEnum . panPolyIdMap
+>716	Identifier	panPolyIdMap
+>717	Identifier	oFirstEnum
+>718	IncDecOp	 
+>719	IncDec	++
+>720	Identifier	iPoly
+>721	Condition	 
+>722	RelationalExpression	iPoly < ( int ) anPolySizes . size ( )
+>723	CastExpression	( int ) anPolySizes . size ( )
+>724	CallExpression	anPolySizes . size ( )
+>725	ArgumentList	 
+>726	Callee	anPolySizes . size
+>727	MemberAccess	anPolySizes . size
+>728	Identifier	size
+>729	Identifier	anPolySizes
+>730	CastTarget	int
+>731	Identifier	iPoly
+>732	ForInit	 
+>733	AssignmentExpr	iPoly = 0
+>734	PrimaryExpression	0
+>735	Identifier	iPoly
+>736	IdentifierDeclStatement	 
+>737	IdentifierDecl	nSieveTargets = 0
+>738	AssignmentExpr	nSieveTargets = 0
+>739	PrimaryExpression	0
+>740	Identifier	nSieveTargets
+>741	Identifier	nSieveTargets
+>742	IdentifierDeclType	int
+>743	IdentifierDeclStatement	 
+>744	IdentifierDecl	nIsolatedSmall = 0
+>745	AssignmentExpr	nIsolatedSmall = 0
+>746	PrimaryExpression	0
+>747	Identifier	nIsolatedSmall
+>748	Identifier	nIsolatedSmall
+>749	IdentifierDeclType	int
+>750	IdentifierDeclStatement	 
+>751	IdentifierDecl	nFailedMerges = 0
+>752	AssignmentExpr	nFailedMerges = 0
+>753	PrimaryExpression	0
+>754	Identifier	nFailedMerges
+>755	Identifier	nFailedMerges
+>756	IdentifierDeclType	int
+>757	ForStatement	for ( iY = 0 ; eErr == CE_None && iY < nYSize ; iY ++ )
+>758	CompoundStatement	 
+>759	IfStatement	if ( eErr == CE_None && ! pfnProgress ( 0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg ) )
+>760	CompoundStatement	 
+>761	ExpressionStatement	 
+>762	AssignmentExpr	eErr = CE_Failure
+>763	Identifier	CE_Failure
+>764	Identifier	eErr
+>765	ExpressionStatement	 
+>766	CallExpression	CPLError ( CE_Failure , CPLE_UserInterrupt , \"User terminated\" )
+>767	ArgumentList	CE_Failure
+>768	Argument	\"User terminated\"
+>769	PrimaryExpression	\"User terminated\"
+>770	Argument	CPLE_UserInterrupt
+>771	Identifier	CPLE_UserInterrupt
+>772	Argument	CE_Failure
+>773	Identifier	CE_Failure
+>774	Callee	CPLError
+>775	Identifier	CPLError
+>776	Condition	 
+>777	AndExpression	eErr == CE_None && ! pfnProgress ( 0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>778	UnaryOp	! pfnProgress ( 0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>779	CallExpression	pfnProgress ( 0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>780	ArgumentList	0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>781	Argument	pProgressArg
+>782	Identifier	pProgressArg
+>783	Argument	\"\"
+>784	PrimaryExpression	\"\"
+>785	Argument	0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>786	AdditiveExpression	0.25 + 0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>787	MultiplicativeExpression	0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>788	MultiplicativeExpression	( iY + 1 ) / ( double ) nYSize
+>789	CastExpression	( double ) nYSize
+>790	Identifier	nYSize
+>791	CastTarget	double
+>792	AdditiveExpression	iY + 1
+>793	PrimaryExpression	1
+>794	Identifier	iY
+>795	PrimaryExpression	0.25
+>796	PrimaryExpression	0.25
+>797	Callee	pfnProgress
+>798	Identifier	pfnProgress
+>799	UnaryOperator	!
+>800	EqualityExpression	eErr == CE_None
+>801	Identifier	CE_None
+>802	Identifier	eErr
+>803	ExpressionStatement	 
+>804	AssignmentExpr	panLastLineId = panTmp
+>805	Identifier	panTmp
+>806	Identifier	panLastLineId
+>807	ExpressionStatement	 
+>808	AssignmentExpr	panThisLineId = panLastLineId
+>809	Identifier	panLastLineId
+>810	Identifier	panThisLineId
+>811	ExpressionStatement	 
+>812	AssignmentExpr	panTmp = panThisLineId
+>813	Identifier	panThisLineId
+>814	Identifier	panTmp
+>815	ExpressionStatement	 
+>816	AssignmentExpr	panThisLineVal = panTmp
+>817	Identifier	panTmp
+>818	Identifier	panThisLineVal
+>819	ExpressionStatement	 
+>820	AssignmentExpr	panLastLineVal = panThisLineVal
+>821	Identifier	panThisLineVal
+>822	Identifier	panLastLineVal
+>823	IdentifierDeclStatement	 
+>824	IdentifierDecl	* panTmp = panLastLineVal
+>825	AssignmentExpr	* panTmp = panLastLineVal
+>826	Identifier	panLastLineVal
+>827	Identifier	panLastLineVal
+>828	Identifier	panTmp
+>829	IdentifierDeclType	GInt32 *
+>830	ForStatement	for ( iX = 0 ; iX < nXSize ; iX ++ )
+>831	CompoundStatement	 
+>832	IfStatement	if ( iX > 0 )
+>833	ExpressionStatement	 
+>834	CallExpression	CompareNeighbour ( panThisLineId [ iX ] , panThisLineId [ iX - 1 ] , oFirstEnum . panPolyIdMap , oFirstEnum . panPolyValue , \
+>835	ArgumentList	panThisLineId [ iX ]
+>836	Argument	anBigNeighbour
+>837	Identifier	anBigNeighbour
+>838	Argument	anPolySizes
+>839	Identifier	anPolySizes
+>840	Argument	oFirstEnum . panPolyValue
+>841	MemberAccess	oFirstEnum . panPolyValue
+>842	Identifier	panPolyValue
+>843	Identifier	oFirstEnum
+>844	Argument	oFirstEnum . panPolyIdMap
+>845	MemberAccess	oFirstEnum . panPolyIdMap
+>846	Identifier	panPolyIdMap
+>847	Identifier	oFirstEnum
+>848	Argument	panThisLineId [ iX - 1 ]
+>849	ArrayIndexing	panThisLineId [ iX - 1 ]
+>850	AdditiveExpression	iX - 1
+>851	PrimaryExpression	1
+>852	Identifier	iX
+>853	Identifier	panThisLineId
+>854	Argument	panThisLineId [ iX ]
+>855	ArrayIndexing	panThisLineId [ iX ]
+>856	Identifier	iX
+>857	Identifier	panThisLineId
+>858	Callee	CompareNeighbour
+>859	Identifier	CompareNeighbour
+>860	Condition	 
+>861	RelationalExpression	iX > 0
+>862	PrimaryExpression	0
+>863	Identifier	iX
+>864	IfStatement	if ( iY > 0 )
+>865	CompoundStatement	 
+>866	IfStatement	if ( iX < nXSize - 1 && nConnectedness == 8 )
+>867	ExpressionStatement	 
+>868	CallExpression	CompareNeighbour ( panThisLineId [ iX ] , panLastLineId [ iX + 1 ] , oFirstEnum . panPolyIdMap , oFirstEnum . panPolyValue , \
+>869	ArgumentList	panThisLineId [ iX ]
+>870	Argument	anBigNeighbour
+>871	Identifier	anBigNeighbour
+>872	Argument	anPolySizes
+>873	Identifier	anPolySizes
+>874	Argument	oFirstEnum . panPolyValue
+>875	MemberAccess	oFirstEnum . panPolyValue
+>876	Identifier	panPolyValue
+>877	Identifier	oFirstEnum
+>878	Argument	oFirstEnum . panPolyIdMap
+>879	MemberAccess	oFirstEnum . panPolyIdMap
+>880	Identifier	panPolyIdMap
+>881	Identifier	oFirstEnum
+>882	Argument	panLastLineId [ iX + 1 ]
+>883	ArrayIndexing	panLastLineId [ iX + 1 ]
+>884	AdditiveExpression	iX + 1
+>885	PrimaryExpression	1
+>886	Identifier	iX
+>887	Identifier	panLastLineId
+>888	Argument	panThisLineId [ iX ]
+>889	ArrayIndexing	panThisLineId [ iX ]
+>890	Identifier	iX
+>891	Identifier	panThisLineId
+>892	Callee	CompareNeighbour
+>893	Identifier	CompareNeighbour
+>894	Condition	 
+>895	AndExpression	iX < nXSize - 1 && nConnectedness == 8
+>896	EqualityExpression	nConnectedness == 8
+>897	PrimaryExpression	8
+>898	Identifier	nConnectedness
+>899	RelationalExpression	iX < nXSize - 1
+>900	AdditiveExpression	nXSize - 1
+>901	PrimaryExpression	1
+>902	Identifier	nXSize
+>903	Identifier	iX
+>904	IfStatement	if ( iX > 0 && nConnectedness == 8 )
+>905	ExpressionStatement	 
+>906	CallExpression	CompareNeighbour ( panThisLineId [ iX ] , panLastLineId [ iX - 1 ] , oFirstEnum . panPolyIdMap , oFirstEnum . panPolyValue , \
+>907	ArgumentList	panThisLineId [ iX ]
+>908	Argument	anBigNeighbour
+>909	Identifier	anBigNeighbour
+>910	Argument	anPolySizes
+>911	Identifier	anPolySizes
+>912	Argument	oFirstEnum . panPolyValue
+>913	MemberAccess	oFirstEnum . panPolyValue
+>914	Identifier	panPolyValue
+>915	Identifier	oFirstEnum
+>916	Argument	oFirstEnum . panPolyIdMap
+>917	MemberAccess	oFirstEnum . panPolyIdMap
+>918	Identifier	panPolyIdMap
+>919	Identifier	oFirstEnum
+>920	Argument	panLastLineId [ iX - 1 ]
+>921	ArrayIndexing	panLastLineId [ iX - 1 ]
+>922	AdditiveExpression	iX - 1
+>923	PrimaryExpression	1
+>924	Identifier	iX
+>925	Identifier	panLastLineId
+>926	Argument	panThisLineId [ iX ]
+>927	ArrayIndexing	panThisLineId [ iX ]
+>928	Identifier	iX
+>929	Identifier	panThisLineId
+>930	Callee	CompareNeighbour
+>931	Identifier	CompareNeighbour
+>932	Condition	 
+>933	AndExpression	iX > 0 && nConnectedness == 8
+>934	EqualityExpression	nConnectedness == 8
+>935	PrimaryExpression	8
+>936	Identifier	nConnectedness
+>937	RelationalExpression	iX > 0
+>938	PrimaryExpression	0
+>939	Identifier	iX
+>940	ExpressionStatement	 
+>941	CallExpression	CompareNeighbour ( panThisLineId [ iX ] , panLastLineId [ iX ] , oFirstEnum . panPolyIdMap , oFirstEnum . panPolyValue , \
+>942	ArgumentList	panThisLineId [ iX ]
+>943	Argument	anBigNeighbour
+>944	Identifier	anBigNeighbour
+>945	Argument	anPolySizes
+>946	Identifier	anPolySizes
+>947	Argument	oFirstEnum . panPolyValue
+>948	MemberAccess	oFirstEnum . panPolyValue
+>949	Identifier	panPolyValue
+>950	Identifier	oFirstEnum
+>951	Argument	oFirstEnum . panPolyIdMap
+>952	MemberAccess	oFirstEnum . panPolyIdMap
+>953	Identifier	panPolyIdMap
+>954	Identifier	oFirstEnum
+>955	Argument	panLastLineId [ iX ]
+>956	ArrayIndexing	panLastLineId [ iX ]
+>957	Identifier	iX
+>958	Identifier	panLastLineId
+>959	Argument	panThisLineId [ iX ]
+>960	ArrayIndexing	panThisLineId [ iX ]
+>961	Identifier	iX
+>962	Identifier	panThisLineId
+>963	Callee	CompareNeighbour
+>964	Identifier	CompareNeighbour
+>965	Condition	 
+>966	RelationalExpression	iY > 0
+>967	PrimaryExpression	0
+>968	Identifier	iY
+>969	IncDecOp	 
+>970	IncDec	++
+>971	Identifier	iX
+>972	Condition	 
+>973	RelationalExpression	iX < nXSize
+>974	Identifier	nXSize
+>975	Identifier	iX
+>976	ForInit	 
+>977	AssignmentExpr	iX = 0
+>978	PrimaryExpression	0
+>979	Identifier	iX
+>980	IfStatement	if ( iY == 0 )
+>981	ElseStatement	else
+>982	ExpressionStatement	 
+>983	CallExpression	oSecondEnum . ProcessLine ( panLastLineVal , panThisLineVal , panLastLineId , panThisLineId , nXSize )
+>984	ArgumentList	panLastLineVal
+>985	Argument	nXSize
+>986	Identifier	nXSize
+>987	Argument	panThisLineId
+>988	Identifier	panThisLineId
+>989	Argument	panLastLineId
+>990	Identifier	panLastLineId
+>991	Argument	panThisLineVal
+>992	Identifier	panThisLineVal
+>993	Argument	panLastLineVal
+>994	Identifier	panLastLineVal
+>995	Callee	oSecondEnum . ProcessLine
+>996	MemberAccess	oSecondEnum . ProcessLine
+>997	Identifier	ProcessLine
+>998	Identifier	oSecondEnum
+>999	ExpressionStatement	 
+>1000	CallExpression	oSecondEnum . ProcessLine ( NULL , panThisLineVal , NULL , panThisLineId , nXSize )
+>1001	ArgumentList	NULL
+>1002	Argument	nXSize
+>1003	Identifier	nXSize
+>1004	Argument	panThisLineId
+>1005	Identifier	panThisLineId
+>1006	Argument	NULL
+>1007	Identifier	NULL
+>1008	Argument	panThisLineVal
+>1009	Identifier	panThisLineVal
+>1010	Argument	NULL
+>1011	Identifier	NULL
+>1012	Callee	oSecondEnum . ProcessLine
+>1013	MemberAccess	oSecondEnum . ProcessLine
+>1014	Identifier	ProcessLine
+>1015	Identifier	oSecondEnum
+>1016	Condition	 
+>1017	EqualityExpression	iY == 0
+>1018	PrimaryExpression	0
+>1019	Identifier	iY
+>1020	IfStatement	if ( eErr != CE_None )
+>1021	ContinueStatement	 
+>1022	Condition	 
+>1023	EqualityExpression	eErr != CE_None
+>1024	Identifier	CE_None
+>1025	Identifier	eErr
+>1026	IfStatement	if ( eErr == CE_None && hMaskBand != NULL )
+>1027	ExpressionStatement	 
+>1028	AssignmentExpr	eErr = GPMaskImageData ( hMaskBand , pabyMaskLine , iY , nXSize , panThisLineVal )
+>1029	CallExpression	GPMaskImageData ( hMaskBand , pabyMaskLine , iY , nXSize , panThisLineVal )
+>1030	ArgumentList	hMaskBand
+>1031	Argument	panThisLineVal
+>1032	Identifier	panThisLineVal
+>1033	Argument	nXSize
+>1034	Identifier	nXSize
+>1035	Argument	iY
+>1036	Identifier	iY
+>1037	Argument	pabyMaskLine
+>1038	Identifier	pabyMaskLine
+>1039	Argument	hMaskBand
+>1040	Identifier	hMaskBand
+>1041	Callee	GPMaskImageData
+>1042	Identifier	GPMaskImageData
+>1043	Identifier	eErr
+>1044	Condition	 
+>1045	AndExpression	eErr == CE_None && hMaskBand != NULL
+>1046	EqualityExpression	hMaskBand != NULL
+>1047	Identifier	NULL
+>1048	Identifier	hMaskBand
+>1049	EqualityExpression	eErr == CE_None
+>1050	Identifier	CE_None
+>1051	Identifier	eErr
+>1052	ExpressionStatement	 
+>1053	AssignmentExpr	eErr = GDALRasterIO ( hSrcBand , GF_Read , 0 , iY , nXSize , 1 , panThisLineVal , nXSize , 1 , GDT_Int32 , \
+>1054	CallExpression	GDALRasterIO ( hSrcBand , GF_Read , 0 , iY , nXSize , 1 , panThisLineVal , nXSize , 1 , GDT_Int32 , 0 , 0 )
+>1055	ArgumentList	hSrcBand
+>1056	Argument	0
+>1057	PrimaryExpression	0
+>1058	Argument	0
+>1059	PrimaryExpression	0
+>1060	Argument	GDT_Int32
+>1061	Identifier	GDT_Int32
+>1062	Argument	1
+>1063	PrimaryExpression	1
+>1064	Argument	nXSize
+>1065	Identifier	nXSize
+>1066	Argument	panThisLineVal
+>1067	Identifier	panThisLineVal
+>1068	Argument	1
+>1069	PrimaryExpression	1
+>1070	Argument	nXSize
+>1071	Identifier	nXSize
+>1072	Argument	iY
+>1073	Identifier	iY
+>1074	Argument	0
+>1075	PrimaryExpression	0
+>1076	Argument	GF_Read
+>1077	Identifier	GF_Read
+>1078	Argument	hSrcBand
+>1079	Identifier	hSrcBand
+>1080	Callee	GDALRasterIO
+>1081	Identifier	GDALRasterIO
+>1082	Identifier	eErr
+>1083	IncDecOp	 
+>1084	IncDec	++
+>1085	Identifier	iY
+>1086	Condition	 
+>1087	AndExpression	eErr == CE_None && iY < nYSize
+>1088	RelationalExpression	iY < nYSize
+>1089	Identifier	nYSize
+>1090	Identifier	iY
+>1091	EqualityExpression	eErr == CE_None
+>1092	Identifier	CE_None
+>1093	Identifier	eErr
+>1094	ForInit	 
+>1095	AssignmentExpr	iY = 0
+>1096	PrimaryExpression	0
+>1097	Identifier	iY
+>1098	ForStatement	for ( iPoly = 0 ; iPoly < ( int ) anPolySizes . size ( ) ; iPoly ++ )
+>1099	ExpressionStatement	 
+>1100	AssignmentExpr	anBigNeighbour [ iPoly ] = - 1
+>1101	UnaryOp	- 1
+>1102	PrimaryExpression	1
+>1103	UnaryOperator	-
+>1104	ArrayIndexing	anBigNeighbour [ iPoly ]
+>1105	Identifier	iPoly
+>1106	Identifier	anBigNeighbour
+>1107	IncDecOp	 
+>1108	IncDec	++
+>1109	Identifier	iPoly
+>1110	Condition	 
+>1111	RelationalExpression	iPoly < ( int ) anPolySizes . size ( )
+>1112	CastExpression	( int ) anPolySizes . size ( )
+>1113	CallExpression	anPolySizes . size ( )
+>1114	ArgumentList	 
+>1115	Callee	anPolySizes . size
+>1116	MemberAccess	anPolySizes . size
+>1117	Identifier	size
+>1118	Identifier	anPolySizes
+>1119	CastTarget	int
+>1120	Identifier	iPoly
+>1121	ForInit	 
+>1122	AssignmentExpr	iPoly = 0
+>1123	PrimaryExpression	0
+>1124	Identifier	iPoly
+>1125	ExpressionStatement	 
+>1126	CallExpression	anBigNeighbour . resize ( anPolySizes . size ( ) )
+>1127	ArgumentList	anPolySizes . size ( )
+>1128	Argument	anPolySizes . size ( )
+>1129	CallExpression	anPolySizes . size ( )
+>1130	ArgumentList	 
+>1131	Callee	anPolySizes . size
+>1132	MemberAccess	anPolySizes . size
+>1133	Identifier	size
+>1134	Identifier	anPolySizes
+>1135	Callee	anBigNeighbour . resize
+>1136	MemberAccess	anBigNeighbour . resize
+>1137	Identifier	resize
+>1138	Identifier	anBigNeighbour
+>1139	IdentifierDeclStatement	 
+>1140	IdentifierDecl	anBigNeighbour
+>1141	Identifier	anBigNeighbour
+>1142	IdentifierDeclType	std 
+>1143	IdentifierDeclStatement	 
+>1144	IdentifierDecl	oSecondEnum ( nConnectedness )
+>1145	Identifier	nConnectedness
+>1146	Identifier	oSecondEnum
+>1147	IdentifierDeclType	GDALRasterPolygonEnumerator
+>1148	ForStatement	for ( iPoly = 0 ; iPoly < oFirstEnum . nNextPolygonId ; iPoly ++ )
+>1149	CompoundStatement	 
+>1150	IfStatement	if ( oFirstEnum . panPolyIdMap [ iPoly ] != iPoly )
+>1151	CompoundStatement	 
+>1152	ExpressionStatement	 
+>1153	AssignmentExpr	anPolySizes [ iPoly ] = 0
+>1154	PrimaryExpression	0
+>1155	ArrayIndexing	anPolySizes [ iPoly ]
+>1156	Identifier	iPoly
+>1157	Identifier	anPolySizes
+>1158	ExpressionStatement	 
+>1159	AssignmentExpr	anPolySizes [ oFirstEnum . panPolyIdMap [ iPoly ] ] = ( int ) nSize
+>1160	CastExpression	( int ) nSize
+>1161	Identifier	nSize
+>1162	CastTarget	int
+>1163	ArrayIndexing	anPolySizes [ oFirstEnum . panPolyIdMap [ iPoly ] ]
+>1164	ArrayIndexing	oFirstEnum . panPolyIdMap [ iPoly ]
+>1165	Identifier	iPoly
+>1166	MemberAccess	oFirstEnum . panPolyIdMap
+>1167	Identifier	panPolyIdMap
+>1168	Identifier	oFirstEnum
+>1169	Identifier	anPolySizes
+>1170	IfStatement	if ( nSize > MY_MAX_INT )
+>1171	ExpressionStatement	 
+>1172	AssignmentExpr	nSize = MY_MAX_INT
+>1173	Identifier	MY_MAX_INT
+>1174	Identifier	nSize
+>1175	Condition	 
+>1176	RelationalExpression	nSize > MY_MAX_INT
+>1177	Identifier	MY_MAX_INT
+>1178	Identifier	nSize
+>1179	ExpressionStatement	 
+>1180	AssignmentExpr	nSize += anPolySizes [ iPoly ]
+>1181	ArrayIndexing	anPolySizes [ iPoly ]
+>1182	Identifier	iPoly
+>1183	Identifier	anPolySizes
+>1184	Identifier	nSize
+>1185	IdentifierDeclStatement	 
+>1186	IdentifierDecl	nSize = anPolySizes [ oFirstEnum . panPolyIdMap [ iPoly ] ]
+>1187	AssignmentExpr	nSize = anPolySizes [ oFirstEnum . panPolyIdMap [ iPoly ] ]
+>1188	ArrayIndexing	anPolySizes [ oFirstEnum . panPolyIdMap [ iPoly ] ]
+>1189	ArrayIndexing	oFirstEnum . panPolyIdMap [ iPoly ]
+>1190	Identifier	iPoly
+>1191	MemberAccess	oFirstEnum . panPolyIdMap
+>1192	Identifier	panPolyIdMap
+>1193	Identifier	oFirstEnum
+>1194	Identifier	anPolySizes
+>1195	Identifier	nSize
+>1196	Identifier	nSize
+>1197	IdentifierDeclType	GIntBig
+>1198	Condition	 
+>1199	EqualityExpression	oFirstEnum . panPolyIdMap [ iPoly ] != iPoly
+>1200	Identifier	iPoly
+>1201	ArrayIndexing	oFirstEnum . panPolyIdMap [ iPoly ]
+>1202	Identifier	iPoly
+>1203	MemberAccess	oFirstEnum . panPolyIdMap
+>1204	Identifier	panPolyIdMap
+>1205	Identifier	oFirstEnum
+>1206	IncDecOp	 
+>1207	IncDec	++
+>1208	Identifier	iPoly
+>1209	Condition	 
+>1210	RelationalExpression	iPoly < oFirstEnum . nNextPolygonId
+>1211	MemberAccess	oFirstEnum . nNextPolygonId
+>1212	Identifier	nNextPolygonId
+>1213	Identifier	oFirstEnum
+>1214	Identifier	iPoly
+>1215	ForInit	 
+>1216	AssignmentExpr	iPoly = 0
+>1217	PrimaryExpression	0
+>1218	Identifier	iPoly
+>1219	ExpressionStatement	 
+>1220	CallExpression	oFirstEnum . CompleteMerges ( )
+>1221	ArgumentList	 
+>1222	Callee	oFirstEnum . CompleteMerges
+>1223	MemberAccess	oFirstEnum . CompleteMerges
+>1224	Identifier	CompleteMerges
+>1225	Identifier	oFirstEnum
+>1226	ForStatement	for ( iY = 0 ; eErr == CE_None && iY < nYSize ; iY ++ )
+>1227	CompoundStatement	 
+>1228	IfStatement	if ( eErr == CE_None && ! pfnProgress ( 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg ) )
+>1229	CompoundStatement	 
+>1230	ExpressionStatement	 
+>1231	AssignmentExpr	eErr = CE_Failure
+>1232	Identifier	CE_Failure
+>1233	Identifier	eErr
+>1234	ExpressionStatement	 
+>1235	CallExpression	CPLError ( CE_Failure , CPLE_UserInterrupt , \"User terminated\" )
+>1236	ArgumentList	CE_Failure
+>1237	Argument	\"User terminated\"
+>1238	PrimaryExpression	\"User terminated\"
+>1239	Argument	CPLE_UserInterrupt
+>1240	Identifier	CPLE_UserInterrupt
+>1241	Argument	CE_Failure
+>1242	Identifier	CE_Failure
+>1243	Callee	CPLError
+>1244	Identifier	CPLError
+>1245	Condition	 
+>1246	AndExpression	eErr == CE_None && ! pfnProgress ( 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>1247	UnaryOp	! pfnProgress ( 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>1248	CallExpression	pfnProgress ( 0.25 * ( ( iY + 1 ) / ( double ) nYSize ) , \"\" , pProgressArg )
+>1249	ArgumentList	0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>1250	Argument	pProgressArg
+>1251	Identifier	pProgressArg
+>1252	Argument	\"\"
+>1253	PrimaryExpression	\"\"
+>1254	Argument	0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>1255	MultiplicativeExpression	0.25 * ( ( iY + 1 ) / ( double ) nYSize )
+>1256	MultiplicativeExpression	( iY + 1 ) / ( double ) nYSize
+>1257	CastExpression	( double ) nYSize
+>1258	Identifier	nYSize
+>1259	CastTarget	double
+>1260	AdditiveExpression	iY + 1
+>1261	PrimaryExpression	1
+>1262	Identifier	iY
+>1263	PrimaryExpression	0.25
+>1264	Callee	pfnProgress
+>1265	Identifier	pfnProgress
+>1266	UnaryOperator	!
+>1267	EqualityExpression	eErr == CE_None
+>1268	Identifier	CE_None
+>1269	Identifier	eErr
+>1270	ExpressionStatement	 
+>1271	AssignmentExpr	panLastLineId = panTmp
+>1272	Identifier	panTmp
+>1273	Identifier	panLastLineId
+>1274	ExpressionStatement	 
+>1275	AssignmentExpr	panThisLineId = panLastLineId
+>1276	Identifier	panLastLineId
+>1277	Identifier	panThisLineId
+>1278	ExpressionStatement	 
+>1279	AssignmentExpr	panTmp = panThisLineId
+>1280	Identifier	panThisLineId
+>1281	Identifier	panTmp
+>1282	ExpressionStatement	 
+>1283	AssignmentExpr	panThisLineVal = panTmp
+>1284	Identifier	panTmp
+>1285	Identifier	panThisLineVal
+>1286	ExpressionStatement	 
+>1287	AssignmentExpr	panLastLineVal = panThisLineVal
+>1288	Identifier	panThisLineVal
+>1289	Identifier	panLastLineVal
+>1290	IdentifierDeclStatement	 
+>1291	IdentifierDecl	* panTmp = panLastLineVal
+>1292	AssignmentExpr	* panTmp = panLastLineVal
+>1293	Identifier	panLastLineVal
+>1294	Identifier	panLastLineVal
+>1295	Identifier	panTmp
+>1296	IdentifierDeclType	GInt32 *
+>1297	ForStatement	for ( iX = 0 ; iX < nXSize ; iX ++ )
+>1298	CompoundStatement	 
+>1299	IfStatement	if ( anPolySizes [ iPoly ] < MY_MAX_INT )
+>1300	ExpressionStatement	 
+>1301	AssignmentExpr	anPolySizes [ iPoly ] += 1
+>1302	PrimaryExpression	1
+>1303	ArrayIndexing	anPolySizes [ iPoly ]
+>1304	Identifier	iPoly
+>1305	Identifier	anPolySizes
+>1306	Condition	 
+>1307	RelationalExpression	anPolySizes [ iPoly ] < MY_MAX_INT
+>1308	Identifier	MY_MAX_INT
+>1309	ArrayIndexing	anPolySizes [ iPoly ]
+>1310	Identifier	iPoly
+>1311	Identifier	anPolySizes
+>1312	ExpressionStatement	 
+>1313	CallExpression	CPLAssert ( iPoly >= 0 )
+>1314	ArgumentList	iPoly >= 0
+>1315	Argument	iPoly >= 0
+>1316	RelationalExpression	iPoly >= 0
+>1317	PrimaryExpression	0
+>1318	Identifier	iPoly
+>1319	Callee	CPLAssert
+>1320	Identifier	CPLAssert
+>1321	ExpressionStatement	 
+>1322	AssignmentExpr	iPoly = panThisLineId [ iX ]
+>1323	ArrayIndexing	panThisLineId [ iX ]
+>1324	Identifier	iX
+>1325	Identifier	panThisLineId
+>1326	Identifier	iPoly
+>1327	IncDecOp	 
+>1328	IncDec	++
+>1329	Identifier	iX
+>1330	Condition	 
+>1331	RelationalExpression	iX < nXSize
+>1332	Identifier	nXSize
+>1333	Identifier	iX
+>1334	ForInit	 
+>1335	AssignmentExpr	iX = 0
+>1336	PrimaryExpression	0
+>1337	Identifier	iX
+>1338	IfStatement	if ( oFirstEnum . nNextPolygonId > ( int ) anPolySizes . size ( ) )
+>1339	ExpressionStatement	 
+>1340	CallExpression	anPolySizes . resize ( oFirstEnum . nNextPolygonId )
+>1341	ArgumentList	oFirstEnum . nNextPolygonId
+>1342	Argument	oFirstEnum . nNextPolygonId
+>1343	MemberAccess	oFirstEnum . nNextPolygonId
+>1344	Identifier	nNextPolygonId
+>1345	Identifier	oFirstEnum
+>1346	Callee	anPolySizes . resize
+>1347	MemberAccess	anPolySizes . resize
+>1348	Identifier	resize
+>1349	Identifier	anPolySizes
+>1350	Condition	 
+>1351	RelationalExpression	oFirstEnum . nNextPolygonId > ( int ) anPolySizes . size ( )
+>1352	CastExpression	( int ) anPolySizes . size ( )
+>1353	CallExpression	anPolySizes . size ( )
+>1354	ArgumentList	 
+>1355	Callee	anPolySizes . size
+>1356	MemberAccess	anPolySizes . size
+>1357	Identifier	size
+>1358	Identifier	anPolySizes
+>1359	CastTarget	int
+>1360	MemberAccess	oFirstEnum . nNextPolygonId
+>1361	Identifier	nNextPolygonId
+>1362	Identifier	oFirstEnum
+>1363	IfStatement	if ( iY == 0 )
+>1364	ElseStatement	else
+>1365	ExpressionStatement	 
+>1366	CallExpression	oFirstEnum . ProcessLine ( panLastLineVal , panThisLineVal , panLastLineId , panThisLineId , nXSize )
+>1367	ArgumentList	panLastLineVal
+>1368	Argument	nXSize
+>1369	Identifier	nXSize
+>1370	Argument	panThisLineId
+>1371	Identifier	panThisLineId
+>1372	Argument	panLastLineId
+>1373	Identifier	panLastLineId
+>1374	Argument	panThisLineVal
+>1375	Identifier	panThisLineVal
+>1376	Argument	panLastLineVal
+>1377	Identifier	panLastLineVal
+>1378	Callee	oFirstEnum . ProcessLine
+>1379	MemberAccess	oFirstEnum . ProcessLine
+>1380	Identifier	ProcessLine
+>1381	Identifier	oFirstEnum
+>1382	ExpressionStatement	 
+>1383	CallExpression	oFirstEnum . ProcessLine ( NULL , panThisLineVal , NULL , panThisLineId , nXSize )
+>1384	ArgumentList	NULL
+>1385	Argument	nXSize
+>1386	Identifier	nXSize
+>1387	Argument	panThisLineId
+>1388	Identifier	panThisLineId
+>1389	Argument	NULL
+>1390	Identifier	NULL
+>1391	Argument	panThisLineVal
+>1392	Identifier	panThisLineVal
+>1393	Argument	NULL
+>1394	Identifier	NULL
+>1395	Callee	oFirstEnum . ProcessLine
+>1396	MemberAccess	oFirstEnum . ProcessLine
+>1397	Identifier	ProcessLine
+>1398	Identifier	oFirstEnum
+>1399	Condition	 
+>1400	EqualityExpression	iY == 0
+>1401	PrimaryExpression	0
+>1402	Identifier	iY
+>1403	IfStatement	if ( eErr == CE_None && hMaskBand != NULL )
+>1404	ExpressionStatement	 
+>1405	AssignmentExpr	eErr = GPMaskImageData ( hMaskBand , pabyMaskLine , iY , nXSize , panThisLineVal )
+>1406	CallExpression	GPMaskImageData ( hMaskBand , pabyMaskLine , iY , nXSize , panThisLineVal )
+>1407	ArgumentList	hMaskBand
+>1408	Argument	panThisLineVal
+>1409	Identifier	panThisLineVal
+>1410	Argument	nXSize
+>1411	Identifier	nXSize
+>1412	Argument	iY
+>1413	Identifier	iY
+>1414	Argument	pabyMaskLine
+>1415	Identifier	pabyMaskLine
+>1416	Argument	hMaskBand
+>1417	Identifier	hMaskBand
+>1418	Callee	GPMaskImageData
+>1419	Identifier	GPMaskImageData
+>1420	Identifier	eErr
+>1421	Condition	 
+>1422	AndExpression	eErr == CE_None && hMaskBand != NULL
+>1423	EqualityExpression	hMaskBand != NULL
+>1424	Identifier	NULL
+>1425	Identifier	hMaskBand
+>1426	EqualityExpression	eErr == CE_None
+>1427	Identifier	CE_None
+>1428	Identifier	eErr
+>1429	ExpressionStatement	 
+>1430	AssignmentExpr	eErr = GDALRasterIO ( hSrcBand , GF_Read , 0 , iY , nXSize , 1 , panThisLineVal , nXSize , 1 , GDT_Int32 , \
+>1431	CallExpression	GDALRasterIO ( hSrcBand , GF_Read , 0 , iY , nXSize , 1 , panThisLineVal , nXSize , 1 , GDT_Int32 , 0 , 0 )
+>1432	ArgumentList	hSrcBand
+>1433	Argument	0
+>1434	PrimaryExpression	0
+>1435	Argument	0
+>1436	PrimaryExpression	0
+>1437	Argument	GDT_Int32
+>1438	Identifier	GDT_Int32
+>1439	Argument	1
+>1440	PrimaryExpression	1
+>1441	Argument	nXSize
+>1442	Identifier	nXSize
+>1443	Argument	panThisLineVal
+>1444	Identifier	panThisLineVal
+>1445	Argument	1
+>1446	PrimaryExpression	1
+>1447	Argument	nXSize
+>1448	Identifier	nXSize
+>1449	Argument	iY
+>1450	Identifier	iY
+>1451	Argument	0
+>1452	PrimaryExpression	0
+>1453	Argument	GF_Read
+>1454	Identifier	GF_Read
+>1455	Argument	hSrcBand
+>1456	Identifier	hSrcBand
+>1457	Callee	GDALRasterIO
+>1458	Identifier	GDALRasterIO
+>1459	Identifier	eErr
+>1460	IncDecOp	 
+>1461	IncDec	++
+>1462	Identifier	iY
+>1463	Condition	 
+>1464	AndExpression	eErr == CE_None && iY < nYSize
+>1465	RelationalExpression	iY < nYSize
+>1466	Identifier	nYSize
+>1467	Identifier	iY
+>1468	EqualityExpression	eErr == CE_None
+>1469	Identifier	CE_None
+>1470	Identifier	eErr
+>1471	ForInit	 
+>1472	AssignmentExpr	iY = 0
+>1473	PrimaryExpression	0
+>1474	Identifier	iY
+>1475	IdentifierDeclStatement	 
+>1476	IdentifierDecl	anPolySizes
+>1477	Identifier	anPolySizes
+>1478	IdentifierDeclType	std 
+>1479	IdentifierDeclStatement	 
+>1480	IdentifierDecl	oFirstEnum ( nConnectedness )
+>1481	Identifier	nConnectedness
+>1482	Identifier	oFirstEnum
+>1483	IdentifierDeclType	GDALRasterPolygonEnumerator
+>1484	IdentifierDeclStatement	 
+>1485	IdentifierDecl	iPoly
+>1486	Identifier	iPoly
+>1487	IdentifierDeclType	int
+>1488	IdentifierDecl	iX
+>1489	Identifier	iX
+>1490	IdentifierDeclType	int
+>1491	IdentifierDecl	iY
+>1492	Identifier	iY
+>1493	IdentifierDeclType	int
+>1494	IfStatement	if ( panLastLineVal == NULL || panThisLineVal == NULL || panLastLineId == NULL || panThisLineId == NULL || panThisLineWriteVal == \
+>1495	CompoundStatement	 
+>1496	ReturnStatement	 
+>1497	Identifier	CE_Failure
+>1498	ExpressionStatement	 
+>1499	CallExpression	CPLFree ( pabyMaskLine )
+>1500	ArgumentList	pabyMaskLine
+>1501	Argument	pabyMaskLine
+>1502	Identifier	pabyMaskLine
+>1503	Callee	CPLFree
+>1504	Identifier	CPLFree
+>1505	ExpressionStatement	 
+>1506	CallExpression	CPLFree ( panThisLineWriteVal )
+>1507	ArgumentList	panThisLineWriteVal
+>1508	Argument	panThisLineWriteVal
+>1509	Identifier	panThisLineWriteVal
+>1510	Callee	CPLFree
+>1511	Identifier	CPLFree
+>1512	ExpressionStatement	 
+>1513	CallExpression	CPLFree ( panLastLineVal )
+>1514	ArgumentList	panLastLineVal
+>1515	Argument	panLastLineVal
+>1516	Identifier	panLastLineVal
+>1517	Callee	CPLFree
+>1518	Identifier	CPLFree
+>1519	ExpressionStatement	 
+>1520	CallExpression	CPLFree ( panThisLineVal )
+>1521	ArgumentList	panThisLineVal
+>1522	Argument	panThisLineVal
+>1523	Identifier	panThisLineVal
+>1524	Callee	CPLFree
+>1525	Identifier	CPLFree
+>1526	ExpressionStatement	 
+>1527	CallExpression	CPLFree ( panLastLineId )
+>1528	ArgumentList	panLastLineId
+>1529	Argument	panLastLineId
+>1530	Identifier	panLastLineId
+>1531	Callee	CPLFree
+>1532	Identifier	CPLFree
+>1533	ExpressionStatement	 
+>1534	CallExpression	CPLFree ( panThisLineId )
+>1535	ArgumentList	panThisLineId
+>1536	Argument	panThisLineId
+>1537	Identifier	panThisLineId
+>1538	Callee	CPLFree
+>1539	Identifier	CPLFree
+>1540	ExpressionStatement	 
+>1541	CallExpression	CPLError ( CE_Failure , CPLE_OutOfMemory , \"Could not allocate enough memory for temporary buffers\" )
+>1542	ArgumentList	CE_Failure
+>1543	Argument	\"Could not allocate enough memory for temporary buffers\"
+>1544	PrimaryExpression	\"Could not allocate enough memory for temporary buffers\"
+>1545	Argument	CPLE_OutOfMemory
+>1546	Identifier	CPLE_OutOfMemory
+>1547	Argument	CE_Failure
+>1548	Identifier	CE_Failure
+>1549	Callee	CPLError
+>1550	Identifier	CPLError
+>1551	Condition	 
+>1552	OrExpression	panLastLineVal == NULL || panThisLineVal == NULL || panLastLineId == NULL || panThisLineId == NULL || \
+>1553	OrExpression	panThisLineVal == NULL || panLastLineId == NULL || panThisLineId == NULL || panThisLineWriteVal == NULL || ( \
+>1554	OrExpression	panLastLineId == NULL || panThisLineId == NULL || panThisLineWriteVal == NULL || ( hMaskBand != NULL && \
+>1555	OrExpression	panThisLineId == NULL || panThisLineWriteVal == NULL || ( hMaskBand != NULL && pabyMaskLine == NULL )
+>1556	OrExpression	panThisLineWriteVal == NULL || ( hMaskBand != NULL && pabyMaskLine == NULL )
+>1557	AndExpression	hMaskBand != NULL && pabyMaskLine == NULL
+>1558	EqualityExpression	pabyMaskLine == NULL
+>1559	Identifier	NULL
+>1560	Identifier	pabyMaskLine
+>1561	EqualityExpression	hMaskBand != NULL
+>1562	Identifier	NULL
+>1563	Identifier	hMaskBand
+>1564	EqualityExpression	panThisLineWriteVal == NULL
+>1565	Identifier	NULL
+>1566	Identifier	panThisLineWriteVal
+>1567	EqualityExpression	panThisLineId == NULL
+>1568	Identifier	NULL
+>1569	Identifier	panThisLineId
+>1570	EqualityExpression	panLastLineId == NULL
+>1571	Identifier	NULL
+>1572	Identifier	panLastLineId
+>1573	EqualityExpression	panThisLineVal == NULL
+>1574	Identifier	NULL
+>1575	Identifier	panThisLineVal
+>1576	EqualityExpression	panLastLineVal == NULL
+>1577	Identifier	NULL
+>1578	Identifier	panLastLineVal
+>1579	IdentifierDeclStatement	 
+>1580	IdentifierDecl	* pabyMaskLine = ( hMaskBand != NULL ) ? ( GByte * ) VSIMalloc ( nXSize ) 
+>1581	AssignmentExpr	* pabyMaskLine = ( hMaskBand != NULL ) ? ( GByte * ) VSIMalloc ( nXSize ) 
+>1582	ConditionalExpression	( hMaskBand != NULL ) ? ( GByte * ) VSIMalloc ( nXSize ) 
+>1583	Identifier	NULL
+>1584	CastExpression	( GByte * ) VSIMalloc ( nXSize )
+>1585	CallExpression	VSIMalloc ( nXSize )
+>1586	ArgumentList	nXSize
+>1587	Argument	nXSize
+>1588	Identifier	nXSize
+>1589	Callee	VSIMalloc
+>1590	Identifier	VSIMalloc
+>1591	CastTarget	GByte *
+>1592	Condition	hMaskBand != NULL
+>1593	EqualityExpression	hMaskBand != NULL
+>1594	Identifier	NULL
+>1595	Identifier	hMaskBand
+>1596	Identifier	pabyMaskLine
+>1597	Identifier	pabyMaskLine
+>1598	IdentifierDeclType	GByte *
+>1599	IdentifierDeclStatement	 
+>1600	IdentifierDecl	* panThisLineWriteVal = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1601	AssignmentExpr	* panThisLineWriteVal = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1602	CastExpression	( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1603	CallExpression	VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1604	ArgumentList	sizeof ( GInt32 )
+>1605	Argument	nXSize
+>1606	Identifier	nXSize
+>1607	Argument	sizeof ( GInt32 )
+>1608	SizeofExpr	sizeof ( GInt32 )
+>1609	SizeofOperand	GInt32
+>1610	Sizeof	sizeof
+>1611	Callee	VSIMalloc2
+>1612	Identifier	VSIMalloc2
+>1613	CastTarget	GInt32 *
+>1614	Identifier	panThisLineWriteVal
+>1615	Identifier	panThisLineWriteVal
+>1616	IdentifierDeclType	GInt32 *
+>1617	IdentifierDeclStatement	 
+>1618	IdentifierDecl	* panThisLineId = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1619	AssignmentExpr	* panThisLineId = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1620	CastExpression	( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1621	CallExpression	VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1622	ArgumentList	sizeof ( GInt32 )
+>1623	Argument	nXSize
+>1624	Identifier	nXSize
+>1625	Argument	sizeof ( GInt32 )
+>1626	SizeofExpr	sizeof ( GInt32 )
+>1627	SizeofOperand	GInt32
+>1628	Sizeof	sizeof
+>1629	Callee	VSIMalloc2
+>1630	Identifier	VSIMalloc2
+>1631	CastTarget	GInt32 *
+>1632	Identifier	panThisLineId
+>1633	Identifier	panThisLineId
+>1634	IdentifierDeclType	GInt32 *
+>1635	IdentifierDeclStatement	 
+>1636	IdentifierDecl	* panLastLineId = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1637	AssignmentExpr	* panLastLineId = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1638	CastExpression	( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1639	CallExpression	VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1640	ArgumentList	sizeof ( GInt32 )
+>1641	Argument	nXSize
+>1642	Identifier	nXSize
+>1643	Argument	sizeof ( GInt32 )
+>1644	SizeofExpr	sizeof ( GInt32 )
+>1645	SizeofOperand	GInt32
+>1646	Sizeof	sizeof
+>1647	Callee	VSIMalloc2
+>1648	Identifier	VSIMalloc2
+>1649	CastTarget	GInt32 *
+>1650	Identifier	panLastLineId
+>1651	Identifier	panLastLineId
+>1652	IdentifierDeclType	GInt32 *
+>1653	IdentifierDeclStatement	 
+>1654	IdentifierDecl	* panThisLineVal = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1655	AssignmentExpr	* panThisLineVal = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1656	CastExpression	( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1657	CallExpression	VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1658	ArgumentList	sizeof ( GInt32 )
+>1659	Argument	nXSize
+>1660	Identifier	nXSize
+>1661	Argument	sizeof ( GInt32 )
+>1662	SizeofExpr	sizeof ( GInt32 )
+>1663	SizeofOperand	GInt32
+>1664	Sizeof	sizeof
+>1665	Callee	VSIMalloc2
+>1666	Identifier	VSIMalloc2
+>1667	CastTarget	GInt32 *
+>1668	Identifier	panThisLineVal
+>1669	Identifier	panThisLineVal
+>1670	IdentifierDeclType	GInt32 *
+>1671	IdentifierDeclStatement	 
+>1672	IdentifierDecl	* panLastLineVal = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1673	AssignmentExpr	* panLastLineVal = ( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1674	CastExpression	( GInt32 * ) VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1675	CallExpression	VSIMalloc2 ( sizeof ( GInt32 ) , nXSize )
+>1676	ArgumentList	sizeof ( GInt32 )
+>1677	Argument	nXSize
+>1678	Identifier	nXSize
+>1679	Argument	sizeof ( GInt32 )
+>1680	SizeofExpr	sizeof ( GInt32 )
+>1681	SizeofOperand	GInt32
+>1682	Sizeof	sizeof
+>1683	Callee	VSIMalloc2
+>1684	Identifier	VSIMalloc2
+>1685	CastTarget	GInt32 *
+>1686	Identifier	panLastLineVal
+>1687	Identifier	panLastLineVal
+>1688	IdentifierDeclType	GInt32 *
+>1689	IdentifierDeclStatement	 
+>1690	IdentifierDecl	nYSize = GDALGetRasterBandYSize ( hSrcBand )
+>1691	AssignmentExpr	nYSize = GDALGetRasterBandYSize ( hSrcBand )
+>1692	CallExpression	GDALGetRasterBandYSize ( hSrcBand )
+>1693	ArgumentList	hSrcBand
+>1694	Argument	hSrcBand
+>1695	Identifier	hSrcBand
+>1696	Callee	GDALGetRasterBandYSize
+>1697	Identifier	GDALGetRasterBandYSize
+>1698	Identifier	nYSize
+>1699	Identifier	nYSize
+>1700	IdentifierDeclType	int
+>1701	IdentifierDeclStatement	 
+>1702	IdentifierDecl	nXSize = GDALGetRasterBandXSize ( hSrcBand )
+>1703	AssignmentExpr	nXSize = GDALGetRasterBandXSize ( hSrcBand )
+>1704	CallExpression	GDALGetRasterBandXSize ( hSrcBand )
+>1705	ArgumentList	hSrcBand
+>1706	Argument	hSrcBand
+>1707	Identifier	hSrcBand
+>1708	Callee	GDALGetRasterBandXSize
+>1709	Identifier	GDALGetRasterBandXSize
+>1710	Identifier	nXSize
+>1711	Identifier	nXSize
+>1712	IdentifierDeclType	int
+>1713	IdentifierDeclStatement	 
+>1714	IdentifierDecl	eErr = CE_None
+>1715	AssignmentExpr	eErr = CE_None
+>1716	Identifier	CE_None
+>1717	Identifier	CE_None
+>1718	Identifier	eErr
+>1719	IdentifierDeclType	CPLErr
+>1720	IfStatement	if ( pfnProgress == NULL )
+>1721	ExpressionStatement	 
+>1722	AssignmentExpr	pfnProgress = GDALDummyProgress
+>1723	Identifier	GDALDummyProgress
+>1724	Identifier	pfnProgress
+>1725	Condition	 
+>1726	EqualityExpression	pfnProgress == NULL
+>1727	Identifier	NULL
+>1728	Identifier	pfnProgress
+>1729	ExpressionStatement	 
+>1730	CallExpression	VALIDATE_POINTER1 ( hDstBand , \"GDALSieveFilter\" , CE_Failure )
+>1731	ArgumentList	hDstBand
+>1732	Argument	CE_Failure
+>1733	Identifier	CE_Failure
+>1734	Argument	\"GDALSieveFilter\"
+>1735	PrimaryExpression	\"GDALSieveFilter\"
+>1736	Argument	hDstBand
+>1737	Identifier	hDstBand
+>1738	Callee	VALIDATE_POINTER1
+>1739	Identifier	VALIDATE_POINTER1
+>1740	ExpressionStatement	 
+>1741	CallExpression	VALIDATE_POINTER1 ( hSrcBand , \"GDALSieveFilter\" , CE_Failure )
+>1742	ArgumentList	hSrcBand
+>1743	Argument	CE_Failure
+>1744	Identifier	CE_Failure
+>1745	Argument	\"GDALSieveFilter\"
+>1746	PrimaryExpression	\"GDALSieveFilter\"
+>1747	Argument	hSrcBand
+>1748	Identifier	hSrcBand
+>1749	Callee	VALIDATE_POINTER1
+>1750	Identifier	VALIDATE_POINTER1
+<5=23,22,6
+<6=19,16,13,10,7
+<7=9,8
+<10=12,11
+<13=15,14
+<16=18,17
+<19=21,20
+<23=93,62,26,24
+<24=25
+<26=58,27
+<27=54,28
+<28=50,46,43,29
+<29=30
+<30=37,31
+<31=32
+<32=34,33
+<34=36,35
+<37=38
+<38=40,39
+<40=42,41
+<43=45,44
+<46=47
+<47=49,48
+<50=51
+<51=53,52
+<54=55
+<55=57,56
+<58=59
+<59=61,60
+<62=63
+<63=92,64
+<64=90,65
+<65=88,86,84,82,80,78,76,74,72,70,68,66
+<66=67
+<68=69
+<70=71
+<72=73
+<74=75
+<76=77
+<78=79
+<80=81
+<82=83
+<84=85
+<86=87
+<88=89
+<90=91
+<93=94
+<94=96,95
+<115=136,135,116
+<116=132,129,126,123,120,117
+<117=119,118
+<120=122,121
+<123=125,124
+<126=128,127
+<129=131,130
+<132=134,133
+<136=213,207,201,187,162,137
+<137=144,138
+<138=139
+<139=141,140
+<141=143,142
+<144=145
+<145=155,146
+<146=150,147
+<147=149,148
+<150=154,151
+<151=153,152
+<155=159,156
+<156=158,157
+<159=161,160
+<162=169,163
+<163=164
+<164=166,165
+<166=168,167
+<169=170
+<170=180,171
+<171=175,172
+<172=174,173
+<175=179,176
+<176=178,177
+<180=184,181
+<181=183,182
+<184=186,185
+<187=189,188
+<189=190
+<190=196,191
+<191=193,192
+<193=195,194
+<196=198,197
+<198=200,199
+<201=203,202
+<203=204
+<204=206,205
+<207=208
+<208=212,209
+<209=211,210
+<213=214
+<214=218,215
+<215=217,216
+<238=265,264,239
+<239=261,258,255,252,249,246,243,240
+<240=242,241
+<243=245,244
+<246=248,247
+<249=251,250
+<252=254,253
+<255=257,256
+<258=260,259
+<261=263,262
+<265=1740,1729,1720,1713,1701,1689,1671,1653,1635,1617,1599,1579,1494,1484,1479,1475,1226,1219,1148,1143,1139,1125,1098,757,750,743,736,615,600,593,310,303,296,289,282,275,268,266
+<266=267
+<268=269
+<269=273,270
+<270=271
+<271=272
+<273=274
+<275=276
+<276=280,277
+<277=278
+<278=279
+<280=281
+<282=283
+<283=287,284
+<284=285
+<285=286
+<287=288
+<289=290
+<290=294,291
+<291=292
+<292=293
+<294=295
+<296=297
+<297=301,298
+<298=299
+<299=300
+<301=302
+<303=304
+<304=308,305
+<305=306
+<306=307
+<308=309
+<310=589,581,578,311
+<311=547,534,508,502,462,414,383,376,372,368,364,360,356,312
+<312=329,313
+<313=318,314
+<314=315
+<315=317,316
+<318=319
+<319=327,320
+<320=325,323,321
+<321=322
+<323=324
+<325=326
+<327=328
+<329=330
+<330=353,331
+<331=352,332
+<332=350,333
+<333=338,336,334
+<334=335
+<336=337
+<338=339
+<339=349,340
+<340=348,341
+<341=345,342
+<342=344,343
+<345=347,346
+<350=351
+<353=355,354
+<356=357
+<357=359,358
+<360=361
+<361=363,362
+<364=365
+<365=367,366
+<368=369
+<369=371,370
+<372=373
+<373=375,374
+<376=377
+<377=382,381,378
+<378=380,379
+<383=384
+<384=413,385
+<385=411,386
+<386=409,407,405,403,401,399,397,395,393,391,389,387
+<387=388
+<389=390
+<391=392
+<393=394
+<395=396
+<397=398
+<399=400
+<401=402
+<403=404
+<405=406
+<407=408
+<409=410
+<411=412
+<414=458,454,451,415
+<415=438,416
+<416=430,417
+<417=418
+<418=419
+<419=427,420
+<420=424,421
+<421=423,422
+<424=426,425
+<427=429,428
+<430=431
+<431=435,432
+<432=434,433
+<435=437,436
+<438=439
+<439=450,449,440
+<440=448,441
+<441=445,442
+<442=444,443
+<445=447,446
+<451=453,452
+<454=455
+<455=457,456
+<458=459
+<459=461,460
+<462=498,481,463
+<463=464
+<464=465
+<465=477,466
+<466=475,473,471,469,467
+<467=468
+<469=470
+<471=472
+<473=474
+<475=476
+<477=478
+<478=480,479
+<481=482
+<482=494,483
+<483=492,490,488,486,484
+<484=485
+<486=487
+<488=489
+<490=491
+<492=493
+<494=495
+<495=497,496
+<498=499
+<499=501,500
+<502=504,503
+<504=505
+<505=507,506
+<508=526,509
+<509=510
+<510=525,511
+<511=523,512
+<512=521,519,517,515,513
+<513=514
+<515=516
+<517=518
+<519=520
+<521=522
+<523=524
+<526=527
+<527=531,528
+<528=530,529
+<531=533,532
+<534=535
+<535=545,536
+<536=543,541,537
+<537=538
+<538=540,539
+<541=542
+<543=544
+<545=546
+<547=548
+<548=577,549
+<549=575,550
+<550=573,571,569,567,565,563,561,559,557,555,553,551
+<551=552
+<553=554
+<555=556
+<557=558
+<559=560
+<561=562
+<563=564
+<565=566
+<567=568
+<569=570
+<571=572
+<573=574
+<575=576
+<578=580,579
+<581=582
+<582=586,583
+<583=585,584
+<586=588,587
+<589=590
+<590=592,591
+<593=594
+<594=596,595
+<596=597
+<597=599,598
+<600=601
+<601=613,602
+<602=611,609,607,605,603
+<603=604
+<605=606
+<607=608
+<609=610
+<611=612
+<613=614
+<615=732,721,718,616
+<616=708,698,681,677,662,652,629,625,617
+<617=618
+<618=622,619
+<619=621,620
+<622=624,623
+<625=626
+<626=628,627
+<629=642,630
+<630=632,631
+<632=633
+<633=639,634
+<634=638,635
+<635=637,636
+<639=641,640
+<642=643
+<643=645,644
+<645=651,646
+<646=650,647
+<647=649,648
+<652=654,653
+<654=655
+<655=657,656
+<657=661,658
+<658=660,659
+<662=669,663
+<663=665,664
+<665=666
+<666=668,667
+<669=670
+<670=674,671
+<671=673,672
+<674=676,675
+<677=678
+<678=680,679
+<681=692,682
+<682=684,683
+<684=685
+<685=689,686
+<686=688,687
+<689=691,690
+<692=693
+<693=695,694
+<695=697,696
+<698=700,699
+<700=701
+<701=703,702
+<703=705,704
+<705=707,706
+<708=710,709
+<710=711
+<711=713,712
+<713=715,714
+<715=717,716
+<718=720,719
+<721=722
+<722=731,723
+<723=730,724
+<724=726,725
+<726=727
+<727=729,728
+<732=733
+<733=735,734
+<736=737
+<737=742,741,738
+<738=740,739
+<743=744
+<744=749,748,745
+<745=747,746
+<750=751
+<751=756,755,752
+<752=754,753
+<757=1094,1086,1083,758
+<758=1052,1026,1020,980,830,823,819,815,811,807,803,759
+<759=776,760
+<760=765,761
+<761=762
+<762=764,763
+<765=766
+<766=774,767
+<767=772,770,768
+<768=769
+<770=771
+<772=773
+<774=775
+<776=777
+<777=800,778
+<778=799,779
+<779=797,780
+<780=785,783,781
+<781=782
+<783=784
+<785=786
+<786=796,787
+<787=795,788
+<788=792,789
+<789=791,790
+<792=794,793
+<797=798
+<800=802,801
+<803=804
+<804=806,805
+<807=808
+<808=810,809
+<811=812
+<812=814,813
+<815=816
+<816=818,817
+<819=820
+<820=822,821
+<823=824
+<824=829,828,825
+<825=827,826
+<830=976,972,969,831
+<831=864,832
+<832=860,833
+<833=834
+<834=858,835
+<835=854,848,844,840,838,836
+<836=837
+<838=839
+<840=841
+<841=843,842
+<844=845
+<845=847,846
+<848=849
+<849=853,850
+<850=852,851
+<854=855
+<855=857,856
+<858=859
+<860=861
+<861=863,862
+<864=965,865
+<865=940,904,866
+<866=894,867
+<867=868
+<868=892,869
+<869=888,882,878,874,872,870
+<870=871
+<872=873
+<874=875
+<875=877,876
+<878=879
+<879=881,880
+<882=883
+<883=887,884
+<884=886,885
+<888=889
+<889=891,890
+<892=893
+<894=895
+<895=899,896
+<896=898,897
+<899=903,900
+<900=902,901
+<904=932,905
+<905=906
+<906=930,907
+<907=926,920,916,912,910,908
+<908=909
+<910=911
+<912=913
+<913=915,914
+<916=917
+<917=919,918
+<920=921
+<921=925,922
+<922=924,923
+<926=927
+<927=929,928
+<930=931
+<932=933
+<933=937,934
+<934=936,935
+<937=939,938
+<940=941
+<941=963,942
+<942=959,955,951,947,945,943
+<943=944
+<945=946
+<947=948
+<948=950,949
+<951=952
+<952=954,953
+<955=956
+<956=958,957
+<959=960
+<960=962,961
+<963=964
+<965=966
+<966=968,967
+<969=971,970
+<972=973
+<973=975,974
+<976=977
+<977=979,978
+<980=1016,999,981
+<981=982
+<982=983
+<983=995,984
+<984=993,991,989,987,985
+<985=986
+<987=988
+<989=990
+<991=992
+<993=994
+<995=996
+<996=998,997
+<999=1000
+<1000=1012,1001
+<1001=1010,1008,1006,1004,1002
+<1002=1003
+<1004=1005
+<1006=1007
+<1008=1009
+<1010=1011
+<1012=1013
+<1013=1015,1014
+<1016=1017
+<1017=1019,1018
+<1020=1022,1021
+<1022=1023
+<1023=1025,1024
+<1026=1044,1027
+<1027=1028
+<1028=1043,1029
+<1029=1041,1030
+<1030=1039,1037,1035,1033,1031
+<1031=1032
+<1033=1034
+<1035=1036
+<1037=1038
+<1039=1040
+<1041=1042
+<1044=1045
+<1045=1049,1046
+<1046=1048,1047
+<1049=1051,1050
+<1052=1053
+<1053=1082,1054
+<1054=1080,1055
+<1055=1078,1076,1074,1072,1070,1068,1066,1064,1062,1060,1058,1056
+<1056=1057
+<1058=1059
+<1060=1061
+<1062=1063
+<1064=1065
+<1066=1067
+<1068=1069
+<1070=1071
+<1072=1073
+<1074=1075
+<1076=1077
+<1078=1079
+<1080=1081
+<1083=1085,1084
+<1086=1087
+<1087=1091,1088
+<1088=1090,1089
+<1091=1093,1092
+<1094=1095
+<1095=1097,1096
+<1098=1121,1110,1107,1099
+<1099=1100
+<1100=1104,1101
+<1101=1103,1102
+<1104=1106,1105
+<1107=1109,1108
+<1110=1111
+<1111=1120,1112
+<1112=1119,1113
+<1113=1115,1114
+<1115=1116
+<1116=1118,1117
+<1121=1122
+<1122=1124,1123
+<1125=1126
+<1126=1135,1127
+<1127=1128
+<1128=1129
+<1129=1131,1130
+<1131=1132
+<1132=1134,1133
+<1135=1136
+<1136=1138,1137
+<1139=1140
+<1140=1142,1141
+<1143=1144
+<1144=1147,1146,1145
+<1148=1215,1209,1206,1149
+<1149=1150
+<1150=1198,1151
+<1151=1185,1179,1170,1158,1152
+<1152=1153
+<1153=1155,1154
+<1155=1157,1156
+<1158=1159
+<1159=1163,1160
+<1160=1162,1161
+<1163=1169,1164
+<1164=1166,1165
+<1166=1168,1167
+<1170=1175,1171
+<1171=1172
+<1172=1174,1173
+<1175=1176
+<1176=1178,1177
+<1179=1180
+<1180=1184,1181
+<1181=1183,1182
+<1185=1186
+<1186=1197,1196,1187
+<1187=1195,1188
+<1188=1194,1189
+<1189=1191,1190
+<1191=1193,1192
+<1198=1199
+<1199=1201,1200
+<1201=1203,1202
+<1203=1205,1204
+<1206=1208,1207
+<1209=1210
+<1210=1214,1211
+<1211=1213,1212
+<1215=1216
+<1216=1218,1217
+<1219=1220
+<1220=1222,1221
+<1222=1223
+<1223=1225,1224
+<1226=1471,1463,1460,1227
+<1227=1429,1403,1363,1338,1297,1290,1286,1282,1278,1274,1270,1228
+<1228=1245,1229
+<1229=1234,1230
+<1230=1231
+<1231=1233,1232
+<1234=1235
+<1235=1243,1236
+<1236=1241,1239,1237
+<1237=1238
+<1239=1240
+<1241=1242
+<1243=1244
+<1245=1246
+<1246=1267,1247
+<1247=1266,1248
+<1248=1264,1249
+<1249=1254,1252,1250
+<1250=1251
+<1252=1253
+<1254=1255
+<1255=1263,1256
+<1256=1260,1257
+<1257=1259,1258
+<1260=1262,1261
+<1264=1265
+<1267=1269,1268
+<1270=1271
+<1271=1273,1272
+<1274=1275
+<1275=1277,1276
+<1278=1279
+<1279=1281,1280
+<1282=1283
+<1283=1285,1284
+<1286=1287
+<1287=1289,1288
+<1290=1291
+<1291=1296,1295,1292
+<1292=1294,1293
+<1297=1334,1330,1327,1298
+<1298=1321,1312,1299
+<1299=1306,1300
+<1300=1301
+<1301=1303,1302
+<1303=1305,1304
+<1306=1307
+<1307=1309,1308
+<1309=1311,1310
+<1312=1313
+<1313=1319,1314
+<1314=1315
+<1315=1316
+<1316=1318,1317
+<1319=1320
+<1321=1322
+<1322=1326,1323
+<1323=1325,1324
+<1327=1329,1328
+<1330=1331
+<1331=1333,1332
+<1334=1335
+<1335=1337,1336
+<1338=1350,1339
+<1339=1340
+<1340=1346,1341
+<1341=1342
+<1342=1343
+<1343=1345,1344
+<1346=1347
+<1347=1349,1348
+<1350=1351
+<1351=1360,1352
+<1352=1359,1353
+<1353=1355,1354
+<1355=1356
+<1356=1358,1357
+<1360=1362,1361
+<1363=1399,1382,1364
+<1364=1365
+<1365=1366
+<1366=1378,1367
+<1367=1376,1374,1372,1370,1368
+<1368=1369
+<1370=1371
+<1372=1373
+<1374=1375
+<1376=1377
+<1378=1379
+<1379=1381,1380
+<1382=1383
+<1383=1395,1384
+<1384=1393,1391,1389,1387,1385
+<1385=1386
+<1387=1388
+<1389=1390
+<1391=1392
+<1393=1394
+<1395=1396
+<1396=1398,1397
+<1399=1400
+<1400=1402,1401
+<1403=1421,1404
+<1404=1405
+<1405=1420,1406
+<1406=1418,1407
+<1407=1416,1414,1412,1410,1408
+<1408=1409
+<1410=1411
+<1412=1413
+<1414=1415
+<1416=1417
+<1418=1419
+<1421=1422
+<1422=1426,1423
+<1423=1425,1424
+<1426=1428,1427
+<1429=1430
+<1430=1459,1431
+<1431=1457,1432
+<1432=1455,1453,1451,1449,1447,1445,1443,1441,1439,1437,1435,1433
+<1433=1434
+<1435=1436
+<1437=1438
+<1439=1440
+<1441=1442
+<1443=1444
+<1445=1446
+<1447=1448
+<1449=1450
+<1451=1452
+<1453=1454
+<1455=1456
+<1457=1458
+<1460=1462,1461
+<1463=1464
+<1464=1468,1465
+<1465=1467,1466
+<1468=1470,1469
+<1471=1472
+<1472=1474,1473
+<1475=1476
+<1476=1478,1477
+<1479=1480
+<1480=1483,1482,1481
+<1484=1491,1488,1485
+<1485=1487,1486
+<1488=1490,1489
+<1491=1493,1492
+<1494=1551,1495
+<1495=1540,1533,1526,1519,1512,1505,1498,1496
+<1496=1497
+<1498=1499
+<1499=1503,1500
+<1500=1501
+<1501=1502
+<1503=1504
+<1505=1506
+<1506=1510,1507
+<1507=1508
+<1508=1509
+<1510=1511
+<1512=1513
+<1513=1517,1514
+<1514=1515
+<1515=1516
+<1517=1518
+<1519=1520
+<1520=1524,1521
+<1521=1522
+<1522=1523
+<1524=1525
+<1526=1527
+<1527=1531,1528
+<1528=1529
+<1529=1530
+<1531=1532
+<1533=1534
+<1534=1538,1535
+<1535=1536
+<1536=1537
+<1538=1539
+<1540=1541
+<1541=1549,1542
+<1542=1547,1545,1543
+<1543=1544
+<1545=1546
+<1547=1548
+<1549=1550
+<1551=1552
+<1552=1576,1553
+<1553=1573,1554
+<1554=1570,1555
+<1555=1567,1556
+<1556=1564,1557
+<1557=1561,1558
+<1558=1560,1559
+<1561=1563,1562
+<1564=1566,1565
+<1567=1569,1568
+<1570=1572,1571
+<1573=1575,1574
+<1576=1578,1577
+<1579=1580
+<1580=1598,1597,1581
+<1581=1596,1582
+<1582=1592,1584,1583
+<1584=1591,1585
+<1585=1589,1586
+<1586=1587
+<1587=1588
+<1589=1590
+<1592=1593
+<1593=1595,1594
+<1599=1600
+<1600=1616,1615,1601
+<1601=1614,1602
+<1602=1613,1603
+<1603=1611,1604
+<1604=1607,1605
+<1605=1606
+<1607=1608
+<1608=1610,1609
+<1611=1612
+<1617=1618
+<1618=1634,1633,1619
+<1619=1632,1620
+<1620=1631,1621
+<1621=1629,1622
+<1622=1625,1623
+<1623=1624
+<1625=1626
+<1626=1628,1627
+<1629=1630
+<1635=1636
+<1636=1652,1651,1637
+<1637=1650,1638
+<1638=1649,1639
+<1639=1647,1640
+<1640=1643,1641
+<1641=1642
+<1643=1644
+<1644=1646,1645
+<1647=1648
+<1653=1654
+<1654=1670,1669,1655
+<1655=1668,1656
+<1656=1667,1657
+<1657=1665,1658
+<1658=1661,1659
+<1659=1660
+<1661=1662
+<1662=1664,1663
+<1665=1666
+<1671=1672
+<1672=1688,1687,1673
+<1673=1686,1674
+<1674=1685,1675
+<1675=1683,1676
+<1676=1679,1677
+<1677=1678
+<1679=1680
+<1680=1682,1681
+<1683=1684
+<1689=1690
+<1690=1700,1699,1691
+<1691=1698,1692
+<1692=1696,1693
+<1693=1694
+<1694=1695
+<1696=1697
+<1701=1702
+<1702=1712,1711,1703
+<1703=1710,1704
+<1704=1708,1705
+<1705=1706
+<1706=1707
+<1708=1709
+<1713=1714
+<1714=1719,1718,1715
+<1715=1717,1716
+<1720=1725,1721
+<1721=1722
+<1722=1724,1723
+<1725=1726
+<1726=1728,1727
+<1729=1730
+<1730=1738,1731
+<1731=1736,1734,1732
+<1732=1733
+<1734=1735
+<1736=1737
+<1738=1739
+<1740=1741
+<1741=1749,1742
+<1742=1747,1745,1743
+<1743=1744
+<1745=1746
+<1747=1748
+<1749=1750

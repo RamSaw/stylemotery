@@ -1,0 +1,353 @@
+>5	FunctionDef	CukeCommands 
+>6	ParameterList	 
+>7	CompoundStatement	 
+>11	FunctionDef	CukeCommands 
+>12	ParameterList	 
+>13	CompoundStatement	 
+>14	IfStatement	if ( hasStarted )
+>15	CompoundStatement	 
+>16	ExpressionStatement	 
+>17	CallExpression	hookRegistrar . execAfterAllHooks ( )
+>18	ArgumentList	 
+>19	Callee	hookRegistrar . execAfterAllHooks
+>20	MemberAccess	hookRegistrar . execAfterAllHooks
+>21	Identifier	execAfterAllHooks
+>22	Identifier	hookRegistrar
+>23	Condition	 
+>24	Identifier	hasStarted
+>30	FunctionDef	CukeCommands 
+>31	ParameterList	const TagExpression 
+>32	Parameter	 
+>33	Identifier	tags
+>34	ParameterType	const TagExpression 
+>35	ReturnType	void
+>36	CompoundStatement	 
+>37	ExpressionStatement	 
+>38	CallExpression	hookRegistrar . execBeforeHooks ( currentScenario . get ( ) )
+>39	ArgumentList	currentScenario . get ( )
+>40	Argument	currentScenario . get ( )
+>41	CallExpression	currentScenario . get ( )
+>42	ArgumentList	 
+>43	Callee	currentScenario . get
+>44	MemberAccess	currentScenario . get
+>45	Identifier	get
+>46	Identifier	currentScenario
+>47	Callee	hookRegistrar . execBeforeHooks
+>48	MemberAccess	hookRegistrar . execBeforeHooks
+>49	Identifier	execBeforeHooks
+>50	Identifier	hookRegistrar
+>51	ExpressionStatement	 
+>52	AssignmentExpr	currentScenario = shared_ptr < Scenario > ( new Scenario ( tags ) )
+>53	RelationalExpression	shared_ptr < Scenario > ( new Scenario ( tags ) )
+>54	RelationalExpression	Scenario > ( new Scenario ( tags ) )
+>55	Identifier	tags
+>56	Identifier	Scenario
+>57	Identifier	shared_ptr
+>58	Identifier	currentScenario
+>59	IfStatement	if ( ! hasStarted )
+>60	CompoundStatement	 
+>61	ExpressionStatement	 
+>62	CallExpression	hookRegistrar . execBeforeAllHooks ( )
+>63	ArgumentList	 
+>64	Callee	hookRegistrar . execBeforeAllHooks
+>65	MemberAccess	hookRegistrar . execBeforeAllHooks
+>66	Identifier	execBeforeAllHooks
+>67	Identifier	hookRegistrar
+>68	ExpressionStatement	 
+>69	AssignmentExpr	hasStarted = true
+>70	Identifier	true
+>71	Identifier	hasStarted
+>72	Condition	 
+>73	UnaryOp	! hasStarted
+>74	Identifier	hasStarted
+>75	UnaryOperator	!
+>87	FunctionDef	CukeCommands 
+>88	ParameterList	 
+>89	ReturnType	void
+>90	CompoundStatement	 
+>91	ExpressionStatement	 
+>92	CallExpression	currentScenario . reset ( )
+>93	ArgumentList	 
+>94	Callee	currentScenario . reset
+>95	MemberAccess	currentScenario . reset
+>96	Identifier	reset
+>97	Identifier	currentScenario
+>98	ExpressionStatement	 
+>99	CallExpression	contextManager . purgeContexts ( )
+>100	ArgumentList	 
+>101	Callee	contextManager . purgeContexts
+>102	MemberAccess	contextManager . purgeContexts
+>103	Identifier	purgeContexts
+>104	Identifier	contextManager
+>105	ExpressionStatement	 
+>106	CallExpression	hookRegistrar . execAfterHooks ( currentScenario . get ( ) )
+>107	ArgumentList	currentScenario . get ( )
+>108	Argument	currentScenario . get ( )
+>109	CallExpression	currentScenario . get ( )
+>110	ArgumentList	 
+>111	Callee	currentScenario . get
+>112	MemberAccess	currentScenario . get
+>113	Identifier	get
+>114	Identifier	currentScenario
+>115	Callee	hookRegistrar . execAfterHooks
+>116	MemberAccess	hookRegistrar . execAfterHooks
+>117	Identifier	execAfterHooks
+>118	Identifier	hookRegistrar
+>126	FunctionDef	CukeCommands 
+>127	ParameterList	const std 
+>128	Parameter	 
+>129	Identifier	stepName
+>130	ParameterType	const std 
+>131	Parameter	 
+>132	Identifier	stepKeyword
+>133	ParameterType	const std 
+>134	ReturnType	const std 
+>135	CompoundStatement	 
+>136	ReturnStatement	 
+>137	CallExpression	snippetText . str ( )
+>138	ArgumentList	 
+>139	Callee	snippetText . str
+>140	MemberAccess	snippetText . str
+>141	Identifier	str
+>142	Identifier	snippetText
+>143	ExpressionStatement	 
+>144	ShiftExpression	snippetText << \"}\" << std 
+>145	ShiftExpression	\"}\" << std 
+>146	Identifier	std 
+>147	PrimaryExpression	\"}\"
+>148	Identifier	snippetText
+>149	ExpressionStatement	 
+>150	ShiftExpression	snippetText << \"    pending();\" << std 
+>151	ShiftExpression	\"    pending();\" << std 
+>152	Identifier	std 
+>153	PrimaryExpression	\"    pending();\"
+>154	Identifier	snippetText
+>155	ExpressionStatement	 
+>156	ShiftExpression	snippetText << boost 
+>157	ShiftExpression	boost 
+>158	ShiftExpression	\"(\\"^\" << stepName << \"$\\") {\" << std 
+>159	ShiftExpression	stepName << \"$\\") {\" << std 
+>160	ShiftExpression	\"$\\") {\" << std 
+>161	Identifier	std 
+>162	PrimaryExpression	\"$\\") {\"
+>163	Identifier	stepName
+>164	PrimaryExpression	\"(\\"^\"
+>165	CallExpression	boost 
+>166	ArgumentList	stepKeyword
+>167	Argument	stepKeyword
+>168	Identifier	stepKeyword
+>169	Callee	boost 
+>170	Identifier	boost 
+>171	Identifier	snippetText
+>172	IdentifierDeclStatement	 
+>173	IdentifierDecl	snippetText
+>174	Identifier	snippetText
+>175	IdentifierDeclType	std 
+>183	FunctionDef	CukeCommands 
+>184	ParameterList	const std 
+>185	Parameter	 
+>186	Identifier	description
+>187	ParameterType	const std 
+>188	ReturnType	MatchResult
+>189	CompoundStatement	 
+>190	ReturnStatement	 
+>191	CallExpression	stepManager . stepMatches ( description )
+>192	ArgumentList	description
+>193	Argument	description
+>194	Identifier	description
+>195	Callee	stepManager . stepMatches
+>196	MemberAccess	stepManager . stepMatches
+>197	Identifier	stepMatches
+>198	Identifier	stepManager
+>205	FunctionDef	CukeCommands 
+>206	ParameterList	step_id_type id , const InvokeArgs * pArgs
+>207	Parameter	 
+>208	Identifier	pArgs
+>209	ParameterType	const InvokeArgs *
+>210	Parameter	 
+>211	Identifier	id
+>212	ParameterType	step_id_type
+>213	ReturnType	InvokeResult
+>214	CompoundStatement	 
+>215	ReturnStatement	 
+>216	Identifier	result
+>217	ExpressionStatement	 
+>218	CallExpression	hookRegistrar . execAfterStepHooks ( currentScenario . get ( ) )
+>219	ArgumentList	currentScenario . get ( )
+>220	Argument	currentScenario . get ( )
+>221	CallExpression	currentScenario . get ( )
+>222	ArgumentList	 
+>223	Callee	currentScenario . get
+>224	MemberAccess	currentScenario . get
+>225	Identifier	get
+>226	Identifier	currentScenario
+>227	Callee	hookRegistrar . execAfterStepHooks
+>228	MemberAccess	hookRegistrar . execAfterStepHooks
+>229	Identifier	execAfterStepHooks
+>230	Identifier	hookRegistrar
+>231	IdentifierDeclStatement	 
+>232	IdentifierDecl	result = hookRegistrar . execStepChain ( currentScenario . get ( ) , stepInfo , pArgs )
+>233	AssignmentExpr	result = hookRegistrar . execStepChain ( currentScenario . get ( ) , stepInfo , pArgs )
+>234	CallExpression	hookRegistrar . execStepChain ( currentScenario . get ( ) , stepInfo , pArgs )
+>235	ArgumentList	currentScenario . get ( )
+>236	Argument	pArgs
+>237	Identifier	pArgs
+>238	Argument	stepInfo
+>239	Identifier	stepInfo
+>240	Argument	currentScenario . get ( )
+>241	CallExpression	currentScenario . get ( )
+>242	ArgumentList	 
+>243	Callee	currentScenario . get
+>244	MemberAccess	currentScenario . get
+>245	Identifier	get
+>246	Identifier	currentScenario
+>247	Callee	hookRegistrar . execStepChain
+>248	MemberAccess	hookRegistrar . execStepChain
+>249	Identifier	execStepChain
+>250	Identifier	hookRegistrar
+>251	Identifier	result
+>252	Identifier	result
+>253	IdentifierDeclType	InvokeResult
+>254	IdentifierDeclStatement	 
+>255	IdentifierDecl	* stepInfo = stepManager . getStep ( id )
+>256	AssignmentExpr	* stepInfo = stepManager . getStep ( id )
+>257	CallExpression	stepManager . getStep ( id )
+>258	ArgumentList	id
+>259	Argument	id
+>260	Identifier	id
+>261	Callee	stepManager . getStep
+>262	MemberAccess	stepManager . getStep
+>263	Identifier	getStep
+>264	Identifier	stepManager
+>265	Identifier	stepInfo
+>266	Identifier	stepInfo
+>267	IdentifierDeclType	StepInfo *
+<5=7,6
+<11=13,12
+<13=14
+<14=23,15
+<15=16
+<16=17
+<17=19,18
+<19=20
+<20=22,21
+<23=24
+<30=36,35,31
+<31=32
+<32=34,33
+<36=59,51,37
+<37=38
+<38=47,39
+<39=40
+<40=41
+<41=43,42
+<43=44
+<44=46,45
+<47=48
+<48=50,49
+<51=52
+<52=58,53
+<53=57,54
+<54=56,55
+<59=72,60
+<60=68,61
+<61=62
+<62=64,63
+<64=65
+<65=67,66
+<68=69
+<69=71,70
+<72=73
+<73=75,74
+<87=90,89,88
+<90=105,98,91
+<91=92
+<92=94,93
+<94=95
+<95=97,96
+<98=99
+<99=101,100
+<101=102
+<102=104,103
+<105=106
+<106=115,107
+<107=108
+<108=109
+<109=111,110
+<111=112
+<112=114,113
+<115=116
+<116=118,117
+<126=135,134,127
+<127=131,128
+<128=130,129
+<131=133,132
+<135=172,155,149,143,136
+<136=137
+<137=139,138
+<139=140
+<140=142,141
+<143=144
+<144=148,145
+<145=147,146
+<149=150
+<150=154,151
+<151=153,152
+<155=156
+<156=171,157
+<157=165,158
+<158=164,159
+<159=163,160
+<160=162,161
+<165=169,166
+<166=167
+<167=168
+<169=170
+<172=173
+<173=175,174
+<183=189,188,184
+<184=185
+<185=187,186
+<189=190
+<190=191
+<191=195,192
+<192=193
+<193=194
+<195=196
+<196=198,197
+<205=214,213,206
+<206=210,207
+<207=209,208
+<210=212,211
+<214=254,231,217,215
+<215=216
+<217=218
+<218=227,219
+<219=220
+<220=221
+<221=223,222
+<223=224
+<224=226,225
+<227=228
+<228=230,229
+<231=232
+<232=253,252,233
+<233=251,234
+<234=247,235
+<235=240,238,236
+<236=237
+<238=239
+<240=241
+<241=243,242
+<243=244
+<244=246,245
+<247=248
+<248=250,249
+<254=255
+<255=267,266,256
+<256=265,257
+<257=261,258
+<258=259
+<259=260
+<261=262
+<262=264,263

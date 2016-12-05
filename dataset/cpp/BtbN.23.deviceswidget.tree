@@ -1,0 +1,1211 @@
+>3	FunctionDef	DevicesWidget 
+>4	ParameterList	QWidget * parent
+>5	Parameter	 
+>6	Identifier	parent
+>7	ParameterType	QWidget *
+>8	CompoundStatement	 
+>9	ExpressionStatement	 
+>10	CallExpression	updateTimer -> start ( )
+>11	ArgumentList	 
+>12	Callee	updateTimer -> start
+>13	PtrMemberAccess	updateTimer -> start
+>14	Identifier	start
+>15	Identifier	updateTimer
+>16	ExpressionStatement	 
+>17	CallExpression	connect ( updateTimer , SIGNAL ( timeout ( ) ) , this , SLOT ( updateTable ( ) ) )
+>18	ArgumentList	updateTimer
+>19	Argument	SLOT ( updateTable ( ) )
+>20	CallExpression	SLOT ( updateTable ( ) )
+>21	ArgumentList	updateTable ( )
+>22	Argument	updateTable ( )
+>23	CallExpression	updateTable ( )
+>24	ArgumentList	 
+>25	Callee	updateTable
+>26	Identifier	updateTable
+>27	Callee	SLOT
+>28	Identifier	SLOT
+>29	Argument	this
+>30	Identifier	this
+>31	Argument	SIGNAL ( timeout ( ) )
+>32	CallExpression	SIGNAL ( timeout ( ) )
+>33	ArgumentList	timeout ( )
+>34	Argument	timeout ( )
+>35	CallExpression	timeout ( )
+>36	ArgumentList	 
+>37	Callee	timeout
+>38	Identifier	timeout
+>39	Callee	SIGNAL
+>40	Identifier	SIGNAL
+>41	Argument	updateTimer
+>42	Identifier	updateTimer
+>43	Callee	connect
+>44	Identifier	connect
+>45	ExpressionStatement	 
+>46	CallExpression	updateTimer -> setSingleShot ( false )
+>47	ArgumentList	false
+>48	Argument	false
+>49	Identifier	false
+>50	Callee	updateTimer -> setSingleShot
+>51	PtrMemberAccess	updateTimer -> setSingleShot
+>52	Identifier	setSingleShot
+>53	Identifier	updateTimer
+>54	ExpressionStatement	 
+>55	CallExpression	updateTimer -> setInterval ( 2000 )
+>56	ArgumentList	2000
+>57	Argument	2000
+>58	PrimaryExpression	2000
+>59	Callee	updateTimer -> setInterval
+>60	PtrMemberAccess	updateTimer -> setInterval
+>61	Identifier	setInterval
+>62	Identifier	updateTimer
+>63	IdentifierDeclStatement	 
+>64	IdentifierDecl	* updateTimer = new QTimer ( this )
+>65	AssignmentExpr	* updateTimer = new QTimer ( this )
+>66	Identifier	this
+>67	Identifier	this
+>68	Identifier	updateTimer
+>69	IdentifierDeclType	QTimer *
+>70	ExpressionStatement	 
+>71	CallExpression	setupUi ( this )
+>72	ArgumentList	this
+>73	Argument	this
+>74	Identifier	this
+>75	Callee	setupUi
+>76	Identifier	setupUi
+>88	FunctionDef	DevicesWidget 
+>89	ParameterList	BtsClient * newclient
+>90	Parameter	 
+>91	Identifier	newclient
+>92	ParameterType	BtsClient *
+>93	ReturnType	void
+>94	CompoundStatement	 
+>95	IfStatement	if ( client -> isClientReady ( ) )
+>96	ExpressionStatement	 
+>97	CallExpression	updateTable ( )
+>98	ArgumentList	 
+>99	Callee	updateTable
+>100	Identifier	updateTable
+>101	Condition	 
+>102	CallExpression	client -> isClientReady ( )
+>103	ArgumentList	 
+>104	Callee	client -> isClientReady
+>105	PtrMemberAccess	client -> isClientReady
+>106	Identifier	isClientReady
+>107	Identifier	client
+>108	ExpressionStatement	 
+>109	CallExpression	connect ( api , SIGNAL ( error ( QString ) ) , this , SIGNAL ( error ( QString ) ) )
+>110	ArgumentList	api
+>111	Argument	SIGNAL ( error ( QString ) )
+>112	CallExpression	SIGNAL ( error ( QString ) )
+>113	ArgumentList	error ( QString )
+>114	Argument	error ( QString )
+>115	CallExpression	error ( QString )
+>116	ArgumentList	QString
+>117	Argument	QString
+>118	Identifier	QString
+>119	Callee	error
+>120	Identifier	error
+>121	Callee	SIGNAL
+>122	Identifier	SIGNAL
+>123	Argument	this
+>124	Identifier	this
+>125	Argument	SIGNAL ( error ( QString ) )
+>126	CallExpression	SIGNAL ( error ( QString ) )
+>127	ArgumentList	error ( QString )
+>128	Argument	error ( QString )
+>129	CallExpression	error ( QString )
+>130	ArgumentList	QString
+>131	Argument	QString
+>132	Identifier	QString
+>133	Callee	error
+>134	Identifier	error
+>135	Callee	SIGNAL
+>136	Identifier	SIGNAL
+>137	Argument	api
+>138	Identifier	api
+>139	Callee	connect
+>140	Identifier	connect
+>141	ExpressionStatement	 
+>142	CallExpression	connect ( client , SIGNAL ( clientStarted ( ) ) , this , SLOT ( updateTable ( ) ) )
+>143	ArgumentList	client
+>144	Argument	SLOT ( updateTable ( ) )
+>145	CallExpression	SLOT ( updateTable ( ) )
+>146	ArgumentList	updateTable ( )
+>147	Argument	updateTable ( )
+>148	CallExpression	updateTable ( )
+>149	ArgumentList	 
+>150	Callee	updateTable
+>151	Identifier	updateTable
+>152	Callee	SLOT
+>153	Identifier	SLOT
+>154	Argument	this
+>155	Identifier	this
+>156	Argument	SIGNAL ( clientStarted ( ) )
+>157	CallExpression	SIGNAL ( clientStarted ( ) )
+>158	ArgumentList	clientStarted ( )
+>159	Argument	clientStarted ( )
+>160	CallExpression	clientStarted ( )
+>161	ArgumentList	 
+>162	Callee	clientStarted
+>163	Identifier	clientStarted
+>164	Callee	SIGNAL
+>165	Identifier	SIGNAL
+>166	Argument	client
+>167	Identifier	client
+>168	Callee	connect
+>169	Identifier	connect
+>170	ExpressionStatement	 
+>171	AssignmentExpr	api = new BtsApi ( client , this )
+>172	Expression	client , this
+>173	Identifier	this
+>174	Identifier	client
+>175	Identifier	api
+>176	ExpressionStatement	 
+>177	AssignmentExpr	client = newclient
+>178	Identifier	newclient
+>179	Identifier	client
+>180	IfStatement	if ( client )
+>181	CompoundStatement	 
+>182	ExpressionStatement	 
+>183	AssignmentExpr	api = nullptr
+>184	Identifier	nullptr
+>185	Identifier	api
+>186	ExpressionStatement	 
+>187	CallExpression	api -> deleteLater ( )
+>188	ArgumentList	 
+>189	Callee	api -> deleteLater
+>190	PtrMemberAccess	api -> deleteLater
+>191	Identifier	deleteLater
+>192	Identifier	api
+>193	ExpressionStatement	 
+>194	CallExpression	api -> disconnect ( this )
+>195	ArgumentList	this
+>196	Argument	this
+>197	Identifier	this
+>198	Callee	api -> disconnect
+>199	PtrMemberAccess	api -> disconnect
+>200	Identifier	disconnect
+>201	Identifier	api
+>202	Condition	 
+>203	Identifier	client
+>220	FunctionDef	DevicesWidget 
+>221	ParameterList	 
+>222	ReturnType	void
+>223	CompoundStatement	 
+>224	ExpressionStatement	 
+>225	CallExpression	connect ( api -> getFolders ( ) , & BtsApiNotifier 
+>226	ArgumentList	api -> getFolders ( )
+>227	Argument	& DevicesWidget 
+>228	UnaryOp	& DevicesWidget 
+>229	Identifier	DevicesWidget 
+>230	UnaryOperator	&
+>231	Argument	this
+>232	Identifier	this
+>233	Argument	& BtsApiNotifier 
+>234	UnaryOp	& BtsApiNotifier 
+>235	Identifier	BtsApiNotifier 
+>236	UnaryOperator	&
+>237	Argument	api -> getFolders ( )
+>238	CallExpression	api -> getFolders ( )
+>239	ArgumentList	 
+>240	Callee	api -> getFolders
+>241	PtrMemberAccess	api -> getFolders
+>242	Identifier	getFolders
+>243	Identifier	api
+>244	Callee	connect
+>245	Identifier	connect
+>246	IfStatement	if ( ! api || ! client || ! client -> isClientReady ( ) )
+>247	ReturnStatement	 
+>248	Condition	 
+>249	OrExpression	! api || ! client || ! client -> isClientReady ( )
+>250	OrExpression	! client || ! client -> isClientReady ( )
+>251	UnaryOp	! client -> isClientReady ( )
+>252	CallExpression	client -> isClientReady ( )
+>253	ArgumentList	 
+>254	Callee	client -> isClientReady
+>255	PtrMemberAccess	client -> isClientReady
+>256	Identifier	isClientReady
+>257	Identifier	client
+>258	UnaryOperator	!
+>259	UnaryOp	! client
+>260	Identifier	client
+>261	UnaryOperator	!
+>262	UnaryOp	! api
+>263	Identifier	api
+>264	UnaryOperator	!
+>277	FunctionDef	DevicesWidget 
+>278	ParameterList	const QVector < BtsGetFoldersResult > & folders
+>279	Parameter	 
+>280	Identifier	folders
+>281	ParameterType	const QVector < BtsGetFoldersResult > &
+>282	ReturnType	void
+>283	CompoundStatement	 
+>284	IfStatement	if ( updated )
+>285	CompoundStatement	 
+>286	ExpressionStatement	 
+>287	CallExpression	fillTable ( )
+>288	ArgumentList	 
+>289	Callee	fillTable
+>290	Identifier	fillTable
+>291	Condition	 
+>292	Identifier	updated
+>293	CompoundStatement	 
+>294	IfStatement	if ( ! currentFolders . contains ( oldFolder ) )
+>295	CompoundStatement	 
+>296	ExpressionStatement	 
+>297	AssignmentExpr	updated = true
+>298	Identifier	true
+>299	Identifier	updated
+>300	ExpressionStatement	 
+>301	CallExpression	folderPeersHash . remove ( oldFolder )
+>302	ArgumentList	oldFolder
+>303	Argument	oldFolder
+>304	Identifier	oldFolder
+>305	Callee	folderPeersHash . remove
+>306	MemberAccess	folderPeersHash . remove
+>307	Identifier	remove
+>308	Identifier	folderPeersHash
+>309	Condition	 
+>310	UnaryOp	! currentFolders . contains ( oldFolder )
+>311	CallExpression	currentFolders . contains ( oldFolder )
+>312	ArgumentList	oldFolder
+>313	Argument	oldFolder
+>314	Identifier	oldFolder
+>315	Callee	currentFolders . contains
+>316	MemberAccess	currentFolders . contains
+>317	Identifier	contains
+>318	Identifier	currentFolders
+>319	UnaryOperator	!
+>320	Statement	 
+>321	Statement	 
+>322	Statement	 
+>323	Statement	 
+>324	Statement	 
+>325	Statement	 
+>326	Label	 
+>327	Identifier	oldFolder
+>328	Statement	 
+>329	Statement	 
+>330	Statement	 
+>331	Statement	 
+>332	Statement	 
+>333	IdentifierDeclStatement	 
+>334	IdentifierDecl	updated = false
+>335	AssignmentExpr	updated = false
+>336	Identifier	false
+>337	Identifier	false
+>338	Identifier	updated
+>339	IdentifierDeclType	bool
+>340	CompoundStatement	 
+>341	ExpressionStatement	 
+>342	Statement	 
+>343	CompoundStatement	 
+>344	ExpressionStatement	 
+>345	CallExpression	fillTable ( )
+>346	ArgumentList	 
+>347	Callee	fillTable
+>348	Identifier	fillTable
+>349	ExpressionStatement	 
+>350	AssignmentExpr	folderPeersHash [ dir ] = result
+>351	Identifier	result
+>352	ArrayIndexing	folderPeersHash [ dir ]
+>353	Identifier	dir
+>354	Identifier	folderPeersHash
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	Statement	 
+>362	Statement	 
+>363	Statement	 
+>364	Statement	 
+>365	Statement	 
+>366	Statement	 
+>367	Statement	 
+>368	Statement	 
+>369	Statement	 
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	Statement	 
+>378	Statement	 
+>379	Statement	 
+>380	Statement	 
+>381	Statement	 
+>382	Statement	 
+>383	Statement	 
+>384	Statement	 
+>385	ExpressionStatement	 
+>386	ShiftExpression	currentFolders << dir
+>387	Identifier	dir
+>388	Identifier	currentFolders
+>389	IdentifierDeclStatement	 
+>390	IdentifierDecl	dir = folder . dir
+>391	AssignmentExpr	dir = folder . dir
+>392	MemberAccess	folder . dir
+>393	Identifier	dir
+>394	Identifier	folder
+>395	Identifier	dir
+>396	Identifier	dir
+>397	IdentifierDeclType	QString
+>398	ExpressionStatement	 
+>399	AssignmentExpr	row += 1
+>400	PrimaryExpression	1
+>401	Identifier	row
+>402	Statement	 
+>403	Statement	 
+>404	Label	 
+>405	Identifier	folder
+>406	Statement	 
+>407	Statement	 
+>408	Statement	 
+>409	Statement	 
+>410	Statement	 
+>411	IdentifierDeclStatement	 
+>412	IdentifierDecl	row = - 1
+>413	AssignmentExpr	row = - 1
+>414	UnaryOp	- 1
+>415	PrimaryExpression	1
+>416	UnaryOperator	-
+>417	Identifier	row
+>418	Identifier	row
+>419	IdentifierDeclType	int
+>420	IdentifierDeclStatement	 
+>421	IdentifierDecl	currentFolders
+>422	Identifier	currentFolders
+>423	IdentifierDeclType	QStringList
+>442	FunctionDef	DevicesWidget 
+>443	ParameterList	 
+>444	ReturnType	void
+>445	CompoundStatement	 
+>446	ExpressionStatement	 
+>447	CallExpression	devicesTable -> setSortingEnabled ( sort )
+>448	ArgumentList	sort
+>449	Argument	sort
+>450	Identifier	sort
+>451	Callee	devicesTable -> setSortingEnabled
+>452	PtrMemberAccess	devicesTable -> setSortingEnabled
+>453	Identifier	setSortingEnabled
+>454	Identifier	devicesTable
+>455	IfStatement	if ( devicesTable -> rowCount ( ) != row + 1 )
+>456	ExpressionStatement	 
+>457	CallExpression	devicesTable -> setRowCount ( row + 1 )
+>458	ArgumentList	row + 1
+>459	Argument	row + 1
+>460	AdditiveExpression	row + 1
+>461	PrimaryExpression	1
+>462	Identifier	row
+>463	Callee	devicesTable -> setRowCount
+>464	PtrMemberAccess	devicesTable -> setRowCount
+>465	Identifier	setRowCount
+>466	Identifier	devicesTable
+>467	Condition	 
+>468	EqualityExpression	devicesTable -> rowCount ( ) != row + 1
+>469	AdditiveExpression	row + 1
+>470	PrimaryExpression	1
+>471	Identifier	row
+>472	CallExpression	devicesTable -> rowCount ( )
+>473	ArgumentList	 
+>474	Callee	devicesTable -> rowCount
+>475	PtrMemberAccess	devicesTable -> rowCount
+>476	Identifier	rowCount
+>477	Identifier	devicesTable
+>478	CompoundStatement	 
+>479	CompoundStatement	 
+>480	ExpressionStatement	 
+>481	CallExpression	upItem -> setText ( upString )
+>482	ArgumentList	upString
+>483	Argument	upString
+>484	Identifier	upString
+>485	Callee	upItem -> setText
+>486	PtrMemberAccess	upItem -> setText
+>487	Identifier	setText
+>488	Identifier	upItem
+>489	ExpressionStatement	 
+>490	CallExpression	downItem -> setText ( downString )
+>491	ArgumentList	downString
+>492	Argument	downString
+>493	Identifier	downString
+>494	Callee	downItem -> setText
+>495	PtrMemberAccess	downItem -> setText
+>496	Identifier	setText
+>497	Identifier	downItem
+>498	ExpressionStatement	 
+>499	CallExpression	syncItem -> setText ( time . toString ( ) )
+>500	ArgumentList	time . toString ( )
+>501	Argument	time . toString ( )
+>502	CallExpression	time . toString ( )
+>503	ArgumentList	 
+>504	Callee	time . toString
+>505	MemberAccess	time . toString
+>506	Identifier	toString
+>507	Identifier	time
+>508	Callee	syncItem -> setText
+>509	PtrMemberAccess	syncItem -> setText
+>510	Identifier	setText
+>511	Identifier	syncItem
+>512	ExpressionStatement	 
+>513	CallExpression	conItem -> setText ( peer . connection )
+>514	ArgumentList	peer . connection
+>515	Argument	peer . connection
+>516	MemberAccess	peer . connection
+>517	Identifier	connection
+>518	Identifier	peer
+>519	Callee	conItem -> setText
+>520	PtrMemberAccess	conItem -> setText
+>521	Identifier	setText
+>522	Identifier	conItem
+>523	ExpressionStatement	 
+>524	CallExpression	folderItem -> setText ( dirName )
+>525	ArgumentList	dirName
+>526	Argument	dirName
+>527	Identifier	dirName
+>528	Callee	folderItem -> setText
+>529	PtrMemberAccess	folderItem -> setText
+>530	Identifier	setText
+>531	Identifier	folderItem
+>532	ExpressionStatement	 
+>533	CallExpression	deviceItem -> setText ( peer . name )
+>534	ArgumentList	peer . name
+>535	Argument	peer . name
+>536	MemberAccess	peer . name
+>537	Identifier	name
+>538	Identifier	peer
+>539	Callee	deviceItem -> setText
+>540	PtrMemberAccess	deviceItem -> setText
+>541	Identifier	setText
+>542	Identifier	deviceItem
+>543	IdentifierDeclStatement	 
+>544	IdentifierDecl	upString = byteCountToString ( peer . upload , true , false )
+>545	AssignmentExpr	upString = byteCountToString ( peer . upload , true , false )
+>546	CallExpression	byteCountToString ( peer . upload , true , false )
+>547	ArgumentList	peer . upload
+>548	Argument	false
+>549	Identifier	false
+>550	Argument	true
+>551	Identifier	true
+>552	Argument	peer . upload
+>553	MemberAccess	peer . upload
+>554	Identifier	upload
+>555	Identifier	peer
+>556	Callee	byteCountToString
+>557	Identifier	byteCountToString
+>558	Identifier	upString
+>559	Identifier	upString
+>560	IdentifierDeclType	QString
+>561	IdentifierDeclStatement	 
+>562	IdentifierDecl	downString = byteCountToString ( peer . download , true , false )
+>563	AssignmentExpr	downString = byteCountToString ( peer . download , true , false )
+>564	CallExpression	byteCountToString ( peer . download , true , false )
+>565	ArgumentList	peer . download
+>566	Argument	false
+>567	Identifier	false
+>568	Argument	true
+>569	Identifier	true
+>570	Argument	peer . download
+>571	MemberAccess	peer . download
+>572	Identifier	download
+>573	Identifier	peer
+>574	Callee	byteCountToString
+>575	Identifier	byteCountToString
+>576	Identifier	downString
+>577	Identifier	downString
+>578	IdentifierDeclType	QString
+>579	IdentifierDeclStatement	 
+>580	IdentifierDecl	time = QDateTime 
+>581	AssignmentExpr	time = QDateTime 
+>582	CallExpression	QDateTime 
+>583	ArgumentList	peer . synced
+>584	Argument	peer . synced
+>585	MemberAccess	peer . synced
+>586	Identifier	synced
+>587	Identifier	peer
+>588	Callee	QDateTime 
+>589	Identifier	QDateTime 
+>590	Identifier	time
+>591	Identifier	time
+>592	IdentifierDeclType	QDateTime
+>593	IfStatement	if ( dirName . startsWith ( \"\\\\?\\\" ) )
+>594	ExpressionStatement	 
+>595	AssignmentExpr	dirName = dir . mid ( 4 )
+>596	CallExpression	dir . mid ( 4 )
+>597	ArgumentList	4
+>598	Argument	4
+>599	PrimaryExpression	4
+>600	Callee	dir . mid
+>601	MemberAccess	dir . mid
+>602	Identifier	mid
+>603	Identifier	dir
+>604	Identifier	dirName
+>605	Condition	 
+>606	CallExpression	dirName . startsWith ( \"\\\\?\\\" )
+>607	ArgumentList	\"\\\\?\\\"
+>608	Argument	\"\\\\?\\\"
+>609	PrimaryExpression	\"\\\\?\\\"
+>610	Callee	dirName . startsWith
+>611	MemberAccess	dirName . startsWith
+>612	Identifier	startsWith
+>613	Identifier	dirName
+>614	IdentifierDeclStatement	 
+>615	IdentifierDecl	dirName = dir
+>616	AssignmentExpr	dirName = dir
+>617	Identifier	dir
+>618	Identifier	dir
+>619	Identifier	dirName
+>620	IdentifierDeclType	QString
+>621	IdentifierDeclStatement	 
+>622	IdentifierDecl	* upItem = items [ 5 ]
+>623	AssignmentExpr	* upItem = items [ 5 ]
+>624	ArrayIndexing	items [ 5 ]
+>625	PrimaryExpression	5
+>626	Identifier	items
+>627	Identifier	upItem
+>628	Identifier	upItem
+>629	IdentifierDeclType	QTableWidgetItem *
+>630	IdentifierDeclStatement	 
+>631	IdentifierDecl	* downItem = items [ 4 ]
+>632	AssignmentExpr	* downItem = items [ 4 ]
+>633	ArrayIndexing	items [ 4 ]
+>634	PrimaryExpression	4
+>635	Identifier	items
+>636	Identifier	downItem
+>637	Identifier	downItem
+>638	IdentifierDeclType	QTableWidgetItem *
+>639	IdentifierDeclStatement	 
+>640	IdentifierDecl	* syncItem = items [ 3 ]
+>641	AssignmentExpr	* syncItem = items [ 3 ]
+>642	ArrayIndexing	items [ 3 ]
+>643	PrimaryExpression	3
+>644	Identifier	items
+>645	Identifier	syncItem
+>646	Identifier	syncItem
+>647	IdentifierDeclType	QTableWidgetItem *
+>648	IdentifierDeclStatement	 
+>649	IdentifierDecl	* conItem = items [ 2 ]
+>650	AssignmentExpr	* conItem = items [ 2 ]
+>651	ArrayIndexing	items [ 2 ]
+>652	PrimaryExpression	2
+>653	Identifier	items
+>654	Identifier	conItem
+>655	Identifier	conItem
+>656	IdentifierDeclType	QTableWidgetItem *
+>657	IdentifierDeclStatement	 
+>658	IdentifierDecl	* folderItem = items [ 1 ]
+>659	AssignmentExpr	* folderItem = items [ 1 ]
+>660	ArrayIndexing	items [ 1 ]
+>661	PrimaryExpression	1
+>662	Identifier	items
+>663	Identifier	folderItem
+>664	Identifier	folderItem
+>665	IdentifierDeclType	QTableWidgetItem *
+>666	IdentifierDeclStatement	 
+>667	IdentifierDecl	* deviceItem = items [ 0 ]
+>668	AssignmentExpr	* deviceItem = items [ 0 ]
+>669	ArrayIndexing	items [ 0 ]
+>670	PrimaryExpression	0
+>671	Identifier	items
+>672	Identifier	deviceItem
+>673	Identifier	deviceItem
+>674	IdentifierDeclType	QTableWidgetItem *
+>675	ForStatement	for ( int i = 0 ; i < 6 ; ++ i )
+>676	CompoundStatement	 
+>677	IfStatement	if ( ! items [ i ] )
+>678	CompoundStatement	 
+>679	ExpressionStatement	 
+>680	CallExpression	devicesTable -> setItem ( row , i , items [ i ] )
+>681	ArgumentList	row
+>682	Argument	items [ i ]
+>683	ArrayIndexing	items [ i ]
+>684	Identifier	i
+>685	Identifier	items
+>686	Argument	i
+>687	Identifier	i
+>688	Argument	row
+>689	Identifier	row
+>690	Callee	devicesTable -> setItem
+>691	PtrMemberAccess	devicesTable -> setItem
+>692	Identifier	setItem
+>693	Identifier	devicesTable
+>694	ExpressionStatement	 
+>695	AssignmentExpr	items [ i ] = new QTableWidgetItem ( )
+>696	UnaryExpression	new QTableWidgetItem ( )
+>697	ArrayIndexing	items [ i ]
+>698	Identifier	i
+>699	Identifier	items
+>700	Condition	 
+>701	UnaryOp	! items [ i ]
+>702	ArrayIndexing	items [ i ]
+>703	Identifier	i
+>704	Identifier	items
+>705	UnaryOperator	!
+>706	ExpressionStatement	 
+>707	AssignmentExpr	items [ i ] = devicesTable -> item ( row , i )
+>708	CallExpression	devicesTable -> item ( row , i )
+>709	ArgumentList	row
+>710	Argument	i
+>711	Identifier	i
+>712	Argument	row
+>713	Identifier	row
+>714	Callee	devicesTable -> item
+>715	PtrMemberAccess	devicesTable -> item
+>716	Identifier	item
+>717	Identifier	devicesTable
+>718	ArrayIndexing	items [ i ]
+>719	Identifier	i
+>720	Identifier	items
+>721	UnaryExpression	 
+>722	Identifier	i
+>723	IncDec	++
+>724	Condition	 
+>725	RelationalExpression	i < 6
+>726	PrimaryExpression	6
+>727	Identifier	i
+>728	ForInit	 
+>729	IdentifierDeclStatement	int i = 0 ;
+>730	IdentifierDecl	i = 0
+>731	AssignmentExpr	i = 0
+>732	PrimaryExpression	0
+>733	Identifier	i
+>734	Identifier	i
+>735	IdentifierDeclType	int
+>736	IdentifierDeclStatement	 
+>737	IdentifierDecl	* items [ 6 ]
+>738	PrimaryExpression	6
+>739	Identifier	items
+>740	IdentifierDeclType	QTableWidgetItem * [ 6 ]
+>741	IfStatement	if ( devicesTable -> rowCount ( ) < row + 1 )
+>742	ExpressionStatement	 
+>743	CallExpression	devicesTable -> setRowCount ( row + 1 )
+>744	ArgumentList	row + 1
+>745	Argument	row + 1
+>746	AdditiveExpression	row + 1
+>747	PrimaryExpression	1
+>748	Identifier	row
+>749	Callee	devicesTable -> setRowCount
+>750	PtrMemberAccess	devicesTable -> setRowCount
+>751	Identifier	setRowCount
+>752	Identifier	devicesTable
+>753	Condition	 
+>754	RelationalExpression	devicesTable -> rowCount ( ) < row + 1
+>755	AdditiveExpression	row + 1
+>756	PrimaryExpression	1
+>757	Identifier	row
+>758	CallExpression	devicesTable -> rowCount ( )
+>759	ArgumentList	 
+>760	Callee	devicesTable -> rowCount
+>761	PtrMemberAccess	devicesTable -> rowCount
+>762	Identifier	rowCount
+>763	Identifier	devicesTable
+>764	ExpressionStatement	 
+>765	AssignmentExpr	row += 1
+>766	PrimaryExpression	1
+>767	Identifier	row
+>768	Statement	 
+>769	Statement	 
+>770	Statement	 
+>771	Statement	 
+>772	Statement	 
+>773	Statement	 
+>774	Label	 
+>775	Identifier	peer
+>776	Statement	 
+>777	Statement	 
+>778	Statement	 
+>779	Statement	 
+>780	Statement	 
+>781	IdentifierDeclStatement	 
+>782	IdentifierDecl	dir = it . key ( )
+>783	AssignmentExpr	dir = it . key ( )
+>784	CallExpression	it . key ( )
+>785	ArgumentList	 
+>786	Callee	it . key
+>787	MemberAccess	it . key
+>788	Identifier	key
+>789	Identifier	it
+>790	Identifier	dir
+>791	Identifier	dir
+>792	IdentifierDeclType	QString
+>793	Statement	 
+>794	Statement	 
+>795	Statement	 
+>796	ExpressionStatement	 
+>797	EqualityExpression	it != folderPeersHash . constEnd ( )
+>798	CallExpression	folderPeersHash . constEnd ( )
+>799	ArgumentList	 
+>800	Callee	folderPeersHash . constEnd
+>801	MemberAccess	folderPeersHash . constEnd
+>802	Identifier	constEnd
+>803	Identifier	folderPeersHash
+>804	Identifier	it
+>805	ExpressionStatement	 
+>806	AssignmentExpr	it = folderPeersHash . constBegin ( )
+>807	CallExpression	folderPeersHash . constBegin ( )
+>808	ArgumentList	 
+>809	Callee	folderPeersHash . constBegin
+>810	MemberAccess	folderPeersHash . constBegin
+>811	Identifier	constBegin
+>812	Identifier	folderPeersHash
+>813	Identifier	it
+>814	Statement	 
+>815	Statement	 
+>816	Statement	 
+>817	IdentifierDeclStatement	 
+>818	IdentifierDecl	row = - 1
+>819	AssignmentExpr	row = - 1
+>820	UnaryOp	- 1
+>821	PrimaryExpression	1
+>822	UnaryOperator	-
+>823	Identifier	row
+>824	Identifier	row
+>825	IdentifierDeclType	int
+>826	ExpressionStatement	 
+>827	CallExpression	devicesTable -> setSortingEnabled ( false )
+>828	ArgumentList	false
+>829	Argument	false
+>830	Identifier	false
+>831	Callee	devicesTable -> setSortingEnabled
+>832	PtrMemberAccess	devicesTable -> setSortingEnabled
+>833	Identifier	setSortingEnabled
+>834	Identifier	devicesTable
+>835	IdentifierDeclStatement	 
+>836	IdentifierDecl	sort = devicesTable -> isSortingEnabled ( )
+>837	AssignmentExpr	sort = devicesTable -> isSortingEnabled ( )
+>838	CallExpression	devicesTable -> isSortingEnabled ( )
+>839	ArgumentList	 
+>840	Callee	devicesTable -> isSortingEnabled
+>841	PtrMemberAccess	devicesTable -> isSortingEnabled
+>842	Identifier	isSortingEnabled
+>843	Identifier	devicesTable
+>844	Identifier	sort
+>845	Identifier	sort
+>846	IdentifierDeclType	bool
+<3=8,4
+<4=5
+<5=7,6
+<8=70,63,54,45,16,9
+<9=10
+<10=12,11
+<12=13
+<13=15,14
+<16=17
+<17=43,18
+<18=41,31,29,19
+<19=20
+<20=27,21
+<21=22
+<22=23
+<23=25,24
+<25=26
+<27=28
+<29=30
+<31=32
+<32=39,33
+<33=34
+<34=35
+<35=37,36
+<37=38
+<39=40
+<41=42
+<43=44
+<45=46
+<46=50,47
+<47=48
+<48=49
+<50=51
+<51=53,52
+<54=55
+<55=59,56
+<56=57
+<57=58
+<59=60
+<60=62,61
+<63=64
+<64=69,68,65
+<65=67,66
+<70=71
+<71=75,72
+<72=73
+<73=74
+<75=76
+<88=94,93,89
+<89=90
+<90=92,91
+<94=180,176,170,141,108,95
+<95=101,96
+<96=97
+<97=99,98
+<99=100
+<101=102
+<102=104,103
+<104=105
+<105=107,106
+<108=109
+<109=139,110
+<110=137,125,123,111
+<111=112
+<112=121,113
+<113=114
+<114=115
+<115=119,116
+<116=117
+<117=118
+<119=120
+<121=122
+<123=124
+<125=126
+<126=135,127
+<127=128
+<128=129
+<129=133,130
+<130=131
+<131=132
+<133=134
+<135=136
+<137=138
+<139=140
+<141=142
+<142=168,143
+<143=166,156,154,144
+<144=145
+<145=152,146
+<146=147
+<147=148
+<148=150,149
+<150=151
+<152=153
+<154=155
+<156=157
+<157=164,158
+<158=159
+<159=160
+<160=162,161
+<162=163
+<164=165
+<166=167
+<168=169
+<170=171
+<171=175,172
+<172=174,173
+<176=177
+<177=179,178
+<180=202,181
+<181=193,186,182
+<182=183
+<183=185,184
+<186=187
+<187=189,188
+<189=190
+<190=192,191
+<193=194
+<194=198,195
+<195=196
+<196=197
+<198=199
+<199=201,200
+<202=203
+<220=223,222,221
+<223=246,224
+<224=225
+<225=244,226
+<226=237,233,231,227
+<227=228
+<228=230,229
+<231=232
+<233=234
+<234=236,235
+<237=238
+<238=240,239
+<240=241
+<241=243,242
+<244=245
+<246=248,247
+<248=249
+<249=262,250
+<250=259,251
+<251=258,252
+<252=254,253
+<254=255
+<255=257,256
+<259=261,260
+<262=264,263
+<277=283,282,278
+<278=279
+<279=281,280
+<283=420,411,410,409,408,407,406,404,403,402,340,333,332,331,330,329,328,326,325,324,323,322,321,320,293,284
+<284=291,285
+<285=286
+<286=287
+<287=289,288
+<289=290
+<291=292
+<293=294
+<294=309,295
+<295=300,296
+<296=297
+<297=299,298
+<300=301
+<301=305,302
+<302=303
+<303=304
+<305=306
+<306=308,307
+<309=310
+<310=319,311
+<311=315,312
+<312=313
+<313=314
+<315=316
+<316=318,317
+<326=327
+<333=334
+<334=339,338,335
+<335=337,336
+<340=398,389,385,384,383,382,381,380,379,378,377,376,375,374,373,372,371,370,369,368,367,366,365,364,363,362,361,360,359,358,357,356,355,343,342,341
+<343=349,344
+<344=345
+<345=347,346
+<347=348
+<349=350
+<350=352,351
+<352=354,353
+<385=386
+<386=388,387
+<389=390
+<390=397,396,391
+<391=395,392
+<392=394,393
+<398=399
+<399=401,400
+<404=405
+<411=412
+<412=419,418,413
+<413=417,414
+<414=416,415
+<420=421
+<421=423,422
+<442=445,444,443
+<445=835,826,817,816,815,814,805,796,795,794,793,478,455,446
+<446=447
+<447=451,448
+<448=449
+<449=450
+<451=452
+<452=454,453
+<455=467,456
+<456=457
+<457=463,458
+<458=459
+<459=460
+<460=462,461
+<463=464
+<464=466,465
+<467=468
+<468=472,469
+<469=471,470
+<472=474,473
+<474=475
+<475=477,476
+<478=781,780,779,778,777,776,774,773,772,771,770,769,768,479
+<479=764,741,736,675,666,657,648,639,630,621,614,593,579,561,543,532,523,512,498,489,480
+<480=481
+<481=485,482
+<482=483
+<483=484
+<485=486
+<486=488,487
+<489=490
+<490=494,491
+<491=492
+<492=493
+<494=495
+<495=497,496
+<498=499
+<499=508,500
+<500=501
+<501=502
+<502=504,503
+<504=505
+<505=507,506
+<508=509
+<509=511,510
+<512=513
+<513=519,514
+<514=515
+<515=516
+<516=518,517
+<519=520
+<520=522,521
+<523=524
+<524=528,525
+<525=526
+<526=527
+<528=529
+<529=531,530
+<532=533
+<533=539,534
+<534=535
+<535=536
+<536=538,537
+<539=540
+<540=542,541
+<543=544
+<544=560,559,545
+<545=558,546
+<546=556,547
+<547=552,550,548
+<548=549
+<550=551
+<552=553
+<553=555,554
+<556=557
+<561=562
+<562=578,577,563
+<563=576,564
+<564=574,565
+<565=570,568,566
+<566=567
+<568=569
+<570=571
+<571=573,572
+<574=575
+<579=580
+<580=592,591,581
+<581=590,582
+<582=588,583
+<583=584
+<584=585
+<585=587,586
+<588=589
+<593=605,594
+<594=595
+<595=604,596
+<596=600,597
+<597=598
+<598=599
+<600=601
+<601=603,602
+<605=606
+<606=610,607
+<607=608
+<608=609
+<610=611
+<611=613,612
+<614=615
+<615=620,619,616
+<616=618,617
+<621=622
+<622=629,628,623
+<623=627,624
+<624=626,625
+<630=631
+<631=638,637,632
+<632=636,633
+<633=635,634
+<639=640
+<640=647,646,641
+<641=645,642
+<642=644,643
+<648=649
+<649=656,655,650
+<650=654,651
+<651=653,652
+<657=658
+<658=665,664,659
+<659=663,660
+<660=662,661
+<666=667
+<667=674,673,668
+<668=672,669
+<669=671,670
+<675=728,724,721,676
+<676=706,677
+<677=700,678
+<678=694,679
+<679=680
+<680=690,681
+<681=688,686,682
+<682=683
+<683=685,684
+<686=687
+<688=689
+<690=691
+<691=693,692
+<694=695
+<695=697,696
+<697=699,698
+<700=701
+<701=705,702
+<702=704,703
+<706=707
+<707=718,708
+<708=714,709
+<709=712,710
+<710=711
+<712=713
+<714=715
+<715=717,716
+<718=720,719
+<721=723,722
+<724=725
+<725=727,726
+<728=729
+<729=730
+<730=735,734,731
+<731=733,732
+<736=737
+<737=740,739,738
+<741=753,742
+<742=743
+<743=749,744
+<744=745
+<745=746
+<746=748,747
+<749=750
+<750=752,751
+<753=754
+<754=758,755
+<755=757,756
+<758=760,759
+<760=761
+<761=763,762
+<764=765
+<765=767,766
+<774=775
+<781=782
+<782=792,791,783
+<783=790,784
+<784=786,785
+<786=787
+<787=789,788
+<796=797
+<797=804,798
+<798=800,799
+<800=801
+<801=803,802
+<805=806
+<806=813,807
+<807=809,808
+<809=810
+<810=812,811
+<817=818
+<818=825,824,819
+<819=823,820
+<820=822,821
+<826=827
+<827=831,828
+<828=829
+<829=830
+<831=832
+<832=834,833
+<835=836
+<836=846,845,837
+<837=844,838
+<838=840,839
+<840=841
+<841=843,842

@@ -1,0 +1,1050 @@
+>5	FunctionDef	GDALRasterPolygonEnumerator 
+>6	ParameterList	int nConnectedness
+>7	Parameter	 
+>8	Identifier	nConnectedness
+>9	ParameterType	int
+>10	CompoundStatement	 
+>11	ExpressionStatement	 
+>12	CallExpression	CPLAssert ( nConnectedness == 4 || nConnectedness == 8 )
+>13	ArgumentList	nConnectedness == 4 || nConnectedness == 8
+>14	Argument	nConnectedness == 4 || nConnectedness == 8
+>15	OrExpression	nConnectedness == 4 || nConnectedness == 8
+>16	EqualityExpression	nConnectedness == 8
+>17	PrimaryExpression	8
+>18	Identifier	nConnectedness
+>19	EqualityExpression	nConnectedness == 4
+>20	PrimaryExpression	4
+>21	Identifier	nConnectedness
+>22	Callee	CPLAssert
+>23	Identifier	CPLAssert
+>24	ExpressionStatement	 
+>25	AssignmentExpr	this -> nConnectedness = nConnectedness
+>26	Identifier	nConnectedness
+>27	PtrMemberAccess	this -> nConnectedness
+>28	Identifier	nConnectedness
+>29	Identifier	this
+>30	ExpressionStatement	 
+>31	AssignmentExpr	nPolyAlloc = 0
+>32	PrimaryExpression	0
+>33	Identifier	nPolyAlloc
+>34	ExpressionStatement	 
+>35	AssignmentExpr	nNextPolygonId = 0
+>36	PrimaryExpression	0
+>37	Identifier	nNextPolygonId
+>38	ExpressionStatement	 
+>39	AssignmentExpr	panPolyValue = NULL
+>40	Identifier	NULL
+>41	Identifier	panPolyValue
+>42	ExpressionStatement	 
+>43	AssignmentExpr	panPolyIdMap = NULL
+>44	Identifier	NULL
+>45	Identifier	panPolyIdMap
+>58	FunctionDef	GDALRasterPolygonEnumerator 
+>59	ParameterList	 
+>60	CompoundStatement	 
+>61	ExpressionStatement	 
+>62	CallExpression	Clear ( )
+>63	ArgumentList	 
+>64	Callee	Clear
+>65	Identifier	Clear
+>69	FunctionDef	GDALRasterPolygonEnumerator 
+>70	ParameterList	 
+>71	ReturnType	void
+>72	CompoundStatement	 
+>73	ExpressionStatement	 
+>74	AssignmentExpr	nPolyAlloc = 0
+>75	PrimaryExpression	0
+>76	Identifier	nPolyAlloc
+>77	ExpressionStatement	 
+>78	AssignmentExpr	nNextPolygonId = 0
+>79	PrimaryExpression	0
+>80	Identifier	nNextPolygonId
+>81	ExpressionStatement	 
+>82	AssignmentExpr	panPolyValue = NULL
+>83	Identifier	NULL
+>84	Identifier	panPolyValue
+>85	ExpressionStatement	 
+>86	AssignmentExpr	panPolyIdMap = NULL
+>87	Identifier	NULL
+>88	Identifier	panPolyIdMap
+>89	ExpressionStatement	 
+>90	CallExpression	CPLFree ( panPolyValue )
+>91	ArgumentList	panPolyValue
+>92	Argument	panPolyValue
+>93	Identifier	panPolyValue
+>94	Callee	CPLFree
+>95	Identifier	CPLFree
+>96	ExpressionStatement	 
+>97	CallExpression	CPLFree ( panPolyIdMap )
+>98	ArgumentList	panPolyIdMap
+>99	Argument	panPolyIdMap
+>100	Identifier	panPolyIdMap
+>101	Callee	CPLFree
+>102	Identifier	CPLFree
+>111	FunctionDef	GDALRasterPolygonEnumerator 
+>112	ParameterList	int nSrcId , int nDstId
+>113	Parameter	 
+>114	Identifier	nDstId
+>115	ParameterType	int
+>116	Parameter	 
+>117	Identifier	nSrcId
+>118	ParameterType	int
+>119	ReturnType	void
+>120	CompoundStatement	 
+>121	ExpressionStatement	 
+>122	AssignmentExpr	panPolyIdMap [ nSrcId ] = nDstId
+>123	Identifier	nDstId
+>124	ArrayIndexing	panPolyIdMap [ nSrcId ]
+>125	Identifier	nSrcId
+>126	Identifier	panPolyIdMap
+>127	IfStatement	if ( nSrcId == nDstId )
+>128	ReturnStatement	 
+>129	Condition	 
+>130	EqualityExpression	nSrcId == nDstId
+>131	Identifier	nDstId
+>132	Identifier	nSrcId
+>133	WhileStatement	while ( panPolyIdMap [ nSrcId ] != nSrcId )
+>134	ExpressionStatement	 
+>135	AssignmentExpr	nSrcId = panPolyIdMap [ nSrcId ]
+>136	ArrayIndexing	panPolyIdMap [ nSrcId ]
+>137	Identifier	nSrcId
+>138	Identifier	panPolyIdMap
+>139	Identifier	nSrcId
+>140	Condition	 
+>141	EqualityExpression	panPolyIdMap [ nSrcId ] != nSrcId
+>142	Identifier	nSrcId
+>143	ArrayIndexing	panPolyIdMap [ nSrcId ]
+>144	Identifier	nSrcId
+>145	Identifier	panPolyIdMap
+>146	WhileStatement	while ( panPolyIdMap [ nDstId ] != nDstId )
+>147	ExpressionStatement	 
+>148	AssignmentExpr	nDstId = panPolyIdMap [ nDstId ]
+>149	ArrayIndexing	panPolyIdMap [ nDstId ]
+>150	Identifier	nDstId
+>151	Identifier	panPolyIdMap
+>152	Identifier	nDstId
+>153	Condition	 
+>154	EqualityExpression	panPolyIdMap [ nDstId ] != nDstId
+>155	Identifier	nDstId
+>156	ArrayIndexing	panPolyIdMap [ nDstId ]
+>157	Identifier	nDstId
+>158	Identifier	panPolyIdMap
+>168	FunctionDef	GDALRasterPolygonEnumerator 
+>169	ParameterList	GInt32 nValue
+>170	Parameter	 
+>171	Identifier	nValue
+>172	ParameterType	GInt32
+>173	ReturnType	int
+>174	CompoundStatement	 
+>175	ReturnStatement	 
+>176	Identifier	nPolyId
+>177	ExpressionStatement	 
+>178	AssignmentExpr	panPolyValue [ nPolyId ] = nValue
+>179	Identifier	nValue
+>180	ArrayIndexing	panPolyValue [ nPolyId ]
+>181	Identifier	nPolyId
+>182	Identifier	panPolyValue
+>183	ExpressionStatement	 
+>184	AssignmentExpr	panPolyIdMap [ nPolyId ] = nPolyId
+>185	Identifier	nPolyId
+>186	ArrayIndexing	panPolyIdMap [ nPolyId ]
+>187	Identifier	nPolyId
+>188	Identifier	panPolyIdMap
+>189	ExpressionStatement	 
+>190	IncDecOp	nNextPolygonId ++
+>191	IncDec	++
+>192	Identifier	nNextPolygonId
+>193	IfStatement	if ( nNextPolygonId >= nPolyAlloc )
+>194	CompoundStatement	 
+>195	ExpressionStatement	 
+>196	AssignmentExpr	panPolyValue = ( GInt32 * ) CPLRealloc ( panPolyValue , nPolyAlloc * 4 )
+>197	CastExpression	( GInt32 * ) CPLRealloc ( panPolyValue , nPolyAlloc * 4 )
+>198	CallExpression	CPLRealloc ( panPolyValue , nPolyAlloc * 4 )
+>199	ArgumentList	panPolyValue
+>200	Argument	nPolyAlloc * 4
+>201	MultiplicativeExpression	nPolyAlloc * 4
+>202	PrimaryExpression	4
+>203	Identifier	nPolyAlloc
+>204	Argument	panPolyValue
+>205	Identifier	panPolyValue
+>206	Callee	CPLRealloc
+>207	Identifier	CPLRealloc
+>208	CastTarget	GInt32 *
+>209	Identifier	panPolyValue
+>210	ExpressionStatement	 
+>211	AssignmentExpr	panPolyIdMap = ( GInt32 * ) CPLRealloc ( panPolyIdMap , nPolyAlloc * 4 )
+>212	CastExpression	( GInt32 * ) CPLRealloc ( panPolyIdMap , nPolyAlloc * 4 )
+>213	CallExpression	CPLRealloc ( panPolyIdMap , nPolyAlloc * 4 )
+>214	ArgumentList	panPolyIdMap
+>215	Argument	nPolyAlloc * 4
+>216	MultiplicativeExpression	nPolyAlloc * 4
+>217	PrimaryExpression	4
+>218	Identifier	nPolyAlloc
+>219	Argument	panPolyIdMap
+>220	Identifier	panPolyIdMap
+>221	Callee	CPLRealloc
+>222	Identifier	CPLRealloc
+>223	CastTarget	GInt32 *
+>224	Identifier	panPolyIdMap
+>225	ExpressionStatement	 
+>226	AssignmentExpr	nPolyAlloc = nPolyAlloc * 2 + 20
+>227	AdditiveExpression	nPolyAlloc * 2 + 20
+>228	PrimaryExpression	20
+>229	MultiplicativeExpression	nPolyAlloc * 2
+>230	PrimaryExpression	2
+>231	Identifier	nPolyAlloc
+>232	Identifier	nPolyAlloc
+>233	Condition	 
+>234	RelationalExpression	nNextPolygonId >= nPolyAlloc
+>235	Identifier	nPolyAlloc
+>236	Identifier	nNextPolygonId
+>237	IdentifierDeclStatement	 
+>238	IdentifierDecl	nPolyId = nNextPolygonId
+>239	AssignmentExpr	nPolyId = nNextPolygonId
+>240	Identifier	nNextPolygonId
+>241	Identifier	nNextPolygonId
+>242	Identifier	nPolyId
+>243	IdentifierDeclType	int
+>257	FunctionDef	GDALRasterPolygonEnumerator 
+>258	ParameterList	 
+>259	ReturnType	void
+>260	CompoundStatement	 
+>261	ExpressionStatement	 
+>262	CallExpression	CPLDebug ( \"GDALRasterPolygonEnumerator\" , \"Counted %d polygon fragments forming %d final polygons.\" , nNextPolygonId , \
+>263	ArgumentList	\"GDALRasterPolygonEnumerator\"
+>264	Argument	nFinalPolyCount
+>265	Identifier	nFinalPolyCount
+>266	Argument	nNextPolygonId
+>267	Identifier	nNextPolygonId
+>268	Argument	\"Counted %d polygon fragments forming %d final polygons.\"
+>269	PrimaryExpression	\"Counted %d polygon fragments forming %d final polygons.\"
+>270	Argument	\"GDALRasterPolygonEnumerator\"
+>271	PrimaryExpression	\"GDALRasterPolygonEnumerator\"
+>272	Callee	CPLDebug
+>273	Identifier	CPLDebug
+>274	ForStatement	for ( iPoly = 0 ; iPoly < nNextPolygonId ; iPoly ++ )
+>275	CompoundStatement	 
+>276	IfStatement	if ( panPolyIdMap [ iPoly ] == iPoly )
+>277	ExpressionStatement	 
+>278	IncDecOp	nFinalPolyCount ++
+>279	IncDec	++
+>280	Identifier	nFinalPolyCount
+>281	Condition	 
+>282	EqualityExpression	panPolyIdMap [ iPoly ] == iPoly
+>283	Identifier	iPoly
+>284	ArrayIndexing	panPolyIdMap [ iPoly ]
+>285	Identifier	iPoly
+>286	Identifier	panPolyIdMap
+>287	WhileStatement	while ( panPolyIdMap [ iPoly ] != panPolyIdMap [ panPolyIdMap [ iPoly ] ] )
+>288	ExpressionStatement	 
+>289	AssignmentExpr	panPolyIdMap [ iPoly ] = panPolyIdMap [ panPolyIdMap [ iPoly ] ]
+>290	ArrayIndexing	panPolyIdMap [ panPolyIdMap [ iPoly ] ]
+>291	ArrayIndexing	panPolyIdMap [ iPoly ]
+>292	Identifier	iPoly
+>293	Identifier	panPolyIdMap
+>294	Identifier	panPolyIdMap
+>295	ArrayIndexing	panPolyIdMap [ iPoly ]
+>296	Identifier	iPoly
+>297	Identifier	panPolyIdMap
+>298	Condition	 
+>299	EqualityExpression	panPolyIdMap [ iPoly ] != panPolyIdMap [ panPolyIdMap [ iPoly ] ]
+>300	ArrayIndexing	panPolyIdMap [ panPolyIdMap [ iPoly ] ]
+>301	ArrayIndexing	panPolyIdMap [ iPoly ]
+>302	Identifier	iPoly
+>303	Identifier	panPolyIdMap
+>304	Identifier	panPolyIdMap
+>305	ArrayIndexing	panPolyIdMap [ iPoly ]
+>306	Identifier	iPoly
+>307	Identifier	panPolyIdMap
+>308	IncDecOp	 
+>309	IncDec	++
+>310	Identifier	iPoly
+>311	Condition	 
+>312	RelationalExpression	iPoly < nNextPolygonId
+>313	Identifier	nNextPolygonId
+>314	Identifier	iPoly
+>315	ForInit	 
+>316	AssignmentExpr	iPoly = 0
+>317	PrimaryExpression	0
+>318	Identifier	iPoly
+>319	IdentifierDeclStatement	 
+>320	IdentifierDecl	nFinalPolyCount = 0
+>321	AssignmentExpr	nFinalPolyCount = 0
+>322	PrimaryExpression	0
+>323	Identifier	nFinalPolyCount
+>324	Identifier	nFinalPolyCount
+>325	IdentifierDeclType	int
+>326	IdentifierDeclStatement	 
+>327	IdentifierDecl	iPoly
+>328	Identifier	iPoly
+>329	IdentifierDeclType	int
+>341	FunctionDef	GDALRasterPolygonEnumerator 
+>342	ParameterList	GInt32 * panLastLineVal , GInt32 * panThisLineVal , GInt32 * panLastLineId , GInt32 * panThisLineId , int nXSize
+>343	Parameter	 
+>344	Identifier	nXSize
+>345	ParameterType	int
+>346	Parameter	 
+>347	Identifier	panThisLineId
+>348	ParameterType	GInt32 *
+>349	Parameter	 
+>350	Identifier	panLastLineId
+>351	ParameterType	GInt32 *
+>352	Parameter	 
+>353	Identifier	panThisLineVal
+>354	ParameterType	GInt32 *
+>355	Parameter	 
+>356	Identifier	panLastLineVal
+>357	ParameterType	GInt32 *
+>358	ReturnType	void
+>359	CompoundStatement	 
+>360	ForStatement	for ( i = 0 ; i < nXSize ; i ++ )
+>361	CompoundStatement	 
+>362	IfStatement	if ( i > 0 && panThisLineVal [ i ] == panThisLineVal [ i - 1 ] )
+>363	ElseStatement	else
+>364	IfStatement	if ( panLastLineVal [ i ] == panThisLineVal [ i ] )
+>365	ElseStatement	else
+>366	IfStatement	if ( i > 0 && nConnectedness == 8 && panLastLineVal [ i - 1 ] == panThisLineVal [ i ] )
+>367	ElseStatement	else
+>368	IfStatement	if ( i < nXSize - 1 && nConnectedness == 8 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ] )
+>369	ElseStatement	else
+>370	ExpressionStatement	 
+>371	AssignmentExpr	panThisLineId [ i ] = NewPolygon ( panThisLineVal [ i ] )
+>372	CallExpression	NewPolygon ( panThisLineVal [ i ] )
+>373	ArgumentList	panThisLineVal [ i ]
+>374	Argument	panThisLineVal [ i ]
+>375	ArrayIndexing	panThisLineVal [ i ]
+>376	Identifier	i
+>377	Identifier	panThisLineVal
+>378	Callee	NewPolygon
+>379	Identifier	NewPolygon
+>380	ArrayIndexing	panThisLineId [ i ]
+>381	Identifier	i
+>382	Identifier	panThisLineId
+>383	CompoundStatement	 
+>384	ExpressionStatement	 
+>385	AssignmentExpr	panThisLineId [ i ] = panLastLineId [ i + 1 ]
+>386	ArrayIndexing	panLastLineId [ i + 1 ]
+>387	AdditiveExpression	i + 1
+>388	PrimaryExpression	1
+>389	Identifier	i
+>390	Identifier	panLastLineId
+>391	ArrayIndexing	panThisLineId [ i ]
+>392	Identifier	i
+>393	Identifier	panThisLineId
+>394	Condition	 
+>395	AndExpression	i < nXSize - 1 && nConnectedness == 8 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ]
+>396	AndExpression	nConnectedness == 8 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ]
+>397	EqualityExpression	panLastLineVal [ i + 1 ] == panThisLineVal [ i ]
+>398	ArrayIndexing	panThisLineVal [ i ]
+>399	Identifier	i
+>400	Identifier	panThisLineVal
+>401	ArrayIndexing	panLastLineVal [ i + 1 ]
+>402	AdditiveExpression	i + 1
+>403	PrimaryExpression	1
+>404	Identifier	i
+>405	Identifier	panLastLineVal
+>406	EqualityExpression	nConnectedness == 8
+>407	PrimaryExpression	8
+>408	Identifier	nConnectedness
+>409	RelationalExpression	i < nXSize - 1
+>410	AdditiveExpression	nXSize - 1
+>411	PrimaryExpression	1
+>412	Identifier	nXSize
+>413	Identifier	i
+>414	CompoundStatement	 
+>415	IfStatement	if ( i < nXSize - 1 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ i + \
+>416	CompoundStatement	 
+>417	ExpressionStatement	 
+>418	CallExpression	MergePolygon ( panLastLineId [ i + 1 ] , panThisLineId [ i ] )
+>419	ArgumentList	panLastLineId [ i + 1 ]
+>420	Argument	panThisLineId [ i ]
+>421	ArrayIndexing	panThisLineId [ i ]
+>422	Identifier	i
+>423	Identifier	panThisLineId
+>424	Argument	panLastLineId [ i + 1 ]
+>425	ArrayIndexing	panLastLineId [ i + 1 ]
+>426	AdditiveExpression	i + 1
+>427	PrimaryExpression	1
+>428	Identifier	i
+>429	Identifier	panLastLineId
+>430	Callee	MergePolygon
+>431	Identifier	MergePolygon
+>432	Condition	 
+>433	AndExpression	i < nXSize - 1 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ \
+>434	AndExpression	panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ i + 1 ] ] != panPolyIdMap [ \
+>435	EqualityExpression	panPolyIdMap [ panLastLineId [ i + 1 ] ] != panPolyIdMap [ panThisLineId [ i ] ]
+>436	ArrayIndexing	panPolyIdMap [ panThisLineId [ i ] ]
+>437	ArrayIndexing	panThisLineId [ i ]
+>438	Identifier	i
+>439	Identifier	panThisLineId
+>440	Identifier	panPolyIdMap
+>441	ArrayIndexing	panPolyIdMap [ panLastLineId [ i + 1 ] ]
+>442	ArrayIndexing	panLastLineId [ i + 1 ]
+>443	AdditiveExpression	i + 1
+>444	PrimaryExpression	1
+>445	Identifier	i
+>446	Identifier	panLastLineId
+>447	Identifier	panPolyIdMap
+>448	EqualityExpression	panLastLineVal [ i + 1 ] == panThisLineVal [ i ]
+>449	ArrayIndexing	panThisLineVal [ i ]
+>450	Identifier	i
+>451	Identifier	panThisLineVal
+>452	ArrayIndexing	panLastLineVal [ i + 1 ]
+>453	AdditiveExpression	i + 1
+>454	PrimaryExpression	1
+>455	Identifier	i
+>456	Identifier	panLastLineVal
+>457	RelationalExpression	i < nXSize - 1
+>458	AdditiveExpression	nXSize - 1
+>459	PrimaryExpression	1
+>460	Identifier	nXSize
+>461	Identifier	i
+>462	ExpressionStatement	 
+>463	AssignmentExpr	panThisLineId [ i ] = panLastLineId [ i - 1 ]
+>464	ArrayIndexing	panLastLineId [ i - 1 ]
+>465	AdditiveExpression	i - 1
+>466	PrimaryExpression	1
+>467	Identifier	i
+>468	Identifier	panLastLineId
+>469	ArrayIndexing	panThisLineId [ i ]
+>470	Identifier	i
+>471	Identifier	panThisLineId
+>472	Condition	 
+>473	AndExpression	i > 0 && nConnectedness == 8 && panLastLineVal [ i - 1 ] == panThisLineVal [ i ]
+>474	AndExpression	nConnectedness == 8 && panLastLineVal [ i - 1 ] == panThisLineVal [ i ]
+>475	EqualityExpression	panLastLineVal [ i - 1 ] == panThisLineVal [ i ]
+>476	ArrayIndexing	panThisLineVal [ i ]
+>477	Identifier	i
+>478	Identifier	panThisLineVal
+>479	ArrayIndexing	panLastLineVal [ i - 1 ]
+>480	AdditiveExpression	i - 1
+>481	PrimaryExpression	1
+>482	Identifier	i
+>483	Identifier	panLastLineVal
+>484	EqualityExpression	nConnectedness == 8
+>485	PrimaryExpression	8
+>486	Identifier	nConnectedness
+>487	RelationalExpression	i > 0
+>488	PrimaryExpression	0
+>489	Identifier	i
+>490	CompoundStatement	 
+>491	ExpressionStatement	 
+>492	AssignmentExpr	panThisLineId [ i ] = panLastLineId [ i ]
+>493	ArrayIndexing	panLastLineId [ i ]
+>494	Identifier	i
+>495	Identifier	panLastLineId
+>496	ArrayIndexing	panThisLineId [ i ]
+>497	Identifier	i
+>498	Identifier	panThisLineId
+>499	Condition	 
+>500	EqualityExpression	panLastLineVal [ i ] == panThisLineVal [ i ]
+>501	ArrayIndexing	panThisLineVal [ i ]
+>502	Identifier	i
+>503	Identifier	panThisLineVal
+>504	ArrayIndexing	panLastLineVal [ i ]
+>505	Identifier	i
+>506	Identifier	panLastLineVal
+>507	CompoundStatement	 
+>508	IfStatement	if ( nConnectedness == 8 && i < nXSize - 1 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ \
+>509	CompoundStatement	 
+>510	ExpressionStatement	 
+>511	CallExpression	MergePolygon ( panLastLineId [ i + 1 ] , panThisLineId [ i ] )
+>512	ArgumentList	panLastLineId [ i + 1 ]
+>513	Argument	panThisLineId [ i ]
+>514	ArrayIndexing	panThisLineId [ i ]
+>515	Identifier	i
+>516	Identifier	panThisLineId
+>517	Argument	panLastLineId [ i + 1 ]
+>518	ArrayIndexing	panLastLineId [ i + 1 ]
+>519	AdditiveExpression	i + 1
+>520	PrimaryExpression	1
+>521	Identifier	i
+>522	Identifier	panLastLineId
+>523	Callee	MergePolygon
+>524	Identifier	MergePolygon
+>525	Condition	 
+>526	AndExpression	nConnectedness == 8 && i < nXSize - 1 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ \
+>527	AndExpression	i < nXSize - 1 && panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ \
+>528	AndExpression	panLastLineVal [ i + 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ i + 1 ] ] != panPolyIdMap [ \
+>529	EqualityExpression	panPolyIdMap [ panLastLineId [ i + 1 ] ] != panPolyIdMap [ panThisLineId [ i ] ]
+>530	ArrayIndexing	panPolyIdMap [ panThisLineId [ i ] ]
+>531	ArrayIndexing	panThisLineId [ i ]
+>532	Identifier	i
+>533	Identifier	panThisLineId
+>534	Identifier	panPolyIdMap
+>535	ArrayIndexing	panPolyIdMap [ panLastLineId [ i + 1 ] ]
+>536	ArrayIndexing	panLastLineId [ i + 1 ]
+>537	AdditiveExpression	i + 1
+>538	PrimaryExpression	1
+>539	Identifier	i
+>540	Identifier	panLastLineId
+>541	Identifier	panPolyIdMap
+>542	EqualityExpression	panLastLineVal [ i + 1 ] == panThisLineVal [ i ]
+>543	ArrayIndexing	panThisLineVal [ i ]
+>544	Identifier	i
+>545	Identifier	panThisLineVal
+>546	ArrayIndexing	panLastLineVal [ i + 1 ]
+>547	AdditiveExpression	i + 1
+>548	PrimaryExpression	1
+>549	Identifier	i
+>550	Identifier	panLastLineVal
+>551	RelationalExpression	i < nXSize - 1
+>552	AdditiveExpression	nXSize - 1
+>553	PrimaryExpression	1
+>554	Identifier	nXSize
+>555	Identifier	i
+>556	EqualityExpression	nConnectedness == 8
+>557	PrimaryExpression	8
+>558	Identifier	nConnectedness
+>559	IfStatement	if ( nConnectedness == 8 && panLastLineVal [ i - 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ \
+>560	CompoundStatement	 
+>561	ExpressionStatement	 
+>562	CallExpression	MergePolygon ( panLastLineId [ i - 1 ] , panThisLineId [ i ] )
+>563	ArgumentList	panLastLineId [ i - 1 ]
+>564	Argument	panThisLineId [ i ]
+>565	ArrayIndexing	panThisLineId [ i ]
+>566	Identifier	i
+>567	Identifier	panThisLineId
+>568	Argument	panLastLineId [ i - 1 ]
+>569	ArrayIndexing	panLastLineId [ i - 1 ]
+>570	AdditiveExpression	i - 1
+>571	PrimaryExpression	1
+>572	Identifier	i
+>573	Identifier	panLastLineId
+>574	Callee	MergePolygon
+>575	Identifier	MergePolygon
+>576	Condition	 
+>577	AndExpression	nConnectedness == 8 && panLastLineVal [ i - 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ \
+>578	AndExpression	panLastLineVal [ i - 1 ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ i - 1 ] ] != panPolyIdMap [ \
+>579	EqualityExpression	panPolyIdMap [ panLastLineId [ i - 1 ] ] != panPolyIdMap [ panThisLineId [ i ] ]
+>580	ArrayIndexing	panPolyIdMap [ panThisLineId [ i ] ]
+>581	ArrayIndexing	panThisLineId [ i ]
+>582	Identifier	i
+>583	Identifier	panThisLineId
+>584	Identifier	panPolyIdMap
+>585	ArrayIndexing	panPolyIdMap [ panLastLineId [ i - 1 ] ]
+>586	ArrayIndexing	panLastLineId [ i - 1 ]
+>587	AdditiveExpression	i - 1
+>588	PrimaryExpression	1
+>589	Identifier	i
+>590	Identifier	panLastLineId
+>591	Identifier	panPolyIdMap
+>592	EqualityExpression	panLastLineVal [ i - 1 ] == panThisLineVal [ i ]
+>593	ArrayIndexing	panThisLineVal [ i ]
+>594	Identifier	i
+>595	Identifier	panThisLineVal
+>596	ArrayIndexing	panLastLineVal [ i - 1 ]
+>597	AdditiveExpression	i - 1
+>598	PrimaryExpression	1
+>599	Identifier	i
+>600	Identifier	panLastLineVal
+>601	EqualityExpression	nConnectedness == 8
+>602	PrimaryExpression	8
+>603	Identifier	nConnectedness
+>604	IfStatement	if ( panLastLineVal [ i ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ i ] ] != panPolyIdMap [ panThisLineId [ \
+>605	CompoundStatement	 
+>606	ExpressionStatement	 
+>607	CallExpression	MergePolygon ( panLastLineId [ i ] , panThisLineId [ i ] )
+>608	ArgumentList	panLastLineId [ i ]
+>609	Argument	panThisLineId [ i ]
+>610	ArrayIndexing	panThisLineId [ i ]
+>611	Identifier	i
+>612	Identifier	panThisLineId
+>613	Argument	panLastLineId [ i ]
+>614	ArrayIndexing	panLastLineId [ i ]
+>615	Identifier	i
+>616	Identifier	panLastLineId
+>617	Callee	MergePolygon
+>618	Identifier	MergePolygon
+>619	Condition	 
+>620	AndExpression	panLastLineVal [ i ] == panThisLineVal [ i ] && ( panPolyIdMap [ panLastLineId [ i ] ] != panPolyIdMap [ \
+>621	EqualityExpression	panPolyIdMap [ panLastLineId [ i ] ] != panPolyIdMap [ panThisLineId [ i ] ]
+>622	ArrayIndexing	panPolyIdMap [ panThisLineId [ i ] ]
+>623	ArrayIndexing	panThisLineId [ i ]
+>624	Identifier	i
+>625	Identifier	panThisLineId
+>626	Identifier	panPolyIdMap
+>627	ArrayIndexing	panPolyIdMap [ panLastLineId [ i ] ]
+>628	ArrayIndexing	panLastLineId [ i ]
+>629	Identifier	i
+>630	Identifier	panLastLineId
+>631	Identifier	panPolyIdMap
+>632	EqualityExpression	panLastLineVal [ i ] == panThisLineVal [ i ]
+>633	ArrayIndexing	panThisLineVal [ i ]
+>634	Identifier	i
+>635	Identifier	panThisLineVal
+>636	ArrayIndexing	panLastLineVal [ i ]
+>637	Identifier	i
+>638	Identifier	panLastLineVal
+>639	ExpressionStatement	 
+>640	AssignmentExpr	panThisLineId [ i ] = panThisLineId [ i - 1 ]
+>641	ArrayIndexing	panThisLineId [ i - 1 ]
+>642	AdditiveExpression	i - 1
+>643	PrimaryExpression	1
+>644	Identifier	i
+>645	Identifier	panThisLineId
+>646	ArrayIndexing	panThisLineId [ i ]
+>647	Identifier	i
+>648	Identifier	panThisLineId
+>649	Condition	 
+>650	AndExpression	i > 0 && panThisLineVal [ i ] == panThisLineVal [ i - 1 ]
+>651	EqualityExpression	panThisLineVal [ i ] == panThisLineVal [ i - 1 ]
+>652	ArrayIndexing	panThisLineVal [ i - 1 ]
+>653	AdditiveExpression	i - 1
+>654	PrimaryExpression	1
+>655	Identifier	i
+>656	Identifier	panThisLineVal
+>657	ArrayIndexing	panThisLineVal [ i ]
+>658	Identifier	i
+>659	Identifier	panThisLineVal
+>660	RelationalExpression	i > 0
+>661	PrimaryExpression	0
+>662	Identifier	i
+>663	IncDecOp	 
+>664	IncDec	++
+>665	Identifier	i
+>666	Condition	 
+>667	RelationalExpression	i < nXSize
+>668	Identifier	nXSize
+>669	Identifier	i
+>670	ForInit	 
+>671	AssignmentExpr	i = 0
+>672	PrimaryExpression	0
+>673	Identifier	i
+>674	IfStatement	if ( panLastLineVal == NULL )
+>675	CompoundStatement	 
+>676	ReturnStatement	 
+>677	ForStatement	for ( i = 0 ; i < nXSize ; i ++ )
+>678	CompoundStatement	 
+>679	IfStatement	if ( i == 0 || panThisLineVal [ i ] != panThisLineVal [ i - 1 ] )
+>680	ElseStatement	else
+>681	ExpressionStatement	 
+>682	AssignmentExpr	panThisLineId [ i ] = panThisLineId [ i - 1 ]
+>683	ArrayIndexing	panThisLineId [ i - 1 ]
+>684	AdditiveExpression	i - 1
+>685	PrimaryExpression	1
+>686	Identifier	i
+>687	Identifier	panThisLineId
+>688	ArrayIndexing	panThisLineId [ i ]
+>689	Identifier	i
+>690	Identifier	panThisLineId
+>691	CompoundStatement	 
+>692	ExpressionStatement	 
+>693	AssignmentExpr	panThisLineId [ i ] = NewPolygon ( panThisLineVal [ i ] )
+>694	CallExpression	NewPolygon ( panThisLineVal [ i ] )
+>695	ArgumentList	panThisLineVal [ i ]
+>696	Argument	panThisLineVal [ i ]
+>697	ArrayIndexing	panThisLineVal [ i ]
+>698	Identifier	i
+>699	Identifier	panThisLineVal
+>700	Callee	NewPolygon
+>701	Identifier	NewPolygon
+>702	ArrayIndexing	panThisLineId [ i ]
+>703	Identifier	i
+>704	Identifier	panThisLineId
+>705	Condition	 
+>706	OrExpression	i == 0 || panThisLineVal [ i ] != panThisLineVal [ i - 1 ]
+>707	EqualityExpression	panThisLineVal [ i ] != panThisLineVal [ i - 1 ]
+>708	ArrayIndexing	panThisLineVal [ i - 1 ]
+>709	AdditiveExpression	i - 1
+>710	PrimaryExpression	1
+>711	Identifier	i
+>712	Identifier	panThisLineVal
+>713	ArrayIndexing	panThisLineVal [ i ]
+>714	Identifier	i
+>715	Identifier	panThisLineVal
+>716	EqualityExpression	i == 0
+>717	PrimaryExpression	0
+>718	Identifier	i
+>719	IncDecOp	 
+>720	IncDec	++
+>721	Identifier	i
+>722	Condition	 
+>723	RelationalExpression	i < nXSize
+>724	Identifier	nXSize
+>725	Identifier	i
+>726	ForInit	 
+>727	AssignmentExpr	i = 0
+>728	PrimaryExpression	0
+>729	Identifier	i
+>730	Condition	 
+>731	EqualityExpression	panLastLineVal == NULL
+>732	Identifier	NULL
+>733	Identifier	panLastLineVal
+>734	IdentifierDeclStatement	 
+>735	IdentifierDecl	i
+>736	Identifier	i
+>737	IdentifierDeclType	int
+<5=10,6
+<6=7
+<7=9,8
+<10=42,38,34,30,24,11
+<11=12
+<12=22,13
+<13=14
+<14=15
+<15=19,16
+<16=18,17
+<19=21,20
+<22=23
+<24=25
+<25=27,26
+<27=29,28
+<30=31
+<31=33,32
+<34=35
+<35=37,36
+<38=39
+<39=41,40
+<42=43
+<43=45,44
+<58=60,59
+<60=61
+<61=62
+<62=64,63
+<64=65
+<69=72,71,70
+<72=96,89,85,81,77,73
+<73=74
+<74=76,75
+<77=78
+<78=80,79
+<81=82
+<82=84,83
+<85=86
+<86=88,87
+<89=90
+<90=94,91
+<91=92
+<92=93
+<94=95
+<96=97
+<97=101,98
+<98=99
+<99=100
+<101=102
+<111=120,119,112
+<112=116,113
+<113=115,114
+<116=118,117
+<120=146,133,127,121
+<121=122
+<122=124,123
+<124=126,125
+<127=129,128
+<129=130
+<130=132,131
+<133=140,134
+<134=135
+<135=139,136
+<136=138,137
+<140=141
+<141=143,142
+<143=145,144
+<146=153,147
+<147=148
+<148=152,149
+<149=151,150
+<153=154
+<154=156,155
+<156=158,157
+<168=174,173,169
+<169=170
+<170=172,171
+<174=237,193,189,183,177,175
+<175=176
+<177=178
+<178=180,179
+<180=182,181
+<183=184
+<184=186,185
+<186=188,187
+<189=190
+<190=192,191
+<193=233,194
+<194=225,210,195
+<195=196
+<196=209,197
+<197=208,198
+<198=206,199
+<199=204,200
+<200=201
+<201=203,202
+<204=205
+<206=207
+<210=211
+<211=224,212
+<212=223,213
+<213=221,214
+<214=219,215
+<215=216
+<216=218,217
+<219=220
+<221=222
+<225=226
+<226=232,227
+<227=229,228
+<229=231,230
+<233=234
+<234=236,235
+<237=238
+<238=243,242,239
+<239=241,240
+<257=260,259,258
+<260=326,319,274,261
+<261=262
+<262=272,263
+<263=270,268,266,264
+<264=265
+<266=267
+<268=269
+<270=271
+<272=273
+<274=315,311,308,275
+<275=287,276
+<276=281,277
+<277=278
+<278=280,279
+<281=282
+<282=284,283
+<284=286,285
+<287=298,288
+<288=289
+<289=295,290
+<290=294,291
+<291=293,292
+<295=297,296
+<298=299
+<299=305,300
+<300=304,301
+<301=303,302
+<305=307,306
+<308=310,309
+<311=312
+<312=314,313
+<315=316
+<316=318,317
+<319=320
+<320=325,324,321
+<321=323,322
+<326=327
+<327=329,328
+<341=359,358,342
+<342=355,352,349,346,343
+<343=345,344
+<346=348,347
+<349=351,350
+<352=354,353
+<355=357,356
+<359=734,674,360
+<360=670,666,663,361
+<361=362
+<362=649,507,363
+<363=364
+<364=499,490,365
+<365=366
+<366=472,414,367
+<367=368
+<368=394,383,369
+<369=370
+<370=371
+<371=380,372
+<372=378,373
+<373=374
+<374=375
+<375=377,376
+<378=379
+<380=382,381
+<383=384
+<384=385
+<385=391,386
+<386=390,387
+<387=389,388
+<391=393,392
+<394=395
+<395=409,396
+<396=406,397
+<397=401,398
+<398=400,399
+<401=405,402
+<402=404,403
+<406=408,407
+<409=413,410
+<410=412,411
+<414=462,415
+<415=432,416
+<416=417
+<417=418
+<418=430,419
+<419=424,420
+<420=421
+<421=423,422
+<424=425
+<425=429,426
+<426=428,427
+<430=431
+<432=433
+<433=457,434
+<434=448,435
+<435=441,436
+<436=440,437
+<437=439,438
+<441=447,442
+<442=446,443
+<443=445,444
+<448=452,449
+<449=451,450
+<452=456,453
+<453=455,454
+<457=461,458
+<458=460,459
+<462=463
+<463=469,464
+<464=468,465
+<465=467,466
+<469=471,470
+<472=473
+<473=487,474
+<474=484,475
+<475=479,476
+<476=478,477
+<479=483,480
+<480=482,481
+<484=486,485
+<487=489,488
+<490=491
+<491=492
+<492=496,493
+<493=495,494
+<496=498,497
+<499=500
+<500=504,501
+<501=503,502
+<504=506,505
+<507=639,604,559,508
+<508=525,509
+<509=510
+<510=511
+<511=523,512
+<512=517,513
+<513=514
+<514=516,515
+<517=518
+<518=522,519
+<519=521,520
+<523=524
+<525=526
+<526=556,527
+<527=551,528
+<528=542,529
+<529=535,530
+<530=534,531
+<531=533,532
+<535=541,536
+<536=540,537
+<537=539,538
+<542=546,543
+<543=545,544
+<546=550,547
+<547=549,548
+<551=555,552
+<552=554,553
+<556=558,557
+<559=576,560
+<560=561
+<561=562
+<562=574,563
+<563=568,564
+<564=565
+<565=567,566
+<568=569
+<569=573,570
+<570=572,571
+<574=575
+<576=577
+<577=601,578
+<578=592,579
+<579=585,580
+<580=584,581
+<581=583,582
+<585=591,586
+<586=590,587
+<587=589,588
+<592=596,593
+<593=595,594
+<596=600,597
+<597=599,598
+<601=603,602
+<604=619,605
+<605=606
+<606=607
+<607=617,608
+<608=613,609
+<609=610
+<610=612,611
+<613=614
+<614=616,615
+<617=618
+<619=620
+<620=632,621
+<621=627,622
+<622=626,623
+<623=625,624
+<627=631,628
+<628=630,629
+<632=636,633
+<633=635,634
+<636=638,637
+<639=640
+<640=646,641
+<641=645,642
+<642=644,643
+<646=648,647
+<649=650
+<650=660,651
+<651=657,652
+<652=656,653
+<653=655,654
+<657=659,658
+<660=662,661
+<663=665,664
+<666=667
+<667=669,668
+<670=671
+<671=673,672
+<674=730,675
+<675=677,676
+<677=726,722,719,678
+<678=679
+<679=705,691,680
+<680=681
+<681=682
+<682=688,683
+<683=687,684
+<684=686,685
+<688=690,689
+<691=692
+<692=693
+<693=702,694
+<694=700,695
+<695=696
+<696=697
+<697=699,698
+<700=701
+<702=704,703
+<705=706
+<706=716,707
+<707=713,708
+<708=712,709
+<709=711,710
+<713=715,714
+<716=718,717
+<719=721,720
+<722=723
+<723=725,724
+<726=727
+<727=729,728
+<730=731
+<731=733,732
+<734=735
+<735=737,736

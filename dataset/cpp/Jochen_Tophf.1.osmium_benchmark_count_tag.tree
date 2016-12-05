@@ -1,0 +1,206 @@
+>8	FunctionDef	node (osmium 
+>9	ParameterList	osmium 
+>10	Parameter	 
+>11	Identifier	node
+>12	ParameterType	osmium 
+>13	ReturnType	void
+>14	CompoundStatement	 
+>15	IfStatement	if ( amenity && ! strcmp ( amenity , \"post_box\" ) )
+>16	CompoundStatement	 
+>17	ExpressionStatement	 
+>18	UnaryExpression	++ counter
+>19	Identifier	counter
+>20	IncDec	++
+>21	Condition	 
+>22	AndExpression	amenity && ! strcmp ( amenity , \"post_box\" )
+>23	UnaryOp	! strcmp ( amenity , \"post_box\" )
+>24	CallExpression	strcmp ( amenity , \"post_box\" )
+>25	ArgumentList	amenity
+>26	Argument	\"post_box\"
+>27	PrimaryExpression	\"post_box\"
+>28	Argument	amenity
+>29	Identifier	amenity
+>30	Callee	strcmp
+>31	Identifier	strcmp
+>32	UnaryOperator	!
+>33	Identifier	amenity
+>34	IdentifierDeclStatement	 
+>35	IdentifierDecl	* amenity = node . tags ( ) . get_value_by_key ( \"amenity\" )
+>36	AssignmentExpr	* amenity = node . tags ( ) . get_value_by_key ( \"amenity\" )
+>37	CallExpression	node . tags ( ) . get_value_by_key ( \"amenity\" )
+>38	ArgumentList	\"amenity\"
+>39	Argument	\"amenity\"
+>40	PrimaryExpression	\"amenity\"
+>41	Callee	node . tags ( ) . get_value_by_key
+>42	MemberAccess	node . tags ( ) . get_value_by_key
+>43	Identifier	get_value_by_key
+>44	CallExpression	node . tags ( )
+>45	ArgumentList	 
+>46	Callee	node . tags
+>47	MemberAccess	node . tags
+>48	Identifier	tags
+>49	Identifier	node
+>50	Identifier	amenity
+>51	Identifier	amenity
+>52	IdentifierDeclType	const char *
+>53	ExpressionStatement	 
+>54	UnaryExpression	++ all
+>55	Identifier	all
+>56	IncDec	++
+>65	FunctionDef	main (int argc , char * argv [ ])
+>66	ParameterList	int argc , char * argv [ ]
+>67	Parameter	 
+>68	Identifier	argv
+>69	ParameterType	char * [ ]
+>70	Parameter	 
+>71	Identifier	argc
+>72	ParameterType	int
+>73	ReturnType	int
+>74	CompoundStatement	 
+>75	ExpressionStatement	 
+>76	ShiftExpression	std 
+>77	ShiftExpression	\"r_all=\" << handler . all << \" r_counter=\" << handler . counter << \"\n\"
+>78	ShiftExpression	handler . all << \" r_counter=\" << handler . counter << \"\n\"
+>79	ShiftExpression	\" r_counter=\" << handler . counter << \"\n\"
+>80	ShiftExpression	handler . counter << \"\n\"
+>81	PrimaryExpression	\"\n\"
+>82	MemberAccess	handler . counter
+>83	Identifier	counter
+>84	Identifier	handler
+>85	PrimaryExpression	\" r_counter=\"
+>86	MemberAccess	handler . all
+>87	Identifier	all
+>88	Identifier	handler
+>89	PrimaryExpression	\"r_all=\"
+>90	Identifier	std 
+>91	ExpressionStatement	 
+>92	CallExpression	reader . close ( )
+>93	ArgumentList	 
+>94	Callee	reader . close
+>95	MemberAccess	reader . close
+>96	Identifier	close
+>97	Identifier	reader
+>98	ExpressionStatement	 
+>99	CallExpression	osmium 
+>100	ArgumentList	reader
+>101	Argument	handler
+>102	Identifier	handler
+>103	Argument	reader
+>104	Identifier	reader
+>105	Callee	osmium 
+>106	Identifier	osmium 
+>107	IdentifierDeclStatement	 
+>108	IdentifierDecl	handler
+>109	Identifier	handler
+>110	IdentifierDeclType	CountHandler
+>111	IdentifierDeclStatement	 
+>112	IdentifierDecl	reader ( input_filename )
+>113	Identifier	input_filename
+>114	Identifier	reader
+>115	IdentifierDeclType	osmium 
+>116	IdentifierDeclStatement	 
+>117	IdentifierDecl	input_filename = argv [ 1 ]
+>118	AssignmentExpr	input_filename = argv [ 1 ]
+>119	ArrayIndexing	argv [ 1 ]
+>120	PrimaryExpression	1
+>121	Identifier	argv
+>122	Identifier	input_filename
+>123	Identifier	input_filename
+>124	IdentifierDeclType	std 
+>125	IfStatement	if ( argc != 2 )
+>126	CompoundStatement	 
+>127	ExpressionStatement	 
+>128	CallExpression	exit ( 1 )
+>129	ArgumentList	1
+>130	Argument	1
+>131	PrimaryExpression	1
+>132	Callee	exit
+>133	Identifier	exit
+>134	ExpressionStatement	 
+>135	ShiftExpression	std 
+>136	ShiftExpression	\"Usage
+>137	ShiftExpression	argv [ 0 ] << \" OSMFILE\n\"
+>138	PrimaryExpression	\" OSMFILE\n\"
+>139	ArrayIndexing	argv [ 0 ]
+>140	PrimaryExpression	0
+>141	Identifier	argv
+>142	PrimaryExpression	\"Usage
+>143	Identifier	std 
+>144	Condition	 
+>145	EqualityExpression	argc != 2
+>146	PrimaryExpression	2
+>147	Identifier	argc
+<8=14,13,9
+<9=10
+<10=12,11
+<14=53,34,15
+<15=21,16
+<16=17
+<17=18
+<18=20,19
+<21=22
+<22=33,23
+<23=32,24
+<24=30,25
+<25=28,26
+<26=27
+<28=29
+<30=31
+<34=35
+<35=52,51,36
+<36=50,37
+<37=41,38
+<38=39
+<39=40
+<41=42
+<42=44,43
+<44=46,45
+<46=47
+<47=49,48
+<53=54
+<54=56,55
+<65=74,73,66
+<66=70,67
+<67=69,68
+<70=72,71
+<74=125,116,111,107,98,91,75
+<75=76
+<76=90,77
+<77=89,78
+<78=86,79
+<79=85,80
+<80=82,81
+<82=84,83
+<86=88,87
+<91=92
+<92=94,93
+<94=95
+<95=97,96
+<98=99
+<99=105,100
+<100=103,101
+<101=102
+<103=104
+<105=106
+<107=108
+<108=110,109
+<111=112
+<112=115,114,113
+<116=117
+<117=124,123,118
+<118=122,119
+<119=121,120
+<125=144,126
+<126=134,127
+<127=128
+<128=132,129
+<129=130
+<130=131
+<132=133
+<134=135
+<135=143,136
+<136=142,137
+<137=139,138
+<139=141,140
+<144=145
+<145=147,146

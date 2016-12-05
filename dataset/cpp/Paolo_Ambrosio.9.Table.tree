@@ -1,0 +1,249 @@
+>3	FunctionDef	Table 
+>4	ParameterList	const std 
+>5	Parameter	 
+>6	Identifier	column
+>7	ParameterType	const std 
+>8	ReturnType	void
+>9	CompoundStatement	 
+>10	IfStatement	if ( rows . empty ( ) )
+>11	ElseStatement	else
+>12	CompoundStatement	 
+>13	ExpressionStatement	 
+>14	CallExpression	std 
+>15	ArgumentList	\"Cannot alter columns after rows have been added\"
+>16	Argument	\"Cannot alter columns after rows have been added\"
+>17	PrimaryExpression	\"Cannot alter columns after rows have been added\"
+>18	Callee	std 
+>19	Identifier	std 
+>20	Statement	 
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	CallExpression	columns . push_back ( column )
+>24	ArgumentList	column
+>25	Argument	column
+>26	Identifier	column
+>27	Callee	columns . push_back
+>28	MemberAccess	columns . push_back
+>29	Identifier	push_back
+>30	Identifier	columns
+>31	Condition	 
+>32	CallExpression	rows . empty ( )
+>33	ArgumentList	 
+>34	Callee	rows . empty
+>35	MemberAccess	rows . empty
+>36	Identifier	empty
+>37	Identifier	rows
+>45	FunctionDef	Table 
+>46	ParameterList	const row_type & row
+>47	Parameter	 
+>48	Identifier	row
+>49	ParameterType	const row_type &
+>50	ReturnType	void
+>51	CompoundStatement	 
+>52	IfStatement	if ( colSize == 0 )
+>53	ElseStatement	else
+>54	IfStatement	if ( colSize != row . size ( ) )
+>55	ElseStatement	else
+>56	CompoundStatement	 
+>57	ExpressionStatement	 
+>58	CallExpression	rows . push_back ( buildHashRow ( row ) )
+>59	ArgumentList	buildHashRow ( row )
+>60	Argument	buildHashRow ( row )
+>61	CallExpression	buildHashRow ( row )
+>62	ArgumentList	row
+>63	Argument	row
+>64	Identifier	row
+>65	Callee	buildHashRow
+>66	Identifier	buildHashRow
+>67	Callee	rows . push_back
+>68	MemberAccess	rows . push_back
+>69	Identifier	push_back
+>70	Identifier	rows
+>71	CompoundStatement	 
+>72	ExpressionStatement	 
+>73	CallExpression	std 
+>74	ArgumentList	\"Row size does not match the table column size\"
+>75	Argument	\"Row size does not match the table column size\"
+>76	PrimaryExpression	\"Row size does not match the table column size\"
+>77	Callee	std 
+>78	Identifier	std 
+>79	Statement	 
+>80	Condition	 
+>81	EqualityExpression	colSize != row . size ( )
+>82	CallExpression	row . size ( )
+>83	ArgumentList	 
+>84	Callee	row . size
+>85	MemberAccess	row . size
+>86	Identifier	size
+>87	Identifier	row
+>88	Identifier	colSize
+>89	CompoundStatement	 
+>90	ExpressionStatement	 
+>91	CallExpression	std 
+>92	ArgumentList	\"No column defined yet\"
+>93	Argument	\"No column defined yet\"
+>94	PrimaryExpression	\"No column defined yet\"
+>95	Callee	std 
+>96	Identifier	std 
+>97	Statement	 
+>98	Condition	 
+>99	EqualityExpression	colSize == 0
+>100	PrimaryExpression	0
+>101	Identifier	colSize
+>102	IdentifierDeclStatement	 
+>103	IdentifierDecl	colSize = columns . size ( )
+>104	AssignmentExpr	colSize = columns . size ( )
+>105	CallExpression	columns . size ( )
+>106	ArgumentList	 
+>107	Callee	columns . size
+>108	MemberAccess	columns . size
+>109	Identifier	size
+>110	Identifier	columns
+>111	Identifier	colSize
+>112	Identifier	colSize
+>113	IdentifierDeclType	const basic_type 
+>124	FunctionDef	Table 
+>125	ParameterList	const row_type & row
+>126	Parameter	 
+>127	Identifier	row
+>128	ParameterType	const row_type &
+>129	ReturnType	Table 
+>130	CompoundStatement	 
+>131	ReturnStatement	 
+>132	Identifier	hashRow
+>133	ForStatement	for ( columns_type 
+>134	CompoundStatement	 
+>135	ExpressionStatement	 
+>136	AssignmentExpr	hashRow [ columns [ i ] ] = row [ i ]
+>137	ArrayIndexing	row [ i ]
+>138	Identifier	i
+>139	Identifier	row
+>140	ArrayIndexing	hashRow [ columns [ i ] ]
+>141	ArrayIndexing	columns [ i ]
+>142	Identifier	i
+>143	Identifier	columns
+>144	Identifier	hashRow
+>145	UnaryExpression	 
+>146	Identifier	i
+>147	IncDec	++
+>148	Condition	 
+>149	RelationalExpression	i < columns . size ( )
+>150	CallExpression	columns . size ( )
+>151	ArgumentList	 
+>152	Callee	columns . size
+>153	MemberAccess	columns . size
+>154	Identifier	size
+>155	Identifier	columns
+>156	Identifier	i
+>157	ForInit	 
+>158	IdentifierDeclStatement	columns_type 
+>159	IdentifierDecl	i = 0
+>160	AssignmentExpr	i = 0
+>161	PrimaryExpression	0
+>162	Identifier	i
+>163	Identifier	i
+>164	IdentifierDeclType	columns_type 
+>165	IdentifierDeclStatement	 
+>166	IdentifierDecl	hashRow
+>167	Identifier	hashRow
+>168	IdentifierDeclType	hash_row_type
+>183	FunctionDef	Table 
+>184	ParameterList	 
+>185	ReturnType	const Table 
+>186	CompoundStatement	 
+>187	ReturnStatement	 
+>188	Identifier	rows
+<3=9,8,4
+<4=5
+<5=7,6
+<9=10
+<10=31,21,11
+<11=12
+<12=20,13
+<13=14
+<14=18,15
+<15=16
+<16=17
+<18=19
+<21=22
+<22=23
+<23=27,24
+<24=25
+<25=26
+<27=28
+<28=30,29
+<31=32
+<32=34,33
+<34=35
+<35=37,36
+<45=51,50,46
+<46=47
+<47=49,48
+<51=102,52
+<52=98,89,53
+<53=54
+<54=80,71,55
+<55=56
+<56=57
+<57=58
+<58=67,59
+<59=60
+<60=61
+<61=65,62
+<62=63
+<63=64
+<65=66
+<67=68
+<68=70,69
+<71=79,72
+<72=73
+<73=77,74
+<74=75
+<75=76
+<77=78
+<80=81
+<81=88,82
+<82=84,83
+<84=85
+<85=87,86
+<89=97,90
+<90=91
+<91=95,92
+<92=93
+<93=94
+<95=96
+<98=99
+<99=101,100
+<102=103
+<103=113,112,104
+<104=111,105
+<105=107,106
+<107=108
+<108=110,109
+<124=130,129,125
+<125=126
+<126=128,127
+<130=165,133,131
+<131=132
+<133=157,148,145,134
+<134=135
+<135=136
+<136=140,137
+<137=139,138
+<140=144,141
+<141=143,142
+<145=147,146
+<148=149
+<149=156,150
+<150=152,151
+<152=153
+<153=155,154
+<157=158
+<158=159
+<159=164,163,160
+<160=162,161
+<165=166
+<166=168,167
+<183=186,185,184
+<186=187
+<187=188

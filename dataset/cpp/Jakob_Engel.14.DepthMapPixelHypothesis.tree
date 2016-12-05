@@ -1,0 +1,610 @@
+>3	FunctionDef	DepthMapPixelHypothesis 
+>4	ParameterList	int lastFrameID
+>5	Parameter	 
+>6	Identifier	lastFrameID
+>7	ParameterType	int
+>8	ReturnType	cv 
+>9	CompoundStatement	 
+>10	ReturnStatement	 
+>11	CallExpression	cv 
+>12	ArgumentList	255
+>13	Argument	255
+>14	PrimaryExpression	255
+>15	Argument	255
+>16	PrimaryExpression	255
+>17	Argument	255
+>18	PrimaryExpression	255
+>19	Callee	cv 
+>20	Identifier	cv 
+>21	IfStatement	if ( debugDisplay == 5 )
+>22	CompoundStatement	 
+>23	ReturnStatement	 
+>24	CallExpression	cv 
+>25	ArgumentList	v
+>26	Argument	v
+>27	Identifier	v
+>28	Argument	0
+>29	PrimaryExpression	0
+>30	Argument	v
+>31	Identifier	v
+>32	Callee	cv 
+>33	Identifier	cv 
+>34	IdentifierDeclStatement	 
+>35	IdentifierDecl	v = f < 0 ? 0 
+>36	AssignmentExpr	v = f < 0 ? 0 
+>37	ConditionalExpression	f < 0 ? 0 
+>38	ConditionalExpression	f > 255 ? 255 
+>39	Identifier	f
+>40	PrimaryExpression	255
+>41	Condition	f > 255
+>42	RelationalExpression	f > 255
+>43	PrimaryExpression	255
+>44	Identifier	f
+>45	PrimaryExpression	0
+>46	Condition	f < 0
+>47	RelationalExpression	f < 0
+>48	PrimaryExpression	0
+>49	Identifier	f
+>50	Identifier	v
+>51	Identifier	v
+>52	IdentifierDeclType	uchar
+>53	IdentifierDeclStatement	 
+>54	IdentifierDecl	f = ( nextStereoFrameMinID - lastFrameID ) * ( 255.0 / 100 )
+>55	AssignmentExpr	f = ( nextStereoFrameMinID - lastFrameID ) * ( 255.0 / 100 )
+>56	MultiplicativeExpression	( nextStereoFrameMinID - lastFrameID ) * ( 255.0 / 100 )
+>57	MultiplicativeExpression	255.0 / 100
+>58	PrimaryExpression	100
+>59	PrimaryExpression	255.0
+>60	AdditiveExpression	nextStereoFrameMinID - lastFrameID
+>61	Identifier	lastFrameID
+>62	Identifier	nextStereoFrameMinID
+>63	Identifier	f
+>64	Identifier	f
+>65	IdentifierDeclType	float
+>66	Condition	 
+>67	EqualityExpression	debugDisplay == 5
+>68	PrimaryExpression	5
+>69	Identifier	debugDisplay
+>70	IfStatement	if ( debugDisplay == 3 || debugDisplay == 4 )
+>71	CompoundStatement	 
+>72	ReturnStatement	 
+>73	CallExpression	cv 
+>74	ArgumentList	255 - var
+>75	Argument	0
+>76	PrimaryExpression	0
+>77	Argument	var
+>78	Identifier	var
+>79	Argument	255 - var
+>80	AdditiveExpression	255 - var
+>81	Identifier	var
+>82	PrimaryExpression	255
+>83	Callee	cv 
+>84	Identifier	cv 
+>85	IfStatement	if ( var < 0 )
+>86	ReturnStatement	 
+>87	CallExpression	cv 
+>88	ArgumentList	0
+>89	Argument	255
+>90	PrimaryExpression	255
+>91	Argument	0
+>92	PrimaryExpression	0
+>93	Argument	0
+>94	PrimaryExpression	0
+>95	Callee	cv 
+>96	Identifier	cv 
+>97	Condition	 
+>98	RelationalExpression	var < 0
+>99	PrimaryExpression	0
+>100	Identifier	var
+>101	IfStatement	if ( var > 255 )
+>102	ExpressionStatement	 
+>103	AssignmentExpr	var = 255
+>104	PrimaryExpression	255
+>105	Identifier	var
+>106	Condition	 
+>107	RelationalExpression	var > 255
+>108	PrimaryExpression	255
+>109	Identifier	var
+>110	ExpressionStatement	 
+>111	AssignmentExpr	var = var * 255 * 0.333
+>112	MultiplicativeExpression	var * 255 * 0.333
+>113	MultiplicativeExpression	255 * 0.333
+>114	PrimaryExpression	0.333
+>115	PrimaryExpression	255
+>116	Identifier	var
+>117	Identifier	var
+>118	IdentifierDeclStatement	 
+>119	IdentifierDecl	var = - 0.5 * log10 ( idv )
+>120	AssignmentExpr	var = - 0.5 * log10 ( idv )
+>121	MultiplicativeExpression	- 0.5 * log10 ( idv )
+>122	CallExpression	log10 ( idv )
+>123	ArgumentList	idv
+>124	Argument	idv
+>125	Identifier	idv
+>126	Callee	log10
+>127	Identifier	log10
+>128	UnaryOp	- 0.5
+>129	PrimaryExpression	0.5
+>130	UnaryOperator	-
+>131	Identifier	var
+>132	Identifier	var
+>133	IdentifierDeclType	float
+>134	IfStatement	if ( debugDisplay == 3 )
+>135	ElseStatement	else
+>136	ExpressionStatement	 
+>137	AssignmentExpr	idv = idepth_var
+>138	Identifier	idepth_var
+>139	Identifier	idv
+>140	ExpressionStatement	 
+>141	AssignmentExpr	idv = idepth_var_smoothed
+>142	Identifier	idepth_var_smoothed
+>143	Identifier	idv
+>144	Condition	 
+>145	EqualityExpression	debugDisplay == 3
+>146	PrimaryExpression	3
+>147	Identifier	debugDisplay
+>148	IdentifierDeclStatement	 
+>149	IdentifierDecl	idv
+>150	Identifier	idv
+>151	IdentifierDeclType	float
+>152	Condition	 
+>153	OrExpression	debugDisplay == 3 || debugDisplay == 4
+>154	EqualityExpression	debugDisplay == 4
+>155	PrimaryExpression	4
+>156	Identifier	debugDisplay
+>157	EqualityExpression	debugDisplay == 3
+>158	PrimaryExpression	3
+>159	Identifier	debugDisplay
+>160	IfStatement	if ( debugDisplay == 2 )
+>161	CompoundStatement	 
+>162	ReturnStatement	 
+>163	CallExpression	cv 
+>164	ArgumentList	0
+>165	Argument	v
+>166	Identifier	v
+>167	Argument	v
+>168	Identifier	v
+>169	Argument	0
+>170	PrimaryExpression	0
+>171	Callee	cv 
+>172	Identifier	cv 
+>173	IdentifierDeclStatement	 
+>174	IdentifierDecl	v = f < 0 ? 0 
+>175	AssignmentExpr	v = f < 0 ? 0 
+>176	ConditionalExpression	f < 0 ? 0 
+>177	ConditionalExpression	f > 255 ? 255 
+>178	Identifier	f
+>179	PrimaryExpression	255
+>180	Condition	f > 255
+>181	RelationalExpression	f > 255
+>182	PrimaryExpression	255
+>183	Identifier	f
+>184	PrimaryExpression	0
+>185	Condition	f < 0
+>186	RelationalExpression	f < 0
+>187	PrimaryExpression	0
+>188	Identifier	f
+>189	Identifier	v
+>190	Identifier	v
+>191	IdentifierDeclType	uchar
+>192	IdentifierDeclStatement	 
+>193	IdentifierDecl	f = validity_counter * ( 255.0 / ( VALIDITY_COUNTER_MAX_VARIABLE + VALIDITY_COUNTER_MAX ) )
+>194	AssignmentExpr	f = validity_counter * ( 255.0 / ( VALIDITY_COUNTER_MAX_VARIABLE + VALIDITY_COUNTER_MAX ) )
+>195	MultiplicativeExpression	validity_counter * ( 255.0 / ( VALIDITY_COUNTER_MAX_VARIABLE + VALIDITY_COUNTER_MAX ) )
+>196	MultiplicativeExpression	255.0 / ( VALIDITY_COUNTER_MAX_VARIABLE + VALIDITY_COUNTER_MAX )
+>197	AdditiveExpression	VALIDITY_COUNTER_MAX_VARIABLE + VALIDITY_COUNTER_MAX
+>198	Identifier	VALIDITY_COUNTER_MAX
+>199	Identifier	VALIDITY_COUNTER_MAX_VARIABLE
+>200	PrimaryExpression	255.0
+>201	Identifier	validity_counter
+>202	Identifier	f
+>203	Identifier	f
+>204	IdentifierDeclType	float
+>205	Condition	 
+>206	EqualityExpression	debugDisplay == 2
+>207	PrimaryExpression	2
+>208	Identifier	debugDisplay
+>209	IfStatement	if ( debugDisplay == 0 || debugDisplay == 1 )
+>210	CompoundStatement	 
+>211	ReturnStatement	 
+>212	CallExpression	cv 
+>213	ArgumentList	255 - rc
+>214	Argument	255 - bc
+>215	AdditiveExpression	255 - bc
+>216	Identifier	bc
+>217	PrimaryExpression	255
+>218	Argument	255 - gc
+>219	AdditiveExpression	255 - gc
+>220	Identifier	gc
+>221	PrimaryExpression	255
+>222	Argument	255 - rc
+>223	AdditiveExpression	255 - rc
+>224	Identifier	rc
+>225	PrimaryExpression	255
+>226	Callee	cv 
+>227	Identifier	cv 
+>228	IdentifierDeclStatement	 
+>229	IdentifierDecl	bc = b < 0 ? 0 
+>230	AssignmentExpr	bc = b < 0 ? 0 
+>231	ConditionalExpression	b < 0 ? 0 
+>232	ConditionalExpression	b > 255 ? 255 
+>233	Identifier	b
+>234	PrimaryExpression	255
+>235	Condition	b > 255
+>236	RelationalExpression	b > 255
+>237	PrimaryExpression	255
+>238	Identifier	b
+>239	PrimaryExpression	0
+>240	Condition	b < 0
+>241	RelationalExpression	b < 0
+>242	PrimaryExpression	0
+>243	Identifier	b
+>244	Identifier	bc
+>245	Identifier	bc
+>246	IdentifierDeclType	uchar
+>247	IdentifierDeclStatement	 
+>248	IdentifierDecl	gc = g < 0 ? 0 
+>249	AssignmentExpr	gc = g < 0 ? 0 
+>250	ConditionalExpression	g < 0 ? 0 
+>251	ConditionalExpression	g > 255 ? 255 
+>252	Identifier	g
+>253	PrimaryExpression	255
+>254	Condition	g > 255
+>255	RelationalExpression	g > 255
+>256	PrimaryExpression	255
+>257	Identifier	g
+>258	PrimaryExpression	0
+>259	Condition	g < 0
+>260	RelationalExpression	g < 0
+>261	PrimaryExpression	0
+>262	Identifier	g
+>263	Identifier	gc
+>264	Identifier	gc
+>265	IdentifierDeclType	uchar
+>266	IdentifierDeclStatement	 
+>267	IdentifierDecl	rc = r < 0 ? 0 
+>268	AssignmentExpr	rc = r < 0 ? 0 
+>269	ConditionalExpression	r < 0 ? 0 
+>270	ConditionalExpression	r > 255 ? 255 
+>271	Identifier	r
+>272	PrimaryExpression	255
+>273	Condition	r > 255
+>274	RelationalExpression	r > 255
+>275	PrimaryExpression	255
+>276	Identifier	r
+>277	PrimaryExpression	0
+>278	Condition	r < 0
+>279	RelationalExpression	r < 0
+>280	PrimaryExpression	0
+>281	Identifier	r
+>282	Identifier	rc
+>283	Identifier	rc
+>284	IdentifierDeclType	uchar
+>285	IfStatement	if ( b < 0 )
+>286	ExpressionStatement	 
+>287	AssignmentExpr	b = - b
+>288	UnaryOp	- b
+>289	Identifier	b
+>290	UnaryOperator	-
+>291	Identifier	b
+>292	Condition	 
+>293	RelationalExpression	b < 0
+>294	PrimaryExpression	0
+>295	Identifier	b
+>296	IdentifierDeclStatement	 
+>297	IdentifierDecl	b = ( 2 - id ) * 255 / 1.0
+>298	AssignmentExpr	b = ( 2 - id ) * 255 / 1.0
+>299	MultiplicativeExpression	( 2 - id ) * 255 / 1.0
+>300	MultiplicativeExpression	255 / 1.0
+>301	PrimaryExpression	1.0
+>302	PrimaryExpression	255
+>303	AdditiveExpression	2 - id
+>304	Identifier	id
+>305	PrimaryExpression	2
+>306	Identifier	b
+>307	Identifier	b
+>308	IdentifierDeclType	float
+>309	IfStatement	if ( g < 0 )
+>310	ExpressionStatement	 
+>311	AssignmentExpr	g = - g
+>312	UnaryOp	- g
+>313	Identifier	g
+>314	UnaryOperator	-
+>315	Identifier	g
+>316	Condition	 
+>317	RelationalExpression	g < 0
+>318	PrimaryExpression	0
+>319	Identifier	g
+>320	IdentifierDeclStatement	 
+>321	IdentifierDecl	g = ( 1 - id ) * 255 / 1.0
+>322	AssignmentExpr	g = ( 1 - id ) * 255 / 1.0
+>323	MultiplicativeExpression	( 1 - id ) * 255 / 1.0
+>324	MultiplicativeExpression	255 / 1.0
+>325	PrimaryExpression	1.0
+>326	PrimaryExpression	255
+>327	AdditiveExpression	1 - id
+>328	Identifier	id
+>329	PrimaryExpression	1
+>330	Identifier	g
+>331	Identifier	g
+>332	IdentifierDeclType	float
+>333	IfStatement	if ( r < 0 )
+>334	ExpressionStatement	 
+>335	AssignmentExpr	r = - r
+>336	UnaryOp	- r
+>337	Identifier	r
+>338	UnaryOperator	-
+>339	Identifier	r
+>340	Condition	 
+>341	RelationalExpression	r < 0
+>342	PrimaryExpression	0
+>343	Identifier	r
+>344	IdentifierDeclStatement	 
+>345	IdentifierDecl	r = ( 0 - id ) * 255 / 1.0
+>346	AssignmentExpr	r = ( 0 - id ) * 255 / 1.0
+>347	MultiplicativeExpression	( 0 - id ) * 255 / 1.0
+>348	MultiplicativeExpression	255 / 1.0
+>349	PrimaryExpression	1.0
+>350	PrimaryExpression	255
+>351	AdditiveExpression	0 - id
+>352	Identifier	id
+>353	PrimaryExpression	0
+>354	Identifier	r
+>355	Identifier	r
+>356	IdentifierDeclType	float
+>357	IfStatement	if ( id < 0 )
+>358	ReturnStatement	 
+>359	CallExpression	cv 
+>360	ArgumentList	255
+>361	Argument	255
+>362	PrimaryExpression	255
+>363	Argument	255
+>364	PrimaryExpression	255
+>365	Argument	255
+>366	PrimaryExpression	255
+>367	Callee	cv 
+>368	Identifier	cv 
+>369	Condition	 
+>370	RelationalExpression	id < 0
+>371	PrimaryExpression	0
+>372	Identifier	id
+>373	IfStatement	if ( debugDisplay == 0 )
+>374	ElseStatement	else
+>375	ExpressionStatement	 
+>376	AssignmentExpr	id = idepth
+>377	Identifier	idepth
+>378	Identifier	id
+>379	ExpressionStatement	 
+>380	AssignmentExpr	id = idepth_smoothed
+>381	Identifier	idepth_smoothed
+>382	Identifier	id
+>383	Condition	 
+>384	EqualityExpression	debugDisplay == 0
+>385	PrimaryExpression	0
+>386	Identifier	debugDisplay
+>387	IdentifierDeclStatement	 
+>388	IdentifierDecl	id
+>389	Identifier	id
+>390	IdentifierDeclType	float
+>391	Condition	 
+>392	OrExpression	debugDisplay == 0 || debugDisplay == 1
+>393	EqualityExpression	debugDisplay == 1
+>394	PrimaryExpression	1
+>395	Identifier	debugDisplay
+>396	EqualityExpression	debugDisplay == 0
+>397	PrimaryExpression	0
+>398	Identifier	debugDisplay
+<3=9,8,4
+<4=5
+<5=7,6
+<9=209,160,70,21,10
+<10=11
+<11=19,12
+<12=17,15,13
+<13=14
+<15=16
+<17=18
+<19=20
+<21=66,22
+<22=53,34,23
+<23=24
+<24=32,25
+<25=30,28,26
+<26=27
+<28=29
+<30=31
+<32=33
+<34=35
+<35=52,51,36
+<36=50,37
+<37=46,45,38
+<38=41,40,39
+<41=42
+<42=44,43
+<46=47
+<47=49,48
+<53=54
+<54=65,64,55
+<55=63,56
+<56=60,57
+<57=59,58
+<60=62,61
+<66=67
+<67=69,68
+<70=152,71
+<71=148,134,118,110,101,85,72
+<72=73
+<73=83,74
+<74=79,77,75
+<75=76
+<77=78
+<79=80
+<80=82,81
+<83=84
+<85=97,86
+<86=87
+<87=95,88
+<88=93,91,89
+<89=90
+<91=92
+<93=94
+<95=96
+<97=98
+<98=100,99
+<101=106,102
+<102=103
+<103=105,104
+<106=107
+<107=109,108
+<110=111
+<111=117,112
+<112=116,113
+<113=115,114
+<118=119
+<119=133,132,120
+<120=131,121
+<121=128,122
+<122=126,123
+<123=124
+<124=125
+<126=127
+<128=130,129
+<134=144,140,135
+<135=136
+<136=137
+<137=139,138
+<140=141
+<141=143,142
+<144=145
+<145=147,146
+<148=149
+<149=151,150
+<152=153
+<153=157,154
+<154=156,155
+<157=159,158
+<160=205,161
+<161=192,173,162
+<162=163
+<163=171,164
+<164=169,167,165
+<165=166
+<167=168
+<169=170
+<171=172
+<173=174
+<174=191,190,175
+<175=189,176
+<176=185,184,177
+<177=180,179,178
+<180=181
+<181=183,182
+<185=186
+<186=188,187
+<192=193
+<193=204,203,194
+<194=202,195
+<195=201,196
+<196=200,197
+<197=199,198
+<205=206
+<206=208,207
+<209=391,210
+<210=387,373,357,344,333,320,309,296,285,266,247,228,211
+<211=212
+<212=226,213
+<213=222,218,214
+<214=215
+<215=217,216
+<218=219
+<219=221,220
+<222=223
+<223=225,224
+<226=227
+<228=229
+<229=246,245,230
+<230=244,231
+<231=240,239,232
+<232=235,234,233
+<235=236
+<236=238,237
+<240=241
+<241=243,242
+<247=248
+<248=265,264,249
+<249=263,250
+<250=259,258,251
+<251=254,253,252
+<254=255
+<255=257,256
+<259=260
+<260=262,261
+<266=267
+<267=284,283,268
+<268=282,269
+<269=278,277,270
+<270=273,272,271
+<273=274
+<274=276,275
+<278=279
+<279=281,280
+<285=292,286
+<286=287
+<287=291,288
+<288=290,289
+<292=293
+<293=295,294
+<296=297
+<297=308,307,298
+<298=306,299
+<299=303,300
+<300=302,301
+<303=305,304
+<309=316,310
+<310=311
+<311=315,312
+<312=314,313
+<316=317
+<317=319,318
+<320=321
+<321=332,331,322
+<322=330,323
+<323=327,324
+<324=326,325
+<327=329,328
+<333=340,334
+<334=335
+<335=339,336
+<336=338,337
+<340=341
+<341=343,342
+<344=345
+<345=356,355,346
+<346=354,347
+<347=351,348
+<348=350,349
+<351=353,352
+<357=369,358
+<358=359
+<359=367,360
+<360=365,363,361
+<361=362
+<363=364
+<365=366
+<367=368
+<369=370
+<370=372,371
+<373=383,379,374
+<374=375
+<375=376
+<376=378,377
+<379=380
+<380=382,381
+<383=384
+<384=386,385
+<387=388
+<388=390,389
+<391=392
+<392=396,393
+<393=395,394
+<396=398,397

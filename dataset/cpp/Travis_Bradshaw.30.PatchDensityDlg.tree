@@ -1,0 +1,245 @@
+>5	FunctionDef	CPatchDensityDlg 
+>6	ParameterList	CWnd * pParent
+>7	Parameter	 
+>8	Identifier	pParent
+>9	ParameterType	CWnd *
+>10	CompoundStatement	 
+>15	FunctionDef	CPatchDensityDlg 
+>16	ParameterList	CDataExchange * pDX
+>17	Parameter	 
+>18	Identifier	pDX
+>19	ParameterType	CDataExchange *
+>20	ReturnType	void
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	CallExpression	DDX_Control ( pDX , IDC_COMBO_HEIGHT , m_wndHeight )
+>24	ArgumentList	pDX
+>25	Argument	m_wndHeight
+>26	Identifier	m_wndHeight
+>27	Argument	IDC_COMBO_HEIGHT
+>28	Identifier	IDC_COMBO_HEIGHT
+>29	Argument	pDX
+>30	Identifier	pDX
+>31	Callee	DDX_Control
+>32	Identifier	DDX_Control
+>33	ExpressionStatement	 
+>34	CallExpression	DDX_Control ( pDX , IDC_COMBO_WIDTH , m_wndWidth )
+>35	ArgumentList	pDX
+>36	Argument	m_wndWidth
+>37	Identifier	m_wndWidth
+>38	Argument	IDC_COMBO_WIDTH
+>39	Identifier	IDC_COMBO_WIDTH
+>40	Argument	pDX
+>41	Identifier	pDX
+>42	Callee	DDX_Control
+>43	Identifier	DDX_Control
+>44	ExpressionStatement	 
+>45	CallExpression	CDialog 
+>46	ArgumentList	pDX
+>47	Argument	pDX
+>48	Identifier	pDX
+>49	Callee	CDialog 
+>50	Identifier	CDialog 
+>61	FunctionDef	CPatchDensityDlg 
+>62	ParameterList	 
+>63	ReturnType	void
+>64	CompoundStatement	 
+>65	ExpressionStatement	 
+>66	CallExpression	CDialog 
+>67	ArgumentList	 
+>68	Callee	CDialog 
+>69	Identifier	CDialog 
+>70	IfStatement	if ( nWidth >= 0 && nWidth <= 6 && nHeight >= 0 && nHeight <= 6 )
+>71	CompoundStatement	 
+>72	ExpressionStatement	 
+>73	CallExpression	Sys_UpdateWindows ( W_ALL )
+>74	ArgumentList	W_ALL
+>75	Argument	W_ALL
+>76	Identifier	W_ALL
+>77	Callee	Sys_UpdateWindows
+>78	Identifier	Sys_UpdateWindows
+>79	ExpressionStatement	 
+>80	CallExpression	Patch_GenericMesh ( g_nXLat [ nWidth ] , g_nXLat [ nHeight ] , g_pParentWnd -> ActiveXY ( ) -> GetViewType ( ) )
+>81	ArgumentList	g_nXLat [ nWidth ]
+>82	Argument	g_pParentWnd -> ActiveXY ( ) -> GetViewType ( )
+>83	CallExpression	g_pParentWnd -> ActiveXY ( ) -> GetViewType ( )
+>84	ArgumentList	 
+>85	Callee	g_pParentWnd -> ActiveXY ( ) -> GetViewType
+>86	PtrMemberAccess	g_pParentWnd -> ActiveXY ( ) -> GetViewType
+>87	Identifier	GetViewType
+>88	CallExpression	g_pParentWnd -> ActiveXY ( )
+>89	ArgumentList	 
+>90	Callee	g_pParentWnd -> ActiveXY
+>91	PtrMemberAccess	g_pParentWnd -> ActiveXY
+>92	Identifier	ActiveXY
+>93	Identifier	g_pParentWnd
+>94	Argument	g_nXLat [ nHeight ]
+>95	ArrayIndexing	g_nXLat [ nHeight ]
+>96	Identifier	nHeight
+>97	Identifier	g_nXLat
+>98	Argument	g_nXLat [ nWidth ]
+>99	ArrayIndexing	g_nXLat [ nWidth ]
+>100	Identifier	nWidth
+>101	Identifier	g_nXLat
+>102	Callee	Patch_GenericMesh
+>103	Identifier	Patch_GenericMesh
+>104	Condition	 
+>105	AndExpression	nWidth >= 0 && nWidth <= 6 && nHeight >= 0 && nHeight <= 6
+>106	AndExpression	nWidth <= 6 && nHeight >= 0 && nHeight <= 6
+>107	AndExpression	nHeight >= 0 && nHeight <= 6
+>108	RelationalExpression	nHeight <= 6
+>109	PrimaryExpression	6
+>110	Identifier	nHeight
+>111	RelationalExpression	nHeight >= 0
+>112	PrimaryExpression	0
+>113	Identifier	nHeight
+>114	RelationalExpression	nWidth <= 6
+>115	PrimaryExpression	6
+>116	Identifier	nWidth
+>117	RelationalExpression	nWidth >= 0
+>118	PrimaryExpression	0
+>119	Identifier	nWidth
+>120	IdentifierDeclStatement	 
+>121	IdentifierDecl	nHeight = m_wndHeight . GetCurSel ( )
+>122	AssignmentExpr	nHeight = m_wndHeight . GetCurSel ( )
+>123	CallExpression	m_wndHeight . GetCurSel ( )
+>124	ArgumentList	 
+>125	Callee	m_wndHeight . GetCurSel
+>126	MemberAccess	m_wndHeight . GetCurSel
+>127	Identifier	GetCurSel
+>128	Identifier	m_wndHeight
+>129	Identifier	nHeight
+>130	Identifier	nHeight
+>131	IdentifierDeclType	int
+>132	IdentifierDeclStatement	 
+>133	IdentifierDecl	nWidth = m_wndWidth . GetCurSel ( )
+>134	AssignmentExpr	nWidth = m_wndWidth . GetCurSel ( )
+>135	CallExpression	m_wndWidth . GetCurSel ( )
+>136	ArgumentList	 
+>137	Callee	m_wndWidth . GetCurSel
+>138	MemberAccess	m_wndWidth . GetCurSel
+>139	Identifier	GetCurSel
+>140	Identifier	m_wndWidth
+>141	Identifier	nWidth
+>142	Identifier	nWidth
+>143	IdentifierDeclType	int
+>164	FunctionDef	CPatchDensityDlg 
+>165	ParameterList	 
+>166	ReturnType	BOOL
+>167	CompoundStatement	 
+>168	ReturnStatement	 
+>169	Identifier	TRUE
+>170	ExpressionStatement	 
+>171	CallExpression	m_wndHeight . SetCurSel ( 0 )
+>172	ArgumentList	0
+>173	Argument	0
+>174	PrimaryExpression	0
+>175	Callee	m_wndHeight . SetCurSel
+>176	MemberAccess	m_wndHeight . SetCurSel
+>177	Identifier	SetCurSel
+>178	Identifier	m_wndHeight
+>179	ExpressionStatement	 
+>180	CallExpression	m_wndWidth . SetCurSel ( 0 )
+>181	ArgumentList	0
+>182	Argument	0
+>183	PrimaryExpression	0
+>184	Callee	m_wndWidth . SetCurSel
+>185	MemberAccess	m_wndWidth . SetCurSel
+>186	Identifier	SetCurSel
+>187	Identifier	m_wndWidth
+>188	ExpressionStatement	 
+>189	CallExpression	CDialog 
+>190	ArgumentList	 
+>191	Callee	CDialog 
+>192	Identifier	CDialog 
+<5=10,6
+<6=7
+<7=9,8
+<15=21,20,16
+<16=17
+<17=19,18
+<21=44,33,22
+<22=23
+<23=31,24
+<24=29,27,25
+<25=26
+<27=28
+<29=30
+<31=32
+<33=34
+<34=42,35
+<35=40,38,36
+<36=37
+<38=39
+<40=41
+<42=43
+<44=45
+<45=49,46
+<46=47
+<47=48
+<49=50
+<61=64,63,62
+<64=132,120,70,65
+<65=66
+<66=68,67
+<68=69
+<70=104,71
+<71=79,72
+<72=73
+<73=77,74
+<74=75
+<75=76
+<77=78
+<79=80
+<80=102,81
+<81=98,94,82
+<82=83
+<83=85,84
+<85=86
+<86=88,87
+<88=90,89
+<90=91
+<91=93,92
+<94=95
+<95=97,96
+<98=99
+<99=101,100
+<102=103
+<104=105
+<105=117,106
+<106=114,107
+<107=111,108
+<108=110,109
+<111=113,112
+<114=116,115
+<117=119,118
+<120=121
+<121=131,130,122
+<122=129,123
+<123=125,124
+<125=126
+<126=128,127
+<132=133
+<133=143,142,134
+<134=141,135
+<135=137,136
+<137=138
+<138=140,139
+<164=167,166,165
+<167=188,179,170,168
+<168=169
+<170=171
+<171=175,172
+<172=173
+<173=174
+<175=176
+<176=178,177
+<179=180
+<180=184,181
+<181=182
+<182=183
+<184=185
+<185=187,186
+<188=189
+<189=191,190
+<191=192

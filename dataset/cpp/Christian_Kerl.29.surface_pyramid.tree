@@ -1,0 +1,634 @@
+>3	FunctionDef	SurfacePyramid 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	SurfacePyramid 
+>10	ParameterList	 
+>11	CompoundStatement	 
+>15	FunctionDef	SurfacePyramid 
+>16	ParameterList	const cv 
+>17	Parameter	 
+>18	Identifier	scale
+>19	ParameterType	float
+>20	Parameter	 
+>21	Identifier	output
+>22	ParameterType	cv 
+>23	Parameter	 
+>24	Identifier	input
+>25	ParameterType	const cv 
+>26	ReturnType	void
+>27	CompoundStatement	 
+>28	ForStatement	for ( int idx = 0 ; idx < input . size ( ) . area ( ) ; idx ++ , input_ptr ++ , output_ptr ++ )
+>29	CompoundStatement	 
+>30	IfStatement	if ( * input_ptr == 0 )
+>31	ElseStatement	else
+>32	CompoundStatement	 
+>33	ExpressionStatement	 
+>34	AssignmentExpr	* output_ptr = ( ( float ) * input_ptr ) * scale
+>35	MultiplicativeExpression	( ( float ) * input_ptr ) * scale
+>36	Identifier	scale
+>37	CastExpression	( float ) * input_ptr
+>38	UnaryOp	* input_ptr
+>39	Identifier	input_ptr
+>40	UnaryOperator	*
+>41	CastTarget	float
+>42	UnaryOp	* output_ptr
+>43	Identifier	output_ptr
+>44	UnaryOperator	*
+>45	CompoundStatement	 
+>46	ExpressionStatement	 
+>47	CallExpression	quiet_NaN ( )
+>48	ArgumentList	 
+>49	Callee	quiet_NaN
+>50	Identifier	quiet_NaN
+>51	Statement	 
+>52	Statement	 
+>53	Statement	 
+>54	Statement	 
+>55	Statement	 
+>56	Statement	 
+>57	Statement	 
+>58	Statement	 
+>59	Statement	 
+>60	Statement	 
+>61	Condition	 
+>62	EqualityExpression	* input_ptr == 0
+>63	PrimaryExpression	0
+>64	UnaryOp	* input_ptr
+>65	Identifier	input_ptr
+>66	UnaryOperator	*
+>67	Expression	 
+>68	Expression	input_ptr ++ , output_ptr ++
+>69	IncDecOp	output_ptr ++
+>70	IncDec	++
+>71	Identifier	output_ptr
+>72	IncDecOp	input_ptr ++
+>73	IncDec	++
+>74	Identifier	input_ptr
+>75	IncDecOp	idx ++
+>76	IncDec	++
+>77	Identifier	idx
+>78	Condition	 
+>79	RelationalExpression	idx < input . size ( ) . area ( )
+>80	CallExpression	input . size ( ) . area ( )
+>81	ArgumentList	 
+>82	Callee	input . size ( ) . area
+>83	MemberAccess	input . size ( ) . area
+>84	Identifier	area
+>85	CallExpression	input . size ( )
+>86	ArgumentList	 
+>87	Callee	input . size
+>88	MemberAccess	input . size
+>89	Identifier	size
+>90	Identifier	input
+>91	Identifier	idx
+>92	ForInit	 
+>93	IdentifierDeclStatement	int idx = 0 ;
+>94	IdentifierDecl	idx = 0
+>95	AssignmentExpr	idx = 0
+>96	PrimaryExpression	0
+>97	Identifier	idx
+>98	Identifier	idx
+>99	IdentifierDeclType	int
+>100	ExpressionStatement	 
+>101	Statement	 
+>102	Statement	 
+>103	Statement	 
+>104	Statement	 
+>105	Statement	 
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Statement	 
+>110	Statement	 
+>111	Statement	 
+>112	Statement	 
+>113	ExpressionStatement	 
+>114	Statement	 
+>115	Statement	 
+>116	Statement	 
+>117	Statement	 
+>118	Statement	 
+>119	Statement	 
+>120	Statement	 
+>121	Statement	 
+>122	Statement	 
+>123	Statement	 
+>124	Statement	 
+>125	Statement	 
+>126	Statement	 
+>127	Statement	 
+>128	Statement	 
+>129	ExpressionStatement	 
+>130	CallExpression	output . create ( input . rows , input . cols , CV_32FC1 )
+>131	ArgumentList	input . rows
+>132	Argument	CV_32FC1
+>133	Identifier	CV_32FC1
+>134	Argument	input . cols
+>135	MemberAccess	input . cols
+>136	Identifier	cols
+>137	Identifier	input
+>138	Argument	input . rows
+>139	MemberAccess	input . rows
+>140	Identifier	rows
+>141	Identifier	input
+>142	Callee	output . create
+>143	MemberAccess	output . create
+>144	Identifier	create
+>145	Identifier	output
+>162	FunctionDef	SurfacePyramid 
+>163	ParameterList	const cv 
+>164	Parameter	 
+>165	Identifier	scale
+>166	ParameterType	float
+>167	Parameter	 
+>168	Identifier	output
+>169	ParameterType	cv 
+>170	Parameter	 
+>171	Identifier	input
+>172	ParameterType	const cv 
+>173	ReturnType	void
+>174	CompoundStatement	 
+>175	ForStatement	for ( int idx = 0 ; idx < input . size ( ) . area ( ) ; idx += 8 , input_ptr += 8 , output_ptr += 8 )
+>176	CompoundStatement	 
+>177	ExpressionStatement	 
+>178	CallExpression	_mm_store_ps ( output_ptr + 4 , _input )
+>179	ArgumentList	output_ptr + 4
+>180	Argument	_input
+>181	Identifier	_input
+>182	Argument	output_ptr + 4
+>183	AdditiveExpression	output_ptr + 4
+>184	PrimaryExpression	4
+>185	Identifier	output_ptr
+>186	Callee	_mm_store_ps
+>187	Identifier	_mm_store_ps
+>188	ExpressionStatement	 
+>189	AssignmentExpr	_input = _mm_mul_ps ( _input , _scale )
+>190	CallExpression	_mm_mul_ps ( _input , _scale )
+>191	ArgumentList	_input
+>192	Argument	_scale
+>193	Identifier	_scale
+>194	Argument	_input
+>195	Identifier	_input
+>196	Callee	_mm_mul_ps
+>197	Identifier	_mm_mul_ps
+>198	Identifier	_input
+>199	ExpressionStatement	 
+>200	AssignmentExpr	_input = _mm_or_ps ( _input , _mm_and_ps ( mask , _nan ) )
+>201	CallExpression	_mm_or_ps ( _input , _mm_and_ps ( mask , _nan ) )
+>202	ArgumentList	_input
+>203	Argument	_mm_and_ps ( mask , _nan )
+>204	CallExpression	_mm_and_ps ( mask , _nan )
+>205	ArgumentList	mask
+>206	Argument	_nan
+>207	Identifier	_nan
+>208	Argument	mask
+>209	Identifier	mask
+>210	Callee	_mm_and_ps
+>211	Identifier	_mm_and_ps
+>212	Argument	_input
+>213	Identifier	_input
+>214	Callee	_mm_or_ps
+>215	Identifier	_mm_or_ps
+>216	Identifier	_input
+>217	ExpressionStatement	 
+>218	AssignmentExpr	mask = _mm_cmpeq_ps ( _input , _zero )
+>219	CallExpression	_mm_cmpeq_ps ( _input , _zero )
+>220	ArgumentList	_input
+>221	Argument	_zero
+>222	Identifier	_zero
+>223	Argument	_input
+>224	Identifier	_input
+>225	Callee	_mm_cmpeq_ps
+>226	Identifier	_mm_cmpeq_ps
+>227	Identifier	mask
+>228	ExpressionStatement	 
+>229	AssignmentExpr	_input = _mm_cvtepi32_ps ( _mm_unpackhi_epi16 ( _inputi , _mm_setzero_si128 ( ) ) )
+>230	CallExpression	_mm_cvtepi32_ps ( _mm_unpackhi_epi16 ( _inputi , _mm_setzero_si128 ( ) ) )
+>231	ArgumentList	_mm_unpackhi_epi16 ( _inputi , _mm_setzero_si128 ( ) )
+>232	Argument	_mm_unpackhi_epi16 ( _inputi , _mm_setzero_si128 ( ) )
+>233	CallExpression	_mm_unpackhi_epi16 ( _inputi , _mm_setzero_si128 ( ) )
+>234	ArgumentList	_inputi
+>235	Argument	_mm_setzero_si128 ( )
+>236	CallExpression	_mm_setzero_si128 ( )
+>237	ArgumentList	 
+>238	Callee	_mm_setzero_si128
+>239	Identifier	_mm_setzero_si128
+>240	Argument	_inputi
+>241	Identifier	_inputi
+>242	Callee	_mm_unpackhi_epi16
+>243	Identifier	_mm_unpackhi_epi16
+>244	Callee	_mm_cvtepi32_ps
+>245	Identifier	_mm_cvtepi32_ps
+>246	Identifier	_input
+>247	ExpressionStatement	 
+>248	CallExpression	_mm_store_ps ( output_ptr + 0 , _input )
+>249	ArgumentList	output_ptr + 0
+>250	Argument	_input
+>251	Identifier	_input
+>252	Argument	output_ptr + 0
+>253	AdditiveExpression	output_ptr + 0
+>254	PrimaryExpression	0
+>255	Identifier	output_ptr
+>256	Callee	_mm_store_ps
+>257	Identifier	_mm_store_ps
+>258	ExpressionStatement	 
+>259	AssignmentExpr	_input = _mm_mul_ps ( _input , _scale )
+>260	CallExpression	_mm_mul_ps ( _input , _scale )
+>261	ArgumentList	_input
+>262	Argument	_scale
+>263	Identifier	_scale
+>264	Argument	_input
+>265	Identifier	_input
+>266	Callee	_mm_mul_ps
+>267	Identifier	_mm_mul_ps
+>268	Identifier	_input
+>269	ExpressionStatement	 
+>270	AssignmentExpr	_input = _mm_or_ps ( _input , _mm_and_ps ( mask , _nan ) )
+>271	CallExpression	_mm_or_ps ( _input , _mm_and_ps ( mask , _nan ) )
+>272	ArgumentList	_input
+>273	Argument	_mm_and_ps ( mask , _nan )
+>274	CallExpression	_mm_and_ps ( mask , _nan )
+>275	ArgumentList	mask
+>276	Argument	_nan
+>277	Identifier	_nan
+>278	Argument	mask
+>279	Identifier	mask
+>280	Callee	_mm_and_ps
+>281	Identifier	_mm_and_ps
+>282	Argument	_input
+>283	Identifier	_input
+>284	Callee	_mm_or_ps
+>285	Identifier	_mm_or_ps
+>286	Identifier	_input
+>287	ExpressionStatement	 
+>288	AssignmentExpr	mask = _mm_cmpeq_ps ( _input , _zero )
+>289	CallExpression	_mm_cmpeq_ps ( _input , _zero )
+>290	ArgumentList	_input
+>291	Argument	_zero
+>292	Identifier	_zero
+>293	Argument	_input
+>294	Identifier	_input
+>295	Callee	_mm_cmpeq_ps
+>296	Identifier	_mm_cmpeq_ps
+>297	Identifier	mask
+>298	ExpressionStatement	 
+>299	AssignmentExpr	_input = _mm_cvtepi32_ps ( _mm_unpacklo_epi16 ( _inputi , _mm_setzero_si128 ( ) ) )
+>300	CallExpression	_mm_cvtepi32_ps ( _mm_unpacklo_epi16 ( _inputi , _mm_setzero_si128 ( ) ) )
+>301	ArgumentList	_mm_unpacklo_epi16 ( _inputi , _mm_setzero_si128 ( ) )
+>302	Argument	_mm_unpacklo_epi16 ( _inputi , _mm_setzero_si128 ( ) )
+>303	CallExpression	_mm_unpacklo_epi16 ( _inputi , _mm_setzero_si128 ( ) )
+>304	ArgumentList	_inputi
+>305	Argument	_mm_setzero_si128 ( )
+>306	CallExpression	_mm_setzero_si128 ( )
+>307	ArgumentList	 
+>308	Callee	_mm_setzero_si128
+>309	Identifier	_mm_setzero_si128
+>310	Argument	_inputi
+>311	Identifier	_inputi
+>312	Callee	_mm_unpacklo_epi16
+>313	Identifier	_mm_unpacklo_epi16
+>314	Callee	_mm_cvtepi32_ps
+>315	Identifier	_mm_cvtepi32_ps
+>316	Identifier	_input
+>317	IdentifierDeclStatement	 
+>318	IdentifierDecl	_inputi = _mm_load_si128 ( ( __m128i * ) input_ptr )
+>319	AssignmentExpr	_inputi = _mm_load_si128 ( ( __m128i * ) input_ptr )
+>320	CallExpression	_mm_load_si128 ( ( __m128i * ) input_ptr )
+>321	ArgumentList	( __m128i * ) input_ptr
+>322	Argument	( __m128i * ) input_ptr
+>323	CastExpression	( __m128i * ) input_ptr
+>324	Identifier	input_ptr
+>325	CastTarget	__m128i *
+>326	Callee	_mm_load_si128
+>327	Identifier	_mm_load_si128
+>328	Identifier	_inputi
+>329	Identifier	_inputi
+>330	IdentifierDeclType	__m128i
+>331	IdentifierDeclStatement	 
+>332	IdentifierDecl	mask
+>333	Identifier	mask
+>334	IdentifierDeclType	__m128
+>335	IdentifierDecl	_input
+>336	Identifier	_input
+>337	IdentifierDeclType	__m128
+>338	Expression	 
+>339	Expression	input_ptr += 8 , output_ptr += 8
+>340	AssignmentExpr	output_ptr += 8
+>341	PrimaryExpression	8
+>342	Identifier	output_ptr
+>343	AssignmentExpr	input_ptr += 8
+>344	PrimaryExpression	8
+>345	Identifier	input_ptr
+>346	AssignmentExpr	idx += 8
+>347	PrimaryExpression	8
+>348	Identifier	idx
+>349	Condition	 
+>350	RelationalExpression	idx < input . size ( ) . area ( )
+>351	CallExpression	input . size ( ) . area ( )
+>352	ArgumentList	 
+>353	Callee	input . size ( ) . area
+>354	MemberAccess	input . size ( ) . area
+>355	Identifier	area
+>356	CallExpression	input . size ( )
+>357	ArgumentList	 
+>358	Callee	input . size
+>359	MemberAccess	input . size
+>360	Identifier	size
+>361	Identifier	input
+>362	Identifier	idx
+>363	ForInit	 
+>364	IdentifierDeclStatement	int idx = 0 ;
+>365	IdentifierDecl	idx = 0
+>366	AssignmentExpr	idx = 0
+>367	PrimaryExpression	0
+>368	Identifier	idx
+>369	Identifier	idx
+>370	IdentifierDeclType	int
+>371	ExpressionStatement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	Statement	 
+>377	Statement	 
+>378	Statement	 
+>379	Statement	 
+>380	Statement	 
+>381	Statement	 
+>382	Statement	 
+>383	Statement	 
+>384	Statement	 
+>385	Statement	 
+>386	Statement	 
+>387	Statement	 
+>388	IdentifierDeclStatement	 
+>389	IdentifierDecl	_zero = _mm_setzero_ps ( )
+>390	AssignmentExpr	_zero = _mm_setzero_ps ( )
+>391	CallExpression	_mm_setzero_ps ( )
+>392	ArgumentList	 
+>393	Callee	_mm_setzero_ps
+>394	Identifier	_mm_setzero_ps
+>395	Identifier	_zero
+>396	Identifier	_zero
+>397	IdentifierDeclType	__m128
+>398	IdentifierDeclStatement	 
+>399	IdentifierDecl	_scale = _mm_set1_ps ( scale )
+>400	AssignmentExpr	_scale = _mm_set1_ps ( scale )
+>401	CallExpression	_mm_set1_ps ( scale )
+>402	ArgumentList	scale
+>403	Argument	scale
+>404	Identifier	scale
+>405	Callee	_mm_set1_ps
+>406	Identifier	_mm_set1_ps
+>407	Identifier	_scale
+>408	Identifier	_scale
+>409	IdentifierDeclType	__m128
+>410	ExpressionStatement	 
+>411	Statement	 
+>412	Statement	 
+>413	Statement	 
+>414	Statement	 
+>415	Statement	 
+>416	Statement	 
+>417	Statement	 
+>418	Statement	 
+>419	Statement	 
+>420	Statement	 
+>421	Statement	 
+>422	Statement	 
+>423	ExpressionStatement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	Statement	 
+>430	Statement	 
+>431	Statement	 
+>432	Statement	 
+>433	Statement	 
+>434	Statement	 
+>435	Statement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	ExpressionStatement	 
+>440	CallExpression	output . create ( input . rows , input . cols , CV_32FC1 )
+>441	ArgumentList	input . rows
+>442	Argument	CV_32FC1
+>443	Identifier	CV_32FC1
+>444	Argument	input . cols
+>445	MemberAccess	input . cols
+>446	Identifier	cols
+>447	Identifier	input
+>448	Argument	input . rows
+>449	MemberAccess	input . rows
+>450	Identifier	rows
+>451	Identifier	input
+>452	Callee	output . create
+>453	MemberAccess	output . create
+>454	Identifier	create
+>455	Identifier	output
+<3=5,4
+<9=11,10
+<15=27,26,16
+<16=23,20,17
+<17=19,18
+<20=22,21
+<23=25,24
+<27=129,128,127,126,125,124,123,122,121,120,119,118,117,116,115,114,113,112,111,110,109,108,107,106,105,104,103,102,101,100,28
+<28=92,78,67,29
+<29=30
+<30=61,45,31
+<31=32
+<32=33
+<33=34
+<34=42,35
+<35=37,36
+<37=41,38
+<38=40,39
+<42=44,43
+<45=60,59,58,57,56,55,54,53,52,51,46
+<46=47
+<47=49,48
+<49=50
+<61=62
+<62=64,63
+<64=66,65
+<67=75,68
+<68=72,69
+<69=71,70
+<72=74,73
+<75=77,76
+<78=79
+<79=91,80
+<80=82,81
+<82=83
+<83=85,84
+<85=87,86
+<87=88
+<88=90,89
+<92=93
+<93=94
+<94=99,98,95
+<95=97,96
+<129=130
+<130=142,131
+<131=138,134,132
+<132=133
+<134=135
+<135=137,136
+<138=139
+<139=141,140
+<142=143
+<143=145,144
+<162=174,173,163
+<163=170,167,164
+<164=166,165
+<167=169,168
+<170=172,171
+<174=175,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,398,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439
+<175=363,349,338,176
+<176=331,317,298,287,269,258,247,228,217,199,188,177
+<177=178
+<178=186,179
+<179=182,180
+<180=181
+<182=183
+<183=185,184
+<186=187
+<188=189
+<189=198,190
+<190=196,191
+<191=194,192
+<192=193
+<194=195
+<196=197
+<199=200
+<200=216,201
+<201=214,202
+<202=212,203
+<203=204
+<204=210,205
+<205=208,206
+<206=207
+<208=209
+<210=211
+<212=213
+<214=215
+<217=218
+<218=227,219
+<219=225,220
+<220=223,221
+<221=222
+<223=224
+<225=226
+<228=229
+<229=246,230
+<230=244,231
+<231=232
+<232=233
+<233=242,234
+<234=240,235
+<235=236
+<236=238,237
+<238=239
+<240=241
+<242=243
+<244=245
+<247=248
+<248=256,249
+<249=252,250
+<250=251
+<252=253
+<253=255,254
+<256=257
+<258=259
+<259=268,260
+<260=266,261
+<261=264,262
+<262=263
+<264=265
+<266=267
+<269=270
+<270=286,271
+<271=284,272
+<272=282,273
+<273=274
+<274=280,275
+<275=278,276
+<276=277
+<278=279
+<280=281
+<282=283
+<284=285
+<287=288
+<288=297,289
+<289=295,290
+<290=293,291
+<291=292
+<293=294
+<295=296
+<298=299
+<299=316,300
+<300=314,301
+<301=302
+<302=303
+<303=312,304
+<304=310,305
+<305=306
+<306=308,307
+<308=309
+<310=311
+<312=313
+<314=315
+<317=318
+<318=330,329,319
+<319=328,320
+<320=326,321
+<321=322
+<322=323
+<323=325,324
+<326=327
+<331=335,332
+<332=334,333
+<335=337,336
+<338=346,339
+<339=343,340
+<340=342,341
+<343=345,344
+<346=348,347
+<349=350
+<350=362,351
+<351=353,352
+<353=354
+<354=356,355
+<356=358,357
+<358=359
+<359=361,360
+<363=364
+<364=365
+<365=370,369,366
+<366=368,367
+<388=389
+<389=397,396,390
+<390=395,391
+<391=393,392
+<393=394
+<398=399
+<399=409,408,400
+<400=407,401
+<401=405,402
+<402=403
+<403=404
+<405=406
+<439=440
+<440=452,441
+<441=448,444,442
+<442=443
+<444=445
+<445=447,446
+<448=449
+<449=451,450
+<452=453
+<453=455,454

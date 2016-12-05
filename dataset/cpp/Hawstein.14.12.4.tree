@@ -1,0 +1,240 @@
+>4	FunctionDef	~Bitmap ()
+>5	ParameterList	 
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	Identifier	bits
+>9	Statement	 
+>10	Statement	 
+>11	Statement	 
+>15	FunctionDef	get (int pos)
+>16	ParameterList	int pos
+>17	Parameter	 
+>18	Identifier	pos
+>19	ParameterType	int
+>20	ReturnType	bool
+>21	CompoundStatement	 
+>22	ReturnStatement	 
+>23	EqualityExpression	( bits [ pos / 32 ] & ( 1 << ( pos & 0x1f ) ) ) != 0
+>24	PrimaryExpression	0
+>25	BitAndExpression	bits [ pos / 32 ] & ( 1 << ( pos & 0x1f ) )
+>26	ShiftExpression	1 << ( pos & 0x1f )
+>27	BitAndExpression	pos & 0x1f
+>28	PrimaryExpression	0x1f
+>29	Identifier	pos
+>30	PrimaryExpression	1
+>31	ArrayIndexing	bits [ pos / 32 ]
+>32	MultiplicativeExpression	pos / 32
+>33	PrimaryExpression	32
+>34	Identifier	pos
+>35	Identifier	bits
+>43	FunctionDef	set (int pos)
+>44	ParameterList	int pos
+>45	Parameter	 
+>46	Identifier	pos
+>47	ParameterType	int
+>48	ReturnType	void
+>49	CompoundStatement	 
+>50	ExpressionStatement	 
+>51	AssignmentExpr	bits [ pos / 32 ] |= ( 1 << ( pos & 0x1f ) )
+>52	ShiftExpression	1 << ( pos & 0x1f )
+>53	BitAndExpression	pos & 0x1f
+>54	PrimaryExpression	0x1f
+>55	Identifier	pos
+>56	PrimaryExpression	1
+>57	ArrayIndexing	bits [ pos / 32 ]
+>58	MultiplicativeExpression	pos / 32
+>59	PrimaryExpression	32
+>60	Identifier	pos
+>61	Identifier	bits
+>71	FunctionDef	print_duplicates (int a [ ] , int n , int bitsize)
+>72	ParameterList	int a [ ] , int n , int bitsize
+>73	Parameter	 
+>74	Identifier	bitsize
+>75	ParameterType	int
+>76	Parameter	 
+>77	Identifier	n
+>78	ParameterType	int
+>79	Parameter	 
+>80	Identifier	a
+>81	ParameterType	int [ ]
+>82	ReturnType	void
+>83	CompoundStatement	 
+>84	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>85	CompoundStatement	 
+>86	IfStatement	if ( bm . get ( a [ i ] - 1 ) )
+>87	ElseStatement	else
+>88	ExpressionStatement	 
+>89	CallExpression	bm . set ( a [ i ] - 1 )
+>90	ArgumentList	a [ i ] - 1
+>91	Argument	a [ i ] - 1
+>92	AdditiveExpression	a [ i ] - 1
+>93	PrimaryExpression	1
+>94	ArrayIndexing	a [ i ]
+>95	Identifier	i
+>96	Identifier	a
+>97	Callee	bm . set
+>98	MemberAccess	bm . set
+>99	Identifier	set
+>100	Identifier	bm
+>101	ExpressionStatement	 
+>102	ShiftExpression	cout << a [ i ] << endl
+>103	ShiftExpression	a [ i ] << endl
+>104	Identifier	endl
+>105	ArrayIndexing	a [ i ]
+>106	Identifier	i
+>107	Identifier	a
+>108	Identifier	cout
+>109	Condition	 
+>110	CallExpression	bm . get ( a [ i ] - 1 )
+>111	ArgumentList	a [ i ] - 1
+>112	Argument	a [ i ] - 1
+>113	AdditiveExpression	a [ i ] - 1
+>114	PrimaryExpression	1
+>115	ArrayIndexing	a [ i ]
+>116	Identifier	i
+>117	Identifier	a
+>118	Callee	bm . get
+>119	MemberAccess	bm . get
+>120	Identifier	get
+>121	Identifier	bm
+>122	UnaryExpression	 
+>123	Identifier	i
+>124	IncDec	++
+>125	Condition	 
+>126	RelationalExpression	i < n
+>127	Identifier	n
+>128	Identifier	i
+>129	ForInit	 
+>130	IdentifierDeclStatement	int i = 0 ;
+>131	IdentifierDecl	i = 0
+>132	AssignmentExpr	i = 0
+>133	PrimaryExpression	0
+>134	Identifier	i
+>135	Identifier	i
+>136	IdentifierDeclType	int
+>137	IdentifierDeclStatement	 
+>138	IdentifierDecl	bm ( bitsize )
+>139	Identifier	bitsize
+>140	Identifier	bm
+>141	IdentifierDeclType	Bitmap
+>153	FunctionDef	main ()
+>154	ParameterList	 
+>155	ReturnType	int
+>156	CompoundStatement	 
+>157	ReturnStatement	 
+>158	PrimaryExpression	0
+>159	ExpressionStatement	 
+>160	CallExpression	print_duplicates ( a , 20 , 32000 )
+>161	ArgumentList	a
+>162	Argument	32000
+>163	PrimaryExpression	32000
+>164	Argument	20
+>165	PrimaryExpression	20
+>166	Argument	a
+>167	Identifier	a
+>168	Callee	print_duplicates
+>169	Identifier	print_duplicates
+>170	IdentifierDeclStatement	 
+>171	IdentifierDecl	a [ ] = { 1 , 2 , 3 , 4 , 5 , 32000 , 7 , 8 , 9 , 10 , 11 , 1 , 2 , 13 , 15 , 16 , 32000 , 11 , 5 , 8 }
+>172	AssignmentExpr	a [ ] = { 1 , 2 , 3 , 4 , 5 , 32000 , 7 , 8 , 9 , 10 , 11 , 1 , 2 , 13 , 15 , 16 , 32000 , 11 , 5 , 8 }
+>173	InitializerList	1
+>174	PrimaryExpression	8
+>175	PrimaryExpression	5
+>176	PrimaryExpression	11
+>177	PrimaryExpression	32000
+>178	PrimaryExpression	16
+>179	PrimaryExpression	15
+>180	PrimaryExpression	13
+>181	PrimaryExpression	2
+>182	PrimaryExpression	1
+>183	PrimaryExpression	11
+>184	PrimaryExpression	10
+>185	PrimaryExpression	9
+>186	PrimaryExpression	8
+>187	PrimaryExpression	7
+>188	PrimaryExpression	32000
+>189	PrimaryExpression	5
+>190	PrimaryExpression	4
+>191	PrimaryExpression	3
+>192	PrimaryExpression	2
+>193	PrimaryExpression	1
+>194	Identifier	a
+>195	Identifier	a
+>196	IdentifierDeclType	int [ ]
+<4=6,5
+<6=11,10,9,7
+<7=8
+<15=21,20,16
+<16=17
+<17=19,18
+<21=22
+<22=23
+<23=25,24
+<25=31,26
+<26=30,27
+<27=29,28
+<31=35,32
+<32=34,33
+<43=49,48,44
+<44=45
+<45=47,46
+<49=50
+<50=51
+<51=57,52
+<52=56,53
+<53=55,54
+<57=61,58
+<58=60,59
+<71=83,82,72
+<72=79,76,73
+<73=75,74
+<76=78,77
+<79=81,80
+<83=137,84
+<84=129,125,122,85
+<85=86
+<86=109,101,87
+<87=88
+<88=89
+<89=97,90
+<90=91
+<91=92
+<92=94,93
+<94=96,95
+<97=98
+<98=100,99
+<101=102
+<102=108,103
+<103=105,104
+<105=107,106
+<109=110
+<110=118,111
+<111=112
+<112=113
+<113=115,114
+<115=117,116
+<118=119
+<119=121,120
+<122=124,123
+<125=126
+<126=128,127
+<129=130
+<130=131
+<131=136,135,132
+<132=134,133
+<137=138
+<138=141,140,139
+<153=156,155,154
+<156=170,159,157
+<157=158
+<159=160
+<160=168,161
+<161=166,164,162
+<162=163
+<164=165
+<166=167
+<168=169
+<170=171
+<171=196,195,172
+<172=194,173
+<173=193,192,191,190,189,188,187,186,185,184,183,182,181,180,179,178,177,176,175,174

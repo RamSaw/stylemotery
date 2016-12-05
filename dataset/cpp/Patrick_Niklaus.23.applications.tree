@@ -1,0 +1,753 @@
+>3	FunctionDef	Application 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	Application 
+>10	ParameterList	 
+>11	CompoundStatement	 
+>12	ExpressionStatement	 
+>13	CallExpression	log4cpp 
+>14	ArgumentList	 
+>15	Callee	log4cpp 
+>16	Identifier	log4cpp 
+>20	FunctionDef	Application 
+>21	ParameterList	int argc , char * * argv
+>22	Parameter	 
+>23	Identifier	argv
+>24	ParameterType	char * *
+>25	Parameter	 
+>26	Identifier	argc
+>27	ParameterType	int
+>28	ReturnType	int
+>29	CompoundStatement	 
+>30	ReturnStatement	 
+>31	PrimaryExpression	0
+>32	ExpressionStatement	 
+>33	CallExpression	appRun ( argc , argv )
+>34	ArgumentList	argc
+>35	Argument	argv
+>36	Identifier	argv
+>37	Argument	argc
+>38	Identifier	argc
+>39	Callee	appRun
+>40	Identifier	appRun
+>46	FunctionDef	Application 
+>47	ParameterList	int argc , char * * argv
+>48	Parameter	 
+>49	Identifier	argv
+>50	ParameterType	char * *
+>51	Parameter	 
+>52	Identifier	argc
+>53	ParameterType	int
+>54	ReturnType	void
+>55	CompoundStatement	 
+>56	ExpressionStatement	 
+>57	CallExpression	onRun ( config )
+>58	ArgumentList	config
+>59	Argument	config
+>60	Identifier	config
+>61	Callee	onRun
+>62	Identifier	onRun
+>63	IfStatement	if ( ! startupDiagnostic ( config ) )
+>64	ReturnStatement	 
+>65	Condition	 
+>66	UnaryOp	! startupDiagnostic ( config )
+>67	CallExpression	startupDiagnostic ( config )
+>68	ArgumentList	config
+>69	Argument	config
+>70	Identifier	config
+>71	Callee	startupDiagnostic
+>72	Identifier	startupDiagnostic
+>73	UnaryOperator	!
+>74	IfStatement	if ( config -> get < string > ( opt 
+>75	CompoundStatement	 
+>76	ReturnStatement	 
+>77	ExpressionStatement	 
+>78	Statement	 
+>79	CompoundStatement	 
+>80	ExpressionStatement	 
+>81	RelationalExpression	log . errorStream ( ) << opt 
+>82	RelationalExpression	string > ( opt 
+>83	ShiftExpression	( opt 
+>84	PrimaryExpression	\"\\"\"
+>85	Identifier	opt 
+>86	Identifier	string
+>87	ShiftExpression	log . errorStream ( ) << opt 
+>88	ShiftExpression	opt 
+>89	ShiftExpression	\" = \\"\" << dir << \"/\" << config -> get
+>90	ShiftExpression	dir << \"/\" << config -> get
+>91	ShiftExpression	\"/\" << config -> get
+>92	PtrMemberAccess	config -> get
+>93	Identifier	get
+>94	Identifier	config
+>95	PrimaryExpression	\"/\"
+>96	Identifier	dir
+>97	PrimaryExpression	\" = \\"\"
+>98	Identifier	opt 
+>99	CallExpression	log . errorStream ( )
+>100	ArgumentList	 
+>101	Callee	log . errorStream
+>102	MemberAccess	log . errorStream
+>103	Identifier	errorStream
+>104	Identifier	log
+>105	Statement	 
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Statement	 
+>110	Statement	 
+>111	Statement	 
+>112	Statement	 
+>113	Statement	 
+>114	Statement	 
+>115	Statement	 
+>116	Statement	 
+>117	Statement	 
+>118	Statement	 
+>119	Statement	 
+>120	Statement	 
+>121	Statement	 
+>122	Statement	 
+>123	Statement	 
+>124	Statement	 
+>125	Statement	 
+>126	Statement	 
+>127	Statement	 
+>128	ExpressionStatement	 
+>129	ShiftExpression	log . errorStream ( ) << \"The given config file was not found. Searched for
+>130	PrimaryExpression	\"The given config file was not found. Searched for
+>131	CallExpression	log . errorStream ( )
+>132	ArgumentList	 
+>133	Callee	log . errorStream
+>134	MemberAccess	log . errorStream
+>135	Identifier	errorStream
+>136	Identifier	log
+>137	IdentifierDeclStatement	 
+>138	IdentifierDecl	& dirs = config -> getSeachDirectories ( )
+>139	AssignmentExpr	& dirs = config -> getSeachDirectories ( )
+>140	CallExpression	config -> getSeachDirectories ( )
+>141	ArgumentList	 
+>142	Callee	config -> getSeachDirectories
+>143	PtrMemberAccess	config -> getSeachDirectories
+>144	Identifier	getSeachDirectories
+>145	Identifier	config
+>146	Identifier	dirs
+>147	Identifier	dirs
+>148	IdentifierDeclType	const std 
+>149	Condition	 
+>150	AndExpression	config -> get < string > ( opt 
+>151	UnaryOp	! config -> usedConfigFile ( )
+>152	CallExpression	config -> usedConfigFile ( )
+>153	ArgumentList	 
+>154	Callee	config -> usedConfigFile
+>155	PtrMemberAccess	config -> usedConfigFile
+>156	Identifier	usedConfigFile
+>157	Identifier	config
+>158	UnaryOperator	!
+>159	EqualityExpression	config -> get < string > ( opt 
+>160	Identifier	DEFAULT_CONFIG_NAME
+>161	RelationalExpression	config -> get < string > ( opt 
+>162	RelationalExpression	string > ( opt 
+>163	Identifier	opt 
+>164	Identifier	string
+>165	PtrMemberAccess	config -> get
+>166	Identifier	get
+>167	Identifier	config
+>168	IdentifierDeclStatement	 
+>169	IdentifierDecl	& log = log4cpp 
+>170	AssignmentExpr	& log = log4cpp 
+>171	CallExpression	log4cpp 
+>172	ArgumentList	\"StartupDiagnostic\"
+>173	Argument	\"StartupDiagnostic\"
+>174	PrimaryExpression	\"StartupDiagnostic\"
+>175	Callee	log4cpp 
+>176	Identifier	log4cpp 
+>177	Identifier	log
+>178	Identifier	log
+>179	IdentifierDeclType	log4cpp 
+>180	ExpressionStatement	 
+>181	CallExpression	config -> printConfigToLog ( )
+>182	ArgumentList	 
+>183	Callee	config -> printConfigToLog
+>184	PtrMemberAccess	config -> printConfigToLog
+>185	Identifier	printConfigToLog
+>186	Identifier	config
+>187	ExpressionStatement	 
+>188	CallExpression	initLog ( config )
+>189	ArgumentList	config
+>190	Argument	config
+>191	Identifier	config
+>192	Callee	initLog
+>193	Identifier	initLog
+>194	IfStatement	if ( config -> has ( opt 
+>195	CompoundStatement	 
+>196	ReturnStatement	 
+>197	ExpressionStatement	 
+>198	ShiftExpression	std 
+>199	ShiftExpression	cmd_desc << std 
+>200	Identifier	std 
+>201	Identifier	cmd_desc
+>202	Identifier	std 
+>203	Condition	 
+>204	CallExpression	config -> has ( opt 
+>205	ArgumentList	opt 
+>206	Argument	opt 
+>207	Identifier	opt 
+>208	Callee	config -> has
+>209	PtrMemberAccess	config -> has
+>210	Identifier	has
+>211	Identifier	config
+>212	BlockStarter	 
+>213	CompoundStatement	 
+>214	ReturnStatement	return ;
+>215	ExpressionStatement	std 
+>216	ShiftExpression	std 
+>217	ShiftExpression	cmd_desc << std 
+>218	Identifier	std 
+>219	Identifier	cmd_desc
+>220	Identifier	std 
+>221	ExpressionStatement	std 
+>222	ShiftExpression	std 
+>223	ShiftExpression	\"Error
+>224	ShiftExpression	e . what ( ) << std 
+>225	Identifier	std 
+>226	CallExpression	e . what ( )
+>227	ArgumentList	 
+>228	Callee	e . what
+>229	MemberAccess	e . what
+>230	Identifier	what
+>231	Identifier	e
+>232	PrimaryExpression	\"Error
+>233	Identifier	std 
+>234	Identifier	e
+>235	BlockStarter	 
+>236	CompoundStatement	 
+>237	ExpressionStatement	config = make_shared < Configuration > ( cmd_desc , config_desc , pos_desc , argc , argv )
+>238	AssignmentExpr	config = make_shared < Configuration > ( cmd_desc , config_desc , pos_desc , argc , argv )
+>239	RelationalExpression	make_shared < Configuration > ( cmd_desc , config_desc , pos_desc , argc , argv )
+>240	RelationalExpression	Configuration > ( cmd_desc , config_desc , pos_desc , argc , argv )
+>241	Expression	cmd_desc , config_desc , pos_desc , argc , argv
+>242	Expression	config_desc , pos_desc , argc , argv
+>243	Expression	pos_desc , argc , argv
+>244	Expression	argc , argv
+>245	Identifier	argv
+>246	Identifier	argc
+>247	Identifier	pos_desc
+>248	Identifier	config_desc
+>249	Identifier	cmd_desc
+>250	Identifier	Configuration
+>251	Identifier	make_shared
+>252	Identifier	config
+>253	IdentifierDeclStatement	 
+>254	IdentifierDecl	config
+>255	Identifier	config
+>256	IdentifierDeclType	shared_ptr < Configuration >
+>282	FunctionDef	Application 
+>283	ParameterList	const shared_ptr < Configuration > & config
+>284	Parameter	 
+>285	Identifier	config
+>286	ParameterType	const shared_ptr < Configuration > &
+>287	ReturnType	void
+>288	CompoundStatement	 
+>289	ExpressionStatement	 
+>290	CallExpression	root . info ( \"Logfile opened...\" )
+>291	ArgumentList	\"Logfile opened...\"
+>292	Argument	\"Logfile opened...\"
+>293	PrimaryExpression	\"Logfile opened...\"
+>294	Callee	root . info
+>295	MemberAccess	root . info
+>296	Identifier	info
+>297	Identifier	root
+>298	ExpressionStatement	 
+>299	AssignmentExpr	mLogInitialized = true
+>300	Identifier	true
+>301	Identifier	mLogInitialized
+>302	ExpressionStatement	 
+>303	CallExpression	customInitLog ( config , logFileAppender )
+>304	ArgumentList	config
+>305	Argument	logFileAppender
+>306	Identifier	logFileAppender
+>307	Argument	config
+>308	Identifier	config
+>309	Callee	customInitLog
+>310	Identifier	customInitLog
+>311	ExpressionStatement	 
+>312	CallExpression	root . addAppender ( logFileAppender )
+>313	ArgumentList	logFileAppender
+>314	Argument	logFileAppender
+>315	Identifier	logFileAppender
+>316	Callee	root . addAppender
+>317	MemberAccess	root . addAppender
+>318	Identifier	addAppender
+>319	Identifier	root
+>320	ExpressionStatement	 
+>321	CallExpression	root . addAppender ( rootAappender )
+>322	ArgumentList	rootAappender
+>323	Argument	rootAappender
+>324	Identifier	rootAappender
+>325	Callee	root . addAppender
+>326	MemberAccess	root . addAppender
+>327	Identifier	addAppender
+>328	Identifier	root
+>329	ExpressionStatement	 
+>330	CallExpression	root . setPriority ( log4cpp 
+>331	ArgumentList	log4cpp 
+>332	Argument	log4cpp 
+>333	Identifier	log4cpp 
+>334	Callee	root . setPriority
+>335	MemberAccess	root . setPriority
+>336	Identifier	setPriority
+>337	Identifier	root
+>338	IdentifierDeclStatement	 
+>339	IdentifierDecl	& root = log4cpp 
+>340	AssignmentExpr	& root = log4cpp 
+>341	CallExpression	log4cpp 
+>342	ArgumentList	 
+>343	Callee	log4cpp 
+>344	Identifier	log4cpp 
+>345	Identifier	root
+>346	Identifier	root
+>347	IdentifierDeclType	log4cpp 
+>348	ExpressionStatement	 
+>349	CallExpression	logFileAppender -> setLayout ( logFileLayout )
+>350	ArgumentList	logFileLayout
+>351	Argument	logFileLayout
+>352	Identifier	logFileLayout
+>353	Callee	logFileAppender -> setLayout
+>354	PtrMemberAccess	logFileAppender -> setLayout
+>355	Identifier	setLayout
+>356	Identifier	logFileAppender
+>357	IdentifierDeclStatement	 
+>358	IdentifierDecl	* logFileAppender = new log4cpp 
+>359	AssignmentExpr	* logFileAppender = new log4cpp 
+>360	Expression	\"LogFile\" , config -> get < string > ( opt 
+>361	Expression	config -> get < string > ( opt 
+>362	Identifier	false
+>363	RelationalExpression	config -> get < string > ( opt 
+>364	RelationalExpression	string > ( opt 
+>365	Identifier	opt 
+>366	Identifier	string
+>367	PtrMemberAccess	config -> get
+>368	Identifier	get
+>369	Identifier	config
+>370	PrimaryExpression	\"LogFile\"
+>371	Identifier	logFileAppender
+>372	Identifier	logFileAppender
+>373	IdentifierDeclType	log4cpp 
+>374	ExpressionStatement	 
+>375	CallExpression	rootAappender -> setLayout ( rootLayout )
+>376	ArgumentList	rootLayout
+>377	Argument	rootLayout
+>378	Identifier	rootLayout
+>379	Callee	rootAappender -> setLayout
+>380	PtrMemberAccess	rootAappender -> setLayout
+>381	Identifier	setLayout
+>382	Identifier	rootAappender
+>383	IdentifierDeclStatement	 
+>384	IdentifierDecl	* rootAappender = new log4cpp 
+>385	AssignmentExpr	* rootAappender = new log4cpp 
+>386	Expression	\"Console\" , & std 
+>387	UnaryOp	& std 
+>388	Identifier	std 
+>389	UnaryOperator	&
+>390	PrimaryExpression	\"Console\"
+>391	Identifier	rootAappender
+>392	Identifier	rootAappender
+>393	IdentifierDeclType	log4cpp 
+>394	ExpressionStatement	 
+>395	CallExpression	logFileLayout -> setConversionPattern ( \"%d [%p] [%c] %m%n\" )
+>396	ArgumentList	\"%d [%p] [%c] %m%n\"
+>397	Argument	\"%d [%p] [%c] %m%n\"
+>398	PrimaryExpression	\"%d [%p] [%c] %m%n\"
+>399	Callee	logFileLayout -> setConversionPattern
+>400	PtrMemberAccess	logFileLayout -> setConversionPattern
+>401	Identifier	setConversionPattern
+>402	Identifier	logFileLayout
+>403	IdentifierDeclStatement	 
+>404	IdentifierDecl	* logFileLayout = new log4cpp 
+>405	AssignmentExpr	* logFileLayout = new log4cpp 
+>406	UnaryExpression	new log4cpp 
+>407	Identifier	logFileLayout
+>408	Identifier	logFileLayout
+>409	IdentifierDeclType	log4cpp 
+>410	ExpressionStatement	 
+>411	CallExpression	rootLayout -> setConversionPattern ( \"[%p] [%c] %m%n\" )
+>412	ArgumentList	\"[%p] [%c] %m%n\"
+>413	Argument	\"[%p] [%c] %m%n\"
+>414	PrimaryExpression	\"[%p] [%c] %m%n\"
+>415	Callee	rootLayout -> setConversionPattern
+>416	PtrMemberAccess	rootLayout -> setConversionPattern
+>417	Identifier	setConversionPattern
+>418	Identifier	rootLayout
+>419	IdentifierDeclStatement	 
+>420	IdentifierDecl	* rootLayout = new log4cpp 
+>421	AssignmentExpr	* rootLayout = new log4cpp 
+>422	UnaryExpression	new log4cpp 
+>423	Identifier	rootLayout
+>424	Identifier	rootLayout
+>425	IdentifierDeclType	log4cpp 
+>426	ExpressionStatement	 
+>427	CallExpression	assert ( ! mLogInitialized )
+>428	ArgumentList	! mLogInitialized
+>429	Argument	! mLogInitialized
+>430	UnaryOp	! mLogInitialized
+>431	Identifier	mLogInitialized
+>432	UnaryOperator	!
+>433	Callee	assert
+>434	Identifier	assert
+>454	FunctionDef	Application 
+>455	ParameterList	const shared_ptr < Configuration > & config , const string & key , log4cpp 
+>456	Parameter	 
+>457	Identifier	log
+>458	ParameterType	log4cpp 
+>459	Parameter	 
+>460	Identifier	key
+>461	ParameterType	const string &
+>462	Parameter	 
+>463	Identifier	config
+>464	ParameterType	const shared_ptr < Configuration > &
+>465	ReturnType	bool
+>466	CompoundStatement	 
+>467	IfStatement	if ( config -> has ( key ) )
+>468	ElseStatement	else
+>469	CompoundStatement	 
+>470	ReturnStatement	 
+>471	Identifier	false
+>472	ExpressionStatement	 
+>473	ShiftExpression	log . errorStream ( ) << key << \" is not set.\"
+>474	ShiftExpression	key << \" is not set.\"
+>475	PrimaryExpression	\" is not set.\"
+>476	Identifier	key
+>477	CallExpression	log . errorStream ( )
+>478	ArgumentList	 
+>479	Callee	log . errorStream
+>480	MemberAccess	log . errorStream
+>481	Identifier	errorStream
+>482	Identifier	log
+>483	CompoundStatement	 
+>484	ReturnStatement	 
+>485	Identifier	exists
+>486	IfStatement	if ( ! exists )
+>487	CompoundStatement	 
+>488	ExpressionStatement	 
+>489	ShiftExpression	log . errorStream ( ) << key << \" = \\"\" << file . string ( ) << \"\\" does not exist.\"
+>490	ShiftExpression	key << \" = \\"\" << file . string ( ) << \"\\" does not exist.\"
+>491	ShiftExpression	\" = \\"\" << file . string ( ) << \"\\" does not exist.\"
+>492	ShiftExpression	file . string ( ) << \"\\" does not exist.\"
+>493	PrimaryExpression	\"\\" does not exist.\"
+>494	CallExpression	file . string ( )
+>495	ArgumentList	 
+>496	Callee	file . string
+>497	MemberAccess	file . string
+>498	Identifier	string
+>499	Identifier	file
+>500	PrimaryExpression	\" = \\"\"
+>501	Identifier	key
+>502	CallExpression	log . errorStream ( )
+>503	ArgumentList	 
+>504	Callee	log . errorStream
+>505	MemberAccess	log . errorStream
+>506	Identifier	errorStream
+>507	Identifier	log
+>508	Condition	 
+>509	UnaryOp	! exists
+>510	Identifier	exists
+>511	UnaryOperator	!
+>512	IdentifierDeclStatement	 
+>513	IdentifierDecl	exists = boost 
+>514	AssignmentExpr	exists = boost 
+>515	CallExpression	boost 
+>516	ArgumentList	file
+>517	Argument	file
+>518	Identifier	file
+>519	Callee	boost 
+>520	Identifier	boost 
+>521	Identifier	exists
+>522	Identifier	exists
+>523	IdentifierDeclType	bool
+>524	IdentifierDeclStatement	 
+>525	IdentifierDecl	file = config -> get < string > ( key )
+>526	AssignmentExpr	file = config -> get < string > ( key )
+>527	RelationalExpression	config -> get < string > ( key )
+>528	RelationalExpression	string > ( key )
+>529	Identifier	key
+>530	Identifier	string
+>531	PtrMemberAccess	config -> get
+>532	Identifier	get
+>533	Identifier	config
+>534	Identifier	file
+>535	Identifier	file
+>536	IdentifierDeclType	boost 
+>537	Condition	 
+>538	CallExpression	config -> has ( key )
+>539	ArgumentList	key
+>540	Argument	key
+>541	Identifier	key
+>542	Callee	config -> has
+>543	PtrMemberAccess	config -> has
+>544	Identifier	has
+>545	Identifier	config
+<3=5,4
+<9=11,10
+<11=12
+<12=13
+<13=15,14
+<15=16
+<20=29,28,21
+<21=25,22
+<22=24,23
+<25=27,26
+<29=32,30
+<30=31
+<32=33
+<33=39,34
+<34=37,35
+<35=36
+<37=38
+<39=40
+<46=55,54,47
+<47=51,48
+<48=50,49
+<51=53,52
+<55=253,235,212,194,187,180,168,74,63,56
+<56=57
+<57=61,58
+<58=59
+<59=60
+<61=62
+<63=65,64
+<65=66
+<66=73,67
+<67=71,68
+<68=69
+<69=70
+<71=72
+<74=149,75
+<75=137,128,127,126,125,124,123,122,121,120,119,118,117,116,115,114,113,112,111,110,109,108,107,106,105,79,78,77,76
+<79=80
+<80=81
+<81=87,82
+<82=86,83
+<83=85,84
+<87=99,88
+<88=98,89
+<89=97,90
+<90=96,91
+<91=95,92
+<92=94,93
+<99=101,100
+<101=102
+<102=104,103
+<128=129
+<129=131,130
+<131=133,132
+<133=134
+<134=136,135
+<137=138
+<138=148,147,139
+<139=146,140
+<140=142,141
+<142=143
+<143=145,144
+<149=150
+<150=159,151
+<151=158,152
+<152=154,153
+<154=155
+<155=157,156
+<159=161,160
+<161=165,162
+<162=164,163
+<165=167,166
+<168=169
+<169=179,178,170
+<170=177,171
+<171=175,172
+<172=173
+<173=174
+<175=176
+<180=181
+<181=183,182
+<183=184
+<184=186,185
+<187=188
+<188=192,189
+<189=190
+<190=191
+<192=193
+<194=203,195
+<195=197,196
+<197=198
+<198=202,199
+<199=201,200
+<203=204
+<204=208,205
+<205=206
+<206=207
+<208=209
+<209=211,210
+<212=234,213
+<213=221,215,214
+<215=216
+<216=220,217
+<217=219,218
+<221=222
+<222=233,223
+<223=232,224
+<224=226,225
+<226=228,227
+<228=229
+<229=231,230
+<235=236
+<236=237
+<237=238
+<238=252,239
+<239=251,240
+<240=250,241
+<241=249,242
+<242=248,243
+<243=247,244
+<244=246,245
+<253=254
+<254=256,255
+<282=288,287,283
+<283=284
+<284=286,285
+<288=426,419,410,403,394,383,374,357,348,338,329,320,311,302,298,289
+<289=290
+<290=294,291
+<291=292
+<292=293
+<294=295
+<295=297,296
+<298=299
+<299=301,300
+<302=303
+<303=309,304
+<304=307,305
+<305=306
+<307=308
+<309=310
+<311=312
+<312=316,313
+<313=314
+<314=315
+<316=317
+<317=319,318
+<320=321
+<321=325,322
+<322=323
+<323=324
+<325=326
+<326=328,327
+<329=330
+<330=334,331
+<331=332
+<332=333
+<334=335
+<335=337,336
+<338=339
+<339=347,346,340
+<340=345,341
+<341=343,342
+<343=344
+<348=349
+<349=353,350
+<350=351
+<351=352
+<353=354
+<354=356,355
+<357=358
+<358=373,372,359
+<359=371,360
+<360=370,361
+<361=363,362
+<363=367,364
+<364=366,365
+<367=369,368
+<374=375
+<375=379,376
+<376=377
+<377=378
+<379=380
+<380=382,381
+<383=384
+<384=393,392,385
+<385=391,386
+<386=390,387
+<387=389,388
+<394=395
+<395=399,396
+<396=397
+<397=398
+<399=400
+<400=402,401
+<403=404
+<404=409,408,405
+<405=407,406
+<410=411
+<411=415,412
+<412=413
+<413=414
+<415=416
+<416=418,417
+<419=420
+<420=425,424,421
+<421=423,422
+<426=427
+<427=433,428
+<428=429
+<429=430
+<430=432,431
+<433=434
+<454=466,465,455
+<455=462,459,456
+<456=458,457
+<459=461,460
+<462=464,463
+<466=467
+<467=537,483,468
+<468=469
+<469=472,470
+<470=471
+<472=473
+<473=477,474
+<474=476,475
+<477=479,478
+<479=480
+<480=482,481
+<483=524,512,486,484
+<484=485
+<486=508,487
+<487=488
+<488=489
+<489=502,490
+<490=501,491
+<491=500,492
+<492=494,493
+<494=496,495
+<496=497
+<497=499,498
+<502=504,503
+<504=505
+<505=507,506
+<508=509
+<509=511,510
+<512=513
+<513=523,522,514
+<514=521,515
+<515=519,516
+<516=517
+<517=518
+<519=520
+<524=525
+<525=536,535,526
+<526=534,527
+<527=531,528
+<528=530,529
+<531=533,532
+<537=538
+<538=542,539
+<539=540
+<540=541
+<542=543
+<543=545,544

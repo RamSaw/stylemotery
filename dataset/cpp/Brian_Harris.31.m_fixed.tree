@@ -1,0 +1,217 @@
+>3	FunctionDef	FixedMul (fixed_t a , fixed_t b)
+>4	ParameterList	fixed_t a , fixed_t b
+>5	Parameter	 
+>6	Identifier	b
+>7	ParameterType	fixed_t
+>8	Parameter	 
+>9	Identifier	a
+>10	ParameterType	fixed_t
+>11	ReturnType	fixed_t
+>12	CompoundStatement	 
+>13	ReturnStatement	 
+>14	CallExpression	fixed_t ( ( ( long long ) a * ( long long ) b ) >> FRACBITS )
+>15	ArgumentList	( ( long long ) a * ( long long ) b ) >> FRACBITS
+>16	Argument	( ( long long ) a * ( long long ) b ) >> FRACBITS
+>17	ShiftExpression	( ( long long ) a * ( long long ) b ) >> FRACBITS
+>18	Identifier	FRACBITS
+>19	MultiplicativeExpression	( long long ) a * ( long long ) b
+>20	CastExpression	( long long ) b
+>21	Identifier	b
+>22	CastTarget	long long
+>23	CastExpression	( long long ) a
+>24	Identifier	a
+>25	CastTarget	long long
+>26	Callee	fixed_t
+>27	Identifier	fixed_t
+>35	FunctionDef	FixedDiv (fixed_t a , fixed_t b)
+>36	ParameterList	fixed_t a , fixed_t b
+>37	Parameter	 
+>38	Identifier	b
+>39	ParameterType	fixed_t
+>40	Parameter	 
+>41	Identifier	a
+>42	ParameterType	fixed_t
+>43	ReturnType	fixed_t
+>44	CompoundStatement	 
+>45	ReturnStatement	 
+>46	CallExpression	FixedDiv2 ( a , b )
+>47	ArgumentList	a
+>48	Argument	b
+>49	Identifier	b
+>50	Argument	a
+>51	Identifier	a
+>52	Callee	FixedDiv2
+>53	Identifier	FixedDiv2
+>54	IfStatement	if ( ( abs ( a ) >> 14 ) >= abs ( b ) )
+>55	ReturnStatement	 
+>56	ConditionalExpression	( a ^ b ) < 0 ? MININT 
+>57	Identifier	MAXINT
+>58	Identifier	MININT
+>59	Condition	( a ^ b ) < 0
+>60	RelationalExpression	( a ^ b ) < 0
+>61	PrimaryExpression	0
+>62	ExclusiveOrExpression	a ^ b
+>63	Identifier	b
+>64	Identifier	a
+>65	Condition	 
+>66	RelationalExpression	( abs ( a ) >> 14 ) >= abs ( b )
+>67	CallExpression	abs ( b )
+>68	ArgumentList	b
+>69	Argument	b
+>70	Identifier	b
+>71	Callee	abs
+>72	Identifier	abs
+>73	ShiftExpression	abs ( a ) >> 14
+>74	PrimaryExpression	14
+>75	CallExpression	abs ( a )
+>76	ArgumentList	a
+>77	Argument	a
+>78	Identifier	a
+>79	Callee	abs
+>80	Identifier	abs
+>90	FunctionDef	FixedDiv2 (fixed_t a , fixed_t b)
+>91	ParameterList	fixed_t a , fixed_t b
+>92	Parameter	 
+>93	Identifier	b
+>94	ParameterType	fixed_t
+>95	Parameter	 
+>96	Identifier	a
+>97	ParameterType	fixed_t
+>98	ReturnType	fixed_t
+>99	CompoundStatement	 
+>100	ReturnStatement	 
+>101	CastExpression	( fixed_t ) c
+>102	Identifier	c
+>103	CastTarget	fixed_t
+>104	IfStatement	if ( c >= 2147483648.0 || c < - 2147483648.0 )
+>105	ExpressionStatement	 
+>106	CallExpression	I_Error ( \"FixedDiv
+>107	ArgumentList	\"FixedDiv
+>108	Argument	\"FixedDiv
+>109	PrimaryExpression	\"FixedDiv
+>110	Callee	I_Error
+>111	Identifier	I_Error
+>112	Condition	 
+>113	OrExpression	c >= 2147483648.0 || c < - 2147483648.0
+>114	RelationalExpression	c < - 2147483648.0
+>115	UnaryOp	- 2147483648.0
+>116	PrimaryExpression	2147483648.0
+>117	UnaryOperator	-
+>118	Identifier	c
+>119	RelationalExpression	c >= 2147483648.0
+>120	PrimaryExpression	2147483648.0
+>121	Identifier	c
+>122	ExpressionStatement	 
+>123	AssignmentExpr	c = ( ( double ) a ) / ( ( double ) b ) * FRACUNIT
+>124	MultiplicativeExpression	( ( double ) a ) / ( ( double ) b ) * FRACUNIT
+>125	MultiplicativeExpression	( ( double ) b ) * FRACUNIT
+>126	Identifier	FRACUNIT
+>127	CastExpression	( double ) b
+>128	Identifier	b
+>129	CastTarget	double
+>130	CastExpression	( double ) a
+>131	Identifier	a
+>132	CastTarget	double
+>133	Identifier	c
+>134	IdentifierDeclStatement	 
+>135	IdentifierDecl	c
+>136	Identifier	c
+>137	IdentifierDeclType	double
+>138	ReturnStatement	 
+>139	CastExpression	( fixed_t ) c
+>140	Identifier	c
+>141	CastTarget	fixed_t
+>142	ExpressionStatement	 
+>143	AssignmentExpr	c = ( ( long long ) a << 16 ) / ( ( long long ) b )
+>144	MultiplicativeExpression	( ( long long ) a << 16 ) / ( ( long long ) b )
+>145	CastExpression	( long long ) b
+>146	Identifier	b
+>147	CastTarget	long long
+>148	ShiftExpression	( long long ) a << 16
+>149	PrimaryExpression	16
+>150	CastExpression	( long long ) a
+>151	Identifier	a
+>152	CastTarget	long long
+>153	Identifier	c
+>154	IdentifierDeclStatement	 
+>155	IdentifierDecl	c
+>156	Identifier	c
+>157	IdentifierDeclType	long long
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=13
+<13=14
+<14=26,15
+<15=16
+<16=17
+<17=19,18
+<19=23,20
+<20=22,21
+<23=25,24
+<26=27
+<35=44,43,36
+<36=40,37
+<37=39,38
+<40=42,41
+<44=54,45
+<45=46
+<46=52,47
+<47=50,48
+<48=49
+<50=51
+<52=53
+<54=65,55
+<55=56
+<56=59,58,57
+<59=60
+<60=62,61
+<62=64,63
+<65=66
+<66=73,67
+<67=71,68
+<68=69
+<69=70
+<71=72
+<73=75,74
+<75=79,76
+<76=77
+<77=78
+<79=80
+<90=99,98,91
+<91=95,92
+<92=94,93
+<95=97,96
+<99=154,142,138,134,122,104,100
+<100=101
+<101=103,102
+<104=112,105
+<105=106
+<106=110,107
+<107=108
+<108=109
+<110=111
+<112=113
+<113=119,114
+<114=118,115
+<115=117,116
+<119=121,120
+<122=123
+<123=133,124
+<124=130,125
+<125=127,126
+<127=129,128
+<130=132,131
+<134=135
+<135=137,136
+<138=139
+<139=141,140
+<142=143
+<143=153,144
+<144=148,145
+<145=147,146
+<148=150,149
+<150=152,151
+<154=155
+<155=157,156

@@ -1,0 +1,3077 @@
+>61	FunctionDef	Error (char * msg , ANNerr level)
+>62	ParameterList	char * msg , ANNerr level
+>63	Parameter	 
+>64	Identifier	level
+>65	ParameterType	ANNerr
+>66	Parameter	 
+>67	Identifier	msg
+>68	ParameterType	char *
+>69	ReturnType	void
+>70	CompoundStatement	 
+>71	IfStatement	if ( level == ANNabort )
+>72	ElseStatement	else
+>73	CompoundStatement	 
+>74	ExpressionStatement	 
+>75	ShiftExpression	cerr << \"ann2fig
+>76	ShiftExpression	\"ann2fig
+>77	ShiftExpression	msg << \"<-------------WARNING\n\"
+>78	PrimaryExpression	\"<-------------WARNING\n\"
+>79	Identifier	msg
+>80	PrimaryExpression	\"ann2fig
+>81	Identifier	cerr
+>82	CompoundStatement	 
+>83	ExpressionStatement	 
+>84	CallExpression	exit ( 1 )
+>85	ArgumentList	1
+>86	Argument	1
+>87	PrimaryExpression	1
+>88	Callee	exit
+>89	Identifier	exit
+>90	ExpressionStatement	 
+>91	ShiftExpression	cerr << \"ann2fig
+>92	ShiftExpression	\"ann2fig
+>93	ShiftExpression	msg << \"<-------------ERROR\n\"
+>94	PrimaryExpression	\"<-------------ERROR\n\"
+>95	Identifier	msg
+>96	PrimaryExpression	\"ann2fig
+>97	Identifier	cerr
+>98	Condition	 
+>99	EqualityExpression	level == ANNabort
+>100	Identifier	ANNabort
+>101	Identifier	level
+>108	FunctionDef	set_slice_val (double val)
+>109	ParameterList	double val
+>110	Parameter	 
+>111	Identifier	val
+>112	ParameterType	double
+>113	ReturnType	void
+>114	CompoundStatement	 
+>115	ForStatement	for ( int i = 0 ; i < MAX_DIM ; i ++ )
+>116	CompoundStatement	 
+>117	ExpressionStatement	 
+>118	AssignmentExpr	slice_val [ i ] = val
+>119	Identifier	val
+>120	ArrayIndexing	slice_val [ i ]
+>121	Identifier	i
+>122	Identifier	slice_val
+>123	IncDecOp	 
+>124	IncDec	++
+>125	Identifier	i
+>126	Condition	 
+>127	RelationalExpression	i < MAX_DIM
+>128	Identifier	MAX_DIM
+>129	Identifier	i
+>130	ForInit	 
+>131	IdentifierDeclStatement	int i = 0 ;
+>132	IdentifierDecl	i = 0
+>133	AssignmentExpr	i = 0
+>134	PrimaryExpression	0
+>135	Identifier	i
+>136	Identifier	i
+>137	IdentifierDeclType	int
+>147	FunctionDef	getArgs (int argc , char * * argv)
+>148	ParameterList	int argc , char * * argv
+>149	Parameter	 
+>150	Identifier	argv
+>151	ParameterType	char * *
+>152	Parameter	 
+>153	Identifier	argc
+>154	ParameterType	int
+>155	ReturnType	void
+>156	CompoundStatement	 
+>157	ForStatement	for ( i = 1 ; i < argc ; i ++ )
+>158	CompoundStatement	 
+>159	ExpressionStatement	 
+>160	CallExpression	strcat ( caption , argv [ i ] )
+>161	ArgumentList	caption
+>162	Argument	argv [ i ]
+>163	ArrayIndexing	argv [ i ]
+>164	Identifier	i
+>165	Identifier	argv
+>166	Argument	caption
+>167	Identifier	caption
+>168	Callee	strcat
+>169	Identifier	strcat
+>170	ExpressionStatement	 
+>171	CallExpression	strcat ( caption , \" \" )
+>172	ArgumentList	caption
+>173	Argument	\" \"
+>174	PrimaryExpression	\" \"
+>175	Argument	caption
+>176	Identifier	caption
+>177	Callee	strcat
+>178	Identifier	strcat
+>179	IncDecOp	 
+>180	IncDec	++
+>181	Identifier	i
+>182	Condition	 
+>183	RelationalExpression	i < argc
+>184	Identifier	argc
+>185	Identifier	i
+>186	ForInit	 
+>187	AssignmentExpr	i = 1
+>188	PrimaryExpression	1
+>189	Identifier	i
+>190	ExpressionStatement	 
+>191	CallExpression	strcpy ( caption , argv [ 0 ] )
+>192	ArgumentList	caption
+>193	Argument	argv [ 0 ]
+>194	ArrayIndexing	argv [ 0 ]
+>195	PrimaryExpression	0
+>196	Identifier	argv
+>197	Argument	caption
+>198	Identifier	caption
+>199	Callee	strcpy
+>200	Identifier	strcpy
+>201	ExpressionStatement	 
+>202	AssignmentExpr	u_size = u_per_in * in_size
+>203	MultiplicativeExpression	u_per_in * in_size
+>204	Identifier	in_size
+>205	Identifier	u_per_in
+>206	Identifier	u_size
+>207	ExpressionStatement	 
+>208	AssignmentExpr	u_low_y = u_per_in * in_low_y
+>209	MultiplicativeExpression	u_per_in * in_low_y
+>210	Identifier	in_low_y
+>211	Identifier	u_per_in
+>212	Identifier	u_low_y
+>213	ExpressionStatement	 
+>214	AssignmentExpr	u_low_x = u_per_in * in_low_x
+>215	MultiplicativeExpression	u_per_in * in_low_x
+>216	Identifier	in_low_x
+>217	Identifier	u_per_in
+>218	Identifier	u_low_x
+>219	IfStatement	if ( ! ofile )
+>220	CompoundStatement	 
+>221	ExpressionStatement	 
+>222	CallExpression	Error ( \"Cannot open output file\" , ANNabort )
+>223	ArgumentList	\"Cannot open output file\"
+>224	Argument	ANNabort
+>225	Identifier	ANNabort
+>226	Argument	\"Cannot open output file\"
+>227	PrimaryExpression	\"Cannot open output file\"
+>228	Callee	Error
+>229	Identifier	Error
+>230	Condition	 
+>231	UnaryOp	! ofile
+>232	Identifier	ofile
+>233	UnaryOperator	!
+>234	ExpressionStatement	 
+>235	CallExpression	ofile . open ( outfile_name , ios 
+>236	ArgumentList	outfile_name
+>237	Argument	ios 
+>238	Identifier	ios 
+>239	Argument	outfile_name
+>240	Identifier	outfile_name
+>241	Callee	ofile . open
+>242	MemberAccess	ofile . open
+>243	Identifier	open
+>244	Identifier	ofile
+>245	IfStatement	if ( ! ifile )
+>246	CompoundStatement	 
+>247	ExpressionStatement	 
+>248	CallExpression	Error ( \"Cannot open input file\" , ANNabort )
+>249	ArgumentList	\"Cannot open input file\"
+>250	Argument	ANNabort
+>251	Identifier	ANNabort
+>252	Argument	\"Cannot open input file\"
+>253	PrimaryExpression	\"Cannot open input file\"
+>254	Callee	Error
+>255	Identifier	Error
+>256	Condition	 
+>257	UnaryOp	! ifile
+>258	Identifier	ifile
+>259	UnaryOperator	!
+>260	ExpressionStatement	 
+>261	CallExpression	ifile . open ( infile_name , ios 
+>262	ArgumentList	infile_name
+>263	Argument	ios 
+>264	Identifier	ios 
+>265	Argument	infile_name
+>266	Identifier	infile_name
+>267	Callee	ifile . open
+>268	MemberAccess	ifile . open
+>269	Identifier	open
+>270	Identifier	ifile
+>271	IfStatement	if ( ! fileSeen )
+>272	CompoundStatement	 
+>273	ExpressionStatement	 
+>274	CallExpression	Error ( \"File argument is required\" , ANNabort )
+>275	ArgumentList	\"File argument is required\"
+>276	Argument	ANNabort
+>277	Identifier	ANNabort
+>278	Argument	\"File argument is required\"
+>279	PrimaryExpression	\"File argument is required\"
+>280	Callee	Error
+>281	Identifier	Error
+>282	Condition	 
+>283	UnaryOp	! fileSeen
+>284	Identifier	fileSeen
+>285	UnaryOperator	!
+>286	ForStatement	for ( i = 1 ; i < argc ; i ++ )
+>287	CompoundStatement	 
+>288	IfStatement	if ( ! strcmp ( argv [ i ] , \"-ps\" ) )
+>289	ElseStatement	else
+>290	CompoundStatement	 
+>291	ExpressionStatement	 
+>292	CallExpression	strcat ( outfile_name , FIG_SUFFIX )
+>293	ArgumentList	outfile_name
+>294	Argument	FIG_SUFFIX
+>295	Identifier	FIG_SUFFIX
+>296	Argument	outfile_name
+>297	Identifier	outfile_name
+>298	Callee	strcat
+>299	Identifier	strcat
+>300	ExpressionStatement	 
+>301	CallExpression	strcpy ( outfile_name , file_name )
+>302	ArgumentList	outfile_name
+>303	Argument	file_name
+>304	Identifier	file_name
+>305	Argument	outfile_name
+>306	Identifier	outfile_name
+>307	Callee	strcpy
+>308	Identifier	strcpy
+>309	ExpressionStatement	 
+>310	CallExpression	strcat ( infile_name , DUMP_SUFFIX )
+>311	ArgumentList	infile_name
+>312	Argument	DUMP_SUFFIX
+>313	Identifier	DUMP_SUFFIX
+>314	Argument	infile_name
+>315	Identifier	infile_name
+>316	Callee	strcat
+>317	Identifier	strcat
+>318	ExpressionStatement	 
+>319	CallExpression	strcpy ( infile_name , file_name )
+>320	ArgumentList	infile_name
+>321	Argument	file_name
+>322	Identifier	file_name
+>323	Argument	infile_name
+>324	Identifier	infile_name
+>325	Callee	strcpy
+>326	Identifier	strcpy
+>327	ExpressionStatement	 
+>328	CallExpression	sscanf ( argv [ i ] , \"%s\" , file_name )
+>329	ArgumentList	argv [ i ]
+>330	Argument	file_name
+>331	Identifier	file_name
+>332	Argument	\"%s\"
+>333	PrimaryExpression	\"%s\"
+>334	Argument	argv [ i ]
+>335	ArrayIndexing	argv [ i ]
+>336	Identifier	i
+>337	Identifier	argv
+>338	Callee	sscanf
+>339	Identifier	sscanf
+>340	ExpressionStatement	 
+>341	AssignmentExpr	fileSeen = ANNtrue
+>342	Identifier	ANNtrue
+>343	Identifier	fileSeen
+>344	CompoundStatement	 
+>345	ExpressionStatement	 
+>346	CallExpression	sscanf ( argv [ ++ i ] , \"%i\" , & pt_size )
+>347	ArgumentList	argv [ ++ i ]
+>348	Argument	& pt_size
+>349	UnaryOp	& pt_size
+>350	Identifier	pt_size
+>351	UnaryOperator	&
+>352	Argument	\"%i\"
+>353	PrimaryExpression	\"%i\"
+>354	Argument	argv [ ++ i ]
+>355	ArrayIndexing	argv [ ++ i ]
+>356	UnaryExpression	++ i
+>357	Identifier	i
+>358	IncDec	++
+>359	Identifier	argv
+>360	Callee	sscanf
+>361	Identifier	sscanf
+>362	Condition	 
+>363	UnaryOp	! strcmp ( argv [ i ] , \"-ps\" )
+>364	CallExpression	strcmp ( argv [ i ] , \"-ps\" )
+>365	ArgumentList	argv [ i ]
+>366	Argument	\"-ps\"
+>367	PrimaryExpression	\"-ps\"
+>368	Argument	argv [ i ]
+>369	ArrayIndexing	argv [ i ]
+>370	Identifier	i
+>371	Identifier	argv
+>372	Callee	strcmp
+>373	Identifier	strcmp
+>374	UnaryOperator	!
+>375	IfStatement	if ( ! strcmp ( argv [ i ] , \"-upi\" ) )
+>376	ElseStatement	else
+>377	IfStatement	if ( ! strcmp ( argv [ i ] , \"-x\" ) )
+>378	ElseStatement	else
+>379	IfStatement	if ( ! strcmp ( argv [ i ] , \"-y\" ) )
+>380	ElseStatement	else
+>381	IfStatement	if ( ! strcmp ( argv [ i ] , \"-sz\" ) )
+>382	ElseStatement	else
+>383	IfStatement	if ( ! strcmp ( argv [ i ] , \"-dx\" ) )
+>384	ElseStatement	else
+>385	IfStatement	if ( ! strcmp ( argv [ i ] , \"-dy\" ) )
+>386	ElseStatement	else
+>387	IfStatement	if ( ! strcmp ( argv [ i ] , \"-sv\" ) )
+>388	ElseStatement	else
+>389	IfStatement	if ( ! strcmp ( argv [ i ] , \"-sl\" ) )
+>390	CompoundStatement	 
+>391	ExpressionStatement	 
+>392	CallExpression	sscanf ( argv [ ++ i ] , \"%lf\" , & slice_val [ sl_dim ] )
+>393	ArgumentList	argv [ ++ i ]
+>394	Argument	& slice_val [ sl_dim ]
+>395	UnaryOp	& slice_val [ sl_dim ]
+>396	ArrayIndexing	slice_val [ sl_dim ]
+>397	Identifier	sl_dim
+>398	Identifier	slice_val
+>399	UnaryOperator	&
+>400	Argument	\"%lf\"
+>401	PrimaryExpression	\"%lf\"
+>402	Argument	argv [ ++ i ]
+>403	ArrayIndexing	argv [ ++ i ]
+>404	UnaryExpression	++ i
+>405	Identifier	i
+>406	IncDec	++
+>407	Identifier	argv
+>408	Callee	sscanf
+>409	Identifier	sscanf
+>410	IfStatement	if ( sl_dim < 0 || sl_dim >= MAX_DIM )
+>411	CompoundStatement	 
+>412	ExpressionStatement	 
+>413	CallExpression	Error ( \"Slice dimension out of bounds\" , ANNabort )
+>414	ArgumentList	\"Slice dimension out of bounds\"
+>415	Argument	ANNabort
+>416	Identifier	ANNabort
+>417	Argument	\"Slice dimension out of bounds\"
+>418	PrimaryExpression	\"Slice dimension out of bounds\"
+>419	Callee	Error
+>420	Identifier	Error
+>421	Condition	 
+>422	OrExpression	sl_dim < 0 || sl_dim >= MAX_DIM
+>423	RelationalExpression	sl_dim >= MAX_DIM
+>424	Identifier	MAX_DIM
+>425	Identifier	sl_dim
+>426	RelationalExpression	sl_dim < 0
+>427	PrimaryExpression	0
+>428	Identifier	sl_dim
+>429	ExpressionStatement	 
+>430	CallExpression	sscanf ( argv [ ++ i ] , \"%d\" , & sl_dim )
+>431	ArgumentList	argv [ ++ i ]
+>432	Argument	& sl_dim
+>433	UnaryOp	& sl_dim
+>434	Identifier	sl_dim
+>435	UnaryOperator	&
+>436	Argument	\"%d\"
+>437	PrimaryExpression	\"%d\"
+>438	Argument	argv [ ++ i ]
+>439	ArrayIndexing	argv [ ++ i ]
+>440	UnaryExpression	++ i
+>441	Identifier	i
+>442	IncDec	++
+>443	Identifier	argv
+>444	Callee	sscanf
+>445	Identifier	sscanf
+>446	Condition	 
+>447	UnaryOp	! strcmp ( argv [ i ] , \"-sl\" )
+>448	CallExpression	strcmp ( argv [ i ] , \"-sl\" )
+>449	ArgumentList	argv [ i ]
+>450	Argument	\"-sl\"
+>451	PrimaryExpression	\"-sl\"
+>452	Argument	argv [ i ]
+>453	ArrayIndexing	argv [ i ]
+>454	Identifier	i
+>455	Identifier	argv
+>456	Callee	strcmp
+>457	Identifier	strcmp
+>458	UnaryOperator	!
+>459	CompoundStatement	 
+>460	ExpressionStatement	 
+>461	CallExpression	set_slice_val ( sl_val )
+>462	ArgumentList	sl_val
+>463	Argument	sl_val
+>464	Identifier	sl_val
+>465	Callee	set_slice_val
+>466	Identifier	set_slice_val
+>467	ExpressionStatement	 
+>468	CallExpression	sscanf ( argv [ ++ i ] , \"%lf\" , & sl_val )
+>469	ArgumentList	argv [ ++ i ]
+>470	Argument	& sl_val
+>471	UnaryOp	& sl_val
+>472	Identifier	sl_val
+>473	UnaryOperator	&
+>474	Argument	\"%lf\"
+>475	PrimaryExpression	\"%lf\"
+>476	Argument	argv [ ++ i ]
+>477	ArrayIndexing	argv [ ++ i ]
+>478	UnaryExpression	++ i
+>479	Identifier	i
+>480	IncDec	++
+>481	Identifier	argv
+>482	Callee	sscanf
+>483	Identifier	sscanf
+>484	Condition	 
+>485	UnaryOp	! strcmp ( argv [ i ] , \"-sv\" )
+>486	CallExpression	strcmp ( argv [ i ] , \"-sv\" )
+>487	ArgumentList	argv [ i ]
+>488	Argument	\"-sv\"
+>489	PrimaryExpression	\"-sv\"
+>490	Argument	argv [ i ]
+>491	ArrayIndexing	argv [ i ]
+>492	Identifier	i
+>493	Identifier	argv
+>494	Callee	strcmp
+>495	Identifier	strcmp
+>496	UnaryOperator	!
+>497	CompoundStatement	 
+>498	ExpressionStatement	 
+>499	CallExpression	sscanf ( argv [ ++ i ] , \"%d\" , & dim_y )
+>500	ArgumentList	argv [ ++ i ]
+>501	Argument	& dim_y
+>502	UnaryOp	& dim_y
+>503	Identifier	dim_y
+>504	UnaryOperator	&
+>505	Argument	\"%d\"
+>506	PrimaryExpression	\"%d\"
+>507	Argument	argv [ ++ i ]
+>508	ArrayIndexing	argv [ ++ i ]
+>509	UnaryExpression	++ i
+>510	Identifier	i
+>511	IncDec	++
+>512	Identifier	argv
+>513	Callee	sscanf
+>514	Identifier	sscanf
+>515	Condition	 
+>516	UnaryOp	! strcmp ( argv [ i ] , \"-dy\" )
+>517	CallExpression	strcmp ( argv [ i ] , \"-dy\" )
+>518	ArgumentList	argv [ i ]
+>519	Argument	\"-dy\"
+>520	PrimaryExpression	\"-dy\"
+>521	Argument	argv [ i ]
+>522	ArrayIndexing	argv [ i ]
+>523	Identifier	i
+>524	Identifier	argv
+>525	Callee	strcmp
+>526	Identifier	strcmp
+>527	UnaryOperator	!
+>528	CompoundStatement	 
+>529	ExpressionStatement	 
+>530	CallExpression	sscanf ( argv [ ++ i ] , \"%d\" , & dim_x )
+>531	ArgumentList	argv [ ++ i ]
+>532	Argument	& dim_x
+>533	UnaryOp	& dim_x
+>534	Identifier	dim_x
+>535	UnaryOperator	&
+>536	Argument	\"%d\"
+>537	PrimaryExpression	\"%d\"
+>538	Argument	argv [ ++ i ]
+>539	ArrayIndexing	argv [ ++ i ]
+>540	UnaryExpression	++ i
+>541	Identifier	i
+>542	IncDec	++
+>543	Identifier	argv
+>544	Callee	sscanf
+>545	Identifier	sscanf
+>546	Condition	 
+>547	UnaryOp	! strcmp ( argv [ i ] , \"-dx\" )
+>548	CallExpression	strcmp ( argv [ i ] , \"-dx\" )
+>549	ArgumentList	argv [ i ]
+>550	Argument	\"-dx\"
+>551	PrimaryExpression	\"-dx\"
+>552	Argument	argv [ i ]
+>553	ArrayIndexing	argv [ i ]
+>554	Identifier	i
+>555	Identifier	argv
+>556	Callee	strcmp
+>557	Identifier	strcmp
+>558	UnaryOperator	!
+>559	CompoundStatement	 
+>560	ExpressionStatement	 
+>561	CallExpression	sscanf ( argv [ ++ i ] , \"%lf\" , & in_size )
+>562	ArgumentList	argv [ ++ i ]
+>563	Argument	& in_size
+>564	UnaryOp	& in_size
+>565	Identifier	in_size
+>566	UnaryOperator	&
+>567	Argument	\"%lf\"
+>568	PrimaryExpression	\"%lf\"
+>569	Argument	argv [ ++ i ]
+>570	ArrayIndexing	argv [ ++ i ]
+>571	UnaryExpression	++ i
+>572	Identifier	i
+>573	IncDec	++
+>574	Identifier	argv
+>575	Callee	sscanf
+>576	Identifier	sscanf
+>577	Condition	 
+>578	UnaryOp	! strcmp ( argv [ i ] , \"-sz\" )
+>579	CallExpression	strcmp ( argv [ i ] , \"-sz\" )
+>580	ArgumentList	argv [ i ]
+>581	Argument	\"-sz\"
+>582	PrimaryExpression	\"-sz\"
+>583	Argument	argv [ i ]
+>584	ArrayIndexing	argv [ i ]
+>585	Identifier	i
+>586	Identifier	argv
+>587	Callee	strcmp
+>588	Identifier	strcmp
+>589	UnaryOperator	!
+>590	CompoundStatement	 
+>591	ExpressionStatement	 
+>592	CallExpression	sscanf ( argv [ ++ i ] , \"%lf\" , & in_low_y )
+>593	ArgumentList	argv [ ++ i ]
+>594	Argument	& in_low_y
+>595	UnaryOp	& in_low_y
+>596	Identifier	in_low_y
+>597	UnaryOperator	&
+>598	Argument	\"%lf\"
+>599	PrimaryExpression	\"%lf\"
+>600	Argument	argv [ ++ i ]
+>601	ArrayIndexing	argv [ ++ i ]
+>602	UnaryExpression	++ i
+>603	Identifier	i
+>604	IncDec	++
+>605	Identifier	argv
+>606	Callee	sscanf
+>607	Identifier	sscanf
+>608	Condition	 
+>609	UnaryOp	! strcmp ( argv [ i ] , \"-y\" )
+>610	CallExpression	strcmp ( argv [ i ] , \"-y\" )
+>611	ArgumentList	argv [ i ]
+>612	Argument	\"-y\"
+>613	PrimaryExpression	\"-y\"
+>614	Argument	argv [ i ]
+>615	ArrayIndexing	argv [ i ]
+>616	Identifier	i
+>617	Identifier	argv
+>618	Callee	strcmp
+>619	Identifier	strcmp
+>620	UnaryOperator	!
+>621	CompoundStatement	 
+>622	ExpressionStatement	 
+>623	CallExpression	sscanf ( argv [ ++ i ] , \"%lf\" , & in_low_x )
+>624	ArgumentList	argv [ ++ i ]
+>625	Argument	& in_low_x
+>626	UnaryOp	& in_low_x
+>627	Identifier	in_low_x
+>628	UnaryOperator	&
+>629	Argument	\"%lf\"
+>630	PrimaryExpression	\"%lf\"
+>631	Argument	argv [ ++ i ]
+>632	ArrayIndexing	argv [ ++ i ]
+>633	UnaryExpression	++ i
+>634	Identifier	i
+>635	IncDec	++
+>636	Identifier	argv
+>637	Callee	sscanf
+>638	Identifier	sscanf
+>639	Condition	 
+>640	UnaryOp	! strcmp ( argv [ i ] , \"-x\" )
+>641	CallExpression	strcmp ( argv [ i ] , \"-x\" )
+>642	ArgumentList	argv [ i ]
+>643	Argument	\"-x\"
+>644	PrimaryExpression	\"-x\"
+>645	Argument	argv [ i ]
+>646	ArrayIndexing	argv [ i ]
+>647	Identifier	i
+>648	Identifier	argv
+>649	Callee	strcmp
+>650	Identifier	strcmp
+>651	UnaryOperator	!
+>652	CompoundStatement	 
+>653	ExpressionStatement	 
+>654	CallExpression	sscanf ( argv [ ++ i ] , \"%lf\" , & u_per_in )
+>655	ArgumentList	argv [ ++ i ]
+>656	Argument	& u_per_in
+>657	UnaryOp	& u_per_in
+>658	Identifier	u_per_in
+>659	UnaryOperator	&
+>660	Argument	\"%lf\"
+>661	PrimaryExpression	\"%lf\"
+>662	Argument	argv [ ++ i ]
+>663	ArrayIndexing	argv [ ++ i ]
+>664	UnaryExpression	++ i
+>665	Identifier	i
+>666	IncDec	++
+>667	Identifier	argv
+>668	Callee	sscanf
+>669	Identifier	sscanf
+>670	Condition	 
+>671	UnaryOp	! strcmp ( argv [ i ] , \"-upi\" )
+>672	CallExpression	strcmp ( argv [ i ] , \"-upi\" )
+>673	ArgumentList	argv [ i ]
+>674	Argument	\"-upi\"
+>675	PrimaryExpression	\"-upi\"
+>676	Argument	argv [ i ]
+>677	ArrayIndexing	argv [ i ]
+>678	Identifier	i
+>679	Identifier	argv
+>680	Callee	strcmp
+>681	Identifier	strcmp
+>682	UnaryOperator	!
+>683	IncDecOp	 
+>684	IncDec	++
+>685	Identifier	i
+>686	Condition	 
+>687	RelationalExpression	i < argc
+>688	Identifier	argc
+>689	Identifier	i
+>690	ForInit	 
+>691	AssignmentExpr	i = 1
+>692	PrimaryExpression	1
+>693	Identifier	i
+>694	IdentifierDeclStatement	 
+>695	IdentifierDecl	fileSeen = ANNfalse
+>696	AssignmentExpr	fileSeen = ANNfalse
+>697	Identifier	ANNfalse
+>698	Identifier	ANNfalse
+>699	Identifier	fileSeen
+>700	IdentifierDeclType	ANNbool
+>701	IfStatement	if ( argc <= 1 )
+>702	CompoundStatement	 
+>703	ExpressionStatement	 
+>704	CallExpression	exit ( 0 )
+>705	ArgumentList	0
+>706	Argument	0
+>707	PrimaryExpression	0
+>708	Callee	exit
+>709	Identifier	exit
+>710	ExpressionStatement	 
+>711	ShiftExpression	cerr << \"Syntax
+>712	PrimaryExpression	\"Syntax
+>713	Identifier	cerr
+>714	Condition	 
+>715	RelationalExpression	argc <= 1
+>716	PrimaryExpression	1
+>717	Identifier	argc
+>718	ExpressionStatement	 
+>719	CallExpression	set_slice_val ( DEF_SLICE_VAL )
+>720	ArgumentList	DEF_SLICE_VAL
+>721	Argument	DEF_SLICE_VAL
+>722	Identifier	DEF_SLICE_VAL
+>723	Callee	set_slice_val
+>724	Identifier	set_slice_val
+>725	IdentifierDeclStatement	 
+>726	IdentifierDecl	sl_val
+>727	Identifier	sl_val
+>728	IdentifierDeclType	double
+>729	IdentifierDeclStatement	 
+>730	IdentifierDecl	sl_dim
+>731	Identifier	sl_dim
+>732	IdentifierDeclType	int
+>733	IdentifierDeclStatement	 
+>734	IdentifierDecl	i
+>735	Identifier	i
+>736	IdentifierDeclType	int
+>783	FunctionDef	writeHeader ()
+>784	ParameterList	 
+>785	ReturnType	void
+>786	CompoundStatement	 
+>787	ExpressionStatement	 
+>788	ShiftExpression	ofile << FIG_HEAD << \"\n\" << \"Portrait\n\" << \"Center\n\" << \"Inches\n\" << ( int ) u_per_in << \" 2\n\"type
+>789	ShiftExpression	FIG_HEAD << \"\n\" << \"Portrait\n\" << \"Center\n\" << \"Inches\n\" << ( int ) u_per_in << \" 2\n\"
+>790	ShiftExpression	\"\n\" << \"Portrait\n\" << \"Center\n\" << \"Inches\n\" << ( int ) u_per_in << \" 2\n\"
+>791	ShiftExpression	\"Portrait\n\" << \"Center\n\" << \"Inches\n\" << ( int ) u_per_in << \" 2\n\"
+>792	ShiftExpression	\"Center\n\" << \"Inches\n\" << ( int ) u_per_in << \" 2\n\"
+>793	ShiftExpression	\"Inches\n\" << ( int ) u_per_in << \" 2\n\"
+>794	ShiftExpression	( int ) u_per_in << \" 2\n\"
+>795	PrimaryExpression	\" 2\n\"
+>796	CastExpression	( int ) u_per_in
+>797	Identifier	u_per_in
+>798	CastTarget	int
+>799	PrimaryExpression	\"Inches\n\"
+>800	PrimaryExpression	\"Center\n\"
+>801	PrimaryExpression	\"Portrait\n\"
+>802	PrimaryExpression	\"\n\"
+>803	Identifier	FIG_HEAD
+>804	Identifier	ofile
+>808	FunctionDef	writePoint (ANNpoint p)
+>809	ParameterList	ANNpoint p
+>810	Parameter	 
+>811	Identifier	p
+>812	ParameterType	ANNpoint
+>813	ReturnType	void
+>814	CompoundStatement	 
+>815	ExpressionStatement	 
+>816	ShiftExpression	ofile << cent_x << \" \" << cent_y << \" \" << pt_size << \" \" << pt_size << \" \" << cent_x << \" \" << cent_\
+>817	ShiftExpression	cent_x << \" \" << cent_y << \" \" << pt_size << \" \" << pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << \
+>818	ShiftExpression	\" \" << cent_y << \" \" << pt_size << \" \" << pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << cent_x + \
+>819	ShiftExpression	cent_y << \" \" << pt_size << \" \" << pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << \
+>820	ShiftExpression	\" \" << pt_size << \" \" << pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << \
+>821	ShiftExpression	pt_size << \" \" << pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << cent_\
+>822	ShiftExpression	\" \" << pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"\
+>823	ShiftExpression	pt_size << \" \" << cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"\
+>824	ShiftExpression	\" \" << cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"
+>825	ShiftExpression	cent_x << \" \" << cent_y << \" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"
+>826	ShiftExpression	\" \" << cent_y << \" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"
+>827	ShiftExpression	cent_y << \" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"
+>828	ShiftExpression	\" \" << cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"
+>829	ShiftExpression	cent_x + pt_size << \" \" << cent_y + pt_size << \"\n\"
+>830	ShiftExpression	\" \" << cent_y + pt_size << \"\n\"
+>831	ShiftExpression	cent_y + pt_size << \"\n\"
+>832	PrimaryExpression	\"\n\"
+>833	AdditiveExpression	cent_y + pt_size
+>834	Identifier	pt_size
+>835	Identifier	cent_y
+>836	PrimaryExpression	\" \"
+>837	AdditiveExpression	cent_x + pt_size
+>838	Identifier	pt_size
+>839	Identifier	cent_x
+>840	PrimaryExpression	\" \"
+>841	Identifier	cent_y
+>842	PrimaryExpression	\" \"
+>843	Identifier	cent_x
+>844	PrimaryExpression	\" \"
+>845	Identifier	pt_size
+>846	PrimaryExpression	\" \"
+>847	Identifier	pt_size
+>848	PrimaryExpression	\" \"
+>849	Identifier	cent_y
+>850	PrimaryExpression	\" \"
+>851	Identifier	cent_x
+>852	Identifier	ofile
+>853	IdentifierDeclStatement	 
+>854	IdentifierDecl	cent_y = ( int ) TRANS_Y ( p )
+>855	AssignmentExpr	cent_y = ( int ) TRANS_Y ( p )
+>856	CastExpression	( int ) TRANS_Y ( p )
+>857	CallExpression	TRANS_Y ( p )
+>858	ArgumentList	p
+>859	Argument	p
+>860	Identifier	p
+>861	Callee	TRANS_Y
+>862	Identifier	TRANS_Y
+>863	CastTarget	int
+>864	Identifier	cent_y
+>865	Identifier	cent_y
+>866	IdentifierDeclType	int
+>867	IdentifierDeclStatement	 
+>868	IdentifierDecl	cent_x = ( int ) TRANS_X ( p )
+>869	AssignmentExpr	cent_x = ( int ) TRANS_X ( p )
+>870	CastExpression	( int ) TRANS_X ( p )
+>871	CallExpression	TRANS_X ( p )
+>872	ArgumentList	p
+>873	Argument	p
+>874	Identifier	p
+>875	Callee	TRANS_X
+>876	Identifier	TRANS_X
+>877	CastTarget	int
+>878	Identifier	cent_x
+>879	Identifier	cent_x
+>880	IdentifierDeclType	int
+>881	ExpressionStatement	 
+>882	ShiftExpression	ofile << \"1 3 0 1 -1 7 0 0 0 0.000 1 0.0000 \"
+>883	PrimaryExpression	\"1 3 0 1 -1 7 0 0 0 0.000 1 0.0000 \"
+>884	Identifier	ofile
+>893	FunctionDef	writeBox (const ANNorthRect & r)
+>894	ParameterList	const ANNorthRect & r
+>895	Parameter	 
+>896	Identifier	r
+>897	ParameterType	const ANNorthRect &
+>898	ReturnType	void
+>899	CompoundStatement	 
+>900	ExpressionStatement	 
+>901	ShiftExpression	ofile << \"\t\" << p0_x << \" \" << p0_y << \" \" << p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << \
+>902	ShiftExpression	\"\t\" << p0_x << \" \" << p0_y << \" \" << p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_\
+>903	ShiftExpression	p0_x << \" \" << p0_y << \" \" << p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << \
+>904	ShiftExpression	\" \" << p0_y << \" \" << p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_\
+>905	ShiftExpression	p0_y << \" \" << p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << \
+>906	ShiftExpression	\" \" << p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_\
+>907	ShiftExpression	p1_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << \
+>908	ShiftExpression	\" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_\
+>909	ShiftExpression	p0_y << \" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"\
+>910	ShiftExpression	\" \" << p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>911	ShiftExpression	p1_x << \" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>912	ShiftExpression	\" \" << p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>913	ShiftExpression	p1_y << \" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>914	ShiftExpression	\" \" << p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>915	ShiftExpression	p0_x << \" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>916	ShiftExpression	\" \" << p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>917	ShiftExpression	p1_y << \" \" << p0_x << \" \" << p0_y << \"\n\"
+>918	ShiftExpression	\" \" << p0_x << \" \" << p0_y << \"\n\"
+>919	ShiftExpression	p0_x << \" \" << p0_y << \"\n\"
+>920	ShiftExpression	\" \" << p0_y << \"\n\"
+>921	ShiftExpression	p0_y << \"\n\"
+>922	PrimaryExpression	\"\n\"
+>923	Identifier	p0_y
+>924	PrimaryExpression	\" \"
+>925	Identifier	p0_x
+>926	PrimaryExpression	\" \"
+>927	Identifier	p1_y
+>928	PrimaryExpression	\" \"
+>929	Identifier	p0_x
+>930	PrimaryExpression	\" \"
+>931	Identifier	p1_y
+>932	PrimaryExpression	\" \"
+>933	Identifier	p1_x
+>934	PrimaryExpression	\" \"
+>935	Identifier	p0_y
+>936	PrimaryExpression	\" \"
+>937	Identifier	p1_x
+>938	PrimaryExpression	\" \"
+>939	Identifier	p0_y
+>940	PrimaryExpression	\" \"
+>941	Identifier	p0_x
+>942	PrimaryExpression	\"\t\"
+>943	Identifier	ofile
+>944	IdentifierDeclStatement	 
+>945	IdentifierDecl	p1_y = ( int ) TRANS_Y ( r . hi )
+>946	AssignmentExpr	p1_y = ( int ) TRANS_Y ( r . hi )
+>947	CastExpression	( int ) TRANS_Y ( r . hi )
+>948	CallExpression	TRANS_Y ( r . hi )
+>949	ArgumentList	r . hi
+>950	Argument	r . hi
+>951	MemberAccess	r . hi
+>952	Identifier	hi
+>953	Identifier	r
+>954	Callee	TRANS_Y
+>955	Identifier	TRANS_Y
+>956	CastTarget	int
+>957	Identifier	p1_y
+>958	Identifier	p1_y
+>959	IdentifierDeclType	int
+>960	IdentifierDeclStatement	 
+>961	IdentifierDecl	p1_x = ( int ) TRANS_X ( r . hi )
+>962	AssignmentExpr	p1_x = ( int ) TRANS_X ( r . hi )
+>963	CastExpression	( int ) TRANS_X ( r . hi )
+>964	CallExpression	TRANS_X ( r . hi )
+>965	ArgumentList	r . hi
+>966	Argument	r . hi
+>967	MemberAccess	r . hi
+>968	Identifier	hi
+>969	Identifier	r
+>970	Callee	TRANS_X
+>971	Identifier	TRANS_X
+>972	CastTarget	int
+>973	Identifier	p1_x
+>974	Identifier	p1_x
+>975	IdentifierDeclType	int
+>976	IdentifierDeclStatement	 
+>977	IdentifierDecl	p0_y = ( int ) TRANS_Y ( r . lo )
+>978	AssignmentExpr	p0_y = ( int ) TRANS_Y ( r . lo )
+>979	CastExpression	( int ) TRANS_Y ( r . lo )
+>980	CallExpression	TRANS_Y ( r . lo )
+>981	ArgumentList	r . lo
+>982	Argument	r . lo
+>983	MemberAccess	r . lo
+>984	Identifier	lo
+>985	Identifier	r
+>986	Callee	TRANS_Y
+>987	Identifier	TRANS_Y
+>988	CastTarget	int
+>989	Identifier	p0_y
+>990	Identifier	p0_y
+>991	IdentifierDeclType	int
+>992	IdentifierDeclStatement	 
+>993	IdentifierDecl	p0_x = ( int ) TRANS_X ( r . lo )
+>994	AssignmentExpr	p0_x = ( int ) TRANS_X ( r . lo )
+>995	CastExpression	( int ) TRANS_X ( r . lo )
+>996	CallExpression	TRANS_X ( r . lo )
+>997	ArgumentList	r . lo
+>998	Argument	r . lo
+>999	MemberAccess	r . lo
+>1000	Identifier	lo
+>1001	Identifier	r
+>1002	Callee	TRANS_X
+>1003	Identifier	TRANS_X
+>1004	CastTarget	int
+>1005	Identifier	p0_x
+>1006	Identifier	p0_x
+>1007	IdentifierDeclType	int
+>1008	ExpressionStatement	 
+>1009	ShiftExpression	ofile << \"2 2 0 1 -1 7 0 0 -1 0.000 0 0 -1 0 0 5\n\"
+>1010	PrimaryExpression	\"2 2 0 1 -1 7 0 0 -1 0.000 0 0 -1 0 0 5\n\"
+>1011	Identifier	ofile
+>1024	FunctionDef	writeLine (ANNpoint p0 , ANNpoint p1)
+>1025	ParameterList	ANNpoint p0 , ANNpoint p1
+>1026	Parameter	 
+>1027	Identifier	p1
+>1028	ParameterType	ANNpoint
+>1029	Parameter	 
+>1030	Identifier	p0
+>1031	ParameterType	ANNpoint
+>1032	ReturnType	void
+>1033	CompoundStatement	 
+>1034	ExpressionStatement	 
+>1035	ShiftExpression	ofile << \"\t\" << p0_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \"\n\"
+>1036	ShiftExpression	\"\t\" << p0_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \"\n\"
+>1037	ShiftExpression	p0_x << \" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \"\n\"
+>1038	ShiftExpression	\" \" << p0_y << \" \" << p1_x << \" \" << p1_y << \"\n\"
+>1039	ShiftExpression	p0_y << \" \" << p1_x << \" \" << p1_y << \"\n\"
+>1040	ShiftExpression	\" \" << p1_x << \" \" << p1_y << \"\n\"
+>1041	ShiftExpression	p1_x << \" \" << p1_y << \"\n\"
+>1042	ShiftExpression	\" \" << p1_y << \"\n\"
+>1043	ShiftExpression	p1_y << \"\n\"
+>1044	PrimaryExpression	\"\n\"
+>1045	Identifier	p1_y
+>1046	PrimaryExpression	\" \"
+>1047	Identifier	p1_x
+>1048	PrimaryExpression	\" \"
+>1049	Identifier	p0_y
+>1050	PrimaryExpression	\" \"
+>1051	Identifier	p0_x
+>1052	PrimaryExpression	\"\t\"
+>1053	Identifier	ofile
+>1054	IdentifierDeclStatement	 
+>1055	IdentifierDecl	p1_y = ( int ) TRANS_Y ( p1 )
+>1056	AssignmentExpr	p1_y = ( int ) TRANS_Y ( p1 )
+>1057	CastExpression	( int ) TRANS_Y ( p1 )
+>1058	CallExpression	TRANS_Y ( p1 )
+>1059	ArgumentList	p1
+>1060	Argument	p1
+>1061	Identifier	p1
+>1062	Callee	TRANS_Y
+>1063	Identifier	TRANS_Y
+>1064	CastTarget	int
+>1065	Identifier	p1_y
+>1066	Identifier	p1_y
+>1067	IdentifierDeclType	int
+>1068	IdentifierDeclStatement	 
+>1069	IdentifierDecl	p1_x = ( int ) TRANS_X ( p1 )
+>1070	AssignmentExpr	p1_x = ( int ) TRANS_X ( p1 )
+>1071	CastExpression	( int ) TRANS_X ( p1 )
+>1072	CallExpression	TRANS_X ( p1 )
+>1073	ArgumentList	p1
+>1074	Argument	p1
+>1075	Identifier	p1
+>1076	Callee	TRANS_X
+>1077	Identifier	TRANS_X
+>1078	CastTarget	int
+>1079	Identifier	p1_x
+>1080	Identifier	p1_x
+>1081	IdentifierDeclType	int
+>1082	IdentifierDeclStatement	 
+>1083	IdentifierDecl	p0_y = ( int ) TRANS_Y ( p0 )
+>1084	AssignmentExpr	p0_y = ( int ) TRANS_Y ( p0 )
+>1085	CastExpression	( int ) TRANS_Y ( p0 )
+>1086	CallExpression	TRANS_Y ( p0 )
+>1087	ArgumentList	p0
+>1088	Argument	p0
+>1089	Identifier	p0
+>1090	Callee	TRANS_Y
+>1091	Identifier	TRANS_Y
+>1092	CastTarget	int
+>1093	Identifier	p0_y
+>1094	Identifier	p0_y
+>1095	IdentifierDeclType	int
+>1096	IdentifierDeclStatement	 
+>1097	IdentifierDecl	p0_x = ( int ) TRANS_X ( p0 )
+>1098	AssignmentExpr	p0_x = ( int ) TRANS_X ( p0 )
+>1099	CastExpression	( int ) TRANS_X ( p0 )
+>1100	CallExpression	TRANS_X ( p0 )
+>1101	ArgumentList	p0
+>1102	Argument	p0
+>1103	Identifier	p0
+>1104	Callee	TRANS_X
+>1105	Identifier	TRANS_X
+>1106	CastTarget	int
+>1107	Identifier	p0_x
+>1108	Identifier	p0_x
+>1109	IdentifierDeclType	int
+>1110	ExpressionStatement	 
+>1111	ShiftExpression	ofile << \"2 1 0 1 -1 7 0 0 -1 0.000 0 0 -1 0 0 2\n\"
+>1112	PrimaryExpression	\"2 1 0 1 -1 7 0 0 -1 0.000 0 0 -1 0 0 2\n\"
+>1113	Identifier	ofile
+>1125	FunctionDef	writeCaption (const ANNorthRect & bnd_box , char * caption)
+>1126	ParameterList	const ANNorthRect & bnd_box , char * caption
+>1127	Parameter	 
+>1128	Identifier	caption
+>1129	ParameterType	char *
+>1130	Parameter	 
+>1131	Identifier	bnd_box
+>1132	ParameterType	const ANNorthRect &
+>1133	ReturnType	void
+>1134	CompoundStatement	 
+>1135	ExpressionStatement	 
+>1136	ShiftExpression	ofile << px << \" \" << py << \" \" << caption << \"\\001\n\"
+>1137	ShiftExpression	px << \" \" << py << \" \" << caption << \"\\001\n\"
+>1138	ShiftExpression	\" \" << py << \" \" << caption << \"\\001\n\"
+>1139	ShiftExpression	py << \" \" << caption << \"\\001\n\"
+>1140	ShiftExpression	\" \" << caption << \"\\001\n\"
+>1141	ShiftExpression	caption << \"\\001\n\"
+>1142	PrimaryExpression	\"\\001\n\"
+>1143	Identifier	caption
+>1144	PrimaryExpression	\" \"
+>1145	Identifier	py
+>1146	PrimaryExpression	\" \"
+>1147	Identifier	px
+>1148	Identifier	ofile
+>1149	ExpressionStatement	 
+>1150	ShiftExpression	ofile << \"4 0 -1 0 0 0 20 0.0000 4 255 2000 \"
+>1151	PrimaryExpression	\"4 0 -1 0 0 0 20 0.0000 4 255 2000 \"
+>1152	Identifier	ofile
+>1153	IdentifierDeclStatement	 
+>1154	IdentifierDecl	py = ( int ) ( TRANS_Y ( bnd_box . lo ) + 0.50 * u_per_in )
+>1155	AssignmentExpr	py = ( int ) ( TRANS_Y ( bnd_box . lo ) + 0.50 * u_per_in )
+>1156	CastExpression	( int ) ( TRANS_Y ( bnd_box . lo ) + 0.50 * u_per_in )
+>1157	AdditiveExpression	TRANS_Y ( bnd_box . lo ) + 0.50 * u_per_in
+>1158	MultiplicativeExpression	0.50 * u_per_in
+>1159	Identifier	u_per_in
+>1160	PrimaryExpression	0.50
+>1161	CallExpression	TRANS_Y ( bnd_box . lo )
+>1162	ArgumentList	bnd_box . lo
+>1163	Argument	bnd_box . lo
+>1164	MemberAccess	bnd_box . lo
+>1165	Identifier	lo
+>1166	Identifier	bnd_box
+>1167	Callee	TRANS_Y
+>1168	Identifier	TRANS_Y
+>1169	CastTarget	int
+>1170	Identifier	py
+>1171	Identifier	py
+>1172	IdentifierDeclType	int
+>1173	IdentifierDeclStatement	 
+>1174	IdentifierDecl	px = ( int ) TRANS_X ( bnd_box . lo )
+>1175	AssignmentExpr	px = ( int ) TRANS_X ( bnd_box . lo )
+>1176	CastExpression	( int ) TRANS_X ( bnd_box . lo )
+>1177	CallExpression	TRANS_X ( bnd_box . lo )
+>1178	ArgumentList	bnd_box . lo
+>1179	Argument	bnd_box . lo
+>1180	MemberAccess	bnd_box . lo
+>1181	Identifier	lo
+>1182	Identifier	bnd_box
+>1183	Callee	TRANS_X
+>1184	Identifier	TRANS_X
+>1185	CastTarget	int
+>1186	Identifier	px
+>1187	Identifier	px
+>1188	IdentifierDeclType	int
+>1189	IfStatement	if ( ! strcmp ( caption , \"\0\" ) )
+>1190	ReturnStatement	 
+>1191	Condition	 
+>1192	UnaryOp	! strcmp ( caption , \"\0\" )
+>1193	CallExpression	strcmp ( caption , \"\0\" )
+>1194	ArgumentList	caption
+>1195	Argument	\"\0\"
+>1196	PrimaryExpression	\"\0\"
+>1197	Argument	caption
+>1198	Identifier	caption
+>1199	Callee	strcmp
+>1200	Identifier	strcmp
+>1201	UnaryOperator	!
+>1214	FunctionDef	overlap (const ANNorthRect & box)
+>1215	ParameterList	const ANNorthRect & box
+>1216	Parameter	 
+>1217	Identifier	box
+>1218	ParameterType	const ANNorthRect &
+>1219	ReturnType	ANNbool
+>1220	CompoundStatement	 
+>1221	ReturnStatement	 
+>1222	Identifier	ANNtrue
+>1223	ForStatement	for ( int i = 0 ; i < dim ; i ++ )
+>1224	CompoundStatement	 
+>1225	IfStatement	if ( i != dim_x && i != dim_y && ( box . lo [ i ] > slice_val [ i ] || box . hi [ i ] < slice_val [ i ] ) )
+>1226	ReturnStatement	 
+>1227	Identifier	ANNfalse
+>1228	Condition	 
+>1229	AndExpression	i != dim_x && i != dim_y && ( box . lo [ i ] > slice_val [ i ] || box . hi [ i ] < slice_val [ i ] )
+>1230	AndExpression	i != dim_y && ( box . lo [ i ] > slice_val [ i ] || box . hi [ i ] < slice_val [ i ] )
+>1231	OrExpression	box . lo [ i ] > slice_val [ i ] || box . hi [ i ] < slice_val [ i ]
+>1232	RelationalExpression	box . hi [ i ] < slice_val [ i ]
+>1233	ArrayIndexing	slice_val [ i ]
+>1234	Identifier	i
+>1235	Identifier	slice_val
+>1236	ArrayIndexing	box . hi [ i ]
+>1237	Identifier	i
+>1238	MemberAccess	box . hi
+>1239	Identifier	hi
+>1240	Identifier	box
+>1241	RelationalExpression	box . lo [ i ] > slice_val [ i ]
+>1242	ArrayIndexing	slice_val [ i ]
+>1243	Identifier	i
+>1244	Identifier	slice_val
+>1245	ArrayIndexing	box . lo [ i ]
+>1246	Identifier	i
+>1247	MemberAccess	box . lo
+>1248	Identifier	lo
+>1249	Identifier	box
+>1250	EqualityExpression	i != dim_y
+>1251	Identifier	dim_y
+>1252	Identifier	i
+>1253	EqualityExpression	i != dim_x
+>1254	Identifier	dim_x
+>1255	Identifier	i
+>1256	IncDecOp	 
+>1257	IncDec	++
+>1258	Identifier	i
+>1259	Condition	 
+>1260	RelationalExpression	i < dim
+>1261	Identifier	dim
+>1262	Identifier	i
+>1263	ForInit	 
+>1264	IdentifierDeclStatement	int i = 0 ;
+>1265	IdentifierDecl	i = 0
+>1266	AssignmentExpr	i = 0
+>1267	PrimaryExpression	0
+>1268	Identifier	i
+>1269	Identifier	i
+>1270	IdentifierDeclType	int
+>1289	FunctionDef	recReadTree (ANNorthRect & box)
+>1290	ParameterList	ANNorthRect & box
+>1291	Parameter	 
+>1292	Identifier	box
+>1293	ParameterType	ANNorthRect &
+>1294	ReturnType	void
+>1295	CompoundStatement	 
+>1296	IfStatement	if ( strcmp ( tag , \"leaf\" ) == 0 )
+>1297	ElseStatement	else
+>1298	IfStatement	if ( strcmp ( tag , \"split\" ) == 0 )
+>1299	ElseStatement	else
+>1300	IfStatement	if ( strcmp ( tag , \"shrink\" ) == 0 )
+>1301	ElseStatement	else
+>1302	CompoundStatement	 
+>1303	ExpressionStatement	 
+>1304	CallExpression	Error ( \"Illegal node type in dump file\" , ANNabort )
+>1305	ArgumentList	\"Illegal node type in dump file\"
+>1306	Argument	ANNabort
+>1307	Identifier	ANNabort
+>1308	Argument	\"Illegal node type in dump file\"
+>1309	PrimaryExpression	\"Illegal node type in dump file\"
+>1310	Callee	Error
+>1311	Identifier	Error
+>1312	CompoundStatement	 
+>1313	ExpressionStatement	 
+>1314	CallExpression	recReadTree ( box )
+>1315	ArgumentList	box
+>1316	Argument	box
+>1317	Identifier	box
+>1318	Callee	recReadTree
+>1319	Identifier	recReadTree
+>1320	ExpressionStatement	 
+>1321	CallExpression	recReadTree ( inner )
+>1322	ArgumentList	inner
+>1323	Argument	inner
+>1324	Identifier	inner
+>1325	Callee	recReadTree
+>1326	Identifier	recReadTree
+>1327	IfStatement	if ( dim == 2 || overlap ( inner ) )
+>1328	CompoundStatement	 
+>1329	ExpressionStatement	 
+>1330	CallExpression	writeBox ( inner )
+>1331	ArgumentList	inner
+>1332	Argument	inner
+>1333	Identifier	inner
+>1334	Callee	writeBox
+>1335	Identifier	writeBox
+>1336	Condition	 
+>1337	OrExpression	dim == 2 || overlap ( inner )
+>1338	CallExpression	overlap ( inner )
+>1339	ArgumentList	inner
+>1340	Argument	inner
+>1341	Identifier	inner
+>1342	Callee	overlap
+>1343	Identifier	overlap
+>1344	EqualityExpression	dim == 2
+>1345	PrimaryExpression	2
+>1346	Identifier	dim
+>1347	ForStatement	for ( int i = 0 ; i < n_bnds ; i ++ )
+>1348	CompoundStatement	 
+>1349	ExpressionStatement	 
+>1350	CallExpression	hs . project ( inner . hi )
+>1351	ArgumentList	inner . hi
+>1352	Argument	inner . hi
+>1353	MemberAccess	inner . hi
+>1354	Identifier	hi
+>1355	Identifier	inner
+>1356	Callee	hs . project
+>1357	MemberAccess	hs . project
+>1358	Identifier	project
+>1359	Identifier	hs
+>1360	ExpressionStatement	 
+>1361	CallExpression	hs . project ( inner . lo )
+>1362	ArgumentList	inner . lo
+>1363	Argument	inner . lo
+>1364	MemberAccess	inner . lo
+>1365	Identifier	lo
+>1366	Identifier	inner
+>1367	Callee	hs . project
+>1368	MemberAccess	hs . project
+>1369	Identifier	project
+>1370	Identifier	hs
+>1371	IdentifierDeclStatement	 
+>1372	IdentifierDecl	hs ( cd , cv , sd )
+>1373	Expression	cd , cv , sd
+>1374	Expression	cv , sd
+>1375	Identifier	sd
+>1376	Identifier	cv
+>1377	Identifier	cd
+>1378	Identifier	hs
+>1379	IdentifierDeclType	ANNorthHalfSpace
+>1380	ExpressionStatement	 
+>1381	ShiftExpression	ifile >> cd >> cv >> sd
+>1382	ShiftExpression	cd >> cv >> sd
+>1383	ShiftExpression	cv >> sd
+>1384	Identifier	sd
+>1385	Identifier	cv
+>1386	Identifier	cd
+>1387	Identifier	ifile
+>1388	IncDecOp	 
+>1389	IncDec	++
+>1390	Identifier	i
+>1391	Condition	 
+>1392	RelationalExpression	i < n_bnds
+>1393	Identifier	n_bnds
+>1394	Identifier	i
+>1395	ForInit	 
+>1396	IdentifierDeclStatement	int i = 0 ;
+>1397	IdentifierDecl	i = 0
+>1398	AssignmentExpr	i = 0
+>1399	PrimaryExpression	0
+>1400	Identifier	i
+>1401	Identifier	i
+>1402	IdentifierDeclType	int
+>1403	ExpressionStatement	 
+>1404	ShiftExpression	ifile >> n_bnds
+>1405	Identifier	n_bnds
+>1406	Identifier	ifile
+>1407	IdentifierDeclStatement	 
+>1408	IdentifierDecl	inner ( dim , box )
+>1409	Expression	dim , box
+>1410	Identifier	box
+>1411	Identifier	dim
+>1412	Identifier	inner
+>1413	IdentifierDeclType	ANNorthRect
+>1414	Condition	 
+>1415	EqualityExpression	strcmp ( tag , \"shrink\" ) == 0
+>1416	PrimaryExpression	0
+>1417	CallExpression	strcmp ( tag , \"shrink\" )
+>1418	ArgumentList	tag
+>1419	Argument	\"shrink\"
+>1420	PrimaryExpression	\"shrink\"
+>1421	Argument	tag
+>1422	Identifier	tag
+>1423	Callee	strcmp
+>1424	Identifier	strcmp
+>1425	CompoundStatement	 
+>1426	ExpressionStatement	 
+>1427	AssignmentExpr	box . lo [ cd ] = lv
+>1428	Identifier	lv
+>1429	ArrayIndexing	box . lo [ cd ]
+>1430	Identifier	cd
+>1431	MemberAccess	box . lo
+>1432	Identifier	lo
+>1433	Identifier	box
+>1434	ExpressionStatement	 
+>1435	CallExpression	recReadTree ( box )
+>1436	ArgumentList	box
+>1437	Argument	box
+>1438	Identifier	box
+>1439	Callee	recReadTree
+>1440	Identifier	recReadTree
+>1441	ExpressionStatement	 
+>1442	AssignmentExpr	box . hi [ cd ] = hv
+>1443	Identifier	hv
+>1444	ArrayIndexing	box . hi [ cd ]
+>1445	Identifier	cd
+>1446	MemberAccess	box . hi
+>1447	Identifier	hi
+>1448	Identifier	box
+>1449	IfStatement	if ( dim == 2 || overlap ( box ) )
+>1450	CompoundStatement	 
+>1451	IfStatement	if ( cd == dim_x || cd == dim_y )
+>1452	CompoundStatement	 
+>1453	ExpressionStatement	 
+>1454	CallExpression	writeLine ( box . lo , box . hi )
+>1455	ArgumentList	box . lo
+>1456	Argument	box . hi
+>1457	MemberAccess	box . hi
+>1458	Identifier	hi
+>1459	Identifier	box
+>1460	Argument	box . lo
+>1461	MemberAccess	box . lo
+>1462	Identifier	lo
+>1463	Identifier	box
+>1464	Callee	writeLine
+>1465	Identifier	writeLine
+>1466	Condition	 
+>1467	OrExpression	cd == dim_x || cd == dim_y
+>1468	EqualityExpression	cd == dim_y
+>1469	Identifier	dim_y
+>1470	Identifier	cd
+>1471	EqualityExpression	cd == dim_x
+>1472	Identifier	dim_x
+>1473	Identifier	cd
+>1474	Condition	 
+>1475	OrExpression	dim == 2 || overlap ( box )
+>1476	CallExpression	overlap ( box )
+>1477	ArgumentList	box
+>1478	Argument	box
+>1479	Identifier	box
+>1480	Callee	overlap
+>1481	Identifier	overlap
+>1482	EqualityExpression	dim == 2
+>1483	PrimaryExpression	2
+>1484	Identifier	dim
+>1485	ExpressionStatement	 
+>1486	AssignmentExpr	box . lo [ cd ] = cv
+>1487	Identifier	cv
+>1488	ArrayIndexing	box . lo [ cd ]
+>1489	Identifier	cd
+>1490	MemberAccess	box . lo
+>1491	Identifier	lo
+>1492	Identifier	box
+>1493	ExpressionStatement	 
+>1494	CallExpression	recReadTree ( box )
+>1495	ArgumentList	box
+>1496	Argument	box
+>1497	Identifier	box
+>1498	Callee	recReadTree
+>1499	Identifier	recReadTree
+>1500	ExpressionStatement	 
+>1501	AssignmentExpr	box . hi [ cd ] = cv
+>1502	Identifier	cv
+>1503	ArrayIndexing	box . hi [ cd ]
+>1504	Identifier	cd
+>1505	MemberAccess	box . hi
+>1506	Identifier	hi
+>1507	Identifier	box
+>1508	IdentifierDeclStatement	 
+>1509	IdentifierDecl	hv = box . hi [ cd ]
+>1510	AssignmentExpr	hv = box . hi [ cd ]
+>1511	ArrayIndexing	box . hi [ cd ]
+>1512	Identifier	cd
+>1513	MemberAccess	box . hi
+>1514	Identifier	hi
+>1515	Identifier	box
+>1516	Identifier	hv
+>1517	Identifier	hv
+>1518	IdentifierDeclType	ANNcoord
+>1519	IdentifierDeclStatement	 
+>1520	IdentifierDecl	lv = box . lo [ cd ]
+>1521	AssignmentExpr	lv = box . lo [ cd ]
+>1522	ArrayIndexing	box . lo [ cd ]
+>1523	Identifier	cd
+>1524	MemberAccess	box . lo
+>1525	Identifier	lo
+>1526	Identifier	box
+>1527	Identifier	lv
+>1528	Identifier	lv
+>1529	IdentifierDeclType	ANNcoord
+>1530	IfStatement	if ( lb != box . lo [ cd ] || hb != box . hi [ cd ] )
+>1531	CompoundStatement	 
+>1532	ExpressionStatement	 
+>1533	CallExpression	Error ( \"Bounding box coordinates are fishy\" , ANNwarn )
+>1534	ArgumentList	\"Bounding box coordinates are fishy\"
+>1535	Argument	ANNwarn
+>1536	Identifier	ANNwarn
+>1537	Argument	\"Bounding box coordinates are fishy\"
+>1538	PrimaryExpression	\"Bounding box coordinates are fishy\"
+>1539	Callee	Error
+>1540	Identifier	Error
+>1541	Condition	 
+>1542	OrExpression	lb != box . lo [ cd ] || hb != box . hi [ cd ]
+>1543	EqualityExpression	hb != box . hi [ cd ]
+>1544	ArrayIndexing	box . hi [ cd ]
+>1545	Identifier	cd
+>1546	MemberAccess	box . hi
+>1547	Identifier	hi
+>1548	Identifier	box
+>1549	Identifier	hb
+>1550	EqualityExpression	lb != box . lo [ cd ]
+>1551	ArrayIndexing	box . lo [ cd ]
+>1552	Identifier	cd
+>1553	MemberAccess	box . lo
+>1554	Identifier	lo
+>1555	Identifier	box
+>1556	Identifier	lb
+>1557	ExpressionStatement	 
+>1558	ShiftExpression	ifile >> cd >> cv >> lb >> hb
+>1559	ShiftExpression	cd >> cv >> lb >> hb
+>1560	ShiftExpression	cv >> lb >> hb
+>1561	ShiftExpression	lb >> hb
+>1562	Identifier	hb
+>1563	Identifier	lb
+>1564	Identifier	cv
+>1565	Identifier	cd
+>1566	Identifier	ifile
+>1567	Condition	 
+>1568	EqualityExpression	strcmp ( tag , \"split\" ) == 0
+>1569	PrimaryExpression	0
+>1570	CallExpression	strcmp ( tag , \"split\" )
+>1571	ArgumentList	tag
+>1572	Argument	\"split\"
+>1573	PrimaryExpression	\"split\"
+>1574	Argument	tag
+>1575	Identifier	tag
+>1576	Callee	strcmp
+>1577	Identifier	strcmp
+>1578	CompoundStatement	 
+>1579	IfStatement	if ( dim == 2 || overlap ( box ) )
+>1580	ElseStatement	else
+>1581	CompoundStatement	 
+>1582	ForStatement	for ( int i = 0 ; i < n_pts ; i ++ )
+>1583	CompoundStatement	 
+>1584	ExpressionStatement	 
+>1585	ShiftExpression	ifile >> idx
+>1586	Identifier	idx
+>1587	Identifier	ifile
+>1588	IncDecOp	 
+>1589	IncDec	++
+>1590	Identifier	i
+>1591	Condition	 
+>1592	RelationalExpression	i < n_pts
+>1593	Identifier	n_pts
+>1594	Identifier	i
+>1595	ForInit	 
+>1596	IdentifierDeclStatement	int i = 0 ;
+>1597	IdentifierDecl	i = 0
+>1598	AssignmentExpr	i = 0
+>1599	PrimaryExpression	0
+>1600	Identifier	i
+>1601	Identifier	i
+>1602	IdentifierDeclType	int
+>1603	CompoundStatement	 
+>1604	ForStatement	for ( int i = 0 ; i < n_pts ; i ++ )
+>1605	CompoundStatement	 
+>1606	ExpressionStatement	 
+>1607	CallExpression	writePoint ( pts [ idx ] )
+>1608	ArgumentList	pts [ idx ]
+>1609	Argument	pts [ idx ]
+>1610	ArrayIndexing	pts [ idx ]
+>1611	Identifier	idx
+>1612	Identifier	pts
+>1613	Callee	writePoint
+>1614	Identifier	writePoint
+>1615	ExpressionStatement	 
+>1616	ShiftExpression	ifile >> idx
+>1617	Identifier	idx
+>1618	Identifier	ifile
+>1619	IncDecOp	 
+>1620	IncDec	++
+>1621	Identifier	i
+>1622	Condition	 
+>1623	RelationalExpression	i < n_pts
+>1624	Identifier	n_pts
+>1625	Identifier	i
+>1626	ForInit	 
+>1627	IdentifierDeclStatement	int i = 0 ;
+>1628	IdentifierDecl	i = 0
+>1629	AssignmentExpr	i = 0
+>1630	PrimaryExpression	0
+>1631	Identifier	i
+>1632	Identifier	i
+>1633	IdentifierDeclType	int
+>1634	Condition	 
+>1635	OrExpression	dim == 2 || overlap ( box )
+>1636	CallExpression	overlap ( box )
+>1637	ArgumentList	box
+>1638	Argument	box
+>1639	Identifier	box
+>1640	Callee	overlap
+>1641	Identifier	overlap
+>1642	EqualityExpression	dim == 2
+>1643	PrimaryExpression	2
+>1644	Identifier	dim
+>1645	ExpressionStatement	 
+>1646	ShiftExpression	ifile >> n_pts
+>1647	Identifier	n_pts
+>1648	Identifier	ifile
+>1649	Condition	 
+>1650	EqualityExpression	strcmp ( tag , \"leaf\" ) == 0
+>1651	PrimaryExpression	0
+>1652	CallExpression	strcmp ( tag , \"leaf\" )
+>1653	ArgumentList	tag
+>1654	Argument	\"leaf\"
+>1655	PrimaryExpression	\"leaf\"
+>1656	Argument	tag
+>1657	Identifier	tag
+>1658	Callee	strcmp
+>1659	Identifier	strcmp
+>1660	ExpressionStatement	 
+>1661	ShiftExpression	ifile >> tag
+>1662	Identifier	tag
+>1663	Identifier	ifile
+>1664	IdentifierDeclStatement	 
+>1665	IdentifierDecl	sd
+>1666	Identifier	sd
+>1667	IdentifierDeclType	int
+>1668	IdentifierDeclStatement	 
+>1669	IdentifierDecl	n_bnds
+>1670	Identifier	n_bnds
+>1671	IdentifierDeclType	int
+>1672	IdentifierDeclStatement	 
+>1673	IdentifierDecl	hb
+>1674	Identifier	hb
+>1675	IdentifierDeclType	ANNcoord
+>1676	IdentifierDeclStatement	 
+>1677	IdentifierDecl	lb
+>1678	Identifier	lb
+>1679	IdentifierDeclType	ANNcoord
+>1680	IdentifierDeclStatement	 
+>1681	IdentifierDecl	cv
+>1682	Identifier	cv
+>1683	IdentifierDeclType	ANNcoord
+>1684	IdentifierDeclStatement	 
+>1685	IdentifierDecl	cd
+>1686	Identifier	cd
+>1687	IdentifierDeclType	int
+>1688	IdentifierDeclStatement	 
+>1689	IdentifierDecl	idx
+>1690	Identifier	idx
+>1691	IdentifierDeclType	int
+>1692	IdentifierDeclStatement	 
+>1693	IdentifierDecl	n_pts
+>1694	Identifier	n_pts
+>1695	IdentifierDeclType	int
+>1696	IdentifierDeclStatement	 
+>1697	IdentifierDecl	tag [ STRING_LEN ]
+>1698	Identifier	STRING_LEN
+>1699	Identifier	tag
+>1700	IdentifierDeclType	char [ STRING_LEN ]
+>1737	FunctionDef	readTree (ANNorthRect & bnd_box)
+>1738	ParameterList	ANNorthRect & bnd_box
+>1739	Parameter	 
+>1740	Identifier	bnd_box
+>1741	ParameterType	ANNorthRect &
+>1742	ReturnType	void
+>1743	CompoundStatement	 
+>1744	ExpressionStatement	 
+>1745	CallExpression	recReadTree ( bnd_box )
+>1746	ArgumentList	bnd_box
+>1747	Argument	bnd_box
+>1748	Identifier	bnd_box
+>1749	Callee	recReadTree
+>1750	Identifier	recReadTree
+>1751	ExpressionStatement	 
+>1752	CallExpression	writeCaption ( bnd_box , caption )
+>1753	ArgumentList	bnd_box
+>1754	Argument	caption
+>1755	Identifier	caption
+>1756	Argument	bnd_box
+>1757	Identifier	bnd_box
+>1758	Callee	writeCaption
+>1759	Identifier	writeCaption
+>1760	ExpressionStatement	 
+>1761	CallExpression	writeBox ( bnd_box )
+>1762	ArgumentList	bnd_box
+>1763	Argument	bnd_box
+>1764	Identifier	bnd_box
+>1765	Callee	writeBox
+>1766	Identifier	writeBox
+>1767	ExpressionStatement	 
+>1768	CallExpression	writeHeader ( )
+>1769	ArgumentList	 
+>1770	Callee	writeHeader
+>1771	Identifier	writeHeader
+>1777	FunctionDef	readANN ()
+>1778	ParameterList	 
+>1779	ReturnType	void
+>1780	CompoundStatement	 
+>1781	IfStatement	if ( strcmp ( str , \"tree\" ) == 0 )
+>1782	ElseStatement	else
+>1783	IfStatement	if ( strcmp ( str , \"null\" ) == 0 )
+>1784	ElseStatement	else
+>1785	CompoundStatement	 
+>1786	ExpressionStatement	 
+>1787	CallExpression	Error ( \"Illegal ann format.  Expecting section heading\" , ANNabort )
+>1788	ArgumentList	\"Illegal ann format.  Expecting section heading\"
+>1789	Argument	ANNabort
+>1790	Identifier	ANNabort
+>1791	Argument	\"Illegal ann format.  Expecting section heading\"
+>1792	PrimaryExpression	\"Illegal ann format.  Expecting section heading\"
+>1793	Callee	Error
+>1794	Identifier	Error
+>1795	ExpressionStatement	 
+>1796	ShiftExpression	cerr << \"Input string
+>1797	ShiftExpression	\"Input string
+>1798	ShiftExpression	str << \"\n\"
+>1799	PrimaryExpression	\"\n\"
+>1800	Identifier	str
+>1801	PrimaryExpression	\"Input string
+>1802	Identifier	cerr
+>1803	ReturnStatement	 
+>1804	Condition	 
+>1805	EqualityExpression	strcmp ( str , \"null\" ) == 0
+>1806	PrimaryExpression	0
+>1807	CallExpression	strcmp ( str , \"null\" )
+>1808	ArgumentList	str
+>1809	Argument	\"null\"
+>1810	PrimaryExpression	\"null\"
+>1811	Argument	str
+>1812	Identifier	str
+>1813	Callee	strcmp
+>1814	Identifier	strcmp
+>1815	CompoundStatement	 
+>1816	ExpressionStatement	 
+>1817	CallExpression	readTree ( bnd_box )
+>1818	ArgumentList	bnd_box
+>1819	Argument	bnd_box
+>1820	Identifier	bnd_box
+>1821	Callee	readTree
+>1822	Identifier	readTree
+>1823	ExpressionStatement	 
+>1824	AssignmentExpr	offset_y = u_low_y + scale * bnd_box . hi [ dim_y ]
+>1825	AdditiveExpression	u_low_y + scale * bnd_box . hi [ dim_y ]
+>1826	MultiplicativeExpression	scale * bnd_box . hi [ dim_y ]
+>1827	ArrayIndexing	bnd_box . hi [ dim_y ]
+>1828	Identifier	dim_y
+>1829	MemberAccess	bnd_box . hi
+>1830	Identifier	hi
+>1831	Identifier	bnd_box
+>1832	Identifier	scale
+>1833	Identifier	u_low_y
+>1834	Identifier	offset_y
+>1835	ExpressionStatement	 
+>1836	AssignmentExpr	offset_x = u_low_x - scale * bnd_box . lo [ dim_x ]
+>1837	AdditiveExpression	u_low_x - scale * bnd_box . lo [ dim_x ]
+>1838	MultiplicativeExpression	scale * bnd_box . lo [ dim_x ]
+>1839	ArrayIndexing	bnd_box . lo [ dim_x ]
+>1840	Identifier	dim_x
+>1841	MemberAccess	bnd_box . lo
+>1842	Identifier	lo
+>1843	Identifier	bnd_box
+>1844	Identifier	scale
+>1845	Identifier	u_low_x
+>1846	Identifier	offset_x
+>1847	IfStatement	if ( box_len_x > box_len_y )
+>1848	ElseStatement	else
+>1849	ExpressionStatement	 
+>1850	AssignmentExpr	scale = u_size / box_len_y
+>1851	MultiplicativeExpression	u_size / box_len_y
+>1852	Identifier	box_len_y
+>1853	Identifier	u_size
+>1854	Identifier	scale
+>1855	ExpressionStatement	 
+>1856	AssignmentExpr	scale = u_size / box_len_x
+>1857	MultiplicativeExpression	u_size / box_len_x
+>1858	Identifier	box_len_x
+>1859	Identifier	u_size
+>1860	Identifier	scale
+>1861	Condition	 
+>1862	RelationalExpression	box_len_x > box_len_y
+>1863	Identifier	box_len_y
+>1864	Identifier	box_len_x
+>1865	IdentifierDeclStatement	 
+>1866	IdentifierDecl	box_len_y = bnd_box . hi [ dim_y ] - bnd_box . lo [ dim_y ]
+>1867	AssignmentExpr	box_len_y = bnd_box . hi [ dim_y ] - bnd_box . lo [ dim_y ]
+>1868	AdditiveExpression	bnd_box . hi [ dim_y ] - bnd_box . lo [ dim_y ]
+>1869	ArrayIndexing	bnd_box . lo [ dim_y ]
+>1870	Identifier	dim_y
+>1871	MemberAccess	bnd_box . lo
+>1872	Identifier	lo
+>1873	Identifier	bnd_box
+>1874	ArrayIndexing	bnd_box . hi [ dim_y ]
+>1875	Identifier	dim_y
+>1876	MemberAccess	bnd_box . hi
+>1877	Identifier	hi
+>1878	Identifier	bnd_box
+>1879	Identifier	box_len_y
+>1880	Identifier	box_len_y
+>1881	IdentifierDeclType	double
+>1882	IdentifierDeclStatement	 
+>1883	IdentifierDecl	box_len_x = bnd_box . hi [ dim_x ] - bnd_box . lo [ dim_x ]
+>1884	AssignmentExpr	box_len_x = bnd_box . hi [ dim_x ] - bnd_box . lo [ dim_x ]
+>1885	AdditiveExpression	bnd_box . hi [ dim_x ] - bnd_box . lo [ dim_x ]
+>1886	ArrayIndexing	bnd_box . lo [ dim_x ]
+>1887	Identifier	dim_x
+>1888	MemberAccess	bnd_box . lo
+>1889	Identifier	lo
+>1890	Identifier	bnd_box
+>1891	ArrayIndexing	bnd_box . hi [ dim_x ]
+>1892	Identifier	dim_x
+>1893	MemberAccess	bnd_box . hi
+>1894	Identifier	hi
+>1895	Identifier	bnd_box
+>1896	Identifier	box_len_x
+>1897	Identifier	box_len_x
+>1898	IdentifierDeclType	double
+>1899	ForStatement	for ( j = 0 ; j < dim ; j ++ )
+>1900	CompoundStatement	 
+>1901	ExpressionStatement	 
+>1902	ShiftExpression	ifile >> bnd_box . hi [ j ]
+>1903	ArrayIndexing	bnd_box . hi [ j ]
+>1904	Identifier	j
+>1905	MemberAccess	bnd_box . hi
+>1906	Identifier	hi
+>1907	Identifier	bnd_box
+>1908	Identifier	ifile
+>1909	IncDecOp	 
+>1910	IncDec	++
+>1911	Identifier	j
+>1912	Condition	 
+>1913	RelationalExpression	j < dim
+>1914	Identifier	dim
+>1915	Identifier	j
+>1916	ForInit	 
+>1917	AssignmentExpr	j = 0
+>1918	PrimaryExpression	0
+>1919	Identifier	j
+>1920	ForStatement	for ( j = 0 ; j < dim ; j ++ )
+>1921	CompoundStatement	 
+>1922	ExpressionStatement	 
+>1923	ShiftExpression	ifile >> bnd_box . lo [ j ]
+>1924	ArrayIndexing	bnd_box . lo [ j ]
+>1925	Identifier	j
+>1926	MemberAccess	bnd_box . lo
+>1927	Identifier	lo
+>1928	Identifier	bnd_box
+>1929	Identifier	ifile
+>1930	IncDecOp	 
+>1931	IncDec	++
+>1932	Identifier	j
+>1933	Condition	 
+>1934	RelationalExpression	j < dim
+>1935	Identifier	dim
+>1936	Identifier	j
+>1937	ForInit	 
+>1938	AssignmentExpr	j = 0
+>1939	PrimaryExpression	0
+>1940	Identifier	j
+>1941	IdentifierDeclStatement	 
+>1942	IdentifierDecl	bnd_box ( dim )
+>1943	Identifier	dim
+>1944	Identifier	bnd_box
+>1945	IdentifierDeclType	ANNorthRect
+>1946	ExpressionStatement	 
+>1947	ShiftExpression	ifile >> bkt_size
+>1948	Identifier	bkt_size
+>1949	Identifier	ifile
+>1950	ExpressionStatement	 
+>1951	ShiftExpression	ifile >> n_pts
+>1952	Identifier	n_pts
+>1953	Identifier	ifile
+>1954	IfStatement	if ( dim_x > dim || dim_y > dim )
+>1955	CompoundStatement	 
+>1956	ExpressionStatement	 
+>1957	CallExpression	Error ( \"Dimensions out of bounds\" , ANNabort )
+>1958	ArgumentList	\"Dimensions out of bounds\"
+>1959	Argument	ANNabort
+>1960	Identifier	ANNabort
+>1961	Argument	\"Dimensions out of bounds\"
+>1962	PrimaryExpression	\"Dimensions out of bounds\"
+>1963	Callee	Error
+>1964	Identifier	Error
+>1965	Condition	 
+>1966	OrExpression	dim_x > dim || dim_y > dim
+>1967	RelationalExpression	dim_y > dim
+>1968	Identifier	dim
+>1969	Identifier	dim_y
+>1970	RelationalExpression	dim_x > dim
+>1971	Identifier	dim
+>1972	Identifier	dim_x
+>1973	ExpressionStatement	 
+>1974	ShiftExpression	ifile >> dim
+>1975	Identifier	dim
+>1976	Identifier	ifile
+>1977	Condition	 
+>1978	EqualityExpression	strcmp ( str , \"tree\" ) == 0
+>1979	PrimaryExpression	0
+>1980	CallExpression	strcmp ( str , \"tree\" )
+>1981	ArgumentList	str
+>1982	Argument	\"tree\"
+>1983	PrimaryExpression	\"tree\"
+>1984	Argument	str
+>1985	Identifier	str
+>1986	Callee	strcmp
+>1987	Identifier	strcmp
+>1988	IfStatement	if ( strcmp ( str , \"points\" ) == 0 )
+>1989	CompoundStatement	 
+>1990	ExpressionStatement	 
+>1991	ShiftExpression	ifile >> str
+>1992	Identifier	str
+>1993	Identifier	ifile
+>1994	ForStatement	for ( int i = 0 ; i < n_pts ; i ++ )
+>1995	CompoundStatement	 
+>1996	ForStatement	for ( j = 0 ; j < dim ; j ++ )
+>1997	CompoundStatement	 
+>1998	ExpressionStatement	 
+>1999	ShiftExpression	ifile >> pts [ idx ] [ j ]
+>2000	ArrayIndexing	pts [ idx ] [ j ]
+>2001	Identifier	j
+>2002	ArrayIndexing	pts [ idx ]
+>2003	Identifier	idx
+>2004	Identifier	pts
+>2005	Identifier	ifile
+>2006	IncDecOp	 
+>2007	IncDec	++
+>2008	Identifier	j
+>2009	Condition	 
+>2010	RelationalExpression	j < dim
+>2011	Identifier	dim
+>2012	Identifier	j
+>2013	ForInit	 
+>2014	AssignmentExpr	j = 0
+>2015	PrimaryExpression	0
+>2016	Identifier	j
+>2017	IfStatement	if ( idx < 0 || idx >= n_pts )
+>2018	CompoundStatement	 
+>2019	ExpressionStatement	 
+>2020	CallExpression	Error ( \"Point index is out of range\" , ANNabort )
+>2021	ArgumentList	\"Point index is out of range\"
+>2022	Argument	ANNabort
+>2023	Identifier	ANNabort
+>2024	Argument	\"Point index is out of range\"
+>2025	PrimaryExpression	\"Point index is out of range\"
+>2026	Callee	Error
+>2027	Identifier	Error
+>2028	Condition	 
+>2029	OrExpression	idx < 0 || idx >= n_pts
+>2030	RelationalExpression	idx >= n_pts
+>2031	Identifier	n_pts
+>2032	Identifier	idx
+>2033	RelationalExpression	idx < 0
+>2034	PrimaryExpression	0
+>2035	Identifier	idx
+>2036	ExpressionStatement	 
+>2037	ShiftExpression	ifile >> idx
+>2038	Identifier	idx
+>2039	Identifier	ifile
+>2040	IdentifierDeclStatement	 
+>2041	IdentifierDecl	idx
+>2042	Identifier	idx
+>2043	IdentifierDeclType	int
+>2044	IncDecOp	 
+>2045	IncDec	++
+>2046	Identifier	i
+>2047	Condition	 
+>2048	RelationalExpression	i < n_pts
+>2049	Identifier	n_pts
+>2050	Identifier	i
+>2051	ForInit	 
+>2052	IdentifierDeclStatement	int i = 0 ;
+>2053	IdentifierDecl	i = 0
+>2054	AssignmentExpr	i = 0
+>2055	PrimaryExpression	0
+>2056	Identifier	i
+>2057	Identifier	i
+>2058	IdentifierDeclType	int
+>2059	ExpressionStatement	 
+>2060	AssignmentExpr	pts = annAllocPts ( n_pts , dim )
+>2061	CallExpression	annAllocPts ( n_pts , dim )
+>2062	ArgumentList	n_pts
+>2063	Argument	dim
+>2064	Identifier	dim
+>2065	Argument	n_pts
+>2066	Identifier	n_pts
+>2067	Callee	annAllocPts
+>2068	Identifier	annAllocPts
+>2069	Identifier	pts
+>2070	ExpressionStatement	 
+>2071	ShiftExpression	ifile >> n_pts
+>2072	Identifier	n_pts
+>2073	Identifier	ifile
+>2074	ExpressionStatement	 
+>2075	ShiftExpression	ifile >> dim
+>2076	Identifier	dim
+>2077	Identifier	ifile
+>2078	Condition	 
+>2079	EqualityExpression	strcmp ( str , \"points\" ) == 0
+>2080	PrimaryExpression	0
+>2081	CallExpression	strcmp ( str , \"points\" )
+>2082	ArgumentList	str
+>2083	Argument	\"points\"
+>2084	PrimaryExpression	\"points\"
+>2085	Argument	str
+>2086	Identifier	str
+>2087	Callee	strcmp
+>2088	Identifier	strcmp
+>2089	ExpressionStatement	 
+>2090	ShiftExpression	ifile >> str
+>2091	Identifier	str
+>2092	Identifier	ifile
+>2093	ExpressionStatement	 
+>2094	CallExpression	ifile . getline ( version , STRING_LEN )
+>2095	ArgumentList	version
+>2096	Argument	STRING_LEN
+>2097	Identifier	STRING_LEN
+>2098	Argument	version
+>2099	Identifier	version
+>2100	Callee	ifile . getline
+>2101	MemberAccess	ifile . getline
+>2102	Identifier	getline
+>2103	Identifier	ifile
+>2104	IfStatement	if ( strcmp ( str , \"#ANN\" ) != 0 )
+>2105	CompoundStatement	 
+>2106	ExpressionStatement	 
+>2107	CallExpression	Error ( \"Incorrect header for dump file\" , ANNabort )
+>2108	ArgumentList	\"Incorrect header for dump file\"
+>2109	Argument	ANNabort
+>2110	Identifier	ANNabort
+>2111	Argument	\"Incorrect header for dump file\"
+>2112	PrimaryExpression	\"Incorrect header for dump file\"
+>2113	Callee	Error
+>2114	Identifier	Error
+>2115	Condition	 
+>2116	EqualityExpression	strcmp ( str , \"#ANN\" ) != 0
+>2117	PrimaryExpression	0
+>2118	CallExpression	strcmp ( str , \"#ANN\" )
+>2119	ArgumentList	str
+>2120	Argument	\"#ANN\"
+>2121	PrimaryExpression	\"#ANN\"
+>2122	Argument	str
+>2123	Identifier	str
+>2124	Callee	strcmp
+>2125	Identifier	strcmp
+>2126	ExpressionStatement	 
+>2127	ShiftExpression	ifile >> str
+>2128	Identifier	str
+>2129	Identifier	ifile
+>2130	IdentifierDeclStatement	 
+>2131	IdentifierDecl	bkt_size
+>2132	Identifier	bkt_size
+>2133	IdentifierDeclType	int
+>2134	IdentifierDeclStatement	 
+>2135	IdentifierDecl	version [ STRING_LEN ]
+>2136	Identifier	STRING_LEN
+>2137	Identifier	version
+>2138	IdentifierDeclType	char [ STRING_LEN ]
+>2139	IdentifierDeclStatement	 
+>2140	IdentifierDecl	str [ STRING_LEN ]
+>2141	Identifier	STRING_LEN
+>2142	Identifier	str
+>2143	IdentifierDeclType	char [ STRING_LEN ]
+>2144	IdentifierDeclStatement	 
+>2145	IdentifierDecl	j
+>2146	Identifier	j
+>2147	IdentifierDeclType	int
+>2185	FunctionDef	main (int argc , char * * argv)
+>2186	ParameterList	int argc , char * * argv
+>2187	Parameter	 
+>2188	Identifier	argv
+>2189	ParameterType	char * *
+>2190	Parameter	 
+>2191	Identifier	argc
+>2192	ParameterType	int
+>2193	CompoundStatement	 
+>2194	ExpressionStatement	 
+>2195	CallExpression	readANN ( )
+>2196	ArgumentList	 
+>2197	Callee	readANN
+>2198	Identifier	readANN
+>2199	ExpressionStatement	 
+>2200	CallExpression	getArgs ( argc , argv )
+>2201	ArgumentList	argc
+>2202	Argument	argv
+>2203	Identifier	argv
+>2204	Argument	argc
+>2205	Identifier	argc
+>2206	Callee	getArgs
+>2207	Identifier	getArgs
+<61=70,69,62
+<62=66,63
+<63=65,64
+<66=68,67
+<70=71
+<71=98,82,72
+<72=73
+<73=74
+<74=75
+<75=81,76
+<76=80,77
+<77=79,78
+<82=90,83
+<83=84
+<84=88,85
+<85=86
+<86=87
+<88=89
+<90=91
+<91=97,92
+<92=96,93
+<93=95,94
+<98=99
+<99=101,100
+<108=114,113,109
+<109=110
+<110=112,111
+<114=115
+<115=130,126,123,116
+<116=117
+<117=118
+<118=120,119
+<120=122,121
+<123=125,124
+<126=127
+<127=129,128
+<130=131
+<131=132
+<132=137,136,133
+<133=135,134
+<147=156,155,148
+<148=152,149
+<149=151,150
+<152=154,153
+<156=733,729,725,718,701,694,286,271,260,245,234,219,213,207,201,190,157
+<157=186,182,179,158
+<158=170,159
+<159=160
+<160=168,161
+<161=166,162
+<162=163
+<163=165,164
+<166=167
+<168=169
+<170=171
+<171=177,172
+<172=175,173
+<173=174
+<175=176
+<177=178
+<179=181,180
+<182=183
+<183=185,184
+<186=187
+<187=189,188
+<190=191
+<191=199,192
+<192=197,193
+<193=194
+<194=196,195
+<197=198
+<199=200
+<201=202
+<202=206,203
+<203=205,204
+<207=208
+<208=212,209
+<209=211,210
+<213=214
+<214=218,215
+<215=217,216
+<219=230,220
+<220=221
+<221=222
+<222=228,223
+<223=226,224
+<224=225
+<226=227
+<228=229
+<230=231
+<231=233,232
+<234=235
+<235=241,236
+<236=239,237
+<237=238
+<239=240
+<241=242
+<242=244,243
+<245=256,246
+<246=247
+<247=248
+<248=254,249
+<249=252,250
+<250=251
+<252=253
+<254=255
+<256=257
+<257=259,258
+<260=261
+<261=267,262
+<262=265,263
+<263=264
+<265=266
+<267=268
+<268=270,269
+<271=282,272
+<272=273
+<273=274
+<274=280,275
+<275=278,276
+<276=277
+<278=279
+<280=281
+<282=283
+<283=285,284
+<286=690,686,683,287
+<287=375,288
+<288=362,344,289
+<289=290
+<290=340,327,318,309,300,291
+<291=292
+<292=298,293
+<293=296,294
+<294=295
+<296=297
+<298=299
+<300=301
+<301=307,302
+<302=305,303
+<303=304
+<305=306
+<307=308
+<309=310
+<310=316,311
+<311=314,312
+<312=313
+<314=315
+<316=317
+<318=319
+<319=325,320
+<320=323,321
+<321=322
+<323=324
+<325=326
+<327=328
+<328=338,329
+<329=334,332,330
+<330=331
+<332=333
+<334=335
+<335=337,336
+<338=339
+<340=341
+<341=343,342
+<344=345
+<345=346
+<346=360,347
+<347=354,352,348
+<348=349
+<349=351,350
+<352=353
+<354=355
+<355=359,356
+<356=358,357
+<360=361
+<362=363
+<363=374,364
+<364=372,365
+<365=368,366
+<366=367
+<368=369
+<369=371,370
+<372=373
+<375=670,652,376
+<376=377
+<377=639,621,378
+<378=379
+<379=608,590,380
+<380=381
+<381=577,559,382
+<382=383
+<383=546,528,384
+<384=385
+<385=515,497,386
+<386=387
+<387=484,459,388
+<388=389
+<389=446,390
+<390=429,410,391
+<391=392
+<392=408,393
+<393=402,400,394
+<394=395
+<395=399,396
+<396=398,397
+<400=401
+<402=403
+<403=407,404
+<404=406,405
+<408=409
+<410=421,411
+<411=412
+<412=413
+<413=419,414
+<414=417,415
+<415=416
+<417=418
+<419=420
+<421=422
+<422=426,423
+<423=425,424
+<426=428,427
+<429=430
+<430=444,431
+<431=438,436,432
+<432=433
+<433=435,434
+<436=437
+<438=439
+<439=443,440
+<440=442,441
+<444=445
+<446=447
+<447=458,448
+<448=456,449
+<449=452,450
+<450=451
+<452=453
+<453=455,454
+<456=457
+<459=467,460
+<460=461
+<461=465,462
+<462=463
+<463=464
+<465=466
+<467=468
+<468=482,469
+<469=476,474,470
+<470=471
+<471=473,472
+<474=475
+<476=477
+<477=481,478
+<478=480,479
+<482=483
+<484=485
+<485=496,486
+<486=494,487
+<487=490,488
+<488=489
+<490=491
+<491=493,492
+<494=495
+<497=498
+<498=499
+<499=513,500
+<500=507,505,501
+<501=502
+<502=504,503
+<505=506
+<507=508
+<508=512,509
+<509=511,510
+<513=514
+<515=516
+<516=527,517
+<517=525,518
+<518=521,519
+<519=520
+<521=522
+<522=524,523
+<525=526
+<528=529
+<529=530
+<530=544,531
+<531=538,536,532
+<532=533
+<533=535,534
+<536=537
+<538=539
+<539=543,540
+<540=542,541
+<544=545
+<546=547
+<547=558,548
+<548=556,549
+<549=552,550
+<550=551
+<552=553
+<553=555,554
+<556=557
+<559=560
+<560=561
+<561=575,562
+<562=569,567,563
+<563=564
+<564=566,565
+<567=568
+<569=570
+<570=574,571
+<571=573,572
+<575=576
+<577=578
+<578=589,579
+<579=587,580
+<580=583,581
+<581=582
+<583=584
+<584=586,585
+<587=588
+<590=591
+<591=592
+<592=606,593
+<593=600,598,594
+<594=595
+<595=597,596
+<598=599
+<600=601
+<601=605,602
+<602=604,603
+<606=607
+<608=609
+<609=620,610
+<610=618,611
+<611=614,612
+<612=613
+<614=615
+<615=617,616
+<618=619
+<621=622
+<622=623
+<623=637,624
+<624=631,629,625
+<625=626
+<626=628,627
+<629=630
+<631=632
+<632=636,633
+<633=635,634
+<637=638
+<639=640
+<640=651,641
+<641=649,642
+<642=645,643
+<643=644
+<645=646
+<646=648,647
+<649=650
+<652=653
+<653=654
+<654=668,655
+<655=662,660,656
+<656=657
+<657=659,658
+<660=661
+<662=663
+<663=667,664
+<664=666,665
+<668=669
+<670=671
+<671=682,672
+<672=680,673
+<673=676,674
+<674=675
+<676=677
+<677=679,678
+<680=681
+<683=685,684
+<686=687
+<687=689,688
+<690=691
+<691=693,692
+<694=695
+<695=700,699,696
+<696=698,697
+<701=714,702
+<702=710,703
+<703=704
+<704=708,705
+<705=706
+<706=707
+<708=709
+<710=711
+<711=713,712
+<714=715
+<715=717,716
+<718=719
+<719=723,720
+<720=721
+<721=722
+<723=724
+<725=726
+<726=728,727
+<729=730
+<730=732,731
+<733=734
+<734=736,735
+<783=786,785,784
+<786=787
+<787=788
+<788=804,789
+<789=803,790
+<790=802,791
+<791=801,792
+<792=800,793
+<793=799,794
+<794=796,795
+<796=798,797
+<808=814,813,809
+<809=810
+<810=812,811
+<814=881,867,853,815
+<815=816
+<816=852,817
+<817=851,818
+<818=850,819
+<819=849,820
+<820=848,821
+<821=847,822
+<822=846,823
+<823=845,824
+<824=844,825
+<825=843,826
+<826=842,827
+<827=841,828
+<828=840,829
+<829=837,830
+<830=836,831
+<831=833,832
+<833=835,834
+<837=839,838
+<853=854
+<854=866,865,855
+<855=864,856
+<856=863,857
+<857=861,858
+<858=859
+<859=860
+<861=862
+<867=868
+<868=880,879,869
+<869=878,870
+<870=877,871
+<871=875,872
+<872=873
+<873=874
+<875=876
+<881=882
+<882=884,883
+<893=899,898,894
+<894=895
+<895=897,896
+<899=1008,992,976,960,944,900
+<900=901
+<901=943,902
+<902=942,903
+<903=941,904
+<904=940,905
+<905=939,906
+<906=938,907
+<907=937,908
+<908=936,909
+<909=935,910
+<910=934,911
+<911=933,912
+<912=932,913
+<913=931,914
+<914=930,915
+<915=929,916
+<916=928,917
+<917=927,918
+<918=926,919
+<919=925,920
+<920=924,921
+<921=923,922
+<944=945
+<945=959,958,946
+<946=957,947
+<947=956,948
+<948=954,949
+<949=950
+<950=951
+<951=953,952
+<954=955
+<960=961
+<961=975,974,962
+<962=973,963
+<963=972,964
+<964=970,965
+<965=966
+<966=967
+<967=969,968
+<970=971
+<976=977
+<977=991,990,978
+<978=989,979
+<979=988,980
+<980=986,981
+<981=982
+<982=983
+<983=985,984
+<986=987
+<992=993
+<993=1007,1006,994
+<994=1005,995
+<995=1004,996
+<996=1002,997
+<997=998
+<998=999
+<999=1001,1000
+<1002=1003
+<1008=1009
+<1009=1011,1010
+<1024=1033,1032,1025
+<1025=1029,1026
+<1026=1028,1027
+<1029=1031,1030
+<1033=1110,1096,1082,1068,1054,1034
+<1034=1035
+<1035=1053,1036
+<1036=1052,1037
+<1037=1051,1038
+<1038=1050,1039
+<1039=1049,1040
+<1040=1048,1041
+<1041=1047,1042
+<1042=1046,1043
+<1043=1045,1044
+<1054=1055
+<1055=1067,1066,1056
+<1056=1065,1057
+<1057=1064,1058
+<1058=1062,1059
+<1059=1060
+<1060=1061
+<1062=1063
+<1068=1069
+<1069=1081,1080,1070
+<1070=1079,1071
+<1071=1078,1072
+<1072=1076,1073
+<1073=1074
+<1074=1075
+<1076=1077
+<1082=1083
+<1083=1095,1094,1084
+<1084=1093,1085
+<1085=1092,1086
+<1086=1090,1087
+<1087=1088
+<1088=1089
+<1090=1091
+<1096=1097
+<1097=1109,1108,1098
+<1098=1107,1099
+<1099=1106,1100
+<1100=1104,1101
+<1101=1102
+<1102=1103
+<1104=1105
+<1110=1111
+<1111=1113,1112
+<1125=1134,1133,1126
+<1126=1130,1127
+<1127=1129,1128
+<1130=1132,1131
+<1134=1189,1173,1153,1149,1135
+<1135=1136
+<1136=1148,1137
+<1137=1147,1138
+<1138=1146,1139
+<1139=1145,1140
+<1140=1144,1141
+<1141=1143,1142
+<1149=1150
+<1150=1152,1151
+<1153=1154
+<1154=1172,1171,1155
+<1155=1170,1156
+<1156=1169,1157
+<1157=1161,1158
+<1158=1160,1159
+<1161=1167,1162
+<1162=1163
+<1163=1164
+<1164=1166,1165
+<1167=1168
+<1173=1174
+<1174=1188,1187,1175
+<1175=1186,1176
+<1176=1185,1177
+<1177=1183,1178
+<1178=1179
+<1179=1180
+<1180=1182,1181
+<1183=1184
+<1189=1191,1190
+<1191=1192
+<1192=1201,1193
+<1193=1199,1194
+<1194=1197,1195
+<1195=1196
+<1197=1198
+<1199=1200
+<1214=1220,1219,1215
+<1215=1216
+<1216=1218,1217
+<1220=1223,1221
+<1221=1222
+<1223=1263,1259,1256,1224
+<1224=1225
+<1225=1228,1226
+<1226=1227
+<1228=1229
+<1229=1253,1230
+<1230=1250,1231
+<1231=1241,1232
+<1232=1236,1233
+<1233=1235,1234
+<1236=1238,1237
+<1238=1240,1239
+<1241=1245,1242
+<1242=1244,1243
+<1245=1247,1246
+<1247=1249,1248
+<1250=1252,1251
+<1253=1255,1254
+<1256=1258,1257
+<1259=1260
+<1260=1262,1261
+<1263=1264
+<1264=1265
+<1265=1270,1269,1266
+<1266=1268,1267
+<1289=1295,1294,1290
+<1290=1291
+<1291=1293,1292
+<1295=1696,1692,1688,1684,1680,1676,1672,1668,1664,1660,1296
+<1296=1649,1578,1297
+<1297=1298
+<1298=1567,1425,1299
+<1299=1300
+<1300=1414,1312,1301
+<1301=1302
+<1302=1303
+<1303=1304
+<1304=1310,1305
+<1305=1308,1306
+<1306=1307
+<1308=1309
+<1310=1311
+<1312=1407,1403,1347,1327,1320,1313
+<1313=1314
+<1314=1318,1315
+<1315=1316
+<1316=1317
+<1318=1319
+<1320=1321
+<1321=1325,1322
+<1322=1323
+<1323=1324
+<1325=1326
+<1327=1336,1328
+<1328=1329
+<1329=1330
+<1330=1334,1331
+<1331=1332
+<1332=1333
+<1334=1335
+<1336=1337
+<1337=1344,1338
+<1338=1342,1339
+<1339=1340
+<1340=1341
+<1342=1343
+<1344=1346,1345
+<1347=1395,1391,1388,1348
+<1348=1380,1371,1360,1349
+<1349=1350
+<1350=1356,1351
+<1351=1352
+<1352=1353
+<1353=1355,1354
+<1356=1357
+<1357=1359,1358
+<1360=1361
+<1361=1367,1362
+<1362=1363
+<1363=1364
+<1364=1366,1365
+<1367=1368
+<1368=1370,1369
+<1371=1372
+<1372=1379,1378,1373
+<1373=1377,1374
+<1374=1376,1375
+<1380=1381
+<1381=1387,1382
+<1382=1386,1383
+<1383=1385,1384
+<1388=1390,1389
+<1391=1392
+<1392=1394,1393
+<1395=1396
+<1396=1397
+<1397=1402,1401,1398
+<1398=1400,1399
+<1403=1404
+<1404=1406,1405
+<1407=1408
+<1408=1413,1412,1409
+<1409=1411,1410
+<1414=1415
+<1415=1417,1416
+<1417=1423,1418
+<1418=1421,1419
+<1419=1420
+<1421=1422
+<1423=1424
+<1425=1557,1530,1519,1508,1500,1493,1485,1449,1441,1434,1426
+<1426=1427
+<1427=1429,1428
+<1429=1431,1430
+<1431=1433,1432
+<1434=1435
+<1435=1439,1436
+<1436=1437
+<1437=1438
+<1439=1440
+<1441=1442
+<1442=1444,1443
+<1444=1446,1445
+<1446=1448,1447
+<1449=1474,1450
+<1450=1451
+<1451=1466,1452
+<1452=1453
+<1453=1454
+<1454=1464,1455
+<1455=1460,1456
+<1456=1457
+<1457=1459,1458
+<1460=1461
+<1461=1463,1462
+<1464=1465
+<1466=1467
+<1467=1471,1468
+<1468=1470,1469
+<1471=1473,1472
+<1474=1475
+<1475=1482,1476
+<1476=1480,1477
+<1477=1478
+<1478=1479
+<1480=1481
+<1482=1484,1483
+<1485=1486
+<1486=1488,1487
+<1488=1490,1489
+<1490=1492,1491
+<1493=1494
+<1494=1498,1495
+<1495=1496
+<1496=1497
+<1498=1499
+<1500=1501
+<1501=1503,1502
+<1503=1505,1504
+<1505=1507,1506
+<1508=1509
+<1509=1518,1517,1510
+<1510=1516,1511
+<1511=1513,1512
+<1513=1515,1514
+<1519=1520
+<1520=1529,1528,1521
+<1521=1527,1522
+<1522=1524,1523
+<1524=1526,1525
+<1530=1541,1531
+<1531=1532
+<1532=1533
+<1533=1539,1534
+<1534=1537,1535
+<1535=1536
+<1537=1538
+<1539=1540
+<1541=1542
+<1542=1550,1543
+<1543=1549,1544
+<1544=1546,1545
+<1546=1548,1547
+<1550=1556,1551
+<1551=1553,1552
+<1553=1555,1554
+<1557=1558
+<1558=1566,1559
+<1559=1565,1560
+<1560=1564,1561
+<1561=1563,1562
+<1567=1568
+<1568=1570,1569
+<1570=1576,1571
+<1571=1574,1572
+<1572=1573
+<1574=1575
+<1576=1577
+<1578=1645,1579
+<1579=1634,1603,1580
+<1580=1581
+<1581=1582
+<1582=1595,1591,1588,1583
+<1583=1584
+<1584=1585
+<1585=1587,1586
+<1588=1590,1589
+<1591=1592
+<1592=1594,1593
+<1595=1596
+<1596=1597
+<1597=1602,1601,1598
+<1598=1600,1599
+<1603=1604
+<1604=1626,1622,1619,1605
+<1605=1615,1606
+<1606=1607
+<1607=1613,1608
+<1608=1609
+<1609=1610
+<1610=1612,1611
+<1613=1614
+<1615=1616
+<1616=1618,1617
+<1619=1621,1620
+<1622=1623
+<1623=1625,1624
+<1626=1627
+<1627=1628
+<1628=1633,1632,1629
+<1629=1631,1630
+<1634=1635
+<1635=1642,1636
+<1636=1640,1637
+<1637=1638
+<1638=1639
+<1640=1641
+<1642=1644,1643
+<1645=1646
+<1646=1648,1647
+<1649=1650
+<1650=1652,1651
+<1652=1658,1653
+<1653=1656,1654
+<1654=1655
+<1656=1657
+<1658=1659
+<1660=1661
+<1661=1663,1662
+<1664=1665
+<1665=1667,1666
+<1668=1669
+<1669=1671,1670
+<1672=1673
+<1673=1675,1674
+<1676=1677
+<1677=1679,1678
+<1680=1681
+<1681=1683,1682
+<1684=1685
+<1685=1687,1686
+<1688=1689
+<1689=1691,1690
+<1692=1693
+<1693=1695,1694
+<1696=1697
+<1697=1700,1699,1698
+<1737=1743,1742,1738
+<1738=1739
+<1739=1741,1740
+<1743=1767,1760,1751,1744
+<1744=1745
+<1745=1749,1746
+<1746=1747
+<1747=1748
+<1749=1750
+<1751=1752
+<1752=1758,1753
+<1753=1756,1754
+<1754=1755
+<1756=1757
+<1758=1759
+<1760=1761
+<1761=1765,1762
+<1762=1763
+<1763=1764
+<1765=1766
+<1767=1768
+<1768=1770,1769
+<1770=1771
+<1777=1780,1779,1778
+<1780=2144,2139,2134,2130,2126,2104,2093,2089,1988,1781
+<1781=1977,1815,1782
+<1782=1783
+<1783=1804,1803,1784
+<1784=1785
+<1785=1795,1786
+<1786=1787
+<1787=1793,1788
+<1788=1791,1789
+<1789=1790
+<1791=1792
+<1793=1794
+<1795=1796
+<1796=1802,1797
+<1797=1801,1798
+<1798=1800,1799
+<1804=1805
+<1805=1807,1806
+<1807=1813,1808
+<1808=1811,1809
+<1809=1810
+<1811=1812
+<1813=1814
+<1815=1973,1954,1950,1946,1941,1920,1899,1882,1865,1847,1835,1823,1816
+<1816=1817
+<1817=1821,1818
+<1818=1819
+<1819=1820
+<1821=1822
+<1823=1824
+<1824=1834,1825
+<1825=1833,1826
+<1826=1832,1827
+<1827=1829,1828
+<1829=1831,1830
+<1835=1836
+<1836=1846,1837
+<1837=1845,1838
+<1838=1844,1839
+<1839=1841,1840
+<1841=1843,1842
+<1847=1861,1855,1848
+<1848=1849
+<1849=1850
+<1850=1854,1851
+<1851=1853,1852
+<1855=1856
+<1856=1860,1857
+<1857=1859,1858
+<1861=1862
+<1862=1864,1863
+<1865=1866
+<1866=1881,1880,1867
+<1867=1879,1868
+<1868=1874,1869
+<1869=1871,1870
+<1871=1873,1872
+<1874=1876,1875
+<1876=1878,1877
+<1882=1883
+<1883=1898,1897,1884
+<1884=1896,1885
+<1885=1891,1886
+<1886=1888,1887
+<1888=1890,1889
+<1891=1893,1892
+<1893=1895,1894
+<1899=1916,1912,1909,1900
+<1900=1901
+<1901=1902
+<1902=1908,1903
+<1903=1905,1904
+<1905=1907,1906
+<1909=1911,1910
+<1912=1913
+<1913=1915,1914
+<1916=1917
+<1917=1919,1918
+<1920=1937,1933,1930,1921
+<1921=1922
+<1922=1923
+<1923=1929,1924
+<1924=1926,1925
+<1926=1928,1927
+<1930=1932,1931
+<1933=1934
+<1934=1936,1935
+<1937=1938
+<1938=1940,1939
+<1941=1942
+<1942=1945,1944,1943
+<1946=1947
+<1947=1949,1948
+<1950=1951
+<1951=1953,1952
+<1954=1965,1955
+<1955=1956
+<1956=1957
+<1957=1963,1958
+<1958=1961,1959
+<1959=1960
+<1961=1962
+<1963=1964
+<1965=1966
+<1966=1970,1967
+<1967=1969,1968
+<1970=1972,1971
+<1973=1974
+<1974=1976,1975
+<1977=1978
+<1978=1980,1979
+<1980=1986,1981
+<1981=1984,1982
+<1982=1983
+<1984=1985
+<1986=1987
+<1988=2078,1989
+<1989=2074,2070,2059,1994,1990
+<1990=1991
+<1991=1993,1992
+<1994=2051,2047,2044,1995
+<1995=2040,2036,2017,1996
+<1996=2013,2009,2006,1997
+<1997=1998
+<1998=1999
+<1999=2005,2000
+<2000=2002,2001
+<2002=2004,2003
+<2006=2008,2007
+<2009=2010
+<2010=2012,2011
+<2013=2014
+<2014=2016,2015
+<2017=2028,2018
+<2018=2019
+<2019=2020
+<2020=2026,2021
+<2021=2024,2022
+<2022=2023
+<2024=2025
+<2026=2027
+<2028=2029
+<2029=2033,2030
+<2030=2032,2031
+<2033=2035,2034
+<2036=2037
+<2037=2039,2038
+<2040=2041
+<2041=2043,2042
+<2044=2046,2045
+<2047=2048
+<2048=2050,2049
+<2051=2052
+<2052=2053
+<2053=2058,2057,2054
+<2054=2056,2055
+<2059=2060
+<2060=2069,2061
+<2061=2067,2062
+<2062=2065,2063
+<2063=2064
+<2065=2066
+<2067=2068
+<2070=2071
+<2071=2073,2072
+<2074=2075
+<2075=2077,2076
+<2078=2079
+<2079=2081,2080
+<2081=2087,2082
+<2082=2085,2083
+<2083=2084
+<2085=2086
+<2087=2088
+<2089=2090
+<2090=2092,2091
+<2093=2094
+<2094=2100,2095
+<2095=2098,2096
+<2096=2097
+<2098=2099
+<2100=2101
+<2101=2103,2102
+<2104=2115,2105
+<2105=2106
+<2106=2107
+<2107=2113,2108
+<2108=2111,2109
+<2109=2110
+<2111=2112
+<2113=2114
+<2115=2116
+<2116=2118,2117
+<2118=2124,2119
+<2119=2122,2120
+<2120=2121
+<2122=2123
+<2124=2125
+<2126=2127
+<2127=2129,2128
+<2130=2131
+<2131=2133,2132
+<2134=2135
+<2135=2138,2137,2136
+<2139=2140
+<2140=2143,2142,2141
+<2144=2145
+<2145=2147,2146
+<2185=2193,2186
+<2186=2190,2187
+<2187=2189,2188
+<2190=2192,2191
+<2193=2199,2194
+<2194=2195
+<2195=2197,2196
+<2197=2198
+<2199=2200
+<2200=2206,2201
+<2201=2204,2202
+<2202=2203
+<2204=2205
+<2206=2207

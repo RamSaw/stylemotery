@@ -1,0 +1,2031 @@
+>3	FunctionDef	EstimateEMatrix (const std 
+>4	ParameterList	const std 
+>5	Parameter	 
+>6	Identifier	F
+>7	ParameterType	double *
+>8	Parameter	 
+>9	Identifier	E
+>10	ParameterType	double *
+>11	Parameter	 
+>12	Identifier	f2
+>13	ParameterType	double
+>14	Parameter	 
+>15	Identifier	f1
+>16	ParameterType	double
+>17	Parameter	 
+>18	Identifier	threshold
+>19	ParameterType	double
+>20	Parameter	 
+>21	Identifier	num_trials
+>22	ParameterType	int
+>23	Parameter	 
+>24	Identifier	matches
+>25	ParameterType	std 
+>26	Parameter	 
+>27	Identifier	k2
+>28	ParameterType	const std 
+>29	Parameter	 
+>30	Identifier	k1
+>31	ParameterType	const std 
+>32	ReturnType	std 
+>33	CompoundStatement	 
+>34	ReturnStatement	 
+>35	Identifier	inliers
+>36	ExpressionStatement	 
+>37	CallExpression	matrix_product ( 3 , 3 , 3 , 3 , K2_inv , tmp , F )
+>38	ArgumentList	3
+>39	Argument	F
+>40	Identifier	F
+>41	Argument	tmp
+>42	Identifier	tmp
+>43	Argument	K2_inv
+>44	Identifier	K2_inv
+>45	Argument	3
+>46	PrimaryExpression	3
+>47	Argument	3
+>48	PrimaryExpression	3
+>49	Argument	3
+>50	PrimaryExpression	3
+>51	Argument	3
+>52	PrimaryExpression	3
+>53	Callee	matrix_product
+>54	Identifier	matrix_product
+>55	ExpressionStatement	 
+>56	CallExpression	matrix_product ( 3 , 3 , 3 , 3 , K1_inv , E , tmp )
+>57	ArgumentList	3
+>58	Argument	tmp
+>59	Identifier	tmp
+>60	Argument	E
+>61	Identifier	E
+>62	Argument	K1_inv
+>63	Identifier	K1_inv
+>64	Argument	3
+>65	PrimaryExpression	3
+>66	Argument	3
+>67	PrimaryExpression	3
+>68	Argument	3
+>69	PrimaryExpression	3
+>70	Argument	3
+>71	PrimaryExpression	3
+>72	Callee	matrix_product
+>73	Identifier	matrix_product
+>74	IdentifierDeclStatement	 
+>75	IdentifierDecl	tmp [ 9 ]
+>76	PrimaryExpression	9
+>77	Identifier	tmp
+>78	IdentifierDeclType	double [ 9 ]
+>79	IdentifierDeclStatement	 
+>80	IdentifierDecl	K2_inv [ 9 ] = { 1.0 / f2 , 0.0 , 0.0 , 0.0 , 1.0 / f2 , 0.0 , 0.0 , 0.0 , 1.0 }
+>81	AssignmentExpr	K2_inv [ 9 ] = { 1.0 / f2 , 0.0 , 0.0 , 0.0 , 1.0 / f2 , 0.0 , 0.0 , 0.0 , 1.0 }
+>82	InitializerList	1.0 / f2
+>83	PrimaryExpression	1.0
+>84	PrimaryExpression	0.0
+>85	PrimaryExpression	0.0
+>86	PrimaryExpression	0.0
+>87	MultiplicativeExpression	1.0 / f2
+>88	Identifier	f2
+>89	PrimaryExpression	1.0
+>90	PrimaryExpression	0.0
+>91	PrimaryExpression	0.0
+>92	PrimaryExpression	0.0
+>93	MultiplicativeExpression	1.0 / f2
+>94	Identifier	f2
+>95	PrimaryExpression	1.0
+>96	Identifier	K2_inv
+>97	PrimaryExpression	9
+>98	Identifier	K2_inv
+>99	IdentifierDeclType	double [ 9 ]
+>100	IdentifierDeclStatement	 
+>101	IdentifierDecl	K1_inv [ 9 ] = { 1.0 / f1 , 0.0 , 0.0 , 0.0 , 1.0 / f1 , 0.0 , 0.0 , 0.0 , 1.0 }
+>102	AssignmentExpr	K1_inv [ 9 ] = { 1.0 / f1 , 0.0 , 0.0 , 0.0 , 1.0 / f1 , 0.0 , 0.0 , 0.0 , 1.0 }
+>103	InitializerList	1.0 / f1
+>104	PrimaryExpression	1.0
+>105	PrimaryExpression	0.0
+>106	PrimaryExpression	0.0
+>107	PrimaryExpression	0.0
+>108	MultiplicativeExpression	1.0 / f1
+>109	Identifier	f1
+>110	PrimaryExpression	1.0
+>111	PrimaryExpression	0.0
+>112	PrimaryExpression	0.0
+>113	PrimaryExpression	0.0
+>114	MultiplicativeExpression	1.0 / f1
+>115	Identifier	f1
+>116	PrimaryExpression	1.0
+>117	Identifier	K1_inv
+>118	PrimaryExpression	9
+>119	Identifier	K1_inv
+>120	IdentifierDeclType	double [ 9 ]
+>121	IdentifierDeclStatement	 
+>122	IdentifierDecl	inliers = EstimateFMatrix ( k1_norm , k2_norm , matches , num_trials , threshold / ( scale * scale ) , E , true )
+>123	AssignmentExpr	inliers = EstimateFMatrix ( k1_norm , k2_norm , matches , num_trials , threshold / ( scale * scale ) , \
+>124	CallExpression	EstimateFMatrix ( k1_norm , k2_norm , matches , num_trials , threshold / ( scale * scale ) , E , true )
+>125	ArgumentList	k1_norm
+>126	Argument	true
+>127	Identifier	true
+>128	Argument	E
+>129	Identifier	E
+>130	Argument	threshold / ( scale * scale )
+>131	MultiplicativeExpression	threshold / ( scale * scale )
+>132	MultiplicativeExpression	scale * scale
+>133	Identifier	scale
+>134	Identifier	scale
+>135	Identifier	threshold
+>136	Argument	num_trials
+>137	Identifier	num_trials
+>138	Argument	matches
+>139	Identifier	matches
+>140	Argument	k2_norm
+>141	Identifier	k2_norm
+>142	Argument	k1_norm
+>143	Identifier	k1_norm
+>144	Callee	EstimateFMatrix
+>145	Identifier	EstimateFMatrix
+>146	Identifier	inliers
+>147	Identifier	inliers
+>148	IdentifierDeclType	std 
+>149	IdentifierDeclStatement	 
+>150	IdentifierDecl	scale = 0.5 * ( f1 + f2 )
+>151	AssignmentExpr	scale = 0.5 * ( f1 + f2 )
+>152	MultiplicativeExpression	0.5 * ( f1 + f2 )
+>153	AdditiveExpression	f1 + f2
+>154	Identifier	f2
+>155	Identifier	f1
+>156	PrimaryExpression	0.5
+>157	Identifier	scale
+>158	Identifier	scale
+>159	IdentifierDeclType	double
+>160	ForStatement	for ( int i = 0 ; i < num_keys2 ; i ++ )
+>161	CompoundStatement	 
+>162	ExpressionStatement	 
+>163	AssignmentExpr	k2_norm [ i ] = k
+>164	Identifier	k
+>165	ArrayIndexing	k2_norm [ i ]
+>166	Identifier	i
+>167	Identifier	k2_norm
+>168	ExpressionStatement	 
+>169	AssignmentExpr	k . m_y = k2 [ i ] . m_y / f2
+>170	MultiplicativeExpression	k2 [ i ] . m_y / f2
+>171	Identifier	f2
+>172	MemberAccess	k2 [ i ] . m_y
+>173	Identifier	m_y
+>174	ArrayIndexing	k2 [ i ]
+>175	Identifier	i
+>176	Identifier	k2
+>177	MemberAccess	k . m_y
+>178	Identifier	m_y
+>179	Identifier	k
+>180	ExpressionStatement	 
+>181	AssignmentExpr	k . m_x = k2 [ i ] . m_x / f2
+>182	MultiplicativeExpression	k2 [ i ] . m_x / f2
+>183	Identifier	f2
+>184	MemberAccess	k2 [ i ] . m_x
+>185	Identifier	m_x
+>186	ArrayIndexing	k2 [ i ]
+>187	Identifier	i
+>188	Identifier	k2
+>189	MemberAccess	k . m_x
+>190	Identifier	m_x
+>191	Identifier	k
+>192	IdentifierDeclStatement	 
+>193	IdentifierDecl	k
+>194	Identifier	k
+>195	IdentifierDeclType	Keypoint
+>196	IncDecOp	 
+>197	IncDec	++
+>198	Identifier	i
+>199	Condition	 
+>200	RelationalExpression	i < num_keys2
+>201	Identifier	num_keys2
+>202	Identifier	i
+>203	ForInit	 
+>204	IdentifierDeclStatement	int i = 0 ;
+>205	IdentifierDecl	i = 0
+>206	AssignmentExpr	i = 0
+>207	PrimaryExpression	0
+>208	Identifier	i
+>209	Identifier	i
+>210	IdentifierDeclType	int
+>211	ForStatement	for ( int i = 0 ; i < num_keys1 ; i ++ )
+>212	CompoundStatement	 
+>213	ExpressionStatement	 
+>214	AssignmentExpr	k1_norm [ i ] = k
+>215	Identifier	k
+>216	ArrayIndexing	k1_norm [ i ]
+>217	Identifier	i
+>218	Identifier	k1_norm
+>219	ExpressionStatement	 
+>220	AssignmentExpr	k . m_y = k1 [ i ] . m_y / f1
+>221	MultiplicativeExpression	k1 [ i ] . m_y / f1
+>222	Identifier	f1
+>223	MemberAccess	k1 [ i ] . m_y
+>224	Identifier	m_y
+>225	ArrayIndexing	k1 [ i ]
+>226	Identifier	i
+>227	Identifier	k1
+>228	MemberAccess	k . m_y
+>229	Identifier	m_y
+>230	Identifier	k
+>231	ExpressionStatement	 
+>232	AssignmentExpr	k . m_x = k1 [ i ] . m_x / f1
+>233	MultiplicativeExpression	k1 [ i ] . m_x / f1
+>234	Identifier	f1
+>235	MemberAccess	k1 [ i ] . m_x
+>236	Identifier	m_x
+>237	ArrayIndexing	k1 [ i ]
+>238	Identifier	i
+>239	Identifier	k1
+>240	MemberAccess	k . m_x
+>241	Identifier	m_x
+>242	Identifier	k
+>243	IdentifierDeclStatement	 
+>244	IdentifierDecl	k
+>245	Identifier	k
+>246	IdentifierDeclType	Keypoint
+>247	IncDecOp	 
+>248	IncDec	++
+>249	Identifier	i
+>250	Condition	 
+>251	RelationalExpression	i < num_keys1
+>252	Identifier	num_keys1
+>253	Identifier	i
+>254	ForInit	 
+>255	IdentifierDeclStatement	int i = 0 ;
+>256	IdentifierDecl	i = 0
+>257	AssignmentExpr	i = 0
+>258	PrimaryExpression	0
+>259	Identifier	i
+>260	Identifier	i
+>261	IdentifierDeclType	int
+>262	ExpressionStatement	 
+>263	CallExpression	k2_norm . resize ( num_keys2 )
+>264	ArgumentList	num_keys2
+>265	Argument	num_keys2
+>266	Identifier	num_keys2
+>267	Callee	k2_norm . resize
+>268	MemberAccess	k2_norm . resize
+>269	Identifier	resize
+>270	Identifier	k2_norm
+>271	ExpressionStatement	 
+>272	CallExpression	k1_norm . resize ( num_keys1 )
+>273	ArgumentList	num_keys1
+>274	Argument	num_keys1
+>275	Identifier	num_keys1
+>276	Callee	k1_norm . resize
+>277	MemberAccess	k1_norm . resize
+>278	Identifier	resize
+>279	Identifier	k1_norm
+>280	IdentifierDeclStatement	 
+>281	IdentifierDecl	k2_norm
+>282	Identifier	k2_norm
+>283	IdentifierDeclType	std 
+>284	IdentifierDecl	k1_norm
+>285	Identifier	k1_norm
+>286	IdentifierDeclType	std 
+>287	IdentifierDeclStatement	 
+>288	IdentifierDecl	num_keys2 = k2 . size ( )
+>289	AssignmentExpr	num_keys2 = k2 . size ( )
+>290	CallExpression	k2 . size ( )
+>291	ArgumentList	 
+>292	Callee	k2 . size
+>293	MemberAccess	k2 . size
+>294	Identifier	size
+>295	Identifier	k2
+>296	Identifier	num_keys2
+>297	Identifier	num_keys2
+>298	IdentifierDeclType	int
+>299	IdentifierDeclStatement	 
+>300	IdentifierDecl	num_keys1 = k1 . size ( )
+>301	AssignmentExpr	num_keys1 = k1 . size ( )
+>302	CallExpression	k1 . size ( )
+>303	ArgumentList	 
+>304	Callee	k1 . size
+>305	MemberAccess	k1 . size
+>306	Identifier	size
+>307	Identifier	k1
+>308	Identifier	num_keys1
+>309	Identifier	num_keys1
+>310	IdentifierDeclType	int
+>349	FunctionDef	EstimatePose5Point (const std 
+>350	ParameterList	const std 
+>351	Parameter	 
+>352	Identifier	t
+>353	ParameterType	double *
+>354	Parameter	 
+>355	Identifier	R
+>356	ParameterType	double *
+>357	Parameter	 
+>358	Identifier	K2
+>359	ParameterType	double *
+>360	Parameter	 
+>361	Identifier	K1
+>362	ParameterType	double *
+>363	Parameter	 
+>364	Identifier	threshold
+>365	ParameterType	double
+>366	Parameter	 
+>367	Identifier	num_trials
+>368	ParameterType	int
+>369	Parameter	 
+>370	Identifier	matches
+>371	ParameterType	std 
+>372	Parameter	 
+>373	Identifier	k2
+>374	ParameterType	const std 
+>375	Parameter	 
+>376	Identifier	k1
+>377	ParameterType	const std 
+>378	ReturnType	int
+>379	CompoundStatement	 
+>380	ReturnStatement	 
+>381	Identifier	num_inliers
+>382	ExpressionStatement	 
+>383	Identifier	k2_pts
+>384	Statement	 
+>385	Statement	 
+>386	Statement	 
+>387	ExpressionStatement	 
+>388	Identifier	k1_pts
+>389	Statement	 
+>390	Statement	 
+>391	Statement	 
+>392	IdentifierDeclStatement	 
+>393	IdentifierDecl	num_inliers = compute_pose_ransac ( num_pts , k1_pts , k2_pts , K1 , K2 , threshold , num_trials , R , t )
+>394	AssignmentExpr	num_inliers = compute_pose_ransac ( num_pts , k1_pts , k2_pts , K1 , K2 , threshold , num_trials , R , \
+>395	CallExpression	compute_pose_ransac ( num_pts , k1_pts , k2_pts , K1 , K2 , threshold , num_trials , R , t )
+>396	ArgumentList	num_pts
+>397	Argument	t
+>398	Identifier	t
+>399	Argument	R
+>400	Identifier	R
+>401	Argument	num_trials
+>402	Identifier	num_trials
+>403	Argument	threshold
+>404	Identifier	threshold
+>405	Argument	K2
+>406	Identifier	K2
+>407	Argument	K1
+>408	Identifier	K1
+>409	Argument	k2_pts
+>410	Identifier	k2_pts
+>411	Argument	k1_pts
+>412	Identifier	k1_pts
+>413	Argument	num_pts
+>414	Identifier	num_pts
+>415	Callee	compute_pose_ransac
+>416	Identifier	compute_pose_ransac
+>417	Identifier	num_inliers
+>418	Identifier	num_inliers
+>419	IdentifierDeclType	int
+>420	ForStatement	for ( int i = 0 ; i < num_pts ; i ++ )
+>421	CompoundStatement	 
+>422	ExpressionStatement	 
+>423	AssignmentExpr	k2_pts [ i ] = v2_new ( k2 [ idx2 ] . m_x , k2 [ idx2 ] . m_y )
+>424	CallExpression	v2_new ( k2 [ idx2 ] . m_x , k2 [ idx2 ] . m_y )
+>425	ArgumentList	k2 [ idx2 ] . m_x
+>426	Argument	k2 [ idx2 ] . m_y
+>427	MemberAccess	k2 [ idx2 ] . m_y
+>428	Identifier	m_y
+>429	ArrayIndexing	k2 [ idx2 ]
+>430	Identifier	idx2
+>431	Identifier	k2
+>432	Argument	k2 [ idx2 ] . m_x
+>433	MemberAccess	k2 [ idx2 ] . m_x
+>434	Identifier	m_x
+>435	ArrayIndexing	k2 [ idx2 ]
+>436	Identifier	idx2
+>437	Identifier	k2
+>438	Callee	v2_new
+>439	Identifier	v2_new
+>440	ArrayIndexing	k2_pts [ i ]
+>441	Identifier	i
+>442	Identifier	k2_pts
+>443	ExpressionStatement	 
+>444	AssignmentExpr	k1_pts [ i ] = v2_new ( k1 [ idx1 ] . m_x , k1 [ idx1 ] . m_y )
+>445	CallExpression	v2_new ( k1 [ idx1 ] . m_x , k1 [ idx1 ] . m_y )
+>446	ArgumentList	k1 [ idx1 ] . m_x
+>447	Argument	k1 [ idx1 ] . m_y
+>448	MemberAccess	k1 [ idx1 ] . m_y
+>449	Identifier	m_y
+>450	ArrayIndexing	k1 [ idx1 ]
+>451	Identifier	idx1
+>452	Identifier	k1
+>453	Argument	k1 [ idx1 ] . m_x
+>454	MemberAccess	k1 [ idx1 ] . m_x
+>455	Identifier	m_x
+>456	ArrayIndexing	k1 [ idx1 ]
+>457	Identifier	idx1
+>458	Identifier	k1
+>459	Callee	v2_new
+>460	Identifier	v2_new
+>461	ArrayIndexing	k1_pts [ i ]
+>462	Identifier	i
+>463	Identifier	k1_pts
+>464	IdentifierDeclStatement	 
+>465	IdentifierDecl	idx2 = matches [ i ] . m_idx2
+>466	AssignmentExpr	idx2 = matches [ i ] . m_idx2
+>467	MemberAccess	matches [ i ] . m_idx2
+>468	Identifier	m_idx2
+>469	ArrayIndexing	matches [ i ]
+>470	Identifier	i
+>471	Identifier	matches
+>472	Identifier	idx2
+>473	Identifier	idx2
+>474	IdentifierDeclType	int
+>475	IdentifierDeclStatement	 
+>476	IdentifierDecl	idx1 = matches [ i ] . m_idx1
+>477	AssignmentExpr	idx1 = matches [ i ] . m_idx1
+>478	MemberAccess	matches [ i ] . m_idx1
+>479	Identifier	m_idx1
+>480	ArrayIndexing	matches [ i ]
+>481	Identifier	i
+>482	Identifier	matches
+>483	Identifier	idx1
+>484	Identifier	idx1
+>485	IdentifierDeclType	int
+>486	IncDecOp	 
+>487	IncDec	++
+>488	Identifier	i
+>489	Condition	 
+>490	RelationalExpression	i < num_pts
+>491	Identifier	num_pts
+>492	Identifier	i
+>493	ForInit	 
+>494	IdentifierDeclStatement	int i = 0 ;
+>495	IdentifierDecl	i = 0
+>496	AssignmentExpr	i = 0
+>497	PrimaryExpression	0
+>498	Identifier	i
+>499	Identifier	i
+>500	IdentifierDeclType	int
+>501	IdentifierDeclStatement	 
+>502	IdentifierDecl	* k2_pts = new v2_t [ num_pts ]
+>503	AssignmentExpr	* k2_pts = new v2_t [ num_pts ]
+>504	Identifier	num_pts
+>505	Identifier	num_pts
+>506	Identifier	k2_pts
+>507	IdentifierDeclType	v2_t *
+>508	IdentifierDeclStatement	 
+>509	IdentifierDecl	* k1_pts = new v2_t [ num_pts ]
+>510	AssignmentExpr	* k1_pts = new v2_t [ num_pts ]
+>511	Identifier	num_pts
+>512	Identifier	num_pts
+>513	Identifier	k1_pts
+>514	IdentifierDeclType	v2_t *
+>515	IdentifierDeclStatement	 
+>516	IdentifierDecl	num_pts = ( int ) matches . size ( )
+>517	AssignmentExpr	num_pts = ( int ) matches . size ( )
+>518	CastExpression	( int ) matches . size ( )
+>519	CallExpression	matches . size ( )
+>520	ArgumentList	 
+>521	Callee	matches . size
+>522	MemberAccess	matches . size
+>523	Identifier	size
+>524	Identifier	matches
+>525	CastTarget	int
+>526	Identifier	num_pts
+>527	Identifier	num_pts
+>528	IdentifierDeclType	int
+>565	FunctionDef	EstimateFMatrix (const std 
+>566	ParameterList	const std 
+>567	Parameter	 
+>568	Identifier	essential
+>569	ParameterType	bool
+>570	Parameter	 
+>571	Identifier	F
+>572	ParameterType	double *
+>573	Parameter	 
+>574	Identifier	threshold
+>575	ParameterType	double
+>576	Parameter	 
+>577	Identifier	num_trials
+>578	ParameterType	int
+>579	Parameter	 
+>580	Identifier	matches
+>581	ParameterType	std 
+>582	Parameter	 
+>583	Identifier	k2
+>584	ParameterType	const std 
+>585	Parameter	 
+>586	Identifier	k1
+>587	ParameterType	const std 
+>588	ReturnType	std 
+>589	CompoundStatement	 
+>590	ReturnStatement	 
+>591	Identifier	inliers
+>592	ExpressionStatement	 
+>593	Identifier	k2_pts_in
+>594	Statement	 
+>595	Statement	 
+>596	Statement	 
+>597	ExpressionStatement	 
+>598	Identifier	k1_pts_in
+>599	Statement	 
+>600	Statement	 
+>601	Statement	 
+>602	ExpressionStatement	 
+>603	Identifier	k2_pts
+>604	Statement	 
+>605	Statement	 
+>606	Statement	 
+>607	ExpressionStatement	 
+>608	Identifier	k1_pts
+>609	Statement	 
+>610	Statement	 
+>611	Statement	 
+>612	ExpressionStatement	 
+>613	AssignmentExpr	num_inliers = ( int ) inliers . size ( )
+>614	CastExpression	( int ) inliers . size ( )
+>615	CallExpression	inliers . size ( )
+>616	ArgumentList	 
+>617	Callee	inliers . size
+>618	MemberAccess	inliers . size
+>619	Identifier	size
+>620	Identifier	inliers
+>621	CastTarget	int
+>622	Identifier	num_inliers
+>623	ForStatement	for ( int i = 0 ; i < num_pts ; i ++ )
+>624	CompoundStatement	 
+>625	IfStatement	if ( dist < threshold )
+>626	CompoundStatement	 
+>627	ExpressionStatement	 
+>628	CallExpression	inliers . push_back ( i )
+>629	ArgumentList	i
+>630	Argument	i
+>631	Identifier	i
+>632	Callee	inliers . push_back
+>633	MemberAccess	inliers . push_back
+>634	Identifier	push_back
+>635	Identifier	inliers
+>636	Condition	 
+>637	RelationalExpression	dist < threshold
+>638	Identifier	threshold
+>639	Identifier	dist
+>640	IdentifierDeclStatement	 
+>641	IdentifierDecl	dist = fmatrix_compute_residual ( F , k2_pts [ i ] , k1_pts [ i ] )
+>642	AssignmentExpr	dist = fmatrix_compute_residual ( F , k2_pts [ i ] , k1_pts [ i ] )
+>643	CallExpression	fmatrix_compute_residual ( F , k2_pts [ i ] , k1_pts [ i ] )
+>644	ArgumentList	F
+>645	Argument	k1_pts [ i ]
+>646	ArrayIndexing	k1_pts [ i ]
+>647	Identifier	i
+>648	Identifier	k1_pts
+>649	Argument	k2_pts [ i ]
+>650	ArrayIndexing	k2_pts [ i ]
+>651	Identifier	i
+>652	Identifier	k2_pts
+>653	Argument	F
+>654	Identifier	F
+>655	Callee	fmatrix_compute_residual
+>656	Identifier	fmatrix_compute_residual
+>657	Identifier	dist
+>658	Identifier	dist
+>659	IdentifierDeclType	double
+>660	IncDecOp	 
+>661	IncDec	++
+>662	Identifier	i
+>663	Condition	 
+>664	RelationalExpression	i < num_pts
+>665	Identifier	num_pts
+>666	Identifier	i
+>667	ForInit	 
+>668	IdentifierDeclStatement	int i = 0 ;
+>669	IdentifierDecl	i = 0
+>670	AssignmentExpr	i = 0
+>671	PrimaryExpression	0
+>672	Identifier	i
+>673	Identifier	i
+>674	IdentifierDeclType	int
+>675	ExpressionStatement	 
+>676	CallExpression	inliers . clear ( )
+>677	ArgumentList	 
+>678	Callee	inliers . clear
+>679	MemberAccess	inliers . clear
+>680	Identifier	clear
+>681	Identifier	inliers
+>682	IfStatement	if ( essential )
+>683	CompoundStatement	 
+>684	ExpressionStatement	 
+>685	CallExpression	matrix_product ( 3 , 3 , 3 , 3 , tmp , VT , F )
+>686	ArgumentList	3
+>687	Argument	F
+>688	Identifier	F
+>689	Argument	VT
+>690	Identifier	VT
+>691	Argument	tmp
+>692	Identifier	tmp
+>693	Argument	3
+>694	PrimaryExpression	3
+>695	Argument	3
+>696	PrimaryExpression	3
+>697	Argument	3
+>698	PrimaryExpression	3
+>699	Argument	3
+>700	PrimaryExpression	3
+>701	Callee	matrix_product
+>702	Identifier	matrix_product
+>703	ExpressionStatement	 
+>704	CallExpression	matrix_product ( 3 , 3 , 3 , 3 , U , E0 , tmp )
+>705	ArgumentList	3
+>706	Argument	tmp
+>707	Identifier	tmp
+>708	Argument	E0
+>709	Identifier	E0
+>710	Argument	U
+>711	Identifier	U
+>712	Argument	3
+>713	PrimaryExpression	3
+>714	Argument	3
+>715	PrimaryExpression	3
+>716	Argument	3
+>717	PrimaryExpression	3
+>718	Argument	3
+>719	PrimaryExpression	3
+>720	Callee	matrix_product
+>721	Identifier	matrix_product
+>722	IdentifierDeclStatement	 
+>723	IdentifierDecl	tmp [ 9 ]
+>724	PrimaryExpression	9
+>725	Identifier	tmp
+>726	IdentifierDeclType	double [ 9 ]
+>727	IdentifierDeclStatement	 
+>728	IdentifierDecl	E0 [ 9 ] = { 1.0 , 0.0 , 0.0 , 0.0 , 1.0 , 0.0 , 0.0 , 0.0 , 0.0 }
+>729	AssignmentExpr	E0 [ 9 ] = { 1.0 , 0.0 , 0.0 , 0.0 , 1.0 , 0.0 , 0.0 , 0.0 , 0.0 }
+>730	InitializerList	1.0
+>731	PrimaryExpression	0.0
+>732	PrimaryExpression	0.0
+>733	PrimaryExpression	0.0
+>734	PrimaryExpression	0.0
+>735	PrimaryExpression	1.0
+>736	PrimaryExpression	0.0
+>737	PrimaryExpression	0.0
+>738	PrimaryExpression	0.0
+>739	PrimaryExpression	1.0
+>740	Identifier	E0
+>741	PrimaryExpression	9
+>742	Identifier	E0
+>743	IdentifierDeclType	double [ 9 ]
+>744	ExpressionStatement	 
+>745	CallExpression	dgesvd_driver ( 3 , 3 , F , U , S , VT )
+>746	ArgumentList	3
+>747	Argument	VT
+>748	Identifier	VT
+>749	Argument	S
+>750	Identifier	S
+>751	Argument	U
+>752	Identifier	U
+>753	Argument	F
+>754	Identifier	F
+>755	Argument	3
+>756	PrimaryExpression	3
+>757	Argument	3
+>758	PrimaryExpression	3
+>759	Callee	dgesvd_driver
+>760	Identifier	dgesvd_driver
+>761	IdentifierDeclStatement	 
+>762	IdentifierDecl	VT [ 9 ]
+>763	PrimaryExpression	9
+>764	Identifier	VT
+>765	IdentifierDeclType	double [ 9 ]
+>766	IdentifierDecl	S [ 3 ]
+>767	PrimaryExpression	3
+>768	Identifier	S
+>769	IdentifierDeclType	double [ 3 ]
+>770	IdentifierDecl	U [ 9 ]
+>771	PrimaryExpression	9
+>772	Identifier	U
+>773	IdentifierDeclType	double [ 9 ]
+>774	Condition	 
+>775	Identifier	essential
+>776	IfStatement	if ( ! essential )
+>777	ElseStatement	else
+>778	CompoundStatement	 
+>779	ExpressionStatement	 
+>780	CallExpression	memcpy ( F , F0 , sizeof ( double ) * 9 )
+>781	ArgumentList	F
+>782	Argument	sizeof ( double ) * 9
+>783	MultiplicativeExpression	sizeof ( double ) * 9
+>784	PrimaryExpression	9
+>785	SizeofExpr	sizeof ( double )
+>786	SizeofOperand	double
+>787	Sizeof	sizeof
+>788	Argument	F0
+>789	Identifier	F0
+>790	Argument	F
+>791	Identifier	F
+>792	Callee	memcpy
+>793	Identifier	memcpy
+>794	CompoundStatement	 
+>795	ExpressionStatement	 
+>796	CallExpression	refine_fmatrix_nonlinear_matches ( num_inliers , k2_pts_in , k1_pts_in , F0 , F )
+>797	ArgumentList	num_inliers
+>798	Argument	F
+>799	Identifier	F
+>800	Argument	F0
+>801	Identifier	F0
+>802	Argument	k1_pts_in
+>803	Identifier	k1_pts_in
+>804	Argument	k2_pts_in
+>805	Identifier	k2_pts_in
+>806	Argument	num_inliers
+>807	Identifier	num_inliers
+>808	Callee	refine_fmatrix_nonlinear_matches
+>809	Identifier	refine_fmatrix_nonlinear_matches
+>810	ForStatement	for ( int i = 0 ; i < num_inliers ; i ++ )
+>811	CompoundStatement	 
+>812	ExpressionStatement	 
+>813	AssignmentExpr	k2_pts_in [ i ] = k2_pts [ inliers [ i ] ]
+>814	ArrayIndexing	k2_pts [ inliers [ i ] ]
+>815	ArrayIndexing	inliers [ i ]
+>816	Identifier	i
+>817	Identifier	inliers
+>818	Identifier	k2_pts
+>819	ArrayIndexing	k2_pts_in [ i ]
+>820	Identifier	i
+>821	Identifier	k2_pts_in
+>822	ExpressionStatement	 
+>823	AssignmentExpr	k1_pts_in [ i ] = k1_pts [ inliers [ i ] ]
+>824	ArrayIndexing	k1_pts [ inliers [ i ] ]
+>825	ArrayIndexing	inliers [ i ]
+>826	Identifier	i
+>827	Identifier	inliers
+>828	Identifier	k1_pts
+>829	ArrayIndexing	k1_pts_in [ i ]
+>830	Identifier	i
+>831	Identifier	k1_pts_in
+>832	IncDecOp	 
+>833	IncDec	++
+>834	Identifier	i
+>835	Condition	 
+>836	RelationalExpression	i < num_inliers
+>837	Identifier	num_inliers
+>838	Identifier	i
+>839	ForInit	 
+>840	IdentifierDeclStatement	int i = 0 ;
+>841	IdentifierDecl	i = 0
+>842	AssignmentExpr	i = 0
+>843	PrimaryExpression	0
+>844	Identifier	i
+>845	Identifier	i
+>846	IdentifierDeclType	int
+>847	Condition	 
+>848	UnaryOp	! essential
+>849	Identifier	essential
+>850	UnaryOperator	!
+>851	ExpressionStatement	 
+>852	AssignmentExpr	num_inliers = inliers . size ( )
+>853	CallExpression	inliers . size ( )
+>854	ArgumentList	 
+>855	Callee	inliers . size
+>856	MemberAccess	inliers . size
+>857	Identifier	size
+>858	Identifier	inliers
+>859	Identifier	num_inliers
+>860	ForStatement	for ( int i = 0 ; i < num_pts ; i ++ )
+>861	CompoundStatement	 
+>862	IfStatement	if ( dist < threshold )
+>863	CompoundStatement	 
+>864	ExpressionStatement	 
+>865	CallExpression	inliers . push_back ( i )
+>866	ArgumentList	i
+>867	Argument	i
+>868	Identifier	i
+>869	Callee	inliers . push_back
+>870	MemberAccess	inliers . push_back
+>871	Identifier	push_back
+>872	Identifier	inliers
+>873	Condition	 
+>874	RelationalExpression	dist < threshold
+>875	Identifier	threshold
+>876	Identifier	dist
+>877	IdentifierDeclStatement	 
+>878	IdentifierDecl	dist = fmatrix_compute_residual ( F0 , k2_pts [ i ] , k1_pts [ i ] )
+>879	AssignmentExpr	dist = fmatrix_compute_residual ( F0 , k2_pts [ i ] , k1_pts [ i ] )
+>880	CallExpression	fmatrix_compute_residual ( F0 , k2_pts [ i ] , k1_pts [ i ] )
+>881	ArgumentList	F0
+>882	Argument	k1_pts [ i ]
+>883	ArrayIndexing	k1_pts [ i ]
+>884	Identifier	i
+>885	Identifier	k1_pts
+>886	Argument	k2_pts [ i ]
+>887	ArrayIndexing	k2_pts [ i ]
+>888	Identifier	i
+>889	Identifier	k2_pts
+>890	Argument	F0
+>891	Identifier	F0
+>892	Callee	fmatrix_compute_residual
+>893	Identifier	fmatrix_compute_residual
+>894	Identifier	dist
+>895	Identifier	dist
+>896	IdentifierDeclType	double
+>897	IncDecOp	 
+>898	IncDec	++
+>899	Identifier	i
+>900	Condition	 
+>901	RelationalExpression	i < num_pts
+>902	Identifier	num_pts
+>903	Identifier	i
+>904	ForInit	 
+>905	IdentifierDeclStatement	int i = 0 ;
+>906	IdentifierDecl	i = 0
+>907	AssignmentExpr	i = 0
+>908	PrimaryExpression	0
+>909	Identifier	i
+>910	Identifier	i
+>911	IdentifierDeclType	int
+>912	ExpressionStatement	 
+>913	CallExpression	inliers . clear ( )
+>914	ArgumentList	 
+>915	Callee	inliers . clear
+>916	MemberAccess	inliers . clear
+>917	Identifier	clear
+>918	Identifier	inliers
+>919	ExpressionStatement	 
+>920	CallExpression	estimate_fmatrix_linear ( num_inliers , k2_pts_in , k1_pts_in , F0 , e1 , e2 )
+>921	ArgumentList	num_inliers
+>922	Argument	e2
+>923	Identifier	e2
+>924	Argument	e1
+>925	Identifier	e1
+>926	Argument	F0
+>927	Identifier	F0
+>928	Argument	k1_pts_in
+>929	Identifier	k1_pts_in
+>930	Argument	k2_pts_in
+>931	Identifier	k2_pts_in
+>932	Argument	num_inliers
+>933	Identifier	num_inliers
+>934	Callee	estimate_fmatrix_linear
+>935	Identifier	estimate_fmatrix_linear
+>936	IdentifierDeclStatement	 
+>937	IdentifierDecl	e2 [ 3 ]
+>938	PrimaryExpression	3
+>939	Identifier	e2
+>940	IdentifierDeclType	double [ 3 ]
+>941	IdentifierDecl	e1 [ 3 ]
+>942	PrimaryExpression	3
+>943	Identifier	e1
+>944	IdentifierDeclType	double [ 3 ]
+>945	IdentifierDeclStatement	 
+>946	IdentifierDecl	F0 [ 9 ]
+>947	PrimaryExpression	9
+>948	Identifier	F0
+>949	IdentifierDeclType	double [ 9 ]
+>950	ForStatement	for ( int i = 0 ; i < num_inliers ; i ++ )
+>951	CompoundStatement	 
+>952	ExpressionStatement	 
+>953	AssignmentExpr	k2_pts_in [ i ] = k2_pts [ inliers [ i ] ]
+>954	ArrayIndexing	k2_pts [ inliers [ i ] ]
+>955	ArrayIndexing	inliers [ i ]
+>956	Identifier	i
+>957	Identifier	inliers
+>958	Identifier	k2_pts
+>959	ArrayIndexing	k2_pts_in [ i ]
+>960	Identifier	i
+>961	Identifier	k2_pts_in
+>962	ExpressionStatement	 
+>963	AssignmentExpr	k1_pts_in [ i ] = k1_pts [ inliers [ i ] ]
+>964	ArrayIndexing	k1_pts [ inliers [ i ] ]
+>965	ArrayIndexing	inliers [ i ]
+>966	Identifier	i
+>967	Identifier	inliers
+>968	Identifier	k1_pts
+>969	ArrayIndexing	k1_pts_in [ i ]
+>970	Identifier	i
+>971	Identifier	k1_pts_in
+>972	IncDecOp	 
+>973	IncDec	++
+>974	Identifier	i
+>975	Condition	 
+>976	RelationalExpression	i < num_inliers
+>977	Identifier	num_inliers
+>978	Identifier	i
+>979	ForInit	 
+>980	IdentifierDeclStatement	int i = 0 ;
+>981	IdentifierDecl	i = 0
+>982	AssignmentExpr	i = 0
+>983	PrimaryExpression	0
+>984	Identifier	i
+>985	Identifier	i
+>986	IdentifierDeclType	int
+>987	IdentifierDeclStatement	 
+>988	IdentifierDecl	num_inliers = ( int ) inliers . size ( )
+>989	AssignmentExpr	num_inliers = ( int ) inliers . size ( )
+>990	CastExpression	( int ) inliers . size ( )
+>991	CallExpression	inliers . size ( )
+>992	ArgumentList	 
+>993	Callee	inliers . size
+>994	MemberAccess	inliers . size
+>995	Identifier	size
+>996	Identifier	inliers
+>997	CastTarget	int
+>998	Identifier	num_inliers
+>999	Identifier	num_inliers
+>1000	IdentifierDeclType	int
+>1001	ForStatement	for ( int i = 0 ; i < num_pts ; i ++ )
+>1002	CompoundStatement	 
+>1003	IfStatement	if ( dist < threshold )
+>1004	CompoundStatement	 
+>1005	ExpressionStatement	 
+>1006	CallExpression	inliers . push_back ( i )
+>1007	ArgumentList	i
+>1008	Argument	i
+>1009	Identifier	i
+>1010	Callee	inliers . push_back
+>1011	MemberAccess	inliers . push_back
+>1012	Identifier	push_back
+>1013	Identifier	inliers
+>1014	Condition	 
+>1015	RelationalExpression	dist < threshold
+>1016	Identifier	threshold
+>1017	Identifier	dist
+>1018	IdentifierDeclStatement	 
+>1019	IdentifierDecl	dist = fmatrix_compute_residual ( F , k2_pts [ i ] , k1_pts [ i ] )
+>1020	AssignmentExpr	dist = fmatrix_compute_residual ( F , k2_pts [ i ] , k1_pts [ i ] )
+>1021	CallExpression	fmatrix_compute_residual ( F , k2_pts [ i ] , k1_pts [ i ] )
+>1022	ArgumentList	F
+>1023	Argument	k1_pts [ i ]
+>1024	ArrayIndexing	k1_pts [ i ]
+>1025	Identifier	i
+>1026	Identifier	k1_pts
+>1027	Argument	k2_pts [ i ]
+>1028	ArrayIndexing	k2_pts [ i ]
+>1029	Identifier	i
+>1030	Identifier	k2_pts
+>1031	Argument	F
+>1032	Identifier	F
+>1033	Callee	fmatrix_compute_residual
+>1034	Identifier	fmatrix_compute_residual
+>1035	Identifier	dist
+>1036	Identifier	dist
+>1037	IdentifierDeclType	double
+>1038	IncDecOp	 
+>1039	IncDec	++
+>1040	Identifier	i
+>1041	Condition	 
+>1042	RelationalExpression	i < num_pts
+>1043	Identifier	num_pts
+>1044	Identifier	i
+>1045	ForInit	 
+>1046	IdentifierDeclStatement	int i = 0 ;
+>1047	IdentifierDecl	i = 0
+>1048	AssignmentExpr	i = 0
+>1049	PrimaryExpression	0
+>1050	Identifier	i
+>1051	Identifier	i
+>1052	IdentifierDeclType	int
+>1053	IdentifierDeclStatement	 
+>1054	IdentifierDecl	inliers
+>1055	Identifier	inliers
+>1056	IdentifierDeclType	std 
+>1057	ExpressionStatement	 
+>1058	CallExpression	estimate_fmatrix_ransac_matches ( num_pts , k2_pts , k1_pts , num_trials , threshold , 0.95 , ( essential ? 1 
+>1059	ArgumentList	num_pts
+>1060	Argument	F
+>1061	Identifier	F
+>1062	Argument	essential ? 1 
+>1063	ConditionalExpression	essential ? 1 
+>1064	PrimaryExpression	0
+>1065	PrimaryExpression	1
+>1066	Condition	essential
+>1067	Identifier	essential
+>1068	Argument	0.95
+>1069	PrimaryExpression	0.95
+>1070	Argument	threshold
+>1071	Identifier	threshold
+>1072	Argument	num_trials
+>1073	Identifier	num_trials
+>1074	Argument	k1_pts
+>1075	Identifier	k1_pts
+>1076	Argument	k2_pts
+>1077	Identifier	k2_pts
+>1078	Argument	num_pts
+>1079	Identifier	num_pts
+>1080	Callee	estimate_fmatrix_ransac_matches
+>1081	Identifier	estimate_fmatrix_ransac_matches
+>1082	ForStatement	for ( int i = 0 ; i < num_pts ; i ++ )
+>1083	CompoundStatement	 
+>1084	ExpressionStatement	 
+>1085	AssignmentExpr	k2_pts [ i ] = v3_new ( k2 [ idx2 ] . m_x , k2 [ idx2 ] . m_y , 1.0 )
+>1086	CallExpression	v3_new ( k2 [ idx2 ] . m_x , k2 [ idx2 ] . m_y , 1.0 )
+>1087	ArgumentList	k2 [ idx2 ] . m_x
+>1088	Argument	1.0
+>1089	PrimaryExpression	1.0
+>1090	Argument	k2 [ idx2 ] . m_y
+>1091	MemberAccess	k2 [ idx2 ] . m_y
+>1092	Identifier	m_y
+>1093	ArrayIndexing	k2 [ idx2 ]
+>1094	Identifier	idx2
+>1095	Identifier	k2
+>1096	Argument	k2 [ idx2 ] . m_x
+>1097	MemberAccess	k2 [ idx2 ] . m_x
+>1098	Identifier	m_x
+>1099	ArrayIndexing	k2 [ idx2 ]
+>1100	Identifier	idx2
+>1101	Identifier	k2
+>1102	Callee	v3_new
+>1103	Identifier	v3_new
+>1104	ArrayIndexing	k2_pts [ i ]
+>1105	Identifier	i
+>1106	Identifier	k2_pts
+>1107	ExpressionStatement	 
+>1108	AssignmentExpr	k1_pts [ i ] = v3_new ( k1 [ idx1 ] . m_x , k1 [ idx1 ] . m_y , 1.0 )
+>1109	CallExpression	v3_new ( k1 [ idx1 ] . m_x , k1 [ idx1 ] . m_y , 1.0 )
+>1110	ArgumentList	k1 [ idx1 ] . m_x
+>1111	Argument	1.0
+>1112	PrimaryExpression	1.0
+>1113	Argument	k1 [ idx1 ] . m_y
+>1114	MemberAccess	k1 [ idx1 ] . m_y
+>1115	Identifier	m_y
+>1116	ArrayIndexing	k1 [ idx1 ]
+>1117	Identifier	idx1
+>1118	Identifier	k1
+>1119	Argument	k1 [ idx1 ] . m_x
+>1120	MemberAccess	k1 [ idx1 ] . m_x
+>1121	Identifier	m_x
+>1122	ArrayIndexing	k1 [ idx1 ]
+>1123	Identifier	idx1
+>1124	Identifier	k1
+>1125	Callee	v3_new
+>1126	Identifier	v3_new
+>1127	ArrayIndexing	k1_pts [ i ]
+>1128	Identifier	i
+>1129	Identifier	k1_pts
+>1130	ExpressionStatement	 
+>1131	CallExpression	assert ( idx2 < ( int ) k2 . size ( ) )
+>1132	ArgumentList	idx2 < ( int ) k2 . size ( )
+>1133	Argument	idx2 < ( int ) k2 . size ( )
+>1134	RelationalExpression	idx2 < ( int ) k2 . size ( )
+>1135	CastExpression	( int ) k2 . size ( )
+>1136	CallExpression	k2 . size ( )
+>1137	ArgumentList	 
+>1138	Callee	k2 . size
+>1139	MemberAccess	k2 . size
+>1140	Identifier	size
+>1141	Identifier	k2
+>1142	CastTarget	int
+>1143	Identifier	idx2
+>1144	Callee	assert
+>1145	Identifier	assert
+>1146	ExpressionStatement	 
+>1147	CallExpression	assert ( idx1 < ( int ) k1 . size ( ) )
+>1148	ArgumentList	idx1 < ( int ) k1 . size ( )
+>1149	Argument	idx1 < ( int ) k1 . size ( )
+>1150	RelationalExpression	idx1 < ( int ) k1 . size ( )
+>1151	CastExpression	( int ) k1 . size ( )
+>1152	CallExpression	k1 . size ( )
+>1153	ArgumentList	 
+>1154	Callee	k1 . size
+>1155	MemberAccess	k1 . size
+>1156	Identifier	size
+>1157	Identifier	k1
+>1158	CastTarget	int
+>1159	Identifier	idx1
+>1160	Callee	assert
+>1161	Identifier	assert
+>1162	IdentifierDeclStatement	 
+>1163	IdentifierDecl	idx2 = matches [ i ] . m_idx2
+>1164	AssignmentExpr	idx2 = matches [ i ] . m_idx2
+>1165	MemberAccess	matches [ i ] . m_idx2
+>1166	Identifier	m_idx2
+>1167	ArrayIndexing	matches [ i ]
+>1168	Identifier	i
+>1169	Identifier	matches
+>1170	Identifier	idx2
+>1171	Identifier	idx2
+>1172	IdentifierDeclType	int
+>1173	IdentifierDeclStatement	 
+>1174	IdentifierDecl	idx1 = matches [ i ] . m_idx1
+>1175	AssignmentExpr	idx1 = matches [ i ] . m_idx1
+>1176	MemberAccess	matches [ i ] . m_idx1
+>1177	Identifier	m_idx1
+>1178	ArrayIndexing	matches [ i ]
+>1179	Identifier	i
+>1180	Identifier	matches
+>1181	Identifier	idx1
+>1182	Identifier	idx1
+>1183	IdentifierDeclType	int
+>1184	IncDecOp	 
+>1185	IncDec	++
+>1186	Identifier	i
+>1187	Condition	 
+>1188	RelationalExpression	i < num_pts
+>1189	Identifier	num_pts
+>1190	Identifier	i
+>1191	ForInit	 
+>1192	IdentifierDeclStatement	int i = 0 ;
+>1193	IdentifierDecl	i = 0
+>1194	AssignmentExpr	i = 0
+>1195	PrimaryExpression	0
+>1196	Identifier	i
+>1197	Identifier	i
+>1198	IdentifierDeclType	int
+>1199	IdentifierDeclStatement	 
+>1200	IdentifierDecl	* k2_pts_in = new v3_t [ num_pts ]
+>1201	AssignmentExpr	* k2_pts_in = new v3_t [ num_pts ]
+>1202	Identifier	num_pts
+>1203	Identifier	num_pts
+>1204	Identifier	k2_pts_in
+>1205	IdentifierDeclType	v3_t *
+>1206	IdentifierDeclStatement	 
+>1207	IdentifierDecl	* k1_pts_in = new v3_t [ num_pts ]
+>1208	AssignmentExpr	* k1_pts_in = new v3_t [ num_pts ]
+>1209	Identifier	num_pts
+>1210	Identifier	num_pts
+>1211	Identifier	k1_pts_in
+>1212	IdentifierDeclType	v3_t *
+>1213	IdentifierDeclStatement	 
+>1214	IdentifierDecl	* k2_pts = new v3_t [ num_pts ]
+>1215	AssignmentExpr	* k2_pts = new v3_t [ num_pts ]
+>1216	Identifier	num_pts
+>1217	Identifier	num_pts
+>1218	Identifier	k2_pts
+>1219	IdentifierDeclType	v3_t *
+>1220	IdentifierDeclStatement	 
+>1221	IdentifierDecl	* k1_pts = new v3_t [ num_pts ]
+>1222	AssignmentExpr	* k1_pts = new v3_t [ num_pts ]
+>1223	Identifier	num_pts
+>1224	Identifier	num_pts
+>1225	Identifier	k1_pts
+>1226	IdentifierDeclType	v3_t *
+>1227	IfStatement	if ( num_pts < 20 )
+>1228	CompoundStatement	 
+>1229	ReturnStatement	 
+>1230	Identifier	inliers
+>1231	IdentifierDeclStatement	 
+>1232	IdentifierDecl	inliers
+>1233	Identifier	inliers
+>1234	IdentifierDeclType	std 
+>1235	Condition	 
+>1236	RelationalExpression	num_pts < 20
+>1237	PrimaryExpression	20
+>1238	Identifier	num_pts
+>1239	IdentifierDeclStatement	 
+>1240	IdentifierDecl	num_pts = ( int ) matches . size ( )
+>1241	AssignmentExpr	num_pts = ( int ) matches . size ( )
+>1242	CastExpression	( int ) matches . size ( )
+>1243	CallExpression	matches . size ( )
+>1244	ArgumentList	 
+>1245	Callee	matches . size
+>1246	MemberAccess	matches . size
+>1247	Identifier	size
+>1248	Identifier	matches
+>1249	CastTarget	int
+>1250	Identifier	num_pts
+>1251	Identifier	num_pts
+>1252	IdentifierDeclType	int
+>1307	FunctionDef	EstimateFMatrix (const std 
+>1308	ParameterList	const std 
+>1309	Parameter	 
+>1310	Identifier	essential
+>1311	ParameterType	bool
+>1312	Parameter	 
+>1313	Identifier	F
+>1314	ParameterType	double *
+>1315	Parameter	 
+>1316	Identifier	threshold
+>1317	ParameterType	double
+>1318	Parameter	 
+>1319	Identifier	num_trials
+>1320	ParameterType	int
+>1321	Parameter	 
+>1322	Identifier	matches
+>1323	ParameterType	std 
+>1324	Parameter	 
+>1325	Identifier	k2
+>1326	ParameterType	const std 
+>1327	Parameter	 
+>1328	Identifier	k1
+>1329	ParameterType	const std 
+>1330	ReturnType	std 
+>1331	CompoundStatement	 
+>1332	ReturnStatement	 
+>1333	CallExpression	EstimateFMatrix ( k1_prime , k2_prime , matches , num_trials , threshold , F , essential )
+>1334	ArgumentList	k1_prime
+>1335	Argument	essential
+>1336	Identifier	essential
+>1337	Argument	F
+>1338	Identifier	F
+>1339	Argument	threshold
+>1340	Identifier	threshold
+>1341	Argument	num_trials
+>1342	Identifier	num_trials
+>1343	Argument	matches
+>1344	Identifier	matches
+>1345	Argument	k2_prime
+>1346	Identifier	k2_prime
+>1347	Argument	k1_prime
+>1348	Identifier	k1_prime
+>1349	Callee	EstimateFMatrix
+>1350	Identifier	EstimateFMatrix
+>1351	ForStatement	for ( int i = 0 ; i < num_keys2 ; i ++ )
+>1352	CompoundStatement	 
+>1353	ExpressionStatement	 
+>1354	AssignmentExpr	k2_prime [ i ] = k
+>1355	Identifier	k
+>1356	ArrayIndexing	k2_prime [ i ]
+>1357	Identifier	i
+>1358	Identifier	k2_prime
+>1359	IdentifierDeclStatement	 
+>1360	IdentifierDecl	k ( k2 [ i ] . m_x , k2 [ i ] . m_y )
+>1361	Expression	k2 [ i ] . m_x , k2 [ i ] . m_y
+>1362	MemberAccess	k2 [ i ] . m_y
+>1363	Identifier	m_y
+>1364	ArrayIndexing	k2 [ i ]
+>1365	Identifier	i
+>1366	Identifier	k2
+>1367	MemberAccess	k2 [ i ] . m_x
+>1368	Identifier	m_x
+>1369	ArrayIndexing	k2 [ i ]
+>1370	Identifier	i
+>1371	Identifier	k2
+>1372	Identifier	k
+>1373	IdentifierDeclType	Keypoint
+>1374	IncDecOp	 
+>1375	IncDec	++
+>1376	Identifier	i
+>1377	Condition	 
+>1378	RelationalExpression	i < num_keys2
+>1379	Identifier	num_keys2
+>1380	Identifier	i
+>1381	ForInit	 
+>1382	IdentifierDeclStatement	int i = 0 ;
+>1383	IdentifierDecl	i = 0
+>1384	AssignmentExpr	i = 0
+>1385	PrimaryExpression	0
+>1386	Identifier	i
+>1387	Identifier	i
+>1388	IdentifierDeclType	int
+>1389	ForStatement	for ( int i = 0 ; i < num_keys1 ; i ++ )
+>1390	CompoundStatement	 
+>1391	ExpressionStatement	 
+>1392	AssignmentExpr	k1_prime [ i ] = k
+>1393	Identifier	k
+>1394	ArrayIndexing	k1_prime [ i ]
+>1395	Identifier	i
+>1396	Identifier	k1_prime
+>1397	IdentifierDeclStatement	 
+>1398	IdentifierDecl	k ( k1 [ i ] . m_x , k1 [ i ] . m_y )
+>1399	Expression	k1 [ i ] . m_x , k1 [ i ] . m_y
+>1400	MemberAccess	k1 [ i ] . m_y
+>1401	Identifier	m_y
+>1402	ArrayIndexing	k1 [ i ]
+>1403	Identifier	i
+>1404	Identifier	k1
+>1405	MemberAccess	k1 [ i ] . m_x
+>1406	Identifier	m_x
+>1407	ArrayIndexing	k1 [ i ]
+>1408	Identifier	i
+>1409	Identifier	k1
+>1410	Identifier	k
+>1411	IdentifierDeclType	Keypoint
+>1412	IncDecOp	 
+>1413	IncDec	++
+>1414	Identifier	i
+>1415	Condition	 
+>1416	RelationalExpression	i < num_keys1
+>1417	Identifier	num_keys1
+>1418	Identifier	i
+>1419	ForInit	 
+>1420	IdentifierDeclStatement	int i = 0 ;
+>1421	IdentifierDecl	i = 0
+>1422	AssignmentExpr	i = 0
+>1423	PrimaryExpression	0
+>1424	Identifier	i
+>1425	Identifier	i
+>1426	IdentifierDeclType	int
+>1427	ExpressionStatement	 
+>1428	CallExpression	k2_prime . resize ( num_keys2 )
+>1429	ArgumentList	num_keys2
+>1430	Argument	num_keys2
+>1431	Identifier	num_keys2
+>1432	Callee	k2_prime . resize
+>1433	MemberAccess	k2_prime . resize
+>1434	Identifier	resize
+>1435	Identifier	k2_prime
+>1436	ExpressionStatement	 
+>1437	CallExpression	k1_prime . resize ( num_keys1 )
+>1438	ArgumentList	num_keys1
+>1439	Argument	num_keys1
+>1440	Identifier	num_keys1
+>1441	Callee	k1_prime . resize
+>1442	MemberAccess	k1_prime . resize
+>1443	Identifier	resize
+>1444	Identifier	k1_prime
+>1445	IdentifierDeclStatement	 
+>1446	IdentifierDecl	k2_prime
+>1447	Identifier	k2_prime
+>1448	IdentifierDeclType	std 
+>1449	IdentifierDecl	k1_prime
+>1450	Identifier	k1_prime
+>1451	IdentifierDeclType	std 
+>1452	IdentifierDeclStatement	 
+>1453	IdentifierDecl	num_keys2 = ( int ) k2 . size ( )
+>1454	AssignmentExpr	num_keys2 = ( int ) k2 . size ( )
+>1455	CastExpression	( int ) k2 . size ( )
+>1456	CallExpression	k2 . size ( )
+>1457	ArgumentList	 
+>1458	Callee	k2 . size
+>1459	MemberAccess	k2 . size
+>1460	Identifier	size
+>1461	Identifier	k2
+>1462	CastTarget	int
+>1463	Identifier	num_keys2
+>1464	Identifier	num_keys2
+>1465	IdentifierDeclType	int
+>1466	IdentifierDeclStatement	 
+>1467	IdentifierDecl	num_keys1 = ( int ) k1 . size ( )
+>1468	AssignmentExpr	num_keys1 = ( int ) k1 . size ( )
+>1469	CastExpression	( int ) k1 . size ( )
+>1470	CallExpression	k1 . size ( )
+>1471	ArgumentList	 
+>1472	Callee	k1 . size
+>1473	MemberAccess	k1 . size
+>1474	Identifier	size
+>1475	Identifier	k1
+>1476	CastTarget	int
+>1477	Identifier	num_keys1
+>1478	Identifier	num_keys1
+>1479	IdentifierDeclType	int
+<3=33,32,4
+<4=29,26,23,20,17,14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=19,18
+<20=22,21
+<23=25,24
+<26=28,27
+<29=31,30
+<33=299,287,280,271,262,211,160,149,121,100,79,74,55,36,34
+<34=35
+<36=37
+<37=53,38
+<38=51,49,47,45,43,41,39
+<39=40
+<41=42
+<43=44
+<45=46
+<47=48
+<49=50
+<51=52
+<53=54
+<55=56
+<56=72,57
+<57=70,68,66,64,62,60,58
+<58=59
+<60=61
+<62=63
+<64=65
+<66=67
+<68=69
+<70=71
+<72=73
+<74=75
+<75=78,77,76
+<79=80
+<80=99,98,97,81
+<81=96,82
+<82=93,92,91,90,87,86,85,84,83
+<87=89,88
+<93=95,94
+<100=101
+<101=120,119,118,102
+<102=117,103
+<103=114,113,112,111,108,107,106,105,104
+<108=110,109
+<114=116,115
+<121=122
+<122=148,147,123
+<123=146,124
+<124=144,125
+<125=142,140,138,136,130,128,126
+<126=127
+<128=129
+<130=131
+<131=135,132
+<132=134,133
+<136=137
+<138=139
+<140=141
+<142=143
+<144=145
+<149=150
+<150=159,158,151
+<151=157,152
+<152=156,153
+<153=155,154
+<160=203,199,196,161
+<161=192,180,168,162
+<162=163
+<163=165,164
+<165=167,166
+<168=169
+<169=177,170
+<170=172,171
+<172=174,173
+<174=176,175
+<177=179,178
+<180=181
+<181=189,182
+<182=184,183
+<184=186,185
+<186=188,187
+<189=191,190
+<192=193
+<193=195,194
+<196=198,197
+<199=200
+<200=202,201
+<203=204
+<204=205
+<205=210,209,206
+<206=208,207
+<211=254,250,247,212
+<212=243,231,219,213
+<213=214
+<214=216,215
+<216=218,217
+<219=220
+<220=228,221
+<221=223,222
+<223=225,224
+<225=227,226
+<228=230,229
+<231=232
+<232=240,233
+<233=235,234
+<235=237,236
+<237=239,238
+<240=242,241
+<243=244
+<244=246,245
+<247=249,248
+<250=251
+<251=253,252
+<254=255
+<255=256
+<256=261,260,257
+<257=259,258
+<262=263
+<263=267,264
+<264=265
+<265=266
+<267=268
+<268=270,269
+<271=272
+<272=276,273
+<273=274
+<274=275
+<276=277
+<277=279,278
+<280=284,281
+<281=283,282
+<284=286,285
+<287=288
+<288=298,297,289
+<289=296,290
+<290=292,291
+<292=293
+<293=295,294
+<299=300
+<300=310,309,301
+<301=308,302
+<302=304,303
+<304=305
+<305=307,306
+<349=379,378,350
+<350=375,372,369,366,363,360,357,354,351
+<351=353,352
+<354=356,355
+<357=359,358
+<360=362,361
+<363=365,364
+<366=368,367
+<369=371,370
+<372=374,373
+<375=377,376
+<379=515,508,501,420,392,391,390,389,387,386,385,384,382,380
+<380=381
+<382=383
+<387=388
+<392=393
+<393=419,418,394
+<394=417,395
+<395=415,396
+<396=413,411,409,407,405,403,401,399,397
+<397=398
+<399=400
+<401=402
+<403=404
+<405=406
+<407=408
+<409=410
+<411=412
+<413=414
+<415=416
+<420=493,489,486,421
+<421=475,464,443,422
+<422=423
+<423=440,424
+<424=438,425
+<425=432,426
+<426=427
+<427=429,428
+<429=431,430
+<432=433
+<433=435,434
+<435=437,436
+<438=439
+<440=442,441
+<443=444
+<444=461,445
+<445=459,446
+<446=453,447
+<447=448
+<448=450,449
+<450=452,451
+<453=454
+<454=456,455
+<456=458,457
+<459=460
+<461=463,462
+<464=465
+<465=474,473,466
+<466=472,467
+<467=469,468
+<469=471,470
+<475=476
+<476=485,484,477
+<477=483,478
+<478=480,479
+<480=482,481
+<486=488,487
+<489=490
+<490=492,491
+<493=494
+<494=495
+<495=500,499,496
+<496=498,497
+<501=502
+<502=507,506,503
+<503=505,504
+<508=509
+<509=514,513,510
+<510=512,511
+<515=516
+<516=528,527,517
+<517=526,518
+<518=525,519
+<519=521,520
+<521=522
+<522=524,523
+<565=589,588,566
+<566=585,582,579,576,573,570,567
+<567=569,568
+<570=572,571
+<573=575,574
+<576=578,577
+<579=581,580
+<582=584,583
+<585=587,586
+<589=1239,1227,1220,1213,1206,1199,1082,1057,1053,1001,987,950,945,936,919,912,860,851,776,682,675,623,612,611,610,609,607,606,605,604,602,601,600,599,597,596,595,594,592,590
+<590=591
+<592=593
+<597=598
+<602=603
+<607=608
+<612=613
+<613=622,614
+<614=621,615
+<615=617,616
+<617=618
+<618=620,619
+<623=667,663,660,624
+<624=640,625
+<625=636,626
+<626=627
+<627=628
+<628=632,629
+<629=630
+<630=631
+<632=633
+<633=635,634
+<636=637
+<637=639,638
+<640=641
+<641=659,658,642
+<642=657,643
+<643=655,644
+<644=653,649,645
+<645=646
+<646=648,647
+<649=650
+<650=652,651
+<653=654
+<655=656
+<660=662,661
+<663=664
+<664=666,665
+<667=668
+<668=669
+<669=674,673,670
+<670=672,671
+<675=676
+<676=678,677
+<678=679
+<679=681,680
+<682=774,683
+<683=761,744,727,722,703,684
+<684=685
+<685=701,686
+<686=699,697,695,693,691,689,687
+<687=688
+<689=690
+<691=692
+<693=694
+<695=696
+<697=698
+<699=700
+<701=702
+<703=704
+<704=720,705
+<705=718,716,714,712,710,708,706
+<706=707
+<708=709
+<710=711
+<712=713
+<714=715
+<716=717
+<718=719
+<720=721
+<722=723
+<723=726,725,724
+<727=728
+<728=743,742,741,729
+<729=740,730
+<730=739,738,737,736,735,734,733,732,731
+<744=745
+<745=759,746
+<746=757,755,753,751,749,747
+<747=748
+<749=750
+<751=752
+<753=754
+<755=756
+<757=758
+<759=760
+<761=770,766,762
+<762=765,764,763
+<766=769,768,767
+<770=773,772,771
+<774=775
+<776=847,794,777
+<777=778
+<778=779
+<779=780
+<780=792,781
+<781=790,788,782
+<782=783
+<783=785,784
+<785=787,786
+<788=789
+<790=791
+<792=793
+<794=810,795
+<795=796
+<796=808,797
+<797=806,804,802,800,798
+<798=799
+<800=801
+<802=803
+<804=805
+<806=807
+<808=809
+<810=839,835,832,811
+<811=822,812
+<812=813
+<813=819,814
+<814=818,815
+<815=817,816
+<819=821,820
+<822=823
+<823=829,824
+<824=828,825
+<825=827,826
+<829=831,830
+<832=834,833
+<835=836
+<836=838,837
+<839=840
+<840=841
+<841=846,845,842
+<842=844,843
+<847=848
+<848=850,849
+<851=852
+<852=859,853
+<853=855,854
+<855=856
+<856=858,857
+<860=904,900,897,861
+<861=877,862
+<862=873,863
+<863=864
+<864=865
+<865=869,866
+<866=867
+<867=868
+<869=870
+<870=872,871
+<873=874
+<874=876,875
+<877=878
+<878=896,895,879
+<879=894,880
+<880=892,881
+<881=890,886,882
+<882=883
+<883=885,884
+<886=887
+<887=889,888
+<890=891
+<892=893
+<897=899,898
+<900=901
+<901=903,902
+<904=905
+<905=906
+<906=911,910,907
+<907=909,908
+<912=913
+<913=915,914
+<915=916
+<916=918,917
+<919=920
+<920=934,921
+<921=932,930,928,926,924,922
+<922=923
+<924=925
+<926=927
+<928=929
+<930=931
+<932=933
+<934=935
+<936=941,937
+<937=940,939,938
+<941=944,943,942
+<945=946
+<946=949,948,947
+<950=979,975,972,951
+<951=962,952
+<952=953
+<953=959,954
+<954=958,955
+<955=957,956
+<959=961,960
+<962=963
+<963=969,964
+<964=968,965
+<965=967,966
+<969=971,970
+<972=974,973
+<975=976
+<976=978,977
+<979=980
+<980=981
+<981=986,985,982
+<982=984,983
+<987=988
+<988=1000,999,989
+<989=998,990
+<990=997,991
+<991=993,992
+<993=994
+<994=996,995
+<1001=1045,1041,1038,1002
+<1002=1018,1003
+<1003=1014,1004
+<1004=1005
+<1005=1006
+<1006=1010,1007
+<1007=1008
+<1008=1009
+<1010=1011
+<1011=1013,1012
+<1014=1015
+<1015=1017,1016
+<1018=1019
+<1019=1037,1036,1020
+<1020=1035,1021
+<1021=1033,1022
+<1022=1031,1027,1023
+<1023=1024
+<1024=1026,1025
+<1027=1028
+<1028=1030,1029
+<1031=1032
+<1033=1034
+<1038=1040,1039
+<1041=1042
+<1042=1044,1043
+<1045=1046
+<1046=1047
+<1047=1052,1051,1048
+<1048=1050,1049
+<1053=1054
+<1054=1056,1055
+<1057=1058
+<1058=1080,1059
+<1059=1078,1076,1074,1072,1070,1068,1062,1060
+<1060=1061
+<1062=1063
+<1063=1066,1065,1064
+<1066=1067
+<1068=1069
+<1070=1071
+<1072=1073
+<1074=1075
+<1076=1077
+<1078=1079
+<1080=1081
+<1082=1191,1187,1184,1083
+<1083=1173,1162,1146,1130,1107,1084
+<1084=1085
+<1085=1104,1086
+<1086=1102,1087
+<1087=1096,1090,1088
+<1088=1089
+<1090=1091
+<1091=1093,1092
+<1093=1095,1094
+<1096=1097
+<1097=1099,1098
+<1099=1101,1100
+<1102=1103
+<1104=1106,1105
+<1107=1108
+<1108=1127,1109
+<1109=1125,1110
+<1110=1119,1113,1111
+<1111=1112
+<1113=1114
+<1114=1116,1115
+<1116=1118,1117
+<1119=1120
+<1120=1122,1121
+<1122=1124,1123
+<1125=1126
+<1127=1129,1128
+<1130=1131
+<1131=1144,1132
+<1132=1133
+<1133=1134
+<1134=1143,1135
+<1135=1142,1136
+<1136=1138,1137
+<1138=1139
+<1139=1141,1140
+<1144=1145
+<1146=1147
+<1147=1160,1148
+<1148=1149
+<1149=1150
+<1150=1159,1151
+<1151=1158,1152
+<1152=1154,1153
+<1154=1155
+<1155=1157,1156
+<1160=1161
+<1162=1163
+<1163=1172,1171,1164
+<1164=1170,1165
+<1165=1167,1166
+<1167=1169,1168
+<1173=1174
+<1174=1183,1182,1175
+<1175=1181,1176
+<1176=1178,1177
+<1178=1180,1179
+<1184=1186,1185
+<1187=1188
+<1188=1190,1189
+<1191=1192
+<1192=1193
+<1193=1198,1197,1194
+<1194=1196,1195
+<1199=1200
+<1200=1205,1204,1201
+<1201=1203,1202
+<1206=1207
+<1207=1212,1211,1208
+<1208=1210,1209
+<1213=1214
+<1214=1219,1218,1215
+<1215=1217,1216
+<1220=1221
+<1221=1226,1225,1222
+<1222=1224,1223
+<1227=1235,1228
+<1228=1231,1229
+<1229=1230
+<1231=1232
+<1232=1234,1233
+<1235=1236
+<1236=1238,1237
+<1239=1240
+<1240=1252,1251,1241
+<1241=1250,1242
+<1242=1249,1243
+<1243=1245,1244
+<1245=1246
+<1246=1248,1247
+<1307=1331,1330,1308
+<1308=1327,1324,1321,1318,1315,1312,1309
+<1309=1311,1310
+<1312=1314,1313
+<1315=1317,1316
+<1318=1320,1319
+<1321=1323,1322
+<1324=1326,1325
+<1327=1329,1328
+<1331=1466,1452,1445,1436,1427,1389,1351,1332
+<1332=1333
+<1333=1349,1334
+<1334=1347,1345,1343,1341,1339,1337,1335
+<1335=1336
+<1337=1338
+<1339=1340
+<1341=1342
+<1343=1344
+<1345=1346
+<1347=1348
+<1349=1350
+<1351=1381,1377,1374,1352
+<1352=1359,1353
+<1353=1354
+<1354=1356,1355
+<1356=1358,1357
+<1359=1360
+<1360=1373,1372,1361
+<1361=1367,1362
+<1362=1364,1363
+<1364=1366,1365
+<1367=1369,1368
+<1369=1371,1370
+<1374=1376,1375
+<1377=1378
+<1378=1380,1379
+<1381=1382
+<1382=1383
+<1383=1388,1387,1384
+<1384=1386,1385
+<1389=1419,1415,1412,1390
+<1390=1397,1391
+<1391=1392
+<1392=1394,1393
+<1394=1396,1395
+<1397=1398
+<1398=1411,1410,1399
+<1399=1405,1400
+<1400=1402,1401
+<1402=1404,1403
+<1405=1407,1406
+<1407=1409,1408
+<1412=1414,1413
+<1415=1416
+<1416=1418,1417
+<1419=1420
+<1420=1421
+<1421=1426,1425,1422
+<1422=1424,1423
+<1427=1428
+<1428=1432,1429
+<1429=1430
+<1430=1431
+<1432=1433
+<1433=1435,1434
+<1436=1437
+<1437=1441,1438
+<1438=1439
+<1439=1440
+<1441=1442
+<1442=1444,1443
+<1445=1449,1446
+<1446=1448,1447
+<1449=1451,1450
+<1452=1453
+<1453=1465,1464,1454
+<1454=1463,1455
+<1455=1462,1456
+<1456=1458,1457
+<1458=1459
+<1459=1461,1460
+<1466=1467
+<1467=1479,1478,1468
+<1468=1477,1469
+<1469=1476,1470
+<1470=1472,1471
+<1472=1473
+<1473=1475,1474

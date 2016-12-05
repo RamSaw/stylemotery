@@ -1,0 +1,563 @@
+>5	FunctionDef	WriteCB (void * contents , size_t size , size_t nmemb , void * userp)
+>6	ParameterList	void * contents , size_t size , size_t nmemb , void * userp
+>7	Parameter	 
+>8	Identifier	userp
+>9	ParameterType	void *
+>10	Parameter	 
+>11	Identifier	nmemb
+>12	ParameterType	size_t
+>13	Parameter	 
+>14	Identifier	size
+>15	ParameterType	size_t
+>16	Parameter	 
+>17	Identifier	contents
+>18	ParameterType	void *
+>19	ReturnType	static size_t
+>20	CompoundStatement	 
+>21	ReturnStatement	 
+>22	MultiplicativeExpression	size * nmemb
+>23	Identifier	nmemb
+>24	Identifier	size
+>25	ExpressionStatement	 
+>26	CallExpression	userstr -> append ( ( char * ) contents , size * nmemb )
+>27	ArgumentList	( char * ) contents
+>28	Argument	size * nmemb
+>29	MultiplicativeExpression	size * nmemb
+>30	Identifier	nmemb
+>31	Identifier	size
+>32	Argument	( char * ) contents
+>33	CastExpression	( char * ) contents
+>34	Identifier	contents
+>35	CastTarget	char *
+>36	Callee	userstr -> append
+>37	PtrMemberAccess	userstr -> append
+>38	Identifier	append
+>39	Identifier	userstr
+>40	IdentifierDeclStatement	 
+>41	IdentifierDecl	* userstr = ( std 
+>42	AssignmentExpr	* userstr = ( std 
+>43	CastExpression	( std 
+>44	Identifier	userp
+>45	CastTarget	std 
+>46	Identifier	userstr
+>47	Identifier	userstr
+>48	IdentifierDeclType	std 
+>57	FunctionDef	getUrl (const char * url , const char * extraHeader)
+>58	ParameterList	const char * url , const char * extraHeader
+>59	Parameter	 
+>60	Identifier	extraHeader
+>61	ParameterType	const char *
+>62	Parameter	 
+>63	Identifier	url
+>64	ParameterType	const char *
+>65	ReturnType	std 
+>66	CompoundStatement	 
+>67	ReturnStatement	 
+>68	Identifier	resStr
+>69	IfStatement	if ( res != CURLE_OK )
+>70	CompoundStatement	 
+>71	ExpressionStatement	 
+>72	CallExpression	resStr . clear ( )
+>73	ArgumentList	 
+>74	Callee	resStr . clear
+>75	MemberAccess	resStr . clear
+>76	Identifier	clear
+>77	Identifier	resStr
+>78	Condition	 
+>79	EqualityExpression	res != CURLE_OK
+>80	Identifier	CURLE_OK
+>81	Identifier	res
+>82	ExpressionStatement	 
+>83	CallExpression	curl_easy_cleanup ( curl )
+>84	ArgumentList	curl
+>85	Argument	curl
+>86	Identifier	curl
+>87	Callee	curl_easy_cleanup
+>88	Identifier	curl_easy_cleanup
+>89	IfStatement	if ( hlist )
+>90	CompoundStatement	 
+>91	ExpressionStatement	 
+>92	CallExpression	curl_slist_free_all ( hlist )
+>93	ArgumentList	hlist
+>94	Argument	hlist
+>95	Identifier	hlist
+>96	Callee	curl_slist_free_all
+>97	Identifier	curl_slist_free_all
+>98	Condition	 
+>99	Identifier	hlist
+>100	ExpressionStatement	 
+>101	AssignmentExpr	res = curl_easy_perform ( curl )
+>102	CallExpression	curl_easy_perform ( curl )
+>103	ArgumentList	curl
+>104	Argument	curl
+>105	Identifier	curl
+>106	Callee	curl_easy_perform
+>107	Identifier	curl_easy_perform
+>108	Identifier	res
+>109	IfStatement	if ( extraHeader )
+>110	CompoundStatement	 
+>111	ExpressionStatement	 
+>112	CallExpression	curl_easy_setopt ( curl , CURLOPT_HTTPHEADER , hlist )
+>113	ArgumentList	curl
+>114	Argument	hlist
+>115	Identifier	hlist
+>116	Argument	CURLOPT_HTTPHEADER
+>117	Identifier	CURLOPT_HTTPHEADER
+>118	Argument	curl
+>119	Identifier	curl
+>120	Callee	curl_easy_setopt
+>121	Identifier	curl_easy_setopt
+>122	ExpressionStatement	 
+>123	AssignmentExpr	hlist = curl_slist_append ( hlist , extraHeader )
+>124	CallExpression	curl_slist_append ( hlist , extraHeader )
+>125	ArgumentList	hlist
+>126	Argument	extraHeader
+>127	Identifier	extraHeader
+>128	Argument	hlist
+>129	Identifier	hlist
+>130	Callee	curl_slist_append
+>131	Identifier	curl_slist_append
+>132	Identifier	hlist
+>133	Condition	 
+>134	Identifier	extraHeader
+>135	IdentifierDeclStatement	 
+>136	IdentifierDecl	* hlist = nullptr
+>137	AssignmentExpr	* hlist = nullptr
+>138	Identifier	nullptr
+>139	Identifier	nullptr
+>140	Identifier	hlist
+>141	IdentifierDeclType	struct curl_slist *
+>142	ExpressionStatement	 
+>143	CallExpression	curl_easy_setopt ( curl , CURLOPT_WRITEFUNCTION , & WriteCB )
+>144	ArgumentList	curl
+>145	Argument	& WriteCB
+>146	UnaryOp	& WriteCB
+>147	Identifier	WriteCB
+>148	UnaryOperator	&
+>149	Argument	CURLOPT_WRITEFUNCTION
+>150	Identifier	CURLOPT_WRITEFUNCTION
+>151	Argument	curl
+>152	Identifier	curl
+>153	Callee	curl_easy_setopt
+>154	Identifier	curl_easy_setopt
+>155	ExpressionStatement	 
+>156	CallExpression	curl_easy_setopt ( curl , CURLOPT_WRITEDATA , & resStr )
+>157	ArgumentList	curl
+>158	Argument	& resStr
+>159	UnaryOp	& resStr
+>160	Identifier	resStr
+>161	UnaryOperator	&
+>162	Argument	CURLOPT_WRITEDATA
+>163	Identifier	CURLOPT_WRITEDATA
+>164	Argument	curl
+>165	Identifier	curl
+>166	Callee	curl_easy_setopt
+>167	Identifier	curl_easy_setopt
+>168	ExpressionStatement	 
+>169	CallExpression	curl_easy_setopt ( curl , CURLOPT_ACCEPT_ENCODING , \"\" )
+>170	ArgumentList	curl
+>171	Argument	\"\"
+>172	PrimaryExpression	\"\"
+>173	Argument	CURLOPT_ACCEPT_ENCODING
+>174	Identifier	CURLOPT_ACCEPT_ENCODING
+>175	Argument	curl
+>176	Identifier	curl
+>177	Callee	curl_easy_setopt
+>178	Identifier	curl_easy_setopt
+>179	ExpressionStatement	 
+>180	CallExpression	curl_easy_setopt ( curl , CURLOPT_TIMEOUT , 10L )
+>181	ArgumentList	curl
+>182	Argument	10L
+>183	PrimaryExpression	10L
+>184	Argument	CURLOPT_TIMEOUT
+>185	Identifier	CURLOPT_TIMEOUT
+>186	Argument	curl
+>187	Identifier	curl
+>188	Callee	curl_easy_setopt
+>189	Identifier	curl_easy_setopt
+>190	ExpressionStatement	 
+>191	CallExpression	curl_easy_setopt ( curl , CURLOPT_NOSIGNAL , 1L )
+>192	ArgumentList	curl
+>193	Argument	1L
+>194	PrimaryExpression	1L
+>195	Argument	CURLOPT_NOSIGNAL
+>196	Identifier	CURLOPT_NOSIGNAL
+>197	Argument	curl
+>198	Identifier	curl
+>199	Callee	curl_easy_setopt
+>200	Identifier	curl_easy_setopt
+>201	ExpressionStatement	 
+>202	CallExpression	curl_easy_setopt ( curl , CURLOPT_SSL_VERIFYHOST , 0L )
+>203	ArgumentList	curl
+>204	Argument	0L
+>205	PrimaryExpression	0L
+>206	Argument	CURLOPT_SSL_VERIFYHOST
+>207	Identifier	CURLOPT_SSL_VERIFYHOST
+>208	Argument	curl
+>209	Identifier	curl
+>210	Callee	curl_easy_setopt
+>211	Identifier	curl_easy_setopt
+>212	ExpressionStatement	 
+>213	CallExpression	curl_easy_setopt ( curl , CURLOPT_SSL_VERIFYPEER , 0L )
+>214	ArgumentList	curl
+>215	Argument	0L
+>216	PrimaryExpression	0L
+>217	Argument	CURLOPT_SSL_VERIFYPEER
+>218	Identifier	CURLOPT_SSL_VERIFYPEER
+>219	Argument	curl
+>220	Identifier	curl
+>221	Callee	curl_easy_setopt
+>222	Identifier	curl_easy_setopt
+>223	ExpressionStatement	 
+>224	CallExpression	curl_easy_setopt ( curl , CURLOPT_FOLLOWLOCATION , 1L )
+>225	ArgumentList	curl
+>226	Argument	1L
+>227	PrimaryExpression	1L
+>228	Argument	CURLOPT_FOLLOWLOCATION
+>229	Identifier	CURLOPT_FOLLOWLOCATION
+>230	Argument	curl
+>231	Identifier	curl
+>232	Callee	curl_easy_setopt
+>233	Identifier	curl_easy_setopt
+>234	ExpressionStatement	 
+>235	CallExpression	curl_easy_setopt ( curl , CURLOPT_URL , url )
+>236	ArgumentList	curl
+>237	Argument	url
+>238	Identifier	url
+>239	Argument	CURLOPT_URL
+>240	Identifier	CURLOPT_URL
+>241	Argument	curl
+>242	Identifier	curl
+>243	Callee	curl_easy_setopt
+>244	Identifier	curl_easy_setopt
+>245	IfStatement	if ( ! curl )
+>246	ReturnStatement	 
+>247	Identifier	resStr
+>248	Condition	 
+>249	UnaryOp	! curl
+>250	Identifier	curl
+>251	UnaryOperator	!
+>252	ExpressionStatement	 
+>253	AssignmentExpr	curl = curl_easy_init ( )
+>254	CallExpression	curl_easy_init ( )
+>255	ArgumentList	 
+>256	Callee	curl_easy_init
+>257	Identifier	curl_easy_init
+>258	Identifier	curl
+>259	ExpressionStatement	 
+>260	CallExpression	initCurl ( )
+>261	ArgumentList	 
+>262	Callee	initCurl
+>263	Identifier	initCurl
+>264	IdentifierDeclStatement	 
+>265	IdentifierDecl	res
+>266	Identifier	res
+>267	IdentifierDeclType	CURLcode
+>268	IdentifierDeclStatement	 
+>269	IdentifierDecl	* curl
+>270	Identifier	curl
+>271	IdentifierDeclType	CURL *
+>272	IdentifierDeclStatement	 
+>273	IdentifierDecl	resStr
+>274	Identifier	resStr
+>275	IdentifierDeclType	std 
+>302	FunctionDef	getJsonFromUrl (const char * url , const char * extraHeader)
+>303	ParameterList	const char * url , const char * extraHeader
+>304	Parameter	 
+>305	Identifier	extraHeader
+>306	ParameterType	const char *
+>307	Parameter	 
+>308	Identifier	url
+>309	ParameterType	const char *
+>310	ReturnType	Json 
+>311	CompoundStatement	 
+>312	ReturnStatement	 
+>313	Identifier	res
+>314	IfStatement	if ( ! ok )
+>315	ReturnStatement	 
+>316	CallExpression	Json 
+>317	ArgumentList	 
+>318	Callee	Json 
+>319	Identifier	Json 
+>320	Condition	 
+>321	UnaryOp	! ok
+>322	Identifier	ok
+>323	UnaryOperator	!
+>324	IdentifierDeclStatement	 
+>325	IdentifierDecl	ok = reader . parse ( data , res )
+>326	AssignmentExpr	ok = reader . parse ( data , res )
+>327	CallExpression	reader . parse ( data , res )
+>328	ArgumentList	data
+>329	Argument	res
+>330	Identifier	res
+>331	Argument	data
+>332	Identifier	data
+>333	Callee	reader . parse
+>334	MemberAccess	reader . parse
+>335	Identifier	parse
+>336	Identifier	reader
+>337	Identifier	ok
+>338	Identifier	ok
+>339	IdentifierDeclType	bool
+>340	IfStatement	if ( data . empty ( ) )
+>341	ReturnStatement	 
+>342	Identifier	res
+>343	Condition	 
+>344	CallExpression	data . empty ( )
+>345	ArgumentList	 
+>346	Callee	data . empty
+>347	MemberAccess	data . empty
+>348	Identifier	empty
+>349	Identifier	data
+>350	IdentifierDeclStatement	 
+>351	IdentifierDecl	data = getUrl ( url , extraHeader )
+>352	AssignmentExpr	data = getUrl ( url , extraHeader )
+>353	CallExpression	getUrl ( url , extraHeader )
+>354	ArgumentList	url
+>355	Argument	extraHeader
+>356	Identifier	extraHeader
+>357	Argument	url
+>358	Identifier	url
+>359	Callee	getUrl
+>360	Identifier	getUrl
+>361	Identifier	data
+>362	Identifier	data
+>363	IdentifierDeclType	std 
+>364	IdentifierDeclStatement	 
+>365	IdentifierDecl	reader
+>366	Identifier	reader
+>367	IdentifierDeclType	Json 
+>368	IdentifierDeclStatement	 
+>369	IdentifierDecl	res
+>370	Identifier	res
+>371	IdentifierDeclType	Json 
+>385	FunctionDef	initCurl ()
+>386	ParameterList	 
+>387	ReturnType	void
+>388	CompoundStatement	 
+>389	IfStatement	if ( ! wasCurlInit )
+>390	CompoundStatement	 
+>391	ExpressionStatement	 
+>392	AssignmentExpr	wasCurlInit = true
+>393	Identifier	true
+>394	Identifier	wasCurlInit
+>395	ExpressionStatement	 
+>396	CallExpression	curl_global_init ( CURL_GLOBAL_ALL )
+>397	ArgumentList	CURL_GLOBAL_ALL
+>398	Argument	CURL_GLOBAL_ALL
+>399	Identifier	CURL_GLOBAL_ALL
+>400	Callee	curl_global_init
+>401	Identifier	curl_global_init
+>402	Condition	 
+>403	UnaryOp	! wasCurlInit
+>404	Identifier	wasCurlInit
+>405	UnaryOperator	!
+<5=20,19,6
+<6=16,13,10,7
+<7=9,8
+<10=12,11
+<13=15,14
+<16=18,17
+<20=40,25,21
+<21=22
+<22=24,23
+<25=26
+<26=36,27
+<27=32,28
+<28=29
+<29=31,30
+<32=33
+<33=35,34
+<36=37
+<37=39,38
+<40=41
+<41=48,47,42
+<42=46,43
+<43=45,44
+<57=66,65,58
+<58=62,59
+<59=61,60
+<62=64,63
+<66=272,268,264,259,252,245,234,223,212,201,190,179,168,155,142,135,109,100,89,82,69,67
+<67=68
+<69=78,70
+<70=71
+<71=72
+<72=74,73
+<74=75
+<75=77,76
+<78=79
+<79=81,80
+<82=83
+<83=87,84
+<84=85
+<85=86
+<87=88
+<89=98,90
+<90=91
+<91=92
+<92=96,93
+<93=94
+<94=95
+<96=97
+<98=99
+<100=101
+<101=108,102
+<102=106,103
+<103=104
+<104=105
+<106=107
+<109=133,110
+<110=122,111
+<111=112
+<112=120,113
+<113=118,116,114
+<114=115
+<116=117
+<118=119
+<120=121
+<122=123
+<123=132,124
+<124=130,125
+<125=128,126
+<126=127
+<128=129
+<130=131
+<133=134
+<135=136
+<136=141,140,137
+<137=139,138
+<142=143
+<143=153,144
+<144=151,149,145
+<145=146
+<146=148,147
+<149=150
+<151=152
+<153=154
+<155=156
+<156=166,157
+<157=164,162,158
+<158=159
+<159=161,160
+<162=163
+<164=165
+<166=167
+<168=169
+<169=177,170
+<170=175,173,171
+<171=172
+<173=174
+<175=176
+<177=178
+<179=180
+<180=188,181
+<181=186,184,182
+<182=183
+<184=185
+<186=187
+<188=189
+<190=191
+<191=199,192
+<192=197,195,193
+<193=194
+<195=196
+<197=198
+<199=200
+<201=202
+<202=210,203
+<203=208,206,204
+<204=205
+<206=207
+<208=209
+<210=211
+<212=213
+<213=221,214
+<214=219,217,215
+<215=216
+<217=218
+<219=220
+<221=222
+<223=224
+<224=232,225
+<225=230,228,226
+<226=227
+<228=229
+<230=231
+<232=233
+<234=235
+<235=243,236
+<236=241,239,237
+<237=238
+<239=240
+<241=242
+<243=244
+<245=248,246
+<246=247
+<248=249
+<249=251,250
+<252=253
+<253=258,254
+<254=256,255
+<256=257
+<259=260
+<260=262,261
+<262=263
+<264=265
+<265=267,266
+<268=269
+<269=271,270
+<272=273
+<273=275,274
+<302=311,310,303
+<303=307,304
+<304=306,305
+<307=309,308
+<311=368,364,350,340,324,314,312
+<312=313
+<314=320,315
+<315=316
+<316=318,317
+<318=319
+<320=321
+<321=323,322
+<324=325
+<325=339,338,326
+<326=337,327
+<327=333,328
+<328=331,329
+<329=330
+<331=332
+<333=334
+<334=336,335
+<340=343,341
+<341=342
+<343=344
+<344=346,345
+<346=347
+<347=349,348
+<350=351
+<351=363,362,352
+<352=361,353
+<353=359,354
+<354=357,355
+<355=356
+<357=358
+<359=360
+<364=365
+<365=367,366
+<368=369
+<369=371,370
+<385=388,387,386
+<388=389
+<389=402,390
+<390=395,391
+<391=392
+<392=394,393
+<395=396
+<396=400,397
+<397=398
+<398=399
+<400=401
+<402=403
+<403=405,404

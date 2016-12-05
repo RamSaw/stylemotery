@@ -1,0 +1,2769 @@
+>3	FunctionDef	Glyph 
+>4	ParameterList	float advance , vec2_ary_t verts
+>5	Parameter	 
+>6	Identifier	verts
+>7	ParameterType	vec2_ary_t
+>8	Parameter	 
+>9	Identifier	advance
+>10	ParameterType	float
+>11	CompoundStatement	 
+>17	FunctionDef	Glyph 
+>18	ParameterList	 
+>19	CompoundStatement	 
+>23	FunctionDef	MFont 
+>24	ParameterList	const unsigned char * data , float prescale
+>25	Parameter	 
+>26	Identifier	prescale
+>27	ParameterType	float
+>28	Parameter	 
+>29	Identifier	data
+>30	ParameterType	const unsigned char *
+>31	CompoundStatement	 
+>32	ExpressionStatement	 
+>33	AssignmentExpr	m_line_sep = m_ascent
+>34	Identifier	m_ascent
+>35	Identifier	m_line_sep
+>36	ExpressionStatement	 
+>37	CallExpression	build_vbo ( )
+>38	ArgumentList	 
+>39	Callee	build_vbo
+>40	Identifier	build_vbo
+>41	ExpressionStatement	 
+>42	CallExpression	create_texture ( )
+>43	ArgumentList	 
+>44	Callee	create_texture
+>45	Identifier	create_texture
+>46	ExpressionStatement	 
+>47	CallExpression	read_from_data ( )
+>48	ArgumentList	 
+>49	Callee	read_from_data
+>50	Identifier	read_from_data
+>58	FunctionDef	MFont 
+>59	ParameterList	 
+>60	CompoundStatement	 
+>61	IfStatement	if ( m_texture )
+>62	ExpressionStatement	 
+>63	CallExpression	glDeleteTextures ( 1 , & m_texture )
+>64	ArgumentList	1
+>65	Argument	& m_texture
+>66	UnaryOp	& m_texture
+>67	Identifier	m_texture
+>68	UnaryOperator	&
+>69	Argument	1
+>70	PrimaryExpression	1
+>71	Callee	glDeleteTextures
+>72	Identifier	glDeleteTextures
+>73	Condition	 
+>74	Identifier	m_texture
+>80	FunctionDef	MFont 
+>81	ParameterList	 
+>82	ReturnType	float
+>83	CompoundStatement	 
+>84	ReturnStatement	 
+>85	MultiplicativeExpression	m_line_sep * m_prescale
+>86	Identifier	m_prescale
+>87	Identifier	m_line_sep
+>93	FunctionDef	MFont 
+>94	ParameterList	const char * text , float scale
+>95	Parameter	 
+>96	Identifier	scale
+>97	ParameterType	float
+>98	Parameter	 
+>99	Identifier	text
+>100	ParameterType	const char *
+>101	ReturnType	float
+>102	CompoundStatement	 
+>103	ReturnStatement	 
+>104	MultiplicativeExpression	size * scale * m_prescale
+>105	MultiplicativeExpression	scale * m_prescale
+>106	Identifier	m_prescale
+>107	Identifier	scale
+>108	Identifier	size
+>109	WhileStatement	while ( * text )
+>110	ExpressionStatement	 
+>111	AssignmentExpr	size += get_advance ( * text ++ )
+>112	CallExpression	get_advance ( * text ++ )
+>113	ArgumentList	* text ++
+>114	Argument	* text ++
+>115	UnaryOp	* text ++
+>116	IncDecOp	text ++
+>117	IncDec	++
+>118	Identifier	text
+>119	UnaryOperator	*
+>120	Callee	get_advance
+>121	Identifier	get_advance
+>122	Identifier	size
+>123	Condition	 
+>124	UnaryOp	* text
+>125	Identifier	text
+>126	UnaryOperator	*
+>127	IdentifierDeclStatement	 
+>128	IdentifierDecl	size = 0
+>129	AssignmentExpr	size = 0
+>130	PrimaryExpression	0
+>131	Identifier	size
+>132	Identifier	size
+>133	IdentifierDeclType	float
+>144	FunctionDef	MFont 
+>145	ParameterList	char ch
+>146	Parameter	 
+>147	Identifier	ch
+>148	ParameterType	char
+>149	ReturnType	inline float
+>150	CompoundStatement	 
+>151	ReturnStatement	 
+>152	MemberAccess	m_glyphs [ ch - m_start_char ] . m_advance
+>153	Identifier	m_advance
+>154	ArrayIndexing	m_glyphs [ ch - m_start_char ]
+>155	AdditiveExpression	ch - m_start_char
+>156	Identifier	m_start_char
+>157	Identifier	ch
+>158	Identifier	m_glyphs
+>169	FunctionDef	MFont 
+>170	ParameterList	const char * text , float scale , const vec2 & pos , bool centered
+>171	Parameter	 
+>172	Identifier	centered
+>173	ParameterType	bool
+>174	Parameter	 
+>175	Identifier	pos
+>176	ParameterType	const vec2 &
+>177	Parameter	 
+>178	Identifier	scale
+>179	ParameterType	float
+>180	Parameter	 
+>181	Identifier	text
+>182	ParameterType	const char *
+>183	ReturnType	AABB
+>184	CompoundStatement	 
+>185	ReturnStatement	 
+>186	CallExpression	AABB ( x1 , x2 , y1 , y2 )
+>187	ArgumentList	x1
+>188	Argument	y2
+>189	Identifier	y2
+>190	Argument	y1
+>191	Identifier	y1
+>192	Argument	x2
+>193	Identifier	x2
+>194	Argument	x1
+>195	Identifier	x1
+>196	Callee	AABB
+>197	Identifier	AABB
+>198	IdentifierDeclStatement	 
+>199	IdentifierDecl	y2 = y1 + line_sep ( ) * scale
+>200	AssignmentExpr	y2 = y1 + line_sep ( ) * scale
+>201	AdditiveExpression	y1 + line_sep ( ) * scale
+>202	MultiplicativeExpression	line_sep ( ) * scale
+>203	Identifier	scale
+>204	CallExpression	line_sep ( )
+>205	ArgumentList	 
+>206	Callee	line_sep
+>207	Identifier	line_sep
+>208	Identifier	y1
+>209	Identifier	y2
+>210	Identifier	y2
+>211	IdentifierDeclType	float
+>212	IdentifierDeclStatement	 
+>213	IdentifierDecl	x2 = x1 + tsize
+>214	AssignmentExpr	x2 = x1 + tsize
+>215	AdditiveExpression	x1 + tsize
+>216	Identifier	tsize
+>217	Identifier	x1
+>218	Identifier	x2
+>219	Identifier	x2
+>220	IdentifierDeclType	float
+>221	IdentifierDeclStatement	 
+>222	IdentifierDecl	y1 = pos [ 1 ]
+>223	AssignmentExpr	y1 = pos [ 1 ]
+>224	ArrayIndexing	pos [ 1 ]
+>225	PrimaryExpression	1
+>226	Identifier	pos
+>227	Identifier	y1
+>228	Identifier	y1
+>229	IdentifierDeclType	float
+>230	IfStatement	if ( centered )
+>231	CompoundStatement	 
+>232	ExpressionStatement	 
+>233	AssignmentExpr	x1 += center_text_pos ( text , scale , 1.6 )
+>234	CallExpression	center_text_pos ( text , scale , 1.6 )
+>235	ArgumentList	text
+>236	Argument	1.6
+>237	PrimaryExpression	1.6
+>238	Argument	scale
+>239	Identifier	scale
+>240	Argument	text
+>241	Identifier	text
+>242	Callee	center_text_pos
+>243	Identifier	center_text_pos
+>244	Identifier	x1
+>245	Condition	 
+>246	Identifier	centered
+>247	IdentifierDeclStatement	 
+>248	IdentifierDecl	x1 = pos [ 0 ] + m_origin_shift * m_prescale * scale
+>249	AssignmentExpr	x1 = pos [ 0 ] + m_origin_shift * m_prescale * scale
+>250	AdditiveExpression	pos [ 0 ] + m_origin_shift * m_prescale * scale
+>251	MultiplicativeExpression	m_origin_shift * m_prescale * scale
+>252	MultiplicativeExpression	m_prescale * scale
+>253	Identifier	scale
+>254	Identifier	m_prescale
+>255	Identifier	m_origin_shift
+>256	ArrayIndexing	pos [ 0 ]
+>257	PrimaryExpression	0
+>258	Identifier	pos
+>259	Identifier	x1
+>260	Identifier	x1
+>261	IdentifierDeclType	float
+>262	IdentifierDeclStatement	 
+>263	IdentifierDecl	tsize = size_of_text ( text , scale )
+>264	AssignmentExpr	tsize = size_of_text ( text , scale )
+>265	CallExpression	size_of_text ( text , scale )
+>266	ArgumentList	text
+>267	Argument	scale
+>268	Identifier	scale
+>269	Argument	text
+>270	Identifier	text
+>271	Callee	size_of_text
+>272	Identifier	size_of_text
+>273	Identifier	tsize
+>274	Identifier	tsize
+>275	IdentifierDeclType	float
+>295	FunctionDef	MFont 
+>296	ParameterList	 
+>297	ReturnType	void
+>298	CompoundStatement	 
+>299	ExpressionStatement	 
+>300	CallExpression	start_drawing ( )
+>301	ArgumentList	 
+>302	Callee	start_drawing
+>303	Identifier	start_drawing
+>304	ExpressionStatement	 
+>305	AssignmentExpr	m_external_draw = true
+>306	Identifier	true
+>307	Identifier	m_external_draw
+>313	FunctionDef	MFont 
+>314	ParameterList	 
+>315	ReturnType	void
+>316	CompoundStatement	 
+>317	ExpressionStatement	 
+>318	AssignmentExpr	m_external_draw = false
+>319	Identifier	false
+>320	Identifier	m_external_draw
+>321	ExpressionStatement	 
+>322	CallExpression	stop_drawing ( )
+>323	ArgumentList	 
+>324	Callee	stop_drawing
+>325	Identifier	stop_drawing
+>331	FunctionDef	MFont 
+>332	ParameterList	const char * text , float scale , float width
+>333	Parameter	 
+>334	Identifier	width
+>335	ParameterType	float
+>336	Parameter	 
+>337	Identifier	scale
+>338	ParameterType	float
+>339	Parameter	 
+>340	Identifier	text
+>341	ParameterType	const char *
+>342	ReturnType	float
+>343	CompoundStatement	 
+>344	ReturnStatement	 
+>345	MultiplicativeExpression	( width - size ) / 2.0f
+>346	PrimaryExpression	2.0f
+>347	AdditiveExpression	width - size
+>348	Identifier	size
+>349	Identifier	width
+>350	IdentifierDeclStatement	 
+>351	IdentifierDecl	size = size_of_text ( text , scale )
+>352	AssignmentExpr	size = size_of_text ( text , scale )
+>353	CallExpression	size_of_text ( text , scale )
+>354	ArgumentList	text
+>355	Argument	scale
+>356	Identifier	scale
+>357	Argument	text
+>358	Identifier	text
+>359	Callee	size_of_text
+>360	Identifier	size_of_text
+>361	Identifier	size
+>362	Identifier	size
+>363	IdentifierDeclType	float
+>372	FunctionDef	MFont 
+>373	ParameterList	const char * text , vec2 const & pos , float scale , bool centered , vec4 const & color
+>374	Parameter	 
+>375	Identifier	color
+>376	ParameterType	vec4 const &
+>377	Parameter	 
+>378	Identifier	centered
+>379	ParameterType	bool
+>380	Parameter	 
+>381	Identifier	scale
+>382	ParameterType	float
+>383	Parameter	 
+>384	Identifier	pos
+>385	ParameterType	vec2 const &
+>386	Parameter	 
+>387	Identifier	text
+>388	ParameterType	const char *
+>389	ReturnType	void
+>390	CompoundStatement	 
+>391	ExpressionStatement	 
+>392	CallExpression	glPopMatrix ( )
+>393	ArgumentList	 
+>394	Callee	glPopMatrix
+>395	Identifier	glPopMatrix
+>396	IfStatement	if ( ! m_external_draw )
+>397	ExpressionStatement	 
+>398	CallExpression	stop_drawing ( )
+>399	ArgumentList	 
+>400	Callee	stop_drawing
+>401	Identifier	stop_drawing
+>402	Condition	 
+>403	UnaryOp	! m_external_draw
+>404	Identifier	m_external_draw
+>405	UnaryOperator	!
+>406	WhileStatement	while ( * text )
+>407	ExpressionStatement	 
+>408	CallExpression	print_char ( * text ++ )
+>409	ArgumentList	* text ++
+>410	Argument	* text ++
+>411	UnaryOp	* text ++
+>412	IncDecOp	text ++
+>413	IncDec	++
+>414	Identifier	text
+>415	UnaryOperator	*
+>416	Callee	print_char
+>417	Identifier	print_char
+>418	Condition	 
+>419	UnaryOp	* text
+>420	Identifier	text
+>421	UnaryOperator	*
+>422	ExpressionStatement	 
+>423	CallExpression	set_scale ( scale )
+>424	ArgumentList	scale
+>425	Argument	scale
+>426	Identifier	scale
+>427	Callee	set_scale
+>428	Identifier	set_scale
+>429	ExpressionStatement	 
+>430	CallExpression	glTranslatef ( pos [ 0 ] + cx , pos [ 1 ] , 0.0 )
+>431	ArgumentList	pos [ 0 ] + cx
+>432	Argument	0.0
+>433	PrimaryExpression	0.0
+>434	Argument	pos [ 1 ]
+>435	ArrayIndexing	pos [ 1 ]
+>436	PrimaryExpression	1
+>437	Identifier	pos
+>438	Argument	pos [ 0 ] + cx
+>439	AdditiveExpression	pos [ 0 ] + cx
+>440	Identifier	cx
+>441	ArrayIndexing	pos [ 0 ]
+>442	PrimaryExpression	0
+>443	Identifier	pos
+>444	Callee	glTranslatef
+>445	Identifier	glTranslatef
+>446	ExpressionStatement	 
+>447	CallExpression	glColor ( color )
+>448	ArgumentList	color
+>449	Argument	color
+>450	Identifier	color
+>451	Callee	glColor
+>452	Identifier	glColor
+>453	IfStatement	if ( ! m_external_draw )
+>454	ExpressionStatement	 
+>455	CallExpression	start_drawing ( )
+>456	ArgumentList	 
+>457	Callee	start_drawing
+>458	Identifier	start_drawing
+>459	Condition	 
+>460	UnaryOp	! m_external_draw
+>461	Identifier	m_external_draw
+>462	UnaryOperator	!
+>463	ExpressionStatement	 
+>464	CallExpression	glPushMatrix ( )
+>465	ArgumentList	 
+>466	Callee	glPushMatrix
+>467	Identifier	glPushMatrix
+>468	IfStatement	if ( centered )
+>469	ExpressionStatement	 
+>470	AssignmentExpr	cx = center_text_pos ( text , scale )
+>471	CallExpression	center_text_pos ( text , scale )
+>472	ArgumentList	text
+>473	Argument	scale
+>474	Identifier	scale
+>475	Argument	text
+>476	Identifier	text
+>477	Callee	center_text_pos
+>478	Identifier	center_text_pos
+>479	Identifier	cx
+>480	Condition	 
+>481	Identifier	centered
+>482	IdentifierDeclStatement	 
+>483	IdentifierDecl	cx = 0.0
+>484	AssignmentExpr	cx = 0.0
+>485	PrimaryExpression	0.0
+>486	Identifier	cx
+>487	Identifier	cx
+>488	IdentifierDeclType	float
+>503	FunctionDef	MFont 
+>504	ParameterList	const char * text , vec2 const & pos , float scale , bool centered , vec4 const & color
+>505	Parameter	 
+>506	Identifier	color
+>507	ParameterType	vec4 const &
+>508	Parameter	 
+>509	Identifier	centered
+>510	ParameterType	bool
+>511	Parameter	 
+>512	Identifier	scale
+>513	ParameterType	float
+>514	Parameter	 
+>515	Identifier	pos
+>516	ParameterType	vec2 const &
+>517	Parameter	 
+>518	Identifier	text
+>519	ParameterType	const char *
+>520	ReturnType	void
+>521	CompoundStatement	 
+>522	ExpressionStatement	 
+>523	CallExpression	print_text ( text , pos , scale , centered , color )
+>524	ArgumentList	text
+>525	Argument	color
+>526	Identifier	color
+>527	Argument	centered
+>528	Identifier	centered
+>529	Argument	scale
+>530	Identifier	scale
+>531	Argument	pos
+>532	Identifier	pos
+>533	Argument	text
+>534	Identifier	text
+>535	Callee	print_text
+>536	Identifier	print_text
+>537	ExpressionStatement	 
+>538	CallExpression	print_text ( text , pos + vec2 ( 0.002 , 0.002 ) , scale , centered , vec4 ( 0.0 , 0.0 , 0.0 , color [ 3 ] ) )
+>539	ArgumentList	text
+>540	Argument	vec4 ( 0.0 , 0.0 , 0.0 , color [ 3 ] )
+>541	CallExpression	vec4 ( 0.0 , 0.0 , 0.0 , color [ 3 ] )
+>542	ArgumentList	0.0
+>543	Argument	color [ 3 ]
+>544	ArrayIndexing	color [ 3 ]
+>545	PrimaryExpression	3
+>546	Identifier	color
+>547	Argument	0.0
+>548	PrimaryExpression	0.0
+>549	Argument	0.0
+>550	PrimaryExpression	0.0
+>551	Argument	0.0
+>552	PrimaryExpression	0.0
+>553	Callee	vec4
+>554	Identifier	vec4
+>555	Argument	centered
+>556	Identifier	centered
+>557	Argument	scale
+>558	Identifier	scale
+>559	Argument	pos + vec2 ( 0.002 , 0.002 )
+>560	AdditiveExpression	pos + vec2 ( 0.002 , 0.002 )
+>561	CallExpression	vec2 ( 0.002 , 0.002 )
+>562	ArgumentList	0.002
+>563	Argument	0.002
+>564	PrimaryExpression	0.002
+>565	Argument	0.002
+>566	PrimaryExpression	0.002
+>567	Callee	vec2
+>568	Identifier	vec2
+>569	Identifier	pos
+>570	Argument	text
+>571	Identifier	text
+>572	Callee	print_text
+>573	Identifier	print_text
+>585	FunctionDef	MFont 
+>586	ParameterList	float scale
+>587	Parameter	 
+>588	Identifier	scale
+>589	ParameterType	float
+>590	ReturnType	void
+>591	CompoundStatement	 
+>592	ExpressionStatement	 
+>593	CallExpression	glScalef ( scale , scale , 1.0 )
+>594	ArgumentList	scale
+>595	Argument	1.0
+>596	PrimaryExpression	1.0
+>597	Argument	scale
+>598	Identifier	scale
+>599	Argument	scale
+>600	Identifier	scale
+>601	Callee	glScalef
+>602	Identifier	glScalef
+>603	ExpressionStatement	 
+>604	AssignmentExpr	scale *= m_prescale
+>605	Identifier	m_prescale
+>606	Identifier	scale
+>612	FunctionDef	MFont 
+>613	ParameterList	char ch
+>614	Parameter	 
+>615	Identifier	ch
+>616	ParameterType	char
+>617	ReturnType	void
+>618	CompoundStatement	 
+>619	ExpressionStatement	 
+>620	CallExpression	glTranslatef ( m_glyphs [ char_n ] . m_advance , 0 , 0 )
+>621	ArgumentList	m_glyphs [ char_n ] . m_advance
+>622	Argument	0
+>623	PrimaryExpression	0
+>624	Argument	0
+>625	PrimaryExpression	0
+>626	Argument	m_glyphs [ char_n ] . m_advance
+>627	MemberAccess	m_glyphs [ char_n ] . m_advance
+>628	Identifier	m_advance
+>629	ArrayIndexing	m_glyphs [ char_n ]
+>630	Identifier	char_n
+>631	Identifier	m_glyphs
+>632	Callee	glTranslatef
+>633	Identifier	glTranslatef
+>634	ExpressionStatement	 
+>635	CallExpression	glDrawArrays ( GL_QUADS , char_n * 4 , 4 )
+>636	ArgumentList	GL_QUADS
+>637	Argument	4
+>638	PrimaryExpression	4
+>639	Argument	char_n * 4
+>640	MultiplicativeExpression	char_n * 4
+>641	PrimaryExpression	4
+>642	Identifier	char_n
+>643	Argument	GL_QUADS
+>644	Identifier	GL_QUADS
+>645	Callee	glDrawArrays
+>646	Identifier	glDrawArrays
+>647	IdentifierDeclStatement	 
+>648	IdentifierDecl	char_n = ch - m_start_char
+>649	AssignmentExpr	char_n = ch - m_start_char
+>650	AdditiveExpression	ch - m_start_char
+>651	Identifier	m_start_char
+>652	Identifier	ch
+>653	Identifier	char_n
+>654	Identifier	char_n
+>655	IdentifierDeclType	unsigned int
+>656	IfStatement	if ( ch == '\n' )
+>657	CompoundStatement	 
+>658	ReturnStatement	 
+>659	Condition	 
+>660	EqualityExpression	ch == '\n'
+>661	PrimaryExpression	'\n'
+>662	Identifier	ch
+>674	FunctionDef	MFont 
+>675	ParameterList	 
+>676	ReturnType	void
+>677	CompoundStatement	 
+>678	ExpressionStatement	 
+>679	CallExpression	g_resources . shader_font -> use ( )
+>680	ArgumentList	 
+>681	Callee	g_resources . shader_font -> use
+>682	PtrMemberAccess	g_resources . shader_font -> use
+>683	Identifier	use
+>684	MemberAccess	g_resources . shader_font
+>685	Identifier	shader_font
+>686	Identifier	g_resources
+>687	ExpressionStatement	 
+>688	CallExpression	glTexCoordPointer ( 2 , GL_FLOAT , 8 * 2 , ( void * ) ( 4 * 2 ) )
+>689	ArgumentList	2
+>690	Argument	( void * ) ( 4 * 2 )
+>691	CastExpression	( void * ) ( 4 * 2 )
+>692	MultiplicativeExpression	4 * 2
+>693	PrimaryExpression	2
+>694	PrimaryExpression	4
+>695	CastTarget	void *
+>696	Argument	8 * 2
+>697	MultiplicativeExpression	8 * 2
+>698	PrimaryExpression	2
+>699	PrimaryExpression	8
+>700	Argument	GL_FLOAT
+>701	Identifier	GL_FLOAT
+>702	Argument	2
+>703	PrimaryExpression	2
+>704	Callee	glTexCoordPointer
+>705	Identifier	glTexCoordPointer
+>706	ExpressionStatement	 
+>707	CallExpression	glVertexPointer ( 2 , GL_FLOAT , 8 * 2 , 0 )
+>708	ArgumentList	2
+>709	Argument	0
+>710	PrimaryExpression	0
+>711	Argument	8 * 2
+>712	MultiplicativeExpression	8 * 2
+>713	PrimaryExpression	2
+>714	PrimaryExpression	8
+>715	Argument	GL_FLOAT
+>716	Identifier	GL_FLOAT
+>717	Argument	2
+>718	PrimaryExpression	2
+>719	Callee	glVertexPointer
+>720	Identifier	glVertexPointer
+>721	ExpressionStatement	 
+>722	CallExpression	glEnableClientState ( GL_TEXTURE_COORD_ARRAY )
+>723	ArgumentList	GL_TEXTURE_COORD_ARRAY
+>724	Argument	GL_TEXTURE_COORD_ARRAY
+>725	Identifier	GL_TEXTURE_COORD_ARRAY
+>726	Callee	glEnableClientState
+>727	Identifier	glEnableClientState
+>728	ExpressionStatement	 
+>729	CallExpression	glEnableClientState ( GL_VERTEX_ARRAY )
+>730	ArgumentList	GL_VERTEX_ARRAY
+>731	Argument	GL_VERTEX_ARRAY
+>732	Identifier	GL_VERTEX_ARRAY
+>733	Callee	glEnableClientState
+>734	Identifier	glEnableClientState
+>735	ExpressionStatement	 
+>736	CallExpression	my_glBindBuffer ( GL_ARRAY_BUFFER , m_vbo )
+>737	ArgumentList	GL_ARRAY_BUFFER
+>738	Argument	m_vbo
+>739	Identifier	m_vbo
+>740	Argument	GL_ARRAY_BUFFER
+>741	Identifier	GL_ARRAY_BUFFER
+>742	Callee	my_glBindBuffer
+>743	Identifier	my_glBindBuffer
+>744	ExpressionStatement	 
+>745	CallExpression	glBlendFunc ( GL_ONE , GL_ONE_MINUS_SRC_ALPHA )
+>746	ArgumentList	GL_ONE
+>747	Argument	GL_ONE_MINUS_SRC_ALPHA
+>748	Identifier	GL_ONE_MINUS_SRC_ALPHA
+>749	Argument	GL_ONE
+>750	Identifier	GL_ONE
+>751	Callee	glBlendFunc
+>752	Identifier	glBlendFunc
+>753	ExpressionStatement	 
+>754	CallExpression	glEnable ( GL_BLEND )
+>755	ArgumentList	GL_BLEND
+>756	Argument	GL_BLEND
+>757	Identifier	GL_BLEND
+>758	Callee	glEnable
+>759	Identifier	glEnable
+>760	ExpressionStatement	 
+>761	CallExpression	glBindTexture ( GL_TEXTURE_2D , m_texture )
+>762	ArgumentList	GL_TEXTURE_2D
+>763	Argument	m_texture
+>764	Identifier	m_texture
+>765	Argument	GL_TEXTURE_2D
+>766	Identifier	GL_TEXTURE_2D
+>767	Callee	glBindTexture
+>768	Identifier	glBindTexture
+>769	ExpressionStatement	 
+>770	CallExpression	glEnable ( GL_TEXTURE_2D )
+>771	ArgumentList	GL_TEXTURE_2D
+>772	Argument	GL_TEXTURE_2D
+>773	Identifier	GL_TEXTURE_2D
+>774	Callee	glEnable
+>775	Identifier	glEnable
+>791	FunctionDef	MFont 
+>792	ParameterList	 
+>793	ReturnType	void
+>794	CompoundStatement	 
+>795	ExpressionStatement	 
+>796	CallExpression	glDisable ( GL_TEXTURE_2D )
+>797	ArgumentList	GL_TEXTURE_2D
+>798	Argument	GL_TEXTURE_2D
+>799	Identifier	GL_TEXTURE_2D
+>800	Callee	glDisable
+>801	Identifier	glDisable
+>802	ExpressionStatement	 
+>803	CallExpression	glDisable ( GL_BLEND )
+>804	ArgumentList	GL_BLEND
+>805	Argument	GL_BLEND
+>806	Identifier	GL_BLEND
+>807	Callee	glDisable
+>808	Identifier	glDisable
+>809	ExpressionStatement	 
+>810	CallExpression	my_glBindBuffer ( GL_ARRAY_BUFFER , 0 )
+>811	ArgumentList	GL_ARRAY_BUFFER
+>812	Argument	0
+>813	PrimaryExpression	0
+>814	Argument	GL_ARRAY_BUFFER
+>815	Identifier	GL_ARRAY_BUFFER
+>816	Callee	my_glBindBuffer
+>817	Identifier	my_glBindBuffer
+>818	ExpressionStatement	 
+>819	CallExpression	glDisableClientState ( GL_TEXTURE_COORD_ARRAY )
+>820	ArgumentList	GL_TEXTURE_COORD_ARRAY
+>821	Argument	GL_TEXTURE_COORD_ARRAY
+>822	Identifier	GL_TEXTURE_COORD_ARRAY
+>823	Callee	glDisableClientState
+>824	Identifier	glDisableClientState
+>825	ExpressionStatement	 
+>826	CallExpression	glDisableClientState ( GL_VERTEX_ARRAY )
+>827	ArgumentList	GL_VERTEX_ARRAY
+>828	Argument	GL_VERTEX_ARRAY
+>829	Identifier	GL_VERTEX_ARRAY
+>830	Callee	glDisableClientState
+>831	Identifier	glDisableClientState
+>832	ExpressionStatement	 
+>833	CallExpression	g_resources . shader_font -> unuse ( )
+>834	ArgumentList	 
+>835	Callee	g_resources . shader_font -> unuse
+>836	PtrMemberAccess	g_resources . shader_font -> unuse
+>837	Identifier	unuse
+>838	MemberAccess	g_resources . shader_font
+>839	Identifier	shader_font
+>840	Identifier	g_resources
+>851	FunctionDef	MFont 
+>852	ParameterList	 
+>853	ReturnType	void
+>854	CompoundStatement	 
+>855	ExpressionStatement	 
+>856	Identifier	data
+>857	Statement	 
+>858	Statement	 
+>859	Statement	 
+>860	ExpressionStatement	 
+>861	CallExpression	my_glBindBuffer ( GL_ARRAY_BUFFER , 0 )
+>862	ArgumentList	GL_ARRAY_BUFFER
+>863	Argument	0
+>864	PrimaryExpression	0
+>865	Argument	GL_ARRAY_BUFFER
+>866	Identifier	GL_ARRAY_BUFFER
+>867	Callee	my_glBindBuffer
+>868	Identifier	my_glBindBuffer
+>869	ExpressionStatement	 
+>870	CallExpression	my_glBufferData ( GL_ARRAY_BUFFER , datapos * sizeof ( float ) , data , GL_STATIC_DRAW )
+>871	ArgumentList	GL_ARRAY_BUFFER
+>872	Argument	GL_STATIC_DRAW
+>873	Identifier	GL_STATIC_DRAW
+>874	Argument	data
+>875	Identifier	data
+>876	Argument	datapos * sizeof ( float )
+>877	MultiplicativeExpression	datapos * sizeof ( float )
+>878	SizeofExpr	sizeof ( float )
+>879	SizeofOperand	float
+>880	Sizeof	sizeof
+>881	Identifier	datapos
+>882	Argument	GL_ARRAY_BUFFER
+>883	Identifier	GL_ARRAY_BUFFER
+>884	Callee	my_glBufferData
+>885	Identifier	my_glBufferData
+>886	ExpressionStatement	 
+>887	CallExpression	my_glBindBuffer ( GL_ARRAY_BUFFER , m_vbo )
+>888	ArgumentList	GL_ARRAY_BUFFER
+>889	Argument	m_vbo
+>890	Identifier	m_vbo
+>891	Argument	GL_ARRAY_BUFFER
+>892	Identifier	GL_ARRAY_BUFFER
+>893	Callee	my_glBindBuffer
+>894	Identifier	my_glBindBuffer
+>895	ExpressionStatement	 
+>896	CallExpression	my_glGenBuffers ( 1 , & m_vbo )
+>897	ArgumentList	1
+>898	Argument	& m_vbo
+>899	UnaryOp	& m_vbo
+>900	Identifier	m_vbo
+>901	UnaryOperator	&
+>902	Argument	1
+>903	PrimaryExpression	1
+>904	Callee	my_glGenBuffers
+>905	Identifier	my_glGenBuffers
+>906	ForStatement	for ( int ch = 0 ; ch < ( m_end_char - m_start_char ) ; ++ ch )
+>907	CompoundStatement	 
+>908	ExpressionStatement	 
+>909	AssignmentExpr	data [ datapos ++ ] = y2
+>910	Identifier	y2
+>911	ArrayIndexing	data [ datapos ++ ]
+>912	IncDecOp	datapos ++
+>913	IncDec	++
+>914	Identifier	datapos
+>915	Identifier	data
+>916	ExpressionStatement	 
+>917	AssignmentExpr	data [ datapos ++ ] = x1
+>918	Identifier	x1
+>919	ArrayIndexing	data [ datapos ++ ]
+>920	IncDecOp	datapos ++
+>921	IncDec	++
+>922	Identifier	datapos
+>923	Identifier	data
+>924	ExpressionStatement	 
+>925	AssignmentExpr	data [ datapos ++ ] = 1 - border_b
+>926	AdditiveExpression	1 - border_b
+>927	Identifier	border_b
+>928	PrimaryExpression	1
+>929	ArrayIndexing	data [ datapos ++ ]
+>930	IncDecOp	datapos ++
+>931	IncDec	++
+>932	Identifier	datapos
+>933	Identifier	data
+>934	ExpressionStatement	 
+>935	AssignmentExpr	data [ datapos ++ ] = border_a
+>936	Identifier	border_a
+>937	ArrayIndexing	data [ datapos ++ ]
+>938	IncDecOp	datapos ++
+>939	IncDec	++
+>940	Identifier	datapos
+>941	Identifier	data
+>942	ExpressionStatement	 
+>943	AssignmentExpr	data [ datapos ++ ] = y2
+>944	Identifier	y2
+>945	ArrayIndexing	data [ datapos ++ ]
+>946	IncDecOp	datapos ++
+>947	IncDec	++
+>948	Identifier	datapos
+>949	Identifier	data
+>950	ExpressionStatement	 
+>951	AssignmentExpr	data [ datapos ++ ] = x2
+>952	Identifier	x2
+>953	ArrayIndexing	data [ datapos ++ ]
+>954	IncDecOp	datapos ++
+>955	IncDec	++
+>956	Identifier	datapos
+>957	Identifier	data
+>958	ExpressionStatement	 
+>959	AssignmentExpr	data [ datapos ++ ] = 1 - border_b
+>960	AdditiveExpression	1 - border_b
+>961	Identifier	border_b
+>962	PrimaryExpression	1
+>963	ArrayIndexing	data [ datapos ++ ]
+>964	IncDecOp	datapos ++
+>965	IncDec	++
+>966	Identifier	datapos
+>967	Identifier	data
+>968	ExpressionStatement	 
+>969	AssignmentExpr	data [ datapos ++ ] = 1 - border_b
+>970	AdditiveExpression	1 - border_b
+>971	Identifier	border_b
+>972	PrimaryExpression	1
+>973	ArrayIndexing	data [ datapos ++ ]
+>974	IncDecOp	datapos ++
+>975	IncDec	++
+>976	Identifier	datapos
+>977	Identifier	data
+>978	ExpressionStatement	 
+>979	AssignmentExpr	data [ datapos ++ ] = y1
+>980	Identifier	y1
+>981	ArrayIndexing	data [ datapos ++ ]
+>982	IncDecOp	datapos ++
+>983	IncDec	++
+>984	Identifier	datapos
+>985	Identifier	data
+>986	ExpressionStatement	 
+>987	AssignmentExpr	data [ datapos ++ ] = x2
+>988	Identifier	x2
+>989	ArrayIndexing	data [ datapos ++ ]
+>990	IncDecOp	datapos ++
+>991	IncDec	++
+>992	Identifier	datapos
+>993	Identifier	data
+>994	ExpressionStatement	 
+>995	AssignmentExpr	data [ datapos ++ ] = border_a
+>996	Identifier	border_a
+>997	ArrayIndexing	data [ datapos ++ ]
+>998	IncDecOp	datapos ++
+>999	IncDec	++
+>1000	Identifier	datapos
+>1001	Identifier	data
+>1002	ExpressionStatement	 
+>1003	AssignmentExpr	data [ datapos ++ ] = 1 - border_b
+>1004	AdditiveExpression	1 - border_b
+>1005	Identifier	border_b
+>1006	PrimaryExpression	1
+>1007	ArrayIndexing	data [ datapos ++ ]
+>1008	IncDecOp	datapos ++
+>1009	IncDec	++
+>1010	Identifier	datapos
+>1011	Identifier	data
+>1012	ExpressionStatement	 
+>1013	AssignmentExpr	data [ datapos ++ ] = y1
+>1014	Identifier	y1
+>1015	ArrayIndexing	data [ datapos ++ ]
+>1016	IncDecOp	datapos ++
+>1017	IncDec	++
+>1018	Identifier	datapos
+>1019	Identifier	data
+>1020	ExpressionStatement	 
+>1021	AssignmentExpr	data [ datapos ++ ] = x1
+>1022	Identifier	x1
+>1023	ArrayIndexing	data [ datapos ++ ]
+>1024	IncDecOp	datapos ++
+>1025	IncDec	++
+>1026	Identifier	datapos
+>1027	Identifier	data
+>1028	ExpressionStatement	 
+>1029	AssignmentExpr	data [ datapos ++ ] = border_a
+>1030	Identifier	border_a
+>1031	ArrayIndexing	data [ datapos ++ ]
+>1032	IncDecOp	datapos ++
+>1033	IncDec	++
+>1034	Identifier	datapos
+>1035	Identifier	data
+>1036	ExpressionStatement	 
+>1037	AssignmentExpr	data [ datapos ++ ] = border_a
+>1038	Identifier	border_a
+>1039	ArrayIndexing	data [ datapos ++ ]
+>1040	IncDecOp	datapos ++
+>1041	IncDec	++
+>1042	Identifier	datapos
+>1043	Identifier	data
+>1044	IdentifierDeclStatement	 
+>1045	IdentifierDecl	y2 = ( y + 1 ) * m_texture_step - m_texture_step * border_b
+>1046	AssignmentExpr	y2 = ( y + 1 ) * m_texture_step - m_texture_step * border_b
+>1047	AdditiveExpression	( y + 1 ) * m_texture_step - m_texture_step * border_b
+>1048	MultiplicativeExpression	m_texture_step * border_b
+>1049	Identifier	border_b
+>1050	Identifier	m_texture_step
+>1051	MultiplicativeExpression	( y + 1 ) * m_texture_step
+>1052	Identifier	m_texture_step
+>1053	AdditiveExpression	y + 1
+>1054	PrimaryExpression	1
+>1055	Identifier	y
+>1056	Identifier	y2
+>1057	Identifier	y2
+>1058	IdentifierDeclType	float
+>1059	IdentifierDeclStatement	 
+>1060	IdentifierDecl	x2 = ( x + 1 ) * m_texture_step - m_texture_step * border_b
+>1061	AssignmentExpr	x2 = ( x + 1 ) * m_texture_step - m_texture_step * border_b
+>1062	AdditiveExpression	( x + 1 ) * m_texture_step - m_texture_step * border_b
+>1063	MultiplicativeExpression	m_texture_step * border_b
+>1064	Identifier	border_b
+>1065	Identifier	m_texture_step
+>1066	MultiplicativeExpression	( x + 1 ) * m_texture_step
+>1067	Identifier	m_texture_step
+>1068	AdditiveExpression	x + 1
+>1069	PrimaryExpression	1
+>1070	Identifier	x
+>1071	Identifier	x2
+>1072	Identifier	x2
+>1073	IdentifierDeclType	float
+>1074	IdentifierDeclStatement	 
+>1075	IdentifierDecl	y1 = y * m_texture_step + m_texture_step * border_a
+>1076	AssignmentExpr	y1 = y * m_texture_step + m_texture_step * border_a
+>1077	AdditiveExpression	y * m_texture_step + m_texture_step * border_a
+>1078	MultiplicativeExpression	m_texture_step * border_a
+>1079	Identifier	border_a
+>1080	Identifier	m_texture_step
+>1081	MultiplicativeExpression	y * m_texture_step
+>1082	Identifier	m_texture_step
+>1083	Identifier	y
+>1084	Identifier	y1
+>1085	Identifier	y1
+>1086	IdentifierDeclType	float
+>1087	IdentifierDeclStatement	 
+>1088	IdentifierDecl	x1 = x * m_texture_step + m_texture_step * border_a
+>1089	AssignmentExpr	x1 = x * m_texture_step + m_texture_step * border_a
+>1090	AdditiveExpression	x * m_texture_step + m_texture_step * border_a
+>1091	MultiplicativeExpression	m_texture_step * border_a
+>1092	Identifier	border_a
+>1093	Identifier	m_texture_step
+>1094	MultiplicativeExpression	x * m_texture_step
+>1095	Identifier	m_texture_step
+>1096	Identifier	x
+>1097	Identifier	x1
+>1098	Identifier	x1
+>1099	IdentifierDeclType	float
+>1100	IdentifierDeclStatement	 
+>1101	IdentifierDecl	y = ch / m_texture_chars_per_row
+>1102	AssignmentExpr	y = ch / m_texture_chars_per_row
+>1103	MultiplicativeExpression	ch / m_texture_chars_per_row
+>1104	Identifier	m_texture_chars_per_row
+>1105	Identifier	ch
+>1106	Identifier	y
+>1107	Identifier	y
+>1108	IdentifierDeclType	unsigned int
+>1109	IdentifierDeclStatement	 
+>1110	IdentifierDecl	x = ch % m_texture_chars_per_row
+>1111	AssignmentExpr	x = ch % m_texture_chars_per_row
+>1112	MultiplicativeExpression	ch % m_texture_chars_per_row
+>1113	Identifier	m_texture_chars_per_row
+>1114	Identifier	ch
+>1115	Identifier	x
+>1116	Identifier	x
+>1117	IdentifierDeclType	unsigned int
+>1118	IdentifierDeclStatement	 
+>1119	IdentifierDecl	border_b = 0.0
+>1120	AssignmentExpr	border_b = 0.0
+>1121	PrimaryExpression	0.0
+>1122	Identifier	border_b
+>1123	Identifier	border_b
+>1124	IdentifierDeclType	float
+>1125	IdentifierDeclStatement	 
+>1126	IdentifierDecl	border_a = 0.0
+>1127	AssignmentExpr	border_a = 0.0
+>1128	PrimaryExpression	0.0
+>1129	Identifier	border_a
+>1130	Identifier	border_a
+>1131	IdentifierDeclType	float
+>1132	UnaryExpression	 
+>1133	Identifier	ch
+>1134	IncDec	++
+>1135	Condition	 
+>1136	RelationalExpression	ch < ( m_end_char - m_start_char )
+>1137	AdditiveExpression	m_end_char - m_start_char
+>1138	Identifier	m_start_char
+>1139	Identifier	m_end_char
+>1140	Identifier	ch
+>1141	ForInit	 
+>1142	IdentifierDeclStatement	int ch = 0 ;
+>1143	IdentifierDecl	ch = 0
+>1144	AssignmentExpr	ch = 0
+>1145	PrimaryExpression	0
+>1146	Identifier	ch
+>1147	Identifier	ch
+>1148	IdentifierDeclType	int
+>1149	IdentifierDeclStatement	 
+>1150	IdentifierDecl	* data = new float [ ( m_end_char - m_start_char ) * ( 4 * 2 + 4 * 2 ) ]
+>1151	AssignmentExpr	* data = new float [ ( m_end_char - m_start_char ) * ( 4 * 2 + 4 * 2 ) ]
+>1152	MultiplicativeExpression	( m_end_char - m_start_char ) * ( 4 * 2 + 4 * 2 )
+>1153	AdditiveExpression	4 * 2 + 4 * 2
+>1154	MultiplicativeExpression	4 * 2
+>1155	PrimaryExpression	2
+>1156	PrimaryExpression	4
+>1157	MultiplicativeExpression	4 * 2
+>1158	PrimaryExpression	2
+>1159	PrimaryExpression	4
+>1160	AdditiveExpression	m_end_char - m_start_char
+>1161	Identifier	m_start_char
+>1162	Identifier	m_end_char
+>1163	Identifier	data
+>1164	Identifier	data
+>1165	IdentifierDeclType	float *
+>1166	IdentifierDeclStatement	 
+>1167	IdentifierDecl	datapos = 0
+>1168	AssignmentExpr	datapos = 0
+>1169	PrimaryExpression	0
+>1170	Identifier	datapos
+>1171	Identifier	datapos
+>1172	IdentifierDeclType	unsigned int
+>1197	FunctionDef	MFont 
+>1198	ParameterList	 
+>1199	ReturnType	void
+>1200	CompoundStatement	 
+>1201	ExpressionStatement	 
+>1202	CallExpression	g_loadingscreen -> update ( )
+>1203	ArgumentList	 
+>1204	Callee	g_loadingscreen -> update
+>1205	PtrMemberAccess	g_loadingscreen -> update
+>1206	Identifier	update
+>1207	Identifier	g_loadingscreen
+>1208	ExpressionStatement	 
+>1209	AssignmentExpr	m_texture = move_texture_red_component ( m_texture )
+>1210	CallExpression	move_texture_red_component ( m_texture )
+>1211	ArgumentList	m_texture
+>1212	Argument	m_texture
+>1213	Identifier	m_texture
+>1214	Callee	move_texture_red_component
+>1215	Identifier	move_texture_red_component
+>1216	Identifier	m_texture
+>1217	ExpressionStatement	 
+>1218	CallExpression	g_loadingscreen -> update ( )
+>1219	ArgumentList	 
+>1220	Callee	g_loadingscreen -> update
+>1221	PtrMemberAccess	g_loadingscreen -> update
+>1222	Identifier	update
+>1223	Identifier	g_loadingscreen
+>1224	ExpressionStatement	 
+>1225	Identifier	m_rtt
+>1226	Statement	 
+>1227	ExpressionStatement	 
+>1228	AssignmentExpr	m_texture = m_rtt -> get_texid ( )
+>1229	CallExpression	m_rtt -> get_texid ( )
+>1230	ArgumentList	 
+>1231	Callee	m_rtt -> get_texid
+>1232	PtrMemberAccess	m_rtt -> get_texid
+>1233	Identifier	get_texid
+>1234	Identifier	m_rtt
+>1235	Identifier	m_texture
+>1236	ExpressionStatement	 
+>1237	CallExpression	m_rtt -> end_render ( )
+>1238	ArgumentList	 
+>1239	Callee	m_rtt -> end_render
+>1240	PtrMemberAccess	m_rtt -> end_render
+>1241	Identifier	end_render
+>1242	Identifier	m_rtt
+>1243	ForStatement	for ( unsigned int i = 0 ; i < m_glyphs . size ( ) ; ++ i )
+>1244	CompoundStatement	 
+>1245	ExpressionStatement	 
+>1246	CallExpression	glLoadIdentity ( )
+>1247	ArgumentList	 
+>1248	Callee	glLoadIdentity
+>1249	Identifier	glLoadIdentity
+>1250	ExpressionStatement	 
+>1251	CallExpression	glEnd ( )
+>1252	ArgumentList	 
+>1253	Callee	glEnd
+>1254	Identifier	glEnd
+>1255	ForStatement	for ( unsigned int vi = 0 ; vi < verts . size ( ) ; ++ vi )
+>1256	CompoundStatement	 
+>1257	ExpressionStatement	 
+>1258	CallExpression	glVertex ( verts [ vi ] )
+>1259	ArgumentList	verts [ vi ]
+>1260	Argument	verts [ vi ]
+>1261	ArrayIndexing	verts [ vi ]
+>1262	Identifier	vi
+>1263	Identifier	verts
+>1264	Callee	glVertex
+>1265	Identifier	glVertex
+>1266	UnaryExpression	 
+>1267	Identifier	vi
+>1268	IncDec	++
+>1269	Condition	 
+>1270	RelationalExpression	vi < verts . size ( )
+>1271	CallExpression	verts . size ( )
+>1272	ArgumentList	 
+>1273	Callee	verts . size
+>1274	MemberAccess	verts . size
+>1275	Identifier	size
+>1276	Identifier	verts
+>1277	Identifier	vi
+>1278	ForInit	 
+>1279	IdentifierDeclStatement	unsigned int vi = 0 ;
+>1280	IdentifierDecl	vi = 0
+>1281	AssignmentExpr	vi = 0
+>1282	PrimaryExpression	0
+>1283	Identifier	vi
+>1284	Identifier	vi
+>1285	IdentifierDeclType	unsigned int
+>1286	ExpressionStatement	 
+>1287	CallExpression	glBegin ( GL_TRIANGLES )
+>1288	ArgumentList	GL_TRIANGLES
+>1289	Argument	GL_TRIANGLES
+>1290	Identifier	GL_TRIANGLES
+>1291	Callee	glBegin
+>1292	Identifier	glBegin
+>1293	ExpressionStatement	 
+>1294	CallExpression	glScalef ( m_texture_step , - m_texture_step , 1.0 )
+>1295	ArgumentList	m_texture_step
+>1296	Argument	1.0
+>1297	PrimaryExpression	1.0
+>1298	Argument	- m_texture_step
+>1299	UnaryOp	- m_texture_step
+>1300	Identifier	m_texture_step
+>1301	UnaryOperator	-
+>1302	Argument	m_texture_step
+>1303	Identifier	m_texture_step
+>1304	Callee	glScalef
+>1305	Identifier	glScalef
+>1306	ExpressionStatement	 
+>1307	CallExpression	glTranslatef ( xpos , ypos + correct_y , 0.0 )
+>1308	ArgumentList	xpos
+>1309	Argument	0.0
+>1310	PrimaryExpression	0.0
+>1311	Argument	ypos + correct_y
+>1312	AdditiveExpression	ypos + correct_y
+>1313	Identifier	correct_y
+>1314	Identifier	ypos
+>1315	Argument	xpos
+>1316	Identifier	xpos
+>1317	Callee	glTranslatef
+>1318	Identifier	glTranslatef
+>1319	IfStatement	if ( verts . empty ( ) )
+>1320	ContinueStatement	 
+>1321	Condition	 
+>1322	CallExpression	verts . empty ( )
+>1323	ArgumentList	 
+>1324	Callee	verts . empty
+>1325	MemberAccess	verts . empty
+>1326	Identifier	empty
+>1327	Identifier	verts
+>1328	IdentifierDeclStatement	 
+>1329	IdentifierDecl	& verts = m_glyphs [ i ] . m_verts
+>1330	AssignmentExpr	& verts = m_glyphs [ i ] . m_verts
+>1331	MemberAccess	m_glyphs [ i ] . m_verts
+>1332	Identifier	m_verts
+>1333	ArrayIndexing	m_glyphs [ i ]
+>1334	Identifier	i
+>1335	Identifier	m_glyphs
+>1336	Identifier	verts
+>1337	Identifier	verts
+>1338	IdentifierDeclType	vec2_ary_t &
+>1339	IdentifierDeclStatement	 
+>1340	IdentifierDecl	ypos = ( y + 1 ) * m_texture_step
+>1341	AssignmentExpr	ypos = ( y + 1 ) * m_texture_step
+>1342	MultiplicativeExpression	( y + 1 ) * m_texture_step
+>1343	Identifier	m_texture_step
+>1344	AdditiveExpression	y + 1
+>1345	PrimaryExpression	1
+>1346	Identifier	y
+>1347	Identifier	ypos
+>1348	Identifier	ypos
+>1349	IdentifierDeclType	float
+>1350	IdentifierDeclStatement	 
+>1351	IdentifierDecl	xpos = x * m_texture_step
+>1352	AssignmentExpr	xpos = x * m_texture_step
+>1353	MultiplicativeExpression	x * m_texture_step
+>1354	Identifier	m_texture_step
+>1355	Identifier	x
+>1356	Identifier	xpos
+>1357	Identifier	xpos
+>1358	IdentifierDeclType	float
+>1359	IdentifierDeclStatement	 
+>1360	IdentifierDecl	y = i / m_texture_chars_per_row
+>1361	AssignmentExpr	y = i / m_texture_chars_per_row
+>1362	MultiplicativeExpression	i / m_texture_chars_per_row
+>1363	Identifier	m_texture_chars_per_row
+>1364	Identifier	i
+>1365	Identifier	y
+>1366	Identifier	y
+>1367	IdentifierDeclType	unsigned int
+>1368	IdentifierDeclStatement	 
+>1369	IdentifierDecl	x = i % m_texture_chars_per_row
+>1370	AssignmentExpr	x = i % m_texture_chars_per_row
+>1371	MultiplicativeExpression	i % m_texture_chars_per_row
+>1372	Identifier	m_texture_chars_per_row
+>1373	Identifier	i
+>1374	Identifier	x
+>1375	Identifier	x
+>1376	IdentifierDeclType	unsigned int
+>1377	UnaryExpression	 
+>1378	Identifier	i
+>1379	IncDec	++
+>1380	Condition	 
+>1381	RelationalExpression	i < m_glyphs . size ( )
+>1382	CallExpression	m_glyphs . size ( )
+>1383	ArgumentList	 
+>1384	Callee	m_glyphs . size
+>1385	MemberAccess	m_glyphs . size
+>1386	Identifier	size
+>1387	Identifier	m_glyphs
+>1388	Identifier	i
+>1389	ForInit	 
+>1390	IdentifierDeclStatement	unsigned int i = 0 ;
+>1391	IdentifierDecl	i = 0
+>1392	AssignmentExpr	i = 0
+>1393	PrimaryExpression	0
+>1394	Identifier	i
+>1395	Identifier	i
+>1396	IdentifierDeclType	unsigned int
+>1397	ExpressionStatement	 
+>1398	CallExpression	glColor4f ( 1 , 1 , 1 , 1 )
+>1399	ArgumentList	1
+>1400	Argument	1
+>1401	PrimaryExpression	1
+>1402	Argument	1
+>1403	PrimaryExpression	1
+>1404	Argument	1
+>1405	PrimaryExpression	1
+>1406	Argument	1
+>1407	PrimaryExpression	1
+>1408	Callee	glColor4f
+>1409	Identifier	glColor4f
+>1410	ExpressionStatement	 
+>1411	CallExpression	glDisable ( GL_TEXTURE_2D )
+>1412	ArgumentList	GL_TEXTURE_2D
+>1413	Argument	GL_TEXTURE_2D
+>1414	Identifier	GL_TEXTURE_2D
+>1415	Callee	glDisable
+>1416	Identifier	glDisable
+>1417	ExpressionStatement	 
+>1418	CallExpression	glLoadIdentity ( )
+>1419	ArgumentList	 
+>1420	Callee	glLoadIdentity
+>1421	Identifier	glLoadIdentity
+>1422	ExpressionStatement	 
+>1423	CallExpression	glMatrixMode ( GL_MODELVIEW )
+>1424	ArgumentList	GL_MODELVIEW
+>1425	Argument	GL_MODELVIEW
+>1426	Identifier	GL_MODELVIEW
+>1427	Callee	glMatrixMode
+>1428	Identifier	glMatrixMode
+>1429	ExpressionStatement	 
+>1430	CallExpression	glOrtho ( 0.0 , 1.0 , 0.0 , 1.0 , - 1 , 1 )
+>1431	ArgumentList	0.0
+>1432	Argument	1
+>1433	PrimaryExpression	1
+>1434	Argument	- 1
+>1435	UnaryOp	- 1
+>1436	PrimaryExpression	1
+>1437	UnaryOperator	-
+>1438	Argument	1.0
+>1439	PrimaryExpression	1.0
+>1440	Argument	0.0
+>1441	PrimaryExpression	0.0
+>1442	Argument	1.0
+>1443	PrimaryExpression	1.0
+>1444	Argument	0.0
+>1445	PrimaryExpression	0.0
+>1446	Callee	glOrtho
+>1447	Identifier	glOrtho
+>1448	ExpressionStatement	 
+>1449	CallExpression	glLoadIdentity ( )
+>1450	ArgumentList	 
+>1451	Callee	glLoadIdentity
+>1452	Identifier	glLoadIdentity
+>1453	ExpressionStatement	 
+>1454	CallExpression	glMatrixMode ( GL_PROJECTION )
+>1455	ArgumentList	GL_PROJECTION
+>1456	Argument	GL_PROJECTION
+>1457	Identifier	GL_PROJECTION
+>1458	Callee	glMatrixMode
+>1459	Identifier	glMatrixMode
+>1460	ExpressionStatement	 
+>1461	CallExpression	glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
+>1462	ArgumentList	GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+>1463	Argument	GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+>1464	InclusiveOrExpression	GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+>1465	Identifier	GL_DEPTH_BUFFER_BIT
+>1466	Identifier	GL_COLOR_BUFFER_BIT
+>1467	Callee	glClear
+>1468	Identifier	glClear
+>1469	ExpressionStatement	 
+>1470	CallExpression	glViewport ( 0 , 0 , t_size , t_size )
+>1471	ArgumentList	0
+>1472	Argument	t_size
+>1473	Identifier	t_size
+>1474	Argument	t_size
+>1475	Identifier	t_size
+>1476	Argument	0
+>1477	PrimaryExpression	0
+>1478	Argument	0
+>1479	PrimaryExpression	0
+>1480	Callee	glViewport
+>1481	Identifier	glViewport
+>1482	ExpressionStatement	 
+>1483	CallExpression	glDisable ( GL_DEPTH_TEST )
+>1484	ArgumentList	GL_DEPTH_TEST
+>1485	Argument	GL_DEPTH_TEST
+>1486	Identifier	GL_DEPTH_TEST
+>1487	Callee	glDisable
+>1488	Identifier	glDisable
+>1489	ExpressionStatement	 
+>1490	CallExpression	glDepthMask ( GL_FALSE )
+>1491	ArgumentList	GL_FALSE
+>1492	Argument	GL_FALSE
+>1493	Identifier	GL_FALSE
+>1494	Callee	glDepthMask
+>1495	Identifier	glDepthMask
+>1496	ExpressionStatement	 
+>1497	CallExpression	glClearColor ( 0.0 , 0.0 , 0.0 , 0.0 )
+>1498	ArgumentList	0.0
+>1499	Argument	0.0
+>1500	PrimaryExpression	0.0
+>1501	Argument	0.0
+>1502	PrimaryExpression	0.0
+>1503	Argument	0.0
+>1504	PrimaryExpression	0.0
+>1505	Argument	0.0
+>1506	PrimaryExpression	0.0
+>1507	Callee	glClearColor
+>1508	Identifier	glClearColor
+>1509	ExpressionStatement	 
+>1510	CallExpression	m_rtt -> start_render ( )
+>1511	ArgumentList	 
+>1512	Callee	m_rtt -> start_render
+>1513	PtrMemberAccess	m_rtt -> start_render
+>1514	Identifier	start_render
+>1515	Identifier	m_rtt
+>1516	IdentifierDeclStatement	 
+>1517	IdentifierDecl	* m_rtt = new RTT_FBO ( 1 , t_size , t_size )
+>1518	AssignmentExpr	* m_rtt = new RTT_FBO ( 1 , t_size , t_size )
+>1519	Expression	1 , t_size , t_size
+>1520	Expression	t_size , t_size
+>1521	Identifier	t_size
+>1522	Identifier	t_size
+>1523	PrimaryExpression	1
+>1524	Identifier	m_rtt
+>1525	Identifier	m_rtt
+>1526	IdentifierDeclType	RTT *
+>1527	IdentifierDeclStatement	 
+>1528	IdentifierDecl	correct_y = m_texture_step * - 0.1
+>1529	AssignmentExpr	correct_y = m_texture_step * - 0.1
+>1530	MultiplicativeExpression	m_texture_step * - 0.1
+>1531	UnaryOp	- 0.1
+>1532	PrimaryExpression	0.1
+>1533	UnaryOperator	-
+>1534	Identifier	m_texture_step
+>1535	Identifier	correct_y
+>1536	Identifier	correct_y
+>1537	IdentifierDeclType	float
+>1538	IdentifierDeclStatement	 
+>1539	IdentifierDecl	t_size = g_resources . texture_font_size
+>1540	AssignmentExpr	t_size = g_resources . texture_font_size
+>1541	MemberAccess	g_resources . texture_font_size
+>1542	Identifier	texture_font_size
+>1543	Identifier	g_resources
+>1544	Identifier	t_size
+>1545	Identifier	t_size
+>1546	IdentifierDeclType	int
+>1586	FunctionDef	MFont 
+>1587	ParameterList	 
+>1588	ReturnType	void
+>1589	CompoundStatement	 
+>1590	ForStatement	for ( int i = m_start_char ; i <= m_end_char ; i ++ )
+>1591	CompoundStatement	 
+>1592	IfStatement	if ( path . empty ( ) )
+>1593	ElseStatement	else
+>1594	CompoundStatement	 
+>1595	ExpressionStatement	 
+>1596	CallExpression	g_loadingscreen -> update ( )
+>1597	ArgumentList	 
+>1598	Callee	g_loadingscreen -> update
+>1599	PtrMemberAccess	g_loadingscreen -> update
+>1600	Identifier	update
+>1601	Identifier	g_loadingscreen
+>1602	ExpressionStatement	 
+>1603	CallExpression	m_glyphs . push_back ( glyph )
+>1604	ArgumentList	glyph
+>1605	Argument	glyph
+>1606	Identifier	glyph
+>1607	Callee	m_glyphs . push_back
+>1608	MemberAccess	m_glyphs . push_back
+>1609	Identifier	push_back
+>1610	Identifier	m_glyphs
+>1611	IdentifierDeclStatement	 
+>1612	IdentifierDecl	glyph ( advance , verts )
+>1613	Expression	advance , verts
+>1614	Identifier	verts
+>1615	Identifier	advance
+>1616	Identifier	glyph
+>1617	IdentifierDeclType	Glyph
+>1618	IdentifierDeclStatement	 
+>1619	IdentifierDecl	verts = Tesselate 
+>1620	AssignmentExpr	verts = Tesselate 
+>1621	CallExpression	Tesselate 
+>1622	ArgumentList	pathset
+>1623	Argument	pathset
+>1624	Identifier	pathset
+>1625	Callee	Tesselate 
+>1626	Identifier	Tesselate 
+>1627	Identifier	verts
+>1628	Identifier	verts
+>1629	IdentifierDeclType	vec2_ary_t
+>1630	IdentifierDeclStatement	 
+>1631	IdentifierDecl	pathset = svgpath . get_pathset ( )
+>1632	AssignmentExpr	pathset = svgpath . get_pathset ( )
+>1633	CallExpression	svgpath . get_pathset ( )
+>1634	ArgumentList	 
+>1635	Callee	svgpath . get_pathset
+>1636	MemberAccess	svgpath . get_pathset
+>1637	Identifier	get_pathset
+>1638	Identifier	svgpath
+>1639	Identifier	pathset
+>1640	Identifier	pathset
+>1641	IdentifierDeclType	pathset_t
+>1642	IdentifierDeclStatement	 
+>1643	IdentifierDecl	svgpath = SVGpath ( path , false , 32 )
+>1644	AssignmentExpr	svgpath = SVGpath ( path , false , 32 )
+>1645	CallExpression	SVGpath ( path , false , 32 )
+>1646	ArgumentList	path
+>1647	Argument	32
+>1648	PrimaryExpression	32
+>1649	Argument	false
+>1650	Identifier	false
+>1651	Argument	path
+>1652	Identifier	path
+>1653	Callee	SVGpath
+>1654	Identifier	SVGpath
+>1655	Identifier	svgpath
+>1656	Identifier	svgpath
+>1657	IdentifierDeclType	SVGpath
+>1658	CompoundStatement	 
+>1659	ExpressionStatement	 
+>1660	CallExpression	m_glyphs . push_back ( glyph )
+>1661	ArgumentList	glyph
+>1662	Argument	glyph
+>1663	Identifier	glyph
+>1664	Callee	m_glyphs . push_back
+>1665	MemberAccess	m_glyphs . push_back
+>1666	Identifier	push_back
+>1667	Identifier	m_glyphs
+>1668	IdentifierDeclStatement	 
+>1669	IdentifierDecl	glyph ( advance )
+>1670	Identifier	advance
+>1671	Identifier	glyph
+>1672	IdentifierDeclType	Glyph
+>1673	Condition	 
+>1674	CallExpression	path . empty ( )
+>1675	ArgumentList	 
+>1676	Callee	path . empty
+>1677	MemberAccess	path . empty
+>1678	Identifier	empty
+>1679	Identifier	path
+>1680	IdentifierDeclStatement	 
+>1681	IdentifierDecl	path = read_path ( )
+>1682	AssignmentExpr	path = read_path ( )
+>1683	CallExpression	read_path ( )
+>1684	ArgumentList	 
+>1685	Callee	read_path
+>1686	Identifier	read_path
+>1687	Identifier	path
+>1688	Identifier	path
+>1689	IdentifierDeclType	path_t
+>1690	IdentifierDeclStatement	 
+>1691	IdentifierDecl	advance = get_num ( )
+>1692	AssignmentExpr	advance = get_num ( )
+>1693	CallExpression	get_num ( )
+>1694	ArgumentList	 
+>1695	Callee	get_num
+>1696	Identifier	get_num
+>1697	Identifier	advance
+>1698	Identifier	advance
+>1699	IdentifierDeclType	float
+>1700	IncDecOp	 
+>1701	IncDec	++
+>1702	Identifier	i
+>1703	Condition	 
+>1704	RelationalExpression	i <= m_end_char
+>1705	Identifier	m_end_char
+>1706	Identifier	i
+>1707	ForInit	 
+>1708	IdentifierDeclStatement	int i = m_start_char ;
+>1709	IdentifierDecl	i = m_start_char
+>1710	AssignmentExpr	i = m_start_char
+>1711	Identifier	m_start_char
+>1712	Identifier	m_start_char
+>1713	Identifier	i
+>1714	IdentifierDeclType	int
+>1715	ExpressionStatement	 
+>1716	AssignmentExpr	m_origin_shift = get_num ( )
+>1717	CallExpression	get_num ( )
+>1718	ArgumentList	 
+>1719	Callee	get_num
+>1720	Identifier	get_num
+>1721	Identifier	m_origin_shift
+>1722	ExpressionStatement	 
+>1723	AssignmentExpr	m_ascent = get_num ( )
+>1724	CallExpression	get_num ( )
+>1725	ArgumentList	 
+>1726	Callee	get_num
+>1727	Identifier	get_num
+>1728	Identifier	m_ascent
+>1729	ExpressionStatement	 
+>1730	AssignmentExpr	m_em_scale = get_num ( )
+>1731	CallExpression	get_num ( )
+>1732	ArgumentList	 
+>1733	Callee	get_num
+>1734	Identifier	get_num
+>1735	Identifier	m_em_scale
+>1736	ExpressionStatement	 
+>1737	AssignmentExpr	m_horiz_advance = get_num ( )
+>1738	CallExpression	get_num ( )
+>1739	ArgumentList	 
+>1740	Callee	get_num
+>1741	Identifier	get_num
+>1742	Identifier	m_horiz_advance
+>1768	FunctionDef	MFont 
+>1769	ParameterList	 
+>1770	ReturnType	float
+>1771	CompoundStatement	 
+>1772	ReturnStatement	 
+>1773	MultiplicativeExpression	( float ) * num / m_divisor
+>1774	Identifier	m_divisor
+>1775	CastExpression	( float ) * num
+>1776	UnaryOp	* num
+>1777	Identifier	num
+>1778	UnaryOperator	*
+>1779	CastTarget	float
+>1780	ExpressionStatement	 
+>1781	AssignmentExpr	m_data_ptr += 2
+>1782	PrimaryExpression	2
+>1783	Identifier	m_data_ptr
+>1784	ExpressionStatement	 
+>1785	UnaryOp	& m_data [ m_data_ptr ]
+>1786	ArrayIndexing	m_data [ m_data_ptr ]
+>1787	Identifier	m_data_ptr
+>1788	Identifier	m_data
+>1789	UnaryOperator	&
+>1790	Statement	 
+>1791	Statement	 
+>1792	Statement	 
+>1793	Statement	 
+>1794	Statement	 
+>1795	Statement	 
+>1796	Statement	 
+>1797	Statement	 
+>1798	Statement	 
+>1799	Statement	 
+>1800	Statement	 
+>1801	Statement	 
+>1802	Statement	 
+>1811	FunctionDef	MFont 
+>1812	ParameterList	 
+>1813	ReturnType	vec2
+>1814	CompoundStatement	 
+>1815	ReturnStatement	 
+>1816	CallExpression	vec2 ( x , y )
+>1817	ArgumentList	x
+>1818	Argument	y
+>1819	Identifier	y
+>1820	Argument	x
+>1821	Identifier	x
+>1822	Callee	vec2
+>1823	Identifier	vec2
+>1824	IdentifierDeclStatement	 
+>1825	IdentifierDecl	y = get_num ( )
+>1826	AssignmentExpr	y = get_num ( )
+>1827	CallExpression	get_num ( )
+>1828	ArgumentList	 
+>1829	Callee	get_num
+>1830	Identifier	get_num
+>1831	Identifier	y
+>1832	Identifier	y
+>1833	IdentifierDeclType	float
+>1834	IdentifierDeclStatement	 
+>1835	IdentifierDecl	x = get_num ( )
+>1836	AssignmentExpr	x = get_num ( )
+>1837	CallExpression	get_num ( )
+>1838	ArgumentList	 
+>1839	Callee	get_num
+>1840	Identifier	get_num
+>1841	Identifier	x
+>1842	Identifier	x
+>1843	IdentifierDeclType	float
+>1851	FunctionDef	MFont 
+>1852	ParameterList	 
+>1853	ReturnType	int
+>1854	CompoundStatement	 
+>1855	ReturnStatement	 
+>1856	Identifier	num
+>1857	ExpressionStatement	 
+>1858	IncDecOp	m_data_ptr ++
+>1859	IncDec	++
+>1860	Identifier	m_data_ptr
+>1861	IdentifierDeclStatement	 
+>1862	IdentifierDecl	num = m_data [ m_data_ptr ]
+>1863	AssignmentExpr	num = m_data [ m_data_ptr ]
+>1864	ArrayIndexing	m_data [ m_data_ptr ]
+>1865	Identifier	m_data_ptr
+>1866	Identifier	m_data
+>1867	Identifier	num
+>1868	Identifier	num
+>1869	IdentifierDeclType	const unsigned char
+>1878	FunctionDef	MFont 
+>1879	ParameterList	 
+>1880	ReturnType	path_t
+>1881	CompoundStatement	 
+>1882	ReturnStatement	 
+>1883	Identifier	path
+>1884	WhileStatement	while ( true )
+>1885	CompoundStatement	 
+>1886	ExpressionStatement	 
+>1887	CallExpression	path . push_back ( pt )
+>1888	ArgumentList	pt
+>1889	Argument	pt
+>1890	Identifier	pt
+>1891	Callee	path . push_back
+>1892	MemberAccess	path . push_back
+>1893	Identifier	push_back
+>1894	Identifier	path
+>1895	IdentifierDeclStatement	 
+>1896	IdentifierDecl	pt ( cmd , data )
+>1897	Expression	cmd , data
+>1898	Identifier	data
+>1899	Identifier	cmd
+>1900	Identifier	pt
+>1901	IdentifierDeclType	path_token_t
+>1902	SwitchStatement	switch ( cmd )
+>1903	CompoundStatement	 
+>1904	ExpressionStatement	 
+>1905	CallExpression	assert ( false )
+>1906	ArgumentList	false
+>1907	Argument	false
+>1908	Identifier	false
+>1909	Callee	assert
+>1910	Identifier	assert
+>1911	Label	 
+>1912	Identifier	default
+>1913	BreakStatement	 
+>1914	Label	 
+>1915	Label	 
+>1916	BreakStatement	 
+>1917	ExpressionStatement	 
+>1918	CallExpression	data . push_back ( get_vec2 ( ) )
+>1919	ArgumentList	get_vec2 ( )
+>1920	Argument	get_vec2 ( )
+>1921	CallExpression	get_vec2 ( )
+>1922	ArgumentList	 
+>1923	Callee	get_vec2
+>1924	Identifier	get_vec2
+>1925	Callee	data . push_back
+>1926	MemberAccess	data . push_back
+>1927	Identifier	push_back
+>1928	Identifier	data
+>1929	ExpressionStatement	 
+>1930	CallExpression	data . push_back ( get_vec2 ( ) )
+>1931	ArgumentList	get_vec2 ( )
+>1932	Argument	get_vec2 ( )
+>1933	CallExpression	get_vec2 ( )
+>1934	ArgumentList	 
+>1935	Callee	get_vec2
+>1936	Identifier	get_vec2
+>1937	Callee	data . push_back
+>1938	MemberAccess	data . push_back
+>1939	Identifier	push_back
+>1940	Identifier	data
+>1941	Label	 
+>1942	BreakStatement	 
+>1943	ExpressionStatement	 
+>1944	CallExpression	data . push_back ( get_vec2 ( ) )
+>1945	ArgumentList	get_vec2 ( )
+>1946	Argument	get_vec2 ( )
+>1947	CallExpression	get_vec2 ( )
+>1948	ArgumentList	 
+>1949	Callee	get_vec2
+>1950	Identifier	get_vec2
+>1951	Callee	data . push_back
+>1952	MemberAccess	data . push_back
+>1953	Identifier	push_back
+>1954	Identifier	data
+>1955	ExpressionStatement	 
+>1956	CallExpression	data . push_back ( get_vec2 ( ) )
+>1957	ArgumentList	get_vec2 ( )
+>1958	Argument	get_vec2 ( )
+>1959	CallExpression	get_vec2 ( )
+>1960	ArgumentList	 
+>1961	Callee	get_vec2
+>1962	Identifier	get_vec2
+>1963	Callee	data . push_back
+>1964	MemberAccess	data . push_back
+>1965	Identifier	push_back
+>1966	Identifier	data
+>1967	ExpressionStatement	 
+>1968	CallExpression	data . push_back ( get_vec2 ( ) )
+>1969	ArgumentList	get_vec2 ( )
+>1970	Argument	get_vec2 ( )
+>1971	CallExpression	get_vec2 ( )
+>1972	ArgumentList	 
+>1973	Callee	get_vec2
+>1974	Identifier	get_vec2
+>1975	Callee	data . push_back
+>1976	MemberAccess	data . push_back
+>1977	Identifier	push_back
+>1978	Identifier	data
+>1979	Label	 
+>1980	BreakStatement	 
+>1981	ExpressionStatement	 
+>1982	CallExpression	data . push_back ( vec2 ( get_num ( ) , 0.0 ) )
+>1983	ArgumentList	vec2 ( get_num ( ) , 0.0 )
+>1984	Argument	vec2 ( get_num ( ) , 0.0 )
+>1985	CallExpression	vec2 ( get_num ( ) , 0.0 )
+>1986	ArgumentList	get_num ( )
+>1987	Argument	0.0
+>1988	PrimaryExpression	0.0
+>1989	Argument	get_num ( )
+>1990	CallExpression	get_num ( )
+>1991	ArgumentList	 
+>1992	Callee	get_num
+>1993	Identifier	get_num
+>1994	Callee	vec2
+>1995	Identifier	vec2
+>1996	Callee	data . push_back
+>1997	MemberAccess	data . push_back
+>1998	Identifier	push_back
+>1999	Identifier	data
+>2000	Label	 
+>2001	Label	 
+>2002	BreakStatement	 
+>2003	ExpressionStatement	 
+>2004	CallExpression	data . push_back ( get_vec2 ( ) )
+>2005	ArgumentList	get_vec2 ( )
+>2006	Argument	get_vec2 ( )
+>2007	CallExpression	get_vec2 ( )
+>2008	ArgumentList	 
+>2009	Callee	get_vec2
+>2010	Identifier	get_vec2
+>2011	Callee	data . push_back
+>2012	MemberAccess	data . push_back
+>2013	Identifier	push_back
+>2014	Identifier	data
+>2015	Label	 
+>2016	Label	 
+>2017	Label	 
+>2018	Condition	 
+>2019	Identifier	cmd
+>2020	IfStatement	if ( cmd == '\n' )
+>2021	BreakStatement	 
+>2022	Condition	 
+>2023	EqualityExpression	cmd == '\n'
+>2024	PrimaryExpression	'\n'
+>2025	Identifier	cmd
+>2026	IdentifierDeclStatement	 
+>2027	IdentifierDecl	cmd = get_byte ( )
+>2028	AssignmentExpr	cmd = get_byte ( )
+>2029	CallExpression	get_byte ( )
+>2030	ArgumentList	 
+>2031	Callee	get_byte
+>2032	Identifier	get_byte
+>2033	Identifier	cmd
+>2034	Identifier	cmd
+>2035	IdentifierDeclType	char
+>2036	IdentifierDeclStatement	 
+>2037	IdentifierDecl	data
+>2038	Identifier	data
+>2039	IdentifierDeclType	vec2_ary_t
+>2040	Condition	 
+>2041	Identifier	true
+>2042	IdentifierDeclStatement	 
+>2043	IdentifierDecl	path
+>2044	Identifier	path
+>2045	IdentifierDeclType	path_t
+<3=11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<17=19,18
+<23=31,24
+<24=28,25
+<25=27,26
+<28=30,29
+<31=46,41,36,32
+<32=33
+<33=35,34
+<36=37
+<37=39,38
+<39=40
+<41=42
+<42=44,43
+<44=45
+<46=47
+<47=49,48
+<49=50
+<58=60,59
+<60=61
+<61=73,62
+<62=63
+<63=71,64
+<64=69,65
+<65=66
+<66=68,67
+<69=70
+<71=72
+<73=74
+<80=83,82,81
+<83=84
+<84=85
+<85=87,86
+<93=102,101,94
+<94=98,95
+<95=97,96
+<98=100,99
+<102=127,109,103
+<103=104
+<104=108,105
+<105=107,106
+<109=123,110
+<110=111
+<111=122,112
+<112=120,113
+<113=114
+<114=115
+<115=119,116
+<116=118,117
+<120=121
+<123=124
+<124=126,125
+<127=128
+<128=133,132,129
+<129=131,130
+<144=150,149,145
+<145=146
+<146=148,147
+<150=151
+<151=152
+<152=154,153
+<154=158,155
+<155=157,156
+<169=184,183,170
+<170=180,177,174,171
+<171=173,172
+<174=176,175
+<177=179,178
+<180=182,181
+<184=262,247,230,221,212,198,185
+<185=186
+<186=196,187
+<187=194,192,190,188
+<188=189
+<190=191
+<192=193
+<194=195
+<196=197
+<198=199
+<199=211,210,200
+<200=209,201
+<201=208,202
+<202=204,203
+<204=206,205
+<206=207
+<212=213
+<213=220,219,214
+<214=218,215
+<215=217,216
+<221=222
+<222=229,228,223
+<223=227,224
+<224=226,225
+<230=245,231
+<231=232
+<232=233
+<233=244,234
+<234=242,235
+<235=240,238,236
+<236=237
+<238=239
+<240=241
+<242=243
+<245=246
+<247=248
+<248=261,260,249
+<249=259,250
+<250=256,251
+<251=255,252
+<252=254,253
+<256=258,257
+<262=263
+<263=275,274,264
+<264=273,265
+<265=271,266
+<266=269,267
+<267=268
+<269=270
+<271=272
+<295=298,297,296
+<298=304,299
+<299=300
+<300=302,301
+<302=303
+<304=305
+<305=307,306
+<313=316,315,314
+<316=321,317
+<317=318
+<318=320,319
+<321=322
+<322=324,323
+<324=325
+<331=343,342,332
+<332=339,336,333
+<333=335,334
+<336=338,337
+<339=341,340
+<343=350,344
+<344=345
+<345=347,346
+<347=349,348
+<350=351
+<351=363,362,352
+<352=361,353
+<353=359,354
+<354=357,355
+<355=356
+<357=358
+<359=360
+<372=390,389,373
+<373=386,383,380,377,374
+<374=376,375
+<377=379,378
+<380=382,381
+<383=385,384
+<386=388,387
+<390=482,468,463,453,446,429,422,406,396,391
+<391=392
+<392=394,393
+<394=395
+<396=402,397
+<397=398
+<398=400,399
+<400=401
+<402=403
+<403=405,404
+<406=418,407
+<407=408
+<408=416,409
+<409=410
+<410=411
+<411=415,412
+<412=414,413
+<416=417
+<418=419
+<419=421,420
+<422=423
+<423=427,424
+<424=425
+<425=426
+<427=428
+<429=430
+<430=444,431
+<431=438,434,432
+<432=433
+<434=435
+<435=437,436
+<438=439
+<439=441,440
+<441=443,442
+<444=445
+<446=447
+<447=451,448
+<448=449
+<449=450
+<451=452
+<453=459,454
+<454=455
+<455=457,456
+<457=458
+<459=460
+<460=462,461
+<463=464
+<464=466,465
+<466=467
+<468=480,469
+<469=470
+<470=479,471
+<471=477,472
+<472=475,473
+<473=474
+<475=476
+<477=478
+<480=481
+<482=483
+<483=488,487,484
+<484=486,485
+<503=521,520,504
+<504=517,514,511,508,505
+<505=507,506
+<508=510,509
+<511=513,512
+<514=516,515
+<517=519,518
+<521=537,522
+<522=523
+<523=535,524
+<524=533,531,529,527,525
+<525=526
+<527=528
+<529=530
+<531=532
+<533=534
+<535=536
+<537=538
+<538=572,539
+<539=570,559,557,555,540
+<540=541
+<541=553,542
+<542=551,549,547,543
+<543=544
+<544=546,545
+<547=548
+<549=550
+<551=552
+<553=554
+<555=556
+<557=558
+<559=560
+<560=569,561
+<561=567,562
+<562=565,563
+<563=564
+<565=566
+<567=568
+<570=571
+<572=573
+<585=591,590,586
+<586=587
+<587=589,588
+<591=603,592
+<592=593
+<593=601,594
+<594=599,597,595
+<595=596
+<597=598
+<599=600
+<601=602
+<603=604
+<604=606,605
+<612=618,617,613
+<613=614
+<614=616,615
+<618=656,647,634,619
+<619=620
+<620=632,621
+<621=626,624,622
+<622=623
+<624=625
+<626=627
+<627=629,628
+<629=631,630
+<632=633
+<634=635
+<635=645,636
+<636=643,639,637
+<637=638
+<639=640
+<640=642,641
+<643=644
+<645=646
+<647=648
+<648=655,654,649
+<649=653,650
+<650=652,651
+<656=659,657
+<657=658
+<659=660
+<660=662,661
+<674=677,676,675
+<677=769,760,753,744,735,728,721,706,687,678
+<678=679
+<679=681,680
+<681=682
+<682=684,683
+<684=686,685
+<687=688
+<688=704,689
+<689=702,700,696,690
+<690=691
+<691=695,692
+<692=694,693
+<696=697
+<697=699,698
+<700=701
+<702=703
+<704=705
+<706=707
+<707=719,708
+<708=717,715,711,709
+<709=710
+<711=712
+<712=714,713
+<715=716
+<717=718
+<719=720
+<721=722
+<722=726,723
+<723=724
+<724=725
+<726=727
+<728=729
+<729=733,730
+<730=731
+<731=732
+<733=734
+<735=736
+<736=742,737
+<737=740,738
+<738=739
+<740=741
+<742=743
+<744=745
+<745=751,746
+<746=749,747
+<747=748
+<749=750
+<751=752
+<753=754
+<754=758,755
+<755=756
+<756=757
+<758=759
+<760=761
+<761=767,762
+<762=765,763
+<763=764
+<765=766
+<767=768
+<769=770
+<770=774,771
+<771=772
+<772=773
+<774=775
+<791=794,793,792
+<794=832,825,818,809,802,795
+<795=796
+<796=800,797
+<797=798
+<798=799
+<800=801
+<802=803
+<803=807,804
+<804=805
+<805=806
+<807=808
+<809=810
+<810=816,811
+<811=814,812
+<812=813
+<814=815
+<816=817
+<818=819
+<819=823,820
+<820=821
+<821=822
+<823=824
+<825=826
+<826=830,827
+<827=828
+<828=829
+<830=831
+<832=833
+<833=835,834
+<835=836
+<836=838,837
+<838=840,839
+<851=854,853,852
+<854=1166,1149,906,895,886,869,860,859,858,857,855
+<855=856
+<860=861
+<861=867,862
+<862=865,863
+<863=864
+<865=866
+<867=868
+<869=870
+<870=884,871
+<871=882,876,874,872
+<872=873
+<874=875
+<876=877
+<877=881,878
+<878=880,879
+<882=883
+<884=885
+<886=887
+<887=893,888
+<888=891,889
+<889=890
+<891=892
+<893=894
+<895=896
+<896=904,897
+<897=902,898
+<898=899
+<899=901,900
+<902=903
+<904=905
+<906=1141,1135,1132,907
+<907=1125,1118,1109,1100,1087,1074,1059,1044,1036,1028,1020,1012,1002,994,986,978,968,958,950,942,934,924,916,908
+<908=909
+<909=911,910
+<911=915,912
+<912=914,913
+<916=917
+<917=919,918
+<919=923,920
+<920=922,921
+<924=925
+<925=929,926
+<926=928,927
+<929=933,930
+<930=932,931
+<934=935
+<935=937,936
+<937=941,938
+<938=940,939
+<942=943
+<943=945,944
+<945=949,946
+<946=948,947
+<950=951
+<951=953,952
+<953=957,954
+<954=956,955
+<958=959
+<959=963,960
+<960=962,961
+<963=967,964
+<964=966,965
+<968=969
+<969=973,970
+<970=972,971
+<973=977,974
+<974=976,975
+<978=979
+<979=981,980
+<981=985,982
+<982=984,983
+<986=987
+<987=989,988
+<989=993,990
+<990=992,991
+<994=995
+<995=997,996
+<997=1001,998
+<998=1000,999
+<1002=1003
+<1003=1007,1004
+<1004=1006,1005
+<1007=1011,1008
+<1008=1010,1009
+<1012=1013
+<1013=1015,1014
+<1015=1019,1016
+<1016=1018,1017
+<1020=1021
+<1021=1023,1022
+<1023=1027,1024
+<1024=1026,1025
+<1028=1029
+<1029=1031,1030
+<1031=1035,1032
+<1032=1034,1033
+<1036=1037
+<1037=1039,1038
+<1039=1043,1040
+<1040=1042,1041
+<1044=1045
+<1045=1058,1057,1046
+<1046=1056,1047
+<1047=1051,1048
+<1048=1050,1049
+<1051=1053,1052
+<1053=1055,1054
+<1059=1060
+<1060=1073,1072,1061
+<1061=1071,1062
+<1062=1066,1063
+<1063=1065,1064
+<1066=1068,1067
+<1068=1070,1069
+<1074=1075
+<1075=1086,1085,1076
+<1076=1084,1077
+<1077=1081,1078
+<1078=1080,1079
+<1081=1083,1082
+<1087=1088
+<1088=1099,1098,1089
+<1089=1097,1090
+<1090=1094,1091
+<1091=1093,1092
+<1094=1096,1095
+<1100=1101
+<1101=1108,1107,1102
+<1102=1106,1103
+<1103=1105,1104
+<1109=1110
+<1110=1117,1116,1111
+<1111=1115,1112
+<1112=1114,1113
+<1118=1119
+<1119=1124,1123,1120
+<1120=1122,1121
+<1125=1126
+<1126=1131,1130,1127
+<1127=1129,1128
+<1132=1134,1133
+<1135=1136
+<1136=1140,1137
+<1137=1139,1138
+<1141=1142
+<1142=1143
+<1143=1148,1147,1144
+<1144=1146,1145
+<1149=1150
+<1150=1165,1164,1151
+<1151=1163,1152
+<1152=1160,1153
+<1153=1157,1154
+<1154=1156,1155
+<1157=1159,1158
+<1160=1162,1161
+<1166=1167
+<1167=1172,1171,1168
+<1168=1170,1169
+<1197=1200,1199,1198
+<1200=1538,1527,1516,1509,1496,1489,1482,1469,1460,1453,1448,1429,1422,1417,1410,1397,1243,1236,1227,1226,1224,1217,1208,1201
+<1201=1202
+<1202=1204,1203
+<1204=1205
+<1205=1207,1206
+<1208=1209
+<1209=1216,1210
+<1210=1214,1211
+<1211=1212
+<1212=1213
+<1214=1215
+<1217=1218
+<1218=1220,1219
+<1220=1221
+<1221=1223,1222
+<1224=1225
+<1227=1228
+<1228=1235,1229
+<1229=1231,1230
+<1231=1232
+<1232=1234,1233
+<1236=1237
+<1237=1239,1238
+<1239=1240
+<1240=1242,1241
+<1243=1389,1380,1377,1244
+<1244=1368,1359,1350,1339,1328,1319,1306,1293,1286,1255,1250,1245
+<1245=1246
+<1246=1248,1247
+<1248=1249
+<1250=1251
+<1251=1253,1252
+<1253=1254
+<1255=1278,1269,1266,1256
+<1256=1257
+<1257=1258
+<1258=1264,1259
+<1259=1260
+<1260=1261
+<1261=1263,1262
+<1264=1265
+<1266=1268,1267
+<1269=1270
+<1270=1277,1271
+<1271=1273,1272
+<1273=1274
+<1274=1276,1275
+<1278=1279
+<1279=1280
+<1280=1285,1284,1281
+<1281=1283,1282
+<1286=1287
+<1287=1291,1288
+<1288=1289
+<1289=1290
+<1291=1292
+<1293=1294
+<1294=1304,1295
+<1295=1302,1298,1296
+<1296=1297
+<1298=1299
+<1299=1301,1300
+<1302=1303
+<1304=1305
+<1306=1307
+<1307=1317,1308
+<1308=1315,1311,1309
+<1309=1310
+<1311=1312
+<1312=1314,1313
+<1315=1316
+<1317=1318
+<1319=1321,1320
+<1321=1322
+<1322=1324,1323
+<1324=1325
+<1325=1327,1326
+<1328=1329
+<1329=1338,1337,1330
+<1330=1336,1331
+<1331=1333,1332
+<1333=1335,1334
+<1339=1340
+<1340=1349,1348,1341
+<1341=1347,1342
+<1342=1344,1343
+<1344=1346,1345
+<1350=1351
+<1351=1358,1357,1352
+<1352=1356,1353
+<1353=1355,1354
+<1359=1360
+<1360=1367,1366,1361
+<1361=1365,1362
+<1362=1364,1363
+<1368=1369
+<1369=1376,1375,1370
+<1370=1374,1371
+<1371=1373,1372
+<1377=1379,1378
+<1380=1381
+<1381=1388,1382
+<1382=1384,1383
+<1384=1385
+<1385=1387,1386
+<1389=1390
+<1390=1391
+<1391=1396,1395,1392
+<1392=1394,1393
+<1397=1398
+<1398=1408,1399
+<1399=1406,1404,1402,1400
+<1400=1401
+<1402=1403
+<1404=1405
+<1406=1407
+<1408=1409
+<1410=1411
+<1411=1415,1412
+<1412=1413
+<1413=1414
+<1415=1416
+<1417=1418
+<1418=1420,1419
+<1420=1421
+<1422=1423
+<1423=1427,1424
+<1424=1425
+<1425=1426
+<1427=1428
+<1429=1430
+<1430=1446,1431
+<1431=1444,1442,1440,1438,1434,1432
+<1432=1433
+<1434=1435
+<1435=1437,1436
+<1438=1439
+<1440=1441
+<1442=1443
+<1444=1445
+<1446=1447
+<1448=1449
+<1449=1451,1450
+<1451=1452
+<1453=1454
+<1454=1458,1455
+<1455=1456
+<1456=1457
+<1458=1459
+<1460=1461
+<1461=1467,1462
+<1462=1463
+<1463=1464
+<1464=1466,1465
+<1467=1468
+<1469=1470
+<1470=1480,1471
+<1471=1478,1476,1474,1472
+<1472=1473
+<1474=1475
+<1476=1477
+<1478=1479
+<1480=1481
+<1482=1483
+<1483=1487,1484
+<1484=1485
+<1485=1486
+<1487=1488
+<1489=1490
+<1490=1494,1491
+<1491=1492
+<1492=1493
+<1494=1495
+<1496=1497
+<1497=1507,1498
+<1498=1505,1503,1501,1499
+<1499=1500
+<1501=1502
+<1503=1504
+<1505=1506
+<1507=1508
+<1509=1510
+<1510=1512,1511
+<1512=1513
+<1513=1515,1514
+<1516=1517
+<1517=1526,1525,1518
+<1518=1524,1519
+<1519=1523,1520
+<1520=1522,1521
+<1527=1528
+<1528=1537,1536,1529
+<1529=1535,1530
+<1530=1534,1531
+<1531=1533,1532
+<1538=1539
+<1539=1546,1545,1540
+<1540=1544,1541
+<1541=1543,1542
+<1586=1589,1588,1587
+<1589=1736,1729,1722,1715,1590
+<1590=1707,1703,1700,1591
+<1591=1690,1680,1592
+<1592=1673,1658,1593
+<1593=1594
+<1594=1642,1630,1618,1611,1602,1595
+<1595=1596
+<1596=1598,1597
+<1598=1599
+<1599=1601,1600
+<1602=1603
+<1603=1607,1604
+<1604=1605
+<1605=1606
+<1607=1608
+<1608=1610,1609
+<1611=1612
+<1612=1617,1616,1613
+<1613=1615,1614
+<1618=1619
+<1619=1629,1628,1620
+<1620=1627,1621
+<1621=1625,1622
+<1622=1623
+<1623=1624
+<1625=1626
+<1630=1631
+<1631=1641,1640,1632
+<1632=1639,1633
+<1633=1635,1634
+<1635=1636
+<1636=1638,1637
+<1642=1643
+<1643=1657,1656,1644
+<1644=1655,1645
+<1645=1653,1646
+<1646=1651,1649,1647
+<1647=1648
+<1649=1650
+<1651=1652
+<1653=1654
+<1658=1668,1659
+<1659=1660
+<1660=1664,1661
+<1661=1662
+<1662=1663
+<1664=1665
+<1665=1667,1666
+<1668=1669
+<1669=1672,1671,1670
+<1673=1674
+<1674=1676,1675
+<1676=1677
+<1677=1679,1678
+<1680=1681
+<1681=1689,1688,1682
+<1682=1687,1683
+<1683=1685,1684
+<1685=1686
+<1690=1691
+<1691=1699,1698,1692
+<1692=1697,1693
+<1693=1695,1694
+<1695=1696
+<1700=1702,1701
+<1703=1704
+<1704=1706,1705
+<1707=1708
+<1708=1709
+<1709=1714,1713,1710
+<1710=1712,1711
+<1715=1716
+<1716=1721,1717
+<1717=1719,1718
+<1719=1720
+<1722=1723
+<1723=1728,1724
+<1724=1726,1725
+<1726=1727
+<1729=1730
+<1730=1735,1731
+<1731=1733,1732
+<1733=1734
+<1736=1737
+<1737=1742,1738
+<1738=1740,1739
+<1740=1741
+<1768=1771,1770,1769
+<1771=1802,1801,1800,1799,1798,1797,1796,1795,1794,1793,1792,1791,1790,1784,1780,1772
+<1772=1773
+<1773=1775,1774
+<1775=1779,1776
+<1776=1778,1777
+<1780=1781
+<1781=1783,1782
+<1784=1785
+<1785=1789,1786
+<1786=1788,1787
+<1811=1814,1813,1812
+<1814=1834,1824,1815
+<1815=1816
+<1816=1822,1817
+<1817=1820,1818
+<1818=1819
+<1820=1821
+<1822=1823
+<1824=1825
+<1825=1833,1832,1826
+<1826=1831,1827
+<1827=1829,1828
+<1829=1830
+<1834=1835
+<1835=1843,1842,1836
+<1836=1841,1837
+<1837=1839,1838
+<1839=1840
+<1851=1854,1853,1852
+<1854=1861,1857,1855
+<1855=1856
+<1857=1858
+<1858=1860,1859
+<1861=1862
+<1862=1869,1868,1863
+<1863=1867,1864
+<1864=1866,1865
+<1878=1881,1880,1879
+<1881=2042,1884,1882
+<1882=1883
+<1884=2040,1885
+<1885=2036,2026,2020,1902,1895,1886
+<1886=1887
+<1887=1891,1888
+<1888=1889
+<1889=1890
+<1891=1892
+<1892=1894,1893
+<1895=1896
+<1896=1901,1900,1897
+<1897=1899,1898
+<1902=2018,1903
+<1903=2017,2016,2015,2003,2002,2001,2000,1981,1980,1979,1967,1955,1943,1942,1941,1929,1917,1916,1915,1914,1913,1911,1904
+<1904=1905
+<1905=1909,1906
+<1906=1907
+<1907=1908
+<1909=1910
+<1911=1912
+<1917=1918
+<1918=1925,1919
+<1919=1920
+<1920=1921
+<1921=1923,1922
+<1923=1924
+<1925=1926
+<1926=1928,1927
+<1929=1930
+<1930=1937,1931
+<1931=1932
+<1932=1933
+<1933=1935,1934
+<1935=1936
+<1937=1938
+<1938=1940,1939
+<1943=1944
+<1944=1951,1945
+<1945=1946
+<1946=1947
+<1947=1949,1948
+<1949=1950
+<1951=1952
+<1952=1954,1953
+<1955=1956
+<1956=1963,1957
+<1957=1958
+<1958=1959
+<1959=1961,1960
+<1961=1962
+<1963=1964
+<1964=1966,1965
+<1967=1968
+<1968=1975,1969
+<1969=1970
+<1970=1971
+<1971=1973,1972
+<1973=1974
+<1975=1976
+<1976=1978,1977
+<1981=1982
+<1982=1996,1983
+<1983=1984
+<1984=1985
+<1985=1994,1986
+<1986=1989,1987
+<1987=1988
+<1989=1990
+<1990=1992,1991
+<1992=1993
+<1994=1995
+<1996=1997
+<1997=1999,1998
+<2003=2004
+<2004=2011,2005
+<2005=2006
+<2006=2007
+<2007=2009,2008
+<2009=2010
+<2011=2012
+<2012=2014,2013
+<2018=2019
+<2020=2022,2021
+<2022=2023
+<2023=2025,2024
+<2026=2027
+<2027=2035,2034,2028
+<2028=2033,2029
+<2029=2031,2030
+<2031=2032
+<2036=2037
+<2037=2039,2038
+<2040=2041
+<2042=2043
+<2043=2045,2044

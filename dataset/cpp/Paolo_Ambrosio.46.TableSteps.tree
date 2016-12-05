@@ -1,0 +1,168 @@
+>12	FunctionDef	addActor (const actor_name_type name , const actor_year_type year)
+>13	ParameterList	const actor_name_type name , const actor_year_type year
+>14	Parameter	 
+>15	Identifier	year
+>16	ParameterType	const actor_year_type
+>17	Parameter	 
+>18	Identifier	name
+>19	ParameterType	const actor_name_type
+>20	ReturnType	void
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	AssignmentExpr	actors [ name ] = year
+>24	Identifier	year
+>25	ArrayIndexing	actors [ name ]
+>26	Identifier	name
+>27	Identifier	actors
+>36	FunctionDef	retireActor (const actor_name_type name)
+>37	ParameterList	const actor_name_type name
+>38	Parameter	 
+>39	Identifier	name
+>40	ParameterType	const actor_name_type
+>41	ReturnType	void
+>42	CompoundStatement	 
+>43	ExpressionStatement	 
+>44	CallExpression	actors . erase ( actors . find ( name ) )
+>45	ArgumentList	actors . find ( name )
+>46	Argument	actors . find ( name )
+>47	CallExpression	actors . find ( name )
+>48	ArgumentList	name
+>49	Argument	name
+>50	Identifier	name
+>51	Callee	actors . find
+>52	MemberAccess	actors . find
+>53	Identifier	find
+>54	Identifier	actors
+>55	Callee	actors . erase
+>56	MemberAccess	actors . erase
+>57	Identifier	erase
+>58	Identifier	actors
+>65	FunctionDef	getOldestActor ()
+>66	ParameterList	 
+>67	ReturnType	actor_name_type
+>68	CompoundStatement	 
+>69	ReturnStatement	 
+>70	Identifier	name
+>71	WhileStatement	while ( ++ it != actors . end ( ) )
+>72	CompoundStatement	 
+>73	IfStatement	if ( year > currentYear )
+>74	CompoundStatement	 
+>75	ExpressionStatement	 
+>76	AssignmentExpr	name = it -> first
+>77	PtrMemberAccess	it -> first
+>78	Identifier	first
+>79	Identifier	it
+>80	Identifier	name
+>81	Condition	 
+>82	RelationalExpression	year > currentYear
+>83	Identifier	currentYear
+>84	Identifier	year
+>85	IdentifierDeclStatement	 
+>86	IdentifierDecl	currentYear = it -> second
+>87	AssignmentExpr	currentYear = it -> second
+>88	PtrMemberAccess	it -> second
+>89	Identifier	second
+>90	Identifier	it
+>91	Identifier	currentYear
+>92	Identifier	currentYear
+>93	IdentifierDeclType	actor_year_type
+>94	Condition	 
+>95	EqualityExpression	++ it != actors . end ( )
+>96	CallExpression	actors . end ( )
+>97	ArgumentList	 
+>98	Callee	actors . end
+>99	MemberAccess	actors . end
+>100	Identifier	end
+>101	Identifier	actors
+>102	UnaryExpression	++ it
+>103	Identifier	it
+>104	IncDec	++
+>105	IdentifierDeclStatement	 
+>106	IdentifierDecl	year = it -> second
+>107	AssignmentExpr	year = it -> second
+>108	PtrMemberAccess	it -> second
+>109	Identifier	second
+>110	Identifier	it
+>111	Identifier	year
+>112	Identifier	year
+>113	IdentifierDeclType	actor_year_type
+>114	IdentifierDeclStatement	 
+>115	IdentifierDecl	name = it -> first
+>116	AssignmentExpr	name = it -> first
+>117	PtrMemberAccess	it -> first
+>118	Identifier	first
+>119	Identifier	it
+>120	Identifier	name
+>121	Identifier	name
+>122	IdentifierDeclType	actor_name_type
+>123	IdentifierDeclStatement	 
+>124	IdentifierDecl	it = actors . begin ( )
+>125	AssignmentExpr	it = actors . begin ( )
+>126	CallExpression	actors . begin ( )
+>127	ArgumentList	 
+>128	Callee	actors . begin
+>129	MemberAccess	actors . begin
+>130	Identifier	begin
+>131	Identifier	actors
+>132	Identifier	it
+>133	Identifier	it
+>134	IdentifierDeclType	actors_type 
+<12=21,20,13
+<13=17,14
+<14=16,15
+<17=19,18
+<21=22
+<22=23
+<23=25,24
+<25=27,26
+<36=42,41,37
+<37=38
+<38=40,39
+<42=43
+<43=44
+<44=55,45
+<45=46
+<46=47
+<47=51,48
+<48=49
+<49=50
+<51=52
+<52=54,53
+<55=56
+<56=58,57
+<65=68,67,66
+<68=123,114,105,71,69
+<69=70
+<71=94,72
+<72=85,73
+<73=81,74
+<74=75
+<75=76
+<76=80,77
+<77=79,78
+<81=82
+<82=84,83
+<85=86
+<86=93,92,87
+<87=91,88
+<88=90,89
+<94=95
+<95=102,96
+<96=98,97
+<98=99
+<99=101,100
+<102=104,103
+<105=106
+<106=113,112,107
+<107=111,108
+<108=110,109
+<114=115
+<115=122,121,116
+<116=120,117
+<117=119,118
+<123=124
+<124=134,133,125
+<125=132,126
+<126=128,127
+<128=129
+<129=131,130

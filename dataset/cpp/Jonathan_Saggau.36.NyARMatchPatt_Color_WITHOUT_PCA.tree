@@ -1,0 +1,853 @@
+>3	FunctionDef	NyARMatchPatt_Color_WITHOUT_PCA 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ReturnStatement	 
+>7	ExpressionStatement	 
+>8	AssignmentExpr	this -> _dir = 0
+>9	PrimaryExpression	0
+>10	PtrMemberAccess	this -> _dir
+>11	Identifier	_dir
+>12	Identifier	this
+>13	ExpressionStatement	 
+>14	AssignmentExpr	this -> _cf = 0.0
+>15	PrimaryExpression	0.0
+>16	PtrMemberAccess	this -> _cf
+>17	Identifier	_cf
+>18	Identifier	this
+>19	ExpressionStatement	 
+>20	AssignmentExpr	this -> _height = 1
+>21	PrimaryExpression	1
+>22	PtrMemberAccess	this -> _height
+>23	Identifier	_height
+>24	Identifier	this
+>25	ExpressionStatement	 
+>26	AssignmentExpr	this -> _width = 1
+>27	PrimaryExpression	1
+>28	PtrMemberAccess	this -> _width
+>29	Identifier	_width
+>30	Identifier	this
+>40	FunctionDef	NyARMatchPatt_Color_WITHOUT_PCA 
+>41	ParameterList	 
+>42	ReturnType	double
+>43	CompoundStatement	 
+>44	ReturnStatement	 
+>45	PtrMemberAccess	this -> _cf
+>46	Identifier	_cf
+>47	Identifier	this
+>54	FunctionDef	NyARMatchPatt_Color_WITHOUT_PCA 
+>55	ParameterList	 
+>56	ReturnType	int
+>57	CompoundStatement	 
+>58	ReturnStatement	 
+>59	PtrMemberAccess	this -> _dir
+>60	Identifier	_dir
+>61	Identifier	this
+>68	FunctionDef	NyARMatchPatt_Color_WITHOUT_PCA 
+>69	ParameterList	int i_width , int i_height
+>70	Parameter	 
+>71	Identifier	i_height
+>72	ParameterType	int
+>73	Parameter	 
+>74	Identifier	i_width
+>75	ParameterType	int
+>76	ReturnType	void
+>77	CompoundStatement	 
+>78	ReturnStatement	 
+>79	ExpressionStatement	 
+>80	AssignmentExpr	this -> _width = i_width
+>81	Identifier	i_width
+>82	PtrMemberAccess	this -> _width
+>83	Identifier	_width
+>84	Identifier	this
+>85	ExpressionStatement	 
+>86	AssignmentExpr	this -> _height = i_height
+>87	Identifier	i_height
+>88	PtrMemberAccess	this -> _height
+>89	Identifier	_height
+>90	Identifier	this
+>91	IfStatement	if ( this -> _input . length < i_height * i_width * 3 )
+>92	CompoundStatement	 
+>93	ExpressionStatement	 
+>94	CallExpression	this -> _input . renew ( i_height * i_width * 3 )
+>95	ArgumentList	i_height * i_width * 3
+>96	Argument	i_height * i_width * 3
+>97	MultiplicativeExpression	i_height * i_width * 3
+>98	MultiplicativeExpression	i_width * 3
+>99	PrimaryExpression	3
+>100	Identifier	i_width
+>101	Identifier	i_height
+>102	Callee	this -> _input . renew
+>103	MemberAccess	this -> _input . renew
+>104	Identifier	renew
+>105	PtrMemberAccess	this -> _input
+>106	Identifier	_input
+>107	Identifier	this
+>108	Condition	 
+>109	RelationalExpression	this -> _input . length < i_height * i_width * 3
+>110	MultiplicativeExpression	i_height * i_width * 3
+>111	MultiplicativeExpression	i_width * 3
+>112	PrimaryExpression	3
+>113	Identifier	i_width
+>114	Identifier	i_height
+>115	MemberAccess	this -> _input . length
+>116	Identifier	length
+>117	PtrMemberAccess	this -> _input
+>118	Identifier	_input
+>119	Identifier	this
+>120	ExpressionStatement	 
+>121	CallExpression	NyAR_ASSERT ( i_width < 1024 && i_height < 1024 )
+>122	ArgumentList	i_width < 1024 && i_height < 1024
+>123	Argument	i_width < 1024 && i_height < 1024
+>124	AndExpression	i_width < 1024 && i_height < 1024
+>125	RelationalExpression	i_height < 1024
+>126	PrimaryExpression	1024
+>127	Identifier	i_height
+>128	RelationalExpression	i_width < 1024
+>129	PrimaryExpression	1024
+>130	Identifier	i_width
+>131	Callee	NyAR_ASSERT
+>132	Identifier	NyAR_ASSERT
+>144	FunctionDef	NyARMatchPatt_Color_WITHOUT_PCA 
+>145	ParameterList	const INyARColorPatt & i_target_patt
+>146	Parameter	 
+>147	Identifier	i_target_patt
+>148	ParameterType	const INyARColorPatt &
+>149	ReturnType	bool
+>150	CompoundStatement	 
+>151	ReturnStatement	 
+>152	Identifier	true
+>153	IfStatement	if ( this -> _datapow == 0.0 )
+>154	CompoundStatement	 
+>155	ReturnStatement	 
+>156	Identifier	false
+>157	Condition	 
+>158	EqualityExpression	this -> _datapow == 0.0
+>159	PrimaryExpression	0.0
+>160	PtrMemberAccess	this -> _datapow
+>161	Identifier	_datapow
+>162	Identifier	this
+>163	ExpressionStatement	 
+>164	AssignmentExpr	this -> _datapow = sqrt ( ( double ) sum )
+>165	CallExpression	sqrt ( ( double ) sum )
+>166	ArgumentList	( double ) sum
+>167	Argument	( double ) sum
+>168	CastExpression	( double ) sum
+>169	Identifier	sum
+>170	CastTarget	double
+>171	Callee	sqrt
+>172	Identifier	sqrt
+>173	PtrMemberAccess	this -> _datapow
+>174	Identifier	_datapow
+>175	Identifier	this
+>176	ForStatement	for ( i = pixels - 1 ; i >= 0 ; i -- )
+>177	CompoundStatement	 
+>178	ExpressionStatement	 
+>179	AssignmentExpr	sum += w_sum * w_sum
+>180	MultiplicativeExpression	w_sum * w_sum
+>181	Identifier	w_sum
+>182	Identifier	w_sum
+>183	Identifier	sum
+>184	ExpressionStatement	 
+>185	AssignmentExpr	* ( input_ptr ++ ) = w_sum
+>186	Identifier	w_sum
+>187	UnaryOp	* ( input_ptr ++ )
+>188	IncDecOp	input_ptr ++
+>189	IncDec	++
+>190	Identifier	input_ptr
+>191	UnaryOperator	*
+>192	ExpressionStatement	 
+>193	AssignmentExpr	w_sum = ( 255 - * ( data_ptr ++ ) ) - l_ave
+>194	AdditiveExpression	( 255 - * ( data_ptr ++ ) ) - l_ave
+>195	Identifier	l_ave
+>196	AdditiveExpression	255 - * ( data_ptr ++ )
+>197	UnaryOp	* ( data_ptr ++ )
+>198	IncDecOp	data_ptr ++
+>199	IncDec	++
+>200	Identifier	data_ptr
+>201	UnaryOperator	*
+>202	PrimaryExpression	255
+>203	Identifier	w_sum
+>204	ExpressionStatement	 
+>205	AssignmentExpr	sum += w_sum * w_sum
+>206	MultiplicativeExpression	w_sum * w_sum
+>207	Identifier	w_sum
+>208	Identifier	w_sum
+>209	Identifier	sum
+>210	ExpressionStatement	 
+>211	AssignmentExpr	* ( input_ptr ++ ) = w_sum
+>212	Identifier	w_sum
+>213	UnaryOp	* ( input_ptr ++ )
+>214	IncDecOp	input_ptr ++
+>215	IncDec	++
+>216	Identifier	input_ptr
+>217	UnaryOperator	*
+>218	ExpressionStatement	 
+>219	AssignmentExpr	w_sum = ( 255 - * ( data_ptr ++ ) ) - l_ave
+>220	AdditiveExpression	( 255 - * ( data_ptr ++ ) ) - l_ave
+>221	Identifier	l_ave
+>222	AdditiveExpression	255 - * ( data_ptr ++ )
+>223	UnaryOp	* ( data_ptr ++ )
+>224	IncDecOp	data_ptr ++
+>225	IncDec	++
+>226	Identifier	data_ptr
+>227	UnaryOperator	*
+>228	PrimaryExpression	255
+>229	Identifier	w_sum
+>230	ExpressionStatement	 
+>231	AssignmentExpr	sum += w_sum * w_sum
+>232	MultiplicativeExpression	w_sum * w_sum
+>233	Identifier	w_sum
+>234	Identifier	w_sum
+>235	Identifier	sum
+>236	ExpressionStatement	 
+>237	AssignmentExpr	* ( input_ptr ++ ) = w_sum
+>238	Identifier	w_sum
+>239	UnaryOp	* ( input_ptr ++ )
+>240	IncDecOp	input_ptr ++
+>241	IncDec	++
+>242	Identifier	input_ptr
+>243	UnaryOperator	*
+>244	IdentifierDeclStatement	 
+>245	IdentifierDecl	w_sum = ( 255 - * ( data_ptr ++ ) ) - l_ave
+>246	AssignmentExpr	w_sum = ( 255 - * ( data_ptr ++ ) ) - l_ave
+>247	AdditiveExpression	( 255 - * ( data_ptr ++ ) ) - l_ave
+>248	Identifier	l_ave
+>249	AdditiveExpression	255 - * ( data_ptr ++ )
+>250	UnaryOp	* ( data_ptr ++ )
+>251	IncDecOp	data_ptr ++
+>252	IncDec	++
+>253	Identifier	data_ptr
+>254	UnaryOperator	*
+>255	PrimaryExpression	255
+>256	Identifier	w_sum
+>257	Identifier	w_sum
+>258	IdentifierDeclType	int
+>259	IncDecOp	 
+>260	IncDec	--
+>261	Identifier	i
+>262	Condition	 
+>263	RelationalExpression	i >= 0
+>264	PrimaryExpression	0
+>265	Identifier	i
+>266	ForInit	 
+>267	AssignmentExpr	i = pixels - 1
+>268	AdditiveExpression	pixels - 1
+>269	PrimaryExpression	1
+>270	Identifier	pixels
+>271	Identifier	i
+>272	IdentifierDeclStatement	 
+>273	IdentifierDecl	* input_ptr = this -> _input . item
+>274	AssignmentExpr	* input_ptr = this -> _input . item
+>275	MemberAccess	this -> _input . item
+>276	Identifier	item
+>277	PtrMemberAccess	this -> _input
+>278	Identifier	_input
+>279	Identifier	this
+>280	Identifier	input_ptr
+>281	Identifier	input_ptr
+>282	IdentifierDeclType	int *
+>283	ExpressionStatement	 
+>284	AssignmentExpr	data_ptr = data
+>285	Identifier	data
+>286	Identifier	data_ptr
+>287	ExpressionStatement	 
+>288	AssignmentExpr	l_ave /= ( pixels * 3 )
+>289	MultiplicativeExpression	pixels * 3
+>290	PrimaryExpression	3
+>291	Identifier	pixels
+>292	Identifier	l_ave
+>293	ExpressionStatement	 
+>294	AssignmentExpr	l_ave = 255 * 3 * pixels + l_ave
+>295	AdditiveExpression	255 * 3 * pixels + l_ave
+>296	Identifier	l_ave
+>297	MultiplicativeExpression	255 * 3 * pixels
+>298	MultiplicativeExpression	3 * pixels
+>299	Identifier	pixels
+>300	PrimaryExpression	3
+>301	PrimaryExpression	255
+>302	Identifier	l_ave
+>303	ForStatement	for ( i = pixels - 1 ; i >= 0 ; i -- )
+>304	CompoundStatement	 
+>305	ExpressionStatement	 
+>306	AssignmentExpr	l_ave += - * ( data_ptr ++ ) - * ( data_ptr ++ ) - * ( data_ptr ++ )
+>307	AdditiveExpression	- * ( data_ptr ++ ) - * ( data_ptr ++ ) - * ( data_ptr ++ )
+>308	AdditiveExpression	* ( data_ptr ++ ) - * ( data_ptr ++ )
+>309	UnaryOp	* ( data_ptr ++ )
+>310	IncDecOp	data_ptr ++
+>311	IncDec	++
+>312	Identifier	data_ptr
+>313	UnaryOperator	*
+>314	UnaryOp	* ( data_ptr ++ )
+>315	IncDecOp	data_ptr ++
+>316	IncDec	++
+>317	Identifier	data_ptr
+>318	UnaryOperator	*
+>319	UnaryOp	- * ( data_ptr ++ )
+>320	UnaryOp	* ( data_ptr ++ )
+>321	IncDecOp	data_ptr ++
+>322	IncDec	++
+>323	Identifier	data_ptr
+>324	UnaryOperator	*
+>325	UnaryOperator	-
+>326	Identifier	l_ave
+>327	IncDecOp	 
+>328	IncDec	--
+>329	Identifier	i
+>330	Condition	 
+>331	RelationalExpression	i >= 0
+>332	PrimaryExpression	0
+>333	Identifier	i
+>334	ForInit	 
+>335	AssignmentExpr	i = pixels - 1
+>336	AdditiveExpression	pixels - 1
+>337	PrimaryExpression	1
+>338	Identifier	pixels
+>339	Identifier	i
+>340	ExpressionStatement	 
+>341	AssignmentExpr	data_ptr = data
+>342	Identifier	data
+>343	Identifier	data_ptr
+>344	IdentifierDeclStatement	 
+>345	IdentifierDecl	* data_ptr
+>346	Identifier	data_ptr
+>347	IdentifierDeclType	const int *
+>348	IdentifierDeclStatement	 
+>349	IdentifierDecl	l_ave = 0
+>350	AssignmentExpr	l_ave = 0
+>351	PrimaryExpression	0
+>352	Identifier	l_ave
+>353	Identifier	l_ave
+>354	IdentifierDeclType	int
+>355	IdentifierDecl	sum = 0
+>356	AssignmentExpr	sum = 0
+>357	PrimaryExpression	0
+>358	Identifier	sum
+>359	Identifier	sum
+>360	IdentifierDeclType	int
+>361	IdentifierDeclStatement	 
+>362	IdentifierDecl	* data = i_target_patt . getPatArray ( )
+>363	AssignmentExpr	* data = i_target_patt . getPatArray ( )
+>364	CallExpression	i_target_patt . getPatArray ( )
+>365	ArgumentList	 
+>366	Callee	i_target_patt . getPatArray
+>367	MemberAccess	i_target_patt . getPatArray
+>368	Identifier	getPatArray
+>369	Identifier	i_target_patt
+>370	Identifier	data
+>371	Identifier	data
+>372	IdentifierDeclType	const int *
+>373	IdentifierDeclStatement	 
+>374	IdentifierDecl	pixels = this -> _width * this -> _height
+>375	AssignmentExpr	pixels = this -> _width * this -> _height
+>376	MultiplicativeExpression	this -> _width * this -> _height
+>377	PtrMemberAccess	this -> _height
+>378	Identifier	_height
+>379	Identifier	this
+>380	PtrMemberAccess	this -> _width
+>381	Identifier	_width
+>382	Identifier	this
+>383	Identifier	pixels
+>384	Identifier	pixels
+>385	IdentifierDeclType	const int
+>386	ExpressionStatement	 
+>387	CallExpression	reallocInputArray ( i_target_patt . getWidth ( ) , i_target_patt . getHeight ( ) )
+>388	ArgumentList	i_target_patt . getWidth ( )
+>389	Argument	i_target_patt . getHeight ( )
+>390	CallExpression	i_target_patt . getHeight ( )
+>391	ArgumentList	 
+>392	Callee	i_target_patt . getHeight
+>393	MemberAccess	i_target_patt . getHeight
+>394	Identifier	getHeight
+>395	Identifier	i_target_patt
+>396	Argument	i_target_patt . getWidth ( )
+>397	CallExpression	i_target_patt . getWidth ( )
+>398	ArgumentList	 
+>399	Callee	i_target_patt . getWidth
+>400	MemberAccess	i_target_patt . getWidth
+>401	Identifier	getWidth
+>402	Identifier	i_target_patt
+>403	Callee	reallocInputArray
+>404	Identifier	reallocInputArray
+>405	IdentifierDeclStatement	 
+>406	IdentifierDecl	i
+>407	Identifier	i
+>408	IdentifierDeclType	int
+>438	FunctionDef	NyARMatchPatt_Color_WITHOUT_PCA 
+>439	ParameterList	const NyARCode & i_code
+>440	Parameter	 
+>441	Identifier	i_code
+>442	ParameterType	const NyARCode &
+>443	ReturnType	void
+>444	CompoundStatement	 
+>445	ExpressionStatement	 
+>446	AssignmentExpr	this -> _cf = max
+>447	Identifier	max
+>448	PtrMemberAccess	this -> _cf
+>449	Identifier	_cf
+>450	Identifier	this
+>451	ExpressionStatement	 
+>452	AssignmentExpr	this -> _dir = res
+>453	Identifier	res
+>454	PtrMemberAccess	this -> _dir
+>455	Identifier	_dir
+>456	Identifier	this
+>457	ForStatement	for ( int j = 0 ; j < 4 ; j ++ )
+>458	CompoundStatement	 
+>459	IfStatement	if ( sum2 > max )
+>460	CompoundStatement	 
+>461	ExpressionStatement	 
+>462	AssignmentExpr	res = j
+>463	Identifier	j
+>464	Identifier	res
+>465	ExpressionStatement	 
+>466	AssignmentExpr	max = sum2
+>467	Identifier	sum2
+>468	Identifier	max
+>469	Condition	 
+>470	RelationalExpression	sum2 > max
+>471	Identifier	max
+>472	Identifier	sum2
+>473	IdentifierDeclStatement	 
+>474	IdentifierDecl	sum2 = sum / patpow [ j ] / this -> _datapow
+>475	AssignmentExpr	sum2 = sum / patpow [ j ] / this -> _datapow
+>476	MultiplicativeExpression	sum / patpow [ j ] / this -> _datapow
+>477	MultiplicativeExpression	patpow [ j ] / this -> _datapow
+>478	PtrMemberAccess	this -> _datapow
+>479	Identifier	_datapow
+>480	Identifier	this
+>481	ArrayIndexing	patpow [ j ]
+>482	Identifier	j
+>483	Identifier	patpow
+>484	Identifier	sum
+>485	Identifier	sum2
+>486	Identifier	sum2
+>487	IdentifierDeclType	double
+>488	ForStatement	for ( int i = this -> _width * this -> _height - 1 ; i >= 0 ; i -- )
+>489	CompoundStatement	 
+>490	ExpressionStatement	 
+>491	AssignmentExpr	sum += * ( input_ptr ++ ) * * ( pat_ptr ++ )
+>492	MultiplicativeExpression	* ( input_ptr ++ ) * * ( pat_ptr ++ )
+>493	UnaryOp	* ( pat_ptr ++ )
+>494	IncDecOp	pat_ptr ++
+>495	IncDec	++
+>496	Identifier	pat_ptr
+>497	UnaryOperator	*
+>498	UnaryOp	* ( input_ptr ++ )
+>499	IncDecOp	input_ptr ++
+>500	IncDec	++
+>501	Identifier	input_ptr
+>502	UnaryOperator	*
+>503	Identifier	sum
+>504	ExpressionStatement	 
+>505	AssignmentExpr	sum += * ( input_ptr ++ ) * * ( pat_ptr ++ )
+>506	MultiplicativeExpression	* ( input_ptr ++ ) * * ( pat_ptr ++ )
+>507	UnaryOp	* ( pat_ptr ++ )
+>508	IncDecOp	pat_ptr ++
+>509	IncDec	++
+>510	Identifier	pat_ptr
+>511	UnaryOperator	*
+>512	UnaryOp	* ( input_ptr ++ )
+>513	IncDecOp	input_ptr ++
+>514	IncDec	++
+>515	Identifier	input_ptr
+>516	UnaryOperator	*
+>517	Identifier	sum
+>518	ExpressionStatement	 
+>519	AssignmentExpr	sum += * ( input_ptr ++ ) * * ( pat_ptr ++ )
+>520	MultiplicativeExpression	* ( input_ptr ++ ) * * ( pat_ptr ++ )
+>521	UnaryOp	* ( pat_ptr ++ )
+>522	IncDecOp	pat_ptr ++
+>523	IncDec	++
+>524	Identifier	pat_ptr
+>525	UnaryOperator	*
+>526	UnaryOp	* ( input_ptr ++ )
+>527	IncDecOp	input_ptr ++
+>528	IncDec	++
+>529	Identifier	input_ptr
+>530	UnaryOperator	*
+>531	Identifier	sum
+>532	IncDecOp	 
+>533	IncDec	--
+>534	Identifier	i
+>535	Condition	 
+>536	RelationalExpression	i >= 0
+>537	PrimaryExpression	0
+>538	Identifier	i
+>539	ForInit	 
+>540	IdentifierDeclStatement	int i = this -> _width * this -> _height - 1 ;
+>541	IdentifierDecl	i = this -> _width * this -> _height - 1
+>542	AssignmentExpr	i = this -> _width * this -> _height - 1
+>543	AdditiveExpression	this -> _width * this -> _height - 1
+>544	PrimaryExpression	1
+>545	MultiplicativeExpression	this -> _width * this -> _height
+>546	PtrMemberAccess	this -> _height
+>547	Identifier	_height
+>548	Identifier	this
+>549	PtrMemberAccess	this -> _width
+>550	Identifier	_width
+>551	Identifier	this
+>552	Identifier	i
+>553	Identifier	i
+>554	IdentifierDeclType	int
+>555	IdentifierDeclStatement	 
+>556	IdentifierDecl	* input_ptr = this -> _input . item
+>557	AssignmentExpr	* input_ptr = this -> _input . item
+>558	MemberAccess	this -> _input . item
+>559	Identifier	item
+>560	PtrMemberAccess	this -> _input
+>561	Identifier	_input
+>562	Identifier	this
+>563	Identifier	input_ptr
+>564	Identifier	input_ptr
+>565	IdentifierDeclType	const int *
+>566	IdentifierDeclStatement	 
+>567	IdentifierDecl	sum = 0
+>568	AssignmentExpr	sum = 0
+>569	PrimaryExpression	0
+>570	Identifier	sum
+>571	Identifier	sum
+>572	IdentifierDeclType	int
+>573	IncDecOp	 
+>574	IncDec	++
+>575	Identifier	j
+>576	Condition	 
+>577	RelationalExpression	j < 4
+>578	PrimaryExpression	4
+>579	Identifier	j
+>580	ForInit	 
+>581	IdentifierDeclStatement	int j = 0 ;
+>582	IdentifierDecl	j = 0
+>583	AssignmentExpr	j = 0
+>584	PrimaryExpression	0
+>585	Identifier	j
+>586	Identifier	j
+>587	IdentifierDeclType	int
+>588	IdentifierDeclStatement	 
+>589	IdentifierDecl	* pat_ptr = i_code . getPat ( )
+>590	AssignmentExpr	* pat_ptr = i_code . getPat ( )
+>591	CallExpression	i_code . getPat ( )
+>592	ArgumentList	 
+>593	Callee	i_code . getPat
+>594	MemberAccess	i_code . getPat
+>595	Identifier	getPat
+>596	Identifier	i_code
+>597	Identifier	pat_ptr
+>598	Identifier	pat_ptr
+>599	IdentifierDeclType	const int *
+>600	IdentifierDeclStatement	 
+>601	IdentifierDecl	max = 0.0
+>602	AssignmentExpr	max = 0.0
+>603	PrimaryExpression	0.0
+>604	Identifier	max
+>605	Identifier	max
+>606	IdentifierDeclType	double
+>607	IdentifierDeclStatement	 
+>608	IdentifierDecl	res = - 1
+>609	AssignmentExpr	res = - 1
+>610	UnaryOp	- 1
+>611	PrimaryExpression	1
+>612	UnaryOperator	-
+>613	Identifier	res
+>614	Identifier	res
+>615	IdentifierDeclType	int
+>616	IdentifierDeclStatement	 
+>617	IdentifierDecl	* patpow = i_code . getPatPow ( )
+>618	AssignmentExpr	* patpow = i_code . getPatPow ( )
+>619	CallExpression	i_code . getPatPow ( )
+>620	ArgumentList	 
+>621	Callee	i_code . getPatPow
+>622	MemberAccess	i_code . getPatPow
+>623	Identifier	getPatPow
+>624	Identifier	i_code
+>625	Identifier	patpow
+>626	Identifier	patpow
+>627	IdentifierDeclType	const double *
+<3=5,4
+<5=25,19,13,7,6
+<7=8
+<8=10,9
+<10=12,11
+<13=14
+<14=16,15
+<16=18,17
+<19=20
+<20=22,21
+<22=24,23
+<25=26
+<26=28,27
+<28=30,29
+<40=43,42,41
+<43=44
+<44=45
+<45=47,46
+<54=57,56,55
+<57=58
+<58=59
+<59=61,60
+<68=77,76,69
+<69=73,70
+<70=72,71
+<73=75,74
+<77=120,91,85,79,78
+<79=80
+<80=82,81
+<82=84,83
+<85=86
+<86=88,87
+<88=90,89
+<91=108,92
+<92=93
+<93=94
+<94=102,95
+<95=96
+<96=97
+<97=101,98
+<98=100,99
+<102=103
+<103=105,104
+<105=107,106
+<108=109
+<109=115,110
+<110=114,111
+<111=113,112
+<115=117,116
+<117=119,118
+<120=121
+<121=131,122
+<122=123
+<123=124
+<124=128,125
+<125=127,126
+<128=130,129
+<131=132
+<144=150,149,145
+<145=146
+<146=148,147
+<150=405,386,373,361,348,344,340,303,293,287,283,272,176,163,153,151
+<151=152
+<153=157,154
+<154=155
+<155=156
+<157=158
+<158=160,159
+<160=162,161
+<163=164
+<164=173,165
+<165=171,166
+<166=167
+<167=168
+<168=170,169
+<171=172
+<173=175,174
+<176=266,262,259,177
+<177=244,236,230,218,210,204,192,184,178
+<178=179
+<179=183,180
+<180=182,181
+<184=185
+<185=187,186
+<187=191,188
+<188=190,189
+<192=193
+<193=203,194
+<194=196,195
+<196=202,197
+<197=201,198
+<198=200,199
+<204=205
+<205=209,206
+<206=208,207
+<210=211
+<211=213,212
+<213=217,214
+<214=216,215
+<218=219
+<219=229,220
+<220=222,221
+<222=228,223
+<223=227,224
+<224=226,225
+<230=231
+<231=235,232
+<232=234,233
+<236=237
+<237=239,238
+<239=243,240
+<240=242,241
+<244=245
+<245=258,257,246
+<246=256,247
+<247=249,248
+<249=255,250
+<250=254,251
+<251=253,252
+<259=261,260
+<262=263
+<263=265,264
+<266=267
+<267=271,268
+<268=270,269
+<272=273
+<273=282,281,274
+<274=280,275
+<275=277,276
+<277=279,278
+<283=284
+<284=286,285
+<287=288
+<288=292,289
+<289=291,290
+<293=294
+<294=302,295
+<295=297,296
+<297=301,298
+<298=300,299
+<303=334,330,327,304
+<304=305
+<305=306
+<306=326,307
+<307=319,308
+<308=314,309
+<309=313,310
+<310=312,311
+<314=318,315
+<315=317,316
+<319=325,320
+<320=324,321
+<321=323,322
+<327=329,328
+<330=331
+<331=333,332
+<334=335
+<335=339,336
+<336=338,337
+<340=341
+<341=343,342
+<344=345
+<345=347,346
+<348=355,349
+<349=354,353,350
+<350=352,351
+<355=360,359,356
+<356=358,357
+<361=362
+<362=372,371,363
+<363=370,364
+<364=366,365
+<366=367
+<367=369,368
+<373=374
+<374=385,384,375
+<375=383,376
+<376=380,377
+<377=379,378
+<380=382,381
+<386=387
+<387=403,388
+<388=396,389
+<389=390
+<390=392,391
+<392=393
+<393=395,394
+<396=397
+<397=399,398
+<399=400
+<400=402,401
+<403=404
+<405=406
+<406=408,407
+<438=444,443,439
+<439=440
+<440=442,441
+<444=616,607,600,588,457,451,445
+<445=446
+<446=448,447
+<448=450,449
+<451=452
+<452=454,453
+<454=456,455
+<457=580,576,573,458
+<458=566,555,488,473,459
+<459=469,460
+<460=465,461
+<461=462
+<462=464,463
+<465=466
+<466=468,467
+<469=470
+<470=472,471
+<473=474
+<474=487,486,475
+<475=485,476
+<476=484,477
+<477=481,478
+<478=480,479
+<481=483,482
+<488=539,535,532,489
+<489=518,504,490
+<490=491
+<491=503,492
+<492=498,493
+<493=497,494
+<494=496,495
+<498=502,499
+<499=501,500
+<504=505
+<505=517,506
+<506=512,507
+<507=511,508
+<508=510,509
+<512=516,513
+<513=515,514
+<518=519
+<519=531,520
+<520=526,521
+<521=525,522
+<522=524,523
+<526=530,527
+<527=529,528
+<532=534,533
+<535=536
+<536=538,537
+<539=540
+<540=541
+<541=554,553,542
+<542=552,543
+<543=545,544
+<545=549,546
+<546=548,547
+<549=551,550
+<555=556
+<556=565,564,557
+<557=563,558
+<558=560,559
+<560=562,561
+<566=567
+<567=572,571,568
+<568=570,569
+<573=575,574
+<576=577
+<577=579,578
+<580=581
+<581=582
+<582=587,586,583
+<583=585,584
+<588=589
+<589=599,598,590
+<590=597,591
+<591=593,592
+<593=594
+<594=596,595
+<600=601
+<601=606,605,602
+<602=604,603
+<607=608
+<608=615,614,609
+<609=613,610
+<610=612,611
+<616=617
+<617=627,626,618
+<618=625,619
+<619=621,620
+<621=622
+<622=624,623

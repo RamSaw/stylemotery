@@ -1,0 +1,1671 @@
+>3	FunctionDef	usage ()
+>4	ParameterList	 
+>5	ReturnType	void
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	ShiftExpression	cerr << \"OPTIONS
+>9	ShiftExpression	\"OPTIONS
+>10	ShiftExpression	\"  -i <filename>     
+>11	ShiftExpression	\"  -o <filename>     
+>12	ShiftExpression	\"  -x                
+>13	ShiftExpression	DRWN_STANDARD_OPTIONS_USAGE << endl
+>14	Identifier	endl
+>15	Identifier	DRWN_STANDARD_OPTIONS_USAGE
+>16	PrimaryExpression	\"  -x                
+>17	PrimaryExpression	\"  -o <filename>     
+>18	PrimaryExpression	\"  -i <filename>     
+>19	PrimaryExpression	\"OPTIONS
+>20	Identifier	cerr
+>21	ExpressionStatement	 
+>22	ShiftExpression	cerr << \"USAGE
+>23	PrimaryExpression	\"USAGE
+>24	Identifier	cerr
+>25	ExpressionStatement	 
+>26	ShiftExpression	cerr << DRWN_USAGE_HEADER << endl
+>27	ShiftExpression	DRWN_USAGE_HEADER << endl
+>28	Identifier	endl
+>29	Identifier	DRWN_USAGE_HEADER
+>30	Identifier	cerr
+>34	FunctionDef	main (int argc , char * argv [ ])
+>35	ParameterList	int argc , char * argv [ ]
+>36	Parameter	 
+>37	Identifier	argv
+>38	ParameterType	char * [ ]
+>39	Parameter	 
+>40	Identifier	argc
+>41	ParameterType	int
+>42	ReturnType	int
+>43	CompoundStatement	 
+>44	ReturnStatement	 
+>45	PrimaryExpression	0
+>46	ExpressionStatement	 
+>47	CallExpression	drwnCodeProfiler 
+>48	ArgumentList	 
+>49	Callee	drwnCodeProfiler 
+>50	Identifier	drwnCodeProfiler 
+>51	ExpressionStatement	 
+>52	CallExpression	drwnCodeProfiler 
+>53	ArgumentList	hMain
+>54	Argument	hMain
+>55	Identifier	hMain
+>56	Callee	drwnCodeProfiler 
+>57	Identifier	drwnCodeProfiler 
+>58	IfStatement	if ( bVisualize )
+>59	ExpressionStatement	 
+>60	CallExpression	cv 
+>61	ArgumentList	 
+>62	Callee	cv 
+>63	Identifier	cv 
+>64	Condition	 
+>65	Identifier	bVisualize
+>66	IfStatement	if ( bVisualize )
+>67	ExpressionStatement	 
+>68	CallExpression	cv 
+>69	ArgumentList	- 1
+>70	Argument	- 1
+>71	UnaryOp	- 1
+>72	PrimaryExpression	1
+>73	UnaryOperator	-
+>74	Callee	cv 
+>75	Identifier	cv 
+>76	Condition	 
+>77	Identifier	bVisualize
+>78	IfStatement	if ( outGraphFile != NULL )
+>79	CompoundStatement	 
+>80	ExpressionStatement	 
+>81	CallExpression	graph . write ( outGraphFile )
+>82	ArgumentList	outGraphFile
+>83	Argument	outGraphFile
+>84	Identifier	outGraphFile
+>85	Callee	graph . write
+>86	MemberAccess	graph . write
+>87	Identifier	write
+>88	Identifier	graph
+>89	ExpressionStatement	 
+>90	CallExpression	DRWN_LOG_MESSAGE ( \"Writing drwnNNGraph to \" << outGraphFile << \"...\" )
+>91	ArgumentList	\"Writing drwnNNGraph to \" << outGraphFile << \"...\"
+>92	Argument	\"Writing drwnNNGraph to \" << outGraphFile << \"...\"
+>93	ShiftExpression	\"Writing drwnNNGraph to \" << outGraphFile << \"...\"
+>94	ShiftExpression	outGraphFile << \"...\"
+>95	PrimaryExpression	\"...\"
+>96	Identifier	outGraphFile
+>97	PrimaryExpression	\"Writing drwnNNGraph to \"
+>98	Callee	DRWN_LOG_MESSAGE
+>99	Identifier	DRWN_LOG_MESSAGE
+>100	Condition	 
+>101	EqualityExpression	outGraphFile != NULL
+>102	Identifier	NULL
+>103	Identifier	outGraphFile
+>104	ExpressionStatement	 
+>105	CallExpression	DRWN_LOG_VERBOSE ( \"...graph has \" << graph . numEdges ( ) << \" edges\" )
+>106	ArgumentList	\"...graph has \" << graph . numEdges ( ) << \" edges\"
+>107	Argument	\"...graph has \" << graph . numEdges ( ) << \" edges\"
+>108	ShiftExpression	\"...graph has \" << graph . numEdges ( ) << \" edges\"
+>109	ShiftExpression	graph . numEdges ( ) << \" edges\"
+>110	PrimaryExpression	\" edges\"
+>111	CallExpression	graph . numEdges ( )
+>112	ArgumentList	 
+>113	Callee	graph . numEdges
+>114	MemberAccess	graph . numEdges
+>115	Identifier	numEdges
+>116	Identifier	graph
+>117	PrimaryExpression	\"...graph has \"
+>118	Callee	DRWN_LOG_VERBOSE
+>119	Identifier	DRWN_LOG_VERBOSE
+>120	ForStatement	for ( unsigned i = 0 ; i < queryIndexes . size ( ) ; i ++ )
+>121	CompoundStatement	 
+>122	ForStatement	for ( unsigned k = 0 ; k < drwnNNGraph 
+>123	CompoundStatement	 
+>124	ExpressionStatement	 
+>125	CallExpression	graph [ queryIndexes [ i ] ] . edges . push_back ( e )
+>126	ArgumentList	e
+>127	Argument	e
+>128	Identifier	e
+>129	Callee	graph [ queryIndexes [ i ] ] . edges . push_back
+>130	MemberAccess	graph [ queryIndexes [ i ] ] . edges . push_back
+>131	Identifier	push_back
+>132	MemberAccess	graph [ queryIndexes [ i ] ] . edges
+>133	Identifier	edges
+>134	ArrayIndexing	graph [ queryIndexes [ i ] ]
+>135	ArrayIndexing	queryIndexes [ i ]
+>136	Identifier	i
+>137	Identifier	queryIndexes
+>138	Identifier	graph
+>139	IdentifierDeclStatement	 
+>140	IdentifierDecl	e ( sampleIndexes [ indexes . at < int > ( i , k ) ] , dists . at < float > ( i , k ) )
+>141	Expression	sampleIndexes [ indexes . at < int > ( i , k ) ] , dists . at < float > ( i , k )
+>142	RelationalExpression	dists . at < float > ( i , k )
+>143	RelationalExpression	float > ( i , k )
+>144	Expression	i , k
+>145	Identifier	k
+>146	Identifier	i
+>147	Identifier	float
+>148	MemberAccess	dists . at
+>149	Identifier	at
+>150	Identifier	dists
+>151	ArrayIndexing	sampleIndexes [ indexes . at < int > ( i , k ) ]
+>152	RelationalExpression	indexes . at < int > ( i , k )
+>153	RelationalExpression	int > ( i , k )
+>154	Expression	i , k
+>155	Identifier	k
+>156	Identifier	i
+>157	Identifier	int
+>158	MemberAccess	indexes . at
+>159	Identifier	at
+>160	Identifier	indexes
+>161	Identifier	sampleIndexes
+>162	Identifier	e
+>163	IdentifierDeclType	drwnNNGraphEdge
+>164	IncDecOp	 
+>165	IncDec	++
+>166	Identifier	k
+>167	Condition	 
+>168	RelationalExpression	k < drwnNNGraph 
+>169	Identifier	drwnNNGraph 
+>170	Identifier	k
+>171	ForInit	 
+>172	IdentifierDeclStatement	unsigned k = 0 ;
+>173	IdentifierDecl	k = 0
+>174	AssignmentExpr	k = 0
+>175	PrimaryExpression	0
+>176	Identifier	k
+>177	Identifier	k
+>178	IdentifierDeclType	unsigned
+>179	IncDecOp	 
+>180	IncDec	++
+>181	Identifier	i
+>182	Condition	 
+>183	RelationalExpression	i < queryIndexes . size ( )
+>184	CallExpression	queryIndexes . size ( )
+>185	ArgumentList	 
+>186	Callee	queryIndexes . size
+>187	MemberAccess	queryIndexes . size
+>188	Identifier	size
+>189	Identifier	queryIndexes
+>190	Identifier	i
+>191	ForInit	 
+>192	IdentifierDeclStatement	unsigned i = 0 ;
+>193	IdentifierDecl	i = 0
+>194	AssignmentExpr	i = 0
+>195	PrimaryExpression	0
+>196	Identifier	i
+>197	Identifier	i
+>198	IdentifierDeclType	unsigned
+>199	ExpressionStatement	 
+>200	CallExpression	kdtree . knnSearch ( queries , indexes , dists , drwnNNGraph 
+>201	ArgumentList	queries
+>202	Argument	cv 
+>203	CallExpression	cv 
+>204	ArgumentList	64
+>205	Argument	64
+>206	PrimaryExpression	64
+>207	Callee	cv 
+>208	Identifier	cv 
+>209	Argument	drwnNNGraph 
+>210	Identifier	drwnNNGraph 
+>211	Argument	dists
+>212	Identifier	dists
+>213	Argument	indexes
+>214	Identifier	indexes
+>215	Argument	queries
+>216	Identifier	queries
+>217	Callee	kdtree . knnSearch
+>218	MemberAccess	kdtree . knnSearch
+>219	Identifier	knnSearch
+>220	Identifier	kdtree
+>221	IdentifierDeclStatement	 
+>222	IdentifierDecl	dists ( numQueries , drwnNNGraph 
+>223	Expression	numQueries , drwnNNGraph 
+>224	Expression	drwnNNGraph 
+>225	Identifier	CV_32FC1
+>226	Identifier	drwnNNGraph 
+>227	Identifier	numQueries
+>228	Identifier	dists
+>229	IdentifierDeclType	cv 
+>230	IdentifierDeclStatement	 
+>231	IdentifierDecl	indexes ( numQueries , drwnNNGraph 
+>232	Expression	numQueries , drwnNNGraph 
+>233	Expression	drwnNNGraph 
+>234	Identifier	CV_32SC1
+>235	Identifier	drwnNNGraph 
+>236	Identifier	numQueries
+>237	Identifier	indexes
+>238	IdentifierDeclType	cv 
+>239	ExpressionStatement	 
+>240	CallExpression	DRWN_LOG_VERBOSE ( \"querying kd-tree on \" << numQueries << \" queries...\" )
+>241	ArgumentList	\"querying kd-tree on \" << numQueries << \" queries...\"
+>242	Argument	\"querying kd-tree on \" << numQueries << \" queries...\"
+>243	ShiftExpression	\"querying kd-tree on \" << numQueries << \" queries...\"
+>244	ShiftExpression	numQueries << \" queries...\"
+>245	PrimaryExpression	\" queries...\"
+>246	Identifier	numQueries
+>247	PrimaryExpression	\"querying kd-tree on \"
+>248	Callee	DRWN_LOG_VERBOSE
+>249	Identifier	DRWN_LOG_VERBOSE
+>250	IdentifierDeclStatement	 
+>251	IdentifierDecl	kdtree ( features , indexParams )
+>252	Expression	features , indexParams
+>253	Identifier	indexParams
+>254	Identifier	features
+>255	Identifier	kdtree
+>256	IdentifierDeclType	cv 
+>257	IdentifierDeclStatement	 
+>258	IdentifierDecl	indexParams
+>259	Identifier	indexParams
+>260	IdentifierDeclType	cv 
+>261	ExpressionStatement	 
+>262	CallExpression	DRWN_LOG_VERBOSE ( \"building kd-tree on \" << numSamples << \" samples...\" )
+>263	ArgumentList	\"building kd-tree on \" << numSamples << \" samples...\"
+>264	Argument	\"building kd-tree on \" << numSamples << \" samples...\"
+>265	ShiftExpression	\"building kd-tree on \" << numSamples << \" samples...\"
+>266	ShiftExpression	numSamples << \" samples...\"
+>267	PrimaryExpression	\" samples...\"
+>268	Identifier	numSamples
+>269	PrimaryExpression	\"building kd-tree on \"
+>270	Callee	DRWN_LOG_VERBOSE
+>271	Identifier	DRWN_LOG_VERBOSE
+>272	ForStatement	for ( unsigned i = 0 ; i < queryIndexes . size ( ) ; i ++ )
+>273	CompoundStatement	 
+>274	ForStatement	for ( unsigned d = 0 ; d < numFeatures ; d ++ )
+>275	CompoundStatement	 
+>276	ExpressionStatement	 
+>277	AssignmentExpr	queries . at < float > ( i , d ) = graph [ queryIndexes [ i ] ] . features [ d ]
+>278	ArrayIndexing	graph [ queryIndexes [ i ] ] . features [ d ]
+>279	Identifier	d
+>280	MemberAccess	graph [ queryIndexes [ i ] ] . features
+>281	Identifier	features
+>282	ArrayIndexing	graph [ queryIndexes [ i ] ]
+>283	ArrayIndexing	queryIndexes [ i ]
+>284	Identifier	i
+>285	Identifier	queryIndexes
+>286	Identifier	graph
+>287	RelationalExpression	queries . at < float > ( i , d )
+>288	RelationalExpression	float > ( i , d )
+>289	Expression	i , d
+>290	Identifier	d
+>291	Identifier	i
+>292	Identifier	float
+>293	MemberAccess	queries . at
+>294	Identifier	at
+>295	Identifier	queries
+>296	IncDecOp	 
+>297	IncDec	++
+>298	Identifier	d
+>299	Condition	 
+>300	RelationalExpression	d < numFeatures
+>301	Identifier	numFeatures
+>302	Identifier	d
+>303	ForInit	 
+>304	IdentifierDeclStatement	unsigned d = 0 ;
+>305	IdentifierDecl	d = 0
+>306	AssignmentExpr	d = 0
+>307	PrimaryExpression	0
+>308	Identifier	d
+>309	Identifier	d
+>310	IdentifierDeclType	unsigned
+>311	IncDecOp	 
+>312	IncDec	++
+>313	Identifier	i
+>314	Condition	 
+>315	RelationalExpression	i < queryIndexes . size ( )
+>316	CallExpression	queryIndexes . size ( )
+>317	ArgumentList	 
+>318	Callee	queryIndexes . size
+>319	MemberAccess	queryIndexes . size
+>320	Identifier	size
+>321	Identifier	queryIndexes
+>322	Identifier	i
+>323	ForInit	 
+>324	IdentifierDeclStatement	unsigned i = 0 ;
+>325	IdentifierDecl	i = 0
+>326	AssignmentExpr	i = 0
+>327	PrimaryExpression	0
+>328	Identifier	i
+>329	Identifier	i
+>330	IdentifierDeclType	unsigned
+>331	IdentifierDeclStatement	 
+>332	IdentifierDecl	queries ( numQueries , numFeatures , CV_32FC1 )
+>333	Expression	numQueries , numFeatures , CV_32FC1
+>334	Expression	numFeatures , CV_32FC1
+>335	Identifier	CV_32FC1
+>336	Identifier	numFeatures
+>337	Identifier	numQueries
+>338	Identifier	queries
+>339	IdentifierDeclType	cv 
+>340	ForStatement	for ( unsigned i = 0 ; i < sampleIndexes . size ( ) ; i ++ )
+>341	CompoundStatement	 
+>342	ForStatement	for ( unsigned d = 0 ; d < numFeatures ; d ++ )
+>343	CompoundStatement	 
+>344	ExpressionStatement	 
+>345	AssignmentExpr	features . at < float > ( i , d ) = graph [ sampleIndexes [ i ] ] . features [ d ]
+>346	ArrayIndexing	graph [ sampleIndexes [ i ] ] . features [ d ]
+>347	Identifier	d
+>348	MemberAccess	graph [ sampleIndexes [ i ] ] . features
+>349	Identifier	features
+>350	ArrayIndexing	graph [ sampleIndexes [ i ] ]
+>351	ArrayIndexing	sampleIndexes [ i ]
+>352	Identifier	i
+>353	Identifier	sampleIndexes
+>354	Identifier	graph
+>355	RelationalExpression	features . at < float > ( i , d )
+>356	RelationalExpression	float > ( i , d )
+>357	Expression	i , d
+>358	Identifier	d
+>359	Identifier	i
+>360	Identifier	float
+>361	MemberAccess	features . at
+>362	Identifier	at
+>363	Identifier	features
+>364	IncDecOp	 
+>365	IncDec	++
+>366	Identifier	d
+>367	Condition	 
+>368	RelationalExpression	d < numFeatures
+>369	Identifier	numFeatures
+>370	Identifier	d
+>371	ForInit	 
+>372	IdentifierDeclStatement	unsigned d = 0 ;
+>373	IdentifierDecl	d = 0
+>374	AssignmentExpr	d = 0
+>375	PrimaryExpression	0
+>376	Identifier	d
+>377	Identifier	d
+>378	IdentifierDeclType	unsigned
+>379	IncDecOp	 
+>380	IncDec	++
+>381	Identifier	i
+>382	Condition	 
+>383	RelationalExpression	i < sampleIndexes . size ( )
+>384	CallExpression	sampleIndexes . size ( )
+>385	ArgumentList	 
+>386	Callee	sampleIndexes . size
+>387	MemberAccess	sampleIndexes . size
+>388	Identifier	size
+>389	Identifier	sampleIndexes
+>390	Identifier	i
+>391	ForInit	 
+>392	IdentifierDeclStatement	unsigned i = 0 ;
+>393	IdentifierDecl	i = 0
+>394	AssignmentExpr	i = 0
+>395	PrimaryExpression	0
+>396	Identifier	i
+>397	Identifier	i
+>398	IdentifierDeclType	unsigned
+>399	IdentifierDeclStatement	 
+>400	IdentifierDecl	features ( numSamples , numFeatures , CV_32FC1 )
+>401	Expression	numSamples , numFeatures , CV_32FC1
+>402	Expression	numFeatures , CV_32FC1
+>403	Identifier	CV_32FC1
+>404	Identifier	numFeatures
+>405	Identifier	numSamples
+>406	Identifier	features
+>407	IdentifierDeclType	cv 
+>408	ExpressionStatement	 
+>409	CallExpression	DRWN_LOG_VERBOSE ( \"...\" << numSamples << \" samples and \" << numQueries << \" queries\" )
+>410	ArgumentList	\"...\" << numSamples << \" samples and \" << numQueries << \" queries\"
+>411	Argument	\"...\" << numSamples << \" samples and \" << numQueries << \" queries\"
+>412	ShiftExpression	\"...\" << numSamples << \" samples and \" << numQueries << \" queries\"
+>413	ShiftExpression	numSamples << \" samples and \" << numQueries << \" queries\"
+>414	ShiftExpression	\" samples and \" << numQueries << \" queries\"
+>415	ShiftExpression	numQueries << \" queries\"
+>416	PrimaryExpression	\" queries\"
+>417	Identifier	numQueries
+>418	PrimaryExpression	\" samples and \"
+>419	Identifier	numSamples
+>420	PrimaryExpression	\"...\"
+>421	Callee	DRWN_LOG_VERBOSE
+>422	Identifier	DRWN_LOG_VERBOSE
+>423	ForStatement	for ( unsigned i = 0 ; i < graph . numImages ( ) ; i ++ )
+>424	CompoundStatement	 
+>425	IfStatement	if ( graph [ i ] . bSourceMatchable )
+>426	ElseStatement	else
+>427	CompoundStatement	 
+>428	ExpressionStatement	 
+>429	AssignmentExpr	numSamples += graph [ i ] . numNodes ( )
+>430	CallExpression	graph [ i ] . numNodes ( )
+>431	ArgumentList	 
+>432	Callee	graph [ i ] . numNodes
+>433	MemberAccess	graph [ i ] . numNodes
+>434	Identifier	numNodes
+>435	ArrayIndexing	graph [ i ]
+>436	Identifier	i
+>437	Identifier	graph
+>438	Identifier	numSamples
+>439	ForStatement	for ( unsigned j = 0 ; j < graph [ i ] . numNodes ( ) ; j ++ )
+>440	CompoundStatement	 
+>441	ExpressionStatement	 
+>442	CallExpression	sampleIndexes . push_back ( drwnNNGraphNodeIndex ( i , j ) )
+>443	ArgumentList	drwnNNGraphNodeIndex ( i , j )
+>444	Argument	drwnNNGraphNodeIndex ( i , j )
+>445	CallExpression	drwnNNGraphNodeIndex ( i , j )
+>446	ArgumentList	i
+>447	Argument	j
+>448	Identifier	j
+>449	Argument	i
+>450	Identifier	i
+>451	Callee	drwnNNGraphNodeIndex
+>452	Identifier	drwnNNGraphNodeIndex
+>453	Callee	sampleIndexes . push_back
+>454	MemberAccess	sampleIndexes . push_back
+>455	Identifier	push_back
+>456	Identifier	sampleIndexes
+>457	IncDecOp	 
+>458	IncDec	++
+>459	Identifier	j
+>460	Condition	 
+>461	RelationalExpression	j < graph [ i ] . numNodes ( )
+>462	CallExpression	graph [ i ] . numNodes ( )
+>463	ArgumentList	 
+>464	Callee	graph [ i ] . numNodes
+>465	MemberAccess	graph [ i ] . numNodes
+>466	Identifier	numNodes
+>467	ArrayIndexing	graph [ i ]
+>468	Identifier	i
+>469	Identifier	graph
+>470	Identifier	j
+>471	ForInit	 
+>472	IdentifierDeclStatement	unsigned j = 0 ;
+>473	IdentifierDecl	j = 0
+>474	AssignmentExpr	j = 0
+>475	PrimaryExpression	0
+>476	Identifier	j
+>477	Identifier	j
+>478	IdentifierDeclType	unsigned
+>479	ExpressionStatement	 
+>480	CallExpression	sampleIndexes . reserve ( sampleIndexes . size ( ) + graph [ i ] . numNodes ( ) )
+>481	ArgumentList	sampleIndexes . size ( ) + graph [ i ] . numNodes ( )
+>482	Argument	sampleIndexes . size ( ) + graph [ i ] . numNodes ( )
+>483	AdditiveExpression	sampleIndexes . size ( ) + graph [ i ] . numNodes ( )
+>484	CallExpression	graph [ i ] . numNodes ( )
+>485	ArgumentList	 
+>486	Callee	graph [ i ] . numNodes
+>487	MemberAccess	graph [ i ] . numNodes
+>488	Identifier	numNodes
+>489	ArrayIndexing	graph [ i ]
+>490	Identifier	i
+>491	Identifier	graph
+>492	CallExpression	sampleIndexes . size ( )
+>493	ArgumentList	 
+>494	Callee	sampleIndexes . size
+>495	MemberAccess	sampleIndexes . size
+>496	Identifier	size
+>497	Identifier	sampleIndexes
+>498	Callee	sampleIndexes . reserve
+>499	MemberAccess	sampleIndexes . reserve
+>500	Identifier	reserve
+>501	Identifier	sampleIndexes
+>502	CompoundStatement	 
+>503	ExpressionStatement	 
+>504	AssignmentExpr	numQueries += graph [ i ] . numNodes ( )
+>505	CallExpression	graph [ i ] . numNodes ( )
+>506	ArgumentList	 
+>507	Callee	graph [ i ] . numNodes
+>508	MemberAccess	graph [ i ] . numNodes
+>509	Identifier	numNodes
+>510	ArrayIndexing	graph [ i ]
+>511	Identifier	i
+>512	Identifier	graph
+>513	Identifier	numQueries
+>514	ForStatement	for ( unsigned j = 0 ; j < graph [ i ] . numNodes ( ) ; j ++ )
+>515	CompoundStatement	 
+>516	ExpressionStatement	 
+>517	CallExpression	queryIndexes . push_back ( drwnNNGraphNodeIndex ( i , j ) )
+>518	ArgumentList	drwnNNGraphNodeIndex ( i , j )
+>519	Argument	drwnNNGraphNodeIndex ( i , j )
+>520	CallExpression	drwnNNGraphNodeIndex ( i , j )
+>521	ArgumentList	i
+>522	Argument	j
+>523	Identifier	j
+>524	Argument	i
+>525	Identifier	i
+>526	Callee	drwnNNGraphNodeIndex
+>527	Identifier	drwnNNGraphNodeIndex
+>528	Callee	queryIndexes . push_back
+>529	MemberAccess	queryIndexes . push_back
+>530	Identifier	push_back
+>531	Identifier	queryIndexes
+>532	IncDecOp	 
+>533	IncDec	++
+>534	Identifier	j
+>535	Condition	 
+>536	RelationalExpression	j < graph [ i ] . numNodes ( )
+>537	CallExpression	graph [ i ] . numNodes ( )
+>538	ArgumentList	 
+>539	Callee	graph [ i ] . numNodes
+>540	MemberAccess	graph [ i ] . numNodes
+>541	Identifier	numNodes
+>542	ArrayIndexing	graph [ i ]
+>543	Identifier	i
+>544	Identifier	graph
+>545	Identifier	j
+>546	ForInit	 
+>547	IdentifierDeclStatement	unsigned j = 0 ;
+>548	IdentifierDecl	j = 0
+>549	AssignmentExpr	j = 0
+>550	PrimaryExpression	0
+>551	Identifier	j
+>552	Identifier	j
+>553	IdentifierDeclType	unsigned
+>554	ExpressionStatement	 
+>555	CallExpression	queryIndexes . reserve ( queryIndexes . size ( ) + graph [ i ] . numNodes ( ) )
+>556	ArgumentList	queryIndexes . size ( ) + graph [ i ] . numNodes ( )
+>557	Argument	queryIndexes . size ( ) + graph [ i ] . numNodes ( )
+>558	AdditiveExpression	queryIndexes . size ( ) + graph [ i ] . numNodes ( )
+>559	CallExpression	graph [ i ] . numNodes ( )
+>560	ArgumentList	 
+>561	Callee	graph [ i ] . numNodes
+>562	MemberAccess	graph [ i ] . numNodes
+>563	Identifier	numNodes
+>564	ArrayIndexing	graph [ i ]
+>565	Identifier	i
+>566	Identifier	graph
+>567	CallExpression	queryIndexes . size ( )
+>568	ArgumentList	 
+>569	Callee	queryIndexes . size
+>570	MemberAccess	queryIndexes . size
+>571	Identifier	size
+>572	Identifier	queryIndexes
+>573	Callee	queryIndexes . reserve
+>574	MemberAccess	queryIndexes . reserve
+>575	Identifier	reserve
+>576	Identifier	queryIndexes
+>577	Condition	 
+>578	MemberAccess	graph [ i ] . bSourceMatchable
+>579	Identifier	bSourceMatchable
+>580	ArrayIndexing	graph [ i ]
+>581	Identifier	i
+>582	Identifier	graph
+>583	IncDecOp	 
+>584	IncDec	++
+>585	Identifier	i
+>586	Condition	 
+>587	RelationalExpression	i < graph . numImages ( )
+>588	CallExpression	graph . numImages ( )
+>589	ArgumentList	 
+>590	Callee	graph . numImages
+>591	MemberAccess	graph . numImages
+>592	Identifier	numImages
+>593	Identifier	graph
+>594	Identifier	i
+>595	ForInit	 
+>596	IdentifierDeclStatement	unsigned i = 0 ;
+>597	IdentifierDecl	i = 0
+>598	AssignmentExpr	i = 0
+>599	PrimaryExpression	0
+>600	Identifier	i
+>601	Identifier	i
+>602	IdentifierDeclType	unsigned
+>603	IdentifierDeclStatement	 
+>604	IdentifierDecl	numQueries = 0
+>605	AssignmentExpr	numQueries = 0
+>606	PrimaryExpression	0
+>607	Identifier	numQueries
+>608	Identifier	numQueries
+>609	IdentifierDeclType	int
+>610	IdentifierDeclStatement	 
+>611	IdentifierDecl	numSamples = 0
+>612	AssignmentExpr	numSamples = 0
+>613	PrimaryExpression	0
+>614	Identifier	numSamples
+>615	Identifier	numSamples
+>616	IdentifierDeclType	int
+>617	IdentifierDeclStatement	 
+>618	IdentifierDecl	queryIndexes
+>619	Identifier	queryIndexes
+>620	IdentifierDeclType	vector < drwnNNGraphNodeIndex >
+>621	IdentifierDeclStatement	 
+>622	IdentifierDecl	sampleIndexes
+>623	Identifier	sampleIndexes
+>624	IdentifierDeclType	vector < drwnNNGraphNodeIndex >
+>625	IdentifierDeclStatement	 
+>626	IdentifierDecl	numFeatures = graph [ 0 ] [ 0 ] . features . size ( )
+>627	AssignmentExpr	numFeatures = graph [ 0 ] [ 0 ] . features . size ( )
+>628	CallExpression	graph [ 0 ] [ 0 ] . features . size ( )
+>629	ArgumentList	 
+>630	Callee	graph [ 0 ] [ 0 ] . features . size
+>631	MemberAccess	graph [ 0 ] [ 0 ] . features . size
+>632	Identifier	size
+>633	MemberAccess	graph [ 0 ] [ 0 ] . features
+>634	Identifier	features
+>635	ArrayIndexing	graph [ 0 ] [ 0 ]
+>636	PrimaryExpression	0
+>637	ArrayIndexing	graph [ 0 ]
+>638	PrimaryExpression	0
+>639	Identifier	graph
+>640	Identifier	numFeatures
+>641	Identifier	numFeatures
+>642	IdentifierDeclType	const size_t
+>643	ExpressionStatement	 
+>644	CallExpression	DRWN_LOG_VERBOSE ( \"...with \" << graph [ 0 ] [ 0 ] . features . size ( ) << \"-dimensional features\" )
+>645	ArgumentList	\"...with \" << graph [ 0 ] [ 0 ] . features . size ( ) << \"-dimensional features\"
+>646	Argument	\"...with \" << graph [ 0 ] [ 0 ] . features . size ( ) << \"-dimensional features\"
+>647	ShiftExpression	\"...with \" << graph [ 0 ] [ 0 ] . features . size ( ) << \"-dimensional features\"
+>648	ShiftExpression	graph [ 0 ] [ 0 ] . features . size ( ) << \"-dimensional features\"
+>649	PrimaryExpression	\"-dimensional features\"
+>650	CallExpression	graph [ 0 ] [ 0 ] . features . size ( )
+>651	ArgumentList	 
+>652	Callee	graph [ 0 ] [ 0 ] . features . size
+>653	MemberAccess	graph [ 0 ] [ 0 ] . features . size
+>654	Identifier	size
+>655	MemberAccess	graph [ 0 ] [ 0 ] . features
+>656	Identifier	features
+>657	ArrayIndexing	graph [ 0 ] [ 0 ]
+>658	PrimaryExpression	0
+>659	ArrayIndexing	graph [ 0 ]
+>660	PrimaryExpression	0
+>661	Identifier	graph
+>662	PrimaryExpression	\"...with \"
+>663	Callee	DRWN_LOG_VERBOSE
+>664	Identifier	DRWN_LOG_VERBOSE
+>665	ExpressionStatement	 
+>666	CallExpression	DRWN_LOG_VERBOSE ( \"...graph has \" << graph . numNodes ( ) << \" nodes\" )
+>667	ArgumentList	\"...graph has \" << graph . numNodes ( ) << \" nodes\"
+>668	Argument	\"...graph has \" << graph . numNodes ( ) << \" nodes\"
+>669	ShiftExpression	\"...graph has \" << graph . numNodes ( ) << \" nodes\"
+>670	ShiftExpression	graph . numNodes ( ) << \" nodes\"
+>671	PrimaryExpression	\" nodes\"
+>672	CallExpression	graph . numNodes ( )
+>673	ArgumentList	 
+>674	Callee	graph . numNodes
+>675	MemberAccess	graph . numNodes
+>676	Identifier	numNodes
+>677	Identifier	graph
+>678	PrimaryExpression	\"...graph has \"
+>679	Callee	DRWN_LOG_VERBOSE
+>680	Identifier	DRWN_LOG_VERBOSE
+>681	ExpressionStatement	 
+>682	CallExpression	DRWN_LOG_MESSAGE ( \"...graph has \" << graph . numImages ( ) << \" images\" )
+>683	ArgumentList	\"...graph has \" << graph . numImages ( ) << \" images\"
+>684	Argument	\"...graph has \" << graph . numImages ( ) << \" images\"
+>685	ShiftExpression	\"...graph has \" << graph . numImages ( ) << \" images\"
+>686	ShiftExpression	graph . numImages ( ) << \" images\"
+>687	PrimaryExpression	\" images\"
+>688	CallExpression	graph . numImages ( )
+>689	ArgumentList	 
+>690	Callee	graph . numImages
+>691	MemberAccess	graph . numImages
+>692	Identifier	numImages
+>693	Identifier	graph
+>694	PrimaryExpression	\"...graph has \"
+>695	Callee	DRWN_LOG_MESSAGE
+>696	Identifier	DRWN_LOG_MESSAGE
+>697	ForStatement	for ( unsigned i = 0 ; i < baseNames . size ( ) ; i ++ )
+>698	CompoundStatement	 
+>699	IfStatement	if ( indx < 0 )
+>700	ElseStatement	else
+>701	CompoundStatement	 
+>702	ExpressionStatement	 
+>703	AssignmentExpr	graph [ indx ] . bSourceMatchable = true
+>704	Identifier	true
+>705	MemberAccess	graph [ indx ] . bSourceMatchable
+>706	Identifier	bSourceMatchable
+>707	ArrayIndexing	graph [ indx ]
+>708	Identifier	indx
+>709	Identifier	graph
+>710	CompoundStatement	 
+>711	IfStatement	if ( bVisualize )
+>712	ElseStatement	else
+>713	CompoundStatement	 
+>714	ExpressionStatement	 
+>715	CallExpression	graph . appendImage ( drwnNNGraphImage ( drwnNNGraphImageData ( baseNames [ i ] ) ) )
+>716	ArgumentList	drwnNNGraphImage ( drwnNNGraphImageData ( baseNames [ i ] ) )
+>717	Argument	drwnNNGraphImage ( drwnNNGraphImageData ( baseNames [ i ] ) )
+>718	CallExpression	drwnNNGraphImage ( drwnNNGraphImageData ( baseNames [ i ] ) )
+>719	ArgumentList	drwnNNGraphImageData ( baseNames [ i ] )
+>720	Argument	drwnNNGraphImageData ( baseNames [ i ] )
+>721	CallExpression	drwnNNGraphImageData ( baseNames [ i ] )
+>722	ArgumentList	baseNames [ i ]
+>723	Argument	baseNames [ i ]
+>724	ArrayIndexing	baseNames [ i ]
+>725	Identifier	i
+>726	Identifier	baseNames
+>727	Callee	drwnNNGraphImageData
+>728	Identifier	drwnNNGraphImageData
+>729	Callee	drwnNNGraphImage
+>730	Identifier	drwnNNGraphImage
+>731	Callee	graph . appendImage
+>732	MemberAccess	graph . appendImage
+>733	Identifier	appendImage
+>734	Identifier	graph
+>735	CompoundStatement	 
+>736	ExpressionStatement	 
+>737	CallExpression	graph . appendImage ( imageData . back ( ) )
+>738	ArgumentList	imageData . back ( )
+>739	Argument	imageData . back ( )
+>740	CallExpression	imageData . back ( )
+>741	ArgumentList	 
+>742	Callee	imageData . back
+>743	MemberAccess	imageData . back
+>744	Identifier	back
+>745	Identifier	imageData
+>746	Callee	graph . appendImage
+>747	MemberAccess	graph . appendImage
+>748	Identifier	appendImage
+>749	Identifier	graph
+>750	Condition	 
+>751	Identifier	bVisualize
+>752	Condition	 
+>753	RelationalExpression	indx < 0
+>754	PrimaryExpression	0
+>755	Identifier	indx
+>756	IdentifierDeclStatement	 
+>757	IdentifierDecl	indx = graph . findImage ( baseNames [ i ] )
+>758	AssignmentExpr	indx = graph . findImage ( baseNames [ i ] )
+>759	CallExpression	graph . findImage ( baseNames [ i ] )
+>760	ArgumentList	baseNames [ i ]
+>761	Argument	baseNames [ i ]
+>762	ArrayIndexing	baseNames [ i ]
+>763	Identifier	i
+>764	Identifier	baseNames
+>765	Callee	graph . findImage
+>766	MemberAccess	graph . findImage
+>767	Identifier	findImage
+>768	Identifier	graph
+>769	Identifier	indx
+>770	Identifier	indx
+>771	IdentifierDeclType	const int
+>772	IfStatement	if ( bVisualize )
+>773	CompoundStatement	 
+>774	ExpressionStatement	 
+>775	CallExpression	imageData . push_back ( drwnNNGraphImageData ( baseNames [ i ] ) )
+>776	ArgumentList	drwnNNGraphImageData ( baseNames [ i ] )
+>777	Argument	drwnNNGraphImageData ( baseNames [ i ] )
+>778	CallExpression	drwnNNGraphImageData ( baseNames [ i ] )
+>779	ArgumentList	baseNames [ i ]
+>780	Argument	baseNames [ i ]
+>781	ArrayIndexing	baseNames [ i ]
+>782	Identifier	i
+>783	Identifier	baseNames
+>784	Callee	drwnNNGraphImageData
+>785	Identifier	drwnNNGraphImageData
+>786	Callee	imageData . push_back
+>787	MemberAccess	imageData . push_back
+>788	Identifier	push_back
+>789	Identifier	imageData
+>790	Condition	 
+>791	Identifier	bVisualize
+>792	IncDecOp	 
+>793	IncDec	++
+>794	Identifier	i
+>795	Condition	 
+>796	RelationalExpression	i < baseNames . size ( )
+>797	CallExpression	baseNames . size ( )
+>798	ArgumentList	 
+>799	Callee	baseNames . size
+>800	MemberAccess	baseNames . size
+>801	Identifier	size
+>802	Identifier	baseNames
+>803	Identifier	i
+>804	ForInit	 
+>805	IdentifierDeclStatement	unsigned i = 0 ;
+>806	IdentifierDecl	i = 0
+>807	AssignmentExpr	i = 0
+>808	PrimaryExpression	0
+>809	Identifier	i
+>810	Identifier	i
+>811	IdentifierDeclType	unsigned
+>812	ExpressionStatement	 
+>813	CallExpression	imageData . reserve ( baseNames . size ( ) )
+>814	ArgumentList	baseNames . size ( )
+>815	Argument	baseNames . size ( )
+>816	CallExpression	baseNames . size ( )
+>817	ArgumentList	 
+>818	Callee	baseNames . size
+>819	MemberAccess	baseNames . size
+>820	Identifier	size
+>821	Identifier	baseNames
+>822	Callee	imageData . reserve
+>823	MemberAccess	imageData . reserve
+>824	Identifier	reserve
+>825	Identifier	imageData
+>826	IdentifierDeclStatement	 
+>827	IdentifierDecl	imageData
+>828	Identifier	imageData
+>829	IdentifierDeclType	vector < drwnNNGraphImageData >
+>830	ExpressionStatement	 
+>831	CallExpression	DRWN_LOG_MESSAGE ( \"Adding images to drwnNNGraph...\" )
+>832	ArgumentList	\"Adding images to drwnNNGraph...\"
+>833	Argument	\"Adding images to drwnNNGraph...\"
+>834	PrimaryExpression	\"Adding images to drwnNNGraph...\"
+>835	Callee	DRWN_LOG_MESSAGE
+>836	Identifier	DRWN_LOG_MESSAGE
+>837	IfStatement	if ( inGraphFile != NULL )
+>838	CompoundStatement	 
+>839	ForStatement	for ( unsigned i = 0 ; i < graph . numImages ( ) ; i ++ )
+>840	CompoundStatement	 
+>841	ExpressionStatement	 
+>842	AssignmentExpr	graph [ i ] . bSourceMatchable = false
+>843	Identifier	false
+>844	MemberAccess	graph [ i ] . bSourceMatchable
+>845	Identifier	bSourceMatchable
+>846	ArrayIndexing	graph [ i ]
+>847	Identifier	i
+>848	Identifier	graph
+>849	IncDecOp	 
+>850	IncDec	++
+>851	Identifier	i
+>852	Condition	 
+>853	RelationalExpression	i < graph . numImages ( )
+>854	CallExpression	graph . numImages ( )
+>855	ArgumentList	 
+>856	Callee	graph . numImages
+>857	MemberAccess	graph . numImages
+>858	Identifier	numImages
+>859	Identifier	graph
+>860	Identifier	i
+>861	ForInit	 
+>862	IdentifierDeclStatement	unsigned i = 0 ;
+>863	IdentifierDecl	i = 0
+>864	AssignmentExpr	i = 0
+>865	PrimaryExpression	0
+>866	Identifier	i
+>867	Identifier	i
+>868	IdentifierDeclType	unsigned
+>869	ExpressionStatement	 
+>870	CallExpression	DRWN_LOG_MESSAGE ( \"...graph has \" << graph . numImages ( ) << \" images\" )
+>871	ArgumentList	\"...graph has \" << graph . numImages ( ) << \" images\"
+>872	Argument	\"...graph has \" << graph . numImages ( ) << \" images\"
+>873	ShiftExpression	\"...graph has \" << graph . numImages ( ) << \" images\"
+>874	ShiftExpression	graph . numImages ( ) << \" images\"
+>875	PrimaryExpression	\" images\"
+>876	CallExpression	graph . numImages ( )
+>877	ArgumentList	 
+>878	Callee	graph . numImages
+>879	MemberAccess	graph . numImages
+>880	Identifier	numImages
+>881	Identifier	graph
+>882	PrimaryExpression	\"...graph has \"
+>883	Callee	DRWN_LOG_MESSAGE
+>884	Identifier	DRWN_LOG_MESSAGE
+>885	ExpressionStatement	 
+>886	CallExpression	graph . read ( inGraphFile )
+>887	ArgumentList	inGraphFile
+>888	Argument	inGraphFile
+>889	Identifier	inGraphFile
+>890	Callee	graph . read
+>891	MemberAccess	graph . read
+>892	Identifier	read
+>893	Identifier	graph
+>894	ExpressionStatement	 
+>895	CallExpression	DRWN_LOG_MESSAGE ( \"Loading drwnNNGraph from \" << inGraphFile << \"...\" )
+>896	ArgumentList	\"Loading drwnNNGraph from \" << inGraphFile << \"...\"
+>897	Argument	\"Loading drwnNNGraph from \" << inGraphFile << \"...\"
+>898	ShiftExpression	\"Loading drwnNNGraph from \" << inGraphFile << \"...\"
+>899	ShiftExpression	inGraphFile << \"...\"
+>900	PrimaryExpression	\"...\"
+>901	Identifier	inGraphFile
+>902	PrimaryExpression	\"Loading drwnNNGraph from \"
+>903	Callee	DRWN_LOG_MESSAGE
+>904	Identifier	DRWN_LOG_MESSAGE
+>905	Condition	 
+>906	EqualityExpression	inGraphFile != NULL
+>907	Identifier	NULL
+>908	Identifier	inGraphFile
+>909	IdentifierDeclStatement	 
+>910	IdentifierDecl	graph
+>911	Identifier	graph
+>912	IdentifierDeclType	drwnNNGraph
+>913	ExpressionStatement	 
+>914	CallExpression	DRWN_LOG_MESSAGE ( \"...read \" << baseNames . size ( ) << \" images\" )
+>915	ArgumentList	\"...read \" << baseNames . size ( ) << \" images\"
+>916	Argument	\"...read \" << baseNames . size ( ) << \" images\"
+>917	ShiftExpression	\"...read \" << baseNames . size ( ) << \" images\"
+>918	ShiftExpression	baseNames . size ( ) << \" images\"
+>919	PrimaryExpression	\" images\"
+>920	CallExpression	baseNames . size ( )
+>921	ArgumentList	 
+>922	Callee	baseNames . size
+>923	MemberAccess	baseNames . size
+>924	Identifier	size
+>925	Identifier	baseNames
+>926	PrimaryExpression	\"...read \"
+>927	Callee	DRWN_LOG_MESSAGE
+>928	Identifier	DRWN_LOG_MESSAGE
+>929	ExpressionStatement	 
+>930	AssignmentExpr	baseNames = drwnReadFile ( imgList )
+>931	CallExpression	drwnReadFile ( imgList )
+>932	ArgumentList	imgList
+>933	Argument	imgList
+>934	Identifier	imgList
+>935	Callee	drwnReadFile
+>936	Identifier	drwnReadFile
+>937	Identifier	baseNames
+>938	ExpressionStatement	 
+>939	CallExpression	DRWN_LOG_MESSAGE ( \"Reading image list from \" << imgList << \"...\" )
+>940	ArgumentList	\"Reading image list from \" << imgList << \"...\"
+>941	Argument	\"Reading image list from \" << imgList << \"...\"
+>942	ShiftExpression	\"Reading image list from \" << imgList << \"...\"
+>943	ShiftExpression	imgList << \"...\"
+>944	PrimaryExpression	\"...\"
+>945	Identifier	imgList
+>946	PrimaryExpression	\"Reading image list from \"
+>947	Callee	DRWN_LOG_MESSAGE
+>948	Identifier	DRWN_LOG_MESSAGE
+>949	IdentifierDeclStatement	 
+>950	IdentifierDecl	baseNames
+>951	Identifier	baseNames
+>952	IdentifierDeclType	vector < string >
+>953	IdentifierDeclStatement	 
+>954	IdentifierDecl	* imgList = DRWN_CMDLINE_ARGV [ 0 ]
+>955	AssignmentExpr	* imgList = DRWN_CMDLINE_ARGV [ 0 ]
+>956	ArrayIndexing	DRWN_CMDLINE_ARGV [ 0 ]
+>957	PrimaryExpression	0
+>958	Identifier	DRWN_CMDLINE_ARGV
+>959	Identifier	imgList
+>960	Identifier	imgList
+>961	IdentifierDeclType	const char *
+>962	ExpressionStatement	 
+>963	CallExpression	drwnCodeProfiler 
+>964	ArgumentList	hMain
+>965	Argument	hMain
+>966	Identifier	hMain
+>967	Callee	drwnCodeProfiler 
+>968	Identifier	drwnCodeProfiler 
+>969	IdentifierDeclStatement	 
+>970	IdentifierDecl	hMain = drwnCodeProfiler 
+>971	AssignmentExpr	hMain = drwnCodeProfiler 
+>972	CallExpression	drwnCodeProfiler 
+>973	ArgumentList	\"main\"
+>974	Argument	\"main\"
+>975	PrimaryExpression	\"main\"
+>976	Callee	drwnCodeProfiler 
+>977	Identifier	drwnCodeProfiler 
+>978	Identifier	hMain
+>979	Identifier	hMain
+>980	IdentifierDeclType	const int
+>981	IfStatement	if ( DRWN_CMDLINE_ARGC != 1 )
+>982	CompoundStatement	 
+>983	ReturnStatement	 
+>984	UnaryOp	- 1
+>985	PrimaryExpression	1
+>986	UnaryOperator	-
+>987	ExpressionStatement	 
+>988	CallExpression	usage ( )
+>989	ArgumentList	 
+>990	Callee	usage
+>991	Identifier	usage
+>992	Condition	 
+>993	EqualityExpression	DRWN_CMDLINE_ARGC != 1
+>994	PrimaryExpression	1
+>995	Identifier	DRWN_CMDLINE_ARGC
+>996	ExpressionStatement	 
+>997	CallExpression	DRWN_END_CMDLINE_PROCESSING ( usage ( ) )
+>998	ArgumentList	usage ( )
+>999	Argument	usage ( )
+>1000	CallExpression	usage ( )
+>1001	ArgumentList	 
+>1002	Callee	usage
+>1003	Identifier	usage
+>1004	Callee	DRWN_END_CMDLINE_PROCESSING
+>1005	Identifier	DRWN_END_CMDLINE_PROCESSING
+>1006	Statement	 
+>1007	Statement	 
+>1008	Statement	 
+>1009	Statement	 
+>1010	Statement	 
+>1011	Statement	 
+>1012	Statement	 
+>1013	Statement	 
+>1014	Statement	 
+>1015	Statement	 
+>1016	Statement	 
+>1017	Statement	 
+>1018	Statement	 
+>1019	Statement	 
+>1020	Statement	 
+>1021	Statement	 
+>1022	Statement	 
+>1023	Statement	 
+>1024	Statement	 
+>1025	Statement	 
+>1026	Statement	 
+>1027	Statement	 
+>1028	Statement	 
+>1029	Statement	 
+>1030	ExpressionStatement	 
+>1031	CallExpression	srand48 ( ( unsigned ) time ( NULL ) )
+>1032	ArgumentList	( unsigned ) time ( NULL )
+>1033	Argument	( unsigned ) time ( NULL )
+>1034	CastExpression	( unsigned ) time ( NULL )
+>1035	CallExpression	time ( NULL )
+>1036	ArgumentList	NULL
+>1037	Argument	NULL
+>1038	Identifier	NULL
+>1039	Callee	time
+>1040	Identifier	time
+>1041	CastTarget	unsigned
+>1042	Callee	srand48
+>1043	Identifier	srand48
+>1044	IdentifierDeclStatement	 
+>1045	IdentifierDecl	bVisualize = false
+>1046	AssignmentExpr	bVisualize = false
+>1047	Identifier	false
+>1048	Identifier	false
+>1049	Identifier	bVisualize
+>1050	IdentifierDeclType	bool
+>1051	IdentifierDeclStatement	 
+>1052	IdentifierDecl	* outGraphFile = NULL
+>1053	AssignmentExpr	* outGraphFile = NULL
+>1054	Identifier	NULL
+>1055	Identifier	NULL
+>1056	Identifier	outGraphFile
+>1057	IdentifierDeclType	const char *
+>1058	IdentifierDeclStatement	 
+>1059	IdentifierDecl	* inGraphFile = NULL
+>1060	AssignmentExpr	* inGraphFile = NULL
+>1061	Identifier	NULL
+>1062	Identifier	NULL
+>1063	Identifier	inGraphFile
+>1064	IdentifierDeclType	const char *
+>1065	ExpressionStatement	 
+>1066	AssignmentExpr	drwnOpenCVUtils 
+>1067	PrimaryExpression	1024
+>1068	Identifier	drwnOpenCVUtils 
+>1069	ExpressionStatement	 
+>1070	AssignmentExpr	drwnOpenCVUtils 
+>1071	PrimaryExpression	1024
+>1072	Identifier	drwnOpenCVUtils 
+<3=6,5,4
+<6=25,21,7
+<7=8
+<8=20,9
+<9=19,10
+<10=18,11
+<11=17,12
+<12=16,13
+<13=15,14
+<21=22
+<22=24,23
+<25=26
+<26=30,27
+<27=29,28
+<34=43,42,35
+<35=39,36
+<36=38,37
+<39=41,40
+<43=1069,1065,1058,1051,1044,1030,1029,1028,1027,1026,1025,1024,1023,1022,1021,1020,1019,1018,1017,1016,1015,1014,1013,1012,44,46,51,58,66,78,104,120,199,221,230,239,250,257,261,272,331,340,399,408,423,603,610,617,621,625,643,665,681,697,812,826,830,837,909,913,929,938,949,953,962,969,981,996,1006,1007,1008,1009,1010,1011
+<44=45
+<46=47
+<47=49,48
+<49=50
+<51=52
+<52=56,53
+<53=54
+<54=55
+<56=57
+<58=64,59
+<59=60
+<60=62,61
+<62=63
+<64=65
+<66=76,67
+<67=68
+<68=74,69
+<69=70
+<70=71
+<71=73,72
+<74=75
+<76=77
+<78=100,79
+<79=89,80
+<80=81
+<81=85,82
+<82=83
+<83=84
+<85=86
+<86=88,87
+<89=90
+<90=98,91
+<91=92
+<92=93
+<93=97,94
+<94=96,95
+<98=99
+<100=101
+<101=103,102
+<104=105
+<105=118,106
+<106=107
+<107=108
+<108=117,109
+<109=111,110
+<111=113,112
+<113=114
+<114=116,115
+<118=119
+<120=191,182,179,121
+<121=122
+<122=171,167,164,123
+<123=139,124
+<124=125
+<125=129,126
+<126=127
+<127=128
+<129=130
+<130=132,131
+<132=134,133
+<134=138,135
+<135=137,136
+<139=140
+<140=163,162,141
+<141=151,142
+<142=148,143
+<143=147,144
+<144=146,145
+<148=150,149
+<151=161,152
+<152=158,153
+<153=157,154
+<154=156,155
+<158=160,159
+<164=166,165
+<167=168
+<168=170,169
+<171=172
+<172=173
+<173=178,177,174
+<174=176,175
+<179=181,180
+<182=183
+<183=190,184
+<184=186,185
+<186=187
+<187=189,188
+<191=192
+<192=193
+<193=198,197,194
+<194=196,195
+<199=200
+<200=217,201
+<201=215,213,211,209,202
+<202=203
+<203=207,204
+<204=205
+<205=206
+<207=208
+<209=210
+<211=212
+<213=214
+<215=216
+<217=218
+<218=220,219
+<221=222
+<222=229,228,223
+<223=227,224
+<224=226,225
+<230=231
+<231=238,237,232
+<232=236,233
+<233=235,234
+<239=240
+<240=248,241
+<241=242
+<242=243
+<243=247,244
+<244=246,245
+<248=249
+<250=251
+<251=256,255,252
+<252=254,253
+<257=258
+<258=260,259
+<261=262
+<262=270,263
+<263=264
+<264=265
+<265=269,266
+<266=268,267
+<270=271
+<272=323,314,311,273
+<273=274
+<274=303,299,296,275
+<275=276
+<276=277
+<277=287,278
+<278=280,279
+<280=282,281
+<282=286,283
+<283=285,284
+<287=293,288
+<288=292,289
+<289=291,290
+<293=295,294
+<296=298,297
+<299=300
+<300=302,301
+<303=304
+<304=305
+<305=310,309,306
+<306=308,307
+<311=313,312
+<314=315
+<315=322,316
+<316=318,317
+<318=319
+<319=321,320
+<323=324
+<324=325
+<325=330,329,326
+<326=328,327
+<331=332
+<332=339,338,333
+<333=337,334
+<334=336,335
+<340=391,382,379,341
+<341=342
+<342=371,367,364,343
+<343=344
+<344=345
+<345=355,346
+<346=348,347
+<348=350,349
+<350=354,351
+<351=353,352
+<355=361,356
+<356=360,357
+<357=359,358
+<361=363,362
+<364=366,365
+<367=368
+<368=370,369
+<371=372
+<372=373
+<373=378,377,374
+<374=376,375
+<379=381,380
+<382=383
+<383=390,384
+<384=386,385
+<386=387
+<387=389,388
+<391=392
+<392=393
+<393=398,397,394
+<394=396,395
+<399=400
+<400=407,406,401
+<401=405,402
+<402=404,403
+<408=409
+<409=421,410
+<410=411
+<411=412
+<412=420,413
+<413=419,414
+<414=418,415
+<415=417,416
+<421=422
+<423=595,586,583,424
+<424=425
+<425=577,502,426
+<426=427
+<427=479,439,428
+<428=429
+<429=438,430
+<430=432,431
+<432=433
+<433=435,434
+<435=437,436
+<439=471,460,457,440
+<440=441
+<441=442
+<442=453,443
+<443=444
+<444=445
+<445=451,446
+<446=449,447
+<447=448
+<449=450
+<451=452
+<453=454
+<454=456,455
+<457=459,458
+<460=461
+<461=470,462
+<462=464,463
+<464=465
+<465=467,466
+<467=469,468
+<471=472
+<472=473
+<473=478,477,474
+<474=476,475
+<479=480
+<480=498,481
+<481=482
+<482=483
+<483=492,484
+<484=486,485
+<486=487
+<487=489,488
+<489=491,490
+<492=494,493
+<494=495
+<495=497,496
+<498=499
+<499=501,500
+<502=554,514,503
+<503=504
+<504=513,505
+<505=507,506
+<507=508
+<508=510,509
+<510=512,511
+<514=546,535,532,515
+<515=516
+<516=517
+<517=528,518
+<518=519
+<519=520
+<520=526,521
+<521=524,522
+<522=523
+<524=525
+<526=527
+<528=529
+<529=531,530
+<532=534,533
+<535=536
+<536=545,537
+<537=539,538
+<539=540
+<540=542,541
+<542=544,543
+<546=547
+<547=548
+<548=553,552,549
+<549=551,550
+<554=555
+<555=573,556
+<556=557
+<557=558
+<558=567,559
+<559=561,560
+<561=562
+<562=564,563
+<564=566,565
+<567=569,568
+<569=570
+<570=572,571
+<573=574
+<574=576,575
+<577=578
+<578=580,579
+<580=582,581
+<583=585,584
+<586=587
+<587=594,588
+<588=590,589
+<590=591
+<591=593,592
+<595=596
+<596=597
+<597=602,601,598
+<598=600,599
+<603=604
+<604=609,608,605
+<605=607,606
+<610=611
+<611=616,615,612
+<612=614,613
+<617=618
+<618=620,619
+<621=622
+<622=624,623
+<625=626
+<626=642,641,627
+<627=640,628
+<628=630,629
+<630=631
+<631=633,632
+<633=635,634
+<635=637,636
+<637=639,638
+<643=644
+<644=663,645
+<645=646
+<646=647
+<647=662,648
+<648=650,649
+<650=652,651
+<652=653
+<653=655,654
+<655=657,656
+<657=659,658
+<659=661,660
+<663=664
+<665=666
+<666=679,667
+<667=668
+<668=669
+<669=678,670
+<670=672,671
+<672=674,673
+<674=675
+<675=677,676
+<679=680
+<681=682
+<682=695,683
+<683=684
+<684=685
+<685=694,686
+<686=688,687
+<688=690,689
+<690=691
+<691=693,692
+<695=696
+<697=804,795,792,698
+<698=772,756,699
+<699=752,710,700
+<700=701
+<701=702
+<702=703
+<703=705,704
+<705=707,706
+<707=709,708
+<710=711
+<711=750,735,712
+<712=713
+<713=714
+<714=715
+<715=731,716
+<716=717
+<717=718
+<718=729,719
+<719=720
+<720=721
+<721=727,722
+<722=723
+<723=724
+<724=726,725
+<727=728
+<729=730
+<731=732
+<732=734,733
+<735=736
+<736=737
+<737=746,738
+<738=739
+<739=740
+<740=742,741
+<742=743
+<743=745,744
+<746=747
+<747=749,748
+<750=751
+<752=753
+<753=755,754
+<756=757
+<757=771,770,758
+<758=769,759
+<759=765,760
+<760=761
+<761=762
+<762=764,763
+<765=766
+<766=768,767
+<772=790,773
+<773=774
+<774=775
+<775=786,776
+<776=777
+<777=778
+<778=784,779
+<779=780
+<780=781
+<781=783,782
+<784=785
+<786=787
+<787=789,788
+<790=791
+<792=794,793
+<795=796
+<796=803,797
+<797=799,798
+<799=800
+<800=802,801
+<804=805
+<805=806
+<806=811,810,807
+<807=809,808
+<812=813
+<813=822,814
+<814=815
+<815=816
+<816=818,817
+<818=819
+<819=821,820
+<822=823
+<823=825,824
+<826=827
+<827=829,828
+<830=831
+<831=835,832
+<832=833
+<833=834
+<835=836
+<837=905,838
+<838=894,885,869,839
+<839=861,852,849,840
+<840=841
+<841=842
+<842=844,843
+<844=846,845
+<846=848,847
+<849=851,850
+<852=853
+<853=860,854
+<854=856,855
+<856=857
+<857=859,858
+<861=862
+<862=863
+<863=868,867,864
+<864=866,865
+<869=870
+<870=883,871
+<871=872
+<872=873
+<873=882,874
+<874=876,875
+<876=878,877
+<878=879
+<879=881,880
+<883=884
+<885=886
+<886=890,887
+<887=888
+<888=889
+<890=891
+<891=893,892
+<894=895
+<895=903,896
+<896=897
+<897=898
+<898=902,899
+<899=901,900
+<903=904
+<905=906
+<906=908,907
+<909=910
+<910=912,911
+<913=914
+<914=927,915
+<915=916
+<916=917
+<917=926,918
+<918=920,919
+<920=922,921
+<922=923
+<923=925,924
+<927=928
+<929=930
+<930=937,931
+<931=935,932
+<932=933
+<933=934
+<935=936
+<938=939
+<939=947,940
+<940=941
+<941=942
+<942=946,943
+<943=945,944
+<947=948
+<949=950
+<950=952,951
+<953=954
+<954=961,960,955
+<955=959,956
+<956=958,957
+<962=963
+<963=967,964
+<964=965
+<965=966
+<967=968
+<969=970
+<970=980,979,971
+<971=978,972
+<972=976,973
+<973=974
+<974=975
+<976=977
+<981=992,982
+<982=987,983
+<983=984
+<984=986,985
+<987=988
+<988=990,989
+<990=991
+<992=993
+<993=995,994
+<996=997
+<997=1004,998
+<998=999
+<999=1000
+<1000=1002,1001
+<1002=1003
+<1004=1005
+<1030=1031
+<1031=1042,1032
+<1032=1033
+<1033=1034
+<1034=1041,1035
+<1035=1039,1036
+<1036=1037
+<1037=1038
+<1039=1040
+<1042=1043
+<1044=1045
+<1045=1050,1049,1046
+<1046=1048,1047
+<1051=1052
+<1052=1057,1056,1053
+<1053=1055,1054
+<1058=1059
+<1059=1064,1063,1060
+<1060=1062,1061
+<1065=1066
+<1066=1068,1067
+<1069=1070
+<1070=1072,1071

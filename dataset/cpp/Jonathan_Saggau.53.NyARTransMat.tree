@@ -1,0 +1,1392 @@
+>3	FunctionDef	NyARTransMat 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ReturnStatement	 
+>7	ExpressionStatement	 
+>8	AssignmentExpr	this -> _center . y = 0
+>9	PrimaryExpression	0
+>10	MemberAccess	this -> _center . y
+>11	Identifier	y
+>12	PtrMemberAccess	this -> _center
+>13	Identifier	_center
+>14	Identifier	this
+>15	ExpressionStatement	 
+>16	AssignmentExpr	this -> _center . x = 0
+>17	PrimaryExpression	0
+>18	MemberAccess	this -> _center . x
+>19	Identifier	x
+>20	PtrMemberAccess	this -> _center
+>21	Identifier	_center
+>22	Identifier	this
+>31	FunctionDef	NyARTransMat 
+>32	ParameterList	const NyARParam * i_param
+>33	Parameter	 
+>34	Identifier	i_param
+>35	ParameterType	const NyARParam *
+>36	CompoundStatement	 
+>37	ExpressionStatement	 
+>38	AssignmentExpr	this -> _mat_optimize = new NyARRotTransOptimize_O2 ( pmat )
+>39	Identifier	pmat
+>40	PtrMemberAccess	this -> _mat_optimize
+>41	Identifier	_mat_optimize
+>42	Identifier	this
+>43	ExpressionStatement	 
+>44	AssignmentExpr	this -> _rotmatrix = new NyARRotMatrix_ARToolKit ( pmat )
+>45	Identifier	pmat
+>46	PtrMemberAccess	this -> _rotmatrix
+>47	Identifier	_rotmatrix
+>48	Identifier	this
+>49	ExpressionStatement	 
+>50	AssignmentExpr	this -> _calculator = new NyARFitVecCalculator ( pmat , dist )
+>51	Expression	pmat , dist
+>52	Identifier	dist
+>53	Identifier	pmat
+>54	PtrMemberAccess	this -> _calculator
+>55	Identifier	_calculator
+>56	Identifier	this
+>57	IdentifierDeclStatement	 
+>58	IdentifierDecl	* pmat = i_param -> getPerspectiveProjectionMatrix ( )
+>59	AssignmentExpr	* pmat = i_param -> getPerspectiveProjectionMatrix ( )
+>60	CallExpression	i_param -> getPerspectiveProjectionMatrix ( )
+>61	ArgumentList	 
+>62	Callee	i_param -> getPerspectiveProjectionMatrix
+>63	PtrMemberAccess	i_param -> getPerspectiveProjectionMatrix
+>64	Identifier	getPerspectiveProjectionMatrix
+>65	Identifier	i_param
+>66	Identifier	pmat
+>67	Identifier	pmat
+>68	IdentifierDeclType	const NyARPerspectiveProjectionMatrix *
+>69	IdentifierDeclStatement	 
+>70	IdentifierDecl	* dist = i_param -> getDistortionFactor ( )
+>71	AssignmentExpr	* dist = i_param -> getDistortionFactor ( )
+>72	CallExpression	i_param -> getDistortionFactor ( )
+>73	ArgumentList	 
+>74	Callee	i_param -> getDistortionFactor
+>75	PtrMemberAccess	i_param -> getDistortionFactor
+>76	Identifier	getDistortionFactor
+>77	Identifier	i_param
+>78	Identifier	dist
+>79	Identifier	dist
+>80	IdentifierDeclType	const NyARCameraDistortionFactor *
+>81	ExpressionStatement	 
+>82	AssignmentExpr	this -> _center . y = 0
+>83	PrimaryExpression	0
+>84	MemberAccess	this -> _center . y
+>85	Identifier	y
+>86	PtrMemberAccess	this -> _center
+>87	Identifier	_center
+>88	Identifier	this
+>89	ExpressionStatement	 
+>90	AssignmentExpr	this -> _center . x = 0
+>91	PrimaryExpression	0
+>92	MemberAccess	this -> _center . x
+>93	Identifier	x
+>94	PtrMemberAccess	this -> _center
+>95	Identifier	_center
+>96	Identifier	this
+>114	FunctionDef	NyARTransMat 
+>115	ParameterList	 
+>116	CompoundStatement	 
+>117	ReturnStatement	 
+>118	ExpressionStatement	 
+>119	CallExpression	NyAR_SAFE_DELETE ( this -> _mat_optimize )
+>120	ArgumentList	this -> _mat_optimize
+>121	Argument	this -> _mat_optimize
+>122	PtrMemberAccess	this -> _mat_optimize
+>123	Identifier	_mat_optimize
+>124	Identifier	this
+>125	Callee	NyAR_SAFE_DELETE
+>126	Identifier	NyAR_SAFE_DELETE
+>127	ExpressionStatement	 
+>128	CallExpression	NyAR_SAFE_DELETE ( this -> _rotmatrix )
+>129	ArgumentList	this -> _rotmatrix
+>130	Argument	this -> _rotmatrix
+>131	PtrMemberAccess	this -> _rotmatrix
+>132	Identifier	_rotmatrix
+>133	Identifier	this
+>134	Callee	NyAR_SAFE_DELETE
+>135	Identifier	NyAR_SAFE_DELETE
+>136	ExpressionStatement	 
+>137	CallExpression	NyAR_SAFE_DELETE ( this -> _calculator )
+>138	ArgumentList	this -> _calculator
+>139	Argument	this -> _calculator
+>140	PtrMemberAccess	this -> _calculator
+>141	Identifier	_calculator
+>142	Identifier	this
+>143	Callee	NyAR_SAFE_DELETE
+>144	Identifier	NyAR_SAFE_DELETE
+>153	FunctionDef	NyARTransMat 
+>154	ParameterList	double i_x , double i_y
+>155	Parameter	 
+>156	Identifier	i_y
+>157	ParameterType	double
+>158	Parameter	 
+>159	Identifier	i_x
+>160	ParameterType	double
+>161	ReturnType	void
+>162	CompoundStatement	 
+>163	ReturnStatement	 
+>164	ExpressionStatement	 
+>165	AssignmentExpr	this -> _center . y = i_y
+>166	Identifier	i_y
+>167	MemberAccess	this -> _center . y
+>168	Identifier	y
+>169	PtrMemberAccess	this -> _center
+>170	Identifier	_center
+>171	Identifier	this
+>172	ExpressionStatement	 
+>173	AssignmentExpr	this -> _center . x = i_x
+>174	Identifier	i_x
+>175	MemberAccess	this -> _center . x
+>176	Identifier	x
+>177	PtrMemberAccess	this -> _center
+>178	Identifier	_center
+>179	Identifier	this
+>190	FunctionDef	NyARTransMat 
+>191	ParameterList	const NyARSquare & i_square , int i_direction , const TNyARDoublePoint2d * o_sqvertex_ref [ ] , const TNyARLinear * \
+>192	Parameter	 
+>193	Identifier	o_liner_ref
+>194	ParameterType	const TNyARLinear * [ ]
+>195	Parameter	 
+>196	Identifier	o_sqvertex_ref
+>197	ParameterType	const TNyARDoublePoint2d * [ ]
+>198	Parameter	 
+>199	Identifier	i_direction
+>200	ParameterType	int
+>201	Parameter	 
+>202	Identifier	i_square
+>203	ParameterType	const NyARSquare &
+>204	ReturnType	void
+>205	CompoundStatement	 
+>206	ReturnStatement	 
+>207	ExpressionStatement	 
+>208	AssignmentExpr	o_liner_ref [ 3 ] = & i_square . line [ ( 7 - i_direction ) % 4 ]
+>209	UnaryOp	& i_square . line [ ( 7 - i_direction ) % 4 ]
+>210	ArrayIndexing	i_square . line [ ( 7 - i_direction ) % 4 ]
+>211	MultiplicativeExpression	( 7 - i_direction ) % 4
+>212	PrimaryExpression	4
+>213	AdditiveExpression	7 - i_direction
+>214	Identifier	i_direction
+>215	PrimaryExpression	7
+>216	MemberAccess	i_square . line
+>217	Identifier	line
+>218	Identifier	i_square
+>219	UnaryOperator	&
+>220	ArrayIndexing	o_liner_ref [ 3 ]
+>221	PrimaryExpression	3
+>222	Identifier	o_liner_ref
+>223	ExpressionStatement	 
+>224	AssignmentExpr	o_liner_ref [ 2 ] = & i_square . line [ ( 6 - i_direction ) % 4 ]
+>225	UnaryOp	& i_square . line [ ( 6 - i_direction ) % 4 ]
+>226	ArrayIndexing	i_square . line [ ( 6 - i_direction ) % 4 ]
+>227	MultiplicativeExpression	( 6 - i_direction ) % 4
+>228	PrimaryExpression	4
+>229	AdditiveExpression	6 - i_direction
+>230	Identifier	i_direction
+>231	PrimaryExpression	6
+>232	MemberAccess	i_square . line
+>233	Identifier	line
+>234	Identifier	i_square
+>235	UnaryOperator	&
+>236	ArrayIndexing	o_liner_ref [ 2 ]
+>237	PrimaryExpression	2
+>238	Identifier	o_liner_ref
+>239	ExpressionStatement	 
+>240	AssignmentExpr	o_liner_ref [ 1 ] = & i_square . line [ ( 5 - i_direction ) % 4 ]
+>241	UnaryOp	& i_square . line [ ( 5 - i_direction ) % 4 ]
+>242	ArrayIndexing	i_square . line [ ( 5 - i_direction ) % 4 ]
+>243	MultiplicativeExpression	( 5 - i_direction ) % 4
+>244	PrimaryExpression	4
+>245	AdditiveExpression	5 - i_direction
+>246	Identifier	i_direction
+>247	PrimaryExpression	5
+>248	MemberAccess	i_square . line
+>249	Identifier	line
+>250	Identifier	i_square
+>251	UnaryOperator	&
+>252	ArrayIndexing	o_liner_ref [ 1 ]
+>253	PrimaryExpression	1
+>254	Identifier	o_liner_ref
+>255	ExpressionStatement	 
+>256	AssignmentExpr	o_liner_ref [ 0 ] = & i_square . line [ ( 4 - i_direction ) % 4 ]
+>257	UnaryOp	& i_square . line [ ( 4 - i_direction ) % 4 ]
+>258	ArrayIndexing	i_square . line [ ( 4 - i_direction ) % 4 ]
+>259	MultiplicativeExpression	( 4 - i_direction ) % 4
+>260	PrimaryExpression	4
+>261	AdditiveExpression	4 - i_direction
+>262	Identifier	i_direction
+>263	PrimaryExpression	4
+>264	MemberAccess	i_square . line
+>265	Identifier	line
+>266	Identifier	i_square
+>267	UnaryOperator	&
+>268	ArrayIndexing	o_liner_ref [ 0 ]
+>269	PrimaryExpression	0
+>270	Identifier	o_liner_ref
+>271	ExpressionStatement	 
+>272	AssignmentExpr	o_sqvertex_ref [ 3 ] = & i_square . sqvertex [ ( 7 - i_direction ) % 4 ]
+>273	UnaryOp	& i_square . sqvertex [ ( 7 - i_direction ) % 4 ]
+>274	ArrayIndexing	i_square . sqvertex [ ( 7 - i_direction ) % 4 ]
+>275	MultiplicativeExpression	( 7 - i_direction ) % 4
+>276	PrimaryExpression	4
+>277	AdditiveExpression	7 - i_direction
+>278	Identifier	i_direction
+>279	PrimaryExpression	7
+>280	MemberAccess	i_square . sqvertex
+>281	Identifier	sqvertex
+>282	Identifier	i_square
+>283	UnaryOperator	&
+>284	ArrayIndexing	o_sqvertex_ref [ 3 ]
+>285	PrimaryExpression	3
+>286	Identifier	o_sqvertex_ref
+>287	ExpressionStatement	 
+>288	AssignmentExpr	o_sqvertex_ref [ 2 ] = & i_square . sqvertex [ ( 6 - i_direction ) % 4 ]
+>289	UnaryOp	& i_square . sqvertex [ ( 6 - i_direction ) % 4 ]
+>290	ArrayIndexing	i_square . sqvertex [ ( 6 - i_direction ) % 4 ]
+>291	MultiplicativeExpression	( 6 - i_direction ) % 4
+>292	PrimaryExpression	4
+>293	AdditiveExpression	6 - i_direction
+>294	Identifier	i_direction
+>295	PrimaryExpression	6
+>296	MemberAccess	i_square . sqvertex
+>297	Identifier	sqvertex
+>298	Identifier	i_square
+>299	UnaryOperator	&
+>300	ArrayIndexing	o_sqvertex_ref [ 2 ]
+>301	PrimaryExpression	2
+>302	Identifier	o_sqvertex_ref
+>303	ExpressionStatement	 
+>304	AssignmentExpr	o_sqvertex_ref [ 1 ] = & i_square . sqvertex [ ( 5 - i_direction ) % 4 ]
+>305	UnaryOp	& i_square . sqvertex [ ( 5 - i_direction ) % 4 ]
+>306	ArrayIndexing	i_square . sqvertex [ ( 5 - i_direction ) % 4 ]
+>307	MultiplicativeExpression	( 5 - i_direction ) % 4
+>308	PrimaryExpression	4
+>309	AdditiveExpression	5 - i_direction
+>310	Identifier	i_direction
+>311	PrimaryExpression	5
+>312	MemberAccess	i_square . sqvertex
+>313	Identifier	sqvertex
+>314	Identifier	i_square
+>315	UnaryOperator	&
+>316	ArrayIndexing	o_sqvertex_ref [ 1 ]
+>317	PrimaryExpression	1
+>318	Identifier	o_sqvertex_ref
+>319	ExpressionStatement	 
+>320	AssignmentExpr	o_sqvertex_ref [ 0 ] = & i_square . sqvertex [ ( 4 - i_direction ) % 4 ]
+>321	UnaryOp	& i_square . sqvertex [ ( 4 - i_direction ) % 4 ]
+>322	ArrayIndexing	i_square . sqvertex [ ( 4 - i_direction ) % 4 ]
+>323	MultiplicativeExpression	( 4 - i_direction ) % 4
+>324	PrimaryExpression	4
+>325	AdditiveExpression	4 - i_direction
+>326	Identifier	i_direction
+>327	PrimaryExpression	4
+>328	MemberAccess	i_square . sqvertex
+>329	Identifier	sqvertex
+>330	Identifier	i_square
+>331	UnaryOperator	&
+>332	ArrayIndexing	o_sqvertex_ref [ 0 ]
+>333	PrimaryExpression	0
+>334	Identifier	o_sqvertex_ref
+>350	FunctionDef	NyARTransMat 
+>351	ParameterList	const NyARSquare & i_square , int i_direction , double i_width , NyARTransMatResult & o_result
+>352	Parameter	 
+>353	Identifier	o_result
+>354	ParameterType	NyARTransMatResult &
+>355	Parameter	 
+>356	Identifier	i_width
+>357	ParameterType	double
+>358	Parameter	 
+>359	Identifier	i_direction
+>360	ParameterType	int
+>361	Parameter	 
+>362	Identifier	i_square
+>363	ParameterType	const NyARSquare &
+>364	ReturnType	void
+>365	CompoundStatement	 
+>366	ReturnStatement	 
+>367	ExpressionStatement	 
+>368	CallExpression	this -> updateMatrixValue ( * this -> _rotmatrix , this -> _offset . point , trans , o_result )
+>369	ArgumentList	* this -> _rotmatrix
+>370	Argument	o_result
+>371	Identifier	o_result
+>372	Argument	trans
+>373	Identifier	trans
+>374	Argument	this -> _offset . point
+>375	MemberAccess	this -> _offset . point
+>376	Identifier	point
+>377	PtrMemberAccess	this -> _offset
+>378	Identifier	_offset
+>379	Identifier	this
+>380	Argument	* this -> _rotmatrix
+>381	UnaryOp	* this -> _rotmatrix
+>382	PtrMemberAccess	this -> _rotmatrix
+>383	Identifier	_rotmatrix
+>384	Identifier	this
+>385	UnaryOperator	*
+>386	Callee	this -> updateMatrixValue
+>387	PtrMemberAccess	this -> updateMatrixValue
+>388	Identifier	updateMatrixValue
+>389	Identifier	this
+>390	ExpressionStatement	 
+>391	CallExpression	this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>392	ArgumentList	* this -> _rotmatrix
+>393	Argument	* this -> _calculator
+>394	UnaryOp	* this -> _calculator
+>395	PtrMemberAccess	this -> _calculator
+>396	Identifier	_calculator
+>397	Identifier	this
+>398	UnaryOperator	*
+>399	Argument	trans
+>400	Identifier	trans
+>401	Argument	* this -> _rotmatrix
+>402	UnaryOp	* this -> _rotmatrix
+>403	PtrMemberAccess	this -> _rotmatrix
+>404	Identifier	_rotmatrix
+>405	Identifier	this
+>406	UnaryOperator	*
+>407	Callee	this -> _mat_optimize -> optimize
+>408	PtrMemberAccess	this -> _mat_optimize -> optimize
+>409	Identifier	optimize
+>410	PtrMemberAccess	this -> _mat_optimize
+>411	Identifier	_mat_optimize
+>412	Identifier	this
+>413	ExpressionStatement	 
+>414	CallExpression	this -> _calculator -> calculateTransfer ( * this -> _rotmatrix , trans )
+>415	ArgumentList	* this -> _rotmatrix
+>416	Argument	trans
+>417	Identifier	trans
+>418	Argument	* this -> _rotmatrix
+>419	UnaryOp	* this -> _rotmatrix
+>420	PtrMemberAccess	this -> _rotmatrix
+>421	Identifier	_rotmatrix
+>422	Identifier	this
+>423	UnaryOperator	*
+>424	Callee	this -> _calculator -> calculateTransfer
+>425	PtrMemberAccess	this -> _calculator -> calculateTransfer
+>426	Identifier	calculateTransfer
+>427	PtrMemberAccess	this -> _calculator
+>428	Identifier	_calculator
+>429	Identifier	this
+>430	ExpressionStatement	 
+>431	CallExpression	this -> _calculator -> setFittedSquare ( sqvertex_ref )
+>432	ArgumentList	sqvertex_ref
+>433	Argument	sqvertex_ref
+>434	Identifier	sqvertex_ref
+>435	Callee	this -> _calculator -> setFittedSquare
+>436	PtrMemberAccess	this -> _calculator -> setFittedSquare
+>437	Identifier	setFittedSquare
+>438	PtrMemberAccess	this -> _calculator
+>439	Identifier	_calculator
+>440	Identifier	this
+>441	ExpressionStatement	 
+>442	CallExpression	this -> _calculator -> setOffsetSquare ( & this -> _offset )
+>443	ArgumentList	& this -> _offset
+>444	Argument	& this -> _offset
+>445	UnaryOp	& this -> _offset
+>446	PtrMemberAccess	this -> _offset
+>447	Identifier	_offset
+>448	Identifier	this
+>449	UnaryOperator	&
+>450	Callee	this -> _calculator -> setOffsetSquare
+>451	PtrMemberAccess	this -> _calculator -> setOffsetSquare
+>452	Identifier	setOffsetSquare
+>453	PtrMemberAccess	this -> _calculator
+>454	Identifier	_calculator
+>455	Identifier	this
+>456	ExpressionStatement	 
+>457	CallExpression	this -> _rotmatrix -> initRotBySquare ( linear_ref , sqvertex_ref )
+>458	ArgumentList	linear_ref
+>459	Argument	sqvertex_ref
+>460	Identifier	sqvertex_ref
+>461	Argument	linear_ref
+>462	Identifier	linear_ref
+>463	Callee	this -> _rotmatrix -> initRotBySquare
+>464	PtrMemberAccess	this -> _rotmatrix -> initRotBySquare
+>465	Identifier	initRotBySquare
+>466	PtrMemberAccess	this -> _rotmatrix
+>467	Identifier	_rotmatrix
+>468	Identifier	this
+>469	ExpressionStatement	 
+>470	CallExpression	this -> _offset . setSquare ( i_width , this -> _center )
+>471	ArgumentList	i_width
+>472	Argument	this -> _center
+>473	PtrMemberAccess	this -> _center
+>474	Identifier	_center
+>475	Identifier	this
+>476	Argument	i_width
+>477	Identifier	i_width
+>478	Callee	this -> _offset . setSquare
+>479	MemberAccess	this -> _offset . setSquare
+>480	Identifier	setSquare
+>481	PtrMemberAccess	this -> _offset
+>482	Identifier	_offset
+>483	Identifier	this
+>484	ExpressionStatement	 
+>485	CallExpression	initVertexOrder ( i_square , i_direction , sqvertex_ref , linear_ref )
+>486	ArgumentList	i_square
+>487	Argument	linear_ref
+>488	Identifier	linear_ref
+>489	Argument	sqvertex_ref
+>490	Identifier	sqvertex_ref
+>491	Argument	i_direction
+>492	Identifier	i_direction
+>493	Argument	i_square
+>494	Identifier	i_square
+>495	Callee	initVertexOrder
+>496	Identifier	initVertexOrder
+>497	IdentifierDeclStatement	 
+>498	IdentifierDecl	trans
+>499	Identifier	trans
+>500	IdentifierDeclType	TNyARDoublePoint3d
+>501	IdentifierDeclStatement	 
+>502	IdentifierDecl	* linear_ref [ 4 ]
+>503	PrimaryExpression	4
+>504	Identifier	linear_ref
+>505	IdentifierDeclType	const TNyARLinear * [ 4 ]
+>506	IdentifierDeclStatement	 
+>507	IdentifierDecl	* sqvertex_ref [ 4 ]
+>508	PrimaryExpression	4
+>509	Identifier	sqvertex_ref
+>510	IdentifierDeclType	const TNyARDoublePoint2d * [ 4 ]
+>534	FunctionDef	NyARTransMat 
+>535	ParameterList	const NyARSquare & i_square , int i_direction , double i_width , NyARTransMatResult & io_result_conv
+>536	Parameter	 
+>537	Identifier	io_result_conv
+>538	ParameterType	NyARTransMatResult &
+>539	Parameter	 
+>540	Identifier	i_width
+>541	ParameterType	double
+>542	Parameter	 
+>543	Identifier	i_direction
+>544	ParameterType	int
+>545	Parameter	 
+>546	Identifier	i_square
+>547	ParameterType	const NyARSquare &
+>548	ReturnType	void
+>549	CompoundStatement	 
+>550	ReturnStatement	 
+>551	IfStatement	if ( err > AR_GET_TRANS_CONT_MAT_MAX_FIT_ERROR )
+>552	CompoundStatement	 
+>553	IfStatement	if ( err2 < err )
+>554	CompoundStatement	 
+>555	ExpressionStatement	 
+>556	CallExpression	this -> updateMatrixValue ( * this -> _rotmatrix , this -> _offset . point , trans , io_result_conv )
+>557	ArgumentList	* this -> _rotmatrix
+>558	Argument	io_result_conv
+>559	Identifier	io_result_conv
+>560	Argument	trans
+>561	Identifier	trans
+>562	Argument	this -> _offset . point
+>563	MemberAccess	this -> _offset . point
+>564	Identifier	point
+>565	PtrMemberAccess	this -> _offset
+>566	Identifier	_offset
+>567	Identifier	this
+>568	Argument	* this -> _rotmatrix
+>569	UnaryOp	* this -> _rotmatrix
+>570	PtrMemberAccess	this -> _rotmatrix
+>571	Identifier	_rotmatrix
+>572	Identifier	this
+>573	UnaryOperator	*
+>574	Callee	this -> updateMatrixValue
+>575	PtrMemberAccess	this -> updateMatrixValue
+>576	Identifier	updateMatrixValue
+>577	Identifier	this
+>578	Condition	 
+>579	RelationalExpression	err2 < err
+>580	Identifier	err
+>581	Identifier	err2
+>582	IdentifierDeclStatement	 
+>583	IdentifierDecl	err2 = this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>584	AssignmentExpr	err2 = this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>585	CallExpression	this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>586	ArgumentList	* this -> _rotmatrix
+>587	Argument	* this -> _calculator
+>588	UnaryOp	* this -> _calculator
+>589	PtrMemberAccess	this -> _calculator
+>590	Identifier	_calculator
+>591	Identifier	this
+>592	UnaryOperator	*
+>593	Argument	trans
+>594	Identifier	trans
+>595	Argument	* this -> _rotmatrix
+>596	UnaryOp	* this -> _rotmatrix
+>597	PtrMemberAccess	this -> _rotmatrix
+>598	Identifier	_rotmatrix
+>599	Identifier	this
+>600	UnaryOperator	*
+>601	Callee	this -> _mat_optimize -> optimize
+>602	PtrMemberAccess	this -> _mat_optimize -> optimize
+>603	Identifier	optimize
+>604	PtrMemberAccess	this -> _mat_optimize
+>605	Identifier	_mat_optimize
+>606	Identifier	this
+>607	Identifier	err2
+>608	Identifier	err2
+>609	IdentifierDeclType	const double
+>610	ExpressionStatement	 
+>611	CallExpression	this -> _calculator -> calculateTransfer ( * this -> _rotmatrix , trans )
+>612	ArgumentList	* this -> _rotmatrix
+>613	Argument	trans
+>614	Identifier	trans
+>615	Argument	* this -> _rotmatrix
+>616	UnaryOp	* this -> _rotmatrix
+>617	PtrMemberAccess	this -> _rotmatrix
+>618	Identifier	_rotmatrix
+>619	Identifier	this
+>620	UnaryOperator	*
+>621	Callee	this -> _calculator -> calculateTransfer
+>622	PtrMemberAccess	this -> _calculator -> calculateTransfer
+>623	Identifier	calculateTransfer
+>624	PtrMemberAccess	this -> _calculator
+>625	Identifier	_calculator
+>626	Identifier	this
+>627	ExpressionStatement	 
+>628	CallExpression	this -> _rotmatrix -> initRotBySquare ( linear_ref , sqvertex_ref )
+>629	ArgumentList	linear_ref
+>630	Argument	sqvertex_ref
+>631	Identifier	sqvertex_ref
+>632	Argument	linear_ref
+>633	Identifier	linear_ref
+>634	Callee	this -> _rotmatrix -> initRotBySquare
+>635	PtrMemberAccess	this -> _rotmatrix -> initRotBySquare
+>636	Identifier	initRotBySquare
+>637	PtrMemberAccess	this -> _rotmatrix
+>638	Identifier	_rotmatrix
+>639	Identifier	this
+>640	Condition	 
+>641	RelationalExpression	err > AR_GET_TRANS_CONT_MAT_MAX_FIT_ERROR
+>642	Identifier	AR_GET_TRANS_CONT_MAT_MAX_FIT_ERROR
+>643	Identifier	err
+>644	ExpressionStatement	 
+>645	CallExpression	this -> updateMatrixValue ( * this -> _rotmatrix , this -> _offset . point , trans , io_result_conv )
+>646	ArgumentList	* this -> _rotmatrix
+>647	Argument	io_result_conv
+>648	Identifier	io_result_conv
+>649	Argument	trans
+>650	Identifier	trans
+>651	Argument	this -> _offset . point
+>652	MemberAccess	this -> _offset . point
+>653	Identifier	point
+>654	PtrMemberAccess	this -> _offset
+>655	Identifier	_offset
+>656	Identifier	this
+>657	Argument	* this -> _rotmatrix
+>658	UnaryOp	* this -> _rotmatrix
+>659	PtrMemberAccess	this -> _rotmatrix
+>660	Identifier	_rotmatrix
+>661	Identifier	this
+>662	UnaryOperator	*
+>663	Callee	this -> updateMatrixValue
+>664	PtrMemberAccess	this -> updateMatrixValue
+>665	Identifier	updateMatrixValue
+>666	Identifier	this
+>667	IdentifierDeclStatement	 
+>668	IdentifierDecl	err = this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>669	AssignmentExpr	err = this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>670	CallExpression	this -> _mat_optimize -> optimize ( * this -> _rotmatrix , trans , * this -> _calculator )
+>671	ArgumentList	* this -> _rotmatrix
+>672	Argument	* this -> _calculator
+>673	UnaryOp	* this -> _calculator
+>674	PtrMemberAccess	this -> _calculator
+>675	Identifier	_calculator
+>676	Identifier	this
+>677	UnaryOperator	*
+>678	Argument	trans
+>679	Identifier	trans
+>680	Argument	* this -> _rotmatrix
+>681	UnaryOp	* this -> _rotmatrix
+>682	PtrMemberAccess	this -> _rotmatrix
+>683	Identifier	_rotmatrix
+>684	Identifier	this
+>685	UnaryOperator	*
+>686	Callee	this -> _mat_optimize -> optimize
+>687	PtrMemberAccess	this -> _mat_optimize -> optimize
+>688	Identifier	optimize
+>689	PtrMemberAccess	this -> _mat_optimize
+>690	Identifier	_mat_optimize
+>691	Identifier	this
+>692	Identifier	err
+>693	Identifier	err
+>694	IdentifierDeclType	const double
+>695	ExpressionStatement	 
+>696	CallExpression	this -> _calculator -> calculateTransfer ( * this -> _rotmatrix , trans )
+>697	ArgumentList	* this -> _rotmatrix
+>698	Argument	trans
+>699	Identifier	trans
+>700	Argument	* this -> _rotmatrix
+>701	UnaryOp	* this -> _rotmatrix
+>702	PtrMemberAccess	this -> _rotmatrix
+>703	Identifier	_rotmatrix
+>704	Identifier	this
+>705	UnaryOperator	*
+>706	Callee	this -> _calculator -> calculateTransfer
+>707	PtrMemberAccess	this -> _calculator -> calculateTransfer
+>708	Identifier	calculateTransfer
+>709	PtrMemberAccess	this -> _calculator
+>710	Identifier	_calculator
+>711	Identifier	this
+>712	ExpressionStatement	 
+>713	CallExpression	this -> _calculator -> setFittedSquare ( sqvertex_ref )
+>714	ArgumentList	sqvertex_ref
+>715	Argument	sqvertex_ref
+>716	Identifier	sqvertex_ref
+>717	Callee	this -> _calculator -> setFittedSquare
+>718	PtrMemberAccess	this -> _calculator -> setFittedSquare
+>719	Identifier	setFittedSquare
+>720	PtrMemberAccess	this -> _calculator
+>721	Identifier	_calculator
+>722	Identifier	this
+>723	ExpressionStatement	 
+>724	CallExpression	this -> _calculator -> setOffsetSquare ( & this -> _offset )
+>725	ArgumentList	& this -> _offset
+>726	Argument	& this -> _offset
+>727	UnaryOp	& this -> _offset
+>728	PtrMemberAccess	this -> _offset
+>729	Identifier	_offset
+>730	Identifier	this
+>731	UnaryOperator	&
+>732	Callee	this -> _calculator -> setOffsetSquare
+>733	PtrMemberAccess	this -> _calculator -> setOffsetSquare
+>734	Identifier	setOffsetSquare
+>735	PtrMemberAccess	this -> _calculator
+>736	Identifier	_calculator
+>737	Identifier	this
+>738	ExpressionStatement	 
+>739	CallExpression	this -> _rotmatrix -> initRotByPrevResult ( io_result_conv )
+>740	ArgumentList	io_result_conv
+>741	Argument	io_result_conv
+>742	Identifier	io_result_conv
+>743	Callee	this -> _rotmatrix -> initRotByPrevResult
+>744	PtrMemberAccess	this -> _rotmatrix -> initRotByPrevResult
+>745	Identifier	initRotByPrevResult
+>746	PtrMemberAccess	this -> _rotmatrix
+>747	Identifier	_rotmatrix
+>748	Identifier	this
+>749	ExpressionStatement	 
+>750	CallExpression	this -> _offset . setSquare ( i_width , this -> _center )
+>751	ArgumentList	i_width
+>752	Argument	this -> _center
+>753	PtrMemberAccess	this -> _center
+>754	Identifier	_center
+>755	Identifier	this
+>756	Argument	i_width
+>757	Identifier	i_width
+>758	Callee	this -> _offset . setSquare
+>759	MemberAccess	this -> _offset . setSquare
+>760	Identifier	setSquare
+>761	PtrMemberAccess	this -> _offset
+>762	Identifier	_offset
+>763	Identifier	this
+>764	IfStatement	if ( ! io_result_conv . has_value )
+>765	CompoundStatement	 
+>766	ReturnStatement	 
+>767	ExpressionStatement	 
+>768	CallExpression	this -> transMat ( i_square , i_direction , i_width , io_result_conv )
+>769	ArgumentList	i_square
+>770	Argument	io_result_conv
+>771	Identifier	io_result_conv
+>772	Argument	i_width
+>773	Identifier	i_width
+>774	Argument	i_direction
+>775	Identifier	i_direction
+>776	Argument	i_square
+>777	Identifier	i_square
+>778	Callee	this -> transMat
+>779	PtrMemberAccess	this -> transMat
+>780	Identifier	transMat
+>781	Identifier	this
+>782	Condition	 
+>783	UnaryOp	! io_result_conv . has_value
+>784	MemberAccess	io_result_conv . has_value
+>785	Identifier	has_value
+>786	Identifier	io_result_conv
+>787	UnaryOperator	!
+>788	IdentifierDeclStatement	 
+>789	IdentifierDecl	trans
+>790	Identifier	trans
+>791	IdentifierDeclType	TNyARDoublePoint3d
+>792	IdentifierDeclStatement	 
+>793	IdentifierDecl	* linear_ref [ 4 ]
+>794	PrimaryExpression	4
+>795	Identifier	linear_ref
+>796	IdentifierDeclType	const TNyARLinear * [ 4 ]
+>797	IdentifierDeclStatement	 
+>798	IdentifierDecl	* sqvertex_ref [ 4 ]
+>799	PrimaryExpression	4
+>800	Identifier	sqvertex_ref
+>801	IdentifierDeclType	const TNyARDoublePoint2d * [ 4 ]
+>831	FunctionDef	NyARTransMat 
+>832	ParameterList	const NyARRotMatrix & i_rot , const TNyARDoublePoint3d & i_off , const TNyARDoublePoint3d & i_trans , NyARTransMatResult & \
+>833	Parameter	 
+>834	Identifier	o_result
+>835	ParameterType	NyARTransMatResult &
+>836	Parameter	 
+>837	Identifier	i_trans
+>838	ParameterType	const TNyARDoublePoint3d &
+>839	Parameter	 
+>840	Identifier	i_off
+>841	ParameterType	const TNyARDoublePoint3d &
+>842	Parameter	 
+>843	Identifier	i_rot
+>844	ParameterType	const NyARRotMatrix &
+>845	ReturnType	void
+>846	CompoundStatement	 
+>847	ReturnStatement	 
+>848	ExpressionStatement	 
+>849	AssignmentExpr	o_result . has_value = true
+>850	Identifier	true
+>851	MemberAccess	o_result . has_value
+>852	Identifier	has_value
+>853	Identifier	o_result
+>854	ExpressionStatement	 
+>855	AssignmentExpr	o_result . m23 = i_rot . m20 * i_off . x + i_rot . m21 * i_off . y + i_rot . m22 * i_off . z + i_trans \
+>856	AdditiveExpression	i_rot . m20 * i_off . x + i_rot . m21 * i_off . y + i_rot . m22 * i_off . z + i_trans . z
+>857	AdditiveExpression	i_rot . m21 * i_off . y + i_rot . m22 * i_off . z + i_trans . z
+>858	AdditiveExpression	i_rot . m22 * i_off . z + i_trans . z
+>859	MemberAccess	i_trans . z
+>860	Identifier	z
+>861	Identifier	i_trans
+>862	MultiplicativeExpression	i_rot . m22 * i_off . z
+>863	MemberAccess	i_off . z
+>864	Identifier	z
+>865	Identifier	i_off
+>866	MemberAccess	i_rot . m22
+>867	Identifier	m22
+>868	Identifier	i_rot
+>869	MultiplicativeExpression	i_rot . m21 * i_off . y
+>870	MemberAccess	i_off . y
+>871	Identifier	y
+>872	Identifier	i_off
+>873	MemberAccess	i_rot . m21
+>874	Identifier	m21
+>875	Identifier	i_rot
+>876	MultiplicativeExpression	i_rot . m20 * i_off . x
+>877	MemberAccess	i_off . x
+>878	Identifier	x
+>879	Identifier	i_off
+>880	MemberAccess	i_rot . m20
+>881	Identifier	m20
+>882	Identifier	i_rot
+>883	MemberAccess	o_result . m23
+>884	Identifier	m23
+>885	Identifier	o_result
+>886	ExpressionStatement	 
+>887	AssignmentExpr	o_result . m22 = i_rot . m22
+>888	MemberAccess	i_rot . m22
+>889	Identifier	m22
+>890	Identifier	i_rot
+>891	MemberAccess	o_result . m22
+>892	Identifier	m22
+>893	Identifier	o_result
+>894	ExpressionStatement	 
+>895	AssignmentExpr	o_result . m21 = i_rot . m21
+>896	MemberAccess	i_rot . m21
+>897	Identifier	m21
+>898	Identifier	i_rot
+>899	MemberAccess	o_result . m21
+>900	Identifier	m21
+>901	Identifier	o_result
+>902	ExpressionStatement	 
+>903	AssignmentExpr	o_result . m20 = i_rot . m20
+>904	MemberAccess	i_rot . m20
+>905	Identifier	m20
+>906	Identifier	i_rot
+>907	MemberAccess	o_result . m20
+>908	Identifier	m20
+>909	Identifier	o_result
+>910	ExpressionStatement	 
+>911	AssignmentExpr	o_result . m13 = i_rot . m10 * i_off . x + i_rot . m11 * i_off . y + i_rot . m12 * i_off . z + i_trans \
+>912	AdditiveExpression	i_rot . m10 * i_off . x + i_rot . m11 * i_off . y + i_rot . m12 * i_off . z + i_trans . y
+>913	AdditiveExpression	i_rot . m11 * i_off . y + i_rot . m12 * i_off . z + i_trans . y
+>914	AdditiveExpression	i_rot . m12 * i_off . z + i_trans . y
+>915	MemberAccess	i_trans . y
+>916	Identifier	y
+>917	Identifier	i_trans
+>918	MultiplicativeExpression	i_rot . m12 * i_off . z
+>919	MemberAccess	i_off . z
+>920	Identifier	z
+>921	Identifier	i_off
+>922	MemberAccess	i_rot . m12
+>923	Identifier	m12
+>924	Identifier	i_rot
+>925	MultiplicativeExpression	i_rot . m11 * i_off . y
+>926	MemberAccess	i_off . y
+>927	Identifier	y
+>928	Identifier	i_off
+>929	MemberAccess	i_rot . m11
+>930	Identifier	m11
+>931	Identifier	i_rot
+>932	MultiplicativeExpression	i_rot . m10 * i_off . x
+>933	MemberAccess	i_off . x
+>934	Identifier	x
+>935	Identifier	i_off
+>936	MemberAccess	i_rot . m10
+>937	Identifier	m10
+>938	Identifier	i_rot
+>939	MemberAccess	o_result . m13
+>940	Identifier	m13
+>941	Identifier	o_result
+>942	ExpressionStatement	 
+>943	AssignmentExpr	o_result . m12 = i_rot . m12
+>944	MemberAccess	i_rot . m12
+>945	Identifier	m12
+>946	Identifier	i_rot
+>947	MemberAccess	o_result . m12
+>948	Identifier	m12
+>949	Identifier	o_result
+>950	ExpressionStatement	 
+>951	AssignmentExpr	o_result . m11 = i_rot . m11
+>952	MemberAccess	i_rot . m11
+>953	Identifier	m11
+>954	Identifier	i_rot
+>955	MemberAccess	o_result . m11
+>956	Identifier	m11
+>957	Identifier	o_result
+>958	ExpressionStatement	 
+>959	AssignmentExpr	o_result . m10 = i_rot . m10
+>960	MemberAccess	i_rot . m10
+>961	Identifier	m10
+>962	Identifier	i_rot
+>963	MemberAccess	o_result . m10
+>964	Identifier	m10
+>965	Identifier	o_result
+>966	ExpressionStatement	 
+>967	AssignmentExpr	o_result . m03 = i_rot . m00 * i_off . x + i_rot . m01 * i_off . y + i_rot . m02 * i_off . z + i_trans \
+>968	AdditiveExpression	i_rot . m00 * i_off . x + i_rot . m01 * i_off . y + i_rot . m02 * i_off . z + i_trans . x
+>969	AdditiveExpression	i_rot . m01 * i_off . y + i_rot . m02 * i_off . z + i_trans . x
+>970	AdditiveExpression	i_rot . m02 * i_off . z + i_trans . x
+>971	MemberAccess	i_trans . x
+>972	Identifier	x
+>973	Identifier	i_trans
+>974	MultiplicativeExpression	i_rot . m02 * i_off . z
+>975	MemberAccess	i_off . z
+>976	Identifier	z
+>977	Identifier	i_off
+>978	MemberAccess	i_rot . m02
+>979	Identifier	m02
+>980	Identifier	i_rot
+>981	MultiplicativeExpression	i_rot . m01 * i_off . y
+>982	MemberAccess	i_off . y
+>983	Identifier	y
+>984	Identifier	i_off
+>985	MemberAccess	i_rot . m01
+>986	Identifier	m01
+>987	Identifier	i_rot
+>988	MultiplicativeExpression	i_rot . m00 * i_off . x
+>989	MemberAccess	i_off . x
+>990	Identifier	x
+>991	Identifier	i_off
+>992	MemberAccess	i_rot . m00
+>993	Identifier	m00
+>994	Identifier	i_rot
+>995	MemberAccess	o_result . m03
+>996	Identifier	m03
+>997	Identifier	o_result
+>998	ExpressionStatement	 
+>999	AssignmentExpr	o_result . m02 = i_rot . m02
+>1000	MemberAccess	i_rot . m02
+>1001	Identifier	m02
+>1002	Identifier	i_rot
+>1003	MemberAccess	o_result . m02
+>1004	Identifier	m02
+>1005	Identifier	o_result
+>1006	ExpressionStatement	 
+>1007	AssignmentExpr	o_result . m01 = i_rot . m01
+>1008	MemberAccess	i_rot . m01
+>1009	Identifier	m01
+>1010	Identifier	i_rot
+>1011	MemberAccess	o_result . m01
+>1012	Identifier	m01
+>1013	Identifier	o_result
+>1014	ExpressionStatement	 
+>1015	AssignmentExpr	o_result . m00 = i_rot . m00
+>1016	MemberAccess	i_rot . m00
+>1017	Identifier	m00
+>1018	Identifier	i_rot
+>1019	MemberAccess	o_result . m00
+>1020	Identifier	m00
+>1021	Identifier	o_result
+<3=5,4
+<5=15,7,6
+<7=8
+<8=10,9
+<10=12,11
+<12=14,13
+<15=16
+<16=18,17
+<18=20,19
+<20=22,21
+<31=36,32
+<32=33
+<33=35,34
+<36=89,81,69,57,49,43,37
+<37=38
+<38=40,39
+<40=42,41
+<43=44
+<44=46,45
+<46=48,47
+<49=50
+<50=54,51
+<51=53,52
+<54=56,55
+<57=58
+<58=68,67,59
+<59=66,60
+<60=62,61
+<62=63
+<63=65,64
+<69=70
+<70=80,79,71
+<71=78,72
+<72=74,73
+<74=75
+<75=77,76
+<81=82
+<82=84,83
+<84=86,85
+<86=88,87
+<89=90
+<90=92,91
+<92=94,93
+<94=96,95
+<114=116,115
+<116=136,127,118,117
+<118=119
+<119=125,120
+<120=121
+<121=122
+<122=124,123
+<125=126
+<127=128
+<128=134,129
+<129=130
+<130=131
+<131=133,132
+<134=135
+<136=137
+<137=143,138
+<138=139
+<139=140
+<140=142,141
+<143=144
+<153=162,161,154
+<154=158,155
+<155=157,156
+<158=160,159
+<162=172,164,163
+<164=165
+<165=167,166
+<167=169,168
+<169=171,170
+<172=173
+<173=175,174
+<175=177,176
+<177=179,178
+<190=205,204,191
+<191=201,198,195,192
+<192=194,193
+<195=197,196
+<198=200,199
+<201=203,202
+<205=319,303,287,271,255,239,223,207,206
+<207=208
+<208=220,209
+<209=219,210
+<210=216,211
+<211=213,212
+<213=215,214
+<216=218,217
+<220=222,221
+<223=224
+<224=236,225
+<225=235,226
+<226=232,227
+<227=229,228
+<229=231,230
+<232=234,233
+<236=238,237
+<239=240
+<240=252,241
+<241=251,242
+<242=248,243
+<243=245,244
+<245=247,246
+<248=250,249
+<252=254,253
+<255=256
+<256=268,257
+<257=267,258
+<258=264,259
+<259=261,260
+<261=263,262
+<264=266,265
+<268=270,269
+<271=272
+<272=284,273
+<273=283,274
+<274=280,275
+<275=277,276
+<277=279,278
+<280=282,281
+<284=286,285
+<287=288
+<288=300,289
+<289=299,290
+<290=296,291
+<291=293,292
+<293=295,294
+<296=298,297
+<300=302,301
+<303=304
+<304=316,305
+<305=315,306
+<306=312,307
+<307=309,308
+<309=311,310
+<312=314,313
+<316=318,317
+<319=320
+<320=332,321
+<321=331,322
+<322=328,323
+<323=325,324
+<325=327,326
+<328=330,329
+<332=334,333
+<350=365,364,351
+<351=361,358,355,352
+<352=354,353
+<355=357,356
+<358=360,359
+<361=363,362
+<365=506,501,497,484,469,456,441,430,413,390,367,366
+<367=368
+<368=386,369
+<369=380,374,372,370
+<370=371
+<372=373
+<374=375
+<375=377,376
+<377=379,378
+<380=381
+<381=385,382
+<382=384,383
+<386=387
+<387=389,388
+<390=391
+<391=407,392
+<392=401,399,393
+<393=394
+<394=398,395
+<395=397,396
+<399=400
+<401=402
+<402=406,403
+<403=405,404
+<407=408
+<408=410,409
+<410=412,411
+<413=414
+<414=424,415
+<415=418,416
+<416=417
+<418=419
+<419=423,420
+<420=422,421
+<424=425
+<425=427,426
+<427=429,428
+<430=431
+<431=435,432
+<432=433
+<433=434
+<435=436
+<436=438,437
+<438=440,439
+<441=442
+<442=450,443
+<443=444
+<444=445
+<445=449,446
+<446=448,447
+<450=451
+<451=453,452
+<453=455,454
+<456=457
+<457=463,458
+<458=461,459
+<459=460
+<461=462
+<463=464
+<464=466,465
+<466=468,467
+<469=470
+<470=478,471
+<471=476,472
+<472=473
+<473=475,474
+<476=477
+<478=479
+<479=481,480
+<481=483,482
+<484=485
+<485=495,486
+<486=493,491,489,487
+<487=488
+<489=490
+<491=492
+<493=494
+<495=496
+<497=498
+<498=500,499
+<501=502
+<502=505,504,503
+<506=507
+<507=510,509,508
+<534=549,548,535
+<535=545,542,539,536
+<536=538,537
+<539=541,540
+<542=544,543
+<545=547,546
+<549=797,792,788,764,749,738,723,712,695,667,644,551,550
+<551=640,552
+<552=627,610,582,553
+<553=578,554
+<554=555
+<555=556
+<556=574,557
+<557=568,562,560,558
+<558=559
+<560=561
+<562=563
+<563=565,564
+<565=567,566
+<568=569
+<569=573,570
+<570=572,571
+<574=575
+<575=577,576
+<578=579
+<579=581,580
+<582=583
+<583=609,608,584
+<584=607,585
+<585=601,586
+<586=595,593,587
+<587=588
+<588=592,589
+<589=591,590
+<593=594
+<595=596
+<596=600,597
+<597=599,598
+<601=602
+<602=604,603
+<604=606,605
+<610=611
+<611=621,612
+<612=615,613
+<613=614
+<615=616
+<616=620,617
+<617=619,618
+<621=622
+<622=624,623
+<624=626,625
+<627=628
+<628=634,629
+<629=632,630
+<630=631
+<632=633
+<634=635
+<635=637,636
+<637=639,638
+<640=641
+<641=643,642
+<644=645
+<645=663,646
+<646=657,651,649,647
+<647=648
+<649=650
+<651=652
+<652=654,653
+<654=656,655
+<657=658
+<658=662,659
+<659=661,660
+<663=664
+<664=666,665
+<667=668
+<668=694,693,669
+<669=692,670
+<670=686,671
+<671=680,678,672
+<672=673
+<673=677,674
+<674=676,675
+<678=679
+<680=681
+<681=685,682
+<682=684,683
+<686=687
+<687=689,688
+<689=691,690
+<695=696
+<696=706,697
+<697=700,698
+<698=699
+<700=701
+<701=705,702
+<702=704,703
+<706=707
+<707=709,708
+<709=711,710
+<712=713
+<713=717,714
+<714=715
+<715=716
+<717=718
+<718=720,719
+<720=722,721
+<723=724
+<724=732,725
+<725=726
+<726=727
+<727=731,728
+<728=730,729
+<732=733
+<733=735,734
+<735=737,736
+<738=739
+<739=743,740
+<740=741
+<741=742
+<743=744
+<744=746,745
+<746=748,747
+<749=750
+<750=758,751
+<751=756,752
+<752=753
+<753=755,754
+<756=757
+<758=759
+<759=761,760
+<761=763,762
+<764=782,765
+<765=767,766
+<767=768
+<768=778,769
+<769=776,774,772,770
+<770=771
+<772=773
+<774=775
+<776=777
+<778=779
+<779=781,780
+<782=783
+<783=787,784
+<784=786,785
+<788=789
+<789=791,790
+<792=793
+<793=796,795,794
+<797=798
+<798=801,800,799
+<831=846,845,832
+<832=842,839,836,833
+<833=835,834
+<836=838,837
+<839=841,840
+<842=844,843
+<846=1014,1006,998,966,958,950,942,910,902,894,886,854,848,847
+<848=849
+<849=851,850
+<851=853,852
+<854=855
+<855=883,856
+<856=876,857
+<857=869,858
+<858=862,859
+<859=861,860
+<862=866,863
+<863=865,864
+<866=868,867
+<869=873,870
+<870=872,871
+<873=875,874
+<876=880,877
+<877=879,878
+<880=882,881
+<883=885,884
+<886=887
+<887=891,888
+<888=890,889
+<891=893,892
+<894=895
+<895=899,896
+<896=898,897
+<899=901,900
+<902=903
+<903=907,904
+<904=906,905
+<907=909,908
+<910=911
+<911=939,912
+<912=932,913
+<913=925,914
+<914=918,915
+<915=917,916
+<918=922,919
+<919=921,920
+<922=924,923
+<925=929,926
+<926=928,927
+<929=931,930
+<932=936,933
+<933=935,934
+<936=938,937
+<939=941,940
+<942=943
+<943=947,944
+<944=946,945
+<947=949,948
+<950=951
+<951=955,952
+<952=954,953
+<955=957,956
+<958=959
+<959=963,960
+<960=962,961
+<963=965,964
+<966=967
+<967=995,968
+<968=988,969
+<969=981,970
+<970=974,971
+<971=973,972
+<974=978,975
+<975=977,976
+<978=980,979
+<981=985,982
+<982=984,983
+<985=987,986
+<988=992,989
+<989=991,990
+<992=994,993
+<995=997,996
+<998=999
+<999=1003,1000
+<1000=1002,1001
+<1003=1005,1004
+<1006=1007
+<1007=1011,1008
+<1008=1010,1009
+<1011=1013,1012
+<1014=1015
+<1015=1019,1016
+<1016=1018,1017
+<1019=1021,1020

@@ -1,0 +1,675 @@
+>3	FunctionDef	wipe_shittyColMajorXform (short * array , int width , int height)
+>4	ParameterList	short * array , int width , int height
+>5	Parameter	 
+>6	Identifier	height
+>7	ParameterType	int
+>8	Parameter	 
+>9	Identifier	width
+>10	ParameterType	int
+>11	Parameter	 
+>12	Identifier	array
+>13	ParameterType	short *
+>14	ReturnType	void
+>15	CompoundStatement	 
+>16	ExpressionStatement	 
+>17	Identifier	dest
+>18	Statement	 
+>19	Statement	 
+>20	Statement	 
+>21	ExpressionStatement	 
+>22	CallExpression	memcpy ( array , dest , width * height * 2 )
+>23	ArgumentList	array
+>24	Argument	width * height * 2
+>25	MultiplicativeExpression	width * height * 2
+>26	MultiplicativeExpression	height * 2
+>27	PrimaryExpression	2
+>28	Identifier	height
+>29	Identifier	width
+>30	Argument	dest
+>31	Identifier	dest
+>32	Argument	array
+>33	Identifier	array
+>34	Callee	memcpy
+>35	Identifier	memcpy
+>36	ForStatement	for ( y = 0 ; y < height ; y ++ )
+>37	ForStatement	for ( x = 0 ; x < width ; x ++ )
+>38	ExpressionStatement	 
+>39	AssignmentExpr	dest [ x * height + y ] = array [ y * width + x ]
+>40	ArrayIndexing	array [ y * width + x ]
+>41	AdditiveExpression	y * width + x
+>42	Identifier	x
+>43	MultiplicativeExpression	y * width
+>44	Identifier	width
+>45	Identifier	y
+>46	Identifier	array
+>47	ArrayIndexing	dest [ x * height + y ]
+>48	AdditiveExpression	x * height + y
+>49	Identifier	y
+>50	MultiplicativeExpression	x * height
+>51	Identifier	height
+>52	Identifier	x
+>53	Identifier	dest
+>54	IncDecOp	 
+>55	IncDec	++
+>56	Identifier	x
+>57	Condition	 
+>58	RelationalExpression	x < width
+>59	Identifier	width
+>60	Identifier	x
+>61	ForInit	 
+>62	AssignmentExpr	x = 0
+>63	PrimaryExpression	0
+>64	Identifier	x
+>65	IncDecOp	 
+>66	IncDec	++
+>67	Identifier	y
+>68	Condition	 
+>69	RelationalExpression	y < height
+>70	Identifier	height
+>71	Identifier	y
+>72	ForInit	 
+>73	AssignmentExpr	y = 0
+>74	PrimaryExpression	0
+>75	Identifier	y
+>76	ExpressionStatement	 
+>77	AssignmentExpr	dest = new short [ width * height ]
+>78	MultiplicativeExpression	width * height
+>79	Identifier	height
+>80	Identifier	width
+>81	Identifier	dest
+>82	IdentifierDeclStatement	 
+>83	IdentifierDecl	* dest
+>84	Identifier	dest
+>85	IdentifierDeclType	short *
+>86	IdentifierDeclStatement	 
+>87	IdentifierDecl	y
+>88	Identifier	y
+>89	IdentifierDeclType	int
+>90	IdentifierDeclStatement	 
+>91	IdentifierDecl	x
+>92	Identifier	x
+>93	IdentifierDeclType	int
+>109	FunctionDef	wipe_initMelt (int width , int height , int ticks)
+>110	ParameterList	int width , int height , int ticks
+>111	Parameter	 
+>112	Identifier	ticks
+>113	ParameterType	int
+>114	Parameter	 
+>115	Identifier	height
+>116	ParameterType	int
+>117	Parameter	 
+>118	Identifier	width
+>119	ParameterType	int
+>120	ReturnType	int
+>121	CompoundStatement	 
+>122	ExpressionStatement	 
+>123	AssignmentExpr	g -> wipe_y [ 0 ] = - ( M_Random ( ) % 16 )
+>124	UnaryOp	- ( M_Random ( ) % 16 )
+>125	MultiplicativeExpression	M_Random ( ) % 16
+>126	PrimaryExpression	16
+>127	CallExpression	M_Random ( )
+>128	ArgumentList	 
+>129	Callee	M_Random
+>130	Identifier	M_Random
+>131	UnaryOperator	-
+>132	ArrayIndexing	g -> wipe_y [ 0 ]
+>133	PrimaryExpression	0
+>134	PtrMemberAccess	g -> wipe_y
+>135	Identifier	wipe_y
+>136	Identifier	g
+>137	Statement	 
+>138	ExpressionStatement	 
+>139	AssignmentExpr	g -> wipe_y = ( int * ) DoomLib 
+>140	CastExpression	( int * ) DoomLib 
+>141	CallExpression	DoomLib 
+>142	ArgumentList	width * sizeof ( int )
+>143	Argument	0
+>144	PrimaryExpression	0
+>145	Argument	PU_STATIC
+>146	Identifier	PU_STATIC
+>147	Argument	width * sizeof ( int )
+>148	MultiplicativeExpression	width * sizeof ( int )
+>149	SizeofExpr	sizeof ( int )
+>150	SizeofOperand	int
+>151	Sizeof	sizeof
+>152	Identifier	width
+>153	Callee	DoomLib 
+>154	Identifier	DoomLib 
+>155	CastTarget	int *
+>156	PtrMemberAccess	g -> wipe_y
+>157	Identifier	wipe_y
+>158	Identifier	g
+>159	Statement	 
+>160	ExpressionStatement	 
+>161	Statement	 
+>162	Statement	 
+>163	Statement	 
+>164	Statement	 
+>165	Statement	 
+>166	Statement	 
+>167	Statement	 
+>168	Statement	 
+>169	Statement	 
+>170	Statement	 
+>171	Statement	 
+>172	Statement	 
+>173	Statement	 
+>174	Statement	 
+>175	Statement	 
+>176	Statement	 
+>177	Statement	 
+>178	ExpressionStatement	 
+>179	Statement	 
+>180	Statement	 
+>181	Statement	 
+>182	Statement	 
+>183	Statement	 
+>184	Statement	 
+>185	Statement	 
+>186	Statement	 
+>187	Statement	 
+>188	Statement	 
+>189	Statement	 
+>190	Statement	 
+>191	Statement	 
+>192	Statement	 
+>193	Statement	 
+>194	Statement	 
+>195	Statement	 
+>196	ExpressionStatement	 
+>197	Statement	 
+>198	Statement	 
+>199	Statement	 
+>200	Statement	 
+>201	Statement	 
+>202	Statement	 
+>203	Statement	 
+>204	Statement	 
+>205	Statement	 
+>206	Statement	 
+>207	Statement	 
+>208	Statement	 
+>209	Statement	 
+>210	Statement	 
+>211	Statement	 
+>212	Statement	 
+>213	IdentifierDeclStatement	 
+>214	IdentifierDecl	r
+>215	Identifier	r
+>216	IdentifierDeclType	int
+>217	IdentifierDecl	i
+>218	Identifier	i
+>219	IdentifierDeclType	int
+>236	FunctionDef	wipe_doMelt (int width , int height , int ticks)
+>237	ParameterList	int width , int height , int ticks
+>238	Parameter	 
+>239	Identifier	ticks
+>240	ParameterType	int
+>241	Parameter	 
+>242	Identifier	height
+>243	ParameterType	int
+>244	Parameter	 
+>245	Identifier	width
+>246	ParameterType	int
+>247	ReturnType	int
+>248	CompoundStatement	 
+>249	ExpressionStatement	 
+>250	AssignmentExpr	width /= 2
+>251	PrimaryExpression	2
+>252	Identifier	width
+>253	IdentifierDeclStatement	 
+>254	IdentifierDecl	done = true
+>255	AssignmentExpr	done = true
+>256	Identifier	true
+>257	Identifier	true
+>258	Identifier	done
+>259	IdentifierDeclType	qboolean
+>260	IdentifierDeclStatement	 
+>261	IdentifierDecl	* d
+>262	Identifier	d
+>263	IdentifierDeclType	short *
+>264	IdentifierDeclStatement	 
+>265	IdentifierDecl	* s
+>266	Identifier	s
+>267	IdentifierDeclType	short *
+>268	IdentifierDeclStatement	 
+>269	IdentifierDecl	idx
+>270	Identifier	idx
+>271	IdentifierDeclType	int
+>272	IdentifierDeclStatement	 
+>273	IdentifierDecl	dy
+>274	Identifier	dy
+>275	IdentifierDeclType	int
+>276	IdentifierDeclStatement	 
+>277	IdentifierDecl	j
+>278	Identifier	j
+>279	IdentifierDeclType	int
+>280	IdentifierDeclStatement	 
+>281	IdentifierDecl	i
+>282	Identifier	i
+>283	IdentifierDeclType	int
+>298	FunctionDef	wipe_exitMelt (int width , int height , int ticks)
+>299	ParameterList	int width , int height , int ticks
+>300	Parameter	 
+>301	Identifier	ticks
+>302	ParameterType	int
+>303	Parameter	 
+>304	Identifier	height
+>305	ParameterType	int
+>306	Parameter	 
+>307	Identifier	width
+>308	ParameterType	int
+>309	ReturnType	int
+>310	CompoundStatement	 
+>311	ReturnStatement	 
+>312	PrimaryExpression	0
+>313	ExpressionStatement	 
+>314	AssignmentExpr	g -> wipe_y = NULL
+>315	Identifier	NULL
+>316	PtrMemberAccess	g -> wipe_y
+>317	Identifier	wipe_y
+>318	Identifier	g
+>319	Statement	 
+>320	ExpressionStatement	 
+>321	Statement	 
+>322	Statement	 
+>323	Statement	 
+>324	Statement	 
+>325	Statement	 
+>326	Statement	 
+>327	Statement	 
+>338	FunctionDef	wipe_StartScreen (int x , int y , int width , int height)
+>339	ParameterList	int x , int y , int width , int height
+>340	Parameter	 
+>341	Identifier	height
+>342	ParameterType	int
+>343	Parameter	 
+>344	Identifier	width
+>345	ParameterType	int
+>346	Parameter	 
+>347	Identifier	y
+>348	ParameterType	int
+>349	Parameter	 
+>350	Identifier	x
+>351	ParameterType	int
+>352	ReturnType	int
+>353	CompoundStatement	 
+>354	ReturnStatement	 
+>355	PrimaryExpression	0
+>356	ExpressionStatement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	Statement	 
+>362	Statement	 
+>363	Statement	 
+>364	ExpressionStatement	 
+>365	ArrayIndexing	g -> screens [ 2 ]
+>366	PrimaryExpression	2
+>367	PtrMemberAccess	g -> screens
+>368	Identifier	screens
+>369	Identifier	g
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>386	FunctionDef	wipe_EndScreen (int x , int y , int width , int height)
+>387	ParameterList	int x , int y , int width , int height
+>388	Parameter	 
+>389	Identifier	height
+>390	ParameterType	int
+>391	Parameter	 
+>392	Identifier	width
+>393	ParameterType	int
+>394	Parameter	 
+>395	Identifier	y
+>396	ParameterType	int
+>397	Parameter	 
+>398	Identifier	x
+>399	ParameterType	int
+>400	ReturnType	int
+>401	CompoundStatement	 
+>402	ReturnStatement	 
+>403	PrimaryExpression	0
+>404	ExpressionStatement	 
+>405	Statement	 
+>406	Statement	 
+>407	Statement	 
+>408	Statement	 
+>409	Statement	 
+>410	Statement	 
+>411	Statement	 
+>412	Statement	 
+>413	Statement	 
+>414	Statement	 
+>415	Statement	 
+>416	Statement	 
+>417	Statement	 
+>418	Statement	 
+>419	Statement	 
+>420	Statement	 
+>421	Statement	 
+>422	ExpressionStatement	 
+>423	Statement	 
+>424	Statement	 
+>425	Statement	 
+>426	Statement	 
+>427	Statement	 
+>428	Statement	 
+>429	Statement	 
+>430	ExpressionStatement	 
+>431	ArrayIndexing	g -> screens [ 3 ]
+>432	PrimaryExpression	3
+>433	PtrMemberAccess	g -> screens
+>434	Identifier	screens
+>435	Identifier	g
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>452	FunctionDef	wipe_ScreenWipe (int x , int y , int width , int height , int ticks)
+>453	ParameterList	int x , int y , int width , int height , int ticks
+>454	Parameter	 
+>455	Identifier	ticks
+>456	ParameterType	int
+>457	Parameter	 
+>458	Identifier	height
+>459	ParameterType	int
+>460	Parameter	 
+>461	Identifier	width
+>462	ParameterType	int
+>463	Parameter	 
+>464	Identifier	y
+>465	ParameterType	int
+>466	Parameter	 
+>467	Identifier	x
+>468	ParameterType	int
+>469	ReturnType	int
+>470	CompoundStatement	 
+>471	ExpressionStatement	 
+>472	PtrMemberAccess	g -> go
+>473	Identifier	go
+>474	Identifier	g
+>475	Statement	 
+>476	Statement	 
+>477	Statement	 
+>478	IfStatement	if ( rc )
+>479	CompoundStatement	 
+>480	ExpressionStatement	 
+>481	CallExpression	wipe_exitMelt ( width , height , ticks )
+>482	ArgumentList	width
+>483	Argument	ticks
+>484	Identifier	ticks
+>485	Argument	height
+>486	Identifier	height
+>487	Argument	width
+>488	Identifier	width
+>489	Callee	wipe_exitMelt
+>490	Identifier	wipe_exitMelt
+>491	ExpressionStatement	 
+>492	AssignmentExpr	g -> go = 0
+>493	PrimaryExpression	0
+>494	PtrMemberAccess	g -> go
+>495	Identifier	go
+>496	Identifier	g
+>497	Statement	 
+>498	Condition	 
+>499	Identifier	rc
+>500	ExpressionStatement	 
+>501	AssignmentExpr	rc = wipe_doMelt ( width , height , ticks )
+>502	CallExpression	wipe_doMelt ( width , height , ticks )
+>503	ArgumentList	width
+>504	Argument	ticks
+>505	Identifier	ticks
+>506	Argument	height
+>507	Identifier	height
+>508	Argument	width
+>509	Identifier	width
+>510	Callee	wipe_doMelt
+>511	Identifier	wipe_doMelt
+>512	Identifier	rc
+>513	ExpressionStatement	 
+>514	CallExpression	V_MarkRect ( 0 , 0 , width , height )
+>515	ArgumentList	0
+>516	Argument	height
+>517	Identifier	height
+>518	Argument	width
+>519	Identifier	width
+>520	Argument	0
+>521	PrimaryExpression	0
+>522	Argument	0
+>523	PrimaryExpression	0
+>524	Callee	V_MarkRect
+>525	Identifier	V_MarkRect
+>526	CompoundStatement	 
+>527	ExpressionStatement	 
+>528	CallExpression	wipe_initMelt ( width , height , ticks )
+>529	ArgumentList	width
+>530	Argument	ticks
+>531	Identifier	ticks
+>532	Argument	height
+>533	Identifier	height
+>534	Argument	width
+>535	Identifier	width
+>536	Callee	wipe_initMelt
+>537	Identifier	wipe_initMelt
+>538	ExpressionStatement	 
+>539	ArrayIndexing	g -> screens [ 0 ]
+>540	PrimaryExpression	0
+>541	PtrMemberAccess	g -> screens
+>542	Identifier	screens
+>543	Identifier	g
+>544	Statement	 
+>545	Statement	 
+>546	Statement	 
+>547	Statement	 
+>548	Statement	 
+>549	Statement	 
+>550	ExpressionStatement	 
+>551	AssignmentExpr	g -> go = 1
+>552	PrimaryExpression	1
+>553	PtrMemberAccess	g -> go
+>554	Identifier	go
+>555	Identifier	g
+>556	Statement	 
+>557	Statement	 
+>558	Statement	 
+>559	Statement	 
+>560	Statement	 
+>561	Statement	 
+>562	Statement	 
+>563	Statement	 
+>564	Statement	 
+>565	IdentifierDeclStatement	 
+>566	IdentifierDecl	rc
+>567	Identifier	rc
+>568	IdentifierDeclType	int
+<3=15,14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<15=90,86,82,76,36,21,20,19,18,16
+<16=17
+<21=22
+<22=34,23
+<23=32,30,24
+<24=25
+<25=29,26
+<26=28,27
+<30=31
+<32=33
+<34=35
+<36=72,68,65,37
+<37=61,57,54,38
+<38=39
+<39=47,40
+<40=46,41
+<41=43,42
+<43=45,44
+<47=53,48
+<48=50,49
+<50=52,51
+<54=56,55
+<57=58
+<58=60,59
+<61=62
+<62=64,63
+<65=67,66
+<68=69
+<69=71,70
+<72=73
+<73=75,74
+<76=77
+<77=81,78
+<78=80,79
+<82=83
+<83=85,84
+<86=87
+<87=89,88
+<90=91
+<91=93,92
+<109=121,120,110
+<110=117,114,111
+<111=113,112
+<114=116,115
+<117=119,118
+<121=213,212,211,210,209,208,207,206,122,137,138,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205
+<122=123
+<123=132,124
+<124=131,125
+<125=127,126
+<127=129,128
+<129=130
+<132=134,133
+<134=136,135
+<138=139
+<139=156,140
+<140=155,141
+<141=153,142
+<142=147,145,143
+<143=144
+<145=146
+<147=148
+<148=152,149
+<149=151,150
+<153=154
+<156=158,157
+<213=217,214
+<214=216,215
+<217=219,218
+<236=248,247,237
+<237=244,241,238
+<238=240,239
+<241=243,242
+<244=246,245
+<248=280,276,272,268,264,260,253,249
+<249=250
+<250=252,251
+<253=254
+<254=259,258,255
+<255=257,256
+<260=261
+<261=263,262
+<264=265
+<265=267,266
+<268=269
+<269=271,270
+<272=273
+<273=275,274
+<276=277
+<277=279,278
+<280=281
+<281=283,282
+<298=310,309,299
+<299=306,303,300
+<300=302,301
+<303=305,304
+<306=308,307
+<310=327,326,325,324,323,322,321,320,319,313,311
+<311=312
+<313=314
+<314=316,315
+<316=318,317
+<338=353,352,339
+<339=349,346,343,340
+<340=342,341
+<343=345,344
+<346=348,347
+<349=351,350
+<353=375,374,373,372,371,370,364,363,362,361,360,359,358,357,356,354
+<354=355
+<364=365
+<365=367,366
+<367=369,368
+<386=401,400,387
+<387=397,394,391,388
+<388=390,389
+<391=393,392
+<394=396,395
+<397=399,398
+<401=441,440,439,438,437,436,430,429,428,427,426,425,424,423,422,421,420,419,418,417,416,415,414,413,412,411,410,409,408,407,406,405,404,402
+<402=403
+<430=431
+<431=433,432
+<433=435,434
+<452=470,469,453
+<453=466,463,460,457,454
+<454=456,455
+<457=459,458
+<460=462,461
+<463=465,464
+<466=468,467
+<470=565,564,563,562,561,560,559,558,557,526,513,500,478,477,476,475,471
+<471=472
+<472=474,473
+<478=498,479
+<479=497,491,480
+<480=481
+<481=489,482
+<482=487,485,483
+<483=484
+<485=486
+<487=488
+<489=490
+<491=492
+<492=494,493
+<494=496,495
+<498=499
+<500=501
+<501=512,502
+<502=510,503
+<503=508,506,504
+<504=505
+<506=507
+<508=509
+<510=511
+<513=514
+<514=524,515
+<515=522,520,518,516
+<516=517
+<518=519
+<520=521
+<522=523
+<524=525
+<526=556,550,549,548,547,546,545,544,538,527
+<527=528
+<528=536,529
+<529=534,532,530
+<530=531
+<532=533
+<534=535
+<536=537
+<538=539
+<539=541,540
+<541=543,542
+<550=551
+<551=553,552
+<553=555,554
+<565=566
+<566=568,567

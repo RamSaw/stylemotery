@@ -1,0 +1,1270 @@
+>5	FunctionDef	Buffer 
+>6	ParameterList	const Buffer & buf
+>7	Parameter	 
+>8	Identifier	buf
+>9	ParameterType	const Buffer &
+>10	CompoundStatement	 
+>11	ExpressionStatement	 
+>12	AssignmentExpr	m_header = m_buf + ( buf . m_header - buf . m_buf )
+>13	AdditiveExpression	m_buf + ( buf . m_header - buf . m_buf )
+>14	AdditiveExpression	buf . m_header - buf . m_buf
+>15	MemberAccess	buf . m_buf
+>16	Identifier	m_buf
+>17	Identifier	buf
+>18	MemberAccess	buf . m_header
+>19	Identifier	m_header
+>20	Identifier	buf
+>21	Identifier	m_buf
+>22	Identifier	m_header
+>23	ExpressionStatement	 
+>24	AssignmentExpr	m_body = m_buf + ( buf . m_body - buf . m_buf )
+>25	AdditiveExpression	m_buf + ( buf . m_body - buf . m_buf )
+>26	AdditiveExpression	buf . m_body - buf . m_buf
+>27	MemberAccess	buf . m_buf
+>28	Identifier	m_buf
+>29	Identifier	buf
+>30	MemberAccess	buf . m_body
+>31	Identifier	m_body
+>32	Identifier	buf
+>33	Identifier	m_buf
+>34	Identifier	m_body
+>35	ExpressionStatement	 
+>36	AssignmentExpr	m_curr = m_buf + ( buf . m_curr - buf . m_buf )
+>37	AdditiveExpression	m_buf + ( buf . m_curr - buf . m_buf )
+>38	AdditiveExpression	buf . m_curr - buf . m_buf
+>39	MemberAccess	buf . m_buf
+>40	Identifier	m_buf
+>41	Identifier	buf
+>42	MemberAccess	buf . m_curr
+>43	Identifier	m_curr
+>44	Identifier	buf
+>45	Identifier	m_buf
+>46	Identifier	m_curr
+>47	ExpressionStatement	 
+>48	CallExpression	memcpy ( m_buf , buf . m_buf , ( size_t ) m_size )
+>49	ArgumentList	m_buf
+>50	Argument	( size_t ) m_size
+>51	CastExpression	( size_t ) m_size
+>52	Identifier	m_size
+>53	CastTarget	size_t
+>54	Argument	buf . m_buf
+>55	MemberAccess	buf . m_buf
+>56	Identifier	m_buf
+>57	Identifier	buf
+>58	Argument	m_buf
+>59	Identifier	m_buf
+>60	Callee	memcpy
+>61	Identifier	memcpy
+>62	ExpressionStatement	 
+>63	AssignmentExpr	m_buf = ( char * ) scalable_malloc ( m_size )
+>64	CastExpression	( char * ) scalable_malloc ( m_size )
+>65	CallExpression	scalable_malloc ( m_size )
+>66	ArgumentList	m_size
+>67	Argument	m_size
+>68	Identifier	m_size
+>69	Callee	scalable_malloc
+>70	Identifier	scalable_malloc
+>71	CastTarget	char *
+>72	Identifier	m_buf
+>87	FunctionDef	Buffer 
+>88	ParameterList	bool addCRC , bool addSize , bool forceNonEmpty
+>89	Parameter	 
+>90	Identifier	forceNonEmpty
+>91	ParameterType	bool
+>92	Parameter	 
+>93	Identifier	addSize
+>94	ParameterType	bool
+>95	Parameter	 
+>96	Identifier	addCRC
+>97	ParameterType	bool
+>98	ReturnType	void
+>99	CompoundStatement	 
+>100	IfStatement	if ( m_buf )
+>101	ElseStatement	else
+>102	CompoundStatement	 
+>103	ExpressionStatement	 
+>104	CallExpression	CNC_ASSERT ( ! m_body && ! m_header && ! m_curr && m_size == 0 )
+>105	ArgumentList	! m_body && ! m_header && ! m_curr && m_size == 0
+>106	Argument	! m_body && ! m_header && ! m_curr && m_size == 0
+>107	AndExpression	! m_body && ! m_header && ! m_curr && m_size == 0
+>108	AndExpression	! m_header && ! m_curr && m_size == 0
+>109	AndExpression	! m_curr && m_size == 0
+>110	EqualityExpression	m_size == 0
+>111	PrimaryExpression	0
+>112	Identifier	m_size
+>113	UnaryOp	! m_curr
+>114	Identifier	m_curr
+>115	UnaryOperator	!
+>116	UnaryOp	! m_header
+>117	Identifier	m_header
+>118	UnaryOperator	!
+>119	UnaryOp	! m_body
+>120	Identifier	m_body
+>121	UnaryOperator	!
+>122	Callee	CNC_ASSERT
+>123	Identifier	CNC_ASSERT
+>124	CompoundStatement	 
+>125	ExpressionStatement	 
+>126	AssignmentExpr	m_curr = m_body
+>127	Identifier	m_body
+>128	Identifier	m_curr
+>129	ExpressionStatement	 
+>130	AssignmentExpr	m_header = m_body - getHeaderSize ( )
+>131	AdditiveExpression	m_body - getHeaderSize ( )
+>132	CallExpression	getHeaderSize ( )
+>133	ArgumentList	 
+>134	Callee	getHeaderSize
+>135	Identifier	getHeaderSize
+>136	Identifier	m_body
+>137	Identifier	m_header
+>138	ExpressionStatement	 
+>139	AssignmentExpr	m_body = m_buf + MAX_HEADER_SIZE
+>140	AdditiveExpression	m_buf + MAX_HEADER_SIZE
+>141	Identifier	MAX_HEADER_SIZE
+>142	Identifier	m_buf
+>143	Identifier	m_body
+>144	Condition	 
+>145	Identifier	m_buf
+>146	IfStatement	if ( forceNonEmpty )
+>147	CompoundStatement	 
+>148	ExpressionStatement	 
+>149	CallExpression	acquire ( 2 * MAX_HEADER_SIZE )
+>150	ArgumentList	2 * MAX_HEADER_SIZE
+>151	Argument	2 * MAX_HEADER_SIZE
+>152	MultiplicativeExpression	2 * MAX_HEADER_SIZE
+>153	Identifier	MAX_HEADER_SIZE
+>154	PrimaryExpression	2
+>155	Callee	acquire
+>156	Identifier	acquire
+>157	ExpressionStatement	 
+>158	AssignmentExpr	m_curr = m_body
+>159	Identifier	m_body
+>160	Identifier	m_curr
+>161	Condition	 
+>162	Identifier	forceNonEmpty
+>163	ExpressionStatement	 
+>164	AssignmentExpr	m_addCRC = addCRC
+>165	Identifier	addCRC
+>166	Identifier	m_addCRC
+>167	ExpressionStatement	 
+>168	AssignmentExpr	m_addSize = addSize
+>169	Identifier	addSize
+>170	Identifier	m_addSize
+>186	FunctionDef	Buffer 
+>187	ParameterList	size_type len
+>188	Parameter	 
+>189	Identifier	len
+>190	ParameterType	size_type
+>191	ReturnType	void *
+>192	CompoundStatement	 
+>193	ReturnStatement	 
+>194	Identifier	currTmp
+>195	ExpressionStatement	 
+>196	AssignmentExpr	m_curr += len
+>197	Identifier	len
+>198	Identifier	m_curr
+>199	IdentifierDeclStatement	 
+>200	IdentifierDecl	* currTmp = m_curr
+>201	AssignmentExpr	* currTmp = m_curr
+>202	Identifier	m_curr
+>203	Identifier	m_curr
+>204	Identifier	currTmp
+>205	IdentifierDeclType	char *
+>206	ExpressionStatement	 
+>207	CallExpression	ensure_capacity ( oldSz + len )
+>208	ArgumentList	oldSz + len
+>209	Argument	oldSz + len
+>210	AdditiveExpression	oldSz + len
+>211	Identifier	len
+>212	Identifier	oldSz
+>213	Callee	ensure_capacity
+>214	Identifier	ensure_capacity
+>215	IdentifierDeclStatement	 
+>216	IdentifierDecl	oldSz = m_curr - m_header
+>217	AssignmentExpr	oldSz = m_curr - m_header
+>218	AdditiveExpression	m_curr - m_header
+>219	Identifier	m_header
+>220	Identifier	m_curr
+>221	Identifier	oldSz
+>222	Identifier	oldSz
+>223	IdentifierDeclType	const size_type
+>232	FunctionDef	Buffer 
+>233	ParameterList	size_type newSz
+>234	Parameter	 
+>235	Identifier	newSz
+>236	ParameterType	size_type
+>237	ReturnType	void
+>238	CompoundStatement	 
+>239	ExpressionStatement	 
+>240	AssignmentExpr	m_curr = m_body + oldSz
+>241	AdditiveExpression	m_body + oldSz
+>242	Identifier	oldSz
+>243	Identifier	m_body
+>244	Identifier	m_curr
+>245	ExpressionStatement	 
+>246	AssignmentExpr	m_header = m_body - headerSize
+>247	AdditiveExpression	m_body - headerSize
+>248	Identifier	headerSize
+>249	Identifier	m_body
+>250	Identifier	m_header
+>251	ExpressionStatement	 
+>252	AssignmentExpr	m_body = m_buf + MAX_HEADER_SIZE
+>253	AdditiveExpression	m_buf + MAX_HEADER_SIZE
+>254	Identifier	MAX_HEADER_SIZE
+>255	Identifier	m_buf
+>256	Identifier	m_body
+>257	ExpressionStatement	 
+>258	CallExpression	scalable_free ( oldBuf )
+>259	ArgumentList	oldBuf
+>260	Argument	oldBuf
+>261	Identifier	oldBuf
+>262	Callee	scalable_free
+>263	Identifier	scalable_free
+>264	IfStatement	if ( oldBuf )
+>265	ExpressionStatement	 
+>266	CallExpression	memcpy ( m_buf , oldBuf , ( size_t ) oldSz + MAX_HEADER_SIZE )
+>267	ArgumentList	m_buf
+>268	Argument	( size_t ) oldSz + MAX_HEADER_SIZE
+>269	AdditiveExpression	( size_t ) oldSz + MAX_HEADER_SIZE
+>270	Identifier	MAX_HEADER_SIZE
+>271	CastExpression	( size_t ) oldSz
+>272	Identifier	oldSz
+>273	CastTarget	size_t
+>274	Argument	oldBuf
+>275	Identifier	oldBuf
+>276	Argument	m_buf
+>277	Identifier	m_buf
+>278	Callee	memcpy
+>279	Identifier	memcpy
+>280	Condition	 
+>281	Identifier	oldBuf
+>282	ExpressionStatement	 
+>283	AssignmentExpr	m_buf = ( char * ) scalable_malloc ( m_size )
+>284	CastExpression	( char * ) scalable_malloc ( m_size )
+>285	CallExpression	scalable_malloc ( m_size )
+>286	ArgumentList	m_size
+>287	Argument	m_size
+>288	Identifier	m_size
+>289	Callee	scalable_malloc
+>290	Identifier	scalable_malloc
+>291	CastTarget	char *
+>292	Identifier	m_buf
+>293	IdentifierDeclStatement	 
+>294	IdentifierDecl	* oldBuf = m_buf
+>295	AssignmentExpr	* oldBuf = m_buf
+>296	Identifier	m_buf
+>297	Identifier	m_buf
+>298	Identifier	oldBuf
+>299	IdentifierDeclType	char *
+>300	DoStatement	do
+>301	Condition	 
+>302	RelationalExpression	m_size < newSz
+>303	Identifier	newSz
+>304	Identifier	m_size
+>305	CompoundStatement	 
+>306	ExpressionStatement	 
+>307	AssignmentExpr	m_size *= 2
+>308	PrimaryExpression	2
+>309	Identifier	m_size
+>310	IfStatement	if ( m_size <= 0 )
+>311	CompoundStatement	 
+>312	ExpressionStatement	 
+>313	AssignmentExpr	m_size = 32
+>314	PrimaryExpression	32
+>315	Identifier	m_size
+>316	Condition	 
+>317	RelationalExpression	m_size <= 0
+>318	PrimaryExpression	0
+>319	Identifier	m_size
+>320	IdentifierDeclStatement	 
+>321	IdentifierDecl	oldSz = m_curr - m_body
+>322	AssignmentExpr	oldSz = m_curr - m_body
+>323	AdditiveExpression	m_curr - m_body
+>324	Identifier	m_body
+>325	Identifier	m_curr
+>326	Identifier	oldSz
+>327	Identifier	oldSz
+>328	IdentifierDeclType	const size_type
+>329	IdentifierDeclStatement	 
+>330	IdentifierDecl	headerSize = getHeaderSize ( )
+>331	AssignmentExpr	headerSize = getHeaderSize ( )
+>332	CallExpression	getHeaderSize ( )
+>333	ArgumentList	 
+>334	Callee	getHeaderSize
+>335	Identifier	getHeaderSize
+>336	Identifier	headerSize
+>337	Identifier	headerSize
+>338	IdentifierDeclType	const size_type
+>339	IfStatement	if ( newSz <= m_size && m_size > 0 )
+>340	ReturnStatement	 
+>341	Condition	 
+>342	AndExpression	newSz <= m_size && m_size > 0
+>343	RelationalExpression	m_size > 0
+>344	PrimaryExpression	0
+>345	Identifier	m_size
+>346	RelationalExpression	newSz <= m_size
+>347	Identifier	m_size
+>348	Identifier	newSz
+>349	ExpressionStatement	 
+>350	AssignmentExpr	newSz += m_header - m_buf
+>351	AdditiveExpression	m_header - m_buf
+>352	Identifier	m_buf
+>353	Identifier	m_header
+>354	Identifier	newSz
+>370	FunctionDef	Buffer 
+>371	ParameterList	size_type n
+>372	Parameter	 
+>373	Identifier	n
+>374	ParameterType	size_type
+>375	ReturnType	size_type
+>376	CompoundStatement	 
+>377	ReturnStatement	 
+>378	AdditiveExpression	_pos - m_buf
+>379	Identifier	m_buf
+>380	Identifier	_pos
+>381	ExpressionStatement	 
+>382	CallExpression	acquire ( n )
+>383	ArgumentList	n
+>384	Argument	n
+>385	Identifier	n
+>386	Callee	acquire
+>387	Identifier	acquire
+>388	Statement	 
+>389	Statement	 
+>390	Statement	 
+>391	Statement	 
+>392	Statement	 
+>393	Statement	 
+>394	Statement	 
+>395	Statement	 
+>396	Statement	 
+>403	FunctionDef	Buffer 
+>404	ParameterList	size_type n
+>405	Parameter	 
+>406	Identifier	n
+>407	ParameterType	size_type
+>408	ReturnType	void *
+>409	CompoundStatement	 
+>410	ReturnStatement	 
+>411	AdditiveExpression	m_buf + n
+>412	Identifier	n
+>413	Identifier	m_buf
+>419	FunctionDef	Buffer 
+>420	ParameterList	 
+>421	ReturnType	void
+>422	CompoundStatement	 
+>423	ExpressionStatement	 
+>424	CallExpression	CNC_ASSERT ( m_header && m_header <= m_body && m_header >= m_buf )
+>425	ArgumentList	m_header && m_header <= m_body && m_header >= m_buf
+>426	Argument	m_header && m_header <= m_body && m_header >= m_buf
+>427	AndExpression	m_header && m_header <= m_body && m_header >= m_buf
+>428	AndExpression	m_header <= m_body && m_header >= m_buf
+>429	RelationalExpression	m_header >= m_buf
+>430	Identifier	m_buf
+>431	Identifier	m_header
+>432	RelationalExpression	m_header <= m_body
+>433	Identifier	m_body
+>434	Identifier	m_header
+>435	Identifier	m_header
+>436	Callee	CNC_ASSERT
+>437	Identifier	CNC_ASSERT
+>438	IfStatement	if ( m_addSize )
+>439	CompoundStatement	 
+>440	ExpressionStatement	 
+>441	AssignmentExpr	curr += sizeof ( tmp_sz )
+>442	SizeofExpr	sizeof ( tmp_sz )
+>443	SizeofOperand	tmp_sz
+>444	Sizeof	sizeof
+>445	Identifier	curr
+>446	ExpressionStatement	 
+>447	CallExpression	memcpy ( curr , & tmp_sz , sizeof ( tmp_sz ) )
+>448	ArgumentList	curr
+>449	Argument	sizeof ( tmp_sz )
+>450	SizeofExpr	sizeof ( tmp_sz )
+>451	SizeofOperand	tmp_sz
+>452	Sizeof	sizeof
+>453	Argument	& tmp_sz
+>454	UnaryOp	& tmp_sz
+>455	Identifier	tmp_sz
+>456	UnaryOperator	&
+>457	Argument	curr
+>458	Identifier	curr
+>459	Callee	memcpy
+>460	Identifier	memcpy
+>461	ExpressionStatement	 
+>462	CallExpression	CNC_ASSERT ( curr < m_body )
+>463	ArgumentList	curr < m_body
+>464	Argument	curr < m_body
+>465	RelationalExpression	curr < m_body
+>466	Identifier	m_body
+>467	Identifier	curr
+>468	Callee	CNC_ASSERT
+>469	Identifier	CNC_ASSERT
+>470	IfStatement	if ( m_addCRC )
+>471	CompoundStatement	 
+>472	ExpressionStatement	 
+>473	AssignmentExpr	curr += CRC_SIZE
+>474	Identifier	CRC_SIZE
+>475	Identifier	curr
+>476	ExpressionStatement	 
+>477	Statement	 
+>478	Statement	 
+>479	Statement	 
+>480	Statement	 
+>481	Statement	 
+>482	Statement	 
+>483	Statement	 
+>484	Statement	 
+>485	Statement	 
+>486	Statement	 
+>487	Statement	 
+>488	Statement	 
+>489	Statement	 
+>490	Statement	 
+>491	Statement	 
+>492	Statement	 
+>493	Statement	 
+>494	Statement	 
+>495	Statement	 
+>496	Statement	 
+>497	ExpressionStatement	 
+>498	CallExpression	CNC_ASSERT ( curr < m_body )
+>499	ArgumentList	curr < m_body
+>500	Argument	curr < m_body
+>501	RelationalExpression	curr < m_body
+>502	Identifier	m_body
+>503	Identifier	curr
+>504	Callee	CNC_ASSERT
+>505	Identifier	CNC_ASSERT
+>506	Condition	 
+>507	Identifier	m_addCRC
+>508	IdentifierDeclStatement	 
+>509	IdentifierDecl	tmp_sz = m_curr - m_body
+>510	AssignmentExpr	tmp_sz = m_curr - m_body
+>511	AdditiveExpression	m_curr - m_body
+>512	Identifier	m_body
+>513	Identifier	m_curr
+>514	Identifier	tmp_sz
+>515	Identifier	tmp_sz
+>516	IdentifierDeclType	size_type
+>517	Condition	 
+>518	Identifier	m_addSize
+>519	IfStatement	if ( m_addCRC )
+>520	CompoundStatement	 
+>521	ExpressionStatement	 
+>522	AssignmentExpr	curr += CRC_SIZE
+>523	Identifier	CRC_SIZE
+>524	Identifier	curr
+>525	ExpressionStatement	 
+>526	CallExpression	pack_crc ( m_body , m_curr - m_body , curr )
+>527	ArgumentList	m_body
+>528	Argument	curr
+>529	Identifier	curr
+>530	Argument	m_curr - m_body
+>531	AdditiveExpression	m_curr - m_body
+>532	Identifier	m_body
+>533	Identifier	m_curr
+>534	Argument	m_body
+>535	Identifier	m_body
+>536	Callee	pack_crc
+>537	Identifier	pack_crc
+>538	ExpressionStatement	 
+>539	CallExpression	CNC_ASSERT ( curr < m_body )
+>540	ArgumentList	curr < m_body
+>541	Argument	curr < m_body
+>542	RelationalExpression	curr < m_body
+>543	Identifier	m_body
+>544	Identifier	curr
+>545	Callee	CNC_ASSERT
+>546	Identifier	CNC_ASSERT
+>547	ExpressionStatement	 
+>548	CallExpression	CNC_ABORT ( \"Unexpected code path taken\" )
+>549	ArgumentList	\"Unexpected code path taken\"
+>550	Argument	\"Unexpected code path taken\"
+>551	PrimaryExpression	\"Unexpected code path taken\"
+>552	Callee	CNC_ABORT
+>553	Identifier	CNC_ABORT
+>554	Condition	 
+>555	Identifier	m_addCRC
+>556	IdentifierDeclStatement	 
+>557	IdentifierDecl	* curr = m_header
+>558	AssignmentExpr	* curr = m_header
+>559	Identifier	m_header
+>560	Identifier	m_header
+>561	Identifier	curr
+>562	IdentifierDeclType	char *
+>563	IfStatement	if ( m_buf == NULL )
+>564	ExpressionStatement	 
+>565	CallExpression	ensure_capacity ( 0 )
+>566	ArgumentList	0
+>567	Argument	0
+>568	PrimaryExpression	0
+>569	Callee	ensure_capacity
+>570	Identifier	ensure_capacity
+>571	Condition	 
+>572	EqualityExpression	m_buf == NULL
+>573	Identifier	NULL
+>574	Identifier	m_buf
+>589	FunctionDef	Buffer 
+>590	ParameterList	 
+>591	ReturnType	void
+>592	CompoundStatement	 
+>593	ExpressionStatement	 
+>594	AssignmentExpr	m_curr = m_body
+>595	Identifier	m_body
+>596	Identifier	m_curr
+>597	IfStatement	if ( m_addCRC )
+>598	CompoundStatement	 
+>599	ExpressionStatement	 
+>600	CallExpression	check_crc ( m_body , m_curr - m_body , m_header )
+>601	ArgumentList	m_body
+>602	Argument	m_header
+>603	Identifier	m_header
+>604	Argument	m_curr - m_body
+>605	AdditiveExpression	m_curr - m_body
+>606	Identifier	m_body
+>607	Identifier	m_curr
+>608	Argument	m_body
+>609	Identifier	m_body
+>610	Callee	check_crc
+>611	Identifier	check_crc
+>612	ExpressionStatement	 
+>613	CallExpression	CNC_ABORT ( \"Unexpected code path taken\" )
+>614	ArgumentList	\"Unexpected code path taken\"
+>615	Argument	\"Unexpected code path taken\"
+>616	PrimaryExpression	\"Unexpected code path taken\"
+>617	Callee	CNC_ABORT
+>618	Identifier	CNC_ABORT
+>619	Condition	 
+>620	Identifier	m_addCRC
+>621	IfStatement	if ( m_addSize )
+>622	CompoundStatement	 
+>623	IfStatement	if ( tmp_sz != ( size_t ) ( m_curr - m_body ) )
+>624	CompoundStatement	 
+>625	ExpressionStatement	 
+>626	CallExpression	SizeError ( )
+>627	ArgumentList	 
+>628	Callee	SizeError
+>629	Identifier	SizeError
+>630	Statement	 
+>631	ExpressionStatement	 
+>632	CallExpression	CNC_ASSERT ( \"inconsistent buffer size\n\" == NULL )
+>633	ArgumentList	\"inconsistent buffer size\n\" == NULL
+>634	Argument	\"inconsistent buffer size\n\" == NULL
+>635	EqualityExpression	\"inconsistent buffer size\n\" == NULL
+>636	Identifier	NULL
+>637	PrimaryExpression	\"inconsistent buffer size\n\"
+>638	Callee	CNC_ASSERT
+>639	Identifier	CNC_ASSERT
+>640	Condition	 
+>641	EqualityExpression	tmp_sz != ( size_t ) ( m_curr - m_body )
+>642	CastExpression	( size_t ) ( m_curr - m_body )
+>643	AdditiveExpression	m_curr - m_body
+>644	Identifier	m_body
+>645	Identifier	m_curr
+>646	CastTarget	size_t
+>647	Identifier	tmp_sz
+>648	ExpressionStatement	 
+>649	CallExpression	memcpy ( & tmp_sz , m_body - sizeof ( size_type ) , sizeof ( tmp_sz ) )
+>650	ArgumentList	& tmp_sz
+>651	Argument	sizeof ( tmp_sz )
+>652	SizeofExpr	sizeof ( tmp_sz )
+>653	SizeofOperand	tmp_sz
+>654	Sizeof	sizeof
+>655	Argument	m_body - sizeof ( size_type )
+>656	AdditiveExpression	m_body - sizeof ( size_type )
+>657	SizeofExpr	sizeof ( size_type )
+>658	SizeofOperand	size_type
+>659	Sizeof	sizeof
+>660	Identifier	m_body
+>661	Argument	& tmp_sz
+>662	UnaryOp	& tmp_sz
+>663	Identifier	tmp_sz
+>664	UnaryOperator	&
+>665	Callee	memcpy
+>666	Identifier	memcpy
+>667	IdentifierDeclStatement	 
+>668	IdentifierDecl	tmp_sz = 0
+>669	AssignmentExpr	tmp_sz = 0
+>670	PrimaryExpression	0
+>671	Identifier	tmp_sz
+>672	Identifier	tmp_sz
+>673	IdentifierDeclType	size_type
+>674	Condition	 
+>675	Identifier	m_addSize
+>676	ExpressionStatement	 
+>677	CallExpression	CNC_ASSERT ( m_header && m_header <= m_body && m_header >= m_buf )
+>678	ArgumentList	m_header && m_header <= m_body && m_header >= m_buf
+>679	Argument	m_header && m_header <= m_body && m_header >= m_buf
+>680	AndExpression	m_header && m_header <= m_body && m_header >= m_buf
+>681	AndExpression	m_header <= m_body && m_header >= m_buf
+>682	RelationalExpression	m_header >= m_buf
+>683	Identifier	m_buf
+>684	Identifier	m_header
+>685	RelationalExpression	m_header <= m_body
+>686	Identifier	m_body
+>687	Identifier	m_header
+>688	Identifier	m_header
+>689	Callee	CNC_ASSERT
+>690	Identifier	CNC_ASSERT
+>703	FunctionDef	Buffer 
+>704	ParameterList	 
+>705	ReturnType	size_type
+>706	CompoundStatement	 
+>707	ReturnStatement	 
+>708	Identifier	resSize
+>709	IfStatement	if ( m_header && m_addSize )
+>710	CompoundStatement	 
+>711	IfStatement	if ( m_addCRC )
+>712	CompoundStatement	 
+>713	ExpressionStatement	 
+>714	Statement	 
+>715	Statement	 
+>716	Statement	 
+>717	Statement	 
+>718	Statement	 
+>719	Statement	 
+>720	Statement	 
+>721	Statement	 
+>722	Statement	 
+>723	Statement	 
+>724	Statement	 
+>725	Statement	 
+>726	Statement	 
+>727	Statement	 
+>728	Statement	 
+>729	Statement	 
+>730	Statement	 
+>731	Statement	 
+>732	Statement	 
+>733	Statement	 
+>734	Statement	 
+>735	Statement	 
+>736	ExpressionStatement	 
+>737	CallExpression	CNC_ABORT ( \"Unexpected code path taken\" )
+>738	ArgumentList	\"Unexpected code path taken\"
+>739	Argument	\"Unexpected code path taken\"
+>740	PrimaryExpression	\"Unexpected code path taken\"
+>741	Callee	CNC_ABORT
+>742	Identifier	CNC_ABORT
+>743	Condition	 
+>744	Identifier	m_addCRC
+>745	ExpressionStatement	 
+>746	CallExpression	memcpy ( & resSize , curr , sizeof ( resSize ) )
+>747	ArgumentList	& resSize
+>748	Argument	sizeof ( resSize )
+>749	SizeofExpr	sizeof ( resSize )
+>750	SizeofOperand	resSize
+>751	Sizeof	sizeof
+>752	Argument	curr
+>753	Identifier	curr
+>754	Argument	& resSize
+>755	UnaryOp	& resSize
+>756	Identifier	resSize
+>757	UnaryOperator	&
+>758	Callee	memcpy
+>759	Identifier	memcpy
+>760	IdentifierDeclStatement	 
+>761	IdentifierDecl	* curr = m_body - sizeof ( size_type )
+>762	AssignmentExpr	* curr = m_body - sizeof ( size_type )
+>763	AdditiveExpression	m_body - sizeof ( size_type )
+>764	SizeofExpr	sizeof ( size_type )
+>765	SizeofOperand	size_type
+>766	Sizeof	sizeof
+>767	Identifier	m_body
+>768	Identifier	curr
+>769	Identifier	curr
+>770	IdentifierDeclType	char *
+>771	Condition	 
+>772	AndExpression	m_header && m_addSize
+>773	Identifier	m_addSize
+>774	Identifier	m_header
+>775	IdentifierDeclStatement	 
+>776	IdentifierDecl	resSize = invalid_size
+>777	AssignmentExpr	resSize = invalid_size
+>778	Identifier	invalid_size
+>779	Identifier	invalid_size
+>780	Identifier	resSize
+>781	IdentifierDeclType	size_type
+>793	FunctionDef	Buffer 
+>794	ParameterList	const char * buf , size_type sz , char * crc
+>795	Parameter	 
+>796	Identifier	crc
+>797	ParameterType	char *
+>798	Parameter	 
+>799	Identifier	sz
+>800	ParameterType	size_type
+>801	Parameter	 
+>802	Identifier	buf
+>803	ParameterType	const char *
+>804	ReturnType	void
+>805	CompoundStatement	 
+>806	ExpressionStatement	 
+>807	CallExpression	memcpy ( crc , & res , sizeof ( res ) )
+>808	ArgumentList	crc
+>809	Argument	sizeof ( res )
+>810	SizeofExpr	sizeof ( res )
+>811	SizeofOperand	res
+>812	Sizeof	sizeof
+>813	Argument	& res
+>814	UnaryOp	& res
+>815	Identifier	res
+>816	UnaryOperator	&
+>817	Argument	crc
+>818	Identifier	crc
+>819	Callee	memcpy
+>820	Identifier	memcpy
+>821	IdentifierDeclStatement	 
+>822	IdentifierDecl	res = comp . checksum ( )
+>823	AssignmentExpr	res = comp . checksum ( )
+>824	CallExpression	comp . checksum ( )
+>825	ArgumentList	 
+>826	Callee	comp . checksum
+>827	MemberAccess	comp . checksum
+>828	Identifier	checksum
+>829	Identifier	comp
+>830	Identifier	res
+>831	Identifier	res
+>832	IdentifierDeclType	crc_type 
+>833	ExpressionStatement	 
+>834	CallExpression	comp . process_bytes ( buf , ( size_t ) sz )
+>835	ArgumentList	buf
+>836	Argument	( size_t ) sz
+>837	CastExpression	( size_t ) sz
+>838	Identifier	sz
+>839	CastTarget	size_t
+>840	Argument	buf
+>841	Identifier	buf
+>842	Callee	comp . process_bytes
+>843	MemberAccess	comp . process_bytes
+>844	Identifier	process_bytes
+>845	Identifier	comp
+>846	IdentifierDeclStatement	 
+>847	IdentifierDecl	comp
+>848	Identifier	comp
+>849	IdentifierDeclType	crc_type
+>850	ExpressionStatement	 
+>851	CallExpression	CNC_ASSERT ( sizeof ( crc_type 
+>852	ArgumentList	sizeof ( crc_type 
+>853	Argument	sizeof ( crc_type 
+>854	EqualityExpression	sizeof ( crc_type 
+>855	Identifier	CRC_SIZE
+>856	SizeofExpr	sizeof ( crc_type 
+>857	SizeofOperand	crc_type 
+>858	Sizeof	sizeof
+>859	Callee	CNC_ASSERT
+>860	Identifier	CNC_ASSERT
+>872	FunctionDef	Buffer 
+>873	ParameterList	const char * buf , size_type sz , const char * crc
+>874	Parameter	 
+>875	Identifier	crc
+>876	ParameterType	const char *
+>877	Parameter	 
+>878	Identifier	sz
+>879	ParameterType	size_type
+>880	Parameter	 
+>881	Identifier	buf
+>882	ParameterType	const char *
+>883	ReturnType	void
+>884	CompoundStatement	 
+>885	IfStatement	if ( memcmp ( & res , crc , sizeof ( res ) ) != 0 )
+>886	CompoundStatement	 
+>887	ExpressionStatement	 
+>888	CallExpression	CRCError ( )
+>889	ArgumentList	 
+>890	Callee	CRCError
+>891	Identifier	CRCError
+>892	Statement	 
+>893	ExpressionStatement	 
+>894	ShiftExpression	std 
+>895	PrimaryExpression	\"ERROR
+>896	Identifier	std 
+>897	Condition	 
+>898	EqualityExpression	memcmp ( & res , crc , sizeof ( res ) ) != 0
+>899	PrimaryExpression	0
+>900	CallExpression	memcmp ( & res , crc , sizeof ( res ) )
+>901	ArgumentList	& res
+>902	Argument	sizeof ( res )
+>903	SizeofExpr	sizeof ( res )
+>904	SizeofOperand	res
+>905	Sizeof	sizeof
+>906	Argument	crc
+>907	Identifier	crc
+>908	Argument	& res
+>909	UnaryOp	& res
+>910	Identifier	res
+>911	UnaryOperator	&
+>912	Callee	memcmp
+>913	Identifier	memcmp
+>914	IdentifierDeclStatement	 
+>915	IdentifierDecl	res = comp . checksum ( )
+>916	AssignmentExpr	res = comp . checksum ( )
+>917	CallExpression	comp . checksum ( )
+>918	ArgumentList	 
+>919	Callee	comp . checksum
+>920	MemberAccess	comp . checksum
+>921	Identifier	checksum
+>922	Identifier	comp
+>923	Identifier	res
+>924	Identifier	res
+>925	IdentifierDeclType	crc_type 
+>926	ExpressionStatement	 
+>927	CallExpression	comp . process_bytes ( buf , ( size_t ) sz )
+>928	ArgumentList	buf
+>929	Argument	( size_t ) sz
+>930	CastExpression	( size_t ) sz
+>931	Identifier	sz
+>932	CastTarget	size_t
+>933	Argument	buf
+>934	Identifier	buf
+>935	Callee	comp . process_bytes
+>936	MemberAccess	comp . process_bytes
+>937	Identifier	process_bytes
+>938	Identifier	comp
+>939	IdentifierDeclStatement	 
+>940	IdentifierDecl	comp
+>941	Identifier	comp
+>942	IdentifierDeclType	crc_type
+<5=10,6
+<6=7
+<7=9,8
+<10=62,47,35,23,11
+<11=12
+<12=22,13
+<13=21,14
+<14=18,15
+<15=17,16
+<18=20,19
+<23=24
+<24=34,25
+<25=33,26
+<26=30,27
+<27=29,28
+<30=32,31
+<35=36
+<36=46,37
+<37=45,38
+<38=42,39
+<39=41,40
+<42=44,43
+<47=48
+<48=60,49
+<49=58,54,50
+<50=51
+<51=53,52
+<54=55
+<55=57,56
+<58=59
+<60=61
+<62=63
+<63=72,64
+<64=71,65
+<65=69,66
+<66=67
+<67=68
+<69=70
+<87=99,98,88
+<88=95,92,89
+<89=91,90
+<92=94,93
+<95=97,96
+<99=167,163,146,100
+<100=144,124,101
+<101=102
+<102=103
+<103=104
+<104=122,105
+<105=106
+<106=107
+<107=119,108
+<108=116,109
+<109=113,110
+<110=112,111
+<113=115,114
+<116=118,117
+<119=121,120
+<122=123
+<124=138,129,125
+<125=126
+<126=128,127
+<129=130
+<130=137,131
+<131=136,132
+<132=134,133
+<134=135
+<138=139
+<139=143,140
+<140=142,141
+<144=145
+<146=161,147
+<147=157,148
+<148=149
+<149=155,150
+<150=151
+<151=152
+<152=154,153
+<155=156
+<157=158
+<158=160,159
+<161=162
+<163=164
+<164=166,165
+<167=168
+<168=170,169
+<186=192,191,187
+<187=188
+<188=190,189
+<192=215,206,199,195,193
+<193=194
+<195=196
+<196=198,197
+<199=200
+<200=205,204,201
+<201=203,202
+<206=207
+<207=213,208
+<208=209
+<209=210
+<210=212,211
+<213=214
+<215=216
+<216=223,222,217
+<217=221,218
+<218=220,219
+<232=238,237,233
+<233=234
+<234=236,235
+<238=349,339,329,320,310,300,293,282,264,257,251,245,239
+<239=240
+<240=244,241
+<241=243,242
+<245=246
+<246=250,247
+<247=249,248
+<251=252
+<252=256,253
+<253=255,254
+<257=258
+<258=262,259
+<259=260
+<260=261
+<262=263
+<264=280,265
+<265=266
+<266=278,267
+<267=276,274,268
+<268=269
+<269=271,270
+<271=273,272
+<274=275
+<276=277
+<278=279
+<280=281
+<282=283
+<283=292,284
+<284=291,285
+<285=289,286
+<286=287
+<287=288
+<289=290
+<293=294
+<294=299,298,295
+<295=297,296
+<300=305,301
+<301=302
+<302=304,303
+<305=306
+<306=307
+<307=309,308
+<310=316,311
+<311=312
+<312=313
+<313=315,314
+<316=317
+<317=319,318
+<320=321
+<321=328,327,322
+<322=326,323
+<323=325,324
+<329=330
+<330=338,337,331
+<331=336,332
+<332=334,333
+<334=335
+<339=341,340
+<341=342
+<342=346,343
+<343=345,344
+<346=348,347
+<349=350
+<350=354,351
+<351=353,352
+<370=376,375,371
+<371=372
+<372=374,373
+<376=396,395,394,393,392,391,390,389,388,381,377
+<377=378
+<378=380,379
+<381=382
+<382=386,383
+<383=384
+<384=385
+<386=387
+<403=409,408,404
+<404=405
+<405=407,406
+<409=410
+<410=411
+<411=413,412
+<419=422,421,420
+<422=563,556,519,438,423
+<423=424
+<424=436,425
+<425=426
+<426=427
+<427=435,428
+<428=432,429
+<429=431,430
+<432=434,433
+<436=437
+<438=517,439
+<439=508,470,461,446,440
+<440=441
+<441=445,442
+<442=444,443
+<446=447
+<447=459,448
+<448=457,453,449
+<449=450
+<450=452,451
+<453=454
+<454=456,455
+<457=458
+<459=460
+<461=462
+<462=468,463
+<463=464
+<464=465
+<465=467,466
+<468=469
+<470=506,471
+<471=497,496,495,494,493,492,491,490,489,488,487,486,485,484,483,482,481,480,479,478,477,476,472
+<472=473
+<473=475,474
+<497=498
+<498=504,499
+<499=500
+<500=501
+<501=503,502
+<504=505
+<506=507
+<508=509
+<509=516,515,510
+<510=514,511
+<511=513,512
+<517=518
+<519=554,520
+<520=547,538,525,521
+<521=522
+<522=524,523
+<525=526
+<526=536,527
+<527=534,530,528
+<528=529
+<530=531
+<531=533,532
+<534=535
+<536=537
+<538=539
+<539=545,540
+<540=541
+<541=542
+<542=544,543
+<545=546
+<547=548
+<548=552,549
+<549=550
+<550=551
+<552=553
+<554=555
+<556=557
+<557=562,561,558
+<558=560,559
+<563=571,564
+<564=565
+<565=569,566
+<566=567
+<567=568
+<569=570
+<571=572
+<572=574,573
+<589=592,591,590
+<592=676,621,597,593
+<593=594
+<594=596,595
+<597=619,598
+<598=612,599
+<599=600
+<600=610,601
+<601=608,604,602
+<602=603
+<604=605
+<605=607,606
+<608=609
+<610=611
+<612=613
+<613=617,614
+<614=615
+<615=616
+<617=618
+<619=620
+<621=674,622
+<622=667,648,623
+<623=640,624
+<624=631,630,625
+<625=626
+<626=628,627
+<628=629
+<631=632
+<632=638,633
+<633=634
+<634=635
+<635=637,636
+<638=639
+<640=641
+<641=647,642
+<642=646,643
+<643=645,644
+<648=649
+<649=665,650
+<650=661,655,651
+<651=652
+<652=654,653
+<655=656
+<656=660,657
+<657=659,658
+<661=662
+<662=664,663
+<665=666
+<667=668
+<668=673,672,669
+<669=671,670
+<674=675
+<676=677
+<677=689,678
+<678=679
+<679=680
+<680=688,681
+<681=685,682
+<682=684,683
+<685=687,686
+<689=690
+<703=706,705,704
+<706=775,709,707
+<707=708
+<709=771,710
+<710=760,745,711
+<711=743,712
+<712=736,735,734,733,732,731,730,729,728,727,726,725,724,723,722,721,720,719,718,717,716,715,714,713
+<736=737
+<737=741,738
+<738=739
+<739=740
+<741=742
+<743=744
+<745=746
+<746=758,747
+<747=754,752,748
+<748=749
+<749=751,750
+<752=753
+<754=755
+<755=757,756
+<758=759
+<760=761
+<761=770,769,762
+<762=768,763
+<763=767,764
+<764=766,765
+<771=772
+<772=774,773
+<775=776
+<776=781,780,777
+<777=779,778
+<793=805,804,794
+<794=801,798,795
+<795=797,796
+<798=800,799
+<801=803,802
+<805=850,846,833,821,806
+<806=807
+<807=819,808
+<808=817,813,809
+<809=810
+<810=812,811
+<813=814
+<814=816,815
+<817=818
+<819=820
+<821=822
+<822=832,831,823
+<823=830,824
+<824=826,825
+<826=827
+<827=829,828
+<833=834
+<834=842,835
+<835=840,836
+<836=837
+<837=839,838
+<840=841
+<842=843
+<843=845,844
+<846=847
+<847=849,848
+<850=851
+<851=859,852
+<852=853
+<853=854
+<854=856,855
+<856=858,857
+<859=860
+<872=884,883,873
+<873=880,877,874
+<874=876,875
+<877=879,878
+<880=882,881
+<884=939,926,914,885
+<885=897,886
+<886=893,892,887
+<887=888
+<888=890,889
+<890=891
+<893=894
+<894=896,895
+<897=898
+<898=900,899
+<900=912,901
+<901=908,906,902
+<902=903
+<903=905,904
+<906=907
+<908=909
+<909=911,910
+<912=913
+<914=915
+<915=925,924,916
+<916=923,917
+<917=919,918
+<919=920
+<920=922,921
+<926=927
+<927=935,928
+<928=933,929
+<929=930
+<930=932,931
+<933=934
+<935=936
+<936=938,937
+<939=940
+<940=942,941

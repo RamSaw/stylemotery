@@ -1,0 +1,2395 @@
+>23	FunctionDef	App 
+>24	ParameterList	 
+>25	ReturnType	void
+>26	CompoundStatement	 
+>27	ExpressionStatement	 
+>28	CallExpression	g_settings -> read_from_file ( \"sea.cfg\" )
+>29	ArgumentList	\"sea.cfg\"
+>30	Argument	\"sea.cfg\"
+>31	PrimaryExpression	\"sea.cfg\"
+>32	Callee	g_settings -> read_from_file
+>33	PtrMemberAccess	g_settings -> read_from_file
+>34	Identifier	read_from_file
+>35	Identifier	g_settings
+>36	ExpressionStatement	 
+>37	Identifier	Settings
+>38	Statement	 
+>39	Statement	 
+>40	Statement	 
+>45	FunctionDef	App 
+>46	ParameterList	 
+>47	ReturnType	void
+>48	CompoundStatement	 
+>49	IfStatement	if ( ! run )
+>50	ElseStatement	else
+>51	ExpressionStatement	 
+>52	CallExpression	MessageBox ( NULL , ( LPCWSTR ) str , ( LPCWSTR ) \"GL Error\" , MB_OK )
+>53	ArgumentList	NULL
+>54	Argument	MB_OK
+>55	Identifier	MB_OK
+>56	Argument	( LPCWSTR ) \"GL Error\"
+>57	CastExpression	( LPCWSTR ) \"GL Error\"
+>58	PrimaryExpression	\"GL Error\"
+>59	CastTarget	LPCWSTR
+>60	Argument	( LPCWSTR ) str
+>61	CastExpression	( LPCWSTR ) str
+>62	Identifier	str
+>63	CastTarget	LPCWSTR
+>64	Argument	NULL
+>65	Identifier	NULL
+>66	Callee	MessageBox
+>67	Identifier	MessageBox
+>68	CompoundStatement	 
+>69	ExpressionStatement	 
+>70	CallExpression	exit ( - 1 )
+>71	ArgumentList	- 1
+>72	Argument	- 1
+>73	UnaryOp	- 1
+>74	PrimaryExpression	1
+>75	UnaryOperator	-
+>76	Callee	exit
+>77	Identifier	exit
+>78	IdentifierDeclStatement	 
+>79	IdentifierDecl	MessageBox ( NULL , ( LPCSTR ) str , ( LPCSTR ) \"GL Error\" , MB_OK )
+>80	Expression	NULL , ( LPCSTR ) str , ( LPCSTR ) \"GL Error\" , MB_OK
+>81	Expression	( LPCSTR ) str , ( LPCSTR ) \"GL Error\" , MB_OK
+>82	Expression	( LPCSTR ) \"GL Error\" , MB_OK
+>83	Identifier	MB_OK
+>84	CastExpression	( LPCSTR ) \"GL Error\"
+>85	PrimaryExpression	\"GL Error\"
+>86	CastTarget	LPCSTR
+>87	CastExpression	( LPCSTR ) str
+>88	Identifier	str
+>89	CastTarget	LPCSTR
+>90	Identifier	NULL
+>91	Identifier	MessageBox
+>92	IdentifierDeclType	ifdef MINGW
+>93	ExpressionStatement	 
+>94	CallExpression	sprintf ( str + strlen ( str ) , \"\nThis app requires OpenGL with support for FBO and GLSL shaders\nTry to upgrade \
+>95	ArgumentList	str + strlen ( str )
+>96	Argument	\"\nThis app requires OpenGL with support for FBO and GLSL shaders\nTry to upgrade your graphic card drivers.\n\n\"\
+>97	PrimaryExpression	\"\nThis app requires OpenGL with support for FBO and GLSL shaders\nTry to upgrade your graphic card drivers.\n\n\"\
+>98	Argument	str + strlen ( str )
+>99	AdditiveExpression	str + strlen ( str )
+>100	CallExpression	strlen ( str )
+>101	ArgumentList	str
+>102	Argument	str
+>103	Identifier	str
+>104	Callee	strlen
+>105	Identifier	strlen
+>106	Identifier	str
+>107	Callee	sprintf
+>108	Identifier	sprintf
+>109	Condition	 
+>110	UnaryOp	! run
+>111	Identifier	run
+>112	UnaryOperator	!
+>113	ExpressionStatement	 
+>114	CallExpression	printf ( \"%s\n\" , str )
+>115	ArgumentList	\"%s\n\"
+>116	Argument	str
+>117	Identifier	str
+>118	Argument	\"%s\n\"
+>119	PrimaryExpression	\"%s\n\"
+>120	Callee	printf
+>121	Identifier	printf
+>122	ForStatement	for ( int i = 0 ; extensions [ i ] ; ++ i )
+>123	CompoundStatement	 
+>124	ExpressionStatement	 
+>125	CallExpression	sprintf ( str + strlen ( str ) , \"%32s
+>126	ArgumentList	str + strlen ( str )
+>127	Argument	res ? \"Yes\" 
+>128	ConditionalExpression	res ? \"Yes\" 
+>129	PrimaryExpression	\"No\"
+>130	PrimaryExpression	\"Yes\"
+>131	Condition	res
+>132	Identifier	res
+>133	Argument	extensions [ i ]
+>134	ArrayIndexing	extensions [ i ]
+>135	Identifier	i
+>136	Identifier	extensions
+>137	Argument	\"%32s
+>138	PrimaryExpression	\"%32s
+>139	Argument	str + strlen ( str )
+>140	AdditiveExpression	str + strlen ( str )
+>141	CallExpression	strlen ( str )
+>142	ArgumentList	str
+>143	Argument	str
+>144	Identifier	str
+>145	Callee	strlen
+>146	Identifier	strlen
+>147	Identifier	str
+>148	Callee	sprintf
+>149	Identifier	sprintf
+>150	IfStatement	if ( ! res )
+>151	ExpressionStatement	 
+>152	AssignmentExpr	run = false
+>153	Identifier	false
+>154	Identifier	run
+>155	Condition	 
+>156	UnaryOp	! res
+>157	Identifier	res
+>158	UnaryOperator	!
+>159	IdentifierDeclStatement	 
+>160	IdentifierDecl	res = Gl 
+>161	AssignmentExpr	res = Gl 
+>162	CallExpression	Gl 
+>163	ArgumentList	extensions [ i ]
+>164	Argument	extensions [ i ]
+>165	ArrayIndexing	extensions [ i ]
+>166	Identifier	i
+>167	Identifier	extensions
+>168	Callee	Gl 
+>169	Identifier	Gl 
+>170	Identifier	res
+>171	Identifier	res
+>172	IdentifierDeclType	bool
+>173	UnaryExpression	 
+>174	Identifier	i
+>175	IncDec	++
+>176	Condition	 
+>177	ArrayIndexing	extensions [ i ]
+>178	Identifier	i
+>179	Identifier	extensions
+>180	ForInit	 
+>181	IdentifierDeclStatement	int i = 0 ;
+>182	IdentifierDecl	i = 0
+>183	AssignmentExpr	i = 0
+>184	PrimaryExpression	0
+>185	Identifier	i
+>186	Identifier	i
+>187	IdentifierDeclType	int
+>188	ExpressionStatement	 
+>189	CallExpression	sprintf ( str + strlen ( str ) , \"\n\" )
+>190	ArgumentList	str + strlen ( str )
+>191	Argument	\"\n\"
+>192	PrimaryExpression	\"\n\"
+>193	Argument	str + strlen ( str )
+>194	AdditiveExpression	str + strlen ( str )
+>195	CallExpression	strlen ( str )
+>196	ArgumentList	str
+>197	Argument	str
+>198	Identifier	str
+>199	Callee	strlen
+>200	Identifier	strlen
+>201	Identifier	str
+>202	Callee	sprintf
+>203	Identifier	sprintf
+>204	ExpressionStatement	 
+>205	CallExpression	sprintf ( str + strlen ( str ) , \"GLSL version
+>206	ArgumentList	str + strlen ( str )
+>207	Argument	glGetString ( GL_SHADING_LANGUAGE_VERSION )
+>208	CallExpression	glGetString ( GL_SHADING_LANGUAGE_VERSION )
+>209	ArgumentList	GL_SHADING_LANGUAGE_VERSION
+>210	Argument	GL_SHADING_LANGUAGE_VERSION
+>211	Identifier	GL_SHADING_LANGUAGE_VERSION
+>212	Callee	glGetString
+>213	Identifier	glGetString
+>214	Argument	\"GLSL version
+>215	PrimaryExpression	\"GLSL version
+>216	Argument	str + strlen ( str )
+>217	AdditiveExpression	str + strlen ( str )
+>218	CallExpression	strlen ( str )
+>219	ArgumentList	str
+>220	Argument	str
+>221	Identifier	str
+>222	Callee	strlen
+>223	Identifier	strlen
+>224	Identifier	str
+>225	Callee	sprintf
+>226	Identifier	sprintf
+>227	ExpressionStatement	 
+>228	CallExpression	sprintf ( str + strlen ( str ) , \"OpenGL renderer
+>229	ArgumentList	str + strlen ( str )
+>230	Argument	glGetString ( GL_RENDERER )
+>231	CallExpression	glGetString ( GL_RENDERER )
+>232	ArgumentList	GL_RENDERER
+>233	Argument	GL_RENDERER
+>234	Identifier	GL_RENDERER
+>235	Callee	glGetString
+>236	Identifier	glGetString
+>237	Argument	\"OpenGL renderer
+>238	PrimaryExpression	\"OpenGL renderer
+>239	Argument	str + strlen ( str )
+>240	AdditiveExpression	str + strlen ( str )
+>241	CallExpression	strlen ( str )
+>242	ArgumentList	str
+>243	Argument	str
+>244	Identifier	str
+>245	Callee	strlen
+>246	Identifier	strlen
+>247	Identifier	str
+>248	Callee	sprintf
+>249	Identifier	sprintf
+>250	ExpressionStatement	 
+>251	CallExpression	sprintf ( str + strlen ( str ) , \"OpenGL vendor
+>252	ArgumentList	str + strlen ( str )
+>253	Argument	glGetString ( GL_VENDOR )
+>254	CallExpression	glGetString ( GL_VENDOR )
+>255	ArgumentList	GL_VENDOR
+>256	Argument	GL_VENDOR
+>257	Identifier	GL_VENDOR
+>258	Callee	glGetString
+>259	Identifier	glGetString
+>260	Argument	\"OpenGL vendor
+>261	PrimaryExpression	\"OpenGL vendor
+>262	Argument	str + strlen ( str )
+>263	AdditiveExpression	str + strlen ( str )
+>264	CallExpression	strlen ( str )
+>265	ArgumentList	str
+>266	Argument	str
+>267	Identifier	str
+>268	Callee	strlen
+>269	Identifier	strlen
+>270	Identifier	str
+>271	Callee	sprintf
+>272	Identifier	sprintf
+>273	ExpressionStatement	 
+>274	CallExpression	sprintf ( str , \"OpenGL version
+>275	ArgumentList	str
+>276	Argument	glGetString ( GL_VERSION )
+>277	CallExpression	glGetString ( GL_VERSION )
+>278	ArgumentList	GL_VERSION
+>279	Argument	GL_VERSION
+>280	Identifier	GL_VERSION
+>281	Callee	glGetString
+>282	Identifier	glGetString
+>283	Argument	\"OpenGL version
+>284	PrimaryExpression	\"OpenGL version
+>285	Argument	str
+>286	Identifier	str
+>287	Callee	sprintf
+>288	Identifier	sprintf
+>289	IdentifierDeclStatement	 
+>290	IdentifierDecl	str [ 1024 ]
+>291	PrimaryExpression	1024
+>292	Identifier	str
+>293	IdentifierDeclType	char [ 1024 ]
+>294	IdentifierDeclStatement	 
+>295	IdentifierDecl	run = true
+>296	AssignmentExpr	run = true
+>297	Identifier	true
+>298	Identifier	true
+>299	Identifier	run
+>300	IdentifierDeclType	bool
+>301	IdentifierDeclStatement	 
+>302	IdentifierDecl	* extensions [ ] = { \"GL_EXT_framebuffer_object\" , \"GL_ARB_vertex_buffer_object\" , \"GL_ARB_shader_objects\" , \"GL_\
+>303	AssignmentExpr	* extensions [ ] = { \"GL_EXT_framebuffer_object\" , \"GL_ARB_vertex_buffer_object\" , \"GL_ARB_shader_objects\" , \"\
+>304	InitializerList	\"GL_EXT_framebuffer_object\"
+>305	PrimaryExpression	0
+>306	PrimaryExpression	\"GL_ARB_shading_language_100\"
+>307	PrimaryExpression	\"GL_ARB_fragment_shader\"
+>308	PrimaryExpression	\"GL_ARB_vertex_shader\"
+>309	PrimaryExpression	\"GL_ARB_shader_objects\"
+>310	PrimaryExpression	\"GL_ARB_vertex_buffer_object\"
+>311	PrimaryExpression	\"GL_EXT_framebuffer_object\"
+>312	Identifier	extensions
+>313	Identifier	extensions
+>314	IdentifierDeclType	const char * [ ]
+>337	FunctionDef	App 
+>338	ParameterList	int button , int action
+>339	Parameter	 
+>340	Identifier	action
+>341	ParameterType	int
+>342	Parameter	 
+>343	Identifier	button
+>344	ParameterType	int
+>345	ReturnType	void
+>346	CompoundStatement	 
+>347	IfStatement	if ( g_app )
+>348	ExpressionStatement	 
+>349	CallExpression	g_app -> mousebutton_cb ( button , action )
+>350	ArgumentList	button
+>351	Argument	action
+>352	Identifier	action
+>353	Argument	button
+>354	Identifier	button
+>355	Callee	g_app -> mousebutton_cb
+>356	PtrMemberAccess	g_app -> mousebutton_cb
+>357	Identifier	mousebutton_cb
+>358	Identifier	g_app
+>359	Condition	 
+>360	Identifier	g_app
+>367	FunctionDef	App 
+>368	ParameterList	int button , int action
+>369	Parameter	 
+>370	Identifier	action
+>371	ParameterType	int
+>372	Parameter	 
+>373	Identifier	button
+>374	ParameterType	int
+>375	ReturnType	void
+>376	CompoundStatement	 
+>377	IfStatement	if ( g_mode == MODE_MENU )
+>378	ElseStatement	else
+>379	IfStatement	if ( g_mode == MODE_CREDITS || g_mode == MODE_SCORES )
+>380	ElseStatement	else
+>381	IfStatement	if ( g_mode == MODE_GAME )
+>382	CompoundStatement	 
+>383	IfStatement	if ( g_current_game )
+>384	ExpressionStatement	 
+>385	CallExpression	g_current_game -> mouse_cb ( button , action )
+>386	ArgumentList	button
+>387	Argument	action
+>388	Identifier	action
+>389	Argument	button
+>390	Identifier	button
+>391	Callee	g_current_game -> mouse_cb
+>392	PtrMemberAccess	g_current_game -> mouse_cb
+>393	Identifier	mouse_cb
+>394	Identifier	g_current_game
+>395	Condition	 
+>396	Identifier	g_current_game
+>397	Condition	 
+>398	EqualityExpression	g_mode == MODE_GAME
+>399	Identifier	MODE_GAME
+>400	Identifier	g_mode
+>401	CompoundStatement	 
+>402	ExpressionStatement	 
+>403	AssignmentExpr	g_mode = MODE_MENU
+>404	Identifier	MODE_MENU
+>405	Identifier	g_mode
+>406	Condition	 
+>407	OrExpression	g_mode == MODE_CREDITS || g_mode == MODE_SCORES
+>408	EqualityExpression	g_mode == MODE_SCORES
+>409	Identifier	MODE_SCORES
+>410	Identifier	g_mode
+>411	EqualityExpression	g_mode == MODE_CREDITS
+>412	Identifier	MODE_CREDITS
+>413	Identifier	g_mode
+>414	CompoundStatement	 
+>415	ExpressionStatement	 
+>416	CallExpression	m_gamemenu -> mouse_action ( button )
+>417	ArgumentList	button
+>418	Argument	button
+>419	Identifier	button
+>420	Callee	m_gamemenu -> mouse_action
+>421	PtrMemberAccess	m_gamemenu -> mouse_action
+>422	Identifier	mouse_action
+>423	Identifier	m_gamemenu
+>424	Condition	 
+>425	EqualityExpression	g_mode == MODE_MENU
+>426	Identifier	MODE_MENU
+>427	Identifier	g_mode
+>428	IfStatement	if ( action != GLFW_PRESS )
+>429	ReturnStatement	 
+>430	Condition	 
+>431	EqualityExpression	action != GLFW_PRESS
+>432	Identifier	GLFW_PRESS
+>433	Identifier	action
+>447	FunctionDef	App 
+>448	ParameterList	int x , int y
+>449	Parameter	 
+>450	Identifier	y
+>451	ParameterType	int
+>452	Parameter	 
+>453	Identifier	x
+>454	ParameterType	int
+>455	ReturnType	void
+>456	CompoundStatement	 
+>457	IfStatement	if ( g_app )
+>458	ExpressionStatement	 
+>459	CallExpression	g_app -> mousepos_cb ( x , y )
+>460	ArgumentList	x
+>461	Argument	y
+>462	Identifier	y
+>463	Argument	x
+>464	Identifier	x
+>465	Callee	g_app -> mousepos_cb
+>466	PtrMemberAccess	g_app -> mousepos_cb
+>467	Identifier	mousepos_cb
+>468	Identifier	g_app
+>469	Condition	 
+>470	Identifier	g_app
+>477	FunctionDef	App 
+>478	ParameterList	int x , int y
+>479	Parameter	 
+>480	Identifier	y
+>481	ParameterType	int
+>482	Parameter	 
+>483	Identifier	x
+>484	ParameterType	int
+>485	ReturnType	void
+>486	CompoundStatement	 
+>487	IfStatement	if ( g_mode == MODE_MENU )
+>488	CompoundStatement	 
+>489	ExpressionStatement	 
+>490	CallExpression	m_gamemenu -> mouse_moved ( )
+>491	ArgumentList	 
+>492	Callee	m_gamemenu -> mouse_moved
+>493	PtrMemberAccess	m_gamemenu -> mouse_moved
+>494	Identifier	mouse_moved
+>495	Identifier	m_gamemenu
+>496	Condition	 
+>497	EqualityExpression	g_mode == MODE_MENU
+>498	Identifier	MODE_MENU
+>499	Identifier	g_mode
+>508	FunctionDef	App 
+>509	ParameterList	int pos
+>510	Parameter	 
+>511	Identifier	pos
+>512	ParameterType	int
+>513	ReturnType	void
+>514	CompoundStatement	 
+>515	IfStatement	if ( g_app )
+>516	ExpressionStatement	 
+>517	CallExpression	g_app -> mousewheel_cb ( pos )
+>518	ArgumentList	pos
+>519	Argument	pos
+>520	Identifier	pos
+>521	Callee	g_app -> mousewheel_cb
+>522	PtrMemberAccess	g_app -> mousewheel_cb
+>523	Identifier	mousewheel_cb
+>524	Identifier	g_app
+>525	Condition	 
+>526	Identifier	g_app
+>532	FunctionDef	App 
+>533	ParameterList	int pos
+>534	Parameter	 
+>535	Identifier	pos
+>536	ParameterType	int
+>537	ReturnType	void
+>538	CompoundStatement	 
+>539	IfStatement	if ( g_mode == MODE_MENU )
+>540	CompoundStatement	 
+>541	ExpressionStatement	 
+>542	CallExpression	m_gamemenu -> mouse_wheel ( dir )
+>543	ArgumentList	dir
+>544	Argument	dir
+>545	Identifier	dir
+>546	Callee	m_gamemenu -> mouse_wheel
+>547	PtrMemberAccess	m_gamemenu -> mouse_wheel
+>548	Identifier	mouse_wheel
+>549	Identifier	m_gamemenu
+>550	Condition	 
+>551	EqualityExpression	g_mode == MODE_MENU
+>552	Identifier	MODE_MENU
+>553	Identifier	g_mode
+>554	ExpressionStatement	 
+>555	AssignmentExpr	last_pos = pos
+>556	Identifier	pos
+>557	Identifier	last_pos
+>558	IfStatement	if ( pos > last_pos )
+>559	ElseStatement	else
+>560	IfStatement	if ( pos < last_pos )
+>561	ExpressionStatement	 
+>562	AssignmentExpr	dir = + 1
+>563	UnaryOp	+ 1
+>564	PrimaryExpression	1
+>565	UnaryOperator	+
+>566	Identifier	dir
+>567	Condition	 
+>568	RelationalExpression	pos < last_pos
+>569	Identifier	last_pos
+>570	Identifier	pos
+>571	ExpressionStatement	 
+>572	AssignmentExpr	dir = - 1
+>573	UnaryOp	- 1
+>574	PrimaryExpression	1
+>575	UnaryOperator	-
+>576	Identifier	dir
+>577	Condition	 
+>578	RelationalExpression	pos > last_pos
+>579	Identifier	last_pos
+>580	Identifier	pos
+>581	IdentifierDeclStatement	 
+>582	IdentifierDecl	dir = 0
+>583	AssignmentExpr	dir = 0
+>584	PrimaryExpression	0
+>585	Identifier	dir
+>586	Identifier	dir
+>587	IdentifierDeclType	int
+>588	IdentifierDeclStatement	 
+>589	IdentifierDecl	last_pos = 0
+>590	AssignmentExpr	last_pos = 0
+>591	PrimaryExpression	0
+>592	Identifier	last_pos
+>593	Identifier	last_pos
+>594	IdentifierDeclType	int
+>595	Statement	 
+>605	FunctionDef	App 
+>606	ParameterList	int key , int action
+>607	Parameter	 
+>608	Identifier	action
+>609	ParameterType	int
+>610	Parameter	 
+>611	Identifier	key
+>612	ParameterType	int
+>613	ReturnType	void
+>614	CompoundStatement	 
+>615	IfStatement	if ( g_app )
+>616	ExpressionStatement	 
+>617	CallExpression	g_app -> keyboard_cb ( key , action )
+>618	ArgumentList	key
+>619	Argument	action
+>620	Identifier	action
+>621	Argument	key
+>622	Identifier	key
+>623	Callee	g_app -> keyboard_cb
+>624	PtrMemberAccess	g_app -> keyboard_cb
+>625	Identifier	keyboard_cb
+>626	Identifier	g_app
+>627	Condition	 
+>628	Identifier	g_app
+>635	FunctionDef	App 
+>636	ParameterList	int key , int action
+>637	Parameter	 
+>638	Identifier	action
+>639	ParameterType	int
+>640	Parameter	 
+>641	Identifier	key
+>642	ParameterType	int
+>643	ReturnType	void
+>644	CompoundStatement	 
+>645	IfStatement	if ( g_mode == MODE_MENU )
+>646	ElseStatement	else
+>647	IfStatement	if ( g_mode == MODE_CREDITS || g_mode == MODE_SCORES )
+>648	ElseStatement	else
+>649	IfStatement	if ( g_mode == MODE_GAME )
+>650	CompoundStatement	 
+>651	IfStatement	if ( g_current_game )
+>652	ExpressionStatement	 
+>653	CallExpression	g_current_game -> keyboard_cb ( key , action )
+>654	ArgumentList	key
+>655	Argument	action
+>656	Identifier	action
+>657	Argument	key
+>658	Identifier	key
+>659	Callee	g_current_game -> keyboard_cb
+>660	PtrMemberAccess	g_current_game -> keyboard_cb
+>661	Identifier	keyboard_cb
+>662	Identifier	g_current_game
+>663	Condition	 
+>664	Identifier	g_current_game
+>665	Condition	 
+>666	EqualityExpression	g_mode == MODE_GAME
+>667	Identifier	MODE_GAME
+>668	Identifier	g_mode
+>669	CompoundStatement	 
+>670	ExpressionStatement	 
+>671	AssignmentExpr	g_mode = MODE_MENU
+>672	Identifier	MODE_MENU
+>673	Identifier	g_mode
+>674	Condition	 
+>675	OrExpression	g_mode == MODE_CREDITS || g_mode == MODE_SCORES
+>676	EqualityExpression	g_mode == MODE_SCORES
+>677	Identifier	MODE_SCORES
+>678	Identifier	g_mode
+>679	EqualityExpression	g_mode == MODE_CREDITS
+>680	Identifier	MODE_CREDITS
+>681	Identifier	g_mode
+>682	CompoundStatement	 
+>683	ExpressionStatement	 
+>684	CallExpression	m_gamemenu -> key_action ( key )
+>685	ArgumentList	key
+>686	Argument	key
+>687	Identifier	key
+>688	Callee	m_gamemenu -> key_action
+>689	PtrMemberAccess	m_gamemenu -> key_action
+>690	Identifier	key_action
+>691	Identifier	m_gamemenu
+>692	Condition	 
+>693	EqualityExpression	g_mode == MODE_MENU
+>694	Identifier	MODE_MENU
+>695	Identifier	g_mode
+>696	IfStatement	if ( ! g_current_game || g_current_game -> current_gamemode ( ) != GM_GAMEOVER_HISCORE )
+>697	CompoundStatement	 
+>698	IfStatement	if ( key == 'F' )
+>699	CompoundStatement	 
+>700	ReturnStatement	 
+>701	ExpressionStatement	 
+>702	AssignmentExpr	g_display_fps = ! g_display_fps
+>703	UnaryOp	! g_display_fps
+>704	Identifier	g_display_fps
+>705	UnaryOperator	!
+>706	Identifier	g_display_fps
+>707	Condition	 
+>708	EqualityExpression	key == 'F'
+>709	PrimaryExpression	'F'
+>710	Identifier	key
+>711	IfStatement	if ( key == 'P' )
+>712	CompoundStatement	 
+>713	ReturnStatement	 
+>714	ExpressionStatement	 
+>715	CallExpression	g_timer -> pause_toggle ( )
+>716	ArgumentList	 
+>717	Callee	g_timer -> pause_toggle
+>718	PtrMemberAccess	g_timer -> pause_toggle
+>719	Identifier	pause_toggle
+>720	Identifier	g_timer
+>721	Condition	 
+>722	EqualityExpression	key == 'P'
+>723	PrimaryExpression	'P'
+>724	Identifier	key
+>725	Condition	 
+>726	OrExpression	! g_current_game || g_current_game -> current_gamemode ( ) != GM_GAMEOVER_HISCORE
+>727	EqualityExpression	g_current_game -> current_gamemode ( ) != GM_GAMEOVER_HISCORE
+>728	Identifier	GM_GAMEOVER_HISCORE
+>729	CallExpression	g_current_game -> current_gamemode ( )
+>730	ArgumentList	 
+>731	Callee	g_current_game -> current_gamemode
+>732	PtrMemberAccess	g_current_game -> current_gamemode
+>733	Identifier	current_gamemode
+>734	Identifier	g_current_game
+>735	UnaryOp	! g_current_game
+>736	Identifier	g_current_game
+>737	UnaryOperator	!
+>738	IfStatement	if ( key == GLFW_KEY_F4 && ( glfwGetKey ( GLFW_KEY_LALT ) == GLFW_PRESS || glfwGetKey ( GLFW_KEY_RALT ) == GLFW_\
+>739	CompoundStatement	 
+>740	ReturnStatement	 
+>741	ExpressionStatement	 
+>742	AssignmentExpr	g_exit = true
+>743	Identifier	true
+>744	Identifier	g_exit
+>745	ExpressionStatement	 
+>746	AssignmentExpr	g_restart = false
+>747	Identifier	false
+>748	Identifier	g_restart
+>749	Condition	 
+>750	AndExpression	key == GLFW_KEY_F4 && ( glfwGetKey ( GLFW_KEY_LALT ) == GLFW_PRESS || glfwGetKey ( GLFW_KEY_RALT ) == \
+>751	OrExpression	glfwGetKey ( GLFW_KEY_LALT ) == GLFW_PRESS || glfwGetKey ( GLFW_KEY_RALT ) == GLFW_PRESS
+>752	EqualityExpression	glfwGetKey ( GLFW_KEY_RALT ) == GLFW_PRESS
+>753	Identifier	GLFW_PRESS
+>754	CallExpression	glfwGetKey ( GLFW_KEY_RALT )
+>755	ArgumentList	GLFW_KEY_RALT
+>756	Argument	GLFW_KEY_RALT
+>757	Identifier	GLFW_KEY_RALT
+>758	Callee	glfwGetKey
+>759	Identifier	glfwGetKey
+>760	EqualityExpression	glfwGetKey ( GLFW_KEY_LALT ) == GLFW_PRESS
+>761	Identifier	GLFW_PRESS
+>762	CallExpression	glfwGetKey ( GLFW_KEY_LALT )
+>763	ArgumentList	GLFW_KEY_LALT
+>764	Argument	GLFW_KEY_LALT
+>765	Identifier	GLFW_KEY_LALT
+>766	Callee	glfwGetKey
+>767	Identifier	glfwGetKey
+>768	EqualityExpression	key == GLFW_KEY_F4
+>769	Identifier	GLFW_KEY_F4
+>770	Identifier	key
+>771	IfStatement	if ( action != GLFW_PRESS )
+>772	ReturnStatement	 
+>773	Condition	 
+>774	EqualityExpression	action != GLFW_PRESS
+>775	Identifier	GLFW_PRESS
+>776	Identifier	action
+>803	FunctionDef	App 
+>804	ParameterList	int ch , int action
+>805	Parameter	 
+>806	Identifier	action
+>807	ParameterType	int
+>808	Parameter	 
+>809	Identifier	ch
+>810	ParameterType	int
+>811	ReturnType	void
+>812	CompoundStatement	 
+>813	IfStatement	if ( g_app )
+>814	ExpressionStatement	 
+>815	CallExpression	g_app -> character_cb ( ch , action )
+>816	ArgumentList	ch
+>817	Argument	action
+>818	Identifier	action
+>819	Argument	ch
+>820	Identifier	ch
+>821	Callee	g_app -> character_cb
+>822	PtrMemberAccess	g_app -> character_cb
+>823	Identifier	character_cb
+>824	Identifier	g_app
+>825	Condition	 
+>826	Identifier	g_app
+>833	FunctionDef	App 
+>834	ParameterList	int ch , int action
+>835	Parameter	 
+>836	Identifier	action
+>837	ParameterType	int
+>838	Parameter	 
+>839	Identifier	ch
+>840	ParameterType	int
+>841	ReturnType	void
+>842	CompoundStatement	 
+>843	IfStatement	if ( g_mode == MODE_GAME )
+>844	CompoundStatement	 
+>845	IfStatement	if ( g_current_game )
+>846	ExpressionStatement	 
+>847	CallExpression	g_current_game -> character_cb ( ch , action )
+>848	ArgumentList	ch
+>849	Argument	action
+>850	Identifier	action
+>851	Argument	ch
+>852	Identifier	ch
+>853	Callee	g_current_game -> character_cb
+>854	PtrMemberAccess	g_current_game -> character_cb
+>855	Identifier	character_cb
+>856	Identifier	g_current_game
+>857	Condition	 
+>858	Identifier	g_current_game
+>859	Condition	 
+>860	EqualityExpression	g_mode == MODE_GAME
+>861	Identifier	MODE_GAME
+>862	Identifier	g_mode
+>863	IfStatement	if ( action != GLFW_PRESS )
+>864	ReturnStatement	 
+>865	Condition	 
+>866	EqualityExpression	action != GLFW_PRESS
+>867	Identifier	GLFW_PRESS
+>868	Identifier	action
+>878	FunctionDef	App 
+>879	ParameterList	 
+>880	CompoundStatement	 
+>881	ExpressionStatement	 
+>882	CallExpression	m_ctx -> set_vsync ( )
+>883	ArgumentList	 
+>884	Callee	m_ctx -> set_vsync
+>885	PtrMemberAccess	m_ctx -> set_vsync
+>886	Identifier	set_vsync
+>887	Identifier	m_ctx
+>888	ExpressionStatement	 
+>889	CallExpression	g_loadingscreen -> update ( )
+>890	ArgumentList	 
+>891	Callee	g_loadingscreen -> update
+>892	PtrMemberAccess	g_loadingscreen -> update
+>893	Identifier	update
+>894	Identifier	g_loadingscreen
+>895	ExpressionStatement	 
+>896	CallExpression	g_loadingscreen -> update ( )
+>897	ArgumentList	 
+>898	Callee	g_loadingscreen -> update
+>899	PtrMemberAccess	g_loadingscreen -> update
+>900	Identifier	update
+>901	Identifier	g_loadingscreen
+>902	ExpressionStatement	 
+>903	AssignmentExpr	m_background = new Background ( )
+>904	UnaryExpression	new Background ( )
+>905	Identifier	m_background
+>906	ExpressionStatement	 
+>907	CallExpression	glfwSetMouseWheelCallback ( App 
+>908	ArgumentList	App 
+>909	Argument	App 
+>910	Identifier	App 
+>911	Callee	glfwSetMouseWheelCallback
+>912	Identifier	glfwSetMouseWheelCallback
+>913	ExpressionStatement	 
+>914	CallExpression	glfwSetMousePosCallback ( App 
+>915	ArgumentList	App 
+>916	Argument	App 
+>917	Identifier	App 
+>918	Callee	glfwSetMousePosCallback
+>919	Identifier	glfwSetMousePosCallback
+>920	ExpressionStatement	 
+>921	CallExpression	glfwSetMouseButtonCallback ( App 
+>922	ArgumentList	App 
+>923	Argument	App 
+>924	Identifier	App 
+>925	Callee	glfwSetMouseButtonCallback
+>926	Identifier	glfwSetMouseButtonCallback
+>927	ExpressionStatement	 
+>928	CallExpression	glfwSetCharCallback ( App 
+>929	ArgumentList	App 
+>930	Argument	App 
+>931	Identifier	App 
+>932	Callee	glfwSetCharCallback
+>933	Identifier	glfwSetCharCallback
+>934	ExpressionStatement	 
+>935	CallExpression	glfwSetKeyCallback ( App 
+>936	ArgumentList	App 
+>937	Argument	App 
+>938	Identifier	App 
+>939	Callee	glfwSetKeyCallback
+>940	Identifier	glfwSetKeyCallback
+>941	ExpressionStatement	 
+>942	CallExpression	glfwEnable ( GLFW_SYSTEM_KEYS )
+>943	ArgumentList	GLFW_SYSTEM_KEYS
+>944	Argument	GLFW_SYSTEM_KEYS
+>945	Identifier	GLFW_SYSTEM_KEYS
+>946	Callee	glfwEnable
+>947	Identifier	glfwEnable
+>948	ExpressionStatement	 
+>949	CallExpression	g_loadingscreen -> update ( )
+>950	ArgumentList	 
+>951	Callee	g_loadingscreen -> update
+>952	PtrMemberAccess	g_loadingscreen -> update
+>953	Identifier	update
+>954	Identifier	g_loadingscreen
+>955	ExpressionStatement	 
+>956	AssignmentExpr	m_hiscore = new HiScore ( \"sea.hsc\" )
+>957	PrimaryExpression	\"sea.hsc\"
+>958	Identifier	m_hiscore
+>959	ExpressionStatement	 
+>960	CallExpression	g_loadingscreen -> update ( )
+>961	ArgumentList	 
+>962	Callee	g_loadingscreen -> update
+>963	PtrMemberAccess	g_loadingscreen -> update
+>964	Identifier	update
+>965	Identifier	g_loadingscreen
+>966	ExpressionStatement	 
+>967	AssignmentExpr	m_credits = new Credits ( )
+>968	UnaryExpression	new Credits ( )
+>969	Identifier	m_credits
+>970	ExpressionStatement	 
+>971	CallExpression	g_loadingscreen -> update ( )
+>972	ArgumentList	 
+>973	Callee	g_loadingscreen -> update
+>974	PtrMemberAccess	g_loadingscreen -> update
+>975	Identifier	update
+>976	Identifier	g_loadingscreen
+>977	ExpressionStatement	 
+>978	AssignmentExpr	m_gamemenu = new GameMenu ( )
+>979	UnaryExpression	new GameMenu ( )
+>980	Identifier	m_gamemenu
+>981	ExpressionStatement	 
+>982	CallExpression	g_loadingscreen -> update ( )
+>983	ArgumentList	 
+>984	Callee	g_loadingscreen -> update
+>985	PtrMemberAccess	g_loadingscreen -> update
+>986	Identifier	update
+>987	Identifier	g_loadingscreen
+>988	ExpressionStatement	 
+>989	CallExpression	g_resources . load ( )
+>990	ArgumentList	 
+>991	Callee	g_resources . load
+>992	MemberAccess	g_resources . load
+>993	Identifier	load
+>994	Identifier	g_resources
+>995	ExpressionStatement	 
+>996	AssignmentExpr	m_fpscounter = new FPScounter ( 0.33 )
+>997	PrimaryExpression	0.33
+>998	Identifier	m_fpscounter
+>999	ExpressionStatement	 
+>1000	CallExpression	g_loadingscreen -> update ( )
+>1001	ArgumentList	 
+>1002	Callee	g_loadingscreen -> update
+>1003	PtrMemberAccess	g_loadingscreen -> update
+>1004	Identifier	update
+>1005	Identifier	g_loadingscreen
+>1006	ExpressionStatement	 
+>1007	AssignmentExpr	g_layouts = new Layouts ( )
+>1008	UnaryExpression	new Layouts ( )
+>1009	Identifier	g_layouts
+>1010	ExpressionStatement	 
+>1011	CallExpression	g_loadingscreen -> update ( )
+>1012	ArgumentList	 
+>1013	Callee	g_loadingscreen -> update
+>1014	PtrMemberAccess	g_loadingscreen -> update
+>1015	Identifier	update
+>1016	Identifier	g_loadingscreen
+>1017	ExpressionStatement	 
+>1018	AssignmentExpr	g_loadingscreen = new LoadingScreen ( * m_ctx )
+>1019	UnaryOp	* m_ctx
+>1020	Identifier	m_ctx
+>1021	UnaryOperator	*
+>1022	Identifier	g_loadingscreen
+>1023	ExpressionStatement	 
+>1024	CallExpression	gl_check ( )
+>1025	ArgumentList	 
+>1026	Callee	gl_check
+>1027	Identifier	gl_check
+>1028	ExpressionStatement	 
+>1029	CallExpression	load_exts_entry_points ( )
+>1030	ArgumentList	 
+>1031	Callee	load_exts_entry_points
+>1032	Identifier	load_exts_entry_points
+>1033	ExpressionStatement	 
+>1034	CallExpression	g_mouse . set_accel ( g_settings -> m_mouse_sensitivity )
+>1035	ArgumentList	g_settings -> m_mouse_sensitivity
+>1036	Argument	g_settings -> m_mouse_sensitivity
+>1037	PtrMemberAccess	g_settings -> m_mouse_sensitivity
+>1038	Identifier	m_mouse_sensitivity
+>1039	Identifier	g_settings
+>1040	Callee	g_mouse . set_accel
+>1041	MemberAccess	g_mouse . set_accel
+>1042	Identifier	set_accel
+>1043	Identifier	g_mouse
+>1044	ExpressionStatement	 
+>1045	CallExpression	m_ctx -> reset_vsync ( )
+>1046	ArgumentList	 
+>1047	Callee	m_ctx -> reset_vsync
+>1048	PtrMemberAccess	m_ctx -> reset_vsync
+>1049	Identifier	reset_vsync
+>1050	Identifier	m_ctx
+>1051	ExpressionStatement	 
+>1052	AssignmentExpr	m_ctx = new Glfwapp ( \"Sea Defender\" , * g_settings )
+>1053	Expression	\"Sea Defender\" , * g_settings
+>1054	UnaryOp	* g_settings
+>1055	Identifier	g_settings
+>1056	UnaryOperator	*
+>1057	PrimaryExpression	\"Sea Defender\"
+>1058	Identifier	m_ctx
+>1059	ExpressionStatement	 
+>1060	CallExpression	init_settings ( )
+>1061	ArgumentList	 
+>1062	Callee	init_settings
+>1063	Identifier	init_settings
+>1064	ExpressionStatement	 
+>1065	AssignmentExpr	g_restart = false
+>1066	Identifier	false
+>1067	Identifier	g_restart
+>1068	ExpressionStatement	 
+>1069	AssignmentExpr	g_exit = false
+>1070	Identifier	false
+>1071	Identifier	g_exit
+>1098	FunctionDef	App 
+>1099	ParameterList	 
+>1100	CompoundStatement	 
+>1101	ExpressionStatement	 
+>1102	CallExpression	g_resources . release ( )
+>1103	ArgumentList	 
+>1104	Callee	g_resources . release
+>1105	MemberAccess	g_resources . release
+>1106	Identifier	release
+>1107	Identifier	g_resources
+>1108	ExpressionStatement	 
+>1109	Identifier	m_hiscore
+>1110	Statement	 
+>1111	ExpressionStatement	 
+>1112	Identifier	m_credits
+>1113	Statement	 
+>1114	ExpressionStatement	 
+>1115	Identifier	m_background
+>1116	Statement	 
+>1117	ExpressionStatement	 
+>1118	AssignmentExpr	g_layouts = NULL
+>1119	Identifier	NULL
+>1120	Identifier	g_layouts
+>1121	ExpressionStatement	 
+>1122	Identifier	g_layouts
+>1123	Statement	 
+>1124	ExpressionStatement	 
+>1125	AssignmentExpr	g_settings = NULL
+>1126	Identifier	NULL
+>1127	Identifier	g_settings
+>1128	ExpressionStatement	 
+>1129	Identifier	g_settings
+>1130	Statement	 
+>1131	ExpressionStatement	 
+>1132	Identifier	m_gamemenu
+>1133	Statement	 
+>1134	ExpressionStatement	 
+>1135	Identifier	m_fpscounter
+>1136	Statement	 
+>1137	ExpressionStatement	 
+>1138	Identifier	m_ctx
+>1139	Statement	 
+>1140	ExpressionStatement	 
+>1141	CallExpression	m_hiscore -> save_to_file ( )
+>1142	ArgumentList	 
+>1143	Callee	m_hiscore -> save_to_file
+>1144	PtrMemberAccess	m_hiscore -> save_to_file
+>1145	Identifier	save_to_file
+>1146	Identifier	m_hiscore
+>1155	FunctionDef	App 
+>1156	ParameterList	 
+>1157	ReturnType	void
+>1158	CompoundStatement	 
+>1159	ExpressionStatement	 
+>1160	CallExpression	g_resources . font -> print_text ( text , vec2 ( 1.6f - size - 0.02f , 1.01f - g_resources . font -> line_sep ( ) ) , \
+>1161	ArgumentList	text
+>1162	Argument	false
+>1163	Identifier	false
+>1164	Argument	scale
+>1165	Identifier	scale
+>1166	Argument	vec2 ( 1.6f - size - 0.02f , 1.01f - g_resources . font -> line_sep ( ) )
+>1167	CallExpression	vec2 ( 1.6f - size - 0.02f , 1.01f - g_resources . font -> line_sep ( ) )
+>1168	ArgumentList	1.6f - size - 0.02f
+>1169	Argument	1.01f - g_resources . font -> line_sep ( )
+>1170	AdditiveExpression	1.01f - g_resources . font -> line_sep ( )
+>1171	CallExpression	g_resources . font -> line_sep ( )
+>1172	ArgumentList	 
+>1173	Callee	g_resources . font -> line_sep
+>1174	PtrMemberAccess	g_resources . font -> line_sep
+>1175	Identifier	line_sep
+>1176	MemberAccess	g_resources . font
+>1177	Identifier	font
+>1178	Identifier	g_resources
+>1179	PrimaryExpression	1.01f
+>1180	Argument	1.6f - size - 0.02f
+>1181	AdditiveExpression	1.6f - size - 0.02f
+>1182	AdditiveExpression	size - 0.02f
+>1183	PrimaryExpression	0.02f
+>1184	Identifier	size
+>1185	PrimaryExpression	1.6f
+>1186	Callee	vec2
+>1187	Identifier	vec2
+>1188	Argument	text
+>1189	Identifier	text
+>1190	Callee	g_resources . font -> print_text
+>1191	PtrMemberAccess	g_resources . font -> print_text
+>1192	Identifier	print_text
+>1193	MemberAccess	g_resources . font
+>1194	Identifier	font
+>1195	Identifier	g_resources
+>1196	IdentifierDeclStatement	 
+>1197	IdentifierDecl	size = g_resources . font -> size_of_text ( text , scale )
+>1198	AssignmentExpr	size = g_resources . font -> size_of_text ( text , scale )
+>1199	CallExpression	g_resources . font -> size_of_text ( text , scale )
+>1200	ArgumentList	text
+>1201	Argument	scale
+>1202	Identifier	scale
+>1203	Argument	text
+>1204	Identifier	text
+>1205	Callee	g_resources . font -> size_of_text
+>1206	PtrMemberAccess	g_resources . font -> size_of_text
+>1207	Identifier	size_of_text
+>1208	MemberAccess	g_resources . font
+>1209	Identifier	font
+>1210	Identifier	g_resources
+>1211	Identifier	size
+>1212	Identifier	size
+>1213	IdentifierDeclType	float
+>1214	ExpressionStatement	 
+>1215	Identifier	VERSION
+>1216	Statement	 
+>1217	Statement	 
+>1218	Statement	 
+>1219	Statement	 
+>1220	Statement	 
+>1221	Statement	 
+>1222	IdentifierDeclStatement	 
+>1223	IdentifierDecl	scale = 0.5
+>1224	AssignmentExpr	scale = 0.5
+>1225	PrimaryExpression	0.5
+>1226	Identifier	scale
+>1227	Identifier	scale
+>1228	IdentifierDeclType	float
+>1243	FunctionDef	App 
+>1244	ParameterList	 
+>1245	ReturnType	void
+>1246	CompoundStatement	 
+>1247	IfStatement	if ( g_display_fps )
+>1248	CompoundStatement	 
+>1249	ExpressionStatement	 
+>1250	CallExpression	g_resources . font -> print_text ( fps , vec2 ( 0.0 , 0.0 ) , 0.5f , false , vec4 ( 1 , 0 , 0.2f , 1.0 ) )
+>1251	ArgumentList	fps
+>1252	Argument	vec4 ( 1 , 0 , 0.2f , 1.0 )
+>1253	CallExpression	vec4 ( 1 , 0 , 0.2f , 1.0 )
+>1254	ArgumentList	1
+>1255	Argument	1.0
+>1256	PrimaryExpression	1.0
+>1257	Argument	0.2f
+>1258	PrimaryExpression	0.2f
+>1259	Argument	0
+>1260	PrimaryExpression	0
+>1261	Argument	1
+>1262	PrimaryExpression	1
+>1263	Callee	vec4
+>1264	Identifier	vec4
+>1265	Argument	false
+>1266	Identifier	false
+>1267	Argument	0.5f
+>1268	PrimaryExpression	0.5f
+>1269	Argument	vec2 ( 0.0 , 0.0 )
+>1270	CallExpression	vec2 ( 0.0 , 0.0 )
+>1271	ArgumentList	0.0
+>1272	Argument	0.0
+>1273	PrimaryExpression	0.0
+>1274	Argument	0.0
+>1275	PrimaryExpression	0.0
+>1276	Callee	vec2
+>1277	Identifier	vec2
+>1278	Argument	fps
+>1279	Identifier	fps
+>1280	Callee	g_resources . font -> print_text
+>1281	PtrMemberAccess	g_resources . font -> print_text
+>1282	Identifier	print_text
+>1283	MemberAccess	g_resources . font
+>1284	Identifier	font
+>1285	Identifier	g_resources
+>1286	ExpressionStatement	 
+>1287	CallExpression	m_background -> darken_area ( vec4 ( 0 , 0 , 0.16f , 0.035f ) , 0.4f )
+>1288	ArgumentList	vec4 ( 0 , 0 , 0.16f , 0.035f )
+>1289	Argument	0.4f
+>1290	PrimaryExpression	0.4f
+>1291	Argument	vec4 ( 0 , 0 , 0.16f , 0.035f )
+>1292	CallExpression	vec4 ( 0 , 0 , 0.16f , 0.035f )
+>1293	ArgumentList	0
+>1294	Argument	0.035f
+>1295	PrimaryExpression	0.035f
+>1296	Argument	0.16f
+>1297	PrimaryExpression	0.16f
+>1298	Argument	0
+>1299	PrimaryExpression	0
+>1300	Argument	0
+>1301	PrimaryExpression	0
+>1302	Callee	vec4
+>1303	Identifier	vec4
+>1304	Callee	m_background -> darken_area
+>1305	PtrMemberAccess	m_background -> darken_area
+>1306	Identifier	darken_area
+>1307	Identifier	m_background
+>1308	ExpressionStatement	 
+>1309	CallExpression	glLoadIdentity ( )
+>1310	ArgumentList	 
+>1311	Callee	glLoadIdentity
+>1312	Identifier	glLoadIdentity
+>1313	Condition	 
+>1314	Identifier	g_display_fps
+>1315	ExpressionStatement	 
+>1316	CallExpression	sprintf ( fps , \"FPS
+>1317	ArgumentList	fps
+>1318	Argument	m_fpscounter -> next_frame ( )
+>1319	CallExpression	m_fpscounter -> next_frame ( )
+>1320	ArgumentList	 
+>1321	Callee	m_fpscounter -> next_frame
+>1322	PtrMemberAccess	m_fpscounter -> next_frame
+>1323	Identifier	next_frame
+>1324	Identifier	m_fpscounter
+>1325	Argument	\"FPS
+>1326	PrimaryExpression	\"FPS
+>1327	Argument	fps
+>1328	Identifier	fps
+>1329	Callee	sprintf
+>1330	Identifier	sprintf
+>1331	IdentifierDeclStatement	 
+>1332	IdentifierDecl	fps [ 16 ]
+>1333	PrimaryExpression	16
+>1334	Identifier	fps
+>1335	IdentifierDeclType	char [ 16 ]
+>1336	ExpressionStatement	 
+>1337	CallExpression	g_mouse . draw ( g_resources . texture_crosshair )
+>1338	ArgumentList	g_resources . texture_crosshair
+>1339	Argument	g_resources . texture_crosshair
+>1340	MemberAccess	g_resources . texture_crosshair
+>1341	Identifier	texture_crosshair
+>1342	Identifier	g_resources
+>1343	Callee	g_mouse . draw
+>1344	MemberAccess	g_mouse . draw
+>1345	Identifier	draw
+>1346	Identifier	g_mouse
+>1347	IfStatement	if ( g_timer -> is_paused ( ) )
+>1348	CompoundStatement	 
+>1349	ExpressionStatement	 
+>1350	CallExpression	g_resources . font -> print_text ( \"**PAUSED**\" , vec2 ( 0.0 , 0.9 ) , 1.0f , true , vec4 ( 0.1 , 1.0f , 0.1f , \
+>1351	ArgumentList	\"**PAUSED**\"
+>1352	Argument	vec4 ( 0.1 , 1.0f , 0.1f , 1.0 )
+>1353	CallExpression	vec4 ( 0.1 , 1.0f , 0.1f , 1.0 )
+>1354	ArgumentList	0.1
+>1355	Argument	1.0
+>1356	PrimaryExpression	1.0
+>1357	Argument	0.1f
+>1358	PrimaryExpression	0.1f
+>1359	Argument	1.0f
+>1360	PrimaryExpression	1.0f
+>1361	Argument	0.1
+>1362	PrimaryExpression	0.1
+>1363	Callee	vec4
+>1364	Identifier	vec4
+>1365	Argument	true
+>1366	Identifier	true
+>1367	Argument	1.0f
+>1368	PrimaryExpression	1.0f
+>1369	Argument	vec2 ( 0.0 , 0.9 )
+>1370	CallExpression	vec2 ( 0.0 , 0.9 )
+>1371	ArgumentList	0.0
+>1372	Argument	0.9
+>1373	PrimaryExpression	0.9
+>1374	Argument	0.0
+>1375	PrimaryExpression	0.0
+>1376	Callee	vec2
+>1377	Identifier	vec2
+>1378	Argument	\"**PAUSED**\"
+>1379	PrimaryExpression	\"**PAUSED**\"
+>1380	Callee	g_resources . font -> print_text
+>1381	PtrMemberAccess	g_resources . font -> print_text
+>1382	Identifier	print_text
+>1383	MemberAccess	g_resources . font
+>1384	Identifier	font
+>1385	Identifier	g_resources
+>1386	ExpressionStatement	 
+>1387	CallExpression	glLoadIdentity ( )
+>1388	ArgumentList	 
+>1389	Callee	glLoadIdentity
+>1390	Identifier	glLoadIdentity
+>1391	Condition	 
+>1392	CallExpression	g_timer -> is_paused ( )
+>1393	ArgumentList	 
+>1394	Callee	g_timer -> is_paused
+>1395	PtrMemberAccess	g_timer -> is_paused
+>1396	Identifier	is_paused
+>1397	Identifier	g_timer
+>1398	SwitchStatement	switch ( g_mode )
+>1399	CompoundStatement	 
+>1400	BreakStatement	 
+>1401	Label	 
+>1402	Identifier	default
+>1403	BreakStatement	 
+>1404	Label	 
+>1405	Identifier	MODE_GAME
+>1406	BreakStatement	 
+>1407	ExpressionStatement	 
+>1408	CallExpression	display_version ( )
+>1409	ArgumentList	 
+>1410	Callee	display_version
+>1411	Identifier	display_version
+>1412	ExpressionStatement	 
+>1413	CallExpression	m_hiscore -> draw ( )
+>1414	ArgumentList	 
+>1415	Callee	m_hiscore -> draw
+>1416	PtrMemberAccess	m_hiscore -> draw
+>1417	Identifier	draw
+>1418	Identifier	m_hiscore
+>1419	Label	 
+>1420	Identifier	MODE_SCORES
+>1421	BreakStatement	 
+>1422	ExpressionStatement	 
+>1423	CallExpression	display_version ( )
+>1424	ArgumentList	 
+>1425	Callee	display_version
+>1426	Identifier	display_version
+>1427	ExpressionStatement	 
+>1428	CallExpression	m_credits -> draw ( )
+>1429	ArgumentList	 
+>1430	Callee	m_credits -> draw
+>1431	PtrMemberAccess	m_credits -> draw
+>1432	Identifier	draw
+>1433	Identifier	m_credits
+>1434	Label	 
+>1435	Identifier	MODE_CREDITS
+>1436	BreakStatement	 
+>1437	ExpressionStatement	 
+>1438	CallExpression	display_version ( )
+>1439	ArgumentList	 
+>1440	Callee	display_version
+>1441	Identifier	display_version
+>1442	ExpressionStatement	 
+>1443	CallExpression	m_gamemenu -> draw ( )
+>1444	ArgumentList	 
+>1445	Callee	m_gamemenu -> draw
+>1446	PtrMemberAccess	m_gamemenu -> draw
+>1447	Identifier	draw
+>1448	Identifier	m_gamemenu
+>1449	ExpressionStatement	 
+>1450	CallExpression	g_resources . font -> print_text_with_shadow ( \"Sea Defender\" , vec2 ( 0.0 , 0.31 ) , 2.0f , true , vec4 ( 0.4f , \
+>1451	ArgumentList	\"Sea Defender\"
+>1452	Argument	vec4 ( 0.4f , 0.7 , 0.9f , 1.0 )
+>1453	CallExpression	vec4 ( 0.4f , 0.7 , 0.9f , 1.0 )
+>1454	ArgumentList	0.4f
+>1455	Argument	1.0
+>1456	PrimaryExpression	1.0
+>1457	Argument	0.9f
+>1458	PrimaryExpression	0.9f
+>1459	Argument	0.7
+>1460	PrimaryExpression	0.7
+>1461	Argument	0.4f
+>1462	PrimaryExpression	0.4f
+>1463	Callee	vec4
+>1464	Identifier	vec4
+>1465	Argument	true
+>1466	Identifier	true
+>1467	Argument	2.0f
+>1468	PrimaryExpression	2.0f
+>1469	Argument	vec2 ( 0.0 , 0.31 )
+>1470	CallExpression	vec2 ( 0.0 , 0.31 )
+>1471	ArgumentList	0.0
+>1472	Argument	0.31
+>1473	PrimaryExpression	0.31
+>1474	Argument	0.0
+>1475	PrimaryExpression	0.0
+>1476	Callee	vec2
+>1477	Identifier	vec2
+>1478	Argument	\"Sea Defender\"
+>1479	PrimaryExpression	\"Sea Defender\"
+>1480	Callee	g_resources . font -> print_text_with_shadow
+>1481	PtrMemberAccess	g_resources . font -> print_text_with_shadow
+>1482	Identifier	print_text_with_shadow
+>1483	MemberAccess	g_resources . font
+>1484	Identifier	font
+>1485	Identifier	g_resources
+>1486	Label	 
+>1487	Identifier	MODE_MENU
+>1488	Condition	 
+>1489	Identifier	g_mode
+>1490	ExpressionStatement	 
+>1491	CallExpression	glLoadIdentity ( )
+>1492	ArgumentList	 
+>1493	Callee	glLoadIdentity
+>1494	Identifier	glLoadIdentity
+>1495	IfStatement	if ( g_current_game )
+>1496	ExpressionStatement	 
+>1497	CallExpression	g_current_game -> draw_over ( )
+>1498	ArgumentList	 
+>1499	Callee	g_current_game -> draw_over
+>1500	PtrMemberAccess	g_current_game -> draw_over
+>1501	Identifier	draw_over
+>1502	Identifier	g_current_game
+>1503	Condition	 
+>1504	Identifier	g_current_game
+>1505	ExpressionStatement	 
+>1506	CallExpression	m_background -> draw_sea ( false )
+>1507	ArgumentList	false
+>1508	Argument	false
+>1509	Identifier	false
+>1510	Callee	m_background -> draw_sea
+>1511	PtrMemberAccess	m_background -> draw_sea
+>1512	Identifier	draw_sea
+>1513	Identifier	m_background
+>1514	IfStatement	if ( g_current_game )
+>1515	ExpressionStatement	 
+>1516	CallExpression	g_current_game -> draw_under ( )
+>1517	ArgumentList	 
+>1518	Callee	g_current_game -> draw_under
+>1519	PtrMemberAccess	g_current_game -> draw_under
+>1520	Identifier	draw_under
+>1521	Identifier	g_current_game
+>1522	Condition	 
+>1523	Identifier	g_current_game
+>1524	ExpressionStatement	 
+>1525	CallExpression	m_background -> draw_sea ( true )
+>1526	ArgumentList	true
+>1527	Argument	true
+>1528	Identifier	true
+>1529	Callee	m_background -> draw_sea
+>1530	PtrMemberAccess	m_background -> draw_sea
+>1531	Identifier	draw_sea
+>1532	Identifier	m_background
+>1533	ExpressionStatement	 
+>1534	CallExpression	m_background -> draw_sky ( )
+>1535	ArgumentList	 
+>1536	Callee	m_background -> draw_sky
+>1537	PtrMemberAccess	m_background -> draw_sky
+>1538	Identifier	draw_sky
+>1539	Identifier	m_background
+>1540	ExpressionStatement	 
+>1541	CallExpression	glLoadIdentity ( )
+>1542	ArgumentList	 
+>1543	Callee	glLoadIdentity
+>1544	Identifier	glLoadIdentity
+>1545	ExpressionStatement	 
+>1546	CallExpression	glDisable ( GL_TEXTURE_2D )
+>1547	ArgumentList	GL_TEXTURE_2D
+>1548	Argument	GL_TEXTURE_2D
+>1549	Identifier	GL_TEXTURE_2D
+>1550	Callee	glDisable
+>1551	Identifier	glDisable
+>1552	ExpressionStatement	 
+>1553	CallExpression	glDisable ( GL_BLEND )
+>1554	ArgumentList	GL_BLEND
+>1555	Argument	GL_BLEND
+>1556	Identifier	GL_BLEND
+>1557	Callee	glDisable
+>1558	Identifier	glDisable
+>1559	ExpressionStatement	 
+>1560	CallExpression	glDepthMask ( GL_FALSE )
+>1561	ArgumentList	GL_FALSE
+>1562	Argument	GL_FALSE
+>1563	Identifier	GL_FALSE
+>1564	Callee	glDepthMask
+>1565	Identifier	glDepthMask
+>1566	ExpressionStatement	 
+>1567	CallExpression	glDisable ( GL_DEPTH_TEST )
+>1568	ArgumentList	GL_DEPTH_TEST
+>1569	Argument	GL_DEPTH_TEST
+>1570	Identifier	GL_DEPTH_TEST
+>1571	Callee	glDisable
+>1572	Identifier	glDisable
+>1573	IfStatement	if ( glfwGetWindowParam ( GLFW_ICONIFIED ) == GL_TRUE && glfwGetWindowParam ( GLFW_ACTIVE ) == GL_FALSE )
+>1574	ExpressionStatement	 
+>1575	CallExpression	g_timer -> pause ( )
+>1576	ArgumentList	 
+>1577	Callee	g_timer -> pause
+>1578	PtrMemberAccess	g_timer -> pause
+>1579	Identifier	pause
+>1580	Identifier	g_timer
+>1581	Condition	 
+>1582	AndExpression	glfwGetWindowParam ( GLFW_ICONIFIED ) == GL_TRUE && glfwGetWindowParam ( GLFW_ACTIVE ) == GL_FALSE
+>1583	EqualityExpression	glfwGetWindowParam ( GLFW_ACTIVE ) == GL_FALSE
+>1584	Identifier	GL_FALSE
+>1585	CallExpression	glfwGetWindowParam ( GLFW_ACTIVE )
+>1586	ArgumentList	GLFW_ACTIVE
+>1587	Argument	GLFW_ACTIVE
+>1588	Identifier	GLFW_ACTIVE
+>1589	Callee	glfwGetWindowParam
+>1590	Identifier	glfwGetWindowParam
+>1591	EqualityExpression	glfwGetWindowParam ( GLFW_ICONIFIED ) == GL_TRUE
+>1592	Identifier	GL_TRUE
+>1593	CallExpression	glfwGetWindowParam ( GLFW_ICONIFIED )
+>1594	ArgumentList	GLFW_ICONIFIED
+>1595	Argument	GLFW_ICONIFIED
+>1596	Identifier	GLFW_ICONIFIED
+>1597	Callee	glfwGetWindowParam
+>1598	Identifier	glfwGetWindowParam
+>1599	IfStatement	if ( g_current_game && g_current_game -> ended ( ) )
+>1600	CompoundStatement	 
+>1601	ExpressionStatement	 
+>1602	AssignmentExpr	g_current_game = NULL
+>1603	Identifier	NULL
+>1604	Identifier	g_current_game
+>1605	ExpressionStatement	 
+>1606	Identifier	g_current_game
+>1607	Statement	 
+>1608	Condition	 
+>1609	AndExpression	g_current_game && g_current_game -> ended ( )
+>1610	CallExpression	g_current_game -> ended ( )
+>1611	ArgumentList	 
+>1612	Callee	g_current_game -> ended
+>1613	PtrMemberAccess	g_current_game -> ended
+>1614	Identifier	ended
+>1615	Identifier	g_current_game
+>1616	Identifier	g_current_game
+>1617	ExpressionStatement	 
+>1618	CallExpression	g_mouse . update ( )
+>1619	ArgumentList	 
+>1620	Callee	g_mouse . update
+>1621	MemberAccess	g_mouse . update
+>1622	Identifier	update
+>1623	Identifier	g_mouse
+>1624	ExpressionStatement	 
+>1625	CallExpression	g_timer -> update ( )
+>1626	ArgumentList	 
+>1627	Callee	g_timer -> update
+>1628	PtrMemberAccess	g_timer -> update
+>1629	Identifier	update
+>1630	Identifier	g_timer
+>1667	FunctionDef	App 
+>1668	ParameterList	 
+>1669	ReturnType	void
+>1670	CompoundStatement	 
+>1671	WhileStatement	while ( true )
+>1672	CompoundStatement	 
+>1673	IfStatement	if ( g_exit || m_ctx -> window_closed ( ) )
+>1674	BreakStatement	 
+>1675	Condition	 
+>1676	OrExpression	g_exit || m_ctx -> window_closed ( )
+>1677	CallExpression	m_ctx -> window_closed ( )
+>1678	ArgumentList	 
+>1679	Callee	m_ctx -> window_closed
+>1680	PtrMemberAccess	m_ctx -> window_closed
+>1681	Identifier	window_closed
+>1682	Identifier	m_ctx
+>1683	Identifier	g_exit
+>1684	ExpressionStatement	 
+>1685	CallExpression	m_ctx -> end_frame ( )
+>1686	ArgumentList	 
+>1687	Callee	m_ctx -> end_frame
+>1688	PtrMemberAccess	m_ctx -> end_frame
+>1689	Identifier	end_frame
+>1690	Identifier	m_ctx
+>1691	ExpressionStatement	 
+>1692	CallExpression	run_inner_loop ( )
+>1693	ArgumentList	 
+>1694	Callee	run_inner_loop
+>1695	Identifier	run_inner_loop
+>1696	ExpressionStatement	 
+>1697	CallExpression	glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
+>1698	ArgumentList	GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+>1699	Argument	GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+>1700	InclusiveOrExpression	GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+>1701	Identifier	GL_DEPTH_BUFFER_BIT
+>1702	Identifier	GL_COLOR_BUFFER_BIT
+>1703	Callee	glClear
+>1704	Identifier	glClear
+>1705	ExpressionStatement	 
+>1706	CallExpression	glClearColor ( 1.0 , 1.0 , 1.0 , 1.0 )
+>1707	ArgumentList	1.0
+>1708	Argument	1.0
+>1709	PrimaryExpression	1.0
+>1710	Argument	1.0
+>1711	PrimaryExpression	1.0
+>1712	Argument	1.0
+>1713	PrimaryExpression	1.0
+>1714	Argument	1.0
+>1715	PrimaryExpression	1.0
+>1716	Callee	glClearColor
+>1717	Identifier	glClearColor
+>1718	ExpressionStatement	 
+>1719	CallExpression	m_ctx -> set_ortho2D ( )
+>1720	ArgumentList	 
+>1721	Callee	m_ctx -> set_ortho2D
+>1722	PtrMemberAccess	m_ctx -> set_ortho2D
+>1723	Identifier	set_ortho2D
+>1724	Identifier	m_ctx
+>1725	ExpressionStatement	 
+>1726	CallExpression	m_ctx -> init_frame ( )
+>1727	ArgumentList	 
+>1728	Callee	m_ctx -> init_frame
+>1729	PtrMemberAccess	m_ctx -> init_frame
+>1730	Identifier	init_frame
+>1731	Identifier	m_ctx
+>1732	Condition	 
+>1733	Identifier	true
+<23=26,25,24
+<26=40,39,38,36,27
+<27=28
+<28=32,29
+<29=30
+<30=31
+<32=33
+<33=35,34
+<36=37
+<45=48,47,46
+<48=301,294,289,273,250,227,204,188,122,113,49
+<49=109,68,50
+<50=51
+<51=52
+<52=66,53
+<53=64,60,56,54
+<54=55
+<56=57
+<57=59,58
+<60=61
+<61=63,62
+<64=65
+<66=67
+<68=93,78,69
+<69=70
+<70=76,71
+<71=72
+<72=73
+<73=75,74
+<76=77
+<78=79
+<79=92,91,80
+<80=90,81
+<81=87,82
+<82=84,83
+<84=86,85
+<87=89,88
+<93=94
+<94=107,95
+<95=98,96
+<96=97
+<98=99
+<99=106,100
+<100=104,101
+<101=102
+<102=103
+<104=105
+<107=108
+<109=110
+<110=112,111
+<113=114
+<114=120,115
+<115=118,116
+<116=117
+<118=119
+<120=121
+<122=180,176,173,123
+<123=159,150,124
+<124=125
+<125=148,126
+<126=139,137,133,127
+<127=128
+<128=131,130,129
+<131=132
+<133=134
+<134=136,135
+<137=138
+<139=140
+<140=147,141
+<141=145,142
+<142=143
+<143=144
+<145=146
+<148=149
+<150=155,151
+<151=152
+<152=154,153
+<155=156
+<156=158,157
+<159=160
+<160=172,171,161
+<161=170,162
+<162=168,163
+<163=164
+<164=165
+<165=167,166
+<168=169
+<173=175,174
+<176=177
+<177=179,178
+<180=181
+<181=182
+<182=187,186,183
+<183=185,184
+<188=189
+<189=202,190
+<190=193,191
+<191=192
+<193=194
+<194=201,195
+<195=199,196
+<196=197
+<197=198
+<199=200
+<202=203
+<204=205
+<205=225,206
+<206=216,214,207
+<207=208
+<208=212,209
+<209=210
+<210=211
+<212=213
+<214=215
+<216=217
+<217=224,218
+<218=222,219
+<219=220
+<220=221
+<222=223
+<225=226
+<227=228
+<228=248,229
+<229=239,237,230
+<230=231
+<231=235,232
+<232=233
+<233=234
+<235=236
+<237=238
+<239=240
+<240=247,241
+<241=245,242
+<242=243
+<243=244
+<245=246
+<248=249
+<250=251
+<251=271,252
+<252=262,260,253
+<253=254
+<254=258,255
+<255=256
+<256=257
+<258=259
+<260=261
+<262=263
+<263=270,264
+<264=268,265
+<265=266
+<266=267
+<268=269
+<271=272
+<273=274
+<274=287,275
+<275=285,283,276
+<276=277
+<277=281,278
+<278=279
+<279=280
+<281=282
+<283=284
+<285=286
+<287=288
+<289=290
+<290=293,292,291
+<294=295
+<295=300,299,296
+<296=298,297
+<301=302
+<302=314,313,303
+<303=312,304
+<304=311,310,309,308,307,306,305
+<337=346,345,338
+<338=342,339
+<339=341,340
+<342=344,343
+<346=347
+<347=359,348
+<348=349
+<349=355,350
+<350=353,351
+<351=352
+<353=354
+<355=356
+<356=358,357
+<359=360
+<367=376,375,368
+<368=372,369
+<369=371,370
+<372=374,373
+<376=428,377
+<377=424,414,378
+<378=379
+<379=406,401,380
+<380=381
+<381=397,382
+<382=383
+<383=395,384
+<384=385
+<385=391,386
+<386=389,387
+<387=388
+<389=390
+<391=392
+<392=394,393
+<395=396
+<397=398
+<398=400,399
+<401=402
+<402=403
+<403=405,404
+<406=407
+<407=411,408
+<408=410,409
+<411=413,412
+<414=415
+<415=416
+<416=420,417
+<417=418
+<418=419
+<420=421
+<421=423,422
+<424=425
+<425=427,426
+<428=430,429
+<430=431
+<431=433,432
+<447=456,455,448
+<448=452,449
+<449=451,450
+<452=454,453
+<456=457
+<457=469,458
+<458=459
+<459=465,460
+<460=463,461
+<461=462
+<463=464
+<465=466
+<466=468,467
+<469=470
+<477=486,485,478
+<478=482,479
+<479=481,480
+<482=484,483
+<486=487
+<487=496,488
+<488=489
+<489=490
+<490=492,491
+<492=493
+<493=495,494
+<496=497
+<497=499,498
+<508=514,513,509
+<509=510
+<510=512,511
+<514=515
+<515=525,516
+<516=517
+<517=521,518
+<518=519
+<519=520
+<521=522
+<522=524,523
+<525=526
+<532=538,537,533
+<533=534
+<534=536,535
+<538=595,588,581,558,554,539
+<539=550,540
+<540=541
+<541=542
+<542=546,543
+<543=544
+<544=545
+<546=547
+<547=549,548
+<550=551
+<551=553,552
+<554=555
+<555=557,556
+<558=577,571,559
+<559=560
+<560=567,561
+<561=562
+<562=566,563
+<563=565,564
+<567=568
+<568=570,569
+<571=572
+<572=576,573
+<573=575,574
+<577=578
+<578=580,579
+<581=582
+<582=587,586,583
+<583=585,584
+<588=589
+<589=594,593,590
+<590=592,591
+<605=614,613,606
+<606=610,607
+<607=609,608
+<610=612,611
+<614=615
+<615=627,616
+<616=617
+<617=623,618
+<618=621,619
+<619=620
+<621=622
+<623=624
+<624=626,625
+<627=628
+<635=644,643,636
+<636=640,637
+<637=639,638
+<640=642,641
+<644=771,738,696,645
+<645=692,682,646
+<646=647
+<647=674,669,648
+<648=649
+<649=665,650
+<650=651
+<651=663,652
+<652=653
+<653=659,654
+<654=657,655
+<655=656
+<657=658
+<659=660
+<660=662,661
+<663=664
+<665=666
+<666=668,667
+<669=670
+<670=671
+<671=673,672
+<674=675
+<675=679,676
+<676=678,677
+<679=681,680
+<682=683
+<683=684
+<684=688,685
+<685=686
+<686=687
+<688=689
+<689=691,690
+<692=693
+<693=695,694
+<696=725,697
+<697=711,698
+<698=707,699
+<699=701,700
+<701=702
+<702=706,703
+<703=705,704
+<707=708
+<708=710,709
+<711=721,712
+<712=714,713
+<714=715
+<715=717,716
+<717=718
+<718=720,719
+<721=722
+<722=724,723
+<725=726
+<726=735,727
+<727=729,728
+<729=731,730
+<731=732
+<732=734,733
+<735=737,736
+<738=749,739
+<739=745,741,740
+<741=742
+<742=744,743
+<745=746
+<746=748,747
+<749=750
+<750=768,751
+<751=760,752
+<752=754,753
+<754=758,755
+<755=756
+<756=757
+<758=759
+<760=762,761
+<762=766,763
+<763=764
+<764=765
+<766=767
+<768=770,769
+<771=773,772
+<773=774
+<774=776,775
+<803=812,811,804
+<804=808,805
+<805=807,806
+<808=810,809
+<812=813
+<813=825,814
+<814=815
+<815=821,816
+<816=819,817
+<817=818
+<819=820
+<821=822
+<822=824,823
+<825=826
+<833=842,841,834
+<834=838,835
+<835=837,836
+<838=840,839
+<842=863,843
+<843=859,844
+<844=845
+<845=857,846
+<846=847
+<847=853,848
+<848=851,849
+<849=850
+<851=852
+<853=854
+<854=856,855
+<857=858
+<859=860
+<860=862,861
+<863=865,864
+<865=866
+<866=868,867
+<878=880,879
+<880=1068,1064,1059,1051,1044,1033,1028,1023,1017,1010,1006,999,995,988,981,977,970,966,959,955,948,941,934,927,920,913,906,902,895,888,881
+<881=882
+<882=884,883
+<884=885
+<885=887,886
+<888=889
+<889=891,890
+<891=892
+<892=894,893
+<895=896
+<896=898,897
+<898=899
+<899=901,900
+<902=903
+<903=905,904
+<906=907
+<907=911,908
+<908=909
+<909=910
+<911=912
+<913=914
+<914=918,915
+<915=916
+<916=917
+<918=919
+<920=921
+<921=925,922
+<922=923
+<923=924
+<925=926
+<927=928
+<928=932,929
+<929=930
+<930=931
+<932=933
+<934=935
+<935=939,936
+<936=937
+<937=938
+<939=940
+<941=942
+<942=946,943
+<943=944
+<944=945
+<946=947
+<948=949
+<949=951,950
+<951=952
+<952=954,953
+<955=956
+<956=958,957
+<959=960
+<960=962,961
+<962=963
+<963=965,964
+<966=967
+<967=969,968
+<970=971
+<971=973,972
+<973=974
+<974=976,975
+<977=978
+<978=980,979
+<981=982
+<982=984,983
+<984=985
+<985=987,986
+<988=989
+<989=991,990
+<991=992
+<992=994,993
+<995=996
+<996=998,997
+<999=1000
+<1000=1002,1001
+<1002=1003
+<1003=1005,1004
+<1006=1007
+<1007=1009,1008
+<1010=1011
+<1011=1013,1012
+<1013=1014
+<1014=1016,1015
+<1017=1018
+<1018=1022,1019
+<1019=1021,1020
+<1023=1024
+<1024=1026,1025
+<1026=1027
+<1028=1029
+<1029=1031,1030
+<1031=1032
+<1033=1034
+<1034=1040,1035
+<1035=1036
+<1036=1037
+<1037=1039,1038
+<1040=1041
+<1041=1043,1042
+<1044=1045
+<1045=1047,1046
+<1047=1048
+<1048=1050,1049
+<1051=1052
+<1052=1058,1053
+<1053=1057,1054
+<1054=1056,1055
+<1059=1060
+<1060=1062,1061
+<1062=1063
+<1064=1065
+<1065=1067,1066
+<1068=1069
+<1069=1071,1070
+<1098=1100,1099
+<1100=1140,1139,1137,1136,1134,1133,1131,1130,1128,1124,1123,1121,1117,1116,1114,1113,1111,1110,1108,1101
+<1101=1102
+<1102=1104,1103
+<1104=1105
+<1105=1107,1106
+<1108=1109
+<1111=1112
+<1114=1115
+<1117=1118
+<1118=1120,1119
+<1121=1122
+<1124=1125
+<1125=1127,1126
+<1128=1129
+<1131=1132
+<1134=1135
+<1137=1138
+<1140=1141
+<1141=1143,1142
+<1143=1144
+<1144=1146,1145
+<1155=1158,1157,1156
+<1158=1222,1221,1220,1219,1218,1217,1216,1214,1196,1159
+<1159=1160
+<1160=1190,1161
+<1161=1188,1166,1164,1162
+<1162=1163
+<1164=1165
+<1166=1167
+<1167=1186,1168
+<1168=1180,1169
+<1169=1170
+<1170=1179,1171
+<1171=1173,1172
+<1173=1174
+<1174=1176,1175
+<1176=1178,1177
+<1180=1181
+<1181=1185,1182
+<1182=1184,1183
+<1186=1187
+<1188=1189
+<1190=1191
+<1191=1193,1192
+<1193=1195,1194
+<1196=1197
+<1197=1213,1212,1198
+<1198=1211,1199
+<1199=1205,1200
+<1200=1203,1201
+<1201=1202
+<1203=1204
+<1205=1206
+<1206=1208,1207
+<1208=1210,1209
+<1214=1215
+<1222=1223
+<1223=1228,1227,1224
+<1224=1226,1225
+<1243=1246,1245,1244
+<1246=1624,1617,1599,1573,1566,1559,1552,1545,1540,1533,1524,1514,1505,1495,1490,1398,1347,1336,1331,1315,1247
+<1247=1313,1248
+<1248=1308,1286,1249
+<1249=1250
+<1250=1280,1251
+<1251=1278,1269,1267,1265,1252
+<1252=1253
+<1253=1263,1254
+<1254=1261,1259,1257,1255
+<1255=1256
+<1257=1258
+<1259=1260
+<1261=1262
+<1263=1264
+<1265=1266
+<1267=1268
+<1269=1270
+<1270=1276,1271
+<1271=1274,1272
+<1272=1273
+<1274=1275
+<1276=1277
+<1278=1279
+<1280=1281
+<1281=1283,1282
+<1283=1285,1284
+<1286=1287
+<1287=1304,1288
+<1288=1291,1289
+<1289=1290
+<1291=1292
+<1292=1302,1293
+<1293=1300,1298,1296,1294
+<1294=1295
+<1296=1297
+<1298=1299
+<1300=1301
+<1302=1303
+<1304=1305
+<1305=1307,1306
+<1308=1309
+<1309=1311,1310
+<1311=1312
+<1313=1314
+<1315=1316
+<1316=1329,1317
+<1317=1327,1325,1318
+<1318=1319
+<1319=1321,1320
+<1321=1322
+<1322=1324,1323
+<1325=1326
+<1327=1328
+<1329=1330
+<1331=1332
+<1332=1335,1334,1333
+<1336=1337
+<1337=1343,1338
+<1338=1339
+<1339=1340
+<1340=1342,1341
+<1343=1344
+<1344=1346,1345
+<1347=1391,1348
+<1348=1386,1349
+<1349=1350
+<1350=1380,1351
+<1351=1378,1369,1367,1365,1352
+<1352=1353
+<1353=1363,1354
+<1354=1361,1359,1357,1355
+<1355=1356
+<1357=1358
+<1359=1360
+<1361=1362
+<1363=1364
+<1365=1366
+<1367=1368
+<1369=1370
+<1370=1376,1371
+<1371=1374,1372
+<1372=1373
+<1374=1375
+<1376=1377
+<1378=1379
+<1380=1381
+<1381=1383,1382
+<1383=1385,1384
+<1386=1387
+<1387=1389,1388
+<1389=1390
+<1391=1392
+<1392=1394,1393
+<1394=1395
+<1395=1397,1396
+<1398=1488,1399
+<1399=1486,1449,1442,1437,1436,1434,1427,1422,1421,1419,1412,1407,1406,1404,1403,1401,1400
+<1401=1402
+<1404=1405
+<1407=1408
+<1408=1410,1409
+<1410=1411
+<1412=1413
+<1413=1415,1414
+<1415=1416
+<1416=1418,1417
+<1419=1420
+<1422=1423
+<1423=1425,1424
+<1425=1426
+<1427=1428
+<1428=1430,1429
+<1430=1431
+<1431=1433,1432
+<1434=1435
+<1437=1438
+<1438=1440,1439
+<1440=1441
+<1442=1443
+<1443=1445,1444
+<1445=1446
+<1446=1448,1447
+<1449=1450
+<1450=1480,1451
+<1451=1478,1469,1467,1465,1452
+<1452=1453
+<1453=1463,1454
+<1454=1461,1459,1457,1455
+<1455=1456
+<1457=1458
+<1459=1460
+<1461=1462
+<1463=1464
+<1465=1466
+<1467=1468
+<1469=1470
+<1470=1476,1471
+<1471=1474,1472
+<1472=1473
+<1474=1475
+<1476=1477
+<1478=1479
+<1480=1481
+<1481=1483,1482
+<1483=1485,1484
+<1486=1487
+<1488=1489
+<1490=1491
+<1491=1493,1492
+<1493=1494
+<1495=1503,1496
+<1496=1497
+<1497=1499,1498
+<1499=1500
+<1500=1502,1501
+<1503=1504
+<1505=1506
+<1506=1510,1507
+<1507=1508
+<1508=1509
+<1510=1511
+<1511=1513,1512
+<1514=1522,1515
+<1515=1516
+<1516=1518,1517
+<1518=1519
+<1519=1521,1520
+<1522=1523
+<1524=1525
+<1525=1529,1526
+<1526=1527
+<1527=1528
+<1529=1530
+<1530=1532,1531
+<1533=1534
+<1534=1536,1535
+<1536=1537
+<1537=1539,1538
+<1540=1541
+<1541=1543,1542
+<1543=1544
+<1545=1546
+<1546=1550,1547
+<1547=1548
+<1548=1549
+<1550=1551
+<1552=1553
+<1553=1557,1554
+<1554=1555
+<1555=1556
+<1557=1558
+<1559=1560
+<1560=1564,1561
+<1561=1562
+<1562=1563
+<1564=1565
+<1566=1567
+<1567=1571,1568
+<1568=1569
+<1569=1570
+<1571=1572
+<1573=1581,1574
+<1574=1575
+<1575=1577,1576
+<1577=1578
+<1578=1580,1579
+<1581=1582
+<1582=1591,1583
+<1583=1585,1584
+<1585=1589,1586
+<1586=1587
+<1587=1588
+<1589=1590
+<1591=1593,1592
+<1593=1597,1594
+<1594=1595
+<1595=1596
+<1597=1598
+<1599=1608,1600
+<1600=1607,1605,1601
+<1601=1602
+<1602=1604,1603
+<1605=1606
+<1608=1609
+<1609=1616,1610
+<1610=1612,1611
+<1612=1613
+<1613=1615,1614
+<1617=1618
+<1618=1620,1619
+<1620=1621
+<1621=1623,1622
+<1624=1625
+<1625=1627,1626
+<1627=1628
+<1628=1630,1629
+<1667=1670,1669,1668
+<1670=1671
+<1671=1732,1672
+<1672=1725,1718,1705,1696,1691,1684,1673
+<1673=1675,1674
+<1675=1676
+<1676=1683,1677
+<1677=1679,1678
+<1679=1680
+<1680=1682,1681
+<1684=1685
+<1685=1687,1686
+<1687=1688
+<1688=1690,1689
+<1691=1692
+<1692=1694,1693
+<1694=1695
+<1696=1697
+<1697=1703,1698
+<1698=1699
+<1699=1700
+<1700=1702,1701
+<1703=1704
+<1705=1706
+<1706=1716,1707
+<1707=1714,1712,1710,1708
+<1708=1709
+<1710=1711
+<1712=1713
+<1714=1715
+<1716=1717
+<1718=1719
+<1719=1721,1720
+<1721=1722
+<1722=1724,1723
+<1725=1726
+<1726=1728,1727
+<1728=1729
+<1729=1731,1730
+<1732=1733

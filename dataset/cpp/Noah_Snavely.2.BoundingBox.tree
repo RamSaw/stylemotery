@@ -1,0 +1,671 @@
+>3	FunctionDef	BoundingBox 
+>4	ParameterList	 
+>5	ReturnType	void
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	CallExpression	printf ( \"[(%0.3f, %0.3f) x (%0.3f, %0.3f)]\n\" , m_xmin , m_ymin , m_xmax , m_ymax )
+>9	ArgumentList	\"[(%0.3f, %0.3f) x (%0.3f, %0.3f)]\n\"
+>10	Argument	m_ymax
+>11	Identifier	m_ymax
+>12	Argument	m_xmax
+>13	Identifier	m_xmax
+>14	Argument	m_ymin
+>15	Identifier	m_ymin
+>16	Argument	m_xmin
+>17	Identifier	m_xmin
+>18	Argument	\"[(%0.3f, %0.3f) x (%0.3f, %0.3f)]\n\"
+>19	PrimaryExpression	\"[(%0.3f, %0.3f) x (%0.3f, %0.3f)]\n\"
+>20	Callee	printf
+>21	Identifier	printf
+>29	FunctionDef	BoundingBox 
+>30	ParameterList	 
+>31	ReturnType	double
+>32	CompoundStatement	 
+>33	ReturnStatement	 
+>34	MultiplicativeExpression	( m_xmax - m_xmin ) * ( m_ymax - m_ymin )
+>35	AdditiveExpression	m_ymax - m_ymin
+>36	Identifier	m_ymin
+>37	Identifier	m_ymax
+>38	AdditiveExpression	m_xmax - m_xmin
+>39	Identifier	m_xmin
+>40	Identifier	m_xmax
+>48	FunctionDef	BoundingBox 
+>49	ParameterList	const BoundingBox & bbox
+>50	Parameter	 
+>51	Identifier	bbox
+>52	ParameterType	const BoundingBox &
+>53	ReturnType	BoundingBox
+>54	CompoundStatement	 
+>55	ReturnStatement	 
+>56	CallExpression	BoundingBox ( MAX ( m_xmin , bbox . m_xmin ) , MAX ( m_ymin , bbox . m_ymin ) , MIN ( m_xmax , bbox . m_xmax ) , \
+>57	ArgumentList	MAX ( m_xmin , bbox . m_xmin )
+>58	Argument	MIN ( m_ymax , bbox . m_ymax )
+>59	CallExpression	MIN ( m_ymax , bbox . m_ymax )
+>60	ArgumentList	m_ymax
+>61	Argument	bbox . m_ymax
+>62	MemberAccess	bbox . m_ymax
+>63	Identifier	m_ymax
+>64	Identifier	bbox
+>65	Argument	m_ymax
+>66	Identifier	m_ymax
+>67	Callee	MIN
+>68	Identifier	MIN
+>69	Argument	MIN ( m_xmax , bbox . m_xmax )
+>70	CallExpression	MIN ( m_xmax , bbox . m_xmax )
+>71	ArgumentList	m_xmax
+>72	Argument	bbox . m_xmax
+>73	MemberAccess	bbox . m_xmax
+>74	Identifier	m_xmax
+>75	Identifier	bbox
+>76	Argument	m_xmax
+>77	Identifier	m_xmax
+>78	Callee	MIN
+>79	Identifier	MIN
+>80	Argument	MAX ( m_ymin , bbox . m_ymin )
+>81	CallExpression	MAX ( m_ymin , bbox . m_ymin )
+>82	ArgumentList	m_ymin
+>83	Argument	bbox . m_ymin
+>84	MemberAccess	bbox . m_ymin
+>85	Identifier	m_ymin
+>86	Identifier	bbox
+>87	Argument	m_ymin
+>88	Identifier	m_ymin
+>89	Callee	MAX
+>90	Identifier	MAX
+>91	Argument	MAX ( m_xmin , bbox . m_xmin )
+>92	CallExpression	MAX ( m_xmin , bbox . m_xmin )
+>93	ArgumentList	m_xmin
+>94	Argument	bbox . m_xmin
+>95	MemberAccess	bbox . m_xmin
+>96	Identifier	m_xmin
+>97	Identifier	bbox
+>98	Argument	m_xmin
+>99	Identifier	m_xmin
+>100	Callee	MAX
+>101	Identifier	MAX
+>102	Callee	BoundingBox
+>103	Identifier	BoundingBox
+>119	FunctionDef	BoundingBox 
+>120	ParameterList	double x , double y
+>121	Parameter	 
+>122	Identifier	y
+>123	ParameterType	double
+>124	Parameter	 
+>125	Identifier	x
+>126	ParameterType	double
+>127	ReturnType	bool
+>128	CompoundStatement	 
+>129	ReturnStatement	 
+>130	AndExpression	x >= m_xmin && x <= m_xmax && y >= m_ymin && y <= m_ymax
+>131	AndExpression	x <= m_xmax && y >= m_ymin && y <= m_ymax
+>132	AndExpression	y >= m_ymin && y <= m_ymax
+>133	RelationalExpression	y <= m_ymax
+>134	Identifier	m_ymax
+>135	Identifier	y
+>136	RelationalExpression	y >= m_ymin
+>137	Identifier	m_ymin
+>138	Identifier	y
+>139	RelationalExpression	x <= m_xmax
+>140	Identifier	m_xmax
+>141	Identifier	x
+>142	RelationalExpression	x >= m_xmin
+>143	Identifier	m_xmin
+>144	Identifier	x
+>154	FunctionDef	BoundingBox 
+>155	ParameterList	const BoundingBox & bbox
+>156	Parameter	 
+>157	Identifier	bbox
+>158	ParameterType	const BoundingBox &
+>159	ReturnType	bool
+>160	CompoundStatement	 
+>161	ReturnStatement	 
+>162	AndExpression	bbox . m_xmin >= m_xmin && bbox . m_xmax <= m_xmax && bbox . m_ymin >= m_ymin && bbox . m_ymax <= m_\
+>163	AndExpression	bbox . m_xmax <= m_xmax && bbox . m_ymin >= m_ymin && bbox . m_ymax <= m_ymax
+>164	AndExpression	bbox . m_ymin >= m_ymin && bbox . m_ymax <= m_ymax
+>165	RelationalExpression	bbox . m_ymax <= m_ymax
+>166	Identifier	m_ymax
+>167	MemberAccess	bbox . m_ymax
+>168	Identifier	m_ymax
+>169	Identifier	bbox
+>170	RelationalExpression	bbox . m_ymin >= m_ymin
+>171	Identifier	m_ymin
+>172	MemberAccess	bbox . m_ymin
+>173	Identifier	m_ymin
+>174	Identifier	bbox
+>175	RelationalExpression	bbox . m_xmax <= m_xmax
+>176	Identifier	m_xmax
+>177	MemberAccess	bbox . m_xmax
+>178	Identifier	m_xmax
+>179	Identifier	bbox
+>180	RelationalExpression	bbox . m_xmin >= m_xmin
+>181	Identifier	m_xmin
+>182	MemberAccess	bbox . m_xmin
+>183	Identifier	m_xmin
+>184	Identifier	bbox
+>197	FunctionDef	BoundingBox 
+>198	ParameterList	double scale
+>199	Parameter	 
+>200	Identifier	scale
+>201	ParameterType	double
+>202	ReturnType	void
+>203	CompoundStatement	 
+>204	ExpressionStatement	 
+>205	AssignmentExpr	m_ymax *= scale
+>206	Identifier	scale
+>207	Identifier	m_ymax
+>208	ExpressionStatement	 
+>209	AssignmentExpr	m_ymin *= scale
+>210	Identifier	scale
+>211	Identifier	m_ymin
+>212	ExpressionStatement	 
+>213	AssignmentExpr	m_xmax *= scale
+>214	Identifier	scale
+>215	Identifier	m_xmax
+>216	ExpressionStatement	 
+>217	AssignmentExpr	m_xmin *= scale
+>218	Identifier	scale
+>219	Identifier	m_xmin
+>228	FunctionDef	CreateBoundingBox (const std 
+>229	ParameterList	const std 
+>230	Parameter	 
+>231	Identifier	points
+>232	ParameterType	const std 
+>233	ReturnType	BoundingBox
+>234	CompoundStatement	 
+>235	ReturnStatement	 
+>236	Identifier	bb
+>237	ForStatement	for ( int i = 0 ; i < num_points ; i ++ )
+>238	CompoundStatement	 
+>239	ExpressionStatement	 
+>240	AssignmentExpr	bb . m_ymax = MAX ( bb . m_ymax , Vy ( points [ i ] ) )
+>241	CallExpression	MAX ( bb . m_ymax , Vy ( points [ i ] ) )
+>242	ArgumentList	bb . m_ymax
+>243	Argument	Vy ( points [ i ] )
+>244	CallExpression	Vy ( points [ i ] )
+>245	ArgumentList	points [ i ]
+>246	Argument	points [ i ]
+>247	ArrayIndexing	points [ i ]
+>248	Identifier	i
+>249	Identifier	points
+>250	Callee	Vy
+>251	Identifier	Vy
+>252	Argument	bb . m_ymax
+>253	MemberAccess	bb . m_ymax
+>254	Identifier	m_ymax
+>255	Identifier	bb
+>256	Callee	MAX
+>257	Identifier	MAX
+>258	MemberAccess	bb . m_ymax
+>259	Identifier	m_ymax
+>260	Identifier	bb
+>261	ExpressionStatement	 
+>262	AssignmentExpr	bb . m_ymin = MIN ( bb . m_ymin , Vy ( points [ i ] ) )
+>263	CallExpression	MIN ( bb . m_ymin , Vy ( points [ i ] ) )
+>264	ArgumentList	bb . m_ymin
+>265	Argument	Vy ( points [ i ] )
+>266	CallExpression	Vy ( points [ i ] )
+>267	ArgumentList	points [ i ]
+>268	Argument	points [ i ]
+>269	ArrayIndexing	points [ i ]
+>270	Identifier	i
+>271	Identifier	points
+>272	Callee	Vy
+>273	Identifier	Vy
+>274	Argument	bb . m_ymin
+>275	MemberAccess	bb . m_ymin
+>276	Identifier	m_ymin
+>277	Identifier	bb
+>278	Callee	MIN
+>279	Identifier	MIN
+>280	MemberAccess	bb . m_ymin
+>281	Identifier	m_ymin
+>282	Identifier	bb
+>283	ExpressionStatement	 
+>284	AssignmentExpr	bb . m_xmax = MAX ( bb . m_xmax , Vx ( points [ i ] ) )
+>285	CallExpression	MAX ( bb . m_xmax , Vx ( points [ i ] ) )
+>286	ArgumentList	bb . m_xmax
+>287	Argument	Vx ( points [ i ] )
+>288	CallExpression	Vx ( points [ i ] )
+>289	ArgumentList	points [ i ]
+>290	Argument	points [ i ]
+>291	ArrayIndexing	points [ i ]
+>292	Identifier	i
+>293	Identifier	points
+>294	Callee	Vx
+>295	Identifier	Vx
+>296	Argument	bb . m_xmax
+>297	MemberAccess	bb . m_xmax
+>298	Identifier	m_xmax
+>299	Identifier	bb
+>300	Callee	MAX
+>301	Identifier	MAX
+>302	MemberAccess	bb . m_xmax
+>303	Identifier	m_xmax
+>304	Identifier	bb
+>305	ExpressionStatement	 
+>306	AssignmentExpr	bb . m_xmin = MIN ( bb . m_xmin , Vx ( points [ i ] ) )
+>307	CallExpression	MIN ( bb . m_xmin , Vx ( points [ i ] ) )
+>308	ArgumentList	bb . m_xmin
+>309	Argument	Vx ( points [ i ] )
+>310	CallExpression	Vx ( points [ i ] )
+>311	ArgumentList	points [ i ]
+>312	Argument	points [ i ]
+>313	ArrayIndexing	points [ i ]
+>314	Identifier	i
+>315	Identifier	points
+>316	Callee	Vx
+>317	Identifier	Vx
+>318	Argument	bb . m_xmin
+>319	MemberAccess	bb . m_xmin
+>320	Identifier	m_xmin
+>321	Identifier	bb
+>322	Callee	MIN
+>323	Identifier	MIN
+>324	MemberAccess	bb . m_xmin
+>325	Identifier	m_xmin
+>326	Identifier	bb
+>327	IncDecOp	 
+>328	IncDec	++
+>329	Identifier	i
+>330	Condition	 
+>331	RelationalExpression	i < num_points
+>332	Identifier	num_points
+>333	Identifier	i
+>334	ForInit	 
+>335	IdentifierDeclStatement	int i = 0 ;
+>336	IdentifierDecl	i = 0
+>337	AssignmentExpr	i = 0
+>338	PrimaryExpression	0
+>339	Identifier	i
+>340	Identifier	i
+>341	IdentifierDeclType	int
+>342	IfStatement	if ( num_points == 0 )
+>343	CompoundStatement	 
+>344	ReturnStatement	 
+>345	Identifier	bb
+>346	ExpressionStatement	 
+>347	CallExpression	printf ( \"[CreateBoundingBox] No points given!\n\" )
+>348	ArgumentList	\"[CreateBoundingBox] No points given!\n\"
+>349	Argument	\"[CreateBoundingBox] No points given!\n\"
+>350	PrimaryExpression	\"[CreateBoundingBox] No points given!\n\"
+>351	Callee	printf
+>352	Identifier	printf
+>353	Condition	 
+>354	EqualityExpression	num_points == 0
+>355	PrimaryExpression	0
+>356	Identifier	num_points
+>357	ExpressionStatement	 
+>358	AssignmentExpr	bb . m_ymax = - DBL_MAX
+>359	UnaryOp	- DBL_MAX
+>360	Identifier	DBL_MAX
+>361	UnaryOperator	-
+>362	MemberAccess	bb . m_ymax
+>363	Identifier	m_ymax
+>364	Identifier	bb
+>365	ExpressionStatement	 
+>366	AssignmentExpr	bb . m_ymin = DBL_MAX
+>367	Identifier	DBL_MAX
+>368	MemberAccess	bb . m_ymin
+>369	Identifier	m_ymin
+>370	Identifier	bb
+>371	ExpressionStatement	 
+>372	AssignmentExpr	bb . m_xmax = - DBL_MAX
+>373	UnaryOp	- DBL_MAX
+>374	Identifier	DBL_MAX
+>375	UnaryOperator	-
+>376	MemberAccess	bb . m_xmax
+>377	Identifier	m_xmax
+>378	Identifier	bb
+>379	ExpressionStatement	 
+>380	AssignmentExpr	bb . m_xmin = DBL_MAX
+>381	Identifier	DBL_MAX
+>382	MemberAccess	bb . m_xmin
+>383	Identifier	m_xmin
+>384	Identifier	bb
+>385	IdentifierDeclStatement	 
+>386	IdentifierDecl	bb
+>387	Identifier	bb
+>388	IdentifierDeclType	BoundingBox
+>389	IdentifierDeclStatement	 
+>390	IdentifierDecl	num_points = ( int ) points . size ( )
+>391	AssignmentExpr	num_points = ( int ) points . size ( )
+>392	CastExpression	( int ) points . size ( )
+>393	CallExpression	points . size ( )
+>394	ArgumentList	 
+>395	Callee	points . size
+>396	MemberAccess	points . size
+>397	Identifier	size
+>398	Identifier	points
+>399	CastTarget	int
+>400	Identifier	num_points
+>401	Identifier	num_points
+>402	IdentifierDeclType	int
+>422	FunctionDef	BoundingBoxUnion (const BoundingBox & bb1 , const BoundingBox & bb2)
+>423	ParameterList	const BoundingBox & bb1 , const BoundingBox & bb2
+>424	Parameter	 
+>425	Identifier	bb2
+>426	ParameterType	const BoundingBox &
+>427	Parameter	 
+>428	Identifier	bb1
+>429	ParameterType	const BoundingBox &
+>430	ReturnType	BoundingBox
+>431	CompoundStatement	 
+>432	ReturnStatement	 
+>433	Identifier	bb
+>434	ExpressionStatement	 
+>435	AssignmentExpr	bb . m_ymax = MAX ( bb1 . m_ymax , bb2 . m_ymax )
+>436	CallExpression	MAX ( bb1 . m_ymax , bb2 . m_ymax )
+>437	ArgumentList	bb1 . m_ymax
+>438	Argument	bb2 . m_ymax
+>439	MemberAccess	bb2 . m_ymax
+>440	Identifier	m_ymax
+>441	Identifier	bb2
+>442	Argument	bb1 . m_ymax
+>443	MemberAccess	bb1 . m_ymax
+>444	Identifier	m_ymax
+>445	Identifier	bb1
+>446	Callee	MAX
+>447	Identifier	MAX
+>448	MemberAccess	bb . m_ymax
+>449	Identifier	m_ymax
+>450	Identifier	bb
+>451	ExpressionStatement	 
+>452	AssignmentExpr	bb . m_ymin = MIN ( bb1 . m_ymin , bb2 . m_ymin )
+>453	CallExpression	MIN ( bb1 . m_ymin , bb2 . m_ymin )
+>454	ArgumentList	bb1 . m_ymin
+>455	Argument	bb2 . m_ymin
+>456	MemberAccess	bb2 . m_ymin
+>457	Identifier	m_ymin
+>458	Identifier	bb2
+>459	Argument	bb1 . m_ymin
+>460	MemberAccess	bb1 . m_ymin
+>461	Identifier	m_ymin
+>462	Identifier	bb1
+>463	Callee	MIN
+>464	Identifier	MIN
+>465	MemberAccess	bb . m_ymin
+>466	Identifier	m_ymin
+>467	Identifier	bb
+>468	ExpressionStatement	 
+>469	AssignmentExpr	bb . m_xmax = MAX ( bb1 . m_xmax , bb2 . m_xmax )
+>470	CallExpression	MAX ( bb1 . m_xmax , bb2 . m_xmax )
+>471	ArgumentList	bb1 . m_xmax
+>472	Argument	bb2 . m_xmax
+>473	MemberAccess	bb2 . m_xmax
+>474	Identifier	m_xmax
+>475	Identifier	bb2
+>476	Argument	bb1 . m_xmax
+>477	MemberAccess	bb1 . m_xmax
+>478	Identifier	m_xmax
+>479	Identifier	bb1
+>480	Callee	MAX
+>481	Identifier	MAX
+>482	MemberAccess	bb . m_xmax
+>483	Identifier	m_xmax
+>484	Identifier	bb
+>485	ExpressionStatement	 
+>486	AssignmentExpr	bb . m_xmin = MIN ( bb1 . m_xmin , bb2 . m_xmin )
+>487	CallExpression	MIN ( bb1 . m_xmin , bb2 . m_xmin )
+>488	ArgumentList	bb1 . m_xmin
+>489	Argument	bb2 . m_xmin
+>490	MemberAccess	bb2 . m_xmin
+>491	Identifier	m_xmin
+>492	Identifier	bb2
+>493	Argument	bb1 . m_xmin
+>494	MemberAccess	bb1 . m_xmin
+>495	Identifier	m_xmin
+>496	Identifier	bb1
+>497	Callee	MIN
+>498	Identifier	MIN
+>499	MemberAccess	bb . m_xmin
+>500	Identifier	m_xmin
+>501	Identifier	bb
+>502	IdentifierDeclStatement	 
+>503	IdentifierDecl	bb
+>504	Identifier	bb
+>505	IdentifierDeclType	BoundingBox
+<3=6,5,4
+<6=7
+<7=8
+<8=20,9
+<9=18,16,14,12,10
+<10=11
+<12=13
+<14=15
+<16=17
+<18=19
+<20=21
+<29=32,31,30
+<32=33
+<33=34
+<34=38,35
+<35=37,36
+<38=40,39
+<48=54,53,49
+<49=50
+<50=52,51
+<54=55
+<55=56
+<56=102,57
+<57=91,80,69,58
+<58=59
+<59=67,60
+<60=65,61
+<61=62
+<62=64,63
+<65=66
+<67=68
+<69=70
+<70=78,71
+<71=76,72
+<72=73
+<73=75,74
+<76=77
+<78=79
+<80=81
+<81=89,82
+<82=87,83
+<83=84
+<84=86,85
+<87=88
+<89=90
+<91=92
+<92=100,93
+<93=98,94
+<94=95
+<95=97,96
+<98=99
+<100=101
+<102=103
+<119=128,127,120
+<120=124,121
+<121=123,122
+<124=126,125
+<128=129
+<129=130
+<130=142,131
+<131=139,132
+<132=136,133
+<133=135,134
+<136=138,137
+<139=141,140
+<142=144,143
+<154=160,159,155
+<155=156
+<156=158,157
+<160=161
+<161=162
+<162=180,163
+<163=175,164
+<164=170,165
+<165=167,166
+<167=169,168
+<170=172,171
+<172=174,173
+<175=177,176
+<177=179,178
+<180=182,181
+<182=184,183
+<197=203,202,198
+<198=199
+<199=201,200
+<203=216,212,208,204
+<204=205
+<205=207,206
+<208=209
+<209=211,210
+<212=213
+<213=215,214
+<216=217
+<217=219,218
+<228=234,233,229
+<229=230
+<230=232,231
+<234=389,385,379,371,365,357,342,237,235
+<235=236
+<237=334,330,327,238
+<238=305,283,261,239
+<239=240
+<240=258,241
+<241=256,242
+<242=252,243
+<243=244
+<244=250,245
+<245=246
+<246=247
+<247=249,248
+<250=251
+<252=253
+<253=255,254
+<256=257
+<258=260,259
+<261=262
+<262=280,263
+<263=278,264
+<264=274,265
+<265=266
+<266=272,267
+<267=268
+<268=269
+<269=271,270
+<272=273
+<274=275
+<275=277,276
+<278=279
+<280=282,281
+<283=284
+<284=302,285
+<285=300,286
+<286=296,287
+<287=288
+<288=294,289
+<289=290
+<290=291
+<291=293,292
+<294=295
+<296=297
+<297=299,298
+<300=301
+<302=304,303
+<305=306
+<306=324,307
+<307=322,308
+<308=318,309
+<309=310
+<310=316,311
+<311=312
+<312=313
+<313=315,314
+<316=317
+<318=319
+<319=321,320
+<322=323
+<324=326,325
+<327=329,328
+<330=331
+<331=333,332
+<334=335
+<335=336
+<336=341,340,337
+<337=339,338
+<342=353,343
+<343=346,344
+<344=345
+<346=347
+<347=351,348
+<348=349
+<349=350
+<351=352
+<353=354
+<354=356,355
+<357=358
+<358=362,359
+<359=361,360
+<362=364,363
+<365=366
+<366=368,367
+<368=370,369
+<371=372
+<372=376,373
+<373=375,374
+<376=378,377
+<379=380
+<380=382,381
+<382=384,383
+<385=386
+<386=388,387
+<389=390
+<390=402,401,391
+<391=400,392
+<392=399,393
+<393=395,394
+<395=396
+<396=398,397
+<422=431,430,423
+<423=427,424
+<424=426,425
+<427=429,428
+<431=502,485,468,451,434,432
+<432=433
+<434=435
+<435=448,436
+<436=446,437
+<437=442,438
+<438=439
+<439=441,440
+<442=443
+<443=445,444
+<446=447
+<448=450,449
+<451=452
+<452=465,453
+<453=463,454
+<454=459,455
+<455=456
+<456=458,457
+<459=460
+<460=462,461
+<463=464
+<465=467,466
+<468=469
+<469=482,470
+<470=480,471
+<471=476,472
+<472=473
+<473=475,474
+<476=477
+<477=479,478
+<480=481
+<482=484,483
+<485=486
+<486=499,487
+<487=497,488
+<488=493,489
+<489=490
+<490=492,491
+<493=494
+<494=496,495
+<497=498
+<499=501,500
+<502=503
+<503=505,504

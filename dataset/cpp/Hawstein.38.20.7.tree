@@ -1,0 +1,426 @@
+>5	FunctionDef	cmp (string s1 , string s2)
+>6	ParameterList	string s1 , string s2
+>7	Parameter	 
+>8	Identifier	s2
+>9	ParameterType	string
+>10	Parameter	 
+>11	Identifier	s1
+>12	ParameterType	string
+>13	ReturnType	inline bool
+>14	CompoundStatement	 
+>15	ReturnStatement	 
+>16	RelationalExpression	s2 . length ( ) < s1 . length ( )
+>17	CallExpression	s1 . length ( )
+>18	ArgumentList	 
+>19	Callee	s1 . length
+>20	MemberAccess	s1 . length
+>21	Identifier	length
+>22	Identifier	s1
+>23	CallExpression	s2 . length ( )
+>24	ArgumentList	 
+>25	Callee	s2 . length
+>26	MemberAccess	s2 . length
+>27	Identifier	length
+>28	Identifier	s2
+>36	FunctionDef	MakeOfWords (string word , int length)
+>37	ParameterList	string word , int length
+>38	Parameter	 
+>39	Identifier	length
+>40	ParameterType	int
+>41	Parameter	 
+>42	Identifier	word
+>43	ParameterType	string
+>44	ReturnType	bool
+>45	CompoundStatement	 
+>46	ReturnStatement	 
+>47	Identifier	false
+>48	ForStatement	for ( int i = 1 ; i <= len ; ++ i )
+>49	CompoundStatement	 
+>50	IfStatement	if ( hash . find ( ( char * ) & str [ 0 ] ) )
+>51	CompoundStatement	 
+>52	IfStatement	if ( MakeOfWords ( word . substr ( i ) , length ) )
+>53	ReturnStatement	 
+>54	Identifier	true
+>55	Condition	 
+>56	CallExpression	MakeOfWords ( word . substr ( i ) , length )
+>57	ArgumentList	word . substr ( i )
+>58	Argument	length
+>59	Identifier	length
+>60	Argument	word . substr ( i )
+>61	CallExpression	word . substr ( i )
+>62	ArgumentList	i
+>63	Argument	i
+>64	Identifier	i
+>65	Callee	word . substr
+>66	MemberAccess	word . substr
+>67	Identifier	substr
+>68	Identifier	word
+>69	Callee	MakeOfWords
+>70	Identifier	MakeOfWords
+>71	Condition	 
+>72	CallExpression	hash . find ( ( char * ) & str [ 0 ] )
+>73	ArgumentList	( char * ) & str [ 0 ]
+>74	Argument	( char * ) & str [ 0 ]
+>75	CastExpression	( char * ) & str [ 0 ]
+>76	UnaryOp	& str [ 0 ]
+>77	ArrayIndexing	str [ 0 ]
+>78	PrimaryExpression	0
+>79	Identifier	str
+>80	UnaryOperator	&
+>81	CastTarget	char *
+>82	Callee	hash . find
+>83	MemberAccess	hash . find
+>84	Identifier	find
+>85	Identifier	hash
+>86	IdentifierDeclStatement	 
+>87	IdentifierDecl	str = word . substr ( 0 , i )
+>88	AssignmentExpr	str = word . substr ( 0 , i )
+>89	CallExpression	word . substr ( 0 , i )
+>90	ArgumentList	0
+>91	Argument	i
+>92	Identifier	i
+>93	Argument	0
+>94	PrimaryExpression	0
+>95	Callee	word . substr
+>96	MemberAccess	word . substr
+>97	Identifier	substr
+>98	Identifier	word
+>99	Identifier	str
+>100	Identifier	str
+>101	IdentifierDeclType	string
+>102	IfStatement	if ( i == length )
+>103	ReturnStatement	 
+>104	Identifier	false
+>105	Condition	 
+>106	EqualityExpression	i == length
+>107	Identifier	length
+>108	Identifier	i
+>109	UnaryExpression	 
+>110	Identifier	i
+>111	IncDec	++
+>112	Condition	 
+>113	RelationalExpression	i <= len
+>114	Identifier	len
+>115	Identifier	i
+>116	ForInit	 
+>117	IdentifierDeclStatement	int i = 1 ;
+>118	IdentifierDecl	i = 1
+>119	AssignmentExpr	i = 1
+>120	PrimaryExpression	1
+>121	Identifier	i
+>122	Identifier	i
+>123	IdentifierDeclType	int
+>124	IfStatement	if ( len == 0 )
+>125	ReturnStatement	 
+>126	Identifier	true
+>127	Condition	 
+>128	EqualityExpression	len == 0
+>129	PrimaryExpression	0
+>130	Identifier	len
+>131	IdentifierDeclStatement	 
+>132	IdentifierDecl	len = word . length ( )
+>133	AssignmentExpr	len = word . length ( )
+>134	CallExpression	word . length ( )
+>135	ArgumentList	 
+>136	Callee	word . length
+>137	MemberAccess	word . length
+>138	Identifier	length
+>139	Identifier	word
+>140	Identifier	len
+>141	Identifier	len
+>142	IdentifierDeclType	int
+>159	FunctionDef	PrintLongestWord (string word [ ] , int n)
+>160	ParameterList	string word [ ] , int n
+>161	Parameter	 
+>162	Identifier	n
+>163	ParameterType	int
+>164	Parameter	 
+>165	Identifier	word
+>166	ParameterType	string [ ]
+>167	ReturnType	void
+>168	CompoundStatement	 
+>169	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>170	CompoundStatement	 
+>171	IfStatement	if ( MakeOfWords ( word [ i ] , word [ i ] . length ( ) ) )
+>172	CompoundStatement	 
+>173	ReturnStatement	 
+>174	ExpressionStatement	 
+>175	ShiftExpression	cout << \"Longest Word
+>176	ShiftExpression	\"Longest Word
+>177	ShiftExpression	word [ i ] << endl
+>178	Identifier	endl
+>179	ArrayIndexing	word [ i ]
+>180	Identifier	i
+>181	Identifier	word
+>182	PrimaryExpression	\"Longest Word
+>183	Identifier	cout
+>184	Condition	 
+>185	CallExpression	MakeOfWords ( word [ i ] , word [ i ] . length ( ) )
+>186	ArgumentList	word [ i ]
+>187	Argument	word [ i ] . length ( )
+>188	CallExpression	word [ i ] . length ( )
+>189	ArgumentList	 
+>190	Callee	word [ i ] . length
+>191	MemberAccess	word [ i ] . length
+>192	Identifier	length
+>193	ArrayIndexing	word [ i ]
+>194	Identifier	i
+>195	Identifier	word
+>196	Argument	word [ i ]
+>197	ArrayIndexing	word [ i ]
+>198	Identifier	i
+>199	Identifier	word
+>200	Callee	MakeOfWords
+>201	Identifier	MakeOfWords
+>202	UnaryExpression	 
+>203	Identifier	i
+>204	IncDec	++
+>205	Condition	 
+>206	RelationalExpression	i < n
+>207	Identifier	n
+>208	Identifier	i
+>209	ForInit	 
+>210	IdentifierDeclStatement	int i = 0 ;
+>211	IdentifierDecl	i = 0
+>212	AssignmentExpr	i = 0
+>213	PrimaryExpression	0
+>214	Identifier	i
+>215	Identifier	i
+>216	IdentifierDeclType	int
+>217	ExpressionStatement	 
+>218	CallExpression	sort ( word , word + n , cmp )
+>219	ArgumentList	word
+>220	Argument	cmp
+>221	Identifier	cmp
+>222	Argument	word + n
+>223	AdditiveExpression	word + n
+>224	Identifier	n
+>225	Identifier	word
+>226	Argument	word
+>227	Identifier	word
+>228	Callee	sort
+>229	Identifier	sort
+>230	ForStatement	for ( int i = 0 ; i < n ; ++ i )
+>231	ExpressionStatement	 
+>232	CallExpression	hash . insert ( ( char * ) & word [ i ] [ 0 ] )
+>233	ArgumentList	( char * ) & word [ i ] [ 0 ]
+>234	Argument	( char * ) & word [ i ] [ 0 ]
+>235	CastExpression	( char * ) & word [ i ] [ 0 ]
+>236	UnaryOp	& word [ i ] [ 0 ]
+>237	ArrayIndexing	word [ i ] [ 0 ]
+>238	PrimaryExpression	0
+>239	ArrayIndexing	word [ i ]
+>240	Identifier	i
+>241	Identifier	word
+>242	UnaryOperator	&
+>243	CastTarget	char *
+>244	Callee	hash . insert
+>245	MemberAccess	hash . insert
+>246	Identifier	insert
+>247	Identifier	hash
+>248	UnaryExpression	 
+>249	Identifier	i
+>250	IncDec	++
+>251	Condition	 
+>252	RelationalExpression	i < n
+>253	Identifier	n
+>254	Identifier	i
+>255	ForInit	 
+>256	IdentifierDeclStatement	int i = 0 ;
+>257	IdentifierDecl	i = 0
+>258	AssignmentExpr	i = 0
+>259	PrimaryExpression	0
+>260	Identifier	i
+>261	Identifier	i
+>262	IdentifierDeclType	int
+>277	FunctionDef	main ()
+>278	ParameterList	 
+>279	ReturnType	int
+>280	CompoundStatement	 
+>281	ReturnStatement	 
+>282	PrimaryExpression	0
+>283	ExpressionStatement	 
+>284	CallExpression	PrintLongestWord ( arr , len )
+>285	ArgumentList	arr
+>286	Argument	len
+>287	Identifier	len
+>288	Argument	arr
+>289	Identifier	arr
+>290	Callee	PrintLongestWord
+>291	Identifier	PrintLongestWord
+>292	IdentifierDeclStatement	 
+>293	IdentifierDecl	len = 13
+>294	AssignmentExpr	len = 13
+>295	PrimaryExpression	13
+>296	Identifier	len
+>297	Identifier	len
+>298	IdentifierDeclType	int
+>299	IdentifierDeclStatement	 
+>300	IdentifierDecl	arr [ ] = { \"test\" , \"tester\" , \"testertest\" , \"testing\" , \"apple\" , \"seattle\" , \"banana\" , \"batting\" , \"ngcat\" , \"\
+>301	AssignmentExpr	arr [ ] = { \"test\" , \"tester\" , \"testertest\" , \"testing\" , \"apple\" , \"seattle\" , \"banana\" , \"batting\" , \"\
+>302	InitializerList	\"test\"
+>303	PrimaryExpression	\"testbattingcat\"
+>304	PrimaryExpression	\"testingtester\"
+>305	PrimaryExpression	\"bat\"
+>306	PrimaryExpression	\"batti\"
+>307	PrimaryExpression	\"ngcat\"
+>308	PrimaryExpression	\"batting\"
+>309	PrimaryExpression	\"banana\"
+>310	PrimaryExpression	\"seattle\"
+>311	PrimaryExpression	\"apple\"
+>312	PrimaryExpression	\"testing\"
+>313	PrimaryExpression	\"testertest\"
+>314	PrimaryExpression	\"tester\"
+>315	PrimaryExpression	\"test\"
+>316	Identifier	arr
+>317	Identifier	arr
+>318	IdentifierDeclType	string [ ]
+<5=14,13,6
+<6=10,7
+<7=9,8
+<10=12,11
+<14=15
+<15=16
+<16=23,17
+<17=19,18
+<19=20
+<20=22,21
+<23=25,24
+<25=26
+<26=28,27
+<36=45,44,37
+<37=41,38
+<38=40,39
+<41=43,42
+<45=131,124,48,46
+<46=47
+<48=116,112,109,49
+<49=102,86,50
+<50=71,51
+<51=52
+<52=55,53
+<53=54
+<55=56
+<56=69,57
+<57=60,58
+<58=59
+<60=61
+<61=65,62
+<62=63
+<63=64
+<65=66
+<66=68,67
+<69=70
+<71=72
+<72=82,73
+<73=74
+<74=75
+<75=81,76
+<76=80,77
+<77=79,78
+<82=83
+<83=85,84
+<86=87
+<87=101,100,88
+<88=99,89
+<89=95,90
+<90=93,91
+<91=92
+<93=94
+<95=96
+<96=98,97
+<102=105,103
+<103=104
+<105=106
+<106=108,107
+<109=111,110
+<112=113
+<113=115,114
+<116=117
+<117=118
+<118=123,122,119
+<119=121,120
+<124=127,125
+<125=126
+<127=128
+<128=130,129
+<131=132
+<132=142,141,133
+<133=140,134
+<134=136,135
+<136=137
+<137=139,138
+<159=168,167,160
+<160=164,161
+<161=163,162
+<164=166,165
+<168=230,217,169
+<169=209,205,202,170
+<170=171
+<171=184,172
+<172=174,173
+<174=175
+<175=183,176
+<176=182,177
+<177=179,178
+<179=181,180
+<184=185
+<185=200,186
+<186=196,187
+<187=188
+<188=190,189
+<190=191
+<191=193,192
+<193=195,194
+<196=197
+<197=199,198
+<200=201
+<202=204,203
+<205=206
+<206=208,207
+<209=210
+<210=211
+<211=216,215,212
+<212=214,213
+<217=218
+<218=228,219
+<219=226,222,220
+<220=221
+<222=223
+<223=225,224
+<226=227
+<228=229
+<230=255,251,248,231
+<231=232
+<232=244,233
+<233=234
+<234=235
+<235=243,236
+<236=242,237
+<237=239,238
+<239=241,240
+<244=245
+<245=247,246
+<248=250,249
+<251=252
+<252=254,253
+<255=256
+<256=257
+<257=262,261,258
+<258=260,259
+<277=280,279,278
+<280=299,292,283,281
+<281=282
+<283=284
+<284=290,285
+<285=288,286
+<286=287
+<288=289
+<290=291
+<292=293
+<293=298,297,294
+<294=296,295
+<299=300
+<300=318,317,301
+<301=316,302
+<302=315,314,313,312,311,310,309,308,307,306,305,304,303

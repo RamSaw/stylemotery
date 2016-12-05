@@ -1,0 +1,668 @@
+>3	FunctionDef	OSRM_impl 
+>4	ParameterList	libosrm_config & lib_config
+>5	Parameter	 
+>6	Identifier	lib_config
+>7	ParameterType	libosrm_config &
+>8	ReturnType	include < vector >
+>9	CompoundStatement	 
+>10	ExpressionStatement	 
+>11	Statement	 
+>12	Statement	 
+>13	Statement	 
+>14	Statement	 
+>15	Statement	 
+>16	Statement	 
+>17	Statement	 
+>18	Statement	 
+>19	Statement	 
+>20	Statement	 
+>21	Statement	 
+>22	Statement	 
+>23	Statement	 
+>24	Statement	 
+>25	Statement	 
+>26	ExpressionStatement	 
+>27	Statement	 
+>28	Statement	 
+>29	Statement	 
+>30	Statement	 
+>31	Statement	 
+>32	Statement	 
+>33	Statement	 
+>34	Statement	 
+>35	Statement	 
+>36	Statement	 
+>37	Statement	 
+>38	Statement	 
+>39	Statement	 
+>40	Statement	 
+>41	Statement	 
+>42	ExpressionStatement	 
+>43	Statement	 
+>44	Statement	 
+>45	Statement	 
+>46	Statement	 
+>47	Statement	 
+>48	Statement	 
+>49	Statement	 
+>50	Statement	 
+>51	Statement	 
+>52	Statement	 
+>53	Statement	 
+>54	Statement	 
+>55	Statement	 
+>56	Statement	 
+>57	Statement	 
+>58	Statement	 
+>59	Statement	 
+>60	Statement	 
+>61	Statement	 
+>62	ExpressionStatement	 
+>63	Statement	 
+>64	Statement	 
+>65	Statement	 
+>66	Statement	 
+>67	Statement	 
+>68	Statement	 
+>69	Statement	 
+>70	Statement	 
+>71	Statement	 
+>72	Statement	 
+>73	Statement	 
+>74	Statement	 
+>75	Statement	 
+>76	Statement	 
+>77	Statement	 
+>78	ExpressionStatement	 
+>79	Statement	 
+>80	Statement	 
+>81	Statement	 
+>82	Statement	 
+>83	Statement	 
+>84	Statement	 
+>85	Statement	 
+>86	Statement	 
+>87	Statement	 
+>88	Statement	 
+>89	Statement	 
+>90	Statement	 
+>91	Statement	 
+>92	Statement	 
+>93	Statement	 
+>94	ExpressionStatement	 
+>95	CallExpression	RegisterPlugin ( new HelloWorldPlugin ( ) )
+>96	ArgumentList	new HelloWorldPlugin ( )
+>97	Argument	new HelloWorldPlugin ( )
+>98	UnaryExpression	new HelloWorldPlugin ( )
+>99	Callee	RegisterPlugin
+>100	Identifier	RegisterPlugin
+>101	ExpressionStatement	 
+>102	Statement	 
+>103	Statement	 
+>104	Statement	 
+>105	Statement	 
+>106	Statement	 
+>107	Statement	 
+>108	Statement	 
+>109	Statement	 
+>110	Statement	 
+>111	Statement	 
+>112	Statement	 
+>113	Statement	 
+>114	Statement	 
+>115	Statement	 
+>116	Statement	 
+>117	Statement	 
+>118	Statement	 
+>119	Statement	 
+>120	Statement	 
+>121	IfStatement	if ( lib_config . use_shared_memory )
+>122	ElseStatement	else
+>123	CompoundStatement	 
+>124	ExpressionStatement	 
+>125	AssignmentExpr	query_data_facade = new InternalDataFacade < QueryEdge 
+>126	MemberAccess	lib_config . server_paths
+>127	Identifier	server_paths
+>128	Identifier	lib_config
+>129	Identifier	query_data_facade
+>130	ExpressionStatement	 
+>131	CallExpression	populate_base_path ( lib_config . server_paths )
+>132	ArgumentList	lib_config . server_paths
+>133	Argument	lib_config . server_paths
+>134	MemberAccess	lib_config . server_paths
+>135	Identifier	server_paths
+>136	Identifier	lib_config
+>137	Callee	populate_base_path
+>138	Identifier	populate_base_path
+>139	CompoundStatement	 
+>140	ExpressionStatement	 
+>141	AssignmentExpr	query_data_facade = new SharedDataFacade < QueryEdge 
+>142	UnaryExpression	new SharedDataFacade < QueryEdge 
+>143	Identifier	query_data_facade
+>144	ExpressionStatement	 
+>145	Statement	 
+>146	Statement	 
+>147	Statement	 
+>148	Statement	 
+>149	Statement	 
+>150	Statement	 
+>151	Statement	 
+>152	Statement	 
+>153	Statement	 
+>154	Statement	 
+>155	Condition	 
+>156	MemberAccess	lib_config . use_shared_memory
+>157	Identifier	use_shared_memory
+>158	Identifier	lib_config
+>166	FunctionDef	OSRM_impl 
+>167	ParameterList	 
+>168	CompoundStatement	 
+>169	CompoundStatement	 
+>170	ExpressionStatement	 
+>171	MemberAccess	plugin_pointer . second
+>172	Identifier	second
+>173	Identifier	plugin_pointer
+>174	Statement	 
+>175	Statement	 
+>176	Statement	 
+>177	Label	 
+>178	Identifier	plugin_pointer
+>179	Statement	 
+>180	Statement	 
+>181	Statement	 
+>182	Statement	 
+>183	Statement	 
+>184	Statement	 
+>185	ExpressionStatement	 
+>186	Identifier	query_data_facade
+>187	Statement	 
+>192	FunctionDef	OSRM_impl 
+>193	ParameterList	BasePlugin * plugin
+>194	Parameter	 
+>195	Identifier	plugin
+>196	ParameterType	BasePlugin *
+>197	ReturnType	void
+>198	CompoundStatement	 
+>199	ExpressionStatement	 
+>200	CallExpression	plugin_map . emplace ( plugin -> GetDescriptor ( ) , plugin )
+>201	ArgumentList	plugin -> GetDescriptor ( )
+>202	Argument	plugin
+>203	Identifier	plugin
+>204	Argument	plugin -> GetDescriptor ( )
+>205	CallExpression	plugin -> GetDescriptor ( )
+>206	ArgumentList	 
+>207	Callee	plugin -> GetDescriptor
+>208	PtrMemberAccess	plugin -> GetDescriptor
+>209	Identifier	GetDescriptor
+>210	Identifier	plugin
+>211	Callee	plugin_map . emplace
+>212	MemberAccess	plugin_map . emplace
+>213	Identifier	emplace
+>214	Identifier	plugin_map
+>215	IfStatement	if ( plugin_map . find ( plugin -> GetDescriptor ( ) ) != plugin_map . end ( ) )
+>216	CompoundStatement	 
+>217	ExpressionStatement	 
+>218	PtrMemberAccess	plugin_map . find ( plugin -> GetDescriptor ( ) ) -> second
+>219	Identifier	second
+>220	CallExpression	plugin_map . find ( plugin -> GetDescriptor ( ) )
+>221	ArgumentList	plugin -> GetDescriptor ( )
+>222	Argument	plugin -> GetDescriptor ( )
+>223	CallExpression	plugin -> GetDescriptor ( )
+>224	ArgumentList	 
+>225	Callee	plugin -> GetDescriptor
+>226	PtrMemberAccess	plugin -> GetDescriptor
+>227	Identifier	GetDescriptor
+>228	Identifier	plugin
+>229	Callee	plugin_map . find
+>230	MemberAccess	plugin_map . find
+>231	Identifier	find
+>232	Identifier	plugin_map
+>233	Statement	 
+>234	Condition	 
+>235	EqualityExpression	plugin_map . find ( plugin -> GetDescriptor ( ) ) != plugin_map . end ( )
+>236	CallExpression	plugin_map . end ( )
+>237	ArgumentList	 
+>238	Callee	plugin_map . end
+>239	MemberAccess	plugin_map . end
+>240	Identifier	end
+>241	Identifier	plugin_map
+>242	CallExpression	plugin_map . find ( plugin -> GetDescriptor ( ) )
+>243	ArgumentList	plugin -> GetDescriptor ( )
+>244	Argument	plugin -> GetDescriptor ( )
+>245	CallExpression	plugin -> GetDescriptor ( )
+>246	ArgumentList	 
+>247	Callee	plugin -> GetDescriptor
+>248	PtrMemberAccess	plugin -> GetDescriptor
+>249	Identifier	GetDescriptor
+>250	Identifier	plugin
+>251	Callee	plugin_map . find
+>252	MemberAccess	plugin_map . find
+>253	Identifier	find
+>254	Identifier	plugin_map
+>255	ExpressionStatement	 
+>256	ShiftExpression	SimpleLogger ( ) . Write ( ) << \"loaded plugin
+>257	ShiftExpression	\"loaded plugin
+>258	CallExpression	plugin -> GetDescriptor ( )
+>259	ArgumentList	 
+>260	Callee	plugin -> GetDescriptor
+>261	PtrMemberAccess	plugin -> GetDescriptor
+>262	Identifier	GetDescriptor
+>263	Identifier	plugin
+>264	PrimaryExpression	\"loaded plugin
+>265	CallExpression	SimpleLogger ( ) . Write ( )
+>266	ArgumentList	 
+>267	Callee	SimpleLogger ( ) . Write
+>268	MemberAccess	SimpleLogger ( ) . Write
+>269	Identifier	Write
+>270	CallExpression	SimpleLogger ( )
+>271	ArgumentList	 
+>272	Callee	SimpleLogger
+>273	Identifier	SimpleLogger
+>284	FunctionDef	OSRM_impl 
+>285	ParameterList	RouteParameters & route_parameters , osrm 
+>286	Parameter	 
+>287	Identifier	json_result
+>288	ParameterType	osrm 
+>289	Parameter	 
+>290	Identifier	route_parameters
+>291	ParameterType	RouteParameters &
+>292	ReturnType	int
+>293	CompoundStatement	 
+>294	ReturnStatement	 
+>295	PrimaryExpression	200
+>296	ExpressionStatement	 
+>297	CallExpression	decrease_concurrent_query_count ( )
+>298	ArgumentList	 
+>299	Callee	decrease_concurrent_query_count
+>300	Identifier	decrease_concurrent_query_count
+>301	ExpressionStatement	 
+>302	CallExpression	plugin_iterator -> second -> HandleRequest ( route_parameters , json_result )
+>303	ArgumentList	route_parameters
+>304	Argument	json_result
+>305	Identifier	json_result
+>306	Argument	route_parameters
+>307	Identifier	route_parameters
+>308	Callee	plugin_iterator -> second -> HandleRequest
+>309	PtrMemberAccess	plugin_iterator -> second -> HandleRequest
+>310	Identifier	HandleRequest
+>311	PtrMemberAccess	plugin_iterator -> second
+>312	Identifier	second
+>313	Identifier	plugin_iterator
+>314	ExpressionStatement	 
+>315	CallExpression	increase_concurrent_query_count ( )
+>316	ArgumentList	 
+>317	Callee	increase_concurrent_query_count
+>318	Identifier	increase_concurrent_query_count
+>319	IfStatement	if ( plugin_map . end ( ) == plugin_iterator )
+>320	CompoundStatement	 
+>321	ReturnStatement	 
+>322	PrimaryExpression	400
+>323	Condition	 
+>324	EqualityExpression	plugin_map . end ( ) == plugin_iterator
+>325	Identifier	plugin_iterator
+>326	CallExpression	plugin_map . end ( )
+>327	ArgumentList	 
+>328	Callee	plugin_map . end
+>329	MemberAccess	plugin_map . end
+>330	Identifier	end
+>331	Identifier	plugin_map
+>332	ExpressionStatement	 
+>333	AssignmentExpr	& plugin_iterator = plugin_map . find ( route_parameters . service )
+>334	CallExpression	plugin_map . find ( route_parameters . service )
+>335	ArgumentList	route_parameters . service
+>336	Argument	route_parameters . service
+>337	MemberAccess	route_parameters . service
+>338	Identifier	service
+>339	Identifier	route_parameters
+>340	Callee	plugin_map . find
+>341	MemberAccess	plugin_map . find
+>342	Identifier	find
+>343	Identifier	plugin_map
+>344	UnaryOp	& plugin_iterator
+>345	Identifier	plugin_iterator
+>346	UnaryOperator	&
+>347	Statement	 
+>348	Statement	 
+>362	FunctionDef	OSRM_impl 
+>363	ParameterList	 
+>364	ReturnType	void
+>365	CompoundStatement	 
+>366	IfStatement	if ( 0 == barrier -> number_of_queries )
+>367	CompoundStatement	 
+>368	ExpressionStatement	 
+>369	CallExpression	barrier -> no_running_queries_condition . notify_all ( )
+>370	ArgumentList	 
+>371	Callee	barrier -> no_running_queries_condition . notify_all
+>372	MemberAccess	barrier -> no_running_queries_condition . notify_all
+>373	Identifier	notify_all
+>374	PtrMemberAccess	barrier -> no_running_queries_condition
+>375	Identifier	no_running_queries_condition
+>376	Identifier	barrier
+>377	Condition	 
+>378	EqualityExpression	0 == barrier -> number_of_queries
+>379	PtrMemberAccess	barrier -> number_of_queries
+>380	Identifier	number_of_queries
+>381	Identifier	barrier
+>382	PrimaryExpression	0
+>383	ExpressionStatement	 
+>384	CallExpression	BOOST_ASSERT_MSG ( 0 <= barrier -> number_of_queries , \"invalid number of queries\" )
+>385	ArgumentList	0 <= barrier -> number_of_queries
+>386	Argument	\"invalid number of queries\"
+>387	PrimaryExpression	\"invalid number of queries\"
+>388	Argument	0 <= barrier -> number_of_queries
+>389	RelationalExpression	0 <= barrier -> number_of_queries
+>390	PtrMemberAccess	barrier -> number_of_queries
+>391	Identifier	number_of_queries
+>392	Identifier	barrier
+>393	PrimaryExpression	0
+>394	Callee	BOOST_ASSERT_MSG
+>395	Identifier	BOOST_ASSERT_MSG
+>396	ExpressionStatement	 
+>397	UnaryExpression	-- ( barrier -> number_of_queries )
+>398	PtrMemberAccess	barrier -> number_of_queries
+>399	Identifier	number_of_queries
+>400	Identifier	barrier
+>401	IncDec	--
+>402	IdentifierDeclStatement	 
+>403	IdentifierDecl	query_lock ( barrier -> query_mutex )
+>404	PtrMemberAccess	barrier -> query_mutex
+>405	Identifier	query_mutex
+>406	Identifier	barrier
+>407	Identifier	query_lock
+>408	IdentifierDeclType	boost 
+>409	IfStatement	if ( ! barrier )
+>410	CompoundStatement	 
+>411	ReturnStatement	 
+>412	Condition	 
+>413	UnaryOp	! barrier
+>414	Identifier	barrier
+>415	UnaryOperator	!
+>424	FunctionDef	OSRM_impl 
+>425	ParameterList	 
+>426	ReturnType	void
+>427	CompoundStatement	 
+>428	ExpressionStatement	 
+>429	CallExpression	CheckAndReloadFacade ( )
+>430	ArgumentList	 
+>431	Callee	CheckAndReloadFacade
+>432	Identifier	CheckAndReloadFacade
+>433	Statement	 
+>434	Statement	 
+>435	Statement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	Statement	 
+>444	Statement	 
+>445	Statement	 
+>446	Statement	 
+>447	Statement	 
+>448	Statement	 
+>449	ExpressionStatement	 
+>450	UnaryExpression	++ ( barrier -> number_of_queries )
+>451	PtrMemberAccess	barrier -> number_of_queries
+>452	Identifier	number_of_queries
+>453	Identifier	barrier
+>454	IncDec	++
+>455	ExpressionStatement	 
+>456	CallExpression	pending_lock . unlock ( )
+>457	ArgumentList	 
+>458	Callee	pending_lock . unlock
+>459	MemberAccess	pending_lock . unlock
+>460	Identifier	unlock
+>461	Identifier	pending_lock
+>462	IdentifierDeclStatement	 
+>463	IdentifierDecl	query_lock ( barrier -> query_mutex )
+>464	PtrMemberAccess	barrier -> query_mutex
+>465	Identifier	query_mutex
+>466	Identifier	barrier
+>467	Identifier	query_lock
+>468	IdentifierDeclType	boost 
+>469	IdentifierDeclStatement	 
+>470	IdentifierDecl	pending_lock ( barrier -> pending_update_mutex )
+>471	PtrMemberAccess	barrier -> pending_update_mutex
+>472	Identifier	pending_update_mutex
+>473	Identifier	barrier
+>474	Identifier	pending_lock
+>475	IdentifierDeclType	boost 
+>476	IfStatement	if ( ! barrier )
+>477	CompoundStatement	 
+>478	ReturnStatement	 
+>479	Condition	 
+>480	UnaryOp	! barrier
+>481	Identifier	barrier
+>482	UnaryOperator	!
+>489	FunctionDef	OSRM 
+>490	ParameterList	libosrm_config & lib_config
+>491	Parameter	 
+>492	Identifier	lib_config
+>493	ParameterType	libosrm_config &
+>494	CompoundStatement	 
+>499	FunctionDef	OSRM 
+>500	ParameterList	 
+>501	CompoundStatement	 
+>502	ExpressionStatement	 
+>503	CallExpression	OSRM_pimpl_ . reset ( )
+>504	ArgumentList	 
+>505	Callee	OSRM_pimpl_ . reset
+>506	MemberAccess	OSRM_pimpl_ . reset
+>507	Identifier	reset
+>508	Identifier	OSRM_pimpl_
+>513	FunctionDef	OSRM 
+>514	ParameterList	RouteParameters & route_parameters , osrm 
+>515	Parameter	 
+>516	Identifier	json_result
+>517	ParameterType	osrm 
+>518	Parameter	 
+>519	Identifier	route_parameters
+>520	ParameterType	RouteParameters &
+>521	ReturnType	int
+>522	CompoundStatement	 
+>523	ReturnStatement	 
+>524	CallExpression	OSRM_pimpl_ -> RunQuery ( route_parameters , json_result )
+>525	ArgumentList	route_parameters
+>526	Argument	json_result
+>527	Identifier	json_result
+>528	Argument	route_parameters
+>529	Identifier	route_parameters
+>530	Callee	OSRM_pimpl_ -> RunQuery
+>531	PtrMemberAccess	OSRM_pimpl_ -> RunQuery
+>532	Identifier	RunQuery
+>533	Identifier	OSRM_pimpl_
+<3=9,8,4
+<4=5
+<5=7,6
+<9=121,120,119,118,117,116,115,114,113,112,111,110,109,108,107,106,105,104,103,102,101,94,93,92,91,90,89,88,87,86,85,84,83,82,81,80,79,78,77,76,75,74,73,72,71,70,69,68,67,66,65,64,63,62,61,60,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59
+<94=95
+<95=99,96
+<96=97
+<97=98
+<99=100
+<121=155,139,122
+<122=123
+<123=130,124
+<124=125
+<125=129,126
+<126=128,127
+<130=131
+<131=137,132
+<132=133
+<133=134
+<134=136,135
+<137=138
+<139=154,153,152,151,150,149,148,147,146,145,144,140
+<140=141
+<141=143,142
+<155=156
+<156=158,157
+<166=168,167
+<168=187,185,184,183,182,181,180,179,177,176,175,169
+<169=174,170
+<170=171
+<171=173,172
+<177=178
+<185=186
+<192=198,197,193
+<193=194
+<194=196,195
+<198=255,215,199
+<199=200
+<200=211,201
+<201=204,202
+<202=203
+<204=205
+<205=207,206
+<207=208
+<208=210,209
+<211=212
+<212=214,213
+<215=234,216
+<216=233,217
+<217=218
+<218=220,219
+<220=229,221
+<221=222
+<222=223
+<223=225,224
+<225=226
+<226=228,227
+<229=230
+<230=232,231
+<234=235
+<235=242,236
+<236=238,237
+<238=239
+<239=241,240
+<242=251,243
+<243=244
+<244=245
+<245=247,246
+<247=248
+<248=250,249
+<251=252
+<252=254,253
+<255=256
+<256=265,257
+<257=264,258
+<258=260,259
+<260=261
+<261=263,262
+<265=267,266
+<267=268
+<268=270,269
+<270=272,271
+<272=273
+<284=293,292,285
+<285=289,286
+<286=288,287
+<289=291,290
+<293=348,347,332,319,314,301,296,294
+<294=295
+<296=297
+<297=299,298
+<299=300
+<301=302
+<302=308,303
+<303=306,304
+<304=305
+<306=307
+<308=309
+<309=311,310
+<311=313,312
+<314=315
+<315=317,316
+<317=318
+<319=323,320
+<320=321
+<321=322
+<323=324
+<324=326,325
+<326=328,327
+<328=329
+<329=331,330
+<332=333
+<333=344,334
+<334=340,335
+<335=336
+<336=337
+<337=339,338
+<340=341
+<341=343,342
+<344=346,345
+<362=365,364,363
+<365=409,402,396,383,366
+<366=377,367
+<367=368
+<368=369
+<369=371,370
+<371=372
+<372=374,373
+<374=376,375
+<377=378
+<378=382,379
+<379=381,380
+<383=384
+<384=394,385
+<385=388,386
+<386=387
+<388=389
+<389=393,390
+<390=392,391
+<394=395
+<396=397
+<397=401,398
+<398=400,399
+<402=403
+<403=408,407,404
+<404=406,405
+<409=412,410
+<410=411
+<412=413
+<413=415,414
+<424=427,426,425
+<427=476,469,462,455,449,448,447,446,445,444,443,442,441,440,439,438,437,436,435,434,433,428
+<428=429
+<429=431,430
+<431=432
+<449=450
+<450=454,451
+<451=453,452
+<455=456
+<456=458,457
+<458=459
+<459=461,460
+<462=463
+<463=468,467,464
+<464=466,465
+<469=470
+<470=475,474,471
+<471=473,472
+<476=479,477
+<477=478
+<479=480
+<480=482,481
+<489=494,490
+<490=491
+<491=493,492
+<499=501,500
+<501=502
+<502=503
+<503=505,504
+<505=506
+<506=508,507
+<513=522,521,514
+<514=518,515
+<515=517,516
+<518=520,519
+<522=523
+<523=524
+<524=530,525
+<525=528,526
+<526=527
+<528=529
+<530=531
+<531=533,532

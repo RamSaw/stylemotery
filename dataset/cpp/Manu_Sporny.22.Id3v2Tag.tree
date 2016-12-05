@@ -1,0 +1,1046 @@
+>3	FunctionDef	Id3v2Tag 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	Id3v2Tag 
+>10	ParameterList	Contract & c , FileInfo & fi
+>11	Parameter	 
+>12	Identifier	fi
+>13	ParameterType	FileInfo &
+>14	Parameter	 
+>15	Identifier	c
+>16	ParameterType	Contract &
+>17	CompoundStatement	 
+>18	ExpressionStatement	 
+>19	CallExpression	addFrames ( & c , & fi , NULL )
+>20	ArgumentList	& c
+>21	Argument	NULL
+>22	Identifier	NULL
+>23	Argument	& fi
+>24	UnaryOp	& fi
+>25	Identifier	fi
+>26	UnaryOperator	&
+>27	Argument	& c
+>28	UnaryOp	& c
+>29	Identifier	c
+>30	UnaryOperator	&
+>31	Callee	addFrames
+>32	Identifier	addFrames
+>41	FunctionDef	Id3v2Tag 
+>42	ParameterList	Media & m
+>43	Parameter	 
+>44	Identifier	m
+>45	ParameterType	Media &
+>46	CompoundStatement	 
+>47	ExpressionStatement	 
+>48	CallExpression	addFrames ( NULL , NULL , & m )
+>49	ArgumentList	NULL
+>50	Argument	& m
+>51	UnaryOp	& m
+>52	Identifier	m
+>53	UnaryOperator	&
+>54	Argument	NULL
+>55	Identifier	NULL
+>56	Argument	NULL
+>57	Identifier	NULL
+>58	Callee	addFrames
+>59	Identifier	addFrames
+>66	FunctionDef	Id3v2Tag 
+>67	ParameterList	Contract * c , FileInfo * fi , Media * m
+>68	Parameter	 
+>69	Identifier	m
+>70	ParameterType	Media *
+>71	Parameter	 
+>72	Identifier	fi
+>73	ParameterType	FileInfo *
+>74	Parameter	 
+>75	Identifier	c
+>76	ParameterType	Contract *
+>77	ReturnType	void
+>78	CompoundStatement	 
+>79	IfStatement	if ( c != NULL )
+>80	CompoundStatement	 
+>81	ExpressionStatement	 
+>82	CallExpression	addFrameHeader ( xbmc , true )
+>83	ArgumentList	xbmc
+>84	Argument	true
+>85	Identifier	true
+>86	Argument	xbmc
+>87	Identifier	xbmc
+>88	Callee	addFrameHeader
+>89	Identifier	addFrameHeader
+>90	ExpressionStatement	 
+>91	CallExpression	mFrameIO . updateFrameSize ( xbmc )
+>92	ArgumentList	xbmc
+>93	Argument	xbmc
+>94	Identifier	xbmc
+>95	Callee	mFrameIO . updateFrameSize
+>96	MemberAccess	mFrameIO . updateFrameSize
+>97	Identifier	updateFrameSize
+>98	Identifier	mFrameIO
+>99	ExpressionStatement	 
+>100	CallExpression	xbmc -> setId ( \"XBMC\" )
+>101	ArgumentList	\"XBMC\"
+>102	Argument	\"XBMC\"
+>103	PrimaryExpression	\"XBMC\"
+>104	Callee	xbmc -> setId
+>105	PtrMemberAccess	xbmc -> setId
+>106	Identifier	setId
+>107	Identifier	xbmc
+>108	IdentifierDeclStatement	 
+>109	IdentifierDecl	* xbmc = new FrameHeader ( )
+>110	AssignmentExpr	* xbmc = new FrameHeader ( )
+>111	UnaryExpression	new FrameHeader ( )
+>112	Identifier	xbmc
+>113	Identifier	xbmc
+>114	IdentifierDeclType	FrameHeader *
+>115	Condition	 
+>116	EqualityExpression	c != NULL
+>117	Identifier	NULL
+>118	Identifier	c
+>119	IfStatement	if ( media -> hasMember ( \"coverImageUrl\" ) )
+>120	CompoundStatement	 
+>121	IfStatement	if ( client . connect ( & url ) )
+>122	CompoundStatement	 
+>123	IfStatement	if ( response != NULL && response -> getHeader ( ) -> getStatusCode ( ) == 200 )
+>124	CompoundStatement	 
+>125	ExpressionStatement	 
+>126	CallExpression	fos . close ( )
+>127	ArgumentList	 
+>128	Callee	fos . close
+>129	MemberAccess	fos . close
+>130	Identifier	close
+>131	Identifier	fos
+>132	IfStatement	if ( client . receiveContent ( & fos , & trailer ) )
+>133	CompoundStatement	 
+>134	ExpressionStatement	 
+>135	CallExpression	addFrameHeader ( apic , true )
+>136	ArgumentList	apic
+>137	Argument	true
+>138	Identifier	true
+>139	Argument	apic
+>140	Identifier	apic
+>141	Callee	addFrameHeader
+>142	Identifier	addFrameHeader
+>143	ExpressionStatement	 
+>144	CallExpression	mFrameIO . updateFrameSize ( apic )
+>145	ArgumentList	apic
+>146	Argument	apic
+>147	Identifier	apic
+>148	Callee	mFrameIO . updateFrameSize
+>149	MemberAccess	mFrameIO . updateFrameSize
+>150	Identifier	updateFrameSize
+>151	Identifier	mFrameIO
+>152	ExpressionStatement	 
+>153	CallExpression	mFrameIO . setImageFile ( imageFile , \"image/jpeg\" , \"Cover Art\" )
+>154	ArgumentList	imageFile
+>155	Argument	\"Cover Art\"
+>156	PrimaryExpression	\"Cover Art\"
+>157	Argument	\"image/jpeg\"
+>158	PrimaryExpression	\"image/jpeg\"
+>159	Argument	imageFile
+>160	Identifier	imageFile
+>161	Callee	mFrameIO . setImageFile
+>162	MemberAccess	mFrameIO . setImageFile
+>163	Identifier	setImageFile
+>164	Identifier	mFrameIO
+>165	ExpressionStatement	 
+>166	CallExpression	apic -> setId ( \"APIC\" )
+>167	ArgumentList	\"APIC\"
+>168	Argument	\"APIC\"
+>169	PrimaryExpression	\"APIC\"
+>170	Callee	apic -> setId
+>171	PtrMemberAccess	apic -> setId
+>172	Identifier	setId
+>173	Identifier	apic
+>174	IdentifierDeclStatement	 
+>175	IdentifierDecl	* apic = new FrameHeader ( )
+>176	AssignmentExpr	* apic = new FrameHeader ( )
+>177	UnaryExpression	new FrameHeader ( )
+>178	Identifier	apic
+>179	Identifier	apic
+>180	IdentifierDeclType	FrameHeader *
+>181	Condition	 
+>182	CallExpression	client . receiveContent ( & fos , & trailer )
+>183	ArgumentList	& fos
+>184	Argument	& trailer
+>185	UnaryOp	& trailer
+>186	Identifier	trailer
+>187	UnaryOperator	&
+>188	Argument	& fos
+>189	UnaryOp	& fos
+>190	Identifier	fos
+>191	UnaryOperator	&
+>192	Callee	client . receiveContent
+>193	MemberAccess	client . receiveContent
+>194	Identifier	receiveContent
+>195	Identifier	client
+>196	IdentifierDeclStatement	 
+>197	IdentifierDecl	fos ( imageFile )
+>198	Identifier	imageFile
+>199	Identifier	fos
+>200	IdentifierDeclType	FileOutputStream
+>201	IdentifierDeclStatement	 
+>202	IdentifierDecl	trailer
+>203	Identifier	trailer
+>204	IdentifierDeclType	HttpTrailer
+>205	IdentifierDeclStatement	 
+>206	IdentifierDecl	imageFile = File 
+>207	AssignmentExpr	imageFile = File 
+>208	CallExpression	File 
+>209	ArgumentList	\"tmpimage.\"
+>210	Argument	\"tmpimage.\"
+>211	PrimaryExpression	\"tmpimage.\"
+>212	Callee	File 
+>213	Identifier	File 
+>214	Identifier	imageFile
+>215	Identifier	imageFile
+>216	IdentifierDeclType	File
+>217	Condition	 
+>218	AndExpression	response != NULL && response -> getHeader ( ) -> getStatusCode ( ) == 200
+>219	EqualityExpression	response -> getHeader ( ) -> getStatusCode ( ) == 200
+>220	PrimaryExpression	200
+>221	CallExpression	response -> getHeader ( ) -> getStatusCode ( )
+>222	ArgumentList	 
+>223	Callee	response -> getHeader ( ) -> getStatusCode
+>224	PtrMemberAccess	response -> getHeader ( ) -> getStatusCode
+>225	Identifier	getStatusCode
+>226	CallExpression	response -> getHeader ( )
+>227	ArgumentList	 
+>228	Callee	response -> getHeader
+>229	PtrMemberAccess	response -> getHeader
+>230	Identifier	getHeader
+>231	Identifier	response
+>232	EqualityExpression	response != NULL
+>233	Identifier	NULL
+>234	Identifier	response
+>235	IdentifierDeclStatement	 
+>236	IdentifierDecl	* response = client . get ( & url )
+>237	AssignmentExpr	* response = client . get ( & url )
+>238	CallExpression	client . get ( & url )
+>239	ArgumentList	& url
+>240	Argument	& url
+>241	UnaryOp	& url
+>242	Identifier	url
+>243	UnaryOperator	&
+>244	Callee	client . get
+>245	MemberAccess	client . get
+>246	Identifier	get
+>247	Identifier	client
+>248	Identifier	response
+>249	Identifier	response
+>250	IdentifierDeclType	HttpResponse *
+>251	Condition	 
+>252	CallExpression	client . connect ( & url )
+>253	ArgumentList	& url
+>254	Argument	& url
+>255	UnaryOp	& url
+>256	Identifier	url
+>257	UnaryOperator	&
+>258	Callee	client . connect
+>259	MemberAccess	client . connect
+>260	Identifier	connect
+>261	Identifier	client
+>262	IdentifierDeclStatement	 
+>263	IdentifierDecl	client
+>264	Identifier	client
+>265	IdentifierDeclType	HttpClient
+>266	IdentifierDeclStatement	 
+>267	IdentifierDecl	url ( media [ \"coverImageUrl\" ] -> getString ( ) )
+>268	CallExpression	media [ \"coverImageUrl\" ] -> getString ( )
+>269	ArgumentList	 
+>270	Callee	media [ \"coverImageUrl\" ] -> getString
+>271	PtrMemberAccess	media [ \"coverImageUrl\" ] -> getString
+>272	Identifier	getString
+>273	ArrayIndexing	media [ \"coverImageUrl\" ]
+>274	PrimaryExpression	\"coverImageUrl\"
+>275	Identifier	media
+>276	Identifier	url
+>277	IdentifierDeclType	Url
+>278	Condition	 
+>279	CallExpression	media -> hasMember ( \"coverImageUrl\" )
+>280	ArgumentList	\"coverImageUrl\"
+>281	Argument	\"coverImageUrl\"
+>282	PrimaryExpression	\"coverImageUrl\"
+>283	Callee	media -> hasMember
+>284	PtrMemberAccess	media -> hasMember
+>285	Identifier	hasMember
+>286	Identifier	media
+>287	ExpressionStatement	 
+>288	CallExpression	addFrameHeader ( tlen , true )
+>289	ArgumentList	tlen
+>290	Argument	true
+>291	Identifier	true
+>292	Argument	tlen
+>293	Identifier	tlen
+>294	Callee	addFrameHeader
+>295	Identifier	addFrameHeader
+>296	ExpressionStatement	 
+>297	CallExpression	mFrameIO . updateFrameSize ( tlen )
+>298	ArgumentList	tlen
+>299	Argument	tlen
+>300	Identifier	tlen
+>301	Callee	mFrameIO . updateFrameSize
+>302	MemberAccess	mFrameIO . updateFrameSize
+>303	Identifier	updateFrameSize
+>304	Identifier	mFrameIO
+>305	ExpressionStatement	 
+>306	CallExpression	tlen -> setId ( \"TLEN\" )
+>307	ArgumentList	\"TLEN\"
+>308	Argument	\"TLEN\"
+>309	PrimaryExpression	\"TLEN\"
+>310	Callee	tlen -> setId
+>311	PtrMemberAccess	tlen -> setId
+>312	Identifier	setId
+>313	Identifier	tlen
+>314	IdentifierDeclStatement	 
+>315	IdentifierDecl	* tlen = new FrameHeader ( )
+>316	AssignmentExpr	* tlen = new FrameHeader ( )
+>317	UnaryExpression	new FrameHeader ( )
+>318	Identifier	tlen
+>319	Identifier	tlen
+>320	IdentifierDeclType	FrameHeader *
+>321	IfStatement	if ( track > 0 )
+>322	CompoundStatement	 
+>323	ExpressionStatement	 
+>324	CallExpression	addFrameHeader ( trck , true )
+>325	ArgumentList	trck
+>326	Argument	true
+>327	Identifier	true
+>328	Argument	trck
+>329	Identifier	trck
+>330	Callee	addFrameHeader
+>331	Identifier	addFrameHeader
+>332	ExpressionStatement	 
+>333	CallExpression	mFrameIO . updateFrameSize ( trck )
+>334	ArgumentList	trck
+>335	Argument	trck
+>336	Identifier	trck
+>337	Callee	mFrameIO . updateFrameSize
+>338	MemberAccess	mFrameIO . updateFrameSize
+>339	Identifier	updateFrameSize
+>340	Identifier	mFrameIO
+>341	ExpressionStatement	 
+>342	CallExpression	mFrameIO . setTrackNumber ( track )
+>343	ArgumentList	track
+>344	Argument	track
+>345	Identifier	track
+>346	Callee	mFrameIO . setTrackNumber
+>347	MemberAccess	mFrameIO . setTrackNumber
+>348	Identifier	setTrackNumber
+>349	Identifier	mFrameIO
+>350	ExpressionStatement	 
+>351	CallExpression	trck -> setId ( \"TRCK\" )
+>352	ArgumentList	\"TRCK\"
+>353	Argument	\"TRCK\"
+>354	PrimaryExpression	\"TRCK\"
+>355	Callee	trck -> setId
+>356	PtrMemberAccess	trck -> setId
+>357	Identifier	setId
+>358	Identifier	trck
+>359	IdentifierDeclStatement	 
+>360	IdentifierDecl	* trck = new FrameHeader ( )
+>361	AssignmentExpr	* trck = new FrameHeader ( )
+>362	UnaryExpression	new FrameHeader ( )
+>363	Identifier	trck
+>364	Identifier	trck
+>365	IdentifierDeclType	FrameHeader *
+>366	Condition	 
+>367	RelationalExpression	track > 0
+>368	PrimaryExpression	0
+>369	Identifier	track
+>370	ExpressionStatement	 
+>371	CallExpression	addFrameHeader ( tit2 , true )
+>372	ArgumentList	tit2
+>373	Argument	true
+>374	Identifier	true
+>375	Argument	tit2
+>376	Identifier	tit2
+>377	Callee	addFrameHeader
+>378	Identifier	addFrameHeader
+>379	ExpressionStatement	 
+>380	CallExpression	mFrameIO . updateFrameSize ( tit2 )
+>381	ArgumentList	tit2
+>382	Argument	tit2
+>383	Identifier	tit2
+>384	Callee	mFrameIO . updateFrameSize
+>385	MemberAccess	mFrameIO . updateFrameSize
+>386	Identifier	updateFrameSize
+>387	Identifier	mFrameIO
+>388	ExpressionStatement	 
+>389	CallExpression	tit2 -> setId ( \"TIT2\" )
+>390	ArgumentList	\"TIT2\"
+>391	Argument	\"TIT2\"
+>392	PrimaryExpression	\"TIT2\"
+>393	Callee	tit2 -> setId
+>394	PtrMemberAccess	tit2 -> setId
+>395	Identifier	setId
+>396	Identifier	tit2
+>397	IdentifierDeclStatement	 
+>398	IdentifierDecl	* tit2 = new FrameHeader ( )
+>399	AssignmentExpr	* tit2 = new FrameHeader ( )
+>400	UnaryExpression	new FrameHeader ( )
+>401	Identifier	tit2
+>402	Identifier	tit2
+>403	IdentifierDeclType	FrameHeader *
+>404	ExpressionStatement	 
+>405	CallExpression	addFrameHeader ( tpe1 , true )
+>406	ArgumentList	tpe1
+>407	Argument	true
+>408	Identifier	true
+>409	Argument	tpe1
+>410	Identifier	tpe1
+>411	Callee	addFrameHeader
+>412	Identifier	addFrameHeader
+>413	ExpressionStatement	 
+>414	CallExpression	mFrameIO . updateFrameSize ( tpe1 )
+>415	ArgumentList	tpe1
+>416	Argument	tpe1
+>417	Identifier	tpe1
+>418	Callee	mFrameIO . updateFrameSize
+>419	MemberAccess	mFrameIO . updateFrameSize
+>420	Identifier	updateFrameSize
+>421	Identifier	mFrameIO
+>422	ExpressionStatement	 
+>423	CallExpression	tpe1 -> setId ( \"TPE1\" )
+>424	ArgumentList	\"TPE1\"
+>425	Argument	\"TPE1\"
+>426	PrimaryExpression	\"TPE1\"
+>427	Callee	tpe1 -> setId
+>428	PtrMemberAccess	tpe1 -> setId
+>429	Identifier	setId
+>430	Identifier	tpe1
+>431	IdentifierDeclStatement	 
+>432	IdentifierDecl	* tpe1 = new FrameHeader ( )
+>433	AssignmentExpr	* tpe1 = new FrameHeader ( )
+>434	UnaryExpression	new FrameHeader ( )
+>435	Identifier	tpe1
+>436	Identifier	tpe1
+>437	IdentifierDeclType	FrameHeader *
+>438	ExpressionStatement	 
+>439	CallExpression	mFrameIO . setMedia ( media )
+>440	ArgumentList	media
+>441	Argument	media
+>442	Identifier	media
+>443	Callee	mFrameIO . setMedia
+>444	MemberAccess	mFrameIO . setMedia
+>445	Identifier	setMedia
+>446	Identifier	mFrameIO
+>447	IfStatement	if ( c != NULL )
+>448	ElseStatement	else
+>449	IfStatement	if ( m != NULL )
+>450	CompoundStatement	 
+>451	ExpressionStatement	 
+>452	AssignmentExpr	media = * m
+>453	UnaryOp	* m
+>454	Identifier	m
+>455	UnaryOperator	*
+>456	Identifier	media
+>457	Condition	 
+>458	EqualityExpression	m != NULL
+>459	Identifier	NULL
+>460	Identifier	m
+>461	CompoundStatement	 
+>462	ExpressionStatement	 
+>463	CallExpression	mFrameIO . setContract ( contract )
+>464	ArgumentList	contract
+>465	Argument	contract
+>466	Identifier	contract
+>467	Callee	mFrameIO . setContract
+>468	MemberAccess	mFrameIO . setContract
+>469	Identifier	setContract
+>470	Identifier	mFrameIO
+>471	IfStatement	if ( strcmp ( media [ \"type\" ] -> getString ( ) , \"collection\" ) == 0 )
+>472	CompoundStatement	 
+>473	WhileStatement	while ( ! found && gi -> hasNext ( ) )
+>474	CompoundStatement	 
+>475	WhileStatement	while ( ! found && mi -> hasNext ( ) )
+>476	CompoundStatement	 
+>477	IfStatement	if ( BM_MEDIA_ID_EQUALS ( BM_MEDIA_ID ( next [ \"id\" ] ) , mediaId ) )
+>478	CompoundStatement	 
+>479	ExpressionStatement	 
+>480	AssignmentExpr	found = true
+>481	Identifier	true
+>482	Identifier	found
+>483	ExpressionStatement	 
+>484	AssignmentExpr	media = next
+>485	Identifier	next
+>486	Identifier	media
+>487	Condition	 
+>488	CallExpression	BM_MEDIA_ID_EQUALS ( BM_MEDIA_ID ( next [ \"id\" ] ) , mediaId )
+>489	ArgumentList	BM_MEDIA_ID ( next [ \"id\" ] )
+>490	Argument	mediaId
+>491	Identifier	mediaId
+>492	Argument	BM_MEDIA_ID ( next [ \"id\" ] )
+>493	CallExpression	BM_MEDIA_ID ( next [ \"id\" ] )
+>494	ArgumentList	next [ \"id\" ]
+>495	Argument	next [ \"id\" ]
+>496	ArrayIndexing	next [ \"id\" ]
+>497	PrimaryExpression	\"id\"
+>498	Identifier	next
+>499	Callee	BM_MEDIA_ID
+>500	Identifier	BM_MEDIA_ID
+>501	Callee	BM_MEDIA_ID_EQUALS
+>502	Identifier	BM_MEDIA_ID_EQUALS
+>503	ExpressionStatement	 
+>504	UnaryExpression	++ track
+>505	Identifier	track
+>506	IncDec	++
+>507	IdentifierDeclStatement	 
+>508	IdentifierDecl	& next = mi -> next ( )
+>509	AssignmentExpr	& next = mi -> next ( )
+>510	CallExpression	mi -> next ( )
+>511	ArgumentList	 
+>512	Callee	mi -> next
+>513	PtrMemberAccess	mi -> next
+>514	Identifier	next
+>515	Identifier	mi
+>516	Identifier	next
+>517	Identifier	next
+>518	IdentifierDeclType	Media &
+>519	Condition	 
+>520	AndExpression	! found && mi -> hasNext ( )
+>521	CallExpression	mi -> hasNext ( )
+>522	ArgumentList	 
+>523	Callee	mi -> hasNext
+>524	PtrMemberAccess	mi -> hasNext
+>525	Identifier	hasNext
+>526	Identifier	mi
+>527	UnaryOp	! found
+>528	Identifier	found
+>529	UnaryOperator	!
+>530	IdentifierDeclStatement	 
+>531	IdentifierDecl	mi = group . getIterator ( )
+>532	AssignmentExpr	mi = group . getIterator ( )
+>533	CallExpression	group . getIterator ( )
+>534	ArgumentList	 
+>535	Callee	group . getIterator
+>536	MemberAccess	group . getIterator
+>537	Identifier	getIterator
+>538	Identifier	group
+>539	Identifier	mi
+>540	Identifier	mi
+>541	IdentifierDeclType	MediaIterator
+>542	IdentifierDeclStatement	 
+>543	IdentifierDecl	& group = gi -> next ( )
+>544	AssignmentExpr	& group = gi -> next ( )
+>545	CallExpression	gi -> next ( )
+>546	ArgumentList	 
+>547	Callee	gi -> next
+>548	PtrMemberAccess	gi -> next
+>549	Identifier	next
+>550	Identifier	gi
+>551	Identifier	group
+>552	Identifier	group
+>553	IdentifierDeclType	DynamicObject &
+>554	Condition	 
+>555	AndExpression	! found && gi -> hasNext ( )
+>556	CallExpression	gi -> hasNext ( )
+>557	ArgumentList	 
+>558	Callee	gi -> hasNext
+>559	PtrMemberAccess	gi -> hasNext
+>560	Identifier	hasNext
+>561	Identifier	gi
+>562	UnaryOp	! found
+>563	Identifier	found
+>564	UnaryOperator	!
+>565	IdentifierDeclStatement	 
+>566	IdentifierDecl	gi = media [ \"contents\" ] . getIterator ( )
+>567	AssignmentExpr	gi = media [ \"contents\" ] . getIterator ( )
+>568	CallExpression	media [ \"contents\" ] . getIterator ( )
+>569	ArgumentList	 
+>570	Callee	media [ \"contents\" ] . getIterator
+>571	MemberAccess	media [ \"contents\" ] . getIterator
+>572	Identifier	getIterator
+>573	ArrayIndexing	media [ \"contents\" ]
+>574	PrimaryExpression	\"contents\"
+>575	Identifier	media
+>576	Identifier	gi
+>577	Identifier	gi
+>578	IdentifierDeclType	DynamicObjectIterator
+>579	IdentifierDeclStatement	 
+>580	IdentifierDecl	found = false
+>581	AssignmentExpr	found = false
+>582	Identifier	false
+>583	Identifier	false
+>584	Identifier	found
+>585	IdentifierDeclType	bool
+>586	Condition	 
+>587	EqualityExpression	strcmp ( media [ \"type\" ] -> getString ( ) , \"collection\" ) == 0
+>588	PrimaryExpression	0
+>589	CallExpression	strcmp ( media [ \"type\" ] -> getString ( ) , \"collection\" )
+>590	ArgumentList	media [ \"type\" ] -> getString ( )
+>591	Argument	\"collection\"
+>592	PrimaryExpression	\"collection\"
+>593	Argument	media [ \"type\" ] -> getString ( )
+>594	CallExpression	media [ \"type\" ] -> getString ( )
+>595	ArgumentList	 
+>596	Callee	media [ \"type\" ] -> getString
+>597	PtrMemberAccess	media [ \"type\" ] -> getString
+>598	Identifier	getString
+>599	ArrayIndexing	media [ \"type\" ]
+>600	PrimaryExpression	\"type\"
+>601	Identifier	media
+>602	Callee	strcmp
+>603	Identifier	strcmp
+>604	ExpressionStatement	 
+>605	AssignmentExpr	media = contract [ \"media\" ]
+>606	ArrayIndexing	contract [ \"media\" ]
+>607	PrimaryExpression	\"media\"
+>608	Identifier	contract
+>609	Identifier	media
+>610	IdentifierDeclStatement	 
+>611	IdentifierDecl	mediaId = BM_MEDIA_ID ( ( * fi ) [ \"mediaId\" ] )
+>612	AssignmentExpr	mediaId = BM_MEDIA_ID ( ( * fi ) [ \"mediaId\" ] )
+>613	CallExpression	BM_MEDIA_ID ( ( * fi ) [ \"mediaId\" ] )
+>614	ArgumentList	( * fi ) [ \"mediaId\" ]
+>615	Argument	( * fi ) [ \"mediaId\" ]
+>616	ArrayIndexing	( * fi ) [ \"mediaId\" ]
+>617	PrimaryExpression	\"mediaId\"
+>618	UnaryOp	* fi
+>619	Identifier	fi
+>620	UnaryOperator	*
+>621	Callee	BM_MEDIA_ID
+>622	Identifier	BM_MEDIA_ID
+>623	Identifier	mediaId
+>624	Identifier	mediaId
+>625	IdentifierDeclType	MediaId
+>626	ExpressionStatement	 
+>627	CallExpression	contract [ \"sections\" ] -> clear ( )
+>628	ArgumentList	 
+>629	Callee	contract [ \"sections\" ] -> clear
+>630	PtrMemberAccess	contract [ \"sections\" ] -> clear
+>631	Identifier	clear
+>632	ArrayIndexing	contract [ \"sections\" ]
+>633	PrimaryExpression	\"sections\"
+>634	Identifier	contract
+>635	IdentifierDeclStatement	 
+>636	IdentifierDecl	contract = c -> clone ( )
+>637	AssignmentExpr	contract = c -> clone ( )
+>638	CallExpression	c -> clone ( )
+>639	ArgumentList	 
+>640	Callee	c -> clone
+>641	PtrMemberAccess	c -> clone
+>642	Identifier	clone
+>643	Identifier	c
+>644	Identifier	contract
+>645	Identifier	contract
+>646	IdentifierDeclType	Contract
+>647	Condition	 
+>648	EqualityExpression	c != NULL
+>649	Identifier	NULL
+>650	Identifier	c
+>651	IdentifierDeclStatement	 
+>652	IdentifierDecl	media ( NULL )
+>653	Identifier	NULL
+>654	Identifier	media
+>655	IdentifierDeclType	Media
+>656	IdentifierDeclStatement	 
+>657	IdentifierDecl	track = 0
+>658	AssignmentExpr	track = 0
+>659	PrimaryExpression	0
+>660	Identifier	track
+>661	Identifier	track
+>662	IdentifierDeclType	int
+>728	FunctionDef	Id3v2Tag 
+>729	ParameterList	 
+>730	CompoundStatement	 
+>734	FunctionDef	Id3v2Tag 
+>735	ParameterList	 
+>736	ReturnType	Id3v2TagFrameIO *
+>737	CompoundStatement	 
+>738	ReturnStatement	 
+>739	Identifier	mFrameSource
+>744	FunctionDef	Id3v2Tag 
+>745	ParameterList	 
+>746	ReturnType	Id3v2TagFrameIO *
+>747	CompoundStatement	 
+>748	ReturnStatement	 
+>749	Identifier	mFrameSink
+<3=5,4
+<9=17,10
+<10=14,11
+<11=13,12
+<14=16,15
+<17=18
+<18=19
+<19=31,20
+<20=27,23,21
+<21=22
+<23=24
+<24=26,25
+<27=28
+<28=30,29
+<31=32
+<41=46,42
+<42=43
+<43=45,44
+<46=47
+<47=48
+<48=58,49
+<49=56,54,50
+<50=51
+<51=53,52
+<54=55
+<56=57
+<58=59
+<66=78,77,67
+<67=74,71,68
+<68=70,69
+<71=73,72
+<74=76,75
+<78=656,651,447,438,431,422,413,404,397,388,379,370,321,314,305,296,287,119,79
+<79=115,80
+<80=108,99,90,81
+<81=82
+<82=88,83
+<83=86,84
+<84=85
+<86=87
+<88=89
+<90=91
+<91=95,92
+<92=93
+<93=94
+<95=96
+<96=98,97
+<99=100
+<100=104,101
+<101=102
+<102=103
+<104=105
+<105=107,106
+<108=109
+<109=114,113,110
+<110=112,111
+<115=116
+<116=118,117
+<119=278,120
+<120=266,262,121
+<121=251,122
+<122=235,123
+<123=217,124
+<124=205,201,196,132,125
+<125=126
+<126=128,127
+<128=129
+<129=131,130
+<132=181,133
+<133=174,165,152,143,134
+<134=135
+<135=141,136
+<136=139,137
+<137=138
+<139=140
+<141=142
+<143=144
+<144=148,145
+<145=146
+<146=147
+<148=149
+<149=151,150
+<152=153
+<153=161,154
+<154=159,157,155
+<155=156
+<157=158
+<159=160
+<161=162
+<162=164,163
+<165=166
+<166=170,167
+<167=168
+<168=169
+<170=171
+<171=173,172
+<174=175
+<175=180,179,176
+<176=178,177
+<181=182
+<182=192,183
+<183=188,184
+<184=185
+<185=187,186
+<188=189
+<189=191,190
+<192=193
+<193=195,194
+<196=197
+<197=200,199,198
+<201=202
+<202=204,203
+<205=206
+<206=216,215,207
+<207=214,208
+<208=212,209
+<209=210
+<210=211
+<212=213
+<217=218
+<218=232,219
+<219=221,220
+<221=223,222
+<223=224
+<224=226,225
+<226=228,227
+<228=229
+<229=231,230
+<232=234,233
+<235=236
+<236=250,249,237
+<237=248,238
+<238=244,239
+<239=240
+<240=241
+<241=243,242
+<244=245
+<245=247,246
+<251=252
+<252=258,253
+<253=254
+<254=255
+<255=257,256
+<258=259
+<259=261,260
+<262=263
+<263=265,264
+<266=267
+<267=277,276,268
+<268=270,269
+<270=271
+<271=273,272
+<273=275,274
+<278=279
+<279=283,280
+<280=281
+<281=282
+<283=284
+<284=286,285
+<287=288
+<288=294,289
+<289=292,290
+<290=291
+<292=293
+<294=295
+<296=297
+<297=301,298
+<298=299
+<299=300
+<301=302
+<302=304,303
+<305=306
+<306=310,307
+<307=308
+<308=309
+<310=311
+<311=313,312
+<314=315
+<315=320,319,316
+<316=318,317
+<321=366,322
+<322=359,350,341,332,323
+<323=324
+<324=330,325
+<325=328,326
+<326=327
+<328=329
+<330=331
+<332=333
+<333=337,334
+<334=335
+<335=336
+<337=338
+<338=340,339
+<341=342
+<342=346,343
+<343=344
+<344=345
+<346=347
+<347=349,348
+<350=351
+<351=355,352
+<352=353
+<353=354
+<355=356
+<356=358,357
+<359=360
+<360=365,364,361
+<361=363,362
+<366=367
+<367=369,368
+<370=371
+<371=377,372
+<372=375,373
+<373=374
+<375=376
+<377=378
+<379=380
+<380=384,381
+<381=382
+<382=383
+<384=385
+<385=387,386
+<388=389
+<389=393,390
+<390=391
+<391=392
+<393=394
+<394=396,395
+<397=398
+<398=403,402,399
+<399=401,400
+<404=405
+<405=411,406
+<406=409,407
+<407=408
+<409=410
+<411=412
+<413=414
+<414=418,415
+<415=416
+<416=417
+<418=419
+<419=421,420
+<422=423
+<423=427,424
+<424=425
+<425=426
+<427=428
+<428=430,429
+<431=432
+<432=437,436,433
+<433=435,434
+<438=439
+<439=443,440
+<440=441
+<441=442
+<443=444
+<444=446,445
+<447=647,461,448
+<448=449
+<449=457,450
+<450=451
+<451=452
+<452=456,453
+<453=455,454
+<457=458
+<458=460,459
+<461=635,626,610,604,471,462
+<462=463
+<463=467,464
+<464=465
+<465=466
+<467=468
+<468=470,469
+<471=586,472
+<472=579,565,473
+<473=554,474
+<474=542,530,475
+<475=519,476
+<476=507,503,477
+<477=487,478
+<478=483,479
+<479=480
+<480=482,481
+<483=484
+<484=486,485
+<487=488
+<488=501,489
+<489=492,490
+<490=491
+<492=493
+<493=499,494
+<494=495
+<495=496
+<496=498,497
+<499=500
+<501=502
+<503=504
+<504=506,505
+<507=508
+<508=518,517,509
+<509=516,510
+<510=512,511
+<512=513
+<513=515,514
+<519=520
+<520=527,521
+<521=523,522
+<523=524
+<524=526,525
+<527=529,528
+<530=531
+<531=541,540,532
+<532=539,533
+<533=535,534
+<535=536
+<536=538,537
+<542=543
+<543=553,552,544
+<544=551,545
+<545=547,546
+<547=548
+<548=550,549
+<554=555
+<555=562,556
+<556=558,557
+<558=559
+<559=561,560
+<562=564,563
+<565=566
+<566=578,577,567
+<567=576,568
+<568=570,569
+<570=571
+<571=573,572
+<573=575,574
+<579=580
+<580=585,584,581
+<581=583,582
+<586=587
+<587=589,588
+<589=602,590
+<590=593,591
+<591=592
+<593=594
+<594=596,595
+<596=597
+<597=599,598
+<599=601,600
+<602=603
+<604=605
+<605=609,606
+<606=608,607
+<610=611
+<611=625,624,612
+<612=623,613
+<613=621,614
+<614=615
+<615=616
+<616=618,617
+<618=620,619
+<621=622
+<626=627
+<627=629,628
+<629=630
+<630=632,631
+<632=634,633
+<635=636
+<636=646,645,637
+<637=644,638
+<638=640,639
+<640=641
+<641=643,642
+<647=648
+<648=650,649
+<651=652
+<652=655,654,653
+<656=657
+<657=662,661,658
+<658=660,659
+<728=730,729
+<734=737,736,735
+<737=738
+<738=739
+<744=747,746,745
+<747=748
+<748=749

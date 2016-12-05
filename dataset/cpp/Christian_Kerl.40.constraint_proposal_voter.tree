@@ -1,0 +1,1203 @@
+>3	FunctionDef	CrossValidationVoter 
+>4	ParameterList	double threshold
+>5	Parameter	 
+>6	Identifier	threshold
+>7	ParameterType	double
+>8	CompoundStatement	 
+>13	FunctionDef	CrossValidationVoter 
+>14	ParameterList	const CrossValidationVoter & other
+>15	Parameter	 
+>16	Identifier	other
+>17	ParameterType	const CrossValidationVoter &
+>18	CompoundStatement	 
+>23	FunctionDef	CrossValidationVoter 
+>24	ParameterList	 
+>25	CompoundStatement	 
+>29	FunctionDef	CrossValidationVoter 
+>30	ParameterList	ConstraintProposalVector & proposals
+>31	Parameter	 
+>32	Identifier	proposals
+>33	ParameterType	ConstraintProposalVector &
+>34	ReturnType	void
+>35	CompoundStatement	 
+>36	ForStatement	for ( size_t idx = 0 ; idx < old_size ; ++ idx )
+>37	CompoundStatement	 
+>38	ExpressionStatement	 
+>39	CallExpression	pairs_ . push_back ( std 
+>40	ArgumentList	std 
+>41	Argument	std 
+>42	CallExpression	std 
+>43	ArgumentList	proposal . get ( )
+>44	Argument	other . get ( )
+>45	CallExpression	other . get ( )
+>46	ArgumentList	 
+>47	Callee	other . get
+>48	MemberAccess	other . get
+>49	Identifier	get
+>50	Identifier	other
+>51	Argument	proposal . get ( )
+>52	CallExpression	proposal . get ( )
+>53	ArgumentList	 
+>54	Callee	proposal . get
+>55	MemberAccess	proposal . get
+>56	Identifier	get
+>57	Identifier	proposal
+>58	Callee	std 
+>59	Identifier	std 
+>60	Callee	pairs_ . push_back
+>61	MemberAccess	pairs_ . push_back
+>62	Identifier	push_back
+>63	Identifier	pairs_
+>64	ExpressionStatement	 
+>65	CallExpression	proposals . push_back ( other )
+>66	ArgumentList	other
+>67	Argument	other
+>68	Identifier	other
+>69	Callee	proposals . push_back
+>70	MemberAccess	proposals . push_back
+>71	Identifier	push_back
+>72	Identifier	proposals
+>73	IdentifierDeclStatement	 
+>74	IdentifierDecl	other = proposal -> createInverseProposal ( )
+>75	AssignmentExpr	other = proposal -> createInverseProposal ( )
+>76	CallExpression	proposal -> createInverseProposal ( )
+>77	ArgumentList	 
+>78	Callee	proposal -> createInverseProposal
+>79	PtrMemberAccess	proposal -> createInverseProposal
+>80	Identifier	createInverseProposal
+>81	Identifier	proposal
+>82	Identifier	other
+>83	Identifier	other
+>84	IdentifierDeclType	ConstraintProposalPtr
+>85	IdentifierDecl	proposal = proposals [ idx ]
+>86	AssignmentExpr	proposal = proposals [ idx ]
+>87	ArrayIndexing	proposals [ idx ]
+>88	Identifier	idx
+>89	Identifier	proposals
+>90	Identifier	proposal
+>91	Identifier	proposal
+>92	IdentifierDeclType	ConstraintProposalPtr
+>93	UnaryExpression	 
+>94	Identifier	idx
+>95	IncDec	++
+>96	Condition	 
+>97	RelationalExpression	idx < old_size
+>98	Identifier	old_size
+>99	Identifier	idx
+>100	ForInit	 
+>101	IdentifierDeclStatement	size_t idx = 0 ;
+>102	IdentifierDecl	idx = 0
+>103	AssignmentExpr	idx = 0
+>104	PrimaryExpression	0
+>105	Identifier	idx
+>106	Identifier	idx
+>107	IdentifierDeclType	size_t
+>108	IdentifierDeclStatement	 
+>109	IdentifierDecl	old_size = proposals . size ( )
+>110	AssignmentExpr	old_size = proposals . size ( )
+>111	CallExpression	proposals . size ( )
+>112	ArgumentList	 
+>113	Callee	proposals . size
+>114	MemberAccess	proposals . size
+>115	Identifier	size
+>116	Identifier	proposals
+>117	Identifier	old_size
+>118	Identifier	old_size
+>119	IdentifierDeclType	size_t
+>137	FunctionDef	CrossValidationVoter 
+>138	ParameterList	ConstraintProposalVector & proposals
+>139	Parameter	 
+>140	Identifier	proposals
+>141	ParameterType	ConstraintProposalVector &
+>142	ReturnType	void
+>143	CompoundStatement	 
+>144	ExpressionStatement	 
+>145	CallExpression	pairs_ . clear ( )
+>146	ArgumentList	 
+>147	Callee	pairs_ . clear
+>148	MemberAccess	pairs_ . clear
+>149	Identifier	clear
+>150	Identifier	pairs_
+>151	ForStatement	for ( ProposalPairVector 
+>152	CompoundStatement	 
+>153	ForStatement	for ( ConstraintProposalVector 
+>154	CompoundStatement	 
+>155	IfStatement	if ( proposal_it -> get ( ) == worse )
+>156	CompoundStatement	 
+>157	BreakStatement	 
+>158	ExpressionStatement	 
+>159	CallExpression	proposals . erase ( proposal_it )
+>160	ArgumentList	proposal_it
+>161	Argument	proposal_it
+>162	Identifier	proposal_it
+>163	Callee	proposals . erase
+>164	MemberAccess	proposals . erase
+>165	Identifier	erase
+>166	Identifier	proposals
+>167	Condition	 
+>168	EqualityExpression	proposal_it -> get ( ) == worse
+>169	Identifier	worse
+>170	CallExpression	proposal_it -> get ( )
+>171	ArgumentList	 
+>172	Callee	proposal_it -> get
+>173	PtrMemberAccess	proposal_it -> get
+>174	Identifier	get
+>175	Identifier	proposal_it
+>176	UnaryExpression	 
+>177	Identifier	proposal_it
+>178	IncDec	++
+>179	Condition	 
+>180	EqualityExpression	proposal_it != proposals . end ( )
+>181	CallExpression	proposals . end ( )
+>182	ArgumentList	 
+>183	Callee	proposals . end
+>184	MemberAccess	proposals . end
+>185	Identifier	end
+>186	Identifier	proposals
+>187	Identifier	proposal_it
+>188	ForInit	 
+>189	IdentifierDeclStatement	ConstraintProposalVector 
+>190	IdentifierDecl	proposal_it = proposals . begin ( )
+>191	AssignmentExpr	proposal_it = proposals . begin ( )
+>192	CallExpression	proposals . begin ( )
+>193	ArgumentList	 
+>194	Callee	proposals . begin
+>195	MemberAccess	proposals . begin
+>196	Identifier	begin
+>197	Identifier	proposals
+>198	Identifier	proposal_it
+>199	Identifier	proposal_it
+>200	IdentifierDeclType	ConstraintProposalVector 
+>201	IdentifierDeclStatement	 
+>202	IdentifierDecl	* worse = it -> first -> TotalScore ( ) >= it -> second -> TotalScore ( ) && it -> first -> Accept ( ) ? it -> second 
+>203	AssignmentExpr	* worse = it -> first -> TotalScore ( ) >= it -> second -> TotalScore ( ) && it -> first -> Accept ( ) ? \
+>204	ConditionalExpression	it -> first -> TotalScore ( ) >= it -> second -> TotalScore ( ) && it -> first -> Accept ( ) ? it -> second 
+>205	PtrMemberAccess	it -> first
+>206	Identifier	first
+>207	Identifier	it
+>208	PtrMemberAccess	it -> second
+>209	Identifier	second
+>210	Identifier	it
+>211	Condition	it -> first -> TotalScore ( ) >= it -> second -> TotalScore ( ) && it -> first -> Accept ( )
+>212	AndExpression	it -> first -> TotalScore ( ) >= it -> second -> TotalScore ( ) && it -> first -> Accept ( )
+>213	CallExpression	it -> first -> Accept ( )
+>214	ArgumentList	 
+>215	Callee	it -> first -> Accept
+>216	PtrMemberAccess	it -> first -> Accept
+>217	Identifier	Accept
+>218	PtrMemberAccess	it -> first
+>219	Identifier	first
+>220	Identifier	it
+>221	RelationalExpression	it -> first -> TotalScore ( ) >= it -> second -> TotalScore ( )
+>222	CallExpression	it -> second -> TotalScore ( )
+>223	ArgumentList	 
+>224	Callee	it -> second -> TotalScore
+>225	PtrMemberAccess	it -> second -> TotalScore
+>226	Identifier	TotalScore
+>227	PtrMemberAccess	it -> second
+>228	Identifier	second
+>229	Identifier	it
+>230	CallExpression	it -> first -> TotalScore ( )
+>231	ArgumentList	 
+>232	Callee	it -> first -> TotalScore
+>233	PtrMemberAccess	it -> first -> TotalScore
+>234	Identifier	TotalScore
+>235	PtrMemberAccess	it -> first
+>236	Identifier	first
+>237	Identifier	it
+>238	Identifier	worse
+>239	Identifier	worse
+>240	IdentifierDeclType	ConstraintProposal *
+>241	UnaryExpression	 
+>242	Identifier	it
+>243	IncDec	++
+>244	Condition	 
+>245	EqualityExpression	it != pairs_ . end ( )
+>246	CallExpression	pairs_ . end ( )
+>247	ArgumentList	 
+>248	Callee	pairs_ . end
+>249	MemberAccess	pairs_ . end
+>250	Identifier	end
+>251	Identifier	pairs_
+>252	Identifier	it
+>253	ForInit	 
+>254	IdentifierDeclStatement	ProposalPairVector 
+>255	IdentifierDecl	it = pairs_ . begin ( )
+>256	AssignmentExpr	it = pairs_ . begin ( )
+>257	CallExpression	pairs_ . begin ( )
+>258	ArgumentList	 
+>259	Callee	pairs_ . begin
+>260	MemberAccess	pairs_ . begin
+>261	Identifier	begin
+>262	Identifier	pairs_
+>263	Identifier	it
+>264	Identifier	it
+>265	IdentifierDeclType	ProposalPairVector 
+>289	FunctionDef	CrossValidationVoter 
+>290	ParameterList	const ConstraintProposal & proposal , bool provide_reason
+>291	Parameter	 
+>292	Identifier	provide_reason
+>293	ParameterType	bool
+>294	Parameter	 
+>295	Identifier	proposal
+>296	ParameterType	const ConstraintProposal &
+>297	ReturnType	ConstraintProposal 
+>298	CompoundStatement	 
+>299	ReturnStatement	 
+>300	Identifier	v
+>301	IfStatement	if ( provide_reason )
+>302	CompoundStatement	 
+>303	ExpressionStatement	 
+>304	AssignmentExpr	v . Reason = reason . str ( )
+>305	CallExpression	reason . str ( )
+>306	ArgumentList	 
+>307	Callee	reason . str
+>308	MemberAccess	reason . str
+>309	Identifier	str
+>310	Identifier	reason
+>311	MemberAccess	v . Reason
+>312	Identifier	Reason
+>313	Identifier	v
+>314	ExpressionStatement	 
+>315	ShiftExpression	reason << \"CrossValidation \" << diff_translation_norm << \" <= \" << TranslationThreshold
+>316	ShiftExpression	\"CrossValidation \" << diff_translation_norm << \" <= \" << TranslationThreshold
+>317	ShiftExpression	diff_translation_norm << \" <= \" << TranslationThreshold
+>318	ShiftExpression	\" <= \" << TranslationThreshold
+>319	Identifier	TranslationThreshold
+>320	PrimaryExpression	\" <= \"
+>321	Identifier	diff_translation_norm
+>322	PrimaryExpression	\"CrossValidation \"
+>323	Identifier	reason
+>324	IdentifierDeclStatement	 
+>325	IdentifierDecl	reason
+>326	Identifier	reason
+>327	IdentifierDeclType	std 
+>328	Condition	 
+>329	Identifier	provide_reason
+>330	ExpressionStatement	 
+>331	AssignmentExpr	v . Decision = diff_translation_norm <= TranslationThreshold ? ConstraintProposal 
+>332	ConditionalExpression	diff_translation_norm <= TranslationThreshold ? ConstraintProposal 
+>333	Identifier	ConstraintProposal 
+>334	Identifier	ConstraintProposal 
+>335	Condition	diff_translation_norm <= TranslationThreshold
+>336	RelationalExpression	diff_translation_norm <= TranslationThreshold
+>337	Identifier	TranslationThreshold
+>338	Identifier	diff_translation_norm
+>339	MemberAccess	v . Decision
+>340	Identifier	Decision
+>341	Identifier	v
+>342	IdentifierDeclStatement	 
+>343	IdentifierDecl	v
+>344	Identifier	v
+>345	IdentifierDeclType	ConstraintProposal 
+>346	ExpressionStatement	 
+>347	Statement	 
+>348	Statement	 
+>349	Statement	 
+>350	Statement	 
+>351	Statement	 
+>352	Statement	 
+>353	Statement	 
+>354	Statement	 
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	Statement	 
+>362	IdentifierDeclStatement	 
+>363	IdentifierDecl	diff ( ( inverse -> TrackingResult . Transformation * proposal . TrackingResult . Transformation ) . matrix ( ) )
+>364	CallExpression	( inverse -> TrackingResult . Transformation * proposal . TrackingResult . Transformation ) . matrix ( )
+>365	ArgumentList	 
+>366	Callee	( inverse -> TrackingResult . Transformation * proposal . TrackingResult . Transformation ) . matrix
+>367	MemberAccess	( inverse -> TrackingResult . Transformation * proposal . TrackingResult . Transformation ) . matrix
+>368	Identifier	matrix
+>369	MultiplicativeExpression	inverse -> TrackingResult . Transformation * proposal . TrackingResult . Transformation
+>370	MemberAccess	proposal . TrackingResult . Transformation
+>371	Identifier	Transformation
+>372	MemberAccess	proposal . TrackingResult
+>373	Identifier	TrackingResult
+>374	Identifier	proposal
+>375	MemberAccess	inverse -> TrackingResult . Transformation
+>376	Identifier	Transformation
+>377	PtrMemberAccess	inverse -> TrackingResult
+>378	Identifier	TrackingResult
+>379	Identifier	inverse
+>380	Identifier	diff
+>381	IdentifierDeclType	Sophus 
+>382	ExpressionStatement	 
+>383	CallExpression	assert ( inverse != 0 )
+>384	ArgumentList	inverse != 0
+>385	Argument	inverse != 0
+>386	EqualityExpression	inverse != 0
+>387	PrimaryExpression	0
+>388	Identifier	inverse
+>389	Callee	assert
+>390	Identifier	assert
+>391	IdentifierDeclStatement	 
+>392	IdentifierDecl	* inverse = findInverse ( & proposal )
+>393	AssignmentExpr	* inverse = findInverse ( & proposal )
+>394	CallExpression	findInverse ( & proposal )
+>395	ArgumentList	& proposal
+>396	Argument	& proposal
+>397	UnaryOp	& proposal
+>398	Identifier	proposal
+>399	UnaryOperator	&
+>400	Callee	findInverse
+>401	Identifier	findInverse
+>402	Identifier	inverse
+>403	Identifier	inverse
+>404	IdentifierDeclType	ConstraintProposal *
+>428	FunctionDef	CrossValidationVoter 
+>429	ParameterList	const ConstraintProposal * proposal
+>430	Parameter	 
+>431	Identifier	proposal
+>432	ParameterType	const ConstraintProposal *
+>433	ReturnType	ConstraintProposal *
+>434	CompoundStatement	 
+>435	ExpressionStatement	 
+>436	PrimaryExpression	0
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	ForStatement	for ( ProposalPairVector 
+>444	CompoundStatement	 
+>445	IfStatement	if ( it -> second == proposal )
+>446	ReturnStatement	 
+>447	PtrMemberAccess	it -> first
+>448	Identifier	first
+>449	Identifier	it
+>450	Condition	 
+>451	EqualityExpression	it -> second == proposal
+>452	Identifier	proposal
+>453	PtrMemberAccess	it -> second
+>454	Identifier	second
+>455	Identifier	it
+>456	IfStatement	if ( it -> first == proposal )
+>457	ReturnStatement	 
+>458	PtrMemberAccess	it -> second
+>459	Identifier	second
+>460	Identifier	it
+>461	Condition	 
+>462	EqualityExpression	it -> first == proposal
+>463	Identifier	proposal
+>464	PtrMemberAccess	it -> first
+>465	Identifier	first
+>466	Identifier	it
+>467	UnaryExpression	 
+>468	Identifier	it
+>469	IncDec	++
+>470	Condition	 
+>471	EqualityExpression	it != pairs_ . end ( )
+>472	CallExpression	pairs_ . end ( )
+>473	ArgumentList	 
+>474	Callee	pairs_ . end
+>475	MemberAccess	pairs_ . end
+>476	Identifier	end
+>477	Identifier	pairs_
+>478	Identifier	it
+>479	ForInit	 
+>480	IdentifierDeclStatement	ProposalPairVector 
+>481	IdentifierDecl	it = pairs_ . begin ( )
+>482	AssignmentExpr	it = pairs_ . begin ( )
+>483	CallExpression	pairs_ . begin ( )
+>484	ArgumentList	 
+>485	Callee	pairs_ . begin
+>486	MemberAccess	pairs_ . begin
+>487	Identifier	begin
+>488	Identifier	pairs_
+>489	Identifier	it
+>490	Identifier	it
+>491	IdentifierDeclType	ProposalPairVector 
+>503	FunctionDef	TrackingResultEvaluationVoter 
+>504	ParameterList	double threshold
+>505	Parameter	 
+>506	Identifier	threshold
+>507	ParameterType	double
+>508	CompoundStatement	 
+>513	FunctionDef	TrackingResultEvaluationVoter 
+>514	ParameterList	 
+>515	CompoundStatement	 
+>519	FunctionDef	TrackingResultEvaluationVoter 
+>520	ParameterList	const ConstraintProposal & proposal , bool provide_reason
+>521	Parameter	 
+>522	Identifier	provide_reason
+>523	ParameterType	bool
+>524	Parameter	 
+>525	Identifier	proposal
+>526	ParameterType	const ConstraintProposal &
+>527	ReturnType	ConstraintProposal 
+>528	CompoundStatement	 
+>529	ReturnStatement	 
+>530	Identifier	v
+>531	IfStatement	if ( provide_reason )
+>532	CompoundStatement	 
+>533	ExpressionStatement	 
+>534	AssignmentExpr	v . Reason = reason . str ( )
+>535	CallExpression	reason . str ( )
+>536	ArgumentList	 
+>537	Callee	reason . str
+>538	MemberAccess	reason . str
+>539	Identifier	str
+>540	Identifier	reason
+>541	MemberAccess	v . Reason
+>542	Identifier	Reason
+>543	Identifier	v
+>544	ExpressionStatement	 
+>545	ShiftExpression	reason << \"TrackingResultValidation \" << ratio << \" >= \" << RatioThreshold
+>546	ShiftExpression	\"TrackingResultValidation \" << ratio << \" >= \" << RatioThreshold
+>547	ShiftExpression	ratio << \" >= \" << RatioThreshold
+>548	ShiftExpression	\" >= \" << RatioThreshold
+>549	Identifier	RatioThreshold
+>550	PrimaryExpression	\" >= \"
+>551	Identifier	ratio
+>552	PrimaryExpression	\"TrackingResultValidation \"
+>553	Identifier	reason
+>554	IdentifierDeclStatement	 
+>555	IdentifierDecl	reason
+>556	Identifier	reason
+>557	IdentifierDeclType	std 
+>558	Condition	 
+>559	Identifier	provide_reason
+>560	ExpressionStatement	 
+>561	AssignmentExpr	v . Score = ratio
+>562	Identifier	ratio
+>563	MemberAccess	v . Score
+>564	Identifier	Score
+>565	Identifier	v
+>566	ExpressionStatement	 
+>567	AssignmentExpr	v . Decision = ratio >= RatioThreshold ? ConstraintProposal 
+>568	ConditionalExpression	ratio >= RatioThreshold ? ConstraintProposal 
+>569	Identifier	ConstraintProposal 
+>570	Identifier	ConstraintProposal 
+>571	Condition	ratio >= RatioThreshold
+>572	RelationalExpression	ratio >= RatioThreshold
+>573	Identifier	RatioThreshold
+>574	Identifier	ratio
+>575	MemberAccess	v . Decision
+>576	Identifier	Decision
+>577	Identifier	v
+>578	IdentifierDeclStatement	 
+>579	IdentifierDecl	v
+>580	Identifier	v
+>581	IdentifierDeclType	ConstraintProposal 
+>582	IdentifierDeclStatement	 
+>583	IdentifierDecl	ratio = proposal . Reference -> evaluation ( ) -> ratioWithAverage ( proposal . TrackingResult )
+>584	AssignmentExpr	ratio = proposal . Reference -> evaluation ( ) -> ratioWithAverage ( proposal . TrackingResult )
+>585	CallExpression	proposal . Reference -> evaluation ( ) -> ratioWithAverage ( proposal . TrackingResult )
+>586	ArgumentList	proposal . TrackingResult
+>587	Argument	proposal . TrackingResult
+>588	MemberAccess	proposal . TrackingResult
+>589	Identifier	TrackingResult
+>590	Identifier	proposal
+>591	Callee	proposal . Reference -> evaluation ( ) -> ratioWithAverage
+>592	PtrMemberAccess	proposal . Reference -> evaluation ( ) -> ratioWithAverage
+>593	Identifier	ratioWithAverage
+>594	CallExpression	proposal . Reference -> evaluation ( )
+>595	ArgumentList	 
+>596	Callee	proposal . Reference -> evaluation
+>597	PtrMemberAccess	proposal . Reference -> evaluation
+>598	Identifier	evaluation
+>599	MemberAccess	proposal . Reference
+>600	Identifier	Reference
+>601	Identifier	proposal
+>602	Identifier	ratio
+>603	Identifier	ratio
+>604	IdentifierDeclType	double
+>629	FunctionDef	ConstraintRatioVoter 
+>630	ParameterList	double threshold
+>631	Parameter	 
+>632	Identifier	threshold
+>633	ParameterType	double
+>634	CompoundStatement	 
+>639	FunctionDef	ConstraintRatioVoter 
+>640	ParameterList	 
+>641	CompoundStatement	 
+>645	FunctionDef	ConstraintRatioVoter 
+>646	ParameterList	const ConstraintProposal & proposal , bool provide_reason
+>647	Parameter	 
+>648	Identifier	provide_reason
+>649	ParameterType	bool
+>650	Parameter	 
+>651	Identifier	proposal
+>652	ParameterType	const ConstraintProposal &
+>653	ReturnType	ConstraintProposal 
+>654	CompoundStatement	 
+>655	ReturnStatement	 
+>656	Identifier	v
+>657	IfStatement	if ( provide_reason )
+>658	CompoundStatement	 
+>659	ExpressionStatement	 
+>660	AssignmentExpr	v . Reason = reason . str ( )
+>661	CallExpression	reason . str ( )
+>662	ArgumentList	 
+>663	Callee	reason . str
+>664	MemberAccess	reason . str
+>665	Identifier	str
+>666	Identifier	reason
+>667	MemberAccess	v . Reason
+>668	Identifier	Reason
+>669	Identifier	v
+>670	ExpressionStatement	 
+>671	ShiftExpression	reason << \"ConstraintRatio \" << ratio << \" >= \" << RatioThreshold
+>672	ShiftExpression	\"ConstraintRatio \" << ratio << \" >= \" << RatioThreshold
+>673	ShiftExpression	ratio << \" >= \" << RatioThreshold
+>674	ShiftExpression	\" >= \" << RatioThreshold
+>675	Identifier	RatioThreshold
+>676	PrimaryExpression	\" >= \"
+>677	Identifier	ratio
+>678	PrimaryExpression	\"ConstraintRatio \"
+>679	Identifier	reason
+>680	IdentifierDeclStatement	 
+>681	IdentifierDecl	reason
+>682	Identifier	reason
+>683	IdentifierDeclType	std 
+>684	Condition	 
+>685	Identifier	provide_reason
+>686	ExpressionStatement	 
+>687	AssignmentExpr	v . Decision = ratio >= RatioThreshold ? ConstraintProposal 
+>688	ConditionalExpression	ratio >= RatioThreshold ? ConstraintProposal 
+>689	Identifier	ConstraintProposal 
+>690	Identifier	ConstraintProposal 
+>691	Condition	ratio >= RatioThreshold
+>692	RelationalExpression	ratio >= RatioThreshold
+>693	Identifier	RatioThreshold
+>694	Identifier	ratio
+>695	MemberAccess	v . Decision
+>696	Identifier	Decision
+>697	Identifier	v
+>698	IdentifierDeclStatement	 
+>699	IdentifierDecl	v
+>700	Identifier	v
+>701	IdentifierDeclType	ConstraintProposal 
+>702	IdentifierDeclStatement	 
+>703	IdentifierDecl	ratio = l . HasIterationWithIncrement ( ) ? double ( l . LastIterationWithIncrement ( ) . ValidConstraints ) / double ( \
+>704	AssignmentExpr	ratio = l . HasIterationWithIncrement ( ) ? double ( l . LastIterationWithIncrement ( ) . ValidConstraints ) / \
+>705	ConditionalExpression	l . HasIterationWithIncrement ( ) ? double ( l . LastIterationWithIncrement ( ) . ValidConstraints ) / double ( \
+>706	PrimaryExpression	0.0
+>707	MultiplicativeExpression	double ( l . LastIterationWithIncrement ( ) . ValidConstraints ) / double ( l . ValidPixels )
+>708	CallExpression	double ( l . ValidPixels )
+>709	ArgumentList	l . ValidPixels
+>710	Argument	l . ValidPixels
+>711	MemberAccess	l . ValidPixels
+>712	Identifier	ValidPixels
+>713	Identifier	l
+>714	Callee	double
+>715	Identifier	double
+>716	CallExpression	double ( l . LastIterationWithIncrement ( ) . ValidConstraints )
+>717	ArgumentList	l . LastIterationWithIncrement ( ) . ValidConstraints
+>718	Argument	l . LastIterationWithIncrement ( ) . ValidConstraints
+>719	MemberAccess	l . LastIterationWithIncrement ( ) . ValidConstraints
+>720	Identifier	ValidConstraints
+>721	CallExpression	l . LastIterationWithIncrement ( )
+>722	ArgumentList	 
+>723	Callee	l . LastIterationWithIncrement
+>724	MemberAccess	l . LastIterationWithIncrement
+>725	Identifier	LastIterationWithIncrement
+>726	Identifier	l
+>727	Callee	double
+>728	Identifier	double
+>729	Condition	l . HasIterationWithIncrement ( )
+>730	CallExpression	l . HasIterationWithIncrement ( )
+>731	ArgumentList	 
+>732	Callee	l . HasIterationWithIncrement
+>733	MemberAccess	l . HasIterationWithIncrement
+>734	Identifier	HasIterationWithIncrement
+>735	Identifier	l
+>736	Identifier	ratio
+>737	Identifier	ratio
+>738	IdentifierDeclType	double
+>739	IdentifierDeclStatement	 
+>740	IdentifierDecl	& l = proposal . TrackingResult . Statistics . Levels . back ( )
+>741	AssignmentExpr	& l = proposal . TrackingResult . Statistics . Levels . back ( )
+>742	CallExpression	proposal . TrackingResult . Statistics . Levels . back ( )
+>743	ArgumentList	 
+>744	Callee	proposal . TrackingResult . Statistics . Levels . back
+>745	MemberAccess	proposal . TrackingResult . Statistics . Levels . back
+>746	Identifier	back
+>747	MemberAccess	proposal . TrackingResult . Statistics . Levels
+>748	Identifier	Levels
+>749	MemberAccess	proposal . TrackingResult . Statistics
+>750	Identifier	Statistics
+>751	MemberAccess	proposal . TrackingResult
+>752	Identifier	TrackingResult
+>753	Identifier	proposal
+>754	Identifier	l
+>755	Identifier	l
+>756	IdentifierDeclType	const dvo 
+>781	FunctionDef	NaNResultVoter 
+>782	ParameterList	 
+>783	CompoundStatement	 
+>787	FunctionDef	NaNResultVoter 
+>788	ParameterList	 
+>789	CompoundStatement	 
+>793	FunctionDef	NaNResultVoter 
+>794	ParameterList	const ConstraintProposal & proposal , bool provide_reason
+>795	Parameter	 
+>796	Identifier	provide_reason
+>797	ParameterType	bool
+>798	Parameter	 
+>799	Identifier	proposal
+>800	ParameterType	const ConstraintProposal &
+>801	ReturnType	ConstraintProposal 
+>802	CompoundStatement	 
+>803	ReturnStatement	 
+>804	Identifier	v
+>805	IfStatement	if ( provide_reason )
+>806	CompoundStatement	 
+>807	ExpressionStatement	 
+>808	AssignmentExpr	v . Reason = reason . str ( )
+>809	CallExpression	reason . str ( )
+>810	ArgumentList	 
+>811	Callee	reason . str
+>812	MemberAccess	reason . str
+>813	Identifier	str
+>814	Identifier	reason
+>815	MemberAccess	v . Reason
+>816	Identifier	Reason
+>817	Identifier	v
+>818	ExpressionStatement	 
+>819	ShiftExpression	reason << \"NaNResult \" << proposal . TrackingResult . isNaN ( )
+>820	ShiftExpression	\"NaNResult \" << proposal . TrackingResult . isNaN ( )
+>821	CallExpression	proposal . TrackingResult . isNaN ( )
+>822	ArgumentList	 
+>823	Callee	proposal . TrackingResult . isNaN
+>824	MemberAccess	proposal . TrackingResult . isNaN
+>825	Identifier	isNaN
+>826	MemberAccess	proposal . TrackingResult
+>827	Identifier	TrackingResult
+>828	Identifier	proposal
+>829	PrimaryExpression	\"NaNResult \"
+>830	Identifier	reason
+>831	IdentifierDeclStatement	 
+>832	IdentifierDecl	reason
+>833	Identifier	reason
+>834	IdentifierDeclType	std 
+>835	Condition	 
+>836	Identifier	provide_reason
+>837	ExpressionStatement	 
+>838	AssignmentExpr	v . Decision = proposal . TrackingResult . isNaN ( ) ? ConstraintProposal 
+>839	ConditionalExpression	proposal . TrackingResult . isNaN ( ) ? ConstraintProposal 
+>840	Identifier	ConstraintProposal 
+>841	Identifier	ConstraintProposal 
+>842	Condition	proposal . TrackingResult . isNaN ( )
+>843	CallExpression	proposal . TrackingResult . isNaN ( )
+>844	ArgumentList	 
+>845	Callee	proposal . TrackingResult . isNaN
+>846	MemberAccess	proposal . TrackingResult . isNaN
+>847	Identifier	isNaN
+>848	MemberAccess	proposal . TrackingResult
+>849	Identifier	TrackingResult
+>850	Identifier	proposal
+>851	MemberAccess	v . Decision
+>852	Identifier	Decision
+>853	Identifier	v
+>854	IdentifierDeclStatement	 
+>855	IdentifierDecl	v
+>856	Identifier	v
+>857	IdentifierDeclType	ConstraintProposal 
+>872	FunctionDef	OdometryConstraintVoter 
+>873	ParameterList	 
+>874	CompoundStatement	 
+>878	FunctionDef	OdometryConstraintVoter 
+>879	ParameterList	 
+>880	CompoundStatement	 
+>884	FunctionDef	OdometryConstraintVoter 
+>885	ParameterList	const ConstraintProposal & proposal , bool provide_reason
+>886	Parameter	 
+>887	Identifier	provide_reason
+>888	ParameterType	bool
+>889	Parameter	 
+>890	Identifier	proposal
+>891	ParameterType	const ConstraintProposal &
+>892	ReturnType	ConstraintProposal 
+>893	CompoundStatement	 
+>894	ReturnStatement	 
+>895	Identifier	v
+>896	IfStatement	if ( provide_reason )
+>897	CompoundStatement	 
+>898	ExpressionStatement	 
+>899	AssignmentExpr	v . Reason = reason . str ( )
+>900	CallExpression	reason . str ( )
+>901	ArgumentList	 
+>902	Callee	reason . str
+>903	MemberAccess	reason . str
+>904	Identifier	str
+>905	Identifier	reason
+>906	MemberAccess	v . Reason
+>907	Identifier	Reason
+>908	Identifier	v
+>909	ExpressionStatement	 
+>910	ShiftExpression	reason << \"OdometryConstraint \" << is_odometry_constraint
+>911	ShiftExpression	\"OdometryConstraint \" << is_odometry_constraint
+>912	Identifier	is_odometry_constraint
+>913	PrimaryExpression	\"OdometryConstraint \"
+>914	Identifier	reason
+>915	IdentifierDeclStatement	 
+>916	IdentifierDecl	reason
+>917	Identifier	reason
+>918	IdentifierDeclType	std 
+>919	Condition	 
+>920	Identifier	provide_reason
+>921	ExpressionStatement	 
+>922	AssignmentExpr	v . Decision = is_odometry_constraint ? ConstraintProposal 
+>923	ConditionalExpression	is_odometry_constraint ? ConstraintProposal 
+>924	Identifier	ConstraintProposal 
+>925	Identifier	ConstraintProposal 
+>926	Condition	is_odometry_constraint
+>927	Identifier	is_odometry_constraint
+>928	MemberAccess	v . Decision
+>929	Identifier	Decision
+>930	Identifier	v
+>931	IdentifierDeclStatement	 
+>932	IdentifierDecl	v
+>933	Identifier	v
+>934	IdentifierDeclType	ConstraintProposal 
+>935	IdentifierDeclStatement	 
+>936	IdentifierDecl	is_odometry_constraint = std 
+>937	AssignmentExpr	is_odometry_constraint = std 
+>938	RelationalExpression	std 
+>939	PrimaryExpression	1
+>940	CallExpression	std 
+>941	ArgumentList	proposal . Reference -> id ( ) - proposal . Current -> id ( )
+>942	Argument	proposal . Reference -> id ( ) - proposal . Current -> id ( )
+>943	AdditiveExpression	proposal . Reference -> id ( ) - proposal . Current -> id ( )
+>944	CallExpression	proposal . Current -> id ( )
+>945	ArgumentList	 
+>946	Callee	proposal . Current -> id
+>947	PtrMemberAccess	proposal . Current -> id
+>948	Identifier	id
+>949	MemberAccess	proposal . Current
+>950	Identifier	Current
+>951	Identifier	proposal
+>952	CallExpression	proposal . Reference -> id ( )
+>953	ArgumentList	 
+>954	Callee	proposal . Reference -> id
+>955	PtrMemberAccess	proposal . Reference -> id
+>956	Identifier	id
+>957	MemberAccess	proposal . Reference
+>958	Identifier	Reference
+>959	Identifier	proposal
+>960	Callee	std 
+>961	Identifier	std 
+>962	Identifier	is_odometry_constraint
+>963	Identifier	is_odometry_constraint
+>964	IdentifierDeclType	bool
+<3=8,4
+<4=5
+<5=7,6
+<13=18,14
+<14=15
+<15=17,16
+<23=25,24
+<29=35,34,30
+<30=31
+<31=33,32
+<35=108,36
+<36=100,96,93,37
+<37=73,64,38
+<38=39
+<39=60,40
+<40=41
+<41=42
+<42=58,43
+<43=51,44
+<44=45
+<45=47,46
+<47=48
+<48=50,49
+<51=52
+<52=54,53
+<54=55
+<55=57,56
+<58=59
+<60=61
+<61=63,62
+<64=65
+<65=69,66
+<66=67
+<67=68
+<69=70
+<70=72,71
+<73=85,74
+<74=84,83,75
+<75=82,76
+<76=78,77
+<78=79
+<79=81,80
+<85=92,91,86
+<86=90,87
+<87=89,88
+<93=95,94
+<96=97
+<97=99,98
+<100=101
+<101=102
+<102=107,106,103
+<103=105,104
+<108=109
+<109=119,118,110
+<110=117,111
+<111=113,112
+<113=114
+<114=116,115
+<137=143,142,138
+<138=139
+<139=141,140
+<143=151,144
+<144=145
+<145=147,146
+<147=148
+<148=150,149
+<151=253,244,241,152
+<152=201,153
+<153=188,179,176,154
+<154=155
+<155=167,156
+<156=158,157
+<158=159
+<159=163,160
+<160=161
+<161=162
+<163=164
+<164=166,165
+<167=168
+<168=170,169
+<170=172,171
+<172=173
+<173=175,174
+<176=178,177
+<179=180
+<180=187,181
+<181=183,182
+<183=184
+<184=186,185
+<188=189
+<189=190
+<190=200,199,191
+<191=198,192
+<192=194,193
+<194=195
+<195=197,196
+<201=202
+<202=240,239,203
+<203=238,204
+<204=211,208,205
+<205=207,206
+<208=210,209
+<211=212
+<212=221,213
+<213=215,214
+<215=216
+<216=218,217
+<218=220,219
+<221=230,222
+<222=224,223
+<224=225
+<225=227,226
+<227=229,228
+<230=232,231
+<232=233
+<233=235,234
+<235=237,236
+<241=243,242
+<244=245
+<245=252,246
+<246=248,247
+<248=249
+<249=251,250
+<253=254
+<254=255
+<255=265,264,256
+<256=263,257
+<257=259,258
+<259=260
+<260=262,261
+<289=298,297,290
+<290=294,291
+<291=293,292
+<294=296,295
+<298=391,382,362,361,360,359,358,357,356,355,354,353,352,351,350,349,348,347,346,342,330,301,299
+<299=300
+<301=328,302
+<302=324,314,303
+<303=304
+<304=311,305
+<305=307,306
+<307=308
+<308=310,309
+<311=313,312
+<314=315
+<315=323,316
+<316=322,317
+<317=321,318
+<318=320,319
+<324=325
+<325=327,326
+<328=329
+<330=331
+<331=339,332
+<332=335,334,333
+<335=336
+<336=338,337
+<339=341,340
+<342=343
+<343=345,344
+<362=363
+<363=381,380,364
+<364=366,365
+<366=367
+<367=369,368
+<369=375,370
+<370=372,371
+<372=374,373
+<375=377,376
+<377=379,378
+<382=383
+<383=389,384
+<384=385
+<385=386
+<386=388,387
+<389=390
+<391=392
+<392=404,403,393
+<393=402,394
+<394=400,395
+<395=396
+<396=397
+<397=399,398
+<400=401
+<428=434,433,429
+<429=430
+<430=432,431
+<434=443,442,441,440,439,438,437,435
+<435=436
+<443=479,470,467,444
+<444=456,445
+<445=450,446
+<446=447
+<447=449,448
+<450=451
+<451=453,452
+<453=455,454
+<456=461,457
+<457=458
+<458=460,459
+<461=462
+<462=464,463
+<464=466,465
+<467=469,468
+<470=471
+<471=478,472
+<472=474,473
+<474=475
+<475=477,476
+<479=480
+<480=481
+<481=491,490,482
+<482=489,483
+<483=485,484
+<485=486
+<486=488,487
+<503=508,504
+<504=505
+<505=507,506
+<513=515,514
+<519=528,527,520
+<520=524,521
+<521=523,522
+<524=526,525
+<528=582,578,566,560,531,529
+<529=530
+<531=558,532
+<532=554,544,533
+<533=534
+<534=541,535
+<535=537,536
+<537=538
+<538=540,539
+<541=543,542
+<544=545
+<545=553,546
+<546=552,547
+<547=551,548
+<548=550,549
+<554=555
+<555=557,556
+<558=559
+<560=561
+<561=563,562
+<563=565,564
+<566=567
+<567=575,568
+<568=571,570,569
+<571=572
+<572=574,573
+<575=577,576
+<578=579
+<579=581,580
+<582=583
+<583=604,603,584
+<584=602,585
+<585=591,586
+<586=587
+<587=588
+<588=590,589
+<591=592
+<592=594,593
+<594=596,595
+<596=597
+<597=599,598
+<599=601,600
+<629=634,630
+<630=631
+<631=633,632
+<639=641,640
+<645=654,653,646
+<646=650,647
+<647=649,648
+<650=652,651
+<654=739,702,698,686,657,655
+<655=656
+<657=684,658
+<658=680,670,659
+<659=660
+<660=667,661
+<661=663,662
+<663=664
+<664=666,665
+<667=669,668
+<670=671
+<671=679,672
+<672=678,673
+<673=677,674
+<674=676,675
+<680=681
+<681=683,682
+<684=685
+<686=687
+<687=695,688
+<688=691,690,689
+<691=692
+<692=694,693
+<695=697,696
+<698=699
+<699=701,700
+<702=703
+<703=738,737,704
+<704=736,705
+<705=729,707,706
+<707=716,708
+<708=714,709
+<709=710
+<710=711
+<711=713,712
+<714=715
+<716=727,717
+<717=718
+<718=719
+<719=721,720
+<721=723,722
+<723=724
+<724=726,725
+<727=728
+<729=730
+<730=732,731
+<732=733
+<733=735,734
+<739=740
+<740=756,755,741
+<741=754,742
+<742=744,743
+<744=745
+<745=747,746
+<747=749,748
+<749=751,750
+<751=753,752
+<781=783,782
+<787=789,788
+<793=802,801,794
+<794=798,795
+<795=797,796
+<798=800,799
+<802=854,837,805,803
+<803=804
+<805=835,806
+<806=831,818,807
+<807=808
+<808=815,809
+<809=811,810
+<811=812
+<812=814,813
+<815=817,816
+<818=819
+<819=830,820
+<820=829,821
+<821=823,822
+<823=824
+<824=826,825
+<826=828,827
+<831=832
+<832=834,833
+<835=836
+<837=838
+<838=851,839
+<839=842,841,840
+<842=843
+<843=845,844
+<845=846
+<846=848,847
+<848=850,849
+<851=853,852
+<854=855
+<855=857,856
+<872=874,873
+<878=880,879
+<884=893,892,885
+<885=889,886
+<886=888,887
+<889=891,890
+<893=935,931,921,896,894
+<894=895
+<896=919,897
+<897=915,909,898
+<898=899
+<899=906,900
+<900=902,901
+<902=903
+<903=905,904
+<906=908,907
+<909=910
+<910=914,911
+<911=913,912
+<915=916
+<916=918,917
+<919=920
+<921=922
+<922=928,923
+<923=926,925,924
+<926=927
+<928=930,929
+<931=932
+<932=934,933
+<935=936
+<936=964,963,937
+<937=962,938
+<938=940,939
+<940=960,941
+<941=942
+<942=943
+<943=952,944
+<944=946,945
+<946=947
+<947=949,948
+<949=951,950
+<952=954,953
+<954=955
+<955=957,956
+<957=959,958
+<960=961

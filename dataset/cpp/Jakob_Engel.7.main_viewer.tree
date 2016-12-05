@@ -1,0 +1,972 @@
+>5	FunctionDef	dynConfCb (lsd_slam_viewer 
+>6	ParameterList	lsd_slam_viewer 
+>7	Parameter	 
+>8	Identifier	level
+>9	ParameterType	uint32_t
+>10	Parameter	 
+>11	Identifier	config
+>12	ParameterType	lsd_slam_viewer 
+>13	ReturnType	void
+>14	CompoundStatement	 
+>15	ExpressionStatement	 
+>16	AssignmentExpr	saveAllVideo = config . saveAllVideo
+>17	MemberAccess	config . saveAllVideo
+>18	Identifier	saveAllVideo
+>19	Identifier	config
+>20	Identifier	saveAllVideo
+>21	ExpressionStatement	 
+>22	AssignmentExpr	cutFirstNKf = config . cutFirstNKf
+>23	MemberAccess	config . cutFirstNKf
+>24	Identifier	cutFirstNKf
+>25	Identifier	config
+>26	Identifier	cutFirstNKf
+>27	ExpressionStatement	 
+>28	AssignmentExpr	sparsifyFactor = config . sparsifyFactor
+>29	MemberAccess	config . sparsifyFactor
+>30	Identifier	sparsifyFactor
+>31	Identifier	config
+>32	Identifier	sparsifyFactor
+>33	ExpressionStatement	 
+>34	AssignmentExpr	minNearSupport = config . minNearSupport
+>35	MemberAccess	config . minNearSupport
+>36	Identifier	minNearSupport
+>37	Identifier	config
+>38	Identifier	minNearSupport
+>39	ExpressionStatement	 
+>40	AssignmentExpr	absDepthVarTH = exp10 ( config . absDepthVarTH )
+>41	CallExpression	exp10 ( config . absDepthVarTH )
+>42	ArgumentList	config . absDepthVarTH
+>43	Argument	config . absDepthVarTH
+>44	MemberAccess	config . absDepthVarTH
+>45	Identifier	absDepthVarTH
+>46	Identifier	config
+>47	Callee	exp10
+>48	Identifier	exp10
+>49	Identifier	absDepthVarTH
+>50	ExpressionStatement	 
+>51	AssignmentExpr	scaledDepthVarTH = exp10 ( config . scaledDepthVarTH )
+>52	CallExpression	exp10 ( config . scaledDepthVarTH )
+>53	ArgumentList	config . scaledDepthVarTH
+>54	Argument	config . scaledDepthVarTH
+>55	MemberAccess	config . scaledDepthVarTH
+>56	Identifier	scaledDepthVarTH
+>57	Identifier	config
+>58	Callee	exp10
+>59	Identifier	exp10
+>60	Identifier	scaledDepthVarTH
+>61	ExpressionStatement	 
+>62	AssignmentExpr	showCurrentPointcloud = config . showCurrentPointcloud
+>63	MemberAccess	config . showCurrentPointcloud
+>64	Identifier	showCurrentPointcloud
+>65	Identifier	config
+>66	Identifier	showCurrentPointcloud
+>67	ExpressionStatement	 
+>68	AssignmentExpr	showCurrentCamera = config . showCurrentCamera
+>69	MemberAccess	config . showCurrentCamera
+>70	Identifier	showCurrentCamera
+>71	Identifier	config
+>72	Identifier	showCurrentCamera
+>73	ExpressionStatement	 
+>74	AssignmentExpr	showConstraints = config . showConstraints
+>75	MemberAccess	config . showConstraints
+>76	Identifier	showConstraints
+>77	Identifier	config
+>78	Identifier	showConstraints
+>79	ExpressionStatement	 
+>80	AssignmentExpr	showKFPointclouds = config . showKFPointclouds
+>81	MemberAccess	config . showKFPointclouds
+>82	Identifier	showKFPointclouds
+>83	Identifier	config
+>84	Identifier	showKFPointclouds
+>85	ExpressionStatement	 
+>86	AssignmentExpr	showKFCameras = config . showKFCameras
+>87	MemberAccess	config . showKFCameras
+>88	Identifier	showKFCameras
+>89	Identifier	config
+>90	Identifier	showKFCameras
+>91	ExpressionStatement	 
+>92	AssignmentExpr	keepInMemory = config . keepInMemory
+>93	MemberAccess	config . keepInMemory
+>94	Identifier	keepInMemory
+>95	Identifier	config
+>96	Identifier	keepInMemory
+>97	ExpressionStatement	 
+>98	AssignmentExpr	lineTesselation = config . lineTesselation
+>99	MemberAccess	config . lineTesselation
+>100	Identifier	lineTesselation
+>101	Identifier	config
+>102	Identifier	lineTesselation
+>103	ExpressionStatement	 
+>104	AssignmentExpr	pointTesselation = config . pointTesselation
+>105	MemberAccess	config . pointTesselation
+>106	Identifier	pointTesselation
+>107	Identifier	config
+>108	Identifier	pointTesselation
+>143	FunctionDef	frameCb (lsd_slam_viewer 
+>144	ParameterList	lsd_slam_viewer 
+>145	Parameter	 
+>146	Identifier	msg
+>147	ParameterType	lsd_slam_viewer 
+>148	ReturnType	void
+>149	CompoundStatement	 
+>150	IfStatement	if ( viewer != 0 )
+>151	ExpressionStatement	 
+>152	CallExpression	viewer -> addFrameMsg ( msg )
+>153	ArgumentList	msg
+>154	Argument	msg
+>155	Identifier	msg
+>156	Callee	viewer -> addFrameMsg
+>157	PtrMemberAccess	viewer -> addFrameMsg
+>158	Identifier	addFrameMsg
+>159	Identifier	viewer
+>160	Condition	 
+>161	EqualityExpression	viewer != 0
+>162	PrimaryExpression	0
+>163	Identifier	viewer
+>164	IfStatement	if ( msg -> time > lastFrameTime )
+>165	ReturnStatement	 
+>166	Condition	 
+>167	RelationalExpression	msg -> time > lastFrameTime
+>168	Identifier	lastFrameTime
+>169	PtrMemberAccess	msg -> time
+>170	Identifier	time
+>171	Identifier	msg
+>180	FunctionDef	graphCb (lsd_slam_viewer 
+>181	ParameterList	lsd_slam_viewer 
+>182	Parameter	 
+>183	Identifier	msg
+>184	ParameterType	lsd_slam_viewer 
+>185	ReturnType	void
+>186	CompoundStatement	 
+>187	IfStatement	if ( viewer != 0 )
+>188	ExpressionStatement	 
+>189	CallExpression	viewer -> addGraphMsg ( msg )
+>190	ArgumentList	msg
+>191	Argument	msg
+>192	Identifier	msg
+>193	Callee	viewer -> addGraphMsg
+>194	PtrMemberAccess	viewer -> addGraphMsg
+>195	Identifier	addGraphMsg
+>196	Identifier	viewer
+>197	Condition	 
+>198	EqualityExpression	viewer != 0
+>199	PrimaryExpression	0
+>200	Identifier	viewer
+>206	FunctionDef	rosThreadLoop (int argc , char * * argv)
+>207	ParameterList	int argc , char * * argv
+>208	Parameter	 
+>209	Identifier	argv
+>210	ParameterType	char * *
+>211	Parameter	 
+>212	Identifier	argc
+>213	ParameterType	int
+>214	ReturnType	void
+>215	CompoundStatement	 
+>216	ExpressionStatement	 
+>217	CallExpression	exit ( 1 )
+>218	ArgumentList	1
+>219	Argument	1
+>220	PrimaryExpression	1
+>221	Callee	exit
+>222	Identifier	exit
+>223	ExpressionStatement	 
+>224	CallExpression	printf ( \"Exiting ROS thread\n\" )
+>225	ArgumentList	\"Exiting ROS thread\n\"
+>226	Argument	\"Exiting ROS thread\n\"
+>227	PrimaryExpression	\"Exiting ROS thread\n\"
+>228	Callee	printf
+>229	Identifier	printf
+>230	ExpressionStatement	 
+>231	CallExpression	ros 
+>232	ArgumentList	 
+>233	Callee	ros 
+>234	Identifier	ros 
+>235	ExpressionStatement	 
+>236	CallExpression	ros 
+>237	ArgumentList	 
+>238	Callee	ros 
+>239	Identifier	ros 
+>240	IdentifierDeclStatement	 
+>241	IdentifierDecl	graph_sub = nh . subscribe ( nh . resolveName ( \"lsd_slam/graph\" ) , 10 , graphCb )
+>242	AssignmentExpr	graph_sub = nh . subscribe ( nh . resolveName ( \"lsd_slam/graph\" ) , 10 , graphCb )
+>243	CallExpression	nh . subscribe ( nh . resolveName ( \"lsd_slam/graph\" ) , 10 , graphCb )
+>244	ArgumentList	nh . resolveName ( \"lsd_slam/graph\" )
+>245	Argument	graphCb
+>246	Identifier	graphCb
+>247	Argument	10
+>248	PrimaryExpression	10
+>249	Argument	nh . resolveName ( \"lsd_slam/graph\" )
+>250	CallExpression	nh . resolveName ( \"lsd_slam/graph\" )
+>251	ArgumentList	\"lsd_slam/graph\"
+>252	Argument	\"lsd_slam/graph\"
+>253	PrimaryExpression	\"lsd_slam/graph\"
+>254	Callee	nh . resolveName
+>255	MemberAccess	nh . resolveName
+>256	Identifier	resolveName
+>257	Identifier	nh
+>258	Callee	nh . subscribe
+>259	MemberAccess	nh . subscribe
+>260	Identifier	subscribe
+>261	Identifier	nh
+>262	Identifier	graph_sub
+>263	Identifier	graph_sub
+>264	IdentifierDeclType	ros 
+>265	IdentifierDeclStatement	 
+>266	IdentifierDecl	keyFrames_sub = nh . subscribe ( nh . resolveName ( \"lsd_slam/keyframes\" ) , 20 , frameCb )
+>267	AssignmentExpr	keyFrames_sub = nh . subscribe ( nh . resolveName ( \"lsd_slam/keyframes\" ) , 20 , frameCb )
+>268	CallExpression	nh . subscribe ( nh . resolveName ( \"lsd_slam/keyframes\" ) , 20 , frameCb )
+>269	ArgumentList	nh . resolveName ( \"lsd_slam/keyframes\" )
+>270	Argument	frameCb
+>271	Identifier	frameCb
+>272	Argument	20
+>273	PrimaryExpression	20
+>274	Argument	nh . resolveName ( \"lsd_slam/keyframes\" )
+>275	CallExpression	nh . resolveName ( \"lsd_slam/keyframes\" )
+>276	ArgumentList	\"lsd_slam/keyframes\"
+>277	Argument	\"lsd_slam/keyframes\"
+>278	PrimaryExpression	\"lsd_slam/keyframes\"
+>279	Callee	nh . resolveName
+>280	MemberAccess	nh . resolveName
+>281	Identifier	resolveName
+>282	Identifier	nh
+>283	Callee	nh . subscribe
+>284	MemberAccess	nh . subscribe
+>285	Identifier	subscribe
+>286	Identifier	nh
+>287	Identifier	keyFrames_sub
+>288	Identifier	keyFrames_sub
+>289	IdentifierDeclType	ros 
+>290	IdentifierDeclStatement	 
+>291	IdentifierDecl	liveFrames_sub = nh . subscribe ( nh . resolveName ( \"lsd_slam/liveframes\" ) , 1 , frameCb )
+>292	AssignmentExpr	liveFrames_sub = nh . subscribe ( nh . resolveName ( \"lsd_slam/liveframes\" ) , 1 , frameCb )
+>293	CallExpression	nh . subscribe ( nh . resolveName ( \"lsd_slam/liveframes\" ) , 1 , frameCb )
+>294	ArgumentList	nh . resolveName ( \"lsd_slam/liveframes\" )
+>295	Argument	frameCb
+>296	Identifier	frameCb
+>297	Argument	1
+>298	PrimaryExpression	1
+>299	Argument	nh . resolveName ( \"lsd_slam/liveframes\" )
+>300	CallExpression	nh . resolveName ( \"lsd_slam/liveframes\" )
+>301	ArgumentList	\"lsd_slam/liveframes\"
+>302	Argument	\"lsd_slam/liveframes\"
+>303	PrimaryExpression	\"lsd_slam/liveframes\"
+>304	Callee	nh . resolveName
+>305	MemberAccess	nh . resolveName
+>306	Identifier	resolveName
+>307	Identifier	nh
+>308	Callee	nh . subscribe
+>309	MemberAccess	nh . subscribe
+>310	Identifier	subscribe
+>311	Identifier	nh
+>312	Identifier	liveFrames_sub
+>313	Identifier	liveFrames_sub
+>314	IdentifierDeclType	ros 
+>315	IdentifierDeclStatement	 
+>316	IdentifierDecl	nh
+>317	Identifier	nh
+>318	IdentifierDeclType	ros 
+>319	ExpressionStatement	 
+>320	CallExpression	srv . setCallback ( dynConfCb )
+>321	ArgumentList	dynConfCb
+>322	Argument	dynConfCb
+>323	Identifier	dynConfCb
+>324	Callee	srv . setCallback
+>325	MemberAccess	srv . setCallback
+>326	Identifier	setCallback
+>327	Identifier	srv
+>328	IdentifierDeclStatement	 
+>329	IdentifierDecl	srv
+>330	Identifier	srv
+>331	IdentifierDeclType	dynamic_reconfigure 
+>332	ExpressionStatement	 
+>333	CallExpression	ROS_INFO ( \"lsd_slam_viewer started\" )
+>334	ArgumentList	\"lsd_slam_viewer started\"
+>335	Argument	\"lsd_slam_viewer started\"
+>336	PrimaryExpression	\"lsd_slam_viewer started\"
+>337	Callee	ROS_INFO
+>338	Identifier	ROS_INFO
+>339	ExpressionStatement	 
+>340	CallExpression	ros 
+>341	ArgumentList	argc
+>342	Argument	\"viewer\"
+>343	PrimaryExpression	\"viewer\"
+>344	Argument	argv
+>345	Identifier	argv
+>346	Argument	argc
+>347	Identifier	argc
+>348	Callee	ros 
+>349	Identifier	ros 
+>350	ExpressionStatement	 
+>351	CallExpression	printf ( \"Started ROS thread\n\" )
+>352	ArgumentList	\"Started ROS thread\n\"
+>353	Argument	\"Started ROS thread\n\"
+>354	PrimaryExpression	\"Started ROS thread\n\"
+>355	Callee	printf
+>356	Identifier	printf
+>372	FunctionDef	rosFileLoop (int argc , char * * argv)
+>373	ParameterList	int argc , char * * argv
+>374	Parameter	 
+>375	Identifier	argv
+>376	ParameterType	char * *
+>377	Parameter	 
+>378	Identifier	argc
+>379	ParameterType	int
+>380	ReturnType	void
+>381	CompoundStatement	 
+>382	ExpressionStatement	 
+>383	CallExpression	exit ( 1 )
+>384	ArgumentList	1
+>385	Argument	1
+>386	PrimaryExpression	1
+>387	Callee	exit
+>388	Identifier	exit
+>389	ExpressionStatement	 
+>390	CallExpression	printf ( \"Exiting ROS thread\n\" )
+>391	ArgumentList	\"Exiting ROS thread\n\"
+>392	Argument	\"Exiting ROS thread\n\"
+>393	PrimaryExpression	\"Exiting ROS thread\n\"
+>394	Callee	printf
+>395	Identifier	printf
+>396	ExpressionStatement	 
+>397	CallExpression	ros 
+>398	ArgumentList	 
+>399	Callee	ros 
+>400	Identifier	ros 
+>401	ExpressionStatement	 
+>402	CallExpression	ros 
+>403	ArgumentList	 
+>404	Callee	ros 
+>405	Identifier	ros 
+>406	CompoundStatement	 
+>407	ExpressionStatement	 
+>408	Statement	 
+>409	Statement	 
+>410	Statement	 
+>411	Statement	 
+>412	Statement	 
+>413	Statement	 
+>414	Statement	 
+>415	Statement	 
+>416	Statement	 
+>417	Statement	 
+>418	Statement	 
+>419	Statement	 
+>420	IfStatement	if ( m . getTopic ( ) == \"/lsd_slam/graph\" )
+>421	Statement	 
+>422	Condition	 
+>423	EqualityExpression	m . getTopic ( ) == \"/lsd_slam/graph\"
+>424	PrimaryExpression	\"/lsd_slam/graph\"
+>425	CallExpression	m . getTopic ( )
+>426	ArgumentList	 
+>427	Callee	m . getTopic
+>428	MemberAccess	m . getTopic
+>429	Identifier	getTopic
+>430	Identifier	m
+>431	ExpressionStatement	 
+>432	Statement	 
+>433	Statement	 
+>434	Statement	 
+>435	Statement	 
+>436	Statement	 
+>437	Statement	 
+>438	Statement	 
+>439	Statement	 
+>440	Statement	 
+>441	Statement	 
+>442	Statement	 
+>443	Statement	 
+>444	IfStatement	if ( m . getTopic ( ) == \"/lsd_slam/liveframes\" || m . getTopic ( ) == \"/lsd_slam/keyframes\" )
+>445	Statement	 
+>446	Condition	 
+>447	OrExpression	m . getTopic ( ) == \"/lsd_slam/liveframes\" || m . getTopic ( ) == \"/lsd_slam/keyframes\"
+>448	EqualityExpression	m . getTopic ( ) == \"/lsd_slam/keyframes\"
+>449	PrimaryExpression	\"/lsd_slam/keyframes\"
+>450	CallExpression	m . getTopic ( )
+>451	ArgumentList	 
+>452	Callee	m . getTopic
+>453	MemberAccess	m . getTopic
+>454	Identifier	getTopic
+>455	Identifier	m
+>456	EqualityExpression	m . getTopic ( ) == \"/lsd_slam/liveframes\"
+>457	PrimaryExpression	\"/lsd_slam/liveframes\"
+>458	CallExpression	m . getTopic ( )
+>459	ArgumentList	 
+>460	Callee	m . getTopic
+>461	MemberAccess	m . getTopic
+>462	Identifier	getTopic
+>463	Identifier	m
+>464	Statement	 
+>465	Statement	 
+>466	Statement	 
+>467	Statement	 
+>468	Statement	 
+>469	Statement	 
+>470	Statement	 
+>471	Statement	 
+>472	Statement	 
+>473	Statement	 
+>474	IdentifierDeclStatement	 
+>475	IdentifierDecl	view ( bag , rosbag 
+>476	Expression	bag , rosbag 
+>477	CallExpression	rosbag 
+>478	ArgumentList	topics
+>479	Argument	topics
+>480	Identifier	topics
+>481	Callee	rosbag 
+>482	Identifier	rosbag 
+>483	Identifier	bag
+>484	Identifier	view
+>485	IdentifierDeclType	rosbag 
+>486	ExpressionStatement	 
+>487	CallExpression	topics . push_back ( std 
+>488	ArgumentList	std 
+>489	Argument	std 
+>490	CallExpression	std 
+>491	ArgumentList	\"/lsd_slam/graph\"
+>492	Argument	\"/lsd_slam/graph\"
+>493	PrimaryExpression	\"/lsd_slam/graph\"
+>494	Callee	std 
+>495	Identifier	std 
+>496	Callee	topics . push_back
+>497	MemberAccess	topics . push_back
+>498	Identifier	push_back
+>499	Identifier	topics
+>500	ExpressionStatement	 
+>501	CallExpression	topics . push_back ( std 
+>502	ArgumentList	std 
+>503	Argument	std 
+>504	CallExpression	std 
+>505	ArgumentList	\"/lsd_slam/keyframes\"
+>506	Argument	\"/lsd_slam/keyframes\"
+>507	PrimaryExpression	\"/lsd_slam/keyframes\"
+>508	Callee	std 
+>509	Identifier	std 
+>510	Callee	topics . push_back
+>511	MemberAccess	topics . push_back
+>512	Identifier	push_back
+>513	Identifier	topics
+>514	ExpressionStatement	 
+>515	CallExpression	topics . push_back ( std 
+>516	ArgumentList	std 
+>517	Argument	std 
+>518	CallExpression	std 
+>519	ArgumentList	\"/lsd_slam/liveframes\"
+>520	Argument	\"/lsd_slam/liveframes\"
+>521	PrimaryExpression	\"/lsd_slam/liveframes\"
+>522	Callee	std 
+>523	Identifier	std 
+>524	Callee	topics . push_back
+>525	MemberAccess	topics . push_back
+>526	Identifier	push_back
+>527	Identifier	topics
+>528	IdentifierDeclStatement	 
+>529	IdentifierDecl	topics
+>530	Identifier	topics
+>531	IdentifierDeclType	std 
+>532	ExpressionStatement	 
+>533	CallExpression	bag . open ( argv [ 1 ] , rosbag 
+>534	ArgumentList	argv [ 1 ]
+>535	Argument	rosbag 
+>536	Identifier	rosbag 
+>537	Argument	argv [ 1 ]
+>538	ArrayIndexing	argv [ 1 ]
+>539	PrimaryExpression	1
+>540	Identifier	argv
+>541	Callee	bag . open
+>542	MemberAccess	bag . open
+>543	Identifier	open
+>544	Identifier	bag
+>545	IdentifierDeclStatement	 
+>546	IdentifierDecl	bag
+>547	Identifier	bag
+>548	IdentifierDeclType	rosbag 
+>549	ExpressionStatement	 
+>550	CallExpression	srv . setCallback ( dynConfCb )
+>551	ArgumentList	dynConfCb
+>552	Argument	dynConfCb
+>553	Identifier	dynConfCb
+>554	Callee	srv . setCallback
+>555	MemberAccess	srv . setCallback
+>556	Identifier	setCallback
+>557	Identifier	srv
+>558	IdentifierDeclStatement	 
+>559	IdentifierDecl	srv
+>560	Identifier	srv
+>561	IdentifierDeclType	dynamic_reconfigure 
+>562	ExpressionStatement	 
+>563	CallExpression	ros 
+>564	ArgumentList	argc
+>565	Argument	\"viewer\"
+>566	PrimaryExpression	\"viewer\"
+>567	Argument	argv
+>568	Identifier	argv
+>569	Argument	argc
+>570	Identifier	argc
+>571	Callee	ros 
+>572	Identifier	ros 
+>588	FunctionDef	main (int argc , char * * argv)
+>589	ParameterList	int argc , char * * argv
+>590	Parameter	 
+>591	Identifier	argv
+>592	ParameterType	char * *
+>593	Parameter	 
+>594	Identifier	argc
+>595	ParameterType	int
+>596	ReturnType	int
+>597	CompoundStatement	 
+>598	ExpressionStatement	 
+>599	CallExpression	printf ( \"Done. \n\" )
+>600	ArgumentList	\"Done. \n\"
+>601	Argument	\"Done. \n\"
+>602	PrimaryExpression	\"Done. \n\"
+>603	Callee	printf
+>604	Identifier	printf
+>605	ExpressionStatement	 
+>606	CallExpression	rosThread . join ( )
+>607	ArgumentList	 
+>608	Callee	rosThread . join
+>609	MemberAccess	rosThread . join
+>610	Identifier	join
+>611	Identifier	rosThread
+>612	ExpressionStatement	 
+>613	CallExpression	ros 
+>614	ArgumentList	 
+>615	Callee	ros 
+>616	Identifier	ros 
+>617	ExpressionStatement	 
+>618	CallExpression	printf ( \"Shutting down... \n\" )
+>619	ArgumentList	\"Shutting down... \n\"
+>620	Argument	\"Shutting down... \n\"
+>621	PrimaryExpression	\"Shutting down... \n\"
+>622	Callee	printf
+>623	Identifier	printf
+>624	ExpressionStatement	 
+>625	CallExpression	application . exec ( )
+>626	ArgumentList	 
+>627	Callee	application . exec
+>628	MemberAccess	application . exec
+>629	Identifier	exec
+>630	Identifier	application
+>631	IfStatement	if ( argc > 1 )
+>632	ElseStatement	else
+>633	CompoundStatement	 
+>634	ExpressionStatement	 
+>635	AssignmentExpr	rosThread = boost 
+>636	CallExpression	boost 
+>637	ArgumentList	rosThreadLoop
+>638	Argument	argv
+>639	Identifier	argv
+>640	Argument	argc
+>641	Identifier	argc
+>642	Argument	rosThreadLoop
+>643	Identifier	rosThreadLoop
+>644	Callee	boost 
+>645	Identifier	boost 
+>646	Identifier	rosThread
+>647	CompoundStatement	 
+>648	ExpressionStatement	 
+>649	AssignmentExpr	rosThread = boost 
+>650	CallExpression	boost 
+>651	ArgumentList	rosFileLoop
+>652	Argument	argv
+>653	Identifier	argv
+>654	Argument	argc
+>655	Identifier	argc
+>656	Argument	rosFileLoop
+>657	Identifier	rosFileLoop
+>658	Callee	boost 
+>659	Identifier	boost 
+>660	Identifier	rosThread
+>661	Condition	 
+>662	RelationalExpression	argc > 1
+>663	PrimaryExpression	1
+>664	Identifier	argc
+>665	IdentifierDeclStatement	 
+>666	IdentifierDecl	rosThread
+>667	Identifier	rosThread
+>668	IdentifierDeclType	boost 
+>669	ExpressionStatement	 
+>670	CallExpression	viewer -> show ( )
+>671	ArgumentList	 
+>672	Callee	viewer -> show
+>673	PtrMemberAccess	viewer -> show
+>674	Identifier	show
+>675	Identifier	viewer
+>676	ExpressionStatement	 
+>677	CallExpression	application . setMainWidget ( viewer )
+>678	ArgumentList	viewer
+>679	Argument	viewer
+>680	Identifier	viewer
+>681	Callee	application . setMainWidget
+>682	MemberAccess	application . setMainWidget
+>683	Identifier	setMainWidget
+>684	Identifier	application
+>685	ExpressionStatement	 
+>686	AssignmentExpr	viewer = new PointCloudViewer ( )
+>687	UnaryExpression	new PointCloudViewer ( )
+>688	Identifier	viewer
+>689	IdentifierDeclStatement	 
+>690	IdentifierDecl	application ( argc , argv )
+>691	Expression	argc , argv
+>692	Identifier	argv
+>693	Identifier	argc
+>694	Identifier	application
+>695	IdentifierDeclType	QApplication
+>696	ExpressionStatement	 
+>697	CallExpression	printf ( \"Started QApplication thread\n\" )
+>698	ArgumentList	\"Started QApplication thread\n\"
+>699	Argument	\"Started QApplication thread\n\"
+>700	PrimaryExpression	\"Started QApplication thread\n\"
+>701	Callee	printf
+>702	Identifier	printf
+<5=14,13,6
+<6=10,7
+<7=9,8
+<10=12,11
+<14=103,97,91,85,79,73,67,61,50,39,33,27,21,15
+<15=16
+<16=20,17
+<17=19,18
+<21=22
+<22=26,23
+<23=25,24
+<27=28
+<28=32,29
+<29=31,30
+<33=34
+<34=38,35
+<35=37,36
+<39=40
+<40=49,41
+<41=47,42
+<42=43
+<43=44
+<44=46,45
+<47=48
+<50=51
+<51=60,52
+<52=58,53
+<53=54
+<54=55
+<55=57,56
+<58=59
+<61=62
+<62=66,63
+<63=65,64
+<67=68
+<68=72,69
+<69=71,70
+<73=74
+<74=78,75
+<75=77,76
+<79=80
+<80=84,81
+<81=83,82
+<85=86
+<86=90,87
+<87=89,88
+<91=92
+<92=96,93
+<93=95,94
+<97=98
+<98=102,99
+<99=101,100
+<103=104
+<104=108,105
+<105=107,106
+<143=149,148,144
+<144=145
+<145=147,146
+<149=164,150
+<150=160,151
+<151=152
+<152=156,153
+<153=154
+<154=155
+<156=157
+<157=159,158
+<160=161
+<161=163,162
+<164=166,165
+<166=167
+<167=169,168
+<169=171,170
+<180=186,185,181
+<181=182
+<182=184,183
+<186=187
+<187=197,188
+<188=189
+<189=193,190
+<190=191
+<191=192
+<193=194
+<194=196,195
+<197=198
+<198=200,199
+<206=215,214,207
+<207=211,208
+<208=210,209
+<211=213,212
+<215=350,339,332,328,319,315,290,265,240,235,230,223,216
+<216=217
+<217=221,218
+<218=219
+<219=220
+<221=222
+<223=224
+<224=228,225
+<225=226
+<226=227
+<228=229
+<230=231
+<231=233,232
+<233=234
+<235=236
+<236=238,237
+<238=239
+<240=241
+<241=264,263,242
+<242=262,243
+<243=258,244
+<244=249,247,245
+<245=246
+<247=248
+<249=250
+<250=254,251
+<251=252
+<252=253
+<254=255
+<255=257,256
+<258=259
+<259=261,260
+<265=266
+<266=289,288,267
+<267=287,268
+<268=283,269
+<269=274,272,270
+<270=271
+<272=273
+<274=275
+<275=279,276
+<276=277
+<277=278
+<279=280
+<280=282,281
+<283=284
+<284=286,285
+<290=291
+<291=314,313,292
+<292=312,293
+<293=308,294
+<294=299,297,295
+<295=296
+<297=298
+<299=300
+<300=304,301
+<301=302
+<302=303
+<304=305
+<305=307,306
+<308=309
+<309=311,310
+<315=316
+<316=318,317
+<319=320
+<320=324,321
+<321=322
+<322=323
+<324=325
+<325=327,326
+<328=329
+<329=331,330
+<332=333
+<333=337,334
+<334=335
+<335=336
+<337=338
+<339=340
+<340=348,341
+<341=346,344,342
+<342=343
+<344=345
+<346=347
+<348=349
+<350=351
+<351=355,352
+<352=353
+<353=354
+<355=356
+<372=381,380,373
+<373=377,374
+<374=376,375
+<377=379,378
+<381=562,558,549,545,532,528,514,500,486,474,473,472,471,470,469,468,467,466,465,464,406,401,396,389,382
+<382=383
+<383=387,384
+<384=385
+<385=386
+<387=388
+<389=390
+<390=394,391
+<391=392
+<392=393
+<394=395
+<396=397
+<397=399,398
+<399=400
+<401=402
+<402=404,403
+<404=405
+<406=444,443,442,441,440,439,438,437,436,435,434,433,432,431,420,419,418,417,416,415,414,413,412,411,410,409,408,407
+<420=422,421
+<422=423
+<423=425,424
+<425=427,426
+<427=428
+<428=430,429
+<444=446,445
+<446=447
+<447=456,448
+<448=450,449
+<450=452,451
+<452=453
+<453=455,454
+<456=458,457
+<458=460,459
+<460=461
+<461=463,462
+<474=475
+<475=485,484,476
+<476=483,477
+<477=481,478
+<478=479
+<479=480
+<481=482
+<486=487
+<487=496,488
+<488=489
+<489=490
+<490=494,491
+<491=492
+<492=493
+<494=495
+<496=497
+<497=499,498
+<500=501
+<501=510,502
+<502=503
+<503=504
+<504=508,505
+<505=506
+<506=507
+<508=509
+<510=511
+<511=513,512
+<514=515
+<515=524,516
+<516=517
+<517=518
+<518=522,519
+<519=520
+<520=521
+<522=523
+<524=525
+<525=527,526
+<528=529
+<529=531,530
+<532=533
+<533=541,534
+<534=537,535
+<535=536
+<537=538
+<538=540,539
+<541=542
+<542=544,543
+<545=546
+<546=548,547
+<549=550
+<550=554,551
+<551=552
+<552=553
+<554=555
+<555=557,556
+<558=559
+<559=561,560
+<562=563
+<563=571,564
+<564=569,567,565
+<565=566
+<567=568
+<569=570
+<571=572
+<588=597,596,589
+<589=593,590
+<590=592,591
+<593=595,594
+<597=696,689,685,676,669,665,631,624,617,612,605,598
+<598=599
+<599=603,600
+<600=601
+<601=602
+<603=604
+<605=606
+<606=608,607
+<608=609
+<609=611,610
+<612=613
+<613=615,614
+<615=616
+<617=618
+<618=622,619
+<619=620
+<620=621
+<622=623
+<624=625
+<625=627,626
+<627=628
+<628=630,629
+<631=661,647,632
+<632=633
+<633=634
+<634=635
+<635=646,636
+<636=644,637
+<637=642,640,638
+<638=639
+<640=641
+<642=643
+<644=645
+<647=648
+<648=649
+<649=660,650
+<650=658,651
+<651=656,654,652
+<652=653
+<654=655
+<656=657
+<658=659
+<661=662
+<662=664,663
+<665=666
+<666=668,667
+<669=670
+<670=672,671
+<672=673
+<673=675,674
+<676=677
+<677=681,678
+<678=679
+<679=680
+<681=682
+<682=684,683
+<685=686
+<686=688,687
+<689=690
+<690=695,694,691
+<691=693,692
+<696=697
+<697=701,698
+<698=699
+<699=700
+<701=702

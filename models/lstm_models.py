@@ -8,26 +8,27 @@ import chainer.links as L
 from chainer import cuda
 
 from ast_tree.ASTVectorizater import TreeFeatures
-from ast_tree.ast_parser import children
+from ast_tree.traverse import children
 from memory_cell.treelstm import FastTreeLSTM
 
 
 class RecursiveBaseLSTM(chainer.Chain):
-    def __init__(self, n_units, n_label, dropout, classes=None):
+    def __init__(self, n_units, n_label, dropout,feature_dict, classes=None):
         super(RecursiveBaseLSTM, self).__init__()
         self.classes_ = classes
-        self.feature_dict = TreeFeatures()
+        self.feature_dict = feature_dict
         self.dropout = dropout
 
-        self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
+        self.add_link("embed", L.EmbedID(self.feature_dict.size() + 1, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def leaf(self, x, train_mode):
         return self.embed_vec(x, train_mode)
 
     def embed_vec(self, x, train_mode):
-        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
+        word = self.xp.array([self.feature_dict.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
+        #return F.dropout(self.embed(w),ratio=self.dropout,train=train_mode)
         return self.embed(w)
 
     def params_count(self):
@@ -46,8 +47,9 @@ class RecursiveBaseLSTM(chainer.Chain):
             # internal node
             children_nodes = []
             for child in children_ast:
-                child_node = self.traverse(child, train_mode=train_mode)
-                children_nodes.append(child_node)
+                if child is not None:
+                    child_node = self.traverse(child, train_mode=train_mode)
+                    children_nodes.append(child_node)
             x = self.embed_vec(node, train_mode=train_mode)
             return self.merge(x, children_nodes, train_mode=train_mode)
 
@@ -76,8 +78,8 @@ class RecursiveBaseLSTM(chainer.Chain):
 
 
 class RecursiveLSTM(RecursiveBaseLSTM):
-    def __init__(self, n_units, n_label, layers, dropout, classes=None, peephole=False):
-        super(RecursiveLSTM, self).__init__(n_units, n_label, dropout=dropout, classes=classes)
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, classes=None, peephole=False):
+        super(RecursiveLSTM, self).__init__(n_units, n_label, dropout=dropout,feature_dict=feature_dict, classes=classes)
         self.layers = layers
         self.base_lstm = L.StatefulPeepholeLSTM if peephole else L.LSTM
         for i in range(1, layers + 1):
@@ -89,10 +91,7 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         for i in range(1, self.layers + 1):
             layers.append(getattr(self, "lstm" + str(i)))
         for layer in layers:
-            if self.dropout > 0.0:
-                h = F.dropout(layer(h), ratio=self.dropout, train=train_mode)
-            else:
-                h = layer(h)
+            h = F.dropout(layer(h), ratio=self.dropout, train=train_mode)
         return h
 
     def reset_states(self):
@@ -109,6 +108,7 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         self.reset_states()
         return h0
 
+<<<<<<< HEAD
 class RecursiveBBiLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label, dropout, classes=None):
         super(RecursiveBBiLSTM, self).__init__(n_units, n_label, layers=2, dropout=dropout, classes=classes)
@@ -129,9 +129,11 @@ class RecursiveBBiLSTM(RecursiveLSTM):
         self.lstm2.reset_state()
         return self.w_v(F.dropout(F.concat((h0, h1), axis=1), ratio=self.dropout, train=train_mode))
 
+=======
+>>>>>>> 756f17db619b01a162b995803d305bb1dff7ef97
 class RecursiveBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, layers, dropout, peephole, classes=None):
-        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None):
+        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,feature_dict=feature_dict,
                                               classes=classes)
         self.dropout = dropout
         for i in range(1, layers + 1):
@@ -193,8 +195,8 @@ class RecursiveBiLSTM(RecursiveLSTM):
 
 
 class RecursiveResidualLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, layers, dropout, peephole, classes=None):
-        super(RecursiveResidualLSTM, self).__init__(n_units, n_label, layers=layers, dropout=dropout, peephole=peephole,
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None):
+        super(RecursiveResidualLSTM, self).__init__(n_units, n_label, layers=layers,feature_dict=feature_dict, dropout=dropout, peephole=peephole,
                                                     classes=classes)
 
     def merge(self, x, children, train_mode=True):
@@ -215,55 +217,3 @@ class RecursiveResidualLSTM(RecursiveLSTM):
             if self.dropout > 0.0:
                 h = F.dropout(h, ratio=self.dropout, train=train_mode)
         return h
-
-
-class RecursiveTreeBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, layers,dropout, peephole, classes=None):
-        super(RecursiveTreeBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,
-                                                  classes=classes)
-        self.dropout = dropout
-        for i in range(1, layers + 1):
-            self.add_link("blstm" + str(i), self.base_lstm(n_units, n_units))
-            if i < layers:
-                self.add_link("w_v" + str(i), L.Linear(2 * n_units, n_units))
-        self.add_link("h_l",F.Linear(n_units, 4 * n_units))
-        self.add_link("h_r",F.Linear(n_units, 4 * n_units))
-
-    def merge(self, x, children, train_mode):
-        root = x
-        leaves = children
-        for idx in range(1, self.layers + 1):
-            # forward
-            fw_results = []
-            flstm = getattr(self, "lstm{0}".format(idx))
-            fw_results.append(flstm(root))
-            for child in leaves:
-                fw_results.append(flstm(child))
-            c_r = flstm.c
-            # backword
-            bw_results = []
-            blstm = getattr(self, "blstm{0}".format(idx))
-            for child in reversed(leaves):
-                bw_results.append(blstm(child))
-            bw_results.append(blstm(root))
-            c_l = blstm.c
-            if idx < self.layers:
-                w_v = getattr(self, "w_v{0}".format(idx))
-                h_values = []
-                for fh, bh in zip(fw_results, bw_results):
-                    h_values.append(w_v(F.dropout(F.concat((fh, bh), axis=1), ratio=self.dropout, train=train_mode)))
-                root = h_values[0]
-                leaves = h_values[1:]
-        self.reset_states()
-        h_l = self.h_l(bw_results[-1])
-        h_r = self.h_r(fw_results[-1])
-        c,h =F.slstm(c_l, c_r, h_l,h_r)
-        return F.dropout(h, ratio=self.dropout, train=train_mode)
-
-
-    def reset_states(self):
-        for i in range(1, self.layers + 1):
-            layer = getattr(self, "lstm" + str(i))
-            layer.reset_state()
-            layer = getattr(self, "blstm" + str(i))
-            layer.reset_state()

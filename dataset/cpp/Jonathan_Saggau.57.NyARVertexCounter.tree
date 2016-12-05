@@ -1,0 +1,394 @@
+>3	FunctionDef	NyARVertexCounter 
+>4	ParameterList	const int i_x_coord [ ] , const int i_y_coord [ ] , int st , int ed , double i_thresh
+>5	Parameter	 
+>6	Identifier	i_thresh
+>7	ParameterType	double
+>8	Parameter	 
+>9	Identifier	ed
+>10	ParameterType	int
+>11	Parameter	 
+>12	Identifier	st
+>13	ParameterType	int
+>14	Parameter	 
+>15	Identifier	i_y_coord
+>16	ParameterType	const int [ ]
+>17	Parameter	 
+>18	Identifier	i_x_coord
+>19	ParameterType	const int [ ]
+>20	ReturnType	bool
+>21	CompoundStatement	 
+>22	ReturnStatement	 
+>23	CallExpression	get_vertex ( i_x_coord , i_y_coord , st , ed , i_thresh )
+>24	ArgumentList	i_x_coord
+>25	Argument	i_thresh
+>26	Identifier	i_thresh
+>27	Argument	ed
+>28	Identifier	ed
+>29	Argument	st
+>30	Identifier	st
+>31	Argument	i_y_coord
+>32	Identifier	i_y_coord
+>33	Argument	i_x_coord
+>34	Identifier	i_x_coord
+>35	Callee	get_vertex
+>36	Identifier	get_vertex
+>37	ExpressionStatement	 
+>38	AssignmentExpr	this -> number_of_vertex = 0
+>39	PrimaryExpression	0
+>40	PtrMemberAccess	this -> number_of_vertex
+>41	Identifier	number_of_vertex
+>42	Identifier	this
+>55	FunctionDef	NyARVertexCounter 
+>56	ParameterList	const int lx_coord [ ] , const int ly_coord [ ] , int st , int ed , double i_thresh
+>57	Parameter	 
+>58	Identifier	i_thresh
+>59	ParameterType	double
+>60	Parameter	 
+>61	Identifier	ed
+>62	ParameterType	int
+>63	Parameter	 
+>64	Identifier	st
+>65	ParameterType	int
+>66	Parameter	 
+>67	Identifier	ly_coord
+>68	ParameterType	const int [ ]
+>69	Parameter	 
+>70	Identifier	lx_coord
+>71	ParameterType	const int [ ]
+>72	ReturnType	bool
+>73	CompoundStatement	 
+>74	ReturnStatement	 
+>75	Identifier	true
+>76	IfStatement	if ( dmax / ( double ) ( a * a + b * b ) > i_thresh )
+>77	CompoundStatement	 
+>78	IfStatement	if ( ! get_vertex ( lx_coord , ly_coord , v1 , ed , i_thresh ) )
+>79	CompoundStatement	 
+>80	ReturnStatement	 
+>81	Identifier	false
+>82	Condition	 
+>83	UnaryOp	! get_vertex ( lx_coord , ly_coord , v1 , ed , i_thresh )
+>84	CallExpression	get_vertex ( lx_coord , ly_coord , v1 , ed , i_thresh )
+>85	ArgumentList	lx_coord
+>86	Argument	i_thresh
+>87	Identifier	i_thresh
+>88	Argument	ed
+>89	Identifier	ed
+>90	Argument	v1
+>91	Identifier	v1
+>92	Argument	ly_coord
+>93	Identifier	ly_coord
+>94	Argument	lx_coord
+>95	Identifier	lx_coord
+>96	Callee	get_vertex
+>97	Identifier	get_vertex
+>98	UnaryOperator	!
+>99	ExpressionStatement	 
+>100	IncDecOp	this -> number_of_vertex ++
+>101	IncDec	++
+>102	PtrMemberAccess	this -> number_of_vertex
+>103	Identifier	number_of_vertex
+>104	Identifier	this
+>105	ExpressionStatement	 
+>106	AssignmentExpr	this -> vertex [ number_of_vertex ] = v1
+>107	Identifier	v1
+>108	ArrayIndexing	this -> vertex [ number_of_vertex ]
+>109	Identifier	number_of_vertex
+>110	PtrMemberAccess	this -> vertex
+>111	Identifier	vertex
+>112	Identifier	this
+>113	IfStatement	if ( this -> number_of_vertex > 5 )
+>114	CompoundStatement	 
+>115	ReturnStatement	 
+>116	Identifier	false
+>117	Condition	 
+>118	RelationalExpression	this -> number_of_vertex > 5
+>119	PrimaryExpression	5
+>120	PtrMemberAccess	this -> number_of_vertex
+>121	Identifier	number_of_vertex
+>122	Identifier	this
+>123	IfStatement	if ( ! get_vertex ( lx_coord , ly_coord , st , v1 , i_thresh ) )
+>124	CompoundStatement	 
+>125	ReturnStatement	 
+>126	Identifier	false
+>127	Condition	 
+>128	UnaryOp	! get_vertex ( lx_coord , ly_coord , st , v1 , i_thresh )
+>129	CallExpression	get_vertex ( lx_coord , ly_coord , st , v1 , i_thresh )
+>130	ArgumentList	lx_coord
+>131	Argument	i_thresh
+>132	Identifier	i_thresh
+>133	Argument	v1
+>134	Identifier	v1
+>135	Argument	st
+>136	Identifier	st
+>137	Argument	ly_coord
+>138	Identifier	ly_coord
+>139	Argument	lx_coord
+>140	Identifier	lx_coord
+>141	Callee	get_vertex
+>142	Identifier	get_vertex
+>143	UnaryOperator	!
+>144	Condition	 
+>145	RelationalExpression	dmax / ( double ) ( a * a + b * b ) > i_thresh
+>146	Identifier	i_thresh
+>147	MultiplicativeExpression	dmax / ( double ) ( a * a + b * b )
+>148	CastExpression	( double ) ( a * a + b * b )
+>149	AdditiveExpression	a * a + b * b
+>150	MultiplicativeExpression	b * b
+>151	Identifier	b
+>152	Identifier	b
+>153	MultiplicativeExpression	a * a
+>154	Identifier	a
+>155	Identifier	a
+>156	CastTarget	double
+>157	Identifier	dmax
+>158	ForStatement	for ( int i = st + 1 ; i < ed ; i ++ )
+>159	CompoundStatement	 
+>160	IfStatement	if ( d * d > dmax )
+>161	CompoundStatement	 
+>162	ExpressionStatement	 
+>163	AssignmentExpr	v1 = i
+>164	Identifier	i
+>165	Identifier	v1
+>166	ExpressionStatement	 
+>167	AssignmentExpr	dmax = d * d
+>168	MultiplicativeExpression	d * d
+>169	Identifier	d
+>170	Identifier	d
+>171	Identifier	dmax
+>172	Condition	 
+>173	RelationalExpression	d * d > dmax
+>174	Identifier	dmax
+>175	MultiplicativeExpression	d * d
+>176	Identifier	d
+>177	Identifier	d
+>178	IdentifierDeclStatement	 
+>179	IdentifierDecl	d = a * lx_coord [ i ] + b * ly_coord [ i ] + c
+>180	AssignmentExpr	d = a * lx_coord [ i ] + b * ly_coord [ i ] + c
+>181	AdditiveExpression	a * lx_coord [ i ] + b * ly_coord [ i ] + c
+>182	AdditiveExpression	b * ly_coord [ i ] + c
+>183	Identifier	c
+>184	MultiplicativeExpression	b * ly_coord [ i ]
+>185	ArrayIndexing	ly_coord [ i ]
+>186	Identifier	i
+>187	Identifier	ly_coord
+>188	Identifier	b
+>189	MultiplicativeExpression	a * lx_coord [ i ]
+>190	ArrayIndexing	lx_coord [ i ]
+>191	Identifier	i
+>192	Identifier	lx_coord
+>193	Identifier	a
+>194	Identifier	d
+>195	Identifier	d
+>196	IdentifierDeclType	const double
+>197	IncDecOp	 
+>198	IncDec	++
+>199	Identifier	i
+>200	Condition	 
+>201	RelationalExpression	i < ed
+>202	Identifier	ed
+>203	Identifier	i
+>204	ForInit	 
+>205	IdentifierDeclStatement	int i = st + 1 ;
+>206	IdentifierDecl	i = st + 1
+>207	AssignmentExpr	i = st + 1
+>208	AdditiveExpression	st + 1
+>209	PrimaryExpression	1
+>210	Identifier	st
+>211	Identifier	i
+>212	Identifier	i
+>213	IdentifierDeclType	int
+>214	IdentifierDeclStatement	 
+>215	IdentifierDecl	dmax = 0
+>216	AssignmentExpr	dmax = 0
+>217	PrimaryExpression	0
+>218	Identifier	dmax
+>219	Identifier	dmax
+>220	IdentifierDeclType	double
+>221	IdentifierDeclStatement	 
+>222	IdentifierDecl	c = lx_coord [ ed ] * ly_coord [ st ] - ly_coord [ ed ] * lx_coord [ st ]
+>223	AssignmentExpr	c = lx_coord [ ed ] * ly_coord [ st ] - ly_coord [ ed ] * lx_coord [ st ]
+>224	AdditiveExpression	lx_coord [ ed ] * ly_coord [ st ] - ly_coord [ ed ] * lx_coord [ st ]
+>225	MultiplicativeExpression	ly_coord [ ed ] * lx_coord [ st ]
+>226	ArrayIndexing	lx_coord [ st ]
+>227	Identifier	st
+>228	Identifier	lx_coord
+>229	ArrayIndexing	ly_coord [ ed ]
+>230	Identifier	ed
+>231	Identifier	ly_coord
+>232	MultiplicativeExpression	lx_coord [ ed ] * ly_coord [ st ]
+>233	ArrayIndexing	ly_coord [ st ]
+>234	Identifier	st
+>235	Identifier	ly_coord
+>236	ArrayIndexing	lx_coord [ ed ]
+>237	Identifier	ed
+>238	Identifier	lx_coord
+>239	Identifier	c
+>240	Identifier	c
+>241	IdentifierDeclType	int
+>242	IdentifierDeclStatement	 
+>243	IdentifierDecl	b = lx_coord [ st ] - lx_coord [ ed ]
+>244	AssignmentExpr	b = lx_coord [ st ] - lx_coord [ ed ]
+>245	AdditiveExpression	lx_coord [ st ] - lx_coord [ ed ]
+>246	ArrayIndexing	lx_coord [ ed ]
+>247	Identifier	ed
+>248	Identifier	lx_coord
+>249	ArrayIndexing	lx_coord [ st ]
+>250	Identifier	st
+>251	Identifier	lx_coord
+>252	Identifier	b
+>253	Identifier	b
+>254	IdentifierDeclType	int
+>255	IdentifierDeclStatement	 
+>256	IdentifierDecl	a = ly_coord [ ed ] - ly_coord [ st ]
+>257	AssignmentExpr	a = ly_coord [ ed ] - ly_coord [ st ]
+>258	AdditiveExpression	ly_coord [ ed ] - ly_coord [ st ]
+>259	ArrayIndexing	ly_coord [ st ]
+>260	Identifier	st
+>261	Identifier	ly_coord
+>262	ArrayIndexing	ly_coord [ ed ]
+>263	Identifier	ed
+>264	Identifier	ly_coord
+>265	Identifier	a
+>266	Identifier	a
+>267	IdentifierDeclType	int
+>268	IdentifierDeclStatement	 
+>269	IdentifierDecl	v1 = 0
+>270	AssignmentExpr	v1 = 0
+>271	PrimaryExpression	0
+>272	Identifier	v1
+>273	Identifier	v1
+>274	IdentifierDeclType	int
+<3=21,20,4
+<4=17,14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=19,18
+<21=37,22
+<22=23
+<23=35,24
+<24=33,31,29,27,25
+<25=26
+<27=28
+<29=30
+<31=32
+<33=34
+<35=36
+<37=38
+<38=40,39
+<40=42,41
+<55=73,72,56
+<56=69,66,63,60,57
+<57=59,58
+<60=62,61
+<63=65,64
+<66=68,67
+<69=71,70
+<73=268,255,242,221,214,158,76,74
+<74=75
+<76=144,77
+<77=123,113,105,99,78
+<78=82,79
+<79=80
+<80=81
+<82=83
+<83=98,84
+<84=96,85
+<85=94,92,90,88,86
+<86=87
+<88=89
+<90=91
+<92=93
+<94=95
+<96=97
+<99=100
+<100=102,101
+<102=104,103
+<105=106
+<106=108,107
+<108=110,109
+<110=112,111
+<113=117,114
+<114=115
+<115=116
+<117=118
+<118=120,119
+<120=122,121
+<123=127,124
+<124=125
+<125=126
+<127=128
+<128=143,129
+<129=141,130
+<130=139,137,135,133,131
+<131=132
+<133=134
+<135=136
+<137=138
+<139=140
+<141=142
+<144=145
+<145=147,146
+<147=157,148
+<148=156,149
+<149=153,150
+<150=152,151
+<153=155,154
+<158=204,200,197,159
+<159=178,160
+<160=172,161
+<161=166,162
+<162=163
+<163=165,164
+<166=167
+<167=171,168
+<168=170,169
+<172=173
+<173=175,174
+<175=177,176
+<178=179
+<179=196,195,180
+<180=194,181
+<181=189,182
+<182=184,183
+<184=188,185
+<185=187,186
+<189=193,190
+<190=192,191
+<197=199,198
+<200=201
+<201=203,202
+<204=205
+<205=206
+<206=213,212,207
+<207=211,208
+<208=210,209
+<214=215
+<215=220,219,216
+<216=218,217
+<221=222
+<222=241,240,223
+<223=239,224
+<224=232,225
+<225=229,226
+<226=228,227
+<229=231,230
+<232=236,233
+<233=235,234
+<236=238,237
+<242=243
+<243=254,253,244
+<244=252,245
+<245=249,246
+<246=248,247
+<249=251,250
+<255=256
+<256=267,266,257
+<257=265,258
+<258=262,259
+<259=261,260
+<262=264,263
+<268=269
+<269=274,273,270
+<270=272,271

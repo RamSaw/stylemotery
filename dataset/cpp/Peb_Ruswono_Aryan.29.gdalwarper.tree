@@ -1,0 +1,5238 @@
+>3	FunctionDef	GDALReprojectImage (GDALDatasetH hSrcDS , const char * pszSrcWKT , GDALDatasetH hDstDS , const char * pszDstWKT , \
+>4	ParameterList	GDALDatasetH hSrcDS , const char * pszSrcWKT , GDALDatasetH hDstDS , const char * pszDstWKT , GDALResampleAlg eResampleAlg , \
+>5	Parameter	 
+>6	Identifier	psOptions
+>7	ParameterType	GDALWarpOptions *
+>8	Parameter	 
+>9	Identifier	pProgressArg
+>10	ParameterType	void *
+>11	Parameter	 
+>12	Identifier	pfnProgress
+>13	ParameterType	GDALProgressFunc
+>14	Parameter	 
+>15	Identifier	dfMaxError
+>16	ParameterType	double
+>17	Parameter	 
+>18	Identifier	dfWarpMemoryLimit
+>19	ParameterType	double
+>20	Parameter	 
+>21	Identifier	eResampleAlg
+>22	ParameterType	GDALResampleAlg
+>23	Parameter	 
+>24	Identifier	pszDstWKT
+>25	ParameterType	const char *
+>26	Parameter	 
+>27	Identifier	hDstDS
+>28	ParameterType	GDALDatasetH
+>29	Parameter	 
+>30	Identifier	pszSrcWKT
+>31	ParameterType	const char *
+>32	Parameter	 
+>33	Identifier	hSrcDS
+>34	ParameterType	GDALDatasetH
+>35	ReturnType	CPLErr CPL_STDCALL
+>36	CompoundStatement	 
+>37	ReturnStatement	 
+>38	Identifier	eErr
+>39	ExpressionStatement	 
+>40	CallExpression	GDALDestroyWarpOptions ( psWOptions )
+>41	ArgumentList	psWOptions
+>42	Argument	psWOptions
+>43	Identifier	psWOptions
+>44	Callee	GDALDestroyWarpOptions
+>45	Identifier	GDALDestroyWarpOptions
+>46	IfStatement	if ( dfMaxError > 0.0 )
+>47	ExpressionStatement	 
+>48	CallExpression	GDALDestroyApproxTransformer ( psWOptions -> pTransformerArg )
+>49	ArgumentList	psWOptions -> pTransformerArg
+>50	Argument	psWOptions -> pTransformerArg
+>51	PtrMemberAccess	psWOptions -> pTransformerArg
+>52	Identifier	pTransformerArg
+>53	Identifier	psWOptions
+>54	Callee	GDALDestroyApproxTransformer
+>55	Identifier	GDALDestroyApproxTransformer
+>56	Condition	 
+>57	RelationalExpression	dfMaxError > 0.0
+>58	PrimaryExpression	0.0
+>59	Identifier	dfMaxError
+>60	ExpressionStatement	 
+>61	CallExpression	GDALDestroyGenImgProjTransformer ( hTransformArg )
+>62	ArgumentList	hTransformArg
+>63	Argument	hTransformArg
+>64	Identifier	hTransformArg
+>65	Callee	GDALDestroyGenImgProjTransformer
+>66	Identifier	GDALDestroyGenImgProjTransformer
+>67	IfStatement	if ( eErr == CE_None )
+>68	ExpressionStatement	 
+>69	AssignmentExpr	eErr = oWarper . ChunkAndWarpImage ( 0 , 0 , GDALGetRasterXSize ( hDstDS ) , GDALGetRasterYSize ( hDstDS ) )
+>70	CallExpression	oWarper . ChunkAndWarpImage ( 0 , 0 , GDALGetRasterXSize ( hDstDS ) , GDALGetRasterYSize ( hDstDS ) )
+>71	ArgumentList	0
+>72	Argument	GDALGetRasterYSize ( hDstDS )
+>73	CallExpression	GDALGetRasterYSize ( hDstDS )
+>74	ArgumentList	hDstDS
+>75	Argument	hDstDS
+>76	Identifier	hDstDS
+>77	Callee	GDALGetRasterYSize
+>78	Identifier	GDALGetRasterYSize
+>79	Argument	GDALGetRasterXSize ( hDstDS )
+>80	CallExpression	GDALGetRasterXSize ( hDstDS )
+>81	ArgumentList	hDstDS
+>82	Argument	hDstDS
+>83	Identifier	hDstDS
+>84	Callee	GDALGetRasterXSize
+>85	Identifier	GDALGetRasterXSize
+>86	Argument	0
+>87	PrimaryExpression	0
+>88	Argument	0
+>89	PrimaryExpression	0
+>90	Callee	oWarper . ChunkAndWarpImage
+>91	MemberAccess	oWarper . ChunkAndWarpImage
+>92	Identifier	ChunkAndWarpImage
+>93	Identifier	oWarper
+>94	Identifier	eErr
+>95	Condition	 
+>96	EqualityExpression	eErr == CE_None
+>97	Identifier	CE_None
+>98	Identifier	eErr
+>99	ExpressionStatement	 
+>100	AssignmentExpr	eErr = oWarper . Initialize ( psWOptions )
+>101	CallExpression	oWarper . Initialize ( psWOptions )
+>102	ArgumentList	psWOptions
+>103	Argument	psWOptions
+>104	Identifier	psWOptions
+>105	Callee	oWarper . Initialize
+>106	MemberAccess	oWarper . Initialize
+>107	Identifier	Initialize
+>108	Identifier	oWarper
+>109	Identifier	eErr
+>110	IdentifierDeclStatement	 
+>111	IdentifierDecl	eErr
+>112	Identifier	eErr
+>113	IdentifierDeclType	CPLErr
+>114	IdentifierDeclStatement	 
+>115	IdentifierDecl	oWarper
+>116	Identifier	oWarper
+>117	IdentifierDeclType	GDALWarpOperation
+>118	IfStatement	if ( pfnProgress != NULL )
+>119	CompoundStatement	 
+>120	ExpressionStatement	 
+>121	AssignmentExpr	psWOptions -> pProgressArg = pProgressArg
+>122	Identifier	pProgressArg
+>123	PtrMemberAccess	psWOptions -> pProgressArg
+>124	Identifier	pProgressArg
+>125	Identifier	psWOptions
+>126	ExpressionStatement	 
+>127	AssignmentExpr	psWOptions -> pfnProgress = pfnProgress
+>128	Identifier	pfnProgress
+>129	PtrMemberAccess	psWOptions -> pfnProgress
+>130	Identifier	pfnProgress
+>131	Identifier	psWOptions
+>132	Condition	 
+>133	EqualityExpression	pfnProgress != NULL
+>134	Identifier	NULL
+>135	Identifier	pfnProgress
+>136	ForStatement	for ( iBand = 0 ; iBand < psWOptions -> nBandCount ; iBand ++ )
+>137	CompoundStatement	 
+>138	IfStatement	if ( hBand && GDALGetRasterColorInterpretation ( hBand ) == GCI_AlphaBand )
+>139	CompoundStatement	 
+>140	ExpressionStatement	 
+>141	AssignmentExpr	psWOptions -> nDstAlphaBand = iBand + 1
+>142	AdditiveExpression	iBand + 1
+>143	PrimaryExpression	1
+>144	Identifier	iBand
+>145	PtrMemberAccess	psWOptions -> nDstAlphaBand
+>146	Identifier	nDstAlphaBand
+>147	Identifier	psWOptions
+>148	Condition	 
+>149	AndExpression	hBand && GDALGetRasterColorInterpretation ( hBand ) == GCI_AlphaBand
+>150	EqualityExpression	GDALGetRasterColorInterpretation ( hBand ) == GCI_AlphaBand
+>151	Identifier	GCI_AlphaBand
+>152	CallExpression	GDALGetRasterColorInterpretation ( hBand )
+>153	ArgumentList	hBand
+>154	Argument	hBand
+>155	Identifier	hBand
+>156	Callee	GDALGetRasterColorInterpretation
+>157	Identifier	GDALGetRasterColorInterpretation
+>158	Identifier	hBand
+>159	ExpressionStatement	 
+>160	AssignmentExpr	hBand = GDALGetRasterBand ( hDstDS , iBand + 1 )
+>161	CallExpression	GDALGetRasterBand ( hDstDS , iBand + 1 )
+>162	ArgumentList	hDstDS
+>163	Argument	iBand + 1
+>164	AdditiveExpression	iBand + 1
+>165	PrimaryExpression	1
+>166	Identifier	iBand
+>167	Argument	hDstDS
+>168	Identifier	hDstDS
+>169	Callee	GDALGetRasterBand
+>170	Identifier	GDALGetRasterBand
+>171	Identifier	hBand
+>172	IfStatement	if ( bGotNoData )
+>173	CompoundStatement	 
+>174	ExpressionStatement	 
+>175	AssignmentExpr	psWOptions -> padfSrcNoDataReal [ iBand ] = dfNoDataValue
+>176	Identifier	dfNoDataValue
+>177	ArrayIndexing	psWOptions -> padfSrcNoDataReal [ iBand ]
+>178	Identifier	iBand
+>179	PtrMemberAccess	psWOptions -> padfSrcNoDataReal
+>180	Identifier	padfSrcNoDataReal
+>181	Identifier	psWOptions
+>182	IfStatement	if ( psWOptions -> padfSrcNoDataReal == NULL )
+>183	CompoundStatement	 
+>184	ForStatement	for ( ii = 0 ; ii < psWOptions -> nBandCount ; ii ++ )
+>185	CompoundStatement	 
+>186	ExpressionStatement	 
+>187	AssignmentExpr	psWOptions -> padfSrcNoDataImag [ ii ] = 0.0
+>188	PrimaryExpression	0.0
+>189	ArrayIndexing	psWOptions -> padfSrcNoDataImag [ ii ]
+>190	Identifier	ii
+>191	PtrMemberAccess	psWOptions -> padfSrcNoDataImag
+>192	Identifier	padfSrcNoDataImag
+>193	Identifier	psWOptions
+>194	ExpressionStatement	 
+>195	AssignmentExpr	psWOptions -> padfSrcNoDataReal [ ii ] = - 1.1e20
+>196	UnaryOp	- 1.1e20
+>197	PrimaryExpression	1.1e20
+>198	UnaryOperator	-
+>199	ArrayIndexing	psWOptions -> padfSrcNoDataReal [ ii ]
+>200	Identifier	ii
+>201	PtrMemberAccess	psWOptions -> padfSrcNoDataReal
+>202	Identifier	padfSrcNoDataReal
+>203	Identifier	psWOptions
+>204	IncDecOp	 
+>205	IncDec	++
+>206	Identifier	ii
+>207	Condition	 
+>208	RelationalExpression	ii < psWOptions -> nBandCount
+>209	PtrMemberAccess	psWOptions -> nBandCount
+>210	Identifier	nBandCount
+>211	Identifier	psWOptions
+>212	Identifier	ii
+>213	ForInit	 
+>214	AssignmentExpr	ii = 0
+>215	PrimaryExpression	0
+>216	Identifier	ii
+>217	ExpressionStatement	 
+>218	AssignmentExpr	psWOptions -> padfSrcNoDataImag = ( double * ) CPLMalloc ( sizeof ( double ) * psWOptions -> nBandCount )
+>219	CastExpression	( double * ) CPLMalloc ( sizeof ( double ) * psWOptions -> nBandCount )
+>220	CallExpression	CPLMalloc ( sizeof ( double ) * psWOptions -> nBandCount )
+>221	ArgumentList	sizeof ( double ) * psWOptions -> nBandCount
+>222	Argument	sizeof ( double ) * psWOptions -> nBandCount
+>223	MultiplicativeExpression	sizeof ( double ) * psWOptions -> nBandCount
+>224	PtrMemberAccess	psWOptions -> nBandCount
+>225	Identifier	nBandCount
+>226	Identifier	psWOptions
+>227	SizeofExpr	sizeof ( double )
+>228	SizeofOperand	double
+>229	Sizeof	sizeof
+>230	Callee	CPLMalloc
+>231	Identifier	CPLMalloc
+>232	CastTarget	double *
+>233	PtrMemberAccess	psWOptions -> padfSrcNoDataImag
+>234	Identifier	padfSrcNoDataImag
+>235	Identifier	psWOptions
+>236	ExpressionStatement	 
+>237	AssignmentExpr	psWOptions -> padfSrcNoDataReal = ( double * ) CPLMalloc ( sizeof ( double ) * psWOptions -> nBandCount )
+>238	CastExpression	( double * ) CPLMalloc ( sizeof ( double ) * psWOptions -> nBandCount )
+>239	CallExpression	CPLMalloc ( sizeof ( double ) * psWOptions -> nBandCount )
+>240	ArgumentList	sizeof ( double ) * psWOptions -> nBandCount
+>241	Argument	sizeof ( double ) * psWOptions -> nBandCount
+>242	MultiplicativeExpression	sizeof ( double ) * psWOptions -> nBandCount
+>243	PtrMemberAccess	psWOptions -> nBandCount
+>244	Identifier	nBandCount
+>245	Identifier	psWOptions
+>246	SizeofExpr	sizeof ( double )
+>247	SizeofOperand	double
+>248	Sizeof	sizeof
+>249	Callee	CPLMalloc
+>250	Identifier	CPLMalloc
+>251	CastTarget	double *
+>252	PtrMemberAccess	psWOptions -> padfSrcNoDataReal
+>253	Identifier	padfSrcNoDataReal
+>254	Identifier	psWOptions
+>255	IdentifierDeclStatement	 
+>256	IdentifierDecl	ii
+>257	Identifier	ii
+>258	IdentifierDeclType	int
+>259	Condition	 
+>260	EqualityExpression	psWOptions -> padfSrcNoDataReal == NULL
+>261	Identifier	NULL
+>262	PtrMemberAccess	psWOptions -> padfSrcNoDataReal
+>263	Identifier	padfSrcNoDataReal
+>264	Identifier	psWOptions
+>265	Condition	 
+>266	Identifier	bGotNoData
+>267	ExpressionStatement	 
+>268	AssignmentExpr	dfNoDataValue = GDALGetRasterNoDataValue ( hBand , & bGotNoData )
+>269	CallExpression	GDALGetRasterNoDataValue ( hBand , & bGotNoData )
+>270	ArgumentList	hBand
+>271	Argument	& bGotNoData
+>272	UnaryOp	& bGotNoData
+>273	Identifier	bGotNoData
+>274	UnaryOperator	&
+>275	Argument	hBand
+>276	Identifier	hBand
+>277	Callee	GDALGetRasterNoDataValue
+>278	Identifier	GDALGetRasterNoDataValue
+>279	Identifier	dfNoDataValue
+>280	IfStatement	if ( GDALGetRasterColorInterpretation ( hBand ) == GCI_AlphaBand )
+>281	CompoundStatement	 
+>282	ExpressionStatement	 
+>283	AssignmentExpr	psWOptions -> nSrcAlphaBand = iBand + 1
+>284	AdditiveExpression	iBand + 1
+>285	PrimaryExpression	1
+>286	Identifier	iBand
+>287	PtrMemberAccess	psWOptions -> nSrcAlphaBand
+>288	Identifier	nSrcAlphaBand
+>289	Identifier	psWOptions
+>290	Condition	 
+>291	EqualityExpression	GDALGetRasterColorInterpretation ( hBand ) == GCI_AlphaBand
+>292	Identifier	GCI_AlphaBand
+>293	CallExpression	GDALGetRasterColorInterpretation ( hBand )
+>294	ArgumentList	hBand
+>295	Argument	hBand
+>296	Identifier	hBand
+>297	Callee	GDALGetRasterColorInterpretation
+>298	Identifier	GDALGetRasterColorInterpretation
+>299	IdentifierDeclStatement	 
+>300	IdentifierDecl	dfNoDataValue
+>301	Identifier	dfNoDataValue
+>302	IdentifierDeclType	double
+>303	IdentifierDeclStatement	 
+>304	IdentifierDecl	bGotNoData = FALSE
+>305	AssignmentExpr	bGotNoData = FALSE
+>306	Identifier	FALSE
+>307	Identifier	FALSE
+>308	Identifier	bGotNoData
+>309	IdentifierDeclType	int
+>310	IdentifierDeclStatement	 
+>311	IdentifierDecl	hBand = GDALGetRasterBand ( hSrcDS , iBand + 1 )
+>312	AssignmentExpr	hBand = GDALGetRasterBand ( hSrcDS , iBand + 1 )
+>313	CallExpression	GDALGetRasterBand ( hSrcDS , iBand + 1 )
+>314	ArgumentList	hSrcDS
+>315	Argument	iBand + 1
+>316	AdditiveExpression	iBand + 1
+>317	PrimaryExpression	1
+>318	Identifier	iBand
+>319	Argument	hSrcDS
+>320	Identifier	hSrcDS
+>321	Callee	GDALGetRasterBand
+>322	Identifier	GDALGetRasterBand
+>323	Identifier	hBand
+>324	Identifier	hBand
+>325	IdentifierDeclType	GDALRasterBandH
+>326	IncDecOp	 
+>327	IncDec	++
+>328	Identifier	iBand
+>329	Condition	 
+>330	RelationalExpression	iBand < psWOptions -> nBandCount
+>331	PtrMemberAccess	psWOptions -> nBandCount
+>332	Identifier	nBandCount
+>333	Identifier	psWOptions
+>334	Identifier	iBand
+>335	ForInit	 
+>336	AssignmentExpr	iBand = 0
+>337	PrimaryExpression	0
+>338	Identifier	iBand
+>339	IfStatement	if ( psWOptions -> nBandCount == 0 )
+>340	CompoundStatement	 
+>341	ForStatement	for ( iBand = 0 ; iBand < psWOptions -> nBandCount ; iBand ++ )
+>342	CompoundStatement	 
+>343	ExpressionStatement	 
+>344	AssignmentExpr	psWOptions -> panDstBands [ iBand ] = iBand + 1
+>345	AdditiveExpression	iBand + 1
+>346	PrimaryExpression	1
+>347	Identifier	iBand
+>348	ArrayIndexing	psWOptions -> panDstBands [ iBand ]
+>349	Identifier	iBand
+>350	PtrMemberAccess	psWOptions -> panDstBands
+>351	Identifier	panDstBands
+>352	Identifier	psWOptions
+>353	ExpressionStatement	 
+>354	AssignmentExpr	psWOptions -> panSrcBands [ iBand ] = iBand + 1
+>355	AdditiveExpression	iBand + 1
+>356	PrimaryExpression	1
+>357	Identifier	iBand
+>358	ArrayIndexing	psWOptions -> panSrcBands [ iBand ]
+>359	Identifier	iBand
+>360	PtrMemberAccess	psWOptions -> panSrcBands
+>361	Identifier	panSrcBands
+>362	Identifier	psWOptions
+>363	IncDecOp	 
+>364	IncDec	++
+>365	Identifier	iBand
+>366	Condition	 
+>367	RelationalExpression	iBand < psWOptions -> nBandCount
+>368	PtrMemberAccess	psWOptions -> nBandCount
+>369	Identifier	nBandCount
+>370	Identifier	psWOptions
+>371	Identifier	iBand
+>372	ForInit	 
+>373	AssignmentExpr	iBand = 0
+>374	PrimaryExpression	0
+>375	Identifier	iBand
+>376	ExpressionStatement	 
+>377	AssignmentExpr	psWOptions -> panDstBands = ( int * ) CPLMalloc ( sizeof ( int ) * psWOptions -> nBandCount )
+>378	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * psWOptions -> nBandCount )
+>379	CallExpression	CPLMalloc ( sizeof ( int ) * psWOptions -> nBandCount )
+>380	ArgumentList	sizeof ( int ) * psWOptions -> nBandCount
+>381	Argument	sizeof ( int ) * psWOptions -> nBandCount
+>382	MultiplicativeExpression	sizeof ( int ) * psWOptions -> nBandCount
+>383	PtrMemberAccess	psWOptions -> nBandCount
+>384	Identifier	nBandCount
+>385	Identifier	psWOptions
+>386	SizeofExpr	sizeof ( int )
+>387	SizeofOperand	int
+>388	Sizeof	sizeof
+>389	Callee	CPLMalloc
+>390	Identifier	CPLMalloc
+>391	CastTarget	int *
+>392	PtrMemberAccess	psWOptions -> panDstBands
+>393	Identifier	panDstBands
+>394	Identifier	psWOptions
+>395	ExpressionStatement	 
+>396	AssignmentExpr	psWOptions -> panSrcBands = ( int * ) CPLMalloc ( sizeof ( int ) * psWOptions -> nBandCount )
+>397	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * psWOptions -> nBandCount )
+>398	CallExpression	CPLMalloc ( sizeof ( int ) * psWOptions -> nBandCount )
+>399	ArgumentList	sizeof ( int ) * psWOptions -> nBandCount
+>400	Argument	sizeof ( int ) * psWOptions -> nBandCount
+>401	MultiplicativeExpression	sizeof ( int ) * psWOptions -> nBandCount
+>402	PtrMemberAccess	psWOptions -> nBandCount
+>403	Identifier	nBandCount
+>404	Identifier	psWOptions
+>405	SizeofExpr	sizeof ( int )
+>406	SizeofOperand	int
+>407	Sizeof	sizeof
+>408	Callee	CPLMalloc
+>409	Identifier	CPLMalloc
+>410	CastTarget	int *
+>411	PtrMemberAccess	psWOptions -> panSrcBands
+>412	Identifier	panSrcBands
+>413	Identifier	psWOptions
+>414	ExpressionStatement	 
+>415	AssignmentExpr	psWOptions -> nBandCount = MIN ( GDALGetRasterCount ( hSrcDS ) , GDALGetRasterCount ( hDstDS ) )
+>416	CallExpression	MIN ( GDALGetRasterCount ( hSrcDS ) , GDALGetRasterCount ( hDstDS ) )
+>417	ArgumentList	GDALGetRasterCount ( hSrcDS )
+>418	Argument	GDALGetRasterCount ( hDstDS )
+>419	CallExpression	GDALGetRasterCount ( hDstDS )
+>420	ArgumentList	hDstDS
+>421	Argument	hDstDS
+>422	Identifier	hDstDS
+>423	Callee	GDALGetRasterCount
+>424	Identifier	GDALGetRasterCount
+>425	Argument	GDALGetRasterCount ( hSrcDS )
+>426	CallExpression	GDALGetRasterCount ( hSrcDS )
+>427	ArgumentList	hSrcDS
+>428	Argument	hSrcDS
+>429	Identifier	hSrcDS
+>430	Callee	GDALGetRasterCount
+>431	Identifier	GDALGetRasterCount
+>432	Callee	MIN
+>433	Identifier	MIN
+>434	PtrMemberAccess	psWOptions -> nBandCount
+>435	Identifier	nBandCount
+>436	Identifier	psWOptions
+>437	Condition	 
+>438	EqualityExpression	psWOptions -> nBandCount == 0
+>439	PrimaryExpression	0
+>440	PtrMemberAccess	psWOptions -> nBandCount
+>441	Identifier	nBandCount
+>442	Identifier	psWOptions
+>443	ExpressionStatement	 
+>444	AssignmentExpr	psWOptions -> hDstDS = hDstDS
+>445	Identifier	hDstDS
+>446	PtrMemberAccess	psWOptions -> hDstDS
+>447	Identifier	hDstDS
+>448	Identifier	psWOptions
+>449	ExpressionStatement	 
+>450	AssignmentExpr	psWOptions -> hSrcDS = hSrcDS
+>451	Identifier	hSrcDS
+>452	PtrMemberAccess	psWOptions -> hSrcDS
+>453	Identifier	hSrcDS
+>454	Identifier	psWOptions
+>455	IdentifierDeclStatement	 
+>456	IdentifierDecl	iBand
+>457	Identifier	iBand
+>458	IdentifierDeclType	int
+>459	IfStatement	if ( dfMaxError > 0.0 )
+>460	ElseStatement	else
+>461	CompoundStatement	 
+>462	ExpressionStatement	 
+>463	AssignmentExpr	psWOptions -> pTransformerArg = hTransformArg
+>464	Identifier	hTransformArg
+>465	PtrMemberAccess	psWOptions -> pTransformerArg
+>466	Identifier	pTransformerArg
+>467	Identifier	psWOptions
+>468	ExpressionStatement	 
+>469	AssignmentExpr	psWOptions -> pfnTransformer = GDALGenImgProjTransform
+>470	Identifier	GDALGenImgProjTransform
+>471	PtrMemberAccess	psWOptions -> pfnTransformer
+>472	Identifier	pfnTransformer
+>473	Identifier	psWOptions
+>474	CompoundStatement	 
+>475	ExpressionStatement	 
+>476	AssignmentExpr	psWOptions -> pfnTransformer = GDALApproxTransform
+>477	Identifier	GDALApproxTransform
+>478	PtrMemberAccess	psWOptions -> pfnTransformer
+>479	Identifier	pfnTransformer
+>480	Identifier	psWOptions
+>481	ExpressionStatement	 
+>482	AssignmentExpr	psWOptions -> pTransformerArg = GDALCreateApproxTransformer ( GDALGenImgProjTransform , hTransformArg , \
+>483	CallExpression	GDALCreateApproxTransformer ( GDALGenImgProjTransform , hTransformArg , dfMaxError )
+>484	ArgumentList	GDALGenImgProjTransform
+>485	Argument	dfMaxError
+>486	Identifier	dfMaxError
+>487	Argument	hTransformArg
+>488	Identifier	hTransformArg
+>489	Argument	GDALGenImgProjTransform
+>490	Identifier	GDALGenImgProjTransform
+>491	Callee	GDALCreateApproxTransformer
+>492	Identifier	GDALCreateApproxTransformer
+>493	PtrMemberAccess	psWOptions -> pTransformerArg
+>494	Identifier	pTransformerArg
+>495	Identifier	psWOptions
+>496	Condition	 
+>497	RelationalExpression	dfMaxError > 0.0
+>498	PrimaryExpression	0.0
+>499	Identifier	dfMaxError
+>500	ExpressionStatement	 
+>501	AssignmentExpr	psWOptions -> eResampleAlg = eResampleAlg
+>502	Identifier	eResampleAlg
+>503	PtrMemberAccess	psWOptions -> eResampleAlg
+>504	Identifier	eResampleAlg
+>505	Identifier	psWOptions
+>506	IfStatement	if ( psOptions == NULL )
+>507	ElseStatement	else
+>508	ExpressionStatement	 
+>509	AssignmentExpr	psWOptions = GDALCloneWarpOptions ( psOptions )
+>510	CallExpression	GDALCloneWarpOptions ( psOptions )
+>511	ArgumentList	psOptions
+>512	Argument	psOptions
+>513	Identifier	psOptions
+>514	Callee	GDALCloneWarpOptions
+>515	Identifier	GDALCloneWarpOptions
+>516	Identifier	psWOptions
+>517	ExpressionStatement	 
+>518	AssignmentExpr	psWOptions = GDALCreateWarpOptions ( )
+>519	CallExpression	GDALCreateWarpOptions ( )
+>520	ArgumentList	 
+>521	Callee	GDALCreateWarpOptions
+>522	Identifier	GDALCreateWarpOptions
+>523	Identifier	psWOptions
+>524	Condition	 
+>525	EqualityExpression	psOptions == NULL
+>526	Identifier	NULL
+>527	Identifier	psOptions
+>528	IfStatement	if ( hTransformArg == NULL )
+>529	ReturnStatement	 
+>530	Identifier	CE_Failure
+>531	Condition	 
+>532	EqualityExpression	hTransformArg == NULL
+>533	Identifier	NULL
+>534	Identifier	hTransformArg
+>535	ExpressionStatement	 
+>536	AssignmentExpr	hTransformArg = GDALCreateGenImgProjTransformer ( hSrcDS , pszSrcWKT , hDstDS , pszDstWKT , TRUE , 1000.0 , \
+>537	CallExpression	GDALCreateGenImgProjTransformer ( hSrcDS , pszSrcWKT , hDstDS , pszDstWKT , TRUE , 1000.0 , 0 )
+>538	ArgumentList	hSrcDS
+>539	Argument	0
+>540	PrimaryExpression	0
+>541	Argument	1000.0
+>542	PrimaryExpression	1000.0
+>543	Argument	TRUE
+>544	Identifier	TRUE
+>545	Argument	pszDstWKT
+>546	Identifier	pszDstWKT
+>547	Argument	hDstDS
+>548	Identifier	hDstDS
+>549	Argument	pszSrcWKT
+>550	Identifier	pszSrcWKT
+>551	Argument	hSrcDS
+>552	Identifier	hSrcDS
+>553	Callee	GDALCreateGenImgProjTransformer
+>554	Identifier	GDALCreateGenImgProjTransformer
+>555	Identifier	hTransformArg
+>556	IdentifierDeclStatement	 
+>557	IdentifierDecl	* hTransformArg
+>558	Identifier	hTransformArg
+>559	IdentifierDeclType	void *
+>560	IdentifierDeclStatement	 
+>561	IdentifierDecl	* psWOptions
+>562	Identifier	psWOptions
+>563	IdentifierDeclType	GDALWarpOptions *
+>631	FunctionDef	GDALCreateAndReprojectImage (GDALDatasetH hSrcDS , const char * pszSrcWKT , const char * pszDstFilename , const \
+>632	ParameterList	GDALDatasetH hSrcDS , const char * pszSrcWKT , const char * pszDstFilename , const char * pszDstWKT , GDALDriverH \
+>633	Parameter	 
+>634	Identifier	psOptions
+>635	ParameterType	GDALWarpOptions *
+>636	Parameter	 
+>637	Identifier	pProgressArg
+>638	ParameterType	void *
+>639	Parameter	 
+>640	Identifier	pfnProgress
+>641	ParameterType	GDALProgressFunc
+>642	Parameter	 
+>643	Identifier	dfMaxError
+>644	ParameterType	double
+>645	Parameter	 
+>646	Identifier	dfWarpMemoryLimit
+>647	ParameterType	double
+>648	Parameter	 
+>649	Identifier	eResampleAlg
+>650	ParameterType	GDALResampleAlg
+>651	Parameter	 
+>652	Identifier	papszCreateOptions
+>653	ParameterType	char * *
+>654	Parameter	 
+>655	Identifier	hDstDriver
+>656	ParameterType	GDALDriverH
+>657	Parameter	 
+>658	Identifier	pszDstWKT
+>659	ParameterType	const char *
+>660	Parameter	 
+>661	Identifier	pszDstFilename
+>662	ParameterType	const char *
+>663	Parameter	 
+>664	Identifier	pszSrcWKT
+>665	ParameterType	const char *
+>666	Parameter	 
+>667	Identifier	hSrcDS
+>668	ParameterType	GDALDatasetH
+>669	ReturnType	CPLErr CPL_STDCALL
+>670	CompoundStatement	 
+>671	ReturnStatement	 
+>672	Identifier	eErr
+>673	ExpressionStatement	 
+>674	CallExpression	GDALClose ( hDstDS )
+>675	ArgumentList	hDstDS
+>676	Argument	hDstDS
+>677	Identifier	hDstDS
+>678	Callee	GDALClose
+>679	Identifier	GDALClose
+>680	ExpressionStatement	 
+>681	AssignmentExpr	eErr = GDALReprojectImage ( hSrcDS , pszSrcWKT , hDstDS , pszDstWKT , eResampleAlg , dfWarpMemoryLimit , \
+>682	CallExpression	GDALReprojectImage ( hSrcDS , pszSrcWKT , hDstDS , pszDstWKT , eResampleAlg , dfWarpMemoryLimit , dfMaxError , pfnProgress , \
+>683	ArgumentList	hSrcDS
+>684	Argument	psOptions
+>685	Identifier	psOptions
+>686	Argument	pProgressArg
+>687	Identifier	pProgressArg
+>688	Argument	pfnProgress
+>689	Identifier	pfnProgress
+>690	Argument	dfMaxError
+>691	Identifier	dfMaxError
+>692	Argument	dfWarpMemoryLimit
+>693	Identifier	dfWarpMemoryLimit
+>694	Argument	eResampleAlg
+>695	Identifier	eResampleAlg
+>696	Argument	pszDstWKT
+>697	Identifier	pszDstWKT
+>698	Argument	hDstDS
+>699	Identifier	hDstDS
+>700	Argument	pszSrcWKT
+>701	Identifier	pszSrcWKT
+>702	Argument	hSrcDS
+>703	Identifier	hSrcDS
+>704	Callee	GDALReprojectImage
+>705	Identifier	GDALReprojectImage
+>706	Identifier	eErr
+>707	IdentifierDeclStatement	 
+>708	IdentifierDecl	eErr
+>709	Identifier	eErr
+>710	IdentifierDeclType	CPLErr
+>711	ExpressionStatement	 
+>712	CallExpression	GDALSetGeoTransform ( hDstDS , adfDstGeoTransform )
+>713	ArgumentList	hDstDS
+>714	Argument	adfDstGeoTransform
+>715	Identifier	adfDstGeoTransform
+>716	Argument	hDstDS
+>717	Identifier	hDstDS
+>718	Callee	GDALSetGeoTransform
+>719	Identifier	GDALSetGeoTransform
+>720	ExpressionStatement	 
+>721	CallExpression	GDALSetProjection ( hDstDS , pszDstWKT )
+>722	ArgumentList	hDstDS
+>723	Argument	pszDstWKT
+>724	Identifier	pszDstWKT
+>725	Argument	hDstDS
+>726	Identifier	hDstDS
+>727	Callee	GDALSetProjection
+>728	Identifier	GDALSetProjection
+>729	IfStatement	if ( hDstDS == NULL )
+>730	ReturnStatement	 
+>731	Identifier	CE_Failure
+>732	Condition	 
+>733	EqualityExpression	hDstDS == NULL
+>734	Identifier	NULL
+>735	Identifier	hDstDS
+>736	ExpressionStatement	 
+>737	AssignmentExpr	hDstDS = GDALCreate ( hDstDriver , pszDstFilename , nPixels , nLines , GDALGetRasterCount ( hSrcDS ) , \
+>738	CallExpression	GDALCreate ( hDstDriver , pszDstFilename , nPixels , nLines , GDALGetRasterCount ( hSrcDS ) , GDALGetRasterDataType ( \
+>739	ArgumentList	hDstDriver
+>740	Argument	papszCreateOptions
+>741	Identifier	papszCreateOptions
+>742	Argument	GDALGetRasterDataType ( GDALGetRasterBand ( hSrcDS , 1 ) )
+>743	CallExpression	GDALGetRasterDataType ( GDALGetRasterBand ( hSrcDS , 1 ) )
+>744	ArgumentList	GDALGetRasterBand ( hSrcDS , 1 )
+>745	Argument	GDALGetRasterBand ( hSrcDS , 1 )
+>746	CallExpression	GDALGetRasterBand ( hSrcDS , 1 )
+>747	ArgumentList	hSrcDS
+>748	Argument	1
+>749	PrimaryExpression	1
+>750	Argument	hSrcDS
+>751	Identifier	hSrcDS
+>752	Callee	GDALGetRasterBand
+>753	Identifier	GDALGetRasterBand
+>754	Callee	GDALGetRasterDataType
+>755	Identifier	GDALGetRasterDataType
+>756	Argument	GDALGetRasterCount ( hSrcDS )
+>757	CallExpression	GDALGetRasterCount ( hSrcDS )
+>758	ArgumentList	hSrcDS
+>759	Argument	hSrcDS
+>760	Identifier	hSrcDS
+>761	Callee	GDALGetRasterCount
+>762	Identifier	GDALGetRasterCount
+>763	Argument	nLines
+>764	Identifier	nLines
+>765	Argument	nPixels
+>766	Identifier	nPixels
+>767	Argument	pszDstFilename
+>768	Identifier	pszDstFilename
+>769	Argument	hDstDriver
+>770	Identifier	hDstDriver
+>771	Callee	GDALCreate
+>772	Identifier	GDALCreate
+>773	Identifier	hDstDS
+>774	IdentifierDeclStatement	 
+>775	IdentifierDecl	hDstDS
+>776	Identifier	hDstDS
+>777	IdentifierDeclType	GDALDatasetH
+>778	ExpressionStatement	 
+>779	CallExpression	GDALDestroyGenImgProjTransformer ( hTransformArg )
+>780	ArgumentList	hTransformArg
+>781	Argument	hTransformArg
+>782	Identifier	hTransformArg
+>783	Callee	GDALDestroyGenImgProjTransformer
+>784	Identifier	GDALDestroyGenImgProjTransformer
+>785	IfStatement	if ( GDALSuggestedWarpOutput ( hSrcDS , GDALGenImgProjTransform , hTransformArg , adfDstGeoTransform , & nPixels , & \
+>786	ReturnStatement	 
+>787	Identifier	CE_Failure
+>788	Condition	 
+>789	EqualityExpression	GDALSuggestedWarpOutput ( hSrcDS , GDALGenImgProjTransform , hTransformArg , adfDstGeoTransform , & \
+>790	Identifier	CE_None
+>791	CallExpression	GDALSuggestedWarpOutput ( hSrcDS , GDALGenImgProjTransform , hTransformArg , adfDstGeoTransform , & nPixels , & \
+>792	ArgumentList	hSrcDS
+>793	Argument	& nLines
+>794	UnaryOp	& nLines
+>795	Identifier	nLines
+>796	UnaryOperator	&
+>797	Argument	& nPixels
+>798	UnaryOp	& nPixels
+>799	Identifier	nPixels
+>800	UnaryOperator	&
+>801	Argument	adfDstGeoTransform
+>802	Identifier	adfDstGeoTransform
+>803	Argument	hTransformArg
+>804	Identifier	hTransformArg
+>805	Argument	GDALGenImgProjTransform
+>806	Identifier	GDALGenImgProjTransform
+>807	Argument	hSrcDS
+>808	Identifier	hSrcDS
+>809	Callee	GDALSuggestedWarpOutput
+>810	Identifier	GDALSuggestedWarpOutput
+>811	IdentifierDeclStatement	 
+>812	IdentifierDecl	nLines
+>813	Identifier	nLines
+>814	IdentifierDeclType	int
+>815	IdentifierDecl	nPixels
+>816	Identifier	nPixels
+>817	IdentifierDeclType	int
+>818	IdentifierDeclStatement	 
+>819	IdentifierDecl	adfDstGeoTransform [ 6 ]
+>820	PrimaryExpression	6
+>821	Identifier	adfDstGeoTransform
+>822	IdentifierDeclType	double [ 6 ]
+>823	IfStatement	if ( hTransformArg == NULL )
+>824	ReturnStatement	 
+>825	Identifier	CE_Failure
+>826	Condition	 
+>827	EqualityExpression	hTransformArg == NULL
+>828	Identifier	NULL
+>829	Identifier	hTransformArg
+>830	ExpressionStatement	 
+>831	AssignmentExpr	hTransformArg = GDALCreateGenImgProjTransformer ( hSrcDS , pszSrcWKT , NULL , pszDstWKT , TRUE , 1000.0 , \
+>832	CallExpression	GDALCreateGenImgProjTransformer ( hSrcDS , pszSrcWKT , NULL , pszDstWKT , TRUE , 1000.0 , 0 )
+>833	ArgumentList	hSrcDS
+>834	Argument	0
+>835	PrimaryExpression	0
+>836	Argument	1000.0
+>837	PrimaryExpression	1000.0
+>838	Argument	TRUE
+>839	Identifier	TRUE
+>840	Argument	pszDstWKT
+>841	Identifier	pszDstWKT
+>842	Argument	NULL
+>843	Identifier	NULL
+>844	Argument	pszSrcWKT
+>845	Identifier	pszSrcWKT
+>846	Argument	hSrcDS
+>847	Identifier	hSrcDS
+>848	Callee	GDALCreateGenImgProjTransformer
+>849	Identifier	GDALCreateGenImgProjTransformer
+>850	Identifier	hTransformArg
+>851	IdentifierDeclStatement	 
+>852	IdentifierDecl	* hTransformArg
+>853	Identifier	hTransformArg
+>854	IdentifierDeclType	void *
+>855	IfStatement	if ( pszDstWKT == NULL )
+>856	ExpressionStatement	 
+>857	AssignmentExpr	pszDstWKT = pszSrcWKT
+>858	Identifier	pszSrcWKT
+>859	Identifier	pszDstWKT
+>860	Condition	 
+>861	EqualityExpression	pszDstWKT == NULL
+>862	Identifier	NULL
+>863	Identifier	pszDstWKT
+>864	IfStatement	if ( pszSrcWKT == NULL )
+>865	ExpressionStatement	 
+>866	AssignmentExpr	pszSrcWKT = GDALGetProjectionRef ( hSrcDS )
+>867	CallExpression	GDALGetProjectionRef ( hSrcDS )
+>868	ArgumentList	hSrcDS
+>869	Argument	hSrcDS
+>870	Identifier	hSrcDS
+>871	Callee	GDALGetProjectionRef
+>872	Identifier	GDALGetProjectionRef
+>873	Identifier	pszSrcWKT
+>874	Condition	 
+>875	EqualityExpression	pszSrcWKT == NULL
+>876	Identifier	NULL
+>877	Identifier	pszSrcWKT
+>878	IfStatement	if ( hDstDriver == NULL )
+>879	CompoundStatement	 
+>880	IfStatement	if ( hDstDriver == NULL )
+>881	CompoundStatement	 
+>882	ReturnStatement	 
+>883	Identifier	CE_Failure
+>884	ExpressionStatement	 
+>885	CallExpression	CPLError ( CE_Failure , CPLE_AppDefined , \"GDALCreateAndReprojectImage needs GTiff driver\" )
+>886	ArgumentList	CE_Failure
+>887	Argument	\"GDALCreateAndReprojectImage needs GTiff driver\"
+>888	PrimaryExpression	\"GDALCreateAndReprojectImage needs GTiff driver\"
+>889	Argument	CPLE_AppDefined
+>890	Identifier	CPLE_AppDefined
+>891	Argument	CE_Failure
+>892	Identifier	CE_Failure
+>893	Callee	CPLError
+>894	Identifier	CPLError
+>895	Condition	 
+>896	EqualityExpression	hDstDriver == NULL
+>897	Identifier	NULL
+>898	Identifier	hDstDriver
+>899	ExpressionStatement	 
+>900	AssignmentExpr	hDstDriver = GDALGetDriverByName ( \"GTiff\" )
+>901	CallExpression	GDALGetDriverByName ( \"GTiff\" )
+>902	ArgumentList	\"GTiff\"
+>903	Argument	\"GTiff\"
+>904	PrimaryExpression	\"GTiff\"
+>905	Callee	GDALGetDriverByName
+>906	Identifier	GDALGetDriverByName
+>907	Identifier	hDstDriver
+>908	Condition	 
+>909	EqualityExpression	hDstDriver == NULL
+>910	Identifier	NULL
+>911	Identifier	hDstDriver
+>912	ExpressionStatement	 
+>913	CallExpression	VALIDATE_POINTER1 ( hSrcDS , \"GDALCreateAndReprojectImage\" , CE_Failure )
+>914	ArgumentList	hSrcDS
+>915	Argument	CE_Failure
+>916	Identifier	CE_Failure
+>917	Argument	\"GDALCreateAndReprojectImage\"
+>918	PrimaryExpression	\"GDALCreateAndReprojectImage\"
+>919	Argument	hSrcDS
+>920	Identifier	hSrcDS
+>921	Callee	VALIDATE_POINTER1
+>922	Identifier	VALIDATE_POINTER1
+>1055	FunctionDef	GDALCreateWarpOptions ()
+>1056	ParameterList	 
+>1057	ReturnType	CPL_STDCALL
+>1058	CompoundStatement	 
+>1059	ReturnStatement	 
+>1060	Identifier	psOptions
+>1061	ExpressionStatement	 
+>1062	AssignmentExpr	psOptions -> eWorkingDataType = GDT_Unknown
+>1063	Identifier	GDT_Unknown
+>1064	PtrMemberAccess	psOptions -> eWorkingDataType
+>1065	Identifier	eWorkingDataType
+>1066	Identifier	psOptions
+>1067	ExpressionStatement	 
+>1068	AssignmentExpr	psOptions -> pfnProgress = GDALDummyProgress
+>1069	Identifier	GDALDummyProgress
+>1070	PtrMemberAccess	psOptions -> pfnProgress
+>1071	Identifier	pfnProgress
+>1072	Identifier	psOptions
+>1073	ExpressionStatement	 
+>1074	AssignmentExpr	psOptions -> eResampleAlg = GRA_NearestNeighbour
+>1075	Identifier	GRA_NearestNeighbour
+>1076	PtrMemberAccess	psOptions -> eResampleAlg
+>1077	Identifier	eResampleAlg
+>1078	Identifier	psOptions
+>1079	ExpressionStatement	 
+>1080	AssignmentExpr	psOptions = ( GDALWarpOptions * ) CPLCalloc ( sizeof ( GDALWarpOptions ) , 1 )
+>1081	CastExpression	( GDALWarpOptions * ) CPLCalloc ( sizeof ( GDALWarpOptions ) , 1 )
+>1082	CallExpression	CPLCalloc ( sizeof ( GDALWarpOptions ) , 1 )
+>1083	ArgumentList	sizeof ( GDALWarpOptions )
+>1084	Argument	1
+>1085	PrimaryExpression	1
+>1086	Argument	sizeof ( GDALWarpOptions )
+>1087	SizeofExpr	sizeof ( GDALWarpOptions )
+>1088	SizeofOperand	GDALWarpOptions
+>1089	Sizeof	sizeof
+>1090	Callee	CPLCalloc
+>1091	Identifier	CPLCalloc
+>1092	CastTarget	GDALWarpOptions *
+>1093	Identifier	psOptions
+>1094	IdentifierDeclStatement	 
+>1095	IdentifierDecl	* psOptions
+>1096	Identifier	psOptions
+>1097	IdentifierDeclType	GDALWarpOptions *
+>1110	FunctionDef	GDALDestroyWarpOptions (GDALWarpOptions * psOptions)
+>1111	ParameterList	GDALWarpOptions * psOptions
+>1112	Parameter	 
+>1113	Identifier	psOptions
+>1114	ParameterType	GDALWarpOptions *
+>1115	ReturnType	void CPL_STDCALL
+>1116	CompoundStatement	 
+>1117	ExpressionStatement	 
+>1118	CallExpression	CPLFree ( psOptions )
+>1119	ArgumentList	psOptions
+>1120	Argument	psOptions
+>1121	Identifier	psOptions
+>1122	Callee	CPLFree
+>1123	Identifier	CPLFree
+>1124	IfStatement	if ( psOptions -> hCutline != NULL )
+>1125	ExpressionStatement	 
+>1126	CallExpression	OGR_G_DestroyGeometry ( ( OGRGeometryH ) psOptions -> hCutline )
+>1127	ArgumentList	( OGRGeometryH ) psOptions -> hCutline
+>1128	Argument	( OGRGeometryH ) psOptions -> hCutline
+>1129	CastExpression	( OGRGeometryH ) psOptions -> hCutline
+>1130	PtrMemberAccess	psOptions -> hCutline
+>1131	Identifier	hCutline
+>1132	Identifier	psOptions
+>1133	CastTarget	OGRGeometryH
+>1134	Callee	OGR_G_DestroyGeometry
+>1135	Identifier	OGR_G_DestroyGeometry
+>1136	Condition	 
+>1137	EqualityExpression	psOptions -> hCutline != NULL
+>1138	Identifier	NULL
+>1139	PtrMemberAccess	psOptions -> hCutline
+>1140	Identifier	hCutline
+>1141	Identifier	psOptions
+>1142	ExpressionStatement	 
+>1143	CallExpression	CPLFree ( psOptions -> papSrcPerBandValidityMaskFuncArg )
+>1144	ArgumentList	psOptions -> papSrcPerBandValidityMaskFuncArg
+>1145	Argument	psOptions -> papSrcPerBandValidityMaskFuncArg
+>1146	PtrMemberAccess	psOptions -> papSrcPerBandValidityMaskFuncArg
+>1147	Identifier	papSrcPerBandValidityMaskFuncArg
+>1148	Identifier	psOptions
+>1149	Callee	CPLFree
+>1150	Identifier	CPLFree
+>1151	ExpressionStatement	 
+>1152	CallExpression	CPLFree ( psOptions -> papfnSrcPerBandValidityMaskFunc )
+>1153	ArgumentList	psOptions -> papfnSrcPerBandValidityMaskFunc
+>1154	Argument	psOptions -> papfnSrcPerBandValidityMaskFunc
+>1155	PtrMemberAccess	psOptions -> papfnSrcPerBandValidityMaskFunc
+>1156	Identifier	papfnSrcPerBandValidityMaskFunc
+>1157	Identifier	psOptions
+>1158	Callee	CPLFree
+>1159	Identifier	CPLFree
+>1160	ExpressionStatement	 
+>1161	CallExpression	CPLFree ( psOptions -> padfDstNoDataImag )
+>1162	ArgumentList	psOptions -> padfDstNoDataImag
+>1163	Argument	psOptions -> padfDstNoDataImag
+>1164	PtrMemberAccess	psOptions -> padfDstNoDataImag
+>1165	Identifier	padfDstNoDataImag
+>1166	Identifier	psOptions
+>1167	Callee	CPLFree
+>1168	Identifier	CPLFree
+>1169	ExpressionStatement	 
+>1170	CallExpression	CPLFree ( psOptions -> padfDstNoDataReal )
+>1171	ArgumentList	psOptions -> padfDstNoDataReal
+>1172	Argument	psOptions -> padfDstNoDataReal
+>1173	PtrMemberAccess	psOptions -> padfDstNoDataReal
+>1174	Identifier	padfDstNoDataReal
+>1175	Identifier	psOptions
+>1176	Callee	CPLFree
+>1177	Identifier	CPLFree
+>1178	ExpressionStatement	 
+>1179	CallExpression	CPLFree ( psOptions -> padfSrcNoDataImag )
+>1180	ArgumentList	psOptions -> padfSrcNoDataImag
+>1181	Argument	psOptions -> padfSrcNoDataImag
+>1182	PtrMemberAccess	psOptions -> padfSrcNoDataImag
+>1183	Identifier	padfSrcNoDataImag
+>1184	Identifier	psOptions
+>1185	Callee	CPLFree
+>1186	Identifier	CPLFree
+>1187	ExpressionStatement	 
+>1188	CallExpression	CPLFree ( psOptions -> padfSrcNoDataReal )
+>1189	ArgumentList	psOptions -> padfSrcNoDataReal
+>1190	Argument	psOptions -> padfSrcNoDataReal
+>1191	PtrMemberAccess	psOptions -> padfSrcNoDataReal
+>1192	Identifier	padfSrcNoDataReal
+>1193	Identifier	psOptions
+>1194	Callee	CPLFree
+>1195	Identifier	CPLFree
+>1196	ExpressionStatement	 
+>1197	CallExpression	CPLFree ( psOptions -> panDstBands )
+>1198	ArgumentList	psOptions -> panDstBands
+>1199	Argument	psOptions -> panDstBands
+>1200	PtrMemberAccess	psOptions -> panDstBands
+>1201	Identifier	panDstBands
+>1202	Identifier	psOptions
+>1203	Callee	CPLFree
+>1204	Identifier	CPLFree
+>1205	ExpressionStatement	 
+>1206	CallExpression	CPLFree ( psOptions -> panSrcBands )
+>1207	ArgumentList	psOptions -> panSrcBands
+>1208	Argument	psOptions -> panSrcBands
+>1209	PtrMemberAccess	psOptions -> panSrcBands
+>1210	Identifier	panSrcBands
+>1211	Identifier	psOptions
+>1212	Callee	CPLFree
+>1213	Identifier	CPLFree
+>1214	ExpressionStatement	 
+>1215	CallExpression	CSLDestroy ( psOptions -> papszWarpOptions )
+>1216	ArgumentList	psOptions -> papszWarpOptions
+>1217	Argument	psOptions -> papszWarpOptions
+>1218	PtrMemberAccess	psOptions -> papszWarpOptions
+>1219	Identifier	papszWarpOptions
+>1220	Identifier	psOptions
+>1221	Callee	CSLDestroy
+>1222	Identifier	CSLDestroy
+>1223	ExpressionStatement	 
+>1224	CallExpression	VALIDATE_POINTER0 ( psOptions , \"GDALDestroyWarpOptions\" )
+>1225	ArgumentList	psOptions
+>1226	Argument	\"GDALDestroyWarpOptions\"
+>1227	PrimaryExpression	\"GDALDestroyWarpOptions\"
+>1228	Argument	psOptions
+>1229	Identifier	psOptions
+>1230	Callee	VALIDATE_POINTER0
+>1231	Identifier	VALIDATE_POINTER0
+>1248	FunctionDef	GDALCloneWarpOptions (const GDALWarpOptions * psSrcOptions)
+>1249	ParameterList	const GDALWarpOptions * psSrcOptions
+>1250	Parameter	 
+>1251	Identifier	psSrcOptions
+>1252	ParameterType	const GDALWarpOptions *
+>1253	ReturnType	CPL_STDCALL
+>1254	CompoundStatement	 
+>1255	ReturnStatement	 
+>1256	Identifier	psDstOptions
+>1257	ExpressionStatement	 
+>1258	AssignmentExpr	psDstOptions -> dfCutlineBlendDist = psSrcOptions -> dfCutlineBlendDist
+>1259	PtrMemberAccess	psSrcOptions -> dfCutlineBlendDist
+>1260	Identifier	dfCutlineBlendDist
+>1261	Identifier	psSrcOptions
+>1262	PtrMemberAccess	psDstOptions -> dfCutlineBlendDist
+>1263	Identifier	dfCutlineBlendDist
+>1264	Identifier	psDstOptions
+>1265	IfStatement	if ( psSrcOptions -> hCutline != NULL )
+>1266	ExpressionStatement	 
+>1267	AssignmentExpr	psDstOptions -> hCutline = OGR_G_Clone ( ( OGRGeometryH ) psSrcOptions -> hCutline )
+>1268	CallExpression	OGR_G_Clone ( ( OGRGeometryH ) psSrcOptions -> hCutline )
+>1269	ArgumentList	( OGRGeometryH ) psSrcOptions -> hCutline
+>1270	Argument	( OGRGeometryH ) psSrcOptions -> hCutline
+>1271	CastExpression	( OGRGeometryH ) psSrcOptions -> hCutline
+>1272	PtrMemberAccess	psSrcOptions -> hCutline
+>1273	Identifier	hCutline
+>1274	Identifier	psSrcOptions
+>1275	CastTarget	OGRGeometryH
+>1276	Callee	OGR_G_Clone
+>1277	Identifier	OGR_G_Clone
+>1278	PtrMemberAccess	psDstOptions -> hCutline
+>1279	Identifier	hCutline
+>1280	Identifier	psDstOptions
+>1281	Condition	 
+>1282	EqualityExpression	psSrcOptions -> hCutline != NULL
+>1283	Identifier	NULL
+>1284	PtrMemberAccess	psSrcOptions -> hCutline
+>1285	Identifier	hCutline
+>1286	Identifier	psSrcOptions
+>1287	ExpressionStatement	 
+>1288	AssignmentExpr	psDstOptions -> papSrcPerBandValidityMaskFuncArg = NULL
+>1289	Identifier	NULL
+>1290	PtrMemberAccess	psDstOptions -> papSrcPerBandValidityMaskFuncArg
+>1291	Identifier	papSrcPerBandValidityMaskFuncArg
+>1292	Identifier	psDstOptions
+>1293	ExpressionStatement	 
+>1294	CallExpression	COPY_MEM ( papfnSrcPerBandValidityMaskFunc , GDALMaskFunc , psSrcOptions -> nBandCount )
+>1295	ArgumentList	papfnSrcPerBandValidityMaskFunc
+>1296	Argument	psSrcOptions -> nBandCount
+>1297	PtrMemberAccess	psSrcOptions -> nBandCount
+>1298	Identifier	nBandCount
+>1299	Identifier	psSrcOptions
+>1300	Argument	GDALMaskFunc
+>1301	Identifier	GDALMaskFunc
+>1302	Argument	papfnSrcPerBandValidityMaskFunc
+>1303	Identifier	papfnSrcPerBandValidityMaskFunc
+>1304	Callee	COPY_MEM
+>1305	Identifier	COPY_MEM
+>1306	ExpressionStatement	 
+>1307	CallExpression	COPY_MEM ( padfDstNoDataImag , double , psSrcOptions -> nBandCount )
+>1308	ArgumentList	padfDstNoDataImag
+>1309	Argument	psSrcOptions -> nBandCount
+>1310	PtrMemberAccess	psSrcOptions -> nBandCount
+>1311	Identifier	nBandCount
+>1312	Identifier	psSrcOptions
+>1313	Argument	double
+>1314	Identifier	double
+>1315	Argument	padfDstNoDataImag
+>1316	Identifier	padfDstNoDataImag
+>1317	Callee	COPY_MEM
+>1318	Identifier	COPY_MEM
+>1319	ExpressionStatement	 
+>1320	CallExpression	COPY_MEM ( padfDstNoDataReal , double , psSrcOptions -> nBandCount )
+>1321	ArgumentList	padfDstNoDataReal
+>1322	Argument	psSrcOptions -> nBandCount
+>1323	PtrMemberAccess	psSrcOptions -> nBandCount
+>1324	Identifier	nBandCount
+>1325	Identifier	psSrcOptions
+>1326	Argument	double
+>1327	Identifier	double
+>1328	Argument	padfDstNoDataReal
+>1329	Identifier	padfDstNoDataReal
+>1330	Callee	COPY_MEM
+>1331	Identifier	COPY_MEM
+>1332	ExpressionStatement	 
+>1333	CallExpression	COPY_MEM ( padfSrcNoDataImag , double , psSrcOptions -> nBandCount )
+>1334	ArgumentList	padfSrcNoDataImag
+>1335	Argument	psSrcOptions -> nBandCount
+>1336	PtrMemberAccess	psSrcOptions -> nBandCount
+>1337	Identifier	nBandCount
+>1338	Identifier	psSrcOptions
+>1339	Argument	double
+>1340	Identifier	double
+>1341	Argument	padfSrcNoDataImag
+>1342	Identifier	padfSrcNoDataImag
+>1343	Callee	COPY_MEM
+>1344	Identifier	COPY_MEM
+>1345	ExpressionStatement	 
+>1346	CallExpression	COPY_MEM ( padfSrcNoDataReal , double , psSrcOptions -> nBandCount )
+>1347	ArgumentList	padfSrcNoDataReal
+>1348	Argument	psSrcOptions -> nBandCount
+>1349	PtrMemberAccess	psSrcOptions -> nBandCount
+>1350	Identifier	nBandCount
+>1351	Identifier	psSrcOptions
+>1352	Argument	double
+>1353	Identifier	double
+>1354	Argument	padfSrcNoDataReal
+>1355	Identifier	padfSrcNoDataReal
+>1356	Callee	COPY_MEM
+>1357	Identifier	COPY_MEM
+>1358	ExpressionStatement	 
+>1359	CallExpression	COPY_MEM ( panDstBands , int , psSrcOptions -> nBandCount )
+>1360	ArgumentList	panDstBands
+>1361	Argument	psSrcOptions -> nBandCount
+>1362	PtrMemberAccess	psSrcOptions -> nBandCount
+>1363	Identifier	nBandCount
+>1364	Identifier	psSrcOptions
+>1365	Argument	int
+>1366	Identifier	int
+>1367	Argument	panDstBands
+>1368	Identifier	panDstBands
+>1369	Callee	COPY_MEM
+>1370	Identifier	COPY_MEM
+>1371	ExpressionStatement	 
+>1372	CallExpression	COPY_MEM ( panSrcBands , int , psSrcOptions -> nBandCount )
+>1373	ArgumentList	panSrcBands
+>1374	Argument	psSrcOptions -> nBandCount
+>1375	PtrMemberAccess	psSrcOptions -> nBandCount
+>1376	Identifier	nBandCount
+>1377	Identifier	psSrcOptions
+>1378	Argument	int
+>1379	Identifier	int
+>1380	Argument	panSrcBands
+>1381	Identifier	panSrcBands
+>1382	Callee	COPY_MEM
+>1383	Identifier	COPY_MEM
+>1384	IfStatement	if ( psSrcOptions -> papszWarpOptions != NULL )
+>1385	ExpressionStatement	 
+>1386	AssignmentExpr	psDstOptions -> papszWarpOptions = CSLDuplicate ( psSrcOptions -> papszWarpOptions )
+>1387	CallExpression	CSLDuplicate ( psSrcOptions -> papszWarpOptions )
+>1388	ArgumentList	psSrcOptions -> papszWarpOptions
+>1389	Argument	psSrcOptions -> papszWarpOptions
+>1390	PtrMemberAccess	psSrcOptions -> papszWarpOptions
+>1391	Identifier	papszWarpOptions
+>1392	Identifier	psSrcOptions
+>1393	Callee	CSLDuplicate
+>1394	Identifier	CSLDuplicate
+>1395	PtrMemberAccess	psDstOptions -> papszWarpOptions
+>1396	Identifier	papszWarpOptions
+>1397	Identifier	psDstOptions
+>1398	Condition	 
+>1399	EqualityExpression	psSrcOptions -> papszWarpOptions != NULL
+>1400	Identifier	NULL
+>1401	PtrMemberAccess	psSrcOptions -> papszWarpOptions
+>1402	Identifier	papszWarpOptions
+>1403	Identifier	psSrcOptions
+>1404	ExpressionStatement	 
+>1405	CallExpression	memcpy ( psDstOptions , psSrcOptions , sizeof ( GDALWarpOptions ) )
+>1406	ArgumentList	psDstOptions
+>1407	Argument	sizeof ( GDALWarpOptions )
+>1408	SizeofExpr	sizeof ( GDALWarpOptions )
+>1409	SizeofOperand	GDALWarpOptions
+>1410	Sizeof	sizeof
+>1411	Argument	psSrcOptions
+>1412	Identifier	psSrcOptions
+>1413	Argument	psDstOptions
+>1414	Identifier	psDstOptions
+>1415	Callee	memcpy
+>1416	Identifier	memcpy
+>1417	IdentifierDeclStatement	 
+>1418	IdentifierDecl	* psDstOptions = GDALCreateWarpOptions ( )
+>1419	AssignmentExpr	* psDstOptions = GDALCreateWarpOptions ( )
+>1420	CallExpression	GDALCreateWarpOptions ( )
+>1421	ArgumentList	 
+>1422	Callee	GDALCreateWarpOptions
+>1423	Identifier	GDALCreateWarpOptions
+>1424	Identifier	psDstOptions
+>1425	Identifier	psDstOptions
+>1426	IdentifierDeclType	GDALWarpOptions *
+>1456	FunctionDef	GDALSerializeWarpOptions (const GDALWarpOptions * psWO)
+>1457	ParameterList	const GDALWarpOptions * psWO
+>1458	Parameter	 
+>1459	Identifier	psWO
+>1460	ParameterType	const GDALWarpOptions *
+>1461	ReturnType	CPL_STDCALL
+>1462	CompoundStatement	 
+>1463	ReturnStatement	 
+>1464	Identifier	psTree
+>1465	IfStatement	if ( psWO -> dfCutlineBlendDist != 0.0 )
+>1466	ExpressionStatement	 
+>1467	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"CutlineBlendDist\" , CPLString ( ) . Printf ( \"%.5g\" , psWO -> dfCutlineBlendDist ) )
+>1468	ArgumentList	psTree
+>1469	Argument	CPLString ( ) . Printf ( \"%.5g\" , psWO -> dfCutlineBlendDist )
+>1470	CallExpression	CPLString ( ) . Printf ( \"%.5g\" , psWO -> dfCutlineBlendDist )
+>1471	ArgumentList	\"%.5g\"
+>1472	Argument	psWO -> dfCutlineBlendDist
+>1473	PtrMemberAccess	psWO -> dfCutlineBlendDist
+>1474	Identifier	dfCutlineBlendDist
+>1475	Identifier	psWO
+>1476	Argument	\"%.5g\"
+>1477	PrimaryExpression	\"%.5g\"
+>1478	Callee	CPLString ( ) . Printf
+>1479	MemberAccess	CPLString ( ) . Printf
+>1480	Identifier	Printf
+>1481	CallExpression	CPLString ( )
+>1482	ArgumentList	 
+>1483	Callee	CPLString
+>1484	Identifier	CPLString
+>1485	Argument	\"CutlineBlendDist\"
+>1486	PrimaryExpression	\"CutlineBlendDist\"
+>1487	Argument	psTree
+>1488	Identifier	psTree
+>1489	Callee	CPLCreateXMLElementAndValue
+>1490	Identifier	CPLCreateXMLElementAndValue
+>1491	Condition	 
+>1492	EqualityExpression	psWO -> dfCutlineBlendDist != 0.0
+>1493	PrimaryExpression	0.0
+>1494	PtrMemberAccess	psWO -> dfCutlineBlendDist
+>1495	Identifier	dfCutlineBlendDist
+>1496	Identifier	psWO
+>1497	IfStatement	if ( psWO -> hCutline != NULL )
+>1498	CompoundStatement	 
+>1499	IfStatement	if ( OGR_G_ExportToWkt ( ( OGRGeometryH ) psWO -> hCutline , & pszWKT ) == OGRERR_NONE )
+>1500	CompoundStatement	 
+>1501	ExpressionStatement	 
+>1502	CallExpression	CPLFree ( pszWKT )
+>1503	ArgumentList	pszWKT
+>1504	Argument	pszWKT
+>1505	Identifier	pszWKT
+>1506	Callee	CPLFree
+>1507	Identifier	CPLFree
+>1508	ExpressionStatement	 
+>1509	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"Cutline\" , pszWKT )
+>1510	ArgumentList	psTree
+>1511	Argument	pszWKT
+>1512	Identifier	pszWKT
+>1513	Argument	\"Cutline\"
+>1514	PrimaryExpression	\"Cutline\"
+>1515	Argument	psTree
+>1516	Identifier	psTree
+>1517	Callee	CPLCreateXMLElementAndValue
+>1518	Identifier	CPLCreateXMLElementAndValue
+>1519	Condition	 
+>1520	EqualityExpression	OGR_G_ExportToWkt ( ( OGRGeometryH ) psWO -> hCutline , & pszWKT ) == OGRERR_NONE
+>1521	Identifier	OGRERR_NONE
+>1522	CallExpression	OGR_G_ExportToWkt ( ( OGRGeometryH ) psWO -> hCutline , & pszWKT )
+>1523	ArgumentList	( OGRGeometryH ) psWO -> hCutline
+>1524	Argument	& pszWKT
+>1525	UnaryOp	& pszWKT
+>1526	Identifier	pszWKT
+>1527	UnaryOperator	&
+>1528	Argument	( OGRGeometryH ) psWO -> hCutline
+>1529	CastExpression	( OGRGeometryH ) psWO -> hCutline
+>1530	PtrMemberAccess	psWO -> hCutline
+>1531	Identifier	hCutline
+>1532	Identifier	psWO
+>1533	CastTarget	OGRGeometryH
+>1534	Callee	OGR_G_ExportToWkt
+>1535	Identifier	OGR_G_ExportToWkt
+>1536	IdentifierDeclStatement	 
+>1537	IdentifierDecl	* pszWKT = NULL
+>1538	AssignmentExpr	* pszWKT = NULL
+>1539	Identifier	NULL
+>1540	Identifier	NULL
+>1541	Identifier	pszWKT
+>1542	IdentifierDeclType	char *
+>1543	Condition	 
+>1544	EqualityExpression	psWO -> hCutline != NULL
+>1545	Identifier	NULL
+>1546	PtrMemberAccess	psWO -> hCutline
+>1547	Identifier	hCutline
+>1548	Identifier	psWO
+>1549	IfStatement	if ( psWO -> nDstAlphaBand > 0 )
+>1550	ExpressionStatement	 
+>1551	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"DstAlphaBand\" , CPLString ( ) . Printf ( \"%d\" , psWO -> nDstAlphaBand ) )
+>1552	ArgumentList	psTree
+>1553	Argument	CPLString ( ) . Printf ( \"%d\" , psWO -> nDstAlphaBand )
+>1554	CallExpression	CPLString ( ) . Printf ( \"%d\" , psWO -> nDstAlphaBand )
+>1555	ArgumentList	\"%d\"
+>1556	Argument	psWO -> nDstAlphaBand
+>1557	PtrMemberAccess	psWO -> nDstAlphaBand
+>1558	Identifier	nDstAlphaBand
+>1559	Identifier	psWO
+>1560	Argument	\"%d\"
+>1561	PrimaryExpression	\"%d\"
+>1562	Callee	CPLString ( ) . Printf
+>1563	MemberAccess	CPLString ( ) . Printf
+>1564	Identifier	Printf
+>1565	CallExpression	CPLString ( )
+>1566	ArgumentList	 
+>1567	Callee	CPLString
+>1568	Identifier	CPLString
+>1569	Argument	\"DstAlphaBand\"
+>1570	PrimaryExpression	\"DstAlphaBand\"
+>1571	Argument	psTree
+>1572	Identifier	psTree
+>1573	Callee	CPLCreateXMLElementAndValue
+>1574	Identifier	CPLCreateXMLElementAndValue
+>1575	Condition	 
+>1576	RelationalExpression	psWO -> nDstAlphaBand > 0
+>1577	PrimaryExpression	0
+>1578	PtrMemberAccess	psWO -> nDstAlphaBand
+>1579	Identifier	nDstAlphaBand
+>1580	Identifier	psWO
+>1581	IfStatement	if ( psWO -> nSrcAlphaBand > 0 )
+>1582	ExpressionStatement	 
+>1583	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"SrcAlphaBand\" , CPLString ( ) . Printf ( \"%d\" , psWO -> nSrcAlphaBand ) )
+>1584	ArgumentList	psTree
+>1585	Argument	CPLString ( ) . Printf ( \"%d\" , psWO -> nSrcAlphaBand )
+>1586	CallExpression	CPLString ( ) . Printf ( \"%d\" , psWO -> nSrcAlphaBand )
+>1587	ArgumentList	\"%d\"
+>1588	Argument	psWO -> nSrcAlphaBand
+>1589	PtrMemberAccess	psWO -> nSrcAlphaBand
+>1590	Identifier	nSrcAlphaBand
+>1591	Identifier	psWO
+>1592	Argument	\"%d\"
+>1593	PrimaryExpression	\"%d\"
+>1594	Callee	CPLString ( ) . Printf
+>1595	MemberAccess	CPLString ( ) . Printf
+>1596	Identifier	Printf
+>1597	CallExpression	CPLString ( )
+>1598	ArgumentList	 
+>1599	Callee	CPLString
+>1600	Identifier	CPLString
+>1601	Argument	\"SrcAlphaBand\"
+>1602	PrimaryExpression	\"SrcAlphaBand\"
+>1603	Argument	psTree
+>1604	Identifier	psTree
+>1605	Callee	CPLCreateXMLElementAndValue
+>1606	Identifier	CPLCreateXMLElementAndValue
+>1607	Condition	 
+>1608	RelationalExpression	psWO -> nSrcAlphaBand > 0
+>1609	PrimaryExpression	0
+>1610	PtrMemberAccess	psWO -> nSrcAlphaBand
+>1611	Identifier	nSrcAlphaBand
+>1612	Identifier	psWO
+>1613	ForStatement	for ( i = 0 ; i < psWO -> nBandCount ; i ++ )
+>1614	CompoundStatement	 
+>1615	IfStatement	if ( psWO -> padfDstNoDataImag != NULL )
+>1616	CompoundStatement	 
+>1617	IfStatement	if ( CPLIsNan ( psWO -> padfDstNoDataImag [ i ] ) )
+>1618	ElseStatement	else
+>1619	ExpressionStatement	 
+>1620	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"DstNoDataImag\" , CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfDstNoDataImag [ \
+>1621	ArgumentList	psBand
+>1622	Argument	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfDstNoDataImag [ i ] )
+>1623	CallExpression	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfDstNoDataImag [ i ] )
+>1624	ArgumentList	\"%.16g\"
+>1625	Argument	psWO -> padfDstNoDataImag [ i ]
+>1626	ArrayIndexing	psWO -> padfDstNoDataImag [ i ]
+>1627	Identifier	i
+>1628	PtrMemberAccess	psWO -> padfDstNoDataImag
+>1629	Identifier	padfDstNoDataImag
+>1630	Identifier	psWO
+>1631	Argument	\"%.16g\"
+>1632	PrimaryExpression	\"%.16g\"
+>1633	Callee	CPLString ( ) . Printf
+>1634	MemberAccess	CPLString ( ) . Printf
+>1635	Identifier	Printf
+>1636	CallExpression	CPLString ( )
+>1637	ArgumentList	 
+>1638	Callee	CPLString
+>1639	Identifier	CPLString
+>1640	Argument	\"DstNoDataImag\"
+>1641	PrimaryExpression	\"DstNoDataImag\"
+>1642	Argument	psBand
+>1643	Identifier	psBand
+>1644	Callee	CPLCreateXMLElementAndValue
+>1645	Identifier	CPLCreateXMLElementAndValue
+>1646	ExpressionStatement	 
+>1647	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"DstNoDataImag\" , \"nan\" )
+>1648	ArgumentList	psBand
+>1649	Argument	\"nan\"
+>1650	PrimaryExpression	\"nan\"
+>1651	Argument	\"DstNoDataImag\"
+>1652	PrimaryExpression	\"DstNoDataImag\"
+>1653	Argument	psBand
+>1654	Identifier	psBand
+>1655	Callee	CPLCreateXMLElementAndValue
+>1656	Identifier	CPLCreateXMLElementAndValue
+>1657	Condition	 
+>1658	CallExpression	CPLIsNan ( psWO -> padfDstNoDataImag [ i ] )
+>1659	ArgumentList	psWO -> padfDstNoDataImag [ i ]
+>1660	Argument	psWO -> padfDstNoDataImag [ i ]
+>1661	ArrayIndexing	psWO -> padfDstNoDataImag [ i ]
+>1662	Identifier	i
+>1663	PtrMemberAccess	psWO -> padfDstNoDataImag
+>1664	Identifier	padfDstNoDataImag
+>1665	Identifier	psWO
+>1666	Callee	CPLIsNan
+>1667	Identifier	CPLIsNan
+>1668	Condition	 
+>1669	EqualityExpression	psWO -> padfDstNoDataImag != NULL
+>1670	Identifier	NULL
+>1671	PtrMemberAccess	psWO -> padfDstNoDataImag
+>1672	Identifier	padfDstNoDataImag
+>1673	Identifier	psWO
+>1674	IfStatement	if ( psWO -> padfDstNoDataReal != NULL )
+>1675	CompoundStatement	 
+>1676	IfStatement	if ( CPLIsNan ( psWO -> padfDstNoDataReal [ i ] ) )
+>1677	ElseStatement	else
+>1678	ExpressionStatement	 
+>1679	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"DstNoDataReal\" , CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfDstNoDataReal [ \
+>1680	ArgumentList	psBand
+>1681	Argument	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfDstNoDataReal [ i ] )
+>1682	CallExpression	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfDstNoDataReal [ i ] )
+>1683	ArgumentList	\"%.16g\"
+>1684	Argument	psWO -> padfDstNoDataReal [ i ]
+>1685	ArrayIndexing	psWO -> padfDstNoDataReal [ i ]
+>1686	Identifier	i
+>1687	PtrMemberAccess	psWO -> padfDstNoDataReal
+>1688	Identifier	padfDstNoDataReal
+>1689	Identifier	psWO
+>1690	Argument	\"%.16g\"
+>1691	PrimaryExpression	\"%.16g\"
+>1692	Callee	CPLString ( ) . Printf
+>1693	MemberAccess	CPLString ( ) . Printf
+>1694	Identifier	Printf
+>1695	CallExpression	CPLString ( )
+>1696	ArgumentList	 
+>1697	Callee	CPLString
+>1698	Identifier	CPLString
+>1699	Argument	\"DstNoDataReal\"
+>1700	PrimaryExpression	\"DstNoDataReal\"
+>1701	Argument	psBand
+>1702	Identifier	psBand
+>1703	Callee	CPLCreateXMLElementAndValue
+>1704	Identifier	CPLCreateXMLElementAndValue
+>1705	ExpressionStatement	 
+>1706	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"DstNoDataReal\" , \"nan\" )
+>1707	ArgumentList	psBand
+>1708	Argument	\"nan\"
+>1709	PrimaryExpression	\"nan\"
+>1710	Argument	\"DstNoDataReal\"
+>1711	PrimaryExpression	\"DstNoDataReal\"
+>1712	Argument	psBand
+>1713	Identifier	psBand
+>1714	Callee	CPLCreateXMLElementAndValue
+>1715	Identifier	CPLCreateXMLElementAndValue
+>1716	Condition	 
+>1717	CallExpression	CPLIsNan ( psWO -> padfDstNoDataReal [ i ] )
+>1718	ArgumentList	psWO -> padfDstNoDataReal [ i ]
+>1719	Argument	psWO -> padfDstNoDataReal [ i ]
+>1720	ArrayIndexing	psWO -> padfDstNoDataReal [ i ]
+>1721	Identifier	i
+>1722	PtrMemberAccess	psWO -> padfDstNoDataReal
+>1723	Identifier	padfDstNoDataReal
+>1724	Identifier	psWO
+>1725	Callee	CPLIsNan
+>1726	Identifier	CPLIsNan
+>1727	Condition	 
+>1728	EqualityExpression	psWO -> padfDstNoDataReal != NULL
+>1729	Identifier	NULL
+>1730	PtrMemberAccess	psWO -> padfDstNoDataReal
+>1731	Identifier	padfDstNoDataReal
+>1732	Identifier	psWO
+>1733	IfStatement	if ( psWO -> padfSrcNoDataImag != NULL )
+>1734	CompoundStatement	 
+>1735	IfStatement	if ( CPLIsNan ( psWO -> padfSrcNoDataImag [ i ] ) )
+>1736	ElseStatement	else
+>1737	ExpressionStatement	 
+>1738	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"SrcNoDataImag\" , CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfSrcNoDataImag [ \
+>1739	ArgumentList	psBand
+>1740	Argument	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfSrcNoDataImag [ i ] )
+>1741	CallExpression	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfSrcNoDataImag [ i ] )
+>1742	ArgumentList	\"%.16g\"
+>1743	Argument	psWO -> padfSrcNoDataImag [ i ]
+>1744	ArrayIndexing	psWO -> padfSrcNoDataImag [ i ]
+>1745	Identifier	i
+>1746	PtrMemberAccess	psWO -> padfSrcNoDataImag
+>1747	Identifier	padfSrcNoDataImag
+>1748	Identifier	psWO
+>1749	Argument	\"%.16g\"
+>1750	PrimaryExpression	\"%.16g\"
+>1751	Callee	CPLString ( ) . Printf
+>1752	MemberAccess	CPLString ( ) . Printf
+>1753	Identifier	Printf
+>1754	CallExpression	CPLString ( )
+>1755	ArgumentList	 
+>1756	Callee	CPLString
+>1757	Identifier	CPLString
+>1758	Argument	\"SrcNoDataImag\"
+>1759	PrimaryExpression	\"SrcNoDataImag\"
+>1760	Argument	psBand
+>1761	Identifier	psBand
+>1762	Callee	CPLCreateXMLElementAndValue
+>1763	Identifier	CPLCreateXMLElementAndValue
+>1764	ExpressionStatement	 
+>1765	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"SrcNoDataImag\" , \"nan\" )
+>1766	ArgumentList	psBand
+>1767	Argument	\"nan\"
+>1768	PrimaryExpression	\"nan\"
+>1769	Argument	\"SrcNoDataImag\"
+>1770	PrimaryExpression	\"SrcNoDataImag\"
+>1771	Argument	psBand
+>1772	Identifier	psBand
+>1773	Callee	CPLCreateXMLElementAndValue
+>1774	Identifier	CPLCreateXMLElementAndValue
+>1775	Condition	 
+>1776	CallExpression	CPLIsNan ( psWO -> padfSrcNoDataImag [ i ] )
+>1777	ArgumentList	psWO -> padfSrcNoDataImag [ i ]
+>1778	Argument	psWO -> padfSrcNoDataImag [ i ]
+>1779	ArrayIndexing	psWO -> padfSrcNoDataImag [ i ]
+>1780	Identifier	i
+>1781	PtrMemberAccess	psWO -> padfSrcNoDataImag
+>1782	Identifier	padfSrcNoDataImag
+>1783	Identifier	psWO
+>1784	Callee	CPLIsNan
+>1785	Identifier	CPLIsNan
+>1786	Condition	 
+>1787	EqualityExpression	psWO -> padfSrcNoDataImag != NULL
+>1788	Identifier	NULL
+>1789	PtrMemberAccess	psWO -> padfSrcNoDataImag
+>1790	Identifier	padfSrcNoDataImag
+>1791	Identifier	psWO
+>1792	IfStatement	if ( psWO -> padfSrcNoDataReal != NULL )
+>1793	CompoundStatement	 
+>1794	IfStatement	if ( CPLIsNan ( psWO -> padfSrcNoDataReal [ i ] ) )
+>1795	ElseStatement	else
+>1796	ExpressionStatement	 
+>1797	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"SrcNoDataReal\" , CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfSrcNoDataReal [ \
+>1798	ArgumentList	psBand
+>1799	Argument	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfSrcNoDataReal [ i ] )
+>1800	CallExpression	CPLString ( ) . Printf ( \"%.16g\" , psWO -> padfSrcNoDataReal [ i ] )
+>1801	ArgumentList	\"%.16g\"
+>1802	Argument	psWO -> padfSrcNoDataReal [ i ]
+>1803	ArrayIndexing	psWO -> padfSrcNoDataReal [ i ]
+>1804	Identifier	i
+>1805	PtrMemberAccess	psWO -> padfSrcNoDataReal
+>1806	Identifier	padfSrcNoDataReal
+>1807	Identifier	psWO
+>1808	Argument	\"%.16g\"
+>1809	PrimaryExpression	\"%.16g\"
+>1810	Callee	CPLString ( ) . Printf
+>1811	MemberAccess	CPLString ( ) . Printf
+>1812	Identifier	Printf
+>1813	CallExpression	CPLString ( )
+>1814	ArgumentList	 
+>1815	Callee	CPLString
+>1816	Identifier	CPLString
+>1817	Argument	\"SrcNoDataReal\"
+>1818	PrimaryExpression	\"SrcNoDataReal\"
+>1819	Argument	psBand
+>1820	Identifier	psBand
+>1821	Callee	CPLCreateXMLElementAndValue
+>1822	Identifier	CPLCreateXMLElementAndValue
+>1823	ExpressionStatement	 
+>1824	CallExpression	CPLCreateXMLElementAndValue ( psBand , \"SrcNoDataReal\" , \"nan\" )
+>1825	ArgumentList	psBand
+>1826	Argument	\"nan\"
+>1827	PrimaryExpression	\"nan\"
+>1828	Argument	\"SrcNoDataReal\"
+>1829	PrimaryExpression	\"SrcNoDataReal\"
+>1830	Argument	psBand
+>1831	Identifier	psBand
+>1832	Callee	CPLCreateXMLElementAndValue
+>1833	Identifier	CPLCreateXMLElementAndValue
+>1834	Condition	 
+>1835	CallExpression	CPLIsNan ( psWO -> padfSrcNoDataReal [ i ] )
+>1836	ArgumentList	psWO -> padfSrcNoDataReal [ i ]
+>1837	Argument	psWO -> padfSrcNoDataReal [ i ]
+>1838	ArrayIndexing	psWO -> padfSrcNoDataReal [ i ]
+>1839	Identifier	i
+>1840	PtrMemberAccess	psWO -> padfSrcNoDataReal
+>1841	Identifier	padfSrcNoDataReal
+>1842	Identifier	psWO
+>1843	Callee	CPLIsNan
+>1844	Identifier	CPLIsNan
+>1845	Condition	 
+>1846	EqualityExpression	psWO -> padfSrcNoDataReal != NULL
+>1847	Identifier	NULL
+>1848	PtrMemberAccess	psWO -> padfSrcNoDataReal
+>1849	Identifier	padfSrcNoDataReal
+>1850	Identifier	psWO
+>1851	IfStatement	if ( psWO -> panDstBands != NULL )
+>1852	ExpressionStatement	 
+>1853	CallExpression	CPLCreateXMLNode ( CPLCreateXMLNode ( psBand , CXT_Attribute , \"dst\" ) , CXT_Text , CPLString ( ) . Printf ( \"%d\" , \
+>1854	ArgumentList	CPLCreateXMLNode ( psBand , CXT_Attribute , \"dst\" )
+>1855	Argument	CPLString ( ) . Printf ( \"%d\" , psWO -> panDstBands [ i ] )
+>1856	CallExpression	CPLString ( ) . Printf ( \"%d\" , psWO -> panDstBands [ i ] )
+>1857	ArgumentList	\"%d\"
+>1858	Argument	psWO -> panDstBands [ i ]
+>1859	ArrayIndexing	psWO -> panDstBands [ i ]
+>1860	Identifier	i
+>1861	PtrMemberAccess	psWO -> panDstBands
+>1862	Identifier	panDstBands
+>1863	Identifier	psWO
+>1864	Argument	\"%d\"
+>1865	PrimaryExpression	\"%d\"
+>1866	Callee	CPLString ( ) . Printf
+>1867	MemberAccess	CPLString ( ) . Printf
+>1868	Identifier	Printf
+>1869	CallExpression	CPLString ( )
+>1870	ArgumentList	 
+>1871	Callee	CPLString
+>1872	Identifier	CPLString
+>1873	Argument	CXT_Text
+>1874	Identifier	CXT_Text
+>1875	Argument	CPLCreateXMLNode ( psBand , CXT_Attribute , \"dst\" )
+>1876	CallExpression	CPLCreateXMLNode ( psBand , CXT_Attribute , \"dst\" )
+>1877	ArgumentList	psBand
+>1878	Argument	\"dst\"
+>1879	PrimaryExpression	\"dst\"
+>1880	Argument	CXT_Attribute
+>1881	Identifier	CXT_Attribute
+>1882	Argument	psBand
+>1883	Identifier	psBand
+>1884	Callee	CPLCreateXMLNode
+>1885	Identifier	CPLCreateXMLNode
+>1886	Callee	CPLCreateXMLNode
+>1887	Identifier	CPLCreateXMLNode
+>1888	Condition	 
+>1889	EqualityExpression	psWO -> panDstBands != NULL
+>1890	Identifier	NULL
+>1891	PtrMemberAccess	psWO -> panDstBands
+>1892	Identifier	panDstBands
+>1893	Identifier	psWO
+>1894	IfStatement	if ( psWO -> panSrcBands != NULL )
+>1895	ExpressionStatement	 
+>1896	CallExpression	CPLCreateXMLNode ( CPLCreateXMLNode ( psBand , CXT_Attribute , \"src\" ) , CXT_Text , CPLString ( ) . Printf ( \"%d\" , \
+>1897	ArgumentList	CPLCreateXMLNode ( psBand , CXT_Attribute , \"src\" )
+>1898	Argument	CPLString ( ) . Printf ( \"%d\" , psWO -> panSrcBands [ i ] )
+>1899	CallExpression	CPLString ( ) . Printf ( \"%d\" , psWO -> panSrcBands [ i ] )
+>1900	ArgumentList	\"%d\"
+>1901	Argument	psWO -> panSrcBands [ i ]
+>1902	ArrayIndexing	psWO -> panSrcBands [ i ]
+>1903	Identifier	i
+>1904	PtrMemberAccess	psWO -> panSrcBands
+>1905	Identifier	panSrcBands
+>1906	Identifier	psWO
+>1907	Argument	\"%d\"
+>1908	PrimaryExpression	\"%d\"
+>1909	Callee	CPLString ( ) . Printf
+>1910	MemberAccess	CPLString ( ) . Printf
+>1911	Identifier	Printf
+>1912	CallExpression	CPLString ( )
+>1913	ArgumentList	 
+>1914	Callee	CPLString
+>1915	Identifier	CPLString
+>1916	Argument	CXT_Text
+>1917	Identifier	CXT_Text
+>1918	Argument	CPLCreateXMLNode ( psBand , CXT_Attribute , \"src\" )
+>1919	CallExpression	CPLCreateXMLNode ( psBand , CXT_Attribute , \"src\" )
+>1920	ArgumentList	psBand
+>1921	Argument	\"src\"
+>1922	PrimaryExpression	\"src\"
+>1923	Argument	CXT_Attribute
+>1924	Identifier	CXT_Attribute
+>1925	Argument	psBand
+>1926	Identifier	psBand
+>1927	Callee	CPLCreateXMLNode
+>1928	Identifier	CPLCreateXMLNode
+>1929	Callee	CPLCreateXMLNode
+>1930	Identifier	CPLCreateXMLNode
+>1931	Condition	 
+>1932	EqualityExpression	psWO -> panSrcBands != NULL
+>1933	Identifier	NULL
+>1934	PtrMemberAccess	psWO -> panSrcBands
+>1935	Identifier	panSrcBands
+>1936	Identifier	psWO
+>1937	ExpressionStatement	 
+>1938	AssignmentExpr	psBand = CPLCreateXMLNode ( psBandList , CXT_Element , \"BandMapping\" )
+>1939	CallExpression	CPLCreateXMLNode ( psBandList , CXT_Element , \"BandMapping\" )
+>1940	ArgumentList	psBandList
+>1941	Argument	\"BandMapping\"
+>1942	PrimaryExpression	\"BandMapping\"
+>1943	Argument	CXT_Element
+>1944	Identifier	CXT_Element
+>1945	Argument	psBandList
+>1946	Identifier	psBandList
+>1947	Callee	CPLCreateXMLNode
+>1948	Identifier	CPLCreateXMLNode
+>1949	Identifier	psBand
+>1950	IdentifierDeclStatement	 
+>1951	IdentifierDecl	* psBand
+>1952	Identifier	psBand
+>1953	IdentifierDeclType	CPLXMLNode *
+>1954	IncDecOp	 
+>1955	IncDec	++
+>1956	Identifier	i
+>1957	Condition	 
+>1958	RelationalExpression	i < psWO -> nBandCount
+>1959	PtrMemberAccess	psWO -> nBandCount
+>1960	Identifier	nBandCount
+>1961	Identifier	psWO
+>1962	Identifier	i
+>1963	ForInit	 
+>1964	AssignmentExpr	i = 0
+>1965	PrimaryExpression	0
+>1966	Identifier	i
+>1967	IfStatement	if ( psWO -> nBandCount != 0 )
+>1968	ExpressionStatement	 
+>1969	AssignmentExpr	psBandList = CPLCreateXMLNode ( psTree , CXT_Element , \"BandList\" )
+>1970	CallExpression	CPLCreateXMLNode ( psTree , CXT_Element , \"BandList\" )
+>1971	ArgumentList	psTree
+>1972	Argument	\"BandList\"
+>1973	PrimaryExpression	\"BandList\"
+>1974	Argument	CXT_Element
+>1975	Identifier	CXT_Element
+>1976	Argument	psTree
+>1977	Identifier	psTree
+>1978	Callee	CPLCreateXMLNode
+>1979	Identifier	CPLCreateXMLNode
+>1980	Identifier	psBandList
+>1981	Condition	 
+>1982	EqualityExpression	psWO -> nBandCount != 0
+>1983	PrimaryExpression	0
+>1984	PtrMemberAccess	psWO -> nBandCount
+>1985	Identifier	nBandCount
+>1986	Identifier	psWO
+>1987	IdentifierDeclStatement	 
+>1988	IdentifierDecl	i
+>1989	Identifier	i
+>1990	IdentifierDeclType	int
+>1991	IdentifierDeclStatement	 
+>1992	IdentifierDecl	* psBandList = NULL
+>1993	AssignmentExpr	* psBandList = NULL
+>1994	Identifier	NULL
+>1995	Identifier	NULL
+>1996	Identifier	psBandList
+>1997	IdentifierDeclType	CPLXMLNode *
+>1998	IfStatement	if ( psWO -> pfnTransformer != NULL )
+>1999	CompoundStatement	 
+>2000	IfStatement	if ( psTransformerTree != NULL )
+>2001	ExpressionStatement	 
+>2002	CallExpression	CPLAddXMLChild ( psTransformerContainer , psTransformerTree )
+>2003	ArgumentList	psTransformerContainer
+>2004	Argument	psTransformerTree
+>2005	Identifier	psTransformerTree
+>2006	Argument	psTransformerContainer
+>2007	Identifier	psTransformerContainer
+>2008	Callee	CPLAddXMLChild
+>2009	Identifier	CPLAddXMLChild
+>2010	Condition	 
+>2011	EqualityExpression	psTransformerTree != NULL
+>2012	Identifier	NULL
+>2013	Identifier	psTransformerTree
+>2014	ExpressionStatement	 
+>2015	AssignmentExpr	psTransformerTree = GDALSerializeTransformer ( psWO -> pfnTransformer , psWO -> pTransformerArg )
+>2016	CallExpression	GDALSerializeTransformer ( psWO -> pfnTransformer , psWO -> pTransformerArg )
+>2017	ArgumentList	psWO -> pfnTransformer
+>2018	Argument	psWO -> pTransformerArg
+>2019	PtrMemberAccess	psWO -> pTransformerArg
+>2020	Identifier	pTransformerArg
+>2021	Identifier	psWO
+>2022	Argument	psWO -> pfnTransformer
+>2023	PtrMemberAccess	psWO -> pfnTransformer
+>2024	Identifier	pfnTransformer
+>2025	Identifier	psWO
+>2026	Callee	GDALSerializeTransformer
+>2027	Identifier	GDALSerializeTransformer
+>2028	Identifier	psTransformerTree
+>2029	ExpressionStatement	 
+>2030	AssignmentExpr	psTransformerContainer = CPLCreateXMLNode ( psTree , CXT_Element , \"Transformer\" )
+>2031	CallExpression	CPLCreateXMLNode ( psTree , CXT_Element , \"Transformer\" )
+>2032	ArgumentList	psTree
+>2033	Argument	\"Transformer\"
+>2034	PrimaryExpression	\"Transformer\"
+>2035	Argument	CXT_Element
+>2036	Identifier	CXT_Element
+>2037	Argument	psTree
+>2038	Identifier	psTree
+>2039	Callee	CPLCreateXMLNode
+>2040	Identifier	CPLCreateXMLNode
+>2041	Identifier	psTransformerContainer
+>2042	IdentifierDeclStatement	 
+>2043	IdentifierDecl	* psTransformerTree
+>2044	Identifier	psTransformerTree
+>2045	IdentifierDeclType	CPLXMLNode *
+>2046	IdentifierDeclStatement	 
+>2047	IdentifierDecl	* psTransformerContainer
+>2048	Identifier	psTransformerContainer
+>2049	IdentifierDeclType	CPLXMLNode *
+>2050	Condition	 
+>2051	EqualityExpression	psWO -> pfnTransformer != NULL
+>2052	Identifier	NULL
+>2053	PtrMemberAccess	psWO -> pfnTransformer
+>2054	Identifier	pfnTransformer
+>2055	Identifier	psWO
+>2056	IfStatement	if ( psWO -> hDstDS != NULL && strlen ( GDALGetDescription ( psWO -> hDstDS ) ) != 0 )
+>2057	CompoundStatement	 
+>2058	ExpressionStatement	 
+>2059	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"DestinationDataset\" , GDALGetDescription ( psWO -> hDstDS ) )
+>2060	ArgumentList	psTree
+>2061	Argument	GDALGetDescription ( psWO -> hDstDS )
+>2062	CallExpression	GDALGetDescription ( psWO -> hDstDS )
+>2063	ArgumentList	psWO -> hDstDS
+>2064	Argument	psWO -> hDstDS
+>2065	PtrMemberAccess	psWO -> hDstDS
+>2066	Identifier	hDstDS
+>2067	Identifier	psWO
+>2068	Callee	GDALGetDescription
+>2069	Identifier	GDALGetDescription
+>2070	Argument	\"DestinationDataset\"
+>2071	PrimaryExpression	\"DestinationDataset\"
+>2072	Argument	psTree
+>2073	Identifier	psTree
+>2074	Callee	CPLCreateXMLElementAndValue
+>2075	Identifier	CPLCreateXMLElementAndValue
+>2076	Condition	 
+>2077	AndExpression	psWO -> hDstDS != NULL && strlen ( GDALGetDescription ( psWO -> hDstDS ) ) != 0
+>2078	EqualityExpression	strlen ( GDALGetDescription ( psWO -> hDstDS ) ) != 0
+>2079	PrimaryExpression	0
+>2080	CallExpression	strlen ( GDALGetDescription ( psWO -> hDstDS ) )
+>2081	ArgumentList	GDALGetDescription ( psWO -> hDstDS )
+>2082	Argument	GDALGetDescription ( psWO -> hDstDS )
+>2083	CallExpression	GDALGetDescription ( psWO -> hDstDS )
+>2084	ArgumentList	psWO -> hDstDS
+>2085	Argument	psWO -> hDstDS
+>2086	PtrMemberAccess	psWO -> hDstDS
+>2087	Identifier	hDstDS
+>2088	Identifier	psWO
+>2089	Callee	GDALGetDescription
+>2090	Identifier	GDALGetDescription
+>2091	Callee	strlen
+>2092	Identifier	strlen
+>2093	EqualityExpression	psWO -> hDstDS != NULL
+>2094	Identifier	NULL
+>2095	PtrMemberAccess	psWO -> hDstDS
+>2096	Identifier	hDstDS
+>2097	Identifier	psWO
+>2098	IfStatement	if ( psWO -> hSrcDS != NULL )
+>2099	CompoundStatement	 
+>2100	ExpressionStatement	 
+>2101	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"SourceDataset\" , GDALGetDescription ( psWO -> hSrcDS ) )
+>2102	ArgumentList	psTree
+>2103	Argument	GDALGetDescription ( psWO -> hSrcDS )
+>2104	CallExpression	GDALGetDescription ( psWO -> hSrcDS )
+>2105	ArgumentList	psWO -> hSrcDS
+>2106	Argument	psWO -> hSrcDS
+>2107	PtrMemberAccess	psWO -> hSrcDS
+>2108	Identifier	hSrcDS
+>2109	Identifier	psWO
+>2110	Callee	GDALGetDescription
+>2111	Identifier	GDALGetDescription
+>2112	Argument	\"SourceDataset\"
+>2113	PrimaryExpression	\"SourceDataset\"
+>2114	Argument	psTree
+>2115	Identifier	psTree
+>2116	Callee	CPLCreateXMLElementAndValue
+>2117	Identifier	CPLCreateXMLElementAndValue
+>2118	Condition	 
+>2119	EqualityExpression	psWO -> hSrcDS != NULL
+>2120	Identifier	NULL
+>2121	PtrMemberAccess	psWO -> hSrcDS
+>2122	Identifier	hSrcDS
+>2123	Identifier	psWO
+>2124	ForStatement	for ( iWO = 0 ; psWO -> papszWarpOptions != NULL && psWO -> papszWarpOptions [ iWO ] != NULL ; iWO ++ )
+>2125	CompoundStatement	 
+>2126	ExpressionStatement	 
+>2127	CallExpression	CPLFree ( pszName )
+>2128	ArgumentList	pszName
+>2129	Argument	pszName
+>2130	Identifier	pszName
+>2131	Callee	CPLFree
+>2132	Identifier	CPLFree
+>2133	ExpressionStatement	 
+>2134	CallExpression	CPLCreateXMLNode ( CPLCreateXMLNode ( psOption , CXT_Attribute , \"name\" ) , CXT_Text , pszName )
+>2135	ArgumentList	CPLCreateXMLNode ( psOption , CXT_Attribute , \"name\" )
+>2136	Argument	pszName
+>2137	Identifier	pszName
+>2138	Argument	CXT_Text
+>2139	Identifier	CXT_Text
+>2140	Argument	CPLCreateXMLNode ( psOption , CXT_Attribute , \"name\" )
+>2141	CallExpression	CPLCreateXMLNode ( psOption , CXT_Attribute , \"name\" )
+>2142	ArgumentList	psOption
+>2143	Argument	\"name\"
+>2144	PrimaryExpression	\"name\"
+>2145	Argument	CXT_Attribute
+>2146	Identifier	CXT_Attribute
+>2147	Argument	psOption
+>2148	Identifier	psOption
+>2149	Callee	CPLCreateXMLNode
+>2150	Identifier	CPLCreateXMLNode
+>2151	Callee	CPLCreateXMLNode
+>2152	Identifier	CPLCreateXMLNode
+>2153	IdentifierDeclStatement	 
+>2154	IdentifierDecl	* psOption = CPLCreateXMLElementAndValue ( psTree , \"Option\" , pszValue )
+>2155	AssignmentExpr	* psOption = CPLCreateXMLElementAndValue ( psTree , \"Option\" , pszValue )
+>2156	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"Option\" , pszValue )
+>2157	ArgumentList	psTree
+>2158	Argument	pszValue
+>2159	Identifier	pszValue
+>2160	Argument	\"Option\"
+>2161	PrimaryExpression	\"Option\"
+>2162	Argument	psTree
+>2163	Identifier	psTree
+>2164	Callee	CPLCreateXMLElementAndValue
+>2165	Identifier	CPLCreateXMLElementAndValue
+>2166	Identifier	psOption
+>2167	Identifier	psOption
+>2168	IdentifierDeclType	CPLXMLNode *
+>2169	IdentifierDeclStatement	 
+>2170	IdentifierDecl	* pszValue = CPLParseNameValue ( psWO -> papszWarpOptions [ iWO ] , & pszName )
+>2171	AssignmentExpr	* pszValue = CPLParseNameValue ( psWO -> papszWarpOptions [ iWO ] , & pszName )
+>2172	CallExpression	CPLParseNameValue ( psWO -> papszWarpOptions [ iWO ] , & pszName )
+>2173	ArgumentList	psWO -> papszWarpOptions [ iWO ]
+>2174	Argument	& pszName
+>2175	UnaryOp	& pszName
+>2176	Identifier	pszName
+>2177	UnaryOperator	&
+>2178	Argument	psWO -> papszWarpOptions [ iWO ]
+>2179	ArrayIndexing	psWO -> papszWarpOptions [ iWO ]
+>2180	Identifier	iWO
+>2181	PtrMemberAccess	psWO -> papszWarpOptions
+>2182	Identifier	papszWarpOptions
+>2183	Identifier	psWO
+>2184	Callee	CPLParseNameValue
+>2185	Identifier	CPLParseNameValue
+>2186	Identifier	pszValue
+>2187	Identifier	pszValue
+>2188	IdentifierDeclType	const char *
+>2189	IdentifierDeclStatement	 
+>2190	IdentifierDecl	* pszName = NULL
+>2191	AssignmentExpr	* pszName = NULL
+>2192	Identifier	NULL
+>2193	Identifier	NULL
+>2194	Identifier	pszName
+>2195	IdentifierDeclType	char *
+>2196	IncDecOp	 
+>2197	IncDec	++
+>2198	Identifier	iWO
+>2199	Condition	 
+>2200	AndExpression	psWO -> papszWarpOptions != NULL && psWO -> papszWarpOptions [ iWO ] != NULL
+>2201	EqualityExpression	psWO -> papszWarpOptions [ iWO ] != NULL
+>2202	Identifier	NULL
+>2203	ArrayIndexing	psWO -> papszWarpOptions [ iWO ]
+>2204	Identifier	iWO
+>2205	PtrMemberAccess	psWO -> papszWarpOptions
+>2206	Identifier	papszWarpOptions
+>2207	Identifier	psWO
+>2208	EqualityExpression	psWO -> papszWarpOptions != NULL
+>2209	Identifier	NULL
+>2210	PtrMemberAccess	psWO -> papszWarpOptions
+>2211	Identifier	papszWarpOptions
+>2212	Identifier	psWO
+>2213	ForInit	 
+>2214	AssignmentExpr	iWO = 0
+>2215	PrimaryExpression	0
+>2216	Identifier	iWO
+>2217	IdentifierDeclStatement	 
+>2218	IdentifierDecl	iWO
+>2219	Identifier	iWO
+>2220	IdentifierDeclType	int
+>2221	ExpressionStatement	 
+>2222	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"WorkingDataType\" , GDALGetDataTypeName ( psWO -> eWorkingDataType ) )
+>2223	ArgumentList	psTree
+>2224	Argument	GDALGetDataTypeName ( psWO -> eWorkingDataType )
+>2225	CallExpression	GDALGetDataTypeName ( psWO -> eWorkingDataType )
+>2226	ArgumentList	psWO -> eWorkingDataType
+>2227	Argument	psWO -> eWorkingDataType
+>2228	PtrMemberAccess	psWO -> eWorkingDataType
+>2229	Identifier	eWorkingDataType
+>2230	Identifier	psWO
+>2231	Callee	GDALGetDataTypeName
+>2232	Identifier	GDALGetDataTypeName
+>2233	Argument	\"WorkingDataType\"
+>2234	PrimaryExpression	\"WorkingDataType\"
+>2235	Argument	psTree
+>2236	Identifier	psTree
+>2237	Callee	CPLCreateXMLElementAndValue
+>2238	Identifier	CPLCreateXMLElementAndValue
+>2239	ExpressionStatement	 
+>2240	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"ResampleAlg\" , pszAlgName )
+>2241	ArgumentList	psTree
+>2242	Argument	pszAlgName
+>2243	Identifier	pszAlgName
+>2244	Argument	\"ResampleAlg\"
+>2245	PrimaryExpression	\"ResampleAlg\"
+>2246	Argument	psTree
+>2247	Identifier	psTree
+>2248	Callee	CPLCreateXMLElementAndValue
+>2249	Identifier	CPLCreateXMLElementAndValue
+>2250	IfStatement	if ( psWO -> eResampleAlg == GRA_NearestNeighbour )
+>2251	ElseStatement	else
+>2252	IfStatement	if ( psWO -> eResampleAlg == GRA_Bilinear )
+>2253	ElseStatement	else
+>2254	IfStatement	if ( psWO -> eResampleAlg == GRA_Cubic )
+>2255	ElseStatement	else
+>2256	IfStatement	if ( psWO -> eResampleAlg == GRA_CubicSpline )
+>2257	ElseStatement	else
+>2258	IfStatement	if ( psWO -> eResampleAlg == GRA_Lanczos )
+>2259	ElseStatement	else
+>2260	IfStatement	if ( psWO -> eResampleAlg == GRA_Average )
+>2261	ElseStatement	else
+>2262	IfStatement	if ( psWO -> eResampleAlg == GRA_Mode )
+>2263	ElseStatement	else
+>2264	ExpressionStatement	 
+>2265	AssignmentExpr	pszAlgName = \"Unknown\"
+>2266	PrimaryExpression	\"Unknown\"
+>2267	Identifier	pszAlgName
+>2268	ExpressionStatement	 
+>2269	AssignmentExpr	pszAlgName = \"Mode\"
+>2270	PrimaryExpression	\"Mode\"
+>2271	Identifier	pszAlgName
+>2272	Condition	 
+>2273	EqualityExpression	psWO -> eResampleAlg == GRA_Mode
+>2274	Identifier	GRA_Mode
+>2275	PtrMemberAccess	psWO -> eResampleAlg
+>2276	Identifier	eResampleAlg
+>2277	Identifier	psWO
+>2278	ExpressionStatement	 
+>2279	AssignmentExpr	pszAlgName = \"Average\"
+>2280	PrimaryExpression	\"Average\"
+>2281	Identifier	pszAlgName
+>2282	Condition	 
+>2283	EqualityExpression	psWO -> eResampleAlg == GRA_Average
+>2284	Identifier	GRA_Average
+>2285	PtrMemberAccess	psWO -> eResampleAlg
+>2286	Identifier	eResampleAlg
+>2287	Identifier	psWO
+>2288	ExpressionStatement	 
+>2289	AssignmentExpr	pszAlgName = \"Lanczos\"
+>2290	PrimaryExpression	\"Lanczos\"
+>2291	Identifier	pszAlgName
+>2292	Condition	 
+>2293	EqualityExpression	psWO -> eResampleAlg == GRA_Lanczos
+>2294	Identifier	GRA_Lanczos
+>2295	PtrMemberAccess	psWO -> eResampleAlg
+>2296	Identifier	eResampleAlg
+>2297	Identifier	psWO
+>2298	ExpressionStatement	 
+>2299	AssignmentExpr	pszAlgName = \"CubicSpline\"
+>2300	PrimaryExpression	\"CubicSpline\"
+>2301	Identifier	pszAlgName
+>2302	Condition	 
+>2303	EqualityExpression	psWO -> eResampleAlg == GRA_CubicSpline
+>2304	Identifier	GRA_CubicSpline
+>2305	PtrMemberAccess	psWO -> eResampleAlg
+>2306	Identifier	eResampleAlg
+>2307	Identifier	psWO
+>2308	ExpressionStatement	 
+>2309	AssignmentExpr	pszAlgName = \"Cubic\"
+>2310	PrimaryExpression	\"Cubic\"
+>2311	Identifier	pszAlgName
+>2312	Condition	 
+>2313	EqualityExpression	psWO -> eResampleAlg == GRA_Cubic
+>2314	Identifier	GRA_Cubic
+>2315	PtrMemberAccess	psWO -> eResampleAlg
+>2316	Identifier	eResampleAlg
+>2317	Identifier	psWO
+>2318	ExpressionStatement	 
+>2319	AssignmentExpr	pszAlgName = \"Bilinear\"
+>2320	PrimaryExpression	\"Bilinear\"
+>2321	Identifier	pszAlgName
+>2322	Condition	 
+>2323	EqualityExpression	psWO -> eResampleAlg == GRA_Bilinear
+>2324	Identifier	GRA_Bilinear
+>2325	PtrMemberAccess	psWO -> eResampleAlg
+>2326	Identifier	eResampleAlg
+>2327	Identifier	psWO
+>2328	ExpressionStatement	 
+>2329	AssignmentExpr	pszAlgName = \"NearestNeighbour\"
+>2330	PrimaryExpression	\"NearestNeighbour\"
+>2331	Identifier	pszAlgName
+>2332	Condition	 
+>2333	EqualityExpression	psWO -> eResampleAlg == GRA_NearestNeighbour
+>2334	Identifier	GRA_NearestNeighbour
+>2335	PtrMemberAccess	psWO -> eResampleAlg
+>2336	Identifier	eResampleAlg
+>2337	Identifier	psWO
+>2338	IdentifierDeclStatement	 
+>2339	IdentifierDecl	* pszAlgName
+>2340	Identifier	pszAlgName
+>2341	IdentifierDeclType	const char *
+>2342	ExpressionStatement	 
+>2343	CallExpression	CPLCreateXMLElementAndValue ( psTree , \"WarpMemoryLimit\" , CPLString ( ) . Printf ( \"%g\" , psWO -> dfWarpMemoryLimit ) )
+>2344	ArgumentList	psTree
+>2345	Argument	CPLString ( ) . Printf ( \"%g\" , psWO -> dfWarpMemoryLimit )
+>2346	CallExpression	CPLString ( ) . Printf ( \"%g\" , psWO -> dfWarpMemoryLimit )
+>2347	ArgumentList	\"%g\"
+>2348	Argument	psWO -> dfWarpMemoryLimit
+>2349	PtrMemberAccess	psWO -> dfWarpMemoryLimit
+>2350	Identifier	dfWarpMemoryLimit
+>2351	Identifier	psWO
+>2352	Argument	\"%g\"
+>2353	PrimaryExpression	\"%g\"
+>2354	Callee	CPLString ( ) . Printf
+>2355	MemberAccess	CPLString ( ) . Printf
+>2356	Identifier	Printf
+>2357	CallExpression	CPLString ( )
+>2358	ArgumentList	 
+>2359	Callee	CPLString
+>2360	Identifier	CPLString
+>2361	Argument	\"WarpMemoryLimit\"
+>2362	PrimaryExpression	\"WarpMemoryLimit\"
+>2363	Argument	psTree
+>2364	Identifier	psTree
+>2365	Callee	CPLCreateXMLElementAndValue
+>2366	Identifier	CPLCreateXMLElementAndValue
+>2367	ExpressionStatement	 
+>2368	AssignmentExpr	psTree = CPLCreateXMLNode ( NULL , CXT_Element , \"GDALWarpOptions\" )
+>2369	CallExpression	CPLCreateXMLNode ( NULL , CXT_Element , \"GDALWarpOptions\" )
+>2370	ArgumentList	NULL
+>2371	Argument	\"GDALWarpOptions\"
+>2372	PrimaryExpression	\"GDALWarpOptions\"
+>2373	Argument	CXT_Element
+>2374	Identifier	CXT_Element
+>2375	Argument	NULL
+>2376	Identifier	NULL
+>2377	Callee	CPLCreateXMLNode
+>2378	Identifier	CPLCreateXMLNode
+>2379	Identifier	psTree
+>2380	IdentifierDeclStatement	 
+>2381	IdentifierDecl	* psTree
+>2382	Identifier	psTree
+>2383	IdentifierDeclType	CPLXMLNode *
+>2455	FunctionDef	GDALDeserializeWarpOptions (CPLXMLNode * psTree)
+>2456	ParameterList	CPLXMLNode * psTree
+>2457	Parameter	 
+>2458	Identifier	psTree
+>2459	ParameterType	CPLXMLNode *
+>2460	ReturnType	CPL_STDCALL
+>2461	CompoundStatement	 
+>2462	IfStatement	if ( CPLGetLastErrorNo ( ) != CE_None )
+>2463	ElseStatement	else
+>2464	ReturnStatement	 
+>2465	Identifier	psWO
+>2466	CompoundStatement	 
+>2467	ReturnStatement	 
+>2468	Identifier	NULL
+>2469	ExpressionStatement	 
+>2470	CallExpression	GDALDestroyWarpOptions ( psWO )
+>2471	ArgumentList	psWO
+>2472	Argument	psWO
+>2473	Identifier	psWO
+>2474	Callee	GDALDestroyWarpOptions
+>2475	Identifier	GDALDestroyWarpOptions
+>2476	IfStatement	if ( psWO -> hDstDS != NULL )
+>2477	CompoundStatement	 
+>2478	ExpressionStatement	 
+>2479	AssignmentExpr	psWO -> hDstDS = NULL
+>2480	Identifier	NULL
+>2481	PtrMemberAccess	psWO -> hDstDS
+>2482	Identifier	hDstDS
+>2483	Identifier	psWO
+>2484	ExpressionStatement	 
+>2485	CallExpression	GDALClose ( psWO -> hDstDS )
+>2486	ArgumentList	psWO -> hDstDS
+>2487	Argument	psWO -> hDstDS
+>2488	PtrMemberAccess	psWO -> hDstDS
+>2489	Identifier	hDstDS
+>2490	Identifier	psWO
+>2491	Callee	GDALClose
+>2492	Identifier	GDALClose
+>2493	Condition	 
+>2494	EqualityExpression	psWO -> hDstDS != NULL
+>2495	Identifier	NULL
+>2496	PtrMemberAccess	psWO -> hDstDS
+>2497	Identifier	hDstDS
+>2498	Identifier	psWO
+>2499	IfStatement	if ( psWO -> hSrcDS != NULL )
+>2500	CompoundStatement	 
+>2501	ExpressionStatement	 
+>2502	AssignmentExpr	psWO -> hSrcDS = NULL
+>2503	Identifier	NULL
+>2504	PtrMemberAccess	psWO -> hSrcDS
+>2505	Identifier	hSrcDS
+>2506	Identifier	psWO
+>2507	ExpressionStatement	 
+>2508	CallExpression	GDALClose ( psWO -> hSrcDS )
+>2509	ArgumentList	psWO -> hSrcDS
+>2510	Argument	psWO -> hSrcDS
+>2511	PtrMemberAccess	psWO -> hSrcDS
+>2512	Identifier	hSrcDS
+>2513	Identifier	psWO
+>2514	Callee	GDALClose
+>2515	Identifier	GDALClose
+>2516	Condition	 
+>2517	EqualityExpression	psWO -> hSrcDS != NULL
+>2518	Identifier	NULL
+>2519	PtrMemberAccess	psWO -> hSrcDS
+>2520	Identifier	hSrcDS
+>2521	Identifier	psWO
+>2522	IfStatement	if ( psWO -> pTransformerArg )
+>2523	CompoundStatement	 
+>2524	ExpressionStatement	 
+>2525	AssignmentExpr	psWO -> pTransformerArg = NULL
+>2526	Identifier	NULL
+>2527	PtrMemberAccess	psWO -> pTransformerArg
+>2528	Identifier	pTransformerArg
+>2529	Identifier	psWO
+>2530	ExpressionStatement	 
+>2531	CallExpression	GDALDestroyTransformer ( psWO -> pTransformerArg )
+>2532	ArgumentList	psWO -> pTransformerArg
+>2533	Argument	psWO -> pTransformerArg
+>2534	PtrMemberAccess	psWO -> pTransformerArg
+>2535	Identifier	pTransformerArg
+>2536	Identifier	psWO
+>2537	Callee	GDALDestroyTransformer
+>2538	Identifier	GDALDestroyTransformer
+>2539	Condition	 
+>2540	PtrMemberAccess	psWO -> pTransformerArg
+>2541	Identifier	pTransformerArg
+>2542	Identifier	psWO
+>2543	Condition	 
+>2544	EqualityExpression	CPLGetLastErrorNo ( ) != CE_None
+>2545	Identifier	CE_None
+>2546	CallExpression	CPLGetLastErrorNo ( )
+>2547	ArgumentList	 
+>2548	Callee	CPLGetLastErrorNo
+>2549	Identifier	CPLGetLastErrorNo
+>2550	IfStatement	if ( psTransformer != NULL && psTransformer -> psChild != NULL )
+>2551	CompoundStatement	 
+>2552	ExpressionStatement	 
+>2553	CallExpression	GDALDeserializeTransformer ( psTransformer -> psChild , & ( psWO -> pfnTransformer ) , & ( psWO -> pTransformerArg ) )
+>2554	ArgumentList	psTransformer -> psChild
+>2555	Argument	& ( psWO -> pTransformerArg )
+>2556	UnaryOp	& ( psWO -> pTransformerArg )
+>2557	PtrMemberAccess	psWO -> pTransformerArg
+>2558	Identifier	pTransformerArg
+>2559	Identifier	psWO
+>2560	UnaryOperator	&
+>2561	Argument	& ( psWO -> pfnTransformer )
+>2562	UnaryOp	& ( psWO -> pfnTransformer )
+>2563	PtrMemberAccess	psWO -> pfnTransformer
+>2564	Identifier	pfnTransformer
+>2565	Identifier	psWO
+>2566	UnaryOperator	&
+>2567	Argument	psTransformer -> psChild
+>2568	PtrMemberAccess	psTransformer -> psChild
+>2569	Identifier	psChild
+>2570	Identifier	psTransformer
+>2571	Callee	GDALDeserializeTransformer
+>2572	Identifier	GDALDeserializeTransformer
+>2573	Condition	 
+>2574	AndExpression	psTransformer != NULL && psTransformer -> psChild != NULL
+>2575	EqualityExpression	psTransformer -> psChild != NULL
+>2576	Identifier	NULL
+>2577	PtrMemberAccess	psTransformer -> psChild
+>2578	Identifier	psChild
+>2579	Identifier	psTransformer
+>2580	EqualityExpression	psTransformer != NULL
+>2581	Identifier	NULL
+>2582	Identifier	psTransformer
+>2583	IdentifierDeclStatement	 
+>2584	IdentifierDecl	* psTransformer = CPLGetXMLNode ( psTree , \"Transformer\" )
+>2585	AssignmentExpr	* psTransformer = CPLGetXMLNode ( psTree , \"Transformer\" )
+>2586	CallExpression	CPLGetXMLNode ( psTree , \"Transformer\" )
+>2587	ArgumentList	psTree
+>2588	Argument	\"Transformer\"
+>2589	PrimaryExpression	\"Transformer\"
+>2590	Argument	psTree
+>2591	Identifier	psTree
+>2592	Callee	CPLGetXMLNode
+>2593	Identifier	CPLGetXMLNode
+>2594	Identifier	psTransformer
+>2595	Identifier	psTransformer
+>2596	IdentifierDeclType	CPLXMLNode *
+>2597	ExpressionStatement	 
+>2598	AssignmentExpr	psWO -> dfCutlineBlendDist = atof ( CPLGetXMLValue ( psTree , \"CutlineBlendDist\" , \"0\" ) )
+>2599	CallExpression	atof ( CPLGetXMLValue ( psTree , \"CutlineBlendDist\" , \"0\" ) )
+>2600	ArgumentList	CPLGetXMLValue ( psTree , \"CutlineBlendDist\" , \"0\" )
+>2601	Argument	CPLGetXMLValue ( psTree , \"CutlineBlendDist\" , \"0\" )
+>2602	CallExpression	CPLGetXMLValue ( psTree , \"CutlineBlendDist\" , \"0\" )
+>2603	ArgumentList	psTree
+>2604	Argument	\"0\"
+>2605	PrimaryExpression	\"0\"
+>2606	Argument	\"CutlineBlendDist\"
+>2607	PrimaryExpression	\"CutlineBlendDist\"
+>2608	Argument	psTree
+>2609	Identifier	psTree
+>2610	Callee	CPLGetXMLValue
+>2611	Identifier	CPLGetXMLValue
+>2612	Callee	atof
+>2613	Identifier	atof
+>2614	PtrMemberAccess	psWO -> dfCutlineBlendDist
+>2615	Identifier	dfCutlineBlendDist
+>2616	Identifier	psWO
+>2617	IfStatement	if ( pszWKT )
+>2618	CompoundStatement	 
+>2619	ExpressionStatement	 
+>2620	CallExpression	OGR_G_CreateFromWkt ( ( char * * ) & pszWKT , NULL , ( OGRGeometryH * ) ( & psWO -> hCutline ) )
+>2621	ArgumentList	( char * * ) & pszWKT
+>2622	Argument	( OGRGeometryH * ) ( & psWO -> hCutline )
+>2623	CastExpression	( OGRGeometryH * ) ( & psWO -> hCutline )
+>2624	UnaryOp	& psWO -> hCutline
+>2625	PtrMemberAccess	psWO -> hCutline
+>2626	Identifier	hCutline
+>2627	Identifier	psWO
+>2628	UnaryOperator	&
+>2629	CastTarget	OGRGeometryH *
+>2630	Argument	NULL
+>2631	Identifier	NULL
+>2632	Argument	( char * * ) & pszWKT
+>2633	CastExpression	( char * * ) & pszWKT
+>2634	UnaryOp	& pszWKT
+>2635	Identifier	pszWKT
+>2636	UnaryOperator	&
+>2637	CastTarget	char * *
+>2638	Callee	OGR_G_CreateFromWkt
+>2639	Identifier	OGR_G_CreateFromWkt
+>2640	Condition	 
+>2641	Identifier	pszWKT
+>2642	IdentifierDeclStatement	 
+>2643	IdentifierDecl	* pszWKT = CPLGetXMLValue ( psTree , \"Cutline\" , NULL )
+>2644	AssignmentExpr	* pszWKT = CPLGetXMLValue ( psTree , \"Cutline\" , NULL )
+>2645	CallExpression	CPLGetXMLValue ( psTree , \"Cutline\" , NULL )
+>2646	ArgumentList	psTree
+>2647	Argument	NULL
+>2648	Identifier	NULL
+>2649	Argument	\"Cutline\"
+>2650	PrimaryExpression	\"Cutline\"
+>2651	Argument	psTree
+>2652	Identifier	psTree
+>2653	Callee	CPLGetXMLValue
+>2654	Identifier	CPLGetXMLValue
+>2655	Identifier	pszWKT
+>2656	Identifier	pszWKT
+>2657	IdentifierDeclType	const char *
+>2658	ExpressionStatement	 
+>2659	AssignmentExpr	psWO -> nDstAlphaBand = atoi ( CPLGetXMLValue ( psTree , \"DstAlphaBand\" , \"0\" ) )
+>2660	CallExpression	atoi ( CPLGetXMLValue ( psTree , \"DstAlphaBand\" , \"0\" ) )
+>2661	ArgumentList	CPLGetXMLValue ( psTree , \"DstAlphaBand\" , \"0\" )
+>2662	Argument	CPLGetXMLValue ( psTree , \"DstAlphaBand\" , \"0\" )
+>2663	CallExpression	CPLGetXMLValue ( psTree , \"DstAlphaBand\" , \"0\" )
+>2664	ArgumentList	psTree
+>2665	Argument	\"0\"
+>2666	PrimaryExpression	\"0\"
+>2667	Argument	\"DstAlphaBand\"
+>2668	PrimaryExpression	\"DstAlphaBand\"
+>2669	Argument	psTree
+>2670	Identifier	psTree
+>2671	Callee	CPLGetXMLValue
+>2672	Identifier	CPLGetXMLValue
+>2673	Callee	atoi
+>2674	Identifier	atoi
+>2675	PtrMemberAccess	psWO -> nDstAlphaBand
+>2676	Identifier	nDstAlphaBand
+>2677	Identifier	psWO
+>2678	ExpressionStatement	 
+>2679	AssignmentExpr	psWO -> nSrcAlphaBand = atoi ( CPLGetXMLValue ( psTree , \"SrcAlphaBand\" , \"0\" ) )
+>2680	CallExpression	atoi ( CPLGetXMLValue ( psTree , \"SrcAlphaBand\" , \"0\" ) )
+>2681	ArgumentList	CPLGetXMLValue ( psTree , \"SrcAlphaBand\" , \"0\" )
+>2682	Argument	CPLGetXMLValue ( psTree , \"SrcAlphaBand\" , \"0\" )
+>2683	CallExpression	CPLGetXMLValue ( psTree , \"SrcAlphaBand\" , \"0\" )
+>2684	ArgumentList	psTree
+>2685	Argument	\"0\"
+>2686	PrimaryExpression	\"0\"
+>2687	Argument	\"SrcAlphaBand\"
+>2688	PrimaryExpression	\"SrcAlphaBand\"
+>2689	Argument	psTree
+>2690	Identifier	psTree
+>2691	Callee	CPLGetXMLValue
+>2692	Identifier	CPLGetXMLValue
+>2693	Callee	atoi
+>2694	Identifier	atoi
+>2695	PtrMemberAccess	psWO -> nSrcAlphaBand
+>2696	Identifier	nSrcAlphaBand
+>2697	Identifier	psWO
+>2698	ForStatement	for ( ; psBand != NULL ; psBand = psBand -> psNext )
+>2699	CompoundStatement	 
+>2700	ExpressionStatement	 
+>2701	IncDecOp	iBand ++
+>2702	IncDec	++
+>2703	Identifier	iBand
+>2704	IfStatement	if ( pszValue != NULL )
+>2705	CompoundStatement	 
+>2706	ExpressionStatement	 
+>2707	AssignmentExpr	psWO -> padfDstNoDataImag [ iBand ] = CPLAtofM ( pszValue )
+>2708	CallExpression	CPLAtofM ( pszValue )
+>2709	ArgumentList	pszValue
+>2710	Argument	pszValue
+>2711	Identifier	pszValue
+>2712	Callee	CPLAtofM
+>2713	Identifier	CPLAtofM
+>2714	ArrayIndexing	psWO -> padfDstNoDataImag [ iBand ]
+>2715	Identifier	iBand
+>2716	PtrMemberAccess	psWO -> padfDstNoDataImag
+>2717	Identifier	padfDstNoDataImag
+>2718	Identifier	psWO
+>2719	IfStatement	if ( psWO -> padfDstNoDataImag == NULL )
+>2720	ExpressionStatement	 
+>2721	AssignmentExpr	psWO -> padfDstNoDataImag = ( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2722	CastExpression	( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2723	CallExpression	CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2724	ArgumentList	sizeof ( double )
+>2725	Argument	psWO -> nBandCount
+>2726	PtrMemberAccess	psWO -> nBandCount
+>2727	Identifier	nBandCount
+>2728	Identifier	psWO
+>2729	Argument	sizeof ( double )
+>2730	SizeofExpr	sizeof ( double )
+>2731	SizeofOperand	double
+>2732	Sizeof	sizeof
+>2733	Callee	CPLCalloc
+>2734	Identifier	CPLCalloc
+>2735	CastTarget	double *
+>2736	PtrMemberAccess	psWO -> padfDstNoDataImag
+>2737	Identifier	padfDstNoDataImag
+>2738	Identifier	psWO
+>2739	Condition	 
+>2740	EqualityExpression	psWO -> padfDstNoDataImag == NULL
+>2741	Identifier	NULL
+>2742	PtrMemberAccess	psWO -> padfDstNoDataImag
+>2743	Identifier	padfDstNoDataImag
+>2744	Identifier	psWO
+>2745	Condition	 
+>2746	EqualityExpression	pszValue != NULL
+>2747	Identifier	NULL
+>2748	Identifier	pszValue
+>2749	ExpressionStatement	 
+>2750	AssignmentExpr	pszValue = CPLGetXMLValue ( psBand , \"DstNoDataImag\" , NULL )
+>2751	CallExpression	CPLGetXMLValue ( psBand , \"DstNoDataImag\" , NULL )
+>2752	ArgumentList	psBand
+>2753	Argument	NULL
+>2754	Identifier	NULL
+>2755	Argument	\"DstNoDataImag\"
+>2756	PrimaryExpression	\"DstNoDataImag\"
+>2757	Argument	psBand
+>2758	Identifier	psBand
+>2759	Callee	CPLGetXMLValue
+>2760	Identifier	CPLGetXMLValue
+>2761	Identifier	pszValue
+>2762	IfStatement	if ( pszValue != NULL )
+>2763	CompoundStatement	 
+>2764	ExpressionStatement	 
+>2765	AssignmentExpr	psWO -> padfDstNoDataReal [ iBand ] = CPLAtofM ( pszValue )
+>2766	CallExpression	CPLAtofM ( pszValue )
+>2767	ArgumentList	pszValue
+>2768	Argument	pszValue
+>2769	Identifier	pszValue
+>2770	Callee	CPLAtofM
+>2771	Identifier	CPLAtofM
+>2772	ArrayIndexing	psWO -> padfDstNoDataReal [ iBand ]
+>2773	Identifier	iBand
+>2774	PtrMemberAccess	psWO -> padfDstNoDataReal
+>2775	Identifier	padfDstNoDataReal
+>2776	Identifier	psWO
+>2777	IfStatement	if ( psWO -> padfDstNoDataReal == NULL )
+>2778	ExpressionStatement	 
+>2779	AssignmentExpr	psWO -> padfDstNoDataReal = ( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2780	CastExpression	( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2781	CallExpression	CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2782	ArgumentList	sizeof ( double )
+>2783	Argument	psWO -> nBandCount
+>2784	PtrMemberAccess	psWO -> nBandCount
+>2785	Identifier	nBandCount
+>2786	Identifier	psWO
+>2787	Argument	sizeof ( double )
+>2788	SizeofExpr	sizeof ( double )
+>2789	SizeofOperand	double
+>2790	Sizeof	sizeof
+>2791	Callee	CPLCalloc
+>2792	Identifier	CPLCalloc
+>2793	CastTarget	double *
+>2794	PtrMemberAccess	psWO -> padfDstNoDataReal
+>2795	Identifier	padfDstNoDataReal
+>2796	Identifier	psWO
+>2797	Condition	 
+>2798	EqualityExpression	psWO -> padfDstNoDataReal == NULL
+>2799	Identifier	NULL
+>2800	PtrMemberAccess	psWO -> padfDstNoDataReal
+>2801	Identifier	padfDstNoDataReal
+>2802	Identifier	psWO
+>2803	Condition	 
+>2804	EqualityExpression	pszValue != NULL
+>2805	Identifier	NULL
+>2806	Identifier	pszValue
+>2807	ExpressionStatement	 
+>2808	AssignmentExpr	pszValue = CPLGetXMLValue ( psBand , \"DstNoDataReal\" , NULL )
+>2809	CallExpression	CPLGetXMLValue ( psBand , \"DstNoDataReal\" , NULL )
+>2810	ArgumentList	psBand
+>2811	Argument	NULL
+>2812	Identifier	NULL
+>2813	Argument	\"DstNoDataReal\"
+>2814	PrimaryExpression	\"DstNoDataReal\"
+>2815	Argument	psBand
+>2816	Identifier	psBand
+>2817	Callee	CPLGetXMLValue
+>2818	Identifier	CPLGetXMLValue
+>2819	Identifier	pszValue
+>2820	IfStatement	if ( pszValue != NULL )
+>2821	CompoundStatement	 
+>2822	ExpressionStatement	 
+>2823	AssignmentExpr	psWO -> padfSrcNoDataImag [ iBand ] = CPLAtofM ( pszValue )
+>2824	CallExpression	CPLAtofM ( pszValue )
+>2825	ArgumentList	pszValue
+>2826	Argument	pszValue
+>2827	Identifier	pszValue
+>2828	Callee	CPLAtofM
+>2829	Identifier	CPLAtofM
+>2830	ArrayIndexing	psWO -> padfSrcNoDataImag [ iBand ]
+>2831	Identifier	iBand
+>2832	PtrMemberAccess	psWO -> padfSrcNoDataImag
+>2833	Identifier	padfSrcNoDataImag
+>2834	Identifier	psWO
+>2835	IfStatement	if ( psWO -> padfSrcNoDataImag == NULL )
+>2836	ExpressionStatement	 
+>2837	AssignmentExpr	psWO -> padfSrcNoDataImag = ( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2838	CastExpression	( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2839	CallExpression	CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2840	ArgumentList	sizeof ( double )
+>2841	Argument	psWO -> nBandCount
+>2842	PtrMemberAccess	psWO -> nBandCount
+>2843	Identifier	nBandCount
+>2844	Identifier	psWO
+>2845	Argument	sizeof ( double )
+>2846	SizeofExpr	sizeof ( double )
+>2847	SizeofOperand	double
+>2848	Sizeof	sizeof
+>2849	Callee	CPLCalloc
+>2850	Identifier	CPLCalloc
+>2851	CastTarget	double *
+>2852	PtrMemberAccess	psWO -> padfSrcNoDataImag
+>2853	Identifier	padfSrcNoDataImag
+>2854	Identifier	psWO
+>2855	Condition	 
+>2856	EqualityExpression	psWO -> padfSrcNoDataImag == NULL
+>2857	Identifier	NULL
+>2858	PtrMemberAccess	psWO -> padfSrcNoDataImag
+>2859	Identifier	padfSrcNoDataImag
+>2860	Identifier	psWO
+>2861	Condition	 
+>2862	EqualityExpression	pszValue != NULL
+>2863	Identifier	NULL
+>2864	Identifier	pszValue
+>2865	ExpressionStatement	 
+>2866	AssignmentExpr	pszValue = CPLGetXMLValue ( psBand , \"SrcNoDataImag\" , NULL )
+>2867	CallExpression	CPLGetXMLValue ( psBand , \"SrcNoDataImag\" , NULL )
+>2868	ArgumentList	psBand
+>2869	Argument	NULL
+>2870	Identifier	NULL
+>2871	Argument	\"SrcNoDataImag\"
+>2872	PrimaryExpression	\"SrcNoDataImag\"
+>2873	Argument	psBand
+>2874	Identifier	psBand
+>2875	Callee	CPLGetXMLValue
+>2876	Identifier	CPLGetXMLValue
+>2877	Identifier	pszValue
+>2878	IfStatement	if ( pszValue != NULL )
+>2879	CompoundStatement	 
+>2880	ExpressionStatement	 
+>2881	AssignmentExpr	psWO -> padfSrcNoDataReal [ iBand ] = CPLAtofM ( pszValue )
+>2882	CallExpression	CPLAtofM ( pszValue )
+>2883	ArgumentList	pszValue
+>2884	Argument	pszValue
+>2885	Identifier	pszValue
+>2886	Callee	CPLAtofM
+>2887	Identifier	CPLAtofM
+>2888	ArrayIndexing	psWO -> padfSrcNoDataReal [ iBand ]
+>2889	Identifier	iBand
+>2890	PtrMemberAccess	psWO -> padfSrcNoDataReal
+>2891	Identifier	padfSrcNoDataReal
+>2892	Identifier	psWO
+>2893	IfStatement	if ( psWO -> padfSrcNoDataReal == NULL )
+>2894	ExpressionStatement	 
+>2895	AssignmentExpr	psWO -> padfSrcNoDataReal = ( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2896	CastExpression	( double * ) CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2897	CallExpression	CPLCalloc ( sizeof ( double ) , psWO -> nBandCount )
+>2898	ArgumentList	sizeof ( double )
+>2899	Argument	psWO -> nBandCount
+>2900	PtrMemberAccess	psWO -> nBandCount
+>2901	Identifier	nBandCount
+>2902	Identifier	psWO
+>2903	Argument	sizeof ( double )
+>2904	SizeofExpr	sizeof ( double )
+>2905	SizeofOperand	double
+>2906	Sizeof	sizeof
+>2907	Callee	CPLCalloc
+>2908	Identifier	CPLCalloc
+>2909	CastTarget	double *
+>2910	PtrMemberAccess	psWO -> padfSrcNoDataReal
+>2911	Identifier	padfSrcNoDataReal
+>2912	Identifier	psWO
+>2913	Condition	 
+>2914	EqualityExpression	psWO -> padfSrcNoDataReal == NULL
+>2915	Identifier	NULL
+>2916	PtrMemberAccess	psWO -> padfSrcNoDataReal
+>2917	Identifier	padfSrcNoDataReal
+>2918	Identifier	psWO
+>2919	Condition	 
+>2920	EqualityExpression	pszValue != NULL
+>2921	Identifier	NULL
+>2922	Identifier	pszValue
+>2923	ExpressionStatement	 
+>2924	AssignmentExpr	pszValue = CPLGetXMLValue ( psBand , \"SrcNoDataReal\" , NULL )
+>2925	CallExpression	CPLGetXMLValue ( psBand , \"SrcNoDataReal\" , NULL )
+>2926	ArgumentList	psBand
+>2927	Argument	NULL
+>2928	Identifier	NULL
+>2929	Argument	\"SrcNoDataReal\"
+>2930	PrimaryExpression	\"SrcNoDataReal\"
+>2931	Argument	psBand
+>2932	Identifier	psBand
+>2933	Callee	CPLGetXMLValue
+>2934	Identifier	CPLGetXMLValue
+>2935	Identifier	pszValue
+>2936	IfStatement	if ( pszValue != NULL )
+>2937	CompoundStatement	 
+>2938	ExpressionStatement	 
+>2939	AssignmentExpr	psWO -> panDstBands [ iBand ] = atoi ( pszValue )
+>2940	CallExpression	atoi ( pszValue )
+>2941	ArgumentList	pszValue
+>2942	Argument	pszValue
+>2943	Identifier	pszValue
+>2944	Callee	atoi
+>2945	Identifier	atoi
+>2946	ArrayIndexing	psWO -> panDstBands [ iBand ]
+>2947	Identifier	iBand
+>2948	PtrMemberAccess	psWO -> panDstBands
+>2949	Identifier	panDstBands
+>2950	Identifier	psWO
+>2951	IfStatement	if ( psWO -> panDstBands == NULL )
+>2952	ExpressionStatement	 
+>2953	AssignmentExpr	psWO -> panDstBands = ( int * ) CPLMalloc ( sizeof ( int ) * psWO -> nBandCount )
+>2954	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * psWO -> nBandCount )
+>2955	CallExpression	CPLMalloc ( sizeof ( int ) * psWO -> nBandCount )
+>2956	ArgumentList	sizeof ( int ) * psWO -> nBandCount
+>2957	Argument	sizeof ( int ) * psWO -> nBandCount
+>2958	MultiplicativeExpression	sizeof ( int ) * psWO -> nBandCount
+>2959	PtrMemberAccess	psWO -> nBandCount
+>2960	Identifier	nBandCount
+>2961	Identifier	psWO
+>2962	SizeofExpr	sizeof ( int )
+>2963	SizeofOperand	int
+>2964	Sizeof	sizeof
+>2965	Callee	CPLMalloc
+>2966	Identifier	CPLMalloc
+>2967	CastTarget	int *
+>2968	PtrMemberAccess	psWO -> panDstBands
+>2969	Identifier	panDstBands
+>2970	Identifier	psWO
+>2971	Condition	 
+>2972	EqualityExpression	psWO -> panDstBands == NULL
+>2973	Identifier	NULL
+>2974	PtrMemberAccess	psWO -> panDstBands
+>2975	Identifier	panDstBands
+>2976	Identifier	psWO
+>2977	Condition	 
+>2978	EqualityExpression	pszValue != NULL
+>2979	Identifier	NULL
+>2980	Identifier	pszValue
+>2981	ExpressionStatement	 
+>2982	AssignmentExpr	pszValue = CPLGetXMLValue ( psBand , \"dst\" , NULL )
+>2983	CallExpression	CPLGetXMLValue ( psBand , \"dst\" , NULL )
+>2984	ArgumentList	psBand
+>2985	Argument	NULL
+>2986	Identifier	NULL
+>2987	Argument	\"dst\"
+>2988	PrimaryExpression	\"dst\"
+>2989	Argument	psBand
+>2990	Identifier	psBand
+>2991	Callee	CPLGetXMLValue
+>2992	Identifier	CPLGetXMLValue
+>2993	Identifier	pszValue
+>2994	IfStatement	if ( pszValue == NULL )
+>2995	ElseStatement	else
+>2996	ExpressionStatement	 
+>2997	AssignmentExpr	psWO -> panSrcBands [ iBand ] = atoi ( pszValue )
+>2998	CallExpression	atoi ( pszValue )
+>2999	ArgumentList	pszValue
+>3000	Argument	pszValue
+>3001	Identifier	pszValue
+>3002	Callee	atoi
+>3003	Identifier	atoi
+>3004	ArrayIndexing	psWO -> panSrcBands [ iBand ]
+>3005	Identifier	iBand
+>3006	PtrMemberAccess	psWO -> panSrcBands
+>3007	Identifier	panSrcBands
+>3008	Identifier	psWO
+>3009	ExpressionStatement	 
+>3010	AssignmentExpr	psWO -> panSrcBands [ iBand ] = iBand + 1
+>3011	AdditiveExpression	iBand + 1
+>3012	PrimaryExpression	1
+>3013	Identifier	iBand
+>3014	ArrayIndexing	psWO -> panSrcBands [ iBand ]
+>3015	Identifier	iBand
+>3016	PtrMemberAccess	psWO -> panSrcBands
+>3017	Identifier	panSrcBands
+>3018	Identifier	psWO
+>3019	Condition	 
+>3020	EqualityExpression	pszValue == NULL
+>3021	Identifier	NULL
+>3022	Identifier	pszValue
+>3023	ExpressionStatement	 
+>3024	AssignmentExpr	pszValue = CPLGetXMLValue ( psBand , \"src\" , NULL )
+>3025	CallExpression	CPLGetXMLValue ( psBand , \"src\" , NULL )
+>3026	ArgumentList	psBand
+>3027	Argument	NULL
+>3028	Identifier	NULL
+>3029	Argument	\"src\"
+>3030	PrimaryExpression	\"src\"
+>3031	Argument	psBand
+>3032	Identifier	psBand
+>3033	Callee	CPLGetXMLValue
+>3034	Identifier	CPLGetXMLValue
+>3035	Identifier	pszValue
+>3036	IfStatement	if ( psWO -> panSrcBands == NULL )
+>3037	ExpressionStatement	 
+>3038	AssignmentExpr	psWO -> panSrcBands = ( int * ) CPLMalloc ( sizeof ( int ) * psWO -> nBandCount )
+>3039	CastExpression	( int * ) CPLMalloc ( sizeof ( int ) * psWO -> nBandCount )
+>3040	CallExpression	CPLMalloc ( sizeof ( int ) * psWO -> nBandCount )
+>3041	ArgumentList	sizeof ( int ) * psWO -> nBandCount
+>3042	Argument	sizeof ( int ) * psWO -> nBandCount
+>3043	MultiplicativeExpression	sizeof ( int ) * psWO -> nBandCount
+>3044	PtrMemberAccess	psWO -> nBandCount
+>3045	Identifier	nBandCount
+>3046	Identifier	psWO
+>3047	SizeofExpr	sizeof ( int )
+>3048	SizeofOperand	int
+>3049	Sizeof	sizeof
+>3050	Callee	CPLMalloc
+>3051	Identifier	CPLMalloc
+>3052	CastTarget	int *
+>3053	PtrMemberAccess	psWO -> panSrcBands
+>3054	Identifier	panSrcBands
+>3055	Identifier	psWO
+>3056	Condition	 
+>3057	EqualityExpression	psWO -> panSrcBands == NULL
+>3058	Identifier	NULL
+>3059	PtrMemberAccess	psWO -> panSrcBands
+>3060	Identifier	panSrcBands
+>3061	Identifier	psWO
+>3062	IfStatement	if ( psBand -> eType != CXT_Element || ! EQUAL ( psBand -> pszValue , \"BandMapping\" ) )
+>3063	ContinueStatement	 
+>3064	Condition	 
+>3065	OrExpression	psBand -> eType != CXT_Element || ! EQUAL ( psBand -> pszValue , \"BandMapping\" )
+>3066	UnaryOp	! EQUAL ( psBand -> pszValue , \"BandMapping\" )
+>3067	CallExpression	EQUAL ( psBand -> pszValue , \"BandMapping\" )
+>3068	ArgumentList	psBand -> pszValue
+>3069	Argument	\"BandMapping\"
+>3070	PrimaryExpression	\"BandMapping\"
+>3071	Argument	psBand -> pszValue
+>3072	PtrMemberAccess	psBand -> pszValue
+>3073	Identifier	pszValue
+>3074	Identifier	psBand
+>3075	Callee	EQUAL
+>3076	Identifier	EQUAL
+>3077	UnaryOperator	!
+>3078	EqualityExpression	psBand -> eType != CXT_Element
+>3079	Identifier	CXT_Element
+>3080	PtrMemberAccess	psBand -> eType
+>3081	Identifier	eType
+>3082	Identifier	psBand
+>3083	AssignmentExpr	 
+>3084	PtrMemberAccess	psBand -> psNext
+>3085	Identifier	psNext
+>3086	Identifier	psBand
+>3087	Identifier	psBand
+>3088	Condition	 
+>3089	EqualityExpression	psBand != NULL
+>3090	Identifier	NULL
+>3091	Identifier	psBand
+>3092	IfStatement	if ( psBandTree )
+>3093	ElseStatement	else
+>3094	ExpressionStatement	 
+>3095	AssignmentExpr	psBand = NULL
+>3096	Identifier	NULL
+>3097	Identifier	psBand
+>3098	ExpressionStatement	 
+>3099	AssignmentExpr	psBand = psBandTree -> psChild
+>3100	PtrMemberAccess	psBandTree -> psChild
+>3101	Identifier	psChild
+>3102	Identifier	psBandTree
+>3103	Identifier	psBand
+>3104	Condition	 
+>3105	Identifier	psBandTree
+>3106	IdentifierDeclStatement	 
+>3107	IdentifierDecl	iBand = 0
+>3108	AssignmentExpr	iBand = 0
+>3109	PrimaryExpression	0
+>3110	Identifier	iBand
+>3111	Identifier	iBand
+>3112	IdentifierDeclType	int
+>3113	ForStatement	for ( ; psBand != NULL ; psBand = psBand -> psNext )
+>3114	CompoundStatement	 
+>3115	ExpressionStatement	 
+>3116	IncDecOp	psWO -> nBandCount ++
+>3117	IncDec	++
+>3118	PtrMemberAccess	psWO -> nBandCount
+>3119	Identifier	nBandCount
+>3120	Identifier	psWO
+>3121	IfStatement	if ( psBand -> eType != CXT_Element || ! EQUAL ( psBand -> pszValue , \"BandMapping\" ) )
+>3122	ContinueStatement	 
+>3123	Condition	 
+>3124	OrExpression	psBand -> eType != CXT_Element || ! EQUAL ( psBand -> pszValue , \"BandMapping\" )
+>3125	UnaryOp	! EQUAL ( psBand -> pszValue , \"BandMapping\" )
+>3126	CallExpression	EQUAL ( psBand -> pszValue , \"BandMapping\" )
+>3127	ArgumentList	psBand -> pszValue
+>3128	Argument	\"BandMapping\"
+>3129	PrimaryExpression	\"BandMapping\"
+>3130	Argument	psBand -> pszValue
+>3131	PtrMemberAccess	psBand -> pszValue
+>3132	Identifier	pszValue
+>3133	Identifier	psBand
+>3134	Callee	EQUAL
+>3135	Identifier	EQUAL
+>3136	UnaryOperator	!
+>3137	EqualityExpression	psBand -> eType != CXT_Element
+>3138	Identifier	CXT_Element
+>3139	PtrMemberAccess	psBand -> eType
+>3140	Identifier	eType
+>3141	Identifier	psBand
+>3142	AssignmentExpr	 
+>3143	PtrMemberAccess	psBand -> psNext
+>3144	Identifier	psNext
+>3145	Identifier	psBand
+>3146	Identifier	psBand
+>3147	Condition	 
+>3148	EqualityExpression	psBand != NULL
+>3149	Identifier	NULL
+>3150	Identifier	psBand
+>3151	IfStatement	if ( psBandTree )
+>3152	ElseStatement	else
+>3153	ExpressionStatement	 
+>3154	AssignmentExpr	psBand = NULL
+>3155	Identifier	NULL
+>3156	Identifier	psBand
+>3157	ExpressionStatement	 
+>3158	AssignmentExpr	psBand = psBandTree -> psChild
+>3159	PtrMemberAccess	psBandTree -> psChild
+>3160	Identifier	psChild
+>3161	Identifier	psBandTree
+>3162	Identifier	psBand
+>3163	Condition	 
+>3164	Identifier	psBandTree
+>3165	ExpressionStatement	 
+>3166	AssignmentExpr	psWO -> nBandCount = 0
+>3167	PrimaryExpression	0
+>3168	PtrMemberAccess	psWO -> nBandCount
+>3169	Identifier	nBandCount
+>3170	Identifier	psWO
+>3171	IdentifierDeclStatement	 
+>3172	IdentifierDecl	* psBand = NULL
+>3173	AssignmentExpr	* psBand = NULL
+>3174	Identifier	NULL
+>3175	Identifier	NULL
+>3176	Identifier	psBand
+>3177	IdentifierDeclType	CPLXMLNode *
+>3178	IdentifierDeclStatement	 
+>3179	IdentifierDecl	* psBandTree = CPLGetXMLNode ( psTree , \"BandList\" )
+>3180	AssignmentExpr	* psBandTree = CPLGetXMLNode ( psTree , \"BandList\" )
+>3181	CallExpression	CPLGetXMLNode ( psTree , \"BandList\" )
+>3182	ArgumentList	psTree
+>3183	Argument	\"BandList\"
+>3184	PrimaryExpression	\"BandList\"
+>3185	Argument	psTree
+>3186	Identifier	psTree
+>3187	Callee	CPLGetXMLNode
+>3188	Identifier	CPLGetXMLNode
+>3189	Identifier	psBandTree
+>3190	Identifier	psBandTree
+>3191	IdentifierDeclType	CPLXMLNode *
+>3192	IfStatement	if ( pszValue != NULL )
+>3193	ExpressionStatement	 
+>3194	AssignmentExpr	psWO -> hDstDS = GDALOpenShared ( pszValue , GA_Update )
+>3195	CallExpression	GDALOpenShared ( pszValue , GA_Update )
+>3196	ArgumentList	pszValue
+>3197	Argument	GA_Update
+>3198	Identifier	GA_Update
+>3199	Argument	pszValue
+>3200	Identifier	pszValue
+>3201	Callee	GDALOpenShared
+>3202	Identifier	GDALOpenShared
+>3203	PtrMemberAccess	psWO -> hDstDS
+>3204	Identifier	hDstDS
+>3205	Identifier	psWO
+>3206	Condition	 
+>3207	EqualityExpression	pszValue != NULL
+>3208	Identifier	NULL
+>3209	Identifier	pszValue
+>3210	ExpressionStatement	 
+>3211	AssignmentExpr	pszValue = CPLGetXMLValue ( psTree , \"DestinationDataset\" , NULL )
+>3212	CallExpression	CPLGetXMLValue ( psTree , \"DestinationDataset\" , NULL )
+>3213	ArgumentList	psTree
+>3214	Argument	NULL
+>3215	Identifier	NULL
+>3216	Argument	\"DestinationDataset\"
+>3217	PrimaryExpression	\"DestinationDataset\"
+>3218	Argument	psTree
+>3219	Identifier	psTree
+>3220	Callee	CPLGetXMLValue
+>3221	Identifier	CPLGetXMLValue
+>3222	Identifier	pszValue
+>3223	IfStatement	if ( pszValue != NULL )
+>3224	ExpressionStatement	 
+>3225	AssignmentExpr	psWO -> hSrcDS = GDALOpenShared ( pszValue , GA_ReadOnly )
+>3226	CallExpression	GDALOpenShared ( pszValue , GA_ReadOnly )
+>3227	ArgumentList	pszValue
+>3228	Argument	GA_ReadOnly
+>3229	Identifier	GA_ReadOnly
+>3230	Argument	pszValue
+>3231	Identifier	pszValue
+>3232	Callee	GDALOpenShared
+>3233	Identifier	GDALOpenShared
+>3234	PtrMemberAccess	psWO -> hSrcDS
+>3235	Identifier	hSrcDS
+>3236	Identifier	psWO
+>3237	Condition	 
+>3238	EqualityExpression	pszValue != NULL
+>3239	Identifier	NULL
+>3240	Identifier	pszValue
+>3241	ExpressionStatement	 
+>3242	AssignmentExpr	pszValue = CPLGetXMLValue ( psTree , \"SourceDataset\" , NULL )
+>3243	CallExpression	CPLGetXMLValue ( psTree , \"SourceDataset\" , NULL )
+>3244	ArgumentList	psTree
+>3245	Argument	NULL
+>3246	Identifier	NULL
+>3247	Argument	\"SourceDataset\"
+>3248	PrimaryExpression	\"SourceDataset\"
+>3249	Argument	psTree
+>3250	Identifier	psTree
+>3251	Callee	CPLGetXMLValue
+>3252	Identifier	CPLGetXMLValue
+>3253	Identifier	pszValue
+>3254	ForStatement	for ( psItem = psTree -> psChild ; psItem != NULL ; psItem = psItem -> psNext )
+>3255	CompoundStatement	 
+>3256	IfStatement	if ( psItem -> eType == CXT_Element && EQUAL ( psItem -> pszValue , \"Option\" ) )
+>3257	CompoundStatement	 
+>3258	IfStatement	if ( pszName != NULL && pszValue != NULL )
+>3259	CompoundStatement	 
+>3260	ExpressionStatement	 
+>3261	AssignmentExpr	psWO -> papszWarpOptions = CSLSetNameValue ( psWO -> papszWarpOptions , pszName , pszValue )
+>3262	CallExpression	CSLSetNameValue ( psWO -> papszWarpOptions , pszName , pszValue )
+>3263	ArgumentList	psWO -> papszWarpOptions
+>3264	Argument	pszValue
+>3265	Identifier	pszValue
+>3266	Argument	pszName
+>3267	Identifier	pszName
+>3268	Argument	psWO -> papszWarpOptions
+>3269	PtrMemberAccess	psWO -> papszWarpOptions
+>3270	Identifier	papszWarpOptions
+>3271	Identifier	psWO
+>3272	Callee	CSLSetNameValue
+>3273	Identifier	CSLSetNameValue
+>3274	PtrMemberAccess	psWO -> papszWarpOptions
+>3275	Identifier	papszWarpOptions
+>3276	Identifier	psWO
+>3277	Condition	 
+>3278	AndExpression	pszName != NULL && pszValue != NULL
+>3279	EqualityExpression	pszValue != NULL
+>3280	Identifier	NULL
+>3281	Identifier	pszValue
+>3282	EqualityExpression	pszName != NULL
+>3283	Identifier	NULL
+>3284	Identifier	pszName
+>3285	IdentifierDeclStatement	 
+>3286	IdentifierDecl	* pszValue = CPLGetXMLValue ( psItem , \"\" , NULL )
+>3287	AssignmentExpr	* pszValue = CPLGetXMLValue ( psItem , \"\" , NULL )
+>3288	CallExpression	CPLGetXMLValue ( psItem , \"\" , NULL )
+>3289	ArgumentList	psItem
+>3290	Argument	NULL
+>3291	Identifier	NULL
+>3292	Argument	\"\"
+>3293	PrimaryExpression	\"\"
+>3294	Argument	psItem
+>3295	Identifier	psItem
+>3296	Callee	CPLGetXMLValue
+>3297	Identifier	CPLGetXMLValue
+>3298	Identifier	pszValue
+>3299	Identifier	pszValue
+>3300	IdentifierDeclType	const char *
+>3301	IdentifierDeclStatement	 
+>3302	IdentifierDecl	* pszName = CPLGetXMLValue ( psItem , \"Name\" , NULL )
+>3303	AssignmentExpr	* pszName = CPLGetXMLValue ( psItem , \"Name\" , NULL )
+>3304	CallExpression	CPLGetXMLValue ( psItem , \"Name\" , NULL )
+>3305	ArgumentList	psItem
+>3306	Argument	NULL
+>3307	Identifier	NULL
+>3308	Argument	\"Name\"
+>3309	PrimaryExpression	\"Name\"
+>3310	Argument	psItem
+>3311	Identifier	psItem
+>3312	Callee	CPLGetXMLValue
+>3313	Identifier	CPLGetXMLValue
+>3314	Identifier	pszName
+>3315	Identifier	pszName
+>3316	IdentifierDeclType	const char *
+>3317	Condition	 
+>3318	AndExpression	psItem -> eType == CXT_Element && EQUAL ( psItem -> pszValue , \"Option\" )
+>3319	CallExpression	EQUAL ( psItem -> pszValue , \"Option\" )
+>3320	ArgumentList	psItem -> pszValue
+>3321	Argument	\"Option\"
+>3322	PrimaryExpression	\"Option\"
+>3323	Argument	psItem -> pszValue
+>3324	PtrMemberAccess	psItem -> pszValue
+>3325	Identifier	pszValue
+>3326	Identifier	psItem
+>3327	Callee	EQUAL
+>3328	Identifier	EQUAL
+>3329	EqualityExpression	psItem -> eType == CXT_Element
+>3330	Identifier	CXT_Element
+>3331	PtrMemberAccess	psItem -> eType
+>3332	Identifier	eType
+>3333	Identifier	psItem
+>3334	AssignmentExpr	 
+>3335	PtrMemberAccess	psItem -> psNext
+>3336	Identifier	psNext
+>3337	Identifier	psItem
+>3338	Identifier	psItem
+>3339	Condition	 
+>3340	EqualityExpression	psItem != NULL
+>3341	Identifier	NULL
+>3342	Identifier	psItem
+>3343	ForInit	 
+>3344	AssignmentExpr	psItem = psTree -> psChild
+>3345	PtrMemberAccess	psTree -> psChild
+>3346	Identifier	psChild
+>3347	Identifier	psTree
+>3348	Identifier	psItem
+>3349	IdentifierDeclStatement	 
+>3350	IdentifierDecl	* psItem
+>3351	Identifier	psItem
+>3352	IdentifierDeclType	CPLXMLNode *
+>3353	ExpressionStatement	 
+>3354	AssignmentExpr	psWO -> eWorkingDataType = GDALGetDataTypeByName ( CPLGetXMLValue ( psTree , \"WorkingDataType\" , \"Unknown\" ) )
+>3355	CallExpression	GDALGetDataTypeByName ( CPLGetXMLValue ( psTree , \"WorkingDataType\" , \"Unknown\" ) )
+>3356	ArgumentList	CPLGetXMLValue ( psTree , \"WorkingDataType\" , \"Unknown\" )
+>3357	Argument	CPLGetXMLValue ( psTree , \"WorkingDataType\" , \"Unknown\" )
+>3358	CallExpression	CPLGetXMLValue ( psTree , \"WorkingDataType\" , \"Unknown\" )
+>3359	ArgumentList	psTree
+>3360	Argument	\"Unknown\"
+>3361	PrimaryExpression	\"Unknown\"
+>3362	Argument	\"WorkingDataType\"
+>3363	PrimaryExpression	\"WorkingDataType\"
+>3364	Argument	psTree
+>3365	Identifier	psTree
+>3366	Callee	CPLGetXMLValue
+>3367	Identifier	CPLGetXMLValue
+>3368	Callee	GDALGetDataTypeByName
+>3369	Identifier	GDALGetDataTypeByName
+>3370	PtrMemberAccess	psWO -> eWorkingDataType
+>3371	Identifier	eWorkingDataType
+>3372	Identifier	psWO
+>3373	IfStatement	if ( EQUAL ( pszValue , \"NearestNeighbour\" ) )
+>3374	ElseStatement	else
+>3375	IfStatement	if ( EQUAL ( pszValue , \"Bilinear\" ) )
+>3376	ElseStatement	else
+>3377	IfStatement	if ( EQUAL ( pszValue , \"Cubic\" ) )
+>3378	ElseStatement	else
+>3379	IfStatement	if ( EQUAL ( pszValue , \"CubicSpline\" ) )
+>3380	ElseStatement	else
+>3381	IfStatement	if ( EQUAL ( pszValue , \"Lanczos\" ) )
+>3382	ElseStatement	else
+>3383	IfStatement	if ( EQUAL ( pszValue , \"Average\" ) )
+>3384	ElseStatement	else
+>3385	IfStatement	if ( EQUAL ( pszValue , \"Mode\" ) )
+>3386	ElseStatement	else
+>3387	IfStatement	if ( EQUAL ( pszValue , \"Default\" ) )
+>3388	ElseStatement	else
+>3389	CompoundStatement	 
+>3390	ExpressionStatement	 
+>3391	CallExpression	CPLError ( CE_Failure , CPLE_AppDefined , \"Unrecognise ResampleAlg value '%s'.\" , pszValue )
+>3392	ArgumentList	CE_Failure
+>3393	Argument	pszValue
+>3394	Identifier	pszValue
+>3395	Argument	\"Unrecognise ResampleAlg value '%s'.\"
+>3396	PrimaryExpression	\"Unrecognise ResampleAlg value '%s'.\"
+>3397	Argument	CPLE_AppDefined
+>3398	Identifier	CPLE_AppDefined
+>3399	Argument	CE_Failure
+>3400	Identifier	CE_Failure
+>3401	Callee	CPLError
+>3402	Identifier	CPLError
+>3403	ExpressionStatement	 
+>3404	Condition	 
+>3405	CallExpression	EQUAL ( pszValue , \"Default\" )
+>3406	ArgumentList	pszValue
+>3407	Argument	\"Default\"
+>3408	PrimaryExpression	\"Default\"
+>3409	Argument	pszValue
+>3410	Identifier	pszValue
+>3411	Callee	EQUAL
+>3412	Identifier	EQUAL
+>3413	ExpressionStatement	 
+>3414	AssignmentExpr	psWO -> eResampleAlg = GRA_Mode
+>3415	Identifier	GRA_Mode
+>3416	PtrMemberAccess	psWO -> eResampleAlg
+>3417	Identifier	eResampleAlg
+>3418	Identifier	psWO
+>3419	Condition	 
+>3420	CallExpression	EQUAL ( pszValue , \"Mode\" )
+>3421	ArgumentList	pszValue
+>3422	Argument	\"Mode\"
+>3423	PrimaryExpression	\"Mode\"
+>3424	Argument	pszValue
+>3425	Identifier	pszValue
+>3426	Callee	EQUAL
+>3427	Identifier	EQUAL
+>3428	ExpressionStatement	 
+>3429	AssignmentExpr	psWO -> eResampleAlg = GRA_Average
+>3430	Identifier	GRA_Average
+>3431	PtrMemberAccess	psWO -> eResampleAlg
+>3432	Identifier	eResampleAlg
+>3433	Identifier	psWO
+>3434	Condition	 
+>3435	CallExpression	EQUAL ( pszValue , \"Average\" )
+>3436	ArgumentList	pszValue
+>3437	Argument	\"Average\"
+>3438	PrimaryExpression	\"Average\"
+>3439	Argument	pszValue
+>3440	Identifier	pszValue
+>3441	Callee	EQUAL
+>3442	Identifier	EQUAL
+>3443	ExpressionStatement	 
+>3444	AssignmentExpr	psWO -> eResampleAlg = GRA_Lanczos
+>3445	Identifier	GRA_Lanczos
+>3446	PtrMemberAccess	psWO -> eResampleAlg
+>3447	Identifier	eResampleAlg
+>3448	Identifier	psWO
+>3449	Condition	 
+>3450	CallExpression	EQUAL ( pszValue , \"Lanczos\" )
+>3451	ArgumentList	pszValue
+>3452	Argument	\"Lanczos\"
+>3453	PrimaryExpression	\"Lanczos\"
+>3454	Argument	pszValue
+>3455	Identifier	pszValue
+>3456	Callee	EQUAL
+>3457	Identifier	EQUAL
+>3458	ExpressionStatement	 
+>3459	AssignmentExpr	psWO -> eResampleAlg = GRA_CubicSpline
+>3460	Identifier	GRA_CubicSpline
+>3461	PtrMemberAccess	psWO -> eResampleAlg
+>3462	Identifier	eResampleAlg
+>3463	Identifier	psWO
+>3464	Condition	 
+>3465	CallExpression	EQUAL ( pszValue , \"CubicSpline\" )
+>3466	ArgumentList	pszValue
+>3467	Argument	\"CubicSpline\"
+>3468	PrimaryExpression	\"CubicSpline\"
+>3469	Argument	pszValue
+>3470	Identifier	pszValue
+>3471	Callee	EQUAL
+>3472	Identifier	EQUAL
+>3473	ExpressionStatement	 
+>3474	AssignmentExpr	psWO -> eResampleAlg = GRA_Cubic
+>3475	Identifier	GRA_Cubic
+>3476	PtrMemberAccess	psWO -> eResampleAlg
+>3477	Identifier	eResampleAlg
+>3478	Identifier	psWO
+>3479	Condition	 
+>3480	CallExpression	EQUAL ( pszValue , \"Cubic\" )
+>3481	ArgumentList	pszValue
+>3482	Argument	\"Cubic\"
+>3483	PrimaryExpression	\"Cubic\"
+>3484	Argument	pszValue
+>3485	Identifier	pszValue
+>3486	Callee	EQUAL
+>3487	Identifier	EQUAL
+>3488	ExpressionStatement	 
+>3489	AssignmentExpr	psWO -> eResampleAlg = GRA_Bilinear
+>3490	Identifier	GRA_Bilinear
+>3491	PtrMemberAccess	psWO -> eResampleAlg
+>3492	Identifier	eResampleAlg
+>3493	Identifier	psWO
+>3494	Condition	 
+>3495	CallExpression	EQUAL ( pszValue , \"Bilinear\" )
+>3496	ArgumentList	pszValue
+>3497	Argument	\"Bilinear\"
+>3498	PrimaryExpression	\"Bilinear\"
+>3499	Argument	pszValue
+>3500	Identifier	pszValue
+>3501	Callee	EQUAL
+>3502	Identifier	EQUAL
+>3503	ExpressionStatement	 
+>3504	AssignmentExpr	psWO -> eResampleAlg = GRA_NearestNeighbour
+>3505	Identifier	GRA_NearestNeighbour
+>3506	PtrMemberAccess	psWO -> eResampleAlg
+>3507	Identifier	eResampleAlg
+>3508	Identifier	psWO
+>3509	Condition	 
+>3510	CallExpression	EQUAL ( pszValue , \"NearestNeighbour\" )
+>3511	ArgumentList	pszValue
+>3512	Argument	\"NearestNeighbour\"
+>3513	PrimaryExpression	\"NearestNeighbour\"
+>3514	Argument	pszValue
+>3515	Identifier	pszValue
+>3516	Callee	EQUAL
+>3517	Identifier	EQUAL
+>3518	IdentifierDeclStatement	 
+>3519	IdentifierDecl	* pszValue = CPLGetXMLValue ( psTree , \"ResampleAlg\" , \"Default\" )
+>3520	AssignmentExpr	* pszValue = CPLGetXMLValue ( psTree , \"ResampleAlg\" , \"Default\" )
+>3521	CallExpression	CPLGetXMLValue ( psTree , \"ResampleAlg\" , \"Default\" )
+>3522	ArgumentList	psTree
+>3523	Argument	\"Default\"
+>3524	PrimaryExpression	\"Default\"
+>3525	Argument	\"ResampleAlg\"
+>3526	PrimaryExpression	\"ResampleAlg\"
+>3527	Argument	psTree
+>3528	Identifier	psTree
+>3529	Callee	CPLGetXMLValue
+>3530	Identifier	CPLGetXMLValue
+>3531	Identifier	pszValue
+>3532	Identifier	pszValue
+>3533	IdentifierDeclType	const char *
+>3534	ExpressionStatement	 
+>3535	AssignmentExpr	psWO -> dfWarpMemoryLimit = atof ( CPLGetXMLValue ( psTree , \"WarpMemoryLimit\" , \"0.0\" ) )
+>3536	CallExpression	atof ( CPLGetXMLValue ( psTree , \"WarpMemoryLimit\" , \"0.0\" ) )
+>3537	ArgumentList	CPLGetXMLValue ( psTree , \"WarpMemoryLimit\" , \"0.0\" )
+>3538	Argument	CPLGetXMLValue ( psTree , \"WarpMemoryLimit\" , \"0.0\" )
+>3539	CallExpression	CPLGetXMLValue ( psTree , \"WarpMemoryLimit\" , \"0.0\" )
+>3540	ArgumentList	psTree
+>3541	Argument	\"0.0\"
+>3542	PrimaryExpression	\"0.0\"
+>3543	Argument	\"WarpMemoryLimit\"
+>3544	PrimaryExpression	\"WarpMemoryLimit\"
+>3545	Argument	psTree
+>3546	Identifier	psTree
+>3547	Callee	CPLGetXMLValue
+>3548	Identifier	CPLGetXMLValue
+>3549	Callee	atof
+>3550	Identifier	atof
+>3551	PtrMemberAccess	psWO -> dfWarpMemoryLimit
+>3552	Identifier	dfWarpMemoryLimit
+>3553	Identifier	psWO
+>3554	IdentifierDeclStatement	 
+>3555	IdentifierDecl	* psWO = GDALCreateWarpOptions ( )
+>3556	AssignmentExpr	* psWO = GDALCreateWarpOptions ( )
+>3557	CallExpression	GDALCreateWarpOptions ( )
+>3558	ArgumentList	 
+>3559	Callee	GDALCreateWarpOptions
+>3560	Identifier	GDALCreateWarpOptions
+>3561	Identifier	psWO
+>3562	Identifier	psWO
+>3563	IdentifierDeclType	GDALWarpOptions *
+>3564	IfStatement	if ( psTree == NULL || psTree -> eType != CXT_Element || ! EQUAL ( psTree -> pszValue , \"GDALWarpOptions\" ) )
+>3565	CompoundStatement	 
+>3566	ReturnStatement	 
+>3567	Identifier	NULL
+>3568	ExpressionStatement	 
+>3569	CallExpression	CPLError ( CE_Failure , CPLE_AppDefined , \"Wrong node, unable to deserialize GDALWarpOptions.\" )
+>3570	ArgumentList	CE_Failure
+>3571	Argument	\"Wrong node, unable to deserialize GDALWarpOptions.\"
+>3572	PrimaryExpression	\"Wrong node, unable to deserialize GDALWarpOptions.\"
+>3573	Argument	CPLE_AppDefined
+>3574	Identifier	CPLE_AppDefined
+>3575	Argument	CE_Failure
+>3576	Identifier	CE_Failure
+>3577	Callee	CPLError
+>3578	Identifier	CPLError
+>3579	Condition	 
+>3580	OrExpression	psTree == NULL || psTree -> eType != CXT_Element || ! EQUAL ( psTree -> pszValue , \"GDALWarpOptions\" )
+>3581	OrExpression	psTree -> eType != CXT_Element || ! EQUAL ( psTree -> pszValue , \"GDALWarpOptions\" )
+>3582	UnaryOp	! EQUAL ( psTree -> pszValue , \"GDALWarpOptions\" )
+>3583	CallExpression	EQUAL ( psTree -> pszValue , \"GDALWarpOptions\" )
+>3584	ArgumentList	psTree -> pszValue
+>3585	Argument	\"GDALWarpOptions\"
+>3586	PrimaryExpression	\"GDALWarpOptions\"
+>3587	Argument	psTree -> pszValue
+>3588	PtrMemberAccess	psTree -> pszValue
+>3589	Identifier	pszValue
+>3590	Identifier	psTree
+>3591	Callee	EQUAL
+>3592	Identifier	EQUAL
+>3593	UnaryOperator	!
+>3594	EqualityExpression	psTree -> eType != CXT_Element
+>3595	Identifier	CXT_Element
+>3596	PtrMemberAccess	psTree -> eType
+>3597	Identifier	eType
+>3598	Identifier	psTree
+>3599	EqualityExpression	psTree == NULL
+>3600	Identifier	NULL
+>3601	Identifier	psTree
+>3602	ExpressionStatement	 
+>3603	CallExpression	CPLErrorReset ( )
+>3604	ArgumentList	 
+>3605	Callee	CPLErrorReset
+>3606	Identifier	CPLErrorReset
+<3=36,35,4
+<4=32,29,26,23,20,17,14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<17=19,18
+<20=22,21
+<23=25,24
+<26=28,27
+<29=31,30
+<32=34,33
+<36=560,556,535,528,506,500,459,455,449,443,339,136,118,114,110,99,67,60,46,39,37
+<37=38
+<39=40
+<40=44,41
+<41=42
+<42=43
+<44=45
+<46=56,47
+<47=48
+<48=54,49
+<49=50
+<50=51
+<51=53,52
+<54=55
+<56=57
+<57=59,58
+<60=61
+<61=65,62
+<62=63
+<63=64
+<65=66
+<67=95,68
+<68=69
+<69=94,70
+<70=90,71
+<71=88,86,79,72
+<72=73
+<73=77,74
+<74=75
+<75=76
+<77=78
+<79=80
+<80=84,81
+<81=82
+<82=83
+<84=85
+<86=87
+<88=89
+<90=91
+<91=93,92
+<95=96
+<96=98,97
+<99=100
+<100=109,101
+<101=105,102
+<102=103
+<103=104
+<105=106
+<106=108,107
+<110=111
+<111=113,112
+<114=115
+<115=117,116
+<118=132,119
+<119=126,120
+<120=121
+<121=123,122
+<123=125,124
+<126=127
+<127=129,128
+<129=131,130
+<132=133
+<133=135,134
+<136=335,329,326,137
+<137=310,303,299,280,267,172,159,138
+<138=148,139
+<139=140
+<140=141
+<141=145,142
+<142=144,143
+<145=147,146
+<148=149
+<149=158,150
+<150=152,151
+<152=156,153
+<153=154
+<154=155
+<156=157
+<159=160
+<160=171,161
+<161=169,162
+<162=167,163
+<163=164
+<164=166,165
+<167=168
+<169=170
+<172=265,173
+<173=182,174
+<174=175
+<175=177,176
+<177=179,178
+<179=181,180
+<182=259,183
+<183=255,236,217,184
+<184=213,207,204,185
+<185=194,186
+<186=187
+<187=189,188
+<189=191,190
+<191=193,192
+<194=195
+<195=199,196
+<196=198,197
+<199=201,200
+<201=203,202
+<204=206,205
+<207=208
+<208=212,209
+<209=211,210
+<213=214
+<214=216,215
+<217=218
+<218=233,219
+<219=232,220
+<220=230,221
+<221=222
+<222=223
+<223=227,224
+<224=226,225
+<227=229,228
+<230=231
+<233=235,234
+<236=237
+<237=252,238
+<238=251,239
+<239=249,240
+<240=241
+<241=242
+<242=246,243
+<243=245,244
+<246=248,247
+<249=250
+<252=254,253
+<255=256
+<256=258,257
+<259=260
+<260=262,261
+<262=264,263
+<265=266
+<267=268
+<268=279,269
+<269=277,270
+<270=275,271
+<271=272
+<272=274,273
+<275=276
+<277=278
+<280=290,281
+<281=282
+<282=283
+<283=287,284
+<284=286,285
+<287=289,288
+<290=291
+<291=293,292
+<293=297,294
+<294=295
+<295=296
+<297=298
+<299=300
+<300=302,301
+<303=304
+<304=309,308,305
+<305=307,306
+<310=311
+<311=325,324,312
+<312=323,313
+<313=321,314
+<314=319,315
+<315=316
+<316=318,317
+<319=320
+<321=322
+<326=328,327
+<329=330
+<330=334,331
+<331=333,332
+<335=336
+<336=338,337
+<339=437,340
+<340=414,395,376,341
+<341=372,366,363,342
+<342=353,343
+<343=344
+<344=348,345
+<345=347,346
+<348=350,349
+<350=352,351
+<353=354
+<354=358,355
+<355=357,356
+<358=360,359
+<360=362,361
+<363=365,364
+<366=367
+<367=371,368
+<368=370,369
+<372=373
+<373=375,374
+<376=377
+<377=392,378
+<378=391,379
+<379=389,380
+<380=381
+<381=382
+<382=386,383
+<383=385,384
+<386=388,387
+<389=390
+<392=394,393
+<395=396
+<396=411,397
+<397=410,398
+<398=408,399
+<399=400
+<400=401
+<401=405,402
+<402=404,403
+<405=407,406
+<408=409
+<411=413,412
+<414=415
+<415=434,416
+<416=432,417
+<417=425,418
+<418=419
+<419=423,420
+<420=421
+<421=422
+<423=424
+<425=426
+<426=430,427
+<427=428
+<428=429
+<430=431
+<432=433
+<434=436,435
+<437=438
+<438=440,439
+<440=442,441
+<443=444
+<444=446,445
+<446=448,447
+<449=450
+<450=452,451
+<452=454,453
+<455=456
+<456=458,457
+<459=496,474,460
+<460=461
+<461=468,462
+<462=463
+<463=465,464
+<465=467,466
+<468=469
+<469=471,470
+<471=473,472
+<474=481,475
+<475=476
+<476=478,477
+<478=480,479
+<481=482
+<482=493,483
+<483=491,484
+<484=489,487,485
+<485=486
+<487=488
+<489=490
+<491=492
+<493=495,494
+<496=497
+<497=499,498
+<500=501
+<501=503,502
+<503=505,504
+<506=524,517,507
+<507=508
+<508=509
+<509=516,510
+<510=514,511
+<511=512
+<512=513
+<514=515
+<517=518
+<518=523,519
+<519=521,520
+<521=522
+<524=525
+<525=527,526
+<528=531,529
+<529=530
+<531=532
+<532=534,533
+<535=536
+<536=555,537
+<537=553,538
+<538=551,549,547,545,543,541,539
+<539=540
+<541=542
+<543=544
+<545=546
+<547=548
+<549=550
+<551=552
+<553=554
+<556=557
+<557=559,558
+<560=561
+<561=563,562
+<631=670,669,632
+<632=666,663,660,657,654,651,648,645,642,639,636,633
+<633=635,634
+<636=638,637
+<639=641,640
+<642=644,643
+<645=647,646
+<648=650,649
+<651=653,652
+<654=656,655
+<657=659,658
+<660=662,661
+<663=665,664
+<666=668,667
+<670=912,878,864,855,851,830,823,818,811,785,778,774,736,729,720,711,707,680,673,671
+<671=672
+<673=674
+<674=678,675
+<675=676
+<676=677
+<678=679
+<680=681
+<681=706,682
+<682=704,683
+<683=702,700,698,696,694,692,690,688,686,684
+<684=685
+<686=687
+<688=689
+<690=691
+<692=693
+<694=695
+<696=697
+<698=699
+<700=701
+<702=703
+<704=705
+<707=708
+<708=710,709
+<711=712
+<712=718,713
+<713=716,714
+<714=715
+<716=717
+<718=719
+<720=721
+<721=727,722
+<722=725,723
+<723=724
+<725=726
+<727=728
+<729=732,730
+<730=731
+<732=733
+<733=735,734
+<736=737
+<737=773,738
+<738=771,739
+<739=769,767,765,763,756,742,740
+<740=741
+<742=743
+<743=754,744
+<744=745
+<745=746
+<746=752,747
+<747=750,748
+<748=749
+<750=751
+<752=753
+<754=755
+<756=757
+<757=761,758
+<758=759
+<759=760
+<761=762
+<763=764
+<765=766
+<767=768
+<769=770
+<771=772
+<774=775
+<775=777,776
+<778=779
+<779=783,780
+<780=781
+<781=782
+<783=784
+<785=788,786
+<786=787
+<788=789
+<789=791,790
+<791=809,792
+<792=807,805,803,801,797,793
+<793=794
+<794=796,795
+<797=798
+<798=800,799
+<801=802
+<803=804
+<805=806
+<807=808
+<809=810
+<811=815,812
+<812=814,813
+<815=817,816
+<818=819
+<819=822,821,820
+<823=826,824
+<824=825
+<826=827
+<827=829,828
+<830=831
+<831=850,832
+<832=848,833
+<833=846,844,842,840,838,836,834
+<834=835
+<836=837
+<838=839
+<840=841
+<842=843
+<844=845
+<846=847
+<848=849
+<851=852
+<852=854,853
+<855=860,856
+<856=857
+<857=859,858
+<860=861
+<861=863,862
+<864=874,865
+<865=866
+<866=873,867
+<867=871,868
+<868=869
+<869=870
+<871=872
+<874=875
+<875=877,876
+<878=908,879
+<879=899,880
+<880=895,881
+<881=884,882
+<882=883
+<884=885
+<885=893,886
+<886=891,889,887
+<887=888
+<889=890
+<891=892
+<893=894
+<895=896
+<896=898,897
+<899=900
+<900=907,901
+<901=905,902
+<902=903
+<903=904
+<905=906
+<908=909
+<909=911,910
+<912=913
+<913=921,914
+<914=919,917,915
+<915=916
+<917=918
+<919=920
+<921=922
+<1055=1058,1057,1056
+<1058=1094,1079,1073,1067,1061,1059
+<1059=1060
+<1061=1062
+<1062=1064,1063
+<1064=1066,1065
+<1067=1068
+<1068=1070,1069
+<1070=1072,1071
+<1073=1074
+<1074=1076,1075
+<1076=1078,1077
+<1079=1080
+<1080=1093,1081
+<1081=1092,1082
+<1082=1090,1083
+<1083=1086,1084
+<1084=1085
+<1086=1087
+<1087=1089,1088
+<1090=1091
+<1094=1095
+<1095=1097,1096
+<1110=1116,1115,1111
+<1111=1112
+<1112=1114,1113
+<1116=1223,1214,1205,1196,1187,1178,1169,1160,1151,1142,1124,1117
+<1117=1118
+<1118=1122,1119
+<1119=1120
+<1120=1121
+<1122=1123
+<1124=1136,1125
+<1125=1126
+<1126=1134,1127
+<1127=1128
+<1128=1129
+<1129=1133,1130
+<1130=1132,1131
+<1134=1135
+<1136=1137
+<1137=1139,1138
+<1139=1141,1140
+<1142=1143
+<1143=1149,1144
+<1144=1145
+<1145=1146
+<1146=1148,1147
+<1149=1150
+<1151=1152
+<1152=1158,1153
+<1153=1154
+<1154=1155
+<1155=1157,1156
+<1158=1159
+<1160=1161
+<1161=1167,1162
+<1162=1163
+<1163=1164
+<1164=1166,1165
+<1167=1168
+<1169=1170
+<1170=1176,1171
+<1171=1172
+<1172=1173
+<1173=1175,1174
+<1176=1177
+<1178=1179
+<1179=1185,1180
+<1180=1181
+<1181=1182
+<1182=1184,1183
+<1185=1186
+<1187=1188
+<1188=1194,1189
+<1189=1190
+<1190=1191
+<1191=1193,1192
+<1194=1195
+<1196=1197
+<1197=1203,1198
+<1198=1199
+<1199=1200
+<1200=1202,1201
+<1203=1204
+<1205=1206
+<1206=1212,1207
+<1207=1208
+<1208=1209
+<1209=1211,1210
+<1212=1213
+<1214=1215
+<1215=1221,1216
+<1216=1217
+<1217=1218
+<1218=1220,1219
+<1221=1222
+<1223=1224
+<1224=1230,1225
+<1225=1228,1226
+<1226=1227
+<1228=1229
+<1230=1231
+<1248=1254,1253,1249
+<1249=1250
+<1250=1252,1251
+<1254=1417,1404,1384,1371,1358,1345,1332,1319,1306,1293,1287,1265,1257,1255
+<1255=1256
+<1257=1258
+<1258=1262,1259
+<1259=1261,1260
+<1262=1264,1263
+<1265=1281,1266
+<1266=1267
+<1267=1278,1268
+<1268=1276,1269
+<1269=1270
+<1270=1271
+<1271=1275,1272
+<1272=1274,1273
+<1276=1277
+<1278=1280,1279
+<1281=1282
+<1282=1284,1283
+<1284=1286,1285
+<1287=1288
+<1288=1290,1289
+<1290=1292,1291
+<1293=1294
+<1294=1304,1295
+<1295=1302,1300,1296
+<1296=1297
+<1297=1299,1298
+<1300=1301
+<1302=1303
+<1304=1305
+<1306=1307
+<1307=1317,1308
+<1308=1315,1313,1309
+<1309=1310
+<1310=1312,1311
+<1313=1314
+<1315=1316
+<1317=1318
+<1319=1320
+<1320=1330,1321
+<1321=1328,1326,1322
+<1322=1323
+<1323=1325,1324
+<1326=1327
+<1328=1329
+<1330=1331
+<1332=1333
+<1333=1343,1334
+<1334=1341,1339,1335
+<1335=1336
+<1336=1338,1337
+<1339=1340
+<1341=1342
+<1343=1344
+<1345=1346
+<1346=1356,1347
+<1347=1354,1352,1348
+<1348=1349
+<1349=1351,1350
+<1352=1353
+<1354=1355
+<1356=1357
+<1358=1359
+<1359=1369,1360
+<1360=1367,1365,1361
+<1361=1362
+<1362=1364,1363
+<1365=1366
+<1367=1368
+<1369=1370
+<1371=1372
+<1372=1382,1373
+<1373=1380,1378,1374
+<1374=1375
+<1375=1377,1376
+<1378=1379
+<1380=1381
+<1382=1383
+<1384=1398,1385
+<1385=1386
+<1386=1395,1387
+<1387=1393,1388
+<1388=1389
+<1389=1390
+<1390=1392,1391
+<1393=1394
+<1395=1397,1396
+<1398=1399
+<1399=1401,1400
+<1401=1403,1402
+<1404=1405
+<1405=1415,1406
+<1406=1413,1411,1407
+<1407=1408
+<1408=1410,1409
+<1411=1412
+<1413=1414
+<1415=1416
+<1417=1418
+<1418=1426,1425,1419
+<1419=1424,1420
+<1420=1422,1421
+<1422=1423
+<1456=1462,1461,1457
+<1457=1458
+<1458=1459,1460
+<1462=2380,2367,2342,2338,2250,2239,2221,2217,2124,2098,2056,1998,1991,1987,1967,1613,1581,1549,1497,1465,1463
+<1463=1464
+<1465=1491,1466
+<1466=1467
+<1467=1489,1468
+<1468=1487,1485,1469
+<1469=1470
+<1470=1478,1471
+<1471=1476,1472
+<1472=1473
+<1473=1475,1474
+<1476=1477
+<1478=1479
+<1479=1481,1480
+<1481=1483,1482
+<1483=1484
+<1485=1486
+<1487=1488
+<1489=1490
+<1491=1492
+<1492=1494,1493
+<1494=1496,1495
+<1497=1543,1498
+<1498=1536,1499
+<1499=1519,1500
+<1500=1508,1501
+<1501=1502
+<1502=1506,1503
+<1503=1504
+<1504=1505
+<1506=1507
+<1508=1509
+<1509=1517,1510
+<1510=1515,1513,1511
+<1511=1512
+<1513=1514
+<1515=1516
+<1517=1518
+<1519=1520
+<1520=1522,1521
+<1522=1534,1523
+<1523=1528,1524
+<1524=1525
+<1525=1527,1526
+<1528=1529
+<1529=1533,1530
+<1530=1532,1531
+<1534=1535
+<1536=1537
+<1537=1542,1541,1538
+<1538=1540,1539
+<1543=1544
+<1544=1546,1545
+<1546=1548,1547
+<1549=1575,1550
+<1550=1551
+<1551=1573,1552
+<1552=1571,1569,1553
+<1553=1554
+<1554=1562,1555
+<1555=1560,1556
+<1556=1557
+<1557=1559,1558
+<1560=1561
+<1562=1563
+<1563=1565,1564
+<1565=1567,1566
+<1567=1568
+<1569=1570
+<1571=1572
+<1573=1574
+<1575=1576
+<1576=1578,1577
+<1578=1580,1579
+<1581=1607,1582
+<1582=1583
+<1583=1605,1584
+<1584=1603,1601,1585
+<1585=1586
+<1586=1594,1587
+<1587=1592,1588
+<1588=1589
+<1589=1591,1590
+<1592=1593
+<1594=1595
+<1595=1597,1596
+<1597=1599,1598
+<1599=1600
+<1601=1602
+<1603=1604
+<1605=1606
+<1607=1608
+<1608=1610,1609
+<1610=1612,1611
+<1613=1963,1957,1954,1614
+<1614=1950,1937,1894,1851,1792,1733,1674,1615
+<1615=1668,1616
+<1616=1617
+<1617=1657,1646,1618
+<1618=1619
+<1619=1620
+<1620=1644,1621
+<1621=1642,1640,1622
+<1622=1623
+<1623=1633,1624
+<1624=1631,1625
+<1625=1626
+<1626=1628,1627
+<1628=1630,1629
+<1631=1632
+<1633=1634
+<1634=1636,1635
+<1636=1638,1637
+<1638=1639
+<1640=1641
+<1642=1643
+<1644=1645
+<1646=1647
+<1647=1655,1648
+<1648=1653,1651,1649
+<1649=1650
+<1651=1652
+<1653=1654
+<1655=1656
+<1657=1658
+<1658=1666,1659
+<1659=1660
+<1660=1661
+<1661=1663,1662
+<1663=1665,1664
+<1666=1667
+<1668=1669
+<1669=1671,1670
+<1671=1673,1672
+<1674=1727,1675
+<1675=1676
+<1676=1716,1705,1677
+<1677=1678
+<1678=1679
+<1679=1703,1680
+<1680=1701,1699,1681
+<1681=1682
+<1682=1692,1683
+<1683=1690,1684
+<1684=1685
+<1685=1687,1686
+<1687=1689,1688
+<1690=1691
+<1692=1693
+<1693=1695,1694
+<1695=1697,1696
+<1697=1698
+<1699=1700
+<1701=1702
+<1703=1704
+<1705=1706
+<1706=1714,1707
+<1707=1712,1710,1708
+<1708=1709
+<1710=1711
+<1712=1713
+<1714=1715
+<1716=1717
+<1717=1725,1718
+<1718=1719
+<1719=1720
+<1720=1722,1721
+<1722=1724,1723
+<1725=1726
+<1727=1728
+<1728=1730,1729
+<1730=1732,1731
+<1733=1786,1734
+<1734=1735
+<1735=1775,1764,1736
+<1736=1737
+<1737=1738
+<1738=1762,1739
+<1739=1760,1758,1740
+<1740=1741
+<1741=1751,1742
+<1742=1749,1743
+<1743=1744
+<1744=1746,1745
+<1746=1748,1747
+<1749=1750
+<1751=1752
+<1752=1754,1753
+<1754=1756,1755
+<1756=1757
+<1758=1759
+<1760=1761
+<1762=1763
+<1764=1765
+<1765=1773,1766
+<1766=1771,1769,1767
+<1767=1768
+<1769=1770
+<1771=1772
+<1773=1774
+<1775=1776
+<1776=1784,1777
+<1777=1778
+<1778=1779
+<1779=1781,1780
+<1781=1783,1782
+<1784=1785
+<1786=1787
+<1787=1789,1788
+<1789=1791,1790
+<1792=1845,1793
+<1793=1794
+<1794=1834,1823,1795
+<1795=1796
+<1796=1797
+<1797=1821,1798
+<1798=1819,1817,1799
+<1799=1800
+<1800=1810,1801
+<1801=1808,1802
+<1802=1803
+<1803=1805,1804
+<1805=1807,1806
+<1808=1809
+<1810=1811
+<1811=1813,1812
+<1813=1815,1814
+<1815=1816
+<1817=1818
+<1819=1820
+<1821=1822
+<1823=1824
+<1824=1832,1825
+<1825=1830,1828,1826
+<1826=1827
+<1828=1829
+<1830=1831
+<1832=1833
+<1834=1835
+<1835=1843,1836
+<1836=1837
+<1837=1838
+<1838=1840,1839
+<1840=1842,1841
+<1843=1844
+<1845=1846
+<1846=1848,1847
+<1848=1850,1849
+<1851=1888,1852
+<1852=1853
+<1853=1886,1854
+<1854=1875,1873,1855
+<1855=1856
+<1856=1866,1857
+<1857=1864,1858
+<1858=1859
+<1859=1861,1860
+<1861=1863,1862
+<1864=1865
+<1866=1867
+<1867=1869,1868
+<1869=1871,1870
+<1871=1872
+<1873=1874
+<1875=1876
+<1876=1884,1877
+<1877=1882,1880,1878
+<1878=1879
+<1880=1881
+<1882=1883
+<1884=1885
+<1886=1887
+<1888=1889
+<1889=1891,1890
+<1891=1893,1892
+<1894=1931,1895
+<1895=1896
+<1896=1929,1897
+<1897=1918,1916,1898
+<1898=1899
+<1899=1909,1900
+<1900=1907,1901
+<1901=1902
+<1902=1904,1903
+<1904=1906,1905
+<1907=1908
+<1909=1910
+<1910=1912,1911
+<1912=1914,1913
+<1914=1915
+<1916=1917
+<1918=1919
+<1919=1927,1920
+<1920=1925,1923,1921
+<1921=1922
+<1923=1924
+<1925=1926
+<1927=1928
+<1929=1930
+<1931=1932
+<1932=1934,1933
+<1934=1936,1935
+<1937=1938
+<1938=1949,1939
+<1939=1947,1940
+<1940=1945,1943,1941
+<1941=1942
+<1943=1944
+<1945=1946
+<1947=1948
+<1950=1951
+<1951=1953,1952
+<1954=1956,1955
+<1957=1958
+<1958=1962,1959
+<1959=1961,1960
+<1963=1964
+<1964=1966,1965
+<1967=1981,1968
+<1968=1969
+<1969=1980,1970
+<1970=1978,1971
+<1971=1976,1974,1972
+<1972=1973
+<1974=1975
+<1976=1977
+<1978=1979
+<1981=1982
+<1982=1984,1983
+<1984=1986,1985
+<1987=1988
+<1988=1990,1989
+<1991=1992
+<1992=1997,1996,1993
+<1993=1995,1994
+<1998=2050,1999
+<1999=2046,2042,2029,2014,2000
+<2000=2010,2001
+<2001=2002
+<2002=2008,2003
+<2003=2006,2004
+<2004=2005
+<2006=2007
+<2008=2009
+<2010=2011
+<2011=2013,2012
+<2014=2015
+<2015=2028,2016
+<2016=2026,2017
+<2017=2022,2018
+<2018=2019
+<2019=2021,2020
+<2022=2023
+<2023=2025,2024
+<2026=2027
+<2029=2030
+<2030=2041,2031
+<2031=2039,2032
+<2032=2037,2035,2033
+<2033=2034
+<2035=2036
+<2037=2038
+<2039=2040
+<2042=2043
+<2043=2045,2044
+<2046=2047
+<2047=2049,2048
+<2050=2051
+<2051=2053,2052
+<2053=2055,2054
+<2056=2076,2057
+<2057=2058
+<2058=2059
+<2059=2074,2060
+<2060=2072,2070,2061
+<2061=2062
+<2062=2068,2063
+<2063=2064
+<2064=2065
+<2065=2067,2066
+<2068=2069
+<2070=2071
+<2072=2073
+<2074=2075
+<2076=2077
+<2077=2093,2078
+<2078=2080,2079
+<2080=2091,2081
+<2081=2082
+<2082=2083
+<2083=2089,2084
+<2084=2085
+<2085=2086
+<2086=2088,2087
+<2089=2090
+<2091=2092
+<2093=2095,2094
+<2095=2097,2096
+<2098=2118,2099
+<2099=2100
+<2100=2101
+<2101=2116,2102
+<2102=2114,2112,2103
+<2103=2104
+<2104=2110,2105
+<2105=2106
+<2106=2107
+<2107=2109,2108
+<2110=2111
+<2112=2113
+<2114=2115
+<2116=2117
+<2118=2119
+<2119=2121,2120
+<2121=2123,2122
+<2124=2213,2199,2196,2125
+<2125=2189,2169,2153,2133,2126
+<2126=2127
+<2127=2131,2128
+<2128=2129
+<2129=2130
+<2131=2132
+<2133=2134
+<2134=2151,2135
+<2135=2140,2138,2136
+<2136=2137
+<2138=2139
+<2140=2141
+<2141=2149,2142
+<2142=2147,2145,2143
+<2143=2144
+<2145=2146
+<2147=2148
+<2149=2150
+<2151=2152
+<2153=2154
+<2154=2168,2167,2155
+<2155=2166,2156
+<2156=2164,2157
+<2157=2162,2160,2158
+<2158=2159
+<2160=2161
+<2162=2163
+<2164=2165
+<2169=2170
+<2170=2188,2187,2171
+<2171=2186,2172
+<2172=2184,2173
+<2173=2178,2174
+<2174=2175
+<2175=2177,2176
+<2178=2179
+<2179=2181,2180
+<2181=2183,2182
+<2184=2185
+<2189=2190
+<2190=2195,2194,2191
+<2191=2193,2192
+<2196=2198,2197
+<2199=2200
+<2200=2208,2201
+<2201=2203,2202
+<2203=2205,2204
+<2205=2207,2206
+<2208=2210,2209
+<2210=2212,2211
+<2213=2214
+<2214=2216,2215
+<2217=2218
+<2218=2220,2219
+<2221=2222
+<2222=2237,2223
+<2223=2235,2233,2224
+<2224=2225
+<2225=2231,2226
+<2226=2227
+<2227=2228
+<2228=2230,2229
+<2231=2232
+<2233=2234
+<2235=2236
+<2237=2238
+<2239=2240
+<2240=2248,2241
+<2241=2246,2244,2242
+<2242=2243
+<2244=2245
+<2246=2247
+<2248=2249
+<2250=2332,2328,2251
+<2251=2252
+<2252=2322,2318,2253
+<2253=2254
+<2254=2312,2308,2255
+<2255=2256
+<2256=2302,2298,2257
+<2257=2258
+<2258=2292,2288,2259
+<2259=2260
+<2260=2282,2278,2261
+<2261=2262
+<2262=2272,2268,2263
+<2263=2264
+<2264=2265
+<2265=2267,2266
+<2268=2269
+<2269=2271,2270
+<2272=2273
+<2273=2275,2274
+<2275=2277,2276
+<2278=2279
+<2279=2281,2280
+<2282=2283
+<2283=2285,2284
+<2285=2287,2286
+<2288=2289
+<2289=2291,2290
+<2292=2293
+<2293=2295,2294
+<2295=2297,2296
+<2298=2299
+<2299=2301,2300
+<2302=2303
+<2303=2305,2304
+<2305=2307,2306
+<2308=2309
+<2309=2311,2310
+<2312=2313
+<2313=2315,2314
+<2315=2317,2316
+<2318=2319
+<2319=2321,2320
+<2322=2323
+<2323=2325,2324
+<2325=2327,2326
+<2328=2329
+<2329=2331,2330
+<2332=2333
+<2333=2335,2334
+<2335=2337,2336
+<2338=2339
+<2339=2341,2340
+<2342=2343
+<2343=2365,2344
+<2344=2363,2361,2345
+<2345=2346
+<2346=2354,2347
+<2347=2352,2348
+<2348=2349
+<2349=2351,2350
+<2352=2353
+<2354=2355
+<2355=2357,2356
+<2357=2359,2358
+<2359=2360
+<2361=2362
+<2363=2364
+<2365=2366
+<2367=2368
+<2368=2379,2369
+<2369=2377,2370
+<2370=2375,2373,2371
+<2371=2372
+<2373=2374
+<2375=2376
+<2377=2378
+<2380=2381
+<2381=2383,2382
+<2455=2461,2460,2456
+<2456=2457
+<2457=2459,2458
+<2461=3602,3564,3554,3534,3518,3373,3353,3349,3254,3241,3223,3210,3192,3178,3171,3165,3151,3113,3106,3092,2698,2678,2658,2642,2617,2597,2583,2550,2462
+<2462=2543,2466,2463
+<2463=2464
+<2464=2465
+<2466=2522,2499,2476,2469,2467
+<2467=2468
+<2469=2470
+<2470=2474,2471
+<2471=2472
+<2472=2473
+<2474=2475
+<2476=2493,2477
+<2477=2484,2478
+<2478=2479
+<2479=2481,2480
+<2481=2483,2482
+<2484=2485
+<2485=2491,2486
+<2486=2487
+<2487=2488
+<2488=2490,2489
+<2491=2492
+<2493=2494
+<2494=2496,2495
+<2496=2498,2497
+<2499=2516,2500
+<2500=2507,2501
+<2501=2502
+<2502=2504,2503
+<2504=2506,2505
+<2507=2508
+<2508=2514,2509
+<2509=2510
+<2510=2511
+<2511=2513,2512
+<2514=2515
+<2516=2517
+<2517=2519,2518
+<2519=2521,2520
+<2522=2539,2523
+<2523=2530,2524
+<2524=2525
+<2525=2527,2526
+<2527=2529,2528
+<2530=2531
+<2531=2537,2532
+<2532=2533
+<2533=2534
+<2534=2536,2535
+<2537=2538
+<2539=2540
+<2540=2542,2541
+<2543=2544
+<2544=2546,2545
+<2546=2548,2547
+<2548=2549
+<2550=2573,2551
+<2551=2552
+<2552=2553
+<2553=2571,2554
+<2554=2567,2561,2555
+<2555=2556
+<2556=2560,2557
+<2557=2559,2558
+<2561=2562
+<2562=2566,2563
+<2563=2565,2564
+<2567=2568
+<2568=2570,2569
+<2571=2572
+<2573=2574
+<2574=2580,2575
+<2575=2577,2576
+<2577=2579,2578
+<2580=2582,2581
+<2583=2584
+<2584=2596,2595,2585
+<2585=2594,2586
+<2586=2592,2587
+<2587=2590,2588
+<2588=2589
+<2590=2591
+<2592=2593
+<2597=2598
+<2598=2614,2599
+<2599=2612,2600
+<2600=2601
+<2601=2602
+<2602=2610,2603
+<2603=2608,2606,2604
+<2604=2605
+<2606=2607
+<2608=2609
+<2610=2611
+<2612=2613
+<2614=2616,2615
+<2617=2640,2618
+<2618=2619
+<2619=2620
+<2620=2638,2621
+<2621=2632,2630,2622
+<2622=2623
+<2623=2629,2624
+<2624=2628,2625
+<2625=2627,2626
+<2630=2631
+<2632=2633
+<2633=2637,2634
+<2634=2636,2635
+<2638=2639
+<2640=2641
+<2642=2643
+<2643=2657,2656,2644
+<2644=2655,2645
+<2645=2653,2646
+<2646=2651,2649,2647
+<2647=2648
+<2649=2650
+<2651=2652
+<2653=2654
+<2658=2659
+<2659=2675,2660
+<2660=2673,2661
+<2661=2662
+<2662=2663
+<2663=2671,2664
+<2664=2669,2667,2665
+<2665=2666
+<2667=2668
+<2669=2670
+<2671=2672
+<2673=2674
+<2675=2677,2676
+<2678=2679
+<2679=2695,2680
+<2680=2693,2681
+<2681=2682
+<2682=2683
+<2683=2691,2684
+<2684=2689,2687,2685
+<2685=2686
+<2687=2688
+<2689=2690
+<2691=2692
+<2693=2694
+<2695=2697,2696
+<2698=3088,3083,2699
+<2699=3062,3036,3023,2994,2981,2936,2923,2878,2865,2820,2807,2762,2749,2704,2700
+<2700=2701
+<2701=2703,2702
+<2704=2745,2705
+<2705=2719,2706
+<2706=2707
+<2707=2714,2708
+<2708=2712,2709
+<2709=2710
+<2710=2711
+<2712=2713
+<2714=2716,2715
+<2716=2718,2717
+<2719=2739,2720
+<2720=2721
+<2721=2736,2722
+<2722=2735,2723
+<2723=2733,2724
+<2724=2729,2725
+<2725=2726
+<2726=2728,2727
+<2729=2730
+<2730=2732,2731
+<2733=2734
+<2736=2738,2737
+<2739=2740
+<2740=2742,2741
+<2742=2744,2743
+<2745=2746
+<2746=2748,2747
+<2749=2750
+<2750=2761,2751
+<2751=2759,2752
+<2752=2757,2755,2753
+<2753=2754
+<2755=2756
+<2757=2758
+<2759=2760
+<2762=2803,2763
+<2763=2777,2764
+<2764=2765
+<2765=2772,2766
+<2766=2770,2767
+<2767=2768
+<2768=2769
+<2770=2771
+<2772=2774,2773
+<2774=2776,2775
+<2777=2797,2778
+<2778=2779
+<2779=2794,2780
+<2780=2793,2781
+<2781=2791,2782
+<2782=2787,2783
+<2783=2784
+<2784=2786,2785
+<2787=2788
+<2788=2790,2789
+<2791=2792
+<2794=2796,2795
+<2797=2798
+<2798=2800,2799
+<2800=2802,2801
+<2803=2804
+<2804=2806,2805
+<2807=2808
+<2808=2819,2809
+<2809=2817,2810
+<2810=2815,2813,2811
+<2811=2812
+<2813=2814
+<2815=2816
+<2817=2818
+<2820=2861,2821
+<2821=2835,2822
+<2822=2823
+<2823=2830,2824
+<2824=2828,2825
+<2825=2826
+<2826=2827
+<2828=2829
+<2830=2832,2831
+<2832=2834,2833
+<2835=2855,2836
+<2836=2837
+<2837=2852,2838
+<2838=2851,2839
+<2839=2849,2840
+<2840=2845,2841
+<2841=2842
+<2842=2844,2843
+<2845=2846
+<2846=2848,2847
+<2849=2850
+<2852=2854,2853
+<2855=2856
+<2856=2858,2857
+<2858=2860,2859
+<2861=2862
+<2862=2864,2863
+<2865=2866
+<2866=2877,2867
+<2867=2875,2868
+<2868=2873,2871,2869
+<2869=2870
+<2871=2872
+<2873=2874
+<2875=2876
+<2878=2919,2879
+<2879=2893,2880
+<2880=2881
+<2881=2888,2882
+<2882=2886,2883
+<2883=2884
+<2884=2885
+<2886=2887
+<2888=2890,2889
+<2890=2892,2891
+<2893=2913,2894
+<2894=2895
+<2895=2910,2896
+<2896=2909,2897
+<2897=2907,2898
+<2898=2903,2899
+<2899=2900
+<2900=2902,2901
+<2903=2904
+<2904=2906,2905
+<2907=2908
+<2910=2912,2911
+<2913=2914
+<2914=2916,2915
+<2916=2918,2917
+<2919=2920
+<2920=2922,2921
+<2923=2924
+<2924=2935,2925
+<2925=2933,2926
+<2926=2931,2929,2927
+<2927=2928
+<2929=2930
+<2931=2932
+<2933=2934
+<2936=2977,2937
+<2937=2951,2938
+<2938=2939
+<2939=2946,2940
+<2940=2944,2941
+<2941=2942
+<2942=2943
+<2944=2945
+<2946=2948,2947
+<2948=2950,2949
+<2951=2971,2952
+<2952=2953
+<2953=2968,2954
+<2954=2967,2955
+<2955=2965,2956
+<2956=2957
+<2957=2958
+<2958=2962,2959
+<2959=2961,2960
+<2962=2964,2963
+<2965=2966
+<2968=2970,2969
+<2971=2972
+<2972=2974,2973
+<2974=2976,2975
+<2977=2978
+<2978=2980,2979
+<2981=2982
+<2982=2993,2983
+<2983=2991,2984
+<2984=2989,2987,2985
+<2985=2986
+<2987=2988
+<2989=2990
+<2991=2992
+<2994=3019,3009,2995
+<2995=2996
+<2996=2997
+<2997=3004,2998
+<2998=3002,2999
+<2999=3000
+<3000=3001
+<3002=3003
+<3004=3006,3005
+<3006=3008,3007
+<3009=3010
+<3010=3014,3011
+<3011=3013,3012
+<3014=3016,3015
+<3016=3018,3017
+<3019=3020
+<3020=3022,3021
+<3023=3024
+<3024=3035,3025
+<3025=3033,3026
+<3026=3031,3029,3027
+<3027=3028
+<3029=3030
+<3031=3032
+<3033=3034
+<3036=3056,3037
+<3037=3038
+<3038=3053,3039
+<3039=3052,3040
+<3040=3050,3041
+<3041=3042
+<3042=3043
+<3043=3047,3044
+<3044=3046,3045
+<3047=3049,3048
+<3050=3051
+<3053=3055,3054
+<3056=3057
+<3057=3059,3058
+<3059=3061,3060
+<3062=3064,3063
+<3064=3065
+<3065=3078,3066
+<3066=3077,3067
+<3067=3075,3068
+<3068=3071,3069
+<3069=3070
+<3071=3072
+<3072=3074,3073
+<3075=3076
+<3078=3080,3079
+<3080=3082,3081
+<3083=3087,3084
+<3084=3086,3085
+<3088=3089
+<3089=3091,3090
+<3092=3104,3098,3093
+<3093=3094
+<3094=3095
+<3095=3097,3096
+<3098=3099
+<3099=3103,3100
+<3100=3102,3101
+<3104=3105
+<3106=3107
+<3107=3112,3111,3108
+<3108=3110,3109
+<3113=3147,3142,3114
+<3114=3121,3115
+<3115=3116
+<3116=3118,3117
+<3118=3120,3119
+<3121=3123,3122
+<3123=3124
+<3124=3137,3125
+<3125=3136,3126
+<3126=3134,3127
+<3127=3130,3128
+<3128=3129
+<3130=3131
+<3131=3133,3132
+<3134=3135
+<3137=3139,3138
+<3139=3141,3140
+<3142=3146,3143
+<3143=3145,3144
+<3147=3148
+<3148=3150,3149
+<3151=3163,3157,3152
+<3152=3153
+<3153=3154
+<3154=3156,3155
+<3157=3158
+<3158=3162,3159
+<3159=3161,3160
+<3163=3164
+<3165=3166
+<3166=3168,3167
+<3168=3170,3169
+<3171=3172
+<3172=3177,3176,3173
+<3173=3175,3174
+<3178=3179
+<3179=3191,3190,3180
+<3180=3189,3181
+<3181=3187,3182
+<3182=3185,3183
+<3183=3184
+<3185=3186
+<3187=3188
+<3192=3206,3193
+<3193=3194
+<3194=3203,3195
+<3195=3201,3196
+<3196=3199,3197
+<3197=3198
+<3199=3200
+<3201=3202
+<3203=3205,3204
+<3206=3207
+<3207=3209,3208
+<3210=3211
+<3211=3222,3212
+<3212=3220,3213
+<3213=3218,3216,3214
+<3214=3215
+<3216=3217
+<3218=3219
+<3220=3221
+<3223=3237,3224
+<3224=3225
+<3225=3234,3226
+<3226=3232,3227
+<3227=3230,3228
+<3228=3229
+<3230=3231
+<3232=3233
+<3234=3236,3235
+<3237=3238
+<3238=3240,3239
+<3241=3242
+<3242=3253,3243
+<3243=3251,3244
+<3244=3249,3247,3245
+<3245=3246
+<3247=3248
+<3249=3250
+<3251=3252
+<3254=3343,3339,3334,3255
+<3255=3256
+<3256=3317,3257
+<3257=3301,3285,3258
+<3258=3277,3259
+<3259=3260
+<3260=3261
+<3261=3274,3262
+<3262=3272,3263
+<3263=3268,3266,3264
+<3264=3265
+<3266=3267
+<3268=3269
+<3269=3271,3270
+<3272=3273
+<3274=3276,3275
+<3277=3278
+<3278=3282,3279
+<3279=3281,3280
+<3282=3284,3283
+<3285=3286
+<3286=3300,3299,3287
+<3287=3298,3288
+<3288=3296,3289
+<3289=3294,3292,3290
+<3290=3291
+<3292=3293
+<3294=3295
+<3296=3297
+<3301=3302
+<3302=3316,3315,3303
+<3303=3314,3304
+<3304=3312,3305
+<3305=3310,3308,3306
+<3306=3307
+<3308=3309
+<3310=3311
+<3312=3313
+<3317=3318
+<3318=3329,3319
+<3319=3327,3320
+<3320=3323,3321
+<3321=3322
+<3323=3324
+<3324=3326,3325
+<3327=3328
+<3329=3331,3330
+<3331=3333,3332
+<3334=3338,3335
+<3335=3337,3336
+<3339=3340
+<3340=3342,3341
+<3343=3344
+<3344=3348,3345
+<3345=3347,3346
+<3349=3350
+<3350=3352,3351
+<3353=3354
+<3354=3370,3355
+<3355=3368,3356
+<3356=3357
+<3357=3358
+<3358=3366,3359
+<3359=3364,3362,3360
+<3360=3361
+<3362=3363
+<3364=3365
+<3366=3367
+<3368=3369
+<3370=3372,3371
+<3373=3509,3503,3374
+<3374=3375
+<3375=3494,3488,3376
+<3376=3377
+<3377=3479,3473,3378
+<3378=3379
+<3379=3464,3458,3380
+<3380=3381
+<3381=3449,3443,3382
+<3382=3383
+<3383=3434,3428,3384
+<3384=3385
+<3385=3419,3413,3386
+<3386=3387
+<3387=3404,3403,3388
+<3388=3389
+<3389=3390
+<3390=3391
+<3391=3401,3392
+<3392=3399,3397,3395,3393
+<3393=3394
+<3395=3396
+<3397=3398
+<3399=3400
+<3401=3402
+<3404=3405
+<3405=3411,3406
+<3406=3409,3407
+<3407=3408
+<3409=3410
+<3411=3412
+<3413=3414
+<3414=3416,3415
+<3416=3418,3417
+<3419=3420
+<3420=3426,3421
+<3421=3424,3422
+<3422=3423
+<3424=3425
+<3426=3427
+<3428=3429
+<3429=3431,3430
+<3431=3433,3432
+<3434=3435
+<3435=3441,3436
+<3436=3439,3437
+<3437=3438
+<3439=3440
+<3441=3442
+<3443=3444
+<3444=3446,3445
+<3446=3448,3447
+<3449=3450
+<3450=3456,3451
+<3451=3454,3452
+<3452=3453
+<3454=3455
+<3456=3457
+<3458=3459
+<3459=3461,3460
+<3461=3463,3462
+<3464=3465
+<3465=3471,3466
+<3466=3469,3467
+<3467=3468
+<3469=3470
+<3471=3472
+<3473=3474
+<3474=3476,3475
+<3476=3478,3477
+<3479=3480
+<3480=3486,3481
+<3481=3484,3482
+<3482=3483
+<3484=3485
+<3486=3487
+<3488=3489
+<3489=3491,3490
+<3491=3493,3492
+<3494=3495
+<3495=3501,3496
+<3496=3499,3497
+<3497=3498
+<3499=3500
+<3501=3502
+<3503=3504
+<3504=3506,3505
+<3506=3508,3507
+<3509=3510
+<3510=3516,3511
+<3511=3514,3512
+<3512=3513
+<3514=3515
+<3516=3517
+<3518=3519
+<3519=3533,3532,3520
+<3520=3531,3521
+<3521=3529,3522
+<3522=3527,3525,3523
+<3523=3524
+<3525=3526
+<3527=3528
+<3529=3530
+<3534=3535
+<3535=3551,3536
+<3536=3549,3537
+<3537=3538
+<3538=3539
+<3539=3547,3540
+<3540=3545,3543,3541
+<3541=3542
+<3543=3544
+<3545=3546
+<3547=3548
+<3549=3550
+<3551=3553,3552
+<3554=3555
+<3555=3563,3562,3556
+<3556=3561,3557
+<3557=3559,3558
+<3559=3560
+<3564=3579,3565
+<3565=3568,3566
+<3566=3567
+<3568=3569
+<3569=3577,3570
+<3570=3575,3573,3571
+<3571=3572
+<3573=3574
+<3575=3576
+<3577=3578
+<3579=3580
+<3580=3599,3581
+<3581=3594,3582
+<3582=3593,3583
+<3583=3591,3584
+<3584=3587,3585
+<3585=3586
+<3587=3588
+<3588=3590,3589
+<3591=3592
+<3594=3596,3595
+<3596=3598,3597
+<3599=3601,3600
+<3602=3603
+<3603=3605,3604
+<3605=3606

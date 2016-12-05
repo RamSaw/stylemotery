@@ -11,11 +11,11 @@ from chainer import cuda, Serializer
 from chainer import optimizers
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.metrics import accuracy_score
-from ast_tree.ast_parser import children
+from ast_tree.traverse import children
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from models import RecursiveLSTM, RecursiveTreeLSTM
 from utils.prog_bar import Progbar
-from utils.fun_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
+from utils.dataset_utils import get_basefolder, parse_src_files, print_model, generate_trees, make_backward_graph
 
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):

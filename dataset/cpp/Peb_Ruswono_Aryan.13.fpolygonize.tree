@@ -1,0 +1,2572 @@
+>5	FunctionDef	GDALFloatEquals (float A , float B)
+>6	ParameterList	float A , float B
+>7	Parameter	 
+>8	Identifier	B
+>9	ParameterType	float
+>10	Parameter	 
+>11	Identifier	A
+>12	ParameterType	float
+>13	ReturnType	GBool
+>14	CompoundStatement	 
+>15	ReturnStatement	 
+>16	Identifier	false
+>17	IfStatement	if ( intDiff <= maxUlps )
+>18	ReturnStatement	 
+>19	Identifier	true
+>20	Condition	 
+>21	RelationalExpression	intDiff <= maxUlps
+>22	Identifier	maxUlps
+>23	Identifier	intDiff
+>24	IdentifierDeclStatement	 
+>25	IdentifierDecl	intDiff = abs ( aInt - bInt )
+>26	AssignmentExpr	intDiff = abs ( aInt - bInt )
+>27	CallExpression	abs ( aInt - bInt )
+>28	ArgumentList	aInt - bInt
+>29	Argument	aInt - bInt
+>30	AdditiveExpression	aInt - bInt
+>31	Identifier	bInt
+>32	Identifier	aInt
+>33	Callee	abs
+>34	Identifier	abs
+>35	Identifier	intDiff
+>36	Identifier	intDiff
+>37	IdentifierDeclType	int
+>38	IfStatement	if ( bInt < 0 )
+>39	ExpressionStatement	 
+>40	AssignmentExpr	bInt = 0x80000000 - bInt
+>41	AdditiveExpression	0x80000000 - bInt
+>42	Identifier	bInt
+>43	PrimaryExpression	0x80000000
+>44	Identifier	bInt
+>45	Condition	 
+>46	RelationalExpression	bInt < 0
+>47	PrimaryExpression	0
+>48	Identifier	bInt
+>49	ExpressionStatement	 
+>50	CallExpression	memcpy ( & bInt , & B , 4 )
+>51	ArgumentList	& bInt
+>52	Argument	4
+>53	PrimaryExpression	4
+>54	Argument	& B
+>55	UnaryOp	& B
+>56	Identifier	B
+>57	UnaryOperator	&
+>58	Argument	& bInt
+>59	UnaryOp	& bInt
+>60	Identifier	bInt
+>61	UnaryOperator	&
+>62	Callee	memcpy
+>63	Identifier	memcpy
+>64	IfStatement	if ( aInt < 0 )
+>65	ExpressionStatement	 
+>66	AssignmentExpr	aInt = 0x80000000 - aInt
+>67	AdditiveExpression	0x80000000 - aInt
+>68	Identifier	aInt
+>69	PrimaryExpression	0x80000000
+>70	Identifier	aInt
+>71	Condition	 
+>72	RelationalExpression	aInt < 0
+>73	PrimaryExpression	0
+>74	Identifier	aInt
+>75	ExpressionStatement	 
+>76	CallExpression	memcpy ( & aInt , & A , 4 )
+>77	ArgumentList	& aInt
+>78	Argument	4
+>79	PrimaryExpression	4
+>80	Argument	& A
+>81	UnaryOp	& A
+>82	Identifier	A
+>83	UnaryOperator	&
+>84	Argument	& aInt
+>85	UnaryOp	& aInt
+>86	Identifier	aInt
+>87	UnaryOperator	&
+>88	Callee	memcpy
+>89	Identifier	memcpy
+>90	ExpressionStatement	 
+>91	CallExpression	CPLAssert ( maxUlps > 0 && maxUlps < 4 * 1024 * 1024 )
+>92	ArgumentList	maxUlps > 0 && maxUlps < 4 * 1024 * 1024
+>93	Argument	maxUlps > 0 && maxUlps < 4 * 1024 * 1024
+>94	AndExpression	maxUlps > 0 && maxUlps < 4 * 1024 * 1024
+>95	RelationalExpression	maxUlps < 4 * 1024 * 1024
+>96	MultiplicativeExpression	4 * 1024 * 1024
+>97	MultiplicativeExpression	1024 * 1024
+>98	PrimaryExpression	1024
+>99	PrimaryExpression	1024
+>100	PrimaryExpression	4
+>101	Identifier	maxUlps
+>102	RelationalExpression	maxUlps > 0
+>103	PrimaryExpression	0
+>104	Identifier	maxUlps
+>105	Callee	CPLAssert
+>106	Identifier	CPLAssert
+>107	IdentifierDeclStatement	 
+>108	IdentifierDecl	bInt
+>109	Identifier	bInt
+>110	IdentifierDeclType	int
+>111	IdentifierDecl	aInt
+>112	Identifier	aInt
+>113	IdentifierDeclType	int
+>114	IdentifierDeclStatement	 
+>115	IdentifierDecl	maxUlps = MAX_ULPS
+>116	AssignmentExpr	maxUlps = MAX_ULPS
+>117	Identifier	MAX_ULPS
+>118	Identifier	MAX_ULPS
+>119	Identifier	maxUlps
+>120	IdentifierDeclType	int
+>139	FunctionDef	RPolygonF (float fValue)
+>140	ParameterList	float fValue
+>141	Parameter	 
+>142	Identifier	fValue
+>143	ParameterType	float
+>144	CompoundStatement	 
+>145	ExpressionStatement	 
+>146	AssignmentExpr	nLastLineUpdated = - 1
+>147	UnaryOp	- 1
+>148	PrimaryExpression	1
+>149	UnaryOperator	-
+>150	Identifier	nLastLineUpdated
+>151	ExpressionStatement	 
+>152	AssignmentExpr	fPolyValue = fValue
+>153	Identifier	fValue
+>154	Identifier	fPolyValue
+>175	FunctionDef	RPolygonF 
+>176	ParameterList	 
+>177	ReturnType	void
+>178	CompoundStatement	 
+>179	ForStatement	for ( iString = 0 ; iString < aanXY . size ( ) ; iString ++ )
+>180	CompoundStatement	 
+>181	ForStatement	for ( iVert = 0 ; iVert < anString . size ( ) ; iVert += 2 )
+>182	CompoundStatement	 
+>183	ExpressionStatement	 
+>184	CallExpression	printf ( \"    (%d,%d)\n\" , anString [ iVert ] , anString [ iVert + 1 ] )
+>185	ArgumentList	\"    (%d,%d)\n\"
+>186	Argument	anString [ iVert + 1 ]
+>187	ArrayIndexing	anString [ iVert + 1 ]
+>188	AdditiveExpression	iVert + 1
+>189	PrimaryExpression	1
+>190	Identifier	iVert
+>191	Identifier	anString
+>192	Argument	anString [ iVert ]
+>193	ArrayIndexing	anString [ iVert ]
+>194	Identifier	iVert
+>195	Identifier	anString
+>196	Argument	\"    (%d,%d)\n\"
+>197	PrimaryExpression	\"    (%d,%d)\n\"
+>198	Callee	printf
+>199	Identifier	printf
+>200	AssignmentExpr	 
+>201	PrimaryExpression	2
+>202	Identifier	iVert
+>203	Condition	 
+>204	RelationalExpression	iVert < anString . size ( )
+>205	CallExpression	anString . size ( )
+>206	ArgumentList	 
+>207	Callee	anString . size
+>208	MemberAccess	anString . size
+>209	Identifier	size
+>210	Identifier	anString
+>211	Identifier	iVert
+>212	ForInit	 
+>213	AssignmentExpr	iVert = 0
+>214	PrimaryExpression	0
+>215	Identifier	iVert
+>216	ExpressionStatement	 
+>217	CallExpression	printf ( \"  String %d
+>218	ArgumentList	\"  String %d
+>219	Argument	( int ) iString
+>220	CastExpression	( int ) iString
+>221	Identifier	iString
+>222	CastTarget	int
+>223	Argument	\"  String %d
+>224	PrimaryExpression	\"  String %d
+>225	Callee	printf
+>226	Identifier	printf
+>227	IdentifierDeclStatement	 
+>228	IdentifierDecl	iVert
+>229	Identifier	iVert
+>230	IdentifierDeclType	size_t
+>231	IdentifierDeclStatement	 
+>232	IdentifierDecl	& anString = aanXY [ iString ]
+>233	AssignmentExpr	& anString = aanXY [ iString ]
+>234	ArrayIndexing	aanXY [ iString ]
+>235	Identifier	iString
+>236	Identifier	aanXY
+>237	Identifier	anString
+>238	Identifier	anString
+>239	IdentifierDeclType	std 
+>240	IncDecOp	 
+>241	IncDec	++
+>242	Identifier	iString
+>243	Condition	 
+>244	RelationalExpression	iString < aanXY . size ( )
+>245	CallExpression	aanXY . size ( )
+>246	ArgumentList	 
+>247	Callee	aanXY . size
+>248	MemberAccess	aanXY . size
+>249	Identifier	size
+>250	Identifier	aanXY
+>251	Identifier	iString
+>252	ForInit	 
+>253	AssignmentExpr	iString = 0
+>254	PrimaryExpression	0
+>255	Identifier	iString
+>256	ExpressionStatement	 
+>257	CallExpression	printf ( \"RPolygonF
+>258	ArgumentList	\"RPolygonF
+>259	Argument	nLastLineUpdated
+>260	Identifier	nLastLineUpdated
+>261	Argument	fPolyValue
+>262	Identifier	fPolyValue
+>263	Argument	\"RPolygonF
+>264	PrimaryExpression	\"RPolygonF
+>265	Callee	printf
+>266	Identifier	printf
+>267	IdentifierDeclStatement	 
+>268	IdentifierDecl	iString
+>269	Identifier	iString
+>270	IdentifierDeclType	size_t
+>286	FunctionDef	RPolygonF 
+>287	ParameterList	 
+>288	ReturnType	void
+>289	CompoundStatement	 
+>290	ForStatement	for ( iBaseString = 0 ; iBaseString < aanXY . size ( ) ; iBaseString ++ )
+>291	CompoundStatement	 
+>292	ExpressionStatement	 
+>293	CallExpression	CPLAssert ( anBase [ 0 ] == anBase [ anBase . size ( ) - 2 ] && anBase [ 1 ] == anBase [ anBase . size ( ) - 1 ] )
+>294	ArgumentList	anBase [ 0 ] == anBase [ anBase . size ( ) - 2 ] && anBase [ 1 ] == anBase [ anBase . size ( ) - 1 ]
+>295	Argument	anBase [ 0 ] == anBase [ anBase . size ( ) - 2 ] && anBase [ 1 ] == anBase [ anBase . size ( ) - 1 ]
+>296	AndExpression	anBase [ 0 ] == anBase [ anBase . size ( ) - 2 ] && anBase [ 1 ] == anBase [ anBase . size ( ) - 1 ]
+>297	EqualityExpression	anBase [ 1 ] == anBase [ anBase . size ( ) - 1 ]
+>298	ArrayIndexing	anBase [ anBase . size ( ) - 1 ]
+>299	AdditiveExpression	anBase . size ( ) - 1
+>300	PrimaryExpression	1
+>301	CallExpression	anBase . size ( )
+>302	ArgumentList	 
+>303	Callee	anBase . size
+>304	MemberAccess	anBase . size
+>305	Identifier	size
+>306	Identifier	anBase
+>307	Identifier	anBase
+>308	ArrayIndexing	anBase [ 1 ]
+>309	PrimaryExpression	1
+>310	Identifier	anBase
+>311	EqualityExpression	anBase [ 0 ] == anBase [ anBase . size ( ) - 2 ]
+>312	ArrayIndexing	anBase [ anBase . size ( ) - 2 ]
+>313	AdditiveExpression	anBase . size ( ) - 2
+>314	PrimaryExpression	2
+>315	CallExpression	anBase . size ( )
+>316	ArgumentList	 
+>317	Callee	anBase . size
+>318	MemberAccess	anBase . size
+>319	Identifier	size
+>320	Identifier	anBase
+>321	Identifier	anBase
+>322	ArrayIndexing	anBase [ 0 ]
+>323	PrimaryExpression	0
+>324	Identifier	anBase
+>325	Callee	CPLAssert
+>326	Identifier	CPLAssert
+>327	WhileStatement	while ( bMergeHappened )
+>328	CompoundStatement	 
+>329	ForStatement	for ( iString = iBaseString + 1 ; iString < aanXY . size ( ) ; iString ++ )
+>330	CompoundStatement	 
+>331	IfStatement	if ( anBase [ anBase . size ( ) - 2 ] == anString [ 0 ] && anBase [ anBase . size ( ) - 1 ] == anString [ 1 ] )
+>332	ElseStatement	else
+>333	IfStatement	if ( anBase [ anBase . size ( ) - 2 ] == anString [ anString . size ( ) - 2 ] && anBase [ anBase . size ( ) - 1 ] == \
+>334	CompoundStatement	 
+>335	ExpressionStatement	 
+>336	AssignmentExpr	bMergeHappened = TRUE
+>337	Identifier	TRUE
+>338	Identifier	bMergeHappened
+>339	ExpressionStatement	 
+>340	CallExpression	Merge ( iBaseString , iString , - 1 )
+>341	ArgumentList	iBaseString
+>342	Argument	- 1
+>343	UnaryOp	- 1
+>344	PrimaryExpression	1
+>345	UnaryOperator	-
+>346	Argument	iString
+>347	Identifier	iString
+>348	Argument	iBaseString
+>349	Identifier	iBaseString
+>350	Callee	Merge
+>351	Identifier	Merge
+>352	Condition	 
+>353	AndExpression	anBase [ anBase . size ( ) - 2 ] == anString [ anString . size ( ) - 2 ] && anBase [ anBase . size ( ) \
+>354	EqualityExpression	anBase [ anBase . size ( ) - 1 ] == anString [ anString . size ( ) - 1 ]
+>355	ArrayIndexing	anString [ anString . size ( ) - 1 ]
+>356	AdditiveExpression	anString . size ( ) - 1
+>357	PrimaryExpression	1
+>358	CallExpression	anString . size ( )
+>359	ArgumentList	 
+>360	Callee	anString . size
+>361	MemberAccess	anString . size
+>362	Identifier	size
+>363	Identifier	anString
+>364	Identifier	anString
+>365	ArrayIndexing	anBase [ anBase . size ( ) - 1 ]
+>366	AdditiveExpression	anBase . size ( ) - 1
+>367	PrimaryExpression	1
+>368	CallExpression	anBase . size ( )
+>369	ArgumentList	 
+>370	Callee	anBase . size
+>371	MemberAccess	anBase . size
+>372	Identifier	size
+>373	Identifier	anBase
+>374	Identifier	anBase
+>375	EqualityExpression	anBase [ anBase . size ( ) - 2 ] == anString [ anString . size ( ) - 2 ]
+>376	ArrayIndexing	anString [ anString . size ( ) - 2 ]
+>377	AdditiveExpression	anString . size ( ) - 2
+>378	PrimaryExpression	2
+>379	CallExpression	anString . size ( )
+>380	ArgumentList	 
+>381	Callee	anString . size
+>382	MemberAccess	anString . size
+>383	Identifier	size
+>384	Identifier	anString
+>385	Identifier	anString
+>386	ArrayIndexing	anBase [ anBase . size ( ) - 2 ]
+>387	AdditiveExpression	anBase . size ( ) - 2
+>388	PrimaryExpression	2
+>389	CallExpression	anBase . size ( )
+>390	ArgumentList	 
+>391	Callee	anBase . size
+>392	MemberAccess	anBase . size
+>393	Identifier	size
+>394	Identifier	anBase
+>395	Identifier	anBase
+>396	CompoundStatement	 
+>397	ExpressionStatement	 
+>398	AssignmentExpr	bMergeHappened = TRUE
+>399	Identifier	TRUE
+>400	Identifier	bMergeHappened
+>401	ExpressionStatement	 
+>402	CallExpression	Merge ( iBaseString , iString , 1 )
+>403	ArgumentList	iBaseString
+>404	Argument	1
+>405	PrimaryExpression	1
+>406	Argument	iString
+>407	Identifier	iString
+>408	Argument	iBaseString
+>409	Identifier	iBaseString
+>410	Callee	Merge
+>411	Identifier	Merge
+>412	Condition	 
+>413	AndExpression	anBase [ anBase . size ( ) - 2 ] == anString [ 0 ] && anBase [ anBase . size ( ) - 1 ] == anString [ \
+>414	EqualityExpression	anBase [ anBase . size ( ) - 1 ] == anString [ 1 ]
+>415	ArrayIndexing	anString [ 1 ]
+>416	PrimaryExpression	1
+>417	Identifier	anString
+>418	ArrayIndexing	anBase [ anBase . size ( ) - 1 ]
+>419	AdditiveExpression	anBase . size ( ) - 1
+>420	PrimaryExpression	1
+>421	CallExpression	anBase . size ( )
+>422	ArgumentList	 
+>423	Callee	anBase . size
+>424	MemberAccess	anBase . size
+>425	Identifier	size
+>426	Identifier	anBase
+>427	Identifier	anBase
+>428	EqualityExpression	anBase [ anBase . size ( ) - 2 ] == anString [ 0 ]
+>429	ArrayIndexing	anString [ 0 ]
+>430	PrimaryExpression	0
+>431	Identifier	anString
+>432	ArrayIndexing	anBase [ anBase . size ( ) - 2 ]
+>433	AdditiveExpression	anBase . size ( ) - 2
+>434	PrimaryExpression	2
+>435	CallExpression	anBase . size ( )
+>436	ArgumentList	 
+>437	Callee	anBase . size
+>438	MemberAccess	anBase . size
+>439	Identifier	size
+>440	Identifier	anBase
+>441	Identifier	anBase
+>442	IdentifierDeclStatement	 
+>443	IdentifierDecl	& anString = aanXY [ iString ]
+>444	AssignmentExpr	& anString = aanXY [ iString ]
+>445	ArrayIndexing	aanXY [ iString ]
+>446	Identifier	iString
+>447	Identifier	aanXY
+>448	Identifier	anString
+>449	Identifier	anString
+>450	IdentifierDeclType	std 
+>451	IncDecOp	 
+>452	IncDec	++
+>453	Identifier	iString
+>454	Condition	 
+>455	RelationalExpression	iString < aanXY . size ( )
+>456	CallExpression	aanXY . size ( )
+>457	ArgumentList	 
+>458	Callee	aanXY . size
+>459	MemberAccess	aanXY . size
+>460	Identifier	size
+>461	Identifier	aanXY
+>462	Identifier	iString
+>463	ForInit	 
+>464	AssignmentExpr	iString = iBaseString + 1
+>465	AdditiveExpression	iBaseString + 1
+>466	PrimaryExpression	1
+>467	Identifier	iBaseString
+>468	Identifier	iString
+>469	ExpressionStatement	 
+>470	AssignmentExpr	bMergeHappened = FALSE
+>471	Identifier	FALSE
+>472	Identifier	bMergeHappened
+>473	IdentifierDeclStatement	 
+>474	IdentifierDecl	iString
+>475	Identifier	iString
+>476	IdentifierDeclType	size_t
+>477	Condition	 
+>478	Identifier	bMergeHappened
+>479	IdentifierDeclStatement	 
+>480	IdentifierDecl	bMergeHappened = TRUE
+>481	AssignmentExpr	bMergeHappened = TRUE
+>482	Identifier	TRUE
+>483	Identifier	TRUE
+>484	Identifier	bMergeHappened
+>485	IdentifierDeclType	int
+>486	IdentifierDeclStatement	 
+>487	IdentifierDecl	& anBase = aanXY [ iBaseString ]
+>488	AssignmentExpr	& anBase = aanXY [ iBaseString ]
+>489	ArrayIndexing	aanXY [ iBaseString ]
+>490	Identifier	iBaseString
+>491	Identifier	aanXY
+>492	Identifier	anBase
+>493	Identifier	anBase
+>494	IdentifierDeclType	std 
+>495	IncDecOp	 
+>496	IncDec	++
+>497	Identifier	iBaseString
+>498	Condition	 
+>499	RelationalExpression	iBaseString < aanXY . size ( )
+>500	CallExpression	aanXY . size ( )
+>501	ArgumentList	 
+>502	Callee	aanXY . size
+>503	MemberAccess	aanXY . size
+>504	Identifier	size
+>505	Identifier	aanXY
+>506	Identifier	iBaseString
+>507	ForInit	 
+>508	AssignmentExpr	iBaseString = 0
+>509	PrimaryExpression	0
+>510	Identifier	iBaseString
+>511	IdentifierDeclStatement	 
+>512	IdentifierDecl	iBaseString
+>513	Identifier	iBaseString
+>514	IdentifierDeclType	size_t
+>536	FunctionDef	RPolygonF 
+>537	ParameterList	int iBaseString , int iSrcString , int iDirection
+>538	Parameter	 
+>539	Identifier	iDirection
+>540	ParameterType	int
+>541	Parameter	 
+>542	Identifier	iSrcString
+>543	ParameterType	int
+>544	Parameter	 
+>545	Identifier	iBaseString
+>546	ParameterType	int
+>547	ReturnType	void
+>548	CompoundStatement	 
+>549	ExpressionStatement	 
+>550	CallExpression	aanXY . resize ( nSize - 1 )
+>551	ArgumentList	nSize - 1
+>552	Argument	nSize - 1
+>553	AdditiveExpression	nSize - 1
+>554	PrimaryExpression	1
+>555	Identifier	nSize
+>556	Callee	aanXY . resize
+>557	MemberAccess	aanXY . resize
+>558	Identifier	resize
+>559	Identifier	aanXY
+>560	IdentifierDeclStatement	 
+>561	IdentifierDecl	nSize = aanXY . size ( )
+>562	AssignmentExpr	nSize = aanXY . size ( )
+>563	CallExpression	aanXY . size ( )
+>564	ArgumentList	 
+>565	Callee	aanXY . size
+>566	MemberAccess	aanXY . size
+>567	Identifier	size
+>568	Identifier	aanXY
+>569	Identifier	nSize
+>570	Identifier	nSize
+>571	IdentifierDeclType	size_t
+>572	IfStatement	if ( iSrcString < ( ( int ) aanXY . size ( ) ) - 1 )
+>573	ExpressionStatement	 
+>574	AssignmentExpr	aanXY [ iSrcString ] = aanXY [ aanXY . size ( ) - 1 ]
+>575	ArrayIndexing	aanXY [ aanXY . size ( ) - 1 ]
+>576	AdditiveExpression	aanXY . size ( ) - 1
+>577	PrimaryExpression	1
+>578	CallExpression	aanXY . size ( )
+>579	ArgumentList	 
+>580	Callee	aanXY . size
+>581	MemberAccess	aanXY . size
+>582	Identifier	size
+>583	Identifier	aanXY
+>584	Identifier	aanXY
+>585	ArrayIndexing	aanXY [ iSrcString ]
+>586	Identifier	iSrcString
+>587	Identifier	aanXY
+>588	Condition	 
+>589	RelationalExpression	iSrcString < ( ( int ) aanXY . size ( ) ) - 1
+>590	AdditiveExpression	( ( int ) aanXY . size ( ) ) - 1
+>591	PrimaryExpression	1
+>592	CastExpression	( int ) aanXY . size ( )
+>593	CallExpression	aanXY . size ( )
+>594	ArgumentList	 
+>595	Callee	aanXY . size
+>596	MemberAccess	aanXY . size
+>597	Identifier	size
+>598	Identifier	aanXY
+>599	CastTarget	int
+>600	Identifier	iSrcString
+>601	ForStatement	for ( i = iStart ; i != iEnd ; i += iDirection )
+>602	CompoundStatement	 
+>603	ExpressionStatement	 
+>604	CallExpression	anBase . push_back ( anString [ i * 2 + 1 ] )
+>605	ArgumentList	anString [ i * 2 + 1 ]
+>606	Argument	anString [ i * 2 + 1 ]
+>607	ArrayIndexing	anString [ i * 2 + 1 ]
+>608	AdditiveExpression	i * 2 + 1
+>609	PrimaryExpression	1
+>610	MultiplicativeExpression	i * 2
+>611	PrimaryExpression	2
+>612	Identifier	i
+>613	Identifier	anString
+>614	Callee	anBase . push_back
+>615	MemberAccess	anBase . push_back
+>616	Identifier	push_back
+>617	Identifier	anBase
+>618	ExpressionStatement	 
+>619	CallExpression	anBase . push_back ( anString [ i * 2 + 0 ] )
+>620	ArgumentList	anString [ i * 2 + 0 ]
+>621	Argument	anString [ i * 2 + 0 ]
+>622	ArrayIndexing	anString [ i * 2 + 0 ]
+>623	AdditiveExpression	i * 2 + 0
+>624	PrimaryExpression	0
+>625	MultiplicativeExpression	i * 2
+>626	PrimaryExpression	2
+>627	Identifier	i
+>628	Identifier	anString
+>629	Callee	anBase . push_back
+>630	MemberAccess	anBase . push_back
+>631	Identifier	push_back
+>632	Identifier	anBase
+>633	AssignmentExpr	 
+>634	Identifier	iDirection
+>635	Identifier	i
+>636	Condition	 
+>637	EqualityExpression	i != iEnd
+>638	Identifier	iEnd
+>639	Identifier	i
+>640	ForInit	 
+>641	AssignmentExpr	i = iStart
+>642	Identifier	iStart
+>643	Identifier	i
+>644	IfStatement	if ( iDirection == 1 )
+>645	ElseStatement	else
+>646	CompoundStatement	 
+>647	ExpressionStatement	 
+>648	AssignmentExpr	iEnd = - 1
+>649	UnaryOp	- 1
+>650	PrimaryExpression	1
+>651	UnaryOperator	-
+>652	Identifier	iEnd
+>653	ExpressionStatement	 
+>654	AssignmentExpr	iStart = anString . size ( ) / 2 - 2
+>655	AdditiveExpression	anString . size ( ) / 2 - 2
+>656	PrimaryExpression	2
+>657	MultiplicativeExpression	anString . size ( ) / 2
+>658	PrimaryExpression	2
+>659	CallExpression	anString . size ( )
+>660	ArgumentList	 
+>661	Callee	anString . size
+>662	MemberAccess	anString . size
+>663	Identifier	size
+>664	Identifier	anString
+>665	Identifier	iStart
+>666	CompoundStatement	 
+>667	ExpressionStatement	 
+>668	AssignmentExpr	iEnd = anString . size ( ) / 2
+>669	MultiplicativeExpression	anString . size ( ) / 2
+>670	PrimaryExpression	2
+>671	CallExpression	anString . size ( )
+>672	ArgumentList	 
+>673	Callee	anString . size
+>674	MemberAccess	anString . size
+>675	Identifier	size
+>676	Identifier	anString
+>677	Identifier	iEnd
+>678	ExpressionStatement	 
+>679	AssignmentExpr	iStart = 1
+>680	PrimaryExpression	1
+>681	Identifier	iStart
+>682	Condition	 
+>683	EqualityExpression	iDirection == 1
+>684	PrimaryExpression	1
+>685	Identifier	iDirection
+>686	IdentifierDeclStatement	 
+>687	IdentifierDecl	i
+>688	Identifier	i
+>689	IdentifierDeclType	int
+>690	IdentifierDecl	iEnd
+>691	Identifier	iEnd
+>692	IdentifierDeclType	int
+>693	IdentifierDecl	iStart
+>694	Identifier	iStart
+>695	IdentifierDeclType	int
+>696	IdentifierDeclStatement	 
+>697	IdentifierDecl	& anString = aanXY [ iSrcString ]
+>698	AssignmentExpr	& anString = aanXY [ iSrcString ]
+>699	ArrayIndexing	aanXY [ iSrcString ]
+>700	Identifier	iSrcString
+>701	Identifier	aanXY
+>702	Identifier	anString
+>703	Identifier	anString
+>704	IdentifierDeclType	std 
+>705	IdentifierDeclStatement	 
+>706	IdentifierDecl	& anBase = aanXY [ iBaseString ]
+>707	AssignmentExpr	& anBase = aanXY [ iBaseString ]
+>708	ArrayIndexing	aanXY [ iBaseString ]
+>709	Identifier	iBaseString
+>710	Identifier	aanXY
+>711	Identifier	anBase
+>712	Identifier	anBase
+>713	IdentifierDeclType	std 
+>735	FunctionDef	RPolygonF 
+>736	ParameterList	int x1 , int y1 , int x2 , int y2
+>737	Parameter	 
+>738	Identifier	y2
+>739	ParameterType	int
+>740	Parameter	 
+>741	Identifier	x2
+>742	ParameterType	int
+>743	Parameter	 
+>744	Identifier	y1
+>745	ParameterType	int
+>746	Parameter	 
+>747	Identifier	x1
+>748	ParameterType	int
+>749	ReturnType	void
+>750	CompoundStatement	 
+>751	ReturnStatement	 
+>752	ExpressionStatement	 
+>753	CallExpression	anString . push_back ( y2 )
+>754	ArgumentList	y2
+>755	Argument	y2
+>756	Identifier	y2
+>757	Callee	anString . push_back
+>758	MemberAccess	anString . push_back
+>759	Identifier	push_back
+>760	Identifier	anString
+>761	ExpressionStatement	 
+>762	CallExpression	anString . push_back ( x2 )
+>763	ArgumentList	x2
+>764	Argument	x2
+>765	Identifier	x2
+>766	Callee	anString . push_back
+>767	MemberAccess	anString . push_back
+>768	Identifier	push_back
+>769	Identifier	anString
+>770	ExpressionStatement	 
+>771	CallExpression	anString . push_back ( y1 )
+>772	ArgumentList	y1
+>773	Argument	y1
+>774	Identifier	y1
+>775	Callee	anString . push_back
+>776	MemberAccess	anString . push_back
+>777	Identifier	push_back
+>778	Identifier	anString
+>779	ExpressionStatement	 
+>780	CallExpression	anString . push_back ( x1 )
+>781	ArgumentList	x1
+>782	Argument	x1
+>783	Identifier	x1
+>784	Callee	anString . push_back
+>785	MemberAccess	anString . push_back
+>786	Identifier	push_back
+>787	Identifier	anString
+>788	IdentifierDeclStatement	 
+>789	IdentifierDecl	& anString = aanXY [ nSize ]
+>790	AssignmentExpr	& anString = aanXY [ nSize ]
+>791	ArrayIndexing	aanXY [ nSize ]
+>792	Identifier	nSize
+>793	Identifier	aanXY
+>794	Identifier	anString
+>795	Identifier	anString
+>796	IdentifierDeclType	std 
+>797	ExpressionStatement	 
+>798	CallExpression	aanXY . resize ( nSize + 1 )
+>799	ArgumentList	nSize + 1
+>800	Argument	nSize + 1
+>801	AdditiveExpression	nSize + 1
+>802	PrimaryExpression	1
+>803	Identifier	nSize
+>804	Callee	aanXY . resize
+>805	MemberAccess	aanXY . resize
+>806	Identifier	resize
+>807	Identifier	aanXY
+>808	IdentifierDeclStatement	 
+>809	IdentifierDecl	nSize = aanXY . size ( )
+>810	AssignmentExpr	nSize = aanXY . size ( )
+>811	CallExpression	aanXY . size ( )
+>812	ArgumentList	 
+>813	Callee	aanXY . size
+>814	MemberAccess	aanXY . size
+>815	Identifier	size
+>816	Identifier	aanXY
+>817	Identifier	nSize
+>818	Identifier	nSize
+>819	IdentifierDeclType	size_t
+>820	ForStatement	for ( iString = 0 ; iString < aanXY . size ( ) ; iString ++ )
+>821	CompoundStatement	 
+>822	IfStatement	if ( anString [ nSSize - 2 ] == x2 && anString [ nSSize - 1 ] == y2 )
+>823	CompoundStatement	 
+>824	ReturnStatement	 
+>825	ExpressionStatement	 
+>826	CallExpression	anString . push_back ( y1 )
+>827	ArgumentList	y1
+>828	Argument	y1
+>829	Identifier	y1
+>830	Callee	anString . push_back
+>831	MemberAccess	anString . push_back
+>832	Identifier	push_back
+>833	Identifier	anString
+>834	ExpressionStatement	 
+>835	CallExpression	anString . push_back ( x1 )
+>836	ArgumentList	x1
+>837	Argument	x1
+>838	Identifier	x1
+>839	Callee	anString . push_back
+>840	MemberAccess	anString . push_back
+>841	Identifier	push_back
+>842	Identifier	anString
+>843	IfStatement	if ( nSSize >= 4 && ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] == ( anString [ nSSize - 2 ] - x1 ) * nLastLen ) && ( \
+>844	CompoundStatement	 
+>845	ExpressionStatement	 
+>846	CallExpression	anString . pop_back ( )
+>847	ArgumentList	 
+>848	Callee	anString . pop_back
+>849	MemberAccess	anString . pop_back
+>850	Identifier	pop_back
+>851	Identifier	anString
+>852	ExpressionStatement	 
+>853	CallExpression	anString . pop_back ( )
+>854	ArgumentList	 
+>855	Callee	anString . pop_back
+>856	MemberAccess	anString . pop_back
+>857	Identifier	pop_back
+>858	Identifier	anString
+>859	Condition	 
+>860	AndExpression	nSSize >= 4 && ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] == ( anString [ nSSize - 2 ] - x1 ) * \
+>861	AndExpression	( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] == ( anString [ nSSize - 2 ] - x1 ) * nLastLen ) && ( \
+>862	EqualityExpression	anString [ nSSize - 3 ] - anString [ nSSize - 1 ] == ( anString [ nSSize - 1 ] - y1 ) * nLastLen
+>863	MultiplicativeExpression	( anString [ nSSize - 1 ] - y1 ) * nLastLen
+>864	Identifier	nLastLen
+>865	AdditiveExpression	anString [ nSSize - 1 ] - y1
+>866	Identifier	y1
+>867	ArrayIndexing	anString [ nSSize - 1 ]
+>868	AdditiveExpression	nSSize - 1
+>869	PrimaryExpression	1
+>870	Identifier	nSSize
+>871	Identifier	anString
+>872	AdditiveExpression	anString [ nSSize - 3 ] - anString [ nSSize - 1 ]
+>873	ArrayIndexing	anString [ nSSize - 1 ]
+>874	AdditiveExpression	nSSize - 1
+>875	PrimaryExpression	1
+>876	Identifier	nSSize
+>877	Identifier	anString
+>878	ArrayIndexing	anString [ nSSize - 3 ]
+>879	AdditiveExpression	nSSize - 3
+>880	PrimaryExpression	3
+>881	Identifier	nSSize
+>882	Identifier	anString
+>883	EqualityExpression	anString [ nSSize - 4 ] - anString [ nSSize - 2 ] == ( anString [ nSSize - 2 ] - x1 ) * nLastLen
+>884	MultiplicativeExpression	( anString [ nSSize - 2 ] - x1 ) * nLastLen
+>885	Identifier	nLastLen
+>886	AdditiveExpression	anString [ nSSize - 2 ] - x1
+>887	Identifier	x1
+>888	ArrayIndexing	anString [ nSSize - 2 ]
+>889	AdditiveExpression	nSSize - 2
+>890	PrimaryExpression	2
+>891	Identifier	nSSize
+>892	Identifier	anString
+>893	AdditiveExpression	anString [ nSSize - 4 ] - anString [ nSSize - 2 ]
+>894	ArrayIndexing	anString [ nSSize - 2 ]
+>895	AdditiveExpression	nSSize - 2
+>896	PrimaryExpression	2
+>897	Identifier	nSSize
+>898	Identifier	anString
+>899	ArrayIndexing	anString [ nSSize - 4 ]
+>900	AdditiveExpression	nSSize - 4
+>901	PrimaryExpression	4
+>902	Identifier	nSSize
+>903	Identifier	anString
+>904	RelationalExpression	nSSize >= 4
+>905	PrimaryExpression	4
+>906	Identifier	nSSize
+>907	IdentifierDeclStatement	 
+>908	IdentifierDecl	nLastLen = MAX ( ABS ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] ) , ABS ( anString [ nSSize - 3 ] - anString [ \
+>909	AssignmentExpr	nLastLen = MAX ( ABS ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] ) , ABS ( anString [ nSSize \
+>910	CallExpression	MAX ( ABS ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] ) , ABS ( anString [ nSSize - 3 ] - anString [ nSSize \
+>911	ArgumentList	ABS ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] )
+>912	Argument	ABS ( anString [ nSSize - 3 ] - anString [ nSSize - 1 ] )
+>913	CallExpression	ABS ( anString [ nSSize - 3 ] - anString [ nSSize - 1 ] )
+>914	ArgumentList	anString [ nSSize - 3 ] - anString [ nSSize - 1 ]
+>915	Argument	anString [ nSSize - 3 ] - anString [ nSSize - 1 ]
+>916	AdditiveExpression	anString [ nSSize - 3 ] - anString [ nSSize - 1 ]
+>917	ArrayIndexing	anString [ nSSize - 1 ]
+>918	AdditiveExpression	nSSize - 1
+>919	PrimaryExpression	1
+>920	Identifier	nSSize
+>921	Identifier	anString
+>922	ArrayIndexing	anString [ nSSize - 3 ]
+>923	AdditiveExpression	nSSize - 3
+>924	PrimaryExpression	3
+>925	Identifier	nSSize
+>926	Identifier	anString
+>927	Callee	ABS
+>928	Identifier	ABS
+>929	Argument	ABS ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] )
+>930	CallExpression	ABS ( anString [ nSSize - 4 ] - anString [ nSSize - 2 ] )
+>931	ArgumentList	anString [ nSSize - 4 ] - anString [ nSSize - 2 ]
+>932	Argument	anString [ nSSize - 4 ] - anString [ nSSize - 2 ]
+>933	AdditiveExpression	anString [ nSSize - 4 ] - anString [ nSSize - 2 ]
+>934	ArrayIndexing	anString [ nSSize - 2 ]
+>935	AdditiveExpression	nSSize - 2
+>936	PrimaryExpression	2
+>937	Identifier	nSSize
+>938	Identifier	anString
+>939	ArrayIndexing	anString [ nSSize - 4 ]
+>940	AdditiveExpression	nSSize - 4
+>941	PrimaryExpression	4
+>942	Identifier	nSSize
+>943	Identifier	anString
+>944	Callee	ABS
+>945	Identifier	ABS
+>946	Callee	MAX
+>947	Identifier	MAX
+>948	Identifier	nLastLen
+>949	Identifier	nLastLen
+>950	IdentifierDeclType	int
+>951	Condition	 
+>952	AndExpression	anString [ nSSize - 2 ] == x2 && anString [ nSSize - 1 ] == y2
+>953	EqualityExpression	anString [ nSSize - 1 ] == y2
+>954	Identifier	y2
+>955	ArrayIndexing	anString [ nSSize - 1 ]
+>956	AdditiveExpression	nSSize - 1
+>957	PrimaryExpression	1
+>958	Identifier	nSSize
+>959	Identifier	anString
+>960	EqualityExpression	anString [ nSSize - 2 ] == x2
+>961	Identifier	x2
+>962	ArrayIndexing	anString [ nSSize - 2 ]
+>963	AdditiveExpression	nSSize - 2
+>964	PrimaryExpression	2
+>965	Identifier	nSSize
+>966	Identifier	anString
+>967	IfStatement	if ( anString [ nSSize - 2 ] == x1 && anString [ nSSize - 1 ] == y1 )
+>968	CompoundStatement	 
+>969	ExpressionStatement	 
+>970	AssignmentExpr	y1 = nTemp
+>971	Identifier	nTemp
+>972	Identifier	y1
+>973	ExpressionStatement	 
+>974	AssignmentExpr	y2 = y1
+>975	Identifier	y1
+>976	Identifier	y2
+>977	ExpressionStatement	 
+>978	AssignmentExpr	nTemp = y2
+>979	Identifier	y2
+>980	Identifier	nTemp
+>981	ExpressionStatement	 
+>982	AssignmentExpr	x1 = nTemp
+>983	Identifier	nTemp
+>984	Identifier	x1
+>985	ExpressionStatement	 
+>986	AssignmentExpr	x2 = x1
+>987	Identifier	x1
+>988	Identifier	x2
+>989	ExpressionStatement	 
+>990	AssignmentExpr	nTemp = x2
+>991	Identifier	x2
+>992	Identifier	nTemp
+>993	IdentifierDeclStatement	 
+>994	IdentifierDecl	nTemp
+>995	Identifier	nTemp
+>996	IdentifierDeclType	int
+>997	Condition	 
+>998	AndExpression	anString [ nSSize - 2 ] == x1 && anString [ nSSize - 1 ] == y1
+>999	EqualityExpression	anString [ nSSize - 1 ] == y1
+>1000	Identifier	y1
+>1001	ArrayIndexing	anString [ nSSize - 1 ]
+>1002	AdditiveExpression	nSSize - 1
+>1003	PrimaryExpression	1
+>1004	Identifier	nSSize
+>1005	Identifier	anString
+>1006	EqualityExpression	anString [ nSSize - 2 ] == x1
+>1007	Identifier	x1
+>1008	ArrayIndexing	anString [ nSSize - 2 ]
+>1009	AdditiveExpression	nSSize - 2
+>1010	PrimaryExpression	2
+>1011	Identifier	nSSize
+>1012	Identifier	anString
+>1013	IdentifierDeclStatement	 
+>1014	IdentifierDecl	nSSize = anString . size ( )
+>1015	AssignmentExpr	nSSize = anString . size ( )
+>1016	CallExpression	anString . size ( )
+>1017	ArgumentList	 
+>1018	Callee	anString . size
+>1019	MemberAccess	anString . size
+>1020	Identifier	size
+>1021	Identifier	anString
+>1022	Identifier	nSSize
+>1023	Identifier	nSSize
+>1024	IdentifierDeclType	size_t
+>1025	IdentifierDeclStatement	 
+>1026	IdentifierDecl	& anString = aanXY [ iString ]
+>1027	AssignmentExpr	& anString = aanXY [ iString ]
+>1028	ArrayIndexing	aanXY [ iString ]
+>1029	Identifier	iString
+>1030	Identifier	aanXY
+>1031	Identifier	anString
+>1032	Identifier	anString
+>1033	IdentifierDeclType	std 
+>1034	IncDecOp	 
+>1035	IncDec	++
+>1036	Identifier	iString
+>1037	Condition	 
+>1038	RelationalExpression	iString < aanXY . size ( )
+>1039	CallExpression	aanXY . size ( )
+>1040	ArgumentList	 
+>1041	Callee	aanXY . size
+>1042	MemberAccess	aanXY . size
+>1043	Identifier	size
+>1044	Identifier	aanXY
+>1045	Identifier	iString
+>1046	ForInit	 
+>1047	AssignmentExpr	iString = 0
+>1048	PrimaryExpression	0
+>1049	Identifier	iString
+>1050	IdentifierDeclStatement	 
+>1051	IdentifierDecl	iString
+>1052	Identifier	iString
+>1053	IdentifierDeclType	size_t
+>1054	ExpressionStatement	 
+>1055	AssignmentExpr	nLastLineUpdated = MAX ( y1 , y2 )
+>1056	CallExpression	MAX ( y1 , y2 )
+>1057	ArgumentList	y1
+>1058	Argument	y2
+>1059	Identifier	y2
+>1060	Argument	y1
+>1061	Identifier	y1
+>1062	Callee	MAX
+>1063	Identifier	MAX
+>1064	Identifier	nLastLineUpdated
+>1089	FunctionDef	AddEdges (GInt32 * panThisLineId , GInt32 * panLastLineId , GInt32 * panPolyIdMap , float * pafPolyValue , RPolygonF * * \
+>1090	ParameterList	GInt32 * panThisLineId , GInt32 * panLastLineId , GInt32 * panPolyIdMap , float * pafPolyValue , RPolygonF * * papoPoly , \
+>1091	Parameter	 
+>1092	Identifier	iY
+>1093	ParameterType	int
+>1094	Parameter	 
+>1095	Identifier	iX
+>1096	ParameterType	int
+>1097	Parameter	 
+>1098	Identifier	papoPoly
+>1099	ParameterType	RPolygonF * *
+>1100	Parameter	 
+>1101	Identifier	pafPolyValue
+>1102	ParameterType	float *
+>1103	Parameter	 
+>1104	Identifier	panPolyIdMap
+>1105	ParameterType	GInt32 *
+>1106	Parameter	 
+>1107	Identifier	panLastLineId
+>1108	ParameterType	GInt32 *
+>1109	Parameter	 
+>1110	Identifier	panThisLineId
+>1111	ParameterType	GInt32 *
+>1112	ReturnType	static void
+>1113	CompoundStatement	 
+>1114	IfStatement	if ( nThisId != nRightId )
+>1115	CompoundStatement	 
+>1116	IfStatement	if ( nRightId != - 1 )
+>1117	CompoundStatement	 
+>1118	ExpressionStatement	 
+>1119	CallExpression	papoPoly [ nRightId ] -> AddSegment ( iXReal + 1 , iY , iXReal + 1 , iY + 1 )
+>1120	ArgumentList	iXReal + 1
+>1121	Argument	iY + 1
+>1122	AdditiveExpression	iY + 1
+>1123	PrimaryExpression	1
+>1124	Identifier	iY
+>1125	Argument	iXReal + 1
+>1126	AdditiveExpression	iXReal + 1
+>1127	PrimaryExpression	1
+>1128	Identifier	iXReal
+>1129	Argument	iY
+>1130	Identifier	iY
+>1131	Argument	iXReal + 1
+>1132	AdditiveExpression	iXReal + 1
+>1133	PrimaryExpression	1
+>1134	Identifier	iXReal
+>1135	Callee	papoPoly [ nRightId ] -> AddSegment
+>1136	PtrMemberAccess	papoPoly [ nRightId ] -> AddSegment
+>1137	Identifier	AddSegment
+>1138	ArrayIndexing	papoPoly [ nRightId ]
+>1139	Identifier	nRightId
+>1140	Identifier	papoPoly
+>1141	IfStatement	if ( papoPoly [ nRightId ] == NULL )
+>1142	ExpressionStatement	 
+>1143	AssignmentExpr	papoPoly [ nRightId ] = new RPolygonF ( pafPolyValue [ nRightId ] )
+>1144	ArrayIndexing	pafPolyValue [ nRightId ]
+>1145	Identifier	nRightId
+>1146	Identifier	pafPolyValue
+>1147	ArrayIndexing	papoPoly [ nRightId ]
+>1148	Identifier	nRightId
+>1149	Identifier	papoPoly
+>1150	Condition	 
+>1151	EqualityExpression	papoPoly [ nRightId ] == NULL
+>1152	Identifier	NULL
+>1153	ArrayIndexing	papoPoly [ nRightId ]
+>1154	Identifier	nRightId
+>1155	Identifier	papoPoly
+>1156	Condition	 
+>1157	EqualityExpression	nRightId != - 1
+>1158	UnaryOp	- 1
+>1159	PrimaryExpression	1
+>1160	UnaryOperator	-
+>1161	Identifier	nRightId
+>1162	IfStatement	if ( nThisId != - 1 )
+>1163	CompoundStatement	 
+>1164	ExpressionStatement	 
+>1165	CallExpression	papoPoly [ nThisId ] -> AddSegment ( iXReal + 1 , iY , iXReal + 1 , iY + 1 )
+>1166	ArgumentList	iXReal + 1
+>1167	Argument	iY + 1
+>1168	AdditiveExpression	iY + 1
+>1169	PrimaryExpression	1
+>1170	Identifier	iY
+>1171	Argument	iXReal + 1
+>1172	AdditiveExpression	iXReal + 1
+>1173	PrimaryExpression	1
+>1174	Identifier	iXReal
+>1175	Argument	iY
+>1176	Identifier	iY
+>1177	Argument	iXReal + 1
+>1178	AdditiveExpression	iXReal + 1
+>1179	PrimaryExpression	1
+>1180	Identifier	iXReal
+>1181	Callee	papoPoly [ nThisId ] -> AddSegment
+>1182	PtrMemberAccess	papoPoly [ nThisId ] -> AddSegment
+>1183	Identifier	AddSegment
+>1184	ArrayIndexing	papoPoly [ nThisId ]
+>1185	Identifier	nThisId
+>1186	Identifier	papoPoly
+>1187	IfStatement	if ( papoPoly [ nThisId ] == NULL )
+>1188	ExpressionStatement	 
+>1189	AssignmentExpr	papoPoly [ nThisId ] = new RPolygonF ( pafPolyValue [ nThisId ] )
+>1190	ArrayIndexing	pafPolyValue [ nThisId ]
+>1191	Identifier	nThisId
+>1192	Identifier	pafPolyValue
+>1193	ArrayIndexing	papoPoly [ nThisId ]
+>1194	Identifier	nThisId
+>1195	Identifier	papoPoly
+>1196	Condition	 
+>1197	EqualityExpression	papoPoly [ nThisId ] == NULL
+>1198	Identifier	NULL
+>1199	ArrayIndexing	papoPoly [ nThisId ]
+>1200	Identifier	nThisId
+>1201	Identifier	papoPoly
+>1202	Condition	 
+>1203	EqualityExpression	nThisId != - 1
+>1204	UnaryOp	- 1
+>1205	PrimaryExpression	1
+>1206	UnaryOperator	-
+>1207	Identifier	nThisId
+>1208	Condition	 
+>1209	EqualityExpression	nThisId != nRightId
+>1210	Identifier	nRightId
+>1211	Identifier	nThisId
+>1212	IfStatement	if ( nThisId != nPreviousId )
+>1213	CompoundStatement	 
+>1214	IfStatement	if ( nPreviousId != - 1 )
+>1215	CompoundStatement	 
+>1216	ExpressionStatement	 
+>1217	CallExpression	papoPoly [ nPreviousId ] -> AddSegment ( iXReal , iY , iXReal + 1 , iY )
+>1218	ArgumentList	iXReal
+>1219	Argument	iY
+>1220	Identifier	iY
+>1221	Argument	iXReal + 1
+>1222	AdditiveExpression	iXReal + 1
+>1223	PrimaryExpression	1
+>1224	Identifier	iXReal
+>1225	Argument	iY
+>1226	Identifier	iY
+>1227	Argument	iXReal
+>1228	Identifier	iXReal
+>1229	Callee	papoPoly [ nPreviousId ] -> AddSegment
+>1230	PtrMemberAccess	papoPoly [ nPreviousId ] -> AddSegment
+>1231	Identifier	AddSegment
+>1232	ArrayIndexing	papoPoly [ nPreviousId ]
+>1233	Identifier	nPreviousId
+>1234	Identifier	papoPoly
+>1235	IfStatement	if ( papoPoly [ nPreviousId ] == NULL )
+>1236	ExpressionStatement	 
+>1237	AssignmentExpr	papoPoly [ nPreviousId ] = new RPolygonF ( pafPolyValue [ nPreviousId ] )
+>1238	ArrayIndexing	pafPolyValue [ nPreviousId ]
+>1239	Identifier	nPreviousId
+>1240	Identifier	pafPolyValue
+>1241	ArrayIndexing	papoPoly [ nPreviousId ]
+>1242	Identifier	nPreviousId
+>1243	Identifier	papoPoly
+>1244	Condition	 
+>1245	EqualityExpression	papoPoly [ nPreviousId ] == NULL
+>1246	Identifier	NULL
+>1247	ArrayIndexing	papoPoly [ nPreviousId ]
+>1248	Identifier	nPreviousId
+>1249	Identifier	papoPoly
+>1250	Condition	 
+>1251	EqualityExpression	nPreviousId != - 1
+>1252	UnaryOp	- 1
+>1253	PrimaryExpression	1
+>1254	UnaryOperator	-
+>1255	Identifier	nPreviousId
+>1256	IfStatement	if ( nThisId != - 1 )
+>1257	CompoundStatement	 
+>1258	ExpressionStatement	 
+>1259	CallExpression	papoPoly [ nThisId ] -> AddSegment ( iXReal , iY , iXReal + 1 , iY )
+>1260	ArgumentList	iXReal
+>1261	Argument	iY
+>1262	Identifier	iY
+>1263	Argument	iXReal + 1
+>1264	AdditiveExpression	iXReal + 1
+>1265	PrimaryExpression	1
+>1266	Identifier	iXReal
+>1267	Argument	iY
+>1268	Identifier	iY
+>1269	Argument	iXReal
+>1270	Identifier	iXReal
+>1271	Callee	papoPoly [ nThisId ] -> AddSegment
+>1272	PtrMemberAccess	papoPoly [ nThisId ] -> AddSegment
+>1273	Identifier	AddSegment
+>1274	ArrayIndexing	papoPoly [ nThisId ]
+>1275	Identifier	nThisId
+>1276	Identifier	papoPoly
+>1277	IfStatement	if ( papoPoly [ nThisId ] == NULL )
+>1278	ExpressionStatement	 
+>1279	AssignmentExpr	papoPoly [ nThisId ] = new RPolygonF ( pafPolyValue [ nThisId ] )
+>1280	ArrayIndexing	pafPolyValue [ nThisId ]
+>1281	Identifier	nThisId
+>1282	Identifier	pafPolyValue
+>1283	ArrayIndexing	papoPoly [ nThisId ]
+>1284	Identifier	nThisId
+>1285	Identifier	papoPoly
+>1286	Condition	 
+>1287	EqualityExpression	papoPoly [ nThisId ] == NULL
+>1288	Identifier	NULL
+>1289	ArrayIndexing	papoPoly [ nThisId ]
+>1290	Identifier	nThisId
+>1291	Identifier	papoPoly
+>1292	Condition	 
+>1293	EqualityExpression	nThisId != - 1
+>1294	UnaryOp	- 1
+>1295	PrimaryExpression	1
+>1296	UnaryOperator	-
+>1297	Identifier	nThisId
+>1298	Condition	 
+>1299	EqualityExpression	nThisId != nPreviousId
+>1300	Identifier	nPreviousId
+>1301	Identifier	nThisId
+>1302	IfStatement	if ( nPreviousId != - 1 )
+>1303	ExpressionStatement	 
+>1304	AssignmentExpr	nPreviousId = panPolyIdMap [ nPreviousId ]
+>1305	ArrayIndexing	panPolyIdMap [ nPreviousId ]
+>1306	Identifier	nPreviousId
+>1307	Identifier	panPolyIdMap
+>1308	Identifier	nPreviousId
+>1309	Condition	 
+>1310	EqualityExpression	nPreviousId != - 1
+>1311	UnaryOp	- 1
+>1312	PrimaryExpression	1
+>1313	UnaryOperator	-
+>1314	Identifier	nPreviousId
+>1315	IfStatement	if ( nRightId != - 1 )
+>1316	ExpressionStatement	 
+>1317	AssignmentExpr	nRightId = panPolyIdMap [ nRightId ]
+>1318	ArrayIndexing	panPolyIdMap [ nRightId ]
+>1319	Identifier	nRightId
+>1320	Identifier	panPolyIdMap
+>1321	Identifier	nRightId
+>1322	Condition	 
+>1323	EqualityExpression	nRightId != - 1
+>1324	UnaryOp	- 1
+>1325	PrimaryExpression	1
+>1326	UnaryOperator	-
+>1327	Identifier	nRightId
+>1328	IfStatement	if ( nThisId != - 1 )
+>1329	ExpressionStatement	 
+>1330	AssignmentExpr	nThisId = panPolyIdMap [ nThisId ]
+>1331	ArrayIndexing	panPolyIdMap [ nThisId ]
+>1332	Identifier	nThisId
+>1333	Identifier	panPolyIdMap
+>1334	Identifier	nThisId
+>1335	Condition	 
+>1336	EqualityExpression	nThisId != - 1
+>1337	UnaryOp	- 1
+>1338	PrimaryExpression	1
+>1339	UnaryOperator	-
+>1340	Identifier	nThisId
+>1341	IdentifierDeclStatement	 
+>1342	IdentifierDecl	iXReal = iX - 1
+>1343	AssignmentExpr	iXReal = iX - 1
+>1344	AdditiveExpression	iX - 1
+>1345	PrimaryExpression	1
+>1346	Identifier	iX
+>1347	Identifier	iXReal
+>1348	Identifier	iXReal
+>1349	IdentifierDeclType	int
+>1350	IdentifierDeclStatement	 
+>1351	IdentifierDecl	nPreviousId = panLastLineId [ iX ]
+>1352	AssignmentExpr	nPreviousId = panLastLineId [ iX ]
+>1353	ArrayIndexing	panLastLineId [ iX ]
+>1354	Identifier	iX
+>1355	Identifier	panLastLineId
+>1356	Identifier	nPreviousId
+>1357	Identifier	nPreviousId
+>1358	IdentifierDeclType	int
+>1359	IdentifierDeclStatement	 
+>1360	IdentifierDecl	nRightId = panThisLineId [ iX + 1 ]
+>1361	AssignmentExpr	nRightId = panThisLineId [ iX + 1 ]
+>1362	ArrayIndexing	panThisLineId [ iX + 1 ]
+>1363	AdditiveExpression	iX + 1
+>1364	PrimaryExpression	1
+>1365	Identifier	iX
+>1366	Identifier	panThisLineId
+>1367	Identifier	nRightId
+>1368	Identifier	nRightId
+>1369	IdentifierDeclType	int
+>1370	IdentifierDeclStatement	 
+>1371	IdentifierDecl	nThisId = panThisLineId [ iX ]
+>1372	AssignmentExpr	nThisId = panThisLineId [ iX ]
+>1373	ArrayIndexing	panThisLineId [ iX ]
+>1374	Identifier	iX
+>1375	Identifier	panThisLineId
+>1376	Identifier	nThisId
+>1377	Identifier	nThisId
+>1378	IdentifierDeclType	int
+>1403	FunctionDef	EmitPolygonToLayer (OGRLayerH hOutLayer , int iPixValField , RPolygonF * poRPoly , double * padfGeoTransform)
+>1404	ParameterList	OGRLayerH hOutLayer , int iPixValField , RPolygonF * poRPoly , double * padfGeoTransform
+>1405	Parameter	 
+>1406	Identifier	padfGeoTransform
+>1407	ParameterType	double *
+>1408	Parameter	 
+>1409	Identifier	poRPoly
+>1410	ParameterType	RPolygonF *
+>1411	Parameter	 
+>1412	Identifier	iPixValField
+>1413	ParameterType	int
+>1414	Parameter	 
+>1415	Identifier	hOutLayer
+>1416	ParameterType	OGRLayerH
+>1417	ReturnType	static CPLErr
+>1418	CompoundStatement	 
+>1419	ReturnStatement	 
+>1420	Identifier	eErr
+>1421	ExpressionStatement	 
+>1422	CallExpression	OGR_F_Destroy ( hFeat )
+>1423	ArgumentList	hFeat
+>1424	Argument	hFeat
+>1425	Identifier	hFeat
+>1426	Callee	OGR_F_Destroy
+>1427	Identifier	OGR_F_Destroy
+>1428	IfStatement	if ( OGR_L_CreateFeature ( hOutLayer , hFeat ) != OGRERR_NONE )
+>1429	ExpressionStatement	 
+>1430	AssignmentExpr	eErr = CE_Failure
+>1431	Identifier	CE_Failure
+>1432	Identifier	eErr
+>1433	Condition	 
+>1434	EqualityExpression	OGR_L_CreateFeature ( hOutLayer , hFeat ) != OGRERR_NONE
+>1435	Identifier	OGRERR_NONE
+>1436	CallExpression	OGR_L_CreateFeature ( hOutLayer , hFeat )
+>1437	ArgumentList	hOutLayer
+>1438	Argument	hFeat
+>1439	Identifier	hFeat
+>1440	Argument	hOutLayer
+>1441	Identifier	hOutLayer
+>1442	Callee	OGR_L_CreateFeature
+>1443	Identifier	OGR_L_CreateFeature
+>1444	IdentifierDeclStatement	 
+>1445	IdentifierDecl	eErr = CE_None
+>1446	AssignmentExpr	eErr = CE_None
+>1447	Identifier	CE_None
+>1448	Identifier	CE_None
+>1449	Identifier	eErr
+>1450	IdentifierDeclType	CPLErr
+>1451	IfStatement	if ( iPixValField >= 0 )
+>1452	ExpressionStatement	 
+>1453	CallExpression	OGR_F_SetFieldDouble ( hFeat , iPixValField , ( double ) poRPoly -> fPolyValue )
+>1454	ArgumentList	hFeat
+>1455	Argument	( double ) poRPoly -> fPolyValue
+>1456	CastExpression	( double ) poRPoly -> fPolyValue
+>1457	PtrMemberAccess	poRPoly -> fPolyValue
+>1458	Identifier	fPolyValue
+>1459	Identifier	poRPoly
+>1460	CastTarget	double
+>1461	Argument	iPixValField
+>1462	Identifier	iPixValField
+>1463	Argument	hFeat
+>1464	Identifier	hFeat
+>1465	Callee	OGR_F_SetFieldDouble
+>1466	Identifier	OGR_F_SetFieldDouble
+>1467	Condition	 
+>1468	RelationalExpression	iPixValField >= 0
+>1469	PrimaryExpression	0
+>1470	Identifier	iPixValField
+>1471	ExpressionStatement	 
+>1472	CallExpression	OGR_F_SetGeometryDirectly ( hFeat , hPolygon )
+>1473	ArgumentList	hFeat
+>1474	Argument	hPolygon
+>1475	Identifier	hPolygon
+>1476	Argument	hFeat
+>1477	Identifier	hFeat
+>1478	Callee	OGR_F_SetGeometryDirectly
+>1479	Identifier	OGR_F_SetGeometryDirectly
+>1480	ExpressionStatement	 
+>1481	AssignmentExpr	hFeat = OGR_F_Create ( OGR_L_GetLayerDefn ( hOutLayer ) )
+>1482	CallExpression	OGR_F_Create ( OGR_L_GetLayerDefn ( hOutLayer ) )
+>1483	ArgumentList	OGR_L_GetLayerDefn ( hOutLayer )
+>1484	Argument	OGR_L_GetLayerDefn ( hOutLayer )
+>1485	CallExpression	OGR_L_GetLayerDefn ( hOutLayer )
+>1486	ArgumentList	hOutLayer
+>1487	Argument	hOutLayer
+>1488	Identifier	hOutLayer
+>1489	Callee	OGR_L_GetLayerDefn
+>1490	Identifier	OGR_L_GetLayerDefn
+>1491	Callee	OGR_F_Create
+>1492	Identifier	OGR_F_Create
+>1493	Identifier	hFeat
+>1494	ForStatement	for ( iString = 0 ; iString < poRPoly -> aanXY . size ( ) ; iString ++ )
+>1495	CompoundStatement	 
+>1496	ExpressionStatement	 
+>1497	CallExpression	OGR_G_AddGeometryDirectly ( hPolygon , hRing )
+>1498	ArgumentList	hPolygon
+>1499	Argument	hRing
+>1500	Identifier	hRing
+>1501	Argument	hPolygon
+>1502	Identifier	hPolygon
+>1503	Callee	OGR_G_AddGeometryDirectly
+>1504	Identifier	OGR_G_AddGeometryDirectly
+>1505	ForStatement	for ( iVert = anString . size ( ) / 2 - 1 ; iVert >= 0 ; iVert -- )
+>1506	CompoundStatement	 
+>1507	ExpressionStatement	 
+>1508	CallExpression	OGR_G_SetPoint_2D ( hRing , iVert , dfX , dfY )
+>1509	ArgumentList	hRing
+>1510	Argument	dfY
+>1511	Identifier	dfY
+>1512	Argument	dfX
+>1513	Identifier	dfX
+>1514	Argument	iVert
+>1515	Identifier	iVert
+>1516	Argument	hRing
+>1517	Identifier	hRing
+>1518	Callee	OGR_G_SetPoint_2D
+>1519	Identifier	OGR_G_SetPoint_2D
+>1520	ExpressionStatement	 
+>1521	AssignmentExpr	dfY = padfGeoTransform [ 3 ] + nPixelX * padfGeoTransform [ 4 ] + nPixelY * padfGeoTransform [ 5 ]
+>1522	AdditiveExpression	padfGeoTransform [ 3 ] + nPixelX * padfGeoTransform [ 4 ] + nPixelY * padfGeoTransform [ 5 ]
+>1523	AdditiveExpression	nPixelX * padfGeoTransform [ 4 ] + nPixelY * padfGeoTransform [ 5 ]
+>1524	MultiplicativeExpression	nPixelY * padfGeoTransform [ 5 ]
+>1525	ArrayIndexing	padfGeoTransform [ 5 ]
+>1526	PrimaryExpression	5
+>1527	Identifier	padfGeoTransform
+>1528	Identifier	nPixelY
+>1529	MultiplicativeExpression	nPixelX * padfGeoTransform [ 4 ]
+>1530	ArrayIndexing	padfGeoTransform [ 4 ]
+>1531	PrimaryExpression	4
+>1532	Identifier	padfGeoTransform
+>1533	Identifier	nPixelX
+>1534	ArrayIndexing	padfGeoTransform [ 3 ]
+>1535	PrimaryExpression	3
+>1536	Identifier	padfGeoTransform
+>1537	Identifier	dfY
+>1538	ExpressionStatement	 
+>1539	AssignmentExpr	dfX = padfGeoTransform [ 0 ] + nPixelX * padfGeoTransform [ 1 ] + nPixelY * padfGeoTransform [ 2 ]
+>1540	AdditiveExpression	padfGeoTransform [ 0 ] + nPixelX * padfGeoTransform [ 1 ] + nPixelY * padfGeoTransform [ 2 ]
+>1541	AdditiveExpression	nPixelX * padfGeoTransform [ 1 ] + nPixelY * padfGeoTransform [ 2 ]
+>1542	MultiplicativeExpression	nPixelY * padfGeoTransform [ 2 ]
+>1543	ArrayIndexing	padfGeoTransform [ 2 ]
+>1544	PrimaryExpression	2
+>1545	Identifier	padfGeoTransform
+>1546	Identifier	nPixelY
+>1547	MultiplicativeExpression	nPixelX * padfGeoTransform [ 1 ]
+>1548	ArrayIndexing	padfGeoTransform [ 1 ]
+>1549	PrimaryExpression	1
+>1550	Identifier	padfGeoTransform
+>1551	Identifier	nPixelX
+>1552	ArrayIndexing	padfGeoTransform [ 0 ]
+>1553	PrimaryExpression	0
+>1554	Identifier	padfGeoTransform
+>1555	Identifier	dfX
+>1556	ExpressionStatement	 
+>1557	AssignmentExpr	nPixelY = anString [ iVert * 2 + 1 ]
+>1558	ArrayIndexing	anString [ iVert * 2 + 1 ]
+>1559	AdditiveExpression	iVert * 2 + 1
+>1560	PrimaryExpression	1
+>1561	MultiplicativeExpression	iVert * 2
+>1562	PrimaryExpression	2
+>1563	Identifier	iVert
+>1564	Identifier	anString
+>1565	Identifier	nPixelY
+>1566	ExpressionStatement	 
+>1567	AssignmentExpr	nPixelX = anString [ iVert * 2 ]
+>1568	ArrayIndexing	anString [ iVert * 2 ]
+>1569	MultiplicativeExpression	iVert * 2
+>1570	PrimaryExpression	2
+>1571	Identifier	iVert
+>1572	Identifier	anString
+>1573	Identifier	nPixelX
+>1574	IdentifierDeclStatement	 
+>1575	IdentifierDecl	nPixelY
+>1576	Identifier	nPixelY
+>1577	IdentifierDeclType	int
+>1578	IdentifierDecl	nPixelX
+>1579	Identifier	nPixelX
+>1580	IdentifierDeclType	int
+>1581	IdentifierDeclStatement	 
+>1582	IdentifierDecl	dfY
+>1583	Identifier	dfY
+>1584	IdentifierDeclType	double
+>1585	IdentifierDecl	dfX
+>1586	Identifier	dfX
+>1587	IdentifierDeclType	double
+>1588	IncDecOp	 
+>1589	IncDec	--
+>1590	Identifier	iVert
+>1591	Condition	 
+>1592	RelationalExpression	iVert >= 0
+>1593	PrimaryExpression	0
+>1594	Identifier	iVert
+>1595	ForInit	 
+>1596	AssignmentExpr	iVert = anString . size ( ) / 2 - 1
+>1597	AdditiveExpression	anString . size ( ) / 2 - 1
+>1598	PrimaryExpression	1
+>1599	MultiplicativeExpression	anString . size ( ) / 2
+>1600	PrimaryExpression	2
+>1601	CallExpression	anString . size ( )
+>1602	ArgumentList	 
+>1603	Callee	anString . size
+>1604	MemberAccess	anString . size
+>1605	Identifier	size
+>1606	Identifier	anString
+>1607	Identifier	iVert
+>1608	IdentifierDeclStatement	 
+>1609	IdentifierDecl	iVert
+>1610	Identifier	iVert
+>1611	IdentifierDeclType	int
+>1612	IdentifierDeclStatement	 
+>1613	IdentifierDecl	hRing = OGR_G_CreateGeometry ( wkbLinearRing )
+>1614	AssignmentExpr	hRing = OGR_G_CreateGeometry ( wkbLinearRing )
+>1615	CallExpression	OGR_G_CreateGeometry ( wkbLinearRing )
+>1616	ArgumentList	wkbLinearRing
+>1617	Argument	wkbLinearRing
+>1618	Identifier	wkbLinearRing
+>1619	Callee	OGR_G_CreateGeometry
+>1620	Identifier	OGR_G_CreateGeometry
+>1621	Identifier	hRing
+>1622	Identifier	hRing
+>1623	IdentifierDeclType	OGRGeometryH
+>1624	IdentifierDeclStatement	 
+>1625	IdentifierDecl	& anString = poRPoly -> aanXY [ iString ]
+>1626	AssignmentExpr	& anString = poRPoly -> aanXY [ iString ]
+>1627	ArrayIndexing	poRPoly -> aanXY [ iString ]
+>1628	Identifier	iString
+>1629	PtrMemberAccess	poRPoly -> aanXY
+>1630	Identifier	aanXY
+>1631	Identifier	poRPoly
+>1632	Identifier	anString
+>1633	Identifier	anString
+>1634	IdentifierDeclType	std 
+>1635	IncDecOp	 
+>1636	IncDec	++
+>1637	Identifier	iString
+>1638	Condition	 
+>1639	RelationalExpression	iString < poRPoly -> aanXY . size ( )
+>1640	CallExpression	poRPoly -> aanXY . size ( )
+>1641	ArgumentList	 
+>1642	Callee	poRPoly -> aanXY . size
+>1643	MemberAccess	poRPoly -> aanXY . size
+>1644	Identifier	size
+>1645	PtrMemberAccess	poRPoly -> aanXY
+>1646	Identifier	aanXY
+>1647	Identifier	poRPoly
+>1648	Identifier	iString
+>1649	ForInit	 
+>1650	AssignmentExpr	iString = 0
+>1651	PrimaryExpression	0
+>1652	Identifier	iString
+>1653	ExpressionStatement	 
+>1654	AssignmentExpr	hPolygon = OGR_G_CreateGeometry ( wkbPolygon )
+>1655	CallExpression	OGR_G_CreateGeometry ( wkbPolygon )
+>1656	ArgumentList	wkbPolygon
+>1657	Argument	wkbPolygon
+>1658	Identifier	wkbPolygon
+>1659	Callee	OGR_G_CreateGeometry
+>1660	Identifier	OGR_G_CreateGeometry
+>1661	Identifier	hPolygon
+>1662	IdentifierDeclStatement	 
+>1663	IdentifierDecl	iString
+>1664	Identifier	iString
+>1665	IdentifierDeclType	size_t
+>1666	ExpressionStatement	 
+>1667	CallExpression	poRPoly -> Coalesce ( )
+>1668	ArgumentList	 
+>1669	Callee	poRPoly -> Coalesce
+>1670	PtrMemberAccess	poRPoly -> Coalesce
+>1671	Identifier	Coalesce
+>1672	Identifier	poRPoly
+>1673	IdentifierDeclStatement	 
+>1674	IdentifierDecl	hPolygon
+>1675	Identifier	hPolygon
+>1676	IdentifierDeclType	OGRGeometryH
+>1677	IdentifierDeclStatement	 
+>1678	IdentifierDecl	hFeat
+>1679	Identifier	hFeat
+>1680	IdentifierDeclType	OGRFeatureH
+>1719	FunctionDef	GPMaskImageData (GDALRasterBandH hMaskBand , GByte * pabyMaskLine , int iY , int nXSize , float * pafImageLine)
+>1720	ParameterList	GDALRasterBandH hMaskBand , GByte * pabyMaskLine , int iY , int nXSize , float * pafImageLine
+>1721	Parameter	 
+>1722	Identifier	pafImageLine
+>1723	ParameterType	float *
+>1724	Parameter	 
+>1725	Identifier	nXSize
+>1726	ParameterType	int
+>1727	Parameter	 
+>1728	Identifier	iY
+>1729	ParameterType	int
+>1730	Parameter	 
+>1731	Identifier	pabyMaskLine
+>1732	ParameterType	GByte *
+>1733	Parameter	 
+>1734	Identifier	hMaskBand
+>1735	ParameterType	GDALRasterBandH
+>1736	ReturnType	static CPLErr
+>1737	CompoundStatement	 
+>1738	ReturnStatement	 
+>1739	Identifier	eErr
+>1740	IfStatement	if ( eErr == CE_None )
+>1741	CompoundStatement	 
+>1742	ForStatement	for ( i = 0 ; i < nXSize ; i ++ )
+>1743	CompoundStatement	 
+>1744	IfStatement	if ( pabyMaskLine [ i ] == 0 )
+>1745	ExpressionStatement	 
+>1746	AssignmentExpr	pafImageLine [ i ] = GP_NODATA_MARKER
+>1747	Identifier	GP_NODATA_MARKER
+>1748	ArrayIndexing	pafImageLine [ i ]
+>1749	Identifier	i
+>1750	Identifier	pafImageLine
+>1751	Condition	 
+>1752	EqualityExpression	pabyMaskLine [ i ] == 0
+>1753	PrimaryExpression	0
+>1754	ArrayIndexing	pabyMaskLine [ i ]
+>1755	Identifier	i
+>1756	Identifier	pabyMaskLine
+>1757	IncDecOp	 
+>1758	IncDec	++
+>1759	Identifier	i
+>1760	Condition	 
+>1761	RelationalExpression	i < nXSize
+>1762	Identifier	nXSize
+>1763	Identifier	i
+>1764	ForInit	 
+>1765	AssignmentExpr	i = 0
+>1766	PrimaryExpression	0
+>1767	Identifier	i
+>1768	IdentifierDeclStatement	 
+>1769	IdentifierDecl	i
+>1770	Identifier	i
+>1771	IdentifierDeclType	int
+>1772	Condition	 
+>1773	EqualityExpression	eErr == CE_None
+>1774	Identifier	CE_None
+>1775	Identifier	eErr
+>1776	ExpressionStatement	 
+>1777	AssignmentExpr	eErr = GDALRasterIO ( hMaskBand , GF_Read , 0 , iY , nXSize , 1 , pabyMaskLine , nXSize , 1 , GDT_Byte , \
+>1778	CallExpression	GDALRasterIO ( hMaskBand , GF_Read , 0 , iY , nXSize , 1 , pabyMaskLine , nXSize , 1 , GDT_Byte , 0 , 0 )
+>1779	ArgumentList	hMaskBand
+>1780	Argument	0
+>1781	PrimaryExpression	0
+>1782	Argument	0
+>1783	PrimaryExpression	0
+>1784	Argument	GDT_Byte
+>1785	Identifier	GDT_Byte
+>1786	Argument	1
+>1787	PrimaryExpression	1
+>1788	Argument	nXSize
+>1789	Identifier	nXSize
+>1790	Argument	pabyMaskLine
+>1791	Identifier	pabyMaskLine
+>1792	Argument	1
+>1793	PrimaryExpression	1
+>1794	Argument	nXSize
+>1795	Identifier	nXSize
+>1796	Argument	iY
+>1797	Identifier	iY
+>1798	Argument	0
+>1799	PrimaryExpression	0
+>1800	Argument	GF_Read
+>1801	Identifier	GF_Read
+>1802	Argument	hMaskBand
+>1803	Identifier	hMaskBand
+>1804	Callee	GDALRasterIO
+>1805	Identifier	GDALRasterIO
+>1806	Identifier	eErr
+>1807	IdentifierDeclStatement	 
+>1808	IdentifierDecl	eErr
+>1809	Identifier	eErr
+>1810	IdentifierDeclType	CPLErr
+>1829	FunctionDef	GDALFPolygonize (GDALRasterBandH hSrcBand , GDALRasterBandH hMaskBand , OGRLayerH hOutLayer , int iPixValField , \
+>1830	ParameterList	GDALRasterBandH hSrcBand , GDALRasterBandH hMaskBand , OGRLayerH hOutLayer , int iPixValField , char * * papszOptions , \
+>1831	Parameter	 
+>1832	Identifier	pProgressArg
+>1833	ParameterType	void *
+>1834	Parameter	 
+>1835	Identifier	pfnProgress
+>1836	ParameterType	GDALProgressFunc
+>1837	Parameter	 
+>1838	Identifier	papszOptions
+>1839	ParameterType	char * *
+>1840	Parameter	 
+>1841	Identifier	iPixValField
+>1842	ParameterType	int
+>1843	Parameter	 
+>1844	Identifier	hOutLayer
+>1845	ParameterType	OGRLayerH
+>1846	Parameter	 
+>1847	Identifier	hMaskBand
+>1848	ParameterType	GDALRasterBandH
+>1849	Parameter	 
+>1850	Identifier	hSrcBand
+>1851	ParameterType	GDALRasterBandH
+>1852	ReturnType	CPLErr CPL_STDCALL
+>1853	CompoundStatement	 
+>1854	ReturnStatement	 
+>1855	Identifier	CE_Failure
+>1856	ExpressionStatement	 
+>1857	CallExpression	CPLError ( CE_Failure , CPLE_NotSupported , \"GDALFPolygonize() unimplemented in a non OGR build\" )
+>1858	ArgumentList	CE_Failure
+>1859	Argument	\"GDALFPolygonize() unimplemented in a non OGR build\"
+>1860	PrimaryExpression	\"GDALFPolygonize() unimplemented in a non OGR build\"
+>1861	Argument	CPLE_NotSupported
+>1862	Identifier	CPLE_NotSupported
+>1863	Argument	CE_Failure
+>1864	Identifier	CE_Failure
+>1865	Callee	CPLError
+>1866	Identifier	CPLError
+<5=14,13,6
+<6=10,7
+<7=9,8
+<10=12,11
+<14=114,107,90,75,64,49,38,24,17,15
+<15=16
+<17=20,18
+<18=19
+<20=21
+<21=23,22
+<24=25
+<25=37,36,26
+<26=35,27
+<27=33,28
+<28=29
+<29=30
+<30=32,31
+<33=34
+<38=45,39
+<39=40
+<40=44,41
+<41=43,42
+<45=46
+<46=48,47
+<49=50
+<50=62,51
+<51=58,54,52
+<52=53
+<54=55
+<55=57,56
+<58=59
+<59=61,60
+<62=63
+<64=71,65
+<65=66
+<66=70,67
+<67=69,68
+<71=72
+<72=74,73
+<75=76
+<76=88,77
+<77=84,80,78
+<78=79
+<80=81
+<81=83,82
+<84=85
+<85=87,86
+<88=89
+<90=91
+<91=105,92
+<92=93
+<93=94
+<94=102,95
+<95=101,96
+<96=100,97
+<97=99,98
+<102=104,103
+<105=106
+<107=111,108
+<108=110,109
+<111=113,112
+<114=115
+<115=120,119,116
+<116=118,117
+<139=144,140
+<140=141
+<141=143,142
+<144=151,145
+<145=146
+<146=150,147
+<147=149,148
+<151=152
+<152=154,153
+<175=178,177,176
+<178=267,256,179
+<179=252,243,240,180
+<180=231,227,216,181
+<181=212,203,200,182
+<182=183
+<183=184
+<184=198,185
+<185=196,192,186
+<186=187
+<187=191,188
+<188=190,189
+<192=193
+<193=195,194
+<196=197
+<198=199
+<200=202,201
+<203=204
+<204=211,205
+<205=207,206
+<207=208
+<208=210,209
+<212=213
+<213=215,214
+<216=217
+<217=225,218
+<218=223,219
+<219=220
+<220=222,221
+<223=224
+<225=226
+<227=228
+<228=230,229
+<231=232
+<232=239,238,233
+<233=237,234
+<234=236,235
+<240=242,241
+<243=244
+<244=251,245
+<245=247,246
+<247=248
+<248=250,249
+<252=253
+<253=255,254
+<256=257
+<257=265,258
+<258=263,261,259
+<259=260
+<261=262
+<263=264
+<265=266
+<267=268
+<268=270,269
+<286=289,288,287
+<289=511,290
+<290=507,498,495,291
+<291=486,479,327,292
+<292=293
+<293=325,294
+<294=295
+<295=296
+<296=311,297
+<297=308,298
+<298=307,299
+<299=301,300
+<301=303,302
+<303=304
+<304=306,305
+<308=310,309
+<311=322,312
+<312=321,313
+<313=315,314
+<315=317,316
+<317=318
+<318=320,319
+<322=324,323
+<325=326
+<327=477,328
+<328=473,469,329
+<329=463,454,451,330
+<330=442,331
+<331=412,396,332
+<332=333
+<333=352,334
+<334=339,335
+<335=336
+<336=338,337
+<339=340
+<340=350,341
+<341=348,346,342
+<342=343
+<343=345,344
+<346=347
+<348=349
+<350=351
+<352=353
+<353=375,354
+<354=365,355
+<355=364,356
+<356=358,357
+<358=360,359
+<360=361
+<361=363,362
+<365=374,366
+<366=368,367
+<368=370,369
+<370=371
+<371=373,372
+<375=386,376
+<376=385,377
+<377=379,378
+<379=381,380
+<381=382
+<382=384,383
+<386=395,387
+<387=389,388
+<389=391,390
+<391=392
+<392=394,393
+<396=401,397
+<397=398
+<398=400,399
+<401=402
+<402=410,403
+<403=408,406,404
+<404=405
+<406=407
+<408=409
+<410=411
+<412=413
+<413=428,414
+<414=418,415
+<415=417,416
+<418=427,419
+<419=421,420
+<421=423,422
+<423=424
+<424=426,425
+<428=432,429
+<429=431,430
+<432=441,433
+<433=435,434
+<435=437,436
+<437=438
+<438=440,439
+<442=443
+<443=450,449,444
+<444=448,445
+<445=447,446
+<451=453,452
+<454=455
+<455=462,456
+<456=458,457
+<458=459
+<459=461,460
+<463=464
+<464=468,465
+<465=467,466
+<469=470
+<470=472,471
+<473=474
+<474=476,475
+<477=478
+<479=480
+<480=485,484,481
+<481=483,482
+<486=487
+<487=494,493,488
+<488=492,489
+<489=491,490
+<495=497,496
+<498=499
+<499=506,500
+<500=502,501
+<502=503
+<503=505,504
+<507=508
+<508=510,509
+<511=512
+<512=514,513
+<536=548,547,537
+<537=544,541,538
+<538=540,539
+<541=543,542
+<544=546,545
+<548=705,696,686,644,601,572,560,549
+<549=550
+<550=556,551
+<551=552
+<552=553
+<553=555,554
+<556=557
+<557=559,558
+<560=561
+<561=571,570,562
+<562=569,563
+<563=565,564
+<565=566
+<566=568,567
+<572=588,573
+<573=574
+<574=585,575
+<575=584,576
+<576=578,577
+<578=580,579
+<580=581
+<581=583,582
+<585=587,586
+<588=589
+<589=600,590
+<590=592,591
+<592=599,593
+<593=595,594
+<595=596
+<596=598,597
+<601=640,636,633,602
+<602=618,603
+<603=604
+<604=614,605
+<605=606
+<606=607
+<607=613,608
+<608=610,609
+<610=612,611
+<614=615
+<615=617,616
+<618=619
+<619=629,620
+<620=621
+<621=622
+<622=628,623
+<623=625,624
+<625=627,626
+<629=630
+<630=632,631
+<633=635,634
+<636=637
+<637=639,638
+<640=641
+<641=643,642
+<644=682,666,645
+<645=646
+<646=653,647
+<647=648
+<648=652,649
+<649=651,650
+<653=654
+<654=665,655
+<655=657,656
+<657=659,658
+<659=661,660
+<661=662
+<662=664,663
+<666=678,667
+<667=668
+<668=677,669
+<669=671,670
+<671=673,672
+<673=674
+<674=676,675
+<678=679
+<679=681,680
+<682=683
+<683=685,684
+<686=693,690,687
+<687=689,688
+<690=692,691
+<693=695,694
+<696=697
+<697=704,703,698
+<698=702,699
+<699=701,700
+<705=706
+<706=713,712,707
+<707=711,708
+<708=710,709
+<735=750,749,736
+<736=746,743,740,737
+<737=739,738
+<740=742,741
+<743=745,744
+<746=748,747
+<750=1054,1050,820,808,797,788,779,770,761,752,751
+<752=753
+<753=757,754
+<754=755
+<755=756
+<757=758
+<758=760,759
+<761=762
+<762=766,763
+<763=764
+<764=765
+<766=767
+<767=769,768
+<770=771
+<771=775,772
+<772=773
+<773=774
+<775=776
+<776=778,777
+<779=780
+<780=784,781
+<781=782
+<782=783
+<784=785
+<785=787,786
+<788=789
+<789=796,795,790
+<790=794,791
+<791=793,792
+<797=798
+<798=804,799
+<799=800
+<800=801
+<801=803,802
+<804=805
+<805=807,806
+<808=809
+<809=819,818,810
+<810=817,811
+<811=813,812
+<813=814
+<814=816,815
+<820=1046,1037,1034,821
+<821=1025,1013,967,822
+<822=951,823
+<823=907,843,834,825,824
+<825=826
+<826=830,827
+<827=828
+<828=829
+<830=831
+<831=833,832
+<834=835
+<835=839,836
+<836=837
+<837=838
+<839=840
+<840=842,841
+<843=859,844
+<844=852,845
+<845=846
+<846=848,847
+<848=849
+<849=851,850
+<852=853
+<853=855,854
+<855=856
+<856=858,857
+<859=860
+<860=904,861
+<861=883,862
+<862=872,863
+<863=865,864
+<865=867,866
+<867=871,868
+<868=870,869
+<872=878,873
+<873=877,874
+<874=876,875
+<878=882,879
+<879=881,880
+<883=893,884
+<884=886,885
+<886=888,887
+<888=892,889
+<889=891,890
+<893=899,894
+<894=898,895
+<895=897,896
+<899=903,900
+<900=902,901
+<904=906,905
+<907=908
+<908=950,949,909
+<909=948,910
+<910=946,911
+<911=929,912
+<912=913
+<913=927,914
+<914=915
+<915=916
+<916=922,917
+<917=921,918
+<918=920,919
+<922=926,923
+<923=925,924
+<927=928
+<929=930
+<930=944,931
+<931=932
+<932=933
+<933=939,934
+<934=938,935
+<935=937,936
+<939=943,940
+<940=942,941
+<944=945
+<946=947
+<951=952
+<952=960,953
+<953=955,954
+<955=959,956
+<956=958,957
+<960=962,961
+<962=966,963
+<963=965,964
+<967=997,968
+<968=993,989,985,981,977,973,969
+<969=970
+<970=972,971
+<973=974
+<974=976,975
+<977=978
+<978=980,979
+<981=982
+<982=984,983
+<985=986
+<986=988,987
+<989=990
+<990=992,991
+<993=994
+<994=996,995
+<997=998
+<998=1006,999
+<999=1001,1000
+<1001=1005,1002
+<1002=1004,1003
+<1006=1008,1007
+<1008=1012,1009
+<1009=1011,1010
+<1013=1014
+<1014=1024,1023,1015
+<1015=1022,1016
+<1016=1018,1017
+<1018=1019
+<1019=1021,1020
+<1025=1026
+<1026=1033,1032,1027
+<1027=1031,1028
+<1028=1030,1029
+<1034=1036,1035
+<1037=1038
+<1038=1045,1039
+<1039=1041,1040
+<1041=1042
+<1042=1044,1043
+<1046=1047
+<1047=1049,1048
+<1050=1051
+<1051=1053,1052
+<1054=1055
+<1055=1064,1056
+<1056=1062,1057
+<1057=1060,1058
+<1058=1059
+<1060=1061
+<1062=1063
+<1089=1113,1112,1090
+<1090=1109,1106,1103,1100,1097,1094,1091
+<1091=1093,1092
+<1094=1096,1095
+<1097=1099,1098
+<1100=1102,1101
+<1103=1105,1104
+<1106=1108,1107
+<1109=1111,1110
+<1113=1370,1359,1350,1341,1328,1315,1302,1212,1114
+<1114=1208,1115
+<1115=1162,1116
+<1116=1156,1117
+<1117=1141,1118
+<1118=1119
+<1119=1135,1120
+<1120=1131,1129,1125,1121
+<1121=1122
+<1122=1124,1123
+<1125=1126
+<1126=1128,1127
+<1129=1130
+<1131=1132
+<1132=1134,1133
+<1135=1136
+<1136=1138,1137
+<1138=1140,1139
+<1141=1150,1142
+<1142=1143
+<1143=1147,1144
+<1144=1146,1145
+<1147=1149,1148
+<1150=1151
+<1151=1153,1152
+<1153=1155,1154
+<1156=1157
+<1157=1161,1158
+<1158=1160,1159
+<1162=1202,1163
+<1163=1187,1164
+<1164=1165
+<1165=1181,1166
+<1166=1177,1175,1171,1167
+<1167=1168
+<1168=1170,1169
+<1171=1172
+<1172=1174,1173
+<1175=1176
+<1177=1178
+<1178=1180,1179
+<1181=1182
+<1182=1184,1183
+<1184=1186,1185
+<1187=1196,1188
+<1188=1189
+<1189=1193,1190
+<1190=1192,1191
+<1193=1195,1194
+<1196=1197
+<1197=1199,1198
+<1199=1201,1200
+<1202=1203
+<1203=1207,1204
+<1204=1206,1205
+<1208=1209
+<1209=1211,1210
+<1212=1298,1213
+<1213=1256,1214
+<1214=1250,1215
+<1215=1235,1216
+<1216=1217
+<1217=1229,1218
+<1218=1227,1225,1221,1219
+<1219=1220
+<1221=1222
+<1222=1224,1223
+<1225=1226
+<1227=1228
+<1229=1230
+<1230=1232,1231
+<1232=1234,1233
+<1235=1244,1236
+<1236=1237
+<1237=1241,1238
+<1238=1240,1239
+<1241=1243,1242
+<1244=1245
+<1245=1247,1246
+<1247=1249,1248
+<1250=1251
+<1251=1255,1252
+<1252=1254,1253
+<1256=1292,1257
+<1257=1277,1258
+<1258=1259
+<1259=1271,1260
+<1260=1269,1267,1263,1261
+<1261=1262
+<1263=1264
+<1264=1266,1265
+<1267=1268
+<1269=1270
+<1271=1272
+<1272=1274,1273
+<1274=1276,1275
+<1277=1286,1278
+<1278=1279
+<1279=1283,1280
+<1280=1282,1281
+<1283=1285,1284
+<1286=1287
+<1287=1289,1288
+<1289=1291,1290
+<1292=1293
+<1293=1297,1294
+<1294=1296,1295
+<1298=1299
+<1299=1301,1300
+<1302=1309,1303
+<1303=1304
+<1304=1308,1305
+<1305=1307,1306
+<1309=1310
+<1310=1314,1311
+<1311=1313,1312
+<1315=1322,1316
+<1316=1317
+<1317=1321,1318
+<1318=1320,1319
+<1322=1323
+<1323=1327,1324
+<1324=1326,1325
+<1328=1335,1329
+<1329=1330
+<1330=1334,1331
+<1331=1333,1332
+<1335=1336
+<1336=1340,1337
+<1337=1339,1338
+<1341=1342
+<1342=1349,1348,1343
+<1343=1347,1344
+<1344=1346,1345
+<1350=1351
+<1351=1358,1357,1352
+<1352=1356,1353
+<1353=1355,1354
+<1359=1360
+<1360=1369,1368,1361
+<1361=1367,1362
+<1362=1366,1363
+<1363=1365,1364
+<1370=1371
+<1371=1378,1377,1372
+<1372=1376,1373
+<1373=1375,1374
+<1403=1418,1417,1404
+<1404=1414,1411,1408,1405
+<1405=1407,1406
+<1408=1410,1409
+<1411=1413,1412
+<1414=1416,1415
+<1418=1677,1673,1666,1662,1653,1494,1480,1471,1451,1444,1428,1421,1419
+<1419=1420
+<1421=1422
+<1422=1426,1423
+<1423=1424
+<1424=1425
+<1426=1427
+<1428=1433,1429
+<1429=1430
+<1430=1432,1431
+<1433=1434
+<1434=1436,1435
+<1436=1442,1437
+<1437=1440,1438
+<1438=1439
+<1440=1441
+<1442=1443
+<1444=1445
+<1445=1450,1449,1446
+<1446=1448,1447
+<1451=1467,1452
+<1452=1453
+<1453=1465,1454
+<1454=1463,1461,1455
+<1455=1456
+<1456=1460,1457
+<1457=1459,1458
+<1461=1462
+<1463=1464
+<1465=1466
+<1467=1468
+<1468=1470,1469
+<1471=1472
+<1472=1478,1473
+<1473=1476,1474
+<1474=1475
+<1476=1477
+<1478=1479
+<1480=1481
+<1481=1493,1482
+<1482=1491,1483
+<1483=1484
+<1484=1485
+<1485=1489,1486
+<1486=1487
+<1487=1488
+<1489=1490
+<1491=1492
+<1494=1649,1638,1635,1495
+<1495=1624,1612,1608,1505,1496
+<1496=1497
+<1497=1503,1498
+<1498=1501,1499
+<1499=1500
+<1501=1502
+<1503=1504
+<1505=1595,1591,1588,1506
+<1506=1581,1574,1566,1556,1538,1520,1507
+<1507=1508
+<1508=1518,1509
+<1509=1516,1514,1512,1510
+<1510=1511
+<1512=1513
+<1514=1515
+<1516=1517
+<1518=1519
+<1520=1521
+<1521=1537,1522
+<1522=1534,1523
+<1523=1529,1524
+<1524=1528,1525
+<1525=1527,1526
+<1529=1533,1530
+<1530=1532,1531
+<1534=1536,1535
+<1538=1539
+<1539=1555,1540
+<1540=1552,1541
+<1541=1547,1542
+<1542=1546,1543
+<1543=1545,1544
+<1547=1551,1548
+<1548=1550,1549
+<1552=1554,1553
+<1556=1557
+<1557=1565,1558
+<1558=1564,1559
+<1559=1561,1560
+<1561=1563,1562
+<1566=1567
+<1567=1573,1568
+<1568=1572,1569
+<1569=1571,1570
+<1574=1578,1575
+<1575=1577,1576
+<1578=1580,1579
+<1581=1585,1582
+<1582=1584,1583
+<1585=1587,1586
+<1588=1590,1589
+<1591=1592
+<1592=1594,1593
+<1595=1596
+<1596=1607,1597
+<1597=1599,1598
+<1599=1601,1600
+<1601=1603,1602
+<1603=1604
+<1604=1606,1605
+<1608=1609
+<1609=1611,1610
+<1612=1613
+<1613=1623,1622,1614
+<1614=1621,1615
+<1615=1619,1616
+<1616=1617
+<1617=1618
+<1619=1620
+<1624=1625
+<1625=1634,1633,1626
+<1626=1632,1627
+<1627=1629,1628
+<1629=1631,1630
+<1635=1637,1636
+<1638=1639
+<1639=1648,1640
+<1640=1642,1641
+<1642=1643
+<1643=1645,1644
+<1645=1647,1646
+<1649=1650
+<1650=1652,1651
+<1653=1654
+<1654=1661,1655
+<1655=1659,1656
+<1656=1657
+<1657=1658
+<1659=1660
+<1662=1663
+<1663=1665,1664
+<1666=1667
+<1667=1669,1668
+<1669=1670
+<1670=1672,1671
+<1673=1674
+<1674=1676,1675
+<1677=1678
+<1678=1680,1679
+<1719=1737,1736,1720
+<1720=1733,1730,1727,1724,1721
+<1721=1723,1722
+<1724=1726,1725
+<1727=1729,1728
+<1730=1732,1731
+<1733=1735,1734
+<1737=1807,1776,1740,1738
+<1738=1739
+<1740=1772,1741
+<1741=1768,1742
+<1742=1764,1760,1757,1743
+<1743=1744
+<1744=1751,1745
+<1745=1746
+<1746=1748,1747
+<1748=1750,1749
+<1751=1752
+<1752=1754,1753
+<1754=1756,1755
+<1757=1759,1758
+<1760=1761
+<1761=1763,1762
+<1764=1765
+<1765=1767,1766
+<1768=1769
+<1769=1771,1770
+<1772=1773
+<1773=1775,1774
+<1776=1777
+<1777=1806,1778
+<1778=1804,1779
+<1779=1802,1800,1798,1796,1794,1792,1790,1788,1786,1784,1782,1780
+<1780=1781
+<1782=1783
+<1784=1785
+<1786=1787
+<1788=1789
+<1790=1791
+<1792=1793
+<1794=1795
+<1796=1797
+<1798=1799
+<1800=1801
+<1802=1803
+<1804=1805
+<1807=1808
+<1808=1810,1809
+<1829=1853,1852,1830
+<1830=1849,1846,1843,1840,1837,1834,1831
+<1831=1833,1832
+<1834=1836,1835
+<1837=1839,1838
+<1840=1842,1841
+<1843=1845,1844
+<1846=1848,1847
+<1849=1851,1850
+<1853=1856,1854
+<1854=1855
+<1856=1857
+<1857=1865,1858
+<1858=1863,1861,1859
+<1859=1860
+<1861=1862
+<1863=1864
+<1865=1866

@@ -8,15 +8,15 @@ import chainer.links as L
 from chainer import cuda
 
 from ast_tree.ASTVectorizater import TreeFeatures
-from ast_tree.ast_parser import children
+from ast_tree.traverse import children
 from memory_cell.treelstm import FastTreeLSTM
 
 
 class RecursiveBaseTree(chainer.Chain):
-    def __init__(self, n_children, n_units, n_label, dropout, classes=None):
+    def __init__(self, n_children, n_units, n_label, dropout,feature_dict, classes=None):
         super(RecursiveBaseTree, self).__init__()
         self.classes_ = classes
-        self.feature_dict = TreeFeatures()
+        self.feature_dict = feature_dict
         self.n_children = n_children
         self.dropout = dropout
 
@@ -88,8 +88,8 @@ class RecursiveBaseTree(chainer.Chain):
 
 
 class RecursiveTreeLSTM(RecursiveBaseTree):
-    def __init__(self, n_children, n_units, n_label, dropout, classes=None):
-        super().__init__(n_children, n_units, n_label, dropout, classes)
+    def __init__(self, n_children, n_units, n_label, dropout,feature_dict, classes=None):
+        super().__init__(n_children, n_units, n_label, dropout,feature_dict, classes)
 
         self.add_link("treelstm", FastTreeLSTM(self.n_children, n_units, n_units))
 
@@ -100,6 +100,9 @@ class RecursiveTreeLSTM(RecursiveBaseTree):
     def merge(self, x, children, train_mode):
         c_list, h_list = zip(*children)
         return self.treelstm(F.concat(c_list, axis=0), F.concat(h_list, axis=0), x)
+
+    def reset_states(self):
+        self.treelstm.reset_state()
 
 
 class RecursiveSLSTM(RecursiveBaseTree):

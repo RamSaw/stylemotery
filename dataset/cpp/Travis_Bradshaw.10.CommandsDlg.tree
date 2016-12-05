@@ -1,0 +1,493 @@
+>5	FunctionDef	CCommandsDlg 
+>6	ParameterList	CWnd * pParent
+>7	Parameter	 
+>8	Identifier	pParent
+>9	ParameterType	CWnd *
+>10	CompoundStatement	 
+>15	FunctionDef	CCommandsDlg 
+>16	ParameterList	CDataExchange * pDX
+>17	Parameter	 
+>18	Identifier	pDX
+>19	ParameterType	CDataExchange *
+>20	ReturnType	void
+>21	CompoundStatement	 
+>22	ExpressionStatement	 
+>23	CallExpression	DDX_Control ( pDX , IDC_LIST_COMMANDS , m_lstCommands )
+>24	ArgumentList	pDX
+>25	Argument	m_lstCommands
+>26	Identifier	m_lstCommands
+>27	Argument	IDC_LIST_COMMANDS
+>28	Identifier	IDC_LIST_COMMANDS
+>29	Argument	pDX
+>30	Identifier	pDX
+>31	Callee	DDX_Control
+>32	Identifier	DDX_Control
+>33	ExpressionStatement	 
+>34	CallExpression	CDialog 
+>35	ArgumentList	pDX
+>36	Argument	pDX
+>37	Identifier	pDX
+>38	Callee	CDialog 
+>39	Identifier	CDialog 
+>46	FunctionDef	CCommandsDlg 
+>47	ParameterList	 
+>48	ReturnType	BOOL
+>49	CompoundStatement	 
+>50	ReturnStatement	 
+>51	Identifier	TRUE
+>52	ExpressionStatement	 
+>53	CallExpression	fileout . Close ( )
+>54	ArgumentList	 
+>55	Callee	fileout . Close
+>56	MemberAccess	fileout . Close
+>57	Identifier	Close
+>58	Identifier	fileout
+>59	ForStatement	for ( int n = 0 ; n < nCount ; n ++ )
+>60	CompoundStatement	 
+>61	ExpressionStatement	 
+>62	CallExpression	fileout . Write ( \"\r\n\" , 2 )
+>63	ArgumentList	\"\r\n\"
+>64	Argument	2
+>65	PrimaryExpression	2
+>66	Argument	\"\r\n\"
+>67	PrimaryExpression	\"\r\n\"
+>68	Callee	fileout . Write
+>69	MemberAccess	fileout . Write
+>70	Identifier	Write
+>71	Identifier	fileout
+>72	ExpressionStatement	 
+>73	CallExpression	fileout . Write ( strLine , strLine . GetLength ( ) )
+>74	ArgumentList	strLine
+>75	Argument	strLine . GetLength ( )
+>76	CallExpression	strLine . GetLength ( )
+>77	ArgumentList	 
+>78	Callee	strLine . GetLength
+>79	MemberAccess	strLine . GetLength
+>80	Identifier	GetLength
+>81	Identifier	strLine
+>82	Argument	strLine
+>83	Identifier	strLine
+>84	Callee	fileout . Write
+>85	MemberAccess	fileout . Write
+>86	Identifier	Write
+>87	Identifier	fileout
+>88	ExpressionStatement	 
+>89	CallExpression	strLine . Format ( \"%s \t\t\t%s%s\" , g_Commands [ n ] . m_strCommand , strMod , strKeys )
+>90	ArgumentList	\"%s \t\t\t%s%s\"
+>91	Argument	strKeys
+>92	Identifier	strKeys
+>93	Argument	strMod
+>94	Identifier	strMod
+>95	Argument	g_Commands [ n ] . m_strCommand
+>96	MemberAccess	g_Commands [ n ] . m_strCommand
+>97	Identifier	m_strCommand
+>98	ArrayIndexing	g_Commands [ n ]
+>99	Identifier	n
+>100	Identifier	g_Commands
+>101	Argument	\"%s \t\t\t%s%s\"
+>102	PrimaryExpression	\"%s \t\t\t%s%s\"
+>103	Callee	strLine . Format
+>104	MemberAccess	strLine . Format
+>105	Identifier	Format
+>106	Identifier	strLine
+>107	ExpressionStatement	 
+>108	CallExpression	m_lstCommands . AddString ( strLine )
+>109	ArgumentList	strLine
+>110	Argument	strLine
+>111	Identifier	strLine
+>112	Callee	m_lstCommands . AddString
+>113	MemberAccess	m_lstCommands . AddString
+>114	Identifier	AddString
+>115	Identifier	m_lstCommands
+>116	ExpressionStatement	 
+>117	CallExpression	strLine . Format ( \"%s \t%s%s\" , g_Commands [ n ] . m_strCommand , strMod , strKeys )
+>118	ArgumentList	\"%s \t%s%s\"
+>119	Argument	strKeys
+>120	Identifier	strKeys
+>121	Argument	strMod
+>122	Identifier	strMod
+>123	Argument	g_Commands [ n ] . m_strCommand
+>124	MemberAccess	g_Commands [ n ] . m_strCommand
+>125	Identifier	m_strCommand
+>126	ArrayIndexing	g_Commands [ n ]
+>127	Identifier	n
+>128	Identifier	g_Commands
+>129	Argument	\"%s \t%s%s\"
+>130	PrimaryExpression	\"%s \t%s%s\"
+>131	Callee	strLine . Format
+>132	MemberAccess	strLine . Format
+>133	Identifier	Format
+>134	Identifier	strLine
+>135	IfStatement	if ( strMod . GetLength ( ) > 0 )
+>136	CompoundStatement	 
+>137	ExpressionStatement	 
+>138	AssignmentExpr	strMod += \" + \"
+>139	PrimaryExpression	\" + \"
+>140	Identifier	strMod
+>141	Condition	 
+>142	RelationalExpression	strMod . GetLength ( ) > 0
+>143	PrimaryExpression	0
+>144	CallExpression	strMod . GetLength ( )
+>145	ArgumentList	 
+>146	Callee	strMod . GetLength
+>147	MemberAccess	strMod . GetLength
+>148	Identifier	GetLength
+>149	Identifier	strMod
+>150	IfStatement	if ( g_Commands [ n ] . m_nModifiers & RAD_CONTROL )
+>151	ExpressionStatement	 
+>152	AssignmentExpr	strMod += ( strMod . GetLength ( ) > 0 ) ? \" + Control\" 
+>153	ConditionalExpression	( strMod . GetLength ( ) > 0 ) ? \" + Control\" 
+>154	PrimaryExpression	\"Control\"
+>155	PrimaryExpression	\" + Control\"
+>156	Condition	strMod . GetLength ( ) > 0
+>157	RelationalExpression	strMod . GetLength ( ) > 0
+>158	PrimaryExpression	0
+>159	CallExpression	strMod . GetLength ( )
+>160	ArgumentList	 
+>161	Callee	strMod . GetLength
+>162	MemberAccess	strMod . GetLength
+>163	Identifier	GetLength
+>164	Identifier	strMod
+>165	Identifier	strMod
+>166	Condition	 
+>167	BitAndExpression	g_Commands [ n ] . m_nModifiers & RAD_CONTROL
+>168	Identifier	RAD_CONTROL
+>169	MemberAccess	g_Commands [ n ] . m_nModifiers
+>170	Identifier	m_nModifiers
+>171	ArrayIndexing	g_Commands [ n ]
+>172	Identifier	n
+>173	Identifier	g_Commands
+>174	IfStatement	if ( g_Commands [ n ] . m_nModifiers & RAD_ALT )
+>175	ExpressionStatement	 
+>176	AssignmentExpr	strMod += ( strMod . GetLength ( ) > 0 ) ? \" + Alt\" 
+>177	ConditionalExpression	( strMod . GetLength ( ) > 0 ) ? \" + Alt\" 
+>178	PrimaryExpression	\"Alt\"
+>179	PrimaryExpression	\" + Alt\"
+>180	Condition	strMod . GetLength ( ) > 0
+>181	RelationalExpression	strMod . GetLength ( ) > 0
+>182	PrimaryExpression	0
+>183	CallExpression	strMod . GetLength ( )
+>184	ArgumentList	 
+>185	Callee	strMod . GetLength
+>186	MemberAccess	strMod . GetLength
+>187	Identifier	GetLength
+>188	Identifier	strMod
+>189	Identifier	strMod
+>190	Condition	 
+>191	BitAndExpression	g_Commands [ n ] . m_nModifiers & RAD_ALT
+>192	Identifier	RAD_ALT
+>193	MemberAccess	g_Commands [ n ] . m_nModifiers
+>194	Identifier	m_nModifiers
+>195	ArrayIndexing	g_Commands [ n ]
+>196	Identifier	n
+>197	Identifier	g_Commands
+>198	IfStatement	if ( g_Commands [ n ] . m_nModifiers & RAD_SHIFT )
+>199	ExpressionStatement	 
+>200	AssignmentExpr	strMod = \"Shift\"
+>201	PrimaryExpression	\"Shift\"
+>202	Identifier	strMod
+>203	Condition	 
+>204	BitAndExpression	g_Commands [ n ] . m_nModifiers & RAD_SHIFT
+>205	Identifier	RAD_SHIFT
+>206	MemberAccess	g_Commands [ n ] . m_nModifiers
+>207	Identifier	m_nModifiers
+>208	ArrayIndexing	g_Commands [ n ]
+>209	Identifier	n
+>210	Identifier	g_Commands
+>211	IdentifierDeclStatement	 
+>212	IdentifierDecl	strMod ( \"\" )
+>213	PrimaryExpression	\"\"
+>214	Identifier	strMod
+>215	IdentifierDeclType	CString
+>216	ForStatement	for ( int k = 0 ; k < g_nKeyCount ; k ++ )
+>217	CompoundStatement	 
+>218	IfStatement	if ( g_Keys [ k ] . m_nVKKey == g_Commands [ n ] . m_nKey )
+>219	CompoundStatement	 
+>220	BreakStatement	 
+>221	ExpressionStatement	 
+>222	AssignmentExpr	strKeys = g_Keys [ k ] . m_strName
+>223	MemberAccess	g_Keys [ k ] . m_strName
+>224	Identifier	m_strName
+>225	ArrayIndexing	g_Keys [ k ]
+>226	Identifier	k
+>227	Identifier	g_Keys
+>228	Identifier	strKeys
+>229	Condition	 
+>230	EqualityExpression	g_Keys [ k ] . m_nVKKey == g_Commands [ n ] . m_nKey
+>231	MemberAccess	g_Commands [ n ] . m_nKey
+>232	Identifier	m_nKey
+>233	ArrayIndexing	g_Commands [ n ]
+>234	Identifier	n
+>235	Identifier	g_Commands
+>236	MemberAccess	g_Keys [ k ] . m_nVKKey
+>237	Identifier	m_nVKKey
+>238	ArrayIndexing	g_Keys [ k ]
+>239	Identifier	k
+>240	Identifier	g_Keys
+>241	IncDecOp	 
+>242	IncDec	++
+>243	Identifier	k
+>244	Condition	 
+>245	RelationalExpression	k < g_nKeyCount
+>246	Identifier	g_nKeyCount
+>247	Identifier	k
+>248	ForInit	 
+>249	IdentifierDeclStatement	int k = 0 ;
+>250	IdentifierDecl	k = 0
+>251	AssignmentExpr	k = 0
+>252	PrimaryExpression	0
+>253	Identifier	k
+>254	Identifier	k
+>255	IdentifierDeclType	int
+>256	IdentifierDeclStatement	 
+>257	IdentifierDecl	strKeys = c
+>258	AssignmentExpr	strKeys = c
+>259	Identifier	c
+>260	Identifier	c
+>261	Identifier	strKeys
+>262	IdentifierDeclType	CString
+>263	IdentifierDeclStatement	 
+>264	IdentifierDecl	c = g_Commands [ n ] . m_nKey
+>265	AssignmentExpr	c = g_Commands [ n ] . m_nKey
+>266	MemberAccess	g_Commands [ n ] . m_nKey
+>267	Identifier	m_nKey
+>268	ArrayIndexing	g_Commands [ n ]
+>269	Identifier	n
+>270	Identifier	g_Commands
+>271	Identifier	c
+>272	Identifier	c
+>273	IdentifierDeclType	char
+>274	IdentifierDeclStatement	 
+>275	IdentifierDecl	strLine
+>276	Identifier	strLine
+>277	IdentifierDeclType	CString
+>278	IncDecOp	 
+>279	IncDec	++
+>280	Identifier	n
+>281	Condition	 
+>282	RelationalExpression	n < nCount
+>283	Identifier	nCount
+>284	Identifier	n
+>285	ForInit	 
+>286	IdentifierDeclStatement	int n = 0 ;
+>287	IdentifierDecl	n = 0
+>288	AssignmentExpr	n = 0
+>289	PrimaryExpression	0
+>290	Identifier	n
+>291	Identifier	n
+>292	IdentifierDeclType	int
+>293	ExpressionStatement	 
+>294	CallExpression	fileout . Open ( \"c
+>295	ArgumentList	\"c
+>296	Argument	CFile 
+>297	InclusiveOrExpression	CFile 
+>298	Identifier	CFile 
+>299	Identifier	CFile 
+>300	Argument	\"c
+>301	PrimaryExpression	\"c
+>302	Callee	fileout . Open
+>303	MemberAccess	fileout . Open
+>304	Identifier	Open
+>305	Identifier	fileout
+>306	IdentifierDeclStatement	 
+>307	IdentifierDecl	fileout
+>308	Identifier	fileout
+>309	IdentifierDeclType	CFile
+>310	IdentifierDeclStatement	 
+>311	IdentifierDecl	nCount = g_nCommandCount
+>312	AssignmentExpr	nCount = g_nCommandCount
+>313	Identifier	g_nCommandCount
+>314	Identifier	g_nCommandCount
+>315	Identifier	nCount
+>316	IdentifierDeclType	int
+>317	ExpressionStatement	 
+>318	CallExpression	m_lstCommands . SetTabStops ( 96 )
+>319	ArgumentList	96
+>320	Argument	96
+>321	PrimaryExpression	96
+>322	Callee	m_lstCommands . SetTabStops
+>323	MemberAccess	m_lstCommands . SetTabStops
+>324	Identifier	SetTabStops
+>325	Identifier	m_lstCommands
+>326	ExpressionStatement	 
+>327	CallExpression	CDialog 
+>328	ArgumentList	 
+>329	Callee	CDialog 
+>330	Identifier	CDialog 
+<5=10,6
+<6=7
+<7=9,8
+<15=21,20,16
+<16=17
+<17=19,18
+<21=33,22
+<22=23
+<23=31,24
+<24=29,27,25
+<25=26
+<27=28
+<29=30
+<31=32
+<33=34
+<34=38,35
+<35=36
+<36=37
+<38=39
+<46=49,48,47
+<49=326,317,310,306,293,59,52,50
+<50=51
+<52=53
+<53=55,54
+<55=56
+<56=58,57
+<59=285,281,278,60
+<60=274,263,256,216,211,198,174,150,135,116,107,88,72,61
+<61=62
+<62=68,63
+<63=66,64
+<64=65
+<66=67
+<68=69
+<69=71,70
+<72=73
+<73=84,74
+<74=82,75
+<75=76
+<76=78,77
+<78=79
+<79=81,80
+<82=83
+<84=85
+<85=87,86
+<88=89
+<89=103,90
+<90=101,95,93,91
+<91=92
+<93=94
+<95=96
+<96=98,97
+<98=100,99
+<101=102
+<103=104
+<104=106,105
+<107=108
+<108=112,109
+<109=110
+<110=111
+<112=113
+<113=115,114
+<116=117
+<117=131,118
+<118=129,123,121,119
+<119=120
+<121=122
+<123=124
+<124=126,125
+<126=128,127
+<129=130
+<131=132
+<132=134,133
+<135=141,136
+<136=137
+<137=138
+<138=140,139
+<141=142
+<142=144,143
+<144=146,145
+<146=147
+<147=149,148
+<150=166,151
+<151=152
+<152=165,153
+<153=156,155,154
+<156=157
+<157=159,158
+<159=161,160
+<161=162
+<162=164,163
+<166=167
+<167=169,168
+<169=171,170
+<171=173,172
+<174=190,175
+<175=176
+<176=189,177
+<177=180,179,178
+<180=181
+<181=183,182
+<183=185,184
+<185=186
+<186=188,187
+<190=191
+<191=193,192
+<193=195,194
+<195=197,196
+<198=203,199
+<199=200
+<200=202,201
+<203=204
+<204=206,205
+<206=208,207
+<208=210,209
+<211=212
+<212=215,214,213
+<216=248,244,241,217
+<217=218
+<218=229,219
+<219=221,220
+<221=222
+<222=228,223
+<223=225,224
+<225=227,226
+<229=230
+<230=236,231
+<231=233,232
+<233=235,234
+<236=238,237
+<238=240,239
+<241=243,242
+<244=245
+<245=247,246
+<248=249
+<249=250
+<250=255,254,251
+<251=253,252
+<256=257
+<257=262,261,258
+<258=260,259
+<263=264
+<264=273,272,265
+<265=271,266
+<266=268,267
+<268=270,269
+<274=275
+<275=277,276
+<278=280,279
+<281=282
+<282=284,283
+<285=286
+<286=287
+<287=292,291,288
+<288=290,289
+<293=294
+<294=302,295
+<295=300,296
+<296=297
+<297=299,298
+<300=301
+<302=303
+<303=305,304
+<306=307
+<307=309,308
+<310=311
+<311=316,315,312
+<312=314,313
+<317=318
+<318=322,319
+<319=320
+<320=321
+<322=323
+<323=325,324
+<326=327
+<327=329,328
+<329=330

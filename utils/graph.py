@@ -1,5 +1,5 @@
 import platform
-
+from scipy.signal import savgol_filter
 import itertools
 from random import Random
 
@@ -99,6 +99,55 @@ def plot_each(results, base_folder=None):
             plt.show()
         else:
             figure.savefig(os.path.join(base_folder, name), dpi=900)
+        figure.clear()
+        plt.close()
+
+def upper_bound(X):
+    if len(X) > 51:
+        X = savgol_filter(X, 51, 2) + 0.05
+        X[X > 1] = 1.0
+    return X
+
+def lower_bound(X):
+    if len(X) > 51:
+        X = savgol_filter(X, 51, 2) - 0.05
+        X[X < 0] = 0.0
+    return X
+
+def plot_each_smooth(results, base_folder=None):
+    styles = ('-', '--', '-.', ':')
+    train_color = 'b'
+    test_color = 'r'
+    train_style = '-'
+    test_style = '-'
+    for name in results:
+        figure, (ax1, ax2) = plt.subplots(ncols=2, nrows=1, figsize=(8, 6), dpi=100)
+        figure.suptitle(name + " train and test (loss & accuracy)", fontsize=14)
+        # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
+        ax1.plot(lower_bound(results[name]["train loss"]), train_color + train_style, label="%s (Train Loss)" % name)
+        ax1.plot(lower_bound(results[name]["test loss"]), test_color + test_style, label="%s (Test Loss)" % name)
+        ax1.legend(loc='upper right',prop={'size':6})
+        # ax1.set_title("Loss Ratio")
+        ax1.set_ylabel("Loss")
+        ax1.set_xlabel("Epochs")
+        ax1.set_ylim([0.0, 4.5])
+        ax1.grid(True)
+
+        # if "train accuracy" in results[name]:
+        ax2.plot(upper_bound(results[name]["train accuracy"]), train_color + train_style, label="%s (Train Accuracy)" % name)
+        ax2.plot(upper_bound(results[name]["test accuracy"]), test_color + test_style, label="%s (Test Accuracy)" % name)
+        ax2.legend(loc='lower right',prop={'size':6})
+        # ax2.set_title("Accuracy curves")
+        ax2.set_ylabel("Accuracy")
+        ax2.set_xlabel("Epochs")
+        ax2.grid(True)
+
+        ax2.set_ylim([0.0, 1.05])
+
+        if not base_folder:
+            plt.show()
+        else:
+            figure.savefig(os.path.join(base_folder, name+"_smooth"), dpi=900)
         figure.clear()
         plt.close()
 

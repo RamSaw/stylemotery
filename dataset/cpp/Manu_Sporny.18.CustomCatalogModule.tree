@@ -1,0 +1,294 @@
+>5	FunctionDef	CustomCatalogModule 
+>6	ParameterList	 
+>7	CompoundStatement	 
+>11	FunctionDef	CustomCatalogModule 
+>12	ParameterList	 
+>13	CompoundStatement	 
+>17	FunctionDef	CustomCatalogModule 
+>18	ParameterList	DynamicObject & depInfo
+>19	Parameter	 
+>20	Identifier	depInfo
+>21	ParameterType	DynamicObject &
+>22	ReturnType	void
+>23	CompoundStatement	 
+>24	CompoundStatement	 
+>25	ExpressionStatement	 
+>26	CallExpression	depInfo [ \"dependencies\" ] -> append ( dep )
+>27	ArgumentList	dep
+>28	Argument	dep
+>29	Identifier	dep
+>30	Callee	depInfo [ \"dependencies\" ] -> append
+>31	PtrMemberAccess	depInfo [ \"dependencies\" ] -> append
+>32	Identifier	append
+>33	ArrayIndexing	depInfo [ \"dependencies\" ]
+>34	PrimaryExpression	\"dependencies\"
+>35	Identifier	depInfo
+>36	ExpressionStatement	 
+>37	AssignmentExpr	dep [ \"type\" ] = \"bitmunk.medialibrary\"
+>38	PrimaryExpression	\"bitmunk.medialibrary\"
+>39	ArrayIndexing	dep [ \"type\" ]
+>40	PrimaryExpression	\"type\"
+>41	Identifier	dep
+>42	IdentifierDeclStatement	 
+>43	IdentifierDecl	dep
+>44	Identifier	dep
+>45	IdentifierDeclType	DynamicObject
+>53	FunctionDef	CustomCatalogModule 
+>54	ParameterList	Node * node
+>55	Parameter	 
+>56	Identifier	node
+>57	ParameterType	Node *
+>58	ReturnType	bool
+>59	CompoundStatement	 
+>60	ReturnStatement	 
+>61	Identifier	rval
+>62	IfStatement	if ( ! rval )
+>63	CompoundStatement	 
+>64	ExpressionStatement	 
+>65	AssignmentExpr	mCatalog = NULL
+>66	Identifier	NULL
+>67	Identifier	mCatalog
+>68	ExpressionStatement	 
+>69	Identifier	mCatalog
+>70	Statement	 
+>71	Condition	 
+>72	UnaryOp	! rval
+>73	Identifier	rval
+>74	UnaryOperator	!
+>75	IfStatement	if ( ( rval = mCatalog -> init ( node ) ) )
+>76	CompoundStatement	 
+>77	CompoundStatement	 
+>78	ExpressionStatement	 
+>79	AssignmentExpr	rval = node -> getBtpServer ( ) -> addService ( bs , Node 
+>80	CallExpression	node -> getBtpServer ( ) -> addService ( bs , Node 
+>81	ArgumentList	bs
+>82	Argument	Node 
+>83	Identifier	Node 
+>84	Argument	bs
+>85	Identifier	bs
+>86	Callee	node -> getBtpServer ( ) -> addService
+>87	PtrMemberAccess	node -> getBtpServer ( ) -> addService
+>88	Identifier	addService
+>89	CallExpression	node -> getBtpServer ( )
+>90	ArgumentList	 
+>91	Callee	node -> getBtpServer
+>92	PtrMemberAccess	node -> getBtpServer
+>93	Identifier	getBtpServer
+>94	Identifier	node
+>95	Identifier	rval
+>96	ExpressionStatement	 
+>97	AssignmentExpr	bs = new CatalogService ( node , mCatalog , \"/api/3.0/catalog\" )
+>98	Expression	node , mCatalog , \"/api/3.0/catalog\"
+>99	Expression	mCatalog , \"/api/3.0/catalog\"
+>100	PrimaryExpression	\"/api/3.0/catalog\"
+>101	Identifier	mCatalog
+>102	Identifier	node
+>103	Identifier	bs
+>104	IdentifierDeclStatement	 
+>105	IdentifierDecl	bs
+>106	Identifier	bs
+>107	IdentifierDeclType	BtpServiceRef
+>108	Condition	 
+>109	AssignmentExpr	rval = mCatalog -> init ( node )
+>110	CallExpression	mCatalog -> init ( node )
+>111	ArgumentList	node
+>112	Argument	node
+>113	Identifier	node
+>114	Callee	mCatalog -> init
+>115	PtrMemberAccess	mCatalog -> init
+>116	Identifier	init
+>117	Identifier	mCatalog
+>118	Identifier	rval
+>119	ExpressionStatement	 
+>120	AssignmentExpr	mCatalog = new CustomCatalog ( )
+>121	UnaryExpression	new CustomCatalog ( )
+>122	Identifier	mCatalog
+>123	ExpressionStatement	 
+>124	AssignmentExpr	BM_CUSTOMCATALOG_CAT = new Category ( \"BM_CUSTOMCATALOG\" , \"Bitmunk Custom Catalog\" , NULL )
+>125	Expression	\"BM_CUSTOMCATALOG\" , \"Bitmunk Custom Catalog\" , NULL
+>126	Expression	\"Bitmunk Custom Catalog\" , NULL
+>127	Identifier	NULL
+>128	PrimaryExpression	\"Bitmunk Custom Catalog\"
+>129	PrimaryExpression	\"BM_CUSTOMCATALOG\"
+>130	Identifier	BM_CUSTOMCATALOG_CAT
+>131	IdentifierDeclStatement	 
+>132	IdentifierDecl	rval
+>133	Identifier	rval
+>134	IdentifierDeclType	bool
+>152	FunctionDef	CustomCatalogModule 
+>153	ParameterList	Node * node
+>154	Parameter	 
+>155	Identifier	node
+>156	ParameterType	Node *
+>157	ReturnType	void
+>158	CompoundStatement	 
+>159	ExpressionStatement	 
+>160	AssignmentExpr	BM_CUSTOMCATALOG_CAT = NULL
+>161	Identifier	NULL
+>162	Identifier	BM_CUSTOMCATALOG_CAT
+>163	ExpressionStatement	 
+>164	Identifier	BM_CUSTOMCATALOG_CAT
+>165	Statement	 
+>166	IfStatement	if ( mCatalog != NULL )
+>167	CompoundStatement	 
+>168	ExpressionStatement	 
+>169	Identifier	mCatalog
+>170	Statement	 
+>171	ExpressionStatement	 
+>172	CallExpression	mCatalog -> cleanup ( node )
+>173	ArgumentList	node
+>174	Argument	node
+>175	Identifier	node
+>176	Callee	mCatalog -> cleanup
+>177	PtrMemberAccess	mCatalog -> cleanup
+>178	Identifier	cleanup
+>179	Identifier	mCatalog
+>180	Condition	 
+>181	EqualityExpression	mCatalog != NULL
+>182	Identifier	NULL
+>183	Identifier	mCatalog
+>184	ExpressionStatement	 
+>185	CallExpression	node -> getBtpServer ( ) -> removeService ( \"/api/3.0/catalog\" )
+>186	ArgumentList	\"/api/3.0/catalog\"
+>187	Argument	\"/api/3.0/catalog\"
+>188	PrimaryExpression	\"/api/3.0/catalog\"
+>189	Callee	node -> getBtpServer ( ) -> removeService
+>190	PtrMemberAccess	node -> getBtpServer ( ) -> removeService
+>191	Identifier	removeService
+>192	CallExpression	node -> getBtpServer ( )
+>193	ArgumentList	 
+>194	Callee	node -> getBtpServer
+>195	PtrMemberAccess	node -> getBtpServer
+>196	Identifier	getBtpServer
+>197	Identifier	node
+>207	FunctionDef	CustomCatalogModule 
+>208	ParameterList	Node * node
+>209	Parameter	 
+>210	Identifier	node
+>211	ParameterType	Node *
+>212	ReturnType	MicroKernelModuleApi *
+>213	CompoundStatement	 
+>214	ReturnStatement	 
+>215	Identifier	mCatalog
+>221	FunctionDef	createModestModule ()
+>222	ParameterList	 
+>223	ReturnType	Module *
+>224	CompoundStatement	 
+>225	ReturnStatement	 
+>226	UnaryExpression	new CustomCatalogModule ( )
+>230	FunctionDef	freeModestModule (Module * m)
+>231	ParameterList	Module * m
+>232	Parameter	 
+>233	Identifier	m
+>234	ParameterType	Module *
+>235	ReturnType	void
+>236	CompoundStatement	 
+>237	ExpressionStatement	 
+>238	Identifier	m
+>239	Statement	 
+<5=7,6
+<11=13,12
+<17=23,22,18
+<18=19
+<19=21,20
+<23=24
+<24=42,36,25
+<25=26
+<26=30,27
+<27=28
+<28=29
+<30=31
+<31=33,32
+<33=35,34
+<36=37
+<37=39,38
+<39=41,40
+<42=43
+<43=45,44
+<53=59,58,54
+<54=55
+<55=57,56
+<59=131,123,119,75,62,60
+<60=61
+<62=71,63
+<63=70,68,64
+<64=65
+<65=67,66
+<68=69
+<71=72
+<72=74,73
+<75=108,76
+<76=104,77
+<77=96,78
+<78=79
+<79=95,80
+<80=86,81
+<81=84,82
+<82=83
+<84=85
+<86=87
+<87=89,88
+<89=91,90
+<91=92
+<92=94,93
+<96=97
+<97=103,98
+<98=102,99
+<99=101,100
+<104=105
+<105=107,106
+<108=109
+<109=118,110
+<110=114,111
+<111=112
+<112=113
+<114=115
+<115=117,116
+<119=120
+<120=122,121
+<123=124
+<124=130,125
+<125=129,126
+<126=128,127
+<131=132
+<132=134,133
+<152=158,157,153
+<153=154
+<154=156,155
+<158=184,166,165,163,159
+<159=160
+<160=162,161
+<163=164
+<166=180,167
+<167=171,170,168
+<168=169
+<171=172
+<172=176,173
+<173=174
+<174=175
+<176=177
+<177=179,178
+<180=181
+<181=183,182
+<184=185
+<185=189,186
+<186=187
+<187=188
+<189=190
+<190=192,191
+<192=194,193
+<194=195
+<195=197,196
+<207=213,212,208
+<208=209
+<209=211,210
+<213=214
+<214=215
+<221=224,223,222
+<224=225
+<225=226
+<230=236,235,231
+<231=232
+<232=234,233
+<236=239,237
+<237=238

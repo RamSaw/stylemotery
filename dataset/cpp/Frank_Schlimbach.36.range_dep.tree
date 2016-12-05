@@ -1,0 +1,359 @@
+>18	FunctionDef	ctx ()
+>19	ParameterList	 
+>20	CompoundStatement	 
+>21	ExpressionStatement	 
+>22	CallExpression	CnC 
+>23	ArgumentList	m_step2s
+>24	Argument	m_step2s
+>25	Identifier	m_step2s
+>26	Callee	CnC 
+>27	Identifier	CnC 
+>28	ExpressionStatement	 
+>29	CallExpression	CnC 
+>30	ArgumentList	m_step1s
+>31	Argument	m_step1s
+>32	Identifier	m_step1s
+>33	Callee	CnC 
+>34	Identifier	CnC 
+>35	ExpressionStatement	 
+>36	CallExpression	m_tags . prescribes ( m_step2s , * this )
+>37	ArgumentList	m_step2s
+>38	Argument	* this
+>39	UnaryOp	* this
+>40	Identifier	this
+>41	UnaryOperator	*
+>42	Argument	m_step2s
+>43	Identifier	m_step2s
+>44	Callee	m_tags . prescribes
+>45	MemberAccess	m_tags . prescribes
+>46	Identifier	prescribes
+>47	Identifier	m_tags
+>48	ExpressionStatement	 
+>49	CallExpression	m_tags . prescribes ( m_step1s , * this )
+>50	ArgumentList	m_step1s
+>51	Argument	* this
+>52	UnaryOp	* this
+>53	Identifier	this
+>54	UnaryOperator	*
+>55	Argument	m_step1s
+>56	Identifier	m_step1s
+>57	Callee	m_tags . prescribes
+>58	MemberAccess	m_tags . prescribes
+>59	Identifier	prescribes
+>60	Identifier	m_tags
+>69	FunctionDef	step2_tuner 
+>70	ParameterList	const tag_type & t , ctx & c , dependency_consumer & dC
+>71	Parameter	 
+>72	Identifier	dC
+>73	ParameterType	dependency_consumer &
+>74	Parameter	 
+>75	Identifier	c
+>76	ParameterType	ctx &
+>77	Parameter	 
+>78	Identifier	t
+>79	ParameterType	const tag_type &
+>80	ReturnType	void
+>81	CompoundStatement	 
+>82	ExpressionStatement	 
+>83	CallExpression	dC . depends ( c . m_data , t )
+>84	ArgumentList	c . m_data
+>85	Argument	t
+>86	Identifier	t
+>87	Argument	c . m_data
+>88	MemberAccess	c . m_data
+>89	Identifier	m_data
+>90	Identifier	c
+>91	Callee	dC . depends
+>92	MemberAccess	dC . depends
+>93	Identifier	depends
+>94	Identifier	dC
+>102	FunctionDef	step1 
+>103	ParameterList	const tag_type & t , ctx & c
+>104	Parameter	 
+>105	Identifier	c
+>106	ParameterType	ctx &
+>107	Parameter	 
+>108	Identifier	t
+>109	ParameterType	const tag_type &
+>110	ReturnType	int
+>111	CompoundStatement	 
+>112	ReturnStatement	 
+>113	Identifier	CnC 
+>114	ExpressionStatement	 
+>115	CallExpression	c . m_data . put ( t , 8 )
+>116	ArgumentList	t
+>117	Argument	8
+>118	PrimaryExpression	8
+>119	Argument	t
+>120	Identifier	t
+>121	Callee	c . m_data . put
+>122	MemberAccess	c . m_data . put
+>123	Identifier	put
+>124	MemberAccess	c . m_data
+>125	Identifier	m_data
+>126	Identifier	c
+>134	FunctionDef	step2 
+>135	ParameterList	const tag_type & t , ctx & c
+>136	Parameter	 
+>137	Identifier	c
+>138	ParameterType	ctx &
+>139	Parameter	 
+>140	Identifier	t
+>141	ParameterType	const tag_type &
+>142	ReturnType	int
+>143	CompoundStatement	 
+>144	ReturnStatement	 
+>145	Identifier	CnC 
+>146	ExpressionStatement	 
+>147	CallExpression	c . m_data . get ( t , val )
+>148	ArgumentList	t
+>149	Argument	val
+>150	Identifier	val
+>151	Argument	t
+>152	Identifier	t
+>153	Callee	c . m_data . get
+>154	MemberAccess	c . m_data . get
+>155	Identifier	get
+>156	MemberAccess	c . m_data
+>157	Identifier	m_data
+>158	Identifier	c
+>159	IdentifierDeclStatement	 
+>160	IdentifierDecl	val
+>161	Identifier	val
+>162	IdentifierDeclType	int
+>171	FunctionDef	main (int argc , char * argv [ ])
+>172	ParameterList	int argc , char * argv [ ]
+>173	Parameter	 
+>174	Identifier	argv
+>175	ParameterType	char * [ ]
+>176	Parameter	 
+>177	Identifier	argc
+>178	ParameterType	int
+>179	ReturnType	int
+>180	CompoundStatement	 
+>181	ReturnStatement	 
+>182	PrimaryExpression	0
+>183	ExpressionStatement	 
+>184	CallExpression	c . wait ( )
+>185	ArgumentList	 
+>186	Callee	c . wait
+>187	MemberAccess	c . wait
+>188	Identifier	wait
+>189	Identifier	c
+>190	ExpressionStatement	 
+>191	CallExpression	c . m_tags . put_range ( range_type ( 0 , n , g ) )
+>192	ArgumentList	range_type ( 0 , n , g )
+>193	Argument	range_type ( 0 , n , g )
+>194	CallExpression	range_type ( 0 , n , g )
+>195	ArgumentList	0
+>196	Argument	g
+>197	Identifier	g
+>198	Argument	n
+>199	Identifier	n
+>200	Argument	0
+>201	PrimaryExpression	0
+>202	Callee	range_type
+>203	Identifier	range_type
+>204	Callee	c . m_tags . put_range
+>205	MemberAccess	c . m_tags . put_range
+>206	Identifier	put_range
+>207	MemberAccess	c . m_tags
+>208	Identifier	m_tags
+>209	Identifier	c
+>210	ExpressionStatement	 
+>211	CallExpression	CnC 
+>212	ArgumentList	c
+>213	Argument	c
+>214	Identifier	c
+>215	Callee	CnC 
+>216	Identifier	CnC 
+>217	IdentifierDeclStatement	 
+>218	IdentifierDecl	c
+>219	Identifier	c
+>220	IdentifierDeclType	ctx
+>221	IdentifierDeclStatement	 
+>222	IdentifierDecl	g = atoi ( argv [ 2 ] )
+>223	AssignmentExpr	g = atoi ( argv [ 2 ] )
+>224	CallExpression	atoi ( argv [ 2 ] )
+>225	ArgumentList	argv [ 2 ]
+>226	Argument	argv [ 2 ]
+>227	ArrayIndexing	argv [ 2 ]
+>228	PrimaryExpression	2
+>229	Identifier	argv
+>230	Callee	atoi
+>231	Identifier	atoi
+>232	Identifier	g
+>233	Identifier	g
+>234	IdentifierDeclType	int
+>235	IdentifierDeclStatement	 
+>236	IdentifierDecl	n = atoi ( argv [ 1 ] )
+>237	AssignmentExpr	n = atoi ( argv [ 1 ] )
+>238	CallExpression	atoi ( argv [ 1 ] )
+>239	ArgumentList	argv [ 1 ]
+>240	Argument	argv [ 1 ]
+>241	ArrayIndexing	argv [ 1 ]
+>242	PrimaryExpression	1
+>243	Identifier	argv
+>244	Callee	atoi
+>245	Identifier	atoi
+>246	Identifier	n
+>247	Identifier	n
+>248	IdentifierDeclType	int
+>249	IfStatement	if ( argc < 3 )
+>250	CompoundStatement	 
+>251	ExpressionStatement	 
+>252	CallExpression	exit ( - 1 )
+>253	ArgumentList	- 1
+>254	Argument	- 1
+>255	UnaryOp	- 1
+>256	PrimaryExpression	1
+>257	UnaryOperator	-
+>258	Callee	exit
+>259	Identifier	exit
+>260	ExpressionStatement	 
+>261	ShiftExpression	std 
+>262	ShiftExpression	\"Usage
+>263	ShiftExpression	argv [ 0 ] << \" [size] [granularity]\n\"
+>264	PrimaryExpression	\" [size] [granularity]\n\"
+>265	ArrayIndexing	argv [ 0 ]
+>266	PrimaryExpression	0
+>267	Identifier	argv
+>268	PrimaryExpression	\"Usage
+>269	Identifier	std 
+>270	Condition	 
+>271	RelationalExpression	argc < 3
+>272	PrimaryExpression	3
+>273	Identifier	argc
+<18=20,19
+<20=48,35,28,21
+<21=22
+<22=26,23
+<23=24
+<24=25
+<26=27
+<28=29
+<29=33,30
+<30=31
+<31=32
+<33=34
+<35=36
+<36=44,37
+<37=42,38
+<38=39
+<39=41,40
+<42=43
+<44=45
+<45=47,46
+<48=49
+<49=57,50
+<50=55,51
+<51=52
+<52=54,53
+<55=56
+<57=58
+<58=60,59
+<69=81,80,70
+<70=77,74,71
+<71=73,72
+<74=76,75
+<77=79,78
+<81=82
+<82=83
+<83=91,84
+<84=87,85
+<85=86
+<87=88
+<88=90,89
+<91=92
+<92=94,93
+<102=111,110,103
+<103=107,104
+<104=106,105
+<107=109,108
+<111=114,112
+<112=113
+<114=115
+<115=121,116
+<116=119,117
+<117=118
+<119=120
+<121=122
+<122=124,123
+<124=126,125
+<134=143,142,135
+<135=139,136
+<136=138,137
+<139=141,140
+<143=159,146,144
+<144=145
+<146=147
+<147=153,148
+<148=151,149
+<149=150
+<151=152
+<153=154
+<154=156,155
+<156=158,157
+<159=160
+<160=162,161
+<171=180,179,172
+<172=176,173
+<173=175,174
+<176=178,177
+<180=249,235,221,217,210,190,183,181
+<181=182
+<183=184
+<184=186,185
+<186=187
+<187=189,188
+<190=191
+<191=204,192
+<192=193
+<193=194
+<194=202,195
+<195=200,198,196
+<196=197
+<198=199
+<200=201
+<202=203
+<204=205
+<205=207,206
+<207=209,208
+<210=211
+<211=215,212
+<212=213
+<213=214
+<215=216
+<217=218
+<218=220,219
+<221=222
+<222=234,233,223
+<223=232,224
+<224=230,225
+<225=226
+<226=227
+<227=229,228
+<230=231
+<235=236
+<236=248,247,237
+<237=246,238
+<238=244,239
+<239=240
+<240=241
+<241=243,242
+<244=245
+<249=270,250
+<250=260,251
+<251=252
+<252=258,253
+<253=254
+<254=255
+<255=257,256
+<258=259
+<260=261
+<261=269,262
+<262=268,263
+<263=265,264
+<265=267,266
+<270=271
+<271=273,272

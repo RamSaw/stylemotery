@@ -1,0 +1,1630 @@
+>3	FunctionDef	RequestParser 
+>4	ParameterList	request & current_request , char * begin , char * end
+>5	Parameter	 
+>6	Identifier	end
+>7	ParameterType	char *
+>8	Parameter	 
+>9	Identifier	begin
+>10	ParameterType	char *
+>11	Parameter	 
+>12	Identifier	current_request
+>13	ParameterType	request &
+>14	ReturnType	std 
+>15	CompoundStatement	 
+>16	ReturnStatement	 
+>17	CallExpression	std 
+>18	ArgumentList	result
+>19	Argument	selected_compression
+>20	Identifier	selected_compression
+>21	Argument	result
+>22	Identifier	result
+>23	Callee	std 
+>24	Identifier	std 
+>25	IfStatement	if ( state == internal_state 
+>26	CompoundStatement	 
+>27	ExpressionStatement	 
+>28	AssignmentExpr	result = osrm 
+>29	Identifier	osrm 
+>30	Identifier	result
+>31	Condition	 
+>32	AndExpression	state == internal_state 
+>33	RelationalExpression	content_length <= 0
+>34	PrimaryExpression	0
+>35	Identifier	content_length
+>36	EqualityExpression	state == internal_state 
+>37	Identifier	internal_state 
+>38	Identifier	state
+>39	IdentifierDeclStatement	 
+>40	IdentifierDecl	result = osrm 
+>41	AssignmentExpr	result = osrm 
+>42	Identifier	osrm 
+>43	Identifier	osrm 
+>44	Identifier	result
+>45	IdentifierDeclType	osrm 
+>46	WhileStatement	while ( begin != end )
+>47	CompoundStatement	 
+>48	IfStatement	if ( result != osrm 
+>49	CompoundStatement	 
+>50	ReturnStatement	 
+>51	CallExpression	std 
+>52	ArgumentList	result
+>53	Argument	selected_compression
+>54	Identifier	selected_compression
+>55	Argument	result
+>56	Identifier	result
+>57	Callee	std 
+>58	Identifier	std 
+>59	Condition	 
+>60	EqualityExpression	result != osrm 
+>61	Identifier	osrm 
+>62	Identifier	result
+>63	IdentifierDeclStatement	 
+>64	IdentifierDecl	result = consume ( current_request , * begin ++ )
+>65	AssignmentExpr	result = consume ( current_request , * begin ++ )
+>66	CallExpression	consume ( current_request , * begin ++ )
+>67	ArgumentList	current_request
+>68	Argument	* begin ++
+>69	UnaryOp	* begin ++
+>70	IncDecOp	begin ++
+>71	IncDec	++
+>72	Identifier	begin
+>73	UnaryOperator	*
+>74	Argument	current_request
+>75	Identifier	current_request
+>76	Callee	consume
+>77	Identifier	consume
+>78	Identifier	result
+>79	Identifier	result
+>80	IdentifierDeclType	osrm 
+>81	Condition	 
+>82	EqualityExpression	begin != end
+>83	Identifier	end
+>84	Identifier	begin
+>102	FunctionDef	RequestParser 
+>103	ParameterList	request & current_request , const char input
+>104	Parameter	 
+>105	Identifier	input
+>106	ParameterType	const char
+>107	Parameter	 
+>108	Identifier	current_request
+>109	ParameterType	request &
+>110	ReturnType	osrm 
+>111	CompoundStatement	 
+>112	SwitchStatement	switch ( state )
+>113	CompoundStatement	 
+>114	ReturnStatement	 
+>115	ConditionalExpression	input == '\n' ? osrm 
+>116	Identifier	osrm 
+>117	Identifier	osrm 
+>118	Condition	input == '\n'
+>119	EqualityExpression	input == '\n'
+>120	PrimaryExpression	'\n'
+>121	Identifier	input
+>122	Label	 
+>123	Identifier	default
+>124	ReturnStatement	 
+>125	Identifier	osrm 
+>126	IfStatement	if ( input == '\n' )
+>127	CompoundStatement	 
+>128	ReturnStatement	 
+>129	Identifier	osrm 
+>130	IfStatement	if ( is_post_header )
+>131	CompoundStatement	 
+>132	ReturnStatement	 
+>133	Identifier	osrm 
+>134	ExpressionStatement	 
+>135	AssignmentExpr	state = internal_state 
+>136	Identifier	internal_state 
+>137	Identifier	state
+>138	ExpressionStatement	 
+>139	CallExpression	current_request . uri . push_back ( '?' )
+>140	ArgumentList	'?'
+>141	Argument	'?'
+>142	PrimaryExpression	'?'
+>143	Callee	current_request . uri . push_back
+>144	MemberAccess	current_request . uri . push_back
+>145	Identifier	push_back
+>146	MemberAccess	current_request . uri
+>147	Identifier	uri
+>148	Identifier	current_request
+>149	Condition	 
+>150	Identifier	is_post_header
+>151	Condition	 
+>152	EqualityExpression	input == '\n'
+>153	PrimaryExpression	'\n'
+>154	Identifier	input
+>155	Label	 
+>156	Identifier	internal_state 
+>157	ReturnStatement	 
+>158	Identifier	osrm 
+>159	IfStatement	if ( input == '\n' )
+>160	CompoundStatement	 
+>161	ReturnStatement	 
+>162	Identifier	osrm 
+>163	ExpressionStatement	 
+>164	AssignmentExpr	state = internal_state 
+>165	Identifier	internal_state 
+>166	Identifier	state
+>167	Condition	 
+>168	EqualityExpression	input == '\n'
+>169	PrimaryExpression	'\n'
+>170	Identifier	input
+>171	Label	 
+>172	Identifier	internal_state 
+>173	ReturnStatement	 
+>174	Identifier	osrm 
+>175	ExpressionStatement	 
+>176	CallExpression	current_header . value . push_back ( input )
+>177	ArgumentList	input
+>178	Argument	input
+>179	Identifier	input
+>180	Callee	current_header . value . push_back
+>181	MemberAccess	current_header . value . push_back
+>182	Identifier	push_back
+>183	MemberAccess	current_header . value
+>184	Identifier	value
+>185	Identifier	current_header
+>186	IfStatement	if ( is_CTL ( input ) )
+>187	CompoundStatement	 
+>188	ReturnStatement	 
+>189	Identifier	osrm 
+>190	Condition	 
+>191	CallExpression	is_CTL ( input )
+>192	ArgumentList	input
+>193	Argument	input
+>194	Identifier	input
+>195	Callee	is_CTL
+>196	Identifier	is_CTL
+>197	IfStatement	if ( input == '\r' )
+>198	CompoundStatement	 
+>199	ReturnStatement	 
+>200	Identifier	osrm 
+>201	ExpressionStatement	 
+>202	AssignmentExpr	state = internal_state 
+>203	Identifier	internal_state 
+>204	Identifier	state
+>205	Condition	 
+>206	EqualityExpression	input == '\r'
+>207	PrimaryExpression	'\r'
+>208	Identifier	input
+>209	Label	 
+>210	Identifier	internal_state 
+>211	ReturnStatement	 
+>212	Identifier	osrm 
+>213	IfStatement	if ( input == ' ' )
+>214	CompoundStatement	 
+>215	ReturnStatement	 
+>216	Identifier	osrm 
+>217	ExpressionStatement	 
+>218	AssignmentExpr	state = internal_state 
+>219	Identifier	internal_state 
+>220	Identifier	state
+>221	Condition	 
+>222	EqualityExpression	input == ' '
+>223	PrimaryExpression	' '
+>224	Identifier	input
+>225	Label	 
+>226	Identifier	internal_state 
+>227	ReturnStatement	 
+>228	Identifier	osrm 
+>229	ExpressionStatement	 
+>230	CallExpression	current_header . name . push_back ( input )
+>231	ArgumentList	input
+>232	Argument	input
+>233	Identifier	input
+>234	Callee	current_header . name . push_back
+>235	MemberAccess	current_header . name . push_back
+>236	Identifier	push_back
+>237	MemberAccess	current_header . name
+>238	Identifier	name
+>239	Identifier	current_header
+>240	IfStatement	if ( ! is_char ( input ) || is_CTL ( input ) || is_special ( input ) )
+>241	CompoundStatement	 
+>242	ReturnStatement	 
+>243	Identifier	osrm 
+>244	Condition	 
+>245	OrExpression	! is_char ( input ) || is_CTL ( input ) || is_special ( input )
+>246	OrExpression	is_CTL ( input ) || is_special ( input )
+>247	CallExpression	is_special ( input )
+>248	ArgumentList	input
+>249	Argument	input
+>250	Identifier	input
+>251	Callee	is_special
+>252	Identifier	is_special
+>253	CallExpression	is_CTL ( input )
+>254	ArgumentList	input
+>255	Argument	input
+>256	Identifier	input
+>257	Callee	is_CTL
+>258	Identifier	is_CTL
+>259	UnaryOp	! is_char ( input )
+>260	CallExpression	is_char ( input )
+>261	ArgumentList	input
+>262	Argument	input
+>263	Identifier	input
+>264	Callee	is_char
+>265	Identifier	is_char
+>266	UnaryOperator	!
+>267	IfStatement	if ( input == '
+>268	CompoundStatement	 
+>269	ReturnStatement	 
+>270	Identifier	osrm 
+>271	ExpressionStatement	 
+>272	AssignmentExpr	state = internal_state 
+>273	Identifier	internal_state 
+>274	Identifier	state
+>275	Condition	 
+>276	EqualityExpression	input == '
+>277	PrimaryExpression	'
+>278	Identifier	input
+>279	Label	 
+>280	Identifier	internal_state 
+>281	ReturnStatement	 
+>282	Identifier	osrm 
+>283	ExpressionStatement	 
+>284	AssignmentExpr	state = internal_state 
+>285	Identifier	internal_state 
+>286	Identifier	state
+>287	IfStatement	if ( is_CTL ( input ) )
+>288	CompoundStatement	 
+>289	ReturnStatement	 
+>290	Identifier	osrm 
+>291	Condition	 
+>292	CallExpression	is_CTL ( input )
+>293	ArgumentList	input
+>294	Argument	input
+>295	Identifier	input
+>296	Callee	is_CTL
+>297	Identifier	is_CTL
+>298	IfStatement	if ( input == ' ' || input == '\t' )
+>299	CompoundStatement	 
+>300	ReturnStatement	 
+>301	Identifier	osrm 
+>302	Condition	 
+>303	OrExpression	input == ' ' || input == '\t'
+>304	EqualityExpression	input == '\t'
+>305	PrimaryExpression	'\t'
+>306	Identifier	input
+>307	EqualityExpression	input == ' '
+>308	PrimaryExpression	' '
+>309	Identifier	input
+>310	IfStatement	if ( input == '\r' )
+>311	CompoundStatement	 
+>312	ReturnStatement	 
+>313	Identifier	osrm 
+>314	ExpressionStatement	 
+>315	AssignmentExpr	state = internal_state 
+>316	Identifier	internal_state 
+>317	Identifier	state
+>318	Condition	 
+>319	EqualityExpression	input == '\r'
+>320	PrimaryExpression	'\r'
+>321	Identifier	input
+>322	Label	 
+>323	Identifier	internal_state 
+>324	ReturnStatement	 
+>325	Identifier	osrm 
+>326	ExpressionStatement	 
+>327	CallExpression	current_header . name . push_back ( input )
+>328	ArgumentList	input
+>329	Argument	input
+>330	Identifier	input
+>331	Callee	current_header . name . push_back
+>332	MemberAccess	current_header . name . push_back
+>333	Identifier	push_back
+>334	MemberAccess	current_header . name
+>335	Identifier	name
+>336	Identifier	current_header
+>337	ExpressionStatement	 
+>338	CallExpression	current_header . clear ( )
+>339	ArgumentList	 
+>340	Callee	current_header . clear
+>341	MemberAccess	current_header . clear
+>342	Identifier	clear
+>343	Identifier	current_header
+>344	ExpressionStatement	 
+>345	AssignmentExpr	state = internal_state 
+>346	Identifier	internal_state 
+>347	Identifier	state
+>348	IfStatement	if ( ! is_char ( input ) || is_CTL ( input ) || is_special ( input ) )
+>349	CompoundStatement	 
+>350	ReturnStatement	 
+>351	Identifier	osrm 
+>352	Condition	 
+>353	OrExpression	! is_char ( input ) || is_CTL ( input ) || is_special ( input )
+>354	OrExpression	is_CTL ( input ) || is_special ( input )
+>355	CallExpression	is_special ( input )
+>356	ArgumentList	input
+>357	Argument	input
+>358	Identifier	input
+>359	Callee	is_special
+>360	Identifier	is_special
+>361	CallExpression	is_CTL ( input )
+>362	ArgumentList	input
+>363	Argument	input
+>364	Identifier	input
+>365	Callee	is_CTL
+>366	Identifier	is_CTL
+>367	UnaryOp	! is_char ( input )
+>368	CallExpression	is_char ( input )
+>369	ArgumentList	input
+>370	Argument	input
+>371	Identifier	input
+>372	Callee	is_char
+>373	Identifier	is_char
+>374	UnaryOperator	!
+>375	IfStatement	if ( input == '\r' )
+>376	CompoundStatement	 
+>377	ReturnStatement	 
+>378	Identifier	osrm 
+>379	ExpressionStatement	 
+>380	AssignmentExpr	state = internal_state 
+>381	Identifier	internal_state 
+>382	Identifier	state
+>383	Condition	 
+>384	EqualityExpression	input == '\r'
+>385	PrimaryExpression	'\r'
+>386	Identifier	input
+>387	IfStatement	if ( boost 
+>388	CompoundStatement	 
+>389	IfStatement	if ( ! boost 
+>390	CompoundStatement	 
+>391	ReturnStatement	 
+>392	Identifier	osrm 
+>393	Condition	 
+>394	UnaryOp	! boost 
+>395	CallExpression	boost 
+>396	ArgumentList	current_header . value
+>397	Argument	\"application/x-www-form-urlencoded\"
+>398	PrimaryExpression	\"application/x-www-form-urlencoded\"
+>399	Argument	current_header . value
+>400	MemberAccess	current_header . value
+>401	Identifier	value
+>402	Identifier	current_header
+>403	Callee	boost 
+>404	Identifier	boost 
+>405	UnaryOperator	!
+>406	Condition	 
+>407	CallExpression	boost 
+>408	ArgumentList	current_header . name
+>409	Argument	\"Content-Type\"
+>410	PrimaryExpression	\"Content-Type\"
+>411	Argument	current_header . name
+>412	MemberAccess	current_header . name
+>413	Identifier	name
+>414	Identifier	current_header
+>415	Callee	boost 
+>416	Identifier	boost 
+>417	IfStatement	if ( boost 
+>418	CompoundStatement	 
+>419	BlockStarter	 
+>420	CompoundStatement	 
+>421	Identifier	e
+>422	BlockStarter	 
+>423	CompoundStatement	 
+>424	ExpressionStatement	content_length = std 
+>425	AssignmentExpr	content_length = std 
+>426	CallExpression	std 
+>427	ArgumentList	current_header . value
+>428	Argument	current_header . value
+>429	MemberAccess	current_header . value
+>430	Identifier	value
+>431	Identifier	current_header
+>432	Callee	std 
+>433	Identifier	std 
+>434	Identifier	content_length
+>435	Condition	 
+>436	CallExpression	boost 
+>437	ArgumentList	current_header . name
+>438	Argument	\"Content-Length\"
+>439	PrimaryExpression	\"Content-Length\"
+>440	Argument	current_header . name
+>441	MemberAccess	current_header . name
+>442	Identifier	name
+>443	Identifier	current_header
+>444	Callee	boost 
+>445	Identifier	boost 
+>446	IfStatement	if ( boost 
+>447	CompoundStatement	 
+>448	ExpressionStatement	 
+>449	AssignmentExpr	current_request . agent = current_header . value
+>450	MemberAccess	current_header . value
+>451	Identifier	value
+>452	Identifier	current_header
+>453	MemberAccess	current_request . agent
+>454	Identifier	agent
+>455	Identifier	current_request
+>456	Condition	 
+>457	CallExpression	boost 
+>458	ArgumentList	current_header . name
+>459	Argument	\"User-Agent\"
+>460	PrimaryExpression	\"User-Agent\"
+>461	Argument	current_header . name
+>462	MemberAccess	current_header . name
+>463	Identifier	name
+>464	Identifier	current_header
+>465	Callee	boost 
+>466	Identifier	boost 
+>467	IfStatement	if ( boost 
+>468	CompoundStatement	 
+>469	ExpressionStatement	 
+>470	AssignmentExpr	current_request . referrer = current_header . value
+>471	MemberAccess	current_header . value
+>472	Identifier	value
+>473	Identifier	current_header
+>474	MemberAccess	current_request . referrer
+>475	Identifier	referrer
+>476	Identifier	current_request
+>477	Condition	 
+>478	CallExpression	boost 
+>479	ArgumentList	current_header . name
+>480	Argument	\"Referer\"
+>481	PrimaryExpression	\"Referer\"
+>482	Argument	current_header . name
+>483	MemberAccess	current_header . name
+>484	Identifier	name
+>485	Identifier	current_header
+>486	Callee	boost 
+>487	Identifier	boost 
+>488	IfStatement	if ( boost 
+>489	CompoundStatement	 
+>490	IfStatement	if ( boost 
+>491	CompoundStatement	 
+>492	ExpressionStatement	 
+>493	AssignmentExpr	selected_compression = gzip_rfc1952
+>494	Identifier	gzip_rfc1952
+>495	Identifier	selected_compression
+>496	Condition	 
+>497	CallExpression	boost 
+>498	ArgumentList	current_header . value
+>499	Argument	\"gzip\"
+>500	PrimaryExpression	\"gzip\"
+>501	Argument	current_header . value
+>502	MemberAccess	current_header . value
+>503	Identifier	value
+>504	Identifier	current_header
+>505	Callee	boost 
+>506	Identifier	boost 
+>507	IfStatement	if ( boost 
+>508	CompoundStatement	 
+>509	ExpressionStatement	 
+>510	AssignmentExpr	selected_compression = deflate_rfc1951
+>511	Identifier	deflate_rfc1951
+>512	Identifier	selected_compression
+>513	Condition	 
+>514	CallExpression	boost 
+>515	ArgumentList	current_header . value
+>516	Argument	\"deflate\"
+>517	PrimaryExpression	\"deflate\"
+>518	Argument	current_header . value
+>519	MemberAccess	current_header . value
+>520	Identifier	value
+>521	Identifier	current_header
+>522	Callee	boost 
+>523	Identifier	boost 
+>524	Condition	 
+>525	CallExpression	boost 
+>526	ArgumentList	current_header . name
+>527	Argument	\"Accept-Encoding\"
+>528	PrimaryExpression	\"Accept-Encoding\"
+>529	Argument	current_header . name
+>530	MemberAccess	current_header . name
+>531	Identifier	name
+>532	Identifier	current_header
+>533	Callee	boost 
+>534	Identifier	boost 
+>535	Label	 
+>536	Identifier	internal_state 
+>537	ReturnStatement	 
+>538	Identifier	osrm 
+>539	IfStatement	if ( input == '\n' )
+>540	CompoundStatement	 
+>541	ReturnStatement	 
+>542	Identifier	osrm 
+>543	ExpressionStatement	 
+>544	AssignmentExpr	state = internal_state 
+>545	Identifier	internal_state 
+>546	Identifier	state
+>547	Condition	 
+>548	EqualityExpression	input == '\n'
+>549	PrimaryExpression	'\n'
+>550	Identifier	input
+>551	Label	 
+>552	Identifier	internal_state 
+>553	ReturnStatement	 
+>554	Identifier	osrm 
+>555	IfStatement	if ( is_digit ( input ) )
+>556	CompoundStatement	 
+>557	ReturnStatement	 
+>558	Identifier	osrm 
+>559	Condition	 
+>560	CallExpression	is_digit ( input )
+>561	ArgumentList	input
+>562	Argument	input
+>563	Identifier	input
+>564	Callee	is_digit
+>565	Identifier	is_digit
+>566	IfStatement	if ( input == '\r' )
+>567	CompoundStatement	 
+>568	ReturnStatement	 
+>569	Identifier	osrm 
+>570	ExpressionStatement	 
+>571	AssignmentExpr	state = internal_state 
+>572	Identifier	internal_state 
+>573	Identifier	state
+>574	Condition	 
+>575	EqualityExpression	input == '\r'
+>576	PrimaryExpression	'\r'
+>577	Identifier	input
+>578	Label	 
+>579	Identifier	internal_state 
+>580	ReturnStatement	 
+>581	Identifier	osrm 
+>582	IfStatement	if ( is_digit ( input ) )
+>583	CompoundStatement	 
+>584	ReturnStatement	 
+>585	Identifier	osrm 
+>586	ExpressionStatement	 
+>587	AssignmentExpr	state = internal_state 
+>588	Identifier	internal_state 
+>589	Identifier	state
+>590	Condition	 
+>591	CallExpression	is_digit ( input )
+>592	ArgumentList	input
+>593	Argument	input
+>594	Identifier	input
+>595	Callee	is_digit
+>596	Identifier	is_digit
+>597	Label	 
+>598	Identifier	internal_state 
+>599	ReturnStatement	 
+>600	Identifier	osrm 
+>601	IfStatement	if ( is_digit ( input ) )
+>602	CompoundStatement	 
+>603	ReturnStatement	 
+>604	Identifier	osrm 
+>605	Condition	 
+>606	CallExpression	is_digit ( input )
+>607	ArgumentList	input
+>608	Argument	input
+>609	Identifier	input
+>610	Callee	is_digit
+>611	Identifier	is_digit
+>612	IfStatement	if ( input == '.' )
+>613	CompoundStatement	 
+>614	ReturnStatement	 
+>615	Identifier	osrm 
+>616	ExpressionStatement	 
+>617	AssignmentExpr	state = internal_state 
+>618	Identifier	internal_state 
+>619	Identifier	state
+>620	Condition	 
+>621	EqualityExpression	input == '.'
+>622	PrimaryExpression	'.'
+>623	Identifier	input
+>624	Label	 
+>625	Identifier	internal_state 
+>626	ReturnStatement	 
+>627	Identifier	osrm 
+>628	IfStatement	if ( is_digit ( input ) )
+>629	CompoundStatement	 
+>630	ReturnStatement	 
+>631	Identifier	osrm 
+>632	ExpressionStatement	 
+>633	AssignmentExpr	state = internal_state 
+>634	Identifier	internal_state 
+>635	Identifier	state
+>636	Condition	 
+>637	CallExpression	is_digit ( input )
+>638	ArgumentList	input
+>639	Argument	input
+>640	Identifier	input
+>641	Callee	is_digit
+>642	Identifier	is_digit
+>643	Label	 
+>644	Identifier	internal_state 
+>645	ReturnStatement	 
+>646	Identifier	osrm 
+>647	IfStatement	if ( input == '/' )
+>648	CompoundStatement	 
+>649	ReturnStatement	 
+>650	Identifier	osrm 
+>651	ExpressionStatement	 
+>652	AssignmentExpr	state = internal_state 
+>653	Identifier	internal_state 
+>654	Identifier	state
+>655	Condition	 
+>656	EqualityExpression	input == '/'
+>657	PrimaryExpression	'/'
+>658	Identifier	input
+>659	Label	 
+>660	Identifier	internal_state 
+>661	ReturnStatement	 
+>662	Identifier	osrm 
+>663	IfStatement	if ( input == 'P' )
+>664	CompoundStatement	 
+>665	ReturnStatement	 
+>666	Identifier	osrm 
+>667	ExpressionStatement	 
+>668	AssignmentExpr	state = internal_state 
+>669	Identifier	internal_state 
+>670	Identifier	state
+>671	Condition	 
+>672	EqualityExpression	input == 'P'
+>673	PrimaryExpression	'P'
+>674	Identifier	input
+>675	Label	 
+>676	Identifier	internal_state 
+>677	ReturnStatement	 
+>678	Identifier	osrm 
+>679	IfStatement	if ( input == 'T' )
+>680	CompoundStatement	 
+>681	ReturnStatement	 
+>682	Identifier	osrm 
+>683	ExpressionStatement	 
+>684	AssignmentExpr	state = internal_state 
+>685	Identifier	internal_state 
+>686	Identifier	state
+>687	Condition	 
+>688	EqualityExpression	input == 'T'
+>689	PrimaryExpression	'T'
+>690	Identifier	input
+>691	Label	 
+>692	Identifier	internal_state 
+>693	ReturnStatement	 
+>694	Identifier	osrm 
+>695	IfStatement	if ( input == 'T' )
+>696	CompoundStatement	 
+>697	ReturnStatement	 
+>698	Identifier	osrm 
+>699	ExpressionStatement	 
+>700	AssignmentExpr	state = internal_state 
+>701	Identifier	internal_state 
+>702	Identifier	state
+>703	Condition	 
+>704	EqualityExpression	input == 'T'
+>705	PrimaryExpression	'T'
+>706	Identifier	input
+>707	Label	 
+>708	Identifier	internal_state 
+>709	ReturnStatement	 
+>710	Identifier	osrm 
+>711	IfStatement	if ( input == 'H' )
+>712	CompoundStatement	 
+>713	ReturnStatement	 
+>714	Identifier	osrm 
+>715	ExpressionStatement	 
+>716	AssignmentExpr	state = internal_state 
+>717	Identifier	internal_state 
+>718	Identifier	state
+>719	Condition	 
+>720	EqualityExpression	input == 'H'
+>721	PrimaryExpression	'H'
+>722	Identifier	input
+>723	Label	 
+>724	Identifier	internal_state 
+>725	ReturnStatement	 
+>726	Identifier	osrm 
+>727	ExpressionStatement	 
+>728	CallExpression	current_request . uri . push_back ( input )
+>729	ArgumentList	input
+>730	Argument	input
+>731	Identifier	input
+>732	Callee	current_request . uri . push_back
+>733	MemberAccess	current_request . uri . push_back
+>734	Identifier	push_back
+>735	MemberAccess	current_request . uri
+>736	Identifier	uri
+>737	Identifier	current_request
+>738	IfStatement	if ( is_CTL ( input ) )
+>739	CompoundStatement	 
+>740	ReturnStatement	 
+>741	Identifier	osrm 
+>742	Condition	 
+>743	CallExpression	is_CTL ( input )
+>744	ArgumentList	input
+>745	Argument	input
+>746	Identifier	input
+>747	Callee	is_CTL
+>748	Identifier	is_CTL
+>749	IfStatement	if ( input == ' ' )
+>750	CompoundStatement	 
+>751	ReturnStatement	 
+>752	Identifier	osrm 
+>753	ExpressionStatement	 
+>754	AssignmentExpr	state = internal_state 
+>755	Identifier	internal_state 
+>756	Identifier	state
+>757	Condition	 
+>758	EqualityExpression	input == ' '
+>759	PrimaryExpression	' '
+>760	Identifier	input
+>761	Label	 
+>762	Identifier	internal_state 
+>763	ReturnStatement	 
+>764	Identifier	osrm 
+>765	ExpressionStatement	 
+>766	CallExpression	current_request . uri . push_back ( input )
+>767	ArgumentList	input
+>768	Argument	input
+>769	Identifier	input
+>770	Callee	current_request . uri . push_back
+>771	MemberAccess	current_request . uri . push_back
+>772	Identifier	push_back
+>773	MemberAccess	current_request . uri
+>774	Identifier	uri
+>775	Identifier	current_request
+>776	ExpressionStatement	 
+>777	AssignmentExpr	state = internal_state 
+>778	Identifier	internal_state 
+>779	Identifier	state
+>780	IfStatement	if ( is_CTL ( input ) )
+>781	CompoundStatement	 
+>782	ReturnStatement	 
+>783	Identifier	osrm 
+>784	Condition	 
+>785	CallExpression	is_CTL ( input )
+>786	ArgumentList	input
+>787	Argument	input
+>788	Identifier	input
+>789	Callee	is_CTL
+>790	Identifier	is_CTL
+>791	Label	 
+>792	Identifier	internal_state 
+>793	ReturnStatement	 
+>794	Identifier	osrm 
+>795	IfStatement	if ( ! is_char ( input ) || is_CTL ( input ) || is_special ( input ) )
+>796	CompoundStatement	 
+>797	ReturnStatement	 
+>798	Identifier	osrm 
+>799	Condition	 
+>800	OrExpression	! is_char ( input ) || is_CTL ( input ) || is_special ( input )
+>801	OrExpression	is_CTL ( input ) || is_special ( input )
+>802	CallExpression	is_special ( input )
+>803	ArgumentList	input
+>804	Argument	input
+>805	Identifier	input
+>806	Callee	is_special
+>807	Identifier	is_special
+>808	CallExpression	is_CTL ( input )
+>809	ArgumentList	input
+>810	Argument	input
+>811	Identifier	input
+>812	Callee	is_CTL
+>813	Identifier	is_CTL
+>814	UnaryOp	! is_char ( input )
+>815	CallExpression	is_char ( input )
+>816	ArgumentList	input
+>817	Argument	input
+>818	Identifier	input
+>819	Callee	is_char
+>820	Identifier	is_char
+>821	UnaryOperator	!
+>822	IfStatement	if ( input == ' ' )
+>823	CompoundStatement	 
+>824	ReturnStatement	 
+>825	Identifier	osrm 
+>826	ExpressionStatement	 
+>827	AssignmentExpr	state = internal_state 
+>828	Identifier	internal_state 
+>829	Identifier	state
+>830	Condition	 
+>831	EqualityExpression	input == ' '
+>832	PrimaryExpression	' '
+>833	Identifier	input
+>834	Label	 
+>835	Identifier	internal_state 
+>836	ReturnStatement	 
+>837	Identifier	osrm 
+>838	ExpressionStatement	 
+>839	UnaryExpression	-- content_length
+>840	Identifier	content_length
+>841	IncDec	--
+>842	ExpressionStatement	 
+>843	CallExpression	current_request . uri . push_back ( input )
+>844	ArgumentList	input
+>845	Argument	input
+>846	Identifier	input
+>847	Callee	current_request . uri . push_back
+>848	MemberAccess	current_request . uri . push_back
+>849	Identifier	push_back
+>850	MemberAccess	current_request . uri
+>851	Identifier	uri
+>852	Identifier	current_request
+>853	Label	 
+>854	Identifier	internal_state 
+>855	ReturnStatement	 
+>856	Identifier	osrm 
+>857	IfStatement	if ( input == 'T' )
+>858	CompoundStatement	 
+>859	ReturnStatement	 
+>860	Identifier	osrm 
+>861	ExpressionStatement	 
+>862	AssignmentExpr	state = internal_state 
+>863	Identifier	internal_state 
+>864	Identifier	state
+>865	ExpressionStatement	 
+>866	AssignmentExpr	is_post_header = true
+>867	Identifier	true
+>868	Identifier	is_post_header
+>869	Condition	 
+>870	EqualityExpression	input == 'T'
+>871	PrimaryExpression	'T'
+>872	Identifier	input
+>873	Label	 
+>874	Identifier	internal_state 
+>875	ReturnStatement	 
+>876	Identifier	osrm 
+>877	IfStatement	if ( input == 'S' )
+>878	CompoundStatement	 
+>879	ReturnStatement	 
+>880	Identifier	osrm 
+>881	ExpressionStatement	 
+>882	AssignmentExpr	state = internal_state 
+>883	Identifier	internal_state 
+>884	Identifier	state
+>885	Condition	 
+>886	EqualityExpression	input == 'S'
+>887	PrimaryExpression	'S'
+>888	Identifier	input
+>889	Label	 
+>890	Identifier	internal_state 
+>891	ReturnStatement	 
+>892	Identifier	osrm 
+>893	IfStatement	if ( input == 'O' )
+>894	CompoundStatement	 
+>895	ReturnStatement	 
+>896	Identifier	osrm 
+>897	ExpressionStatement	 
+>898	AssignmentExpr	state = internal_state 
+>899	Identifier	internal_state 
+>900	Identifier	state
+>901	Condition	 
+>902	EqualityExpression	input == 'O'
+>903	PrimaryExpression	'O'
+>904	Identifier	input
+>905	Label	 
+>906	Identifier	internal_state 
+>907	ReturnStatement	 
+>908	Identifier	osrm 
+>909	ExpressionStatement	 
+>910	AssignmentExpr	state = internal_state 
+>911	Identifier	internal_state 
+>912	Identifier	state
+>913	IfStatement	if ( input == 'P' )
+>914	CompoundStatement	 
+>915	ReturnStatement	 
+>916	Identifier	osrm 
+>917	ExpressionStatement	 
+>918	AssignmentExpr	state = internal_state 
+>919	Identifier	internal_state 
+>920	Identifier	state
+>921	Condition	 
+>922	EqualityExpression	input == 'P'
+>923	PrimaryExpression	'P'
+>924	Identifier	input
+>925	IfStatement	if ( ! is_char ( input ) || is_CTL ( input ) || is_special ( input ) )
+>926	CompoundStatement	 
+>927	ReturnStatement	 
+>928	Identifier	osrm 
+>929	Condition	 
+>930	OrExpression	! is_char ( input ) || is_CTL ( input ) || is_special ( input )
+>931	OrExpression	is_CTL ( input ) || is_special ( input )
+>932	CallExpression	is_special ( input )
+>933	ArgumentList	input
+>934	Argument	input
+>935	Identifier	input
+>936	Callee	is_special
+>937	Identifier	is_special
+>938	CallExpression	is_CTL ( input )
+>939	ArgumentList	input
+>940	Argument	input
+>941	Identifier	input
+>942	Callee	is_CTL
+>943	Identifier	is_CTL
+>944	UnaryOp	! is_char ( input )
+>945	CallExpression	is_char ( input )
+>946	ArgumentList	input
+>947	Argument	input
+>948	Identifier	input
+>949	Callee	is_char
+>950	Identifier	is_char
+>951	UnaryOperator	!
+>952	Label	 
+>953	Identifier	internal_state 
+>954	Condition	 
+>955	Identifier	state
+>1006	FunctionDef	RequestParser 
+>1007	ParameterList	const int character
+>1008	Parameter	 
+>1009	Identifier	character
+>1010	ParameterType	const int
+>1011	ReturnType	bool
+>1012	CompoundStatement	 
+>1013	ReturnStatement	 
+>1014	AndExpression	character >= 0 && character <= 127
+>1015	RelationalExpression	character <= 127
+>1016	PrimaryExpression	127
+>1017	Identifier	character
+>1018	RelationalExpression	character >= 0
+>1019	PrimaryExpression	0
+>1020	Identifier	character
+>1025	FunctionDef	RequestParser 
+>1026	ParameterList	const int character
+>1027	Parameter	 
+>1028	Identifier	character
+>1029	ParameterType	const int
+>1030	ReturnType	bool
+>1031	CompoundStatement	 
+>1032	ReturnStatement	 
+>1033	OrExpression	( character >= 0 && character <= 31 ) || ( character == 127 )
+>1034	EqualityExpression	character == 127
+>1035	PrimaryExpression	127
+>1036	Identifier	character
+>1037	AndExpression	character >= 0 && character <= 31
+>1038	RelationalExpression	character <= 31
+>1039	PrimaryExpression	31
+>1040	Identifier	character
+>1041	RelationalExpression	character >= 0
+>1042	PrimaryExpression	0
+>1043	Identifier	character
+>1048	FunctionDef	RequestParser 
+>1049	ParameterList	const int character
+>1050	Parameter	 
+>1051	Identifier	character
+>1052	ParameterType	const int
+>1053	ReturnType	bool
+>1054	CompoundStatement	 
+>1055	SwitchStatement	switch ( character )
+>1056	CompoundStatement	 
+>1057	ReturnStatement	 
+>1058	Identifier	false
+>1059	Label	 
+>1060	Identifier	default
+>1061	ReturnStatement	 
+>1062	Identifier	true
+>1063	Label	 
+>1064	Label	 
+>1065	Label	 
+>1066	Label	 
+>1067	Label	 
+>1068	Label	 
+>1069	Label	 
+>1070	Label	 
+>1071	Label	 
+>1072	Label	 
+>1073	Label	 
+>1074	Label	 
+>1075	Label	 
+>1076	Label	 
+>1077	Label	 
+>1078	Label	 
+>1079	Label	 
+>1080	Label	 
+>1081	Label	 
+>1082	Condition	 
+>1083	Identifier	character
+>1090	FunctionDef	RequestParser 
+>1091	ParameterList	const int character
+>1092	Parameter	 
+>1093	Identifier	character
+>1094	ParameterType	const int
+>1095	ReturnType	bool
+>1096	CompoundStatement	 
+>1097	ReturnStatement	 
+>1098	AndExpression	character >= '0' && character <= '9'
+>1099	RelationalExpression	character <= '9'
+>1100	PrimaryExpression	'9'
+>1101	Identifier	character
+>1102	RelationalExpression	character >= '0'
+>1103	PrimaryExpression	'0'
+>1104	Identifier	character
+<3=15,14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<15=46,39,25,16
+<16=17
+<17=23,18
+<18=21,19
+<19=20
+<21=22
+<23=24
+<25=31,26
+<26=27
+<27=28
+<28=30,29
+<31=32
+<32=36,33
+<33=35,34
+<36=38,37
+<39=40
+<40=45,44,41
+<41=43,42
+<46=81,47
+<47=63,48
+<48=59,49
+<49=50
+<50=51
+<51=57,52
+<52=55,53
+<53=54
+<55=56
+<57=58
+<59=60
+<60=62,61
+<63=64
+<64=80,79,65
+<65=78,66
+<66=76,67
+<67=74,68
+<68=69
+<69=73,70
+<70=72,71
+<74=75
+<76=77
+<81=82
+<82=84,83
+<102=111,110,103
+<103=107,104
+<104=106,105
+<107=109,108
+<111=112
+<112=954,113
+<113=952,925,913,909,907,905,893,891,889,877,875,873,857,855,853,842,838,836,834,822,795,793,791,780,776,765,763,761,749,738,727,725,723,711,709,707,695,693,691,679,677,675,663,661,659,647,645,643,628,626,624,612,601,114,122,124,126,155,157,159,171,173,175,186,197,209,211,213,225,227,229,240,267,279,281,283,287,298,310,322,324,326,337,344,348,375,387,417,446,467,488,535,537,539,551,553,555,566,578,580,582,597,599
+<114=115
+<115=118,117,116
+<118=119
+<119=121,120
+<122=123
+<124=125
+<126=151,127
+<127=130,128
+<128=129
+<130=149,131
+<131=138,134,132
+<132=133
+<134=135
+<135=137,136
+<138=139
+<139=143,140
+<140=141
+<141=142
+<143=144
+<144=146,145
+<146=148,147
+<149=150
+<151=152
+<152=154,153
+<155=156
+<157=158
+<159=167,160
+<160=163,161
+<161=162
+<163=164
+<164=166,165
+<167=168
+<168=170,169
+<171=172
+<173=174
+<175=176
+<176=180,177
+<177=178
+<178=179
+<180=181
+<181=183,182
+<183=185,184
+<186=190,187
+<187=188
+<188=189
+<190=191
+<191=195,192
+<192=193
+<193=194
+<195=196
+<197=205,198
+<198=201,199
+<199=200
+<201=202
+<202=204,203
+<205=206
+<206=208,207
+<209=210
+<211=212
+<213=221,214
+<214=217,215
+<215=216
+<217=218
+<218=220,219
+<221=222
+<222=224,223
+<225=226
+<227=228
+<229=230
+<230=234,231
+<231=232
+<232=233
+<234=235
+<235=237,236
+<237=239,238
+<240=244,241
+<241=242
+<242=243
+<244=245
+<245=259,246
+<246=253,247
+<247=251,248
+<248=249
+<249=250
+<251=252
+<253=257,254
+<254=255
+<255=256
+<257=258
+<259=266,260
+<260=264,261
+<261=262
+<262=263
+<264=265
+<267=275,268
+<268=271,269
+<269=270
+<271=272
+<272=274,273
+<275=276
+<276=278,277
+<279=280
+<281=282
+<283=284
+<284=286,285
+<287=291,288
+<288=289
+<289=290
+<291=292
+<292=296,293
+<293=294
+<294=295
+<296=297
+<298=302,299
+<299=300
+<300=301
+<302=303
+<303=307,304
+<304=306,305
+<307=309,308
+<310=318,311
+<311=314,312
+<312=313
+<314=315
+<315=317,316
+<318=319
+<319=321,320
+<322=323
+<324=325
+<326=327
+<327=331,328
+<328=329
+<329=330
+<331=332
+<332=334,333
+<334=336,335
+<337=338
+<338=340,339
+<340=341
+<341=343,342
+<344=345
+<345=347,346
+<348=352,349
+<349=350
+<350=351
+<352=353
+<353=367,354
+<354=361,355
+<355=359,356
+<356=357
+<357=358
+<359=360
+<361=365,362
+<362=363
+<363=364
+<365=366
+<367=374,368
+<368=372,369
+<369=370
+<370=371
+<372=373
+<375=383,376
+<376=379,377
+<377=378
+<379=380
+<380=382,381
+<383=384
+<384=386,385
+<387=406,388
+<388=389
+<389=393,390
+<390=391
+<391=392
+<393=394
+<394=405,395
+<395=403,396
+<396=399,397
+<397=398
+<399=400
+<400=402,401
+<403=404
+<406=407
+<407=415,408
+<408=411,409
+<409=410
+<411=412
+<412=414,413
+<415=416
+<417=435,418
+<418=422,419
+<419=421,420
+<422=423
+<423=424
+<424=425
+<425=434,426
+<426=432,427
+<427=428
+<428=429
+<429=431,430
+<432=433
+<435=436
+<436=444,437
+<437=440,438
+<438=439
+<440=441
+<441=443,442
+<444=445
+<446=456,447
+<447=448
+<448=449
+<449=453,450
+<450=452,451
+<453=455,454
+<456=457
+<457=465,458
+<458=461,459
+<459=460
+<461=462
+<462=464,463
+<465=466
+<467=477,468
+<468=469
+<469=470
+<470=474,471
+<471=473,472
+<474=476,475
+<477=478
+<478=486,479
+<479=482,480
+<480=481
+<482=483
+<483=485,484
+<486=487
+<488=524,489
+<489=507,490
+<490=496,491
+<491=492
+<492=493
+<493=495,494
+<496=497
+<497=505,498
+<498=501,499
+<499=500
+<501=502
+<502=504,503
+<505=506
+<507=513,508
+<508=509
+<509=510
+<510=512,511
+<513=514
+<514=522,515
+<515=518,516
+<516=517
+<518=519
+<519=521,520
+<522=523
+<524=525
+<525=533,526
+<526=529,527
+<527=528
+<529=530
+<530=532,531
+<533=534
+<535=536
+<537=538
+<539=547,540
+<540=543,541
+<541=542
+<543=544
+<544=546,545
+<547=548
+<548=550,549
+<551=552
+<553=554
+<555=559,556
+<556=557
+<557=558
+<559=560
+<560=564,561
+<561=562
+<562=563
+<564=565
+<566=574,567
+<567=570,568
+<568=569
+<570=571
+<571=573,572
+<574=575
+<575=577,576
+<578=579
+<580=581
+<582=590,583
+<583=586,584
+<584=585
+<586=587
+<587=589,588
+<590=591
+<591=595,592
+<592=593
+<593=594
+<595=596
+<597=598
+<599=600
+<601=605,602
+<602=603
+<603=604
+<605=606
+<606=610,607
+<607=608
+<608=609
+<610=611
+<612=620,613
+<613=616,614
+<614=615
+<616=617
+<617=619,618
+<620=621
+<621=623,622
+<624=625
+<626=627
+<628=636,629
+<629=632,630
+<630=631
+<632=633
+<633=635,634
+<636=637
+<637=641,638
+<638=639
+<639=640
+<641=642
+<643=644
+<645=646
+<647=655,648
+<648=651,649
+<649=650
+<651=652
+<652=654,653
+<655=656
+<656=658,657
+<659=660
+<661=662
+<663=671,664
+<664=667,665
+<665=666
+<667=668
+<668=670,669
+<671=672
+<672=674,673
+<675=676
+<677=678
+<679=687,680
+<680=683,681
+<681=682
+<683=684
+<684=686,685
+<687=688
+<688=690,689
+<691=692
+<693=694
+<695=703,696
+<696=699,697
+<697=698
+<699=700
+<700=702,701
+<703=704
+<704=706,705
+<707=708
+<709=710
+<711=719,712
+<712=715,713
+<713=714
+<715=716
+<716=718,717
+<719=720
+<720=722,721
+<723=724
+<725=726
+<727=728
+<728=732,729
+<729=730
+<730=731
+<732=733
+<733=735,734
+<735=737,736
+<738=742,739
+<739=740
+<740=741
+<742=743
+<743=747,744
+<744=745
+<745=746
+<747=748
+<749=757,750
+<750=753,751
+<751=752
+<753=754
+<754=756,755
+<757=758
+<758=760,759
+<761=762
+<763=764
+<765=766
+<766=770,767
+<767=768
+<768=769
+<770=771
+<771=773,772
+<773=775,774
+<776=777
+<777=779,778
+<780=784,781
+<781=782
+<782=783
+<784=785
+<785=789,786
+<786=787
+<787=788
+<789=790
+<791=792
+<793=794
+<795=799,796
+<796=797
+<797=798
+<799=800
+<800=814,801
+<801=808,802
+<802=806,803
+<803=804
+<804=805
+<806=807
+<808=812,809
+<809=810
+<810=811
+<812=813
+<814=821,815
+<815=819,816
+<816=817
+<817=818
+<819=820
+<822=830,823
+<823=826,824
+<824=825
+<826=827
+<827=829,828
+<830=831
+<831=833,832
+<834=835
+<836=837
+<838=839
+<839=841,840
+<842=843
+<843=847,844
+<844=845
+<845=846
+<847=848
+<848=850,849
+<850=852,851
+<853=854
+<855=856
+<857=869,858
+<858=865,861,859
+<859=860
+<861=862
+<862=864,863
+<865=866
+<866=868,867
+<869=870
+<870=872,871
+<873=874
+<875=876
+<877=885,878
+<878=881,879
+<879=880
+<881=882
+<882=884,883
+<885=886
+<886=888,887
+<889=890
+<891=892
+<893=901,894
+<894=897,895
+<895=896
+<897=898
+<898=900,899
+<901=902
+<902=904,903
+<905=906
+<907=908
+<909=910
+<910=912,911
+<913=921,914
+<914=917,915
+<915=916
+<917=918
+<918=920,919
+<921=922
+<922=924,923
+<925=929,926
+<926=927
+<927=928
+<929=930
+<930=944,931
+<931=938,932
+<932=936,933
+<933=934
+<934=935
+<936=937
+<938=942,939
+<939=940
+<940=941
+<942=943
+<944=951,945
+<945=949,946
+<946=947
+<947=948
+<949=950
+<952=953
+<954=955
+<1006=1012,1011,1007
+<1007=1008
+<1008=1010,1009
+<1012=1013
+<1013=1014
+<1014=1018,1015
+<1015=1017,1016
+<1018=1020,1019
+<1025=1031,1030,1026
+<1026=1027
+<1027=1029,1028
+<1031=1032
+<1032=1033
+<1033=1037,1034
+<1034=1036,1035
+<1037=1041,1038
+<1038=1040,1039
+<1041=1043,1042
+<1048=1054,1053,1049
+<1049=1050
+<1050=1052,1051
+<1054=1055
+<1055=1082,1056
+<1056=1081,1080,1079,1078,1077,1076,1075,1074,1073,1072,1071,1070,1069,1068,1067,1066,1065,1064,1063,1061,1059,1057
+<1057=1058
+<1059=1060
+<1061=1062
+<1082=1083
+<1090=1096,1095,1091
+<1091=1092
+<1092=1094,1093
+<1096=1097
+<1097=1098
+<1098=1102,1099
+<1099=1101,1100
+<1102=1104,1103

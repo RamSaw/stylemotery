@@ -1,0 +1,1415 @@
+>5	FunctionDef	CPlugIn 
+>6	ParameterList	 
+>7	CompoundStatement	 
+>8	ExpressionStatement	 
+>9	AssignmentExpr	m_pQERPlugEntitiesFactory = NULL
+>10	Identifier	NULL
+>11	Identifier	m_pQERPlugEntitiesFactory
+>12	ExpressionStatement	 
+>13	AssignmentExpr	m_hDLL = NULL
+>14	Identifier	NULL
+>15	Identifier	m_hDLL
+>22	FunctionDef	CPlugIn 
+>23	ParameterList	 
+>24	CompoundStatement	 
+>25	IfStatement	if ( m_hDLL != NULL )
+>26	ExpressionStatement	 
+>27	CallExpression	free ( )
+>28	ArgumentList	 
+>29	Callee	free
+>30	Identifier	free
+>31	Condition	 
+>32	EqualityExpression	m_hDLL != NULL
+>33	Identifier	NULL
+>34	Identifier	m_hDLL
+>35	ExpressionStatement	 
+>36	Identifier	m_pQERPlugEntitiesFactory
+>37	IfStatement	if ( m_pQERPlugEntitiesFactory )
+>38	Statement	 
+>39	Condition	 
+>40	Identifier	m_pQERPlugEntitiesFactory
+>47	FunctionDef	CPlugIn 
+>48	ParameterList	const char * p
+>49	Parameter	 
+>50	Identifier	p
+>51	ParameterType	const char *
+>52	ReturnType	bool
+>53	CompoundStatement	 
+>54	ReturnStatement	 
+>55	Identifier	false
+>56	ExpressionStatement	 
+>57	CallExpression	free ( )
+>58	ArgumentList	 
+>59	Callee	free
+>60	Identifier	free
+>61	ExpressionStatement	 
+>62	CallExpression	LocalFree ( lpMsgBuf )
+>63	ArgumentList	lpMsgBuf
+>64	Argument	lpMsgBuf
+>65	Identifier	lpMsgBuf
+>66	Callee	LocalFree
+>67	Identifier	LocalFree
+>68	ExpressionStatement	 
+>69	CallExpression	Sys_Printf ( \"LoadLibrary failed on %s
+>70	ArgumentList	\"LoadLibrary failed on %s
+>71	Argument	lpMsgBuf
+>72	Identifier	lpMsgBuf
+>73	Argument	p
+>74	Identifier	p
+>75	Argument	\"LoadLibrary failed on %s
+>76	PrimaryExpression	\"LoadLibrary failed on %s
+>77	Callee	Sys_Printf
+>78	Identifier	Sys_Printf
+>79	ExpressionStatement	 
+>80	CallExpression	FormatMessage ( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS , NULL , \
+>81	ArgumentList	FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS
+>82	Argument	NULL
+>83	Identifier	NULL
+>84	Argument	0
+>85	PrimaryExpression	0
+>86	Argument	( LPTSTR ) & lpMsgBuf
+>87	CastExpression	( LPTSTR ) & lpMsgBuf
+>88	UnaryOp	& lpMsgBuf
+>89	Identifier	lpMsgBuf
+>90	UnaryOperator	&
+>91	CastTarget	LPTSTR
+>92	Argument	MAKELANGID ( LANG_NEUTRAL , SUBLANG_DEFAULT )
+>93	CallExpression	MAKELANGID ( LANG_NEUTRAL , SUBLANG_DEFAULT )
+>94	ArgumentList	LANG_NEUTRAL
+>95	Argument	SUBLANG_DEFAULT
+>96	Identifier	SUBLANG_DEFAULT
+>97	Argument	LANG_NEUTRAL
+>98	Identifier	LANG_NEUTRAL
+>99	Callee	MAKELANGID
+>100	Identifier	MAKELANGID
+>101	Argument	GetLastError ( )
+>102	CallExpression	GetLastError ( )
+>103	ArgumentList	 
+>104	Callee	GetLastError
+>105	Identifier	GetLastError
+>106	Argument	NULL
+>107	Identifier	NULL
+>108	Argument	FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS
+>109	InclusiveOrExpression	FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS
+>110	InclusiveOrExpression	FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS
+>111	Identifier	FORMAT_MESSAGE_IGNORE_INSERTS
+>112	Identifier	FORMAT_MESSAGE_FROM_SYSTEM
+>113	Identifier	FORMAT_MESSAGE_ALLOCATE_BUFFER
+>114	Callee	FormatMessage
+>115	Identifier	FormatMessage
+>116	IdentifierDeclStatement	 
+>117	IdentifierDecl	lpMsgBuf
+>118	Identifier	lpMsgBuf
+>119	IdentifierDeclType	LPVOID
+>120	IfStatement	if ( m_hDLL != NULL )
+>121	CompoundStatement	 
+>122	ExpressionStatement	 
+>123	CallExpression	Sys_Printf ( \"FAILED to Load plugin > %s\n\" , p )
+>124	ArgumentList	\"FAILED to Load plugin > %s\n\"
+>125	Argument	p
+>126	Identifier	p
+>127	Argument	\"FAILED to Load plugin > %s\n\"
+>128	PrimaryExpression	\"FAILED to Load plugin > %s\n\"
+>129	Callee	Sys_Printf
+>130	Identifier	Sys_Printf
+>131	IfStatement	if ( m_pfnInit != NULL )
+>132	CompoundStatement	 
+>133	ReturnStatement	 
+>134	AndExpression	m_pfnDispatch != NULL && m_pfnGetFuncTable != NULL
+>135	EqualityExpression	m_pfnGetFuncTable != NULL
+>136	Identifier	NULL
+>137	Identifier	m_pfnGetFuncTable
+>138	EqualityExpression	m_pfnDispatch != NULL
+>139	Identifier	NULL
+>140	Identifier	m_pfnDispatch
+>141	ExpressionStatement	 
+>142	Statement	 
+>143	Statement	 
+>144	Statement	 
+>145	Statement	 
+>146	Statement	 
+>147	Statement	 
+>148	Statement	 
+>149	Statement	 
+>150	Statement	 
+>151	Statement	 
+>152	Statement	 
+>153	Statement	 
+>154	Statement	 
+>155	Statement	 
+>156	Statement	 
+>157	ExpressionStatement	 
+>158	Statement	 
+>159	Statement	 
+>160	Statement	 
+>161	Statement	 
+>162	Statement	 
+>163	Statement	 
+>164	Statement	 
+>165	Statement	 
+>166	Statement	 
+>167	Statement	 
+>168	Statement	 
+>169	Statement	 
+>170	Statement	 
+>171	Statement	 
+>172	Statement	 
+>173	ExpressionStatement	 
+>174	Statement	 
+>175	Statement	 
+>176	Statement	 
+>177	Statement	 
+>178	Statement	 
+>179	Statement	 
+>180	Statement	 
+>181	Statement	 
+>182	Statement	 
+>183	Statement	 
+>184	Statement	 
+>185	Statement	 
+>186	Statement	 
+>187	Statement	 
+>188	Statement	 
+>189	ExpressionStatement	 
+>190	Statement	 
+>191	Statement	 
+>192	Statement	 
+>193	Statement	 
+>194	Statement	 
+>195	Statement	 
+>196	Statement	 
+>197	Statement	 
+>198	Statement	 
+>199	Statement	 
+>200	Statement	 
+>201	Statement	 
+>202	Statement	 
+>203	Statement	 
+>204	Statement	 
+>205	ExpressionStatement	 
+>206	Statement	 
+>207	Statement	 
+>208	Statement	 
+>209	Statement	 
+>210	Statement	 
+>211	Statement	 
+>212	Statement	 
+>213	Statement	 
+>214	Statement	 
+>215	Statement	 
+>216	Statement	 
+>217	Statement	 
+>218	Statement	 
+>219	Statement	 
+>220	Statement	 
+>221	ExpressionStatement	 
+>222	Statement	 
+>223	Statement	 
+>224	Statement	 
+>225	Statement	 
+>226	Statement	 
+>227	Statement	 
+>228	Statement	 
+>229	Statement	 
+>230	Statement	 
+>231	Statement	 
+>232	Statement	 
+>233	Statement	 
+>234	Statement	 
+>235	Statement	 
+>236	Statement	 
+>237	ExpressionStatement	 
+>238	Statement	 
+>239	Statement	 
+>240	Statement	 
+>241	Statement	 
+>242	Statement	 
+>243	Statement	 
+>244	Statement	 
+>245	Statement	 
+>246	Statement	 
+>247	Statement	 
+>248	Statement	 
+>249	Statement	 
+>250	Statement	 
+>251	Statement	 
+>252	Statement	 
+>253	ExpressionStatement	 
+>254	Statement	 
+>255	Statement	 
+>256	Statement	 
+>257	Statement	 
+>258	Statement	 
+>259	Statement	 
+>260	Statement	 
+>261	Statement	 
+>262	Statement	 
+>263	Statement	 
+>264	Statement	 
+>265	Statement	 
+>266	Statement	 
+>267	Statement	 
+>268	Statement	 
+>269	IfStatement	if ( m_pfnGetCommandList )
+>270	CompoundStatement	 
+>271	WhileStatement	while ( token != NULL )
+>272	CompoundStatement	 
+>273	ExpressionStatement	 
+>274	AssignmentExpr	token = strtok ( NULL , \",;\" )
+>275	CallExpression	strtok ( NULL , \",;\" )
+>276	ArgumentList	NULL
+>277	Argument	\",;\"
+>278	PrimaryExpression	\",;\"
+>279	Argument	NULL
+>280	Identifier	NULL
+>281	Callee	strtok
+>282	Identifier	strtok
+>283	Identifier	token
+>284	ExpressionStatement	 
+>285	CallExpression	m_CommandStrings . Add ( token )
+>286	ArgumentList	token
+>287	Argument	token
+>288	Identifier	token
+>289	Callee	m_CommandStrings . Add
+>290	MemberAccess	m_CommandStrings . Add
+>291	Identifier	Add
+>292	Identifier	m_CommandStrings
+>293	Condition	 
+>294	EqualityExpression	token != NULL
+>295	Identifier	NULL
+>296	Identifier	token
+>297	IfStatement	if ( token && * token == ' ' )
+>298	CompoundStatement	 
+>299	WhileStatement	while ( * token == ' ' )
+>300	ExpressionStatement	 
+>301	IncDecOp	token ++
+>302	IncDec	++
+>303	Identifier	token
+>304	Condition	 
+>305	EqualityExpression	* token == ' '
+>306	PrimaryExpression	' '
+>307	UnaryOp	* token
+>308	Identifier	token
+>309	UnaryOperator	*
+>310	Condition	 
+>311	AndExpression	token && * token == ' '
+>312	EqualityExpression	* token == ' '
+>313	PrimaryExpression	' '
+>314	UnaryOp	* token
+>315	Identifier	token
+>316	UnaryOperator	*
+>317	Identifier	token
+>318	IdentifierDeclStatement	 
+>319	IdentifierDecl	* token = strtok ( cTemp , \",;\" )
+>320	AssignmentExpr	* token = strtok ( cTemp , \",;\" )
+>321	CallExpression	strtok ( cTemp , \",;\" )
+>322	ArgumentList	cTemp
+>323	Argument	\",;\"
+>324	PrimaryExpression	\",;\"
+>325	Argument	cTemp
+>326	Identifier	cTemp
+>327	Callee	strtok
+>328	Identifier	strtok
+>329	Identifier	token
+>330	Identifier	token
+>331	IdentifierDeclType	char *
+>332	ExpressionStatement	 
+>333	CallExpression	strcpy ( cTemp , str )
+>334	ArgumentList	cTemp
+>335	Argument	str
+>336	Identifier	str
+>337	Argument	cTemp
+>338	Identifier	cTemp
+>339	Callee	strcpy
+>340	Identifier	strcpy
+>341	IdentifierDeclStatement	 
+>342	IdentifierDecl	cTemp [ 1024 ]
+>343	PrimaryExpression	1024
+>344	Identifier	cTemp
+>345	IdentifierDeclType	char [ 1024 ]
+>346	IdentifierDeclStatement	 
+>347	IdentifierDecl	str = ( * m_pfnGetCommandList ) ( )
+>348	AssignmentExpr	str = ( * m_pfnGetCommandList ) ( )
+>349	CallExpression	( * m_pfnGetCommandList ) ( )
+>350	ArgumentList	 
+>351	Callee	* m_pfnGetCommandList
+>352	UnaryOp	* m_pfnGetCommandList
+>353	Identifier	m_pfnGetCommandList
+>354	UnaryOperator	*
+>355	Identifier	str
+>356	Identifier	str
+>357	IdentifierDeclType	CString
+>358	Condition	 
+>359	Identifier	m_pfnGetCommandList
+>360	ExpressionStatement	 
+>361	Statement	 
+>362	Statement	 
+>363	Statement	 
+>364	Statement	 
+>365	Statement	 
+>366	Statement	 
+>367	Statement	 
+>368	Statement	 
+>369	Statement	 
+>370	Statement	 
+>371	Statement	 
+>372	Statement	 
+>373	Statement	 
+>374	Statement	 
+>375	Statement	 
+>376	IfStatement	if ( m_pfnGetName != NULL )
+>377	CompoundStatement	 
+>378	ExpressionStatement	 
+>379	AssignmentExpr	m_strName = ( * m_pfnGetName ) ( )
+>380	CallExpression	( * m_pfnGetName ) ( )
+>381	ArgumentList	 
+>382	Callee	* m_pfnGetName
+>383	UnaryOp	* m_pfnGetName
+>384	Identifier	m_pfnGetName
+>385	UnaryOperator	*
+>386	Identifier	m_strName
+>387	Condition	 
+>388	EqualityExpression	m_pfnGetName != NULL
+>389	Identifier	NULL
+>390	Identifier	m_pfnGetName
+>391	ExpressionStatement	 
+>392	Statement	 
+>393	Statement	 
+>394	Statement	 
+>395	Statement	 
+>396	Statement	 
+>397	Statement	 
+>398	Statement	 
+>399	Statement	 
+>400	Statement	 
+>401	Statement	 
+>402	Statement	 
+>403	Statement	 
+>404	Statement	 
+>405	Statement	 
+>406	Statement	 
+>407	ExpressionStatement	 
+>408	CallExpression	Sys_Printf ( \"Loaded plugin > %s\n\" , m_strVersion )
+>409	ArgumentList	\"Loaded plugin > %s\n\"
+>410	Argument	m_strVersion
+>411	Identifier	m_strVersion
+>412	Argument	\"Loaded plugin > %s\n\"
+>413	PrimaryExpression	\"Loaded plugin > %s\n\"
+>414	Callee	Sys_Printf
+>415	Identifier	Sys_Printf
+>416	ExpressionStatement	 
+>417	AssignmentExpr	m_strVersion = ( * m_pfnInit ) ( AfxGetApp ( ) -> m_hInstance , g_pParentWnd -> GetSafeHwnd ( ) )
+>418	CallExpression	( * m_pfnInit ) ( AfxGetApp ( ) -> m_hInstance , g_pParentWnd -> GetSafeHwnd ( ) )
+>419	ArgumentList	AfxGetApp ( ) -> m_hInstance
+>420	Argument	g_pParentWnd -> GetSafeHwnd ( )
+>421	CallExpression	g_pParentWnd -> GetSafeHwnd ( )
+>422	ArgumentList	 
+>423	Callee	g_pParentWnd -> GetSafeHwnd
+>424	PtrMemberAccess	g_pParentWnd -> GetSafeHwnd
+>425	Identifier	GetSafeHwnd
+>426	Identifier	g_pParentWnd
+>427	Argument	AfxGetApp ( ) -> m_hInstance
+>428	PtrMemberAccess	AfxGetApp ( ) -> m_hInstance
+>429	Identifier	m_hInstance
+>430	CallExpression	AfxGetApp ( )
+>431	ArgumentList	 
+>432	Callee	AfxGetApp
+>433	Identifier	AfxGetApp
+>434	Callee	* m_pfnInit
+>435	UnaryOp	* m_pfnInit
+>436	Identifier	m_pfnInit
+>437	UnaryOperator	*
+>438	Identifier	m_strVersion
+>439	Condition	 
+>440	EqualityExpression	m_pfnInit != NULL
+>441	Identifier	NULL
+>442	Identifier	m_pfnInit
+>443	ExpressionStatement	 
+>444	Statement	 
+>445	Statement	 
+>446	Statement	 
+>447	Statement	 
+>448	Statement	 
+>449	Statement	 
+>450	Statement	 
+>451	Statement	 
+>452	Statement	 
+>453	Statement	 
+>454	Statement	 
+>455	Statement	 
+>456	Statement	 
+>457	Statement	 
+>458	Statement	 
+>459	Condition	 
+>460	EqualityExpression	m_hDLL != NULL
+>461	Identifier	NULL
+>462	Identifier	m_hDLL
+>463	ExpressionStatement	 
+>464	CallExpression	LoadLibrary ( p )
+>465	ArgumentList	p
+>466	Argument	p
+>467	Identifier	p
+>468	Callee	LoadLibrary
+>469	Identifier	LoadLibrary
+>470	Statement	 
+>471	Statement	 
+>472	Statement	 
+>511	FunctionDef	CPlugIn 
+>512	ParameterList	 
+>513	ReturnType	_QERTextureInfo *
+>514	CompoundStatement	 
+>515	ReturnStatement	 
+>516	Identifier	NULL
+>517	IfStatement	if ( m_pfnGetTextureInfo != NULL )
+>518	CompoundStatement	 
+>519	ExpressionStatement	 
+>520	CallExpression	( * m_pfnGetTextureInfo ) ( )
+>521	ArgumentList	 
+>522	Callee	* m_pfnGetTextureInfo
+>523	UnaryOp	* m_pfnGetTextureInfo
+>524	Identifier	m_pfnGetTextureInfo
+>525	UnaryOperator	*
+>526	Statement	 
+>527	Statement	 
+>528	Statement	 
+>529	Statement	 
+>530	Statement	 
+>531	Statement	 
+>532	Condition	 
+>533	EqualityExpression	m_pfnGetTextureInfo != NULL
+>534	Identifier	NULL
+>535	Identifier	m_pfnGetTextureInfo
+>541	FunctionDef	CPlugIn 
+>542	ParameterList	LPCSTR pFilename
+>543	Parameter	 
+>544	Identifier	pFilename
+>545	ParameterType	LPCSTR
+>546	ReturnType	void
+>547	CompoundStatement	 
+>548	IfStatement	if ( m_pfnLoadTexture != NULL )
+>549	CompoundStatement	 
+>550	ExpressionStatement	 
+>551	CallExpression	( * m_pfnLoadTexture ) ( pFilename )
+>552	ArgumentList	pFilename
+>553	Argument	pFilename
+>554	Identifier	pFilename
+>555	Callee	* m_pfnLoadTexture
+>556	UnaryOp	* m_pfnLoadTexture
+>557	Identifier	m_pfnLoadTexture
+>558	UnaryOperator	*
+>559	Condition	 
+>560	EqualityExpression	m_pfnLoadTexture != NULL
+>561	Identifier	NULL
+>562	Identifier	m_pfnLoadTexture
+>569	FunctionDef	CPlugIn 
+>570	ParameterList	 
+>571	ReturnType	LPVOID
+>572	CompoundStatement	 
+>573	ReturnStatement	 
+>574	Identifier	NULL
+>575	IfStatement	if ( m_pfnGetSurfaceFlags != NULL )
+>576	CompoundStatement	 
+>577	ReturnStatement	 
+>578	RelationalExpression	reinterpret_cast < LPVOID > ( ( * m_pfnGetSurfaceFlags ) ( ) )
+>579	RelationalExpression	LPVOID > ( ( * m_pfnGetSurfaceFlags ) ( ) )
+>580	CallExpression	( * m_pfnGetSurfaceFlags ) ( )
+>581	ArgumentList	 
+>582	Callee	* m_pfnGetSurfaceFlags
+>583	UnaryOp	* m_pfnGetSurfaceFlags
+>584	Identifier	m_pfnGetSurfaceFlags
+>585	UnaryOperator	*
+>586	Identifier	LPVOID
+>587	Identifier	reinterpret_cast
+>588	Condition	 
+>589	EqualityExpression	m_pfnGetSurfaceFlags != NULL
+>590	Identifier	NULL
+>591	Identifier	m_pfnGetSurfaceFlags
+>600	FunctionDef	CPlugIn 
+>601	ParameterList	 
+>602	ReturnType	void
+>603	CompoundStatement	 
+>604	ExpressionStatement	 
+>605	AssignmentExpr	m_hDLL = NULL
+>606	Identifier	NULL
+>607	Identifier	m_hDLL
+>608	ExpressionStatement	 
+>609	CallExpression	FreeLibrary ( m_hDLL )
+>610	ArgumentList	m_hDLL
+>611	Argument	m_hDLL
+>612	Identifier	m_hDLL
+>613	Callee	FreeLibrary
+>614	Identifier	FreeLibrary
+>615	IfStatement	if ( m_hDLL != NULL )
+>616	Statement	 
+>617	Condition	 
+>618	EqualityExpression	m_hDLL != NULL
+>619	Identifier	NULL
+>620	Identifier	m_hDLL
+>626	FunctionDef	CPlugIn 
+>627	ParameterList	 
+>628	ReturnType	const char *
+>629	CompoundStatement	 
+>630	ReturnStatement	 
+>631	CallExpression	m_pfnGetName ( )
+>632	ArgumentList	 
+>633	Callee	m_pfnGetName
+>634	Identifier	m_pfnGetName
+>639	FunctionDef	CPlugIn 
+>640	ParameterList	 
+>641	ReturnType	const char *
+>642	CompoundStatement	 
+>643	ReturnStatement	 
+>644	Identifier	m_strName
+>649	FunctionDef	CPlugIn 
+>650	ParameterList	 
+>651	ReturnType	int
+>652	CompoundStatement	 
+>653	ReturnStatement	 
+>654	CallExpression	m_CommandStrings . GetSize ( )
+>655	ArgumentList	 
+>656	Callee	m_CommandStrings . GetSize
+>657	MemberAccess	m_CommandStrings . GetSize
+>658	Identifier	GetSize
+>659	Identifier	m_CommandStrings
+>665	FunctionDef	CPlugIn 
+>666	ParameterList	int n
+>667	Parameter	 
+>668	Identifier	n
+>669	ParameterType	int
+>670	ReturnType	const char *
+>671	CompoundStatement	 
+>672	ReturnStatement	 
+>673	CallExpression	m_CommandStrings . GetAt ( n )
+>674	ArgumentList	n
+>675	Argument	n
+>676	Identifier	n
+>677	Callee	m_CommandStrings . GetAt
+>678	MemberAccess	m_CommandStrings . GetAt
+>679	Identifier	GetAt
+>680	Identifier	m_CommandStrings
+>687	FunctionDef	CPlugIn 
+>688	ParameterList	const char * p , vec3_t vMin , vec3_t vMax , BOOL bSingleBrush
+>689	Parameter	 
+>690	Identifier	bSingleBrush
+>691	ParameterType	BOOL
+>692	Parameter	 
+>693	Identifier	vMax
+>694	ParameterType	vec3_t
+>695	Parameter	 
+>696	Identifier	vMin
+>697	ParameterType	vec3_t
+>698	Parameter	 
+>699	Identifier	p
+>700	ParameterType	const char *
+>701	ReturnType	void
+>702	CompoundStatement	 
+>703	IfStatement	if ( m_pfnDispatch )
+>704	CompoundStatement	 
+>705	ExpressionStatement	 
+>706	CallExpression	( * m_pfnDispatch ) ( p , vMin , vMax , bSingleBrush )
+>707	ArgumentList	p
+>708	Argument	bSingleBrush
+>709	Identifier	bSingleBrush
+>710	Argument	vMax
+>711	Identifier	vMax
+>712	Argument	vMin
+>713	Identifier	vMin
+>714	Argument	p
+>715	Identifier	p
+>716	Callee	* m_pfnDispatch
+>717	UnaryOp	* m_pfnDispatch
+>718	Identifier	m_pfnDispatch
+>719	UnaryOperator	*
+>720	Condition	 
+>721	Identifier	m_pfnDispatch
+>730	FunctionDef	CPlugIn 
+>731	ParameterList	int n
+>732	Parameter	 
+>733	Identifier	n
+>734	ParameterType	int
+>735	ReturnType	void
+>736	CompoundStatement	 
+>737	ExpressionStatement	 
+>738	CallExpression	m_CommandIDs . Add ( n )
+>739	ArgumentList	n
+>740	Argument	n
+>741	Identifier	n
+>742	Callee	m_CommandIDs . Add
+>743	MemberAccess	m_CommandIDs . Add
+>744	Identifier	Add
+>745	Identifier	m_CommandIDs
+>751	FunctionDef	CPlugIn 
+>752	ParameterList	int n
+>753	Parameter	 
+>754	Identifier	n
+>755	ParameterType	int
+>756	ReturnType	bool
+>757	CompoundStatement	 
+>758	ReturnStatement	 
+>759	Identifier	false
+>760	ForStatement	for ( int i = 0 ; i < m_CommandIDs . GetSize ( ) ; i ++ )
+>761	CompoundStatement	 
+>762	IfStatement	if ( m_CommandIDs . GetAt ( i ) == n )
+>763	ReturnStatement	 
+>764	Identifier	true
+>765	Condition	 
+>766	EqualityExpression	m_CommandIDs . GetAt ( i ) == n
+>767	Identifier	n
+>768	CallExpression	m_CommandIDs . GetAt ( i )
+>769	ArgumentList	i
+>770	Argument	i
+>771	Identifier	i
+>772	Callee	m_CommandIDs . GetAt
+>773	MemberAccess	m_CommandIDs . GetAt
+>774	Identifier	GetAt
+>775	Identifier	m_CommandIDs
+>776	IncDecOp	 
+>777	IncDec	++
+>778	Identifier	i
+>779	Condition	 
+>780	RelationalExpression	i < m_CommandIDs . GetSize ( )
+>781	CallExpression	m_CommandIDs . GetSize ( )
+>782	ArgumentList	 
+>783	Callee	m_CommandIDs . GetSize
+>784	MemberAccess	m_CommandIDs . GetSize
+>785	Identifier	GetSize
+>786	Identifier	m_CommandIDs
+>787	Identifier	i
+>788	ForInit	 
+>789	IdentifierDeclStatement	int i = 0 ;
+>790	IdentifierDecl	i = 0
+>791	AssignmentExpr	i = 0
+>792	PrimaryExpression	0
+>793	Identifier	i
+>794	Identifier	i
+>795	IdentifierDeclType	int
+>806	FunctionDef	CPlugIn 
+>807	ParameterList	 
+>808	ReturnType	void *
+>809	CompoundStatement	 
+>810	ReturnStatement	 
+>811	Identifier	NULL
+>812	IfStatement	if ( m_pfnGetFuncTable )
+>813	CompoundStatement	 
+>814	ReturnStatement	 
+>815	CallExpression	( * m_pfnGetFuncTable ) ( )
+>816	ArgumentList	 
+>817	Callee	* m_pfnGetFuncTable
+>818	UnaryOp	* m_pfnGetFuncTable
+>819	Identifier	m_pfnGetFuncTable
+>820	UnaryOperator	*
+>821	Condition	 
+>822	Identifier	m_pfnGetFuncTable
+>829	FunctionDef	CPlugIn 
+>830	ParameterList	 
+>831	ReturnType	void
+>832	CompoundStatement	 
+>833	IfStatement	if ( m_pfnRegisterPluginEntities )
+>834	CompoundStatement	 
+>835	IfStatement	if ( m_pfnRequestInterface )
+>836	ElseStatement	else
+>837	ExpressionStatement	 
+>838	CallExpression	Sys_Printf ( \"WARNING
+>839	ArgumentList	\"WARNING
+>840	Argument	m_strName . GetBuffer ( 0 )
+>841	CallExpression	m_strName . GetBuffer ( 0 )
+>842	ArgumentList	0
+>843	Argument	0
+>844	PrimaryExpression	0
+>845	Callee	m_strName . GetBuffer
+>846	MemberAccess	m_strName . GetBuffer
+>847	Identifier	GetBuffer
+>848	Identifier	m_strName
+>849	Argument	\"WARNING
+>850	PrimaryExpression	\"WARNING
+>851	Callee	Sys_Printf
+>852	Identifier	Sys_Printf
+>853	CompoundStatement	 
+>854	IfStatement	if ( m_pfnRequestInterface ( QERPlugEntitiesFactory_GUID , m_pQERPlugEntitiesFactory ) )
+>855	ElseStatement	else
+>856	ExpressionStatement	 
+>857	CallExpression	Sys_Printf ( \"WARNING
+>858	ArgumentList	\"WARNING
+>859	Argument	m_strName . GetBuffer ( 0 )
+>860	CallExpression	m_strName . GetBuffer ( 0 )
+>861	ArgumentList	0
+>862	Argument	0
+>863	PrimaryExpression	0
+>864	Callee	m_strName . GetBuffer
+>865	MemberAccess	m_strName . GetBuffer
+>866	Identifier	GetBuffer
+>867	Identifier	m_strName
+>868	Argument	\"WARNING
+>869	PrimaryExpression	\"WARNING
+>870	Callee	Sys_Printf
+>871	Identifier	Sys_Printf
+>872	CompoundStatement	 
+>873	ExpressionStatement	 
+>874	CallExpression	m_pfnRegisterPluginEntities ( pProjectEp )
+>875	ArgumentList	pProjectEp
+>876	Argument	pProjectEp
+>877	Identifier	pProjectEp
+>878	Callee	m_pfnRegisterPluginEntities
+>879	Identifier	m_pfnRegisterPluginEntities
+>880	IdentifierDeclStatement	 
+>881	IdentifierDecl	* pProjectEp = new CEpairsWrapper ( g_qeglobals . d_project_entity )
+>882	AssignmentExpr	* pProjectEp = new CEpairsWrapper ( g_qeglobals . d_project_entity )
+>883	MemberAccess	g_qeglobals . d_project_entity
+>884	Identifier	d_project_entity
+>885	Identifier	g_qeglobals
+>886	Identifier	pProjectEp
+>887	Identifier	pProjectEp
+>888	IdentifierDeclType	CEpairsWrapper *
+>889	Condition	 
+>890	CallExpression	m_pfnRequestInterface ( QERPlugEntitiesFactory_GUID , m_pQERPlugEntitiesFactory )
+>891	ArgumentList	QERPlugEntitiesFactory_GUID
+>892	Argument	m_pQERPlugEntitiesFactory
+>893	Identifier	m_pQERPlugEntitiesFactory
+>894	Argument	QERPlugEntitiesFactory_GUID
+>895	Identifier	QERPlugEntitiesFactory_GUID
+>896	Callee	m_pfnRequestInterface
+>897	Identifier	m_pfnRequestInterface
+>898	ExpressionStatement	 
+>899	AssignmentExpr	m_pQERPlugEntitiesFactory -> m_nSize = sizeof ( _QERPlugEntitiesFactory )
+>900	SizeofExpr	sizeof ( _QERPlugEntitiesFactory )
+>901	SizeofOperand	_QERPlugEntitiesFactory
+>902	Sizeof	sizeof
+>903	PtrMemberAccess	m_pQERPlugEntitiesFactory -> m_nSize
+>904	Identifier	m_nSize
+>905	Identifier	m_pQERPlugEntitiesFactory
+>906	ExpressionStatement	 
+>907	Identifier	_QERPlugEntitiesFactory
+>908	Statement	 
+>909	Statement	 
+>910	Statement	 
+>911	Condition	 
+>912	Identifier	m_pfnRequestInterface
+>913	Condition	 
+>914	Identifier	m_pfnRegisterPluginEntities
+>929	FunctionDef	CPlugIn 
+>930	ParameterList	 
+>931	ReturnType	void
+>932	CompoundStatement	 
+>933	IfStatement	if ( m_pfnRequestInterface )
+>934	CompoundStatement	 
+>935	IfStatement	if ( m_pfnRequestInterface ( QERPlugBSPFrontendTable_GUID , & g_BSPFrontendTable ) )
+>936	CompoundStatement	 
+>937	ExpressionStatement	 
+>938	AssignmentExpr	g_qeglobals . bBSPFrontendPlugin = true
+>939	Identifier	true
+>940	MemberAccess	g_qeglobals . bBSPFrontendPlugin
+>941	Identifier	bBSPFrontendPlugin
+>942	Identifier	g_qeglobals
+>943	Condition	 
+>944	CallExpression	m_pfnRequestInterface ( QERPlugBSPFrontendTable_GUID , & g_BSPFrontendTable )
+>945	ArgumentList	QERPlugBSPFrontendTable_GUID
+>946	Argument	& g_BSPFrontendTable
+>947	UnaryOp	& g_BSPFrontendTable
+>948	Identifier	g_BSPFrontendTable
+>949	UnaryOperator	&
+>950	Argument	QERPlugBSPFrontendTable_GUID
+>951	Identifier	QERPlugBSPFrontendTable_GUID
+>952	Callee	m_pfnRequestInterface
+>953	Identifier	m_pfnRequestInterface
+>954	ExpressionStatement	 
+>955	AssignmentExpr	g_BSPFrontendTable . m_nSize = sizeof ( _QERPlugBSPFrontendTable )
+>956	SizeofExpr	sizeof ( _QERPlugBSPFrontendTable )
+>957	SizeofOperand	_QERPlugBSPFrontendTable
+>958	Sizeof	sizeof
+>959	MemberAccess	g_BSPFrontendTable . m_nSize
+>960	Identifier	m_nSize
+>961	Identifier	g_BSPFrontendTable
+>962	Condition	 
+>963	Identifier	m_pfnRequestInterface
+>975	FunctionDef	CPlugIn 
+>976	ParameterList	 
+>977	ReturnType	void
+>978	CompoundStatement	 
+>979	IfStatement	if ( m_pfnInitSurfaceProperties )
+>980	CompoundStatement	 
+>981	IfStatement	if ( m_pfnRequestInterface )
+>982	ElseStatement	else
+>983	ExpressionStatement	 
+>984	CallExpression	Sys_Printf ( \"WARNING
+>985	ArgumentList	\"WARNING
+>986	Argument	\"WARNING
+>987	PrimaryExpression	\"WARNING
+>988	Callee	Sys_Printf
+>989	Identifier	Sys_Printf
+>990	CompoundStatement	 
+>991	IfStatement	if ( m_pfnRequestInterface ( QERPlugSurfaceTable_GUID , & g_SurfaceTable ) )
+>992	ElseStatement	else
+>993	ExpressionStatement	 
+>994	CallExpression	Sys_Printf ( \"WARNING
+>995	ArgumentList	\"WARNING
+>996	Argument	\"WARNING
+>997	PrimaryExpression	\"WARNING
+>998	Callee	Sys_Printf
+>999	Identifier	Sys_Printf
+>1000	CompoundStatement	 
+>1001	ExpressionStatement	 
+>1002	AssignmentExpr	g_qeglobals . bSurfacePropertiesPlugin = true
+>1003	Identifier	true
+>1004	MemberAccess	g_qeglobals . bSurfacePropertiesPlugin
+>1005	Identifier	bSurfacePropertiesPlugin
+>1006	Identifier	g_qeglobals
+>1007	Condition	 
+>1008	CallExpression	m_pfnRequestInterface ( QERPlugSurfaceTable_GUID , & g_SurfaceTable )
+>1009	ArgumentList	QERPlugSurfaceTable_GUID
+>1010	Argument	& g_SurfaceTable
+>1011	UnaryOp	& g_SurfaceTable
+>1012	Identifier	g_SurfaceTable
+>1013	UnaryOperator	&
+>1014	Argument	QERPlugSurfaceTable_GUID
+>1015	Identifier	QERPlugSurfaceTable_GUID
+>1016	Callee	m_pfnRequestInterface
+>1017	Identifier	m_pfnRequestInterface
+>1018	ExpressionStatement	 
+>1019	AssignmentExpr	g_SurfaceTable . m_nSize = sizeof ( g_SurfaceTable )
+>1020	SizeofExpr	sizeof ( g_SurfaceTable )
+>1021	SizeofOperand	g_SurfaceTable
+>1022	Sizeof	sizeof
+>1023	MemberAccess	g_SurfaceTable . m_nSize
+>1024	Identifier	m_nSize
+>1025	Identifier	g_SurfaceTable
+>1026	ExpressionStatement	 
+>1027	CallExpression	m_pfnInitSurfaceProperties ( )
+>1028	ArgumentList	 
+>1029	Callee	m_pfnInitSurfaceProperties
+>1030	Identifier	m_pfnInitSurfaceProperties
+>1031	Condition	 
+>1032	Identifier	m_pfnRequestInterface
+>1033	IfStatement	if ( g_qeglobals . bSurfacePropertiesPlugin )
+>1034	CompoundStatement	 
+>1035	ReturnStatement	 
+>1036	ExpressionStatement	 
+>1037	CallExpression	Sys_Printf ( \"WARNING
+>1038	ArgumentList	\"WARNING
+>1039	Argument	m_strName
+>1040	Identifier	m_strName
+>1041	Argument	\"WARNING
+>1042	PrimaryExpression	\"WARNING
+>1043	Callee	Sys_Printf
+>1044	Identifier	Sys_Printf
+>1045	Condition	 
+>1046	MemberAccess	g_qeglobals . bSurfacePropertiesPlugin
+>1047	Identifier	bSurfacePropertiesPlugin
+>1048	Identifier	g_qeglobals
+>1049	Condition	 
+>1050	Identifier	m_pfnInitSurfaceProperties
+>1064	FunctionDef	CPlugIn 
+>1065	ParameterList	entity_t * e
+>1066	Parameter	 
+>1067	Identifier	e
+>1068	ParameterType	entity_t *
+>1069	ReturnType	IPluginEntity *
+>1070	CompoundStatement	 
+>1071	ReturnStatement	 
+>1072	Identifier	NULL
+>1073	ExpressionStatement	 
+>1074	CallExpression	Sys_Printf ( \"WARNING
+>1075	ArgumentList	\"WARNING
+>1076	Argument	\"WARNING
+>1077	PrimaryExpression	\"WARNING
+>1078	Callee	Sys_Printf
+>1079	Identifier	Sys_Printf
+>1080	IfStatement	if ( m_pQERPlugEntitiesFactory )
+>1081	CompoundStatement	 
+>1082	ReturnStatement	 
+>1083	Identifier	NULL
+>1084	ExpressionStatement	 
+>1085	Identifier	pEp
+>1086	Statement	 
+>1087	IfStatement	if ( pEnt )
+>1088	ReturnStatement	 
+>1089	Identifier	pEnt
+>1090	Condition	 
+>1091	Identifier	pEnt
+>1092	IdentifierDeclStatement	 
+>1093	IdentifierDecl	* pEnt = m_pQERPlugEntitiesFactory -> m_pfnCreateEntity ( e -> eclass , pEp )
+>1094	AssignmentExpr	* pEnt = m_pQERPlugEntitiesFactory -> m_pfnCreateEntity ( e -> eclass , pEp )
+>1095	CallExpression	m_pQERPlugEntitiesFactory -> m_pfnCreateEntity ( e -> eclass , pEp )
+>1096	ArgumentList	e -> eclass
+>1097	Argument	pEp
+>1098	Identifier	pEp
+>1099	Argument	e -> eclass
+>1100	PtrMemberAccess	e -> eclass
+>1101	Identifier	eclass
+>1102	Identifier	e
+>1103	Callee	m_pQERPlugEntitiesFactory -> m_pfnCreateEntity
+>1104	PtrMemberAccess	m_pQERPlugEntitiesFactory -> m_pfnCreateEntity
+>1105	Identifier	m_pfnCreateEntity
+>1106	Identifier	m_pQERPlugEntitiesFactory
+>1107	Identifier	pEnt
+>1108	Identifier	pEnt
+>1109	IdentifierDeclType	IPluginEntity *
+>1110	IdentifierDeclStatement	 
+>1111	IdentifierDecl	* pEp = new CEpairsWrapper ( e )
+>1112	AssignmentExpr	* pEp = new CEpairsWrapper ( e )
+>1113	Identifier	e
+>1114	Identifier	e
+>1115	Identifier	pEp
+>1116	IdentifierDeclType	CEpairsWrapper *
+>1117	Condition	 
+>1118	Identifier	m_pQERPlugEntitiesFactory
+<5=7,6
+<7=12,8
+<8=9
+<9=11,10
+<12=13
+<13=15,14
+<22=24,23
+<24=37,35,25
+<25=31,26
+<26=27
+<27=29,28
+<29=30
+<31=32
+<32=34,33
+<35=36
+<37=39,38
+<39=40
+<47=53,52,48
+<48=49
+<49=51,50
+<53=472,471,470,463,120,116,79,68,61,56,54
+<54=55
+<56=57
+<57=59,58
+<59=60
+<61=62
+<62=66,63
+<63=64
+<64=65
+<66=67
+<68=69
+<69=77,70
+<70=75,73,71
+<71=72
+<73=74
+<75=76
+<77=78
+<79=80
+<80=114,81
+<81=108,106,101,92,86,84,82
+<82=83
+<84=85
+<86=87
+<87=91,88
+<88=90,89
+<92=93
+<93=99,94
+<94=97,95
+<95=96
+<97=98
+<99=100
+<101=102
+<102=104,103
+<104=105
+<106=107
+<108=109
+<109=113,110
+<110=112,111
+<114=115
+<116=117
+<117=119,118
+<120=459,121
+<121=458,457,456,455,454,453,452,451,450,449,448,447,446,445,444,443,131,122
+<122=123
+<123=129,124
+<124=127,125
+<125=126
+<127=128
+<129=130
+<131=439,132
+<132=416,407,406,405,404,403,402,401,400,399,398,397,396,395,394,393,392,391,376,375,374,373,372,371,370,369,368,367,366,365,364,363,362,361,360,269,268,267,266,265,264,263,262,261,260,259,258,257,256,255,254,253,252,251,250,249,248,247,246,245,244,243,242,241,240,239,238,237,236,235,234,233,232,231,230,229,228,227,226,225,224,223,222,221,220,219,218,217,216,215,214,213,212,211,210,209,208,207,206,205,204,203,202,201,200,199,198,197,196,195,194,193,192,191,190,133,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189
+<133=134
+<134=138,135
+<135=137,136
+<138=140,139
+<269=358,270
+<270=346,341,332,318,297,271
+<271=293,272
+<272=284,273
+<273=274
+<274=283,275
+<275=281,276
+<276=279,277
+<277=278
+<279=280
+<281=282
+<284=285
+<285=289,286
+<286=287
+<287=288
+<289=290
+<290=292,291
+<293=294
+<294=296,295
+<297=310,298
+<298=299
+<299=304,300
+<300=301
+<301=303,302
+<304=305
+<305=307,306
+<307=309,308
+<310=311
+<311=317,312
+<312=314,313
+<314=316,315
+<318=319
+<319=331,330,320
+<320=329,321
+<321=327,322
+<322=325,323
+<323=324
+<325=326
+<327=328
+<332=333
+<333=339,334
+<334=337,335
+<335=336
+<337=338
+<339=340
+<341=342
+<342=345,344,343
+<346=347
+<347=357,356,348
+<348=355,349
+<349=351,350
+<351=352
+<352=354,353
+<358=359
+<376=387,377
+<377=378
+<378=379
+<379=386,380
+<380=382,381
+<382=383
+<383=385,384
+<387=388
+<388=390,389
+<407=408
+<408=414,409
+<409=412,410
+<410=411
+<412=413
+<414=415
+<416=417
+<417=438,418
+<418=434,419
+<419=427,420
+<420=421
+<421=423,422
+<423=424
+<424=426,425
+<427=428
+<428=430,429
+<430=432,431
+<432=433
+<434=435
+<435=437,436
+<439=440
+<440=442,441
+<459=460
+<460=462,461
+<463=464
+<464=468,465
+<465=466
+<466=467
+<468=469
+<511=514,513,512
+<514=517,515
+<515=516
+<517=532,518
+<518=531,530,529,528,527,526,519
+<519=520
+<520=522,521
+<522=523
+<523=525,524
+<532=533
+<533=535,534
+<541=547,546,542
+<542=543
+<543=545,544
+<547=548
+<548=559,549
+<549=550
+<550=551
+<551=555,552
+<552=553
+<553=554
+<555=556
+<556=558,557
+<559=560
+<560=562,561
+<569=572,571,570
+<572=575,573
+<573=574
+<575=588,576
+<576=577
+<577=578
+<578=587,579
+<579=586,580
+<580=582,581
+<582=583
+<583=585,584
+<588=589
+<589=591,590
+<600=603,602,601
+<603=615,608,604
+<604=605
+<605=607,606
+<608=609
+<609=613,610
+<610=611
+<611=612
+<613=614
+<615=617,616
+<617=618
+<618=620,619
+<626=629,628,627
+<629=630
+<630=631
+<631=633,632
+<633=634
+<639=642,641,640
+<642=643
+<643=644
+<649=652,651,650
+<652=653
+<653=654
+<654=656,655
+<656=657
+<657=659,658
+<665=671,670,666
+<666=667
+<667=669,668
+<671=672
+<672=673
+<673=677,674
+<674=675
+<675=676
+<677=678
+<678=680,679
+<687=702,701,688
+<688=698,695,692,689
+<689=691,690
+<692=694,693
+<695=697,696
+<698=700,699
+<702=703
+<703=720,704
+<704=705
+<705=706
+<706=716,707
+<707=714,712,710,708
+<708=709
+<710=711
+<712=713
+<714=715
+<716=717
+<717=719,718
+<720=721
+<730=736,735,731
+<731=732
+<732=734,733
+<736=737
+<737=738
+<738=742,739
+<739=740
+<740=741
+<742=743
+<743=745,744
+<751=757,756,752
+<752=753
+<753=755,754
+<757=760,758
+<758=759
+<760=788,779,776,761
+<761=762
+<762=765,763
+<763=764
+<765=766
+<766=768,767
+<768=772,769
+<769=770
+<770=771
+<772=773
+<773=775,774
+<776=778,777
+<779=780
+<780=787,781
+<781=783,782
+<783=784
+<784=786,785
+<788=789
+<789=790
+<790=795,794,791
+<791=793,792
+<806=809,808,807
+<809=812,810
+<810=811
+<812=821,813
+<813=814
+<814=815
+<815=817,816
+<817=818
+<818=820,819
+<821=822
+<829=832,831,830
+<832=833
+<833=913,834
+<834=835
+<835=911,853,836
+<836=837
+<837=838
+<838=851,839
+<839=849,840
+<840=841
+<841=845,842
+<842=843
+<843=844
+<845=846
+<846=848,847
+<849=850
+<851=852
+<853=910,909,908,906,898,854
+<854=889,872,855
+<855=856
+<856=857
+<857=870,858
+<858=868,859
+<859=860
+<860=864,861
+<861=862
+<862=863
+<864=865
+<865=867,866
+<868=869
+<870=871
+<872=880,873
+<873=874
+<874=878,875
+<875=876
+<876=877
+<878=879
+<880=881
+<881=888,887,882
+<882=886,883
+<883=885,884
+<889=890
+<890=896,891
+<891=894,892
+<892=893
+<894=895
+<896=897
+<898=899
+<899=903,900
+<900=902,901
+<903=905,904
+<906=907
+<911=912
+<913=914
+<929=932,931,930
+<932=933
+<933=962,934
+<934=954,935
+<935=943,936
+<936=937
+<937=938
+<938=940,939
+<940=942,941
+<943=944
+<944=952,945
+<945=950,946
+<946=947
+<947=949,948
+<950=951
+<952=953
+<954=955
+<955=959,956
+<956=958,957
+<959=961,960
+<962=963
+<975=978,977,976
+<978=979
+<979=1049,980
+<980=1033,981
+<981=1031,990,982
+<982=983
+<983=984
+<984=988,985
+<985=986
+<986=987
+<988=989
+<990=1026,1018,991
+<991=1007,1000,992
+<992=993
+<993=994
+<994=998,995
+<995=996
+<996=997
+<998=999
+<1000=1001
+<1001=1002
+<1002=1004,1003
+<1004=1006,1005
+<1007=1008
+<1008=1016,1009
+<1009=1014,1010
+<1010=1011
+<1011=1013,1012
+<1014=1015
+<1016=1017
+<1018=1019
+<1019=1023,1020
+<1020=1022,1021
+<1023=1025,1024
+<1026=1027
+<1027=1029,1028
+<1029=1030
+<1031=1032
+<1033=1045,1034
+<1034=1036,1035
+<1036=1037
+<1037=1043,1038
+<1038=1041,1039
+<1039=1040
+<1041=1042
+<1043=1044
+<1045=1046
+<1046=1048,1047
+<1049=1050
+<1064=1070,1069,1065
+<1065=1066
+<1066=1068,1067
+<1070=1080,1073,1071
+<1071=1072
+<1073=1074
+<1074=1078,1075
+<1075=1076
+<1076=1077
+<1078=1079
+<1080=1117,1081
+<1081=1110,1092,1087,1086,1084,1082
+<1082=1083
+<1084=1085
+<1087=1090,1088
+<1088=1089
+<1090=1091
+<1092=1093
+<1093=1109,1108,1094
+<1094=1107,1095
+<1095=1103,1096
+<1096=1099,1097
+<1097=1098
+<1099=1100
+<1100=1102,1101
+<1103=1104
+<1104=1106,1105
+<1110=1111
+<1111=1116,1115,1112
+<1112=1114,1113
+<1117=1118

@@ -1,0 +1,678 @@
+>3	FunctionDef	CMimeHeader 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>9	FunctionDef	CMimeHeader 
+>10	ParameterList	 
+>11	CompoundStatement	 
+>15	FunctionDef	CMimeHeader 
+>16	ParameterList	const CString & ssName , const CString & ssValue
+>17	Parameter	 
+>18	Identifier	ssValue
+>19	ParameterType	const CString &
+>20	Parameter	 
+>21	Identifier	ssName
+>22	ParameterType	const CString &
+>23	ReturnType	bool
+>24	CompoundStatement	 
+>25	ReturnStatement	 
+>26	Identifier	true
+>27	ExpressionStatement	 
+>28	CallExpression	m_MimeHeaders . Add ( ssLowerCaseName , ssValue )
+>29	ArgumentList	ssLowerCaseName
+>30	Argument	ssValue
+>31	Identifier	ssValue
+>32	Argument	ssLowerCaseName
+>33	Identifier	ssLowerCaseName
+>34	Callee	m_MimeHeaders . Add
+>35	MemberAccess	m_MimeHeaders . Add
+>36	Identifier	Add
+>37	Identifier	m_MimeHeaders
+>38	ExpressionStatement	 
+>39	CallExpression	ssLowerCaseName . LowerCase ( )
+>40	ArgumentList	 
+>41	Callee	ssLowerCaseName . LowerCase
+>42	MemberAccess	ssLowerCaseName . LowerCase
+>43	Identifier	LowerCase
+>44	Identifier	ssLowerCaseName
+>45	IdentifierDeclStatement	 
+>46	IdentifierDecl	ssLowerCaseName ( ssName )
+>47	Identifier	ssName
+>48	Identifier	ssLowerCaseName
+>49	IdentifierDeclType	CString
+>58	FunctionDef	CMimeHeader 
+>59	ParameterList	const CString & ssName , const CString & ssValue
+>60	Parameter	 
+>61	Identifier	ssValue
+>62	ParameterType	const CString &
+>63	Parameter	 
+>64	Identifier	ssName
+>65	ParameterType	const CString &
+>66	ReturnType	bool
+>67	CompoundStatement	 
+>68	ReturnStatement	 
+>69	Identifier	true
+>70	ExpressionStatement	 
+>71	CallExpression	m_MimeHeaders . Set ( ssLowerCaseName , ssValue )
+>72	ArgumentList	ssLowerCaseName
+>73	Argument	ssValue
+>74	Identifier	ssValue
+>75	Argument	ssLowerCaseName
+>76	Identifier	ssLowerCaseName
+>77	Callee	m_MimeHeaders . Set
+>78	MemberAccess	m_MimeHeaders . Set
+>79	Identifier	Set
+>80	Identifier	m_MimeHeaders
+>81	ExpressionStatement	 
+>82	CallExpression	ssLowerCaseName . LowerCase ( )
+>83	ArgumentList	 
+>84	Callee	ssLowerCaseName . LowerCase
+>85	MemberAccess	ssLowerCaseName . LowerCase
+>86	Identifier	LowerCase
+>87	Identifier	ssLowerCaseName
+>88	IdentifierDeclStatement	 
+>89	IdentifierDecl	ssLowerCaseName ( ssName )
+>90	Identifier	ssName
+>91	Identifier	ssLowerCaseName
+>92	IdentifierDeclType	CString
+>101	FunctionDef	CMimeHeader 
+>102	ParameterList	const CString & ssName
+>103	Parameter	 
+>104	Identifier	ssName
+>105	ParameterType	const CString &
+>106	ReturnType	bool
+>107	CompoundStatement	 
+>108	ReturnStatement	 
+>109	Identifier	true
+>110	ExpressionStatement	 
+>111	CallExpression	m_MimeHeaders . Remove ( ssName )
+>112	ArgumentList	ssName
+>113	Argument	ssName
+>114	Identifier	ssName
+>115	Callee	m_MimeHeaders . Remove
+>116	MemberAccess	m_MimeHeaders . Remove
+>117	Identifier	Remove
+>118	Identifier	m_MimeHeaders
+>125	FunctionDef	CMimeHeader 
+>126	ParameterList	const CString & ssName , CString * pssValue , bool * pbFound
+>127	Parameter	 
+>128	Identifier	pbFound
+>129	ParameterType	bool *
+>130	Parameter	 
+>131	Identifier	pssValue
+>132	ParameterType	CString *
+>133	Parameter	 
+>134	Identifier	ssName
+>135	ParameterType	const CString &
+>136	ReturnType	bool
+>137	CompoundStatement	 
+>138	ReturnStatement	 
+>139	Identifier	true
+>140	IfStatement	if ( pbFound )
+>141	ExpressionStatement	 
+>142	AssignmentExpr	* pbFound = bResult
+>143	Identifier	bResult
+>144	UnaryOp	* pbFound
+>145	Identifier	pbFound
+>146	UnaryOperator	*
+>147	Condition	 
+>148	Identifier	pbFound
+>149	IdentifierDeclStatement	 
+>150	IdentifierDecl	bResult = m_MimeHeaders . FindAndCopy ( ssName , * pssValue )
+>151	AssignmentExpr	bResult = m_MimeHeaders . FindAndCopy ( ssName , * pssValue )
+>152	CallExpression	m_MimeHeaders . FindAndCopy ( ssName , * pssValue )
+>153	ArgumentList	ssName
+>154	Argument	* pssValue
+>155	UnaryOp	* pssValue
+>156	Identifier	pssValue
+>157	UnaryOperator	*
+>158	Argument	ssName
+>159	Identifier	ssName
+>160	Callee	m_MimeHeaders . FindAndCopy
+>161	MemberAccess	m_MimeHeaders . FindAndCopy
+>162	Identifier	FindAndCopy
+>163	Identifier	m_MimeHeaders
+>164	Identifier	bResult
+>165	Identifier	bResult
+>166	IdentifierDeclType	bool
+>167	IfStatement	if ( ! pssValue )
+>168	ReturnStatement	 
+>169	Identifier	false
+>170	Condition	 
+>171	UnaryOp	! pssValue
+>172	Identifier	pssValue
+>173	UnaryOperator	!
+>187	FunctionDef	CMimeHeader 
+>188	ParameterList	CString * pssValue , bool bOverwrite
+>189	Parameter	 
+>190	Identifier	bOverwrite
+>191	ParameterType	bool
+>192	Parameter	 
+>193	Identifier	pssValue
+>194	ParameterType	CString *
+>195	ReturnType	bool
+>196	CompoundStatement	 
+>197	ReturnStatement	 
+>198	Identifier	true
+>199	ForStatement	for ( int i = 0 ; i < ( int ) m_MimeHeaders . GetSize ( ) ; i ++ )
+>200	CompoundStatement	 
+>201	ExpressionStatement	 
+>202	AssignmentExpr	( * pssValue ) += \"\r\n\"
+>203	PrimaryExpression	\"\r\n\"
+>204	UnaryOp	* pssValue
+>205	Identifier	pssValue
+>206	UnaryOperator	*
+>207	ExpressionStatement	 
+>208	AssignmentExpr	( * pssValue ) += m_MimeHeaders . GetValueAt ( i )
+>209	CallExpression	m_MimeHeaders . GetValueAt ( i )
+>210	ArgumentList	i
+>211	Argument	i
+>212	Identifier	i
+>213	Callee	m_MimeHeaders . GetValueAt
+>214	MemberAccess	m_MimeHeaders . GetValueAt
+>215	Identifier	GetValueAt
+>216	Identifier	m_MimeHeaders
+>217	UnaryOp	* pssValue
+>218	Identifier	pssValue
+>219	UnaryOperator	*
+>220	ExpressionStatement	 
+>221	AssignmentExpr	( * pssValue ) += \"
+>222	PrimaryExpression	\"
+>223	UnaryOp	* pssValue
+>224	Identifier	pssValue
+>225	UnaryOperator	*
+>226	ExpressionStatement	 
+>227	AssignmentExpr	( * pssValue ) += m_MimeHeaders . GetNameAt ( i )
+>228	CallExpression	m_MimeHeaders . GetNameAt ( i )
+>229	ArgumentList	i
+>230	Argument	i
+>231	Identifier	i
+>232	Callee	m_MimeHeaders . GetNameAt
+>233	MemberAccess	m_MimeHeaders . GetNameAt
+>234	Identifier	GetNameAt
+>235	Identifier	m_MimeHeaders
+>236	UnaryOp	* pssValue
+>237	Identifier	pssValue
+>238	UnaryOperator	*
+>239	IncDecOp	 
+>240	IncDec	++
+>241	Identifier	i
+>242	Condition	 
+>243	RelationalExpression	i < ( int ) m_MimeHeaders . GetSize ( )
+>244	CastExpression	( int ) m_MimeHeaders . GetSize ( )
+>245	CallExpression	m_MimeHeaders . GetSize ( )
+>246	ArgumentList	 
+>247	Callee	m_MimeHeaders . GetSize
+>248	MemberAccess	m_MimeHeaders . GetSize
+>249	Identifier	GetSize
+>250	Identifier	m_MimeHeaders
+>251	CastTarget	int
+>252	Identifier	i
+>253	ForInit	 
+>254	IdentifierDeclStatement	int i = 0 ;
+>255	IdentifierDecl	i = 0
+>256	AssignmentExpr	i = 0
+>257	PrimaryExpression	0
+>258	Identifier	i
+>259	Identifier	i
+>260	IdentifierDeclType	int
+>261	IfStatement	if ( bOverwrite )
+>262	ExpressionStatement	 
+>263	CallExpression	pssValue -> Empty ( )
+>264	ArgumentList	 
+>265	Callee	pssValue -> Empty
+>266	PtrMemberAccess	pssValue -> Empty
+>267	Identifier	Empty
+>268	Identifier	pssValue
+>269	Condition	 
+>270	Identifier	bOverwrite
+>271	IfStatement	if ( ! pssValue )
+>272	ReturnStatement	 
+>273	Identifier	false
+>274	Condition	 
+>275	UnaryOp	! pssValue
+>276	Identifier	pssValue
+>277	UnaryOperator	!
+>291	FunctionDef	CMimeHeader 
+>292	ParameterList	CString * pssValue
+>293	Parameter	 
+>294	Identifier	pssValue
+>295	ParameterType	CString *
+>296	ReturnType	bool
+>297	CompoundStatement	 
+>298	ReturnStatement	 
+>299	Identifier	true
+>300	ExpressionStatement	 
+>301	CallExpression	base_snprintf ( pssValue -> GetData ( ) , sizeof ( \"000_003A_01C09733.24DFD8F0\" ) , \"000_%04x_%08x.%08x\" , rand ( ) % \
+>302	ArgumentList	pssValue -> GetData ( )
+>303	Argument	nLowPart
+>304	Identifier	nLowPart
+>305	Argument	nHighPart
+>306	Identifier	nHighPart
+>307	Argument	rand ( ) % 1024
+>308	MultiplicativeExpression	rand ( ) % 1024
+>309	PrimaryExpression	1024
+>310	CallExpression	rand ( )
+>311	ArgumentList	 
+>312	Callee	rand
+>313	Identifier	rand
+>314	Argument	\"000_%04x_%08x.%08x\"
+>315	PrimaryExpression	\"000_%04x_%08x.%08x\"
+>316	Argument	sizeof ( \"000_003A_01C09733.24DFD8F0\" )
+>317	SizeofExpr	sizeof ( \"000_003A_01C09733.24DFD8F0\" )
+>318	PrimaryExpression	\"000_003A_01C09733.24DFD8F0\"
+>319	Sizeof	sizeof
+>320	Argument	pssValue -> GetData ( )
+>321	CallExpression	pssValue -> GetData ( )
+>322	ArgumentList	 
+>323	Callee	pssValue -> GetData
+>324	PtrMemberAccess	pssValue -> GetData
+>325	Identifier	GetData
+>326	Identifier	pssValue
+>327	Callee	base_snprintf
+>328	Identifier	base_snprintf
+>329	ExpressionStatement	 
+>330	CallExpression	pssValue -> SetLength ( sizeof ( \"000_003A_01C09733.24DFD8F0\" ) - 1 )
+>331	ArgumentList	sizeof ( \"000_003A_01C09733.24DFD8F0\" ) - 1
+>332	Argument	sizeof ( \"000_003A_01C09733.24DFD8F0\" ) - 1
+>333	AdditiveExpression	sizeof ( \"000_003A_01C09733.24DFD8F0\" ) - 1
+>334	PrimaryExpression	1
+>335	SizeofExpr	sizeof ( \"000_003A_01C09733.24DFD8F0\" )
+>336	PrimaryExpression	\"000_003A_01C09733.24DFD8F0\"
+>337	Sizeof	sizeof
+>338	Callee	pssValue -> SetLength
+>339	PtrMemberAccess	pssValue -> SetLength
+>340	Identifier	SetLength
+>341	Identifier	pssValue
+>342	IdentifierDeclStatement	 
+>343	IdentifierDecl	nLowPart = rand ( )
+>344	AssignmentExpr	nLowPart = rand ( )
+>345	CallExpression	rand ( )
+>346	ArgumentList	 
+>347	Callee	rand
+>348	Identifier	rand
+>349	Identifier	nLowPart
+>350	Identifier	nLowPart
+>351	IdentifierDeclType	unsigned int
+>352	IdentifierDeclStatement	 
+>353	IdentifierDecl	nHighPart = rand ( )
+>354	AssignmentExpr	nHighPart = rand ( )
+>355	CallExpression	rand ( )
+>356	ArgumentList	 
+>357	Callee	rand
+>358	Identifier	rand
+>359	Identifier	nHighPart
+>360	Identifier	nHighPart
+>361	IdentifierDeclType	unsigned int
+>362	ExpressionStatement	 
+>363	CallExpression	srand ( CurrentTime )
+>364	ArgumentList	CurrentTime
+>365	Argument	CurrentTime
+>366	Identifier	CurrentTime
+>367	Callee	srand
+>368	Identifier	srand
+>369	ExpressionStatement	 
+>370	CallExpression	time ( & CurrentTime )
+>371	ArgumentList	& CurrentTime
+>372	Argument	& CurrentTime
+>373	UnaryOp	& CurrentTime
+>374	Identifier	CurrentTime
+>375	UnaryOperator	&
+>376	Callee	time
+>377	Identifier	time
+>378	IdentifierDeclStatement	 
+>379	IdentifierDecl	CurrentTime
+>380	Identifier	CurrentTime
+>381	IdentifierDeclType	time_t
+>382	IfStatement	if ( ! pssValue )
+>383	ReturnStatement	 
+>384	Identifier	false
+>385	Condition	 
+>386	UnaryOp	! pssValue
+>387	Identifier	pssValue
+>388	UnaryOperator	!
+>402	FunctionDef	CMimeHeader 
+>403	ParameterList	CString * pssBoundaryValue , CMimeBoundaryType BoundaryType , CString * pssBoundaryString
+>404	Parameter	 
+>405	Identifier	pssBoundaryString
+>406	ParameterType	CString *
+>407	Parameter	 
+>408	Identifier	BoundaryType
+>409	ParameterType	CMimeBoundaryType
+>410	Parameter	 
+>411	Identifier	pssBoundaryValue
+>412	ParameterType	CString *
+>413	ReturnType	bool
+>414	CompoundStatement	 
+>415	ReturnStatement	 
+>416	Identifier	true
+>417	SwitchStatement	switch ( BoundaryType )
+>418	CompoundStatement	 
+>419	ExpressionStatement	 
+>420	AssignmentExpr	( * pssBoundaryValue ) += \"\r\n\"
+>421	PrimaryExpression	\"\r\n\"
+>422	UnaryOp	* pssBoundaryValue
+>423	Identifier	pssBoundaryValue
+>424	UnaryOperator	*
+>425	ExpressionStatement	 
+>426	AssignmentExpr	( * pssBoundaryValue ) += ( * pssBoundaryString )
+>427	UnaryOp	* pssBoundaryString
+>428	Identifier	pssBoundaryString
+>429	UnaryOperator	*
+>430	UnaryOp	* pssBoundaryValue
+>431	Identifier	pssBoundaryValue
+>432	UnaryOperator	*
+>433	ExpressionStatement	 
+>434	AssignmentExpr	( * pssBoundaryValue ) = \"------=_NextPart_\"
+>435	PrimaryExpression	\"------=_NextPart_\"
+>436	UnaryOp	* pssBoundaryValue
+>437	Identifier	pssBoundaryValue
+>438	UnaryOperator	*
+>439	Label	 
+>440	Identifier	default
+>441	Label	 
+>442	Identifier	btBoundarySeparate
+>443	BreakStatement	 
+>444	ExpressionStatement	 
+>445	AssignmentExpr	( * pssBoundaryValue ) += \"--\r\n\"
+>446	PrimaryExpression	\"--\r\n\"
+>447	UnaryOp	* pssBoundaryValue
+>448	Identifier	pssBoundaryValue
+>449	UnaryOperator	*
+>450	ExpressionStatement	 
+>451	AssignmentExpr	( * pssBoundaryValue ) += ( * pssBoundaryString )
+>452	UnaryOp	* pssBoundaryString
+>453	Identifier	pssBoundaryString
+>454	UnaryOperator	*
+>455	UnaryOp	* pssBoundaryValue
+>456	Identifier	pssBoundaryValue
+>457	UnaryOperator	*
+>458	ExpressionStatement	 
+>459	AssignmentExpr	( * pssBoundaryValue ) = \"------=_NextPart_\"
+>460	PrimaryExpression	\"------=_NextPart_\"
+>461	UnaryOp	* pssBoundaryValue
+>462	Identifier	pssBoundaryValue
+>463	UnaryOperator	*
+>464	Label	 
+>465	Identifier	btBoundaryTerminate
+>466	BreakStatement	 
+>467	ExpressionStatement	 
+>468	AssignmentExpr	( * pssBoundaryValue ) += \"\\"\"
+>469	PrimaryExpression	\"\\"\"
+>470	UnaryOp	* pssBoundaryValue
+>471	Identifier	pssBoundaryValue
+>472	UnaryOperator	*
+>473	ExpressionStatement	 
+>474	AssignmentExpr	( * pssBoundaryValue ) += ( * pssBoundaryString )
+>475	UnaryOp	* pssBoundaryString
+>476	Identifier	pssBoundaryString
+>477	UnaryOperator	*
+>478	UnaryOp	* pssBoundaryValue
+>479	Identifier	pssBoundaryValue
+>480	UnaryOperator	*
+>481	ExpressionStatement	 
+>482	AssignmentExpr	( * pssBoundaryValue ) = \"boundary=\\"----=_NextPart_\"
+>483	PrimaryExpression	\"boundary=\\"----=_NextPart_\"
+>484	UnaryOp	* pssBoundaryValue
+>485	Identifier	pssBoundaryValue
+>486	UnaryOperator	*
+>487	Label	 
+>488	Identifier	btBoundaryDeclare
+>489	Condition	 
+>490	Identifier	BoundaryType
+>491	IfStatement	if ( ! pssBoundaryString )
+>492	ReturnStatement	 
+>493	Identifier	false
+>494	Condition	 
+>495	UnaryOp	! pssBoundaryString
+>496	Identifier	pssBoundaryString
+>497	UnaryOperator	!
+>498	IfStatement	if ( ! pssBoundaryValue )
+>499	ReturnStatement	 
+>500	Identifier	false
+>501	Condition	 
+>502	UnaryOp	! pssBoundaryValue
+>503	Identifier	pssBoundaryValue
+>504	UnaryOperator	!
+>505	IdentifierDeclStatement	 
+>506	IdentifierDecl	ssBoundaryString
+>507	Identifier	ssBoundaryString
+>508	IdentifierDeclType	CString
+<3=5,4
+<9=11,10
+<15=24,23,16
+<16=20,17
+<17=19,18
+<20=22,21
+<24=45,38,27,25
+<25=26
+<27=28
+<28=34,29
+<29=32,30
+<30=31
+<32=33
+<34=35
+<35=37,36
+<38=39
+<39=41,40
+<41=42
+<42=44,43
+<45=46
+<46=49,48,47
+<58=67,66,59
+<59=63,60
+<60=62,61
+<63=65,64
+<67=88,81,70,68
+<68=69
+<70=71
+<71=77,72
+<72=75,73
+<73=74
+<75=76
+<77=78
+<78=80,79
+<81=82
+<82=84,83
+<84=85
+<85=87,86
+<88=89
+<89=92,91,90
+<101=107,106,102
+<102=103
+<103=105,104
+<107=110,108
+<108=109
+<110=111
+<111=115,112
+<112=113
+<113=114
+<115=116
+<116=118,117
+<125=137,136,126
+<126=133,130,127
+<127=129,128
+<130=132,131
+<133=135,134
+<137=167,149,140,138
+<138=139
+<140=147,141
+<141=142
+<142=144,143
+<144=146,145
+<147=148
+<149=150
+<150=166,165,151
+<151=164,152
+<152=160,153
+<153=158,154
+<154=155
+<155=157,156
+<158=159
+<160=161
+<161=163,162
+<167=170,168
+<168=169
+<170=171
+<171=173,172
+<187=196,195,188
+<188=192,189
+<189=191,190
+<192=194,193
+<196=271,261,199,197
+<197=198
+<199=253,242,239,200
+<200=226,220,207,201
+<201=202
+<202=204,203
+<204=206,205
+<207=208
+<208=217,209
+<209=213,210
+<210=211
+<211=212
+<213=214
+<214=216,215
+<217=219,218
+<220=221
+<221=223,222
+<223=225,224
+<226=227
+<227=236,228
+<228=232,229
+<229=230
+<230=231
+<232=233
+<233=235,234
+<236=238,237
+<239=241,240
+<242=243
+<243=252,244
+<244=251,245
+<245=247,246
+<247=248
+<248=250,249
+<253=254
+<254=255
+<255=260,259,256
+<256=258,257
+<261=269,262
+<262=263
+<263=265,264
+<265=266
+<266=268,267
+<269=270
+<271=274,272
+<272=273
+<274=275
+<275=277,276
+<291=297,296,292
+<292=293
+<293=295,294
+<297=382,378,369,362,352,342,329,300,298
+<298=299
+<300=301
+<301=327,302
+<302=320,316,314,307,305,303
+<303=304
+<305=306
+<307=308
+<308=310,309
+<310=312,311
+<312=313
+<314=315
+<316=317
+<317=319,318
+<320=321
+<321=323,322
+<323=324
+<324=326,325
+<327=328
+<329=330
+<330=338,331
+<331=332
+<332=333
+<333=335,334
+<335=337,336
+<338=339
+<339=341,340
+<342=343
+<343=351,350,344
+<344=349,345
+<345=347,346
+<347=348
+<352=353
+<353=361,360,354
+<354=359,355
+<355=357,356
+<357=358
+<362=363
+<363=367,364
+<364=365
+<365=366
+<367=368
+<369=370
+<370=376,371
+<371=372
+<372=373
+<373=375,374
+<376=377
+<378=379
+<379=381,380
+<382=385,383
+<383=384
+<385=386
+<386=388,387
+<402=414,413,403
+<403=410,407,404
+<404=406,405
+<407=409,408
+<410=412,411
+<414=505,498,491,417,415
+<415=416
+<417=489,418
+<418=487,481,473,467,466,464,458,450,444,443,441,439,433,425,419
+<419=420
+<420=422,421
+<422=424,423
+<425=426
+<426=430,427
+<427=429,428
+<430=432,431
+<433=434
+<434=436,435
+<436=438,437
+<439=440
+<441=442
+<444=445
+<445=447,446
+<447=449,448
+<450=451
+<451=455,452
+<452=454,453
+<455=457,456
+<458=459
+<459=461,460
+<461=463,462
+<464=465
+<467=468
+<468=470,469
+<470=472,471
+<473=474
+<474=478,475
+<475=477,476
+<478=480,479
+<481=482
+<482=484,483
+<484=486,485
+<487=488
+<489=490
+<491=494,492
+<492=493
+<494=495
+<495=497,496
+<498=501,499
+<499=500
+<501=502
+<502=504,503
+<505=506
+<506=508,507

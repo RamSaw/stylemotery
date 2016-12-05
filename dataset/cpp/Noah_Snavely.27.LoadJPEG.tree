@@ -1,0 +1,1243 @@
+>3	FunctionDef	GetJPEGDimensions (const char * filename , int & w , int & h)
+>4	ParameterList	const char * filename , int & w , int & h
+>5	Parameter	 
+>6	Identifier	h
+>7	ParameterType	int &
+>8	Parameter	 
+>9	Identifier	w
+>10	ParameterType	int &
+>11	Parameter	 
+>12	Identifier	filename
+>13	ParameterType	const char *
+>14	ReturnType	void
+>15	CompoundStatement	 
+>16	ExpressionStatement	 
+>17	CallExpression	fclose ( f )
+>18	ArgumentList	f
+>19	Argument	f
+>20	Identifier	f
+>21	Callee	fclose
+>22	Identifier	fclose
+>23	ExpressionStatement	 
+>24	CallExpression	jpeg_destroy_decompress ( & cinfo )
+>25	ArgumentList	& cinfo
+>26	Argument	& cinfo
+>27	UnaryOp	& cinfo
+>28	Identifier	cinfo
+>29	UnaryOperator	&
+>30	Callee	jpeg_destroy_decompress
+>31	Identifier	jpeg_destroy_decompress
+>32	ExpressionStatement	 
+>33	CallExpression	printf ( \"[GetJPEGDimensions] File %s
+>34	ArgumentList	\"[GetJPEGDimensions] File %s
+>35	Argument	h
+>36	Identifier	h
+>37	Argument	w
+>38	Identifier	w
+>39	Argument	filename
+>40	Identifier	filename
+>41	Argument	\"[GetJPEGDimensions] File %s
+>42	PrimaryExpression	\"[GetJPEGDimensions] File %s
+>43	Callee	printf
+>44	Identifier	printf
+>45	ExpressionStatement	 
+>46	AssignmentExpr	h = cinfo . image_height
+>47	MemberAccess	cinfo . image_height
+>48	Identifier	image_height
+>49	Identifier	cinfo
+>50	Identifier	h
+>51	ExpressionStatement	 
+>52	AssignmentExpr	w = cinfo . image_width
+>53	MemberAccess	cinfo . image_width
+>54	Identifier	image_width
+>55	Identifier	cinfo
+>56	Identifier	w
+>57	ExpressionStatement	 
+>58	CallExpression	jpeg_read_header ( & cinfo , TRUE )
+>59	ArgumentList	& cinfo
+>60	Argument	TRUE
+>61	Identifier	TRUE
+>62	Argument	& cinfo
+>63	UnaryOp	& cinfo
+>64	Identifier	cinfo
+>65	UnaryOperator	&
+>66	Callee	jpeg_read_header
+>67	Identifier	jpeg_read_header
+>68	ExpressionStatement	 
+>69	CallExpression	jpeg_stdio_src ( & cinfo , f )
+>70	ArgumentList	& cinfo
+>71	Argument	f
+>72	Identifier	f
+>73	Argument	& cinfo
+>74	UnaryOp	& cinfo
+>75	Identifier	cinfo
+>76	UnaryOperator	&
+>77	Callee	jpeg_stdio_src
+>78	Identifier	jpeg_stdio_src
+>79	IfStatement	if ( ( f = fopen ( filename , \"rb\" ) ) == NULL )
+>80	CompoundStatement	 
+>81	ReturnStatement	 
+>82	ExpressionStatement	 
+>83	CallExpression	printf ( \"[GetJPEGDimensions] Error
+>84	ArgumentList	\"[GetJPEGDimensions] Error
+>85	Argument	filename
+>86	Identifier	filename
+>87	Argument	\"[GetJPEGDimensions] Error
+>88	PrimaryExpression	\"[GetJPEGDimensions] Error
+>89	Callee	printf
+>90	Identifier	printf
+>91	Condition	 
+>92	EqualityExpression	( f = fopen ( filename , \"rb\" ) ) == NULL
+>93	Identifier	NULL
+>94	AssignmentExpr	f = fopen ( filename , \"rb\" )
+>95	CallExpression	fopen ( filename , \"rb\" )
+>96	ArgumentList	filename
+>97	Argument	\"rb\"
+>98	PrimaryExpression	\"rb\"
+>99	Argument	filename
+>100	Identifier	filename
+>101	Callee	fopen
+>102	Identifier	fopen
+>103	Identifier	f
+>104	IdentifierDeclStatement	 
+>105	IdentifierDecl	* f
+>106	Identifier	f
+>107	IdentifierDeclType	FILE *
+>108	ExpressionStatement	 
+>109	CallExpression	jpeg_create_decompress ( & cinfo )
+>110	ArgumentList	& cinfo
+>111	Argument	& cinfo
+>112	UnaryOp	& cinfo
+>113	Identifier	cinfo
+>114	UnaryOperator	&
+>115	Callee	jpeg_create_decompress
+>116	Identifier	jpeg_create_decompress
+>117	ExpressionStatement	 
+>118	AssignmentExpr	cinfo . err = jpeg_std_error ( & jerr )
+>119	CallExpression	jpeg_std_error ( & jerr )
+>120	ArgumentList	& jerr
+>121	Argument	& jerr
+>122	UnaryOp	& jerr
+>123	Identifier	jerr
+>124	UnaryOperator	&
+>125	Callee	jpeg_std_error
+>126	Identifier	jpeg_std_error
+>127	MemberAccess	cinfo . err
+>128	Identifier	err
+>129	Identifier	cinfo
+>130	IdentifierDeclStatement	 
+>131	IdentifierDecl	jerr
+>132	Identifier	jerr
+>133	IdentifierDeclType	struct jpeg_error_mgr
+>134	IdentifierDeclStatement	 
+>135	IdentifierDecl	cinfo
+>136	Identifier	cinfo
+>137	IdentifierDeclType	struct jpeg_decompress_struct
+>156	FunctionDef	LoadJPEG (const char * filename)
+>157	ParameterList	const char * filename
+>158	Parameter	 
+>159	Identifier	filename
+>160	ParameterType	const char *
+>161	ReturnType	img_t *
+>162	CompoundStatement	 
+>163	ReturnStatement	 
+>164	Identifier	img
+>165	ExpressionStatement	 
+>166	CallExpression	fclose ( f )
+>167	ArgumentList	f
+>168	Argument	f
+>169	Identifier	f
+>170	Callee	fclose
+>171	Identifier	fclose
+>172	ExpressionStatement	 
+>173	Identifier	row
+>174	Statement	 
+>175	Statement	 
+>176	Statement	 
+>177	ExpressionStatement	 
+>178	CallExpression	jpeg_destroy_decompress ( & cinfo )
+>179	ArgumentList	& cinfo
+>180	Argument	& cinfo
+>181	UnaryOp	& cinfo
+>182	Identifier	cinfo
+>183	UnaryOperator	&
+>184	Callee	jpeg_destroy_decompress
+>185	Identifier	jpeg_destroy_decompress
+>186	ExpressionStatement	 
+>187	CallExpression	jpeg_finish_decompress ( & cinfo )
+>188	ArgumentList	& cinfo
+>189	Argument	& cinfo
+>190	UnaryOp	& cinfo
+>191	Identifier	cinfo
+>192	UnaryOperator	&
+>193	Callee	jpeg_finish_decompress
+>194	Identifier	jpeg_finish_decompress
+>195	ForStatement	for ( int y = 0 ; y < h ; y ++ )
+>196	CompoundStatement	 
+>197	ForStatement	for ( int x = 0 ; x < w ; x ++ )
+>198	CompoundStatement	 
+>199	IfStatement	if ( n == 3 )
+>200	ElseStatement	else
+>201	IfStatement	if ( n == 1 )
+>202	CompoundStatement	 
+>203	ExpressionStatement	 
+>204	CallExpression	img_set_pixel ( img , x , h - y - 1 , row [ x ] , row [ x ] , row [ x ] )
+>205	ArgumentList	img
+>206	Argument	row [ x ]
+>207	ArrayIndexing	row [ x ]
+>208	Identifier	x
+>209	Identifier	row
+>210	Argument	row [ x ]
+>211	ArrayIndexing	row [ x ]
+>212	Identifier	x
+>213	Identifier	row
+>214	Argument	row [ x ]
+>215	ArrayIndexing	row [ x ]
+>216	Identifier	x
+>217	Identifier	row
+>218	Argument	h - y - 1
+>219	AdditiveExpression	h - y - 1
+>220	AdditiveExpression	y - 1
+>221	PrimaryExpression	1
+>222	Identifier	y
+>223	Identifier	h
+>224	Argument	x
+>225	Identifier	x
+>226	Argument	img
+>227	Identifier	img
+>228	Callee	img_set_pixel
+>229	Identifier	img_set_pixel
+>230	Condition	 
+>231	EqualityExpression	n == 1
+>232	PrimaryExpression	1
+>233	Identifier	n
+>234	CompoundStatement	 
+>235	ExpressionStatement	 
+>236	CallExpression	img_set_pixel ( img , x , h - y - 1 , row [ 3 * x + 0 ] , row [ 3 * x + 1 ] , row [ 3 * x + 2 ] )
+>237	ArgumentList	img
+>238	Argument	row [ 3 * x + 2 ]
+>239	ArrayIndexing	row [ 3 * x + 2 ]
+>240	AdditiveExpression	3 * x + 2
+>241	PrimaryExpression	2
+>242	MultiplicativeExpression	3 * x
+>243	Identifier	x
+>244	PrimaryExpression	3
+>245	Identifier	row
+>246	Argument	row [ 3 * x + 1 ]
+>247	ArrayIndexing	row [ 3 * x + 1 ]
+>248	AdditiveExpression	3 * x + 1
+>249	PrimaryExpression	1
+>250	MultiplicativeExpression	3 * x
+>251	Identifier	x
+>252	PrimaryExpression	3
+>253	Identifier	row
+>254	Argument	row [ 3 * x + 0 ]
+>255	ArrayIndexing	row [ 3 * x + 0 ]
+>256	AdditiveExpression	3 * x + 0
+>257	PrimaryExpression	0
+>258	MultiplicativeExpression	3 * x
+>259	Identifier	x
+>260	PrimaryExpression	3
+>261	Identifier	row
+>262	Argument	h - y - 1
+>263	AdditiveExpression	h - y - 1
+>264	AdditiveExpression	y - 1
+>265	PrimaryExpression	1
+>266	Identifier	y
+>267	Identifier	h
+>268	Argument	x
+>269	Identifier	x
+>270	Argument	img
+>271	Identifier	img
+>272	Callee	img_set_pixel
+>273	Identifier	img_set_pixel
+>274	Condition	 
+>275	EqualityExpression	n == 3
+>276	PrimaryExpression	3
+>277	Identifier	n
+>278	IncDecOp	 
+>279	IncDec	++
+>280	Identifier	x
+>281	Condition	 
+>282	RelationalExpression	x < w
+>283	Identifier	w
+>284	Identifier	x
+>285	ForInit	 
+>286	IdentifierDeclStatement	int x = 0 ;
+>287	IdentifierDecl	x = 0
+>288	AssignmentExpr	x = 0
+>289	PrimaryExpression	0
+>290	Identifier	x
+>291	Identifier	x
+>292	IdentifierDeclType	int
+>293	ExpressionStatement	 
+>294	CallExpression	jpeg_read_scanlines ( & cinfo , & row , 1 )
+>295	ArgumentList	& cinfo
+>296	Argument	1
+>297	PrimaryExpression	1
+>298	Argument	& row
+>299	UnaryOp	& row
+>300	Identifier	row
+>301	UnaryOperator	&
+>302	Argument	& cinfo
+>303	UnaryOp	& cinfo
+>304	Identifier	cinfo
+>305	UnaryOperator	&
+>306	Callee	jpeg_read_scanlines
+>307	Identifier	jpeg_read_scanlines
+>308	IncDecOp	 
+>309	IncDec	++
+>310	Identifier	y
+>311	Condition	 
+>312	RelationalExpression	y < h
+>313	Identifier	h
+>314	Identifier	y
+>315	ForInit	 
+>316	IdentifierDeclStatement	int y = 0 ;
+>317	IdentifierDecl	y = 0
+>318	AssignmentExpr	y = 0
+>319	PrimaryExpression	0
+>320	Identifier	y
+>321	Identifier	y
+>322	IdentifierDeclType	int
+>323	IdentifierDeclStatement	 
+>324	IdentifierDecl	row = new JSAMPLE [ n * w ]
+>325	AssignmentExpr	row = new JSAMPLE [ n * w ]
+>326	MultiplicativeExpression	n * w
+>327	Identifier	w
+>328	Identifier	n
+>329	Identifier	row
+>330	Identifier	row
+>331	IdentifierDeclType	JSAMPROW
+>332	IdentifierDeclStatement	 
+>333	IdentifierDecl	* img = img_new ( w , h )
+>334	AssignmentExpr	* img = img_new ( w , h )
+>335	CallExpression	img_new ( w , h )
+>336	ArgumentList	w
+>337	Argument	h
+>338	Identifier	h
+>339	Argument	w
+>340	Identifier	w
+>341	Callee	img_new
+>342	Identifier	img_new
+>343	Identifier	img
+>344	Identifier	img
+>345	IdentifierDeclType	img_t *
+>346	ExpressionStatement	 
+>347	CallExpression	assert ( n == 1 || n == 3 )
+>348	ArgumentList	n == 1 || n == 3
+>349	Argument	n == 1 || n == 3
+>350	OrExpression	n == 1 || n == 3
+>351	EqualityExpression	n == 3
+>352	PrimaryExpression	3
+>353	Identifier	n
+>354	EqualityExpression	n == 1
+>355	PrimaryExpression	1
+>356	Identifier	n
+>357	Callee	assert
+>358	Identifier	assert
+>359	IdentifierDeclStatement	 
+>360	IdentifierDecl	n = cinfo . output_components
+>361	AssignmentExpr	n = cinfo . output_components
+>362	MemberAccess	cinfo . output_components
+>363	Identifier	output_components
+>364	Identifier	cinfo
+>365	Identifier	n
+>366	Identifier	n
+>367	IdentifierDeclType	int
+>368	IdentifierDeclStatement	 
+>369	IdentifierDecl	h = cinfo . output_height
+>370	AssignmentExpr	h = cinfo . output_height
+>371	MemberAccess	cinfo . output_height
+>372	Identifier	output_height
+>373	Identifier	cinfo
+>374	Identifier	h
+>375	Identifier	h
+>376	IdentifierDeclType	int
+>377	IdentifierDeclStatement	 
+>378	IdentifierDecl	w = cinfo . output_width
+>379	AssignmentExpr	w = cinfo . output_width
+>380	MemberAccess	cinfo . output_width
+>381	Identifier	output_width
+>382	Identifier	cinfo
+>383	Identifier	w
+>384	Identifier	w
+>385	IdentifierDeclType	int
+>386	ExpressionStatement	 
+>387	CallExpression	jpeg_start_decompress ( & cinfo )
+>388	ArgumentList	& cinfo
+>389	Argument	& cinfo
+>390	UnaryOp	& cinfo
+>391	Identifier	cinfo
+>392	UnaryOperator	&
+>393	Callee	jpeg_start_decompress
+>394	Identifier	jpeg_start_decompress
+>395	ExpressionStatement	 
+>396	CallExpression	jpeg_read_header ( & cinfo , TRUE )
+>397	ArgumentList	& cinfo
+>398	Argument	TRUE
+>399	Identifier	TRUE
+>400	Argument	& cinfo
+>401	UnaryOp	& cinfo
+>402	Identifier	cinfo
+>403	UnaryOperator	&
+>404	Callee	jpeg_read_header
+>405	Identifier	jpeg_read_header
+>406	ExpressionStatement	 
+>407	CallExpression	jpeg_stdio_src ( & cinfo , f )
+>408	ArgumentList	& cinfo
+>409	Argument	f
+>410	Identifier	f
+>411	Argument	& cinfo
+>412	UnaryOp	& cinfo
+>413	Identifier	cinfo
+>414	UnaryOperator	&
+>415	Callee	jpeg_stdio_src
+>416	Identifier	jpeg_stdio_src
+>417	IfStatement	if ( ( f = fopen ( filename , \"rb\" ) ) == NULL )
+>418	CompoundStatement	 
+>419	ReturnStatement	 
+>420	Identifier	NULL
+>421	ExpressionStatement	 
+>422	CallExpression	printf ( \"[LoadJPEG] Error
+>423	ArgumentList	\"[LoadJPEG] Error
+>424	Argument	filename
+>425	Identifier	filename
+>426	Argument	\"[LoadJPEG] Error
+>427	PrimaryExpression	\"[LoadJPEG] Error
+>428	Callee	printf
+>429	Identifier	printf
+>430	Condition	 
+>431	EqualityExpression	( f = fopen ( filename , \"rb\" ) ) == NULL
+>432	Identifier	NULL
+>433	AssignmentExpr	f = fopen ( filename , \"rb\" )
+>434	CallExpression	fopen ( filename , \"rb\" )
+>435	ArgumentList	filename
+>436	Argument	\"rb\"
+>437	PrimaryExpression	\"rb\"
+>438	Argument	filename
+>439	Identifier	filename
+>440	Callee	fopen
+>441	Identifier	fopen
+>442	Identifier	f
+>443	IdentifierDeclStatement	 
+>444	IdentifierDecl	* f
+>445	Identifier	f
+>446	IdentifierDeclType	FILE *
+>447	ExpressionStatement	 
+>448	CallExpression	jpeg_create_decompress ( & cinfo )
+>449	ArgumentList	& cinfo
+>450	Argument	& cinfo
+>451	UnaryOp	& cinfo
+>452	Identifier	cinfo
+>453	UnaryOperator	&
+>454	Callee	jpeg_create_decompress
+>455	Identifier	jpeg_create_decompress
+>456	ExpressionStatement	 
+>457	AssignmentExpr	cinfo . err = jpeg_std_error ( & jerr )
+>458	CallExpression	jpeg_std_error ( & jerr )
+>459	ArgumentList	& jerr
+>460	Argument	& jerr
+>461	UnaryOp	& jerr
+>462	Identifier	jerr
+>463	UnaryOperator	&
+>464	Callee	jpeg_std_error
+>465	Identifier	jpeg_std_error
+>466	MemberAccess	cinfo . err
+>467	Identifier	err
+>468	Identifier	cinfo
+>469	IdentifierDeclStatement	 
+>470	IdentifierDecl	jerr
+>471	Identifier	jerr
+>472	IdentifierDeclType	struct jpeg_error_mgr
+>473	IdentifierDeclStatement	 
+>474	IdentifierDecl	cinfo
+>475	Identifier	cinfo
+>476	IdentifierDeclType	struct jpeg_decompress_struct
+>505	FunctionDef	WriteJPEG (const img_t * img , const char * filename)
+>506	ParameterList	const img_t * img , const char * filename
+>507	Parameter	 
+>508	Identifier	filename
+>509	ParameterType	const char *
+>510	Parameter	 
+>511	Identifier	img
+>512	ParameterType	const img_t *
+>513	ReturnType	void
+>514	CompoundStatement	 
+>515	ExpressionStatement	 
+>516	CallExpression	fclose ( outfile )
+>517	ArgumentList	outfile
+>518	Argument	outfile
+>519	Identifier	outfile
+>520	Callee	fclose
+>521	Identifier	fclose
+>522	ExpressionStatement	 
+>523	Identifier	row
+>524	Statement	 
+>525	Statement	 
+>526	Statement	 
+>527	ExpressionStatement	 
+>528	CallExpression	jpeg_destroy_compress ( & cinfo )
+>529	ArgumentList	& cinfo
+>530	Argument	& cinfo
+>531	UnaryOp	& cinfo
+>532	Identifier	cinfo
+>533	UnaryOperator	&
+>534	Callee	jpeg_destroy_compress
+>535	Identifier	jpeg_destroy_compress
+>536	ExpressionStatement	 
+>537	CallExpression	jpeg_finish_compress ( & cinfo )
+>538	ArgumentList	& cinfo
+>539	Argument	& cinfo
+>540	UnaryOp	& cinfo
+>541	Identifier	cinfo
+>542	UnaryOperator	&
+>543	Callee	jpeg_finish_compress
+>544	Identifier	jpeg_finish_compress
+>545	ForStatement	for ( int y = 0 ; y < img -> h ; y ++ )
+>546	CompoundStatement	 
+>547	ExpressionStatement	 
+>548	CallExpression	jpeg_write_scanlines ( & cinfo , & row , 1 )
+>549	ArgumentList	& cinfo
+>550	Argument	1
+>551	PrimaryExpression	1
+>552	Argument	& row
+>553	UnaryOp	& row
+>554	Identifier	row
+>555	UnaryOperator	&
+>556	Argument	& cinfo
+>557	UnaryOp	& cinfo
+>558	Identifier	cinfo
+>559	UnaryOperator	&
+>560	Callee	jpeg_write_scanlines
+>561	Identifier	jpeg_write_scanlines
+>562	ForStatement	for ( int x = 0 ; x < img -> w ; x ++ )
+>563	CompoundStatement	 
+>564	ExpressionStatement	 
+>565	AssignmentExpr	row [ 3 * x + 2 ] = c . b
+>566	MemberAccess	c . b
+>567	Identifier	b
+>568	Identifier	c
+>569	ArrayIndexing	row [ 3 * x + 2 ]
+>570	AdditiveExpression	3 * x + 2
+>571	PrimaryExpression	2
+>572	MultiplicativeExpression	3 * x
+>573	Identifier	x
+>574	PrimaryExpression	3
+>575	Identifier	row
+>576	ExpressionStatement	 
+>577	AssignmentExpr	row [ 3 * x + 1 ] = c . g
+>578	MemberAccess	c . g
+>579	Identifier	g
+>580	Identifier	c
+>581	ArrayIndexing	row [ 3 * x + 1 ]
+>582	AdditiveExpression	3 * x + 1
+>583	PrimaryExpression	1
+>584	MultiplicativeExpression	3 * x
+>585	Identifier	x
+>586	PrimaryExpression	3
+>587	Identifier	row
+>588	ExpressionStatement	 
+>589	AssignmentExpr	row [ 3 * x + 0 ] = c . r
+>590	MemberAccess	c . r
+>591	Identifier	r
+>592	Identifier	c
+>593	ArrayIndexing	row [ 3 * x + 0 ]
+>594	AdditiveExpression	3 * x + 0
+>595	PrimaryExpression	0
+>596	MultiplicativeExpression	3 * x
+>597	Identifier	x
+>598	PrimaryExpression	3
+>599	Identifier	row
+>600	IdentifierDeclStatement	 
+>601	IdentifierDecl	c = img_get_pixel ( ( img_t * ) img , x , img -> h - y - 1 )
+>602	AssignmentExpr	c = img_get_pixel ( ( img_t * ) img , x , img -> h - y - 1 )
+>603	CallExpression	img_get_pixel ( ( img_t * ) img , x , img -> h - y - 1 )
+>604	ArgumentList	( img_t * ) img
+>605	Argument	img -> h - y - 1
+>606	AdditiveExpression	img -> h - y - 1
+>607	AdditiveExpression	y - 1
+>608	PrimaryExpression	1
+>609	Identifier	y
+>610	PtrMemberAccess	img -> h
+>611	Identifier	h
+>612	Identifier	img
+>613	Argument	x
+>614	Identifier	x
+>615	Argument	( img_t * ) img
+>616	CastExpression	( img_t * ) img
+>617	Identifier	img
+>618	CastTarget	img_t *
+>619	Callee	img_get_pixel
+>620	Identifier	img_get_pixel
+>621	Identifier	c
+>622	Identifier	c
+>623	IdentifierDeclType	color_t
+>624	IncDecOp	 
+>625	IncDec	++
+>626	Identifier	x
+>627	Condition	 
+>628	RelationalExpression	x < img -> w
+>629	PtrMemberAccess	img -> w
+>630	Identifier	w
+>631	Identifier	img
+>632	Identifier	x
+>633	ForInit	 
+>634	IdentifierDeclStatement	int x = 0 ;
+>635	IdentifierDecl	x = 0
+>636	AssignmentExpr	x = 0
+>637	PrimaryExpression	0
+>638	Identifier	x
+>639	Identifier	x
+>640	IdentifierDeclType	int
+>641	ExpressionStatement	 
+>642	AssignmentExpr	row_stride = img -> w * 3
+>643	MultiplicativeExpression	img -> w * 3
+>644	PrimaryExpression	3
+>645	PtrMemberAccess	img -> w
+>646	Identifier	w
+>647	Identifier	img
+>648	Identifier	row_stride
+>649	IdentifierDeclStatement	 
+>650	IdentifierDecl	row_stride
+>651	Identifier	row_stride
+>652	IdentifierDeclType	int
+>653	IncDecOp	 
+>654	IncDec	++
+>655	Identifier	y
+>656	Condition	 
+>657	RelationalExpression	y < img -> h
+>658	PtrMemberAccess	img -> h
+>659	Identifier	h
+>660	Identifier	img
+>661	Identifier	y
+>662	ForInit	 
+>663	IdentifierDeclStatement	int y = 0 ;
+>664	IdentifierDecl	y = 0
+>665	AssignmentExpr	y = 0
+>666	PrimaryExpression	0
+>667	Identifier	y
+>668	Identifier	y
+>669	IdentifierDeclType	int
+>670	IdentifierDeclStatement	 
+>671	IdentifierDecl	row = new JSAMPLE [ 3 * img -> w ]
+>672	AssignmentExpr	row = new JSAMPLE [ 3 * img -> w ]
+>673	MultiplicativeExpression	3 * img -> w
+>674	PtrMemberAccess	img -> w
+>675	Identifier	w
+>676	Identifier	img
+>677	PrimaryExpression	3
+>678	Identifier	row
+>679	Identifier	row
+>680	IdentifierDeclType	JSAMPROW
+>681	ExpressionStatement	 
+>682	CallExpression	jpeg_start_compress ( & cinfo , TRUE )
+>683	ArgumentList	& cinfo
+>684	Argument	TRUE
+>685	Identifier	TRUE
+>686	Argument	& cinfo
+>687	UnaryOp	& cinfo
+>688	Identifier	cinfo
+>689	UnaryOperator	&
+>690	Callee	jpeg_start_compress
+>691	Identifier	jpeg_start_compress
+>692	ExpressionStatement	 
+>693	CallExpression	jpeg_set_quality ( & cinfo , 98 , TRUE )
+>694	ArgumentList	& cinfo
+>695	Argument	TRUE
+>696	Identifier	TRUE
+>697	Argument	98
+>698	PrimaryExpression	98
+>699	Argument	& cinfo
+>700	UnaryOp	& cinfo
+>701	Identifier	cinfo
+>702	UnaryOperator	&
+>703	Callee	jpeg_set_quality
+>704	Identifier	jpeg_set_quality
+>705	ExpressionStatement	 
+>706	CallExpression	jpeg_set_defaults ( & cinfo )
+>707	ArgumentList	& cinfo
+>708	Argument	& cinfo
+>709	UnaryOp	& cinfo
+>710	Identifier	cinfo
+>711	UnaryOperator	&
+>712	Callee	jpeg_set_defaults
+>713	Identifier	jpeg_set_defaults
+>714	ExpressionStatement	 
+>715	AssignmentExpr	cinfo . in_color_space = JCS_RGB
+>716	Identifier	JCS_RGB
+>717	MemberAccess	cinfo . in_color_space
+>718	Identifier	in_color_space
+>719	Identifier	cinfo
+>720	ExpressionStatement	 
+>721	AssignmentExpr	cinfo . input_components = 3
+>722	PrimaryExpression	3
+>723	MemberAccess	cinfo . input_components
+>724	Identifier	input_components
+>725	Identifier	cinfo
+>726	ExpressionStatement	 
+>727	AssignmentExpr	cinfo . image_height = img -> h
+>728	PtrMemberAccess	img -> h
+>729	Identifier	h
+>730	Identifier	img
+>731	MemberAccess	cinfo . image_height
+>732	Identifier	image_height
+>733	Identifier	cinfo
+>734	ExpressionStatement	 
+>735	AssignmentExpr	cinfo . image_width = img -> w
+>736	PtrMemberAccess	img -> w
+>737	Identifier	w
+>738	Identifier	img
+>739	MemberAccess	cinfo . image_width
+>740	Identifier	image_width
+>741	Identifier	cinfo
+>742	ExpressionStatement	 
+>743	CallExpression	jpeg_stdio_dest ( & cinfo , outfile )
+>744	ArgumentList	& cinfo
+>745	Argument	outfile
+>746	Identifier	outfile
+>747	Argument	& cinfo
+>748	UnaryOp	& cinfo
+>749	Identifier	cinfo
+>750	UnaryOperator	&
+>751	Callee	jpeg_stdio_dest
+>752	Identifier	jpeg_stdio_dest
+>753	IfStatement	if ( ( outfile = fopen ( filename , \"wb\" ) ) == NULL )
+>754	CompoundStatement	 
+>755	ReturnStatement	 
+>756	ExpressionStatement	 
+>757	CallExpression	printf ( \"[WriteJPEG] can't open file %s for writing\n\" , filename )
+>758	ArgumentList	\"[WriteJPEG] can't open file %s for writing\n\"
+>759	Argument	filename
+>760	Identifier	filename
+>761	Argument	\"[WriteJPEG] can't open file %s for writing\n\"
+>762	PrimaryExpression	\"[WriteJPEG] can't open file %s for writing\n\"
+>763	Callee	printf
+>764	Identifier	printf
+>765	Condition	 
+>766	EqualityExpression	( outfile = fopen ( filename , \"wb\" ) ) == NULL
+>767	Identifier	NULL
+>768	AssignmentExpr	outfile = fopen ( filename , \"wb\" )
+>769	CallExpression	fopen ( filename , \"wb\" )
+>770	ArgumentList	filename
+>771	Argument	\"wb\"
+>772	PrimaryExpression	\"wb\"
+>773	Argument	filename
+>774	Identifier	filename
+>775	Callee	fopen
+>776	Identifier	fopen
+>777	Identifier	outfile
+>778	IdentifierDeclStatement	 
+>779	IdentifierDecl	* outfile
+>780	Identifier	outfile
+>781	IdentifierDeclType	FILE *
+>782	ExpressionStatement	 
+>783	CallExpression	jpeg_create_compress ( & cinfo )
+>784	ArgumentList	& cinfo
+>785	Argument	& cinfo
+>786	UnaryOp	& cinfo
+>787	Identifier	cinfo
+>788	UnaryOperator	&
+>789	Callee	jpeg_create_compress
+>790	Identifier	jpeg_create_compress
+>791	ExpressionStatement	 
+>792	AssignmentExpr	cinfo . err = jpeg_std_error ( & jerr )
+>793	CallExpression	jpeg_std_error ( & jerr )
+>794	ArgumentList	& jerr
+>795	Argument	& jerr
+>796	UnaryOp	& jerr
+>797	Identifier	jerr
+>798	UnaryOperator	&
+>799	Callee	jpeg_std_error
+>800	Identifier	jpeg_std_error
+>801	MemberAccess	cinfo . err
+>802	Identifier	err
+>803	Identifier	cinfo
+>804	IdentifierDeclStatement	 
+>805	IdentifierDecl	jerr
+>806	Identifier	jerr
+>807	IdentifierDeclType	struct jpeg_error_mgr
+>808	IdentifierDeclStatement	 
+>809	IdentifierDecl	cinfo
+>810	Identifier	cinfo
+>811	IdentifierDeclType	struct jpeg_compress_struct
+>847	FunctionDef	main ()
+>848	ParameterList	 
+>849	ReturnType	int
+>850	CompoundStatement	 
+>851	ReturnStatement	 
+>852	PrimaryExpression	0
+>853	ExpressionStatement	 
+>854	CallExpression	img_write_bmp_file ( img , \"test.bmp\" )
+>855	ArgumentList	img
+>856	Argument	\"test.bmp\"
+>857	PrimaryExpression	\"test.bmp\"
+>858	Argument	img
+>859	Identifier	img
+>860	Callee	img_write_bmp_file
+>861	Identifier	img_write_bmp_file
+>862	IdentifierDeclStatement	 
+>863	IdentifierDecl	* img = ReadJPEG ( \"test.jpg\" )
+>864	AssignmentExpr	* img = ReadJPEG ( \"test.jpg\" )
+>865	CallExpression	ReadJPEG ( \"test.jpg\" )
+>866	ArgumentList	\"test.jpg\"
+>867	Argument	\"test.jpg\"
+>868	PrimaryExpression	\"test.jpg\"
+>869	Callee	ReadJPEG
+>870	Identifier	ReadJPEG
+>871	Identifier	img
+>872	Identifier	img
+>873	IdentifierDeclType	img_t *
+<3=15,14,4
+<4=11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<15=134,130,117,108,104,79,68,57,51,45,32,23,16
+<16=17
+<17=21,18
+<18=19
+<19=20
+<21=22
+<23=24
+<24=30,25
+<25=26
+<26=27
+<27=29,28
+<30=31
+<32=33
+<33=43,34
+<34=41,39,37,35
+<35=36
+<37=38
+<39=40
+<41=42
+<43=44
+<45=46
+<46=50,47
+<47=49,48
+<51=52
+<52=56,53
+<53=55,54
+<57=58
+<58=66,59
+<59=62,60
+<60=61
+<62=63
+<63=65,64
+<66=67
+<68=69
+<69=77,70
+<70=73,71
+<71=72
+<73=74
+<74=76,75
+<77=78
+<79=91,80
+<80=82,81
+<82=83
+<83=89,84
+<84=87,85
+<85=86
+<87=88
+<89=90
+<91=92
+<92=94,93
+<94=103,95
+<95=101,96
+<96=99,97
+<97=98
+<99=100
+<101=102
+<104=105
+<105=107,106
+<108=109
+<109=115,110
+<110=111
+<111=112
+<112=114,113
+<115=116
+<117=118
+<118=127,119
+<119=125,120
+<120=121
+<121=122
+<122=124,123
+<125=126
+<127=129,128
+<130=131
+<131=133,132
+<134=135
+<135=137,136
+<156=162,161,157
+<157=158
+<158=160,159
+<162=473,469,456,447,443,417,406,395,386,377,368,359,346,332,323,195,186,177,176,175,174,172,165,163
+<163=164
+<165=166
+<166=170,167
+<167=168
+<168=169
+<170=171
+<172=173
+<177=178
+<178=184,179
+<179=180
+<180=181
+<181=183,182
+<184=185
+<186=187
+<187=193,188
+<188=189
+<189=190
+<190=192,191
+<193=194
+<195=315,311,308,196
+<196=293,197
+<197=285,281,278,198
+<198=199
+<199=274,234,200
+<200=201
+<201=230,202
+<202=203
+<203=204
+<204=228,205
+<205=226,224,218,214,210,206
+<206=207
+<207=209,208
+<210=211
+<211=213,212
+<214=215
+<215=217,216
+<218=219
+<219=223,220
+<220=222,221
+<224=225
+<226=227
+<228=229
+<230=231
+<231=233,232
+<234=235
+<235=236
+<236=272,237
+<237=270,268,262,254,246,238
+<238=239
+<239=245,240
+<240=242,241
+<242=244,243
+<246=247
+<247=253,248
+<248=250,249
+<250=252,251
+<254=255
+<255=261,256
+<256=258,257
+<258=260,259
+<262=263
+<263=267,264
+<264=266,265
+<268=269
+<270=271
+<272=273
+<274=275
+<275=277,276
+<278=280,279
+<281=282
+<282=284,283
+<285=286
+<286=287
+<287=292,291,288
+<288=290,289
+<293=294
+<294=306,295
+<295=302,298,296
+<296=297
+<298=299
+<299=301,300
+<302=303
+<303=305,304
+<306=307
+<308=310,309
+<311=312
+<312=314,313
+<315=316
+<316=317
+<317=322,321,318
+<318=320,319
+<323=324
+<324=331,330,325
+<325=329,326
+<326=328,327
+<332=333
+<333=345,344,334
+<334=343,335
+<335=341,336
+<336=339,337
+<337=338
+<339=340
+<341=342
+<346=347
+<347=357,348
+<348=349
+<349=350
+<350=354,351
+<351=353,352
+<354=356,355
+<357=358
+<359=360
+<360=367,366,361
+<361=365,362
+<362=364,363
+<368=369
+<369=376,375,370
+<370=374,371
+<371=373,372
+<377=378
+<378=385,384,379
+<379=383,380
+<380=382,381
+<386=387
+<387=393,388
+<388=389
+<389=390
+<390=392,391
+<393=394
+<395=396
+<396=404,397
+<397=400,398
+<398=399
+<400=401
+<401=403,402
+<404=405
+<406=407
+<407=415,408
+<408=411,409
+<409=410
+<411=412
+<412=414,413
+<415=416
+<417=430,418
+<418=421,419
+<419=420
+<421=422
+<422=428,423
+<423=426,424
+<424=425
+<426=427
+<428=429
+<430=431
+<431=433,432
+<433=442,434
+<434=440,435
+<435=438,436
+<436=437
+<438=439
+<440=441
+<443=444
+<444=446,445
+<447=448
+<448=454,449
+<449=450
+<450=451
+<451=453,452
+<454=455
+<456=457
+<457=466,458
+<458=464,459
+<459=460
+<460=461
+<461=463,462
+<464=465
+<466=468,467
+<469=470
+<470=472,471
+<473=474
+<474=476,475
+<505=514,513,506
+<506=510,507
+<507=509,508
+<510=512,511
+<514=808,804,791,782,778,753,742,734,726,720,714,705,692,681,670,545,536,527,526,525,524,522,515
+<515=516
+<516=520,517
+<517=518
+<518=519
+<520=521
+<522=523
+<527=528
+<528=534,529
+<529=530
+<530=531
+<531=533,532
+<534=535
+<536=537
+<537=543,538
+<538=539
+<539=540
+<540=542,541
+<543=544
+<545=662,656,653,546
+<546=649,641,562,547
+<547=548
+<548=560,549
+<549=556,552,550
+<550=551
+<552=553
+<553=555,554
+<556=557
+<557=559,558
+<560=561
+<562=633,627,624,563
+<563=600,588,576,564
+<564=565
+<565=569,566
+<566=568,567
+<569=575,570
+<570=572,571
+<572=574,573
+<576=577
+<577=581,578
+<578=580,579
+<581=587,582
+<582=584,583
+<584=586,585
+<588=589
+<589=593,590
+<590=592,591
+<593=599,594
+<594=596,595
+<596=598,597
+<600=601
+<601=623,622,602
+<602=621,603
+<603=619,604
+<604=615,613,605
+<605=606
+<606=610,607
+<607=609,608
+<610=612,611
+<613=614
+<615=616
+<616=618,617
+<619=620
+<624=626,625
+<627=628
+<628=632,629
+<629=631,630
+<633=634
+<634=635
+<635=640,639,636
+<636=638,637
+<641=642
+<642=648,643
+<643=645,644
+<645=647,646
+<649=650
+<650=652,651
+<653=655,654
+<656=657
+<657=661,658
+<658=660,659
+<662=663
+<663=664
+<664=669,668,665
+<665=667,666
+<670=671
+<671=680,679,672
+<672=678,673
+<673=677,674
+<674=676,675
+<681=682
+<682=690,683
+<683=686,684
+<684=685
+<686=687
+<687=689,688
+<690=691
+<692=693
+<693=703,694
+<694=699,697,695
+<695=696
+<697=698
+<699=700
+<700=702,701
+<703=704
+<705=706
+<706=712,707
+<707=708
+<708=709
+<709=711,710
+<712=713
+<714=715
+<715=717,716
+<717=719,718
+<720=721
+<721=723,722
+<723=725,724
+<726=727
+<727=731,728
+<728=730,729
+<731=733,732
+<734=735
+<735=739,736
+<736=738,737
+<739=741,740
+<742=743
+<743=751,744
+<744=747,745
+<745=746
+<747=748
+<748=750,749
+<751=752
+<753=765,754
+<754=756,755
+<756=757
+<757=763,758
+<758=761,759
+<759=760
+<761=762
+<763=764
+<765=766
+<766=768,767
+<768=777,769
+<769=775,770
+<770=773,771
+<771=772
+<773=774
+<775=776
+<778=779
+<779=781,780
+<782=783
+<783=789,784
+<784=785
+<785=786
+<786=788,787
+<789=790
+<791=792
+<792=801,793
+<793=799,794
+<794=795
+<795=796
+<796=798,797
+<799=800
+<801=803,802
+<804=805
+<805=807,806
+<808=809
+<809=811,810
+<847=850,849,848
+<850=862,853,851
+<851=852
+<853=854
+<854=860,855
+<855=858,856
+<856=857
+<858=859
+<860=861
+<862=863
+<863=873,872,864
+<864=871,865
+<865=869,866
+<866=867
+<867=868
+<869=870

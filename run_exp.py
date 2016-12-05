@@ -17,7 +17,7 @@ from sklearn.pipeline import Pipeline
 from information_gain.InformationGain import TopRandomTreesEmbedding
 from ast_tree.ASTVectorizater import ASTVectorizer
 from utils.exp_utlis import read_config, pick_subsets, split_trees
-from utils.fun_utils import get_basefolder, parse_src_files
+from utils.dataset_utils import get_basefolder, parse_src_files
 import collections
 
 def full_evaluation(rf, X, y, cv):
@@ -90,11 +90,13 @@ def exp_relax(pipline,X,y,tags, relax=15,cv=None,output=sys.stdout):
         y_predict = np.array(y_predict)
         accuracy.append(accuracy_score(y[test], y_predict))
         output.write("\t\t\taccuracy = %s \n" % accuracy[-1])
+        print("\t\t\taccuracy = %s " % accuracy[-1])
         output.flush()
         # for feature in np.nonzero(pipline.steps[-1][1].feature_importances_)[0]:
         #     import_features[feature] += 1
 
     output.write("Accuracy = %s \n" % np.mean(accuracy))
+    print("Accuracy = %s " % np.mean(accuracy))
     # print("Features =",Counter(import_features).most_common(100))
 
 
@@ -218,45 +220,54 @@ if __name__ == "__main__":
     parser.add_argument('--folds', '-fo', type=int, default=5, help='Number of folds')
     parser.add_argument('--folder', '-f', type=str, default="", help='Base folder for logs and results')
 
-    args = parser.parse_args()
-    n_folds = args.folds
-    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
-    exper_name = args.name
-    dataset_folder = args.dataset
-    trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
-    if args.train:
-        rand_seed, classes = read_config(os.path.join("train",args.train))
-        trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
-    else:
-        rand_seed = random.randint(0, 4294967295)
-        if args.classes > -1:
-            trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
+    train_labels = [("RF_250_05_labels1","5_authors.lables1.txt"),
+                    ("RF_250_25_labels1", "25_authors.lables1.txt"),
+                    ("RF_250_55_labels1", "55_authors.lables1.txt"),
+                    ("RF_250_70_labels1", "70_authors.lables1.txt")]
+    for model_name,train_file in train_labels:
+        args = parser.parse_args()
+        n_folds = args.folds
+        output_folder = os.path.join("results",
+                                     args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+        dataset_folder = args.dataset
+        exper_name = model_name
+        args.train = train_file
+        print(exper_name)
+        trees, tree_labels, lable_problems = parse_src_files(dataset_folder)
+        if args.train:
+            rand_seed, classes = read_config(os.path.join("train",args.train))
+            trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
+        else:
+            rand_seed = random.randint(0, 4294967295)
+            if args.classes > -1:
+                trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
 
-    cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=True, random_state=rand_seed)
-    #main_gridsearch()
-    #main_relax()
-    pipline = Pipeline([
-        ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-        ('selection', TopRandomTreesEmbedding(k=700, n_estimators=900, max_depth=20)),
-        # PredefinedFeatureSelection()),
-        ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto",criterion="entropy"))])
-        # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
-    # exp_relax(pipline,trees,tree_labels,lable_problems, relax=1,cv=cv)
+        cv = StratifiedKFold(tree_labels, n_folds=n_folds, shuffle=True, random_state=rand_seed)
+        #main_gridsearch()
+        #main_relax()
+        pipline = Pipeline([
+            ('astvector', ASTVectorizer(ngram=2,v_skip=0, normalize=True, idf=True, dtype=np.float32)),
+            ('selection', TopRandomTreesEmbedding(k=700, n_estimators=900, max_depth=20)),
+            # PredefinedFeatureSelection()),
+            ('randforest', RandomForestClassifier(n_estimators=500,min_samples_split=1, max_features="auto",criterion="entropy"))])
+            # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
+        # exp_relax(pipline,trees,tree_labels,lable_problems, relax=1,cv=cv)
 
-    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
-    output_file.write("Testing the model on all the datasets\n")
-    output_file.write("Args :- " + str(args) + "\n")
-    output_file.write("Seed :- " + str(rand_seed) + "\n")
-    output_file.write("Cross Validation :-%s\n" % cv)
-    output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(set(tree_labels))])
-    output_file.write("Class ratio :- %s\n" % list(
-        sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
-               reverse=False)))
-    output_file.write("Model:  {0}\n".format(exper_name))
-    pprint(pipline.steps,stream=output_file, indent=5,depth=2)
-    output_file.flush()
-    exp_relax(pipline,trees,tree_labels,lable_problems,relax=1,cv=cv,output=output_file)
-    output_file.close()
+        output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
+        output_file.write("Testing the model on all the datasets\n")
+        output_file.write("Args :- " + str(args) + "\n")
+        output_file.write("Seed :- " + str(rand_seed) + "\n")
+        output_file.write("Cross Validation :-%s\n" % cv)
+        output_file.write("Classes :- (%s)\n" % [(idx, c) for idx, c in enumerate(set(tree_labels))])
+        output_file.write("Class ratio :- %s\n" % list(
+            sorted([(t, c, c / len(tree_labels)) for t, c in collections.Counter(tree_labels).items()], key=itemgetter(0),
+                   reverse=False)))
+        output_file.write("Model:  {0}\n".format(exper_name))
+        pprint(pipline.steps,stream=output_file, indent=5,depth=2)
+        output_file.flush()
+        exp_relax(pipline,trees,tree_labels,lable_problems,relax=1,cv=cv,output=output_file)
+        output_file.close()
+        print()
 
     # # # print("predict")
     # main(pipline)

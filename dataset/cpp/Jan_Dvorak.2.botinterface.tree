@@ -1,0 +1,321 @@
+>3	FunctionDef	BotInterface 
+>4	ParameterList	 
+>5	ReturnType	include < sstream >
+>6	CompoundStatement	 
+>7	ExpressionStatement	 
+>8	CallExpression	m_listen_socket . set_non_blocking ( true )
+>9	ArgumentList	true
+>10	Argument	true
+>11	Identifier	true
+>12	Callee	m_listen_socket . set_non_blocking
+>13	MemberAccess	m_listen_socket . set_non_blocking
+>14	Identifier	set_non_blocking
+>15	Identifier	m_listen_socket
+>21	FunctionDef	BotInterface 
+>22	ParameterList	 
+>23	CompoundStatement	 
+>24	IfStatement	if ( m_connected )
+>25	ExpressionStatement	 
+>26	CallExpression	m_client_socket . close ( )
+>27	ArgumentList	 
+>28	Callee	m_client_socket . close
+>29	MemberAccess	m_client_socket . close
+>30	Identifier	close
+>31	Identifier	m_client_socket
+>32	Condition	 
+>33	Identifier	m_connected
+>39	FunctionDef	BotInterface 
+>40	ParameterList	 
+>41	ReturnType	bool
+>42	CompoundStatement	 
+>43	ReturnStatement	 
+>44	Identifier	false
+>45	IfStatement	if ( ! m_connected && m_listen_socket . accept ( m_client_socket ) )
+>46	CompoundStatement	 
+>47	ReturnStatement	 
+>48	Identifier	true
+>49	ExpressionStatement	 
+>50	AssignmentExpr	m_connected = true
+>51	Identifier	true
+>52	Identifier	m_connected
+>53	ExpressionStatement	 
+>54	CallExpression	m_client_socket . set_non_blocking ( true )
+>55	ArgumentList	true
+>56	Argument	true
+>57	Identifier	true
+>58	Callee	m_client_socket . set_non_blocking
+>59	MemberAccess	m_client_socket . set_non_blocking
+>60	Identifier	set_non_blocking
+>61	Identifier	m_client_socket
+>62	Condition	 
+>63	AndExpression	! m_connected && m_listen_socket . accept ( m_client_socket )
+>64	CallExpression	m_listen_socket . accept ( m_client_socket )
+>65	ArgumentList	m_client_socket
+>66	Argument	m_client_socket
+>67	Identifier	m_client_socket
+>68	Callee	m_listen_socket . accept
+>69	MemberAccess	m_listen_socket . accept
+>70	Identifier	accept
+>71	Identifier	m_listen_socket
+>72	UnaryOp	! m_connected
+>73	Identifier	m_connected
+>74	UnaryOperator	!
+>84	FunctionDef	BotInterface 
+>85	ParameterList	std 
+>86	Parameter	 
+>87	Identifier	msg
+>88	ParameterType	std 
+>89	ReturnType	bool
+>90	CompoundStatement	 
+>91	ReturnStatement	 
+>92	Identifier	false
+>93	IfStatement	if ( status > 0 )
+>94	ElseStatement	else
+>95	IfStatement	if ( status < 0 )
+>96	CompoundStatement	 
+>97	ExpressionStatement	 
+>98	AssignmentExpr	m_connected = false
+>99	Identifier	false
+>100	Identifier	m_connected
+>101	ExpressionStatement	 
+>102	CallExpression	m_client_socket . close ( )
+>103	ArgumentList	 
+>104	Callee	m_client_socket . close
+>105	MemberAccess	m_client_socket . close
+>106	Identifier	close
+>107	Identifier	m_client_socket
+>108	Condition	 
+>109	RelationalExpression	status < 0
+>110	PrimaryExpression	0
+>111	Identifier	status
+>112	CompoundStatement	 
+>113	ReturnStatement	 
+>114	Identifier	true
+>115	Condition	 
+>116	RelationalExpression	status > 0
+>117	PrimaryExpression	0
+>118	Identifier	status
+>119	IdentifierDeclStatement	 
+>120	IdentifierDecl	status = m_client_socket . recv ( msg )
+>121	AssignmentExpr	status = m_client_socket . recv ( msg )
+>122	CallExpression	m_client_socket . recv ( msg )
+>123	ArgumentList	msg
+>124	Argument	msg
+>125	Identifier	msg
+>126	Callee	m_client_socket . recv
+>127	MemberAccess	m_client_socket . recv
+>128	Identifier	recv
+>129	Identifier	m_client_socket
+>130	Identifier	status
+>131	Identifier	status
+>132	IdentifierDeclType	int
+>133	IfStatement	if ( ! m_connected )
+>134	ReturnStatement	 
+>135	Identifier	false
+>136	Condition	 
+>137	UnaryOp	! m_connected
+>138	Identifier	m_connected
+>139	UnaryOperator	!
+>150	FunctionDef	BotInterface 
+>151	ParameterList	float time , std 
+>152	Parameter	 
+>153	Identifier	params
+>154	ParameterType	std 
+>155	Parameter	 
+>156	Identifier	pos
+>157	ParameterType	vec2
+>158	Parameter	 
+>159	Identifier	event
+>160	ParameterType	std 
+>161	Parameter	 
+>162	Identifier	time
+>163	ParameterType	float
+>164	ReturnType	bool
+>165	CompoundStatement	 
+>166	ReturnStatement	 
+>167	Identifier	true
+>168	IfStatement	if ( ! m_client_socket . send ( msg . str ( ) ) )
+>169	CompoundStatement	 
+>170	ReturnStatement	 
+>171	Identifier	false
+>172	ExpressionStatement	 
+>173	AssignmentExpr	m_connected = false
+>174	Identifier	false
+>175	Identifier	m_connected
+>176	ExpressionStatement	 
+>177	CallExpression	m_client_socket . close ( )
+>178	ArgumentList	 
+>179	Callee	m_client_socket . close
+>180	MemberAccess	m_client_socket . close
+>181	Identifier	close
+>182	Identifier	m_client_socket
+>183	Condition	 
+>184	UnaryOp	! m_client_socket . send ( msg . str ( ) )
+>185	CallExpression	m_client_socket . send ( msg . str ( ) )
+>186	ArgumentList	msg . str ( )
+>187	Argument	msg . str ( )
+>188	CallExpression	msg . str ( )
+>189	ArgumentList	 
+>190	Callee	msg . str
+>191	MemberAccess	msg . str
+>192	Identifier	str
+>193	Identifier	msg
+>194	Callee	m_client_socket . send
+>195	MemberAccess	m_client_socket . send
+>196	Identifier	send
+>197	Identifier	m_client_socket
+>198	UnaryOperator	!
+>199	ExpressionStatement	 
+>200	ShiftExpression	msg << time << \" \" << pos [ 0 ] << \",\" << pos [ 1 ] << \" \" << event << \" \" << params << std 
+>201	ShiftExpression	time << \" \" << pos [ 0 ] << \",\" << pos [ 1 ] << \" \" << event << \" \" << params << std 
+>202	ShiftExpression	\" \" << pos [ 0 ] << \",\" << pos [ 1 ] << \" \" << event << \" \" << params << std 
+>203	ShiftExpression	pos [ 0 ] << \",\" << pos [ 1 ] << \" \" << event << \" \" << params << std 
+>204	ShiftExpression	\",\" << pos [ 1 ] << \" \" << event << \" \" << params << std 
+>205	ShiftExpression	pos [ 1 ] << \" \" << event << \" \" << params << std 
+>206	ShiftExpression	\" \" << event << \" \" << params << std 
+>207	ShiftExpression	event << \" \" << params << std 
+>208	ShiftExpression	\" \" << params << std 
+>209	ShiftExpression	params << std 
+>210	Identifier	std 
+>211	Identifier	params
+>212	PrimaryExpression	\" \"
+>213	Identifier	event
+>214	PrimaryExpression	\" \"
+>215	ArrayIndexing	pos [ 1 ]
+>216	PrimaryExpression	1
+>217	Identifier	pos
+>218	PrimaryExpression	\",\"
+>219	ArrayIndexing	pos [ 0 ]
+>220	PrimaryExpression	0
+>221	Identifier	pos
+>222	PrimaryExpression	\" \"
+>223	Identifier	time
+>224	Identifier	msg
+>225	IdentifierDeclStatement	 
+>226	IdentifierDecl	msg
+>227	Identifier	msg
+>228	IdentifierDeclType	stringstream
+>229	IfStatement	if ( ! m_connected )
+>230	ReturnStatement	 
+>231	Identifier	false
+>232	Condition	 
+>233	UnaryOp	! m_connected
+>234	Identifier	m_connected
+>235	UnaryOperator	!
+<3=6,5,4
+<6=7
+<7=8
+<8=12,9
+<9=10
+<10=11
+<12=13
+<13=15,14
+<21=23,22
+<23=24
+<24=32,25
+<25=26
+<26=28,27
+<28=29
+<29=31,30
+<32=33
+<39=42,41,40
+<42=45,43
+<43=44
+<45=62,46
+<46=53,49,47
+<47=48
+<49=50
+<50=52,51
+<53=54
+<54=58,55
+<55=56
+<56=57
+<58=59
+<59=61,60
+<62=63
+<63=72,64
+<64=68,65
+<65=66
+<66=67
+<68=69
+<69=71,70
+<72=74,73
+<84=90,89,85
+<85=86
+<86=88,87
+<90=133,119,93,91
+<91=92
+<93=115,112,94
+<94=95
+<95=108,96
+<96=101,97
+<97=98
+<98=100,99
+<101=102
+<102=104,103
+<104=105
+<105=107,106
+<108=109
+<109=111,110
+<112=113
+<113=114
+<115=116
+<116=118,117
+<119=120
+<120=132,131,121
+<121=130,122
+<122=126,123
+<123=124
+<124=125
+<126=127
+<127=129,128
+<133=136,134
+<134=135
+<136=137
+<137=139,138
+<150=165,164,151
+<151=161,158,155,152
+<152=154,153
+<155=157,156
+<158=160,159
+<161=163,162
+<165=229,225,199,168,166
+<166=167
+<168=183,169
+<169=176,172,170
+<170=171
+<172=173
+<173=175,174
+<176=177
+<177=179,178
+<179=180
+<180=182,181
+<183=184
+<184=198,185
+<185=194,186
+<186=187
+<187=188
+<188=190,189
+<190=191
+<191=193,192
+<194=195
+<195=197,196
+<199=200
+<200=224,201
+<201=223,202
+<202=222,203
+<203=219,204
+<204=218,205
+<205=215,206
+<206=214,207
+<207=213,208
+<208=212,209
+<209=211,210
+<215=217,216
+<219=221,220
+<225=226
+<226=228,227
+<229=232,230
+<230=231
+<232=233
+<233=235,234

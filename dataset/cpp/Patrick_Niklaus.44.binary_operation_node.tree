@@ -1,0 +1,973 @@
+>3	FunctionDef	calculation (const string & left , const string & right , FloatOperator fop , IntOperation iop)
+>4	ParameterList	const string & left , const string & right , FloatOperator fop , IntOperation iop
+>5	Parameter	 
+>6	Identifier	iop
+>7	ParameterType	IntOperation
+>8	Parameter	 
+>9	Identifier	fop
+>10	ParameterType	FloatOperator
+>11	Parameter	 
+>12	Identifier	right
+>13	ParameterType	const string &
+>14	Parameter	 
+>15	Identifier	left
+>16	ParameterType	const string &
+>17	ReturnType	string
+>18	CompoundStatement	 
+>19	ReturnStatement	 
+>20	PrimaryExpression	\"\"
+>21	IfStatement	if ( Conv < int > ( left , & i1 ) && Conv < int > ( right , & i2 ) )
+>22	ElseStatement	else
+>23	IfStatement	if ( Conv < float > ( left , & f1 ) && Conv < float > ( right , & f2 ) )
+>24	CompoundStatement	 
+>25	ReturnStatement	 
+>26	CallExpression	ToString ( res )
+>27	ArgumentList	res
+>28	Argument	res
+>29	Identifier	res
+>30	Callee	ToString
+>31	Identifier	ToString
+>32	IdentifierDeclStatement	 
+>33	IdentifierDecl	res = fop ( f1 , f2 )
+>34	AssignmentExpr	res = fop ( f1 , f2 )
+>35	CallExpression	fop ( f1 , f2 )
+>36	ArgumentList	f1
+>37	Argument	f2
+>38	Identifier	f2
+>39	Argument	f1
+>40	Identifier	f1
+>41	Callee	fop
+>42	Identifier	fop
+>43	Identifier	res
+>44	Identifier	res
+>45	IdentifierDeclType	float
+>46	Condition	 
+>47	AndExpression	Conv < float > ( left , & f1 ) && Conv < float > ( right , & f2 )
+>48	RelationalExpression	Conv < float > ( right , & f2 )
+>49	RelationalExpression	float > ( right , & f2 )
+>50	Expression	right , & f2
+>51	UnaryOp	& f2
+>52	Identifier	f2
+>53	UnaryOperator	&
+>54	Identifier	right
+>55	Identifier	float
+>56	Identifier	Conv
+>57	RelationalExpression	Conv < float > ( left , & f1 )
+>58	RelationalExpression	float > ( left , & f1 )
+>59	Expression	left , & f1
+>60	UnaryOp	& f1
+>61	Identifier	f1
+>62	UnaryOperator	&
+>63	Identifier	left
+>64	Identifier	float
+>65	Identifier	Conv
+>66	CompoundStatement	 
+>67	ReturnStatement	 
+>68	CallExpression	ToString ( res )
+>69	ArgumentList	res
+>70	Argument	res
+>71	Identifier	res
+>72	Callee	ToString
+>73	Identifier	ToString
+>74	IdentifierDeclStatement	 
+>75	IdentifierDecl	res = iop ( i1 , i2 )
+>76	AssignmentExpr	res = iop ( i1 , i2 )
+>77	CallExpression	iop ( i1 , i2 )
+>78	ArgumentList	i1
+>79	Argument	i2
+>80	Identifier	i2
+>81	Argument	i1
+>82	Identifier	i1
+>83	Callee	iop
+>84	Identifier	iop
+>85	Identifier	res
+>86	Identifier	res
+>87	IdentifierDeclType	int
+>88	Condition	 
+>89	AndExpression	Conv < int > ( left , & i1 ) && Conv < int > ( right , & i2 )
+>90	RelationalExpression	Conv < int > ( right , & i2 )
+>91	RelationalExpression	int > ( right , & i2 )
+>92	Expression	right , & i2
+>93	UnaryOp	& i2
+>94	Identifier	i2
+>95	UnaryOperator	&
+>96	Identifier	right
+>97	Identifier	int
+>98	Identifier	Conv
+>99	RelationalExpression	Conv < int > ( left , & i1 )
+>100	RelationalExpression	int > ( left , & i1 )
+>101	Expression	left , & i1
+>102	UnaryOp	& i1
+>103	Identifier	i1
+>104	UnaryOperator	&
+>105	Identifier	left
+>106	Identifier	int
+>107	Identifier	Conv
+>108	IdentifierDeclStatement	 
+>109	IdentifierDecl	i2
+>110	Identifier	i2
+>111	IdentifierDeclType	int
+>112	IdentifierDecl	i1
+>113	Identifier	i1
+>114	IdentifierDeclType	int
+>115	IdentifierDeclStatement	 
+>116	IdentifierDecl	f2
+>117	Identifier	f2
+>118	IdentifierDeclType	float
+>119	IdentifierDecl	f1
+>120	Identifier	f1
+>121	IdentifierDeclType	float
+>142	FunctionDef	BinaryOperationNode 
+>143	ParameterList	const node_ptr & left , op 
+>144	Parameter	 
+>145	Identifier	right
+>146	ParameterType	const node_ptr &
+>147	Parameter	 
+>148	Identifier	operation
+>149	ParameterType	op 
+>150	Parameter	 
+>151	Identifier	left
+>152	ParameterType	const node_ptr &
+>153	CompoundStatement	 
+>160	FunctionDef	BinaryOperationNode 
+>161	ParameterList	GeoObject * obj
+>162	Parameter	 
+>163	Identifier	obj
+>164	ParameterType	GeoObject *
+>165	ReturnType	string
+>166	CompoundStatement	 
+>167	ReturnStatement	 
+>168	PrimaryExpression	\"\"
+>169	ExpressionStatement	 
+>170	CallExpression	assert ( ! \"Invalid operation executed!\" )
+>171	ArgumentList	! \"Invalid operation executed!\"
+>172	Argument	! \"Invalid operation executed!\"
+>173	UnaryOp	! \"Invalid operation executed!\"
+>174	PrimaryExpression	\"Invalid operation executed!\"
+>175	UnaryOperator	!
+>176	Callee	assert
+>177	Identifier	assert
+>178	SwitchStatement	switch ( operation )
+>179	CompoundStatement	 
+>180	BreakStatement	 
+>181	CompoundStatement	 
+>182	ReturnStatement	 
+>183	AdditiveExpression	first + second
+>184	Identifier	second
+>185	Identifier	first
+>186	Label	 
+>187	Identifier	op 
+>188	CompoundStatement	 
+>189	ExpressionStatement	 
+>190	Statement	 
+>191	CompoundStatement	 
+>192	ReturnStatement	 
+>193	MultiplicativeExpression	i1 / i2
+>194	Identifier	i2
+>195	Identifier	i1
+>196	Statement	 
+>197	Statement	 
+>198	Statement	 
+>199	Statement	 
+>200	Statement	 
+>201	Statement	 
+>202	Statement	 
+>203	Statement	 
+>204	Statement	 
+>205	Statement	 
+>206	CompoundStatement	 
+>207	ReturnStatement	 
+>208	MultiplicativeExpression	f1 / f2
+>209	Identifier	f2
+>210	Identifier	f1
+>211	Statement	 
+>212	Statement	 
+>213	Statement	 
+>214	Statement	 
+>215	Statement	 
+>216	Statement	 
+>217	Statement	 
+>218	Statement	 
+>219	Statement	 
+>220	Statement	 
+>221	Statement	 
+>222	Statement	 
+>223	Statement	 
+>224	Statement	 
+>225	Statement	 
+>226	Statement	 
+>227	IfStatement	if ( Conv < int > ( second , & i ) && i == 0 )
+>228	ReturnStatement	 
+>229	PrimaryExpression	\"\"
+>230	Condition	 
+>231	AndExpression	Conv < int > ( second , & i ) && i == 0
+>232	EqualityExpression	i == 0
+>233	PrimaryExpression	0
+>234	Identifier	i
+>235	RelationalExpression	Conv < int > ( second , & i )
+>236	RelationalExpression	int > ( second , & i )
+>237	Expression	second , & i
+>238	UnaryOp	& i
+>239	Identifier	i
+>240	UnaryOperator	&
+>241	Identifier	second
+>242	Identifier	int
+>243	Identifier	Conv
+>244	IdentifierDeclStatement	 
+>245	IdentifierDecl	i
+>246	Identifier	i
+>247	IdentifierDeclType	int
+>248	Label	 
+>249	Identifier	op 
+>250	ExpressionStatement	 
+>251	Statement	 
+>252	CompoundStatement	 
+>253	ReturnStatement	 
+>254	MultiplicativeExpression	i1 * i2
+>255	Identifier	i2
+>256	Identifier	i1
+>257	Statement	 
+>258	Statement	 
+>259	Statement	 
+>260	Statement	 
+>261	Statement	 
+>262	Statement	 
+>263	Statement	 
+>264	Statement	 
+>265	Statement	 
+>266	Statement	 
+>267	CompoundStatement	 
+>268	ReturnStatement	 
+>269	MultiplicativeExpression	f1 * f2
+>270	Identifier	f2
+>271	Identifier	f1
+>272	Statement	 
+>273	Statement	 
+>274	Statement	 
+>275	Statement	 
+>276	Statement	 
+>277	Statement	 
+>278	Statement	 
+>279	Statement	 
+>280	Statement	 
+>281	Statement	 
+>282	Statement	 
+>283	Statement	 
+>284	Statement	 
+>285	Statement	 
+>286	Statement	 
+>287	Statement	 
+>288	Label	 
+>289	Identifier	op 
+>290	ExpressionStatement	 
+>291	Statement	 
+>292	CompoundStatement	 
+>293	ReturnStatement	 
+>294	AdditiveExpression	i1 - i2
+>295	Identifier	i2
+>296	Identifier	i1
+>297	Statement	 
+>298	Statement	 
+>299	Statement	 
+>300	Statement	 
+>301	Statement	 
+>302	Statement	 
+>303	Statement	 
+>304	Statement	 
+>305	Statement	 
+>306	Statement	 
+>307	CompoundStatement	 
+>308	ReturnStatement	 
+>309	AdditiveExpression	f1 - f2
+>310	Identifier	f2
+>311	Identifier	f1
+>312	Statement	 
+>313	Statement	 
+>314	Statement	 
+>315	Statement	 
+>316	Statement	 
+>317	Statement	 
+>318	Statement	 
+>319	Statement	 
+>320	Statement	 
+>321	Statement	 
+>322	Statement	 
+>323	Statement	 
+>324	Statement	 
+>325	Statement	 
+>326	Statement	 
+>327	Statement	 
+>328	Label	 
+>329	Identifier	op 
+>330	ExpressionStatement	 
+>331	Statement	 
+>332	CompoundStatement	 
+>333	ReturnStatement	 
+>334	AdditiveExpression	i1 + i2
+>335	Identifier	i2
+>336	Identifier	i1
+>337	Statement	 
+>338	Statement	 
+>339	Statement	 
+>340	Statement	 
+>341	Statement	 
+>342	Statement	 
+>343	Statement	 
+>344	Statement	 
+>345	Statement	 
+>346	Statement	 
+>347	CompoundStatement	 
+>348	ReturnStatement	 
+>349	AdditiveExpression	f1 + f2
+>350	Identifier	f2
+>351	Identifier	f1
+>352	Statement	 
+>353	Statement	 
+>354	Statement	 
+>355	Statement	 
+>356	Statement	 
+>357	Statement	 
+>358	Statement	 
+>359	Statement	 
+>360	Statement	 
+>361	Statement	 
+>362	Statement	 
+>363	Statement	 
+>364	Statement	 
+>365	Statement	 
+>366	Statement	 
+>367	Statement	 
+>368	Label	 
+>369	Identifier	op 
+>370	BreakStatement	 
+>371	CompoundStatement	 
+>372	ReturnStatement	 
+>373	PrimaryExpression	\"false\"
+>374	IfStatement	if ( first != second )
+>375	ReturnStatement	 
+>376	PrimaryExpression	\"true\"
+>377	Condition	 
+>378	EqualityExpression	first != second
+>379	Identifier	second
+>380	Identifier	first
+>381	Label	 
+>382	Identifier	op 
+>383	BreakStatement	 
+>384	CompoundStatement	 
+>385	ReturnStatement	 
+>386	PrimaryExpression	\"false\"
+>387	IfStatement	if ( first == second )
+>388	ReturnStatement	 
+>389	PrimaryExpression	\"true\"
+>390	Condition	 
+>391	EqualityExpression	first == second
+>392	Identifier	second
+>393	Identifier	first
+>394	Label	 
+>395	Identifier	op 
+>396	CompoundStatement	 
+>397	ReturnStatement	 
+>398	PrimaryExpression	\"false\"
+>399	IfStatement	if ( Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 ) )
+>400	CompoundStatement	 
+>401	IfStatement	if ( f1 >= f2 )
+>402	CompoundStatement	 
+>403	ReturnStatement	 
+>404	PrimaryExpression	\"true\"
+>405	Condition	 
+>406	RelationalExpression	f1 >= f2
+>407	Identifier	f2
+>408	Identifier	f1
+>409	Condition	 
+>410	AndExpression	Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 )
+>411	RelationalExpression	Conv < float > ( second , & f2 )
+>412	RelationalExpression	float > ( second , & f2 )
+>413	Expression	second , & f2
+>414	UnaryOp	& f2
+>415	Identifier	f2
+>416	UnaryOperator	&
+>417	Identifier	second
+>418	Identifier	float
+>419	Identifier	Conv
+>420	RelationalExpression	Conv < float > ( first , & f1 )
+>421	RelationalExpression	float > ( first , & f1 )
+>422	Expression	first , & f1
+>423	UnaryOp	& f1
+>424	Identifier	f1
+>425	UnaryOperator	&
+>426	Identifier	first
+>427	Identifier	float
+>428	Identifier	Conv
+>429	IdentifierDeclStatement	 
+>430	IdentifierDecl	f2
+>431	Identifier	f2
+>432	IdentifierDeclType	float
+>433	IdentifierDecl	f1
+>434	Identifier	f1
+>435	IdentifierDeclType	float
+>436	Label	 
+>437	Identifier	op 
+>438	CompoundStatement	 
+>439	ReturnStatement	 
+>440	PrimaryExpression	\"false\"
+>441	IfStatement	if ( Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 ) )
+>442	CompoundStatement	 
+>443	IfStatement	if ( f1 > f2 )
+>444	CompoundStatement	 
+>445	ReturnStatement	 
+>446	PrimaryExpression	\"true\"
+>447	Condition	 
+>448	RelationalExpression	f1 > f2
+>449	Identifier	f2
+>450	Identifier	f1
+>451	Condition	 
+>452	AndExpression	Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 )
+>453	RelationalExpression	Conv < float > ( second , & f2 )
+>454	RelationalExpression	float > ( second , & f2 )
+>455	Expression	second , & f2
+>456	UnaryOp	& f2
+>457	Identifier	f2
+>458	UnaryOperator	&
+>459	Identifier	second
+>460	Identifier	float
+>461	Identifier	Conv
+>462	RelationalExpression	Conv < float > ( first , & f1 )
+>463	RelationalExpression	float > ( first , & f1 )
+>464	Expression	first , & f1
+>465	UnaryOp	& f1
+>466	Identifier	f1
+>467	UnaryOperator	&
+>468	Identifier	first
+>469	Identifier	float
+>470	Identifier	Conv
+>471	IdentifierDeclStatement	 
+>472	IdentifierDecl	f2
+>473	Identifier	f2
+>474	IdentifierDeclType	float
+>475	IdentifierDecl	f1
+>476	Identifier	f1
+>477	IdentifierDeclType	float
+>478	Label	 
+>479	Identifier	op 
+>480	CompoundStatement	 
+>481	ReturnStatement	 
+>482	PrimaryExpression	\"false\"
+>483	IfStatement	if ( Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 ) )
+>484	CompoundStatement	 
+>485	IfStatement	if ( f1 <= f2 )
+>486	CompoundStatement	 
+>487	ReturnStatement	 
+>488	PrimaryExpression	\"true\"
+>489	Condition	 
+>490	RelationalExpression	f1 <= f2
+>491	Identifier	f2
+>492	Identifier	f1
+>493	Condition	 
+>494	AndExpression	Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 )
+>495	RelationalExpression	Conv < float > ( second , & f2 )
+>496	RelationalExpression	float > ( second , & f2 )
+>497	Expression	second , & f2
+>498	UnaryOp	& f2
+>499	Identifier	f2
+>500	UnaryOperator	&
+>501	Identifier	second
+>502	Identifier	float
+>503	Identifier	Conv
+>504	RelationalExpression	Conv < float > ( first , & f1 )
+>505	RelationalExpression	float > ( first , & f1 )
+>506	Expression	first , & f1
+>507	UnaryOp	& f1
+>508	Identifier	f1
+>509	UnaryOperator	&
+>510	Identifier	first
+>511	Identifier	float
+>512	Identifier	Conv
+>513	IdentifierDeclStatement	 
+>514	IdentifierDecl	f2
+>515	Identifier	f2
+>516	IdentifierDeclType	float
+>517	IdentifierDecl	f1
+>518	Identifier	f1
+>519	IdentifierDeclType	float
+>520	Label	 
+>521	Identifier	op 
+>522	CompoundStatement	 
+>523	ReturnStatement	 
+>524	PrimaryExpression	\"false\"
+>525	IfStatement	if ( Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 ) )
+>526	CompoundStatement	 
+>527	IfStatement	if ( f1 < f2 )
+>528	CompoundStatement	 
+>529	ReturnStatement	 
+>530	PrimaryExpression	\"true\"
+>531	Condition	 
+>532	RelationalExpression	f1 < f2
+>533	Identifier	f2
+>534	Identifier	f1
+>535	Condition	 
+>536	AndExpression	Conv < float > ( first , & f1 ) && Conv < float > ( second , & f2 )
+>537	RelationalExpression	Conv < float > ( second , & f2 )
+>538	RelationalExpression	float > ( second , & f2 )
+>539	Expression	second , & f2
+>540	UnaryOp	& f2
+>541	Identifier	f2
+>542	UnaryOperator	&
+>543	Identifier	second
+>544	Identifier	float
+>545	Identifier	Conv
+>546	RelationalExpression	Conv < float > ( first , & f1 )
+>547	RelationalExpression	float > ( first , & f1 )
+>548	Expression	first , & f1
+>549	UnaryOp	& f1
+>550	Identifier	f1
+>551	UnaryOperator	&
+>552	Identifier	first
+>553	Identifier	float
+>554	Identifier	Conv
+>555	IdentifierDeclStatement	 
+>556	IdentifierDecl	f2
+>557	Identifier	f2
+>558	IdentifierDeclType	float
+>559	IdentifierDecl	f1
+>560	Identifier	f1
+>561	IdentifierDeclType	float
+>562	Label	 
+>563	Identifier	op 
+>564	BreakStatement	 
+>565	CompoundStatement	 
+>566	ReturnStatement	 
+>567	PrimaryExpression	\"false\"
+>568	IfStatement	if ( Conv < int > ( first , & i1 ) && Conv < int > ( second , & i2 ) )
+>569	ElseStatement	else
+>570	CompoundStatement	 
+>571	IfStatement	if ( first != second )
+>572	CompoundStatement	 
+>573	ReturnStatement	 
+>574	PrimaryExpression	\"true\"
+>575	Condition	 
+>576	EqualityExpression	first != second
+>577	Identifier	second
+>578	Identifier	first
+>579	CompoundStatement	 
+>580	IfStatement	if ( i1 != i2 )
+>581	CompoundStatement	 
+>582	ReturnStatement	 
+>583	PrimaryExpression	\"true\"
+>584	Condition	 
+>585	EqualityExpression	i1 != i2
+>586	Identifier	i2
+>587	Identifier	i1
+>588	Condition	 
+>589	AndExpression	Conv < int > ( first , & i1 ) && Conv < int > ( second , & i2 )
+>590	RelationalExpression	Conv < int > ( second , & i2 )
+>591	RelationalExpression	int > ( second , & i2 )
+>592	Expression	second , & i2
+>593	UnaryOp	& i2
+>594	Identifier	i2
+>595	UnaryOperator	&
+>596	Identifier	second
+>597	Identifier	int
+>598	Identifier	Conv
+>599	RelationalExpression	Conv < int > ( first , & i1 )
+>600	RelationalExpression	int > ( first , & i1 )
+>601	Expression	first , & i1
+>602	UnaryOp	& i1
+>603	Identifier	i1
+>604	UnaryOperator	&
+>605	Identifier	first
+>606	Identifier	int
+>607	Identifier	Conv
+>608	IdentifierDeclStatement	 
+>609	IdentifierDecl	i2
+>610	Identifier	i2
+>611	IdentifierDeclType	int
+>612	IdentifierDecl	i1
+>613	Identifier	i1
+>614	IdentifierDeclType	int
+>615	Label	 
+>616	Identifier	op 
+>617	BreakStatement	 
+>618	CompoundStatement	 
+>619	ReturnStatement	 
+>620	PrimaryExpression	\"false\"
+>621	IfStatement	if ( Conv < int > ( first , & i1 ) && Conv < int > ( second , & i2 ) && i1 == i2 )
+>622	CompoundStatement	 
+>623	ReturnStatement	 
+>624	PrimaryExpression	\"true\"
+>625	Condition	 
+>626	AndExpression	Conv < int > ( first , & i1 ) && Conv < int > ( second , & i2 ) && i1 == i2
+>627	AndExpression	Conv < int > ( second , & i2 ) && i1 == i2
+>628	EqualityExpression	i1 == i2
+>629	Identifier	i2
+>630	Identifier	i1
+>631	RelationalExpression	Conv < int > ( second , & i2 )
+>632	RelationalExpression	int > ( second , & i2 )
+>633	Expression	second , & i2
+>634	UnaryOp	& i2
+>635	Identifier	i2
+>636	UnaryOperator	&
+>637	Identifier	second
+>638	Identifier	int
+>639	Identifier	Conv
+>640	RelationalExpression	Conv < int > ( first , & i1 )
+>641	RelationalExpression	int > ( first , & i1 )
+>642	Expression	first , & i1
+>643	UnaryOp	& i1
+>644	Identifier	i1
+>645	UnaryOperator	&
+>646	Identifier	first
+>647	Identifier	int
+>648	Identifier	Conv
+>649	IdentifierDeclStatement	 
+>650	IdentifierDecl	i2
+>651	Identifier	i2
+>652	IdentifierDeclType	int
+>653	IdentifierDecl	i1
+>654	Identifier	i1
+>655	IdentifierDeclType	int
+>656	IfStatement	if ( first == second )
+>657	CompoundStatement	 
+>658	ReturnStatement	 
+>659	PrimaryExpression	\"true\"
+>660	Condition	 
+>661	EqualityExpression	first == second
+>662	Identifier	second
+>663	Identifier	first
+>664	Label	 
+>665	Identifier	op 
+>666	Condition	 
+>667	Identifier	operation
+>668	IdentifierDeclStatement	 
+>669	IdentifierDecl	second = right -> eval ( obj )
+>670	AssignmentExpr	second = right -> eval ( obj )
+>671	CallExpression	right -> eval ( obj )
+>672	ArgumentList	obj
+>673	Argument	obj
+>674	Identifier	obj
+>675	Callee	right -> eval
+>676	PtrMemberAccess	right -> eval
+>677	Identifier	eval
+>678	Identifier	right
+>679	Identifier	second
+>680	Identifier	second
+>681	IdentifierDeclType	string
+>682	IdentifierDeclStatement	 
+>683	IdentifierDecl	first = left -> eval ( obj )
+>684	AssignmentExpr	first = left -> eval ( obj )
+>685	CallExpression	left -> eval ( obj )
+>686	ArgumentList	obj
+>687	Argument	obj
+>688	Identifier	obj
+>689	Callee	left -> eval
+>690	PtrMemberAccess	left -> eval
+>691	Identifier	eval
+>692	Identifier	left
+>693	Identifier	first
+>694	Identifier	first
+>695	IdentifierDeclType	string
+<3=18,17,4
+<4=14,11,8,5
+<5=7,6
+<8=10,9
+<11=13,12
+<14=16,15
+<18=115,108,21,19
+<19=20
+<21=88,66,22
+<22=23
+<23=46,24
+<24=32,25
+<25=26
+<26=30,27
+<27=28
+<28=29
+<30=31
+<32=33
+<33=45,44,34
+<34=43,35
+<35=41,36
+<36=39,37
+<37=38
+<39=40
+<41=42
+<46=47
+<47=57,48
+<48=56,49
+<49=55,50
+<50=54,51
+<51=53,52
+<57=65,58
+<58=64,59
+<59=63,60
+<60=62,61
+<66=74,67
+<67=68
+<68=72,69
+<69=70
+<70=71
+<72=73
+<74=75
+<75=87,86,76
+<76=85,77
+<77=83,78
+<78=81,79
+<79=80
+<81=82
+<83=84
+<88=89
+<89=99,90
+<90=98,91
+<91=97,92
+<92=96,93
+<93=95,94
+<99=107,100
+<100=106,101
+<101=105,102
+<102=104,103
+<108=112,109
+<109=111,110
+<112=114,113
+<115=119,116
+<116=118,117
+<119=121,120
+<142=153,143
+<143=150,147,144
+<144=146,145
+<147=149,148
+<150=152,151
+<160=166,165,161
+<161=162
+<162=164,163
+<166=682,668,178,169,167
+<167=168
+<169=170
+<170=176,171
+<171=172
+<172=173
+<173=175,174
+<176=177
+<178=666,179
+<179=664,618,617,615,565,564,562,522,520,480,478,438,436,396,394,384,383,381,371,370,368,367,366,365,364,363,362,361,360,359,358,357,356,355,354,353,352,347,346,345,344,343,342,341,340,339,338,337,332,331,330,328,327,326,325,324,323,322,321,320,319,318,317,316,315,314,313,312,180,181,186,188,248,250,251,252,257,258,259,260,261,262,263,264,265,266,267,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,290,291,292,297,298,299,300,301,302,303,304,305,306,307
+<181=182
+<182=183
+<183=185,184
+<186=187
+<188=244,227,226,225,224,223,222,221,220,219,218,217,216,215,214,213,212,211,206,205,204,203,202,201,200,199,198,197,196,191,190,189
+<191=192
+<192=193
+<193=195,194
+<206=207
+<207=208
+<208=210,209
+<227=230,228
+<228=229
+<230=231
+<231=235,232
+<232=234,233
+<235=243,236
+<236=242,237
+<237=241,238
+<238=240,239
+<244=245
+<245=247,246
+<248=249
+<252=253
+<253=254
+<254=256,255
+<267=268
+<268=269
+<269=271,270
+<288=289
+<292=293
+<293=294
+<294=296,295
+<307=308
+<308=309
+<309=311,310
+<328=329
+<332=333
+<333=334
+<334=336,335
+<347=348
+<348=349
+<349=351,350
+<368=369
+<371=374,372
+<372=373
+<374=377,375
+<375=376
+<377=378
+<378=380,379
+<381=382
+<384=387,385
+<385=386
+<387=390,388
+<388=389
+<390=391
+<391=393,392
+<394=395
+<396=429,399,397
+<397=398
+<399=409,400
+<400=401
+<401=405,402
+<402=403
+<403=404
+<405=406
+<406=408,407
+<409=410
+<410=420,411
+<411=419,412
+<412=418,413
+<413=417,414
+<414=416,415
+<420=428,421
+<421=427,422
+<422=426,423
+<423=425,424
+<429=433,430
+<430=432,431
+<433=435,434
+<436=437
+<438=471,441,439
+<439=440
+<441=451,442
+<442=443
+<443=447,444
+<444=445
+<445=446
+<447=448
+<448=450,449
+<451=452
+<452=462,453
+<453=461,454
+<454=460,455
+<455=459,456
+<456=458,457
+<462=470,463
+<463=469,464
+<464=468,465
+<465=467,466
+<471=475,472
+<472=474,473
+<475=477,476
+<478=479
+<480=513,483,481
+<481=482
+<483=493,484
+<484=485
+<485=489,486
+<486=487
+<487=488
+<489=490
+<490=492,491
+<493=494
+<494=504,495
+<495=503,496
+<496=502,497
+<497=501,498
+<498=500,499
+<504=512,505
+<505=511,506
+<506=510,507
+<507=509,508
+<513=517,514
+<514=516,515
+<517=519,518
+<520=521
+<522=555,525,523
+<523=524
+<525=535,526
+<526=527
+<527=531,528
+<528=529
+<529=530
+<531=532
+<532=534,533
+<535=536
+<536=546,537
+<537=545,538
+<538=544,539
+<539=543,540
+<540=542,541
+<546=554,547
+<547=553,548
+<548=552,549
+<549=551,550
+<555=559,556
+<556=558,557
+<559=561,560
+<562=563
+<565=608,568,566
+<566=567
+<568=588,579,569
+<569=570
+<570=571
+<571=575,572
+<572=573
+<573=574
+<575=576
+<576=578,577
+<579=580
+<580=584,581
+<581=582
+<582=583
+<584=585
+<585=587,586
+<588=589
+<589=599,590
+<590=598,591
+<591=597,592
+<592=596,593
+<593=595,594
+<599=607,600
+<600=606,601
+<601=605,602
+<602=604,603
+<608=612,609
+<609=611,610
+<612=614,613
+<615=616
+<618=656,649,621,619
+<619=620
+<621=625,622
+<622=623
+<623=624
+<625=626
+<626=640,627
+<627=631,628
+<628=630,629
+<631=639,632
+<632=638,633
+<633=637,634
+<634=636,635
+<640=648,641
+<641=647,642
+<642=646,643
+<643=645,644
+<649=653,650
+<650=652,651
+<653=655,654
+<656=660,657
+<657=658
+<658=659
+<660=661
+<661=663,662
+<664=665
+<666=667
+<668=669
+<669=681,680,670
+<670=679,671
+<671=675,672
+<672=673
+<673=674
+<675=676
+<676=678,677
+<682=683
+<683=695,694,684
+<684=693,685
+<685=689,686
+<686=687
+<687=688
+<689=690
+<690=692,691

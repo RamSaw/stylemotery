@@ -1,0 +1,903 @@
+>3	FunctionDef	QuadTrail 
+>4	ParameterList	int maxPoints , float pointDist
+>5	Parameter	 
+>6	Identifier	pointDist
+>7	ParameterType	float
+>8	Parameter	 
+>9	Identifier	maxPoints
+>10	ParameterType	int
+>11	ReturnType	include < assert . h >
+>12	CompoundStatement	 
+>13	ExpressionStatement	 
+>14	AssignmentExpr	lifeRate = 0.5
+>15	PrimaryExpression	0.5
+>16	Identifier	lifeRate
+>17	ExpressionStatement	 
+>18	AssignmentExpr	repeatTexture = 1
+>19	PrimaryExpression	1
+>20	Identifier	repeatTexture
+>21	ExpressionStatement	 
+>22	AssignmentExpr	cull = false
+>23	Identifier	false
+>24	Identifier	cull
+>25	ExpressionStatement	 
+>26	AssignmentExpr	quadTrailAlphaEffect = QTAE_NORMAL
+>27	Identifier	QTAE_NORMAL
+>28	Identifier	quadTrailAlphaEffect
+>40	FunctionDef	QuadTrail 
+>41	ParameterList	const Vector & point
+>42	Parameter	 
+>43	Identifier	point
+>44	ParameterType	const Vector &
+>45	ReturnType	void
+>46	CompoundStatement	 
+>47	ExpressionStatement	 
+>48	AssignmentExpr	backOffset . y = 0
+>49	PrimaryExpression	0
+>50	MemberAccess	backOffset . y
+>51	Identifier	y
+>52	Identifier	backOffset
+>53	ExpressionStatement	 
+>54	AssignmentExpr	backOffset . x = 0
+>55	PrimaryExpression	0
+>56	MemberAccess	backOffset . x
+>57	Identifier	x
+>58	Identifier	backOffset
+>59	IfStatement	if ( numPoints >= maxPoints )
+>60	ExpressionStatement	 
+>61	CallExpression	points . pop_front ( )
+>62	ArgumentList	 
+>63	Callee	points . pop_front
+>64	MemberAccess	points . pop_front
+>65	Identifier	pop_front
+>66	Identifier	points
+>67	Condition	 
+>68	RelationalExpression	numPoints >= maxPoints
+>69	Identifier	maxPoints
+>70	Identifier	numPoints
+>71	ExpressionStatement	 
+>72	IncDecOp	numPoints ++
+>73	IncDec	++
+>74	Identifier	numPoints
+>75	ExpressionStatement	 
+>76	CallExpression	points . push_back ( p )
+>77	ArgumentList	p
+>78	Argument	p
+>79	Identifier	p
+>80	Callee	points . push_back
+>81	MemberAccess	points . push_back
+>82	Identifier	push_back
+>83	Identifier	points
+>84	ExpressionStatement	 
+>85	AssignmentExpr	p . point = point
+>86	Identifier	point
+>87	MemberAccess	p . point
+>88	Identifier	point
+>89	Identifier	p
+>90	IdentifierDeclStatement	 
+>91	IdentifierDecl	p
+>92	Identifier	p
+>93	IdentifierDeclType	QuadTrailPoint
+>94	IfStatement	if ( numPoints > 0 )
+>95	CompoundStatement	 
+>96	IfStatement	if ( ( points . back ( ) . point - point ) . isLength2DIn ( pointDist ) )
+>97	CompoundStatement	 
+>98	ReturnStatement	 
+>99	ExpressionStatement	 
+>100	AssignmentExpr	backOffset = point - points . back ( ) . point
+>101	AdditiveExpression	point - points . back ( ) . point
+>102	MemberAccess	points . back ( ) . point
+>103	Identifier	point
+>104	CallExpression	points . back ( )
+>105	ArgumentList	 
+>106	Callee	points . back
+>107	MemberAccess	points . back
+>108	Identifier	back
+>109	Identifier	points
+>110	Identifier	point
+>111	Identifier	backOffset
+>112	Condition	 
+>113	CallExpression	( points . back ( ) . point - point ) . isLength2DIn ( pointDist )
+>114	ArgumentList	pointDist
+>115	Argument	pointDist
+>116	Identifier	pointDist
+>117	Callee	( points . back ( ) . point - point ) . isLength2DIn
+>118	MemberAccess	( points . back ( ) . point - point ) . isLength2DIn
+>119	Identifier	isLength2DIn
+>120	AdditiveExpression	points . back ( ) . point - point
+>121	Identifier	point
+>122	MemberAccess	points . back ( ) . point
+>123	Identifier	point
+>124	CallExpression	points . back ( )
+>125	ArgumentList	 
+>126	Callee	points . back
+>127	MemberAccess	points . back
+>128	Identifier	back
+>129	Identifier	points
+>130	Condition	 
+>131	RelationalExpression	numPoints > 0
+>132	PrimaryExpression	0
+>133	Identifier	numPoints
+>150	FunctionDef	QuadTrail 
+>151	ParameterList	 
+>152	ReturnType	void
+>153	CompoundStatement	 
+>154	ExpressionStatement	 
+>155	CallExpression	glEnd ( )
+>156	ArgumentList	 
+>157	Callee	glEnd
+>158	Identifier	glEnd
+>159	ForStatement	for ( Points 
+>160	CompoundStatement	 
+>161	ExpressionStatement	 
+>162	CallExpression	glVertex2f ( ( * i ) . point . x , ( * i ) . point . y )
+>163	ArgumentList	( * i ) . point . x
+>164	Argument	( * i ) . point . y
+>165	MemberAccess	( * i ) . point . y
+>166	Identifier	y
+>167	MemberAccess	( * i ) . point
+>168	Identifier	point
+>169	UnaryOp	* i
+>170	Identifier	i
+>171	UnaryOperator	*
+>172	Argument	( * i ) . point . x
+>173	MemberAccess	( * i ) . point . x
+>174	Identifier	x
+>175	MemberAccess	( * i ) . point
+>176	Identifier	point
+>177	UnaryOp	* i
+>178	Identifier	i
+>179	UnaryOperator	*
+>180	Callee	glVertex2f
+>181	Identifier	glVertex2f
+>182	IncDecOp	 
+>183	IncDec	++
+>184	Identifier	i
+>185	Condition	 
+>186	EqualityExpression	i != points . end ( )
+>187	CallExpression	points . end ( )
+>188	ArgumentList	 
+>189	Callee	points . end
+>190	MemberAccess	points . end
+>191	Identifier	end
+>192	Identifier	points
+>193	Identifier	i
+>194	ForInit	 
+>195	IdentifierDeclStatement	Points 
+>196	IdentifierDecl	i = points . begin ( )
+>197	AssignmentExpr	i = points . begin ( )
+>198	CallExpression	points . begin ( )
+>199	ArgumentList	 
+>200	Callee	points . begin
+>201	MemberAccess	points . begin
+>202	Identifier	begin
+>203	Identifier	points
+>204	Identifier	i
+>205	Identifier	i
+>206	IdentifierDeclType	Points 
+>207	ExpressionStatement	 
+>208	CallExpression	glBegin ( GL_POINTS )
+>209	ArgumentList	GL_POINTS
+>210	Argument	GL_POINTS
+>211	Identifier	GL_POINTS
+>212	Callee	glBegin
+>213	Identifier	glBegin
+>214	ExpressionStatement	 
+>215	CallExpression	glColor4f ( 0 , 1 , 0 , 0.5 )
+>216	ArgumentList	0
+>217	Argument	0.5
+>218	PrimaryExpression	0.5
+>219	Argument	0
+>220	PrimaryExpression	0
+>221	Argument	1
+>222	PrimaryExpression	1
+>223	Argument	0
+>224	PrimaryExpression	0
+>225	Callee	glColor4f
+>226	Identifier	glColor4f
+>227	ExpressionStatement	 
+>228	CallExpression	glPointSize ( 4 )
+>229	ArgumentList	4
+>230	Argument	4
+>231	PrimaryExpression	4
+>232	Callee	glPointSize
+>233	Identifier	glPointSize
+>234	ExpressionStatement	 
+>235	CallExpression	glBindTexture ( GL_TEXTURE_2D , 0 )
+>236	ArgumentList	GL_TEXTURE_2D
+>237	Argument	0
+>238	PrimaryExpression	0
+>239	Argument	GL_TEXTURE_2D
+>240	Identifier	GL_TEXTURE_2D
+>241	Callee	glBindTexture
+>242	Identifier	glBindTexture
+>243	ExpressionStatement	 
+>244	CallExpression	glEnd ( )
+>245	ArgumentList	 
+>246	Callee	glEnd
+>247	Identifier	glEnd
+>248	ForStatement	for ( Points 
+>249	CompoundStatement	 
+>250	ExpressionStatement	 
+>251	AssignmentExpr	lastPoint = ( * i ) . point
+>252	MemberAccess	( * i ) . point
+>253	Identifier	point
+>254	UnaryOp	* i
+>255	Identifier	i
+>256	UnaryOperator	*
+>257	Identifier	lastPoint
+>258	ExpressionStatement	 
+>259	IncDecOp	c ++
+>260	IncDec	++
+>261	Identifier	c
+>262	ExpressionStatement	 
+>263	CallExpression	glVertex2f ( p . x + dr . x , p . y + dr . y )
+>264	ArgumentList	p . x + dr . x
+>265	Argument	p . y + dr . y
+>266	AdditiveExpression	p . y + dr . y
+>267	MemberAccess	dr . y
+>268	Identifier	y
+>269	Identifier	dr
+>270	MemberAccess	p . y
+>271	Identifier	y
+>272	Identifier	p
+>273	Argument	p . x + dr . x
+>274	AdditiveExpression	p . x + dr . x
+>275	MemberAccess	dr . x
+>276	Identifier	x
+>277	Identifier	dr
+>278	MemberAccess	p . x
+>279	Identifier	x
+>280	Identifier	p
+>281	Callee	glVertex2f
+>282	Identifier	glVertex2f
+>283	ExpressionStatement	 
+>284	CallExpression	glTexCoord2f ( 1 , ( float ( c + 1 ) / numPoints ) * texScale )
+>285	ArgumentList	1
+>286	Argument	( float ( c + 1 ) / numPoints ) * texScale
+>287	MultiplicativeExpression	( float ( c + 1 ) / numPoints ) * texScale
+>288	Identifier	texScale
+>289	MultiplicativeExpression	float ( c + 1 ) / numPoints
+>290	Identifier	numPoints
+>291	CallExpression	float ( c + 1 )
+>292	ArgumentList	c + 1
+>293	Argument	c + 1
+>294	AdditiveExpression	c + 1
+>295	PrimaryExpression	1
+>296	Identifier	c
+>297	Callee	float
+>298	Identifier	float
+>299	Argument	1
+>300	PrimaryExpression	1
+>301	Callee	glTexCoord2f
+>302	Identifier	glTexCoord2f
+>303	ExpressionStatement	 
+>304	CallExpression	glVertex2f ( p . x + dl . x , p . y + dl . y )
+>305	ArgumentList	p . x + dl . x
+>306	Argument	p . y + dl . y
+>307	AdditiveExpression	p . y + dl . y
+>308	MemberAccess	dl . y
+>309	Identifier	y
+>310	Identifier	dl
+>311	MemberAccess	p . y
+>312	Identifier	y
+>313	Identifier	p
+>314	Argument	p . x + dl . x
+>315	AdditiveExpression	p . x + dl . x
+>316	MemberAccess	dl . x
+>317	Identifier	x
+>318	Identifier	dl
+>319	MemberAccess	p . x
+>320	Identifier	x
+>321	Identifier	p
+>322	Callee	glVertex2f
+>323	Identifier	glVertex2f
+>324	ExpressionStatement	 
+>325	CallExpression	glTexCoord2f ( 0 , ( float ( c ) / numPoints ) * texScale )
+>326	ArgumentList	0
+>327	Argument	( float ( c ) / numPoints ) * texScale
+>328	MultiplicativeExpression	( float ( c ) / numPoints ) * texScale
+>329	Identifier	texScale
+>330	MultiplicativeExpression	float ( c ) / numPoints
+>331	Identifier	numPoints
+>332	CallExpression	float ( c )
+>333	ArgumentList	c
+>334	Argument	c
+>335	Identifier	c
+>336	Callee	float
+>337	Identifier	float
+>338	Argument	0
+>339	PrimaryExpression	0
+>340	Callee	glTexCoord2f
+>341	Identifier	glTexCoord2f
+>342	ExpressionStatement	 
+>343	AssignmentExpr	dr = diff . getPerpendicularRight ( )
+>344	CallExpression	diff . getPerpendicularRight ( )
+>345	ArgumentList	 
+>346	Callee	diff . getPerpendicularRight
+>347	MemberAccess	diff . getPerpendicularRight
+>348	Identifier	getPerpendicularRight
+>349	Identifier	diff
+>350	Identifier	dr
+>351	ExpressionStatement	 
+>352	AssignmentExpr	dl = diff . getPerpendicularLeft ( )
+>353	CallExpression	diff . getPerpendicularLeft ( )
+>354	ArgumentList	 
+>355	Callee	diff . getPerpendicularLeft
+>356	MemberAccess	diff . getPerpendicularLeft
+>357	Identifier	getPerpendicularLeft
+>358	Identifier	diff
+>359	Identifier	dl
+>360	IfStatement	if ( texture )
+>361	ElseStatement	else
+>362	ExpressionStatement	 
+>363	CallExpression	diff . setLength2D ( 32 )
+>364	ArgumentList	32
+>365	Argument	32
+>366	PrimaryExpression	32
+>367	Callee	diff . setLength2D
+>368	MemberAccess	diff . setLength2D
+>369	Identifier	setLength2D
+>370	Identifier	diff
+>371	ExpressionStatement	 
+>372	CallExpression	diff . setLength2D ( texture -> width * 0.5f )
+>373	ArgumentList	texture -> width * 0.5f
+>374	Argument	texture -> width * 0.5f
+>375	MultiplicativeExpression	texture -> width * 0.5f
+>376	PrimaryExpression	0.5f
+>377	PtrMemberAccess	texture -> width
+>378	Identifier	width
+>379	Identifier	texture
+>380	Callee	diff . setLength2D
+>381	MemberAccess	diff . setLength2D
+>382	Identifier	setLength2D
+>383	Identifier	diff
+>384	Condition	 
+>385	Identifier	texture
+>386	ExpressionStatement	 
+>387	AssignmentExpr	diff = p - lastPoint
+>388	AdditiveExpression	p - lastPoint
+>389	Identifier	lastPoint
+>390	Identifier	p
+>391	Identifier	diff
+>392	IfStatement	if ( c == numPoints - 1 )
+>393	ExpressionStatement	 
+>394	AssignmentExpr	p += backOffset
+>395	Identifier	backOffset
+>396	Identifier	p
+>397	Condition	 
+>398	EqualityExpression	c == numPoints - 1
+>399	AdditiveExpression	numPoints - 1
+>400	PrimaryExpression	1
+>401	Identifier	numPoints
+>402	Identifier	c
+>403	ExpressionStatement	 
+>404	AssignmentExpr	p = ( * i ) . point
+>405	MemberAccess	( * i ) . point
+>406	Identifier	point
+>407	UnaryOp	* i
+>408	Identifier	i
+>409	UnaryOperator	*
+>410	Identifier	p
+>411	IfStatement	if ( c == 0 )
+>412	CompoundStatement	 
+>413	ContinueStatement	 
+>414	ExpressionStatement	 
+>415	IncDecOp	c ++
+>416	IncDec	++
+>417	Identifier	c
+>418	ExpressionStatement	 
+>419	AssignmentExpr	lastPoint = ( * i ) . point
+>420	MemberAccess	( * i ) . point
+>421	Identifier	point
+>422	UnaryOp	* i
+>423	Identifier	i
+>424	UnaryOperator	*
+>425	Identifier	lastPoint
+>426	Condition	 
+>427	EqualityExpression	c == 0
+>428	PrimaryExpression	0
+>429	Identifier	c
+>430	IfStatement	if ( quadTrailAlphaEffect == QTAE_NORMAL )
+>431	CompoundStatement	 
+>432	ExpressionStatement	 
+>433	CallExpression	glColor4f ( 1 , 1 , 1 , ( * i ) . life )
+>434	ArgumentList	1
+>435	Argument	( * i ) . life
+>436	MemberAccess	( * i ) . life
+>437	Identifier	life
+>438	UnaryOp	* i
+>439	Identifier	i
+>440	UnaryOperator	*
+>441	Argument	1
+>442	PrimaryExpression	1
+>443	Argument	1
+>444	PrimaryExpression	1
+>445	Argument	1
+>446	PrimaryExpression	1
+>447	Callee	glColor4f
+>448	Identifier	glColor4f
+>449	Condition	 
+>450	EqualityExpression	quadTrailAlphaEffect == QTAE_NORMAL
+>451	Identifier	QTAE_NORMAL
+>452	Identifier	quadTrailAlphaEffect
+>453	IncDecOp	 
+>454	IncDec	++
+>455	Identifier	i
+>456	Condition	 
+>457	EqualityExpression	i != points . end ( )
+>458	CallExpression	points . end ( )
+>459	ArgumentList	 
+>460	Callee	points . end
+>461	MemberAccess	points . end
+>462	Identifier	end
+>463	Identifier	points
+>464	Identifier	i
+>465	ForInit	 
+>466	IdentifierDeclStatement	Points 
+>467	IdentifierDecl	i = points . begin ( )
+>468	AssignmentExpr	i = points . begin ( )
+>469	CallExpression	points . begin ( )
+>470	ArgumentList	 
+>471	Callee	points . begin
+>472	MemberAccess	points . begin
+>473	Identifier	begin
+>474	Identifier	points
+>475	Identifier	i
+>476	Identifier	i
+>477	IdentifierDeclType	Points 
+>478	ExpressionStatement	 
+>479	CallExpression	glBegin ( GL_QUAD_STRIP )
+>480	ArgumentList	GL_QUAD_STRIP
+>481	Argument	GL_QUAD_STRIP
+>482	Identifier	GL_QUAD_STRIP
+>483	Callee	glBegin
+>484	Identifier	glBegin
+>485	IdentifierDeclStatement	 
+>486	IdentifierDecl	texScale = texture ? float ( numPoints * pointDist ) / texture -> width 
+>487	AssignmentExpr	texScale = texture ? float ( numPoints * pointDist ) / texture -> width 
+>488	ConditionalExpression	texture ? float ( numPoints * pointDist ) / texture -> width 
+>489	PrimaryExpression	1.0f
+>490	MultiplicativeExpression	float ( numPoints * pointDist ) / texture -> width
+>491	PtrMemberAccess	texture -> width
+>492	Identifier	width
+>493	Identifier	texture
+>494	CallExpression	float ( numPoints * pointDist )
+>495	ArgumentList	numPoints * pointDist
+>496	Argument	numPoints * pointDist
+>497	MultiplicativeExpression	numPoints * pointDist
+>498	Identifier	pointDist
+>499	Identifier	numPoints
+>500	Callee	float
+>501	Identifier	float
+>502	Condition	texture
+>503	Identifier	texture
+>504	Identifier	texScale
+>505	Identifier	texScale
+>506	IdentifierDeclType	const float
+>507	IdentifierDeclStatement	 
+>508	IdentifierDecl	lastPoint
+>509	Identifier	lastPoint
+>510	IdentifierDeclType	Vector
+>511	IdentifierDeclStatement	 
+>512	IdentifierDecl	dr
+>513	Identifier	dr
+>514	IdentifierDeclType	Vector
+>515	IdentifierDecl	dl
+>516	Identifier	dl
+>517	IdentifierDeclType	Vector
+>518	IdentifierDecl	diff
+>519	Identifier	diff
+>520	IdentifierDeclType	Vector
+>521	IdentifierDecl	p
+>522	Identifier	p
+>523	IdentifierDeclType	Vector
+>524	IdentifierDeclStatement	 
+>525	IdentifierDecl	c = 0
+>526	AssignmentExpr	c = 0
+>527	PrimaryExpression	0
+>528	Identifier	c
+>529	Identifier	c
+>530	IdentifierDeclType	int
+>531	IfStatement	if ( numPoints < 2 )
+>532	ReturnStatement	 
+>533	Condition	 
+>534	RelationalExpression	numPoints < 2
+>535	PrimaryExpression	2
+>536	Identifier	numPoints
+>576	FunctionDef	QuadTrail 
+>577	ParameterList	float dt
+>578	Parameter	 
+>579	Identifier	dt
+>580	ParameterType	float
+>581	ReturnType	void
+>582	CompoundStatement	 
+>583	ForStatement	for ( Points 
+>584	CompoundStatement	 
+>585	IfStatement	if ( ( * i ) . life <= 0 )
+>586	ExpressionStatement	 
+>587	AssignmentExpr	( * i ) . life = 0
+>588	PrimaryExpression	0
+>589	MemberAccess	( * i ) . life
+>590	Identifier	life
+>591	UnaryOp	* i
+>592	Identifier	i
+>593	UnaryOperator	*
+>594	Condition	 
+>595	RelationalExpression	( * i ) . life <= 0
+>596	PrimaryExpression	0
+>597	MemberAccess	( * i ) . life
+>598	Identifier	life
+>599	UnaryOp	* i
+>600	Identifier	i
+>601	UnaryOperator	*
+>602	ExpressionStatement	 
+>603	AssignmentExpr	( * i ) . life -= dt * lifeRate
+>604	MultiplicativeExpression	dt * lifeRate
+>605	Identifier	lifeRate
+>606	Identifier	dt
+>607	MemberAccess	( * i ) . life
+>608	Identifier	life
+>609	UnaryOp	* i
+>610	Identifier	i
+>611	UnaryOperator	*
+>612	IncDecOp	 
+>613	IncDec	++
+>614	Identifier	i
+>615	Condition	 
+>616	EqualityExpression	i != points . end ( )
+>617	CallExpression	points . end ( )
+>618	ArgumentList	 
+>619	Callee	points . end
+>620	MemberAccess	points . end
+>621	Identifier	end
+>622	Identifier	points
+>623	Identifier	i
+>624	ForInit	 
+>625	IdentifierDeclStatement	Points 
+>626	IdentifierDecl	i = points . begin ( )
+>627	AssignmentExpr	i = points . begin ( )
+>628	CallExpression	points . begin ( )
+>629	ArgumentList	 
+>630	Callee	points . begin
+>631	MemberAccess	points . begin
+>632	Identifier	begin
+>633	Identifier	points
+>634	Identifier	i
+>635	Identifier	i
+>636	IdentifierDeclType	Points 
+>637	ExpressionStatement	 
+>638	CallExpression	RenderObject 
+>639	ArgumentList	dt
+>640	Argument	dt
+>641	Identifier	dt
+>642	Callee	RenderObject 
+>643	Identifier	RenderObject 
+<3=12,11,4
+<4=8,5
+<5=7,6
+<8=10,9
+<12=25,21,17,13
+<13=14
+<14=16,15
+<17=18
+<18=20,19
+<21=22
+<22=24,23
+<25=26
+<26=28,27
+<40=46,45,41
+<41=42
+<42=44,43
+<46=94,90,84,75,71,59,53,47
+<47=48
+<48=50,49
+<50=52,51
+<53=54
+<54=56,55
+<56=58,57
+<59=67,60
+<60=61
+<61=63,62
+<63=64
+<64=66,65
+<67=68
+<68=70,69
+<71=72
+<72=74,73
+<75=76
+<76=80,77
+<77=78
+<78=79
+<80=81
+<81=83,82
+<84=85
+<85=87,86
+<87=89,88
+<90=91
+<91=93,92
+<94=130,95
+<95=96
+<96=112,97
+<97=99,98
+<99=100
+<100=111,101
+<101=110,102
+<102=104,103
+<104=106,105
+<106=107
+<107=109,108
+<112=113
+<113=117,114
+<114=115
+<115=116
+<117=118
+<118=120,119
+<120=122,121
+<122=124,123
+<124=126,125
+<126=127
+<127=129,128
+<130=131
+<131=133,132
+<150=153,152,151
+<153=531,524,511,507,485,478,248,243,234,227,214,207,159,154
+<154=155
+<155=157,156
+<157=158
+<159=194,185,182,160
+<160=161
+<161=162
+<162=180,163
+<163=172,164
+<164=165
+<165=167,166
+<167=169,168
+<169=171,170
+<172=173
+<173=175,174
+<175=177,176
+<177=179,178
+<180=181
+<182=184,183
+<185=186
+<186=193,187
+<187=189,188
+<189=190
+<190=192,191
+<194=195
+<195=196
+<196=206,205,197
+<197=204,198
+<198=200,199
+<200=201
+<201=203,202
+<207=208
+<208=212,209
+<209=210
+<210=211
+<212=213
+<214=215
+<215=225,216
+<216=223,221,219,217
+<217=218
+<219=220
+<221=222
+<223=224
+<225=226
+<227=228
+<228=232,229
+<229=230
+<230=231
+<232=233
+<234=235
+<235=241,236
+<236=239,237
+<237=238
+<239=240
+<241=242
+<243=244
+<244=246,245
+<246=247
+<248=465,456,453,249
+<249=430,411,403,392,386,360,351,342,324,303,283,262,258,250
+<250=251
+<251=257,252
+<252=254,253
+<254=256,255
+<258=259
+<259=261,260
+<262=263
+<263=281,264
+<264=273,265
+<265=266
+<266=270,267
+<267=269,268
+<270=272,271
+<273=274
+<274=278,275
+<275=277,276
+<278=280,279
+<281=282
+<283=284
+<284=301,285
+<285=299,286
+<286=287
+<287=289,288
+<289=291,290
+<291=297,292
+<292=293
+<293=294
+<294=296,295
+<297=298
+<299=300
+<301=302
+<303=304
+<304=322,305
+<305=314,306
+<306=307
+<307=311,308
+<308=310,309
+<311=313,312
+<314=315
+<315=319,316
+<316=318,317
+<319=321,320
+<322=323
+<324=325
+<325=340,326
+<326=338,327
+<327=328
+<328=330,329
+<330=332,331
+<332=336,333
+<333=334
+<334=335
+<336=337
+<338=339
+<340=341
+<342=343
+<343=350,344
+<344=346,345
+<346=347
+<347=349,348
+<351=352
+<352=359,353
+<353=355,354
+<355=356
+<356=358,357
+<360=384,371,361
+<361=362
+<362=363
+<363=367,364
+<364=365
+<365=366
+<367=368
+<368=370,369
+<371=372
+<372=380,373
+<373=374
+<374=375
+<375=377,376
+<377=379,378
+<380=381
+<381=383,382
+<384=385
+<386=387
+<387=391,388
+<388=390,389
+<392=397,393
+<393=394
+<394=396,395
+<397=398
+<398=402,399
+<399=401,400
+<403=404
+<404=410,405
+<405=407,406
+<407=409,408
+<411=426,412
+<412=418,414,413
+<414=415
+<415=417,416
+<418=419
+<419=425,420
+<420=422,421
+<422=424,423
+<426=427
+<427=429,428
+<430=449,431
+<431=432
+<432=433
+<433=447,434
+<434=445,443,441,435
+<435=436
+<436=438,437
+<438=440,439
+<441=442
+<443=444
+<445=446
+<447=448
+<449=450
+<450=452,451
+<453=455,454
+<456=457
+<457=464,458
+<458=460,459
+<460=461
+<461=463,462
+<465=466
+<466=467
+<467=477,476,468
+<468=475,469
+<469=471,470
+<471=472
+<472=474,473
+<478=479
+<479=483,480
+<480=481
+<481=482
+<483=484
+<485=486
+<486=506,505,487
+<487=504,488
+<488=502,490,489
+<490=494,491
+<491=493,492
+<494=500,495
+<495=496
+<496=497
+<497=499,498
+<500=501
+<502=503
+<507=508
+<508=510,509
+<511=521,518,515,512
+<512=514,513
+<515=517,516
+<518=520,519
+<521=523,522
+<524=525
+<525=530,529,526
+<526=528,527
+<531=533,532
+<533=534
+<534=536,535
+<576=582,581,577
+<577=578
+<578=580,579
+<582=637,583
+<583=624,615,612,584
+<584=602,585
+<585=594,586
+<586=587
+<587=589,588
+<589=591,590
+<591=593,592
+<594=595
+<595=597,596
+<597=599,598
+<599=601,600
+<602=603
+<603=607,604
+<604=606,605
+<607=609,608
+<609=611,610
+<612=614,613
+<615=616
+<616=623,617
+<617=619,618
+<619=620
+<620=622,621
+<624=625
+<625=626
+<626=636,635,627
+<627=634,628
+<628=630,629
+<630=631
+<631=633,632
+<637=638
+<638=642,639
+<639=640
+<640=641
+<642=643

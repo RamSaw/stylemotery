@@ -1,0 +1,1805 @@
+>3	FunctionDef	CurrentRender 
+>4	ParameterList	 
+>5	CompoundStatement	 
+>6	ExpressionStatement	 
+>7	AssignmentExpr	rippleDelay = 2
+>8	PrimaryExpression	2
+>9	Identifier	rippleDelay
+>10	ExpressionStatement	 
+>11	AssignmentExpr	texture -> repeat = true
+>12	Identifier	true
+>13	PtrMemberAccess	texture -> repeat
+>14	Identifier	repeat
+>15	Identifier	texture
+>16	ExpressionStatement	 
+>17	CallExpression	setTexture ( \"Particles/Current\" )
+>18	ArgumentList	\"Particles/Current\"
+>19	Argument	\"Particles/Current\"
+>20	PrimaryExpression	\"Particles/Current\"
+>21	Callee	setTexture
+>22	Identifier	setTexture
+>23	ExpressionStatement	 
+>24	AssignmentExpr	cull = false
+>25	Identifier	false
+>26	Identifier	cull
+>37	FunctionDef	CurrentRender 
+>38	ParameterList	float dt
+>39	Parameter	 
+>40	Identifier	dt
+>41	ParameterType	float
+>42	ReturnType	void
+>43	CompoundStatement	 
+>44	ExpressionStatement	 
+>45	CallExpression	RenderObject 
+>46	ArgumentList	dt
+>47	Argument	dt
+>48	Identifier	dt
+>49	Callee	RenderObject 
+>50	Identifier	RenderObject 
+>55	FunctionDef	CurrentRender 
+>56	ParameterList	 
+>57	ReturnType	void
+>58	CompoundStatement	 
+>59	ForStatement	for ( Path * p = dsq -> game -> getFirstPathOfType ( PATH_CURRENT ) ; p ; p = p -> nextOfType )
+>60	CompoundStatement	 
+>61	IfStatement	if ( p -> active )
+>62	CompoundStatement	 
+>63	IfStatement	if ( true )
+>64	ElseStatement	else
+>65	CompoundStatement	 
+>66	ForStatement	for ( int n = 0 ; n < sz ; n ++ )
+>67	CompoundStatement	 
+>68	IfStatement	if ( isTouchingLine ( p1 , p2 , dsq -> screenCenter , dsq -> cullRadius ) )
+>69	CompoundStatement	 
+>70	ExpressionStatement	 
+>71	CallExpression	glEnd ( )
+>72	ArgumentList	 
+>73	Callee	glEnd
+>74	Identifier	glEnd
+>75	ExpressionStatement	 
+>76	CallExpression	glVertex2f ( r4 . x , r4 . y )
+>77	ArgumentList	r4 . x
+>78	Argument	r4 . y
+>79	MemberAccess	r4 . y
+>80	Identifier	y
+>81	Identifier	r4
+>82	Argument	r4 . x
+>83	MemberAccess	r4 . x
+>84	Identifier	x
+>85	Identifier	r4
+>86	Callee	glVertex2f
+>87	Identifier	glVertex2f
+>88	ExpressionStatement	 
+>89	CallExpression	glTexCoord2f ( ( 0 + p -> animOffset ) * texScale , 1 )
+>90	ArgumentList	( 0 + p -> animOffset ) * texScale
+>91	Argument	1
+>92	PrimaryExpression	1
+>93	Argument	( 0 + p -> animOffset ) * texScale
+>94	MultiplicativeExpression	( 0 + p -> animOffset ) * texScale
+>95	Identifier	texScale
+>96	AdditiveExpression	0 + p -> animOffset
+>97	PtrMemberAccess	p -> animOffset
+>98	Identifier	animOffset
+>99	Identifier	p
+>100	PrimaryExpression	0
+>101	Callee	glTexCoord2f
+>102	Identifier	glTexCoord2f
+>103	IfStatement	if ( n == 0 )
+>104	ElseStatement	else
+>105	ExpressionStatement	 
+>106	CallExpression	glColor4f ( 1 , 1 , 1 , alpha . x )
+>107	ArgumentList	1
+>108	Argument	alpha . x
+>109	MemberAccess	alpha . x
+>110	Identifier	x
+>111	Identifier	alpha
+>112	Argument	1
+>113	PrimaryExpression	1
+>114	Argument	1
+>115	PrimaryExpression	1
+>116	Argument	1
+>117	PrimaryExpression	1
+>118	Callee	glColor4f
+>119	Identifier	glColor4f
+>120	ExpressionStatement	 
+>121	CallExpression	glColor4f ( 1 , 1 , 1 , 0 )
+>122	ArgumentList	1
+>123	Argument	0
+>124	PrimaryExpression	0
+>125	Argument	1
+>126	PrimaryExpression	1
+>127	Argument	1
+>128	PrimaryExpression	1
+>129	Argument	1
+>130	PrimaryExpression	1
+>131	Callee	glColor4f
+>132	Identifier	glColor4f
+>133	Condition	 
+>134	EqualityExpression	n == 0
+>135	PrimaryExpression	0
+>136	Identifier	n
+>137	ExpressionStatement	 
+>138	CallExpression	glVertex2f ( r3 . x , r3 . y )
+>139	ArgumentList	r3 . x
+>140	Argument	r3 . y
+>141	MemberAccess	r3 . y
+>142	Identifier	y
+>143	Identifier	r3
+>144	Argument	r3 . x
+>145	MemberAccess	r3 . x
+>146	Identifier	x
+>147	Identifier	r3
+>148	Callee	glVertex2f
+>149	Identifier	glVertex2f
+>150	ExpressionStatement	 
+>151	CallExpression	glTexCoord2f ( ( 1 + p -> animOffset ) * texScale , 1 )
+>152	ArgumentList	( 1 + p -> animOffset ) * texScale
+>153	Argument	1
+>154	PrimaryExpression	1
+>155	Argument	( 1 + p -> animOffset ) * texScale
+>156	MultiplicativeExpression	( 1 + p -> animOffset ) * texScale
+>157	Identifier	texScale
+>158	AdditiveExpression	1 + p -> animOffset
+>159	PtrMemberAccess	p -> animOffset
+>160	Identifier	animOffset
+>161	Identifier	p
+>162	PrimaryExpression	1
+>163	Callee	glTexCoord2f
+>164	Identifier	glTexCoord2f
+>165	ExpressionStatement	 
+>166	CallExpression	glVertex2f ( r2 . x , r2 . y )
+>167	ArgumentList	r2 . x
+>168	Argument	r2 . y
+>169	MemberAccess	r2 . y
+>170	Identifier	y
+>171	Identifier	r2
+>172	Argument	r2 . x
+>173	MemberAccess	r2 . x
+>174	Identifier	x
+>175	Identifier	r2
+>176	Callee	glVertex2f
+>177	Identifier	glVertex2f
+>178	ExpressionStatement	 
+>179	CallExpression	glTexCoord2f ( ( 1 + p -> animOffset ) * texScale , 0 )
+>180	ArgumentList	( 1 + p -> animOffset ) * texScale
+>181	Argument	0
+>182	PrimaryExpression	0
+>183	Argument	( 1 + p -> animOffset ) * texScale
+>184	MultiplicativeExpression	( 1 + p -> animOffset ) * texScale
+>185	Identifier	texScale
+>186	AdditiveExpression	1 + p -> animOffset
+>187	PtrMemberAccess	p -> animOffset
+>188	Identifier	animOffset
+>189	Identifier	p
+>190	PrimaryExpression	1
+>191	Callee	glTexCoord2f
+>192	Identifier	glTexCoord2f
+>193	IfStatement	if ( n == sz - 1 )
+>194	ElseStatement	else
+>195	ExpressionStatement	 
+>196	CallExpression	glColor4f ( 1 , 1 , 1 , alpha . x )
+>197	ArgumentList	1
+>198	Argument	alpha . x
+>199	MemberAccess	alpha . x
+>200	Identifier	x
+>201	Identifier	alpha
+>202	Argument	1
+>203	PrimaryExpression	1
+>204	Argument	1
+>205	PrimaryExpression	1
+>206	Argument	1
+>207	PrimaryExpression	1
+>208	Callee	glColor4f
+>209	Identifier	glColor4f
+>210	ExpressionStatement	 
+>211	CallExpression	glColor4f ( 1 , 1 , 1 , 0 )
+>212	ArgumentList	1
+>213	Argument	0
+>214	PrimaryExpression	0
+>215	Argument	1
+>216	PrimaryExpression	1
+>217	Argument	1
+>218	PrimaryExpression	1
+>219	Argument	1
+>220	PrimaryExpression	1
+>221	Callee	glColor4f
+>222	Identifier	glColor4f
+>223	Condition	 
+>224	EqualityExpression	n == sz - 1
+>225	AdditiveExpression	sz - 1
+>226	PrimaryExpression	1
+>227	Identifier	sz
+>228	Identifier	n
+>229	ExpressionStatement	 
+>230	CallExpression	glVertex2f ( r1 . x , r1 . y )
+>231	ArgumentList	r1 . x
+>232	Argument	r1 . y
+>233	MemberAccess	r1 . y
+>234	Identifier	y
+>235	Identifier	r1
+>236	Argument	r1 . x
+>237	MemberAccess	r1 . x
+>238	Identifier	x
+>239	Identifier	r1
+>240	Callee	glVertex2f
+>241	Identifier	glVertex2f
+>242	ExpressionStatement	 
+>243	CallExpression	glTexCoord2f ( ( 0 + p -> animOffset ) * texScale , 0 )
+>244	ArgumentList	( 0 + p -> animOffset ) * texScale
+>245	Argument	0
+>246	PrimaryExpression	0
+>247	Argument	( 0 + p -> animOffset ) * texScale
+>248	MultiplicativeExpression	( 0 + p -> animOffset ) * texScale
+>249	Identifier	texScale
+>250	AdditiveExpression	0 + p -> animOffset
+>251	PtrMemberAccess	p -> animOffset
+>252	Identifier	animOffset
+>253	Identifier	p
+>254	PrimaryExpression	0
+>255	Callee	glTexCoord2f
+>256	Identifier	glTexCoord2f
+>257	IfStatement	if ( n == 0 )
+>258	ElseStatement	else
+>259	ExpressionStatement	 
+>260	CallExpression	glColor4f ( 1 , 1 , 1 , alpha . x )
+>261	ArgumentList	1
+>262	Argument	alpha . x
+>263	MemberAccess	alpha . x
+>264	Identifier	x
+>265	Identifier	alpha
+>266	Argument	1
+>267	PrimaryExpression	1
+>268	Argument	1
+>269	PrimaryExpression	1
+>270	Argument	1
+>271	PrimaryExpression	1
+>272	Callee	glColor4f
+>273	Identifier	glColor4f
+>274	ExpressionStatement	 
+>275	CallExpression	glColor4f ( 1 , 1 , 1 , 0 )
+>276	ArgumentList	1
+>277	Argument	0
+>278	PrimaryExpression	0
+>279	Argument	1
+>280	PrimaryExpression	1
+>281	Argument	1
+>282	PrimaryExpression	1
+>283	Argument	1
+>284	PrimaryExpression	1
+>285	Callee	glColor4f
+>286	Identifier	glColor4f
+>287	Condition	 
+>288	EqualityExpression	n == 0
+>289	PrimaryExpression	0
+>290	Identifier	n
+>291	ExpressionStatement	 
+>292	CallExpression	glBegin ( GL_QUADS )
+>293	ArgumentList	GL_QUADS
+>294	Argument	GL_QUADS
+>295	Identifier	GL_QUADS
+>296	Callee	glBegin
+>297	Identifier	glBegin
+>298	Condition	 
+>299	CallExpression	isTouchingLine ( p1 , p2 , dsq -> screenCenter , dsq -> cullRadius )
+>300	ArgumentList	p1
+>301	Argument	dsq -> cullRadius
+>302	PtrMemberAccess	dsq -> cullRadius
+>303	Identifier	cullRadius
+>304	Identifier	dsq
+>305	Argument	dsq -> screenCenter
+>306	PtrMemberAccess	dsq -> screenCenter
+>307	Identifier	screenCenter
+>308	Identifier	dsq
+>309	Argument	p2
+>310	Identifier	p2
+>311	Argument	p1
+>312	Identifier	p1
+>313	Callee	isTouchingLine
+>314	Identifier	isTouchingLine
+>315	IdentifierDeclStatement	 
+>316	IdentifierDecl	texScale = len / 256.0f
+>317	AssignmentExpr	texScale = len / 256.0f
+>318	MultiplicativeExpression	len / 256.0f
+>319	PrimaryExpression	256.0f
+>320	Identifier	len
+>321	Identifier	texScale
+>322	Identifier	texScale
+>323	IdentifierDeclType	float
+>324	IdentifierDeclStatement	 
+>325	IdentifierDecl	len = diff . getLength2D ( )
+>326	AssignmentExpr	len = diff . getLength2D ( )
+>327	CallExpression	diff . getLength2D ( )
+>328	ArgumentList	 
+>329	Callee	diff . getLength2D
+>330	MemberAccess	diff . getLength2D
+>331	Identifier	getLength2D
+>332	Identifier	diff
+>333	Identifier	len
+>334	Identifier	len
+>335	IdentifierDeclType	float
+>336	IdentifierDeclStatement	 
+>337	IdentifierDecl	r4 = p1 + pr
+>338	AssignmentExpr	r4 = p1 + pr
+>339	AdditiveExpression	p1 + pr
+>340	Identifier	pr
+>341	Identifier	p1
+>342	Identifier	r4
+>343	Identifier	r4
+>344	IdentifierDeclType	Vector
+>345	IdentifierDeclStatement	 
+>346	IdentifierDecl	r3 = p2 + pr
+>347	AssignmentExpr	r3 = p2 + pr
+>348	AdditiveExpression	p2 + pr
+>349	Identifier	pr
+>350	Identifier	p2
+>351	Identifier	r3
+>352	Identifier	r3
+>353	IdentifierDeclType	Vector
+>354	IdentifierDeclStatement	 
+>355	IdentifierDecl	r2 = p2 + pl
+>356	AssignmentExpr	r2 = p2 + pl
+>357	AdditiveExpression	p2 + pl
+>358	Identifier	pl
+>359	Identifier	p2
+>360	Identifier	r2
+>361	Identifier	r2
+>362	IdentifierDeclType	Vector
+>363	IdentifierDeclStatement	 
+>364	IdentifierDecl	r1 = p1 + pl
+>365	AssignmentExpr	r1 = p1 + pl
+>366	AdditiveExpression	p1 + pl
+>367	Identifier	pl
+>368	Identifier	p1
+>369	Identifier	r1
+>370	Identifier	r1
+>371	IdentifierDeclType	Vector
+>372	ExpressionStatement	 
+>373	CallExpression	pr . setLength2D ( w2 )
+>374	ArgumentList	w2
+>375	Argument	w2
+>376	Identifier	w2
+>377	Callee	pr . setLength2D
+>378	MemberAccess	pr . setLength2D
+>379	Identifier	setLength2D
+>380	Identifier	pr
+>381	ExpressionStatement	 
+>382	CallExpression	pl . setLength2D ( w2 )
+>383	ArgumentList	w2
+>384	Argument	w2
+>385	Identifier	w2
+>386	Callee	pl . setLength2D
+>387	MemberAccess	pl . setLength2D
+>388	Identifier	setLength2D
+>389	Identifier	pl
+>390	IdentifierDeclStatement	 
+>391	IdentifierDecl	pr = diff . getPerpendicularRight ( )
+>392	AssignmentExpr	pr = diff . getPerpendicularRight ( )
+>393	CallExpression	diff . getPerpendicularRight ( )
+>394	ArgumentList	 
+>395	Callee	diff . getPerpendicularRight
+>396	MemberAccess	diff . getPerpendicularRight
+>397	Identifier	getPerpendicularRight
+>398	Identifier	diff
+>399	Identifier	pr
+>400	Identifier	pr
+>401	IdentifierDeclType	Vector
+>402	IdentifierDeclStatement	 
+>403	IdentifierDecl	pl = diff . getPerpendicularLeft ( )
+>404	AssignmentExpr	pl = diff . getPerpendicularLeft ( )
+>405	CallExpression	diff . getPerpendicularLeft ( )
+>406	ArgumentList	 
+>407	Callee	diff . getPerpendicularLeft
+>408	MemberAccess	diff . getPerpendicularLeft
+>409	Identifier	getPerpendicularLeft
+>410	Identifier	diff
+>411	Identifier	pl
+>412	Identifier	pl
+>413	IdentifierDeclType	Vector
+>414	IdentifierDeclStatement	 
+>415	IdentifierDecl	diff = p2 - p1
+>416	AssignmentExpr	diff = p2 - p1
+>417	AdditiveExpression	p2 - p1
+>418	Identifier	p1
+>419	Identifier	p2
+>420	Identifier	diff
+>421	Identifier	diff
+>422	IdentifierDeclType	Vector
+>423	IdentifierDeclStatement	 
+>424	IdentifierDecl	p2 = n2 -> position
+>425	AssignmentExpr	p2 = n2 -> position
+>426	PtrMemberAccess	n2 -> position
+>427	Identifier	position
+>428	Identifier	n2
+>429	Identifier	p2
+>430	Identifier	p2
+>431	IdentifierDeclType	Vector
+>432	IdentifierDeclStatement	 
+>433	IdentifierDecl	p1 = n1 -> position
+>434	AssignmentExpr	p1 = n1 -> position
+>435	PtrMemberAccess	n1 -> position
+>436	Identifier	position
+>437	Identifier	n1
+>438	Identifier	p1
+>439	Identifier	p1
+>440	IdentifierDeclType	Vector
+>441	IdentifierDeclStatement	 
+>442	IdentifierDecl	* n2 = & p -> nodes [ n + 1 ]
+>443	AssignmentExpr	* n2 = & p -> nodes [ n + 1 ]
+>444	UnaryOp	& p -> nodes [ n + 1 ]
+>445	ArrayIndexing	p -> nodes [ n + 1 ]
+>446	AdditiveExpression	n + 1
+>447	PrimaryExpression	1
+>448	Identifier	n
+>449	PtrMemberAccess	p -> nodes
+>450	Identifier	nodes
+>451	Identifier	p
+>452	UnaryOperator	&
+>453	Identifier	n2
+>454	Identifier	n2
+>455	IdentifierDeclType	PathNode *
+>456	IdentifierDeclStatement	 
+>457	IdentifierDecl	* n1 = & p -> nodes [ n ]
+>458	AssignmentExpr	* n1 = & p -> nodes [ n ]
+>459	UnaryOp	& p -> nodes [ n ]
+>460	ArrayIndexing	p -> nodes [ n ]
+>461	Identifier	n
+>462	PtrMemberAccess	p -> nodes
+>463	Identifier	nodes
+>464	Identifier	p
+>465	UnaryOperator	&
+>466	Identifier	n1
+>467	Identifier	n1
+>468	IdentifierDeclType	PathNode *
+>469	IncDecOp	 
+>470	IncDec	++
+>471	Identifier	n
+>472	Condition	 
+>473	RelationalExpression	n < sz
+>474	Identifier	sz
+>475	Identifier	n
+>476	ForInit	 
+>477	IdentifierDeclStatement	int n = 0 ;
+>478	IdentifierDecl	n = 0
+>479	AssignmentExpr	n = 0
+>480	PrimaryExpression	0
+>481	Identifier	n
+>482	Identifier	n
+>483	IdentifierDeclType	int
+>484	IdentifierDeclStatement	 
+>485	IdentifierDecl	sz = p -> nodes . size ( ) - 1
+>486	AssignmentExpr	sz = p -> nodes . size ( ) - 1
+>487	AdditiveExpression	p -> nodes . size ( ) - 1
+>488	PrimaryExpression	1
+>489	CallExpression	p -> nodes . size ( )
+>490	ArgumentList	 
+>491	Callee	p -> nodes . size
+>492	MemberAccess	p -> nodes . size
+>493	Identifier	size
+>494	PtrMemberAccess	p -> nodes
+>495	Identifier	nodes
+>496	Identifier	p
+>497	Identifier	sz
+>498	Identifier	sz
+>499	IdentifierDeclType	int
+>500	CompoundStatement	 
+>501	ForStatement	for ( int n = 0 ; n < sz ; n ++ )
+>502	CompoundStatement	 
+>503	IfStatement	if ( ! diff . isZero ( ) )
+>504	CompoundStatement	 
+>505	IfStatement	if ( isTouchingLine ( p1 , p2 , dsq -> screenCenter , dsq -> cullRadius + p -> rect . getWidth ( ) / 2.0f ) )
+>506	CompoundStatement	 
+>507	ExpressionStatement	 
+>508	CallExpression	glEnd ( )
+>509	ArgumentList	 
+>510	Callee	glEnd
+>511	Identifier	glEnd
+>512	ExpressionStatement	 
+>513	CallExpression	glVertex2f ( r8 . x , r8 . y )
+>514	ArgumentList	r8 . x
+>515	Argument	r8 . y
+>516	MemberAccess	r8 . y
+>517	Identifier	y
+>518	Identifier	r8
+>519	Argument	r8 . x
+>520	MemberAccess	r8 . x
+>521	Identifier	x
+>522	Identifier	r8
+>523	Callee	glVertex2f
+>524	Identifier	glVertex2f
+>525	ExpressionStatement	 
+>526	CallExpression	glTexCoord2f ( ( 1 ) * texScale + p -> animOffset , 1 )
+>527	ArgumentList	( 1 ) * texScale + p -> animOffset
+>528	Argument	1
+>529	PrimaryExpression	1
+>530	Argument	( 1 ) * texScale + p -> animOffset
+>531	AdditiveExpression	( 1 ) * texScale + p -> animOffset
+>532	PtrMemberAccess	p -> animOffset
+>533	Identifier	animOffset
+>534	Identifier	p
+>535	MultiplicativeExpression	( 1 ) * texScale
+>536	Identifier	texScale
+>537	PrimaryExpression	1
+>538	Callee	glTexCoord2f
+>539	Identifier	glTexCoord2f
+>540	ExpressionStatement	 
+>541	CallExpression	glVertex2f ( r7 . x , r7 . y )
+>542	ArgumentList	r7 . x
+>543	Argument	r7 . y
+>544	MemberAccess	r7 . y
+>545	Identifier	y
+>546	Identifier	r7
+>547	Argument	r7 . x
+>548	MemberAccess	r7 . x
+>549	Identifier	x
+>550	Identifier	r7
+>551	Callee	glVertex2f
+>552	Identifier	glVertex2f
+>553	ExpressionStatement	 
+>554	CallExpression	glTexCoord2f ( ( 1 ) * texScale + p -> animOffset , 0 )
+>555	ArgumentList	( 1 ) * texScale + p -> animOffset
+>556	Argument	0
+>557	PrimaryExpression	0
+>558	Argument	( 1 ) * texScale + p -> animOffset
+>559	AdditiveExpression	( 1 ) * texScale + p -> animOffset
+>560	PtrMemberAccess	p -> animOffset
+>561	Identifier	animOffset
+>562	Identifier	p
+>563	MultiplicativeExpression	( 1 ) * texScale
+>564	Identifier	texScale
+>565	PrimaryExpression	1
+>566	Callee	glTexCoord2f
+>567	Identifier	glTexCoord2f
+>568	ExpressionStatement	 
+>569	CallExpression	glColor4f ( 1 , 1 , 1 , 0 )
+>570	ArgumentList	1
+>571	Argument	0
+>572	PrimaryExpression	0
+>573	Argument	1
+>574	PrimaryExpression	1
+>575	Argument	1
+>576	PrimaryExpression	1
+>577	Argument	1
+>578	PrimaryExpression	1
+>579	Callee	glColor4f
+>580	Identifier	glColor4f
+>581	ExpressionStatement	 
+>582	CallExpression	glVertex2f ( r6 . x , r6 . y )
+>583	ArgumentList	r6 . x
+>584	Argument	r6 . y
+>585	MemberAccess	r6 . y
+>586	Identifier	y
+>587	Identifier	r6
+>588	Argument	r6 . x
+>589	MemberAccess	r6 . x
+>590	Identifier	x
+>591	Identifier	r6
+>592	Callee	glVertex2f
+>593	Identifier	glVertex2f
+>594	ExpressionStatement	 
+>595	CallExpression	glTexCoord2f ( ( 1 - 0.25f ) * texScale + p -> animOffset , 1 )
+>596	ArgumentList	( 1 - 0.25f ) * texScale + p -> animOffset
+>597	Argument	1
+>598	PrimaryExpression	1
+>599	Argument	( 1 - 0.25f ) * texScale + p -> animOffset
+>600	AdditiveExpression	( 1 - 0.25f ) * texScale + p -> animOffset
+>601	PtrMemberAccess	p -> animOffset
+>602	Identifier	animOffset
+>603	Identifier	p
+>604	MultiplicativeExpression	( 1 - 0.25f ) * texScale
+>605	Identifier	texScale
+>606	AdditiveExpression	1 - 0.25f
+>607	PrimaryExpression	0.25f
+>608	PrimaryExpression	1
+>609	Callee	glTexCoord2f
+>610	Identifier	glTexCoord2f
+>611	ExpressionStatement	 
+>612	CallExpression	glVertex2f ( r5 . x , r5 . y )
+>613	ArgumentList	r5 . x
+>614	Argument	r5 . y
+>615	MemberAccess	r5 . y
+>616	Identifier	y
+>617	Identifier	r5
+>618	Argument	r5 . x
+>619	MemberAccess	r5 . x
+>620	Identifier	x
+>621	Identifier	r5
+>622	Callee	glVertex2f
+>623	Identifier	glVertex2f
+>624	ExpressionStatement	 
+>625	CallExpression	glTexCoord2f ( ( 1 - 0.25f ) * texScale + p -> animOffset , 0 )
+>626	ArgumentList	( 1 - 0.25f ) * texScale + p -> animOffset
+>627	Argument	0
+>628	PrimaryExpression	0
+>629	Argument	( 1 - 0.25f ) * texScale + p -> animOffset
+>630	AdditiveExpression	( 1 - 0.25f ) * texScale + p -> animOffset
+>631	PtrMemberAccess	p -> animOffset
+>632	Identifier	animOffset
+>633	Identifier	p
+>634	MultiplicativeExpression	( 1 - 0.25f ) * texScale
+>635	Identifier	texScale
+>636	AdditiveExpression	1 - 0.25f
+>637	PrimaryExpression	0.25f
+>638	PrimaryExpression	1
+>639	Callee	glTexCoord2f
+>640	Identifier	glTexCoord2f
+>641	ExpressionStatement	 
+>642	CallExpression	glColor4f ( 1 , 1 , 1 , p -> amount )
+>643	ArgumentList	1
+>644	Argument	p -> amount
+>645	PtrMemberAccess	p -> amount
+>646	Identifier	amount
+>647	Identifier	p
+>648	Argument	1
+>649	PrimaryExpression	1
+>650	Argument	1
+>651	PrimaryExpression	1
+>652	Argument	1
+>653	PrimaryExpression	1
+>654	Callee	glColor4f
+>655	Identifier	glColor4f
+>656	ExpressionStatement	 
+>657	CallExpression	glVertex2f ( r4 . x , r4 . y )
+>658	ArgumentList	r4 . x
+>659	Argument	r4 . y
+>660	MemberAccess	r4 . y
+>661	Identifier	y
+>662	Identifier	r4
+>663	Argument	r4 . x
+>664	MemberAccess	r4 . x
+>665	Identifier	x
+>666	Identifier	r4
+>667	Callee	glVertex2f
+>668	Identifier	glVertex2f
+>669	ExpressionStatement	 
+>670	CallExpression	glTexCoord2f ( ( 0 + 0.25f ) * texScale + p -> animOffset , 1 )
+>671	ArgumentList	( 0 + 0.25f ) * texScale + p -> animOffset
+>672	Argument	1
+>673	PrimaryExpression	1
+>674	Argument	( 0 + 0.25f ) * texScale + p -> animOffset
+>675	AdditiveExpression	( 0 + 0.25f ) * texScale + p -> animOffset
+>676	PtrMemberAccess	p -> animOffset
+>677	Identifier	animOffset
+>678	Identifier	p
+>679	MultiplicativeExpression	( 0 + 0.25f ) * texScale
+>680	Identifier	texScale
+>681	AdditiveExpression	0 + 0.25f
+>682	PrimaryExpression	0.25f
+>683	PrimaryExpression	0
+>684	Callee	glTexCoord2f
+>685	Identifier	glTexCoord2f
+>686	ExpressionStatement	 
+>687	CallExpression	glVertex2f ( r3 . x , r3 . y )
+>688	ArgumentList	r3 . x
+>689	Argument	r3 . y
+>690	MemberAccess	r3 . y
+>691	Identifier	y
+>692	Identifier	r3
+>693	Argument	r3 . x
+>694	MemberAccess	r3 . x
+>695	Identifier	x
+>696	Identifier	r3
+>697	Callee	glVertex2f
+>698	Identifier	glVertex2f
+>699	ExpressionStatement	 
+>700	CallExpression	glTexCoord2f ( ( 0 + 0.25f ) * texScale + p -> animOffset , 0 )
+>701	ArgumentList	( 0 + 0.25f ) * texScale + p -> animOffset
+>702	Argument	0
+>703	PrimaryExpression	0
+>704	Argument	( 0 + 0.25f ) * texScale + p -> animOffset
+>705	AdditiveExpression	( 0 + 0.25f ) * texScale + p -> animOffset
+>706	PtrMemberAccess	p -> animOffset
+>707	Identifier	animOffset
+>708	Identifier	p
+>709	MultiplicativeExpression	( 0 + 0.25f ) * texScale
+>710	Identifier	texScale
+>711	AdditiveExpression	0 + 0.25f
+>712	PrimaryExpression	0.25f
+>713	PrimaryExpression	0
+>714	Callee	glTexCoord2f
+>715	Identifier	glTexCoord2f
+>716	ExpressionStatement	 
+>717	CallExpression	glColor4f ( 1 , 1 , 1 , p -> amount )
+>718	ArgumentList	1
+>719	Argument	p -> amount
+>720	PtrMemberAccess	p -> amount
+>721	Identifier	amount
+>722	Identifier	p
+>723	Argument	1
+>724	PrimaryExpression	1
+>725	Argument	1
+>726	PrimaryExpression	1
+>727	Argument	1
+>728	PrimaryExpression	1
+>729	Callee	glColor4f
+>730	Identifier	glColor4f
+>731	ExpressionStatement	 
+>732	CallExpression	glVertex2f ( r2 . x , r2 . y )
+>733	ArgumentList	r2 . x
+>734	Argument	r2 . y
+>735	MemberAccess	r2 . y
+>736	Identifier	y
+>737	Identifier	r2
+>738	Argument	r2 . x
+>739	MemberAccess	r2 . x
+>740	Identifier	x
+>741	Identifier	r2
+>742	Callee	glVertex2f
+>743	Identifier	glVertex2f
+>744	ExpressionStatement	 
+>745	CallExpression	glTexCoord2f ( ( 0 ) * texScale + p -> animOffset , 1 )
+>746	ArgumentList	( 0 ) * texScale + p -> animOffset
+>747	Argument	1
+>748	PrimaryExpression	1
+>749	Argument	( 0 ) * texScale + p -> animOffset
+>750	AdditiveExpression	( 0 ) * texScale + p -> animOffset
+>751	PtrMemberAccess	p -> animOffset
+>752	Identifier	animOffset
+>753	Identifier	p
+>754	MultiplicativeExpression	( 0 ) * texScale
+>755	Identifier	texScale
+>756	PrimaryExpression	0
+>757	Callee	glTexCoord2f
+>758	Identifier	glTexCoord2f
+>759	ExpressionStatement	 
+>760	CallExpression	glVertex2f ( r1 . x , r1 . y )
+>761	ArgumentList	r1 . x
+>762	Argument	r1 . y
+>763	MemberAccess	r1 . y
+>764	Identifier	y
+>765	Identifier	r1
+>766	Argument	r1 . x
+>767	MemberAccess	r1 . x
+>768	Identifier	x
+>769	Identifier	r1
+>770	Callee	glVertex2f
+>771	Identifier	glVertex2f
+>772	ExpressionStatement	 
+>773	CallExpression	glTexCoord2f ( ( 0 ) * texScale + p -> animOffset , 0 )
+>774	ArgumentList	( 0 ) * texScale + p -> animOffset
+>775	Argument	0
+>776	PrimaryExpression	0
+>777	Argument	( 0 ) * texScale + p -> animOffset
+>778	AdditiveExpression	( 0 ) * texScale + p -> animOffset
+>779	PtrMemberAccess	p -> animOffset
+>780	Identifier	animOffset
+>781	Identifier	p
+>782	MultiplicativeExpression	( 0 ) * texScale
+>783	Identifier	texScale
+>784	PrimaryExpression	0
+>785	Callee	glTexCoord2f
+>786	Identifier	glTexCoord2f
+>787	ExpressionStatement	 
+>788	CallExpression	glColor4f ( 1 , 1 , 1 , 0 )
+>789	ArgumentList	1
+>790	Argument	0
+>791	PrimaryExpression	0
+>792	Argument	1
+>793	PrimaryExpression	1
+>794	Argument	1
+>795	PrimaryExpression	1
+>796	Argument	1
+>797	PrimaryExpression	1
+>798	Callee	glColor4f
+>799	Identifier	glColor4f
+>800	ExpressionStatement	 
+>801	CallExpression	glBegin ( GL_QUAD_STRIP )
+>802	ArgumentList	GL_QUAD_STRIP
+>803	Argument	GL_QUAD_STRIP
+>804	Identifier	GL_QUAD_STRIP
+>805	Callee	glBegin
+>806	Identifier	glBegin
+>807	Condition	 
+>808	CallExpression	isTouchingLine ( p1 , p2 , dsq -> screenCenter , dsq -> cullRadius + p -> rect . getWidth ( ) / 2.0f )
+>809	ArgumentList	p1
+>810	Argument	dsq -> cullRadius + p -> rect . getWidth ( ) / 2.0f
+>811	AdditiveExpression	dsq -> cullRadius + p -> rect . getWidth ( ) / 2.0f
+>812	MultiplicativeExpression	p -> rect . getWidth ( ) / 2.0f
+>813	PrimaryExpression	2.0f
+>814	CallExpression	p -> rect . getWidth ( )
+>815	ArgumentList	 
+>816	Callee	p -> rect . getWidth
+>817	MemberAccess	p -> rect . getWidth
+>818	Identifier	getWidth
+>819	PtrMemberAccess	p -> rect
+>820	Identifier	rect
+>821	Identifier	p
+>822	PtrMemberAccess	dsq -> cullRadius
+>823	Identifier	cullRadius
+>824	Identifier	dsq
+>825	Argument	dsq -> screenCenter
+>826	PtrMemberAccess	dsq -> screenCenter
+>827	Identifier	screenCenter
+>828	Identifier	dsq
+>829	Argument	p2
+>830	Identifier	p2
+>831	Argument	p1
+>832	Identifier	p1
+>833	Callee	isTouchingLine
+>834	Identifier	isTouchingLine
+>835	IdentifierDeclStatement	 
+>836	IdentifierDecl	texScale = len / 256.0f
+>837	AssignmentExpr	texScale = len / 256.0f
+>838	MultiplicativeExpression	len / 256.0f
+>839	PrimaryExpression	256.0f
+>840	Identifier	len
+>841	Identifier	texScale
+>842	Identifier	texScale
+>843	IdentifierDeclType	float
+>844	IdentifierDeclStatement	 
+>845	IdentifierDecl	len = diff . getLength2D ( )
+>846	AssignmentExpr	len = diff . getLength2D ( )
+>847	CallExpression	diff . getLength2D ( )
+>848	ArgumentList	 
+>849	Callee	diff . getLength2D
+>850	MemberAccess	diff . getLength2D
+>851	Identifier	getLength2D
+>852	Identifier	diff
+>853	Identifier	len
+>854	Identifier	len
+>855	IdentifierDeclType	float
+>856	IdentifierDeclStatement	 
+>857	IdentifierDecl	r8 = p2 + pr
+>858	AssignmentExpr	r8 = p2 + pr
+>859	AdditiveExpression	p2 + pr
+>860	Identifier	pr
+>861	Identifier	p2
+>862	Identifier	r8
+>863	Identifier	r8
+>864	IdentifierDeclType	Vector
+>865	IdentifierDeclStatement	 
+>866	IdentifierDecl	r7 = p2 + pl
+>867	AssignmentExpr	r7 = p2 + pl
+>868	AdditiveExpression	p2 + pl
+>869	Identifier	pl
+>870	Identifier	p2
+>871	Identifier	r7
+>872	Identifier	r7
+>873	IdentifierDeclType	Vector
+>874	IdentifierDeclStatement	 
+>875	IdentifierDecl	r6 = p25 + pr
+>876	AssignmentExpr	r6 = p25 + pr
+>877	AdditiveExpression	p25 + pr
+>878	Identifier	pr
+>879	Identifier	p25
+>880	Identifier	r6
+>881	Identifier	r6
+>882	IdentifierDeclType	Vector
+>883	IdentifierDeclStatement	 
+>884	IdentifierDecl	r5 = p25 + pl
+>885	AssignmentExpr	r5 = p25 + pl
+>886	AdditiveExpression	p25 + pl
+>887	Identifier	pl
+>888	Identifier	p25
+>889	Identifier	r5
+>890	Identifier	r5
+>891	IdentifierDeclType	Vector
+>892	IdentifierDeclStatement	 
+>893	IdentifierDecl	r4 = p15 + pr
+>894	AssignmentExpr	r4 = p15 + pr
+>895	AdditiveExpression	p15 + pr
+>896	Identifier	pr
+>897	Identifier	p15
+>898	Identifier	r4
+>899	Identifier	r4
+>900	IdentifierDeclType	Vector
+>901	IdentifierDeclStatement	 
+>902	IdentifierDecl	r3 = p15 + pl
+>903	AssignmentExpr	r3 = p15 + pl
+>904	AdditiveExpression	p15 + pl
+>905	Identifier	pl
+>906	Identifier	p15
+>907	Identifier	r3
+>908	Identifier	r3
+>909	IdentifierDeclType	Vector
+>910	IdentifierDeclStatement	 
+>911	IdentifierDecl	r2 = p1 + pr
+>912	AssignmentExpr	r2 = p1 + pr
+>913	AdditiveExpression	p1 + pr
+>914	Identifier	pr
+>915	Identifier	p1
+>916	Identifier	r2
+>917	Identifier	r2
+>918	IdentifierDeclType	Vector
+>919	IdentifierDeclStatement	 
+>920	IdentifierDecl	r1 = p1 + pl
+>921	AssignmentExpr	r1 = p1 + pl
+>922	AdditiveExpression	p1 + pl
+>923	Identifier	pl
+>924	Identifier	p1
+>925	Identifier	r1
+>926	Identifier	r1
+>927	IdentifierDeclType	Vector
+>928	IdentifierDeclStatement	 
+>929	IdentifierDecl	p25 = p2 - diff * 0.25f
+>930	AssignmentExpr	p25 = p2 - diff * 0.25f
+>931	AdditiveExpression	p2 - diff * 0.25f
+>932	MultiplicativeExpression	diff * 0.25f
+>933	PrimaryExpression	0.25f
+>934	Identifier	diff
+>935	Identifier	p2
+>936	Identifier	p25
+>937	Identifier	p25
+>938	IdentifierDeclType	Vector
+>939	IdentifierDeclStatement	 
+>940	IdentifierDecl	p15 = p1 + diff * 0.25f
+>941	AssignmentExpr	p15 = p1 + diff * 0.25f
+>942	AdditiveExpression	p1 + diff * 0.25f
+>943	MultiplicativeExpression	diff * 0.25f
+>944	PrimaryExpression	0.25f
+>945	Identifier	diff
+>946	Identifier	p1
+>947	Identifier	p15
+>948	Identifier	p15
+>949	IdentifierDeclType	Vector
+>950	ExpressionStatement	 
+>951	CallExpression	pr . setLength2D ( w2 )
+>952	ArgumentList	w2
+>953	Argument	w2
+>954	Identifier	w2
+>955	Callee	pr . setLength2D
+>956	MemberAccess	pr . setLength2D
+>957	Identifier	setLength2D
+>958	Identifier	pr
+>959	ExpressionStatement	 
+>960	CallExpression	pl . setLength2D ( w2 )
+>961	ArgumentList	w2
+>962	Argument	w2
+>963	Identifier	w2
+>964	Callee	pl . setLength2D
+>965	MemberAccess	pl . setLength2D
+>966	Identifier	setLength2D
+>967	Identifier	pl
+>968	IdentifierDeclStatement	 
+>969	IdentifierDecl	pr = diff . getPerpendicularRight ( )
+>970	AssignmentExpr	pr = diff . getPerpendicularRight ( )
+>971	CallExpression	diff . getPerpendicularRight ( )
+>972	ArgumentList	 
+>973	Callee	diff . getPerpendicularRight
+>974	MemberAccess	diff . getPerpendicularRight
+>975	Identifier	getPerpendicularRight
+>976	Identifier	diff
+>977	Identifier	pr
+>978	Identifier	pr
+>979	IdentifierDeclType	Vector
+>980	IdentifierDeclStatement	 
+>981	IdentifierDecl	pl = diff . getPerpendicularLeft ( )
+>982	AssignmentExpr	pl = diff . getPerpendicularLeft ( )
+>983	CallExpression	diff . getPerpendicularLeft ( )
+>984	ArgumentList	 
+>985	Callee	diff . getPerpendicularLeft
+>986	MemberAccess	diff . getPerpendicularLeft
+>987	Identifier	getPerpendicularLeft
+>988	Identifier	diff
+>989	Identifier	pl
+>990	Identifier	pl
+>991	IdentifierDeclType	Vector
+>992	Condition	 
+>993	UnaryOp	! diff . isZero ( )
+>994	CallExpression	diff . isZero ( )
+>995	ArgumentList	 
+>996	Callee	diff . isZero
+>997	MemberAccess	diff . isZero
+>998	Identifier	isZero
+>999	Identifier	diff
+>1000	UnaryOperator	!
+>1001	ExpressionStatement	 
+>1002	AssignmentExpr	diff = p2 - p1
+>1003	AdditiveExpression	p2 - p1
+>1004	Identifier	p1
+>1005	Identifier	p2
+>1006	Identifier	diff
+>1007	ExpressionStatement	 
+>1008	AssignmentExpr	p2 += d * 0.75f
+>1009	MultiplicativeExpression	d * 0.75f
+>1010	PrimaryExpression	0.75f
+>1011	Identifier	d
+>1012	Identifier	p2
+>1013	ExpressionStatement	 
+>1014	AssignmentExpr	p1 -= d * 0.75f
+>1015	MultiplicativeExpression	d * 0.75f
+>1016	PrimaryExpression	0.75f
+>1017	Identifier	d
+>1018	Identifier	p1
+>1019	ExpressionStatement	 
+>1020	CallExpression	d . setLength2D ( p -> rect . getWidth ( ) )
+>1021	ArgumentList	p -> rect . getWidth ( )
+>1022	Argument	p -> rect . getWidth ( )
+>1023	CallExpression	p -> rect . getWidth ( )
+>1024	ArgumentList	 
+>1025	Callee	p -> rect . getWidth
+>1026	MemberAccess	p -> rect . getWidth
+>1027	Identifier	getWidth
+>1028	PtrMemberAccess	p -> rect
+>1029	Identifier	rect
+>1030	Identifier	p
+>1031	Callee	d . setLength2D
+>1032	MemberAccess	d . setLength2D
+>1033	Identifier	setLength2D
+>1034	Identifier	d
+>1035	IdentifierDeclStatement	 
+>1036	IdentifierDecl	d = diff
+>1037	AssignmentExpr	d = diff
+>1038	Identifier	diff
+>1039	Identifier	diff
+>1040	Identifier	d
+>1041	IdentifierDeclType	Vector
+>1042	IdentifierDeclStatement	 
+>1043	IdentifierDecl	diff = p2 - p1
+>1044	AssignmentExpr	diff = p2 - p1
+>1045	AdditiveExpression	p2 - p1
+>1046	Identifier	p1
+>1047	Identifier	p2
+>1048	Identifier	diff
+>1049	Identifier	diff
+>1050	IdentifierDeclType	Vector
+>1051	IdentifierDeclStatement	 
+>1052	IdentifierDecl	p2 = n2 -> position
+>1053	AssignmentExpr	p2 = n2 -> position
+>1054	PtrMemberAccess	n2 -> position
+>1055	Identifier	position
+>1056	Identifier	n2
+>1057	Identifier	p2
+>1058	Identifier	p2
+>1059	IdentifierDeclType	Vector
+>1060	IdentifierDeclStatement	 
+>1061	IdentifierDecl	p1 = n1 -> position
+>1062	AssignmentExpr	p1 = n1 -> position
+>1063	PtrMemberAccess	n1 -> position
+>1064	Identifier	position
+>1065	Identifier	n1
+>1066	Identifier	p1
+>1067	Identifier	p1
+>1068	IdentifierDeclType	Vector
+>1069	IdentifierDeclStatement	 
+>1070	IdentifierDecl	* n2 = & p -> nodes [ n + 1 ]
+>1071	AssignmentExpr	* n2 = & p -> nodes [ n + 1 ]
+>1072	UnaryOp	& p -> nodes [ n + 1 ]
+>1073	ArrayIndexing	p -> nodes [ n + 1 ]
+>1074	AdditiveExpression	n + 1
+>1075	PrimaryExpression	1
+>1076	Identifier	n
+>1077	PtrMemberAccess	p -> nodes
+>1078	Identifier	nodes
+>1079	Identifier	p
+>1080	UnaryOperator	&
+>1081	Identifier	n2
+>1082	Identifier	n2
+>1083	IdentifierDeclType	PathNode *
+>1084	IdentifierDeclStatement	 
+>1085	IdentifierDecl	* n1 = & p -> nodes [ n ]
+>1086	AssignmentExpr	* n1 = & p -> nodes [ n ]
+>1087	UnaryOp	& p -> nodes [ n ]
+>1088	ArrayIndexing	p -> nodes [ n ]
+>1089	Identifier	n
+>1090	PtrMemberAccess	p -> nodes
+>1091	Identifier	nodes
+>1092	Identifier	p
+>1093	UnaryOperator	&
+>1094	Identifier	n1
+>1095	Identifier	n1
+>1096	IdentifierDeclType	PathNode *
+>1097	IncDecOp	 
+>1098	IncDec	++
+>1099	Identifier	n
+>1100	Condition	 
+>1101	RelationalExpression	n < sz
+>1102	Identifier	sz
+>1103	Identifier	n
+>1104	ForInit	 
+>1105	IdentifierDeclStatement	int n = 0 ;
+>1106	IdentifierDecl	n = 0
+>1107	AssignmentExpr	n = 0
+>1108	PrimaryExpression	0
+>1109	Identifier	n
+>1110	Identifier	n
+>1111	IdentifierDeclType	int
+>1112	IdentifierDeclStatement	 
+>1113	IdentifierDecl	sz = p -> nodes . size ( ) - 1
+>1114	AssignmentExpr	sz = p -> nodes . size ( ) - 1
+>1115	AdditiveExpression	p -> nodes . size ( ) - 1
+>1116	PrimaryExpression	1
+>1117	CallExpression	p -> nodes . size ( )
+>1118	ArgumentList	 
+>1119	Callee	p -> nodes . size
+>1120	MemberAccess	p -> nodes . size
+>1121	Identifier	size
+>1122	PtrMemberAccess	p -> nodes
+>1123	Identifier	nodes
+>1124	Identifier	p
+>1125	Identifier	sz
+>1126	Identifier	sz
+>1127	IdentifierDeclType	int
+>1128	Condition	 
+>1129	Identifier	true
+>1130	IdentifierDeclStatement	 
+>1131	IdentifierDecl	w2 = p -> rect . getWidth ( ) / 2
+>1132	AssignmentExpr	w2 = p -> rect . getWidth ( ) / 2
+>1133	MultiplicativeExpression	p -> rect . getWidth ( ) / 2
+>1134	PrimaryExpression	2
+>1135	CallExpression	p -> rect . getWidth ( )
+>1136	ArgumentList	 
+>1137	Callee	p -> rect . getWidth
+>1138	MemberAccess	p -> rect . getWidth
+>1139	Identifier	getWidth
+>1140	PtrMemberAccess	p -> rect
+>1141	Identifier	rect
+>1142	Identifier	p
+>1143	Identifier	w2
+>1144	Identifier	w2
+>1145	IdentifierDeclType	int
+>1146	Condition	 
+>1147	PtrMemberAccess	p -> active
+>1148	Identifier	active
+>1149	Identifier	p
+>1150	AssignmentExpr	 
+>1151	PtrMemberAccess	p -> nextOfType
+>1152	Identifier	nextOfType
+>1153	Identifier	p
+>1154	Identifier	p
+>1155	Condition	 
+>1156	Identifier	p
+>1157	ForInit	 
+>1158	IdentifierDeclStatement	Path * p = dsq -> game -> getFirstPathOfType ( PATH_CURRENT ) ;
+>1159	IdentifierDecl	* p = dsq -> game -> getFirstPathOfType ( PATH_CURRENT )
+>1160	AssignmentExpr	* p = dsq -> game -> getFirstPathOfType ( PATH_CURRENT )
+>1161	CallExpression	dsq -> game -> getFirstPathOfType ( PATH_CURRENT )
+>1162	ArgumentList	PATH_CURRENT
+>1163	Argument	PATH_CURRENT
+>1164	Identifier	PATH_CURRENT
+>1165	Callee	dsq -> game -> getFirstPathOfType
+>1166	PtrMemberAccess	dsq -> game -> getFirstPathOfType
+>1167	Identifier	getFirstPathOfType
+>1168	PtrMemberAccess	dsq -> game
+>1169	Identifier	game
+>1170	Identifier	dsq
+>1171	Identifier	p
+>1172	Identifier	p
+>1173	IdentifierDeclType	Path *
+<3=5,4
+<5=23,16,10,6
+<6=7
+<7=9,8
+<10=11
+<11=13,12
+<13=15,14
+<16=17
+<17=21,18
+<18=19
+<19=20
+<21=22
+<23=24
+<24=26,25
+<37=43,42,38
+<38=39
+<39=41,40
+<43=44
+<44=45
+<45=49,46
+<46=47
+<47=48
+<49=50
+<55=58,57,56
+<58=59
+<59=1157,1155,1150,60
+<60=61
+<61=1146,62
+<62=1130,63
+<63=1128,500,64
+<64=65
+<65=484,66
+<66=476,472,469,67
+<67=456,441,432,423,414,402,390,381,372,363,354,345,336,324,315,68
+<68=298,69
+<69=291,257,242,229,193,178,165,150,137,103,88,75,70
+<70=71
+<71=73,72
+<73=74
+<75=76
+<76=86,77
+<77=82,78
+<78=79
+<79=81,80
+<82=83
+<83=85,84
+<86=87
+<88=89
+<89=101,90
+<90=93,91
+<91=92
+<93=94
+<94=96,95
+<96=100,97
+<97=99,98
+<101=102
+<103=133,120,104
+<104=105
+<105=106
+<106=118,107
+<107=116,114,112,108
+<108=109
+<109=111,110
+<112=113
+<114=115
+<116=117
+<118=119
+<120=121
+<121=131,122
+<122=129,127,125,123
+<123=124
+<125=126
+<127=128
+<129=130
+<131=132
+<133=134
+<134=136,135
+<137=138
+<138=148,139
+<139=144,140
+<140=141
+<141=143,142
+<144=145
+<145=147,146
+<148=149
+<150=151
+<151=163,152
+<152=155,153
+<153=154
+<155=156
+<156=158,157
+<158=162,159
+<159=161,160
+<163=164
+<165=166
+<166=176,167
+<167=172,168
+<168=169
+<169=171,170
+<172=173
+<173=175,174
+<176=177
+<178=179
+<179=191,180
+<180=183,181
+<181=182
+<183=184
+<184=186,185
+<186=190,187
+<187=189,188
+<191=192
+<193=223,210,194
+<194=195
+<195=196
+<196=208,197
+<197=206,204,202,198
+<198=199
+<199=201,200
+<202=203
+<204=205
+<206=207
+<208=209
+<210=211
+<211=221,212
+<212=219,217,215,213
+<213=214
+<215=216
+<217=218
+<219=220
+<221=222
+<223=224
+<224=228,225
+<225=227,226
+<229=230
+<230=240,231
+<231=236,232
+<232=233
+<233=235,234
+<236=237
+<237=239,238
+<240=241
+<242=243
+<243=255,244
+<244=247,245
+<245=246
+<247=248
+<248=250,249
+<250=254,251
+<251=253,252
+<255=256
+<257=287,274,258
+<258=259
+<259=260
+<260=272,261
+<261=270,268,266,262
+<262=263
+<263=265,264
+<266=267
+<268=269
+<270=271
+<272=273
+<274=275
+<275=285,276
+<276=283,281,279,277
+<277=278
+<279=280
+<281=282
+<283=284
+<285=286
+<287=288
+<288=290,289
+<291=292
+<292=296,293
+<293=294
+<294=295
+<296=297
+<298=299
+<299=313,300
+<300=311,309,305,301
+<301=302
+<302=304,303
+<305=306
+<306=308,307
+<309=310
+<311=312
+<313=314
+<315=316
+<316=323,322,317
+<317=321,318
+<318=320,319
+<324=325
+<325=335,334,326
+<326=333,327
+<327=329,328
+<329=330
+<330=332,331
+<336=337
+<337=344,343,338
+<338=342,339
+<339=341,340
+<345=346
+<346=353,352,347
+<347=351,348
+<348=350,349
+<354=355
+<355=362,361,356
+<356=360,357
+<357=359,358
+<363=364
+<364=371,370,365
+<365=369,366
+<366=368,367
+<372=373
+<373=377,374
+<374=375
+<375=376
+<377=378
+<378=380,379
+<381=382
+<382=386,383
+<383=384
+<384=385
+<386=387
+<387=389,388
+<390=391
+<391=401,400,392
+<392=399,393
+<393=395,394
+<395=396
+<396=398,397
+<402=403
+<403=413,412,404
+<404=411,405
+<405=407,406
+<407=408
+<408=410,409
+<414=415
+<415=422,421,416
+<416=420,417
+<417=419,418
+<423=424
+<424=431,430,425
+<425=429,426
+<426=428,427
+<432=433
+<433=440,439,434
+<434=438,435
+<435=437,436
+<441=442
+<442=455,454,443
+<443=453,444
+<444=452,445
+<445=449,446
+<446=448,447
+<449=451,450
+<456=457
+<457=468,467,458
+<458=466,459
+<459=465,460
+<460=462,461
+<462=464,463
+<469=471,470
+<472=473
+<473=475,474
+<476=477
+<477=478
+<478=483,482,479
+<479=481,480
+<484=485
+<485=499,498,486
+<486=497,487
+<487=489,488
+<489=491,490
+<491=492
+<492=494,493
+<494=496,495
+<500=1112,501
+<501=1104,1100,1097,502
+<502=1084,1069,1060,1051,1042,1035,1019,1013,1007,1001,503
+<503=992,504
+<504=980,968,959,950,939,928,919,910,901,892,883,874,865,856,844,835,505
+<505=807,506
+<506=800,787,772,759,744,731,716,699,686,669,656,641,624,611,594,581,568,553,540,525,512,507
+<507=508
+<508=510,509
+<510=511
+<512=513
+<513=523,514
+<514=519,515
+<515=516
+<516=518,517
+<519=520
+<520=522,521
+<523=524
+<525=526
+<526=538,527
+<527=530,528
+<528=529
+<530=531
+<531=535,532
+<532=534,533
+<535=537,536
+<538=539
+<540=541
+<541=551,542
+<542=547,543
+<543=544
+<544=546,545
+<547=548
+<548=550,549
+<551=552
+<553=554
+<554=566,555
+<555=558,556
+<556=557
+<558=559
+<559=563,560
+<560=562,561
+<563=565,564
+<566=567
+<568=569
+<569=579,570
+<570=577,575,573,571
+<571=572
+<573=574
+<575=576
+<577=578
+<579=580
+<581=582
+<582=592,583
+<583=588,584
+<584=585
+<585=587,586
+<588=589
+<589=591,590
+<592=593
+<594=595
+<595=609,596
+<596=599,597
+<597=598
+<599=600
+<600=604,601
+<601=603,602
+<604=606,605
+<606=608,607
+<609=610
+<611=612
+<612=622,613
+<613=618,614
+<614=615
+<615=617,616
+<618=619
+<619=621,620
+<622=623
+<624=625
+<625=639,626
+<626=629,627
+<627=628
+<629=630
+<630=634,631
+<631=633,632
+<634=636,635
+<636=638,637
+<639=640
+<641=642
+<642=654,643
+<643=652,650,648,644
+<644=645
+<645=647,646
+<648=649
+<650=651
+<652=653
+<654=655
+<656=657
+<657=667,658
+<658=663,659
+<659=660
+<660=662,661
+<663=664
+<664=666,665
+<667=668
+<669=670
+<670=684,671
+<671=674,672
+<672=673
+<674=675
+<675=679,676
+<676=678,677
+<679=681,680
+<681=683,682
+<684=685
+<686=687
+<687=697,688
+<688=693,689
+<689=690
+<690=692,691
+<693=694
+<694=696,695
+<697=698
+<699=700
+<700=714,701
+<701=704,702
+<702=703
+<704=705
+<705=709,706
+<706=708,707
+<709=711,710
+<711=713,712
+<714=715
+<716=717
+<717=729,718
+<718=727,725,723,719
+<719=720
+<720=722,721
+<723=724
+<725=726
+<727=728
+<729=730
+<731=732
+<732=742,733
+<733=738,734
+<734=735
+<735=737,736
+<738=739
+<739=741,740
+<742=743
+<744=745
+<745=757,746
+<746=749,747
+<747=748
+<749=750
+<750=754,751
+<751=753,752
+<754=756,755
+<757=758
+<759=760
+<760=770,761
+<761=766,762
+<762=763
+<763=765,764
+<766=767
+<767=769,768
+<770=771
+<772=773
+<773=785,774
+<774=777,775
+<775=776
+<777=778
+<778=782,779
+<779=781,780
+<782=784,783
+<785=786
+<787=788
+<788=798,789
+<789=796,794,792,790
+<790=791
+<792=793
+<794=795
+<796=797
+<798=799
+<800=801
+<801=805,802
+<802=803
+<803=804
+<805=806
+<807=808
+<808=833,809
+<809=831,829,825,810
+<810=811
+<811=822,812
+<812=814,813
+<814=816,815
+<816=817
+<817=819,818
+<819=821,820
+<822=824,823
+<825=826
+<826=828,827
+<829=830
+<831=832
+<833=834
+<835=836
+<836=843,842,837
+<837=841,838
+<838=840,839
+<844=845
+<845=855,854,846
+<846=853,847
+<847=849,848
+<849=850
+<850=852,851
+<856=857
+<857=864,863,858
+<858=862,859
+<859=861,860
+<865=866
+<866=873,872,867
+<867=871,868
+<868=870,869
+<874=875
+<875=882,881,876
+<876=880,877
+<877=879,878
+<883=884
+<884=891,890,885
+<885=889,886
+<886=888,887
+<892=893
+<893=900,899,894
+<894=898,895
+<895=897,896
+<901=902
+<902=909,908,903
+<903=907,904
+<904=906,905
+<910=911
+<911=918,917,912
+<912=916,913
+<913=915,914
+<919=920
+<920=927,926,921
+<921=925,922
+<922=924,923
+<928=929
+<929=938,937,930
+<930=936,931
+<931=935,932
+<932=934,933
+<939=940
+<940=949,948,941
+<941=947,942
+<942=946,943
+<943=945,944
+<950=951
+<951=955,952
+<952=953
+<953=954
+<955=956
+<956=958,957
+<959=960
+<960=964,961
+<961=962
+<962=963
+<964=965
+<965=967,966
+<968=969
+<969=979,978,970
+<970=977,971
+<971=973,972
+<973=974
+<974=976,975
+<980=981
+<981=991,990,982
+<982=989,983
+<983=985,984
+<985=986
+<986=988,987
+<992=993
+<993=1000,994
+<994=996,995
+<996=997
+<997=999,998
+<1001=1002
+<1002=1006,1003
+<1003=1005,1004
+<1007=1008
+<1008=1012,1009
+<1009=1011,1010
+<1013=1014
+<1014=1018,1015
+<1015=1017,1016
+<1019=1020
+<1020=1031,1021
+<1021=1022
+<1022=1023
+<1023=1025,1024
+<1025=1026
+<1026=1028,1027
+<1028=1030,1029
+<1031=1032
+<1032=1034,1033
+<1035=1036
+<1036=1041,1040,1037
+<1037=1039,1038
+<1042=1043
+<1043=1050,1049,1044
+<1044=1048,1045
+<1045=1047,1046
+<1051=1052
+<1052=1059,1058,1053
+<1053=1057,1054
+<1054=1056,1055
+<1060=1061
+<1061=1068,1067,1062
+<1062=1066,1063
+<1063=1065,1064
+<1069=1070
+<1070=1083,1082,1071
+<1071=1081,1072
+<1072=1080,1073
+<1073=1077,1074
+<1074=1076,1075
+<1077=1079,1078
+<1084=1085
+<1085=1096,1095,1086
+<1086=1094,1087
+<1087=1093,1088
+<1088=1090,1089
+<1090=1092,1091
+<1097=1099,1098
+<1100=1101
+<1101=1103,1102
+<1104=1105
+<1105=1106
+<1106=1111,1110,1107
+<1107=1109,1108
+<1112=1113
+<1113=1127,1126,1114
+<1114=1125,1115
+<1115=1117,1116
+<1117=1119,1118
+<1119=1120
+<1120=1122,1121
+<1122=1124,1123
+<1128=1129
+<1130=1131
+<1131=1145,1144,1132
+<1132=1143,1133
+<1133=1135,1134
+<1135=1137,1136
+<1137=1138
+<1138=1140,1139
+<1140=1142,1141
+<1146=1147
+<1147=1149,1148
+<1150=1154,1151
+<1151=1153,1152
+<1155=1156
+<1157=1158
+<1158=1159
+<1159=1173,1172,1160
+<1160=1171,1161
+<1161=1165,1162
+<1162=1163
+<1163=1164
+<1165=1166
+<1166=1168,1167
+<1168=1170,1169

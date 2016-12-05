@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from ast_tree.traverse import bfs, children, split_trees2
-from utils.dataset_utils import get_basefolder, parse_src_files, unified_ast_trees, make_binary_tree
+from ast_tree.traverse import bfs, children
+from utils.dataset_utils import parse_src_files, unified_ast_trees, make_binary_tree
 import os
 
 def max_depth(ast_tree):
@@ -67,21 +67,15 @@ def plot_dists(name, depths, branches, max_len=1000,base_folder=None):
     else:
         figure.savefig(os.path.join(base_folder, name), dpi=900)
     figure.clear()
-    plt.close()
-
     plt.show()
+    plt.close()
 
 
 if __name__ == "__main__":
-    basefolder = get_basefolder()
-    X, y, tags = parse_src_files(basefolder)
+    X, y, tags,features = parse_src_files(os.path.join("dataset","cpp"))
 
     # X = make_binary_tree(unified_ast_trees(X), 9)
     depths = [max_depth(x) for x in X]
     branches = [max_branch(x) for x in X]
-    plot_dists("Single Tree", depths, branches, max_len=100)
-
-    # X,y,tags = split_trees2(X,y,tags)
-    # depths = np.array([max_depth(x) for x in X])
-    # branches = [max_branch(x) for x in X]
-    # plot_dists("Multiple Trees", depths, branches)
+    plot_dists("Single Tree", depths, branches, max_len=None)
+    plot_dists("Single Tree less than 100", depths, branches, max_len=100)

@@ -181,7 +181,7 @@ class RecursiveResidualLSTM(RecursiveLSTM):
         timestamps = []
         h0 = self.one_step(x, train_mode)  # self.batch(
         for child in children:
-            h0 = self.one_step(child, train_mode)
+            h0 = self.one_step(child, train_mode) + h0
         self.reset_states()
         return h0
 
@@ -191,6 +191,5 @@ class RecursiveResidualLSTM(RecursiveLSTM):
             h_prev = h
             lstm_layer = getattr(self, "lstm" + str(i))
             h = lstm_layer(h) + h_prev
-            if self.dropout > 0.0:
-                h = F.dropout(h, ratio=self.dropout, train=train_mode)
+            h = F.dropout(h, ratio=self.dropout, train=train_mode)
         return h

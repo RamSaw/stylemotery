@@ -31,8 +31,8 @@ def ast_paths(here, path_to_here=()):
         yield path_to_here
 
 class TreeFeatures:
-    def __init__(self):
-        self.astnodes = AstNodes()
+    def __init__(self,nodes):
+        self.astnodes = nodes
         self.keywords = PythonKeywords()
 
     def tf_ngrams_node(self, ast_tree, ngram=2):
@@ -170,13 +170,13 @@ class TreeFeatures:
 
 
 class ASTVectorizer(BaseEstimator):
-    def __init__(self, ngram=2,v_skip=0, normalize=True, idf=False, norm="l2", binary=False, dtype=np.float32):
+    def __init__(self,node_types, ngram=2,v_skip=0, normalize=True, idf=False, norm="l2", binary=False, dtype=np.float32):
         self.ngram = ngram
         self.v_skip = v_skip
         self.idf = idf
         self.normalize = normalize
         self.norm = norm
-        self.tree_features = TreeFeatures()
+        self.tree_features = TreeFeatures(node_types)
         self.dtype = dtype
         self.binary = binary
 

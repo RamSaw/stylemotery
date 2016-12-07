@@ -72,7 +72,7 @@ def plot_dists(name, depths, branches, max_len=1000,base_folder=None):
 
 
 if __name__ == "__main__":
-    X, y, tags,features = parse_src_files(os.path.join("dataset","cpp"))
+    X, y, tags,features = parse_src_files(os.path.join("dataset","cpp"),seperate_trees=True)
 
     # X = make_binary_tree(unified_ast_trees(X), 9)
     depths = [max_depth(x) for x in X]

@@ -34,13 +34,14 @@ def get_dot_files(basefolder):
             users.append(folder)
     return np.array(trees),np.array(users),np.array(problems)
 
-def get_dot_files2(basefolder):
+def get_dot_files2(basefolder,seperate_trees=False):
     trees = []
     users = []
     problems = []
     for file in tqdm(os.listdir(basefolder)):
-        trees.append(parse_tree(os.path.join(basefolder, file)))
-        users.append(file.split('.')[0])
+        program_trees = parse_tree(os.path.join(basefolder, file),seperate_trees)
+        trees.extend(program_trees)
+        users.extend([file.split('.')[0]]*len(program_trees))
     return np.array(trees),np.array(users),np.array(problems)
 
 def parse_src_files(basefolder, seperate_trees=False):
@@ -48,7 +49,7 @@ def parse_src_files(basefolder, seperate_trees=False):
         X_names, y, problems = get_ast_src_files(basefolder)
         return np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems,AstNodes()
     else:
-        X, y, problems = get_dot_files2(basefolder)
+        X, y, problems = get_dot_files2(basefolder,seperate_trees)
         return np.array(X), np.array(y), problems, DotNodes()
 
     # return np.array(make_binary_tree(unified_ast_trees([ast_parse_file(name) for name in X_names]))), np.array(y), problems

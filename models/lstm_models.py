@@ -84,13 +84,17 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         self.base_lstm = L.StatefulPeepholeLSTM if peephole else L.LSTM
         for i in range(1, layers + 1):
             self.add_link("lstm" + str(i), self.base_lstm(n_units, n_units))
+            self.add_link("batch" + str(i), L.BatchNormalization(n_units))
 
     def one_step(self, x, train_mode):
         h = x
         layers = []
         for i in range(1, self.layers + 1):
             layers.append(getattr(self, "lstm" + str(i)))
-        for layer in layers:
+        batches = []
+        # for i in range(1, self.layers + 1):
+        #     batches.append(getattr(self, "batch" + str(i)))
+        for idx,layer in enumerate(layers):
             h = F.dropout(layer(h), ratio=self.dropout, train=train_mode)
         return h
 
@@ -170,26 +174,47 @@ class RecursiveBiLSTM(RecursiveLSTM):
             layer = getattr(self, "blstm" + str(i))
             layer.reset_state()
 
+def residual_addition(idx, h_prev, h_curr, residual=False):
+    if idx == 0 or residual is False or h_prev is None:
+        return h_curr
+    else:
+        return h_prev + h_curr
 
 class RecursiveResidualLSTM(RecursiveLSTM):
     def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None):
         super(RecursiveResidualLSTM, self).__init__(n_units, n_label, layers=layers,feature_dict=feature_dict, dropout=dropout, peephole=peephole,
                                                     classes=classes)
 
-    def merge(self, x, children, train_mode=True):
-        # forward
-        timestamps = []
-        h0 = self.one_step(x, train_mode)  # self.batch(
-        for child in children:
-            h0 = self.one_step(child, train_mode) + h0
-        self.reset_states()
-        return h0
+    # def merge(self, x, children, train_mode=True):
+    #     # forward
+    #     timestamps = []
+    #     h0 = self.one_step(x, train_mode)  # self.batch(
+    #     for child in children:
+    #         h0 = self.one_step(child, train_mode) + h0
+    #     self.reset_states()
+    #     return h0
+    #
+    # def one_step(self, x, train_mode):
+    #     h = x
+    #     for i in range(1, self.layers + 1):
+    #         h_prev = h
+    #         lstm_layer = getattr(self, "lstm" + str(i))
+    #         h = lstm_layer(h) + h_prev
+    #         h = F.dropout(h, ratio=self.dropout, train=train_mode)
+    #     return h
 
-    def one_step(self, x, train_mode):
-        h = x
-        for i in range(1, self.layers + 1):
-            h_prev = h
-            lstm_layer = getattr(self, "lstm" + str(i))
-            h = lstm_layer(h) + h_prev
-            h = F.dropout(h, ratio=self.dropout, train=train_mode)
-        return h
+    def merge(self, x, children, train_mode=True):
+        seq = [x]
+        seq.extend(children)
+        h_values = [None]
+        for idx_seq, step in enumerate(seq):
+            prev_h = [seq]
+            for idx_layer, layer in enumerate(1,self.layers+1):
+                prev_h.append(residual_addition(idx_layer-1, prev_h[idx_layer-1], F.dropout(layer(prev_h[-1]), ratio=self.dropout, train=train_mode),True))
+            h_values.append(residual_addition(idx_seq, h_values[-1], h, self.residual))
+        return h_values[-1]
+    #        for idx_seq, step in enumerate(seq):
+    #         h = F.reshape(step, (1, -1)) #step #
+    #         for idx_layer, layer in enumerate(layers):
+    #             h = residual_addition(idx_layer, h, F.dropout(layer(h), ratio=self.dropout, train=train_mode),self.residual)
+    #         timestamps.append(residual_addition(idx_seq, timestamps[-1], h, self.residual))

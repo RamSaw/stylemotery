@@ -218,20 +218,20 @@ if __name__ == "__main__":
     parser.add_argument('--name', '-n', type=str, default="random_forest_experiment", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="cp", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
-    parser.add_argument('--folds', '-fo', type=int, default=10, help='Number of folds')
+    parser.add_argument('--folds', '-fo', type=int, default=5, help='Number of folds')
     parser.add_argument('--folder', '-f', type=str, default="RF", help='Base folder for logs and results')
 
     train_labels = [
-                    # ("RF_250_05_labels1","5_authors.lables1.txt"),
-                    # ("RF_250_05_labels2","5_authors.lables2.txt"),
-                    # ("RF_250_05_labels3","5_authors.lables3.txt"),
-                    # ("RF_250_05_labels4","5_authors.lables4.txt"),
-                    # ("RF_250_05_labels5","5_authors.lables5.txt"),
-                    # ("RF_250_15_labels1", "15_authors.labels1.txt"),
-                    # ("RF_250_15_labels2", "15_authors.labels2.txt"),
-                    # ("RF_250_15_labels3", "15_authors.labels3.txt"),
-                    # ("RF_250_15_labels4", "15_authors.labels4.txt"),
-                    # ("RF_250_15_labels5", "15_authors.labels5.txt"),
+                    ("RF_250_05_labels1","5_authors.lables1.txt"),
+                    ("RF_250_05_labels2","5_authors.lables2.txt"),
+                    ("RF_250_05_labels3","5_authors.lables3.txt"),
+                    ("RF_250_05_labels4","5_authors.lables4.txt"),
+                    ("RF_250_05_labels5","5_authors.lables5.txt"),
+                    ("RF_250_15_labels1", "15_authors.labels1.txt"),
+                    ("RF_250_15_labels2", "15_authors.labels2.txt"),
+                    ("RF_250_15_labels3", "15_authors.labels3.txt"),
+                    ("RF_250_15_labels4", "15_authors.labels4.txt"),
+                    ("RF_250_15_labels5", "15_authors.labels5.txt"),
                     ("RF_250_25_labels1", "25_authors.lables1.txt"),
                     ("RF_250_25_labels2", "25_authors.lables2.txt"),
                     ("RF_250_25_labels3", "25_authors.lables3.txt"),

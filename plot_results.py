@@ -1,5 +1,5 @@
 import os
-
+import matplotlib.pyplot as plt
 from utils.extract_loss_progress import parse_result_file
 from utils.graph import plot_each, plot_each_smooth
 

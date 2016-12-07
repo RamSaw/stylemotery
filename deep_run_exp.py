@@ -57,6 +57,7 @@ def main_experiment():
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
     parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
     parser.add_argument('--iterations', '-i', type=int, default=0, help='CV iterations')
+    parser.add_argument('--seperate', '-st', action='store_true', default=False, help='Save best models')
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
@@ -72,11 +73,12 @@ def main_experiment():
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = os.path.join("dataset",args.dataset)
+    seperate_trees = args.seperate
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
 
-    trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder)
+    trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder,seperate_trees=seperate_trees)
 
     if args.train:
         rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))

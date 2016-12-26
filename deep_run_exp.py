@@ -61,6 +61,8 @@ def main_experiment():
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
+    parser.add_argument('--peep', '-p', action='store_true', default=False, help='peeplstm')
+    parser.add_argument('--residual', '-r', action='store_true', default=False,help='Number of examples in each mini batch')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
 
     args = parser.parse_args()
@@ -77,9 +79,10 @@ def main_experiment():
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
+    peephole = args.peep
+    residual = args.residual
 
     trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder,seperate_trees=seperate_trees)
-
     if args.train:
         rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
@@ -88,8 +91,8 @@ def main_experiment():
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
 
-    #if model_name in ("treelstm","slstm"):
-    # trees = make_binary_tree(unified_ast_trees(trees),2)
+    if model_name in ("treelstm","slstm"):
+        trees = make_binary_tree(unified_ast_trees(trees),layers)
 
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
@@ -110,17 +113,9 @@ def main_experiment():
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
-    elif model_name == "dlstm":
-        model = RecursiveDyanmicLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=peephole,residual=residual)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=False)
-    elif model_name == "biplstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,feature_dict=tree_nodes,peephole=True)
-    elif model_name == "plstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=True)
-    # elif model_name == "highway":
-    #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=peephole,residual=residual)
     elif model_name == "reslstm":
         model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=False)
     elif model_name == "treelstm":

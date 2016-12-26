@@ -92,35 +92,36 @@ class RecursiveLSTM(RecursiveBaseLSTM):
             self.add_link("lstm" + str(i), self.base_lstm(n_units, n_units))
             self.add_link("batch" + str(i), L.BatchNormalization(n_units))
 
-    # def one_step(self, x, train_mode):
-    #     h = x
-    #     layers = []
-    #     for i in range(1, self.layers + 1):
-    #         layers.append(getattr(self, "lstm" + str(i)))
-    #     for idx,layer in enumerate(layers):
-    #         h = F.dropout(layer(h), ratio=self.dropout, train=train_mode)
-    #     return h
+    def one_step(self, x, train_mode):
+        h = x
+        layers = []
+        for i in range(1, self.layers + 1):
+            layers.append(getattr(self, "lstm" + str(i)))
+        for idx,layer in enumerate(layers):
+            h = F.dropout(layer(h), ratio=self.dropout, train=train_mode)
+        return h
 
     def reset_states(self):
         for i in range(1, self.layers + 1):
             layer = getattr(self, "lstm" + str(i))
             layer.reset_state()
 
-    # def merge(self, x, children, train_mode):
-    #     # forward
-    #     timestamps = []
-    #     h0 = self.one_step(x, train_mode)  # self.batch(
-    #     for child in children:
-    #         h0 = self.one_step(child, train_mode)
-    #     self.reset_states()
-    #     return h0
-
     def merge(self, x, children, train_mode):
+        # forward
+        timestamps = []
+        h0 = self.one_step(x, train_mode)  # self.batch(
+        for child in children:
+            h0 = self.one_step(child, train_mode)
+        self.reset_states()
+        return h0
+
+    def merge2(self, x, children, train_mode):
         seq = [x] + children
         timestamps = [None]
         layers = []
         for i in range(1, self.layers + 1):
             layers.append(getattr(self, "lstm" + str(i)))
+
         for idx_seq, step in enumerate(seq):
             h = F.reshape(step, (1, -1)) #step #
             for idx_layer, layer in enumerate(layers):

@@ -57,9 +57,12 @@ def main_experiment():
     parser.add_argument('--layers', '-l', type=int, default=1, help='Number of Layers for LSTMs')
     parser.add_argument('--dropout', '-dr', type=float, default=0.2, help='Number of Layers for LSTMs')
     parser.add_argument('--iterations', '-i', type=int, default=0, help='CV iterations')
+    parser.add_argument('--seperate', '-st', action='store_true', default=False, help='Save best models')
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
+    parser.add_argument('--peep', '-p', action='store_true', default=False, help='peeplstm')
+    parser.add_argument('--residual', '-r', action='store_true', default=False,help='Number of examples in each mini batch')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
 
     args = parser.parse_args()
@@ -72,12 +75,14 @@ def main_experiment():
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = os.path.join("dataset",args.dataset)
+    seperate_trees = args.seperate
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
+    peephole = args.peep
+    residual = args.residual
 
-    trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder)
-
+    trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder,seperate_trees=seperate_trees)
     if args.train:
         rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
@@ -86,8 +91,8 @@ def main_experiment():
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
 
-    #if model_name in ("treelstm","slstm"):
-    # trees = make_binary_tree(unified_ast_trees(trees),2)
+    if model_name in ("treelstm","slstm"):
+        trees = make_binary_tree(unified_ast_trees(trees),layers)
 
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
@@ -107,17 +112,9 @@ def main_experiment():
     output_file.write(
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
-    elif model_name == "dlstm":
-        model = RecursiveDyanmicLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=False)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=peephole,residual=residual)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=False)
-    elif model_name == "biplstm":
-        model = RecursiveBiLSTM(n_units, len(classes), dropout=dropout, classes=classes,feature_dict=tree_nodes,peephole=True)
-    elif model_name == "plstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=True)
-    # elif model_name == "highway":
-    #     model = RecursiveHighWayLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes, peephole=False)
+        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=peephole,residual=residual)
     elif model_name == "reslstm":
         model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=False)
     elif model_name == "treelstm":

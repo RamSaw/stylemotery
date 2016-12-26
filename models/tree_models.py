@@ -20,7 +20,7 @@ class RecursiveBaseTree(chainer.Chain):
         self.n_children = n_children
         self.dropout = dropout
 
-        self.add_link("embed", L.EmbedID(self.feature_dict.astnodes.size() + 1, n_units))
+        self.add_link("embed", L.EmbedID(self.feature_dict.size() + 1, n_units))
         self.add_link("w", L.Linear(n_units, n_label))
 
     def params_count(self):
@@ -34,7 +34,7 @@ class RecursiveBaseTree(chainer.Chain):
         return self.embed_vec(x, train_mode)
 
     def embed_vec(self, x, train_mode):
-        word = self.xp.array([self.feature_dict.astnodes.index(x)], self.xp.int32)
+        word = self.xp.array([self.feature_dict.index(x)], self.xp.int32)
         w = chainer.Variable(word, volatile=not train_mode)
         return self.embed(w)
 

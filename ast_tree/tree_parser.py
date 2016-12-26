@@ -12,7 +12,7 @@ def ast_parse_file(filename):
     except Exception as e:
         print("ERROR: ", e, " filename", filename)
 
-def parse_tree(filename):
+def parse_tree(filename,seperate_trees=False):
     nodes = {}
     links = {}
     for line in open(filename):
@@ -35,8 +35,12 @@ def parse_tree(filename):
         except:
             print(filename)
     root_nodes = set(nodes.keys()) - set(root_nodes)
-    root = Node("Program","",[nodes[id] for id in list(sorted(root_nodes))])
-    return root
+    root_nodes = [nodes[id] for id in list(sorted(root_nodes))]
+    if seperate_trees:
+        return root_nodes
+    else:
+        root = Node("Program","",root_nodes)
+        return [root]
 
 def parse_dot(filename):
     split = "\t"

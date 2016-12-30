@@ -223,10 +223,10 @@ def copy_trees(basefolder,dstfolder):
             shutil.copy(os.path.join(basefolder, folder, number, file),
                         os.path.join(dstfolder, folder+"."+number+"."+file ))
         print("done.")
-basefolder = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\cpp"
-dstfolder = R"C:\Users\bms\Files\current\research\stylemotry\datasets\balanced_cpp"
-# copy_trees(dstfolder,basefolder)
-traverse1(basefolder)
+# basefolder = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\fcpp"
+dstfolder = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\dcpp"
+# copy_trees(basefolder,dstfolder)
+# traverse(basefolder)
 # file = R"C:\Users\bms\Files\current\research\stylemotry\datasets\33\components.dot"
 # dfile = R"C:\Users\bms\Files\current\research\stylemotry\datasets\33\components.tree2"
 # parse_dot2(open(file),open(dfile,"w+"))

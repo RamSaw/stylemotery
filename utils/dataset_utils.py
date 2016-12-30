@@ -11,11 +11,12 @@ from tqdm import tqdm
 from ast_tree.traverse import children, bfs
 from ast_tree.tree_nodes import DotNodes, AstNodes
 from ast_tree.tree_parser import parse_dot, ast_parse_file, fast_parse_dot, parse_tree
+from utils.analysis_utils import max_depth, max_branch,avg_branch,avg_depth
 
 
 def get_ast_src_files(basefolder):
     files = os.listdir(basefolder)
-    files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
+    files_noext = ['.'.join(s.split('.')[:-1]) for s in sorted(files,key=lambda x: x.split('.')[1])]
 
     problems = [p.split('.')[0] for p in files_noext]
     users = [' '.join(p.split('.')[1:]) for p in files_noext]
@@ -34,6 +35,15 @@ def get_dot_files(basefolder):
             users.append(folder)
     return np.array(trees),np.array(users),np.array(problems)
 
+
+def get_dot_src_files(basefolder):
+    files = sorted([s.lower() for s in os.listdir(basefolder)])
+    files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
+    problems = [p.split('.')[1] for p in files_noext]
+    users = [p.split('.')[0] for p in files_noext]
+
+    return np.array([os.path.join(basefolder, file) for file in files]), np.array(users), np.array(problems)
+
 def get_dot_files2(basefolder,seperate_trees=False):
     trees = []
     users = []
@@ -44,13 +54,44 @@ def get_dot_files2(basefolder,seperate_trees=False):
         users.extend([file.split('.')[0]]*len(program_trees))
     return np.array(trees),np.array(users),np.array(problems)
 
-def parse_src_files(basefolder, seperate_trees=False):
+def dump(X,y,X_names):
+    print()
+    f = open(R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis\text.txt", "w+")
+    f.write("{1:<20}\t{2:<80}\t{3:<10}\t{4:<10}\t{5:<10}\t{6:<10}\n".format("label", "fullfilename", "filename",
+                                                                            "avg depth", "avg branch", "max depth",
+                                                                            "max branch"))
+    prev_label = ""
+    for i in range(len(X_names)):
+        # if y[i] != prev_label:
+        #     prev_label = y[i]
+        #     f.write(y[i]+"\n")
+        f.write("{1:<20}\t{2:<80}\t{3:<10}\t{4:<10}\t{5:<10}\t{6:<10}\n".format("\t", y[i], X_names[i][
+                                                                                            X_names[i].index(
+                                                                                                ".") + 1:],
+                                                                                avg_depth(X[i]), avg_branch(X[i]),
+                                                                                max_depth(X[i]), max_branch(X[i])))
+    f.close()
+def parse_src_files(basefolder, seperate_trees=False,verbose=0):
     if basefolder.endswith("python"):
         X_names, y, problems = get_ast_src_files(basefolder)
-        return np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems,AstNodes()
+        X ,y,tags,node_types = np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems,AstNodes()
+        if verbose == 1:
+            dump(X,y,X_names)
+        return X ,y,tags,node_types
     else:
-        X, y, problems = get_dot_files2(basefolder,seperate_trees)
-        return np.array(X), np.array(y), problems, DotNodes()
+        X_names, y, problems = get_dot_src_files(basefolder)
+        extend_X = []
+        extend_X_names = []
+        extend_y = []
+        for id,name in enumerate(tqdm(X_names)):
+            program_trees = parse_tree(name,seperate_trees)
+            extend_X.extend(program_trees)
+            extend_y.extend([y[id]] * len(program_trees))
+            extend_X_names.extend([name] * len(program_trees))
+        X, y, tags,X_names,node_types = np.array(extend_X), np.array(extend_y), problems,extend_X_names, DotNodes()
+        if verbose == 1:
+            dump(X,y,X_names)
+        return X ,y,tags,node_types
 
     # return np.array(make_binary_tree(unified_ast_trees([ast_parse_file(name) for name in X_names]))), np.array(y), problems
 

@@ -131,7 +131,7 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         return timestamps[-1]
 
 class RecursiveBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None):
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None,residual = False):
         super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,feature_dict=feature_dict,
                                               classes=classes)
         self.dropout = dropout

@@ -222,27 +222,22 @@ if __name__ == "__main__":
     parser.add_argument('--folder', '-f', type=str, default="RF", help='Base folder for logs and results')
 
     train_labels = [
-                    ("RF_250_sep_05_labels1","5_authors.lables1.txt"),
-                    ("RF_250_sep_05_labels2","5_authors.lables2.txt"),
-                    ("RF_250_sep_05_labels3","5_authors.lables3.txt"),
-                    ("RF_250_sep_05_labels4","5_authors.lables4.txt"),
-                    ("RF_250_sep_05_labels5","5_authors.lables5.txt"),
-                    ("RF_250_sep_15_labels1", "15_authors.labels1.txt"),
-                    ("RF_250_sep_15_labels2", "15_authors.labels2.txt"),
-                    ("RF_250_sep_15_labels3", "15_authors.labels3.txt"),
-                    ("RF_250_sep_15_labels4", "15_authors.labels4.txt"),
-                    ("RF_250_sep_15_labels5", "15_authors.labels5.txt"),
-                    ("RF_250_sep_25_labels1", "25_authors.lables1.txt"),
-                    ("RF_250_sep_25_labels2", "25_authors.lables2.txt"),
-                    ("RF_250_sep_25_labels3", "25_authors.lables3.txt"),
-                    ("RF_250_sep_25_labels4", "25_authors.lables4.txt"),
-                    ("RF_250_sep_25_labels5", "25_authors.lables5.txt")
+                    ("RF_250_sep_05_labels1","5_authors.labels1.txt"),
+                    ("RF_250_sep_05_labels2","5_authors.labels2.txt"),
+                    ("RF_250_sep_05_labels3","5_authors.labels3.txt"),
+                    ("RF_250_sep_05_labels4","5_authors.labels4.txt"),
+                    ("RF_250_sep_05_labels5","5_authors.labels5.txt"),
+                    ("RF_250_sep_25_labels1", "25_authors.labels1.txt"),
+                    ("RF_250_sep_25_labels2", "25_authors.labels2.txt"),
+                    ("RF_250_sep_25_labels3", "25_authors.labels3.txt"),
+                    ("RF_250_sep_25_labels4", "25_authors.labels4.txt"),
+                    ("RF_250_sep_25_labels5", "25_authors.labels5.txt")
     ]
     args = parser.parse_args()
     n_folds = args.folds
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     dataset_folder = os.path.join("dataset", args.dataset)
-    trees, tree_labels, lable_problems, features = parse_src_files(dataset_folder,seperate_trees=True)
+    trees, tree_labels, lable_problems, features = parse_src_files(dataset_folder,seperate_trees=False)
     for model_name,train_file in train_labels:
         exper_name = model_name
         args.train = train_file

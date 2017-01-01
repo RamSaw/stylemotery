@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
+from utils.dataset_utils import make_backward_graph
 from utils.prog_bar import Progbar
 
 
@@ -19,14 +20,15 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
         train_labels = train_labels[indices]
     for idx, tree in enumerate(train_trees):
         root_vec = model.traverse(tree, train_mode=True)
-        batch_loss += model.loss(root_vec, train_labels[idx], train_mode=True)
-        predict.extend(model.predict(root_vec, index=True))
+        w = model.label(root_vec)
+        batch_loss += model.loss(w, train_labels[idx], train_mode=True)
+        predict.extend(model.predict(w, index=True))
         progbar.update(idx + 1, values=[("training loss", batch_loss.data)])
         if (idx + 1) % batch_size == 0:
+            total_loss.append(float(batch_loss.data) / batch_size)
             model.zerograds()
             batch_loss.backward()
             optimizer.update()
-            total_loss.append(float(batch_loss.data) / batch_size)
             batch_loss = 0
     predict = np.array(predict)
     accuracy = accuracy_score(predict, train_labels)
@@ -44,9 +46,10 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     predict = []
     for idx, tree in enumerate(test_trees):
         root_vec = m.traverse(tree, train_mode=False)
-        batch_loss += m.loss(root_vec, test_labels[idx], train_mode=False)
+        w = m.label(root_vec)
+        batch_loss += m.loss(w, test_labels[idx], train_mode=False)
         progbar.update(idx + 1, values=[("test loss", batch_loss.data)])
-        predict.extend(m.predict(root_vec, index=True))
+        predict.extend(m.predict(w, index=True))
         # predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
             total_loss.append(float(batch_loss.data) / batch_size)

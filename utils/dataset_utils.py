@@ -1,6 +1,7 @@
 import ast
 import os
 import platform
+import random
 import sys
 import numpy as np
 
@@ -16,10 +17,17 @@ from utils.analysis_utils import max_depth, max_branch,avg_branch,avg_depth
 
 def get_ast_src_files(basefolder):
     files = os.listdir(basefolder)
-    files_noext = ['.'.join(s.split('.')[:-1]) for s in sorted(files,key=lambda x: x.split('.')[1])]
-
+    files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
     problems = [p.split('.')[0] for p in files_noext]
     users = [' '.join(p.split('.')[1:]) for p in files_noext]
+
+    return np.array([os.path.join(basefolder, file) for file in files]), np.array(users), np.array(problems)
+
+def get_dot_src_files(basefolder):
+    files = os.listdir(basefolder) # sorted([s.lower() for s in ])
+    files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
+    problems = [p.split('.')[1] for p in files_noext]
+    users = [p.split('.')[0] for p in files_noext]
 
     return np.array([os.path.join(basefolder, file) for file in files]), np.array(users), np.array(problems)
 
@@ -35,14 +43,6 @@ def get_dot_files(basefolder):
             users.append(folder)
     return np.array(trees),np.array(users),np.array(problems)
 
-
-def get_dot_src_files(basefolder):
-    files = sorted([s.lower() for s in os.listdir(basefolder)])
-    files_noext = ['.'.join(s.split('.')[:-1]) for s in files]
-    problems = [p.split('.')[1] for p in files_noext]
-    users = [p.split('.')[0] for p in files_noext]
-
-    return np.array([os.path.join(basefolder, file) for file in files]), np.array(users), np.array(problems)
 
 def get_dot_files2(basefolder,seperate_trees=False):
     trees = []
@@ -74,10 +74,10 @@ def dump(X,y,X_names):
 def parse_src_files(basefolder, seperate_trees=False,verbose=0):
     if basefolder.endswith("python"):
         X_names, y, problems = get_ast_src_files(basefolder)
-        X ,y,tags,node_types = np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems,AstNodes()
+        X ,y,tags = np.array([ast_parse_file(name) for name in tqdm(X_names)]), np.array(y), problems
         if verbose == 1:
             dump(X,y,X_names)
-        return X ,y,tags,node_types
+        return X ,y,tags,AstNodes()
     else:
         X_names, y, problems = get_dot_src_files(basefolder)
         extend_X = []
@@ -88,10 +88,10 @@ def parse_src_files(basefolder, seperate_trees=False,verbose=0):
             extend_X.extend(program_trees)
             extend_y.extend([y[id]] * len(program_trees))
             extend_X_names.extend([name] * len(program_trees))
-        X, y, tags,X_names,node_types = np.array(extend_X), np.array(extend_y), problems,extend_X_names, DotNodes()
+        X, y, tags,X_names = np.array(extend_X), np.array(extend_y), problems,extend_X_names
         if verbose == 1:
             dump(X,y,X_names)
-        return X ,y,tags,node_types
+        return X ,y,tags,DotNodes()
 
     # return np.array(make_binary_tree(unified_ast_trees([ast_parse_file(name) for name in X_names]))), np.array(y), problems
 
@@ -104,13 +104,13 @@ def generate_tree(node, children):
 
     child = node()
     child._fields = ("body",)
-    child.body = [ast_nodes[i]() for i in range(children)]
+    child.body = [ast_nodes[random.randint(0,4)]() for i in range(children)]
 
     root.body = [child for i in range(children)]
     return root
 
 
-def generate_trees(basefolder, labels=2, children=10, examples_per_label=10):
+def generate_trees(labels=2, children=10, examples_per_label=10):
     X = []
     y = []
     ast_nodes = [ast.Add, ast.Assign]

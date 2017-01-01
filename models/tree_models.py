@@ -67,8 +67,8 @@ class RecursiveBaseTree(chainer.Chain):
         return self.w(v)
 
     def predict(self, x, index):
-        t = self.label(x)
-        X_prob = F.softmax(t)
+        # t = self.label(x)
+        X_prob = F.softmax(x)
         indics_ = cuda.to_cpu(X_prob.data.argmax(axis=1))
         if index:
             return indics_
@@ -76,15 +76,15 @@ class RecursiveBaseTree(chainer.Chain):
             return self.classes_[indics_]
 
     def predict_proba(self, x):
-        t = self.label(x)
-        X_prob = F.softmax(t)
+        # t = self.label(x)
+        X_prob = F.softmax(x)
         return cuda.to_cpu(X_prob.data)[0]
 
     def loss(self, x, y, train_mode):
-        w = self.label(x)
+        # w = self.label(x)
         label = self.xp.array([y], self.xp.int32)
         t = chainer.Variable(label, volatile=not train_mode)
-        return F.softmax_cross_entropy(w, t)
+        return F.softmax_cross_entropy(x, t)
 
 
 class RecursiveTreeLSTM(RecursiveBaseTree):

@@ -9,11 +9,13 @@ from chainer import optimizers
 import math
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from chainer import serializers
-from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM, RecursiveResidualLSTM
+
+from ast_tree.tree_nodes import AstNodes
+from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM
 from models.clstm_models import RecursiveDyanmicLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
-from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree
+from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree, generate_trees
 
 
 def print_table(table):
@@ -94,6 +96,9 @@ def main_experiment():
     if model_name in ("treelstm","slstm"):
         trees = make_binary_tree(unified_ast_trees(trees),layers)
 
+    # trees, tree_labels, lable_problems = generate_trees(labels=2,children=5,examples_per_label=10)
+    # tree_nodes = AstNodes()
+
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
 
@@ -115,8 +120,6 @@ def main_experiment():
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=peephole,residual=residual)
     elif model_name == "bilstm":
         model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=peephole,residual=residual)
-    elif model_name == "reslstm":
-        model = RecursiveResidualLSTM(n_units, len(classes),layers=layers, dropout=dropout, classes=classes,feature_dict=tree_nodes, peephole=False)
     elif model_name == "treelstm":
         model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
     else:

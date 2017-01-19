@@ -54,23 +54,6 @@ def get_dot_files2(basefolder,seperate_trees=False):
         users.extend([file.split('.')[0]]*len(program_trees))
     return np.array(trees),np.array(users),np.array(problems)
 
-def dump(X,y,X_names):
-    print()
-    f = open(R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis\text.txt", "w+")
-    f.write("{1:<20}\t{2:<80}\t{3:<10}\t{4:<10}\t{5:<10}\t{6:<10}\n".format("label", "fullfilename", "filename",
-                                                                            "avg depth", "avg branch", "max depth",
-                                                                            "max branch"))
-    prev_label = ""
-    for i in range(len(X_names)):
-        # if y[i] != prev_label:
-        #     prev_label = y[i]
-        #     f.write(y[i]+"\n")
-        f.write("{1:<20}\t{2:<80}\t{3:<10}\t{4:<10}\t{5:<10}\t{6:<10}\n".format("\t", y[i], X_names[i][
-                                                                                            X_names[i].index(
-                                                                                                ".") + 1:],
-                                                                                avg_depth(X[i]), avg_branch(X[i]),
-                                                                                max_depth(X[i]), max_branch(X[i])))
-    f.close()
 def parse_src_files(basefolder, seperate_trees=False,verbose=0):
     if basefolder.endswith("python"):
         X_names, y, problems = get_ast_src_files(basefolder)
@@ -89,8 +72,6 @@ def parse_src_files(basefolder, seperate_trees=False,verbose=0):
             extend_y.extend([y[id]] * len(program_trees))
             extend_X_names.extend([name] * len(program_trees))
         X, y, tags,X_names = np.array(extend_X), np.array(extend_y), problems,extend_X_names
-        if verbose == 1:
-            dump(X,y,X_names)
         return X ,y,tags,DotNodes()
 
     # return np.array(make_binary_tree(unified_ast_trees([ast_parse_file(name) for name in X_names]))), np.array(y), problems

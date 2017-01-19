@@ -22,7 +22,7 @@ dst_folder = "../train/cpp"
 #             wfile.write("Seed : "+str(random.randint()))
 #             wfile.write("Classes : {0}".format(str(classes)))
 
-authors = [5,25]
+authors = [10,15]
 X, y, tags,features = parse_src_files(os.path.join("..","dataset","cpp"),seperate_trees=False,verbose=0)
 classes = np.unique(y)
 for author in authors:

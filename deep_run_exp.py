@@ -63,7 +63,7 @@ def main_experiment():
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
-    parser.add_argument('--peep', '-p', action='store_true', default=False, help='peeplstm')
+    parser.add_argument('--cell', '-cl', type=str, default="lstm", help='peeplstm')
     parser.add_argument('--residual', '-r', action='store_true', default=False,help='Number of examples in each mini batch')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
 
@@ -81,7 +81,7 @@ def main_experiment():
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
-    peephole = args.peep
+    cell = args.cell
     residual = args.residual
 
     trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder,seperate_trees=seperate_trees)
@@ -117,9 +117,9 @@ def main_experiment():
     output_file.write(
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
     if model_name == "lstm":
-        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, peephole=peephole,residual=residual)
+        model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, cell=cell,residual=residual)
     elif model_name == "bilstm":
-        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,peephole=peephole,residual=residual)
+        model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,cell=cell,residual=residual)
     elif model_name == "treelstm":
         model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
     else:
@@ -191,7 +191,7 @@ def main_experiment():
             # save the model with best accuracy or same accuracy and less loss
             if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
                 # remove last saved model
-                remove_old_model(models_base_folder,exper_name, epoch)
+                remove_old_model(models_base_folder,exper_name, epoch_)
                 # save models
                 save_new_model(model,optimizer,models_base_folder,exper_name, epoch)
                 saved = True

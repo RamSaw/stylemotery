@@ -9,6 +9,7 @@ from chainer import cuda
 
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.traverse import children
+from memory_cell.clstm import ConditionalLSTM
 from memory_cell.treelstm import FastTreeLSTM
 
 
@@ -77,10 +78,15 @@ class RecursiveBaseLSTM(chainer.Chain):
         return F.softmax_cross_entropy(x, t)
 
 class RecursiveLSTM(RecursiveBaseLSTM):
-    def __init__(self, n_units, n_label, layers, dropout,feature_dict, classes=None, peephole=False,residual = False):
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, classes=None, cell="lstm",residual = False):
         super(RecursiveLSTM, self).__init__(n_units, n_label, dropout=dropout,feature_dict=feature_dict, classes=classes)
         self.layers = layers
-        self.base_lstm = L.StatefulPeepholeLSTM if peephole else L.LSTM
+        if cell == "lstm":
+            self.base_lstm = L.LSTM
+        elif cell == "peephole":
+            self.base_lstm = L.StatefulPeepholeLSTM
+        elif cell == "clstm":
+            self.base_lstm = ConditionalLSTM
         self.residual = residual
         for i in range(1, layers + 1):
             self.add_link("lstm" + str(i), self.base_lstm(n_units, n_units))
@@ -109,8 +115,8 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         return h0
 
 class RecursiveBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, layers, dropout,feature_dict, peephole, classes=None,residual = False):
-        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, peephole=peephole, dropout=dropout,feature_dict=feature_dict,
+    def __init__(self, n_units, n_label, layers, dropout,feature_dict, cell, classes=None,residual = False):
+        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, cell=cell, dropout=dropout,feature_dict=feature_dict,
                                               classes=classes)
         self.dropout = dropout
         for i in range(1, layers + 1):

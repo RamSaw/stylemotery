@@ -233,17 +233,21 @@ if __name__ == "__main__":
     #                 ("RF_250_sep_25_labels4", "25_authors.labels4.txt"),
     #                 ("RF_250_sep_25_labels5", "25_authors.labels5.txt")
 
+    # train_labels = [
+    #     ("RF_250_sep_10_labels1", "10_authors.labels1.txt"),
+    #     ("RF_250_sep_10_labels2", "10_authors.labels2.txt"),
+    #     ("RF_250_sep_10_labels3", "10_authors.labels3.txt"),
+    #     ("RF_250_sep_10_labels4", "10_authors.labels4.txt"),
+    #     ("RF_250_sep_10_labels5", "10_authors.labels5.txt"),
+    #     ("RF_250_sep_15_labels1", "15_authors.labels1.txt"),
+    #     ("RF_250_sep_15_labels2", "15_authors.labels2.txt"),
+    #     ("RF_250_sep_15_labels3", "15_authors.labels3.txt"),
+    #     ("RF_250_sep_15_labels4", "15_authors.labels4.txt"),
+    #     ("RF_250_sep_15_labels5", "15_authors.labels5.txt")
+    # ]
+
     train_labels = [
-        ("RF_250_sep_10_labels1", "10_authors.labels1.txt"),
-        ("RF_250_sep_10_labels2", "10_authors.labels2.txt"),
-        ("RF_250_sep_10_labels3", "10_authors.labels3.txt"),
-        ("RF_250_sep_10_labels4", "10_authors.labels4.txt"),
-        ("RF_250_sep_10_labels5", "10_authors.labels5.txt"),
-        ("RF_250_sep_15_labels1", "15_authors.labels1.txt"),
-        ("RF_250_sep_15_labels2", "15_authors.labels2.txt"),
-        ("RF_250_sep_15_labels3", "15_authors.labels3.txt"),
-        ("RF_250_sep_15_labels4", "15_authors.labels4.txt"),
-        ("RF_250_sep_15_labels5", "15_authors.labels5.txt")
+        ("RF_500_70_labels1", "70_authors.labels1.txt"),
     ]
     args = parser.parse_args()
     n_folds = args.folds

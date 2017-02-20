@@ -137,7 +137,7 @@ def main_experiment():
 
     output_file.write("{0:<10}{1:<20}\n".format("Relax", "test_accuracy"))
     print('Relax evaluation: ')
-    for i in [1, 5, 10, 15, 20]:
+    for i in [1, 5, 10, 15]:
         test_accuracy, test_loss = evaluate_relax(model, test_trees, test_lables, batch_size=batch_size, progbar=True, relax=i)
         # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
         print()

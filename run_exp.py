@@ -189,8 +189,8 @@ def main_gridsearch():
 
     report(grid_search.grid_scores_)
 
-def main_relax():
-    relax_list = [1, 5, 10, 15]
+def main_relax(X,y):
+    relax_list = list(range(1,21))#[1, 5, 10, 15]
     k_list = [700, 900, 1000]
     for i in relax_list:
         print("Relax = ", i)
@@ -216,7 +216,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')
     parser.add_argument('--name', '-n', type=str, default="random_forest_experiment", help='Experiment name')
-    parser.add_argument('--dataset', '-d', type=str, default="cp", help='Experiment dataset')
+    parser.add_argument('--dataset', '-d', type=str, default="python", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--folds', '-fo', type=int, default=5, help='Number of folds')
     parser.add_argument('--folder', '-f', type=str, default="RF", help='Base folder for logs and results')

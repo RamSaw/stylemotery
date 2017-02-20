@@ -62,6 +62,38 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     return accuracy, mean_loss
 
 
+def evaluate_relax(model, test_trees, test_labels, progbar=True,batch_size=1,relax=1):
+    m = model.copy()
+    m.volatile = True
+    if progbar:
+        progbar = Progbar(len(test_labels))
+    batch_loss = 0
+    total_loss = []
+    predict_proba = []
+    predict = []
+    for idx, tree in enumerate(test_trees):
+        root_vec = m.traverse(tree, train_mode=False)
+        w = m.label(root_vec)
+        batch_loss += m.loss(w, test_labels[idx], train_mode=False)
+        if progbar:
+            progbar.update(idx + 1, values=[("test loss", batch_loss.data)])
+        predict_indices = m.predict(w, index=True,relax=relax)
+        if test_labels[idx] in predict_indices:
+            predict.append(test_labels[idx])
+        else:
+            predict.append(predict_indices[0])
+        # predict_proba.append(m.predict_proba(root_vec))
+        if idx % batch_size == 0:
+            total_loss.append(float(batch_loss.data) / batch_size)
+            batch_loss = 0
+    predict = np.array(predict)
+    accuracy = accuracy_score(predict, test_labels)
+    mean_loss = np.mean(total_loss)
+    print("\tAccuracy: %0.2f " % (accuracy))
+    # print("\tLoss: %0.2f " % mean_loss)
+    return accuracy, mean_loss
+
+
 def validation_split_trees(trees, tree_labels, validation=0.1, test=0.1, shuffle=True):
     classes_, y = np.unique(tree_labels, return_inverse=False)
     tree_labels = y
@@ -123,7 +155,7 @@ def pick_subsets(trees, tree_labels, labels=2,classes=[],seed=None):
 
     return trees, tree_labels
 
-def read_config(filename):
+def read_train_config(filename):
     with open(filename) as file:
         for line in file:
             line = line.strip()

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import collections
 from ast_tree.traverse import bfs, children
-from deep_run_exp import read_config
+from deep_run_exp import read_train_config
 from utils.analysis_utils import max_depth, max_branch,avg_branch,avg_depth
 from utils.dataset_utils import parse_src_files, unified_ast_trees, make_binary_tree
 import os
@@ -74,6 +74,44 @@ def plot_dists(name, depths, branches, max_len=1000,base_folder=None):
     figure.clear()
     plt.close()
 
+def plot_class_dists(name, depths, branches,labels, max_len=1000,base_folder=None):
+    figure, (ax1, ax2) = plt.subplots(ncols=2, nrows=1, figsize=(8, 6), dpi=100)
+    figure.suptitle(name + " Depth and Branch Distrubtions", fontsize=14)
+    dist_np = np.array(depths)
+    if max_len != None:
+        dist = dist_np[dist_np < max_len]
+        labels = labels[dist_np < max_len]
+    else:
+        dist = dist_np
+
+    for c in np.unique(labels):
+        ax1.hist(dist[labels == c],label=c)
+    # ax1.hist(dist)
+    ax1.set_title("Depth Histogram")
+    ax1.set_xlabel("Depth")
+    ax1.set_ylabel("Frequency")
+    # ax1.legend()
+
+    dist_np = np.array(branches)
+    if max_len != None:
+        dist = dist_np[dist_np < max_len]
+        labels = labels[dist_np < max_len]
+    else:
+        dist = dist_np
+    for c in np.unique(labels):
+        ax2.hist(dist[labels == c],label=c)
+    # ax2.hist(dist)
+    ax2.set_title("Branch Histogram")
+    ax2.set_xlabel("Branch")
+    ax2.set_ylabel("Frequency")
+
+    if not base_folder:
+        plt.show()
+    else:
+        figure.savefig(os.path.join(base_folder, name), dpi=900)
+    figure.clear()
+    plt.close()
+
 def labels_ratio(X,y,min_depth=5,min_branch=5):
     print("Before:")
     print("Class ratio :- %s\n" % list(
@@ -93,8 +131,13 @@ def labels_ratio(X,y,min_depth=5,min_branch=5):
     plot_dists("Single Tree", depths, branches, max_len=10)
 
 
+
 if __name__ == "__main__":
-    X, y, tags,features = parse_src_files(os.path.join("dataset","python"),seperate_trees=False,verbose=0)
+    dataset = "cpp"
+    train = "15_authors.labels1.txt"
+    X, y, tags,features = parse_src_files(os.path.join("dataset",dataset),seperate_trees=True,verbose=0)
+    rand_seed, classes = read_train_config(os.path.join("train", "n" + dataset, train))
+    X, y = pick_subsets(X, y, classes=classes)
     # for file in os.listdir(os.path.join("train","cpp")):
     #     print(file)
     #     rand_seed, classes = read_config(os.path.join("train","cpp",file))
@@ -102,9 +145,13 @@ if __name__ == "__main__":
     #     print("Class ratio :- %s" % list(sorted([(t, c, c / len(y)) for t, c in collections.Counter(y).items()], key=itemgetter(0),reverse=False)))
     #     print()
     # X = make_binary_tree(unified_ast_trees(X), 9)
-    depths = [max_depth(x) for x in X]
-    branches = [max_branch(x) for x in X]
-    plot_dists("CPP SEP MAX Single Tree", depths, branches, max_len=None)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
-    plot_dists("CPP SEP MAX Single Tree (Less 100)", depths, branches, max_len=100)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
-
+    depths = np.array([max_depth(x) for x in X])
+    branches = np.array([max_branch(x) for x in X])
+    # plot_class_dists("CPP SEP MAX Single Tree", depths, branches,y, max_len=None)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
+    # plot_class_dists("CPP SEP MAX Single Tree (Less 100)", depths, branches,y, max_len=100)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
+    print("labels  : ",len(y))
+    print("classes : ",classes)
+    print("{0:<20}\t{1:<10}\t{2:<10}".format("label","Depth","Branch"))
+    for c in np.unique(y):
+        print("{0:<20}\t{1:<10}\t{2:<10}".format(c,np.mean(depths[y == c]),np.mean(branches[y == c])))
     # labels_ratio(X,y,min_depth=5,min_branch=5)

@@ -17,7 +17,7 @@ from sklearn.pipeline import Pipeline
 from ast_tree.tree_nodes import DotNodes
 from information_gain.InformationGain import TopRandomTreesEmbedding
 from ast_tree.ASTVectorizater import ASTVectorizer
-from utils.exp_utlis import read_config, pick_subsets, split_trees
+from utils.exp_utlis import read_train_config, pick_subsets, split_trees
 from utils.dataset_utils import parse_src_files
 import collections
 
@@ -255,7 +255,7 @@ if __name__ == "__main__":
         args.train = train_file
         print(exper_name,flush=True)
         if args.train:
-            rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))
+            rand_seed, classes = read_train_config(os.path.join("train", args.dataset, args.train))
             trees_subset, tree_labels_subset = pick_subsets(trees, tree_labels, classes=classes)
         else:
             rand_seed = random.randint(0, 4294967295)

@@ -133,7 +133,6 @@ def main_experiment():
     train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
                                                                                   shuffle=True, seed=seed,
                                                                                   iterations=args.iterations)
-
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
 
     for epoch in range(last_epoch, n_epoch + 1):

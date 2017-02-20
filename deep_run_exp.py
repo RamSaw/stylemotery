@@ -14,7 +14,7 @@ from ast_tree.tree_nodes import AstNodes
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM
 from models.clstm_models import RecursiveDyanmicLSTM
 from models.tree_models import RecursiveTreeLSTM
-from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_config
+from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_train_config
 from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree, generate_trees
 
 
@@ -86,7 +86,7 @@ def main_experiment():
 
     trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder,seperate_trees=seperate_trees)
     if args.train:
-        rand_seed, classes = read_config(os.path.join("train",args.dataset,args.train))
+        rand_seed, classes = read_train_config(os.path.join("train", args.dataset, args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
     else:
         rand_seed = random.randint(0, 4294967295)

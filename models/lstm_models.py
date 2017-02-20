@@ -57,10 +57,14 @@ class RecursiveBaseLSTM(chainer.Chain):
     def label(self, v):
         return self.w(v)
 
-    def predict(self, x, index=False):
+    def predict(self, x, index=False,relax=1):
         # t = self.label(x)
         X_prob = F.softmax(x)
-        indics_ = cuda.to_cpu(X_prob.data.argmax(axis=1))
+        if relax == 1:
+            indics_ = cuda.to_cpu(X_prob.data).argmax(axis=1)
+        else:
+            indics_ = cuda.to_cpu(X_prob.data).argsort(axis=1)[:,::-1][:,:relax][0]
+
         if index:
             return indics_
         else:
@@ -90,7 +94,7 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         self.residual = residual
         for i in range(1, layers + 1):
             self.add_link("lstm" + str(i), self.base_lstm(n_units, n_units))
-            self.add_link("batch" + str(i), L.BatchNormalization(n_units))
+            # self.add_link("batch" + str(i), L.BatchNormalization(n_units))
 
     def one_step(self, x, train_mode):
         h = x

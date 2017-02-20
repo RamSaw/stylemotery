@@ -8,7 +8,7 @@ import numpy as np
 from utils.dataset_utils import parse_src_files
 
 src_folder = "../train"
-dst_folder = "../train/cpp"
+dst_folder = "../train/ncpp"
 
 # authors = [55]
 # for filename in os.listdir(src_folder):
@@ -22,7 +22,7 @@ dst_folder = "../train/cpp"
 #             wfile.write("Seed : "+str(random.randint()))
 #             wfile.write("Classes : {0}".format(str(classes)))
 
-authors = [10,15]
+authors = [5,10,15]
 X, y, tags,features = parse_src_files(os.path.join("..","dataset","cpp"),seperate_trees=False,verbose=0)
 classes = np.unique(y)
 for author in authors:

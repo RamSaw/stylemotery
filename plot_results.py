@@ -21,7 +21,7 @@ def plot_results(base_folder,recursive=False,smooth=False):
     for name, values in new_results.items():
         print(name, " ==> ", values.keys())
 
-    # plot_each(new_results, base_folder)
+    plot_each(new_results, base_folder)
     if smooth:
         plot_each_smooth(new_results, base_folder)
 
@@ -71,5 +71,5 @@ def extract_training_data(base_folder,recursive=False):
                 print("\t",k,":",v)
 
 if __name__ == "__main__":
-    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\Experiments\best results\RNN"
-    plot_results(base_folder,recursive=False,smooth=True)
+    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\cpp"
+    plot_results(base_folder,recursive=True,smooth=True)

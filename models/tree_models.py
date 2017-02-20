@@ -99,7 +99,8 @@ class RecursiveTreeLSTM(RecursiveBaseTree):
 
     def merge(self, x, children, train_mode):
         c_list, h_list = zip(*children)
-        return self.treelstm(F.concat(c_list, axis=0), F.concat(h_list, axis=0), x)
+        c,h = self.treelstm(F.concat(c_list, axis=0), F.concat(h_list, axis=0), x)
+        return F.dropout(c,ratio=self.dropout,train=train_mode), F.dropout(h,ratio=self.dropout,train=train_mode)
 
     def reset_states(self):
         self.treelstm.reset_state()

@@ -191,7 +191,7 @@ def main_experiment():
             # save the model with best accuracy or same accuracy and less loss
             if test_accuracy > acc_ or (test_accuracy >= acc_ and test_loss <= loss_):
                 # remove last saved model
-                remove_old_model(models_base_folder,exper_name, epoch_)
+                # remove_old_model(models_base_folder,exper_name, epoch_)
                 # save models
                 save_new_model(model,optimizer,models_base_folder,exper_name, epoch)
                 saved = True

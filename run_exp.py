@@ -273,7 +273,7 @@ if __name__ == "__main__":
     print()
     print(exper_name, flush=True)
     if args.train:
-        rand_seed, classes = read_train_config(os.path.join("train", args.dataset, args.train))
+        rand_seed, classes = read_train_config(os.path.join("train", args.dataset.split("_")[0], args.train))
         trees_subset, tree_labels_subset = pick_subsets(trees, tree_labels, classes=classes)
     else:
         rand_seed = random.randint(0, 4294967295)

@@ -171,6 +171,7 @@ def main_experiment():
                  range(100,500):0.0001}
         return RangeDictionary(rates)[epoch]
 
+    optimizer.lr = 0.01
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
         # optimizer.lr = range_decay(epoch-1)

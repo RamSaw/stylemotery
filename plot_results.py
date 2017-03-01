@@ -1,7 +1,8 @@
 import os
 import matplotlib.pyplot as plt
 from utils.extract_loss_progress import parse_result_file
-from utils.graph import plot_each, plot_each_smooth
+from utils.graph import plot_each, plot_each_smooth, plot_acc_all, plot_acc_all_smooth, plot_loss_all, \
+    plot_loss_all_smooth
 
 
 def standarize(values):
@@ -24,6 +25,38 @@ def plot_results(base_folder,recursive=False,smooth=False):
     plot_each(new_results, base_folder)
     if smooth:
         plot_each_smooth(new_results, base_folder)
+
+def plot_acc_results(base_folder,recursive=False,smooth=False):
+    results = {}
+    for filename in os.listdir(base_folder):
+        if filename.endswith("_results.txt"):
+            loss = parse_result_file(os.path.join(base_folder, filename))
+            if len(next(iter(loss.values()))) > 0:
+                results.update(loss)
+    # print(results.keys())
+    new_results = {name: standarize(values) for name, values in results.items()}
+    for name, values in new_results.items():
+        print(name, " ==> ", values.keys())
+
+    plot_acc_all(new_results, base_folder)
+    if smooth:
+        plot_acc_all_smooth(new_results, base_folder)
+
+def plot_loss_results(base_folder,recursive=False,smooth=False):
+    results = {}
+    for filename in os.listdir(base_folder):
+        if filename.endswith("_results.txt"):
+            loss = parse_result_file(os.path.join(base_folder, filename))
+            if len(next(iter(loss.values()))) > 0:
+                results.update(loss)
+    # print(results.keys())
+    new_results = {name: standarize(values) for name, values in results.items()}
+    for name, values in new_results.items():
+        print(name, " ==> ", values.keys())
+
+    plot_loss_all(new_results, base_folder)
+    if smooth:
+        plot_loss_all_smooth(new_results, base_folder)
 
 def extract_best_results(base_folder,recursive=False):
     results = {}
@@ -71,5 +104,7 @@ def extract_training_data(base_folder,recursive=False):
                 print("\t",k,":",v)
 
 if __name__ == "__main__":
-    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\cpp"
-    plot_results(base_folder,recursive=True,smooth=True)
+    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\classification"
+    # plot_results(base_folder,recursive=True,smooth=True)
+    plot_acc_results(base_folder,recursive=True,smooth=True)
+    plot_loss_results(base_folder,recursive=True,smooth=True)

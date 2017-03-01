@@ -7,7 +7,8 @@ from chainer import optimizers
 from chainer import serializers
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM
 from models.tree_models import RecursiveTreeLSTM
-from utils.exp_utlis import split_trees, pick_subsets, evaluate, train, evaluate_relax, read_train_config
+from utils.exp_utlis import split_trees, pick_subsets, evaluate, train, evaluate_relax, read_train_config, \
+    evaluate_ensemble, split_trees2
 from utils.dataset_utils import parse_src_files, print_model
 import argparse
 import sys
@@ -24,6 +25,7 @@ def print_table(table):
 def read_config(filename):
     with open(filename) as file:
         last_epoch = 1
+        saved_epochs = []
         for line in file:
             if line.startswith("Args "):
                 args_line = line.split(":-", 1)
@@ -36,11 +38,13 @@ def read_config(filename):
                 classes = [v for idx, v in eval(line.split(":-")[1])]
             elif line[0].isdigit():
                 last_epoch = int(line[0]) + 1
+                if "saved" in line:
+                    saved_epochs.append(line.split()[0])
                 # elif line.startswith("Train labels "):
                 #     train_lables = [v for idx, v in eval(line.split(":")[1])]
                 # elif line.startswith("Test labels "):
                 #     test_trees = [v for idx, v in eval(line.split(":")[1])]
-        return args, seed, classes, last_epoch
+        return args, seed, classes, saved_epochs, last_epoch
 
 
 def remove_old_model(models_base_folder, exper_name, epoch_):
@@ -64,7 +68,7 @@ def save_new_model(model, optimizer, models_base_folder, exper_name, epoch):
     serializers.save_npz(path, optimizer)
 
 
-def main_experiment():
+def main_experiment(ensembles):
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', '-n', type=str, default="default_experiment", help='Experiment name')
     parser.add_argument('--config', '-c', type=str, default="", help='Configuration file')
@@ -73,14 +77,13 @@ def main_experiment():
     if args.config == "":
         parser.print_help()
         return
-    args, seed, classes, last_epoch = read_config(args.config)
+    args, seed, classes, saved_epochs,last_epoch = read_config(args.config)
 
     n_units = args.units
     batch_size = args.batchsize
     gpu = args.gpu
     models_base_folder = "saved_models"
-    output_folder = os.path.join("results",
-                                 args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
+    output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     exper_name = args.name
     dataset_folder = os.path.join("dataset", args.dataset)
     seperate_trees = args.seperate
@@ -90,7 +93,7 @@ def main_experiment():
     cell = args.cell
     residual = args.residual
 
-    output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="a")
+    output_file = sys.stdout#open(os.path.join(output_folder, exper_name + "_results.txt"), mode="a")
 
     trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder, seperate_trees=seperate_trees)
     if args.train:
@@ -113,37 +116,64 @@ def main_experiment():
         print("No model was found")
         return
 
-    # load the model
-    model_saved_name = "{0}_epoch_".format(exper_name)
-    saved_models = [m for m in os.listdir(models_base_folder) if m.startswith(model_saved_name) and m.endswith(".my")]
-    if len(saved_models) > 0:
-        # pick the best one
-        model_saved_name = list(sorted(saved_models, key=lambda name: int(name.split(".")[0].split("_")[-1]), reverse=True))[0]
-    else:
-        print("No model was found to load")
-        return
-    path = os.path.join(models_base_folder, model_saved_name)
-    serializers.load_npz(path, model)
+    models = []
 
-    if gpu >= 0:
-        model.to_gpu()
+    # for epoch in saved_epochs[::1][:ensembles]:
+    # # load the model
+    #     model_saved_name = "{0}_epoch_{1}".format(exper_name,epoch)
+    #     output_file.write("load {0} ... \n".format(model_saved_name))
+    #     saved_models = [m for m in os.listdir(os.path.join(models_base_folder,"lstm2"))
+    #                     if m == model_saved_name + ".my"]
+    #     if len(saved_models) > 0:
+    #         # pick the best one
+    #         model_saved_name = list(sorted(saved_models, key=lambda name: int(name.split(".")[0].split("_")[-1]), reverse=True))[0]
+    #     else:
+    #         print("No model was found to load")
+    #         return
+    #     path = os.path.join(models_base_folder,"lstm2",model_saved_name)
+    #     serializers.load_npz(path, model)
+    #     # if gpu >= 0:
+    #     #     model.to_gpu()
+    #     models.append(model)
+
+    model_files = [f for f in os.listdir(os.path.join(models_base_folder,"lstm2")) if f.endswith(".my")]
+    for model_saved_name in model_files:
+    # load the model
+        output_file.write("load {0} ... \n".format(model_saved_name))
+        path = os.path.join(models_base_folder,"lstm2",model_saved_name)
+        serializers.load_npz(path, model)
+        # if gpu >= 0:
+        #     model.to_gpu()
+        models.append(model)
 
     # trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees2(trees, tree_labels, n_folds=5,
                                                                                   shuffle=True, seed=seed,
                                                                                   iterations=args.iterations)
     # print('Train')
-    output_file.write("Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
+    # output_file.write("Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
     output_file.write("{0:<10}{1:<20}\n".format("Relax", "test_accuracy"))
     print('Relax evaluation: ')
-    for i in [1, 5, 10, 15]:
-        test_accuracy, test_loss = evaluate_relax(model, test_trees, test_lables, batch_size=batch_size, progbar=True, relax=i)
-        # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
-        print()
-        output_file.write("{0:<10}{1:<20.10f}\n".format(i,test_accuracy))
-        output_file.flush()
+    # for i in [1, 5, 10, 15]:
+    #     test_accuracy, test_loss = evaluate_relax(model, test_trees, test_lables, batch_size=batch_size, progbar=True, relax=i)
+    #     # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
+    #     print()
+    #     output_file.write("{0:<10}{1:<20.10f}\n".format(i,test_accuracy))
+    #     output_file.flush()
+
+    print("One model:")
+    # test_accuracy, test_loss = evaluate(models[0], test_trees, test_lables, batch_size=batch_size)
+    # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
+    # output_file.write("{0:<20.10f}\n".format(test_accuracy))
+    output_file.flush()
+
+    print("Ensmbel:")
+    test_accuracy, test_loss = evaluate_ensemble(models, test_trees, test_lables, batch_size=batch_size)
+    # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
+    output_file.write("{0:<20.10f}\n".format(test_accuracy))
+    output_file.flush()
 
     output_file.close()
 if __name__ == "__main__":
-    main_experiment()
+    main_experiment(5)

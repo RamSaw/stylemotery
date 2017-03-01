@@ -1,5 +1,7 @@
 import ast
 import os
+import jsonpickle
+import json
 from collections import defaultdict
 from ast_tree.tree_nodes import Node, print_dot_node, DotNodes
 from ast_tree.traverse import tree_print, bfs, children
@@ -11,6 +13,32 @@ def ast_parse_file(filename):
             return tree
     except Exception as e:
         print("ERROR: ", e, " filename", filename)
+
+def parse_ast_tree(filename):
+    nodes = {}
+    links = {}
+    nodetypes = {}
+    for x in dir(ast):
+        try:
+            if isinstance(ast.__getattribute__(x)(), ast.AST):
+                nodetypes[x.lower()] = ast.__getattribute__(x)
+        except TypeError:
+            pass
+    for line in open(filename):
+        if line.startswith("<"):
+            parts = line[1:].strip("\n").split("=")
+            links[parts[0]] = parts[1].split(",")
+        elif line.startswith(">"):
+            parts = line[1:].strip("\n").split("\t")
+            nodes[parts[0]] = nodetypes[parts[1].lower()]()
+            nodes[parts[0]].children = []
+    root_nodes = []
+    for id, value in sorted(links.items()):
+        for link in value:
+            nodes[id].children.append(nodes[link])
+            root_nodes.append(link)
+
+    return nodes['0']
 
 def parse_tree(filename,seperate_trees=False):
     nodes = {}

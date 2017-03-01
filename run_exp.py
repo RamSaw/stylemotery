@@ -62,7 +62,7 @@ def full_evaluation(rf, X, y, cv):
     print("Confusion Matrix", cma)
 
 
-def exp_relax(pipline,X,y,tags, relax=15,cv=None,output=sys.stdout):
+def exp_relax(pipline,X,y,tags, relax=[],cv=None,output=sys.stdout):
     # basefolder = get_basefolder()
     # X, y, tags = parse_src_files(basefolder)
 
@@ -73,31 +73,35 @@ def exp_relax(pipline,X,y,tags, relax=15,cv=None,output=sys.stdout):
     # ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
     # print("\t\t all users ratio ",ratio)
 
-    accuracy = []
+    accuracy = [[] for i in relax]
     for idx, (train, test) in enumerate(cv.split(X,y)):
         pipline.fit(X[train], y[train])
         y_predict_prob = pipline.predict_proba(X[test])
         classes_ = pipline.steps[-1][1].classes_
-        y_predict_indices = y_predict_prob.argsort(axis=1)[:, ::-1][:, :relax]
-        y_predict = []
-        for i, predict in enumerate(y_predict_indices):
-            y_predict_all = classes_[predict]
-            target = y[test][i]
-            if (target == y_predict_all).any():
-                y_predict.append(target)
-            else:
-                y_predict.append(y_predict_all[0])
+        y_predict = [[] for i in relax]
+        print("\t\t{0}/{1}".format(idx+1,cv.n_splits))
+        for relax_i in relax:
+            y_predict_indices = y_predict_prob.argsort(axis=1)[:, ::-1][:, :relax_i]
+            for i, predict in enumerate(y_predict_indices):
+                y_predict_all = classes_[predict]
+                target = y[test][i]
+                if (target == y_predict_all).any():
+                    y_predict[relax_i-1].append(target)
+                else:
+                    y_predict[relax_i-1].append(y_predict_all[0])
 
         y_predict = np.array(y_predict)
-        accuracy.append(accuracy_score(y[test], y_predict))
-        output.write("\t\t\taccuracy = %s \n" % accuracy[-1])
-        print("\t\t\taccuracy = %s " % accuracy[-1])
+        for i in relax:
+            accuracy[i-1].append(accuracy_score(y[test], y_predict[i-1]))
+            output.write("\t\t\t\trelax = %s accuracy = %s \n" % (i,accuracy[i-1][-1]))
+            print("\t\t\t\trelax = %s accuracy = %s " % (i,accuracy[i-1][-1]))
         output.flush()
         # for feature in np.nonzero(pipline.steps[-1][1].feature_importances_)[0]:
         #     import_features[feature] += 1
 
-    output.write("\tAccuracy = %s \n" % np.mean(accuracy))
-    print("\tAccuracy = %s " % np.mean(accuracy))
+    for i in relax:
+        output.write("Relax = %s \tAccuracy = %s \n" % (i,np.mean(accuracy[i-1])))
+        print("Relax = %s \tAccuracy = %s " % (i, np.mean(accuracy[i-1])))
     # print("Features =",Counter(import_features).most_common(100))
 
 
@@ -266,9 +270,10 @@ if __name__ == "__main__":
 
     # exper_name = model_name
     # args.train = train_file
+    print()
     print(exper_name, flush=True)
     if args.train:
-        rand_seed, classes = read_train_config(os.path.join("train", args.dataset, args.train))
+        rand_seed, classes = read_train_config(os.path.join("train", args.dataset.split("_")[0], args.train))
         trees_subset, tree_labels_subset = pick_subsets(trees, tree_labels, classes=classes)
         #print(tree_labels_subset)
         #print(classes)
@@ -293,15 +298,12 @@ if __name__ == "__main__":
                reverse=False)))
     output_file.write("Model:  {0}\n".format(exper_name))
     pprint(pipline.steps, stream=output_file, indent=5, depth=2)
-    for relax_i in list(range(1,20)):
-        output_file.write("Relax = {0} \n".format(relax_i))
-        print("Relax = ",relax_i)
-        #main_gridsearch()
-        #main_relax()
-        output_file.flush()
-        exp_relax(pipline,trees_subset,tree_labels_subset,lable_problems,relax=relax_i,cv=cv,output=output_file)
-        output_file.flush()
-        print()
+    #main_gridsearch()
+    #main_relax()
+    output_file.flush()
+    exp_relax(pipline,trees_subset,tree_labels_subset,lable_problems,relax=list(range(1,20)),cv=cv,output=output_file)
+    output_file.flush()
+    print()
     output_file.close()
     # parser = argparse.ArgumentParser()
     # parser.add_argument('--train', '-t', type=str, default="", help='Experiment Training data info')

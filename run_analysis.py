@@ -46,7 +46,7 @@ def plot_dist(name, dist, max_len=1000):
 
 def plot_dists(name, depths, branches, max_len=1000,base_folder=None):
     figure, (ax1, ax2) = plt.subplots(ncols=2, nrows=1, figsize=(8, 6), dpi=100)
-    figure.suptitle(name + " Depth and Branch Distrubtions", fontsize=14)
+    figure.suptitle(name + " Trees Depth and Branches Distributions", fontsize=14)
     dist_np = np.array(depths)
     if max_len != None:
         dist = dist_np[dist_np < max_len]
@@ -76,7 +76,7 @@ def plot_dists(name, depths, branches, max_len=1000,base_folder=None):
 
 def plot_class_dists(name, depths, branches,labels, max_len=1000,base_folder=None):
     figure, (ax1, ax2) = plt.subplots(ncols=2, nrows=1, figsize=(8, 6), dpi=100)
-    figure.suptitle(name + " Depth and Branch Distrubtions", fontsize=14)
+    figure.suptitle(name + " Depth and Branch Distributions", fontsize=14)
     dist_np = np.array(depths)
     if max_len != None:
         dist = dist_np[dist_np < max_len]
@@ -134,10 +134,10 @@ def labels_ratio(X,y,min_depth=5,min_branch=5):
 
 if __name__ == "__main__":
     dataset = "cpp"
-    train = "15_authors.labels1.txt"
-    X, y, tags,features = parse_src_files(os.path.join("dataset",dataset),seperate_trees=True,verbose=0)
-    rand_seed, classes = read_train_config(os.path.join("train", "n" + dataset, train))
-    X, y = pick_subsets(X, y, classes=classes)
+    # train = "70_authors.labels1.txt"
+    X, y, tags,features = parse_src_files(os.path.join("dataset",dataset),seperate_trees=False,verbose=0)
+    # rand_seed, classes = read_train_config(os.path.join("train", dataset, train))
+    # X, y = pick_subsets(X, y, classes=classes)
     # for file in os.listdir(os.path.join("train","cpp")):
     #     print(file)
     #     rand_seed, classes = read_config(os.path.join("train","cpp",file))
@@ -147,11 +147,14 @@ if __name__ == "__main__":
     # X = make_binary_tree(unified_ast_trees(X), 9)
     depths = np.array([max_depth(x) for x in X])
     branches = np.array([max_branch(x) for x in X])
-    # plot_class_dists("CPP SEP MAX Single Tree", depths, branches,y, max_len=None)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
-    # plot_class_dists("CPP SEP MAX Single Tree (Less 100)", depths, branches,y, max_len=100)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
-    print("labels  : ",len(y))
-    print("classes : ",classes)
-    print("{0:<20}\t{1:<10}\t{2:<10}".format("label","Depth","Branch"))
-    for c in np.unique(y):
-        print("{0:<20}\t{1:<10}\t{2:<10}".format(c,np.mean(depths[y == c]),np.mean(branches[y == c])))
+
+    print(np.mean(depths))
+    print(np.mean(branches))
+    # plot_dists("Python Average", depths, branches, max_len=200,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\usenix\img")#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
+    # plot_dists("Python Average (Less 100)", depths, branches,max_len=200)#,base_folder=R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\dataset\analysis")
+    # print("labels  : ",len(y))
+    # print("classes : ",classes)
+    # print("{0:<20}\t{1:<10}\t{2:<10}".format("label","Depth","Branch"))
+    # for c in np.unique(y):
+    #     print("{0:<20}\t{1:<10}\t{2:<10}".format(c,np.mean(depths[y == c]),np.mean(branches[y == c])))
     # labels_ratio(X,y,min_depth=5,min_branch=5)

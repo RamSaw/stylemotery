@@ -31,7 +31,7 @@ def read_config(filename):
             elif line.startswith("Classes "):
                 classes = [v for idx, v in eval(line.split(":-")[1])]
             elif line[0].isdigit():
-                last_epoch = int(line[0])+1
+                last_epoch = int(line.split()[0])+1
             # elif line.startswith("Train labels "):
             #     train_lables = [v for idx, v in eval(line.split(":")[1])]
             # elif line.startswith("Test labels "):

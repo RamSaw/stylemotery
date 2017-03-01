@@ -86,7 +86,7 @@ def main_experiment():
 
     trees, tree_labels, lable_problems, tree_nodes = parse_src_files(dataset_folder,seperate_trees=seperate_trees)
     if args.train:
-        rand_seed, classes = read_train_config(os.path.join("train", args.dataset.split("_")[0], args.train))
+        rand_seed, classes = read_train_config(os.path.join("train", args.dataset, args.train))
         trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
     else:
         rand_seed = random.randint(0, 4294967295)
@@ -136,7 +136,7 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.SGD(lr=0.01)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
@@ -164,16 +164,16 @@ def main_experiment():
                     if key in r:
                         return super().__getitem__(r)
                 return super().__getitem__(key)
-        rates = {range(0,10):0.01,
-                 range(10,30):0.005,
-                 range(30,50):0.001,
-                 range(50,100):0.0005,
-                 range(100,500):0.0001}
+        rates = {range(0,50):0.01,
+                 range(50,100):0.005,
+                 range(100,150):0.001,
+                 range(200,300):0.0005,
+                 range(300,500):0.0001}
         return RangeDictionary(rates)[epoch]
 
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
-        # optimizer.lr = range_decay(epoch-1)
+        optimizer.lr = range_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
         print('Train')

@@ -2,6 +2,7 @@
 from ast_tree.traverse import bfs, children
 import numpy as np
 
+
 def max_depth(ast_tree):
     def max_depth_lambda(x, d, o):
         if len(o) == 0:

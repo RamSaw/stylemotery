@@ -1,4 +1,5 @@
 import random
+from collections import Counter
 
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
@@ -61,6 +62,45 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     # print("\tLoss: %0.2f " % mean_loss)
     return accuracy, mean_loss
 
+def evaluate_ensemble(models, test_trees, test_labels, batch_size=1):
+    ms = []
+    votes = []
+    for model in models:
+        m = model.copy()
+        m.volatile = True
+        ms.append(m)
+    progbar = Progbar(len(test_labels))
+    batch_loss = 0
+    total_loss = []
+    predict = []
+    for idx, tree in enumerate(test_trees):
+        predictions = []
+        ensemble_loss = 0
+        for m in ms:
+            root_vec = m.traverse(tree, train_mode=False)
+            w = m.label(root_vec)
+            ensemble_loss += m.loss(w, test_labels[idx], train_mode=False)
+            batch_loss += ensemble_loss
+            predictions.append(m.predict_proba(w))
+            # predictions.extend(m.predict(w, index=True))
+        predictions = np.sum(predictions,axis=0)/ len(ms)
+        indics_ = predictions.argmax()
+        predict.append(indics_)
+        progbar.update(idx + 1, values=[("test loss", ensemble_loss.data/len(ms))])
+        # most_vote = Counter(predictions).most_common()[0][0]
+        # votes.append(Counter(predictions).most_common())
+        # predict.append(most_vote)
+        # predict_proba.append(m.predict_proba(root_vec))
+        if idx % batch_size == 0:
+            total_loss.append(float(batch_loss.data) / batch_size / len(ms))
+            batch_loss = 0
+    predict = np.array(predict)
+    accuracy = accuracy_score(predict, test_labels)
+    mean_loss = np.mean(total_loss)
+    print("\tAccuracy: %0.2f " % (accuracy))
+    print("\tVotes:    %s  \n" % (votes))
+    # print("\tLoss: %0.2f " % mean_loss)
+    return accuracy, mean_loss
 
 def evaluate_relax(model, test_trees, test_labels, progbar=True,batch_size=1,relax=1):
     m = model.copy()
@@ -138,6 +178,10 @@ def split_trees(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iteration
     test_trees, test_lables = trees[test_indices], tree_labels[test_indices]
     return train_trees, train_lables, test_trees, test_lables, classes_, cv
 
+def split_trees2(trees, tree_labels, n_folds=10, shuffle=True,seed=None,iterations=0):
+    classes_, y = np.unique(tree_labels, return_inverse=True)
+    tree_labels = y
+    return [],[], trees[tree_labels], tree_labels[tree_labels], classes_, None
 
 def pick_subsets(trees, tree_labels, labels=2,classes=[],seed=None):
     # pick a small subsets of the classes

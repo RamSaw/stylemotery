@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 from ast_tree.traverse import children, bfs
 from ast_tree.tree_nodes import DotNodes, AstNodes
-from ast_tree.tree_parser import parse_dot, ast_parse_file, fast_parse_dot, parse_tree
+from ast_tree.tree_parser import parse_dot, ast_parse_file, fast_parse_dot, parse_tree, parse_ast_tree
 from utils.analysis_utils import max_depth, max_branch,avg_branch,avg_depth
 
 
@@ -61,7 +61,11 @@ def parse_src_files(basefolder, seperate_trees=False,verbose=0):
         if verbose == 1:
             dump(X,y,X_names)
         return X ,y,tags,AstNodes()
-    else:
+    elif basefolder.endswith("python_trees"):
+        X_names, y, problems = get_ast_src_files(basefolder)
+        X ,y,tags = np.array([parse_ast_tree(name) for name in tqdm(X_names)]), np.array(y), problems
+        return X ,y,tags,AstNodes()
+    elif basefolder.endswith("cpp"):
         X_names, y, problems = get_dot_src_files(basefolder)
         extend_X = []
         extend_X_names = []

@@ -258,13 +258,13 @@ if __name__ == "__main__":
     exper_name = args.name
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     dataset_folder = os.path.join("dataset", args.dataset)
-    trees, tree_labels, lable_problems, features = parse_src_files(dataset_folder+"3",seperate_trees=False)
+    trees, tree_labels, lable_problems, features = parse_src_files(dataset_folder,seperate_trees=False)
     #print(len(trees))
     pipline = Pipeline([
         ('astvector', ASTVectorizer(features, ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-        ('selection', TopRandomTreesEmbedding(k=700, n_estimators=900, max_depth=20)),
+        ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1500, max_depth=20)),
         # PredefinedFeatureSelection()),
-        ('randforest',RandomForestClassifier(n_estimators=500, min_samples_split=2, max_features="auto", criterion="entropy"))])
+        ('randforest',RandomForestClassifier(n_estimators=1000, min_samples_split=2, max_features="auto", criterion="entropy"))])
     # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
     # exp_relax(pipline,trees,tree_labels,lable_problems, relax=1,cv=cv)
 

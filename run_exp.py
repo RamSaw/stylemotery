@@ -261,12 +261,12 @@ if __name__ == "__main__":
     output_folder = os.path.join("results",args.folder)  # args.folder  #R"C:\Users\bms\PycharmProjects\stylemotery_code" #
     dataset_folder = os.path.join("dataset", args.dataset)
     trees, tree_labels, lable_problems, features = parse_src_files(dataset_folder,seperate_trees=False)
+    #print(len(trees))
     pipline = Pipeline([
         ('astvector', ASTVectorizer(features, ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
-        ('selection', TopRandomTreesEmbedding(k=700, n_estimators=900, max_depth=20)),
+        ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1500, max_depth=20)),
         # PredefinedFeatureSelection()),
-        ('randforest',
-         RandomForestClassifier(n_estimators=500, min_samples_split=2, max_features="auto", criterion="entropy"))])
+        ('randforest',RandomForestClassifier(n_estimators=1000, min_samples_split=2, max_features="auto", criterion="entropy"))])
     # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
     # exp_relax(pipline,trees,tree_labels,lable_problems, relax=1,cv=cv)
 
@@ -277,6 +277,10 @@ if __name__ == "__main__":
     if args.train:
         rand_seed, classes = read_train_config(os.path.join("train", args.dataset.split("_")[0], args.train))
         trees_subset, tree_labels_subset = pick_subsets(trees, tree_labels, classes=classes)
+        #print(tree_labels_subset)
+        #print(classes)
+        #print(rand_seed)
+        #print(len(trees_subset))
     else:
         rand_seed = random.randint(0, 4294967295)
         if args.classes > -1:

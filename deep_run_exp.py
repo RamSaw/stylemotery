@@ -117,7 +117,6 @@ def main_experiment():
     len(train_lables), (len(train_lables) / len(tree_labels)) * 100, train_lables))
     output_file.write(
         "Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
-
     if model_name == "lstm":
         model = RecursiveLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes, cell=cell,residual=residual)
     elif model_name == "bilstm":
@@ -137,7 +136,8 @@ def main_experiment():
         model.to_gpu()
 
     # Setup optimizer
-    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
+    optimizer = optimizers.MomentumSGD(lr=0.01, momentum=0.9)#)daGrad(lr=0.01)
+    #MomentumSGD(lr=0.01, momentum=0.9)#Adam(alpha=0.001, beta1=0.9, beta2=0.999, eps=1e-08)#AdaGrad(lr=0.01)#NesterovAG(lr=0.01, momentum=0.9)#AdaGrad(lr=0.01) # MomentumSGD(lr=0.01, momentum=0.9)  # AdaGrad(lr=0.1) #
     output_file.write("Optimizer: {0} ".format((type(optimizer).__name__, optimizer.__dict__)))
     optimizer.setup(model)
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
@@ -172,6 +172,7 @@ def main_experiment():
                  range(100,500):0.0001}
         return RangeDictionary(rates)[epoch]
 
+    optimizer.lr = 0.01
     best_scores = (-1, -1, -1)  # (epoch, loss, accuracy)
     for epoch in range(1, n_epoch + 1):
         # optimizer.lr = range_decay(epoch-1)

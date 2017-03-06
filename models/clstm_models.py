@@ -42,7 +42,7 @@ class RecursiveBaseLSTM(chainer.Chain):
         children_ast = list(children(node))
         if len(children_ast) == 0:
             # leaf node
-            return self.leaf(node, train_mode=train_mode)
+            return self.embed_vec(node, train_mode=train_mode)
         else:
             # internal node
             children_nodes = []

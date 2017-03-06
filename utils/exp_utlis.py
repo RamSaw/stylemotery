@@ -5,9 +5,63 @@ import numpy as np
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
+from ast_tree.traverse import children
 from utils.dataset_utils import make_backward_graph
 from utils.prog_bar import Progbar
 
+
+def trainBPTT(model, train_trees, train_labels, optimizer, batch_size=5,bptt_limit=35, shuffle=True):
+    curr_timesteps = 0
+    def traverse(model, node,label, train_mode):
+        nonlocal curr_timesteps
+        children_ast = list(children(node))
+        if len(children_ast) == 0:
+            # leaf node
+            curr_timesteps = curr_timesteps + 1
+            return model.embed_vec(node, train_mode=train_mode)
+        else:
+            # internal node
+            children_nodes = []
+            for child in children_ast:
+                if child is not None:
+                    child_node = traverse(model,child,label, train_mode=train_mode)
+                    children_nodes.append(child_node)
+            x = model.embed_vec(node, train_mode=train_mode)
+            new_node = model.merge(x, children_nodes, train_mode=train_mode)
+            curr_timesteps += 1
+            if curr_timesteps >= bptt_limit:
+                loss = model.loss(new_node,label,train_mode)
+                model.zerograds()
+                loss.backward()
+                optimizer.update()
+                curr_timesteps = 0
+            return new_node
+    progbar = Progbar(len(train_labels))
+    batch_loss = 0
+    total_loss = []
+    predict = []
+    if shuffle:
+        indices = np.arange(len(train_labels))
+        random.shuffle(indices)
+        train_trees = train_trees[indices]
+        train_labels = train_labels[indices]
+    for idx, tree in enumerate(train_trees):
+        curr_timesteps = 0
+        root_vec = traverse(model,tree,train_labels[idx], train_mode=True)
+        w = model.label(root_vec)
+        batch_loss += model.loss(w, train_labels[idx], train_mode=True)
+        predict.extend(model.predict(w, index=True))
+        progbar.update(idx + 1, values=[("training loss", batch_loss.data)])
+        if (idx + 1) % batch_size == 0:
+            total_loss.append(float(batch_loss.data) / batch_size)
+            model.zerograds()
+            batch_loss.backward()
+            optimizer.update()
+            batch_loss = 0
+    predict = np.array(predict)
+    accuracy = accuracy_score(predict, train_labels)
+    print("\tAccuracy: %0.2f " % (accuracy))
+    return accuracy, np.mean(total_loss)
 
 def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=True):
     progbar = Progbar(len(train_labels))

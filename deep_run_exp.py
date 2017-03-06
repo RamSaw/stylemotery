@@ -14,7 +14,7 @@ from ast_tree.tree_nodes import AstNodes
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM
 from models.clstm_models import RecursiveDyanmicLSTM
 from models.tree_models import RecursiveTreeLSTM
-from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_train_config
+from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_train_config, trainBPTT
 from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree, generate_trees
 
 
@@ -63,7 +63,8 @@ def main_experiment():
 
     parser.add_argument('--model', '-m', type=str, default="bilstm", help='Model used for this experiment')
     parser.add_argument('--units', '-u', type=int, default=100, help='Number of hidden units')
-    parser.add_argument('--cell', '-cl', type=str, default="lstm", help='peeplstm')
+    parser.add_argument('--bptt', '-bp', type=int, default=0, help='BPTT LIMIT')
+    parser.add_argument('--cell', '-cl', type=str, default="lstm", help='lstm')
     parser.add_argument('--residual', '-r', action='store_true', default=False,help='Number of examples in each mini batch')
     parser.add_argument('--save', '-s', type=int, default=1, help='Save best models')
 
@@ -176,8 +177,13 @@ def main_experiment():
         # optimizer.lr = range_decay(epoch-1)
         print('Epoch: {0:d} / {1:d}'.format(epoch, n_epoch))
         print("optimizer lr = ", optimizer.lr)
-        print('Train')
-        training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size, shuffle=True)
+        if args.bptt > 0:
+            print('TrainBPTT')
+            training_accuracy, training_loss = trainBPTT(model, train_trees, train_lables, optimizer, batch_size,bptt_limit=args.bptt, shuffle=True)
+        else:
+            print('Train')
+            training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size,
+                                                         shuffle=True)
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()

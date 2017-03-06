@@ -8,6 +8,8 @@ from time import time
 import os
 import numpy as np
 import sys
+
+from sklearn.grid_search import GridSearchCV
 from sklearn.model_selection import StratifiedKFold
 from sklearn.ensemble import RandomForestClassifier
 # from sklearn.grid_search import GridSearchCV
@@ -162,10 +164,10 @@ def main_gridsearch():
         ('select', TopRandomTreesEmbedding()),  # PredefinedFeatureSelection()),
         ('clf', RandomForestClassifier())])
 
-    folds = StratifiedKFold(y, n_folds=5)
+    folds = StratifiedKFold(n_splits=5)
     parameters = {
         'ast__ngram': (2,),
-        'ast__v_skip': (1, 2),
+        # 'ast__v_skip': (1, 2),
 
         'select__k': (1000, 1200, 1500, 2000),
         'select__n_estimators': (1000, 1500),

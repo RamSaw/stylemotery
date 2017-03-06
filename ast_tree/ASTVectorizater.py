@@ -299,14 +299,3 @@ class ASTVectorizer(BaseEstimator):
             return X_out
         else:
             return X
-
-import os
-if __name__ == "__main__":
-    filename = os.path.join(os.getcwd(), 'dump_program.py')
-    ast_tree = ast_parse_file(filename)
-    print(list(ast_paths(ast_tree)))
-    ast_print(ast_tree)
-    features = TreeFeatures()
-    bigrams = sorted(features.tf_skip_grams_node_fast(ast_tree,ngram=2,v_skip=5).items())
-    for k, v in bigrams:
-        print(k, " => ", v)

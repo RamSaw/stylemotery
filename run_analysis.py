@@ -1,13 +1,12 @@
+import collections
+import os
 from operator import itemgetter
 
 import matplotlib.pyplot as plt
 import numpy as np
-import collections
-from ast_tree.traverse import bfs, children
-from deep_run_exp import read_train_config
-from utils.analysis_utils import max_depth, max_branch,avg_branch,avg_depth
-from utils.dataset_utils import parse_src_files, unified_ast_trees, make_binary_tree
-import os
+
+from utils.analysis_utils import max_depth, max_branch
+from utils.dataset_utils import parse_src_files
 
 # def max_depth(ast_tree):
 #     def max_depth_lambda(x, d, o):
@@ -30,7 +29,6 @@ import os
 #
 #     out = bfs(ast_tree, callback=max_branch_lambda, mode="all", out=[])
 #     return out[0]
-from utils.exp_utlis import pick_subsets
 
 
 def plot_dist(name, dist, max_len=1000):

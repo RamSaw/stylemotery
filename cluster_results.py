@@ -1,33 +1,19 @@
-
-
-
-
-
 import os
-import random
-
 import sys
 from operator import itemgetter
 
-from chainer import serializers
+import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.cross_validation import StratifiedKFold
-from sklearn.manifold import TSNE
+from chainer import serializers
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA,KernelPCA
 from sklearn.neighbors import NearestNeighbors
 
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.tree_nodes import AstNodes
-from deep_run_exp import split_trees, pick_subsets
-from models.lstm_models import RecursiveLSTM
 from models.tree_models import RecursiveTreeLSTM
-from utils.extract_loss_progress import parse_result_file
 from utils.dataset_utils import print_model, parse_src_files
-from utils.graph import plot_all, plot_each
-import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.cluster import KMeans, DBSCAN
-from sklearn.decomposition import PCA,KernelPCA
 from utils.prog_bar import Progbar
 
 

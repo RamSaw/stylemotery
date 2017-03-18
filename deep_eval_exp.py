@@ -90,7 +90,7 @@ def main_experiment(ensembles):
     model_name = args.model
     layers = args.layers
     dropout = args.dropout
-    cell = args.cell
+    cell = "lstm"#args.cell
     residual = args.residual
 
     output_file = sys.stdout#open(os.path.join(output_folder, exper_name + "_results.txt"), mode="a")
@@ -139,15 +139,18 @@ def main_experiment(ensembles):
     model_files = [f for f in os.listdir(os.path.join(models_base_folder,"lstm2")) if f.endswith(".my")]
     for model_saved_name in model_files:
     # load the model
-        output_file.write("load {0} ... \n".format(model_saved_name))
-        path = os.path.join(models_base_folder,"lstm2",model_saved_name)
-        serializers.load_npz(path, model)
-        # if gpu >= 0:
-        #     model.to_gpu()
-        models.append(model)
+        if exper_name in model_saved_name:
+            output_file.write("load {0} ... \n".format(model_saved_name))
+            path = os.path.join(models_base_folder,"lstm2",model_saved_name)
+            serializers.load_npz(path, model)
+            # if gpu >= 0:
+            #     model.to_gpu()
+            models.append(model)
+
+
 
     # trees, tree_labels = pick_subsets(trees, tree_labels, classes=classes)
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees2(trees, tree_labels, n_folds=5,
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,
                                                                                   shuffle=True, seed=seed,
                                                                                   iterations=args.iterations)
     # print('Train')
@@ -163,16 +166,18 @@ def main_experiment(ensembles):
     #     output_file.flush()
 
     print("One model:")
-    # test_accuracy, test_loss = evaluate(models[0], test_trees, test_lables, batch_size=batch_size)
-    # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
-    # output_file.write("{0:<20.10f}\n".format(test_accuracy))
-    output_file.flush()
-
-    print("Ensmbel:")
-    test_accuracy, test_loss = evaluate_ensemble(models, test_trees, test_lables, batch_size=batch_size)
+    import numpy as np
+    classes_num = np.arange(len(classes))
+    test_accuracy, test_loss = evaluate(models[0], test_trees, test_lables,classes=classes_num, batch_size=batch_size)
     # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
     output_file.write("{0:<20.10f}\n".format(test_accuracy))
     output_file.flush()
+
+    print("Ensmbel:")
+    # test_accuracy, test_loss = evaluate_ensemble(models, test_trees, test_lables, batch_size=batch_size)
+    # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
+    # output_file.write("{0:<20.10f}\n".format(test_accuracy))
+    # output_file.flush()
 
     output_file.close()
 if __name__ == "__main__":

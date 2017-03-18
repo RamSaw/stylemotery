@@ -183,8 +183,7 @@ def main_experiment():
             training_accuracy, training_loss = trainBPTT(model, train_trees, train_lables, optimizer, batch_size,bptt_limit=args.bptt, shuffle=True)
         else:
             print('Train')
-            training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size,
-                                                         shuffle=True)
+            training_accuracy, training_loss = train(model, train_trees, train_lables, optimizer, batch_size,shuffle=True)
         print('Test')
         test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size)
         print()

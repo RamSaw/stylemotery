@@ -13,8 +13,13 @@ def read_config(filename):
             if line.startswith("Args "):
                 args_line = line.split(":-",1)
                 # line = "["+args_line[1].strip().replace("Namespace(","")[:-1]+"]"
+                if len(args_line) == 1:
+                    args_line = line.split("=", 1)
                 args = eval(args_line[1])
-                dataset = args.dataset
+                if hasattr(args,"dataset"):
+                    dataset = args.dataset
+                else:
+                    dataset = "python" if "python" in filename.split("_") else "cpp"
             if line.lower().startswith("params"):
                 args_line = line.split(":",1)
                 params = args_line[1].strip()
@@ -45,15 +50,19 @@ def getParams(dataset,layers, cell, units, authors):
 
 if __name__ == "__main__":
     # basefolder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\all"
-    basefolder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\cpp\results"
+    basefolder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\all\python"
     # folders = ['100','250','500']
     # for folder in folders:
     #     print(folder)
     files = [f for f in os.listdir(os.path.join(basefolder)) if f.endswith(".txt") and not f.startswith("all")]
     for file in files:
-        params, last_epoch, last_acc,dataset = read_config(os.path.join(basefolder,file))
-        parts = file.split("_")
-        layer, cell,units, authors = parts[0],parts[1],parts[2],parts[4]
-        params = getParams(dataset,int(layer), cell,int(250), int(10))
-        print("\t{0:<2}{1:<10}{2:<10}{3:<4}{4:<10}{5:<20.10f}{6:<40}".format(layer,cell,units,authors,"{:,}".format(params),float(last_acc),file))
-    print()
+        try:
+            params, last_epoch, last_acc,dataset = read_config(os.path.join(basefolder,file))
+            parts = file.split("_")
+            layer, cell,units, authors = parts[0],parts[1],parts[2],parts[4]
+            params = getParams(dataset,int(layer), cell,int(units), int(authors))
+            print("\t{0:<2}{1:<10}{2:<10}{3:<4}{4:<15}{5:<20.10f}{6:<40}".
+                  format(layer,cell,units,authors,"{:,}".format(params),float(last_acc),file))
+        except:
+            print(file)
+            raise

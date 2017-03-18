@@ -1,4 +1,6 @@
 import os
+from collections import OrderedDict
+
 import matplotlib.pyplot as plt
 from utils.extract_loss_progress import parse_result_file
 from utils.graph import plot_each, plot_each_smooth, plot_acc_all, plot_acc_all_smooth, plot_loss_all, \
@@ -26,7 +28,7 @@ def plot_results(base_folder,recursive=False,smooth=False):
     if smooth:
         plot_each_smooth(new_results, base_folder)
 
-def plot_acc_results(base_folder,recursive=False,smooth=False):
+def plot_acc_results(base_folder,recursive=False,smooth=False,names=None):
     results = {}
     for filename in os.listdir(base_folder):
         if filename.endswith("_results.txt"):
@@ -38,11 +40,11 @@ def plot_acc_results(base_folder,recursive=False,smooth=False):
     for name, values in new_results.items():
         print(name, " ==> ", values.keys())
 
-    plot_acc_all(new_results, base_folder)
+    plot_acc_all(new_results, base_folder,names)
     if smooth:
-        plot_acc_all_smooth(new_results, base_folder)
+        plot_acc_all_smooth(new_results, base_folder,names)
 
-def plot_loss_results(base_folder,recursive=False,smooth=False):
+def plot_loss_results(base_folder,recursive=False,smooth=False,names=None):
     results = {}
     for filename in os.listdir(base_folder):
         if filename.endswith("_results.txt"):
@@ -54,9 +56,9 @@ def plot_loss_results(base_folder,recursive=False,smooth=False):
     for name, values in new_results.items():
         print(name, " ==> ", values.keys())
 
-    plot_loss_all(new_results, base_folder)
+    plot_loss_all(new_results, base_folder,names)
     if smooth:
-        plot_loss_all_smooth(new_results, base_folder)
+        plot_loss_all_smooth(new_results, base_folder,names)
 
 def extract_best_results(base_folder,recursive=False):
     results = {}
@@ -104,7 +106,9 @@ def extract_training_data(base_folder,recursive=False):
                 print("\t",k,":",v)
 
 if __name__ == "__main__":
-    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\classification"
+    names = OrderedDict({"1_bilstm_100_python_70_labels1": "BiLSTM (1-Layer, 100-Units)",
+             "1_lstm_100_python_70_labels1": "LSTM (1-Layer, 100-Units)"})
+    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\classification\complex_architecture"
     # plot_results(base_folder,recursive=True,smooth=True)
-    plot_acc_results(base_folder,recursive=True,smooth=True)
-    plot_loss_results(base_folder,recursive=True,smooth=True)
+    plot_acc_results(base_folder,recursive=False,smooth=True,names=names)
+    plot_loss_results(base_folder,recursive=False,smooth=True,names=names)

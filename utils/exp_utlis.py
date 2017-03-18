@@ -6,9 +6,10 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score
 # from deep_ast.tree_lstm.treelstm import TreeLSTM
 from ast_tree.traverse import children
+from gscripts.graphic_presenter import plot_confusion_matrix
 from utils.dataset_utils import make_backward_graph
 from utils.prog_bar import Progbar
-
+from sklearn.metrics import confusion_matrix
 
 def trainBPTT(model, train_trees, train_labels, optimizer, batch_size=5,bptt_limit=35, shuffle=True):
     curr_timesteps = 0
@@ -91,7 +92,7 @@ def train(model, train_trees, train_labels, optimizer, batch_size=5, shuffle=Tru
     return accuracy, np.mean(total_loss)
 
 
-def evaluate(model, test_trees, test_labels, batch_size=1):
+def evaluate(model, test_trees, test_labels,classes=None, batch_size=1):
     m = model.copy()
     m.volatile = True
     progbar = Progbar(len(test_labels))
@@ -113,6 +114,10 @@ def evaluate(model, test_trees, test_labels, batch_size=1):
     accuracy = accuracy_score(predict, test_labels)
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
+    cnf_matrix = confusion_matrix(test_labels, predict)
+    plot_confusion_matrix(cnf_matrix, classes=classes, normalize=True,
+                          title='Normalized confusion matrix',
+                          local_path=R"../dataset/cm")
     # print("\tLoss: %0.2f " % mean_loss)
     return accuracy, mean_loss
 

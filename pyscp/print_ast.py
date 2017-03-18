@@ -2,8 +2,9 @@ import ast
 import os
 
 from ast_tree.traverse import tree_print
-from ast_tree.tree_nodes import print_ast_node
-from ast_tree.tree_parser import ast_parse_file
+from ast_tree.tree_nodes import print_ast_node, print_dot_node
+from ast_tree.tree_parser import ast_parse_file, parse_tree
+from utils.analysis_utils import max_depth, max_branch
 
 stack = []
 def print_ast_node_tree(node, depth, out=None):
@@ -32,9 +33,18 @@ def print_ast_node_tree(node, depth, out=None):
 
 
 if __name__ == "__main__":
-    filename = os.path.join("..","ast_tree", 'dump_program.py')
-    ast_tree = ast_parse_file(filename)
+    # filename = os.path.join("..","ast_tree", 'dump_program.py')
+    # ast_tree = ast_parse_file(filename)
+    # # print(list(ast_paths(ast_tree)))
+    # tree_print(ast_tree,callback=print_ast_node_tree)
+    # for s in stack:
+    #     print(' ' * s * 2 + "]")
+
+    filename = os.path.join("..","dataset","all_cpp",'Brian_Harris.50.p_saveg.tree')
+    ast_tree = parse_tree(filename)
     # print(list(ast_paths(ast_tree)))
-    tree_print(ast_tree,callback=print_ast_node_tree)
-    for s in stack:
-        print(' ' * s * 2 + "]")
+    tree_print(ast_tree[0],callback=print_dot_node)
+    print(max_depth(ast_tree[0]))
+    print(max_branch(ast_tree[0]))
+    # for s in stack:
+    #     print(' ' * s * 2 + "]")

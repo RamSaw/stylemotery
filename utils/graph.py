@@ -51,7 +51,8 @@ def plot_all(results, base_folder=None):
         # os.remove(os.path.join(base_folder,"plot_all"))
         figure.savefig(os.path.join(base_folder, "plot_all"), dpi=900)
 
-def plot_loss_all(results, base_folder=None):
+
+def plot_loss_all(results, base_folder=None, names=None):
     figure, ax2 = plt.subplots(ncols=1, nrows=1, figsize=(8, 6), dpi=100)
 
     # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
@@ -63,7 +64,7 @@ def plot_loss_all(results, base_folder=None):
         line_style = next(linestyles)
         # ax2.plot(results[name]["training accuracy"], train_color + line_style, label="%s (Train Accuracy)" % name)
         ax2.plot(results[name]["test loss"], next(colors) + next(linestyles) + next(markers),
-                 label= name, markevery=20)
+                 label=name if names is None else names[name], markevery=20)
     ax2.legend(loc='upper right')
     # ax2.set_title("Accuracy curves")
     ax2.set_ylabel("Loss")
@@ -77,7 +78,8 @@ def plot_loss_all(results, base_folder=None):
         # os.remove(os.path.join(base_folder,"plot_all"))
         figure.savefig(os.path.join(base_folder, "loss_plot_all"), dpi=900)
 
-def plot_acc_all(results, base_folder=None):
+
+def plot_acc_all(results, base_folder=None, names=None):
     figure, ax2 = plt.subplots(ncols=1, nrows=1, figsize=(8, 6), dpi=100)
 
     # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
@@ -88,7 +90,8 @@ def plot_acc_all(results, base_folder=None):
     for name in results:
         line_style = next(linestyles)
         # ax2.plot(results[name]["training accuracy"], train_color + line_style, label="%s (Train Accuracy)" % name)
-        ax2.plot(results[name]["test accuracy"], next(colors) + next(linestyles) + next(markers), label=name,
+        ax2.plot(results[name]["test accuracy"], next(colors) + next(linestyles) + next(markers),
+                 label=name if names is None else names[name],
                  markevery=20)
     ax2.legend(loc='lower right')
     # ax2.set_title("Accuracy curves")
@@ -103,7 +106,8 @@ def plot_acc_all(results, base_folder=None):
         # os.remove(os.path.join(base_folder,"plot_all"))
         figure.savefig(os.path.join(base_folder, "acc_plot_all"), dpi=900)
 
-def plot_acc_all_smooth(results, base_folder=None):
+
+def plot_acc_all_smooth(results, base_folder=None, names=None):
     figure, ax2 = plt.subplots(ncols=1, nrows=1, figsize=(8, 6), dpi=100)
 
     # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
@@ -115,7 +119,7 @@ def plot_acc_all_smooth(results, base_folder=None):
         line_style = next(linestyles)
         # ax2.plot(results[name]["training accuracy"], train_color + line_style, label="%s (Train Accuracy)" % name)
         ax2.plot(upper_bound(results[name]["test accuracy"]), next(colors) + next(linestyles) + next(markers),
-                 label=name,markevery=20)
+                 label=name if names is None else names[name], markevery=20)
     ax2.legend(loc='lower right')
     # ax2.set_title("Accuracy curves")
     ax2.set_ylabel("Accuracy")
@@ -129,7 +133,8 @@ def plot_acc_all_smooth(results, base_folder=None):
         # os.remove(os.path.join(base_folder,"plot_all"))
         figure.savefig(os.path.join(base_folder, "acc_plot_all_smooth"), dpi=900)
 
-def plot_loss_all_smooth(results, base_folder=None):
+
+def plot_loss_all_smooth(results, base_folder=None, names=None):
     figure, ax2 = plt.subplots(ncols=1, nrows=1, figsize=(8, 6), dpi=100)
 
     # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
@@ -141,7 +146,7 @@ def plot_loss_all_smooth(results, base_folder=None):
         line_style = next(linestyles)
         # ax2.plot(results[name]["training accuracy"], train_color + line_style, label="%s (Train Accuracy)" % name)
         ax2.plot(lower_bound(results[name]["test loss"]), next(colors) + next(linestyles) + next(markers),
-                 label=name, markevery=20)
+                 label=name if names is None else names[name], markevery=20)
     ax2.legend(loc='upper right')
     # ax2.set_title("Accuracy curves")
     ax2.set_ylabel("Loss")
@@ -154,6 +159,7 @@ def plot_loss_all_smooth(results, base_folder=None):
     else:
         # os.remove(os.path.join(base_folder,"plot_all"))
         figure.savefig(os.path.join(base_folder, "loss_plot_all_smooth"), dpi=900)
+
 
 def avg_line(x_values, y_values):
     result_y, last_ys = [], []
@@ -169,6 +175,7 @@ def avg_line(x_values, y_values):
         result_y.append(float(running_sum) / float(len(last_ys)))
     return (x_values, result_y)
 
+
 def plot_each(results, base_folder=None):
     styles = ('-', '--', '-.', ':')
     train_color = 'b'
@@ -181,7 +188,7 @@ def plot_each(results, base_folder=None):
         # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
         ax1.plot(results[name]["train loss"], train_color + train_style, label="%s (Train Loss)" % name)
         ax1.plot(results[name]["test loss"], test_color + test_style, label="%s (Test Loss)" % name)
-        ax1.legend(loc='upper right',prop={'size':6})
+        ax1.legend(loc='upper right', prop={'size': 6})
         # ax1.set_title("Loss Ratio")
         ax1.set_ylabel("Loss")
         ax1.set_xlabel("Epochs")
@@ -191,7 +198,7 @@ def plot_each(results, base_folder=None):
         # if "train accuracy" in results[name]:
         ax2.plot(results[name]["train accuracy"], train_color + train_style, label="%s (Train Accuracy)" % name)
         ax2.plot(results[name]["test accuracy"], test_color + test_style, label="%s (Test Accuracy)" % name)
-        ax2.legend(loc='lower right',prop={'size':6})
+        ax2.legend(loc='lower right', prop={'size': 6})
         # ax2.set_title("Accuracy curves")
         ax2.set_ylabel("Accuracy")
         ax2.set_xlabel("Epochs")
@@ -206,17 +213,20 @@ def plot_each(results, base_folder=None):
         figure.clear()
         plt.close()
 
+
 def upper_bound(X):
     if len(X) > 51:
         X = savgol_filter(X, 11, 2) + 0.05
         X[X > 1] = 1.0
     return X
 
+
 def lower_bound(X):
     if len(X) > 51:
         X = savgol_filter(X, 11, 2) - 0.05
         X[X < 0] = 0.0
     return X
+
 
 def plot_each_smooth(results, base_folder=None):
     styles = ('-', '--', '-.', ':')
@@ -230,7 +240,7 @@ def plot_each_smooth(results, base_folder=None):
         # markers = itertools.cycle(('.', '*', 'o', '+', 'd'))
         ax1.plot(lower_bound(results[name]["train loss"]), train_color + train_style, label="%s (Train Loss)" % name)
         ax1.plot(lower_bound(results[name]["test loss"]), test_color + test_style, label="%s (Test Loss)" % name)
-        ax1.legend(loc='upper right',prop={'size':6})
+        ax1.legend(loc='upper right', prop={'size': 6})
         # ax1.set_title("Loss Ratio")
         ax1.set_ylabel("Loss")
         ax1.set_xlabel("Epochs")
@@ -238,9 +248,11 @@ def plot_each_smooth(results, base_folder=None):
         ax1.grid(True)
 
         # if "train accuracy" in results[name]:
-        ax2.plot(upper_bound(results[name]["train accuracy"]), train_color + train_style, label="%s (Train Accuracy)" % name)
-        ax2.plot(upper_bound(results[name]["test accuracy"]), test_color + test_style, label="%s (Test Accuracy)" % name)
-        ax2.legend(loc='lower right',prop={'size':6})
+        ax2.plot(upper_bound(results[name]["train accuracy"]), train_color + train_style,
+                 label="%s (Train Accuracy)" % name)
+        ax2.plot(upper_bound(results[name]["test accuracy"]), test_color + test_style,
+                 label="%s (Test Accuracy)" % name)
+        ax2.legend(loc='lower right', prop={'size': 6})
         # ax2.set_title("Accuracy curves")
         ax2.set_ylabel("Accuracy")
         ax2.set_xlabel("Epochs")
@@ -251,7 +263,7 @@ def plot_each_smooth(results, base_folder=None):
         if not base_folder:
             plt.show()
         else:
-            figure.savefig(os.path.join(base_folder, name+"_smooth"), dpi=900)
+            figure.savefig(os.path.join(base_folder, name + "_smooth"), dpi=900)
         figure.clear()
         plt.close()
 

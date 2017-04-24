@@ -22,14 +22,15 @@ colors = itertools.cycle(('b', 'g', 'r', 'k', 'm'))
 lstm_style = (next(colors) + next(linestyles) + next(markers))
 bilstm_style = (next(colors) + next(linestyles) + next(markers))
 rf_style = (next(colors) + next(linestyles) + next(markers))
+svm_style = (next(colors) + next(linestyles) + next(markers))
 
 def per(l):
     return ["{0:<2.2f}".format(s) for s in l]
 
 def plot_relax():
-    lstm1l =  per([86.36, 94.29, 98.57, 99.29])
-    blstm1l = per([88.86, 95.71, 96.43, 97.14])
-    rf = per([72.90, 89.57, 95.00, 97.00])
+    lstm1l =  per([86.36, 94.29, 98.57, 99.29,99.29])
+    blstm1l = per([88.86, 95.71, 96.43, 97.14,97.14])
+    rf = per([72.90, 89.57, 95.00, 97.00,98.43])
 
     figure = plt.figure(figsize=(8, 6))  # num=2,figsize=(5,5),dpi=200
     gs = gridspec.GridSpec(1, 1, width_ratios=[3, 1])
@@ -38,16 +39,16 @@ def plot_relax():
 
     # ax1.set_xlim([70.00, 100.00])
     ax1.set_ylim([60.00, 100.02])
-    ax1.set_xticks([1,5,10,15])#np.linspace(1, 10 , 2))
+    ax1.set_xticks([1,5,10,15,20])#np.linspace(1, 10 , 2))
     ax1.set_yticks([60,65,70,75,80,85,90,95,100])#np.linspace(60, 100, 8))
 
-    ax1.plot([1,5,10,15],lstm1l, lstm_style, label="LSTM (1-Layer, 100-Units)", lw=1, markevery=1)
-    ax1.plot([1,5,10,15],blstm1l, bilstm_style, label="BiLSTM (1-Layer, 100-Units)", lw=1, markevery=1)
-    ax1.plot([1,5,10,15],rf, rf_style, label="Random Forest", lw=1, markevery=1)
+    ax1.plot([1,5,10,15,20],lstm1l, lstm_style, label="LSTM (1-Layer, 100-Units)", lw=1, markevery=1)
+    ax1.plot([1,5,10,15,20],blstm1l, bilstm_style, label="BiLSTM (1-Layer, 100-Units)", lw=1, markevery=1)
+    ax1.plot([1,5,10,15,20],rf, rf_style, label="Random Forest", lw=1, markevery=1)
     for tick in ax1.get_xaxis().get_major_ticks():
         tick.set_pad(8.)
         tick.label1 = tick._get_text1()
-    ax1.set_xlabel('Top Prediction')
+    ax1.set_xlabel('Top Predicted Authors')
     ax1.legend(loc="lower right", prop={'size': 9.5}, numpoints=1)
     ax1.set_ylabel('Accuracy (%)')
     ax1.grid('on')
@@ -57,10 +58,10 @@ def plot_relax():
     # figure.clear()
 
 def plot_complex():
-    lstm1l =  per([0.8,0.857142857,0.8357,0.8357])
-    lstm12 =  per([0.678571429,0.728571429,0.7571,0.7714])
-    blstml1 = per([0.792857143,0.9,0.8571,0.85])
-    blstm12 = per([0.678571429,0.728571429,0.764285714,0.757142857])
+    lstm1l =  per([0.792857143,0.863636364,0.835714286,0.835714286])
+    lstm12 =  per([0.678571429,0.728571429,0.807142857,0.735714286])
+    blstml1 = per([0.8,0.888571429,0.8571,0.85])
+    blstm12 = per([0.722857143,0.771428571,0.8212,0.757142857])
     x_values = [50,100,250,500]
 
     figure = plt.figure(figsize=(8, 6))  # num=2,figsize=(5,5),dpi=200
@@ -73,10 +74,10 @@ def plot_complex():
     ax1.set_xticks(x_values)#np.linspace(1, 10 , 2))
     ax1.set_yticks([60,65,70,75,80,85,90,95,100])#np.linspace(60, 100, 8))
 
-    ax1.plot(x_values,lstm1l, (next(colors) + next(linestyles) + next(markers)), label="LSTM (1-Layer, 100-Units)", lw=1, markevery=1)
-    ax1.plot(x_values,blstml1, (next(colors) + next(linestyles) + next(markers)), label="BiLSTM (1-Layer, 100-Units)", lw=1, markevery=1)
-    ax1.plot(x_values,lstm12, (next(colors) + next(linestyles) + next(markers)), label="LSTM (2-Layers, 250-Units)", lw=1, markevery=1)
-    ax1.plot(x_values,blstm12, (next(colors) + next(linestyles) + next(markers)), label="BiLSTM (2-Layers, 250-Unites)", lw=1, markevery=1)
+    ax1.plot(x_values,lstm1l, (next(colors) + next(linestyles) + next(markers)), label="LSTM (1-Layer)", lw=1, markevery=1)
+    ax1.plot(x_values,blstml1, (next(colors) + next(linestyles) + next(markers)), label="BiLSTM (1-Layer)", lw=1, markevery=1)
+    ax1.plot(x_values,lstm12, (next(colors) + next(linestyles) + next(markers)), label="LSTM (2-Layers)", lw=1, markevery=1)
+    ax1.plot(x_values,blstm12, (next(colors) + next(linestyles) + next(markers)), label="BiLSTM (2-Layers)", lw=1, markevery=1)
 
     for tick in ax1.get_xaxis().get_major_ticks():
         tick.set_pad(8.)
@@ -87,8 +88,8 @@ def plot_complex():
     ax1.grid('on')
     # plt.show()
 
-    figure.savefig(os.path.join(R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\scale",
-                                "scale"), dpi=900)
+    figure.savefig(os.path.join(R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\complex",
+                                "complex"), dpi=900)
     figure.clear()
 
 def plot_classifiers():
@@ -128,9 +129,10 @@ def plot_classifiers():
 
 
 def plot_scale():
-    lstm1l =  per([100.00, 92.00, 86.43, 86.36])
-    blstm1l = per([100.00, 96.00, 89.09, 88.86])
-    rf = per([90.00, 80.00, 77.45, 72.90])
+    lstm1l =  per([98.0, 92.00, 86.43, 86.36])
+    blstm1l = per([99.1, 96.00, 89.09, 88.86])
+    rf = per([92.0, 86.00, 77.45, 72.90])
+    svm = per([86.00,77.20,64.55,61.29])
     x_values = [5,25,55,70]
 
     figure = plt.figure(figsize=(8, 6))  # num=2,figsize=(5,5),dpi=200
@@ -145,6 +147,7 @@ def plot_scale():
     ax1.plot(x_values,lstm1l, lstm_style, label="LSTM (1-Layer, 100-Units)", lw=1, markevery=1)
     ax1.plot(x_values,blstm1l,bilstm_style, label="BiLSTM (1-Layer, 100-Units)", lw=1, markevery=1)
     ax1.plot(x_values,rf,rf_style, label="Random Forest", lw=1, markevery=1)
+    ax1.plot(x_values,svm,svm_style, label="Linear SVM", lw=1, markevery=1)
     for tick in ax1.get_xaxis().get_major_ticks():
         tick.set_pad(8.)
         tick.label1 = tick._get_text1()
@@ -159,7 +162,7 @@ def plot_scale():
     # figure.clear()
 
 if __name__ == "__main__":
-    # plot_relax()
+     # plot_relax()
     # plot_complex()
-    # plot_scale()
-    plot_classifiers()
+    plot_scale()
+    # plot_classifiers()

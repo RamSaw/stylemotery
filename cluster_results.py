@@ -8,17 +8,20 @@ from chainer import serializers
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA,KernelPCA
+from sklearn.manifold import TSNE
 from sklearn.neighbors import NearestNeighbors
 
 from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.tree_nodes import AstNodes
+from models.clstm_models import RecursiveLSTM, RecursiveBiLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.dataset_utils import print_model, parse_src_files
 from utils.prog_bar import Progbar
 
 
+
 def cluster_plot(estimator,X,y,true_labels,basefolder=None):
-    reducer = KernelPCA(kernel="rbf",n_components=2)
+    reducer = TSNE(n_components=2, init='pca', random_state=0)#KernelPCA(kernel="rbf",n_components=2)
     # X_r = X
     X_r = reducer.fit_transform(X)
     estimator.fit(X)
@@ -78,6 +81,8 @@ def cluster_table(estimator,X,y,true_labels):
         xy = true_labels[class_member_mask]
         print("Cluster {0}: ".format(k),xy)
 
+
+
 def data_plot(X,y,labels):
     estimator = PCA(n_components=2)
     X_r = estimator.fit_transform(X)
@@ -128,11 +133,33 @@ def show_embeding(model,basefolder):
     true_labels = np.array(ast_nodes.nodetypes + [ast_nodes.NONE])
 
     # estimator  =  KernelPCA(n_components=2,kernel="rbf")#PCA(n_components=2)#PCA(n_components=2) #TSNE(n_components=2, random_state=None)#
-    # PCA_plot(estimator,X,y,true_labels)
+    data_plot(X,y,true_labels)
 
     # estimator = DBSCAN(eps=0.3, min_samples=10)
     estimator = KMeans(n_clusters=10,init='k-means++')
     cluster_plot(estimator, X, y, true_labels,basefolder=basefolder)
+    print("*"*10," Cluster AST Node types:","*"*10)
+    cluster_table(estimator, X, y, true_labels)
+
+    estimator = NearestNeighbors(n_neighbors=5)
+    print("*" * 10, " Neighbors of AST Node types:", "*" * 10)
+    neighbors_table(estimator, X, y, true_labels)
+
+
+def show_embeding(model,basefolder):
+    # Word Embedding Analysis
+    X = scale(model.embed.W.data)
+    y = np.arange(X.shape[0])
+    ast_nodes = AstNodes()
+    true_labels = np.array(ast_nodes.nodetypes + [ast_nodes.NONE])
+
+    # estimator  =  KernelPCA(n_components=2,kernel="rbf")#PCA(n_components=2)#PCA(n_components=2) #TSNE(n_components=2, random_state=None)#
+    # data_plot(X,y,true_labels)
+    #return
+    # estimator = DBSCAN(eps=0.3, min_samples=10)
+    estimator = KMeans(n_clusters=10,init='k-means++')
+    cluster_plot(estimator, X, y, true_labels,basefolder=basefolder)
+    cluster_plot_3d(estimator, X, y, true_labels,basefolder=basefolder+"_3d")
     print("*"*10," Cluster AST Node types:","*"*10)
     cluster_table(estimator, X, y, true_labels)
 
@@ -177,31 +204,41 @@ if __name__ == "__main__":
 
     basefolder= R""
     # treelstm 3
-    model_name = ""
-    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
-    model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
-    serializers.load_npz(path,model)
-    print_model(model, depth=1, output=sys.stdout)
+    # model_name = ""
+    # path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
+    # model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
+    # serializers.load_npz(path,model)
+    # print_model(model, depth=1, output=sys.stdout)
     # show_embeding(model,basefolder=os.path.join(basefolder,model_name+"_embed"))
-    show_authors(model,basefolder=os.path.join(basefolder,model_name+"_authors"))
+    # show_authors(model,basefolder=os.path.join(basefolder,model_name+"_authors"))
 
     # bilstm
-    model_name = ""
-    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
-    model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
-    serializers.load_npz(path,model)
-    print_model(model, depth=1, output=sys.stdout)
-    show_embeding(model,basefolder=os.path.join(basefolder,model_name+"_embed"))
-    show_authors(model,basefolder=os.path.join(basefolder,model_name+"_authors"))
+    # model_name = ""
+    # path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
+    # model = RecursiveTreeLSTM(n_children=1, n_units=500,n_label=70, dropout=0.2,feature_dict=TreeFeatures())
+    # serializers.load_npz(path,model)
+    # print_model(model, depth=1, output=sys.stdout)
+    # show_embeding(model,basefolder=os.path.join(basefolder,model_name+"_embed"))
+    # show_authors(model,basefolder=os.path.join(basefolder,model_name+"_authors"))
 
     # lstm
-    model_name = ""
-    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\3_treelstm_3tree_500_70_labels1_epoch_206.my"
-    model = RecursiveTreeLSTM(n_children=1, n_units=500, n_label=70, dropout=0.2, feature_dict=TreeFeatures())
+    print("LSTM")
+    model_name = "lstm"
+    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\lstm\1_lstm_100_python_70_labels1_1_epoch_409.my"
+    model = RecursiveLSTM(n_units=100,layers=1, n_label=70, dropout=0.2, feature_dict=AstNodes())
     serializers.load_npz(path, model)
     print_model(model, depth=1, output=sys.stdout)
     show_embeding(model, basefolder=os.path.join(basefolder, model_name + "_embed"))
-    show_authors(model, basefolder=os.path.join(basefolder, model_name + "_authors"))
+
+    # bilstm
+    # print("BiLSTM")
+    model_name = "bilstm"
+    path = R"C:\Users\bms\Files\current\research\stylemotry\stylemotery_code\saved_models\bilstm\1_bilstm_100_python_70_labels1_epoch_333.my"
+    model = RecursiveBiLSTM(n_units=100,layers=1, n_label=70, dropout=0.2, feature_dict=AstNodes(),peephole=False)
+    serializers.load_npz(path, model)
+    print_model(model, depth=1, output=sys.stdout)
+    show_embeding(model, basefolder=os.path.join(basefolder, model_name + "_embed"))
+    # show_authors(model, basefolder=os.path.join(basefolder, model_name + "_authors"))
 
 
 

@@ -136,16 +136,16 @@ def main_experiment(ensembles):
     #     #     model.to_gpu()
     #     models.append(model)
 
-    model_files = [f for f in os.listdir(os.path.join(models_base_folder,"lstm2")) if f.endswith(".my")]
+    model_files = [f for f in os.listdir(os.path.join(models_base_folder,"bilstm")) if f.endswith(".my")]
     for model_saved_name in model_files:
     # load the model
-        if exper_name in model_saved_name:
-            output_file.write("load {0} ... \n".format(model_saved_name))
-            path = os.path.join(models_base_folder,"lstm2",model_saved_name)
-            serializers.load_npz(path, model)
-            # if gpu >= 0:
-            #     model.to_gpu()
-            models.append(model)
+    #     if exper_name in model_saved_name:
+        output_file.write("load {0} ... \n".format(model_saved_name))
+        path = os.path.join(models_base_folder,"bilstm",model_saved_name)
+        serializers.load_npz(path, model)
+        # if gpu >= 0:
+        #     model.to_gpu()
+        models.append(model)
 
 
 
@@ -156,8 +156,8 @@ def main_experiment(ensembles):
     # print('Train')
     # output_file.write("Test  labels :- (%s,%s%%): %s\n" % (len(test_lables), (len(test_lables) / len(tree_labels)) * 100, test_lables))
 
-    output_file.write("{0:<10}{1:<20}\n".format("Relax", "test_accuracy"))
-    print('Relax evaluation: ')
+    # output_file.write("{0:<10}{1:<20}\n".format("Relax", "test_accuracy"))
+    # print('Relax evaluation: ')
     # for i in [1, 5, 10, 15]:
     #     test_accuracy, test_loss = evaluate_relax(model, test_trees, test_lables, batch_size=batch_size, progbar=True, relax=i)
     #     # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
@@ -165,19 +165,19 @@ def main_experiment(ensembles):
     #     output_file.write("{0:<10}{1:<20.10f}\n".format(i,test_accuracy))
     #     output_file.flush()
 
-    print("One model:")
-    import numpy as np
-    classes_num = np.arange(len(classes))
-    test_accuracy, test_loss = evaluate(models[0], test_trees, test_lables,classes=classes_num, batch_size=batch_size)
-    # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
-    output_file.write("{0:<20.10f}\n".format(test_accuracy))
-    output_file.flush()
-
-    print("Ensmbel:")
-    # test_accuracy, test_loss = evaluate_ensemble(models, test_trees, test_lables, batch_size=batch_size)
+    # print("One model:")
+    # import numpy as np
+    # classes_num = np.arange(len(classes))
+    # test_accuracy, test_loss = evaluate(models[0], test_trees, test_lables,classes=classes_num, batch_size=batch_size)
     # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
     # output_file.write("{0:<20.10f}\n".format(test_accuracy))
     # output_file.flush()
+
+    print("Ensmbel:")
+    test_accuracy, test_loss = evaluate_ensemble(models, test_trees, test_lables, batch_size=batch_size)
+    # test_accuracy, test_loss = evaluate(model, test_trees, test_lables, batch_size=batch_size)
+    output_file.write("{0:<20.10f}\n".format(test_accuracy))
+    output_file.flush()
 
     output_file.close()
 if __name__ == "__main__":

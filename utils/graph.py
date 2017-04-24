@@ -87,17 +87,19 @@ def plot_acc_all(results, base_folder=None, names=None):
     linestyles = itertools.cycle(('-', '--', '-.', ':'))
     colors = itertools.cycle(('b', 'g', 'r', 'k', 'm'))
     # colors = itertools.cycle(('b', 'g', 'r', 'c', 'm', 'k'))
+    style = next(linestyles)
     for name in results:
         line_style = next(linestyles)
         # ax2.plot(results[name]["training accuracy"], train_color + line_style, label="%s (Train Accuracy)" % name)
-        ax2.plot(results[name]["test accuracy"], next(colors) + next(linestyles) + next(markers),
+        ax2.plot(results[name]["test accuracy"], next(colors) + style + next(markers),
                  label=name if names is None else names[name],
                  markevery=20)
     ax2.legend(loc='lower right')
     # ax2.set_title("Accuracy curves")
     ax2.set_ylabel("Accuracy")
     ax2.set_xlabel("Epochs")
-    ax2.set_ylim([0.0, 1.0])
+    ax2.set_ylim([0.6, 1.0])
+    ax2.set_xlim([0, 500])
     ax2.grid(True)
 
     if not base_folder:
@@ -115,16 +117,26 @@ def plot_acc_all_smooth(results, base_folder=None, names=None):
     linestyles = itertools.cycle(('-', '--', '-.', ':'))
     colors = itertools.cycle(('b', 'g', 'r', 'k', 'm'))
     # colors = itertools.cycle(('b', 'g', 'r', 'c', 'm', 'k'))
+    low = []
+    high = []
+    avg = []
+    style = next(linestyles)
     for name in results:
-        line_style = next(linestyles)
+        # line_style = next(linestyles)
         # ax2.plot(results[name]["training accuracy"], train_color + line_style, label="%s (Train Accuracy)" % name)
-        ax2.plot(upper_bound(results[name]["test accuracy"]), next(colors) + next(linestyles) + next(markers),
+        X = np.array([float(s) for s in upper_bound(results[name]["test accuracy"])])
+        color = next(colors)
+        marker = next(markers)
+        ax2.plot(X,
+                 color+style+marker,
                  label=name if names is None else names[name], markevery=20)
+        # ax2.fill_between(range(len(X)), X-0.02, X+0.02, alpha=.2, color=color)
     ax2.legend(loc='lower right')
     # ax2.set_title("Accuracy curves")
     ax2.set_ylabel("Accuracy")
     ax2.set_xlabel("Epochs")
-    ax2.set_ylim([0.0, 1.0])
+    ax2.set_ylim([0.6, 1.0])
+    ax2.set_xlim([0, 500])
     ax2.grid(True)
 
     if not base_folder:
@@ -216,7 +228,7 @@ def plot_each(results, base_folder=None):
 
 def upper_bound(X):
     if len(X) > 51:
-        X = savgol_filter(X, 11, 2) + 0.05
+        X = savgol_filter(X, 21, 2) + 0.02
         X[X > 1] = 1.0
     return X
 

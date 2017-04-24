@@ -11,6 +11,7 @@ from ast_tree.ASTVectorizater import TreeFeatures
 from ast_tree.traverse import children
 from memory_cell.clstm import ConditionalLSTM
 from memory_cell.treelstm import FastTreeLSTM
+from models.clstm_models import RecursiveLSTM, RecursiveBiLSTM
 
 
 class RecursiveBaseLSTM(chainer.Chain):
@@ -118,45 +119,45 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         self.reset_states()
         return h0
 
-class RecursiveBiLSTM(RecursiveLSTM):
-    def __init__(self, n_units, n_label, layers, dropout,feature_dict, cell, classes=None,residual = False):
-        super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, cell=cell, dropout=dropout,feature_dict=feature_dict,
-                                              classes=classes)
-        self.dropout = dropout
-        for i in range(1, layers + 1):
-            self.add_link("blstm" + str(i), self.base_lstm(n_units, n_units))
-            self.add_link("w_v" + str(i), L.Linear(2 * n_units, n_units))
+    class RecursiveBiLSTM(RecursiveLSTM):
+        def __init__(self, n_units, n_label, layers, dropout,feature_dict, cell, classes=None,residual = False):
+            super(RecursiveBiLSTM, self).__init__(n_units, n_label, layers=layers, cell=cell, dropout=dropout,feature_dict=feature_dict,
+                                                  classes=classes)
+            self.dropout = dropout
+            for i in range(1, layers + 1):
+                self.add_link("blstm" + str(i), self.base_lstm(n_units, n_units))
+                self.add_link("w_v" + str(i), L.Linear(2 * n_units, n_units))
 
-    def merge(self, x, children, train_mode):
-        seq = [x] + children
-        for idx in range(1, self.layers + 1):
-            # forward
-            fw_results = []
-            flstm = getattr(self, "lstm{0}".format(idx))
-            for child in seq:
-                fw_results.append(flstm(child))
-            # backword
-            bw_results = []
-            blstm = getattr(self, "blstm{0}".format(idx))
-            for child in reversed(seq):
-                bw_results.append(blstm(child))
+        def merge(self, x, children, train_mode):
+            seq = [x] + children
+            for idx in range(1, self.layers + 1):
+                # forward
+                fw_results = []
+                flstm = getattr(self, "lstm{0}".format(idx))
+                for child in seq:
+                    fw_results.append(flstm(child))
+                # backword
+                bw_results = []
+                blstm = getattr(self, "blstm{0}".format(idx))
+                for child in reversed(seq):
+                    bw_results.append(blstm(child))
 
-            w_v = getattr(self, "w_v{0}".format(idx))
-            if idx == self.layers:
-                fh0 = fw_results[-1]
-                bh0 = bw_results[-1]
-                h_v = w_v(F.dropout(F.concat((fh0, bh0), axis=1), ratio=self.dropout, train=train_mode))
-            else:
-                h_values = []
-                for fh, bh in zip(fw_results, bw_results):
-                    h_values.append(w_v(F.dropout(F.concat((fh, bh), axis=1), ratio=self.dropout, train=train_mode)))
-                seq = h_values
-        self.reset_states()
-        return h_v
+                w_v = getattr(self, "w_v{0}".format(idx))
+                if idx == self.layers:
+                    fh0 = fw_results[-1]
+                    bh0 = bw_results[-1]
+                    h_v = w_v(F.dropout(F.concat((fh0, bh0), axis=1), ratio=self.dropout, train=train_mode))
+                else:
+                    h_values = []
+                    for fh, bh in zip(fw_results, bw_results):
+                        h_values.append(w_v(F.dropout(F.concat((fh, bh), axis=1), ratio=self.dropout, train=train_mode)))
+                    seq = h_values
+            self.reset_states()
+            return h_v
 
-    def reset_states(self):
-        for i in range(1, self.layers + 1):
-            layer = getattr(self, "lstm" + str(i))
-            layer.reset_state()
-            layer = getattr(self, "blstm" + str(i))
-            layer.reset_state()
+        def reset_states(self):
+            for i in range(1, self.layers + 1):
+                layer = getattr(self, "lstm" + str(i))
+                layer.reset_state()
+                layer = getattr(self, "blstm" + str(i))
+                layer.reset_state()

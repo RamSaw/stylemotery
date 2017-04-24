@@ -15,6 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 # from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.pipeline import Pipeline
+from sklearn.svm import LinearSVC
 
 from ast_tree.tree_nodes import DotNodes
 from information_gain.InformationGain import TopRandomTreesEmbedding
@@ -63,6 +64,32 @@ def full_evaluation(rf, X, y, cv):
     print("KF Matthews: %0.2f (+/- %0.2f)" % (matthews.mean(), matthews.std() * 2))
     print("Confusion Matrix", cma)
 
+def main_eval(pipline,X,y,tags, cv=None,output=sys.stdout):
+    # basefolder = get_basefolder()
+    # X, y, tags = parse_src_files(basefolder)
+
+    # X,y,tags = split_trees2(X, y, tags)
+
+    print("\t\t%s unique problems, %s unique users : " % (len(set(tags)), len(set(y))))
+    print("\t\t%s all problems, %s all users : " % (len(tags), len(y)))
+    # ratio = [(i, Counter(y)[i] / float(len(y)) * 100.0) for i in Counter(y).most_common()]
+    # print("\t\t all users ratio ",ratio)
+
+    accuracy = []
+    for idx, (train, test) in enumerate(cv.split(X,y)):
+        pipline.fit(X[train], y[train])
+        y_predict = pipline.predict(X[test])
+        print("\t\t{0}/{1}".format(idx+1,cv.n_splits))
+
+        accuracy.append(accuracy_score(y[test], y_predict))
+        output.write("\t\t\taccuracy = %s \n" % (accuracy[-1]))
+        print("\t\t\taccuracy = %s " % (accuracy[-1]))
+        output.flush()
+        # for feature in np.nonzero(pipline.steps[-1][1].feature_importances_)[0]:
+        #     import_features[feature] += 1
+
+    output.write("\tAccuracy = %s \n" % (np.mean(accuracy)))
+    print("\tAccuracy = %s " % (np.mean(accuracy)))
 
 def exp_relax(pipline,X,y,tags, relax=[],cv=None,output=sys.stdout):
     # basefolder = get_basefolder()
@@ -220,8 +247,8 @@ def test_all():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--train', '-t', type=str, default="70_authors.labels1.txt", help='Experiment Training data info')
-    parser.add_argument('--name', '-n', type=str, default="random_forest_experiment_relax", help='Experiment name')
+    parser.add_argument('--train', '-t', type=str, default="25_authors.labels1.txt", help='Experiment Training data info')
+    parser.add_argument('--name', '-n', type=str, default="rf_experiment_relax", help='Experiment name')
     parser.add_argument('--dataset', '-d', type=str, default="python", help='Experiment dataset')
     parser.add_argument('--classes', '-c', type=int, default=-1, help='How many classes to include in this experiment')
     parser.add_argument('--folds', '-fo', type=int, default=5, help='Number of folds')
@@ -266,7 +293,8 @@ if __name__ == "__main__":
         ('astvector', ASTVectorizer(features, ngram=2, v_skip=0, normalize=True, idf=True, dtype=np.float32)),
         ('selection', TopRandomTreesEmbedding(k=1000, n_estimators=1500, max_depth=20)),
         # PredefinedFeatureSelection()),
-        ('randforest',RandomForestClassifier(n_estimators=1000, min_samples_split=2, max_features="auto", criterion="entropy"))])
+        # ('randforest',LinearSVC(penalty='l2', loss='squared_hinge', dual=True, tol=0.0001, C=1.0, multi_class='ovr'))])
+        ('randforest',RandomForestClassifier(n_estimators=500, min_samples_split=2, max_features="auto", criterion="entropy"))])
     # ('randforest', xgboost.XGBClassifier(learning_rate=0.1,max_depth= 10,subsample=1.0, min_child_weight = 5,colsample_bytree = 0.2 ))])
     # exp_relax(pipline,trees,tree_labels,lable_problems, relax=1,cv=cv)
 
@@ -303,7 +331,8 @@ if __name__ == "__main__":
     #main_gridsearch()
     #main_relax()
     output_file.flush()
-    exp_relax(pipline,trees_subset,tree_labels_subset,lable_problems,relax=list(range(1,20)),cv=cv,output=output_file)
+    # exp_relax(pipline,trees_subset,tree_labels_subset,lable_problems,relax=list(range(1,20)),cv=cv,output=output_file)
+    main_eval(pipline,trees_subset,tree_labels_subset,lable_problems,cv=cv,output=output_file)
     output_file.flush()
     print()
     output_file.close()

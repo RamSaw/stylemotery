@@ -28,6 +28,7 @@ def plot_results(base_folder,recursive=False,smooth=False):
     if smooth:
         plot_each_smooth(new_results, base_folder)
 
+
 def plot_acc_results(base_folder,recursive=False,smooth=False,names=None):
     results = {}
     for filename in os.listdir(base_folder):
@@ -108,7 +109,7 @@ def extract_training_data(base_folder,recursive=False):
 if __name__ == "__main__":
     names = OrderedDict({"1_bilstm_100_python_70_labels1": "BiLSTM (1-Layer, 100-Units)",
              "1_lstm_100_python_70_labels1": "LSTM (1-Layer, 100-Units)"})
-    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\classification\complex_architecture"
+    base_folder = R"C:\Users\bms\Files\current\research\stylemotry\stylometry papers\best results\RNN\classification\results"
     # plot_results(base_folder,recursive=True,smooth=True)
     plot_acc_results(base_folder,recursive=False,smooth=True,names=names)
-    plot_loss_results(base_folder,recursive=False,smooth=True,names=names)
+    #plot_loss_results(base_folder,recursive=False,smooth=True,names=names)

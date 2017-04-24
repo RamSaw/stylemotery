@@ -114,10 +114,8 @@ def evaluate(model, test_trees, test_labels,classes=None, batch_size=1):
     accuracy = accuracy_score(predict, test_labels)
     mean_loss = np.mean(total_loss)
     print("\tAccuracy: %0.2f " % (accuracy))
-    cnf_matrix = confusion_matrix(test_labels, predict)
-    plot_confusion_matrix(cnf_matrix, classes=classes, normalize=True,
-                          title='Normalized confusion matrix',
-                          local_path=R"../dataset/cm")
+    # cnf_matrix = confusion_matrix(test_labels, predict)
+    # plot_confusion_matrix(cnf_matrix, classes=classes, normalize=True,title='Normalized confusion matrix',local_path=R"../dataset/cm")
     # print("\tLoss: %0.2f " % mean_loss)
     return accuracy, mean_loss
 
@@ -140,15 +138,15 @@ def evaluate_ensemble(models, test_trees, test_labels, batch_size=1):
             w = m.label(root_vec)
             ensemble_loss += m.loss(w, test_labels[idx], train_mode=False)
             batch_loss += ensemble_loss
-            predictions.append(m.predict_proba(w))
-            # predictions.extend(m.predict(w, index=True))
-        predictions = np.sum(predictions,axis=0)/ len(ms)
-        indics_ = predictions.argmax()
-        predict.append(indics_)
+            # predictions.append(m.predict_proba(w))
+            predictions.extend(m.predict(w, index=True))
+        # predictions = np.sum(predictions,axis=0)/ len(ms)
+        # indics_ = predictions.argmax()
+        # predict.append(indics_)
         progbar.update(idx + 1, values=[("test loss", ensemble_loss.data/len(ms))])
-        # most_vote = Counter(predictions).most_common()[0][0]
-        # votes.append(Counter(predictions).most_common())
-        # predict.append(most_vote)
+        most_vote = Counter(predictions).most_common()[0][0]
+        votes.append(Counter(predictions).most_common())
+        predict.append(most_vote)
         # predict_proba.append(m.predict_proba(root_vec))
         if idx % batch_size == 0:
             total_loss.append(float(batch_loss.data) / batch_size / len(ms))

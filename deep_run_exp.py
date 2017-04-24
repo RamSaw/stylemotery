@@ -13,6 +13,7 @@ from chainer import serializers
 from ast_tree.tree_nodes import AstNodes
 from models.lstm_models import RecursiveLSTM, RecursiveBiLSTM
 from models.clstm_models import RecursiveDyanmicLSTM
+from models.mix_lstm_models import SeqRecursiveTreeLSTM
 from models.tree_models import RecursiveTreeLSTM
 from utils.exp_utlis import pick_subsets, split_trees,train,evaluate, read_train_config, trainBPTT
 from utils.dataset_utils import parse_src_files, print_model, unified_ast_trees, make_binary_tree, generate_trees
@@ -94,8 +95,8 @@ def main_experiment():
         if args.classes > -1:
             trees, tree_labels = pick_subsets(trees, tree_labels, labels=args.classes,seed=rand_seed,classes=None)
 
-    if model_name in ("treelstm","slstm"):
-        trees = make_binary_tree(unified_ast_trees(trees),layers)
+    # if model_name in ("treelstm","slstm"):
+    #     trees = make_binary_tree(unified_ast_trees(trees),layers)
 
     # trees, tree_labels, lable_problems = generate_trees(labels=2,children=5,examples_per_label=10)
     # tree_nodes = AstNodes()
@@ -123,6 +124,10 @@ def main_experiment():
         model = RecursiveBiLSTM(n_units, len(classes), layers=layers, dropout=dropout,feature_dict=tree_nodes, classes=classes,cell=cell,residual=residual)
     elif model_name == "treelstm":
         model = RecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
+    elif model_name == "seqtreelstm":
+        model = SeqRecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
+    elif model_name == "seqslstm":
+        model = SeqRecursiveTreeLSTM(n_children=layers, n_units=n_units,n_label=len(classes), dropout=dropout,feature_dict=tree_nodes, classes=classes)
     else:
         print("No model was found")
         return

@@ -5,8 +5,9 @@ import chainer
 import chainer.functions as F
 import chainer.links as L
 from chainer import cuda
-
+from memory_cell.mylstm import LSTM
 from ast_tree.traverse import children
+from memory_cell.weight_norm import convert_with_weight_normalization
 
 
 class RecursiveBaseLSTM(chainer.Chain):
@@ -24,7 +25,11 @@ class RecursiveBaseLSTM(chainer.Chain):
 
     def embed_vec(self, x, train_mode):
         word = self.xp.array([self.feature_dict.index(x)], self.xp.int32)
-        w = chainer.Variable(word, volatile=not train_mode)
+        if not train_mode:
+            with chainer.no_backprop_mode():
+                w = chainer.Variable(word)
+        else:
+            w = chainer.Variable(word)
         # return F.dropout(self.embed(w),ratio=self.dropout,train=train_mode)
         return self.embed(w)
 
@@ -74,7 +79,8 @@ class RecursiveBaseLSTM(chainer.Chain):
     def loss(self, x, y, train_mode):
         # w = self.label(x)
         label = self.xp.array([y], self.xp.int32)
-        t = chainer.Variable(label, volatile=not train_mode)
+        with chainer.using_config('train', train_mode):
+            t = chainer.Variable(label)
         return F.softmax_cross_entropy(x, t)
 
 
@@ -84,13 +90,13 @@ class RecursiveLSTM(RecursiveBaseLSTM):
                                             classes=classes)
         self.layers = layers
         if cell == "lstm":
-            self.base_lstm = L.LSTM
+            self.base_lstm = LSTM
         elif cell == "peephole":
             self.base_lstm = L.StatefulPeepholeLSTM
         elif cell == "clstm":
             self.base_lstm = ConditionalLSTM
         self.residual = residual
-        for i in range(1, layers + 1):
+        for i in range(1, layers + 1):#convert_with_weight_normalization(
             self.add_link("lstm" + str(i), self.base_lstm(n_units, n_units))
             # self.add_link("batch" + str(i), L.BatchNormalization(n_units))
 
@@ -100,7 +106,12 @@ class RecursiveLSTM(RecursiveBaseLSTM):
         for i in range(1, self.layers + 1):
             layers.append(getattr(self, "lstm" + str(i)))
         for idx, layer in enumerate(layers):
-            h = F.dropout(layer(h), ratio=self.dropout, train=train_mode)
+            with chainer.using_config('train', train_mode):
+                if not train_mode:
+                    with chainer.no_backprop_mode():
+                        h = F.dropout(layer(h), ratio=self.dropout)
+                else:
+                    h = F.dropout(layer(h), ratio=self.dropout)
         return h
 
     def reset_states(self):

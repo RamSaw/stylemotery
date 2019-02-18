@@ -71,7 +71,7 @@ def main_experiment():
 
     args = parser.parse_args()
 
-    n_epoch = 500
+    n_epoch = 10
     n_units = args.units
     batch_size = args.batchsize
     gpu = args.gpu
@@ -101,7 +101,7 @@ def main_experiment():
     # trees, tree_labels, lable_problems = generate_trees(labels=2,children=5,examples_per_label=10)
     # tree_nodes = AstNodes()
 
-    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=5,shuffle=True,seed=rand_seed,
+    train_trees, train_lables, test_trees, test_lables, classes, cv = split_trees(trees, tree_labels, n_folds=3,shuffle=True,seed=rand_seed,
                                                                                   iterations=args.iterations)
 
     output_file = open(os.path.join(output_folder, exper_name + "_results.txt"), mode="+w")
@@ -148,7 +148,9 @@ def main_experiment():
     optimizer.add_hook(chainer.optimizer.WeightDecay(0.001))
     optimizer.add_hook(chainer.optimizer.GradientClipping(5.0))
 
-    hooks = [(k, v.__dict__) for k, v in optimizer._hooks.items()]
+    # TODO: no _hooks attribute
+    hooks = [(k, v.__dict__) for k, v in optimizer._pre_update_hooks.items()]
+    hooks += [(k, v.__dict__) for k, v in optimizer._post_update_hooks.items()]
     output_file.write(" {0} \n".format(hooks))
 
     output_file.write("Evaluation\n")

@@ -6,7 +6,7 @@ from operator import itemgetter
 import os
 from random import Random
 import traceback
-from chainer.functions import Dropout
+from chainer.functions import dropout
 import itertools
 from matplotlib import gridspec
 import matplotlib.pyplot as plt

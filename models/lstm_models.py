@@ -156,7 +156,8 @@ class RecursiveBiLSTM(RecursiveLSTM):
             if idx == self.layers:
                 fh0 = fw_results[-1]
                 bh0 = bw_results[-1]
-                h_v = w_v(F.dropout(F.concat((fh0, bh0), axis=1), ratio=self.dropout, train=train_mode))
+                chainer.using_config("train", train_mode)
+                h_v = w_v(F.dropout(F.concat((fh0, bh0), axis=1), ratio=self.dropout)) #train=train_mode))
             else:
                 h_values = []
                 for fh, bh in zip(fw_results, bw_results):

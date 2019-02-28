@@ -48,7 +48,11 @@ def get_authors(n_authors, n_labels):
         return set(re.findall(r'\'(.*?)\'', classes))
 
 
-if __name__ == "__main__":
+def extract():
+    if not os.path.exists('./dataset/python'):
+        os.mkdir('./dataset/python')
+    if not os.path.exists('./dataset/python2'):
+        os.mkdir('./dataset/python2')
     programming_language = sys.argv[1]
     path_to_dataset_to_extract = sys.argv[2]
     authors_number = sys.argv[3]
@@ -58,3 +62,7 @@ if __name__ == "__main__":
     extract_specific_authors(path_to_dataset_to_extract, authors, problems_with_extension)
     if programming_language == 'python':
         migrate_to_python3()
+
+
+if __name__ == "__main__":
+    extract()
